@@ -30,10 +30,10 @@ public sealed class ConsciousnessComponentState : ComponentState
 }
 
 [ByRefEvent]
-public record struct ConsciousnessUpdatedEvent(bool IsConscious, FixedPoint2 ConsciousnessDelta);
+public record struct ConsciousnessUpdatedEvent(bool IsConscious);
 
 [Serializable, DataRecord]
-public record struct ConsciousnessModifier(FixedPoint2 Change, ConsciousnessModType Type = ConsciousnessModType.Generic);
+public record struct ConsciousnessModifier(FixedPoint2 Change, TimeSpan? Time, ConsciousnessModType Type = ConsciousnessModType.Generic);
 
 [Serializable, DataRecord]
-public record struct ConsciousnessMultiplier(FixedPoint2 Change, ConsciousnessModType Type = ConsciousnessModType.Generic);
+public record struct ConsciousnessMultiplier(FixedPoint2 Change, TimeSpan? Time, ConsciousnessModType Type = ConsciousnessModType.Generic);

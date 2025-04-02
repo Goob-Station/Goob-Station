@@ -29,6 +29,7 @@ public sealed partial class NerveSystemComponent : Component
     public FixedPoint2 PainCap = 200f;
 
     // Don't change, OR I will break your knees, filled up upon initialization.
+    [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<EntityUid, NerveComponent> Nerves = new();
 
     // Don't add manually!! Use built-in functions.
@@ -53,6 +54,8 @@ public sealed partial class NerveSystemComponent : Component
     [DataField("painShockStun")]
     public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(7f);
 
+    [DataField("organDamageStun", customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan OrganDamageStunTime = TimeSpan.FromSeconds(12f);
     public TimeSpan NextCritScream = TimeSpan.Zero;
 
     [DataField]

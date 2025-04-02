@@ -63,7 +63,9 @@ public sealed partial class PainSystem : EntitySystem
         using var query = EntityQueryEnumerator<NerveSystemComponent>();
         while (query.MoveNext(out var ent, out var nerveSystem))
         {
-            _painJobQueue.EnqueueJob(new PainTimerJob(this, (ent, nerveSystem), PainJobTime));
+            // Whoops, organ damage!
+            if (!TerminatingOrDeleted(ent))
+                _painJobQueue.EnqueueJob(new PainTimerJob(this, (ent, nerveSystem), PainJobTime));
         }
     }
 
@@ -101,25 +103,25 @@ public sealed partial class PainSystem : EntitySystem
 
     private void OnBodyPartAdded(EntityUid uid, NerveComponent nerve, ref BodyPartAddedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
+        Logger.Debug($"ONBODYPARTADDED 1/3: Adding nerve system nerves for {uid}, and body {args.Part.Comp.Body}");
         var bodyPart = Comp<BodyPartComponent>(uid);
         if (!bodyPart.Body.HasValue)
             return;
 
+        Logger.Debug($"ONBODYPARTADDED 2/3: Trying to get nerve system for {bodyPart.Body.Value}");
         if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var brainUid) || TerminatingOrDeleted(brainUid.Value))
+        {
+            Logger.Debug($"ONBODYPARTADDED 2/3: No nerve system found for {bodyPart.Body.Value}");
             return;
+        }
 
         TryRemovePainMultiplier(brainUid.Value, MetaData(args.Part.Owner).EntityPrototype!.ID + "Loss");
+        Logger.Debug($"ONBODYPARTADDED 3/3: Adding nerve system nerves for {brainUid.Value}, and part {args.Part.Owner}");
         UpdateNerveSystemNerves(brainUid.Value, bodyPart.Body.Value, Comp<NerveSystemComponent>(brainUid.Value));
     }
 
     private void OnBodyPartRemoved(EntityUid uid, NerveComponent nerve, ref BodyPartRemovedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var bodyPart = Comp<BodyPartComponent>(uid);
         if (!bodyPart.Body.HasValue)
             return;
@@ -127,7 +129,6 @@ public sealed partial class PainSystem : EntitySystem
         if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var brainUid) || TerminatingOrDeleted(brainUid.Value))
             return;
 
-        TryAddPainMultiplier(brainUid.Value, MetaData(args.Part.Owner).EntityPrototype!.ID + "Loss", 2);
         UpdateNerveSystemNerves(brainUid.Value, bodyPart.Body.Value, Comp<NerveSystemComponent>(brainUid.Value));
     }
 
@@ -142,6 +143,7 @@ public sealed partial class PainSystem : EntitySystem
 
                 CleanupSounds(nerveSys);
                 PlayPainSound(args.Target, nerveSys, nerveSys.CritWhimpers[sex], AudioParams.Default.WithVolume(-12f));
+                nerveSys.NextCritScream = _timing.CurTime + _random.Next(nerveSys.CritScreamsIntervalMin, nerveSys.CritScreamsIntervalMax);
                 break;
             case MobState.Dead:
                 CleanupSounds(nerveSys);
@@ -151,16 +153,21 @@ public sealed partial class PainSystem : EntitySystem
 
     private void UpdateNerveSystemNerves(EntityUid uid, EntityUid body, NerveSystemComponent component)
     {
+        Logger.Debug($"UPDATENERVESYSTEMNERVES 1/3: Updating nerve system nerves for {uid}, and body {body}");
         component.Nerves.Clear();
         foreach (var bodyPart in _body.GetBodyChildren(body))
         {
             if (!TryComp<NerveComponent>(bodyPart.Id, out var nerve))
+            {
+                Logger.Debug($"UPDATENERVESYSTEMNERVES 2/3: No nerve component found for {bodyPart.Id}");
                 continue;
+            }
 
             component.Nerves.Add(bodyPart.Id, nerve);
             Dirty(uid, component);
 
             nerve.ParentedNerveSystem = uid;
+            Logger.Debug($"UPDATENERVESYSTEMNERVES 3/3: Nerve component found & added for {bodyPart.Id}, and nerve system {uid}");
             Dirty(bodyPart.Id, nerve); // ヾ(≧▽≦*)o
         }
     }

@@ -8,6 +8,7 @@ namespace Content.Shared.Humanoid
         {
             return layer switch
             {
+                HumanoidVisualLayers.Groin => true,
                 HumanoidVisualLayers.Chest => true,
                 HumanoidVisualLayers.Head => true,
                 _ => false

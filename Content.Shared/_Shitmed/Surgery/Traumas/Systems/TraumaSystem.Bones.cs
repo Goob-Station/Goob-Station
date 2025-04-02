@@ -6,53 +6,69 @@ using Content.Shared.Body.Part;
 using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Audio;
-using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitmed.Surgery.Traumas.Systems;
 
 public partial class TraumaSystem
 {
-    private const float BoneDamageSeverityThreshold = 9f;
-
     private void InitBones()
     {
         SubscribeLocalEvent<BoneComponent, BoneSeverityChangedEvent>(OnBoneSeverityChanged);
-        SubscribeLocalEvent<BoneComponent, BoneSeverityPointChangedEvent>(OnBoneSeverityPointChanged);
+        SubscribeLocalEvent<BoneComponent, BoneIntegrityChangedEvent>(OnBoneIntegrityChanged);
     }
 
-    #region Event handling
+    #region Event Handling
 
-    private void OnBoneSeverityChanged(EntityUid uid, BoneComponent component, BoneSeverityChangedEvent args)
+    private void OnBoneSeverityChanged(Entity<BoneComponent> bone, ref BoneSeverityChangedEvent args)
     {
-        ApplyBoneDamageEffects(component);
-
-        if (!TryComp<BodyPartComponent>(component.BoneWoundable, out var bodyPart)
-            || bodyPart.Body == null || !TryComp<BodyComponent>(bodyPart.Body, out var body))
+        if (bone.Comp.BoneWoundable == null)
             return;
 
-        ProcessLegsState(bodyPart.Body.Value, body);
-    }
+        var bodyComp = Comp<BodyPartComponent>(bone.Comp.BoneWoundable.Value);
 
-    private void OnBoneSeverityPointChanged(EntityUid uid, BoneComponent component, BoneSeverityPointChangedEvent args)
-    {
-        if (!TryComp<BodyPartComponent>(component.BoneWoundable, out var bodyPart) || bodyPart.Body == null)
+        if (!bodyComp.Body.HasValue)
             return;
 
-        if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var nerveSys))
-            return;
-
-        if (component.BoneWoundable == null)
-            return;
-
-        if (!_pain.TryChangePainModifier(nerveSys.Value,
-                component.BoneWoundable.Value,
-                "BoneDamage",
-                args.SeverityDelta * _bonePainModifiers[component.BoneSeverity]))
+        switch (args.NewSeverity)
         {
-            _pain.TryAddPainModifier(nerveSys.Value,
-                component.BoneWoundable.Value,
-                "BoneDamage",
-                args.SeverityDelta * _bonePainModifiers[component.BoneSeverity]);
+            case BoneSeverity.Normal:
+                if (bodyComp.PartType == BodyPartType.Hand)
+                {
+                    _virtual.DeleteInHandsMatching(bodyComp.Body.Value, bone);
+                }
+
+                break;
+
+            case BoneSeverity.Damaged:
+                _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(-8f));
+                break;
+
+            case BoneSeverity.Broken:
+                if (bodyComp.PartType == BodyPartType.Hand)
+                {
+                    _virtual.TrySpawnVirtualItemInHand(bone, bodyComp.Body.Value);
+                }
+                break;
+        }
+    }
+
+    private void OnBoneIntegrityChanged(Entity<BoneComponent> bone, ref BoneIntegrityChangedEvent args)
+    {
+        if (bone.Comp.BoneWoundable == null)
+            return;
+
+        var bodyComp = Comp<BodyPartComponent>(bone.Comp.BoneWoundable.Value);
+        if (!bodyComp.Body.HasValue)
+            return;
+
+        switch (bodyComp.PartType)
+        {
+            case BodyPartType.Leg:
+            case BodyPartType.Foot:
+                ProcessLegsState(bodyComp.Body.Value);
+
+                break;
         }
     }
 
@@ -70,43 +86,49 @@ public partial class TraumaSystem
         if (boneComp.BoneIntegrity == newIntegrity)
             return false;
 
+        var ev = new BoneIntegrityChangedEvent((bone, boneComp), boneComp.BoneIntegrity, newIntegrity);
+        RaiseLocalEvent(bone, ref ev);
+
         boneComp.BoneIntegrity = newIntegrity;
         CheckBoneSeverity(bone, boneComp);
-
-        var ev = new BoneSeverityPointChangedEvent(bone, boneComp, boneComp.BoneIntegrity, severity);
-        RaiseLocalEvent(bone, ref ev, true);
 
         Dirty(bone, boneComp);
         return true;
     }
 
-    public bool RandomBoneTraumaChance(WoundableComponent woundableComp, EntityUid woundInflicter, FixedPoint2 severity)
+    public bool ApplyBoneTrauma(
+        EntityUid boneEnt,
+        Entity<WoundableComponent> woundable,
+        Entity<TraumaInflicterComponent> inflicter,
+        FixedPoint2 inflicterSeverity,
+        BoneComponent? boneComp = null)
     {
-        var wound = Comp<WoundComponent>(woundInflicter);
-        var bone = Comp<BoneComponent>(woundableComp.Bone!.ContainedEntities[0]);
-        if (woundableComp.WoundableIntegrity <= 0 || bone.BoneIntegrity <= 0)
-            return true;
-
-        if (severity < BoneDamageSeverityThreshold)
+        if (!Resolve(boneEnt, ref boneComp))
             return false;
 
-        // We do complete random to get the chance for trauma to happen,
-        // We combine multiple parameters and do some math, to get the chance.
-        // Even if we get 0.1 damage there's still a chance for injury to be applied, but with the extremely low chance.
-        // The more damage, the bigger is the chance.
-        var chance = FixedPoint2.Clamp(
-            (woundableComp.WoundableIntegrity / (woundableComp.WoundableIntegrity + bone.BoneIntegrity)
-            * _boneTraumaChanceMultipliers[woundableComp.WoundableSeverity]) + wound.TraumasChances[TraumaType.BoneDamage],
-            0,
-            1);
+        AddTrauma(boneEnt, woundable, inflicter, TraumaType.BoneDamage, inflicterSeverity);
+        ApplyDamageToBone(boneEnt, inflicterSeverity, boneComp);
 
-        // Some examples of how this works:
-        // 81 / (81 + 20) * 0.1 (Moderate) = 0.08. Or 8%:
-        // 57 / (57 + 12) * 0.5 (Severe) = 0.41~. Or 41%;
-        // 57 / (57 + 0) * 0.5 (Severe) = 0.5. Or 50%;
-        // Yeah lol having your bone already messed up makes the chance of it damaging again higher
+        return true;
+    }
 
-        return _random.Prob((float) chance);
+    public bool SetBoneIntegrity(EntityUid bone, FixedPoint2 integrity, BoneComponent? boneComp = null)
+    {
+        if (!Resolve(bone, ref boneComp))
+            return false;
+
+        var newIntegrity = FixedPoint2.Clamp(integrity, 0, boneComp.IntegrityCap);
+        if (boneComp.BoneIntegrity == newIntegrity)
+            return false;
+
+        var ev = new BoneIntegrityChangedEvent((bone, boneComp), boneComp.BoneIntegrity, newIntegrity);
+        RaiseLocalEvent(bone, ref ev);
+
+        boneComp.BoneIntegrity = newIntegrity;
+        CheckBoneSeverity(bone, boneComp);
+
+        Dirty(bone, boneComp);
+        return true;
     }
 
     #endregion
@@ -128,84 +150,102 @@ public partial class TraumaSystem
 
         if (nearestSeverity != boneComp.BoneSeverity)
         {
-            var ev = new BoneSeverityChangedEvent(bone, nearestSeverity);
+            var ev = new BoneSeverityChangedEvent((bone, boneComp), boneComp.BoneSeverity, nearestSeverity);
             RaiseLocalEvent(bone, ref ev, true);
-
-            if (boneComp.BoneWoundable != null)
-            {
-                var bodyComp = Comp<BodyPartComponent>(boneComp.BoneWoundable.Value);
-                if (bodyComp.Body.HasValue)
-                {
-                    if (boneComp.IntegrityCap / 1.6 > boneComp.BoneIntegrity &&
-                        nearestSeverity == BoneSeverity.Damaged)
-                    {
-                        _audio.PlayPvs(boneComp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(-8f));
-                    }
-                }
-            }
         }
         boneComp.BoneSeverity = nearestSeverity;
 
         Dirty(bone, boneComp);
     }
 
-    private void ApplyBoneDamageEffects(BoneComponent boneComp)
+
+
+    private void ProcessLegsState(EntityUid body, BodyComponent? bodyComp = null)
     {
-        if (boneComp.BoneWoundable == null)
+        if (!Resolve(body, ref bodyComp))
             return;
 
-        var bodyPart = Comp<BodyPartComponent>(boneComp.BoneWoundable.Value);
+        var rawWalkSpeed = 0f; // just used to compare to actual speed values
+        var walkSpeed = 0f;
+        var sprintSpeed = 0f;
+        var acceleration = 0f;
 
-        if (bodyPart.Body == null || !TryComp<BodyComponent>(bodyPart.Body, out var body))
-            return;
-
-        if (bodyPart.PartType != BodyPartType.Leg || body.RequiredLegs <= 0)
-            return;
-
-        if (!TryComp<MovementBodyPartComponent>(boneComp.BoneWoundable, out var movementPart))
-            return;
-
-        var modifier = boneComp.BoneSeverity switch
-        {
-            BoneSeverity.Normal => 1f,
-            BoneSeverity.Damaged => 0.6f,
-            BoneSeverity.Broken => 0f,
-            _ => 1f,
-        };
-
-        movementPart.WalkSpeed *= modifier;
-        movementPart.SprintSpeed *= modifier;
-        movementPart.Acceleration *= modifier;
-
-        UpdateLegsMovementSpeed(bodyPart.Body.Value, body);
-    }
-
-    private void ProcessLegsState(EntityUid body, BodyComponent bodyComp)
-    {
-        var brokenLegs = 0;
         foreach (var legEntity in bodyComp.LegEntities)
         {
+             if (!TryComp<MovementBodyPartComponent>(legEntity, out var movement))
+                continue;
+
+            var partWalkSpeed = movement.WalkSpeed;
+            var partSprintSpeed = movement.SprintSpeed;
+            var partAcceleration = movement.Acceleration;
+
             if (!TryComp<WoundableComponent>(legEntity, out var legWoundable))
                 continue;
 
-            if (Comp<BoneComponent>(legWoundable.Bone!.ContainedEntities[0]).BoneSeverity == BoneSeverity.Broken)
+            if (!TryComp<BoneComponent>(legWoundable.Bone!.ContainedEntities[0], out var boneComp))
+                continue;
+
+            // Get the foot penalty
+            var penalty = 1f;
+            var footEnt =
+                _body.GetBodyChildrenOfType(body,
+                        BodyPartType.Foot,
+                        symmetry: Comp<BodyPartComponent>(legEntity).Symmetry)
+                    .FirstOrNull();
+
+            if (footEnt != null)
             {
-                brokenLegs++;
+                if (TryComp<BoneComponent>(legWoundable.Bone!.ContainedEntities[0], out var footBone))
+                {
+                    penalty = footBone.BoneSeverity switch
+                    {
+                        BoneSeverity.Damaged => 0.77f,
+                        BoneSeverity.Broken => 0.55f,
+                        _ => penalty,
+                    };
+                }
+            }
+            else
+            {
+                // You are supposed to have one
+                penalty = 0.44f;
+            }
+
+            rawWalkSpeed += partWalkSpeed;
+            partWalkSpeed *= penalty;
+            partSprintSpeed *= penalty;
+            partAcceleration *= penalty;
+
+            switch (boneComp.BoneSeverity)
+            {
+                case BoneSeverity.Damaged:
+                    walkSpeed += partWalkSpeed / 1.6f;
+                    sprintSpeed += partSprintSpeed / 1.6f;
+                    acceleration += partAcceleration / 1.6f;
+
+                    break;
+                case BoneSeverity.Normal:
+                    walkSpeed += partWalkSpeed;
+                    sprintSpeed += partSprintSpeed;
+                    acceleration += partAcceleration;
+
+                    break;
             }
         }
 
-        if (brokenLegs >= bodyComp.LegEntities.Count / 2 && brokenLegs < bodyComp.LegEntities.Count)
-        {
-            _movementSpeed.ChangeBaseSpeed(body, 2.5f * 0.4f, 4.5f * 0.4f, 20f * 0.4f);
-        }
-        else if (brokenLegs == bodyComp.LegEntities.Count)
+        rawWalkSpeed /= bodyComp.RequiredLegs;
+        walkSpeed /= bodyComp.RequiredLegs;
+        sprintSpeed /= bodyComp.RequiredLegs;
+        acceleration /= bodyComp.RequiredLegs;
+
+        _movementSpeed.ChangeBaseSpeed(body, walkSpeed, sprintSpeed, acceleration);
+        if (walkSpeed < rawWalkSpeed / 3.4)
         {
             _standing.Down(body);
         }
         else
         {
             _standing.Stand(body);
-            _movementSpeed.ChangeBaseSpeed(body, 2.5f, 4.5f, 20f);
         }
     }
 

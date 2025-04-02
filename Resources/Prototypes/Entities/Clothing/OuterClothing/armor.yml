@@ -17,7 +17,12 @@
     coverage:
     - Chest
     - Groin
-    dismembermentChanceDeduction: 0.2
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.65
@@ -67,7 +72,12 @@
     - Hand
     - Leg
     - Foot
-    dismembermentChanceDeduction: 0.4
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.4
@@ -97,7 +107,12 @@
     - Chest
     - Groin
     - Tail
-    dismembermentChanceDeduction: 0.07
+    traumaDeductions:
+      Dismemberment: 0.07
+      OrganDamage: 0.07
+      BoneDamage: 0.07
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -159,7 +174,12 @@
     - Leg
     - Foot
     - Tail
-    dismembermentChanceDeduction: 0.4
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.35
@@ -241,7 +261,12 @@
     - Leg
     - Foot
     - Tail
-    dismembermentChanceDeduction: 0.332
+    traumaDeductions:
+      Dismemberment: 0.33
+      OrganDamage: 0.33
+      BoneDamage: 0.33
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -272,7 +297,12 @@
     - Leg
     - Foot
     - Tail
-    dismembermentChanceDeduction: 1
+    traumaDeductions: # prevents traumas at all (kinda)
+      Dismemberment: 1
+      OrganDamage: 1
+      BoneDamage: 1
+      VeinsDamage: 1
+      NerveDamage: 1
     modifiers:
       coefficients:
         Blunt: 0.2
@@ -370,7 +400,12 @@
     - Chest
     - Groin
     - Tail
-    dismembermentChanceDeduction: 0.2
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -421,7 +456,12 @@
     - Foot
     - Tail
     - Other
-    dismembermentChanceDeduction: 0.4
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
@@ -462,7 +502,12 @@
     - Foot
     - Tail
     - Other
-    dismembermentChanceDeduction: -1 #:trolley:
+    traumaDeductions:
+      Dismemberment: -1
+      OrganDamage: -1
+      BoneDamage: 1 # this is bones dude
+      VeinsDamage: -1
+      NerveDamage: -1
     modifiers:
       coefficients:
         Blunt: 0.6
@@ -503,7 +548,12 @@
     - Foot
     - Tail
     - Other
-    dismembermentChanceDeduction: 0.27
+    traumaDeductions:
+      Dismemberment: 0.27
+      OrganDamage: 0.27
+      BoneDamage: 0.27
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5

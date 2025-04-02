@@ -2,83 +2,83 @@
 - type: soundCollection
   id: PainRattles
   files:
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainRattles1.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainRattles2.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainRattles3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainRattles1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainRattles2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainRattles3.ogg
 
 # Pain screams (male)
 - type: soundCollection
   id: PainScreamsShortMale
   files:
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MalePainShort1.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MalePainShort2.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MalePainShort3.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MalePainShort4.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MalePainShort5.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MalePainShort6.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MalePainShort7.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort2.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort3.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort4.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort5.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort6.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MalePainShort7.ogg
 
 - type: soundCollection
   id: AgonyScreamsMale
   files:
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MaleAgony1.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MaleAgony2.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/MaleAgony3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MaleAgony1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MaleAgony2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/MaleAgony3.ogg
 
 - type: soundCollection
   id: PainShockScreamsMale
   files:
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainShockMale1.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainShockMale2.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainShockMale3.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainShockMale4.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale2.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale3.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockMale4.ogg
 
 - type: soundCollection
   id: CritWhimpersMale
   files:
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAliveMale1.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAliveMale2.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAliveMale3.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAliveMale4.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale2.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale3.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveMale4.ogg
 
 - type: soundCollection
   id: PainShockWhimpersMale
   files:
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAlivePainedMale1.ogg
-    - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAlivePainedMale2.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAlivePainedMale1.ogg
+    - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAlivePainedMale2.ogg
 
 # Pain screams (female)
 - type: soundCollection
   id: PainScreamsShortFemale
   files:
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemalePainShort1.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemalePainShort2.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemalePainShort3.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemalePainShort4.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemalePainShort5.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort4.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemalePainShort5.ogg
 
 - type: soundCollection
   id: AgonyScreamsFemale
   files:
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemaleAgony1.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemaleAgony2.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/FemaleAgony3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemaleAgony1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemaleAgony2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/FemaleAgony3.ogg
 
 - type: soundCollection
   id: PainShockScreamsFemale
   files:
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainShockFemale1.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainShockFemale2.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/PainShockFemale3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockFemale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/PainShockFemale3.ogg
 
 - type: soundCollection
   id: CritWhimpersFemale
   files:
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAliveFemale1.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAliveFemale2.ogg
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAliveFemale3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveFemale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAliveFemale3.ogg
 
 - type: soundCollection
   id: PainShockWhimpersFemale
   files:
-  - /Audio/_Shitmed/ReBELL/Voice/BrutalDeathRattles/StillAlivePainedFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAlivePainedFemale1.ogg

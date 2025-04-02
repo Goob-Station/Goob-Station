@@ -9,7 +9,12 @@
   - type: Armor #Values seem to let the user survive one extra hit if attacked consistently.
     coverage:
     - Head
-    dismembermentChanceDeduction: 0.2 # gives you an ability to not get your fucking head chopped off by a random sabre hit
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.8
@@ -327,13 +332,17 @@
   - type: Armor #admeme item so it should be fine being overpowered while helmets are still intentionally kneecapped.
     coverage:
     - Head
-    dismembermentChanceDeduction: 0.4
+    traumaDeductions:
+      Dismemberment: 0.4
+      OrganDamage: 0.4
+      BoneDamage: 0.4
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.5
-        ArmorPiercing: 0.8
         Heat: 0.9
 
 #ERT HELMETS
@@ -410,7 +419,12 @@
   - type: Armor
     coverage:
     - Head
-    dismembermentChanceDeduction: 0.2
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.6

@@ -210,8 +210,8 @@ namespace Content.Shared.Damage
             bool heavyAttack = false)
         {
             // Shitmed Change Start
-            if (damage.Empty)
-                return damage;
+            /*if (damage.Empty)
+                return damage;*/
 
             if (!uid.HasValue)
                 return null;
@@ -538,7 +538,8 @@ namespace Content.Shared.Damage
             foreach (var (type, severity) in damageSpecifier.DamageDict)
             {
                 if (!_prototypeManager.TryIndex<EntityPrototype>(type, out var woundPrototype)
-                    || !woundPrototype.TryGetComponent<WoundComponent>(out _, _factory))
+                    || !woundPrototype.TryGetComponent<WoundComponent>(out _, _factory)
+                    || severity <= 0)
                     continue;
 
                 damageDict.Add(type, severity * partMultiplier);
@@ -590,7 +591,7 @@ namespace Content.Shared.Damage
         {
             if (HasComp<BodyComponent>(uid))
                 return;
-            
+
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
             _mobThreshold.SetAllowRevives(uid, true, thresholds); // do this so that the state changes when we set the damage
             SetAllDamage(uid, component, 0);

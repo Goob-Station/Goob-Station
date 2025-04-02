@@ -16,11 +16,15 @@ using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Surgery.Traumas.Systems;
+using Content.Shared._Shitmed.Surgery.Traumas.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
@@ -30,9 +34,6 @@ using Content.Shared.Standing;
 using Robust.Shared.Network;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Popups;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Body.Systems;
@@ -650,6 +651,12 @@ public partial class SharedBodySystem
         {
             if (!TryComp<WoundableComponent>(bodyPart.Id, out var woundable))
                 continue;
+
+            var bone = woundable.Bone!.ContainedEntities.FirstOrNull();
+            if (TryComp<BoneComponent>(bone, out var boneComp))
+            {
+                _trauma.SetBoneIntegrity(bone.Value, boneComp.IntegrityCap, boneComp);
+            }
 
             _woundSystem.TryHaltAllBleeding(bodyPart.Id, woundable);
             _woundSystem.ForceHealWoundsOnWoundable(bodyPart.Id, out _);

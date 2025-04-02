@@ -15,6 +15,9 @@ public sealed partial class BleedInflicterComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public FixedPoint2 BleedingAmountRaw = 0;
 
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public Dictionary<string, (int Priority, bool CanBleed)> BleedingModifiers = new();
+    
     [DataField("canGrow"), ViewVariables(VVAccess.ReadOnly)]
     public bool BleedingScales = true;
 

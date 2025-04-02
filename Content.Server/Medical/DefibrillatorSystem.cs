@@ -19,7 +19,11 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Content.Shared.Timing;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
+
+// Shitmed Change
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared._Shitmed.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
 
 namespace Content.Server.Medical;
 
@@ -42,6 +46,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -198,9 +203,23 @@ public sealed class DefibrillatorSystem : EntitySystem
         }
         else
         {
+            // Shitmed Change Start
             if (_mobState.IsDead(target, mob))
-                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid, targetPart: TargetBodyPart.Chest); // Shitmed Change
-
+            {
+                if (HasComp<ConsciousnessComponent>(target) && _consciousness.TryGetNerveSystem(target, out var nerveSys))
+                {
+                    _consciousness.EditConsciousnessModifier(
+                        target,
+                        nerveSys.Value,
+                        component.ZapHeal.GetTotal(),
+                        "Suffocation");
+                }
+                else
+                {
+                    _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid, targetPart: TargetBodyPart.Chest);
+                }
+            }
+            // Shitmed Change End
             if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
                 TryComp<DamageableComponent>(target, out var damageableComponent) &&
                 damageableComponent.TotalDamage < threshold)

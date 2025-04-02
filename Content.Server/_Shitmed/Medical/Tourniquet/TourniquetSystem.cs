@@ -1,7 +1,7 @@
 using System.Linq;
+using Content.Server.Body.Systems;
 using Content.Shared._Shitmed.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Surgery.Pain.Systems;
-using Content.Shared._Shitmed.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
@@ -32,6 +32,7 @@ public sealed class TourniquetSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     private const string TourniquetContainerId = "Tourniquet";
 
@@ -147,13 +148,13 @@ public sealed class TourniquetSystem : EntitySystem
 
         var targetPart = _body.GetBodyChildrenOfType(ent, partType, symmetry: symmetry).FirstOrDefault();
 
-        _wound.TryHaltAllBleeding(targetPart.Id);
         _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", targetPart.Id, -10f);
+        _bloodstream.TryAddBleedModifier(targetPart.Id, "TourniquetPresent", 100, false, true);
 
         foreach (var woundable in _wound.GetAllWoundableChildren(targetPart.Id))
         {
-            _wound.TryHaltAllBleeding(woundable.Item1);
             _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", targetPart.Id, -10f);
+            _bloodstream.TryAddBleedModifier(woundable, "TourniquetPresent", 100, false, true, woundable);
         }
 
         tourniquet.BodyPartTorniqueted = targetPart.Id;
@@ -162,7 +163,7 @@ public sealed class TourniquetSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnTourniquetTakenOff(EntityUid ent, BodyComponent comp, RemoveTourniquetDoAfterEvent args)
+    private void OnTourniquetTakenOff(Entity<BodyComponent> ent, ref RemoveTourniquetDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled)
             return;
@@ -173,25 +174,14 @@ public sealed class TourniquetSystem : EntitySystem
         if (!_container.TryGetContainer(ent, TourniquetContainerId, out var container))
             return;
 
-        foreach (var wound in _wound.GetAllWounds(tourniquet.BodyPartTorniqueted!.Value))
-        {
-            wound.Item2.CanBleed = true;
-            wound.Item2.CanBeHealed = false;
-
-            if (!TryComp<BleedInflicterComponent>(wound.Item1, out var bleeds))
-                continue;
-
-            bleeds.IsBleeding = true;
-            bleeds.BleedingScales = true;
-
-            bleeds.ScalingLimit += 1;
-            // Punishing players for not healing people properly and using a tourniquet.
-        }
-
+        var tourniquetedBodyPart = tourniquet.BodyPartTorniqueted!.Value;
         _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", tourniquet.BodyPartTorniqueted!.Value);
+        _bloodstream.TryRemoveBleedModifier(tourniquetedBodyPart, "TourniquetPresent", true);
+
         foreach (var woundable in _wound.GetAllWoundableChildren(tourniquet.BodyPartTorniqueted!.Value))
         {
-            _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", woundable.Item1);
+            _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", woundable);
+            _bloodstream.TryRemoveBleedModifier(woundable, "TourniquetPresent", true, woundable);
         }
 
         _container.Remove(args.Used.Value, container);

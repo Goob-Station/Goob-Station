@@ -85,7 +85,7 @@
       Loss: 0
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.Chest"
+    occupiedLayer: Chest
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -139,7 +139,7 @@
       Loss: 0
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.Chest"
+    occupiedLayer: Groin
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -148,7 +148,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
     bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
   - type: ConsciousnessRequired
-    identifier: "chest"
+    identifier: "groin"
     causesDeath: true
   - type: ContainerContainer
     containers:
@@ -190,7 +190,7 @@
       Loss: 0
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.Head"
+    occupiedLayer: Head
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -224,7 +224,7 @@
         type: Hand
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.LArm"
+    occupiedLayer: LArm
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -252,7 +252,7 @@
         type: Hand
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.RArm"
+    occupiedLayer: RArm
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -276,14 +276,14 @@
     toolName: "a left hand" # Shitmed Change
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.LHand"
+    occupiedLayer: LHand
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+    bleedingOverlay: null
   - type: Woundable
     integrity: 50
     integrityCap: 50
@@ -318,14 +318,14 @@
       Loss: 0
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.RHand"
+    occupiedLayer: RHand
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+    bleedingOverlay: null
 
 - type: entity
   abstract: true
@@ -347,7 +347,7 @@
   - type: MovementBodyPart
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.LLeg"
+    occupiedLayer: LLeg
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -376,7 +376,7 @@
   - type: MovementBodyPart
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.RLeg"
+    occupiedLayer: RLeg
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -400,14 +400,14 @@
     toolName: "a left foot" # Shitmed Change
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.LFoot"
+    occupiedLayer: LFoot
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+    bleedingOverlay: null
   - type: Woundable
     integrity: 50
     integrityCap: 50
@@ -433,14 +433,14 @@
     toolName: "a right foot" # Shitmed Change
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.RFoot"
+    occupiedLayer: RFoot
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#FF0000"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+    bleedingOverlay: null
   - type: Woundable
     integrity: 50
     integrityCap: 50

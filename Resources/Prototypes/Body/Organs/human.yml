@@ -11,7 +11,7 @@
     integrityThresholds:
       Normal: 15
       Damaged: 6
-      Destroyed: 0  
+      Destroyed: 0
   - type: Food
   - type: Extractable
     grindableSolutionName: organ
@@ -104,6 +104,9 @@
   - type: Item
     size: Small
     heldPrefix: brain
+  - type: NerveSystem
+  - type: ConsciousnessRequired
+    identifier: "nerveSystem"
 
 - type: entity
   id: OrganHumanEyes
@@ -117,7 +120,7 @@
     integrityThresholds:
       Normal: 12
       Damaged: 4
-      Destroyed: 0  
+      Destroyed: 0
     slotId: eyes # Shitmed Change
   - type: Eyes # Shitmed Change
   - type: Sprite
@@ -198,7 +201,7 @@
     integrityThresholds:
       Normal: 17
       Damaged: 9
-      Destroyed: 0  
+      Destroyed: 0
     slotId: lungs # Shitmed Change
   - type: Sprite
     layers:
@@ -249,7 +252,7 @@
     integrityThresholds:
       Normal: 17
       Damaged: 9
-      Destroyed: 0  
+      Destroyed: 0
     slotId: heart # Shitmed Change
   - type: Sprite
     state: heart-on
@@ -284,7 +287,7 @@
     integrityThresholds:
       Normal: 44
       Damaged: 17
-      Destroyed: 0  
+      Destroyed: 0
     slotId: stomach # Shitmed Change
   - type: Sprite
     state: stomach
@@ -339,7 +342,7 @@
     integrityThresholds:
       Normal: 21
       Damaged: 12
-      Destroyed: 0  
+      Destroyed: 0
     slotId: liver # Shitmed Change
   - type: Sprite
     state: liver
@@ -379,7 +382,7 @@
     integrityThresholds:
       Normal: 21
       Damaged: 12
-      Destroyed: 0  
+      Destroyed: 0
     slotId: kidneys
   - type: Sprite
     layers:

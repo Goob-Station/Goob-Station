@@ -323,7 +323,6 @@ public sealed class MobThresholdSystem : EntitySystem
 
         if (damageable != null)
             CheckThresholds(target, mobState, threshold, damageable);
-        RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
 
         if (_net.IsServer)
             RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
@@ -412,14 +411,14 @@ public sealed class MobThresholdSystem : EntitySystem
                     break;
 
                 case { RootContainer.ContainedEntity: not null }:
-                {
-                    foreach (var (_, wound) in _wound.GetAllWounds(body.RootContainer.ContainedEntity.Value))
                     {
-                        totalDamage += wound.WoundSeverityPoint;
-                    }
+                        foreach (var (_, wound) in _wound.GetAllWounds(body.RootContainer.ContainedEntity.Value))
+                        {
+                            totalDamage += wound.WoundSeverityPoint;
+                        }
 
-                    break;
-                }
+                        break;
+                    }
             }
             // Shitmed Change End
             var severity = _alerts.GetMinSeverity(currentAlert);
@@ -456,6 +455,7 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         if (!TryComp<MobStateComponent>(target, out var mobState))
             return;
+
         CheckThresholds(target, mobState, thresholds, args.Damageable, args.Origin);
 
         if (_net.IsServer)

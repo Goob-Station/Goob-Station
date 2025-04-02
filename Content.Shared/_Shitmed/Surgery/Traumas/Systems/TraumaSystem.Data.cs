@@ -23,7 +23,7 @@ public partial class TraumaSystem
 
     private readonly Dictionary<WoundableSeverity, FixedPoint2> _boneTraumaChanceMultipliers = new()
     {
-        { WoundableSeverity.Healthy, 0.01 },
+        { WoundableSeverity.Healthy, 0 },
         { WoundableSeverity.Minor, 0.1 },
         { WoundableSeverity.Moderate, 0.3 },
         { WoundableSeverity.Severe, 0.5 },
@@ -33,7 +33,7 @@ public partial class TraumaSystem
 
     private readonly Dictionary<WoundableSeverity, FixedPoint2> _boneDamageMultipliers = new()
     {
-        { WoundableSeverity.Healthy, 0.01 },
+        { WoundableSeverity.Healthy, 0 },
         { WoundableSeverity.Minor, 0.4 },
         { WoundableSeverity.Moderate, 0.6 },
         { WoundableSeverity.Severe, 0.9 },

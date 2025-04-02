@@ -74,10 +74,13 @@ public sealed class BlindableSystem : EntitySystem
         blindable.Comp.EyeDamage += amount;
         UpdateEyeDamage(blindable, true);
         // If the entity has eye organs, then we also damage those.
-        if (TryComp(blindable, out BodyComponent? body)
-            && _body.TryGetBodyOrganEntityComps<EyesComponent>((blindable, body), out var eyes))
-            foreach (var eye in eyes)
-                _trauma.ApplyDamageToOrgan(eye, amount, eye.Comp2);
+        if (!TryComp(blindable, out BodyComponent? body)
+            || !_body.TryGetBodyOrganEntityComps<EyesComponent>((blindable, body), out var eyes))
+            return;
+
+        // for now
+        foreach (var eye in eyes)
+            _trauma.TryCreateOrganDamageModifier(eye.Owner, amount, blindable.Owner, "BlindableDamage", eye.Comp2);
     }
 
     // Alternative version of the method intended to be used with Eye Organs, so that you can just pass in

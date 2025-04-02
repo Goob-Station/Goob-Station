@@ -1,5 +1,4 @@
-﻿using Content.Shared._Shitmed.Surgery.Traumas;
-using Content.Shared.FixedPoint;
+﻿using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Shitmed.Surgery.Wounds.Components;
@@ -80,31 +79,6 @@ public sealed partial class WoundComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool CanBeHealed = true;
 
-    /// <summary>
-    /// Should this bleed?
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool CanBleed = true;
-
     [DataField("bleedsScaling"), ViewVariables(VVAccess.ReadOnly)]
     public FixedPoint2 BleedingScalingMultiplier = 1f;
-
-    /// <summary>
-    /// Should this apply trauma to the parent woundable when wound is opened / continued?
-    /// </summary>
-    [DataField]
-    public bool CanApplyTrauma = true;
-
-    /// <summary>
-    /// Additional chance (-1, 0, 1) that is added in chance calculation
-    /// </summary>
-    [DataField]
-    public Dictionary<TraumaType, FixedPoint2> TraumasChances = new()
-    {
-        { TraumaType.Dismemberment, 0 },
-        { TraumaType.OrganDamage, 0 },
-        { TraumaType.BoneDamage, 0 },
-        { TraumaType.NerveDamage, 0 },
-        { TraumaType.VeinsDamage, 0 },
-    };
 }

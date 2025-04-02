@@ -65,25 +65,20 @@ public partial class WoundSystem
     bool force = false)
     {
         if (!Resolve(woundable, ref component) || component.Wounds!.Count == 0)
-            return false;
+            return true;
 
         foreach (var wound in GetWoundableWounds(woundable, component))
         {
             if (force)
-            {
-                // For wounds like scars. Temporary for now
-                wound.Item2.CanBleed = false;
-                wound.Item2.CanBeHealed = true;
-            }
+                wound.Comp.CanBeHealed = true;
 
-            if (!TryComp<BleedInflicterComponent>(wound.Item1, out var bleeds))
+            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
                 continue;
 
             bleeds.BleedingScales = false;
             bleeds.IsBleeding = false;
 
-            wound.Item2.CanBleed = false;
-            wound.Item2.CanBeHealed = true;
+            wound.Comp.CanBeHealed = true;
         }
 
         return true;
@@ -100,8 +95,7 @@ public partial class WoundSystem
 
         var woundsToHeal =
             GetWoundableWounds(woundable, component)
-                .Where(wound => damageGroup == null || wound.Item2.DamageGroup == damageGroup)
-                .Select(wound => (Entity<WoundComponent>) wound)
+                .Where(wound => damageGroup == null || wound.Comp.DamageGroup == damageGroup)
                 .ToList();
 
         foreach (var wound in woundsToHeal)
@@ -225,14 +219,14 @@ public partial class WoundSystem
         EntityUid woundable,
         string damageType)
     {
-        return GetWoundableWounds(woundable).Any(wound => MetaData(wound.Item1).EntityPrototype!.ID == damageType);
+        return GetWoundableWounds(woundable).Any(wound => MetaData(wound).EntityPrototype!.ID == damageType);
     }
 
     public bool HasDamageOfGroup(
         EntityUid woundable,
         string damageGroup)
     {
-        return GetWoundableWounds(woundable).Any(wound => wound.Item2.DamageGroup == damageGroup);
+        return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup == damageGroup);
     }
 
     public FixedPoint2 ApplyHealingRateMultipliers(EntityUid wound, EntityUid woundable, FixedPoint2 severity, WoundableComponent? component = null)

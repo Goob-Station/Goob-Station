@@ -68,7 +68,12 @@
   - type: Armor
     coverage:
     - Head
-    dismembermentChanceDeduction: 0.07 # kinda saves you
+    traumaDeductions:
+      Dismemberment: 0.07
+      OrganDamage: 0
+      BoneDamage: 0.07
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.9
@@ -155,7 +160,12 @@
   - type: Armor #Copied from the sec helmet, as it's hard to give these sane values without locational damage existing.
     coverage:
     - Head
-    dismembermentChanceDeduction: 0.2
+    traumaDeductions:
+      Dismemberment: 0.2
+      OrganDamage: 0.2
+      BoneDamage: 0.2
+      VeinsDamage: 0
+      NerveDamage: 0
     modifiers:
       coefficients:
         Blunt: 0.65

@@ -342,7 +342,7 @@ public abstract partial class SharedSurgerySystem
         if (TryComp<WoundableComponent>(entity, out var woundable))
         {
             return _wounds.GetWoundableWounds(entity, woundable)
-                .Any(wounds => GetDamageGroupByType(group.FirstOrDefault()!) == wounds.Item2.DamageGroup);
+                .Any(wounds => GetDamageGroupByType(group.FirstOrDefault()!) == wounds.Comp.DamageGroup);
         }
 
         return group.Any(damageType => damageableComp.Damage.DamageDict.TryGetValue(damageType, out var value) && value > 0);

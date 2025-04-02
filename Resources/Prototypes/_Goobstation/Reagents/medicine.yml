@@ -819,7 +819,7 @@
       effects:
       - !type:SuppressPain
         amount: 1.2
-        time: 30 # it REFRESHES. Not accumulates
+        time: 30
       - !type:AdjustPainFeels
         conditions:
         - !type:ReagentThreshold
@@ -853,6 +853,15 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -1.2
+        time: 12
 
 # Externally applied meds
 

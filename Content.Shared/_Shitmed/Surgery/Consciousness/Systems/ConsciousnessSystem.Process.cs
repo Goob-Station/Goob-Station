@@ -37,14 +37,27 @@ public partial class ConsciousnessSystem
             if (consciousness.ForceDead)
                 continue;
 
-            if (consciousness.PassedOutTime < _timing.CurTime)
+            foreach (var modifier in consciousness.Modifiers.Where(modifier => modifier.Value.Time < _timing.CurTime))
+            {
+                RemoveConsciousnessModifier(ent, modifier.Key.Item1, modifier.Key.Item2, consciousness);
+            }
+
+            foreach (var multiplier in consciousness.Multipliers.Where(multiplier => multiplier.Value.Time < _timing.CurTime))
+            {
+                RemoveConsciousnessMultiplier(ent, multiplier.Key.Item1, multiplier.Key.Item2, consciousness);
+            }
+
+            if (consciousness.PassedOutTime < _timing.CurTime && consciousness.PassedOut)
+            {
                 consciousness.PassedOut = false;
-
-            if (consciousness.ForceConsciousnessTime < _timing.CurTime)
-                consciousness.ForceConscious = false;
-
-            if (!consciousness.PassedOut || consciousness.ForceConscious)
                 CheckConscious(ent, consciousness);
+            }
+
+            if (consciousness.ForceConsciousnessTime < _timing.CurTime && consciousness.ForceConscious)
+            {
+                consciousness.ForceConscious = false;
+                CheckConscious(ent, consciousness);
+            }
         }
     }
 
@@ -53,7 +66,7 @@ public partial class ConsciousnessSystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        AddConsciousnessModifier(uid, uid, -component.Cap, component, "DeathThreshold", ConsciousnessModType.Pain);
+        AddConsciousnessModifier(uid, uid, -component.Cap, "DeathThreshold", ConsciousnessModType.Pain, consciousness: component);
         // To prevent people from suddenly resurrecting while being dead. whoops
 
         foreach (var multiplier in

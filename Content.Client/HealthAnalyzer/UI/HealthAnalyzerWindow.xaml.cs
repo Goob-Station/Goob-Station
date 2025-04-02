@@ -200,7 +200,7 @@ namespace Content.Client.HealthAnalyzer.UI
                 var damageGroups = new Dictionary<string, FixedPoint2>();
                 foreach (var child in _wound.GetAllWoundableChildren(body.RootContainer.ContainedEntity.Value))
                 {
-                    if (!_appearance.TryGetData<WoundVisualizerGroupData>(child.Item1, WoundableVisualizerKeys.Wounds, out var wounds))
+                    if (!_appearance.TryGetData<WoundVisualizerGroupData>(child, WoundableVisualizerKeys.Wounds, out var wounds))
                         continue;
 
                     foreach (var wound in wounds.GroupList.Select(_entityManager.GetEntity).Select(_entityManager.GetComponent<WoundComponent>))

@@ -153,7 +153,7 @@
       effects:
       - !type:SuppressPain
         amount: 1.2
-        time: 30 # it REFRESHES. Not accumulates
+        time: 30 # it accumulated 1.2 * quantity and then exists for 30 seconds.
       - !type:AdjustPainFeels
         conditions:
         - !type:ReagentThreshold
@@ -187,6 +187,15 @@
         - !type:ReagentThreshold
           min: 15
       - !type:Drunk
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -1.2
+        time: 12
 
 - type: reagent
   id: Cryoxadone
@@ -258,7 +267,7 @@
       effects:
       - !type:SuppressPain
         amount: 2
-        time: 7 # it REFRESHES. Not accumulates
+        time: 7
       - !type:AdjustPainFeels
         conditions:
         - !type:ReagentThreshold
@@ -301,7 +310,7 @@
       effects:
       - !type:SuppressPain
         amount: 2.4
-        time: 12 # it REFRESHES. Not accumulates
+        time: 12
       - !type:AdjustPainFeels
         conditions:
         - !type:ReagentThreshold
@@ -323,6 +332,12 @@
           types:
             Asphyxiation: 3
             Cold: 1
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 1.7
+        time: 12
 
 - type: reagent
   id: DexalinPlus
@@ -337,7 +352,7 @@
       effects:
       - !type:SuppressPain
         amount: 3.7
-        time: 12 # it REFRESHES. Not accumulates
+        time: 12
       - !type:AdjustPainFeels
         conditions:
         - !type:ReagentThreshold
@@ -366,6 +381,18 @@
           types:
             Asphyxiation: 5
             Cold: 3
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 4
+        time: 12
+      - !type:AdjustConsciousness
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -5
+        time: 12
 
 # this ones a doozy
 - type: reagent
@@ -383,8 +410,17 @@
         conditions:
         - !type:MobStateCondition
           mobstate: Critical
-        amount: 2
-        time: 2 # very little because it's supposed to suppress pain while you're in crit
+        amount: 5
+        time: 10 # very little because it's supposed to suppress pain while you're in crit
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 2 # Does not let the entity suffocate while the pain is suppressed
+        time: 10
       - !type:HealthChange
         conditions:
           # they gotta be in crit first
@@ -444,7 +480,16 @@
       - !type:MovespeedModifier # Goob edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
-
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: -1.2
+        time: 12
+  
 - type: reagent
   id: Hyronalin
   name: reagent-name-hyronalin
@@ -522,6 +567,12 @@
             Asphyxiation: -5
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 6
+        time: 20
 
 - type: reagent
   id: Kelotane
@@ -712,6 +763,21 @@
             Asphyxiation: 3.5
       - !type:ModifyBleedAmount
         amount: -0.25
+      - !type:AdjustConsciousness
+        allowNewModifiers: false
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 4
+        time: 12
+      - !type:AdjustConsciousness
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        allowNewModifiers: true
+        modifierType: Pain
+        identifier: Suffocation
+        amount: 4
+        time: 12
 
 - type: reagent
   id: Ambuzol
@@ -928,7 +994,7 @@
       effects:
       - !type:SuppressPain
         amount: 2
-        time: 14 # it REFRESHES. Not accumulates
+        time: 14
       - !type:HealthChange
         damage:
           groups:
@@ -1266,7 +1332,7 @@
       effects:
       - !type:SuppressPain
         amount: 4 # To prevent people from dying while being healed
-        time: 5
+        time: 7
       - !type:HealthChange
         damage:
           types:

@@ -36,10 +36,12 @@ public partial class ConsciousnessSystem
         [NotNullWhen(true)] out Entity<NerveSystemComponent>? nerveSys)
     {
         nerveSys = null;
+        Logger.Debug($"TRYGETNERVESYSTEM: Trying to get nerve system for {body}");
         if (!TryComp<ConsciousnessComponent>(body, out var consciousness))
             return false;
 
         nerveSys = consciousness.NerveSystem;
+        Logger.Debug($"TRYGETNERVESYSTEM: Got consciousness {consciousness} and nerve system {nerveSys} for {body}");
         return true;
     }
 
@@ -52,11 +54,17 @@ public partial class ConsciousnessSystem
     /// <param name="mobState">MobStateComponent</param>
     public bool CheckConscious(EntityUid target, ConsciousnessComponent? consciousness = null, MobStateComponent? mobState = null)
     {
-        if (!Resolve(target, ref consciousness, ref mobState, false))
+        if (!Resolve(target, ref consciousness, ref mobState))
             return false;
 
         var shouldBeConscious =
             consciousness.Consciousness > consciousness.Threshold || consciousness is { ForceUnconscious: false, ForceConscious: true };
+
+        if (shouldBeConscious != consciousness.IsConscious)
+        {
+            var ev = new ConsciousnessUpdatedEvent(shouldBeConscious);
+            RaiseLocalEvent(target, ref ev);
+        }
 
         SetConscious(target, shouldBeConscious, consciousness);
         UpdateMobState(target, consciousness, mobState);
@@ -70,7 +78,7 @@ public partial class ConsciousnessSystem
     /// <param name="target">Target to pass out.</param>
     /// <param name="time">Time.</param>
     /// <param name="consciousness"><see cref="ConsciousnessComponent"/> of an entity.</param>
-    public void ForcePassout(EntityUid target, TimeSpan time, ConsciousnessComponent? consciousness = null)
+    public void ForcePassOut(EntityUid target, TimeSpan time, ConsciousnessComponent? consciousness = null)
     {
         if (!Resolve(target, ref consciousness))
             return;
@@ -114,6 +122,7 @@ public partial class ConsciousnessSystem
 
         consciousness.RawConsciousness = consciousness.Cap + totalDamage;
 
+        CheckConscious(uid, consciousness);
         Dirty(uid, consciousness);
     }
 
@@ -204,7 +213,6 @@ public partial class ConsciousnessSystem
 
     #region Multipliers and Modifiers
 
-
     /// <summary>
     /// Get all consciousness multipliers present on an entity. Note: these are copies, do not try to edit the values
     /// </summary>
@@ -251,25 +259,23 @@ public partial class ConsciousnessSystem
     /// <param name="consciousness">ConsciousnessComponent</param>
     /// <param name="identifier">Localized text name for the modifier (for debug/admins)</param>
     /// <param name="type">Modifier type, defaults to generic</param>
+    /// <param name="time">Time spawn for which the consciousness modifier will exist</param>
     /// <returns>Successful</returns>
     public bool AddConsciousnessModifier(EntityUid target,
         EntityUid modifierOwner,
         FixedPoint2 modifier,
-        ConsciousnessComponent? consciousness = null,
         string identifier = "Unspecified",
-        ConsciousnessModType type = ConsciousnessModType.Generic)
+        ConsciousnessModType type = ConsciousnessModType.Generic,
+        TimeSpan? time = null,
+        ConsciousnessComponent? consciousness = null)
     {
-        if (!Resolve(target, ref consciousness) || modifier == 0)
+        if (!Resolve(target, ref consciousness))
             return false;
 
-        if (!consciousness.Modifiers.TryAdd((modifierOwner, identifier), new ConsciousnessModifier(modifier, type)))
+        if (!consciousness.Modifiers.TryAdd((modifierOwner, identifier), new ConsciousnessModifier(modifier, _timing.CurTime + time, type)))
             return false;
 
         UpdateConsciousnessModifiers(target, consciousness);
-
-        var ev = new ConsciousnessUpdatedEvent(CheckConscious(target, consciousness), modifier * consciousness.Multiplier);
-        RaiseLocalEvent(target, ref ev, true);
-
         Dirty(target, consciousness);
 
         return true;
@@ -320,11 +326,6 @@ public partial class ConsciousnessSystem
             return false;
 
         UpdateConsciousnessModifiers(target, consciousness);
-
-        var ev = new ConsciousnessUpdatedEvent(CheckConscious(target, consciousness),
-            foundModifier.Change * consciousness.Multiplier);
-        RaiseLocalEvent(target, ref ev, true);
-
         Dirty(target, consciousness);
 
         return true;
@@ -339,26 +340,23 @@ public partial class ConsciousnessSystem
     /// <param name="consciousness">Consciousness component</param>
     /// <param name="identifier">The string identifier of this modifier.</param>
     /// <param name="type">Modifier type, defaults to generic</param>
+    /// <param name="time">Time span for which the component will exist</param>
     /// <returns>Successful</returns>
     public bool SetConsciousnessModifier(EntityUid target,
         EntityUid modifierOwner,
         FixedPoint2 modifierChange,
-        ConsciousnessComponent? consciousness = null,
         string identifier = "Unspecified",
-        ConsciousnessModType type = ConsciousnessModType.Generic)
+        ConsciousnessModType type = ConsciousnessModType.Generic,
+        TimeSpan? time = null,
+        ConsciousnessComponent? consciousness = null)
     {
         if (!Resolve(target, ref consciousness))
             return false;
 
-        var newModifier = new ConsciousnessModifier(Change: modifierChange, Type: type);
-
+        var newModifier = new ConsciousnessModifier(Change: modifierChange, Time: _timing.CurTime + time, Type: type);
         consciousness.Modifiers[(modifierOwner, identifier)] = newModifier;
+
         UpdateConsciousnessModifiers(target, consciousness);
-
-        var ev = new ConsciousnessUpdatedEvent(CheckConscious(target, consciousness),
-            modifierChange * consciousness.Multiplier);
-        RaiseLocalEvent(target, ref ev, true);
-
         Dirty(target, consciousness);
 
         return true;
@@ -371,27 +369,26 @@ public partial class ConsciousnessSystem
     /// <param name="modifierOwner">Owner of a modifier</param>
     /// <param name="modifierChange">Value that is being added onto the modifier</param>
     /// <param name="identifier">The string identifier of the modifier to change</param>
+    /// <param name="time">Time span for which this modifier shall exist</param>
     /// <param name="consciousness">Consciousness component</param>
     /// <returns>Successful</returns>
     public bool EditConsciousnessModifier(EntityUid target,
         EntityUid modifierOwner,
         FixedPoint2 modifierChange,
         string identifier,
+        TimeSpan? time = null,
         ConsciousnessComponent? consciousness = null)
     {
         if (!Resolve(target, ref consciousness) ||
             !consciousness.Modifiers.TryGetValue((modifierOwner, identifier), out var oldModifier))
             return false;
 
-        var newModifier = oldModifier with {Change = oldModifier.Change + modifierChange};
+        var newModifier =
+            oldModifier with {Change = oldModifier.Change + modifierChange, Time = _timing.CurTime + time ?? oldModifier.Time};
 
         consciousness.Modifiers[(modifierOwner, identifier)] = newModifier;
+
         UpdateConsciousnessModifiers(target, consciousness);
-
-        var ev = new ConsciousnessUpdatedEvent(CheckConscious(target, consciousness),
-            modifierChange * consciousness.Multiplier);
-        RaiseLocalEvent(target, ref ev, true);
-
         Dirty(target, consciousness);
 
         return true;
@@ -407,25 +404,23 @@ public partial class ConsciousnessSystem
     /// <param name="consciousness">ConsciousnessComponent</param>
     /// <param name="identifier">Localized text name for the multiplier (for debug/admins)</param>
     /// <param name="type">Multiplier type, defaults to generic</param>
+    /// <param name="time">Time span for which this multiplier will exist</param>
     /// <returns>Successful</returns>
     public bool AddConsciousnessMultiplier(EntityUid target,
         EntityUid multiplierOwner,
         FixedPoint2 multiplier,
         string identifier = "Unspecified",
-        ConsciousnessComponent? consciousness = null,
-        ConsciousnessModType type = ConsciousnessModType.Generic)
+        ConsciousnessModType type = ConsciousnessModType.Generic,
+        TimeSpan? time = null,
+        ConsciousnessComponent? consciousness = null)
     {
-        if (!Resolve(target, ref consciousness) || multiplier == 0)
+        if (!Resolve(target, ref consciousness))
             return false;
 
-        if (!consciousness.Multipliers.TryAdd((multiplierOwner, identifier), new ConsciousnessMultiplier(multiplier, type)))
+        if (!consciousness.Multipliers.TryAdd((multiplierOwner, identifier), new ConsciousnessMultiplier(multiplier, _timing.CurTime + time ?? time, type)))
             return false;
 
         UpdateConsciousnessMultipliers(target, consciousness);
-
-        var ev = new ConsciousnessUpdatedEvent(CheckConscious(target, consciousness), multiplier * consciousness.RawConsciousness);
-        RaiseLocalEvent(target, ref ev, true);
-
         Dirty(target, consciousness);
 
         return true;
@@ -472,17 +467,11 @@ public partial class ConsciousnessSystem
         if (!Resolve(target, ref consciousness))
             return false;
 
-        if (!consciousness.Multipliers.Remove((multiplierOwner, identifier), out var foundMultiplier))
+        if (!consciousness.Multipliers.Remove((multiplierOwner, identifier)))
             return false;
 
         UpdateConsciousnessMultipliers(target, consciousness);
-
-        var ev = new ConsciousnessUpdatedEvent(CheckConscious(target, consciousness),
-            foundMultiplier.Change * consciousness.RawConsciousness);
-        RaiseLocalEvent(target, ref ev, true);
-
         Dirty(target, consciousness);
-        UpdateConsciousnessModifiers(target, consciousness);
 
         return true;
     }

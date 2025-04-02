@@ -4,6 +4,8 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Surgery.Traumas;
+using Content.Shared._Shitmed.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Surgery.Traumas.Systems;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
@@ -52,7 +54,14 @@ public sealed partial class ArmorComponent : Component
     /// Shitmed Change: The amount of dismemberment chance deduction.
     /// </summary>
     [DataField]
-    public FixedPoint2 DismembermentChanceDeduction = 0;
+    public Dictionary<TraumaType, FixedPoint2> TraumaDeductions = new()
+    {
+        { TraumaType.Dismemberment, 0 },
+        { TraumaType.BoneDamage, 0 },
+        { TraumaType.OrganDamage, 0 },
+        { TraumaType.VeinsDamage, 0 },
+        { TraumaType.NerveDamage, 0 },
+    };
 }
 
 /// <summary>

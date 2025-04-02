@@ -16,16 +16,6 @@
       Severe: 30
       Critical: 12
       Loss: 0
-  - type: WoundableVisuals
-    thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    occupiedLayer: "enum.HumanoidVisualLayers.Chest" # Default to Chest if something anomalous happens.
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#FF0000"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
   - type: Nerve
   - type: Destructible
     thresholds:
@@ -109,7 +99,16 @@
         Quantity: 10
       - ReagentId: Blood
         Quantity: 20
-
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: Chest
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
 
 - type: entity
   abstract: true
@@ -118,3 +117,12 @@
   components:
   - type: Woundable
     damageContainer: Organic
+  - type: WoundableVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    occupiedLayer: Groin
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi

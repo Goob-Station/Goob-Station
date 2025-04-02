@@ -54,7 +54,7 @@ public partial class PainSystem
             return false;
 
         var modifierToSet =
-            modifier with {Change = change, Time = time ?? modifier.Time, PainDamageType = painType ?? modifier.PainDamageType};
+            modifier with {Change = change, Time = _timing.CurTime + time ?? modifier.Time, PainDamageType = painType ?? modifier.PainDamageType};
         nerveSys.Modifiers[(nerveUid, identifier)] = modifierToSet;
 
         var ev = new PainModifierChangedEvent(uid, nerveUid, modifier.Change);
@@ -494,6 +494,17 @@ public partial class PainSystem
         return true;
     }
 
+    public Entity<AudioComponent>? PlayPainSoundWithCleanup(EntityUid body, NerveSystemComponent nerveSys, SoundSpecifier specifier, AudioParams? audioParams = null)
+    {
+        CleanupSounds(nerveSys);
+        var sound = _IHaveNoMouthAndIMustScream.PlayPvs(specifier, body, audioParams);
+        if (!sound.HasValue)
+            return null;
+
+        nerveSys.PlayedPainSounds.Add(sound.Value.Entity, sound.Value.Component);
+        return sound.Value;
+    }
+
     public Entity<AudioComponent>? PlayPainSound(EntityUid body, SoundSpecifier specifier, AudioParams? audioParams = null)
     {
         return _IHaveNoMouthAndIMustScream.PlayPvs(specifier, body, audioParams);
@@ -541,20 +552,33 @@ public partial class PainSystem
         }
     }
 
-    private void UpdatePainFeels(EntityUid nerveUid)
+    private void UpdatePainFeels(EntityUid nerveUid, NerveComponent? nerveComp = null)
     {
+        if (!Resolve(nerveUid, ref nerveComp))
+            return;
+
         var bodyPart = Comp<BodyPartComponent>(nerveUid);
-        if (bodyPart.Body == null || !TryComp<TargetingComponent>(bodyPart.Body.Value, out var targeting))
+        if (bodyPart.Body == null)
+            return;
+
+        var ev = new PainFeelsChangedEvent(nerveComp.ParentedNerveSystem, nerveUid, nerveComp.PainFeels);
+        RaiseLocalEvent(nerveUid, ref ev);
+
+        if (!TryComp<TargetingComponent>(bodyPart.Body.Value, out var targeting))
             return;
 
         targeting.BodyStatus = _wound.GetWoundableStatesOnBodyPainFeels(bodyPart.Body.Value);
         Dirty(bodyPart.Body.Value, targeting);
 
-        RaiseNetworkEvent(new TargetIntegrityChangeEvent(GetNetEntity(bodyPart.Body.Value)), bodyPart.Body.Value);
+        if (_net.IsServer)
+            RaiseNetworkEvent(new TargetIntegrityChangeEvent(GetNetEntity(bodyPart.Body.Value)), bodyPart.Body.Value);
     }
 
     private void UpdateDamage(EntityUid nerveSysEnt, NerveSystemComponent nerveSys)
     {
+        if (_timing.ApplyingState || TerminatingOrDeleted(nerveSysEnt))
+            return;
+
         if (nerveSys.LastPainThreshold != nerveSys.Pain && _timing.CurTime > nerveSys.UpdateTime)
             nerveSys.LastPainThreshold = nerveSys.Pain;
 
@@ -623,9 +647,11 @@ public partial class PainSystem
         if (!Resolve(uid, ref nerveSys, false))
             return;
 
+        Logger.Debug($"UPDATENERVESYSTEMPAIN: Updating nerve system pain for {uid}");
         if (!TryComp<OrganComponent>(uid, out var organ) || organ.Body == null)
             return;
 
+        Logger.Debug($"UPDATENERVESYSTEMPAIN: Organ found");
         var totalPain = (FixedPoint2) 0;
         var woundPain = (FixedPoint2) 0;
 
@@ -639,6 +665,7 @@ public partial class PainSystem
 
         nerveSys.Pain = FixedPoint2.Clamp(woundPain, 0, nerveSys.SoftPainCap) + totalPain - woundPain;
 
+        Logger.Debug($"UPDATENERVESYSTEMPAIN: Pain calculated");
         UpdatePainThreshold(uid, nerveSys);
         if (!_consciousness.SetConsciousnessModifier(
                 organ.Body.Value,
@@ -675,6 +702,7 @@ public partial class PainSystem
         if (!_net.IsServer)
             return;
 
+        Logger.Debug($"APPLYPAINREFLEXESEFFECTS: Applying pain reflexes effects for {body}");
         var sex = Sex.Unsexed;
         if (TryComp<HumanoidAppearanceComponent>(body, out var humanoid))
             sex = humanoid.Sex;
@@ -769,11 +797,13 @@ public partial class PainSystem
 
     private void UpdatePainThreshold(EntityUid uid, NerveSystemComponent nerveSys)
     {
+        Logger.Debug($"Updating pain threshold: {nerveSys.Pain} - {nerveSys.LastPainThreshold}");
         var painInput = nerveSys.Pain - nerveSys.LastPainThreshold;
 
         var nearestReflex = PainThresholdTypes.None;
         foreach (var (reflex, threshold) in nerveSys.PainThresholds.OrderByDescending(kv => kv.Value))
         {
+            Logger.Debug($"Checking threshold: {reflex} - {threshold}");
             if (painInput < threshold)
                 continue;
 
@@ -781,27 +811,34 @@ public partial class PainSystem
             break;
         }
 
+        Logger.Debug($"Nearest reflex: {nearestReflex}");
         if (nearestReflex == PainThresholdTypes.None)
             return;
 
+        Logger.Debug($"Last threshold type: {nerveSys.LastThresholdType}");
         if (nerveSys.LastThresholdType == nearestReflex && _timing.CurTime < nerveSys.UpdateTime)
             return;
 
+        Logger.Debug("Updating threshold");
         if (!TryComp<OrganComponent>(uid, out var organ) || !organ.Body.HasValue)
             return;
 
-        var ev1 = new PainThresholdTriggered(uid, nerveSys, nearestReflex, painInput);
+        Logger.Debug("Raising event");
+        var ev1 = new PainThresholdTriggered((uid, nerveSys), nearestReflex, painInput);
         RaiseLocalEvent(organ.Body.Value, ref ev1);
 
         if (ev1.Cancelled || _mobState.IsDead(organ.Body.Value))
             return;
 
-        var ev2 = new PainThresholdEffected(uid, nerveSys, nearestReflex, painInput);
+        Logger.Debug("Raising event 2");
+        var ev2 = new PainThresholdEffected((uid, nerveSys), nearestReflex, painInput);
         RaiseLocalEvent(organ.Body.Value, ref ev2);
 
+        Logger.Debug("Updating time");
         nerveSys.UpdateTime = _timing.CurTime + nerveSys.ThresholdUpdateTime;
         nerveSys.LastThresholdType = nearestReflex;
 
+        Logger.Debug("Applying effects");
         ApplyPainReflexesEffects(organ.Body.Value, (uid, nerveSys), nearestReflex);
     }
 

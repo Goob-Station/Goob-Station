@@ -19,8 +19,11 @@ public partial class PainSystem
 
     #region Event Handling
 
-    private void OnPainChanged(EntityUid uid, PainInflicterComponent pain, WoundSeverityPointChangedEvent args)
+    private void OnPainChanged(Entity<PainInflicterComponent> woundEnt, ref WoundSeverityPointChangedEvent args)
     {
+        if (_timing.ApplyingState)
+            return;
+
         if (!TryComp<BodyPartComponent>(args.Component.HoldingWoundable, out var bodyPart))
             return;
 
@@ -31,7 +34,7 @@ public partial class PainSystem
             return;
 
         // bro how
-        pain.Pain = FixedPoint2.Clamp(args.NewSeverity * pain.PainMultiplier, 0, 100f);
+        woundEnt.Comp.Pain = FixedPoint2.Clamp(args.NewSeverity * woundEnt.Comp.PainMultiplier, 0f, 100f);
         var allPain = (FixedPoint2) 0;
 
         foreach (var (woundId, _) in _wound.GetWoundableWounds(args.Component.HoldingWoundable))
@@ -46,7 +49,7 @@ public partial class PainSystem
             TryChangePainModifier(nerveSys.Value, args.Component.HoldingWoundable, PainModifierIdentifier, allPain);
     }
 
-    private void OnPainRemoved(EntityUid uid, PainInflicterComponent pain, WoundRemovedEvent args)
+    private void OnPainRemoved(Entity<PainInflicterComponent> woundEnt, ref WoundRemovedEvent args)
     {
         if (!TryComp<BodyPartComponent>(args.Component.HoldingWoundable, out var bodyPart))
             return;

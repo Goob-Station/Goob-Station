@@ -42,11 +42,13 @@ public record struct PainFeelingModifier(FixedPoint2 Change, TimeSpan? Time = nu
 public record struct PainModifier(FixedPoint2 Change, string Identifier = "Unspecified", PainDamageTypes PainDamageType = PainDamageTypes.WoundPain, TimeSpan? Time = null); // Easier to manage pain with modifiers.
 
 [ByRefEvent]
-public record struct PainThresholdTriggered(EntityUid NerveSystem, NerveSystemComponent Component, PainThresholdTypes ThresholdType, FixedPoint2 PainInput, bool Cancelled = false);
+public record struct PainThresholdTriggered(Entity<NerveSystemComponent> NerveSystem, PainThresholdTypes ThresholdType, FixedPoint2 PainInput, bool Cancelled = false);
 
 [ByRefEvent]
-public record struct PainThresholdEffected(EntityUid NerveSystem, NerveSystemComponent Component, PainThresholdTypes ThresholdType, FixedPoint2 PainInput);
+public record struct PainThresholdEffected(Entity<NerveSystemComponent> NerveSystem, PainThresholdTypes ThresholdType, FixedPoint2 PainInput);
 
+[ByRefEvent]
+public record struct PainFeelsChangedEvent(EntityUid NerveSystem, EntityUid NerveEntity, FixedPoint2 CurrentPainFeels);
 [ByRefEvent]
 public record struct PainModifierAddedEvent(EntityUid NerveSystem, EntityUid NerveUid, FixedPoint2 AddedPain);
 
