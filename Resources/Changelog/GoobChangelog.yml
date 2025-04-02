@@ -6970,3 +6970,9 @@ Entries:
       message: Tide accent
   id: 809
   time: '2025-04-02T03:10:31.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Add the homunculus - add 5U mutagen to an egg to summon one
+  id: 810
+  time: '2025-04-02T03:16:32.0000000+00:00'
