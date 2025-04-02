@@ -92,6 +92,10 @@
     activateSound: null
     deactivateSound: null
   - type: FlashImmunity
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBingle
+      amount: 3
 
 - type: entity
   id: MobBinglePrime
