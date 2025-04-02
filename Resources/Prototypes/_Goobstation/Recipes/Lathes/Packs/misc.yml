@@ -28,6 +28,7 @@
   recipes:
   - CartridgeEphedrine # Goobstation
   - CartridgePuncturase # Goobstation
+  - CartridgeTirizene
 
 - type: latheRecipePack
   id: ProtoLatheMiscStatic

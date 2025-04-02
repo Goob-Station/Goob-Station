@@ -261,3 +261,23 @@
           components:
           - type: PressureProtection # can't get through this to reach the bodyparts!
           invert: true
+
+- type: reagent
+  id: Tirizene
+  name: reagent-name-tirizene
+  group: Toxins
+  desc: reagent-desc-tirizene
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#6E2828"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        amount: 13 # 13 parity
+        immediate: false
