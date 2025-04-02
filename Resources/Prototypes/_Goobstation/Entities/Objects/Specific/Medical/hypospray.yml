@@ -170,10 +170,10 @@
       - ReagentId: Dermaline
         Quantity: 7
       - ReagentId: Sigynate
-        Quantity: 1.5
+        Quantity: 2
       - ReagentId: Oxandrolone
-        Quantity: 1.5
-  # Heals up to 140 total burn (4 ointments)
+        Quantity: 1
+  # Heals up to 126 total burn (3.6 ointments)
 
 - type: entity
   name: airloss autoinjector cartridge
