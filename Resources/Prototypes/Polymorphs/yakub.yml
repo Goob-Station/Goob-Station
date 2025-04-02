@@ -1,0 +1,9 @@
+- type: polymorph
+  id: YakubTricknologyPolymorph
+  configuration:
+    entity: MobHuman
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: Transfer
+    allowRepeatedMorphs: true

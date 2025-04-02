@@ -1,0 +1,29 @@
+- type: antag
+  id: YakubSleeper
+  name: roles-antag-yakub-sleeper-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-yakub-sleeper-objective
+  guides: [ Yakub ]
+
+- type: antag
+  id: Yakub
+  name: roles-antag-yakub-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-yakub-sleeper-objective
+  guides: [ Yakub ]
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackChameleonFill
+
+- type: antag
+  id: YakubAgent
+  name: roles-antag-yakub-agent-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-yakub-sleeper-objective
+  guides: [ Yakub ]
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackChameleonFill

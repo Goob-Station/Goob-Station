@@ -37,3 +37,6 @@ roles-antag-thief-objective = Add some NT property to your personal collection w
 
 roles-antag-dragon-name = Space Dragon
 roles-antag-dragon-objective = Create a carp army to take over this quadrant.
+
+roles-antag-yakub-sleeper-name = Yakubian sleeper agent
+roles-antag-yakub-sleeper-objective = An agent of yakub, help him enslave the station.
