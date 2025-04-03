@@ -7017,3 +7017,22 @@ Entries:
       message: Internals alert is hidden when not wearing a breath mask now.
   id: 816
   time: '2025-04-02T18:27:39.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Added emagged recipes for all departmental lathes and exosuit
+        fabricator. Go see what emagging them does.
+    - type: Remove
+      message: Removed Dualetta kit from uplink. Dualetta bundle is not affected.
+    - type: Tweak
+      message: >-
+        Changed flashbangs fired from mech flashbang launcher to actual
+        flashbangs that knock people down.
+    - type: Fix
+      message: >-
+        Fixed some oversights with lathe recipes. All things that should be
+        printable at a given lathe are printable, and these that shouldn't are
+        not.
+  id: 817
+  time: '2025-04-03T03:00:41.0000000+00:00'
