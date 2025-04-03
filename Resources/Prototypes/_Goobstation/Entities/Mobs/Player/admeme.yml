@@ -384,7 +384,7 @@
   parent: EventHumanMindShielded
   components:
   - type: AutoImplant
-    implants: [ FreedomImplant, NutrimentPumpImplant, SpaceProofImplant, StypticStimulatorImplant ]
+    implants: [ FreedomImplant, NutrimentPumpImplant, SpaceProofImplant ]
   - type: RandomHumanoidAppearance
     randomizeName: false
     hair: HairBald
@@ -466,3 +466,7 @@
         Heat: -3
       groups:
         Brute: -3
+  - type: StatusEffects
+    allowed:
+    - PressureImmunity
+    - Adrenaline

@@ -11,6 +11,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
+/// <summary>
+/// Really, this should just take the current multipliers and add five.
+/// Fix this later dummy.
+/// </summary>
 public sealed class StypticStimulatorImplantSystem : EntitySystem
 {
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;

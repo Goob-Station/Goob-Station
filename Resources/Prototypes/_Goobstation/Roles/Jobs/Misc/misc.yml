@@ -33,3 +33,4 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorWhite
     gloves: ClothingHandsGlovesConquestUnremovable
+    outerClothing: ClothingOuterArmourInvisible
