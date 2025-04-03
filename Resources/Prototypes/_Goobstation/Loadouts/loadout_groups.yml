@@ -13,11 +13,11 @@
 
 - type: loadoutGroup
   id: NanotrasenRepresentativeNeck
-  name: loadout-group-ntr-neck
+  name: Nanotrasen Representative neck
   minLimit: 0
   loadouts:
   - ClothingNeckScarfStripedCentcom
-  
+
 - type: loadoutGroup
   id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
