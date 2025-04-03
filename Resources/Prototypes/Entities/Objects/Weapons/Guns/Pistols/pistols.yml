@@ -228,7 +228,7 @@
   - type: Gun
     minAngle: 1
     # Goob edit start
-    maxAngle: 6
+    maxAngle: 8
     angleIncrease: 3
     angleDecay: 4
     fireRate: 3
@@ -256,5 +256,3 @@
         whitelist:
           tags:
             - CartridgeMagnum
-  - type: Multishot # Goobstation
-    spreadMultiplier: 1.5
