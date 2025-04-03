@@ -12,6 +12,7 @@
     - BlueshieldSet
     - RevolverSet
     - ChesterSet
+    - SyringeSet
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface

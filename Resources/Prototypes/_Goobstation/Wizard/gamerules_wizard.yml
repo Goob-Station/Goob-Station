@@ -48,6 +48,7 @@
 
 - type: entity
   parent: BaseWizardRule
+<<<<<<< HEAD
   id: WizardDynamic
   components:
   - type: DynamicRuleset
@@ -59,6 +60,9 @@
 - type: entity
   parent: WizardDynamic
   id: WizardDynamicMidround
+=======
+  id: WizardMidround
+>>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
   components:
   - type: StationEvent
     earliestStart: 35
@@ -89,6 +93,12 @@
       - type: NpcFactionMember
         factions:
         - Wizard
+<<<<<<< HEAD
+=======
+  - type: Tag
+    tags:
+      - MidroundAntag
+>>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
 
 - type: entity
   parent: BaseGameRule
@@ -143,6 +153,12 @@
   id: GhostsVisible
   components:
   - type: GhostsVisibleRule
+
+- type: entity
+  parent: BaseGameRule
+  id: GlobalTileMovement
+  components:
+  - type: GlobalTileMovementRule
 
 - type: gamePreset
   id: Wizard

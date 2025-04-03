@@ -20,4 +20,36 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
+<<<<<<< HEAD
       startingGear: HereticGear # see Roles/Antags/heretic.yml
+=======
+  - type: Tag
+    tags:
+      - RoundstartAntag
+
+- type: entity
+  parent: BaseGameRule
+  id: CalmHeretic
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 15
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 3
+      playerRatio: 15
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleHeretic
+  - type: Tag
+    tags:
+      - CalmAntag
+>>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe

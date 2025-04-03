@@ -31,7 +31,11 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Revolutionary;
 using Content.Server.Communications;
 using System.Linq;
+<<<<<<< HEAD
 using Content.Server._Reserve.Revolutionary.UI;
+=======
+using Content.Goobstation.Shared.Revolutionary;
+>>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
 using Content.Server.Chat.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Popups;

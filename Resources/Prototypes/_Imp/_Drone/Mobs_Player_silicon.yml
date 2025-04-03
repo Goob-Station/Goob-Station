@@ -81,6 +81,7 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
+  - type: CollectiveMind # Goobstation
 
 - type: entity
   name: drone
@@ -233,6 +234,9 @@
     - EmagImmune
     - CanPilot
     - VimPilot
+    - DroneMind # Goobstation
+  - type: CollectiveMind # Goobstation
+    defaultChannel: Dronemind
   - type: Access
     tags:
     - Engineering

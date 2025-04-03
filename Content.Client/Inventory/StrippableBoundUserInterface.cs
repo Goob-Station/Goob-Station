@@ -8,6 +8,7 @@ using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared._EstacaoPirata.Cards.Card;
 using Content.Shared._EstacaoPirata.Cards.Hand;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Ensnaring.Components;
@@ -224,6 +225,9 @@ namespace Content.Client.Inventory
             {
                 entity = _virtualHiddenEntity;
             }
+
+            if (EntMan.HasComponent<StripMenuInvisibleComponent>(entity)) // Goobstation
+                entity = null;
 
             var button = new SlotButton(new SlotData(slotDef, container));
             button.Pressed += SlotPressed;

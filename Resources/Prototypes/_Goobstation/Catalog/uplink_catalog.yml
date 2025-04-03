@@ -40,6 +40,20 @@
 #   categories:
 #     - UplinkDisruption
 
+- type: listing
+  id: UplinkSarinGasGrenade
+  name: uplink-sarin-gas-grenade-name
+  description: uplink-sarin-gas-grenade-desc
+  productEntity: SarinGasGrenade
+  cost:
+    Telecrystal: 12
+  categories:
+    -  UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Weaponry
 
@@ -454,21 +468,17 @@
   categories:
     - UplinkImplants
 
+
 - type: listing
-  id: UplinkJaunterImplanter
-  name: uplink-jaunter-implanter-name
-  description: uplink-jaunter-implanter-desc
-  icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: icon }
-  productEntity: JaunterImplanter
+  id: UplinkKravMagaImplanter
+  name: uplink-krav-maga-implant-name
+  description: uplink-krav-maga-implant-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+  productEntity: KravMagaImplanter
   cost:
-    Telecrystal: 100
+    Telecrystal: 40
   categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+    - UplinkImplants
 
 # Deception
 
@@ -688,6 +698,46 @@
       tags:
       - NukeOpsUplink
 
+<<<<<<< HEAD
+=======
+- type: listing
+  id: UplinkMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+# Explosives
+
+- type: listing
+  id: UplinkPizzaBomb   # Harmony
+  name: uplink-pizza-bomb-name
+  description: uplink-pizza-bomb-desc
+  productEntity: FoodBoxPizzaBomb
+  cost:
+    Telecrystal: 10  # Goob
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkPizzaParty
+  name: uplink-pizza-party-crate-name
+  description: uplink-pizza-party-crate-desc
+  productEntity: CratePizzaParty
+  cost:
+    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
+  categories:
+  - UplinkExplosives
+
+>>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
 # Misc
 - type: listing
   id: UplinkDimensionPot
@@ -698,3 +748,18 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
+
+- type: listing
+  id: NukieMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink

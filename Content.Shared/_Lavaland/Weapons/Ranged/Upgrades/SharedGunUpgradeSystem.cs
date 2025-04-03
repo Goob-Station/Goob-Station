@@ -17,6 +17,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Configuration;
 using System.Linq;
+using Content.Shared._Goobstation.Weapons.Ranged;
 
 namespace Content.Shared._Lavaland.Weapons.Ranged.Upgrades;
 
@@ -159,6 +160,8 @@ public abstract partial class SharedGunUpgradeSystem : EntitySystem
     private void OnFireRateRefresh(Entity<GunUpgradeFireRateComponent> ent, ref GunRefreshModifiersEvent args)
     {
         args.FireRate *= ent.Comp.Coefficient;
+        args.BurstFireRate *= ent.Comp.Coefficient;
+        args.BurstCooldown /= ent.Comp.Coefficient;
     }
 
     private void OnFireRateRefreshRecharge(Entity<GunUpgradeFireRateComponent> ent, ref RechargeBasicEntityAmmoGetCooldownModifiersEvent args)
