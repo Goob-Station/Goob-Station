@@ -83,7 +83,7 @@
   recipeUnlocks:
   - WeaponMechCombatMissileRack8
   technologyPrerequisites:
-  - ExplosiveTechnology
+  - Gygax
 
 - type: technology
   id: Durand

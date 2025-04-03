@@ -133,6 +133,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # Goobstation
+    - ScienceExplosivesTriggers
     - LatheMiscStatic
     - MedicalVehiclesStatic
   - type: EmagLatheRecipes
@@ -440,6 +441,7 @@
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
     # Goobstation
+    - ScienceExplosivesTriggers
     - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - SecurityHypoStatic
@@ -464,6 +466,7 @@
     - SecurityMechElectronicsGoob
     - PowerCells
     - SecurityWeaponsEinsteinEngines # Einstein Engines
+    - FlashPayloadPack
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - SyndicateAmmoStatic
@@ -551,6 +554,7 @@
     - MedicalBoardsStatic
     - MedicalBoardsStaticGoob
     - PowerCellsStatic
+    - ScienceExplosivesTriggers
     dynamicPacks:
     - Chemistry
     # Goobstation Packs
