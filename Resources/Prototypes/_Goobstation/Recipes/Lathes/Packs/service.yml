@@ -1,4 +1,9 @@
 - type: latheRecipePack
+  id: ServiceBoardsEvilStatic # emag-locked
+  recipes:
+  - SyndicateMicrowaveMachineCircuitboard
+
+- type: latheRecipePack
   id: ServiceWeapons
   recipes:
   - WeaponLaserSvalinn

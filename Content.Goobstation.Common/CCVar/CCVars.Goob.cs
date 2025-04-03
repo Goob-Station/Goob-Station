@@ -244,6 +244,27 @@ public sealed partial class GoobCVars
 
     #endregion
 
+<<<<<<< HEAD
+||||||| 38c6f91876
+    #region Game Director
+
+    public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
+        CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
+
+    #endregion
+
+=======
+    #region Game Director
+
+    public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
+        CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
+        CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
+
+    #endregion
+
+>>>>>>> c658e8a0fca96c877cac3565cd5fb782ec5149bf
     #region Mass Contests
     /// <summary>
     ///
