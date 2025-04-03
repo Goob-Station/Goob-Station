@@ -13,6 +13,10 @@
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Wizard\Mutate\" />
+    </ItemGroup>
+
     <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
     <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
 

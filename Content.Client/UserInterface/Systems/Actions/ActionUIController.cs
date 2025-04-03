@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Numerics;
-using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Actions;
 using Content.Client.Construction;
 using Content.Client.Gameplay;
@@ -12,8 +11,7 @@ using Content.Client.UserInterface.Systems.Actions.Controls;
 using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Actions.Windows;
 using Content.Client.UserInterface.Systems.Gameplay;
-using Content.Shared._Goobstation.Wizard.Components;
-using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Goobstation.Shared.Wizard;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Input;
@@ -56,8 +54,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly TransformSystem _transform = default!; // Goobstation
-    [UISystemDependency] private readonly SpellsSystem? _spells = default!; // Goobstation
-    [UISystemDependency] private readonly ActionTargetMarkSystem? _mark = default!; // Goobstation
+    [UISystemDependency] private readonly SharedSpellsSystem? _spells = default!; // Goobstation
+    [UISystemDependency] private readonly ActionTargetMarkSystem? _mark = default!; // Goobstation - fix this
     [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
     private ActionButtonContainer? _container;
@@ -301,7 +299,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var coords = args.Coordinates;
 
         // Goobstation start
-        if (_entMan.HasComponent<LockOnMarkActionComponent>(actionId) && _mark != null &&
+        if (_entMan.HasComponent<Goobstation.Shared.Wizard.SpellCards.LockOnMarkActionComponent>(actionId) && _mark != null &&
             _entMan.EntityExists(_mark.Target))
             entity = _mark.Target.Value;
         // Goobstation end
@@ -432,7 +430,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action is not EntityTargetActionComponent entityTarget)
             return false;
 
-        if (!_entMan.TryGetComponent(actionId, out SwapSpellComponent? swap))
+        if (!_entMan.TryGetComponent(actionId, out Goobstation.Shared.Wizard.Components.SwapSpellComponent? swap))
             return false;
 
         if (!swap.AllowSecondaryTarget)
@@ -1038,13 +1036,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SearchAndDisplay();
 
         // Goobstation start
-        if (_entMan.HasComponent<SwapSpellComponent>(SelectingTargetFor))
+        if (_entMan.HasComponent<Goobstation.Shared.Wizard.Components.SwapSpellComponent>(SelectingTargetFor))
             return;
 
         if (_mark == null)
             return;
 
-        if (!_entMan.TryGetComponent(SelectingTargetFor, out LockOnMarkActionComponent? lockOnMark))
+        if (!_entMan.TryGetComponent(SelectingTargetFor, out Goobstation.Shared.Wizard.SpellCards.LockOnMarkActionComponent? lockOnMark))
         {
             _mark.SetMark(null);
             return;
@@ -1175,8 +1173,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action is not EntityTargetActionComponent entityAction)
             return;
 
-        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId);
+        if (_entMan.HasComponent<Goobstation.Shared.Wizard.Components.SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId); // fix
 
         Func<EntityUid, bool>? predicate = null;
         var attachedEnt = entityAction.AttachedEntity;
@@ -1208,8 +1206,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         }
 
         // Goobstation
-        if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value);
+        if (_entMan.HasComponent<Goobstation.Shared.Wizard.Components.SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value); // fix
 
         SelectingTargetFor = null;
 

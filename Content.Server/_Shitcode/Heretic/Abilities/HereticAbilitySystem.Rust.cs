@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
+using Content.Goobstation.Shared.Wizard;
 using Content.Server.Body.Components;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;

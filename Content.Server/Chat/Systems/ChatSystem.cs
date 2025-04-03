@@ -2,6 +2,7 @@ using System.Collections.Immutable; // Goobstation - Starlight collective mind p
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Goobstation.Shared.Wizard.Chuuni;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;

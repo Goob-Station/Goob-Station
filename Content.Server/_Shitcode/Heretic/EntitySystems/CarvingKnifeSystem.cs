@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Shared.Wizard.Traps;
 using Content.Server.Chat.Managers;
 using Content.Server.DoAfter;
 using Content.Server.Gravity;
@@ -190,7 +191,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         RaiseLocalEvent(rune, ref ev);
         ent.Comp.DrawnRunes.Add(rune);
 
-        if (!TryComp(rune, out WizardTrapComponent? trap) || !_mind.TryGetMind(args.User, out var mind, out _))
+        if (!TryComp(rune, out Goobstation.Shared.Wizard.Traps.WizardTrapComponent? trap) || !_mind.TryGetMind(args.User, out var mind, out _))
             return;
 
         trap.IgnoredMinds.Add(mind);

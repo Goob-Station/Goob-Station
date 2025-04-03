@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;

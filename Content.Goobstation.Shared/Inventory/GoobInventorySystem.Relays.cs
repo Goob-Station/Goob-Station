@@ -1,6 +1,7 @@
 using Content.Goobstation.Shared.Clothing;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Stunnable;
+using Content.Goobstation.Shared.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
 using Content.Shared.Damage.Events;

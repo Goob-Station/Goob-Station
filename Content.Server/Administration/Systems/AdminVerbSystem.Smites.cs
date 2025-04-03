@@ -543,7 +543,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wizard/Effects/effects.rsi"), "ice_cube"),
                 Act = () =>
                 {
-                    EnsureComp<IceCubeComponent>(args.Target);
+                    EnsureComp<Goobstation.Shared.Wizard.Traps.IceCubeComponent>(args.Target);
                 },
                 Impact = LogImpact.Extreme,
                 Message = string.Join(": ", iceCubeName, Loc.GetString("admin-smite-ice-cube-description"))

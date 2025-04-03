@@ -21,10 +21,10 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HasJobIconsComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent); // Goob edit
+        SubscribeLocalEvent<Goobstation.Shared.Wizard.Components.HasJobIconsComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent); // Goob edit
     }
 
-    private void OnGetStatusIconsEvent(EntityUid uid, HasJobIconsComponent _, ref GetStatusIconsEvent ev) // Goob edit
+    private void OnGetStatusIconsEvent(EntityUid uid, Goobstation.Shared.Wizard.Components.HasJobIconsComponent _, ref GetStatusIconsEvent ev) // Goob edit
     {
         if (!IsActive)
             return;
