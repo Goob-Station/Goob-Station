@@ -789,6 +789,7 @@
   - type: ActiveTimerTrigger
     timeRemaining: 0.3
   - type: DeleteOnTrigger
+  - type: Flashbang # Goobstation
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
