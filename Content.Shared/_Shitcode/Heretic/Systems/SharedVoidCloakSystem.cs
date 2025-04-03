@@ -57,7 +57,7 @@ public abstract class SharedVoidCloakSystem : EntitySystem
 
         if (args.Transform.ParentUid == attached.AttachedUid) // If we unequip hood (new parent is cloak)
             MakeCloakVisible(attached.AttachedUid, comp);
-        if (args.OldParent == attached.AttachedUid) // If we equip the hood (mew parent is heretic)
+        else // If we equip the hood (mew parent is heretic)
             MakeCloakTransparent(attached.AttachedUid, comp);
     }
 
