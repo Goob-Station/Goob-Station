@@ -1,13 +1,14 @@
-using Content.Shared.Paper;
+using Content.Goobstation.Shared.NTR;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Content.Shared.StoryGen;
 
-namespace Content.Goobstation.Server.NTR.Documents
+namespace Content.Goobstation.Shared.NTR
 {
     [RegisterComponent]
     public sealed partial class RandomDocumentComponent : Component
     {
+        [DataField(required: true)]
+        public List<ProtoId<NtrTaskPrototype>> Tasks = new();
+
         [DataField]
         public DocumentType dtype = DocumentType.Service; //default to service
 

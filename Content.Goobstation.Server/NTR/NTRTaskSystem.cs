@@ -23,10 +23,11 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
+using Content.Goobstation.Shared.NTR;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-// goidacore inside (ru)
+
 namespace Content.Goobstation.Server.NTR;
 
 public sealed class NTRTaskSystem : EntitySystem
@@ -63,14 +64,45 @@ public sealed class NTRTaskSystem : EntitySystem
         SubscribeLocalEvent<NtrTaskProviderComponent, TaskPrintLabelMessage>(OnPrintLabelMessage);
         SubscribeLocalEvent<NtrTaskProviderComponent, TaskSkipMessage>(OnTaskSkipMessage);
         SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnMapInit);
+
+        SubscribeLocalEvent<NtrTaskProviderComponent, TaskCompletedEvent>(OnTaskCompleted);
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="component"></param>
-    /// <param name="args"></param>
+    public bool TryGetTaskId(EntityUid uid, NtrTaskPrototype taskProto, [NotNullWhen(true)] out string? taskId)
+    {
+        taskId = null;
+
+        if (_station.GetOwningStation(uid) is not { } station || !TryComp<NtrTaskDatabaseComponent>(station, out var db))
+            return false;
+
+        foreach (var taskData in db.Tasks)
+        {
+            if (taskData.Task == taskProto.ID)
+            {
+                taskId = taskData.Id;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void OnTaskCompleted(EntityUid uid, NtrTaskProviderComponent component, TaskCompletedEvent args)
+    {
+        if (_station.GetOwningStation(uid) is not { } station || !TryComp<NtrTaskDatabaseComponent>(station, out var db))
+            return;
+
+        if (!TryGetTaskId(station, args.Task, out var taskData))
+            return;
+
+        if (!TryRemoveTask(station, taskData, false))
+            return;
+
+        FillTasksDatabase(station);
+        var untilNextSkip = db.NextSkipTime - _timing.CurTime;
+        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key, new NtrTaskProviderState(db.Tasks, db.History, untilNextSkip));
+        _audio.PlayPvs(component.SkipSound, uid);
+    }
+
     private void OnPrintLabelMessage(EntityUid uid, NtrTaskProviderComponent component, TaskPrintLabelMessage args)
     {
         if (_timing.CurTime < component.NextPrintTime)
@@ -79,35 +111,17 @@ public sealed class NTRTaskSystem : EntitySystem
         if (_station.GetOwningStation(uid) is not { } station)
             return;
 
-        if (!TryGetTaskFromId(station, args.TaskId, out var bounty))
+        if (!TryGetTaskFromId(station, args.TaskId, out var task))
             return;
 
-        var label = Spawn(component.TaskLabelId, Transform(uid).Coordinates);
+        if (!_protoMan.TryIndex(task.Value.Task, out var ntrPrototype))
+            return;
+
+        Spawn(ntrPrototype.Proto, Transform(uid).Coordinates);
         component.NextPrintTime = _timing.CurTime + component.PrintDelay;
-        SetupTaskLabel(label, station, bounty.Value);
         _audio.PlayPvs(component.PrintSound, uid);
     }
 
-    public void SetupTaskLabel(EntityUid uid, EntityUid stationId, NtrTaskData task, PaperComponent? paper = null)
-    {
-        if (!Resolve(uid, ref paper) || !_protoMan.TryIndex<NtrTaskPrototype>(task.Task, out var prototype))
-            return;
-
-        var msg = new FormattedMessage();
-        msg.AddText(Loc.GetString("bounty-manifest-header", ("id", task.Id)));
-        msg.PushNewline();
-        msg.AddText(Loc.GetString("bounty-manifest-list-start"));
-        msg.PushNewline();
-        foreach (var entry in prototype.Entries)
-        {
-            msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry",
-                ("amount", entry.Amount),
-                ("item", Loc.GetString(entry.Name)))}");
-            msg.PushNewline();
-        }
-        msg.AddMarkupOrThrow(Loc.GetString("bounty-console-manifest-reward", ("reward", prototype.Reward)));
-        _paperSystem.SetContent((uid, paper), msg.ToMarkup());
-    }
 
     /// <summary>
     /// При открытии интерфейса получаем станцию через GetOwningStation, из станции вытаскиваем компонент базы данных задач НТР

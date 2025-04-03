@@ -3,6 +3,7 @@ using Content.Shared.Paper;    //ammount of times this whole system was re-done:
 using Content.Shared.StoryGen; //ammount of hours wasted trying to understand papersystem: 29
 using Robust.Shared.Random;    //skill issue.
 using System.Linq;
+using Content.Goobstation.Shared.NTR;
 using Robust.Shared.GameStates;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
@@ -19,7 +20,6 @@ namespace Content.Goobstation.Server.NTR.Documents
         {
             SubscribeLocalEvent<RandomDocumentComponent, MapInitEvent>(OnDocumentInit);
         }
-
         private void OnDocumentInit(EntityUid uid, RandomDocumentComponent component, MapInitEvent args)
         {
             var text = GenerateDocument(component.dtype);
