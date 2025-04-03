@@ -361,5 +361,108 @@
     stealthy: true
   - type: BypassInteractionChecks
   - type: SupermatterImmune
+  - type: MovementIgnoreGravity
 
+# ... Conquest? What the fuck.
+# STAND READY FOR MY ARRIVAL WORM.
+# YOU WERE GIVEN ORDERS, YOU WERE GIVEN TIME, YOU WERE GIVEN MORE LEEWAY THAN MOST
+# AND YET I FIND THIS PLANET UNPREPARED FOR THE ARRIVAL OF OUR VILTRUM EMPIRE!
 
+- type: entity
+  id: ConquestSpawner
+  name: Conquest
+  suffix: Admeme
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: RandomHumanoidSpawner
+    settings: Conquest
+
+- type: randomHumanoidSettings
+  id: Conquest
+  parent: EventHumanMindShielded
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, NutrimentPumpImplant, SpaceProofImplant, StypticStimulatorImplant ]
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    hair: HairBald
+  - type: GhostRole
+    name: ghost-role-information-conquest-name
+    description: ghost-role-information-conquest-description
+    rules: ghost-role-information-conquest-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ConquestGear]
+  - type: RandomMetadata
+    nameSegments: [ names_conquest ]
+  - type: Puller
+    needsHands: false
+    throwCooldown: 0.1
+    stageChangeCooldown: 0.1
+    grabThrowDamageModifier: 100
+    grabThrownSpeed: 50
+    softGrabSpeedModifier: 4
+    hardGrabSpeedModifier: 4
+    chokeGrabSpeedModifier: 4
+  - type: MeleeWeapon
+    altDisarm: false
+    heavyStaminaCost: 1.5
+    damage:
+      types:
+        Blunt: 15
+  - type: NoWieldNeeded
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 10000 # Lol. Lmao even.
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Critical
+      2000: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60000
+      behaviors:
+      - !type:GibBehavior { }
+  - type: NoSlip
+  - type: Temperature
+    heatDamageThreshold: 5000
+    currentTemperature: 310.15
+    specificHeat: 42
+    heatDamage:
+      types:
+        Heat: -1
+  - type: MovementIgnoreGravity
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      500: 1.2
+      1000: 1.5
+      1500: 2
+  - type: Stamina
+    critThreshold: 100000
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+    damageCap: 0
+    damage:
+      types:
+        Heat: -3
+      groups:
+        Brute: -3

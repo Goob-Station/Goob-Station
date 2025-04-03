@@ -2,3 +2,34 @@
   id: Overall
   name: job-name-overall
   playTimeTracker: Overall
+
+- type: job
+  id: Conquest
+  name: job-name-conquest
+  description: job-description-conquest
+  playTimeTracker: JobConquest
+  setPreference: false
+  startingGear: ConquestGear
+  supervisors: job-supervisors-null
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
+  - Wizard
+  - NuclearOperative
+  - SyndicateAgent
+  special:
+  - !type:AddImplantSpecial
+    implants: [ FreedomImplant, NutrimentPumpImplant, SpaceProofImplant ]
+
+- type: startingGear
+  id: ConquestGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    gloves: ClothingHandsGlovesConquestUnremovable

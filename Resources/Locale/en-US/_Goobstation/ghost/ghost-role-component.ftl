@@ -53,6 +53,12 @@ ghost-role-information-Gman-name = The G-Man
 ghost-role-information-Gman-description = The right man in the wrong place can make all the difference in the world.
 ghost-role-information-Gman-rules = You are beholden to no rules or boundaries. Death cannot hold you, and neither can Nanotrasen.
 
+# Conquest?
+
+ghost-role-information-conquest-name = Conquest
+ghost-role-information-conquest-description = This station was given orders, they were given time. They were given more leeway than most.
+ghost-role-information-conquest-rules = Prepare this station for the arrival of the Viltrum Empire.
+
 # Token Roles
 
 ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!
