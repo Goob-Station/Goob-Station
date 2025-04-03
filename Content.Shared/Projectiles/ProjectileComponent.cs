@@ -103,6 +103,9 @@ public sealed partial class ProjectileComponent : Component
 
     // Goobstation start
     [DataField]
+    public float ArmorPenetration;
+
+    [DataField]
     public bool Penetrate;
 
     /// <summary>

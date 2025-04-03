@@ -41,8 +41,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 26 # 20% decrease
-    ignoreResistances: true
+        Piercing: 30
+    armorPenetration: 0.4
 
 - type: entity
   id: BulletMagnumUranium

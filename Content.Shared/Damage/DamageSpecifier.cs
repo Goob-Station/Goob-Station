@@ -308,6 +308,45 @@ namespace Content.Shared.Damage
             }
         }
 
+        // Goobstation - partial AP. Returns new armor modifier set.
+        public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet, float penetration)
+        {
+            if (penetration == 0f)
+                return modifierSet;
+
+            var result = new DamageModifierSet();
+            if (penetration >= 1f)
+                return result;
+
+            foreach (var (type, coef) in modifierSet.Coefficients)
+            {
+                // Negative coefficients are not modified by this
+                if (coef <= 0)
+                {
+                    result.FlatReduction.Add(type, coef);
+                    continue;
+                }
+                var max = MathF.Max(1f, coef);
+                result.Coefficients.Add(type, Math.Clamp(1f - (1f - coef - penetration) / (1f - penetration), 0f, max));
+            }
+
+            var flatPenetration = 1f - penetration;
+
+            foreach (var (type, flat) in modifierSet.FlatReduction)
+            {
+                // Negative flat reductions are not modified by this
+                if (flat <= 0)
+                {
+                    result.FlatReduction.Add(type, flat);
+                    continue;
+                }
+
+                result.FlatReduction.Add(type, flat * flatPenetration);
+            }
+
+            return result;
+        }
+
         #region Operators
         public static DamageSpecifier operator *(DamageSpecifier damageSpec, FixedPoint2 factor)
         {
