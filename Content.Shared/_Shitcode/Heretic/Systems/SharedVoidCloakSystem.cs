@@ -55,10 +55,10 @@ public abstract class SharedVoidCloakSystem : EntitySystem
         if (!TryComp(attached.AttachedUid, out VoidCloakComponent? comp))
             return;
 
-        if (args.OldParent == attached.AttachedUid) // If we equip the hood
-            MakeCloakTransparent(attached.AttachedUid, comp);
-        else // If we unequip hood (old parent is heretic in this case)
+        if (args.Transform.ParentUid == attached.AttachedUid) // If we unequip hood (new parent is cloak)
             MakeCloakVisible(attached.AttachedUid, comp);
+        if (args.OldParent == attached.AttachedUid) // If we equip the hood (mew parent is heretic)
+            MakeCloakTransparent(attached.AttachedUid, comp);
     }
 
     private void MakeCloakTransparent(EntityUid cloak, VoidCloakComponent comp)

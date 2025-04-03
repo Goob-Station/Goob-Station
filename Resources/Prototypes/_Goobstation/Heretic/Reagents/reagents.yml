@@ -85,8 +85,8 @@
         probability: 0.5
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: 5
+          types:
+            Poison: 5
         conditions:
         - !type:HasComponentCondition
           components:

@@ -146,6 +146,8 @@
   - type: EdgeSpreader
     id: Rust
   - type: RustSpreader
+  - type: Visibility
+    layer: 0
   - type: Tag
     tags:
       - HideContextMenu
@@ -165,5 +167,5 @@
 
 - type: edgeSpreader
   id: Rust
-  updatesPerSecond: 16
+  updatesPerSecond: 8
   preventSpreadOnSpaced: false
