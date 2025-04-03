@@ -276,7 +276,7 @@
       effects:
       - !type:TakeStaminaDamage
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         amount: 13 # 13 parity
