@@ -30,7 +30,8 @@ public sealed class SyringeGunSystem : EntitySystem
             {
                 whileEmbedded.Injections = null; // uncap the injection maximum
                 whileEmbedded.PierceArmorOverride = gun.Comp.PierceArmor;
-                whileEmbedded.AmountMultiplier = gun.Comp.InjectionSpeedMultiplier;
+                whileEmbedded.SpeedMultiplier = gun.Comp.InjectionSpeedMultiplier; // store it in the component to reset it
+                whileEmbedded.UpdateInterval /= whileEmbedded.SpeedMultiplier;
             }
             if (TryComp(projectile, out SolutionInjectOnEmbedComponent? onEmbed))
                 onEmbed.PierceArmorOverride = gun.Comp.PierceArmor;
