@@ -1202,13 +1202,6 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        probability: 0.05
-        paralyzeTime: 1
-      - !type:Paralyze # more severe effect when overdosing
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
         - !type:ReagentThreshold
           min: 35
         probability: 0.1
