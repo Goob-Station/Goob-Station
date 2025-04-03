@@ -172,17 +172,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkDualettaKit
-  name: uplink-dualetta-kit-name
-  description: uplink-dualetta-kit-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
-  productEntity: BoxDualettaKit
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkPistolAnaconda
   name: uplink-anaconda-name
   description: uplink-anaconda-desc
@@ -226,16 +215,6 @@
     whitelist:
       tags:
       - NukeOpsUplink
-
-- type: listing
-  id: UplinkPistolCobra
-  name: uplink-pistol-cobra-name
-  description: uplink-pistol-cobra-desc
-  productEntity: WeaponPistolCobra
-  cost:
-    Telecrystal: 15 # goob - this +1 mag = 18 TC
-  categories:
-  - UplinkWeaponry
 
 # Wearables
 
@@ -627,6 +606,17 @@
 #    Telecrystal: 40 # ammo should be a big cost for this
 #  categories:
 #  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazinePistolCaselessMagnumMinusP
+  name: uplink-caseless-magnum-pistol-mag-minusp-name
+  description: uplink-caseless-magnum-pistol-mag-minusp-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: rubber }
+  productEntity: MagazinePistolCaselessMagnumMinusP
+  cost:
+    Telecrystal: 3 # goob - 5 shots to crit
+  categories:
+  - UplinkAmmo
 
 # 弾薬
 - type: listing
