@@ -94,6 +94,10 @@
   - type: FlashImmunity
   - type: ScannableForPoints # NTR update
     points: 2 # this would be abused so much if i made it more
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBingle
+      amount: 3
 
 - type: entity
   id: MobBinglePrime
