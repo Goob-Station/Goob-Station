@@ -104,19 +104,6 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 120
 
-- type: listing
-  id: NTRExecutiveSoftsuit
-  name: ntr-executive-softsuit-name
-  description: ntr-executive-softsuit-desc
-  productEntity: CrateEvaKit # PLACEHOLDER, change to NTR softsuit when sprites are ready
-  cost:
-    NTLoyaltyPoint: 15
-  categories:
-  - NTRpersonal
-  restockTime: 300 # 5 mins
-  resetRestockOnPurchase: true
-  restockAfterPurchase: 1800 # 30 mins, you dont need two softsuits as NTR, unless you fuck up real bad
-
 # personal
 - type: listing
   id: NTRInternCall
@@ -134,6 +121,19 @@
     stock: 1 # if ntr wants more intern, he should buy one-at-the-time
 
 - type: listing
+  id: NTRDagger
+  name: Phoron dagger
+  description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
+  productEntity: PhoronDagger
+  cost:
+    NTLoyaltyPoint: 30
+  categories:
+  - NTRpersonal
+  restockTime: 900 # 15 min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1200 # 20 min
+
+- type: listing
   id: NTRSingleIntern
   name: Single Intern Coin
   description: Summons one basic intern.
@@ -143,6 +143,8 @@
   categories:
   - NTRpersonal
   restockTime: 300
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 mins
 
 - type: listing
   id: NTRExecutiveBSDCall
@@ -169,7 +171,7 @@
   - NTRpersonal
   restockTime: 600 # 10 mins
   resetRestockOnPurchase: true
-  restockAfterPurchase: 2400 # 60 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
+  restockAfterPurchase: 2400 # 40 mins, you dont want to buy 2 suits in one shift, but if you do, then wait lol
 
 - type: listing
   id: NTRExecutiveCigar
