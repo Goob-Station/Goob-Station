@@ -65,6 +65,8 @@ public sealed partial class CursedSystem : EntitySystem
         }
     }
 
+    // Okay, this could cause issues if they had these comps BEFORE being cursed.
+    // But lets me real, this is only used for an admin smite, who cares?
     private void OnComponentRemoved(EntityUid uid, CursedComponent component, ComponentRemove args)
     {
         // Clean up all curse-related components
