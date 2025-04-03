@@ -29,10 +29,14 @@
   id: SecurityWeaponsGoob
   recipes:
   - WeaponSubMachineSmart
+  - WeaponEnergyRifle
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
   recipes:
+  - EnergyMagRifleIon
+  - EnergyMagRifleDisabler
+  - EnergyMagRifleLethal
   - MagazineSmart
   - MagazineBoxShotgunIncendiaryHighCaliber
   - MagazineBoxShotgunBeanbagHighCaliber
