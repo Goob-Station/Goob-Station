@@ -1,0 +1,48 @@
+- type: entity
+  id: MikeTyson
+  name: mike tyson
+  description: she mike on my tyson 'till i punchout
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - WallLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Sprite
+    layers:
+    - sprite: _Goobstation/Structures/Misc/miketyson.rsi
+      state: icon
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+  - type: RequireProjectileTarget
+  - type: PassiveDamage
+    damage:
+      types:
+        Heat: -1
+        Shock: -1
+        Structural: -1
+      groups:
+        Brute: -1

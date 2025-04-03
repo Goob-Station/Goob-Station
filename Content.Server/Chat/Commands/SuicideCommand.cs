@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.BlockSuicide;
 using Content.Server.Popups;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
@@ -41,6 +42,15 @@ namespace Content.Server.Chat.Commands
             var suicideSystem = _e.System<SuicideSystem>();
 
             if (_e.HasComponent<AdminFrozenComponent>(victim))
+            {
+                var deniedMessage = Loc.GetString("suicide-command-denied");
+                shell.WriteLine(deniedMessage);
+                _e.System<PopupSystem>()
+                    .PopupEntity(deniedMessage, victim, victim);
+                return;
+            }
+
+            if (_e.HasComponent<BlockSuicideComponent>(victim)) // Goobstation
             {
                 var deniedMessage = Loc.GetString("suicide-command-denied");
                 shell.WriteLine(deniedMessage);

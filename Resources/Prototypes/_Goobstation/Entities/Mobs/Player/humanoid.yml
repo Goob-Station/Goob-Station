@@ -371,7 +371,7 @@
   randomizeName: false
   components:
   - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm]
   - type: GrantCqc
     isBlocked: false
   - type: GhostRole
