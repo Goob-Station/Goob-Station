@@ -28,6 +28,7 @@
 - type: latheRecipePack
   id: SecurityWeaponsGoob
   recipes:
+  - Terminus
   - WeaponSubMachineSmart
   - WeaponEnergyRifle
 
