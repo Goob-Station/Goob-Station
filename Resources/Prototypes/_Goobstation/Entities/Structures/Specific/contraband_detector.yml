@@ -3,109 +3,54 @@
   description: Walk in with confidence, walk out with security chasing you.
   parent: BaseMachinePowered
   id: ContrabandDetector
-  suffix: unlocked
   placement:
     mode: SnapgridCenter
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Transform
-    anchored: true
     noRot: false
-  - type: Anchorable
-    delay: 2
-  - type: Pullable
-  - type: MovedByPressure
   - type: Physics
     bodyType: Static
-    fixedRotation: true
   - type: Fixtures
     fixtures:
-      slips:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-        hard: false
-        layer:
-          - Impassable
-          - MidImpassable
-          - LowImpassable
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,-0.36,0.49"
+          bounds: "-0.45,-0.45,0.45,0.45"
+        hard: false
         density: 1500
         mask:
-        - FullTileMask
+        - DoorPassable
         layer:
-        - WallLayer
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.49,0.49,0.36,-0.49"
-        density: 1500
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
+        - AirlockLayer
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ContrabandDetectorVisuals.VisualState:
+        scanner:
+          Off: { state: empty }
+          Powered: { state: passive }
+          Alarm: { state: alarm }
+          Scan: { state: scan }
   - type: Sprite
     noRot: true
-    drawdepth: OverMobs
+    drawdepth: Overdoors
     sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
-    state: base
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 400
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel:
-            min: 5
-            max: 5
-          ContrabandDetectorCircuitboard:
-            min: 1
-            max: 1
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: StepTrigger
-    requiredTriggeredSpeed: 0
-    stepOn: true
-    ignoreWeightless: true
-    triggerGroups: # Goobstation
-      types:
-      - ContrabandDetector
+    layers:
+    - state: frame
+    - map: ["scanner"]
+      shader: unshaded
+      state: empty
+    - state: wires
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: ContrabandDetector
-    noDetect:
-        path: /Audio/Effects/beep_landmine.ogg
-        params:
-            maxDistance: 10
     detect:
-        path: /Audio/Effects/chime.ogg
-        params:
-            maxDistance: 10
-  - type: Rotatable
-    rotateWhileAnchored: false
-    rotateWhilePulling: true
-  - type: Repairable
-  - type: LockedAnchorable
+      path: /Audio/Effects/chime.ogg
+      params:
+          maxDistance: 10
   - type: AccessReader
     access: [["Security"]]
-  - type: Lock
-    locked: false
   - type: DeviceNetwork
     deviceNetId: Wireless
   - type: WirelessNetworkConnection
@@ -116,85 +61,64 @@
       - SignalContrabandDetected
   - type: Construction
     graph: ContrabandDetector
-    node: complete
-  - type: PointLight
-    color: red
-    enabled: false
-    energy: 5
-    radius: 1.5
+    node: detector
+  - type: WiresPanel
+  - type: WiresPanelSecurity
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: ContrabandDetector
+    boardName: wires-board-name-contraband-detector
+  - type: Electrified
+    usesApcPower: true
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
 
 - type: entity
   parent: ContrabandDetector
-  id: ContrabandDetectorAnchored
-  suffix: locked
+  id: ContrabandDetectorSecure
+  suffix: Secure
   components:
-  - type: Transform
-    anchored: true
-    noRot: false
-  - type: Lock
-    locked: true
-
+  - type: Construction
+    graph: ContrabandDetector
+    node: panelReinforced
+  - type: WiresPanelSecurity
+    securityLevel: panelReinforced
+    examine: wires-panel-component-on-examine-security-level2
+    wiresAccessible: false
 
 - type: entity
   id: ContrabandDetectorFrame
   name: contraband detector frame
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Transform
-    anchored: true
   - type: Sprite
-    drawdepth: OverMobs
+    noRot: true
+    drawdepth: Overdoors
     sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
-    state: base
+    state: frame
   - type: Physics
     bodyType: Static
-    fixedRotation: true
+  - type: Anchorable
+  - type: Pullable
+  - type: Rotatable
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,-0.36,0.49"
+          bounds: "-0.45,-0.45,0.45,0.45"
+        hard: false
         density: 1500
         mask:
-        - FullTileMask
+        - DoorPassable
         layer:
-        - WallLayer
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.49,0.49,0.36,-0.49"
-        density: 1500
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel:
-            min: 5
-            max: 5
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        - AirlockLayer
   - type: Construction
     graph: ContrabandDetector
     node: frame

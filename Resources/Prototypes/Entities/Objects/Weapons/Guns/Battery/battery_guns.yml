@@ -246,6 +246,9 @@
   - type: StaticPrice
     price: 300
   - type: PacifismAllowedGun
+  # Goobstation
+  - type: Item
+    size: Large
 
 
 - type: entity
