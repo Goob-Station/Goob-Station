@@ -2,7 +2,7 @@
   name: M7S submachine gun
   parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
   id: WeaponSubMachineGunM7S
-  description: A firearm that is often used by the infamous nuclear operatives. Uses .35 auto ammo.
+  description: You may or may not be green, but you are still very very mean. Takes proprietary side-loading .25 rifle magazines.
   components:
   - type: ItemSlots
     slots:

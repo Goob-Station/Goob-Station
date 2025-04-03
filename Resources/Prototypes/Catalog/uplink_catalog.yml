@@ -26,15 +26,15 @@
 
 
 # Inbuilt suppressor so it's sneaky + more expensive.
-- type: listing
-  id: UplinkPistolCobra
-  name: uplink-pistol-cobra-name
-  description: uplink-pistol-cobra-desc
-  productEntity: WeaponPistolCobra
-  cost:
-    Telecrystal: 15 # goob - this +1 mag = 18 TC
-  categories:
-  - UplinkWeaponry
+#- type: listing
+#  id: UplinkPistolCobra
+#  name: uplink-pistol-cobra-name
+#  description: uplink-pistol-cobra-desc
+#  productEntity: WeaponPistolCobra
+#  cost:
+#    Telecrystal: 15 # goob - this +1 mag = 18 TC
+#  categories:
+#  - UplinkWeaponry
 
 
 # Poor accuracy, slow to fire, cheap option

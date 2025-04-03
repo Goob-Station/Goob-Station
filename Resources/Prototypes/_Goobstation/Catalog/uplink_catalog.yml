@@ -172,6 +172,17 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkDualettaKit
+  name: uplink-dualetta-kit-name
+  description: uplink-dualetta-kit-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BoxDualettaKit
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkPistolAnaconda
   name: uplink-anaconda-name
   description: uplink-anaconda-desc
@@ -200,11 +211,6 @@
     Telecrystal: 65
   categories:
     -  UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkWeaponHeavensgate
@@ -220,6 +226,16 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkPistolCobra
+  name: uplink-pistol-cobra-name
+  description: uplink-pistol-cobra-desc
+  productEntity: WeaponPistolCobra
+  cost:
+    Telecrystal: 15 # goob - this +1 mag = 18 TC
+  categories:
+  - UplinkWeaponry
 
 # Wearables
 
@@ -682,11 +698,6 @@
     Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10 explosive
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkMagazineM7S
@@ -698,11 +709,6 @@
     Telecrystal: 8 # 48 rounds of .25 rifle, 19 damage a shot but half the velocity of other weapons
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkBox92AP

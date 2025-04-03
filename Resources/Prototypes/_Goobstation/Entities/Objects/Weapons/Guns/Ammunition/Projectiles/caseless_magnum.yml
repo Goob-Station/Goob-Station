@@ -24,7 +24,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletCaselessMagnum95SAPHE
-  name: bullet (9.5mm caseless magnup SAP-HE)
+  name: bullet (9.5mm caseless magnum SAP-HE)
   components:
   - type: Projectile
     damage:
