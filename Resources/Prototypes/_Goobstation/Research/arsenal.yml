@@ -52,6 +52,23 @@
   technologyPrerequisites:
   - WeaponizedLaserManipulation
 
+- type: technology
+  id: EnergyBoltBasedWeaponry # for future energy bolt weapon
+  name: research-technology-energy-bolt-weaponry
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponEnergyRifle
+  - EnergyMagRifleIon
+  - EnergyMagRifleDisabler
+  - EnergyMagRifleLethal
+  technologyPrerequisites:
+  - AdvancedWeaponry
+
 # Tier 3
 
 - type: technology

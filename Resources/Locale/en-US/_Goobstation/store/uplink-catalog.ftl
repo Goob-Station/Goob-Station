@@ -49,9 +49,6 @@ uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing distantly heal allies or commit war crimes by poisoning foes.
 # Weapons
 
-uplink-dualetta-kit-name = Dualetta kit
-uplink-dualetta-kit-desc = Two dualettas for a cheap price.
-
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
