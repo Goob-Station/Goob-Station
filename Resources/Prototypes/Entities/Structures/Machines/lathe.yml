@@ -140,6 +140,7 @@
     - SecurityAmmoStatic
     # Goobstation
     - SecurityAmmoStaticGoob
+    - SyndicateAmmoLightStatic
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -207,18 +208,15 @@
     - PowerCells
     #- ScienceWeapons - Goobstation - Moved to Scifab
     #- Mining - Goobstation - Moved to Cargofab
-    - AtmosTools
+    #- AtmosTools - Goobstation - Moved to Engifab
     #- EngineeringWeapons - Goobstation - Moved to Scifab and Engifab
-    - Chemistry
+    #- Chemistry - Goobstation
     - Janitor
     - Instruments
     - Equipment # Goobstation note: handheld mass scanner is removed
     - FauxTiles
     # Goobstation Packs
     - ServiceWeapons
-    #- MiningWeapons Goobstation - Moved to Cargofab
-    #- MiningUpgrades - Moved to Cargofab
-    - Surgery
     - SpecOpsGoogles
     - MedicalMisc
     - MedicalVehiclesAdvanced
@@ -226,10 +224,12 @@
     emagDynamicPacks:
     - SecurityAmmo
     - SecurityExplosives
-    - SecurityEquipment
+    #- SecurityEquipment # Goobstation
     - SecurityWeapons
     # Goobstation Packs
     - SecurityAmmoGoob
+    - SecurityWeaponsGoob
+    - MiningWeapons
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -283,15 +283,10 @@
     - ServiceBoards
     #- ScienceBoards - Goobstation - Moved to Scifab
     - CameraBoards
-    - MechBoards
+    #- MechBoards - Goobstation - split between departmental lathes
     - ShuttleBoards
     # Goobstation Packs
     - SharedBoards
-    #- MedicalBoardsGoob - Goobstation - Moved to Scifab and Medfab
-    - MechElectronicsGoob
-  - type: EmagLatheRecipes
-    #emagDynamicPacks:
-    #- SecurityBoards - Goobstation -  Moved to Secfab
   - type: MaterialStorage
     whitelist:
       tags:
@@ -355,8 +350,12 @@
     - BorgModulesGoob
     - Cybernetics
     - PowerCells
-    - MechBoards
-    - MechElectronicsGoob
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticPacks:
+    - MechWeaponsSecurityStatic
+    emagDynamicPacks:
+    - MechWeaponsSalvage
+    - MechWeaponsSecurityLight
   - type: MaterialStorage
     whitelist:
       tags:
@@ -443,7 +442,7 @@
     - SecurityAmmoStaticGoob
     - SecurityEquipmentStaticGoob
     - SecurityHypoStatic
-    - MechWeaponsStatic
+    - MechWeaponsSecurityStatic
     - SecurityBoardsStaticGoob
     - SecurityBoardsStaticGoob
     - PowerCellsStatic
@@ -456,18 +455,18 @@
     - SecurityDisablers
     # Goobstation
     - SecurityWeaponsGoob
-    - MechWeapons
+    - MechBoardsSecurity
+    - MechWeaponsSecurityLight
+    - MechWeaponsSecurityHeavy
     - SecurityAmmoGoob
     - SecurityCybernetics
     - ServiceWeapons
     - SpecOpsGoogles
-    - SecurityMechElectronicsGoob
     - PowerCells
-    - SecurityWeaponsEinsteinEngines # Einstein Engines
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
-    - SyndicateAmmoStatic
-    - SyndicateCatridgesStatic
+    - SyndicateAmmoLightStatic
+    - SyndicateAmmoHeavyStatic
   - type: MaterialStorage
     whitelist:
       tags:
@@ -505,7 +504,8 @@
       - SecurityAmmoStaticGoob
     - type: EmagLatheRecipes # Goobstation Packs
       emagStaticPacks:
-      - SyndicateAmmoStatic
+      - SyndicateAmmoLightStatic
+      - SyndicateAmmoHeavyStatic
     - type: MaterialStorage
       whitelist:
         tags:
@@ -560,7 +560,6 @@
     - MedicalMiscRestricted
     - MedicalVehiclesAdvanced
     - MedicalBoards
-    - ServiceWeapons
     - Janitor
   - type: Machine
     board: MedicalTechFabCircuitboard
