@@ -452,7 +452,7 @@
 - type: entity
   id: ActionSpellCards
   name: Spell Cards
-  description: Fire up to five bursts of homing spell cards.
+  description: Fire up to six bursts of homing spell cards.
   components:
   - type: EntityWorldTargetAction
     checkCanAccess: false
