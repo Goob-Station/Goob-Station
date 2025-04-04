@@ -7036,3 +7036,9 @@ Entries:
         not.
   id: 817
   time: '2025-04-03T03:00:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Proximity airlock opening.
+  id: 818
+  time: '2025-04-03T08:14:59.0000000+00:00'
