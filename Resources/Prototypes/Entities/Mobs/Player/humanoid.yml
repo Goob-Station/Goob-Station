@@ -1,4 +1,5 @@
 ## Random humanoids
+## All role time requirements are from goobstation.
 
 - type: randomHumanoidSettings
   id: EventHumanoid
@@ -55,17 +56,24 @@
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid # Goobstation
   randomizeName: false
   components:
-    - type: GrantImplant
-      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
+    - type: AutoImplant
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 48000 # Goobstation
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # Goobstation
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -94,7 +102,7 @@
 
 - type: randomHumanoidSettings
   id: ERTLeader
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid # Goobstation
   randomizeName: false
   components:
     - type: GhostRole
@@ -104,9 +112,18 @@
       raffle:
         settings: short
       job: ERTLeader
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # five hours
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitaryLeader
@@ -137,29 +154,6 @@
       job: ERTLeader
     - type: Loadout
       prototypes: [ ERTLeaderGearEVA ]
-      roleLoadout: [ RoleSurvivalEVA ]
-
-- type: entity
-  id: RandomHumanoidSpawnerERTLeaderEVAAnnie
-  parent: RandomHumanoidSpawnerERTLeaderEVA
-  suffix: ERTRole, Annie, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVAAnnie
-
-- type: randomHumanoidSettings
-  id: ERTLeaderEVAAnnie
-  parent: ERTLeaderEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-leader-name
-      description: ghost-role-information-ert-leader-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTLeader
-    - type: Loadout
-      prototypes: [ ERTLeaderGearEVAAnnie ]
       roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Chaplain
@@ -321,6 +315,13 @@
       raffle:
         settings: short
       job: ERTEngineer
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # five hours
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -392,6 +393,8 @@
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -419,6 +422,8 @@
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 # ERT Lecter is dead, and I have killed it. - Sol
 #- type: entity
@@ -480,6 +485,8 @@
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
@@ -503,10 +510,19 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # five hours
       job: ERTMedical
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 ## CBURN
 
@@ -525,8 +541,8 @@
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: Loadout
       prototypes: [CBURNGear]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -536,6 +552,13 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # five hours
     - type: RandomMetadata
       nameSegments:
       - NamesFirstMilitary
@@ -557,8 +580,8 @@
   id: CentcomOfficial
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
-      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
       description: ghost-role-information-centcom-official-description

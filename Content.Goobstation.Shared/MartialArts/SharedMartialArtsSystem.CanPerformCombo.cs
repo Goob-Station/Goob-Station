@@ -68,6 +68,7 @@ public partial class SharedMartialArtsSystem
                 continue;
             var beingPerformedEv = new ComboBeingPerformedEvent(proto.ID);
             var ev = proto.ResultEvent;
+
             RaiseLocalEvent(uid, beingPerformedEv);
             RaiseLocalEvent(uid, ev);
             comp.LastAttacks.Clear();

@@ -24,3 +24,18 @@
     whitelist:
       tags:
       - FoodSnack
+
+- type: entity
+  id: DeterrentCaseFilled
+  parent: DeterrentCase
+  suffix: Filled, CentComm
+  components:
+  - type: StorageFill
+    contents:
+    - id: AmnestizineHypospray
+    - id: CartridgeAmnestic
+    - id: CartridgeAmnestic
+    - id: CartridgeAmnestic
+    - id: CartridgeAmnestic
+    - id: TelescopicBatonAdvanced
+    - id: HyperFlash

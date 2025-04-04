@@ -40,4 +40,10 @@ public sealed partial class EmagComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityWhitelist? ValidTargets;
+
+    /// <summary>
+    /// Goobstation - The text displayed when successful.
+    /// </summary>
+    [DataField]
+    public LocId SuccessText = "emag-success";
 }
