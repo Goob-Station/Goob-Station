@@ -37,3 +37,9 @@ roles-antag-thief-objective = Add some NT property to your personal collection w
 
 roles-antag-dragon-name = Space Dragon
 roles-antag-dragon-objective = Create a carp army to take over this quadrant.
+
+roles-antag-flapoob-name = Flapoob
+roles-antag-flapoob-objective = You are Flapoob, creator of all catgirls, enslave and conquer the station to serve as your new lab.
+
+roles-antag-flapoob-agent-name = Flapoob agent
+roles-antag-flapoob-agent-objective = An agent of Flapoob, help him enslave the station.

@@ -1,0 +1,21 @@
+- type: antag
+  id: Flapoob
+  name: roles-antag-flapoob-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-flapoob-objective
+  guides: [ Flapoob ]
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackChameleonFill
+
+- type: antag
+  id: FlapoobAgent
+  name: roles-antag-flapoob-agent-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-flapoob-agent-objective
+  guides: [ Flapoob ]
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackChameleonFill
