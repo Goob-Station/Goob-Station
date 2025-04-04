@@ -135,7 +135,8 @@ public abstract class SharedFishingSystem : EntitySystem
             activeFisher.TotalProgress = fishRodComp.StartingProgress;
             activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(0.3f); // Compensate ping for 0.3 seconds
 
-            _popup.PopupEntity(Loc.GetString("fishing-progress-start"), fisher, fisher);
+            // Predicted because it works like 99.9% of the time anyway.
+            _popup.PopupPredicted(Loc.GetString("fishing-progress-start"), fisher, fisher);
             activeSpotComp.IsActive = true;
         }
 
