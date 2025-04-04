@@ -192,3 +192,19 @@
     - MobAngryBee
     - MobSyndieAngryBee
     - MobAngryBeeWeak
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowSlash
+  name: slashing arrow
+  description: An arrow made from hardlight. This one slashes unarmored targets with ease.
+  components:
+  - type: Sprite
+    color: silver
+  - type: PointLight
+    color: silver
+  - type: Projectile
+    armorPenetration: -1.2
+    damage:
+      types:
+        Slash: 120

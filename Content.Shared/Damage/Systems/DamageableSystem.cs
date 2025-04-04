@@ -219,7 +219,12 @@ namespace Content.Shared.Damage
                     // TODO DAMAGE PERFORMANCE
                     // use a local private field instead of creating a new dictionary here..
                     // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
-                    damage = DamageSpecifier.ApplyModifierSet(damage, DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goob edit
+                    // Goobstation start
+                    var newSet = armorPenetration <= 0 // Don't increase resistances with negative penetration and innate modifier set
+                        ? modifierSet
+                        : DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration);
+                    damage = DamageSpecifier.ApplyModifierSet(damage, newSet);
+                    // Goobstation end
                 }
 
                 var ev = new DamageModifyEvent(damage, origin, targetPart, armorPenetration); // Shitmed Change

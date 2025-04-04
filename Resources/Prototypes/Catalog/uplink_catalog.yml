@@ -471,7 +471,7 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 8 # goob
+    Telecrystal: 10 # goob
   categories:
   - UplinkAmmo
 

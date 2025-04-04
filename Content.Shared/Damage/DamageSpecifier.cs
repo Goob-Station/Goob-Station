@@ -309,7 +309,7 @@ namespace Content.Shared.Damage
         }
 
         // Goobstation - partial AP. Returns new armor modifier set.
-        public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet, float penetration)
+        public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet, float penetration, bool altFormula = false)
         {
             if (penetration == 0f)
                 return modifierSet;
@@ -326,6 +326,50 @@ namespace Content.Shared.Damage
                     result.FlatReduction.Add(type, coef);
                     continue;
                 }
+
+                var max = MathF.Max(1f, coef);
+                result.Coefficients.Add(type,
+                    altFormula
+                        ? Math.Clamp(1f - (1f - coef - penetration) / (1f - penetration), 0f, max) // SS13 formula
+                        : Math.Clamp(1f - (1f - penetration) * (1f - coef), 0f, max)); // Custom formula
+            }
+
+            var flatPenetration = 1f - penetration;
+
+            foreach (var (type, flat) in modifierSet.FlatReduction)
+            {
+                // Negative flat reductions are not modified by this
+                if (flat <= 0)
+                {
+                    result.FlatReduction.Add(type, flat);
+                    continue;
+                }
+
+                result.FlatReduction.Add(type, flat * flatPenetration);
+            }
+
+            return result;
+        }
+
+        // Goobstation - partial AP. SS13 formula.
+        public static DamageModifierSet PenetrateArmorAlt(DamageModifierSet modifierSet, float penetration)
+        {
+            if (penetration == 0f)
+                return modifierSet;
+
+            var result = new DamageModifierSet();
+            if (penetration >= 1f)
+                return result;
+
+            foreach (var (type, coef) in modifierSet.Coefficients)
+            {
+                // Negative coefficients are not modified by this
+                if (coef <= 0)
+                {
+                    result.FlatReduction.Add(type, coef);
+                    continue;
+                }
+
                 var max = MathF.Max(1f, coef);
                 result.Coefficients.Add(type, Math.Clamp(1f - (1f - coef - penetration) / (1f - penetration), 0f, max));
             }
