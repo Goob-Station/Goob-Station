@@ -44,7 +44,7 @@ public sealed partial class HulkComponent : Component
     public List<Color> NonHumanoidOldLayerData = new();
 
     /// <summary>
-    /// Multiplier is actually this value + 1
+    /// Multiplier is actually this value + 1so
     /// </summary>
     [DataField]
     public float FistDamageMultiplier = 7f;

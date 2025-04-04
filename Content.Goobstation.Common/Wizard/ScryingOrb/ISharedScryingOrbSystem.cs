@@ -1,6 +1,6 @@
 namespace Content.Goobstation.Common.Wizard.ScryingOrb;
 
-public interface ISharedScryingOrbSystem : IEntitySystem
+public interface ISharedScryingOrbSystem
 {
     bool IsScryingOrbEquipped(EntityUid uid);
 }

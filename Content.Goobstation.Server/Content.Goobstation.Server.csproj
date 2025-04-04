@@ -14,6 +14,7 @@
     </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
+    <PackageReference Include="NLua" />
   </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Content.Goobstation.Shared\Content.Goobstation.Shared.csproj" />
