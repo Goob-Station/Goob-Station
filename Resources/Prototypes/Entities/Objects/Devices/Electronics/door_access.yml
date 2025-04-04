@@ -310,3 +310,108 @@
   components:
   - type: AccessReader
     access: [["Security"], ["Command"]]
+
+# Dorm rooms RA
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics1A
+  suffix: 1A, Locked
+  components:
+  - type: AccessReader
+    access: [["1A"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics1B
+  suffix: 1B, Locked
+  components:
+  - type: AccessReader
+    access: [["1B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics2A
+  suffix: 2A, Locked
+  components:
+  - type: AccessReader
+    access: [["2A"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics2B
+  suffix: 2B, Locked
+  components:
+  - type: AccessReader
+    access: [["2B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics3A
+  suffix: 3A, Locked
+  components:
+  - type: AccessReader
+    access: [["3A"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics3B
+  suffix: 3B, Locked
+  components:
+  - type: AccessReader
+    access: [["3B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics4A
+  suffix: 4A, Locked
+  components:
+  - type: AccessReader
+    access: [["4A"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics4B
+  suffix: 4B, Locked
+  components:
+  - type: AccessReader
+    access: [["4B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics5A
+  suffix: 5A, Locked
+  components:
+  - type: AccessReader
+    access: [["5A"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics5B
+  suffix: 5B, Locked
+  components:
+  - type: AccessReader
+    access: [["5B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics6A
+  suffix: 6A, Locked
+  components:
+  - type: AccessReader
+    access: [["6A"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics6B
+  suffix: 6B, Locked
+  components:
+  - type: AccessReader
+    access: [["6B"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronics7A
+  suffix: 7A, Locked
+  components:
+  - type: AccessReader
+    access: [["7A"]]

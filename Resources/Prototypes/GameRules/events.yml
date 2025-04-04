@@ -14,9 +14,9 @@
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
-    - id: MimicVendorRule
+#    - id: MimicVendorRule
     - id: MouseMigration
-    - id: PowerGridCheck
+#    - id: PowerGridCheck
     - id: RandomSentience
     - id: SlimesSpawn
     - id: SolarFlare
@@ -324,21 +324,21 @@
       Medical: 100
   - type: KudzuGrowthRule
 
-- type: entity
-  id: PowerGridCheck
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    weight: 5
-    startAnnouncement: station-event-power-grid-check-start-announcement
-    endAnnouncement: station-event-power-grid-check-end-announcement
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-      params:
-        volume: -4
-    duration: 60
-    maxDuration: 120
-  - type: PowerGridCheckRule
+#- type: entity
+#  id: PowerGridCheck
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    weight: 5
+#    startAnnouncement: station-event-power-grid-check-start-announcement
+#    endAnnouncement: station-event-power-grid-check-end-announcement
+#    startAudio:
+#      path: /Audio/Announcements/power_off.ogg
+#      params:
+#        volume: -4
+#    duration: 60
+#    maxDuration: 120
+#  - type: PowerGridCheckRule
 
 - type: entity
   parent: BaseGameRule
@@ -615,20 +615,20 @@
       Mess: 30
   - type: IonStormRule
 
-- type: entity
-  id: MimicVendorRule
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    earliestStart: 0
-    minimumPlayers: 1
-    maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
-    weight: 5
-    chaos: # Goobstation
-      Hostile: 20 # for when they're actually properly hostile
-      Hunger: 10
-      Thirst: 10
-  - type: MobReplacementRule
+#- type: entity
+#  id: MimicVendorRule
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    earliestStart: 0
+#    minimumPlayers: 1
+#    maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
+#    weight: 5
+#    chaos: # Goobstation
+#      Hostile: 20 # for when they're actually properly hostile
+#      Hunger: 10
+#      Thirst: 10
+#  - type: MobReplacementRule
 
 - type: entity
   id: GreytideVirus

@@ -1,0 +1,198 @@
+- type: entity
+  parent: Clothing
+  id: DormsCardStandard
+  name: dorms keycard
+  description: A keycard used to access specific dorm rooms onboard the Nebula.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/dorm_cards.rsi
+#  - type: Clothing
+#    slots:
+#    - idcard
+#    sprite: _RA/Objects/Misc/dorm_cards.rsi
+  - type: Item
+    size: Small
+    heldPrefix: green
+    storedRotation: -90
+  - type: Access
+  #- type: IdCard
+  #- type: StationRecordKeyStorage
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - WhitelistChameleonIdCard
+  - type: StealTarget
+    stealGroup: IDCard
+
+#IDs with layers
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard1A
+  name: room 1A keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id1A
+  - type: Access
+    tags:
+    - 1A
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard1B
+  name: room 1B keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id1B
+  - type: Access
+    tags:
+    - 1B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard2A
+  name: room 2A keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id2A
+  - type: Access
+    tags:
+    - 2A
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard2B
+  name: room 2B keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id2B
+  - type: Access
+    tags:
+    - 2B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard3A
+  name: room 3A keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id3A
+  - type: Access
+    tags:
+    - 3A
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard3B
+  name: room 3B keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id3B
+  - type: Access
+    tags:
+    - 3B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard4A
+  name: room 4A keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id4A
+  - type: Access
+    tags:
+    - 4A
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard4B
+  name: room 4B keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id4B
+  - type: Access
+    tags:
+    - 4B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard5A
+  name: room 5A keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id5A
+  - type: Access
+    tags:
+    - 5A
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard5B
+  name: room 5B keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id5B
+  - type: Access
+    tags:
+    - 5B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard6A
+  name: room 6A keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id6A
+  - type: Access
+    tags:
+    - 6A
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard6B
+  name: room 6B keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id6B
+  - type: Access
+    tags:
+    - 6B
+
+- type: entity
+  parent: DormsCardStandard
+  id: DormsCard7A
+  name: room 7A keycard
+  components:
+  - type: Sprite
+    layers:
+    - state: dorms
+    - state: id7A
+  - type: Access
+    tags:
+    - 7A

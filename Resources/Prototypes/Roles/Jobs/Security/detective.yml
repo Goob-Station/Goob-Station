@@ -20,6 +20,14 @@
   - Detective
   - Cryogenics
   - External
+  - Kitchen
+  - Hydroponics
+  - Janitor
+  - Engineering
+  - Atmospherics
+  - Medical
+  - Research
+  - Cargo
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

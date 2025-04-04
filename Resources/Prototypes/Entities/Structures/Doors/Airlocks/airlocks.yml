@@ -166,6 +166,15 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/hatch_maint.rsi
 
+
+- type: entity   # RA
+  parent: Airlock
+  id: AirlockDorms
+  name: dorm room airlock
+  components:
+  - type: Sprite
+    sprite: _RA/Structures/Doors/Airlocks/Standard/dorm.rsi
+
 # Glass
 - type: entity
   parent: AirlockGlass
