@@ -360,12 +360,9 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-<<<<<<< HEAD
-=======
     chaos: # Goobstation
       Hostile: 20
       Medical: 50
->>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -449,13 +446,10 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
-<<<<<<< HEAD
-=======
     chaos: # Goobstation
       Hostile: 100
       Medical: 200
       Death: 200
->>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -489,13 +483,10 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-<<<<<<< HEAD
-=======
     chaos: # Goobstation
       Hostile: 60
       Medical: 75
       Death: 100
->>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml

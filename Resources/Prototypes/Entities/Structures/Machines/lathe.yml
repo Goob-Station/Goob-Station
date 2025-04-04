@@ -480,7 +480,6 @@
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
-<<<<<<< HEAD
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
     layers:
@@ -503,81 +502,16 @@
     - SecurityAmmoStatic
     # Goobstation Packs
     - SecurityAmmoStaticGoob
-  - type: EmagLatheRecipes # Goobstation Packs
-    emagStaticPacks:
-    - SyndicateAmmoStatic
   - type: MaterialStorage
     whitelist:
       tags:
       - Sheet
       - RawMaterial
       - Ingot
-||||||| 38c6f91876
-    - type: Sprite
-      sprite: Structures/Machines/techfab.rsi
-      layers:
-        - state: icon
-          map: ["enum.LatheVisualLayers.IsRunning"]
-        - state: ammo
-        - state: unlit
-          shader: unshaded
-          map: ["enum.PowerDeviceVisualLayers.Powered"]
-        - state: inserting
-          map: ["enum.MaterialStorageVisualLayers.Inserting"]
-        - state: panel
-          map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - type: Machine
-      board: AmmoTechFabCircuitboard
-    - type: Lathe
-      idleState: icon
-      runningState: icon
-      staticPacks:
-      - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
-    - type: EmagLatheRecipes # Goobstation Packs
-      emagStaticPacks:
-      - SyndicateAmmoStatic
-    - type: MaterialStorage
-      whitelist:
-        tags:
-          - Sheet
-          - RawMaterial
-          - Ingot
-=======
-    - type: Sprite
-      sprite: Structures/Machines/techfab.rsi
-      layers:
-        - state: icon
-          map: ["enum.LatheVisualLayers.IsRunning"]
-        - state: ammo
-        - state: unlit
-          shader: unshaded
-          map: ["enum.PowerDeviceVisualLayers.Powered"]
-        - state: inserting
-          map: ["enum.MaterialStorageVisualLayers.Inserting"]
-        - state: panel
-          map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - type: Machine
-      board: AmmoTechFabCircuitboard
-    - type: Lathe
-      idleState: icon
-      runningState: icon
-      staticPacks:
-      - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
-    - type: EmagLatheRecipes # Goobstation Packs
-      emagStaticPacks:
-      - SyndicateAmmoLightStatic
-      - SyndicateAmmoHeavyStatic
-    - type: MaterialStorage
-      whitelist:
-        tags:
-          - Sheet
-          - RawMaterial
-          - Ingot
->>>>>>> c658e8a0fca96c877cac3565cd5fb782ec5149bf
+  - type: EmagLatheRecipes # Goobstation Packs
+    emagStaticPacks:
+    - SyndicateAmmoLightStatic
+    - SyndicateAmmoHeavyStatic
 
 - type: entity
   id: MedicalTechFab

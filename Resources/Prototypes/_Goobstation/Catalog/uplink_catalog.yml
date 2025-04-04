@@ -1,4 +1,4 @@
-# Disruption
+## Disruption
 
 - type: listing
   id: UplinkCrateNPCGondola
@@ -687,23 +687,6 @@
       tags:
       - NukeOpsUplink
 
-<<<<<<< HEAD
-=======
-- type: listing
-  id: UplinkMysteriousScroll
-  name: uplink-sleeping-carp-name
-  description: uplink-sleeping-carp-desc
-  productEntity: SleepingCarpScroll
-  cost:
-    Telecrystal: 70
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
 # Explosives
 
 - type: listing
@@ -726,7 +709,6 @@
   categories:
   - UplinkExplosives
 
->>>>>>> 38c6f918769a01f7fc55d94840f7b239992b85fe
 # Misc
 - type: listing
   id: UplinkDimensionPot
