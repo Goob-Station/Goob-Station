@@ -35,7 +35,6 @@
     shape:
     - 0,0,4,0
 
-# Repeater is balanced around dual wielding not affecting burst fire rate. If someone changes that, repeater should probably be buffed.
 - type: entity
   name: proto-kinetic repeater
   id: WeaponProtoKineticRepeater
@@ -64,7 +63,7 @@
     minAngle: 10
     maxAngle: 20
     burstFireRate: 3
-    burstCooldown: 2
+    burstCooldown: 1.5
     availableModes:
     - Burst
     soundGunshot:

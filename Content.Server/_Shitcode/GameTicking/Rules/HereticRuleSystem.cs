@@ -2,7 +2,6 @@ using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.Objectives.Components;
 using Content.Server.Roles;
 using Content.Shared.Heretic;
 using Content.Shared.NPC.Prototypes;
@@ -14,11 +13,12 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Server.Station.Components;
 using Content.Server._Goobstation.Objectives.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
+public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 {
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -49,9 +49,19 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     {
         TryMakeHeretic(args.EntityUid, ent.Comp);
 
-        for (int i = 0; i < _rand.Next(3, 5); i++)
-            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
-                Spawn("EldritchInfluence", coords);
+        if (!TryGetRandomStation(out var station))
+            return;
+
+        var grid = GetStationMainGrid(Comp<StationDataComponent>(station.Value));
+
+        if (grid == null)
+            return;
+
+        for (var i = 0; i < ent.Comp.RealityShiftPerHeretic.Next(_rand); i++)
+        {
+            if (TryFindTileOnGrid(grid.Value, out _, out var coords))
+                Spawn(ent.Comp.RealityShift, coords);
+        }
     }
 
     public bool TryMakeHeretic(EntityUid target, HereticRuleComponent rule)
