@@ -14,3 +14,7 @@ job-description-nct = Teach the newbies how to perform their company assigned ta
 
 job-description-gman = Well, well, isn't this just like old times.
 job-description-hecu = Fufill the orders of your supervisor, no matter the morales.
+
+# Misc
+
+job-description-conquest = Stand ready for my arrival, worm.

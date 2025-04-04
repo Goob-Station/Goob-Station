@@ -20,6 +20,10 @@ job-name-nct = Nanotrasen Career Trainer
 job-name-hecu = HECU Operative
 job-name-gman = The G-Man
 
+# Misc
+
+job-name-conquest = Conquest
+
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
 JobBlueshieldOfficer = Blueshield Officer
@@ -31,4 +35,5 @@ JobNavyOfficerUndercover = Undercover Navy Officer
 JobNavyCaptain = Navy Captain
 JobDiplomat = Diplomat
 JobGovernmentMan = The G-Man
+JobConquest = Conquest
 JobInspector = Central Command Auditor
