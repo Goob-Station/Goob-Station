@@ -32,16 +32,7 @@ public sealed class FishingSystem : SharedFishingSystem
         SubscribeLocalEvent<FishingRodComponent, UseInHandEvent>(OnFishingInteract);
     }
 
-    private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
-    {
-        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.TotalProgress == null || args.Handled || !Timing.IsFirstTimePredicted)
-            return;
-
-        fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency;
-        Dirty(args.User, fisherComp); // That's a bit evil, but we want to keep numbers real.
-
-        args.Handled = true;
-    }
+    #region Event handling
 
     private void OnFloatCollide(Entity<FishingLureComponent> ent, ref StartCollideEvent args)
     {
@@ -85,6 +76,17 @@ public sealed class FishingSystem : SharedFishingSystem
         Dirty(ent);
     }
 
+    private void OnFishingInteract(EntityUid uid, FishingRodComponent component, UseInHandEvent args)
+    {
+        if (!FisherQuery.TryComp(args.User, out var fisherComp) || fisherComp.TotalProgress == null || args.Handled || !Timing.IsFirstTimePredicted)
+            return;
+
+        fisherComp.TotalProgress += fisherComp.ProgressPerUse * component.Efficiency;
+        Dirty(args.User, fisherComp); // That's a bit evil, but we want to keep numbers real.
+
+        args.Handled = true;
+    }
+
     private void Anchor(Entity<FishingLureComponent> ent, EntityUid attachedEnt)
     {
         var spotPosition = Xform.GetWorldPosition(attachedEnt);
@@ -93,9 +95,11 @@ public sealed class FishingSystem : SharedFishingSystem
         _physics.SetLinearVelocity(ent, Vector2.Zero);
         _physics.SetAngularVelocity(ent, 0f);
         ent.Comp.AttachedEntity = attachedEnt;
-        RemComp<ItemComponent>(ent); // Gotcha!!!
+        RemComp<ItemComponent>(ent);
         RemComp<PullableComponent>(ent);
     }
+
+    #endregion
 
     protected override void StopFishing(
         Entity<FishingRodComponent> fishingRod,
