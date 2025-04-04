@@ -26,6 +26,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -446,7 +447,6 @@ public sealed partial class HereticAbilitySystem
         var temperatureQuery = GetEntityQuery<TemperatureComponent>();
         var staminaQuery = GetEntityQuery<StaminaComponent>();
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
-        var hereticQuery = GetEntityQuery<HereticComponent>();
         var rustbringerQuery = GetEntityQuery<RustbringerComponent>();
         var resiratorQuery = GetEntityQuery<RespiratorComponent>();
 
