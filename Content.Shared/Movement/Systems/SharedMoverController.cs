@@ -147,7 +147,6 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly SharedContainerSystem _container = default!;
     [Dependency] private   readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private   readonly SharedGravitySystem _gravity = default!;
-    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
     [Dependency] private   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly TagSystem _tags = default!;
     [Dependency] private   readonly SharedInteractionSystem _interaction = default!; // Tile Movement Change
@@ -213,6 +212,14 @@ public abstract partial class SharedMoverController : VirtualController
     public override void UpdateAfterSolve(bool prediction, float frameTime)
     {
         base.UpdateAfterSolve(prediction, frameTime);
+
+        var query = AllEntityQuery<InputMoverComponent, PhysicsComponent>();
+
+        while (query.MoveNext(out var uid, out var _, out var physics))
+        {
+            //PhysicsSystem.SetLinearVelocity(uid, Vector2.Zero, body: physics);
+        }
+
         UsedMobMovement.Clear();
     }
 

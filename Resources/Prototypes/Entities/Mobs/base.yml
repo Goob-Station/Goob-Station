@@ -84,6 +84,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
+  - type: MobCollision
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
