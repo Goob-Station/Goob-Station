@@ -32,12 +32,12 @@ public sealed class MeleeLungeEvent : EntityEventArgs
     public string? Animation;
 
     /// <summary>
-    /// WWDP / The rotation of the sprite for the animation
+    /// Goob - Shove Rework / The rotation of the sprite for the animation
     /// </summary>
     public Angle SpriteRotation;
 
     /// <summary>
-    /// GoobStation / The rotation of the sprite for the animation
+    /// Goob - Shove Rework / The rotation of the sprite for the animation
     /// </summary>
     public bool FlipAnimation;
 

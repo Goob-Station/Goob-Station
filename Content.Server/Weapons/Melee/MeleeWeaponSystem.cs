@@ -41,10 +41,9 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!; // WWDP
-    [Dependency] private readonly INetConfigurationManager _config = default!; // WWDP
-    [Dependency] private readonly StaminaSystem _stamina = default!; // WWDP
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove
+    [Dependency] private readonly ThrowingSystem _throwing = default!; // Goob - Shove Rework
+    [Dependency] private readonly INetConfigurationManager _config = default!; // Goob - Shove Rework
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove Rework
 
     //Goob - Shove
     private float _shoveRange;
@@ -125,7 +124,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         DisarmAttackEvent ev,
         EntityUid meleeUid,
         MeleeWeaponComponent component,
-        ICommonSession? session)
+        ICommonSession? session) // Goobstation - Shove Rework
     {
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
@@ -137,11 +136,11 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!TryComp<CombatModeComponent>(user, out var combatMode))
             return false;
 
-        PhysicalShove(user, target); // WWDP physical shoving, including inanimate objects
-        Interaction.DoContactInteraction(user, target); // WWDP moved up for shoves
+        PhysicalShove(user, target);
+        Interaction.DoContactInteraction(user, target);
 
         if (_mobState.IsIncapacitated(target))
-            return true; // WWDP
+            return true;
 
         if (!TryComp<PhysicsComponent>(target, out var targetPhysicsComponent))
             return false;
@@ -151,14 +150,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (!TryComp<StatusEffectsComponent>(target, out var status) ||
                 !status.AllowedEffects.Contains("KnockedDown"))
             {
-                // WWDP edit; shoving items costs their throw stamina cost
-                if (HasComp<ItemComponent>(target))
-                {
-                    _stamina.TakeStaminaDamage(user, (float) Math.Round(targetPhysicsComponent.Mass / 7.1));
-                }
-
                 return true;
-                // WWDP edit end
             }
         }
 
@@ -181,23 +173,22 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         RaiseLocalEvent(target, attemptEvent);
 
         if (attemptEvent.Cancelled)
-            return true; // WWDP
+            return true;
 
         var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
 
-        // WWDP shove is guaranteed now, disarm chance is rolled on top
         _audio.PlayPvs(combatMode.DisarmSuccessSound,
             user,
             AudioParams.Default.WithVariation(0.025f).WithVolume(5f));
         AdminLogger.Add(LogType.DisarmedAction,
             $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
-        var staminaDamage = CalculateShoveStaminaDamage(user, target); // WWDP shoving
+        var staminaDamage = CalculateShoveStaminaDamage(user, target);
 
         var eventArgs = new DisarmedEvent
         {
             Target = target, Source = user, DisarmProbability = chance, StaminaDamage = staminaDamage,
-        }; // WWDP shoving
+        };
         RaiseLocalEvent(target, eventArgs);
 
         if (!eventArgs.Handled)
@@ -215,7 +206,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         return true;
 
-        // WWDP edit (moved to function)
+        // Goob - Shove Rework edit (moved to function)
         void ShoveOrDisarmPopup(bool disarm)
         {
             var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
@@ -285,7 +276,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var chance = 1 - disarmerComp.BaseDisarmFailChance;
 
-        // WWDP edit, disarm based on health & stamina
+        // Goob - Shove Rework disarm based on health & stamina
         chance *= Math.Clamp(
             _contests.StaminaContest(disarmer, disarmed)
             * _contests.HealthContest(disarmer, disarmed),
@@ -293,16 +284,16 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             1f);
 
         if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
-            chance *= 1 - malus.Malus; // WWDP edit
+            chance *= 1 - malus.Malus; // Goob - Shove Rework edit
 
         if (TryComp<ShovingComponent>(disarmer, out var shoving))
-            chance *= 1 + shoving.DisarmBonus; // WWDP edit
+            chance *= 1 + shoving.DisarmBonus; // Goob - Shove Rework edit
 
         return chance;
 
     }
 
-    // WWDP shove stamina damage based on mass
+    // Goob - Shove Rework shove stamina damage based on mass
     private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
     {
         var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;

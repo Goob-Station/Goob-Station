@@ -422,7 +422,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             switch (attack)
             {
                 case LightAttackEvent light:
-                    DoLightAttack(user, light, weaponUid, weapon, GetCoordinates(attack.Coordinates), session);
+                    DoLightAttack(user, light, weaponUid, weapon, session);
                     break;
                 case DisarmAttackEvent disarm:
                     if (!DoDisarm(user, disarm, weaponUid, weapon, session))
@@ -455,7 +455,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     protected abstract bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session);
 
     // Goob edit
-    public virtual void DoLightAttack(EntityUid user, LightAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, EntityCoordinates coordinates, ICommonSession? session) // Goobstation - Edit
+    public virtual void DoLightAttack(EntityUid user, LightAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session) // Goobstation - Edit
     {
         // If I do not come back later to fix Light Attacks being Heavy Attacks you can throw me in the spider pit -Errant
         var damage = GetDamage(meleeUid, user, component) * GetHeavyDamageModifier(meleeUid, user, component);
@@ -489,7 +489,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var missEvent = new MeleeHitEvent(new List<EntityUid>(), user, meleeUid, damage, null);
             RaiseLocalEvent(meleeUid, missEvent);
             _meleeSound.PlaySwingSound(user, meleeUid, component);
-            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(coordinates), component.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
+            DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), component.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
             return;
         }
 
