@@ -723,6 +723,8 @@
     - ScienceExplosives
     - GrenadeTriggersStatic
     dynamicPacks:
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives
