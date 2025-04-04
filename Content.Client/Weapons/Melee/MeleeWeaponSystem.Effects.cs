@@ -75,7 +75,7 @@ public sealed partial class MeleeWeaponSystem
                 var dir = Transform(user).LocalRotation.GetCardinalDir();
 
                 if (flippedAnimation && dir is Direction.South or Direction.West)
-                    spriteRotation = 360 - spriteRotation;
+                    spriteRotation = Angle.FromDegrees(360) - spriteRotation;
 
                 // Goobstation - Shove Rework End
                 _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);

@@ -260,6 +260,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated, throwInAir: throwInAir);
     }
+
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)
     {
         var filter = Filter.Pvs(targetXform.Coordinates, entityMan: EntityManager).RemoveWhereAttachedEntity(o => o == user);
