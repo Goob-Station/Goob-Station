@@ -96,6 +96,7 @@
     - type: Bloodstream
       bloodMaxVolume: 150
       bloodReagent: Laughter
+    - type: Clumsy
     - type: NoSlip
     - type: Tag
       tags:
