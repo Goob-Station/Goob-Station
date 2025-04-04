@@ -37,3 +37,8 @@
   parent: BaseSilverCircuitboardRecipe
   id: DurandTargetingElectronics
   result: DurandTargetingElectronics
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: SyndicateMicrowaveMachineCircuitboard
+  result: SyndicateMicrowaveMachineCircuitboard
