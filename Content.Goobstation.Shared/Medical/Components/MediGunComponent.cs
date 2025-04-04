@@ -1,11 +1,10 @@
 ﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Medical.Components;
+namespace Content.Goobstation.Shared.Medical.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MediGunComponent : Component
@@ -46,13 +45,13 @@ public sealed partial class MediGunComponent : Component
     /// How much damage did we heal in total.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public FixedPoint2 UberPoints;
+    public float UberPoints;
 
     /// <summary>
     /// UberPoints must be higher than this in order to be possible to activate uber.
     /// </summary>
     [DataField]
-    public FixedPoint2 PointsToUber = 150;
+    public float PointsToUber = 150;
 
     /// <summary>
     /// How long uber should be.
@@ -136,4 +135,10 @@ public sealed partial class MediGunComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? UberAction;
+
+    [DataField]
+    public Color DefaultLineColor = Color.Aqua;
+
+    [DataField]
+    public Color UberLineColor = Color.OrangeRed;
 }

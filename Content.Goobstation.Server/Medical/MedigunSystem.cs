@@ -1,11 +1,13 @@
 ﻿using System.Numerics;
+using Content.Goobstation.Shared.Medical;
+using Content.Goobstation.Shared.Medical.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Hands.Systems;
 using Content.Server.Power.EntitySystems;
-using Content.Shared._Goobstation.Medical;
-using Content.Shared._Goobstation.Medical.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
+using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
@@ -14,18 +16,22 @@ using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Medical;
+namespace Content.Goobstation.Server.Medical;
 
 // TODO: Move this to Shared when battery systems will be predicted
-public sealed class MedigunSystem : EntitySystem
+public sealed class MedigunSystem : SharedMedigunSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
+    [Dependency] private readonly AlertsSystem _alert = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -141,13 +147,19 @@ public sealed class MedigunSystem : EntitySystem
         var healedAmount = originalDamage - afterDamage;
 
         if (!comp.UberActivated)
-            comp.UberPoints += healedAmount;
+            comp.UberPoints += healedAmount.Float();
+
+        if (comp.ParentEntity != null)
+            UpdateAlert(comp.ParentEntity.Value, ent);
 
         return true;
     }
 
     private void OnToggled(Entity<MediGunComponent> ent, ref ItemToggledEvent args)
     {
+        if (ent.Comp.ParentEntity != null)
+            UpdateAlert(ent.Comp.ParentEntity.Value, ent);
+
         // Player should pick the target by interacting with it.
         if (args.Activated)
             return;
@@ -156,15 +168,17 @@ public sealed class MedigunSystem : EntitySystem
         DisableAllConnections(ent);
     }
 
-    private void OnActivate(EntityUid uid, MediGunComponent component, AfterInteractEvent args)
+    private void OnActivate(Entity<MediGunComponent> ent, ref AfterInteractEvent args)
     {
+        var (uid, comp) = ent;
+
         if (args.Handled || args.Target == null || args.Target.Value == args.User)
             return;
 
         if (_useDelay.IsDelayed(uid))
             return;
 
-        if (component.HealedEntities.Count >= component.MaxLinksAmount)
+        if (comp.HealedEntities.Count >= comp.MaxLinksAmount)
             return;
 
         if (!_toggle.TryActivate(uid, args.User))
@@ -174,8 +188,8 @@ public sealed class MedigunSystem : EntitySystem
 
         var target = args.Target.Value;
 
-        if (!_whitelist.IsWhitelistPass(component.HealAbleWhitelist, target) ||
-            component.HealedEntities.Contains(target))
+        if (!_whitelist.IsWhitelistPass(comp.HealAbleWhitelist, target) ||
+            comp.HealedEntities.Contains(target))
             return;
 
         if (HasComp<MediGunHealedComponent>(target))
@@ -186,11 +200,11 @@ public sealed class MedigunSystem : EntitySystem
             return;
         }
 
-        component.HealedEntities.Add(target);
-        component.IsActive = true;
-        component.ParentEntity = args.User;
-        component.NextTick = _timing.CurTime + TimeSpan.FromSeconds(component.Frequency);
-        Dirty(uid, component);
+        comp.HealedEntities.Add(target);
+        comp.IsActive = true;
+        comp.ParentEntity = args.User;
+        comp.NextTick = _timing.CurTime + TimeSpan.FromSeconds(comp.Frequency);
+        Dirty(uid, comp);
 
         // This is used for beam visuals.
         var dummyBeamVisual = Spawn("TetherEntity", new EntityCoordinates(target, Vector2.Zero));
@@ -198,16 +212,36 @@ public sealed class MedigunSystem : EntitySystem
         var mediGunned = EnsureComp<MediGunHealedComponent>(target);
         mediGunned.DummyEntity = dummyBeamVisual;
         mediGunned.Source = uid;
+        mediGunned.LineColor = comp.DefaultLineColor;
         Dirty(target, mediGunned);
 
         var visuals = EnsureComp<JointVisualsComponent>(uid);
-        visuals.Sprite = component.BeamSprite;
+        visuals.Sprite = comp.BeamSprite;
         visuals.OffsetA = new Vector2(0f, 0f);
         visuals.Target = GetNetEntity(dummyBeamVisual);
         Dirty(uid, visuals);
 
+        UpdateAlert(target, ent);
+
         _useDelay.TryResetDelay(uid);
+
         args.Handled = true;
+    }
+
+    private void UpdateAlert(EntityUid target, Entity<MediGunComponent> medigun)
+    {
+        var comp = medigun.Comp;
+        if (comp.ParentEntity == null || !_hands.IsHolding(target, medigun))
+        {
+            _alert.ClearAlert(target, "MedigunUberBattery");
+            return;
+        }
+
+        var severity = (short) MathF.Round(comp.UberPoints / comp.PointsToUber * 10f);
+        const short minSeverity = 0;
+        const short maxSeverity = 10;
+        severity = Math.Clamp(severity, minSeverity, maxSeverity);
+        _alert.ShowAlert(target, "MedigunUberBattery", severity);
     }
 
     private void OnParentChanged(EntityUid uid, MediGunComponent component, ref EntParentChangedMessage args)
@@ -239,6 +273,15 @@ public sealed class MedigunSystem : EntitySystem
         var visuals = EnsureComp<JointVisualsComponent>(ent);
         visuals.Sprite = comp.UberBeamSprite;
         Dirty(ent, visuals);
+
+        foreach (var healed in comp.HealedEntities)
+        {
+            if (!TryComp<MediGunHealedComponent>(healed, out var healComp))
+                continue;
+
+            healComp.LineColor = comp.UberLineColor;
+            Dirty(healed, healComp);
+        }
     }
 
     /// <summary>
@@ -254,6 +297,15 @@ public sealed class MedigunSystem : EntitySystem
         var visuals = EnsureComp<JointVisualsComponent>(ent);
         visuals.Sprite = comp.BeamSprite;
         Dirty(ent, visuals);
+
+        foreach (var healed in comp.HealedEntities)
+        {
+            if (!TryComp<MediGunHealedComponent>(healed, out var healComp))
+                continue;
+
+            healComp.LineColor = comp.DefaultLineColor;
+            Dirty(healed, healComp);
+        }
     }
 
     /// <summary>
@@ -279,6 +331,9 @@ public sealed class MedigunSystem : EntitySystem
         comp.IsActive = false;
         comp.ParentEntity = null;
         RemComp<JointVisualsComponent>(ent);
+
+        if (comp.ParentEntity != null)
+            UpdateAlert(comp.ParentEntity.Value, ent);
     }
 
     /// <summary>

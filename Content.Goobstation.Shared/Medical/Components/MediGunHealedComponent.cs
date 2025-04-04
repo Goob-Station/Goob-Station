@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Medical.Components;
+namespace Content.Goobstation.Shared.Medical.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MediGunHealedComponent : Component
@@ -16,4 +16,10 @@ public sealed partial class MediGunHealedComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? DummyEntity;
+
+    /// <summary>
+    /// Color that will be used on target entity when healing is active.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Color LineColor;
 }
