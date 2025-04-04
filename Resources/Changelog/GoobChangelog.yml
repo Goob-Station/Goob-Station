@@ -7048,3 +7048,9 @@ Entries:
       message: Captain no longer gets N1984.
   id: 819
   time: '2025-04-04T18:23:30.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Multiple storage behavior was reverted.
+  id: 820
+  time: '2025-04-04T22:54:28.0000000+00:00'
