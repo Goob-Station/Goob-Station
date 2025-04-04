@@ -6,78 +6,113 @@ store-preset-name-ntr = Executive briefcase store
 # station
 
 ntr-executive-spesos-small-name = Small spesos grant
-ntr-executive-spesos-small-desc = Recieve a small money bonus from NanoTrasen for all your hard work, you better give this to quartermaster as a good employee, right?
+ntr-executive-spesos-small-desc = Receive a small monetary bonus from NanoTrasen for your hard work. As a good employee, you should give this to the quartermaster, right?
 
 ntr-executive-disk-small-name = Small research grant
-ntr-executive-disk-small-desc = Recieve a small research grant from NanoTrasen lead research team, containing 10 disks with points.
+ntr-executive-disk-small-desc = Receive a small research grant from NanoTrasen's lead research team, containing 10 data disks with research points.
 
 ntr-executive-emergency-meds-name = Emergency medical supplies
-ntr-executive-emergency-meds-desc = A small crate containing medkits from various traumas, you better explain yourself after buying this.
+ntr-executive-emergency-meds-desc = A small crate containing trauma medkits. Be prepared to explain yourself after purchasing this.
 
 ntr-executive-disablers-name = Disablers crate
-ntr-executive-disablers-desc = A crate containing 3 disablers and 1 disabler SMG, NanoTrasen is not liable for all the damages that this may or may not cause.
+ntr-executive-disablers-desc = A crate containing 3 disablers and 1 disabler SMG. NanoTrasen is not liable for any damages caused by these weapons.
 
 ntr-executive-mats-name = Order materials
-ntr-executive-mats-desc = Order materials from NanoTrasen global cargo department.
+ntr-executive-mats-desc = Order construction materials from NanoTrasen's global cargo department.
 
 ntr-executive-tools-small-name = Generic tools crate
-ntr-executive-tools-small-desc = A crate, containing basic tools.
+ntr-executive-tools-small-desc = A crate containing basic engineering tools.
 
 ntr-executive-pizza-small-name = Order a small pizza party
-ntr-executive-pizza-small-desc = Order a small pizza party bundle from NanoTrasen, as a good employee, you should give this to your workers, or eat it yourself.
+ntr-executive-pizza-small-desc = Order a small pizza party bundle from NanoTrasen. As a good employee, you should share this with your coworkers... or eat it all yourself.
 
 # personal
 
 ntr-executive-bsd-name = Call Blueshield Deputy
-ntr-executive-bsd-desc = Request a blueshield deputy from CentComm, your or commands personal guard, you better have a good reason to call this one. You are only allowed to call one.
+ntr-executive-bsd-desc = Request a Blueshield deputy from Central Command. This personal guard for you or command staff requires valid justification. Only one may be called.
 
 ntr-executive-softsuit-name = Order a softsuit
-ntr-executive-softsuit-desc = A weak softsuit, made to protect its user from depths of space and nothing else.
+ntr-executive-softsuit-desc = A basic softsuit designed for short-term space exposure. Offers minimal protection.
 
 ntr-executive-hardsuit-name = Order a hardsuit
-ntr-executive-hardsuit-desc = A fairly decent hardsuit for extreme situations, are you certain this is a good idea?
+ntr-executive-hardsuit-desc = A durable hardsuit for extreme environments. Are you sure this purchase is justified?
 
 ntr-executive-cigar-name = Premium cigar case
-ntr-executive-cigar-desc = A standart premium cigar case, only wealthy people are allowed to smoke those in public.
+ntr-executive-cigar-desc = A standard premium cigar case. Only executives are permitted to smoke these in public areas.
 
 ntr-executive-whiskey-name = Premium whiskey
-ntr-executive-whiskey-desc = A full premium whiskey bottle, made in 2879 in space Spain from the last non-synthetic grapes in existence.
+ntr-executive-whiskey-desc = A full bottle of premium whiskey, distilled in 2879 in Space Spain from the last non-synthetic grapes in existence.
 
 ntr-executive-glasses-name = CentComm glasses
-ntr-executive-glasses-desc = When you need some swag.
+ntr-executive-glasses-desc = For when you need to look more important than you actually are.
 
-ntr-executive-savaliniaharunianisimious-name = Svallin laser pistol
-ntr-executive-savaliniaharunianisimious-desc = Your normal svalinn laser pistol, used in self-defense classes in NanoTrasen.
+ntr-executive-savaliniaharunianisimious-name = Svalinn laser pistol
+ntr-executive-savaliniaharunianisimious-desc = A standard Svalinn laser pistol, commonly used in NanoTrasen self-defense training programs.
 
-ntr-executive-1984-name = NT1984
-ntr-executive-1984-desc = A standart NT1984 for self defense.
+ntr-executive-1984-name = NT-1984
+ntr-executive-1984-desc = A standard NT-1984 sidearm for personal defense.
 
 ntr-executive-combatmed-name = Combat medkit
-ntr-executive-combatmed-desc = When you need something more than "just a gauze"
+ntr-executive-combatmed-desc = For when you need more than just basic first aid supplies.
 
 # response teams
 
-ntr-executive-ert-sec-name = Call ERT security
-ntr-executive-ert-sec-desc = Call ERT security team from CentComm. This is the primary combat force of the response teams, deployed to neutralize major threats such as nuclear operatives or revolutionaries. Their deployment is strictly reserved for extreme emergencies, any abuse of their presence may have lasting consequences for the station's command.
+ntr-executive-ert-sec-name = Call ERT Security
+ntr-executive-ert-sec-desc = Request an Emergency Response Team security unit from Central Command. Deployed for extreme threats like nuclear operatives or revolutions. Misuse will result in severe consequences.
 
-ntr-executive-ert-med-name = Call ERT medical
-ntr-executive-ert-med-desc = Call ERT medical team from CentComm. Primarily called in for mass casualty events and post-emergency body clean up. Their primary mission is to save lives and not to deal with threats.
+ntr-executive-ert-med-name = Call ERT Medical
+ntr-executive-ert-med-desc = Request an Emergency Response Team medical unit. Specializes in mass casualty events and post-crisis recovery. Not equipped for combat situations.
 
-ntr-executive-ert-engi-name = Call ERT engineering
-ntr-executive-ert-engi-desc = Call ERT engineering team from CentComm. A team of engineers that specialize in repairing a station's atmosphere and power grid. Their primary mission is to repair the station and not to deal with threats.
+ntr-executive-ert-engi-name = Call ERT Engineering
+ntr-executive-ert-engi-desc = Request an Emergency Response Team engineering unit. Specializes in atmospheric and power system restoration. Not a combat force.
 
-ntr-executive-ert-jani-name = Call ERT janitorial
-ntr-executive-ert-jani-desc = Call ERT janitorial team from CentComm. A team of specialists with many cleaning supplies. Their primary mission is to make sure the station is restored to a clean, mess free state and not to deal with threats.
+ntr-executive-ert-jani-name = Call ERT Janitorial
+ntr-executive-ert-jani-desc = Request an Emergency Response Team janitorial unit. Specializes in post-crisis cleanup and sanitation. Will not engage threats.
 
 ntr-executive-cburn-name = Call CBURN
-ntr-executive-cburn-desc = Call CBURN team. Containment and Biohazard Urban Response Network, is a specialized task force, deployed exclusively to deal with severe biological threats, such as viral and biohazard outbreaks. CBURN operates under strict quarantine protocols, so cooperate with them by not interfering with their work.
+ntr-executive-cburn-desc = Request a Containment and Biohazard Urban Response Team. Specialized in biological threats and viral outbreaks. Do not interfere with their quarantine protocols.
 
+# machine boards
+
+ntr-executive-telecom-name = Telecom server machine boards
+ntr-executive-telecom-desc = A crate containing 2 telecom server machine boards. Essential for AI communication systems.
+
+ntr-executive-silo-name = Silo machine board
+ntr-executive-silo-desc = Contains 1 silo machine board. For when someone "misplaces" your original silo.
+
+ntr-executive-fat-name = Fat extractor
+ntr-executive-fat-desc = Machine board for a fat extraction device. Corporate wellness policies prohibit employee obesity.
+
+ntr-executive-grav-name = Mini gravity generator
+ntr-executive-grav-desc = Machine board for a compact gravity generator.
+
+ntr-executive-teleporter-name = Cargo teleporter machine board
+ntr-executive-teleporter-desc = Enables cargo teleportation. Unauthorized use constitutes theft under NanoTrasen policy.
+
+ntr-executive-holopad-name = Holopad machine boards
+ntr-executive-holopad-desc = Contains 2 holopad machine boards. Cheaper than installing them at shift start.
+
+ntr-executive-monitoring-name = Crew monitoring server board
+ntr-executive-monitoring-desc = Machine board for crew monitoring systems. Handle with care - replacement costs are substantial.
+
+ntr-executive-rnd-name = R&D server machine board
+ntr-executive-rnd-desc = Constructs a research and development server when installed.
+
+ntr-executive-comms-name = Communications console board
+ntr-executive-comms-desc = High-value computer board for emergency communications consoles.
+
+ntr-executive-cargosell-name = Cargo sales console board
+ntr-executive-cargosell-desc = Enables resource sales. Financial transactions are not subject to employee review.
+
+ntr-executive-cargoshuttle-name = Cargo shuttle console board
+ntr-executive-cargoshuttle-desc = Specialized control console for cargo shuttles. Unauthorized use violates transport protocols.
 # tiers
 
 ntr-executive-tier-1-name = Station
 ntr-executive-tier-2-name = Response teams
 ntr-executive-tier-3-name = Personal
 ntr-executive-tier-4-name = Evil
+ntr-executive-tier-5-name = Rare machine boards
 
 # insert attempt in console
 ntr-console-insert-deny = Wrong!

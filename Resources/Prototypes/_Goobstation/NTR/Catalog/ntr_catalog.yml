@@ -106,7 +106,7 @@
 
 # personal
 - type: listing
-  id: NTRInternCall
+  id: NTRExecutiveInternCall
   name: Call intern squad
   description: Calls in a lead intern with special summoning coins, that are calling more interns.
   productEntity: RadioLeadIntern
@@ -114,14 +114,13 @@
     NTLoyaltyPoint: 75
   categories:
   - NTRpersonal
-  #restockTime: 600
-  restockTime: 120 # placeholder
+  restockTime: 600 # 10 mins
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1 # if ntr wants more intern, he should buy one-at-the-time
 
 - type: listing
-  id: NTRDagger
+  id: NTRExecutiveDagger
   name: Phoron dagger
   description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
   productEntity: PhoronDagger
@@ -134,7 +133,7 @@
   restockAfterPurchase: 1200 # 20 min
 
 - type: listing
-  id: NTRSingleIntern
+  id: NTRExecutiveSingleIntern
   name: Single Intern Coin
   description: Summons one basic intern.
   productEntity: InternCoin
@@ -324,3 +323,177 @@
 #  restockTime: 1200 # 20 mins
 #  resetRestockOnPurchase: true
 #  restockAfterPurchase: 3600 # 1h, in case CBURN would suck ass
+
+# Machine boards
+
+- type: listing
+  id: NTRExecutiveTelecom
+  name: ntr-executive-telecom-name
+  description: ntr-executive-telecom-desc
+  productEntity: NTRBoardTelecom
+  cost:
+    NTLoyaltyPoint: 35
+  categories:
+  - NTRBoards
+  restockTime: 900 #15min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 2700 #45 min, you really think someone would need more servers?
+
+- type: listing
+  id: NTRExecutiveSilo
+  name: ntr-executive-silo-name
+  description: ntr-executive-silo-desc
+  productEntity: NTRBoardSilo
+  cost:
+    NTLoyaltyPoint: 50
+  categories:
+  - NTRBoards
+  restockTime: 1200 #20min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveFat
+  name: ntr-executive-fat-name
+  description: ntr-executive-fat-desc
+  productEntity: FatExtractorMachineCircuitboard
+  cost:
+    NTLoyaltyPoint: 20 # the cheapest
+  categories:
+  - NTRBoards
+  restockTime: 600 #10min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 # 30min
+
+- type: listing
+  id: NTRExecutiveGravity
+  name: ntr-executive-grav-name
+  description: ntr-executive-grav-desc
+  productEntity: MiniGravityGeneratorCircuitboard
+  cost:
+    NTLoyaltyPoint: 35
+  categories:
+  - NTRBoards
+  restockTime: 900 # 15min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 1800 #30min
+
+- type: listing
+  id: NTRExecutiveCargoTeleporter
+  name: ntr-executive-teleporter-name
+  description: ntr-executive-teleporter-desc
+  productEntity: CargoTelepadMachineCircuitboard
+  cost:
+    NTLoyaltyPoint: 75 # almost t3 tech, its gonna be expensive bruv
+  categories:
+  - NTRBoards
+  restockTime: 1800 #30min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveHolopad
+  name: ntr-executive-holopad-name
+  description: ntr-executive-holopad-desc
+  productEntity: NTRBoardHolopad
+  categories:
+  - NTRBoards
+  cost:
+    NTLoyaltyPoint: 25
+  restockTime: 600 #10min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 300 #5 min
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5 # 10 holopads should be enough
+
+- type: listing
+  id: NTRExecutiveCrewMonitoring
+  name: ntr-executive-monitoring-name
+  description: ntr-executive-monitoring-desc
+  productEntity: CrewMonitoringServerMachineCircuitboard
+  cost:
+    NTLoyaltyPoint: 75
+  categories:
+  - NTRBoards
+  restockTime: 1800 # 30 min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveRndServer
+  name: ntr-executive-rnd-name
+  description: ntr-executive-rnd-desc
+  productEntity: ResearchAndDevelopmentServerMachineCircuitboard
+  cost:
+    NTLoyaltyPoint: 100
+  categories:
+  - NTRBoards
+  restockTime: 1800 # 30 min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1 # yeh more than 1 server is too much already, we dont want ntr to buy this one if the old one wasnt stolen or smth
+
+- type: listing
+  id: NTRExecutiveComms
+  name: ntr-executive-comms-name
+  description: ntr-executive-comms-desc
+  productEntity: CommsComputerCircuitboard
+  cost:
+    NTLoyaltyPoint: 100
+  restockTime: 2400 # 40min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveCargoSell
+  name: ntr-executive-cargosell-name
+  description: ntr-executive-cargosell-desc
+  productEntity: CargoSaleComputerCircuitboard
+  cost:
+    NTLoyaltyPoint: 50
+  restockTime: 1500 # 25min
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 600 # 10 min
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 2
+
+- type: listing
+  id: NTRExecutiveCargoShuttle
+  name: ntr-executive-cargoshuttle-name
+  description: ntr-executive-cargoshuttle-desc
+  productEntity: CargoShuttleConsoleCircuitboard
+  cost:
+    NTLoyaltyPoint: 50
+  restockTime: 1800 # 30min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# evil (debug)
+# todo: add more debug stuff / and possibly make this open if emagged or something, but it was never intended for it tho.
+- type: listing
+  id: NTRExecutiveDebugCodes
+  name: Nuclear codes
+  description: "Stand ready for my arrival, worm."
+  productEntity: BoxFolderNuclearCodes
+  cost:
+    NTLoyaltyPoint: 999
+  categories:
+  - NTREvil
+  restockTime: 1800 # 30 min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

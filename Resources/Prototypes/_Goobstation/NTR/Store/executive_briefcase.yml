@@ -35,6 +35,8 @@
     - NTRstation # for stuff like buying spesos, disablers, etc
     - NTRpersonal # for, well, personal stuff.
     - NTRresponse # for stuff like ert
+    - NTRBoards # for hard to get boards
+    - NTREvil # for evil stuff
     currencyWhitelist:
     - NTLoyaltyPoint
     sales:
@@ -55,6 +57,17 @@
   id: NTRpersonal
   name: ntr-executive-tier-3-name
   priority: 1
+
+- type: storeCategory
+  id: NTRBoards
+  name: ntr-executive-tier-5-name
+  priority: 3
+
+- type: storeCategory
+  id: NTREvil
+  name: Evil
+  priority: 5
+  evil: true
 
 - type: currency
   id: NTLoyaltyPoint
