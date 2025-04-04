@@ -213,6 +213,8 @@
         - !type:ReagentThreshold
           min: 15
 
+# Homemade hyperzine, should be worse than it and harder to make, but
+# doesn't require vestine. Should NOT be addictive when we get addictions
 - type: reagent
   id: Aranesp
   name: reagent-name-aranesp
