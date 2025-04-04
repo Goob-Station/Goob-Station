@@ -12,17 +12,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         SubscribeLocalEvent<MediGunHealedComponent, ComponentStartup>(OnMedigunHealed);
         SubscribeLocalEvent<MediGunHealedComponent, ComponentShutdown>(OnMedigunShutdown);
-        SubscribeLocalEvent<MediGunHealedComponent, AfterAutoHandleStateEvent>(OnColorChanged);
-    }
-
-    private void OnColorChanged(Entity<MediGunHealedComponent> ent, ref AfterAutoHandleStateEvent args)
-    {
-        if (!TryComp<SpriteComponent>(ent, out var sprite))
-        {
-            return;
-        }
-
-        sprite.Color = ent.Comp.LineColor;
     }
 
     private void OnMedigunHealed(Entity<MediGunHealedComponent> ent, ref ComponentStartup args)
@@ -32,7 +21,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
             return;
         }
 
-        sprite.Color = ent.Comp.LineColor;
+        if (TryComp<MediGunComponent>(ent.Comp.Source, out var medigun))
+        {
+            sprite.Color = medigun.UberActivated ? medigun.UberLineColor : medigun.DefaultLineColor;
+        }
     }
 
     private void OnMedigunShutdown(Entity<MediGunHealedComponent> ent, ref ComponentShutdown args)
