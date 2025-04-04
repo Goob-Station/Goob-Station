@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;

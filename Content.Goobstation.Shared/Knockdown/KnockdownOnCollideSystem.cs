@@ -1,6 +1,5 @@
 using Content.Goobstation.Shared.Wizard.Mutate;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._White.Standing;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;

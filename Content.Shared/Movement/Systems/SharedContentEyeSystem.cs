@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.ScryingOrb;
+using Content.Goobstation.Common.Wizard.ScryingOrb;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Camera;
@@ -18,7 +18,7 @@ namespace Content.Shared.Movement.Systems;
 public abstract class SharedContentEyeSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminManager _admin = default!;
-    [Dependency] private readonly SharedScryingOrbSystem _scrying = default!;
+    [Dependency] private readonly ISharedScryingOrbSystem _scrying = default!;
 
     // Admin flags required to ignore normal eye restrictions.
     public const AdminFlags EyeFlag = AdminFlags.Debug;

@@ -5,7 +5,7 @@ namespace Content.Goobstation.Shared.Wizard.Mutate;
 
 public sealed class SharedBasicHitScanSystem : EntitySystem
 {
-    [Dependency] private readonly PrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
      public override void Initialize()
     {
         SubscribeLocalEvent<BasicHitscanAmmoProviderComponent, TakeAmmoEvent>(OnBasicHitscanTakeAmmo);

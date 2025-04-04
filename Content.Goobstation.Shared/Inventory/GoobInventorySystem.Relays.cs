@@ -1,13 +1,14 @@
 using Content.Goobstation.Shared.Clothing;
 using Content.Goobstation.Shared.Flashbang;
+using Content.Goobstation.Shared.Overlays;
 using Content.Goobstation.Shared.Stunnable;
 using Content.Goobstation.Shared.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._White.Standing;
 using Content.Shared.Damage.Events;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Magic;
 using Content.Shared.Stunnable;
 
 namespace Content.Goobstation.Shared.Inventory;
@@ -27,9 +28,9 @@ public partial class GoobInventorySystem
         SubscribeLocalEvent<InventoryComponent, GetSpellInvocationEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, GetMessagePostfixEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ModifyStunTimeEvent>(RefRelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.NightVisionComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RefRelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TakeStaminaDamageEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<Overlays.ThermalVisionComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RefRelayInventoryEvent);
     }
 
     private void RefRelayInventoryEvent<T>(EntityUid uid, InventoryComponent component, ref T args) where T : IInventoryRelayEvent

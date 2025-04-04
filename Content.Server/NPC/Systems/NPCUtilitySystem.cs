@@ -28,7 +28,7 @@ using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Server._Goobstation.Wizard.NPC;
+using Content.Server._Shitcode.NPC;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 

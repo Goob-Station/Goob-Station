@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Common.Wizard;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
@@ -57,30 +58,30 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         SubscribeLocalEvent<WizardRoleComponent, GetBriefingEvent>(OnWizardGetBriefing);
         SubscribeLocalEvent<ApprenticeRoleComponent, GetBriefingEvent>(OnApprenticeGetBriefing);
 
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.WizardComponent, MobStateChangedEvent>(OnStateChanged);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.WizardComponent, ComponentRemove>(OnRemove);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.WizardComponent, CloningEvent>(OnWizardClone);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.ApprenticeComponent, MobStateChangedEvent>(OnStateChanged);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.ApprenticeComponent, ComponentRemove>(OnRemove);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.ApprenticeComponent, CloningEvent>(OnApprenticeClone);
+        SubscribeLocalEvent<WizardComponent, MobStateChangedEvent>(OnStateChanged);
+        SubscribeLocalEvent<WizardComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<WizardComponent, CloningEvent>(OnWizardClone);
+        SubscribeLocalEvent<ApprenticeComponent, MobStateChangedEvent>(OnStateChanged);
+        SubscribeLocalEvent<ApprenticeComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<ApprenticeComponent, CloningEvent>(OnApprenticeClone);
         SubscribeLocalEvent<Goobstation.Shared.Wizard.BindSoul.PhylacteryComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
 
         SubscribeLocalEvent<Goobstation.Shared.Wizard.DimensionShiftEvent>(OnDimensionShift);
     }
 
-    private void OnApprenticeClone(Entity<Goobstation.Shared.Wizard.ApprenticeComponent> ent, ref CloningEvent args)
+    private void OnApprenticeClone(Entity<ApprenticeComponent> ent, ref CloningEvent args)
     {
-        EnsureComp<Goobstation.Shared.Wizard.ApprenticeComponent>(args.Target);
-        RemCompDeferred<Goobstation.Shared.Wizard.ApprenticeComponent>(args.Source);
+        EnsureComp<ApprenticeComponent>(args.Target);
+        RemCompDeferred<ApprenticeComponent>(args.Source);
         _faction.ClearFactions(args.Target, false);
         _faction.AddFaction(args.Target, Faction);
     }
 
-    private void OnWizardClone(Entity<Goobstation.Shared.Wizard.WizardComponent> ent, ref CloningEvent args)
+    private void OnWizardClone(Entity<WizardComponent> ent, ref CloningEvent args)
     {
-        EnsureComp<Goobstation.Shared.Wizard.WizardComponent>(args.Target);
-        RemCompDeferred<Goobstation.Shared.Wizard.WizardComponent>(args.Source);
+        EnsureComp<WizardComponent>(args.Target);
+        RemCompDeferred<WizardComponent>(args.Source);
         _faction.ClearFactions(args.Target, false);
         _faction.AddFaction(args.Target, Faction);
     }

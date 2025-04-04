@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.ArcaneBarrage;
+using Content.Goobstation.Common.Wizard.ArcaneBarrage;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -96,36 +96,33 @@ public abstract partial class SharedHandsSystem : EntitySystem
         TrySetActiveHand(session.AttachedEntity.Value, nextHand, component);
     }
 
-    private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
+    private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity) // what the fuck is this function bro who the fuck wrote this shit ??
     {
-        if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
+        // Goobstation start
+        if (!TryComp(session?.AttachedEntity, out HandsComponent? hands) || hands.ActiveHand == null)
+            return false;
+        if (_net.IsServer && HasComp<DeleteOnDropAttemptComponent>(hands.ActiveHandEntity))
         {
-            // Goobstation start
-            if (_net.IsServer && HasComp<DeleteOnDropAttemptComponent>(hands.ActiveHandEntity))
-            {
-                QueueDel(hands.ActiveHandEntity.Value);
-                return false;
-            }
-
-            if (session != null)
-            {
-                var ent = session.AttachedEntity.Value;
-
-                if (TryGetActiveItem(ent, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
-                {
-                    var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
-                    RaiseLocalEvent(ent, userEv);
-
-                    var targEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
-                    RaiseLocalEvent(virtComp.BlockingEntity, targEv);
-
-                    if (userEv.Cancelled || targEv.Cancelled)
-                        return false;
-                }
-                TryDrop(ent, hands.ActiveHand, coords, handsComp: hands);
-            }
-            // Goobstation end
+            QueueDel(hands.ActiveHandEntity.Value);
+            return false;
         }
+
+        var ent = session.AttachedEntity.Value;
+
+        if (TryGetActiveItem(ent, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
+        {
+            var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
+            RaiseLocalEvent(ent, userEv);
+
+            var targEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, ent, item.Value, false);
+            RaiseLocalEvent(virtComp.BlockingEntity, targEv);
+
+            if (userEv.Cancelled || targEv.Cancelled)
+                return false;
+        }
+
+        TryDrop(ent, hands.ActiveHand, coords, handsComp: hands);
+        // Goobstation end
 
         // always send to server.
         return false;

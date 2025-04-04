@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Wizard.FadingTimedDespawn;
+namespace Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class FadingTimedDespawnComponent : Component

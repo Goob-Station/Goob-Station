@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Goobstation.Common.Wizard.BindSoul;
+using Content.Goobstation.Common.Wizard.Projectiles;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
@@ -125,7 +126,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var direction = itemCoords.Position - coords.Position;
         _physics.SetLinearVelocity(particle, direction.Normalized());
         EnsureComp<TimedDespawnComponent>(particle).Lifetime = 15f * (1 + ent.Comp.ResurrectionsCount);
-        var homing = EnsureComp<Projectiles.HomingProjectileComponent>(particle);
+        var homing = EnsureComp<HomingProjectileComponent>(particle);
         homing.Target = item.Value;
         Dirty(particle, homing);
     }

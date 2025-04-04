@@ -1,10 +1,11 @@
 using System.Linq;
+using Content.Goobstation.Common.Wizard.ScryingOrb;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 
 namespace Content.Goobstation.Shared.Wizard.ScryingOrb;
 
-public abstract class SharedScryingOrbSystem : EntitySystem
+public abstract class SharedScryingOrbSystem : EntitySystem, ISharedScryingOrbSystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;

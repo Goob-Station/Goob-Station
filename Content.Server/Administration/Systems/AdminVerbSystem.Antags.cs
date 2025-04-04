@@ -1,10 +1,7 @@
-using Content.Goobstation.Common.Blob;
-using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Zombies;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
@@ -170,19 +167,5 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(heretic);
 
-        // Goobstation - Wizard
-        Verb wizard = new()
-        {
-            Text = Loc.GetString("admin-verb-make-wizard"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Head/Hats/wizardhat.rsi"), "icon"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<WizardRuleComponent>(targetPlayer, "Wizard");
-            },
-            Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-text-make-wizard"),
-        };
-        args.Verbs.Add(wizard);
     }
 }

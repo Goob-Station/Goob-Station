@@ -1,12 +1,11 @@
-using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Wizard;
+namespace Content.Goobstation.Common.Wizard;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class WizardComponent : Component
 {
     [DataField]
-    public ProtoId<FactionIconPrototype> StatusIcon = "WizardFaction";
+    public string StatusIcon = "WizardFaction";
 }

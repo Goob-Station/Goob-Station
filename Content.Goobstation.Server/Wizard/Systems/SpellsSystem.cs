@@ -1,6 +1,9 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
+using Content.Goobstation.Common.Wizard;
+using Content.Goobstation.Common.Wizard.Components;
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Goobstation.Shared.Wizard;
 using Content.Goobstation.Shared.Wizard.Chuuni;
@@ -34,6 +37,7 @@ using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
@@ -339,8 +343,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
         {
             if (HasComp<WizardComponent>(ev.Performer))
                 EnsureComp<WizardComponent>(newEnt.Value);
-            if (HasComp<ApprenticeComponent>(ev.Performer))
-                EnsureComp<ApprenticeComponent>(newEnt.Value);
+            if (HasComp<Common.Wizard.ApprenticeComponent>(ev.Performer))
+                EnsureComp<Common.Wizard.ApprenticeComponent>(newEnt.Value);
         }
 
         Audio.PlayPvs(ev.Sound, newEnt.Value);
@@ -506,7 +510,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         var handsQuery = GetEntityQuery<HandsComponent>();
         var despawnQuery = GetEntityQuery<TimedDespawnComponent>();
-        var fadingQuery = GetEntityQuery<Goobstation.Shared.Wizard.FadingTimedDespawn.FadingTimedDespawnComponent>();
+        var fadingQuery = GetEntityQuery<FadingTimedDespawnComponent>();
 
         var positions = GetSpawnCoordinatesAroundPerformer(ev.Performer,
             ev.Range,
@@ -528,17 +532,17 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 continue;
             }
 
-            Goobstation.Shared.Wizard.FadingTimedDespawn.FadingTimedDespawnComponent? weaponDespawn;
+            FadingTimedDespawnComponent? weaponDespawn;
             if (despawnQuery.TryComp(mob, out var despawn))
             {
-                weaponDespawn = EnsureComp<Goobstation.Shared.Wizard.FadingTimedDespawn.FadingTimedDespawnComponent>(weapon);
+                weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
                 weaponDespawn.Lifetime = despawn.Lifetime + 30f;
                 weaponDespawn.FadeOutTime = 4f;
                 Dirty(weapon, weaponDespawn);
             }
             else if (fadingQuery.TryComp(mob, out var fading))
             {
-                weaponDespawn = EnsureComp<Goobstation.Shared.Wizard.FadingTimedDespawn.FadingTimedDespawnComponent>(weapon);
+                weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
                 weaponDespawn.Lifetime = fading.Lifetime + 30f;
                 weaponDespawn.FadeOutTime = 4f;
                 Dirty(weapon, weaponDespawn);

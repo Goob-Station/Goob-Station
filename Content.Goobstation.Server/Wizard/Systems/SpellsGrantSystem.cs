@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Goobstation.Common.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Store;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Goobstation.Server.Wizard.Store;
 using Content.Server.Antag;

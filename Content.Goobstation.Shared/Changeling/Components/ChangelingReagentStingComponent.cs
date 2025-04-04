@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Goobstation.Shared.Weapons.AmmoSelector;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Changeling.Components;

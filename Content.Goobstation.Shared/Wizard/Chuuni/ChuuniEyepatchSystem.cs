@@ -1,8 +1,10 @@
+using Content.Goobstation.Common.Wizard.Chuuni;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Network;
@@ -27,6 +29,14 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
         SubscribeLocalEvent<ChuuniEyepatchComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetSpellInvocationEvent>>(OnGetInvocation);
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetMessagePostfixEvent>>(OnGetPostfix);
+        SubscribeLocalEvent<ChuuniEyepatchComponent, CheckChuuniEyePatchEvent>(OnCheckChuuniEyePatch);
+    }
+
+    private void OnCheckChuuniEyePatch(Entity<ChuuniEyepatchComponent> ent, ref CheckChuuniEyePatchEvent args)
+    {
+        args.RequiresSpeech = true;
+        args.Flags = (int) SlotFlags.OUTERCLOTHING;
+        args.RequiredSlots = 1;
     }
 
     public override void Update(float frameTime)
@@ -119,20 +129,6 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
 
         args.Verbs.Add(verb);
     }
-}
-
-public sealed class GetSpellInvocationEvent(MagicSchool school, EntityUid performer)
-    : EntityEventArgs, IInventoryRelayEvent
-{
-    public SlotFlags TargetSlots => SlotFlags.EYES;
-
-    public MagicSchool School = school;
-
-    public EntityUid Performer = performer;
-
-    public DamageSpecifier ToHeal = new();
-
-    public LocId? Invocation;
 }
 
 public sealed class GetMessagePostfixEvent : EntityEventArgs, IInventoryRelayEvent

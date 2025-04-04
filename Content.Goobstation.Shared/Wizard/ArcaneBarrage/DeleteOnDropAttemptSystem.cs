@@ -8,10 +8,10 @@ public sealed class DeleteOnDropAttemptSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DeleteOnDropAttemptComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<Common.Wizard.ArcaneBarrage.DeleteOnDropAttemptComponent, ExaminedEvent>(OnExamine);
     }
 
-    private void OnExamine(Entity<DeleteOnDropAttemptComponent> ent, ref ExaminedEvent args)
+    private void OnExamine(Entity<Common.Wizard.ArcaneBarrage.DeleteOnDropAttemptComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("delete-on-drop-attempt-comp-examine"));
     }

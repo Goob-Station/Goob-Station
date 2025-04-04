@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -73,7 +74,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
         _throwingSystem.TryThrow(uid, dir, speed, user, 0, recoil: false);
 
-        EnsureComp<FadingTimedDespawn.FadingTimedDespawnComponent>(uid);
+        EnsureComp<FadingTimedDespawnComponent>(uid);
 
         if (comp.Shots <= 0)
             return;

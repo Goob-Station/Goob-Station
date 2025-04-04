@@ -16,7 +16,7 @@ public sealed class SpellCardSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
-    private EntityQuery<HomingProjectileComponent> _homingQuery;
+    private EntityQuery<Common.Wizard.Projectiles.HomingProjectileComponent> _homingQuery;
     private EntityQuery<TrailComponent> _trailQuery;
     private EntityQuery<AppearanceComponent> _appearanceQuery;
     private EntityQuery<FrozenComponent> _frozenQuery;
@@ -28,7 +28,7 @@ public sealed class SpellCardSystem : EntitySystem
         SubscribeLocalEvent<SpellCardComponent, ComponentStartup>(OnStartup);
 
         _xformQuery = GetEntityQuery<TransformComponent>();
-        _homingQuery = GetEntityQuery<HomingProjectileComponent>();
+        _homingQuery = GetEntityQuery<Common.Wizard.Projectiles.HomingProjectileComponent>();
         _trailQuery = GetEntityQuery<TrailComponent>();
         _appearanceQuery = GetEntityQuery<AppearanceComponent>();
         _frozenQuery = GetEntityQuery<FrozenComponent>();
@@ -156,13 +156,13 @@ public sealed class SpellCardSystem : EntitySystem
             if (_appearanceQuery.TryComp(uid, out appearance))
                 _appearance.SetData(uid, SpellCardVisuals.State, 1, appearance);
 
-            var homing = EnsureComp<HomingProjectileComponent>(uid);
+            var homing = EnsureComp<Common.Wizard.Projectiles.HomingProjectileComponent>(uid);
             homing.Target = card.Target.Value;
             card.Targeted = true;
             card.FlipAccumulator = card.FlipTime;
             if (card.FlipTime <= 0f)
                 card.Flipped = true;
-            Entity<SpellCardComponent, HomingProjectileComponent, PhysicsComponent> ent = (uid, card, homing, physics);
+            Entity<SpellCardComponent, Common.Wizard.Projectiles.HomingProjectileComponent, PhysicsComponent> ent = (uid, card, homing, physics);
             Dirty(ent, meta);
         }
     }

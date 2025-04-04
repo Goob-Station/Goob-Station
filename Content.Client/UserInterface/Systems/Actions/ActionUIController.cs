@@ -11,6 +11,7 @@ using Content.Client.UserInterface.Systems.Actions.Controls;
 using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Actions.Windows;
 using Content.Client.UserInterface.Systems.Gameplay;
+using Content.Goobstation.Shared.ActionTargetMarkSystem;
 using Content.Goobstation.Shared.Wizard;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
@@ -55,7 +56,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly TransformSystem _transform = default!; // Goobstation
     [UISystemDependency] private readonly SharedSpellsSystem? _spells = default!; // Goobstation
-    [UISystemDependency] private readonly ActionTargetMarkSystem? _mark = default!; // Goobstation - fix this
+    [UISystemDependency] private readonly IActionTargetMarkSystem? _mark = default!; // Goobstation - fix this
     [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
     private ActionButtonContainer? _container;

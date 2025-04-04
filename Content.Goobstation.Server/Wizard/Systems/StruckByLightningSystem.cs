@@ -8,7 +8,7 @@ public sealed class StruckByLightningSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<StruckByLightningComponent>();
+        var query = EntityQueryEnumerator<Common.Wizard.Components.StruckByLightningComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
         {

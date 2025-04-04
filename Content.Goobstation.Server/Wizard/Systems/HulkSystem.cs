@@ -5,6 +5,9 @@ using Content.Server.Chat.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Popups;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.Cuffs;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Ensnaring.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Console.Commands;
@@ -26,6 +29,7 @@ public sealed class HulkSystem : SharedHulkSystem
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
 
     public override void Initialize()
     {
@@ -33,6 +37,25 @@ public sealed class HulkSystem : SharedHulkSystem
 
         SubscribeLocalEvent<HulkComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HulkComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<HulkComponent, EnsnareRemoveEvent>(OnEnsnareRemove);
+        SubscribeLocalEvent<HulkComponent, UncuffAttemptEvent>(OnUncuffAttemptEvent);
+
+    }
+
+    private void OnUncuffAttemptEvent(Entity<HulkComponent> ent, ref UncuffAttemptEvent args)
+    {
+        if(!TryComp<CuffableComponent>(ent, out var cuffable))
+            return;
+
+        foreach (var cuff in _cuffable.GetAllCuffs(cuffable))
+        {
+            _cuffable.Uncuff(ent,ent,cuff,cuffable);
+        }
+    }
+
+    private void OnEnsnareRemove(Entity<HulkComponent> ent, ref EnsnareRemoveEvent args)
+    {
+        Roar(ent);
     }
 
     private void OnRemove(Entity<HulkComponent> ent, ref ComponentRemove args)

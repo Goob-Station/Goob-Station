@@ -120,7 +120,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
 
     #endregion
-
+    public event Action? StopTargeting;
     public override void Initialize()
     {
         base.Initialize();
@@ -161,8 +161,16 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
+        SubscribeNetworkEvent<StopTargetingEvent>(OnStopTargeting);
     }
 
+    private void OnStopTargeting(StopTargetingEvent msg, EntitySessionEventArgs args)
+    {
+        if (_net.IsClient)
+            return;
+
+        StopTargeting?.Invoke();
+    }
     private void OnSwapSecondaryTarget(SetSwapSecondaryTarget ev)
     {
         var action = GetEntity(ev.Action);
@@ -176,6 +184,11 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         swap.SecondaryTarget = target;
         Dirty(action, swap);
+    }
+
+    public virtual void SetSwapSecondaryTarget(EntityUid user, EntityUid? target, EntityUid action)
+    {
+
     }
 
     #region Spells
@@ -209,7 +222,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
         }
 
-        var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
+        var targetWizard = HasComp<Common.Wizard.WizardComponent>(ev.Target) || HasComp<Common.Wizard.ApprenticeComponent>(ev.Target);
 
         if (!targetWizard)
             EnsureComp<ClumsyComponent>(ev.Target);
@@ -230,7 +243,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
 
-        var targetWizard = HasComp<WizardComponent>(ev.Target) || HasComp<ApprenticeComponent>(ev.Target);
+        var targetWizard = HasComp<Common.Wizard.WizardComponent>(ev.Target) || HasComp<Common.Wizard.ApprenticeComponent>(ev.Target);
 
         SetGear(ev.Target, ev.Gear, !targetWizard);
 
@@ -1383,10 +1396,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         _gunSystem.SetTarget(projectile, target, out var targeted, false);
 
-        var homing = EnsureComp<Projectiles.HomingProjectileComponent>(projectile);
+        var homing = EnsureComp<Common.Wizard.Projectiles.HomingProjectileComponent>(projectile);
         homing.Target = target;
 
-        Entity<Projectiles.HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile, homing, targeted);
+        Entity<Common.Wizard.Projectiles.HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile, homing, targeted);
 
         Dirty(ent);
     }

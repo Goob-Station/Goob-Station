@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Goobstation.Shared.Wizard.FadingTimedDespawn;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;

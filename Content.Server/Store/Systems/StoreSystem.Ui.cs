@@ -1,6 +1,6 @@
 using System.Linq;
+using Content.Goobstation.Common.Wizard.Store;
 using Content.Goobstation.Shared.Wizard.Refund;
-using Content.Server._Goobstation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.EntitySystems;

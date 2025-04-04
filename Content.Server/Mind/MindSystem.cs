@@ -14,7 +14,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Shared.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Tag;
 
 namespace Content.Server.Mind;

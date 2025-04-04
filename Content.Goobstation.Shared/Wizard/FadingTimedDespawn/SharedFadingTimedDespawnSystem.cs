@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 

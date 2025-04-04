@@ -1,5 +1,3 @@
-using Content.Shared._Goobstation.Wizard.Projectiles;
-
 namespace Content.Goobstation.Shared.Wizard.Projectiles;
 
 public sealed class EntityTrailSystem : EntitySystem

@@ -1,6 +1,6 @@
 using Content.Server.NPC.Queries.Considerations;
 
-namespace Content.Goobstation.Server.Wizard.NPC;
+namespace Content.Server._Shitcode.NPC;
 
 public sealed partial class TargetRequiresWieldAndCanWieldCon : UtilityConsideration
 {

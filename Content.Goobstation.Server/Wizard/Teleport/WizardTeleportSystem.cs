@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Goobstation.Server.Wizard.Systems;
 using Content.Goobstation.Shared.Wizard.Teleport;
 using Content.Server.Actions;
@@ -104,7 +105,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
             _uiSystem.CloseUis(ent.Owner);
 
             // Don't Queuedel right away so that client doesn't throw debug assert exception
-            var fading = EnsureComp<Goobstation.Shared.Wizard.FadingTimedDespawn.FadingTimedDespawnComponent>(ent.Owner);
+            var fading = EnsureComp<FadingTimedDespawnComponent>(ent.Owner);
             fading.Lifetime = 0f;
             fading.FadeOutTime = 2f;
             Dirty(ent.Owner, fading);

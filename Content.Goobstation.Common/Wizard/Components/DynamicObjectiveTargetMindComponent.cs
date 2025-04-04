@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Server.Wizard.Components;
+namespace Content.Goobstation.Common.Wizard.Components;
 
 [RegisterComponent]
 public sealed partial class DynamicObjectiveTargetMindComponent : Component

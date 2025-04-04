@@ -37,28 +37,28 @@ public abstract class SharedIceCubeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IceCubeComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<IceCubeComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<IceCubeComponent, TileFrictionEvent>(OnTileFriction);
-        SubscribeLocalEvent<IceCubeComponent, MoveInputEvent>(OnMoveInput);
-        SubscribeLocalEvent<IceCubeComponent, BreakFreeDoAfterEvent>(OnBreakFree);
-        SubscribeLocalEvent<IceCubeComponent, ComponentStartup>(IceCubeAdded);
-        SubscribeLocalEvent<IceCubeComponent, ComponentShutdown>(IceCubeRemoved);
-        SubscribeLocalEvent<IceCubeComponent, UseAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, PickupAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, ThrowAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, InteractionAttemptEvent>(OnInteractAttempt);
-        SubscribeLocalEvent<IceCubeComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
-        SubscribeLocalEvent<IceCubeComponent, PullAttemptEvent>(OnPullAttempt);
-        SubscribeLocalEvent<IceCubeComponent, AttackAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, EmoteAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, SpeakAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, StandAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, DownAttemptEvent>(OnAttempt);
-        SubscribeLocalEvent<IceCubeComponent, ChangeDirectionAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, TileFrictionEvent>(OnTileFriction);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, MoveInputEvent>(OnMoveInput);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, BreakFreeDoAfterEvent>(OnBreakFree);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, ComponentStartup>(IceCubeAdded);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, ComponentShutdown>(IceCubeRemoved);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, UseAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, PickupAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, ThrowAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, InteractionAttemptEvent>(OnInteractAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, PullAttemptEvent>(OnPullAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, AttackAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, EmoteAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, SpeakAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, StandAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, DownAttemptEvent>(OnAttempt);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, ChangeDirectionAttemptEvent>(OnAttempt);
     }
 
-    private void OnStartCollide(Entity<IceCubeComponent> ent, ref StartCollideEvent args)
+    private void OnStartCollide(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref StartCollideEvent args)
     {
         var lenSquared = args.OtherBody.LinearVelocity.LengthSquared();
         if (lenSquared < 0.01f || !lenSquared.IsValid()) // Tests heisenfail without this since an engine issue causes it to return NaN randomly
@@ -78,17 +78,17 @@ public abstract class SharedIceCubeSystem : EntitySystem
             body: args.OurBody);
     }
 
-    private void OnMobStateChanged(Entity<IceCubeComponent> ent, ref MobStateChangedEvent args)
+    private void OnMobStateChanged(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref MobStateChangedEvent args)
     {
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 
-    private void OnTileFriction(Entity<IceCubeComponent> ent, ref TileFrictionEvent args)
+    private void OnTileFriction(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref TileFrictionEvent args)
     {
         args.Modifier *= ent.Comp.TileFriction;
     }
 
-    private void OnBreakFree(Entity<IceCubeComponent> ent, ref BreakFreeDoAfterEvent args)
+    private void OnBreakFree(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref BreakFreeDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled)
             return;
@@ -98,7 +98,7 @@ public abstract class SharedIceCubeSystem : EntitySystem
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 
-    private void OnMoveInput(Entity<IceCubeComponent> ent, ref MoveInputEvent args)
+    private void OnMoveInput(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref MoveInputEvent args)
     {
         var (uid, comp) = ent;
 
@@ -114,23 +114,23 @@ public abstract class SharedIceCubeSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("ice-cube-break-free-start"), uid, uid);
     }
 
-    private void OnInteractAttempt(Entity<IceCubeComponent> ent, ref InteractionAttemptEvent args)
+    private void OnInteractAttempt(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref InteractionAttemptEvent args)
     {
         args.Cancelled = true;
     }
 
-    private void OnAttempt(EntityUid uid, IceCubeComponent component, CancellableEntityEventArgs args)
+    private void OnAttempt(EntityUid uid, Common.Wizard.Traps.IceCubeComponent component, CancellableEntityEventArgs args)
     {
         args.Cancel();
     }
 
-    private void OnPullAttempt(EntityUid uid, IceCubeComponent component, PullAttemptEvent args)
+    private void OnPullAttempt(EntityUid uid, Common.Wizard.Traps.IceCubeComponent component, PullAttemptEvent args)
     {
         if (args.PullerUid == uid)
             args.Cancelled = true;
     }
 
-    private void OnUpdateCanMove(Entity<IceCubeComponent> ent, ref UpdateCanMoveEvent args)
+    private void OnUpdateCanMove(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref UpdateCanMoveEvent args)
     {
         if (ent.Comp.LifeStage > ComponentLifeStage.Running)
             return;
@@ -138,7 +138,7 @@ public abstract class SharedIceCubeSystem : EntitySystem
         args.Cancel();
     }
 
-    private void IceCubeRemoved(Entity<IceCubeComponent> ent, ref ComponentShutdown args)
+    private void IceCubeRemoved(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref ComponentShutdown args)
     {
         var (uid, comp) = ent;
 
@@ -170,7 +170,7 @@ public abstract class SharedIceCubeSystem : EntitySystem
             _physics.SetBodyType(uid, comp.OldBodyType.Value, fixtures, physics, xform);
     }
 
-    private void IceCubeAdded(Entity<IceCubeComponent> ent, ref ComponentStartup args)
+    private void IceCubeAdded(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref ComponentStartup args)
     {
         Startup(ent);
 
@@ -206,11 +206,11 @@ public abstract class SharedIceCubeSystem : EntitySystem
         _physics.SetBodyType(uid, comp.FrozenBodyType, fixtures, physics, xform);
     }
 
-    protected virtual void Startup(Entity<IceCubeComponent> ent)
+    protected virtual void Startup(Entity<Common.Wizard.Traps.IceCubeComponent> ent)
     {
     }
 
-    protected virtual void Shutdown(Entity<IceCubeComponent> ent)
+    protected virtual void Shutdown(Entity<Common.Wizard.Traps.IceCubeComponent> ent)
     {
     }
 }

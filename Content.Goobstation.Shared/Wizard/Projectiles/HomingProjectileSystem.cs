@@ -32,7 +32,7 @@ public sealed class HomingProjectileSystem : EntitySystem
             return;
 
         var query =
-            EntityQueryEnumerator<HomingProjectileComponent, PhysicsComponent, TransformComponent, FixturesComponent>();
+            EntityQueryEnumerator<Common.Wizard.Projectiles.HomingProjectileComponent, PhysicsComponent, TransformComponent, FixturesComponent>();
 
         while (query.MoveNext(out var uid, out var homing, out var physics, out var xform, out var fix))
         {

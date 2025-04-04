@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Server.Wizard.Components;
+namespace Content.Goobstation.Common.Wizard.Components;
 
 /// <summary>
 /// This component is required to make sure an entity is struck by the same lightning no more than once

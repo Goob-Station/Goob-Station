@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.TimeStop;
+using Content.Goobstation.Shared.Wizard.TimeStop;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;

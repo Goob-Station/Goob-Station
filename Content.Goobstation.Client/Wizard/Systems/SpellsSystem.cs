@@ -1,19 +1,20 @@
 using System.Numerics;
 using Content.Client.Animations;
+using Content.Goobstation.Common.Wizard;
 using Content.Goobstation.Shared.Wizard;
 using Content.Goobstation.Shared.Wizard.SupermatterHalberd;
+using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Wizard.Systems;
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly ActionTargetMarkSystem _mark = default!;
     [Dependency] private readonly RaysSystem _rays = default!;
 
-    public event Action? StopTargeting;
 
     public override void Initialize()
     {
@@ -22,7 +23,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         SubscribeLocalEvent<WizardComponent, GetStatusIconsEvent>(GetWizardIcon);
         SubscribeLocalEvent<ApprenticeComponent, GetStatusIconsEvent>(GetApprenticeIcon);
 
-        SubscribeNetworkEvent<StopTargetingEvent>(OnStopTargeting);
         SubscribeAllEvent<ChargeSpellRaysEffectEvent>(OnChargeEffect);
     }
 
@@ -54,7 +54,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         track.User = uid;
     }
 
-    public void SetSwapSecondaryTarget(EntityUid user, EntityUid? target, EntityUid action)
+    public override void SetSwapSecondaryTarget(EntityUid user, EntityUid? target, EntityUid action)
     {
         if (target == null || user == target)
         {
@@ -67,23 +67,17 @@ public sealed class SpellsSystem : SharedSpellsSystem
         RaisePredictiveEvent(new SetSwapSecondaryTarget(GetNetEntity(action), GetNetEntity(target.Value)));
     }
 
-    private void OnStopTargeting(StopTargetingEvent msg, EntitySessionEventArgs args)
-    {
-        if (args.SenderSession != _player.LocalSession)
-            return;
-
-        StopTargeting?.Invoke();
-    }
-
     private void GetWizardIcon(Entity<WizardComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (ProtoMan.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        var icon = (ProtoId<FactionIconPrototype>) ent.Comp.StatusIcon;
+        if (ProtoMan.TryIndex(icon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 
     private void GetApprenticeIcon(Entity<ApprenticeComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (ProtoMan.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        var icon = (ProtoId<FactionIconPrototype>) ent.Comp.StatusIcon;
+        if (ProtoMan.TryIndex(icon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 }

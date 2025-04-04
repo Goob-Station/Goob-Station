@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Spawners;
@@ -23,7 +24,7 @@ public sealed class DropItemsOnTimedDespawnSystem : EntitySystem
             return;
 
         var despawnQuery = GetEntityQuery<TimedDespawnComponent>();
-        var fadingQuery = GetEntityQuery<FadingTimedDespawn.FadingTimedDespawnComponent>();
+        var fadingQuery = GetEntityQuery<FadingTimedDespawnComponent>();
 
         foreach (var hand in _hands.EnumerateHands(uid, hands))
         {

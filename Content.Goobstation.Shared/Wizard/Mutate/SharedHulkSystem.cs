@@ -1,3 +1,5 @@
+using Content.Goobstation.Common.EnsareTimeModifier;
+using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -21,6 +23,12 @@ public abstract class SharedHulkSystem : EntitySystem
         SubscribeLocalEvent<HulkComponent, SlipAttemptEvent>(OnSlipAttempt);
         SubscribeLocalEvent<HulkComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HulkComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<HulkComponent, GetEnsareTimeModifier>(OnGetEnsareTimeModifier);
+    }
+
+    private void OnGetEnsareTimeModifier(Entity<HulkComponent> ent, ref GetEnsareTimeModifier args)
+    {
+        args.FreeTime *= ent.Comp.EnsnareTimeMultiplier;
     }
 
     private void OnStartup(Entity<HulkComponent> ent, ref ComponentStartup args)

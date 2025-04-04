@@ -2,7 +2,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
+namespace Content.Goobstation.Shared.Weapons.AmmoSelector;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AmmoSelectorComponent : Component

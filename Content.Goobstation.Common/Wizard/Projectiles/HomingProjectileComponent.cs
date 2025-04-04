@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Wizard.Projectiles;
+namespace Content.Goobstation.Common.Wizard.Projectiles;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HomingProjectileComponent : Component

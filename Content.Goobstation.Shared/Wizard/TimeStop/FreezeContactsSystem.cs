@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Emoting;
@@ -78,7 +79,7 @@ public sealed class FreezeContactsSystem : EntitySystem
         if (_net.IsServer && TryComp(uid, out TimedDespawnComponent? despawn))
             despawn.Lifetime -= comp.FreezeTime;
 
-        if (TryComp(uid, out FadingTimedDespawn.FadingTimedDespawnComponent? fading) && !fading.FadeOutStarted)
+        if (TryComp(uid, out FadingTimedDespawnComponent? fading) && !fading.FadeOutStarted)
             fading.Lifetime -= comp.FreezeTime;
 
         if (!TryComp(uid, out ThrownItemComponent? thrownItem) || thrownItem.LandTime == null)
@@ -191,7 +192,7 @@ public sealed class FreezeContactsSystem : EntitySystem
             return;
 
         TimedDespawnComponent? otherDespawn;
-        FadingTimedDespawn.FadingTimedDespawnComponent? fading;
+        FadingTimedDespawnComponent? fading;
         ThrownItemComponent? thrownItem;
         if (TryComp(otherUid, out FrozenComponent? frozen))
         {

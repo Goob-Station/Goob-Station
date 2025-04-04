@@ -9,7 +9,6 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components.SolutionManager;

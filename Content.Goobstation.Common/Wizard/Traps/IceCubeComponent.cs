@@ -1,12 +1,10 @@
-using Content.Shared.Atmos;
-using Content.Shared.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.Wizard.Traps;
+namespace Content.Goobstation.Common.Wizard.Traps;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class IceCubeComponent : Component
@@ -27,22 +25,22 @@ public sealed partial class IceCubeComponent : Component
     public float Restitution = 0.8f;
 
     [DataField]
-    public float FrozenTemperature = Atmospherics.T0C - 200f;
+    public float FrozenTemperature = 273.15f - 200f; // Atmospherics.T0C
 
     [DataField]
-    public float UnfreezeTemperatureThreshold = Atmospherics.T0C;
+    public float UnfreezeTemperatureThreshold = 273.15f;
 
     [DataField]
-    public float UnfrozenTemperature = Atmospherics.T0C - 100f;
+    public float UnfrozenTemperature = 273.15f - 100f;
 
     [DataField]
     public float TemperaturePerHeatDamageIncrease = 5f;
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
-    public int CollisionMask = (int) CollisionGroup.FullTileMask;
+    public int CollisionMask = 158; // FullTileMask
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionLayer>))]
-    public int CollisionLayer = (int) CollisionGroup.WallLayer;
+    public int CollisionLayer = 223; // WallLayer;
 
     [DataField]
     public TimeSpan BreakFreeDelay = TimeSpan.FromSeconds(10);

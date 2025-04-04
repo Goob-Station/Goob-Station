@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard.Traps;
 using Content.Goobstation.Shared.Wizard.Traps;
 using Robust.Client.GameObjects;
 

@@ -18,18 +18,18 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IceCubeComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
-        SubscribeLocalEvent<IceCubeComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
+        SubscribeLocalEvent<Common.Wizard.Traps.IceCubeComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<IceCubeOnProjectileHitComponent, ProjectileHitEvent>(OnHit);
     }
 
     private void OnHit(Entity<IceCubeOnProjectileHitComponent> ent, ref ProjectileHitEvent args)
     {
         if (_whitelist.IsValid(ent.Comp.Whitelist, args.Target))
-            EnsureComp<IceCubeComponent>(args.Target);
+            EnsureComp<Common.Wizard.Traps.IceCubeComponent>(args.Target);
     }
 
-    private void OnDamageChanged(Entity<IceCubeComponent> ent, ref DamageChangedEvent args)
+    private void OnDamageChanged(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref DamageChangedEvent args)
     {
         var (uid, comp) = ent;
 
@@ -46,13 +46,13 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
             temperature);
     }
 
-    private void OnTemperatureChange(Entity<IceCubeComponent> ent, ref OnTemperatureChangeEvent args)
+    private void OnTemperatureChange(Entity<Common.Wizard.Traps.IceCubeComponent> ent, ref OnTemperatureChangeEvent args)
     {
         if (args.TemperatureDelta > 0f && args.CurrentTemperature > ent.Comp.UnfreezeTemperatureThreshold)
             RemCompDeferred(ent.Owner, ent.Comp);
     }
 
-    protected override void Startup(Entity<IceCubeComponent> ent)
+    protected override void Startup(Entity<Common.Wizard.Traps.IceCubeComponent> ent)
     {
         base.Startup(ent);
 
@@ -66,7 +66,7 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
             temperature);
     }
 
-    protected override void Shutdown(Entity<IceCubeComponent> ent)
+    protected override void Shutdown(Entity<Common.Wizard.Traps.IceCubeComponent> ent)
     {
         base.Shutdown(ent);
 

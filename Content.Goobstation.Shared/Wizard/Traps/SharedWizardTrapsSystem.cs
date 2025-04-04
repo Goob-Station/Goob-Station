@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -79,7 +79,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
 
     private void OnChillTriggered(Entity<ChillTrapComponent> ent, ref TrapTriggeredEvent args)
     {
-        EnsureComp<IceCubeComponent>(args.Victim);
+        EnsureComp<Common.Wizard.Traps.IceCubeComponent>(args.Victim);
     }
 
     private void OnStunTriggered(Entity<StunTrapComponent> ent, ref TrapTriggeredEvent args)
@@ -97,7 +97,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         if (comp.Triggered)
             return;
 
-        if (HasComp<GodmodeComponent>(args.OtherEntity) || HasComp<IceCubeComponent>(args.OtherEntity))
+        if (HasComp<GodmodeComponent>(args.OtherEntity) || HasComp<Common.Wizard.Traps.IceCubeComponent>(args.OtherEntity))
             return;
 
         if (IsEntityMindIgnored(args.OtherEntity, comp))
@@ -114,7 +114,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         comp.Charges--;
         Dirty(ent);
 
-        if (HasComp<FadingTimedDespawn.FadingTimedDespawnComponent>(uid))
+        if (HasComp<FadingTimedDespawnComponent>(uid))
             return;
 
         if (comp.StunTime > TimeSpan.Zero)
@@ -173,7 +173,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         if (TerminatingOrDeleted(uid))
             return;
 
-        if (HasComp<FadingTimedDespawn.FadingTimedDespawnComponent>(uid))
+        if (HasComp<FadingTimedDespawnComponent>(uid))
             return;
 
         if (IsEntityMindIgnored(args.Examiner, comp))
@@ -188,7 +188,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
 
         Appearance.SetData(uid, TrapVisuals.Alpha, 0.8f);
 
-        var fading = EnsureComp<FadingTimedDespawn.FadingTimedDespawnComponent>(uid);
+        var fading = EnsureComp<FadingTimedDespawnComponent>(uid);
         fading.Lifetime = 0.5f;
         fading.FadeOutTime = 1f;
         Dirty(uid, fading);

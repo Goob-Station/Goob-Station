@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goobstation.Shared.Wizard.EventSpells;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -67,7 +67,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!;
+        [Dependency] private readonly SharedGhostVisibilitySystem _ghostVisibility = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;

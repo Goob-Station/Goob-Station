@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.Wizard;
 using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Server.Administration.Commands;
 using Content.Server.Destructible;
@@ -33,7 +34,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         Faction.ClearFactions(ent, false);
         Faction.AddFaction(ent, WizardRuleSystem.Faction);
         RemCompDeferred<TransferMindOnGibComponent>(ent);
-        EnsureComp<Goobstation.Shared.Wizard.WizardComponent>(ent);
+        EnsureComp<WizardComponent>(ent);
 
         SetOutfitCommand.SetOutfit(ent, LichGear, EntityManager);
 

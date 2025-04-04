@@ -1,22 +1,21 @@
+using Content.Goobstation.Shared.ActionTargetMarkSystem;
 using Content.Shared.GameTicking;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Wizard.Systems;
 
-public sealed class ActionTargetMarkSystem : EntitySystem
+public sealed class ActionTargetMarkSystem : SharedActionTargetMarkSystem
 {
     [Dependency] private readonly TransformSystem _transform = default!;
-
-    private static readonly EntProtoId MarkProto = "ActionTargetMark";
 
     public EntityUid? Target;
     public EntityUid? Mark;
 
+    private static readonly EntProtoId MarkProto = "ActionTargetMark";
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
     }
 
@@ -34,7 +33,7 @@ public sealed class ActionTargetMarkSystem : EntitySystem
         Mark = null;
     }
 
-    public void SetMark(EntityUid? uid)
+    public override void SetMark(EntityUid? uid)
     {
         if (Target == uid)
             return;

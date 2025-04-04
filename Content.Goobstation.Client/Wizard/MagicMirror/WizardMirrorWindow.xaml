@@ -1,8 +1,8 @@
 <DefaultWindow xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
-         xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-         xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
+         xmlns:humanoid="clr-namespace:Content.Client.Humanoid;assembly=Content.Client"
+         xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
+         xmlns:ui="clr-namespace:Content.Client.Lobby.UI;assembly=Content.Client"
          HorizontalExpand="True"
          Title="{Loc 'magic-mirror-window-title'}"
          MinSize="800 800">
