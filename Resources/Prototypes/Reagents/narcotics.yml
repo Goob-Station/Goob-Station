@@ -234,6 +234,9 @@
       - !type:RemoveComponentEffect # goob edit
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
+      - !type:TakeStaminaDamage # goob edit
+        amount: -10
+        immediate: true
     Medicine:
       metabolismRate: 1.0
       effects:
