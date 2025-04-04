@@ -7042,3 +7042,9 @@ Entries:
       message: Proximity airlock opening.
   id: 818
   time: '2025-04-03T08:14:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Captain no longer gets N1984.
+  id: 819
+  time: '2025-04-04T18:23:30.0000000+00:00'
