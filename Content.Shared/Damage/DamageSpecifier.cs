@@ -309,9 +309,7 @@ namespace Content.Shared.Damage
         }
 
         // Goobstation - partial AP. Returns new armor modifier set.
-        public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet,
-            float penetration,
-            bool altFormula = false)
+        public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet, float penetration)
         {
             if (penetration == 0f)
                 return modifierSet;
@@ -320,23 +318,20 @@ namespace Content.Shared.Damage
             if (penetration >= 1f)
                 return result;
 
+            var inversePen = 1f - penetration;
+
             foreach (var (type, coef) in modifierSet.Coefficients)
             {
-                // Negative coefficients are not modified by this
-                if (coef <= 0)
+                // Negative coefficients are not modified by this,
+                // coefficients above 1 will actually be lowered which is not desired
+                if (coef is <= 0 or >= 1)
                 {
-                    result.FlatReduction.Add(type, coef);
+                    result.Coefficients.Add(type, coef);
                     continue;
                 }
 
-                var max = MathF.Max(1f, coef);
-                result.Coefficients.Add(type,
-                    altFormula
-                        ? Math.Clamp(1f - (1f - coef - penetration) / (1f - penetration), 0f, max) // SS13 formula
-                        : Math.Clamp(1f - (1f - penetration) * (1f - coef), 0f, max)); // Custom formula
+                result.Coefficients.Add(type, MathF.Pow(coef, inversePen));
             }
-
-            var flatPenetration = 1f - penetration;
 
             foreach (var (type, flat) in modifierSet.FlatReduction)
             {
@@ -347,7 +342,7 @@ namespace Content.Shared.Damage
                     continue;
                 }
 
-                result.FlatReduction.Add(type, flat * flatPenetration);
+                result.FlatReduction.Add(type, flat * inversePen);
             }
 
             return result;

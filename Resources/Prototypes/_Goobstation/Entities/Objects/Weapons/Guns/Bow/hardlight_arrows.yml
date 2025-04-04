@@ -204,7 +204,7 @@
   - type: PointLight
     color: silver
   - type: Projectile
-    armorPenetration: -1.2
+    armorPenetration: -2.5
     damage:
       types:
         Slash: 120
