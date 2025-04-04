@@ -9,6 +9,10 @@
   - MagazineCaselessRifle
   - MagazinePistolHighCapacityEmpty
   - MagazinePistolHighCapacity
+  - MagazineCaselessMagnum
+  - MagazinePistolCaselessMagnum
+  - MagazinePistolCaselessMagnumMinusP
+  - MagazineCaselessRifleM7S
 
 - type: latheRecipePack
   id: SyndicateAmmoHeavyStatic
