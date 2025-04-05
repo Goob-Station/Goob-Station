@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Common.Wizard.Mutate;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
@@ -643,6 +644,11 @@ namespace Content.Shared.Cuffs
                 {
                     return;
                 }
+
+                var hulkUncuffAttemptEv = new HulkUncuffAttemptEvent(cuffsToRemove.Value);
+                RaiseLocalEvent(user, ref hulkUncuffAttemptEv);
+                if(hulkUncuffAttemptEv.Success)
+                    return;
             }
 
             var doAfterEventArgs = new DoAfterArgs(EntityManager, user, uncuffTime, new UnCuffDoAfterEvent(), target, target, cuffsToRemove)

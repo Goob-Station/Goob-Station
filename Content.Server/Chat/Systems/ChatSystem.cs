@@ -1,8 +1,6 @@
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Common.Wizard.ScryingOrb;
 using Content.Goobstation.Shared.Wizard.Chuuni;
 using Content.Goobstation.Shared.Wizard.EventSpells;
 using Content.Goobstation.Shared.Wizard.ScryingOrb;
@@ -10,9 +8,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Players.RateLimiting;
 using Content.Server.Speech.Prototypes;
-using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
@@ -69,8 +65,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly TelepathicChatSystem _telepath = default!; // Goobstation Change
     [Dependency] private readonly SharedGhostVisibilitySystem _ghostVisibility = default!; // Goobstation Change
-    [Dependency] private readonly ISharedScryingOrbSystem _scrying = default!; // Goobstation Change
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
+    [Dependency] private readonly SharedScryingOrbSystem _scrying = default!; // Goobstation - Wizard
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units

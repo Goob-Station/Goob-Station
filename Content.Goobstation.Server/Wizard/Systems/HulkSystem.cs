@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Goobstation.Common.Wizard.Mutate;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Goobstation.Shared.Wizard.Mutate;
 using Content.Server.Chat.Systems;
@@ -29,7 +30,6 @@ public sealed class HulkSystem : SharedHulkSystem
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
 
     public override void Initialize()
     {
@@ -38,19 +38,6 @@ public sealed class HulkSystem : SharedHulkSystem
         SubscribeLocalEvent<HulkComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<HulkComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<HulkComponent, EnsnareRemoveEvent>(OnEnsnareRemove);
-        SubscribeLocalEvent<HulkComponent, UncuffAttemptEvent>(OnUncuffAttemptEvent);
-
-    }
-
-    private void OnUncuffAttemptEvent(Entity<HulkComponent> ent, ref UncuffAttemptEvent args)
-    {
-        if(!TryComp<CuffableComponent>(ent, out var cuffable))
-            return;
-
-        foreach (var cuff in _cuffable.GetAllCuffs(cuffable))
-        {
-            _cuffable.Uncuff(ent,ent,cuff,cuffable);
-        }
     }
 
     private void OnEnsnareRemove(Entity<HulkComponent> ent, ref EnsnareRemoveEvent args)

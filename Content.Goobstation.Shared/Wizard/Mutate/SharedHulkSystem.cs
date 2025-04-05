@@ -1,5 +1,6 @@
 using Content.Goobstation.Common.EnsareTimeModifier;
-using Content.Shared.Cuffs.Components;
+using Content.Goobstation.Common.Wizard.Mutate;
+using Content.Shared.Cuffs;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -13,6 +14,7 @@ namespace Content.Goobstation.Shared.Wizard.Mutate;
 public abstract class SharedHulkSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
 
     public override void Initialize()
     {
@@ -24,6 +26,14 @@ public abstract class SharedHulkSystem : EntitySystem
         SubscribeLocalEvent<HulkComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HulkComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<HulkComponent, GetEnsareTimeModifier>(OnGetEnsareTimeModifier);
+        SubscribeLocalEvent<HulkComponent, HulkUncuffAttemptEvent>(OnUncuffAttemptEvent);
+    }
+
+    private void OnUncuffAttemptEvent(Entity<HulkComponent> ent, ref HulkUncuffAttemptEvent args)
+    {
+        Roar(ent);
+        _cuffable.Uncuff(ent,ent, args.cuffs);
+        args.Success = true;
     }
 
     private void OnGetEnsareTimeModifier(Entity<HulkComponent> ent, ref GetEnsareTimeModifier args)

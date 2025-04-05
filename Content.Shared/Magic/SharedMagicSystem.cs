@@ -822,7 +822,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (args is ISpeakSpell speak && !string.IsNullOrWhiteSpace(speak.Speech))
             speech = speak.Speech;
 
-        if (TryComp(args.Action, out MagicComponent? magic))
+        if (TryComp(args.Action, out MagicComponent? magic)) // layering events??
         {
             var invocationEv = new GetSpellInvocationEvent(magic.School, args.Performer);
             RaiseLocalEvent(args.Performer, invocationEv);
