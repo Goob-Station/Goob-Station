@@ -5,6 +5,7 @@
   name: bullet (.60 anti-materiel)
   components:
   - type: Projectile
+    armorPenetration: 0.5
     damage:
       types:
         Piercing: 75

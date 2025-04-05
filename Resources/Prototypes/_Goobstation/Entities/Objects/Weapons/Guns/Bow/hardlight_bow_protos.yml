@@ -60,3 +60,12 @@
     state: icon
   color: yellow
   protoId: ArrowBee
+
+- type: selectableAmmo
+  id: ArrowSlash
+  desc: Slashing hardlight arrow. Deals extremely high damage that is easily stopped by the armor.
+  icon:
+    sprite: Objects/Weapons/Melee/machete.rsi
+    state: icon
+  color: silver
+  protoId: ArrowSlash
