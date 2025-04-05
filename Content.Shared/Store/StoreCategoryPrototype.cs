@@ -21,4 +21,7 @@ public sealed partial class StoreCategoryPrototype : IPrototype
 
     [DataField("priority")]
     public int Priority { get; private set; } = 0;
+
+    [DataField("evil")]
+    public bool Evil { get; private set; } = false; // Goobstation
 }

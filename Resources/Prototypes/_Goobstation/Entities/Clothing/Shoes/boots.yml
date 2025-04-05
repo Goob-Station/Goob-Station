@@ -132,6 +132,8 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: ScannableForPoints # NTR update
+    points: 1 # i want ntr to harmbaton tiders with jordans cuz i am evil.
 
 - type: entity
   parent: [ClothingShoesBaseButcherable, BaseMajorContraband]

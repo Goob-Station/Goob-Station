@@ -1,0 +1,13 @@
+- type: ntrTask
+  id: TaskStampHos
+  proto: SecurityDocument
+  reward: 1
+  description: Get HOS stamp on this document to complete.
+  entries:
+  - name: StampHOS
+    stamps:
+    - stamp-component-stamped-name-nanorep
+    - stamp-component-stamped-name-hos
+    whitelist:
+      tags:
+      - Document

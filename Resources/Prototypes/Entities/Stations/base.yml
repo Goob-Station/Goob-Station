@@ -3,6 +3,7 @@
   abstract: true
   components:
     - type: StationData
+    - type: NtrTaskDatabase
 
 - type: entity
   id: BaseStationCargo
@@ -72,7 +73,7 @@
           - /Maps/Ruins/syndicate_dropship.yml
           - /Maps/Ruins/whiteship_ancient.yml
           - /Maps/Ruins/whiteship_bluespacejumper.yml
-          - /Maps/Ruins/wrecklaimer.yml 
+          - /Maps/Ruins/wrecklaimer.yml
 # Lavaland Change: no vgroid
 #        vgroid: !type:DungeonSpawnGroup
 #          minimumDistance: 300
