@@ -30,6 +30,21 @@
   - type: DevilAction
 
 - type: entity
+  id: ActionCreateRevivalContract
+  name: Summon revival contract
+  description: Creates a revival contract in the Devil's hand.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
+      state: evolution_menu
+    event: !type:CreateRevivalContractEvent {}
+  - type: DevilAction
+
+- type: entity
   id: ActionShadowJaunt
   name: Shadow jaunt
   description: Melt into the shadows.

@@ -1,16 +1,28 @@
 using Content.Goobstation.Shared.CheatDeath;
+using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Traits.Assorted;
+using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Condemned;
 
 public sealed partial class CondemnedSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CondemnedComponent, MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<CondemnedComponent, ExaminedEvent>(OnExamined);
+    }
+
+    private void OnExamined(EntityUid uid, CondemnedComponent comp, ExaminedEvent args)
+    {
+        if (args.IsInDetailsRange && !_net.IsClient)
+        {
+            args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", uid)));
+        }
     }
 
     private void OnMobStateChanged(EntityUid uid, CondemnedComponent comp, MobStateChangedEvent args)

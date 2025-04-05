@@ -1,11 +1,18 @@
 - type: entity
-  id: PaperDevilContract
-  suffix: "Devil Contract"
-  parent: [Paper, BaseMagicContraband]
-  name: contract from below
-  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+  id: BaseDevilContract
+  parent: [BaseItem, BaseMagicContraband]
+  abstract: true
   components:
-  - type: DevilContract
+  - type: PaperLabelType
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Item
+    size: Normal
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
@@ -16,6 +23,16 @@
     - state: contract-written
       map: [ "enum.PaperVisualLayers.Writing" ]
       visible: false
+    - type: paper
+
+- type: entity
+  id: PaperDevilContract
+  suffix: "Devil Contract"
+  parent: BaseDevilContract
+  name: contract from below
+  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+  components:
+  - type: DevilContract
   - type: Paper # Not localized because FTL doesn't support formatting. Or at least I don't know how.
     content: |2
 
@@ -38,4 +55,35 @@
       [italic]All clauses come into effect upon signing of this paper by both parties.[/italic]
 
       Sign Below:
+
+- type: entity
+  id: PaperDevilContractRevival
+  suffix: "Devil Contract, Revival"
+  parent: BaseDevilContract
+  name: contract from below
+  description: A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
+  components:
+  - type: RevivalContract
+  - type: Paper
+    EditingDisabled: true
+    content: |2
+
+                    [head=2]--- Contract from below ---[/head]
+      This binding contract made this day between:
+      - The Infernal Party (Hereinafter "Contractor")
+      - The Mortal Party (Hereinafter "Contractee")
+
+      [bold]Clauses of Binding:[/bold]
+
+      [italic] The following parties give up the following posessions [/italic]
+
+      Article I: Soul Transfership
+      Contractee: Soul Ownership
+
+      Article II: Mortality
+      Contractee: Death
+
+      [italic]The Contractee agrees to give up possession of their soul to the Contractor in
+      exchange for being revived. [/italic]
+
 

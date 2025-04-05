@@ -11,3 +11,8 @@ devil-contract-examined = This contract has a weight of: {$weight}.
 
 devil-deal-time-ran-out = Your vision goes black as your muscles fail you. You've run out of time.
 
+revival-contract-accepted = You feel your connection to your body strengthen...
+revival-contract-rejected = You reject the unholy offer.
+revival-contract-expired = Times up.
+revival-contract-prompt = "A dark contract offers to restore your life... Do you accept? (Check your verbs)"
+

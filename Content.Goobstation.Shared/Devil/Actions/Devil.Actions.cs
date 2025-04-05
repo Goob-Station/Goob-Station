@@ -14,4 +14,6 @@ public sealed partial class OpenSoulStoreEvent : InstantActionEvent { }
 
 public sealed partial class CreateContractEvent : InstantActionEvent { }
 
+public sealed partial class CreateRevivalContractEvent : InstantActionEvent { }
+
 public sealed partial class ShadowJauntEvent : InstantActionEvent { }

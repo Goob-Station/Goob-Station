@@ -10,6 +10,7 @@ public sealed partial class DevilComponent : Component
         "ActionSoulStoreMenu",
         "ActionCreateContract",
         "ActionShadowJaunt",
+        "ActionCreateRevivalContract",
     };
 
     /// <summary>

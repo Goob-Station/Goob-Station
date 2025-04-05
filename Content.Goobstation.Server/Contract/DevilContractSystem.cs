@@ -1,7 +1,6 @@
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Condemned;
-using Content.Server.Hands.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Paper;
@@ -17,7 +16,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -38,6 +36,8 @@ public sealed partial class DevilContractSystem : EntitySystem
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
     }
 
+    #region Dictionaries
+
     private readonly Dictionary<string, Action<EntityUid, DevilContractComponent>> ContractClauses;
 
     private readonly Dictionary<string, Func<DevilContractComponent, EntityUid?>> _targetResolvers = new()
@@ -54,23 +54,26 @@ public sealed partial class DevilContractSystem : EntitySystem
     private readonly Dictionary<string, int> _clauseWeights = new()
     {
         ["death everlasting"] = -100,
-        ["death"] = -50,
-        ["weakness"] = -45,
+        ["weakness"] = -35,
+        ["locks"] = 35,
+        ["death"] = -25,
         ["soul ownership"] = 25,
-        ["strength"] = 30,
-        ["coherence"] = 35,
-        ["a hand"] = 40,
-        ["a leg"] = 40,
-        ["legs"] = 60,
-        ["an organ"] = 65,
-        ["sight"] = 80,
+        ["strength"] = 25,
+        ["coherence"] = 25,
+        ["a hand"] = 30,
+        ["a leg"] = 30,
+        ["legs"] = 40,
+        ["an organ"] = 45,
+        ["sight"] = 60,
         ["will to fight"] = 80,
         ["time"] = 150,
 
     };
 
+    #endregion
+
     private static readonly Regex ClauseRegex = new(
-        @"^\s*(?<target>Contractor|Contractee|Both)\s*:\s*(?<clause>.+?)\s*$",
+        @"^\s*(?<target>Contractor|Contractee|Both)\s*:\s*(?<clause>.+?)\s*$", // Unholy.
         RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline
     );
 
@@ -123,6 +126,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         }
     }
 
+    #region Signing Steps
 
     private void OnContractSignAttempt(EntityUid uid, DevilContractComponent comp, ref BeingSignedAttemptEvent args)
     {
@@ -226,6 +230,10 @@ public sealed partial class DevilContractSystem : EntitySystem
         // Maybe the contract burns after a couple of minutes?
     }
 
+    #endregion
+
+    #region Helper Events
+
     private void TryContractEffects(EntityUid uid, DevilContractComponent comp)
     {
         if (!TryComp<PaperComponent>(uid, out var paper))
@@ -293,4 +301,6 @@ public sealed partial class DevilContractSystem : EntitySystem
             _sawmill.Error($"Failed to apply {targetKey} clause: {ex}");
         }
     }
+
+    #endregion
 }

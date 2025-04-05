@@ -1,18 +1,18 @@
 using System.Linq;
 using Content.Goobstation.Common.Traits;
-using Content.Goobstation.Server.CheatDeath;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Server._Shitmed.DelayedDeath;
+using Content.Server.Access.Systems;
 using Content.Server.Body.Systems;
 using Content.Server.Speech.Components;
+using Content.Shared.Access.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Clumsy;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Popups;
-using Content.Shared.Store.Components;
 using Content.Shared.Traits.Assorted;
 
 namespace Content.Goobstation.Server.Contract;
@@ -117,6 +117,11 @@ public sealed partial class DevilContractSystem
             {
                 EnsureComp<CheatDeathComponent>(target, out var cheatDeathComponent);
                 cheatDeathComponent.ReviveAmount = -1;
+            },
+
+            // Grants all-access // Todo - Implement
+            ["locks"] = (target, contract) =>
+            {
             },
 
             // Kills the target after five minutes

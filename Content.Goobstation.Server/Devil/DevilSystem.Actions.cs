@@ -11,6 +11,7 @@ public sealed partial class DevilSystem
     {
         SubscribeLocalEvent<DevilComponent, OpenSoulStoreEvent>(OnStoreOpened);
         SubscribeLocalEvent<DevilComponent, CreateContractEvent>(OnContractCreated);
+        SubscribeLocalEvent<DevilComponent, CreateRevivalContractEvent>(OnRevivalContractCreated);
         SubscribeLocalEvent<DevilComponent, ShadowJauntEvent>(OnShadowJaunt);
     }
 
@@ -28,6 +29,22 @@ public sealed partial class DevilSystem
             return;
 
         var contract = Spawn(_contractPrototype, Transform(uid).Coordinates);
+        _hands.TryPickupAnyHand(uid, contract);
+
+        if (!TryComp<DevilContractComponent>(contract, out var contractComponent))
+            return;
+
+        contractComponent.ContractOwner = args.Performer;
+
+        // Add a firey sound effect here
+    }
+
+    private void OnRevivalContractCreated(EntityUid uid, DevilComponent comp, ref CreateRevivalContractEvent args)
+    {
+        if (!TryUseAbility(comp, args))
+            return;
+
+        var contract = Spawn(_revivalContractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
 
         if (!TryComp<DevilContractComponent>(contract, out var contractComponent))
