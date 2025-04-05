@@ -12,3 +12,6 @@ marking-ScarTopSurgeryLong = Top Surgery Scar (Long)
 
 marking-ScarChest-scar_chest = Chest Scar
 marking-ScarChest = Chest Scar
+
+marking-BodyScar_r-scar_chest = Rightsides scar
+marking-BodyScar_r = Rightsides scar

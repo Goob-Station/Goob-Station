@@ -26,7 +26,7 @@
       required: true
       defaultMarkings: [ FelinidEarsBasic ]
     Chest:
-      points: 1
+      points: 3
       required: false
     Legs:
       points: 2
