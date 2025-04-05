@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Goobstation.Shared.Wizard.Traps;
 using Content.Server.Chat.Managers;
 using Content.Server.DoAfter;
 using Content.Server.Gravity;
@@ -6,7 +7,6 @@ using Content.Server.Mind;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
@@ -190,7 +190,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         RaiseLocalEvent(rune, ref ev);
         ent.Comp.DrawnRunes.Add(rune);
 
-        if (!TryComp(rune, out WizardTrapComponent? trap) || !_mind.TryGetMind(args.User, out var mind, out _))
+        if (!TryComp(rune, out Goobstation.Shared.Wizard.Traps.WizardTrapComponent? trap) || !_mind.TryGetMind(args.User, out var mind, out _))
             return;
 
         trap.IgnoredMinds.Add(mind);

@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Goobstation.Common.Wizard.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Wieldable.Components;

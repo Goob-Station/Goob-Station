@@ -1,6 +1,5 @@
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Wizard.Guardian;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -64,7 +63,7 @@ namespace Content.Server.Guardian
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
         {
             if (!TerminatingOrDeleted(uid)) // Goobstation
-                RemCompDeferred<GuardianSharedComponent>(uid);
+                RemCompDeferred<Goobstation.Shared.Wizard.Guardian.GuardianSharedComponent>(uid);
 
             var host = component.Host;
             component.Host = null;
@@ -222,7 +221,7 @@ namespace Content.Server.Guardian
 
             // Goobstation start
             _faction.IgnoreEntity(guardian, args.Args.Target.Value);
-            var sharedComp = EnsureComp<GuardianSharedComponent>(guardian);
+            var sharedComp = EnsureComp<Goobstation.Shared.Wizard.Guardian.GuardianSharedComponent>(guardian);
             sharedComp.Host = args.Args.Target.Value;
             Dirty(guardian, sharedComp);
             // Goobstation end

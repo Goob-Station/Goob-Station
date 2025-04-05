@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.ScryingOrb;
+using Content.Goobstation.Common.Wizard.ScryingOrb;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Camera;
@@ -9,7 +9,6 @@ using Content.Shared.Movement.Components;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
-
 namespace Content.Shared.Movement.Systems;
 
 /// <summary>
@@ -18,7 +17,6 @@ namespace Content.Shared.Movement.Systems;
 public abstract class SharedContentEyeSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminManager _admin = default!;
-    [Dependency] private readonly SharedScryingOrbSystem _scrying = default!;
 
     // Admin flags required to ignore normal eye restrictions.
     public const AdminFlags EyeFlag = AdminFlags.Debug;
@@ -106,8 +104,8 @@ public abstract class SharedContentEyeSystem : EntitySystem
     {
         if (args.SenderSession.AttachedEntity is not { } player)
             return;
-
-        if (!HasComp<GhostComponent>(player) && !_admin.IsAdmin(player) && !_scrying.IsScryingOrbEquipped(player)) // Goob edit
+        var scryingEv = new IsScryingOrbEquippedEvent(GetNetEntity(player));
+        if (!HasComp<GhostComponent>(player) && !_admin.IsAdmin(player) && !scryingEv.Equipped) // Goob edit
             return;
 
         if (TryComp<EyeComponent>(player, out var eyeComp))

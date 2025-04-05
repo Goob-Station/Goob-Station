@@ -3,7 +3,7 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Goobstation.Common.Wizard.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;
 

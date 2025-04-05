@@ -1,7 +1,7 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.Standing;
-using Content.Shared._Goobstation.Wizard.TimeStop;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Goobstation.Common.Wizard.Traps;
+using Content.Goobstation.Shared.Wizard.TimeStop;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;

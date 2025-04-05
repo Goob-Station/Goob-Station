@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Client.Hands.Systems;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -86,7 +85,7 @@ namespace Content.Client.Hands
             if (handEntity == null)
                 return;
 
-            if (_entMan.TryGetComponent(handEntity.Value, out AmmoSelectorComponent? ammoSelector) &&
+            if (_entMan.TryGetComponent(handEntity.Value, out Goobstation.Shared.Weapons.AmmoSelector.AmmoSelectorComponent? ammoSelector) &&
                 ammoSelector.CurrentlySelected is { } selected)
             {
                 var texture = _sprite.Frame0(selected.Icon);

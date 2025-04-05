@@ -4,7 +4,7 @@ using Content.Client.MainMenu;
 using Content.Client.Replay.Spectator;
 using Content.Client.Replay.UI.Loading;
 using Content.Client.UserInterface.Systems.Chat;
-using Content.Shared._Goobstation.Wizard;
+using Content.Goobstation.Shared.Wizard;
 using Content.Shared.Chat;
 using Content.Shared.Effects;
 using Content.Shared.GameTicking;

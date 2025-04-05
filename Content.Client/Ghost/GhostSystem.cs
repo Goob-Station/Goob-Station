@@ -1,5 +1,5 @@
-using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Movement.Systems;
+using Content.Goobstation.Shared.Wizard.EventSpells;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using Robust.Client.Console;
@@ -16,7 +16,7 @@ namespace Content.Client.Ghost
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly ContentEyeSystem _contentEye = default!;
-        [Dependency] private readonly GhostVisibilitySystem _ghostVisSystem = default!; // Goobstation
+        [Dependency] private readonly SharedGhostVisibilitySystem _ghostVisSystem = default!; // Goobstation
 
         public int AvailableGhostRoleCount { get; private set; }
 

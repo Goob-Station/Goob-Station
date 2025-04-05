@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Goobstation.Shared.Weapons.AmmoSelector;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
