@@ -126,6 +126,9 @@
   id: Eyes
 
 - type: Tag
+  id: EnergyMagAmmo
+
+- type: Tag
   id: FelinidEmotes
 
 - type: Tag
