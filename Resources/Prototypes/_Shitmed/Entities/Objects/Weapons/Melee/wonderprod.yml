@@ -20,7 +20,7 @@
   - type: GuideHelp
     guides:
     - Abductors
-#  - type: RestrictByUserTag
+#  - type: RestrictMeleeByUserTag
 #    contains:
 #    - Abductor
 #    messages:

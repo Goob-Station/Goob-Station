@@ -37,6 +37,13 @@
         - MobLayer
   - type: Stamina
     critThreshold: 115
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - AnomalyHost
+    - Oni
 
 - type: entity
   save: false
