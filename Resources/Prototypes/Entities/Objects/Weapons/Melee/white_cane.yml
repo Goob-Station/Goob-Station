@@ -11,6 +11,7 @@
     size: Normal
     sprite: Objects/Weapons/Melee/white_cane.rsi
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     damage:
       types:
