@@ -45,6 +45,7 @@
   - EnergyScalpel
   - EnergyCautery
   - AdvancedRetractor
+  - OmnimedTool
 
 - type: latheRecipePack
   id: MedicalCybernetics
@@ -63,3 +64,4 @@
   - SyringeGun
   - HandheldCrewMonitor
   - DefibrillatorCompact
+  - MedicalBeamGun
