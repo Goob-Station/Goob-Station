@@ -31,12 +31,25 @@ public sealed class MeleeLungeEvent : EntityEventArgs
     /// </summary>
     public string? Animation;
 
-    public MeleeLungeEvent(NetEntity entity, NetEntity weapon, Angle angle, Vector2 localPos, string? animation)
+    /// <summary>
+    /// Goob - Shove Rework / The rotation of the sprite for the animation
+    /// </summary>
+    public Angle SpriteRotation;
+
+    /// <summary>
+    /// Goob - Shove Rework / The rotation of the sprite for the animation
+    /// </summary>
+    public bool FlipAnimation;
+
+
+    public MeleeLungeEvent(NetEntity entity, NetEntity weapon, Angle angle, Vector2 localPos, string? animation, Angle spriteRotation, bool flipAnimation)
     {
         Entity = entity;
         Weapon = weapon;
         Angle = angle;
         LocalPos = localPos;
         Animation = animation;
+        SpriteRotation = spriteRotation;
+        FlipAnimation = flipAnimation;
     }
 }

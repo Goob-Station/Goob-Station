@@ -10,3 +10,46 @@
     BlobGameMode: 0.04
     Wizard: 0.05
     #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself
+
+
+- type: incompatibleModes
+  id: Nukeops
+  modes:
+  - Nukeops
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+
+- type: incompatibleModes
+  id: HonkOps
+  modes:
+  - Nukeops
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+
+- type: incompatibleModes
+  id: Wizard
+  modes:
+  - Wizard
+
+- type: incompatibleModes
+  id: BlobGameMode
+  modes:
+  - BlobGameMode
+  - Nukeops
+  - HonkOps
+
+- type: incompatibleModes
+  id: Zombie
+  modes:
+  - Nukeops
+  - HonkOps
+
+- type: incompatibleModes
+  id: Revolutionary
+  modes:
+  - Nukeops
+  - HonkOps

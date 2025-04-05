@@ -306,13 +306,6 @@ entities:
     - type: Transform
       pos: 3.5,1.5
       parent: 222
-- proto: BlueprintSeismicCharge
-  entities:
-  - uid: 217
-    components:
-    - type: Transform
-      pos: 0.5,-4.518282
-      parent: 222
 - proto: CableApcExtension
   entities:
   - uid: 109

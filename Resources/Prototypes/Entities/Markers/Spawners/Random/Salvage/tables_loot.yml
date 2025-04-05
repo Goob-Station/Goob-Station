@@ -249,8 +249,8 @@
   table: !type:GroupSelector
     children:
     - id: AdvancedMineralScanner
-    - id: BlueprintFulton
-    - id: BlueprintSeismicCharge
+    # - id: BlueprintFulton # Goobstation - roundstart
+    # - id: BlueprintSeismicCharge # Goobstation - emag locked
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: OmnizineChemistryBottle

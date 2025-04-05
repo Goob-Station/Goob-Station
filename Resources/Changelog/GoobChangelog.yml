@@ -6946,3 +6946,137 @@ Entries:
       message: Blobbernauts can now flex their muscles.
   id: 806
   time: '2025-03-31T06:05:17.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: >-
+        Bingles can be butchered, cooked, and eaten. Eating too munch bingle
+        meat makes you a pitless bingle.
+  id: 807
+  time: '2025-04-01T19:01:13.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Roundstart nukeops can no longer spawn with revs, blob or zombies.
+    - type: Fix
+      message: >-
+        Fixed 2 roundstart nukie squads, 2 blobs or 2 wizards being selected
+        sometimes.
+  id: 808
+  time: '2025-04-01T23:00:49.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Tide accent
+  id: 809
+  time: '2025-04-02T03:10:31.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Add the homunculus - add 5U mutagen to an egg to summon one
+  id: 810
+  time: '2025-04-02T03:16:32.0000000+00:00'
+- author: JoeHammad, mrjajkes
+  changes:
+    - type: Add
+      message: Added new nuke music, "Sponsored by Syndicate".
+  id: 811
+  time: '2025-04-02T03:17:33.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Proto-kinetic weapons (except for accelerator) got slightly nerfed.
+  id: 812
+  time: '2025-04-02T18:13:18.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Syringe guns now inject their contents more smoothly.
+  id: 813
+  time: '2025-04-02T18:14:08.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the ammounts of ui inventory windows you can have open at one
+        time
+  id: 814
+  time: '2025-04-02T18:15:59.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        Added new tier 2 arsenal research for energy bolt weapon and also our
+        first printable energy bolt weapon that is magazine swapable and 3
+        magazine types to go along with it.
+  id: 815
+  time: '2025-04-02T18:17:55.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Internals alert is hidden when not wearing a breath mask now.
+  id: 816
+  time: '2025-04-02T18:27:39.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Added emagged recipes for all departmental lathes and exosuit
+        fabricator. Go see what emagging them does.
+    - type: Remove
+      message: Removed Dualetta kit from uplink. Dualetta bundle is not affected.
+    - type: Tweak
+      message: >-
+        Changed flashbangs fired from mech flashbang launcher to actual
+        flashbangs that knock people down.
+    - type: Fix
+      message: >-
+        Fixed some oversights with lathe recipes. All things that should be
+        printable at a given lathe are printable, and these that shouldn't are
+        not.
+  id: 817
+  time: '2025-04-03T03:00:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Proximity airlock opening.
+  id: 818
+  time: '2025-04-03T08:14:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Captain no longer gets N1984.
+  id: 819
+  time: '2025-04-04T18:23:30.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Multiple storage behavior was reverted.
+  id: 820
+  time: '2025-04-04T22:54:28.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Shoving now moves objects and mobs, deals very small stamina damage.
+    - type: Add
+      message: Melee weapon regular swings now show the weapon.
+    - type: Fix
+      message: Grab Throw cooldown actually works.
+  id: 821
+  time: '2025-04-05T09:45:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cartridges can now be ejected from cartridge autoinjectors.
+    - type: Tweak
+      message: >-
+        Security no longer spawns with cartridge autoinjectors, but they can be
+        found in SecTech.
+    - type: Tweak
+      message: You can now make tirizene from haloperidol, phenol and plasma.
+    - type: Tweak
+      message: Changeling lethargic sting now actually makes people sleepy.
+    - type: Tweak
+      message: Atropine no longer paralyzes without OD.
+  id: 822
+  time: '2025-04-05T11:57:11.0000000+00:00'

@@ -48,6 +48,10 @@
     - ShuttleBoards
     - BluespaceTheory
     - ScienceClothing
+  - type: EmagLatheRecipes
+    emagDynamicPacks:
+    - SecurityBoards # TF2 reference, go build fucking turrets
+    - MiningBoards
   - type: MaterialStorage
     whitelist:
       tags:
@@ -93,14 +97,21 @@
     - Equipment
     - ServiceWeapons
     - MiningWeapons
+    - MiningBoards
     - MiningUpgrades
+    - MechBoardsCargo
+    - MechWeaponsSalvage
     - SpecOpsGoogles
     - CargoBoards
     - SharedBoards
     - ShuttleBoards
-    - CargoMechElectronicsGoob
     - BluespaceTheory
     - ScienceClothing
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
+    emagDynamicPacks:
+    - SecurityExplosives
   - type: MaterialStorage
     whitelist:
       tags:
@@ -169,10 +180,13 @@
     - ScienceBoards
     - ShuttleBoards
     - MedicalBoardsGoob
-    - MechBoards
-    - MechElectronicsGoob
-    - CargoMechElectronicsGoob
     - BluespaceTheory
+    - MechBoardsScience
+  - type: EmagLatheRecipes
+    emagDynamicPacks:
+    - MechBoardsSecurity
+    - MechBoardsCargo
+    - MechBoardsCivilian # Evil ass traitor scientist in a honker... with a rocket launcher because the honker is emagged too.
   - type: MaterialStorage
     whitelist:
       tags:
@@ -218,9 +232,14 @@
     - FauxTiles
     - ServiceWeapons
     - MedicalMisc
+    - MechBoardsCivilian
+    - MechWeaponsCivilian
     - ServiceBoards
     - SharedBoards
     - CameraBoards
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - ServiceBoardsEvilStatic # Donk Co microwave circiutboard
   - type: MaterialStorage
     whitelist:
       tags:

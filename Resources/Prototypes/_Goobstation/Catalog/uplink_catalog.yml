@@ -172,17 +172,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkDualettaKit
-  name: uplink-dualetta-kit-name
-  description: uplink-dualetta-kit-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
-  productEntity: BoxDualettaKit
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkPistolAnaconda
   name: uplink-anaconda-name
   description: uplink-anaconda-desc

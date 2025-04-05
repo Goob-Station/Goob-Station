@@ -1806,6 +1806,35 @@
         maxDistance: 3
 
 - type: entity
+  name: The Throngler
+  parent: ToyHammer
+  id: ThronglerToy
+  suffix: Toy
+  description: Why would you make this?
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/Throngler2.rsi
+      state: icon
+    - type: StaminaDamageOnHit
+      damage: 0.8
+    - type: MeleeWeapon
+      animationRotation: -45 # WWDP
+      wideAnimationRotation: -135
+      attackRate: .1
+      damage:
+        types:
+          Blunt: 0
+      soundHit:
+        path: /Audio/Effects/explosion_small1.ogg
+      soundNoDamage:
+        path: /Audio/Effects/explosion_small1.ogg
+    - type: Item
+      size: Ginormous
+      sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
+    - type: DisarmMalus
+      malus: 0
+
+- type: entity
   parent: BasePlushie
   id: RubberChicken
   name: rubber chicken
