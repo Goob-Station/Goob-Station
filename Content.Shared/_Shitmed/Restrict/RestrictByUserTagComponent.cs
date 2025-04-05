@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitmed.Restrict;
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class RestrictByUserTagComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -15,4 +15,15 @@ public sealed partial class RestrictByUserTagComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<string> Messages = [];
+
+    [DataField]
+    public bool BlockInteraction = true;
+
+    [DataField]
+    public bool BlockMelee = true;
+
+    [DataField]
+    public bool BlockGunshots = true;
+
+    public TimeSpan LastPopup;
 }
