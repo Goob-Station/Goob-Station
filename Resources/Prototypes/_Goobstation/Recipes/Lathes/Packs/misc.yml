@@ -1,20 +1,23 @@
 ## Static
 - type: latheRecipePack
-  id: SyndicateAmmoStatic
+  id: SyndicateAmmoLightStatic
   recipes:
   - MagazinePistolCaselessRifleEmpty
   - MagazinePistolCaselessRifle
   - MagazineBoxCaselessRifle
+  - MagazineCaselessRifleEmpty
+  - MagazineCaselessRifle
+  - MagazinePistolHighCapacityEmpty
+  - MagazinePistolHighCapacity
+
+- type: latheRecipePack
+  id: SyndicateAmmoHeavyStatic
+  recipes:
   - MagazineLightRifleBoxEmpty
   - MagazineLightRifleBox
   - MagazineHighCaliberEmpty
   - MagazineHighCaliber
   - MagazineBoxHighCaliber
-  - MagazineBoxShotgunIncendiaryHighCaliber
-  - MagazineBoxShotgunUraniumHighCaliber
-  - MagazineBoxShotgunBeanbagHighCaliber
-  - MagazineCaselessRifleEmpty
-  - MagazineCaselessRifle
   - MagazineBoxAntiMateriel
 
 - type: latheRecipePack
@@ -26,8 +29,8 @@
 - type: latheRecipePack
   id: SyndicateCatridgesStatic
   recipes:
-  - CartridgeEphedrine # Goobstation
-  - CartridgePuncturase # Goobstation
+  - CartridgeEphedrine
+  - CartridgePuncturase
 
 - type: latheRecipePack
   id: ProtoLatheMiscStatic
