@@ -1,0 +1,19 @@
+using Content.Shared.Actions;
+using Robust.Shared.GameStates;
+
+namespace Content.Goobstation.Shared.CheatDeath;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class CheatDeathComponent : Component
+{
+    /// <summary>
+    /// How many revives does this entity have remaining.
+    /// </summary>
+    /// <remarks>
+    /// If set to -1, the amount is infinite.
+    /// </remarks>
+    [DataField]
+    public int ReviveAmount = 1;
+}
+
+public sealed partial class CheatDeathEvent : InstantActionEvent { }

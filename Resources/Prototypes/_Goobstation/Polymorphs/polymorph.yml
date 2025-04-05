@@ -64,3 +64,11 @@
     inventory: Drop
     revertOnDeath: false
     revertOnCrit: false
+
+- type: polymorph
+  id: ShadowJaunt
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 8
+    attachToGridOrMap: true

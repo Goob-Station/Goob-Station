@@ -1,0 +1,63 @@
+# Devil Specific
+
+- type: entity
+  id: ActionSoulStoreMenu
+  name: Open soul store menu
+  description: Opens the soul store menu.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
+      state: evolution_menu
+    event: !type:OpenSoulStoreEvent {}
+  - type: DevilAction
+
+- type: entity
+  id: ActionCreateContract
+  name: Summon infernal contract
+  description: Creates an infernal contract in the Devil's hand.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
+      state: evolution_menu
+    event: !type:CreateContractEvent {}
+  - type: DevilAction
+
+- type: entity
+  id: ActionShadowJaunt
+  name: Shadow jaunt
+  description: Melt into the shadows.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
+      state: evolution_menu
+    event: !type:ShadowJauntEvent {}
+  - type: DevilAction
+
+# Deals
+
+- type: entity
+  id: ActionCheatDeath
+  name: Cheat Death
+  description: Laugh in the Grim Reapers face. You've still got time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 180
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: Objects/Weapons/Grenades/smoke.rsi # Todo: Change this to like wings or something
+      state: icon
+    event: !type:CheatDeathEvent {}

@@ -1,0 +1,5 @@
+# Devil Categories
+- type: storeCategory
+  id: DevilAbilityUtility
+  name: store-devil-category-utility
+  priority: 1

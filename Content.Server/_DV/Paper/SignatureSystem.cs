@@ -1,3 +1,5 @@
+using Content.Goobstation.Common.Paper;
+using Content.Goobstation.Shared.Devil;
 using Content.Server.Access.Systems;
 using Content.Server.Popups;
 using Content.Shared.Paper;
@@ -49,7 +51,7 @@ public sealed class SignatureSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Tries add add a signature to the paper with signer's name.
+    ///     Tries to add a signature to the paper with signer's name.
     /// </summary>
     public bool TrySignPaper(Entity<PaperComponent> paper, EntityUid signer, EntityUid pen)
     {
@@ -58,6 +60,11 @@ public sealed class SignatureSystem : EntitySystem
         var ev = new SignAttemptEvent(paper, signer);
         RaiseLocalEvent(pen, ref ev);
         if (ev.Cancelled)
+            return false;
+
+        var paperEvent = new BeingSignedAttemptEvent(paper, signer); // Goobstation
+        RaiseLocalEvent(paper.Owner, ref paperEvent);
+        if (paperEvent.Cancelled)
             return false;
 
         var signatureName = DetermineEntitySignature(signer);
@@ -81,6 +88,9 @@ public sealed class SignatureSystem : EntitySystem
 
             _paper.UpdateUserInterface(paper);
 
+            var evSignSucessfulEvent = new SignSuccessfulEvent(paper, signer); // Goobstation - Devil Antagonist
+            RaiseLocalEvent(paper, ref evSignSucessfulEvent); // Goobstation - Devil Antagonist
+
             return true;
         }
         else
@@ -94,6 +104,10 @@ public sealed class SignatureSystem : EntitySystem
 
     private string DetermineEntitySignature(EntityUid uid)
     {
+        // Goobstation - Allow devils to sign their true name.
+        if (TryComp<DevilComponent>(uid, out var devilComp) && !string.IsNullOrWhiteSpace(devilComp.TrueName))
+            return devilComp.TrueName;
+
         // If the entity has an ID, use the name on it.
         if (_idCard.TryFindIdCard(uid, out var id) && !string.IsNullOrWhiteSpace(id.Comp.FullName))
             return id.Comp.FullName;

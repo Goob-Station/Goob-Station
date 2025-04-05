@@ -1,0 +1,41 @@
+- type: entity
+  id: PaperDevilContract
+  suffix: "Devil Contract"
+  parent: [Paper, BaseMagicContraband]
+  name: contract from below
+  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+  components:
+  - type: DevilContract
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: contract
+    - state: contract-signed
+      map: [ "enum.PaperVisualLayers.Stamp" ]
+      visible: false
+    - state: contract-written
+      map: [ "enum.PaperVisualLayers.Writing" ]
+      visible: false
+  - type: Paper # Not localized because FTL doesn't support formatting. Or at least I don't know how.
+    content: |2
+
+                    [head=2]--- Contract from below ---[/head]
+      This binding contract made this day between:
+      - The Infernal Party (Hereinafter "Contractor")
+      - The Mortal Party (Hereinafter "Contractee")
+
+      [bold]Clauses of Binding:[/bold]
+
+      [italic] The following parties give up the following posessions [/italic]
+
+      Article I: Soul Transfership
+      Contractee: Soul Ownership
+
+      Article II: Mortality
+      Contractee: Death
+
+
+      [italic]All clauses come into effect upon signing of this paper by both parties.[/italic]
+
+      Sign Below:
+

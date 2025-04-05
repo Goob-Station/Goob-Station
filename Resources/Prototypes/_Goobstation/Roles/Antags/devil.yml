@@ -1,0 +1,10 @@
+- type: antag
+  id: Devil
+  name: roles-antag-devil-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-devil-description
+  guides: [ Blob ] # Change this
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 72000 #20 hrs

@@ -1,0 +1,12 @@
+- type: entity
+  id: PolymorphShadowJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: BaseMobJaunt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 12
+    baseWalkSpeed: 8
+  - type: WizardJaunt # Todo - Give this unique effects
+    durationBetweenEffects: 9.4
