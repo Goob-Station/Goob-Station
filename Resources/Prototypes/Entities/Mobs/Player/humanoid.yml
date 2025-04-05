@@ -153,6 +153,14 @@
   speciesWhitelist: Human
 # Goobstation end
 
+- type: randomHumanoidSettings
+  id: EventHumanoidCentcomm
+  parent: EventHumanoidMindShielded
+  components:
+  - type: AutoImplant
+    implants:
+    - DeathRattleImplantCentcomm
+
 ## Death Squad
 
 - type: entity
@@ -172,7 +180,7 @@
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   randomizeName: false
   components:
     - type: GrantImplant
@@ -213,7 +221,7 @@
 
 - type: randomHumanoidSettings
   id: ERTLeader
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   randomizeName: false
   components:
     - type: GhostRole
@@ -642,7 +650,7 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   components:
     - type: GrantImplant
       implants: [ FreedomImplant, RadioImplantCentcomm ]
@@ -674,7 +682,7 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
-  parent: EventHumanoidMindShielded
+  parent: EventHumanoidCentcomm
   components:
     - type: GrantImplant
       implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
