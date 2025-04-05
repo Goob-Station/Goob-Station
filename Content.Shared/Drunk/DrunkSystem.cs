@@ -15,7 +15,7 @@ public abstract class SharedDrunkSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!; // Goob - needed to calculate remaining status time. 
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goob - needed to calculate remaining status time. 
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goob - used to get the CVar setting. 
 
     public void TryApplyDrunkenness(EntityUid uid, float boozePower, bool applySlur = true,
         StatusEffectsComponent? status = null)
@@ -46,7 +46,7 @@ public abstract class SharedDrunkSystem : EntitySystem
             else
                 _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
         }
-        // Gobb modification ends
+        // Goob modification ends
         // else
         // {
         //     _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
