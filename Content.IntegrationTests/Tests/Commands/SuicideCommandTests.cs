@@ -113,7 +113,7 @@ public sealed class SuicideCommandTests
   name: test version of the material reclaimer
   components:
   - type: MaterialReclaimer";
-
+    private static readonly ProtoId<TagPrototype> CannotSuicideTag = "CannotSuicide";
     /// <summary>
     /// Run the suicide command in the console
     /// Should successfully kill the player and ghost them
@@ -262,7 +262,7 @@ public sealed class SuicideCommandTests
             mobStateComp = entManager.GetComponent<MobStateComponent>(player);
         });
 
-        tagSystem.AddTag(player, "CannotSuicide");
+        tagSystem.AddTag(player, CannotSuicideTag);
 
         // Check that running the suicide command kills the player
         // and properly ghosts them without them being able to return to their body

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fern�ndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Saphire Lattice <lattice@saphi.re>
 // SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
@@ -120,6 +120,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 // Tile Movement Change
@@ -163,6 +164,9 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
     protected EntityQuery<MapGridComponent> MapGridQuery;
+
+    private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
+
     protected EntityQuery<FixturesComponent> FixturesQuery; // Tile Movement Change
     protected EntityQuery<TileMovementComponent> TileMovementQuery; // Tile Movement Change
     /// <summary>
@@ -583,7 +587,7 @@ public abstract partial class SharedMoverController : VirtualController
     {
         sound = null;
 
-        if (!CanSound() || !_tags.HasTag(uid, "FootstepSound"))
+        if (!CanSound() || !_tags.HasTag(uid, FootstepSoundTag))
             return false;
 
         var coordinates = xform.Coordinates;
