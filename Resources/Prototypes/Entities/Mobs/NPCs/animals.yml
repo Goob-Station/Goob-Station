@@ -1117,7 +1117,7 @@
 
 - type: entity
   name: gorilla
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase ]
   id: MobGorilla
   description: Smashes, roars, looks cool. Don't stand near one.
   components:
@@ -1178,6 +1178,30 @@
     speedModifierThresholds:
       80: 0.7
       100: 0.5
+  - type: GhostRole # Goobstation start
+    prob: 0.05
+    makeSentient: true
+    name: ghost-role-information-gorilla-name
+    description: ghost-role-information-gorilla-description
+    rules: ghost-role-information-freeagent-rules
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Puller
+    needsHands: true
+  - type: Body # Shitmed Change
+    prototype: Monkey
+    requiredLegs: 2
+  - type: Inventory
+    templateId: gorilla
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 20
+        Piercing: 20
+      groups:
+        Burn: 20
+    clumsySound:
+      path: /Audio/Animals/monkey_scream.ogg # Goobstation end
 
 - type: entity
   name: kangaroo
