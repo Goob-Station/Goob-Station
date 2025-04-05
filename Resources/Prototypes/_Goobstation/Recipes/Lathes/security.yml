@@ -59,9 +59,8 @@
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
+    Glass: 400
     Plasma: 200
-    Gold: 200
 
 - type: latheRecipe
   id: CartridgePuncturase
@@ -69,9 +68,17 @@
   completetime: 1
   materials:
     Steel: 200
-    Glass: 500
-    Plasma: 500
-    Gold: 200
+    Glass: 400
+    Plasma: 200
+
+- type: latheRecipe
+  id: CartridgeTirizene
+  result: CartridgeTirizene
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 400
+    Plasma: 200
 
 - type: latheRecipe
   id: SecHypo

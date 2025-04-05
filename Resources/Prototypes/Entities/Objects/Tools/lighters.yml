@@ -74,6 +74,7 @@
           Quantity: 8
         maxVol: 8 #uses less fuel than a welder, so this isnt as bad as it looks
   - type: MeleeWeapon
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     damage:
       types:
@@ -204,6 +205,7 @@
       - state: zippo-inhand-right-flame
         shader: unshaded
   - type: MeleeWeapon
+    animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     damage:
       types:
