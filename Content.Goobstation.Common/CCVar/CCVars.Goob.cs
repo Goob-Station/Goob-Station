@@ -78,6 +78,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> SiloEnabled =
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    ///     Set a max drunk time in seconds to prevent permanent drunkeness. 
+    /// </summary>
+    public static readonly CVarDef<float> MaxDrunkTime =
+        CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
+
     #region Player Listener
 
     /// <summary>
