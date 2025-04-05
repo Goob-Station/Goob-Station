@@ -54,6 +54,8 @@
       types:
         Heat: 10
         Slash: 7.5
+  - type: Cautery
+    speed: 1.5
 
 - type: entity
   parent: HereticBladeBase

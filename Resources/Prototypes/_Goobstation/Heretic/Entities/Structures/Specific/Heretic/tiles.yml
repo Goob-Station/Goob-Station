@@ -121,12 +121,11 @@
           small_rune_12: ""
   - type: Transform
     anchored: true
-  - type: Physics
-    canCollide: false
-    bodyType: Static
   - type: RequiresTile
   - type: SpriteRandomOffset
   - type: Appearance
+  - type: TimedDespawn
+    lifetime: 0.7
   - type: Tag
     tags:
       - HideContextMenu
@@ -139,13 +138,12 @@
   components:
   - type: Transform
     anchored: true
-  - type: Physics
-    canCollide: false
-    bodyType: Static
   - type: ActiveEdgeSpreader
   - type: EdgeSpreader
     id: Rust
   - type: RustSpreader
+  - type: Visibility
+    layer: 0
   - type: Tag
     tags:
       - HideContextMenu
