@@ -1,0 +1,60 @@
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: N14BaseFence
+  name: fence
+  description: Helps keep trespassers out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    netsync: false
+    drawdepth: Walls
+  - type: Icon
+    state: full
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 100
+
+- type: entity
+  parent: N14BaseFence
+  id: N14WallFenceChain
+  name: chainlink fence
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/fencechain.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/fencechain.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: fence
+    base: fence
+    allowedVerbs:
+    - Rattle

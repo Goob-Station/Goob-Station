@@ -1,0 +1,266 @@
+# For all other walls see SS14
+# Make a base for wood, metal walls (breaks to girder), concrete (breaks to nothing / rubble), rebarconcrete (breaks to rebar girder) etc for destruction
+
+# Concrete Walls
+- type: entity
+  parent: BaseWall
+  id: N14WallStore
+  name: store wall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/store.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/store.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: wallsstore
+    base: store
+
+- type: entity
+  parent: N14WallStore
+  id: N14WallSuperstore
+  name: store wall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/superstore.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/superstore.rsi
+
+- type: entity
+  parent: N14WallStore
+  id: N14WallBrick
+  name: brick wall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/brick.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/brick.rsi
+  - type: IconSmooth
+    key: wallsbrick
+    base: brick
+
+- type: entity
+  parent: N14WallStore
+  id: N14WallConcreteLight
+  name: concrete wall
+  suffix: light
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/concrete.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/concrete.rsi
+
+- type: entity
+  parent: N14WallConcreteLight
+  id: N14WallConcreteDark
+  suffix: dark
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/concretedark.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/concretedark.rsi
+
+# Wood walls
+- type: entity
+  id: N14WallWoodFrame
+  parent: Barricade
+  name: wooden wall Frame
+  description: A frame for building into a wall.
+  components:
+  - type: Construction
+    graph: N14WoodWall
+    node: Frame
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/woodlog.rsi
+    state: girder
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+
+- type: entity
+  parent: BaseWall
+  id: N14WallWoodWhite
+  name: wooden wall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/woodwhite.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/woodwhite.rsi
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: wallswood
+    base: wood
+
+- type: entity
+  parent: BaseStructureDynamic
+  id: N14WallWoodWhiteFrame
+  name: wall frame
+  description: Part of a wooden wall supporting the structure.
+  components:
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - GlassAirlockLayer
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/woodwhite.rsi
+    state: girder
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: N14WallWoodWhite
+  id: N14WallWoodDark
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/wooddark.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/wooddark.rsi
+
+- type: entity
+  parent: N14WallWoodWhiteFrame
+  id: N14WallWoodDarkFrame
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/wooddark.rsi
+    state: girder
+
+- type: entity
+  parent: N14WallWoodWhite
+  id: N14WallWoodLog
+  name: log wall
+  description: A wall made out of wooden logs.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/woodlognew.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/woodlognew.rsi
+  - type: IconSmooth
+    key: log
+    base: log
+  - type: Construction
+    graph: N14WoodWall
+    node: logWall
+
+# Tent Walls
+- type: entity
+  parent: BaseWall
+  id: N14WallTent
+  name: tent wall
+  description: A tent made from cloth. Keeps the weather out at least.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/nc14/tent.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/nc14/tent.rsi
+  - type: Damageable
+    damageModifierSet: Web
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: tent
+    base: tent
+
+- type: entity
+  id: N14BlastDoorExteriorIndestructible
+  parent: BlastDoor
+  suffix: Indestructible, Closed
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000 # pseudo indestructible
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  id: BlastDoorExteriorIndestructibleOpen
+  parent: BlastDoorOpen
+  suffix: Indestructible, Open
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

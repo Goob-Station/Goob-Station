@@ -1,0 +1,135 @@
+- type: entity
+  parent: BaseStructure
+  id: N14BaseTallObstacle
+  suffix: tall
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tallobstacles.rsi
+    drawdepth: Mobs
+  - type: SpriteFade
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallic
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MetalBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MetalLaserImpact
+  - type: PlacementReplacement
+    key: walls
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.6,0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+        
+- type: entity
+  parent: N14BaseTallObstacle
+  id: N14BarricadeWoodTall
+  name: wooden barricade
+  suffix: tall
+  components:
+  - type: Sprite
+    state: barricade
+    
+- type: entity
+  parent: N14BaseTallObstacle
+  id: N14CellBars
+  name: cell bars
+  components:
+  - type: Sprite
+    state: bars
+    allowedVerbs:
+    - Rattle
+    
+- type: entity
+  parent: N14CellBars
+  id: N14CellBarsSlot
+  suffix: slot
+  components:
+  - type: Sprite
+    state: barsslot
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.6,-0.15,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,-0.6,0.15,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+    
+- type: entity
+  parent: N14CellBars
+  id: N14CellBarsCorner
+  suffix: corner
+  components:
+  - type: Sprite
+    state: barscorner
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.6,0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.5,0.5,0.6,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+        
+    
+- type: entity
+  parent: N14CellBars
+  id: N14CellBarsRust
+  name: cell bars
+  components:
+  - type: Sprite
+    state: bars_rust
+    
+- type: entity
+  parent: N14CellBarsSlot
+  id: N14CellBarsSlotRust
+  suffix: slot
+  components:
+  - type: Sprite
+    state: barsslot_rust
+    
+- type: entity
+  parent: N14CellBarsCorner
+  id: N14CellBarsCornerRust
+  suffix: corner
+  components:
+  - type: Sprite
+    state: barscorner_rust

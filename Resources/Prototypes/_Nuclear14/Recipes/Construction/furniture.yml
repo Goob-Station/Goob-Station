@@ -1,0 +1,437 @@
+# Beds
+- type: construction
+  id: N14Bed
+  name: bed
+  description: This is used to lie in, sleep in or strap on. Resting here provides extremely slow healing.
+  graph: N14Bed
+  startNode: start
+  targetNode: bed
+  category: construction-category-furniture
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bed
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14BedWood
+  name: bed
+  description: This is used to lie in, sleep in or strap on. Resting here provides extremely slow healing.
+  graph: N14Bed
+  startNode: start
+  targetNode: bedwood
+  category: construction-category-furniture
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bed_wood
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14MedicalBed
+  name: medical bed
+  description: A hospital bed for patients to recover in. Resting here provides fairly slow healing.
+  graph: bed
+  startNode: start
+  targetNode: medicalbed
+  category: construction-category-furniture
+  icon:
+    sprite: Structures/Furniture/furniture.rsi
+    state: bed-MED
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  id: N14Bedroll
+  name: bedroll
+  description: A bedroll for sleeping on the road. Not very comfy.
+  graph: N14Bed
+  startNode: start
+  targetNode: bedroll
+  category: construction-category-furniture
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bedroll_unrolled
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden chair
+  id: N14ChairWood
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWood
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: wooden_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: wooden chair
+  id: N14ChairWood1
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWood1
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: wood_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: padded chair
+  id: N14ChairWoodPadded
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWoodPadded
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: wood_chair_padded
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: settler chair
+  id: N14ChairWoodSettler
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairWoodSettler
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: wooden_chair_settler
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: black stool
+  id: N14ChairStoolBarBlack
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairStoolBarBlack
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bar_black
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: tan stool
+  id: N14ChairStoolBarTan
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairStoolBarTan
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
+    state: bar_tan
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: red stool
+  id: N14ChairStoolBarRed
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairStoolBarRed
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: barstool
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: armchair
+  id: N14ChairArmchair
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairArmchair
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: armchair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: green metal chair
+  id: N14ChairMetalGreen
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalGreen
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: blue metal chair
+  id: N14ChairMetalBlue
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalBlue
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair_blue
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: red metal chair
+  id: N14ChairMetalRed
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalRed
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair_red
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: red office chair
+  id: N14ChairOfficeRed
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeRed
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: office_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: blue office chair
+  id: N14ChairOfficeBlue
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeBlue
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: office_chair_blue
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: green office chair
+  id: N14ChairOfficeGreen
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeGreen
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: office_chair_green
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: ergonomic office chair
+  id: N14ChairOfficeErgonomic
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairOfficeErgonomic
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: ergo_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: folding chair
+  id: N14ChairMetalFolding
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairMetalFolding
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: metal_chair_folding
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+- type: construction
+  name: plastic chair
+  id: N14ChairPlastic
+  graph: N14Seat
+  startNode: start
+  targetNode: N14ChairPlastic
+  category: construction-category-furniture
+  description: You sit in this. Either by will or force.
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/chairs.rsi
+    state: plastic_chair
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+  hide: false
+
+# Tables
+
+- type: construction
+  name: bar counter
+  id: N14TableCounterBar
+  graph: N14TableCounterBarRecipes
+  startNode: start
+  targetNode: TableCounterBar
+  category: construction-category-furniture
+  description: An alcohol stained bartop.
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
+    state: full
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: metal table
+  id: N14TableMetalGrate
+  graph: N14TableMetalGrateRecipes
+  startNode: start
+  targetNode: TableMetalGrate
+  category: construction-category-furniture
+  description: A cold handmade metal table made from grating.
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
+    state: full
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: wooden table
+  id: N14TableWoodSettler
+  graph: N14TableRecipes
+  startNode: start
+  targetNode: TableWoodSettler
+  category: construction-category-furniture
+  description: A wooden table used by settlers.
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  canRotate: true
+  icon:
+    sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
+    state: full
+  conditions:
+    - !type:TileNotBlocked

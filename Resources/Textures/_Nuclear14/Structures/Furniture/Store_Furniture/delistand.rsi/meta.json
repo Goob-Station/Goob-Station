@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Mojave Sun 13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/5e2e8ebe440947bcf947189d5a46bfbb5ae2e8e8, food1-5 made by Peptide",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "deli_stand",
+	  "directions": 4
+    },
+    {
+      "name": "food-0",
+	  "directions": 4
+    },
+    {
+      "name": "food-1",
+	  "directions": 4
+    },
+    {
+      "name": "food-2",
+	  "directions": 4
+    },
+    {
+      "name": "food-3",
+	  "directions": 4
+    },
+    {
+      "name": "food-4",
+	  "directions": 4
+    },
+    {
+      "name": "food-5",
+	  "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified for SS14 by Kill_Me_I_Noobs and Peptide90",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "slantedreinfmetal0",
+            "directions": 4
+        },
+        {
+            "name": "slantedreinfmetal1",
+            "directions": 4
+        },
+        {
+            "name": "slantedreinfmetal2",
+            "directions": 4
+        },
+        {
+            "name": "slantedreinfmetal3",
+            "directions": 4
+        },
+        {
+            "name": "slantedreinfmetal4",
+            "directions": 4
+        },
+        {
+            "name": "slantedreinfmetal5",
+            "directions": 4
+        },
+        {
+            "name": "slantedreinfmetal6",
+            "directions": 4
+        },
+        {
+            "name": "slantedreinfmetal7",
+            "directions": 4
+        }
+    ]
+}
