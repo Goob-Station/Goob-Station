@@ -62,12 +62,19 @@
     baseState: ripleymkii
     openState: ripleymkii-open
     brokenState: ripleymkii-broken
-    mechToPilotDamageMultiplier: 0.4
     airtight: true
     pilotWhitelist:
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 15
+        Slash: 10
+        Piercing: 7
+        Heat: 7
+        Cold: 7
+        Shock: 5
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -121,12 +128,19 @@
     baseState: clarke
     openState: clarke-open
     brokenState: clarke-broken
-    mechToPilotDamageMultiplier: 0.5
     airtight: true
     pilotWhitelist:
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 12
+        Slash: 10
+        Piercing: 7
+        Heat: 7
+        Cold: 7
+        Shock: 5
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -193,12 +207,19 @@
     baseState: gygax
     openState: gygax-open
     brokenState: gygax-broken
-    mechToPilotDamageMultiplier: 0.3
     airtight: true
     pilotWhitelist:
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 15
+        Slash: 15
+        Piercing: 23
+        Shock: 10
+        Heat: 20
+        Cold: 15
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -253,13 +274,20 @@
     baseState: durand
     openState: durand-open
     brokenState: durand-broken
-    mechToPilotDamageMultiplier: 0.25
     airtight: true
     maxIntegrity: 400
     pilotWhitelist:
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 35
+        Slash: 30
+        Piercing: 15
+        Heat: 10
+        Cold: 10
+        Shock: 5
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -321,7 +349,6 @@
     baseState: marauder
     openState: marauder-open
     brokenState: marauder-broken
-    mechToPilotDamageMultiplier: 0.1
     airtight: true
     maxIntegrity: 500
     maxEquipmentAmount: 4
@@ -329,6 +356,14 @@
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 40
+        Slash: 40
+        Piercing: 40
+        Heat: 25
+        Cold: 10
+        Shock: 10
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -395,7 +430,6 @@
     baseState: seraph
     openState: seraph-open
     brokenState: seraph-broken
-    mechToPilotDamageMultiplier: 0.05
     airtight: true
     maxIntegrity: 550
     maxEquipmentAmount: 5
@@ -403,6 +437,14 @@
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 50
+        Slash: 50
+        Piercing: 50
+        Shock: 25
+        Heat: 50
+        Cold: 10
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -472,7 +514,6 @@
     baseState: darkgygax
     openState: darkgygax-open
     brokenState: darkgygax-broken
-    mechToPilotDamageMultiplier: 0.15
     airtight: true
     maxIntegrity: 300
     maxEquipmentAmount: 4
@@ -480,6 +521,14 @@
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 25
+        Slash: 20
+        Piercing: 30
+        Heat: 30
+        Cold: 10
+        Shock: 10
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
@@ -546,7 +595,6 @@
     baseState: mauler
     openState: mauler-open
     brokenState: mauler-broken
-    mechToPilotDamageMultiplier: 0.1
     airtight: true
     maxIntegrity: 500
     maxEquipmentAmount: 5
@@ -554,6 +602,14 @@
       components:
         - HumanoidAppearance
         - BorgChassis # Goobstation - Let borgs pilot mechs
+    mechArmor:  # Goobstation - Make thresholds for damage
+      types:
+        Blunt: 40
+        Slash: 40
+        Piercing: 40
+        Heat: 25
+        Cold: 10
+        Shock: 10
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
