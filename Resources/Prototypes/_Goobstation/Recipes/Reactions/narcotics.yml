@@ -20,12 +20,10 @@
   id: Aranesp
   reactants:
     Epinephrine:
-      amount: 2
+      amount: 1
     Atropine:
-      amount: 2
+      amount: 1
     Desoxyephedrine:
       amount: 1
-    Diphenhydramine:
-      amount: 1
   products:
-    Aranesp: 3
+    Aranesp: 1
