@@ -1,0 +1,16 @@
+- type: loadoutEffectGroup
+  id: MasterBotanist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBotanist
+      time: 72000 #20 hours
+
+- type: loadout
+  id: BotanistBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterBotanist
+  equipment:
+    head: ClothingHeadHatBeretSeniorBotanist

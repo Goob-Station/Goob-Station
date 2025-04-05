@@ -232,6 +232,7 @@
   id: JobSalvageSpecialist
   groups:
   - GroupTankHarness
+  - SalvageSpecialistNeck # Goobstation
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
@@ -459,6 +460,7 @@
   id: JobChemist
   groups:
   - GroupTankHarness
+  - ChemistHead # Goobstation
   - MedicalMask
   - ChemistJumpsuit
   - MedicalGloves

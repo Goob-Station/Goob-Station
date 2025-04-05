@@ -432,6 +432,7 @@
   loadouts:
   - BotanistHead
   - BotanistBandana
+  - BotanistBeret # Goobstation
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -1305,6 +1306,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ChemistMJ # goob
 
 - type: loadoutGroup
@@ -1315,6 +1318,7 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1331,6 +1335,7 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  - SeniorPhysicianBeret # Goobstation
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1338,6 +1343,8 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
 
 - type: loadoutGroup
@@ -1347,6 +1354,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ParamedicShoes
