@@ -70,6 +70,9 @@ public partial class SharedMartialArtsSystem
             var ev = proto.ResultEvent;
             RaiseLocalEvent(uid, beingPerformedEv);
             RaiseLocalEvent(uid, ev);
+            if(proto.FollowupCombos == true && comp.LastAttacks.Count <= 8)
+                // Clears previous moves if a combo is longer than 16 moves, really is only called after a sucessful move.)
+                continue;
             comp.LastAttacks.Clear();
         }
     }
