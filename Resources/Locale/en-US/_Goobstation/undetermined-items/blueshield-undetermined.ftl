@@ -13,8 +13,8 @@ blueshield-box-category-cqc-description =
 blueshield-box-category-revolver-name = revolver set
 blueshield-box-category-revolver-description =
     Running out of ammo is the worst thing that could happen in a firefight.
-    Includes: The EG-4 energy revolver, capable of firing using
-    various self-recharging energy speedloaders, both lethal and not.
+    Includes: The EG-4 energy revolver, capable of firing using both lethal
+    and disabling self-recharging energy speedloaders, and a shoulder holster.
 
 blueshield-box-category-blueshield-name = blueshield set
 blueshield-box-category-blueshield-description =

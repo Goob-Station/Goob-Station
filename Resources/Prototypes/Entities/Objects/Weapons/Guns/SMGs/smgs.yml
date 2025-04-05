@@ -82,6 +82,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1
 
 - type: entity
   name: C-20r submachine gun
@@ -120,6 +123,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1
 
 - type: entity
   name: Drozd
@@ -240,3 +246,6 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1

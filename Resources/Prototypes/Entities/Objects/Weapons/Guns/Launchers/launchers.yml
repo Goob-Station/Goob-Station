@@ -13,6 +13,8 @@
     - Back
   - type: Item
     size: Huge
+    shape: # Goobstation
+    - 0,0,5,2
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
