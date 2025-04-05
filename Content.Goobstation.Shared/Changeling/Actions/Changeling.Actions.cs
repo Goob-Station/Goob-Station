@@ -6,11 +6,7 @@ namespace Content.Goobstation.Shared.Changeling.Actions;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingActionComponent : Component
 {
-    [DataField] public bool RequireBiomass = true;
-
     [DataField] public float ChemicalCost = 0;
-
-    [DataField] public float BiomassCost = 0;
 
     [DataField] public bool UseInLastResort = false;
 
