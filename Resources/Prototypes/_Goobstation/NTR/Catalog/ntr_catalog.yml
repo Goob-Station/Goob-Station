@@ -448,6 +448,8 @@
   productEntity: CommsComputerCircuitboard
   cost:
     NTLoyaltyPoint: 100
+  categories:
+  - NTRBoards
   restockTime: 2400 # 40min
   resetRestockOnPurchase: false
   conditions:
@@ -461,6 +463,8 @@
   productEntity: CargoSaleComputerCircuitboard
   cost:
     NTLoyaltyPoint: 50
+  categories:
+  - NTRBoards
   restockTime: 1500 # 25min
   resetRestockOnPurchase: true
   restockAfterPurchase: 600 # 10 min
@@ -475,7 +479,40 @@
   productEntity: CargoShuttleConsoleCircuitboard
   cost:
     NTLoyaltyPoint: 50
+  categories:
+  - NTRBoards
   restockTime: 1800 # 30min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+- type: listing
+  id: NTRExecutiveShuttle
+  name: ntr-executive-shuttle-name
+  description: ntr-executive-shuttle-desc
+  productEntity: NTRBoardShuttle
+  cost:
+    NTLoyaltyPoint: 50
+  categories:
+  - NTRBoards
+  restockTime: 1200 # 20min
+  resetRestockOnPurchase: false
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: NTRExecutiveId
+  name: Id card computer board
+  description: High-value computer board to make an ID card console.
+  prodctEntity: IDComputerCircuitboard
+  cost:
+    NTLoyaltyPoint: 75
+  categories:
+  - NTRBoards
+  restocktime: 1200 # 20 min
   resetRestockOnPurchase: false
   conditions:
   - !type:ListingLimitedStockCondition

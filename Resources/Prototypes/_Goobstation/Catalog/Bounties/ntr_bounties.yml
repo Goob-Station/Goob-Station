@@ -2,7 +2,7 @@
   id: TaskStampHos
   proto: SecurityDocument
   reward: 1
-  description: Need a paper with HOS stamp
+  description: Get HOS stamp on this document to complete.
   entries:
   - name: StampHOS
     stamps:

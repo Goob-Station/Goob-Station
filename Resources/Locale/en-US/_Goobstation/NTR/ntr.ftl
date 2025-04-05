@@ -106,6 +106,10 @@ ntr-executive-cargosell-desc = Enables resource sales. Financial transactions ar
 
 ntr-executive-cargoshuttle-name = Cargo shuttle console board
 ntr-executive-cargoshuttle-desc = Specialized control console for cargo shuttles. Unauthorized use violates transport protocols.
+
+ntr-executive-shuttle-name = Shuttle construction bundle
+ntr-executive-shuttle-desc = Standard crate containing 4 thruster flatpacks, 1 shuttle computer board, and 1 gyroscope flatpack.
+
 # tiers
 
 ntr-executive-tier-1-name = Station
