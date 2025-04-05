@@ -6,7 +6,10 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.RandomMetadata;
+using Content.Shared.Dataset;
+using Robust.Shared.Prototypes;
+
+﻿namespace Content.Server.RandomMetadata;
 
 /// <summary>
 ///     Randomizes the description and/or the name for an entity by creating it from list of dataset prototypes or strings.
@@ -14,15 +17,15 @@ namespace Content.Server.RandomMetadata;
 [RegisterComponent]
 public sealed partial class RandomMetadataComponent : Component
 {
-    [DataField("descriptionSegments")]
-    public List<string>? DescriptionSegments;
+    [DataField]
+    public List<ProtoId<LocalizedDatasetPrototype>>? DescriptionSegments;
 
-    [DataField("nameSegments")]
-    public List<string>? NameSegments;
+    [DataField]
+    public List<ProtoId<LocalizedDatasetPrototype>>? NameSegments;
 
-    [DataField("nameSeparator")]
+    [DataField]
     public string NameSeparator = " ";
 
-    [DataField("descriptionSeparator")]
+    [DataField]
     public string DescriptionSeparator = " ";
 }

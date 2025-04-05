@@ -189,7 +189,7 @@
   - type: NukeOperative
   - type: RandomMetadata
     nameSegments:
-    - nukeops-role-operator
+    - NamesNukieFirstOperator
     - NamesSyndicateNormal
   - type: Loadout
     prototypes: [SyndicateOperativeReinforcementGear] # goobstation - duke nukies
