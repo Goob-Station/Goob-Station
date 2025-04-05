@@ -12,6 +12,7 @@
     sprite: Objects/Weapons/Melee/cane.rsi
   - type: Appearance
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     damage:
       types:
@@ -37,6 +38,7 @@
     sprite: Objects/Weapons/Melee/cane_blade.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: 45 # WWDP
     wideAnimationRotation: 65
     attackRate: 1.5
     damage:
