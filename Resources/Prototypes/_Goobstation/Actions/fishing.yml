@@ -1,0 +1,31 @@
+- type: entity
+  id: ActionStartFishing
+  name: action-fishing-start
+  description: action-fishing-start-desc
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _Goobstation/Objects/Specific/Fishing/fishing_lure.rsi
+      state: icon
+    sound:
+      path: /Audio/_Goobstation/Items/Fishing/fishing_rod_cast.ogg
+    itemIconStyle: BigAction
+    event: !type:ThrowFishingLureActionEvent
+    useDelay: 2.5
+    range: 15
+    checkCanAccess: false
+
+- type: entity
+  id: ActionStopFishing
+  name: action-fishing-stop
+  description: action-fishing-stop-desc
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Goobstation/Objects/Specific/Fishing/goon_rod.rsi
+      state: icon
+    sound:
+      path: /Audio/_Goobstation/Items/Fishing/fishing_rod_reel.ogg
+    itemIconStyle: NoItem
+    event: !type:PullFishingLureActionEvent
+

@@ -1,0 +1,111 @@
+# Basic rod
+- type: entity
+  id: FishingRod
+  parent: BaseItem
+  name: fishing rod
+  description: It's time to go fishing!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_rod.rsi
+    size: Normal
+  - type: UseDelay # Just for visuals and to prevent autoclickers
+    delay: 0.08 # 12,5 CPS at max
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    attackRate: 1.0
+    damage:
+      types:
+        Piercing: 4
+  - type: FishingRod
+
+# Variation of a normal rod
+- type: entity
+  id: FishingRodGoon
+  suffix: Goon
+  parent: FishingRod
+  name: fishing rod
+  description: It's time to go fishing!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/goon_rod.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/goon_rod.rsi
+    size: Normal
+
+# Makeshift rod
+- type: entity
+  id: FishingRodMakeshift
+  parent: FishingRod
+  name: makeshift fishing rod
+  description: Probably would be hard to catch a fish using that.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/makeshift_rod.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/makeshift_rod.rsi
+    size: Normal
+  - type: FishingRod
+    floatPrototype: FishingLureMakeshift
+    efficiency: 0.8
+  - type: Construction
+    graph: FishingRodMakeshift
+    node: makeshiftRod
+
+# Golden rod
+- type: entity
+  id: FishingRodGolden
+  parent: FishingRod
+  name: golden fishing rod
+  description: Finally, you caught 250 fishes. Here's your trophey.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/golden_rod.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/golden_rod.rsi
+    size: Normal
+  - type: FishingRod
+    efficiency: 1.3
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    attackRate: 1.0
+    damage:
+      types:
+        Piercing: 10
+
+# Normal fishing lure
+- type: entity
+  id: FishingLure
+  parent: BaseItem
+  name: fishing lure
+  description: fish come here
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_lure.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fishing_lure.rsi
+    size: Normal
+  - type: FishingLure
+
+- type: entity
+  id: FishingLureMakeshift
+  parent: FishingLure
+  name: fishing lure
+  description: fish come here
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Objects/Specific/Fishing/makeshift_lure.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/makeshift_lure.rsi
+    size: Normal
