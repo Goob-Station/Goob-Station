@@ -111,3 +111,24 @@
 
   - node: standard
     entity: ClothingModsuitStandard
+
+  - node: security
+    entity: ClothingModsuitSecurity
+
+  - node: paramedic
+    entity: ClothingModsuitParamedic
+
+  - node: headofsecurity
+    entity: ClothingModsuitHeadOfSecurity
+
+  - node: engineer
+    entity: ClothingModsuitEngineer
+
+  - node: atmostech
+    entity: ClothingModsuitAtmostech
+
+  - node: rd
+    entity: ClothingModsuitResearchDirector
+
+  - node: captain
+    entity: ClothingModsuitCaptain
