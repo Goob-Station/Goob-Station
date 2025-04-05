@@ -438,7 +438,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: BZ
-          min: 1
+          min: 0.3
         - !type:OrganType
           type: Slime
           shouldHave: false
@@ -527,7 +527,7 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          max: 15
+          max: 24
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -539,13 +539,13 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
-          min: 15
+          min: 24
         ignoreResistances: true
         damage:
           groups:
-            Burn: -12
-            Toxin: -25
-            Brute: -12
+            Burn: -20
+            Toxin: -50
+            Brute: -20
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold
@@ -571,7 +571,7 @@
         time: 1
         type: Add
       - !type:Drunk
-        boozePower: 50
+        boozePower: 45
         conditions:
         - !type:ReagentThreshold
           reagent: Healium
@@ -591,9 +591,25 @@
         conditions:
         - !type:ReagentThreshold
           reagent: Nitrium
-          min: 3
+          min: 1
+          max: 8
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
+      - !type:NitriumMovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 8
+          max: 12
+        walkSpeedModifier: 1.4
+        sprintSpeedModifier: 1.4
+      - !type:NitriumMovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 12
+        walkSpeedModifier: 1.6
+        sprintSpeedModifier: 1.6
       - !type:AddReagentToBlood
         conditions:
         - !type:ReagentThreshold
