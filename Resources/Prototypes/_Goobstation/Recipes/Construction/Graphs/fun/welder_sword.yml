@@ -1,0 +1,78 @@
+- type: constructionGraph
+  id: WelderSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: welderSword
+      steps:
+      - tag: Welder
+        name: welding tool
+        icon:
+          sprite: Objects/Tools/welder.rsi
+          state: icon
+        doAfter: 2
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: welderSword
+    entity: EnergySwordWelder
+
+- type: constructionGraph
+  id: WelderSwordIndustrial
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: welderSwordIndustrial
+      steps:
+      - tag: WelderIndustrial
+        name: industrial welding tool
+        icon:
+          sprite: Objects/Tools/welder_industrial.rsi
+          state: icon
+        doAfter: 2
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: welderSwordIndustrial
+    entity: EnergySwordWelderIndustrial
+
+- type: constructionGraph
+  id: WelderSwordExperimental
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: welderSwordExperimental
+      steps:
+      - tag: WelderExperimental
+        name: experimental welding tool
+        icon:
+          sprite: Objects/Tools/welder_experimental.rsi
+          state: icon
+        doAfter: 2
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: welderSwordExperimental
+    entity: EnergySwordWelderExperimental
+

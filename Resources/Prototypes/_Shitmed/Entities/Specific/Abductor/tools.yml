@@ -182,6 +182,9 @@
   - type: GuideHelp
     guides:
     - Abductors
+  - type: Tag # Goobstation-WelderSword
+    tags:
+    - WelderExperimental
 
 - type: entity
   name: high-tech multitool
