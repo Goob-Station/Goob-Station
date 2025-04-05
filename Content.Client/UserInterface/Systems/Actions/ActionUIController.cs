@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Numerics;
-using Content.Client._Goobstation.Wizard.Systems;
+using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Actions;
 using Content.Client.Construction;
 using Content.Client.Gameplay;
@@ -433,6 +433,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return false;
 
         if (!_entMan.TryGetComponent(actionId, out SwapSpellComponent? swap))
+            return false;
+
+        if (!swap.AllowSecondaryTarget)
             return false;
 
         if (_actionsSystem == null || _spells == null)
