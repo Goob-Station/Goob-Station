@@ -1,0 +1,10 @@
+# Assmos - /tg/ gases
+- type: cargoProduct
+  id: AtmosphericsBZ
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: purple
+  product: BZCanister
+  cost: 6500
+  category: cargoproduct-category-name-atmospherics
+  group: market
