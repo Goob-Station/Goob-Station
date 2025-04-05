@@ -94,6 +94,13 @@
     state: overpriced_pen
   - type: Item
     heldPrefix: overpriced_pen
+  - type: ThrowingAngle
+    angle: 315
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 18
 
 - type: entity
   name: CentComm pen
@@ -105,6 +112,13 @@
     state: pen_centcom
   - type: Item
     heldPrefix: pen_centcom
+  - type: ThrowingAngle
+    angle: 315
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 18
 
 - type: entity
   name: captain's fountain pen

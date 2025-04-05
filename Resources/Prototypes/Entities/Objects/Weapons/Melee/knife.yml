@@ -20,6 +20,14 @@
         Slash: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10 # ^ Goobstation
   - type: Sprite
   - type: Item
     size: Small
@@ -70,6 +78,10 @@
     damage:
       types:
         Slash: 13
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 15 # Goobstation
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/cleaver.rsi
@@ -108,7 +120,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 10
+        Slash: 12 # Goobstation (increased by two)
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
     storedSprite:
@@ -151,6 +163,10 @@
     damage:
       types:
         Slash: 15
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 15 # Goobstation
   - type: Item
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
     storedSprite: null
@@ -217,6 +233,10 @@
     damage:
       types:
         Slash: 5.5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 6 # Goobstation
   - type: Item
     sprite: Objects/Weapons/Melee/shiv.rsi
   - type: DisarmMalus
@@ -237,6 +257,10 @@
     damage:
       types:
         Slash: 7 #each "tier" grants an additional 2 damage
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 8 # Goobstation
   - type: Item
     sprite: Objects/Weapons/Melee/reinforced_shiv.rsi
   - type: Sprite
@@ -256,6 +280,14 @@
     damage:
       types:
         Slash: 9
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 11 # Goobstation
   - type: Item
     sprite: Objects/Weapons/Melee/plasma_shiv.rsi
   - type: Sprite
@@ -276,6 +308,15 @@
       types:
         Slash: 7
         Radiation: 4
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 7
+        Radiation: 4 # Goobstation
   - type: Item
     sprite: Objects/Weapons/Melee/uranium_shiv.rsi
   - type: Sprite

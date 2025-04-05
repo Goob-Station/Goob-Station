@@ -17,6 +17,11 @@
     damage:
       types:
         Slash: 6
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 4
+        Blunt: 2 # Goobstation
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
 
@@ -65,6 +70,15 @@
     damage:
       types:
         Slash: 10
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Pierce: 3
+        Slash: 7 # ^ Goobstation
   - type: Item
     size: Normal
   - type: Clothing
@@ -94,6 +108,15 @@
       types:
         Slash: 8
         Piercing: 2
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+        Piercing: 5 # ^ Goobstation
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
   - type: BoneSaw # Shitmed
@@ -122,6 +145,11 @@
         Piercing: 2 # I guess you can stab it into them?
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
+        Slash: 2 # Goobstation the sides are kindof sharpish
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
