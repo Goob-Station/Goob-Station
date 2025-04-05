@@ -180,3 +180,17 @@
     Shock: 0.8
     Heat: 0.8
     Ion: 2.0 # double damage from ion
+
+- type: damageModifierSet
+  id: Goku
+  coefficients:
+    Blunt: 0.01
+    Slash: 0.01
+    Piercing: 0.01
+    Shock: 0.01
+    Heat: 0.01
+    Cold: 0.01
+    Ion: 0.01
+    Poison: 0.25
+    Caustic: 0.25
+    Radiation: 0.25
