@@ -7,7 +7,6 @@
     eyes: ClothingEyesHudSyndicate
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesClownLarge
     id: SyndiPDA
     pocket1: BikeHorn
@@ -23,7 +22,7 @@
   id: SyndicateOperativeGearFullHonkops
   parent: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
-    pocket2: BaseUplinkRadio225TC # Goobstation - Telecrystal rework
+    pocket2: BaseUplinkRadio225TC
 
 #Nuclear Operative Commander Gear
 - type: startingGear
@@ -31,8 +30,7 @@
   parent: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
     neck: SyndicateWhistle
-    pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
-    #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
+    pocket2: BaseUplinkRadio350TC
   inhand:
   - NukeOpsDeclarationOfWar
 
@@ -41,21 +39,17 @@
   id: SyndicateOperativeMedicFullHonkops
   parent: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
+    back: ClothingBackpackDuffelSyndicateMedical
     eyes: ClothingEyesHudSyndicateAgent
-    #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
-    # shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    belt: ClothingBeltChemBagSyndiFilled
     pocket2: BaseUplinkRadio225TCMedic
   storage:
     back:
     - SyndiHypo
-    - SawAdvanced
-    - Cautery
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    - HandheldHealthAnalyzer
     - CombatMedipen
     - DeathAcidifierImplanter
-    - OmnimedToolSyndie # Shitmed
+    - MedkitCombatFilled

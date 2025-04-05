@@ -27,7 +27,7 @@
   equipment:
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
-    belt: ChemBag
+    belt: ChemBagFilled
     pocket1: HandLabeler
     eyes: ClothingEyesGlassesChemical
   #storage:

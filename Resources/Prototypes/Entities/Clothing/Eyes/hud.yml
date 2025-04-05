@@ -228,6 +228,9 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - SiliconRadiation # Goobstation - IPCs
   - type: ShowJobIcons # Goob
   - type: ShowMindShieldIcons # Goob
 
