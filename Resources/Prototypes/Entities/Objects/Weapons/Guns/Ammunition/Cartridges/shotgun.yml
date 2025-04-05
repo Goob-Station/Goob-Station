@@ -1,6 +1,6 @@
 - type: entity
   id: BaseShellShotgun
-  name: shell (.50)
+  name: shell (12 Gauge) # Goobstation
   parent: BaseCartridge
   abstract: true
   components:
@@ -21,7 +21,7 @@
 
 - type: entity
   id: ShellShotgunBeanbag
-  name: shell (.50 beanbag)
+  name: shell (12 Gauge beanbag) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
   components:
   - type: Tag
@@ -40,7 +40,7 @@
 
 - type: entity
   id: ShellShotgunSlug
-  name: shell (.50 slug)
+  name: shell (12 Gauge slug) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband]
   components:
   - type: Sprite
@@ -54,7 +54,7 @@
 
 - type: entity
   id: ShellShotgunFlare
-  name: shell (.50 flare)
+  name: shell (12 Gauge flare) # Goobstation
   parent: BaseShellShotgun
   components:
   - type: Tag
@@ -73,7 +73,7 @@
 
 - type: entity
   id: ShellShotgun
-  name: shell (.50)
+  name: shell (12 Gauge) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -85,7 +85,7 @@
 
 - type: entity
   id: ShellShotgunIncendiary
-  name: shell (.50 incendiary)
+  name: shell (12 Gauge incendiary) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -99,7 +99,7 @@
 
 - type: entity
   id: ShellShotgunPractice
-  name: shell (.50 practice)
+  name: shell (12 Gauge practice) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -113,7 +113,7 @@
 
 - type: entity
   id: ShellTranquilizer
-  name: shell (.50 tranquilizer)
+  name: shell (12 Gauge tranquilizer) # Goobstation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Tag
