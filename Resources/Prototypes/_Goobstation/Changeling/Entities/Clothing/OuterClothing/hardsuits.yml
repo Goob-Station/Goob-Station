@@ -30,5 +30,6 @@
   - type: HeldSpeedModifier
   - type: Unremoveable
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    cancel: true
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.4
