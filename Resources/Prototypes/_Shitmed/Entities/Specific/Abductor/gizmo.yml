@@ -9,7 +9,7 @@
     state: icon
   - type: Item
     sprite: _Shitmed/Objects/Misc/gizmo.rsi
-  - type: RestrictByUserTag
+  - type: RestrictInteractionByUserTag
     contains:
     - AbductorScientist
     messages:

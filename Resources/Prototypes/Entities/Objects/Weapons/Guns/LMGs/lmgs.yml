@@ -66,15 +66,13 @@
     delay: 1
   - type: Multishot # Goobstation
     spreadMultiplier: 1.4
-  - type: RestrictByUserTag # Goobstation
+  - type: RestrictGunshotsByUserTag # Goobstation
     doesntContain:
     - Oni
     messages:
     - oni-cannot-shoot-guns-1
     - oni-cannot-shoot-guns-2
     - oni-cannot-shoot-guns-3
-    blockInteraction: false
-    blockMelee: false
 
 - type: entity
   name: L6 SAW
