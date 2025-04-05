@@ -7054,3 +7054,13 @@ Entries:
       message: Multiple storage behavior was reverted.
   id: 820
   time: '2025-04-04T22:54:28.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Shoving now moves objects and mobs, deals very small stamina damage.
+    - type: Add
+      message: Melee weapon regular swings now show the weapon.
+    - type: Fix
+      message: Grab Throw cooldown actually works.
+  id: 821
+  time: '2025-04-05T09:45:43.0000000+00:00'
