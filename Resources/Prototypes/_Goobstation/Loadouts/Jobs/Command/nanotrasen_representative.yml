@@ -24,6 +24,12 @@
   equipment:
     head: ClothingHeadHatSyndieMAA
 
+# Neck
+- type: loadout
+  id: ClothingNeckScarfStripedCentcom
+  equipment:
+    neck: ClothingNeckScarfStripedCentcom
+
 # Backpacks
 - type: loadout
   id: NanotrasenRepresentativeBackpack
