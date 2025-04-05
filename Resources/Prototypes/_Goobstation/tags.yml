@@ -6,6 +6,9 @@
   id: BindSoulAction
 
 - type: Tag
+  id: Blobbernaut
+
+- type: Tag
   id: BlockLightning
 
 - type: Tag
@@ -121,6 +124,9 @@
 
 - type: Tag
   id: Eyes
+
+- type: Tag
+  id: EnergyMagAmmo
 
 - type: Tag
   id: FelinidEmotes

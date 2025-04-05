@@ -8,6 +8,7 @@
     sprite: Objects/Weapons/Melee/gohei.rsi
     state: gohei
   - type: MeleeWeapon
+    animationRotation: -60 # WWDP
     wideAnimationRotation: -150
     damage:
       types:

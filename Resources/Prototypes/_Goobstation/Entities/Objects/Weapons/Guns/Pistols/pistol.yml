@@ -18,7 +18,7 @@
     maxAngle: 5
     angleIncrease: 1
     angleDecay: 4
-    fireRate: 8
+    fireRate: 6
     availableModes:
     - SemiAuto
     - FullAuto
@@ -48,7 +48,7 @@
     tags:
     - WeaponPistolDualetta
   - type: Multishot
-    spreadMultiplier: 1.25
+    spreadMultiplier: 1
   - type: RequiresDualWield
     whitelist:
       tags:

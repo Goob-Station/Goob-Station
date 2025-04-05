@@ -3,13 +3,12 @@
   name: rapid kinetic bolt
   parent: BulletKinetic
   categories: [ HideSpawnMenu ]
-  description: Not too bad, but you still don't want to get hit by it.
   components:
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 25
+        Blunt: 24
 
 - type: entity
   id: WeakBulletKinetic
@@ -20,7 +19,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 15
+        Blunt: 12
 
 - type: entity
   id: PelletKinetic

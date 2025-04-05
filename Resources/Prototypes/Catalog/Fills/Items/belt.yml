@@ -116,12 +116,14 @@
       - id: Ointment
       - id: Bloodpack
       - id: Gauze
-      - id: EmergencyMedipen #You never know what people are going to latejoin into
-      - id: HandheldCrewMonitor # Goobstation - start
+      #- id: EmergencyMedipen #You never know what people are going to latejoin into # Goobstation - start
+      #  amount: 3
+      - id: HandheldCrewMonitor
       - id: ParamedHypo
+      - id: CartridgeSaline
       - id: CartridgeBicaridine
       - id: CartridgeDermaline
-      - id: CartridgeSaline # Goobstation - end
+      - id: CartridgeAtropine # Goobstation - end
 
 - type: entity
   id: ClothingBeltPlantFilled

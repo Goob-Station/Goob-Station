@@ -16,5 +16,5 @@
 - type: reagentStingConfiguration
   id: StingLethargic
   reagents:
-    Impedrezene: 5
+    ChloralHydrate: 5
     Tirizene: 5

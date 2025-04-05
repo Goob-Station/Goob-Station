@@ -1682,14 +1682,14 @@
         - ReagentId: Cyanide
           Quantity: 10
 
-# Tirizine
+# Tirizene
 
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedTirizene
   name: wrapped syndicate lollypop
-  suffix: tirizine
-  description: A lollypop containing tirizine. Appears completely ordinary when unwrapped.
+  suffix: tirizene
+  description: A lollypop containing tirizene. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
     tags:
@@ -1705,7 +1705,7 @@
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopTirizene
   name: lollypop
-  suffix: tirizine
+  suffix: tirizene
   components:
   - type: Tag
     tags:

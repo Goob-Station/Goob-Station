@@ -20,7 +20,12 @@
     RiotLaserShield: 2
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
-    BolaEnergy: 5 # Goobstation
+    BolaEnergy: 5 # Goobstation - start
+    SecHypo: 4
+    CartridgeEpinephrine: 4
+    CartridgeSaline: 4
+    CartridgeBicaridine: 4
+    CartridgeDermaline: 4 # Goobstation - end
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2
