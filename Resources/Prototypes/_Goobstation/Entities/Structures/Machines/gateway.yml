@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseGateway
+  id: GatewayAntagPlanet
+  name: Antag Planet Gateway
+  description: Takes you to the Antag Planet, where you can test out different antags and their items.
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+    tagRestriction: AntagGateway
+  - type: Tag
+    tags:
+    - Structure
+    - AntagGateway
+

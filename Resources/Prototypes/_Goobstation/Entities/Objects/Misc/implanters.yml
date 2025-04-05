@@ -158,3 +158,29 @@
   components:
   - type: Implanter
     implant: StopTimeImplant
+
+# Antag Planet
+
+- type: entity
+  id: AntagImplanterChangeling
+  suffix: antag, changeling
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: AntagImplantChangeling
+
+- type: entity
+  id: AntagImplanterHeretic
+  suffix: antag, heretic
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: AntagImplantHeretic
+
+- type: entity
+  id: AntagImplanterSpaceNinja
+  suffix: antag, space ninja
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: AntagImplantSpaceNinja
