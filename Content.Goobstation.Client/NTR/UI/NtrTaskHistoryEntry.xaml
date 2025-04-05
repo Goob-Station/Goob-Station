@@ -1,5 +1,5 @@
 <BoxContainer xmlns="https://spacestation14.io"
-              xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
               Margin="10 10 10 0"
               HorizontalExpand="True">
     <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
