@@ -51,6 +51,12 @@ public sealed partial class RustRuneComponent : Component
 
     [DataField, AutoNetworkedField]
     public int RuneIndex;
+
+    [DataField, AutoNetworkedField]
+    public bool AnimationEnded;
+
+    [DataField]
+    public int LastFrame = 5;
 }
 
 public enum RustRuneKey : byte

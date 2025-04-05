@@ -362,12 +362,9 @@ public sealed partial class HereticAbilitySystem
 
         EnsureComp<RustedWallComponent>(targetEntity);
 
-        var rune = EnsureComp<RustRuneComponent>(targetEntity);
-        rune.RuneIndex = _random.Next(rune.RuneSprites.Count);
-        rune.RuneOffset = _random.NextVector2Box(0.25f, 0.25f);
+        var rune = AddRustRune(targetEntity);
         // If targetEntity is target (which means no transformations were performed) - we add rust overlay
         rune.RustOverlay = targetEntity == target;
-        Dirty(targetEntity, rune);
 
         return true;
     }
@@ -417,12 +414,29 @@ public sealed partial class HereticAbilitySystem
 
         var coords = new EntityCoordinates(args.Target.EntityId, pos.Value);
         var wall = Spawn(args.RustedWall, coords);
+        AddRustRune(wall);
+
+        _aud.PlayPvs(args.Sound, args.Target);
+    }
+
+    private RustRuneComponent AddRustRune(EntityUid wall)
+    {
         var rune = EnsureComp<RustRuneComponent>(wall);
         rune.RuneIndex = _random.Next(rune.RuneSprites.Count);
         rune.RuneOffset = _random.NextVector2Box(0.25f, 0.25f);
         Dirty(wall, rune);
 
-        _aud.PlayPvs(args.Sound, args.Target);
+        Timer.Spawn(TimeSpan.FromSeconds(0.7f),
+            () =>
+            {
+                if (TerminatingOrDeleted(wall) || !Resolve(wall, ref rune, false))
+                    return;
+
+                rune.AnimationEnded = true;
+                Dirty(wall, rune);
+            });
+
+        return rune;
     }
 
     private void OnLeechingWalk(Entity<HereticComponent> ent, ref HereticLeechingWalkEvent args)

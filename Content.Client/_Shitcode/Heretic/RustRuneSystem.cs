@@ -3,12 +3,15 @@ using Content.Client.IconSmoothing;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Tag;
 using Robust.Client.GameObjects;
+using Robust.Shared.Graphics.RSI;
+using Robust.Shared.Utility;
 
 namespace Content.Client._Shitcode.Heretic;
 
 public sealed class RustRuneSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SpriteSystem _spriteSystem = default!;
 
     public override void Initialize()
     {
@@ -48,7 +51,6 @@ public sealed class RustRuneSystem : EntitySystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        RemoveLayers(sprite);
         AddLayers(uid, comp, sprite);
     }
 
@@ -91,12 +93,22 @@ public sealed class RustRuneSystem : EntitySystem
             sprite.LayerMapSet(RustRuneKey.Overlay, layer);
         }
 
-        if (comp.RuneIndex >= 0 && comp.RuneIndex < comp.RuneSprites.Count &&
-            !sprite.LayerMapTryGet(RustRuneKey.Rune, out _))
+        if (comp.RuneIndex >= 0 && comp.RuneIndex < comp.RuneSprites.Count)
         {
-            var layer = sprite.AddLayer(comp.RuneSprites[comp.RuneIndex]);
-            sprite.LayerMapSet(RustRuneKey.Rune, layer);
-            sprite.LayerSetShader(RustRuneKey.Rune, "unshaded");
+            if (!sprite.LayerMapTryGet(RustRuneKey.Rune, out var layer))
+            {
+                layer = sprite.AddLayer(comp.RuneSprites[comp.RuneIndex]);
+                sprite.LayerMapSet(RustRuneKey.Rune, layer);
+                sprite.LayerSetShader(RustRuneKey.Rune, "unshaded");
+            }
+
+            if (comp.AnimationEnded)
+            {
+                sprite.LayerSetTexture(layer,
+                    _spriteSystem.RsiStateLike(comp.RuneSprites[comp.RuneIndex])
+                        .GetFrame(RsiDirection.South, comp.LastFrame));
+            }
+
             var offset = diagonal ? comp.DiagonalOffset : comp.RuneOffset;
             sprite.LayerSetOffset(layer, offset);
         }

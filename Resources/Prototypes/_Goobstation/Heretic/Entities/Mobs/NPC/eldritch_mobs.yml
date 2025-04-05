@@ -192,7 +192,6 @@
   - type: Tag
     tags:
     - MansusLinkMind
-    - Bot
   - type: CollectiveMind
     defaultChannel: MansusLink
   - type: FactionException
