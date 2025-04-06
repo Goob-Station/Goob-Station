@@ -9,9 +9,11 @@ namespace Content.Goobstation.Shared.Research;
 
 public static class SharedResearchSystemExtensions
 {
-    public static int GetTierCompletionPercentage(this SharedResearchSystem system, TechnologyDatabaseComponent component, TechDisciplinePrototype techDiscipline)
+    public static int GetTierCompletionPercentage(this SharedResearchSystem system,
+        TechnologyDatabaseComponent component,
+        TechDisciplinePrototype techDiscipline,
+        IPrototypeManager prototypeManager)
     {
-        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
         var allTech = prototypeManager.EnumeratePrototypes<TechnologyPrototype>()
             .Where(p => p.Discipline == techDiscipline.ID && !p.Hidden).ToList();
 
