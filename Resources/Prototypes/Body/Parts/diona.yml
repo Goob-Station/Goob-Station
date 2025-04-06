@@ -11,7 +11,6 @@
         color: "#cd7314"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
   - type: Sprite
     sprite: Mobs/Species/Diona/parts.rsi
   - type: Icon # Shitmed Change

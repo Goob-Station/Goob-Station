@@ -22,7 +22,6 @@
         color: "#162581"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
 
 - type: entity
   id: PartArachnid2
