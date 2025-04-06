@@ -5,20 +5,24 @@
     Brutepack: 5
     Ointment: 5
     Bloodpack: 5
-    Tourniquet: 6 #Goobstation - ParamedHypo
     EpinephrineChemistryBottle: 3
     Syringe: 5
     BoxBottle: 3
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
-    MedicalPatchPrefilledBicaridine: 3  #Goobstation - MedicalPatches
-    MedicalPatchPrefilledDermaline: 3   #Goobstation - MedicalPatches
-    ParamedHypo: 2 #Goobstation - ParamedHypo
-    VehicleWheelchairFolded: 3 # Goobstation - Vehicles
-    FoodSnackLollypopWrappedMystery: 10 # Goobstation - Lollypops
-    FoodSnackLollypopWrappedTricordrazine: 8 # Goobstation - Lollypops
+    Tourniquet: 6 # Goobstation - start
+    MedicalPatchPrefilledBicaridine: 3
+    MedicalPatchPrefilledDermaline: 3
+    ParamedHypo: 2
+    CartridgeSaline: 6
+    CartridgeBicaridine: 6
+    CartridgeDermaline: 6
+    CartridgeAtropine: 6
+    VehicleWheelchairFolded: 3
+    FoodSnackLollypopWrappedMystery: 10
+    FoodSnackLollypopWrappedTricordrazine: 8
   emaggedInventory:
-    FoodSnackLollypopWrappedLexorin: 3 # Goobstation - Lollypops
-    FoodSnackLollypopWrappedMysteryEvil: 5 # Goobstation - Lollypops
+    FoodSnackLollypopWrappedLexorin: 3
+    FoodSnackLollypopWrappedMysteryEvil: 5 # Goobstation - end
   contrabandInventory:
     FoodApple: 1
