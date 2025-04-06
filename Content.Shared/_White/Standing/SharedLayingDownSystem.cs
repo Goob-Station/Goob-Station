@@ -1,10 +1,10 @@
-using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
-using Content.Shared.Body.Components;
-using Content.Shared._Goobstation.CCVar; // Shitmed Change
-using Content.Shared._Goobstation.Clothing.Components;
+using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.Standing;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared.Administration; // Shitmed Change
+using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Administration;
+using Content.Shared.Body.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -177,11 +177,3 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class StandingUpDoAfterEvent : SimpleDoAfterEvent;
-
-[Serializable, NetSerializable]
-public enum DropHeldItemsBehavior : byte
-{
-    NoDrop,
-    DropIfStanding,
-    AlwaysDrop
-}

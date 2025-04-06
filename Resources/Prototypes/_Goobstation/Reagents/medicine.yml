@@ -1208,8 +1208,8 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        walkSpeedModifier: 0.7
-        sprintSpeedModifier: 0.7
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -1219,17 +1219,10 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        probability: 0.1
-        paralyzeTime: 2
-      - !type:Paralyze # more severe effect when overdosing
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
         - !type:ReagentThreshold
           min: 35
-        probability: 0.2
-        paralyzeTime: 4
+        probability: 0.1
+        paralyzeTime: 2
       - !type:Drunk
         boozePower: 5
       - !type:HealthChange
@@ -1246,6 +1239,9 @@
         amount: 5
       - !type:ModifyBleedAmount
         amount: -1
+      - !type:AdjustReagent
+        reagent: Sarin
+        amount: -3
 
 # Niche/crazy/experimental meds
 

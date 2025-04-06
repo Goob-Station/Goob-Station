@@ -1,5 +1,6 @@
 using System.Linq;
-using Content.Shared._Goobstation.MartialArts.Components;
+using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Stunnable; // Goobstation - Martial Arts
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode;
@@ -21,6 +22,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Random; // Goob - Shove
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
@@ -38,7 +40,8 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
-    [Dependency] private readonly ClothingModifyStunTimeSystem _modify = default!; // goob edit
+    [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
+
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
@@ -119,19 +122,18 @@ public sealed partial class StaminaSystem : EntitySystem
 
     private void OnDisarmed(EntityUid uid, StaminaComponent component, DisarmedEvent args)
     {
+        // No random stamina damage
         if (args.Handled)
             return;
 
         if (component.Critical)
             return;
 
-        var damage = args.PushProbability * component.CritThreshold;
-        TakeStaminaDamage(uid, damage, component, source: args.Source);
+        TakeStaminaDamage(uid, args.StaminaDamage, component, source: args.Source);
 
         args.PopupPrefix = "disarm-action-shove-";
         args.IsStunned = component.Critical;
-
-        args.Handled = true;
+        // Shoving shouldnt handle it
     }
 
     // goobstation - stun resistance. try not to modify this method at all
@@ -449,7 +451,13 @@ public sealed partial class StaminaSystem : EntitySystem
         component.Critical = true;
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 
-        component.NextUpdate = _timing.CurTime + component.StunTime * _modify.GetModifier(uid) + StamCritBufferTime;
+        // Goobstation - Modularization
+        var modifierEv = new GetClothingStunModifierEvent(uid);
+        RaiseLocalEvent(modifierEv);
+        var clothingModifier= modifierEv.Modifier;
+        // Goobstation - Modularization
+
+        component.NextUpdate = _timing.CurTime + component.StunTime * clothingModifier + StamCritBufferTime; // Goobstation - Modularization
 
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);

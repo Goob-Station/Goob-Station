@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.ServerCurrency;
+using Content.Server._durkcode.ServerCurrency;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -22,7 +22,6 @@ using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
-using Content.Server._Goobstation.Redial; // Goobstation - Redialing
 using Content.Shared.CCVar;
 using Content.Shared.Kitchen;
 using Content.Shared.Localizations;
@@ -112,7 +111,6 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
-                IoCManager.Resolve<RedialManager>().Initialize(); // Goobstation - Redialing
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();
