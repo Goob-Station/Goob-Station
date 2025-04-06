@@ -75,6 +75,7 @@
   - EnergyMagRifleLethal
   technologyPrerequisites:
   - AdvancedWeaponry
+  position: 6,1
 
 # Tier 3
 

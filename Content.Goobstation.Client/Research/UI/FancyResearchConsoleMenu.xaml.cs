@@ -2,7 +2,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Research;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._Goobstation.Research;
+using Content.Goobstation.Common.Research;
+using Content.Goobstation.Shared.Research;
 using Content.Shared.Access.Systems;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
@@ -16,7 +17,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Goobstation.Research.UI;
+namespace Content.Goobstation.Client.Research.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class FancyResearchConsoleMenu : FancyWindow
@@ -122,7 +123,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         foreach (var disciplineId in database.SupportedDisciplines)
         {
             var discipline = _prototype.Index<TechDisciplinePrototype>(disciplineId);
-            var tier = _research.GetTierCompletionPercentage(database, discipline);
+            //var tier = _research.GetTierCompletionPercentage(database, discipline);
 
             // i'm building the small-ass control here to spare me some mild annoyance in making a new file
             var texture = new TextureRect
@@ -132,7 +133,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
             };
             var label = new RichTextLabel();
             texture.Texture = _sprite.Frame0(discipline.Icon);
-            label.SetMessage(Loc.GetString("research-console-tier-percentage", ("perc", tier)));
+            //label.SetMessage(Loc.GetString("research-console-tier-percentage", ("perc", tier)));
 
             var control = new BoxContainer
             {

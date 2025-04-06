@@ -1,5 +1,3 @@
-using System.Linq;
-using Content.Client._Goobstation.Research.UI;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using JetBrains.Annotations;
@@ -12,7 +10,7 @@ namespace Content.Client.Research.UI;
 public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
-    private FancyResearchConsoleMenu? _consoleMenu;  // Goobstation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
+    private ResearchConsoleMenu? _consoleMenu;
 
     public ResearchConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -24,9 +22,8 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
 
         var owner = Owner;
 
-        _consoleMenu = this.CreateWindow<FancyResearchConsoleMenu>();   // Goobstation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
+        _consoleMenu = this.CreateWindow<ResearchConsoleMenu>();
         _consoleMenu.SetEntity(owner);
-        _consoleMenu.OnClose += () => _consoleMenu = null;
 
         _consoleMenu.OnTechnologyCardPressed += id =>
         {
@@ -49,8 +46,8 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
         if (State is not ResearchConsoleBoundInterfaceState rState)
             return;
 
-        _consoleMenu?.UpdatePanels(rState.Researches);
-        _consoleMenu?.UpdateInformationPanel(rState.Points);
+        _consoleMenu?.UpdatePanels(rState);
+        _consoleMenu?.UpdateInformationPanel(rState);
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -59,14 +56,7 @@ public sealed class ResearchConsoleBoundUserInterface : BoundUserInterface
 
         if (state is not ResearchConsoleBoundInterfaceState castState)
             return;
-
-        // Goobstation checks added
-        // Thats for avoiding refresh spam when only points are updated
-        if (_consoleMenu == null)
-            return;
-        if (!_consoleMenu.List.SequenceEqual(castState.Researches))
-            _consoleMenu.UpdatePanels(castState.Researches);
-        if (_consoleMenu.Points != castState.Points)
-            _consoleMenu.UpdateInformationPanel(castState.Points);
+        _consoleMenu?.UpdatePanels(castState);
+        _consoleMenu?.UpdateInformationPanel(castState);
     }
 }

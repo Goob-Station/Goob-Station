@@ -3,7 +3,7 @@ using Robust.Client.UserInterface.Controls;
 using System.Linq;
 using System.Numerics;
 
-namespace Content.Client._Goobstation.Research.UI;
+namespace Content.Goobstation.Client.Research.UI;
 
 /// <summary>
 /// UI element for visualizing technologies prerequisites
