@@ -7,6 +7,7 @@
   - type: Execution
     doAfterDuration: 4.0
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
   - type: Sprite
     state: icon
@@ -28,6 +29,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
   - type: MeleeWeapon
+    animationRotation: -95 # WWDP
+    wideAnimationRotation: -135 # WWDP
     heavyStaminaCost: 2.5 # goob edit
     attackRate: 1.5
     damage:

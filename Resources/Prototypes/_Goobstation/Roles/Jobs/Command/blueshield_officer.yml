@@ -58,5 +58,4 @@
   storage:
     back:
     - Flash
-    - SecHypo
     - ClothingMaskGasSecurity

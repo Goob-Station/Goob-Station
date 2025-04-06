@@ -73,6 +73,25 @@
   - type: Sprite
     sprite: Objects/Fun/Instruments/rockguitar.rsi
     state: icon
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/guitarsmash.ogg
+    attackRate: .8
+    animationRotation: -45 # WWDP
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 6
+        Shock: 1
+    bluntStaminaDamageFactor: 1.5
+    heavyStaminaCost: 15
+    angle: 90 # WWDP
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2
+        Shock: 1
   - type: Item
     size: Normal
     sprite: Objects/Fun/Instruments/rockguitar.rsi
@@ -85,18 +104,6 @@
   - type: Tag
     tags:
     - StringInstrument
-  - type: MeleeWeapon
-    wideAnimationRotation: 45
-    damage:
-      types:
-        Blunt: 6
-        Slash: 2
-  - type: Wieldable
-  - type: IncreaseDamageOnWield #they don't call it an axe for nothing
-    damage:
-      types:
-        Blunt: 4
-        Slash: 2
 
 - type: entity
   parent: BaseHandheldInstrument
@@ -149,6 +156,8 @@
       types:
         Blunt: 20
   - type: MeleeWeapon
+    range: 1.5
+    animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     damage:
       types:

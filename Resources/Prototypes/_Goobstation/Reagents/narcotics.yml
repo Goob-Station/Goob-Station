@@ -108,26 +108,6 @@
         probability: 0.05
 
 - type: reagent
-  id: Tirizene
-  name: reagent-name-tirizene
-  group: Narcotics
-  desc: reagent-desc-tirizene
-  physicalDesc: reagent-physical-desc-syrupy
-  color: "#6E2828"
-  boilingPoint: 255.0
-  meltingPoint: 36.0
-  metabolisms:
-    Narcotic:
-      effects:
-      - !type:TakeStaminaDamage
-        conditions:
-        - !type:OrganType # Goobstation - Yowie
-          type: Yowie
-          shouldHave: false
-        amount: 15
-        immediate: false
-
-- type: reagent
   id: BlindToxin
   name: reagent-name-blind-toxin
   group: Narcotics

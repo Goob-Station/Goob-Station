@@ -47,6 +47,7 @@
     - BikeHorn
     - VehicleKey #Goobstatiuon - Clowncar
   - type: MeleeWeapon
+    animationRotation: 135 # WWDP
     wideAnimationRotation: 135
     soundHit:
       collection: BikeHorn
@@ -108,6 +109,7 @@
       params:
         variation: 0.125
   - type: MeleeWeapon
+    animationRotation: 135 # WWDP
     wideAnimationRotation: 135
     soundHit:
       collection: CluwneHorn
