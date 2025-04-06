@@ -16,6 +16,11 @@
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
+  # Goobstation R&D Console rework start
+  position: 0,-4
+  technologyPrerequisites:
+  - SpaceScanning
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: SpaceScanning
@@ -30,6 +35,11 @@
   - RadarConsoleCircuitboard
 #  - HandHeldMassScanner - Removed by Lavaland
   - BorgModuleGPS
+  # Goobstation R&D Console rework start
+  position: 0,-3
+  technologyPrerequisites:
+  - PowerGeneration
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedPowercells
@@ -44,6 +54,11 @@
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 1,-6
+  technologyPrerequisites:
+  - IndustrialEngineering
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: MechanicalCompression
@@ -56,6 +71,11 @@
   cost: 10000
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 1,-4
+  technologyPrerequisites:
+  - SpaceScanning
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: IndustrialEngineering
@@ -71,6 +91,11 @@
   - ProtolatheHyperConvectionMachineCircuitboard
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: 1,-5
+  technologyPrerequisites:
+  - MechanicalCompression
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: PowerGeneration
@@ -88,6 +113,7 @@
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
+  position: 0,-2
 
 - type: technology
   id: AtmosphericTech
@@ -101,6 +127,11 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  # Goobstation R&D Console rework start
+  position: -2,-4
+  technologyPrerequisites:
+  - SpaceScanning
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: RipleyAPLU
@@ -120,6 +151,11 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
+  # Goobstation R&D Console rework start
+  position: 0,-5
+  technologyPrerequisites:
+  - SalvageEquipment
+  # Goobstation R&D Console rework end
 
 # Tier 2
 
@@ -137,6 +173,11 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  # Goobstation R&D Console rework start
+  position: 2,-4
+  technologyPrerequisites:
+  - MechanicalCompression
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedAtmospherics
@@ -153,6 +194,9 @@
   - HolofanProjector
   technologyPrerequisites:
   - AtmosphericTech
+  # Goobstation R&D Console rework start
+  position: -2,-5
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -168,6 +212,11 @@
     - PowerDrill
     - JawsOfLife
     - BorgModuleAdvancedTool
+  # Goobstation R&D Console rework start
+  position: 2,-5
+  technologyPrerequisites:
+  - Shuttlecraft
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: MassExcavation
@@ -184,6 +233,12 @@
     - AdvancedMineralScannerEmpty
     - MechEquipmentDrillDiamond # Goobstation
     - BorgModuleAdvancedMining # Goobstation
+    - MechEquipmentDrillDiamond
+  # Goobstation R&D Console rework start
+  position: 0,-6
+  technologyPrerequisites:
+  - RipleyAPLU
+  # Goobstation R&D Console rework end
 
 # Tier 3
 
@@ -195,12 +250,17 @@
     state: holding
   discipline: Industrial
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
   - ClothingBackpackMessengerHolding # Frontier
+  # Goobstation R&D Console rework start
+  position: 2,-7
+  technologyPrerequisites:
+   - PortableFission
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: PortableFission
@@ -210,8 +270,11 @@
     state: microreactor
   discipline: Industrial
   tier: 3
-  cost: 10000
+  cost: 15000 # Goobstation 10000 -> 15000
   recipeUnlocks:
   - PowerCellMicroreactor
   technologyPrerequisites:
-  - AdvancedPowercells
+  - AdvancedToolsTechnology  # Goobstation R&D Console rework
+  - AdvancedPowercells  # Goobstation R&D Console rework
+  position: 2,-6
+
