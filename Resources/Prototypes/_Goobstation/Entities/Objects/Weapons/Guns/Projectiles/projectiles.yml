@@ -107,17 +107,17 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 5
-        Piercing: 5
-        Heat: 5
+        Blunt: 1
+        Piercing: 1
+        Heat: 1
         Structural: 20
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
     maxIntensity: 3 # 3x3 explosion
     intensitySlope: 1.5 # 45 damage at the center tile
-    totalIntensity: 12 # 30 damage at the edges
-    maxTileBreak: 0 # 15 damage at the corners
+    totalIntensity: 12 # 22.5 damage at the edges
+    maxTileBreak: 0 # 11.25 damage at the corners
   - type: PointLight
     radius: 3.5
     color: orange
