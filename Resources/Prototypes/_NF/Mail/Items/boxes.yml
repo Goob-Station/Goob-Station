@@ -87,7 +87,7 @@
         amount: 1
   - type: Storage
     grid:
-    - 0,0,4,3
+    - 0,0,5,3
     whitelist:
       components:
         - BodyPart

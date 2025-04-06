@@ -70,7 +70,7 @@
         - id: Joint
         - id: JointRainbow
           weight: 0.5
-        - id: Blunt
+        - id: BluntCigar
         - id: BluntRainbow
           weight: 0.5
       - !type:GroupSelector
