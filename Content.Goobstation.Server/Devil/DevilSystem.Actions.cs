@@ -5,6 +5,7 @@ using Content.Goobstation.Shared.Devil.Actions;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Devil;
 
@@ -15,6 +16,7 @@ public sealed partial class DevilSystem
         SubscribeLocalEvent<DevilComponent, CreateContractEvent>(OnContractCreated);
         SubscribeLocalEvent<DevilComponent, CreateRevivalContractEvent>(OnRevivalContractCreated);
         SubscribeLocalEvent<DevilComponent, ShadowJauntEvent>(OnShadowJaunt);
+        SubscribeLocalEvent<DevilComponent, DevilPosessionEvent>(OnPossess);
     }
 
     private void OnContractCreated(EntityUid uid, DevilComponent comp, ref CreateContractEvent args)
@@ -54,6 +56,14 @@ public sealed partial class DevilSystem
 
         Spawn("PolymorphShadowJauntAnimation", Transform(uid).Coordinates);
         _poly.PolymorphEntity(uid, "ShadowJaunt");
+    }
+
+    private void OnPossess(EntityUid uid, DevilComponent comp, ref DevilPosessionEvent args)
+    {
+        if (!(TryComp<ActorComponent>(args.Performer, out var performerActor) && TryComp<ActorComponent>(args.Target, out var targetActor)))
+            return;
+
+        _posession.TryPossessTarget(performerActor.PlayerSession.UserId, targetActor.PlayerSession.UserId);
     }
 
 

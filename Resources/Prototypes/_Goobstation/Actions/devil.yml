@@ -45,6 +45,26 @@
     event: !type:ShadowJauntEvent {}
   - type: DevilAction
 
+- type: entity
+  id: ActionDevilPossess
+  name: Possess target
+  description: Temporarily posess a target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 5
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: shadow-jaunt
+    event: !type:DevilPosessionEvent {}
+  - type: DevilAction
+
 # Deals
 
 - type: entity
