@@ -8,6 +8,7 @@
     sprite: Objects/Weapons/Melee/needle.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     damage:
       types:
