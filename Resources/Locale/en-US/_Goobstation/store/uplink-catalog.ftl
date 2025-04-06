@@ -56,6 +56,9 @@ uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicat
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
 
+uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
+uplink-weapon-heavy-shotgun-desc = Merciless weapon. The recoil when firing it is so extreme that it can knock you off your feet.
+
 uplink-WSPR-name = WSPR Bundle
 uplink-WSPR-desc = PPPSSSSHhhhh.
 
@@ -117,6 +120,12 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
 uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
+
+uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (.75 carpshot)
+uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 carpshot shells. Compatible with the NZ CSG-242.
+
+uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (.75 slug)
+uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 slug shells. Compatible with the NZ CSG-242.
 
 # Grenades
 
