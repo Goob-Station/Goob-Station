@@ -1,6 +1,6 @@
 - type: entity
   name: Executive briefcase
-  parent: [BaseItem, StorePresetNTR]
+  parent: [BaseItem, StorePresetNTR, BaseGrandTheftContraband]
   suffix: Debug
   id: ExecutiveBriefcaseEmpty
   description: A standart issued executive briefcase for accessing NTnet.
@@ -22,6 +22,11 @@
       NTLoyaltyPoint: 999 # change this to 0 before pr-ing
   - type: BriefcaseScanner
     scanDuration: 7.5
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: ExecutiveBriefcase
 
 # Executive briefcase store
 # i dont want to make a bunch of new files for 1 prototype so....

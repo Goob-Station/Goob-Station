@@ -503,21 +503,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: NTRExecutiveId
-  name: Id card computer board
-  description: High-value computer board to make an ID card console.
-  prodctEntity: IDComputerCircuitboard
-  cost:
-    NTLoyaltyPoint: 75
-  categories:
-  - NTRBoards
-  restocktime: 1200 # 20 min
-  resetRestockOnPurchase: false
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
 # evil (debug)
 # todo: add more debug stuff / and possibly make this open if emagged or something, but it was never intended for it tho.
 - type: listing

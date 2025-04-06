@@ -87,7 +87,7 @@ ntr-executive-grav-name = Mini gravity generator
 ntr-executive-grav-desc = Machine board for a compact gravity generator.
 
 ntr-executive-teleporter-name = Cargo teleporter machine board
-ntr-executive-teleporter-desc = Enables cargo teleportation. Unauthorized use constitutes theft under NanoTrasen policy.
+ntr-executive-teleporter-desc = Cargo teleporter machine board, for easier transportation of supplies via teleportation. Unauthorized use constitutes theft under NanoTrasen policy.
 
 ntr-executive-holopad-name = Holopad machine boards
 ntr-executive-holopad-desc = Contains 2 holopad machine boards. Cheaper than installing them at shift start.
@@ -109,6 +109,9 @@ ntr-executive-cargoshuttle-desc = Specialized control console for cargo shuttles
 
 ntr-executive-shuttle-name = Shuttle construction bundle
 ntr-executive-shuttle-desc = Standard crate containing 4 thruster flatpacks, 1 shuttle computer board, and 1 gyroscope flatpack.
+
+ntr-executive-id-name = Id card computer board
+ntr-executive-id-desc = High-value computer board to make an ID card console.
 
 # tiers
 
