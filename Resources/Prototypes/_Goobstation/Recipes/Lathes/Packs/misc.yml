@@ -35,6 +35,7 @@
   recipes:
   - CartridgeEphedrine
   - CartridgePuncturase
+  - CartridgeTirizene
 
 - type: latheRecipePack
   id: ProtoLatheMiscStatic
