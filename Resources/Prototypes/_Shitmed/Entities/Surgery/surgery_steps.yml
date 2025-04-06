@@ -142,7 +142,7 @@
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepMendBones
-  name: Востановить кости
+  name: Mend bones
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
@@ -151,7 +151,7 @@
     duration: 7
   - type: SurgeryAffixPartStep
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/bone_gel.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
   - type: SurgeryStepPainInflicter
     amount: 12
