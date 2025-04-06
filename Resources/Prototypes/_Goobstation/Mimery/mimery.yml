@@ -1,0 +1,11 @@
+- type: entity
+  name: Book of Mimery
+  parent: BaseItem
+  id: MimeryBook
+  description: i hope this works
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/mimery.rsi
+    state: mimery_book
+  - type: UseDelay
+    delay: 1
