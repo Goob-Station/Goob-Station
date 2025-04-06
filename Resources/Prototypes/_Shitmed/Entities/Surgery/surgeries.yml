@@ -193,24 +193,6 @@
 
 - type: entity
   parent: SurgeryBase
-  id: SurgeryAttachLegs
-  name: Attach Legs
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    - SurgeryStepInsertFeature
-    - SurgeryStepSealWounds
-  - type: SurgeryPartCondition
-    part: Groin
-  - type: SurgeryPartRemovedCondition
-    connection: legs
-    part: Leg
-    symmetry: None
-
-- type: entity
-  parent: SurgeryBase
   id: SurgeryAttachLeftLeg
   name: Attach Left Leg
   categories: [ HideSpawnMenu ]
