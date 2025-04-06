@@ -87,25 +87,25 @@
 - type: soundCollection
   id: OrganDamagePainedMale
   files:
-  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedMale1.ogg
-  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedMale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedMale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedMale2.ogg
 
 - type: soundCollection
   id: OrganDamageWhimpersMale
   files:
-  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersMale1.ogg
-  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersMale2.ogg
-  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersMale3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersMale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersMale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersMale3.ogg
 
 - type: soundCollection
   id: OrganDamagePainedFemale
   files:
-  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedFemale1.ogg
-  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedFemale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamagePainedFemale2.ogg
 
 - type: soundCollection
   id: OrganDamageWhimpersFemale
   files:
-  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersFemale1.ogg
-  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersFemale2.ogg
-  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersFemale3.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersFemale1.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersFemale2.ogg
+  - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/OrganDamageWhimpersFemale3.ogg

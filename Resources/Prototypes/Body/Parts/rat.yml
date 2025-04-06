@@ -17,9 +17,7 @@
   # currently their torso is just a small dead rat....
   - type: Sprite
     sprite: Mobs/Animals/mouse.rsi
-    layers:
-      - state: splat-0
+    state: splat-0
   - type: Icon # Shitmed Change
     sprite: Mobs/Animals/mouse.rsi
-    layers:
-      - state: splat-0
+    state: splat-0

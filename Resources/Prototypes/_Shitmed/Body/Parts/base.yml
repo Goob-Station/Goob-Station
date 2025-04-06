@@ -66,7 +66,7 @@
   id: BaseChest
   components:
   - type: Woundable
-    damageContainer: Organic
+    damageContainer: OrganicPart
   - type: Destructible
     thresholds:
     - trigger:
@@ -120,7 +120,7 @@
   parent: BaseGroinInorganic
   components:
   - type: Woundable
-    damageContainer: Organic
+    damageContainer: OrganicPart
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Groin

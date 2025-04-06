@@ -134,7 +134,9 @@
     contents:
       - id: HeadReptilian
         amount: 1
-      - id: TorsoReptilian
+      - id: ChestReptilian
+        amount: 1
+      - id: GroinReptilian
         amount: 1
       - id: LeftArmReptilian
         amount: 1
@@ -164,7 +166,9 @@
     contents:
       - id: HeadSlime
         amount: 1
-      - id: TorsoSlime
+      - id: ChestSlime
+        amount: 1
+      - id: GroinSlime
         amount: 1
       - id: LeftArmSlime
         amount: 1

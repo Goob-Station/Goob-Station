@@ -33,10 +33,6 @@
     tags:
     - Meat
     - Organ
-    integrityThresholds:
-      Normal: 15
-      Damaged: 6
-      Destroyed: 0
 
 - type: entity
   id: BaseHumanOrgan
