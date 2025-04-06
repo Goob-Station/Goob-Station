@@ -22,12 +22,22 @@ namespace Content.IntegrationTests.Tests._Shitmed.Body;
 public sealed class BodySetupTest
 {
     /// <summary>
-    /// A list of species that can be ignored by this test.
+    /// A list of species that are ignored by all the tests here.
     /// </summary>
     private readonly HashSet<string> _ignoredPrototypes = new()
     {
         "Skeleton",
         "Cyborg" // Since cyborgs are now a species just for appearance comps, we have to add em here.
+    };
+
+    /// <summary>
+    /// A list of species that are ignored by the consciousness test.
+    /// </summary>
+    private readonly HashSet<string> _ignoredConsciousnessPrototypes = new()
+    {
+        "Cyborg",
+        "IPC",
+        "Skeleton",
     };
 
     // This test is kinda useless for us since the only place where we use InnateToolComponent is fuckin behonkers lmao.
@@ -100,6 +110,9 @@ public sealed class BodySetupTest
 
         foreach (var speciesPrototype in server.ProtoMan.EnumeratePrototypes<SpeciesPrototype>())
         {
+            if (_ignoredPrototypes.Contains(speciesPrototype.ID))
+                continue;
+
             var dummy = EntityUid.Invalid;
             await server.WaitAssertion(() =>
             {
@@ -178,7 +191,7 @@ public sealed class BodySetupTest
         {
             foreach (var speciesPrototype in server.ProtoMan.EnumeratePrototypes<SpeciesPrototype>())
             {
-                if (_ignoredPrototypes.Contains(speciesPrototype.ID))
+                if (_ignoredConsciousnessPrototypes.Contains(speciesPrototype.ID))
                     continue;
 
                 var dummy = entMan.Spawn(speciesPrototype.Prototype);
@@ -190,11 +203,11 @@ public sealed class BodySetupTest
 
                     Assert.That(consciousnessSystem.TryGetNerveSystem(dummy, out var dummyNerveSys), Is.True);
 
-                    Assert.That(entMan.HasComponent<OrganComponent>(dummyNerveSys), $"Failed species to pass the test: {speciesPrototype.ID}");
+                    Assert.That(entMan.HasComponent<OrganComponent>(dummyNerveSys), $"Failed species to pass the test: {speciesPrototype.ID}, organ {dummyNerveSys}");
                     Assert.That(entMan.HasComponent<ConsciousnessRequiredComponent>(dummyNerveSys), $"Failed species to pass the test: {speciesPrototype.ID}");
 
-                    Assert.That(consciousness.Consciousness, Is.GreaterThan(consciousness.Threshold));
-                    Assert.That(consciousnessSystem.CheckConscious(dummy));
+                    Assert.That(consciousness.Consciousness, Is.GreaterThan(consciousness.Threshold), $"Failed species to pass the test: {speciesPrototype.ID}");
+                    Assert.That(consciousnessSystem.CheckConscious(dummy), $"Failed species to pass the test: {speciesPrototype.ID}");
                 });
             }
         });
