@@ -3,9 +3,9 @@ using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Devil;
 using Content.Server.Administration.Systems;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
@@ -111,8 +111,9 @@ public sealed partial class DevilContractSystem : EntitySystem
     private void OnContractSignAttempt(EntityUid uid, DevilContractComponent comp, ref BeingSignedAttemptEvent args)
     {
         // Don't allow mortals to sign contracts for other people.
+        // Also don't let silicons sell their souls, they don't have one.
         // It won't work, but you still shouldn't be able to.
-        if (comp.IsVictimSigned && args.Signer != comp.ContractOwner)
+        if (comp.IsVictimSigned && args.Signer != comp.ContractOwner && HasComp<SiliconComponent>(args.Signer))
         {
             _popupSystem.PopupEntity(Loc.GetString("devil-sign-invalid-user"), uid);
             return;
@@ -183,30 +184,22 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         comp.Signer = args.User;
         comp.IsVictimSigned = true;
-        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), args.User);
+        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), args.Paper, args.User);
 
     }
 
     private void HandleDevilSign(EntityUid uid, DevilContractComponent comp, SignSuccessfulEvent args)
     {
         comp.IsDevilSigned = true;
-        _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), uid);
+        _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), args.Paper, args.User);
 
     }
 
     private void HandleBothPartiesSigned(EntityUid uid, DevilContractComponent comp)
     {
         // Common final activation logic
-        TryContractEffects(uid, comp);
-
-        // Make sure the weight is set properly.
         TryUpdateContractWeight();
-
-        // Visual feedback
-        // _appearance.SetData(uid, ContractVisuals.Active, true);
-        // _audio.PlayGlobal("/Audio/Effects/contract_activate.ogg", Filter.Broadcast());
-
-        // Maybe the contract burns after a couple of minutes?
+        TryContractEffects(uid, comp);
     }
 
     #endregion
@@ -236,28 +229,21 @@ public sealed partial class DevilContractSystem : EntitySystem
                 continue;
 
             var matches = ClauseRegex.Matches(paper.Content);
-            int newWeight = 0;
+            var newWeight = 0;
 
             foreach (Match match in matches)
             {
-                if (!match.Success) continue;
+                if (!match.Success)
+                    continue;
 
                 var clauseKey = match.Groups["clause"].Value.Trim().ToLower();
                 if (_clauseWeights.TryGetValue(clauseKey, out var weight))
-                {
                     newWeight += weight;
-                }
                 else
-                {
                     _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
-                }
             }
 
-            // Update contract weight only if changed
-            if (contract.ContractWeight != newWeight)
-            {
-                contract.ContractWeight = newWeight;
-            }
+            contract.ContractWeight = newWeight;
         }
     }
 
@@ -290,12 +276,7 @@ public sealed partial class DevilContractSystem : EntitySystem
 
 
             // Pass all four required parameters
-            ApplyEffectToTarget(
-                targetKey,       // string
-                resolver(comp),  // EntityUid?
-                comp,            // DevilContractComponent
-                effect           // Action<...>
-            );
+            ApplyEffectToTarget(targetKey, resolver(comp), comp, effect);
         }
     }
 
@@ -309,6 +290,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         {
             switch (targetKey.ToLower())
             {
+                // Scrapped idea, but it's funnier if I leave it tbh.
                 case "both":
                     if (Exists(comp.Signer))
                         effect(comp.Signer, comp);

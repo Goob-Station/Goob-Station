@@ -37,19 +37,7 @@ public sealed partial class DevilContractSystem
             // If you die with no soul, you go to hell!!
             ["soul ownership"] = (target, contract) =>
             {
-                var soul = EnsureComp<CondemnedComponent>(target);
-                soul.SoulOwner = contract.ContractOwner;
-
-                if (TryComp<DevilComponent>(contract.ContractOwner, out var devil))
-                {
-                    _popupSystem.PopupEntity(
-                        Loc.GetString("contract-soul-added"),
-                        (EntityUid)contract.ContractOwner,
-                        PopupType.LargeCaution);
-
-                    // Transfer soul
-                    TryTransferSouls(contract.ContractOwner, target, 1);
-                }
+                TryTransferSouls(contract.ContractOwner, target, 1);
             },
 
             // Cuts all damage taken in half.

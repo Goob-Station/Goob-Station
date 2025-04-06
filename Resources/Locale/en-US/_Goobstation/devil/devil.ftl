@@ -1,17 +1,19 @@
 devil-roundend-name = Devil
 objective-issuer-devil = Devil
 
-roundend-prepend-devil-contracts = [color=white]{$name}[/color] has made [color=red]{$number}[/color] sucessful contracts.
+roundend-prepend-devil-contracts = Some has made [color=red]{$number}[/color] successful contracts.
+roundend-prepend-devil-contracts-named = [color=white]{$name}[/color] has made [color=red]{$number}[/color] successful contracts.
 
-devil-component-examined = [color=darkred]{CAPITALIZE($target)}'s eyes glow a faint red.[/color]
-condemned-component-examined = [color=lightgray]{CAPITALIZE($target)}'s eyes are dull and lifeless. {POSS-ADJ($target)} stare ahead listlessly[/color]
+devil-component-examined = [color=darkred]{CAPITALIZE(POSS-ADJ($target))} eyes glow a faint red.[/color]
+condemned-component-examined = [color=chartreuse]{CAPITALIZE($target)}'s eyes are hollow and soulless.[/color]
 
-devil-role-greeting = You are a devil from the depths of hell.
+devil-role-greeting = You are a devil from the depths of hell,
+  who has possessed the body of {$playerName}
   Corrupt mortals and collect souls through the use of contracts.
   Your true name is {$trueName} - Try to keep it a secret, will you?
 
-devil-true-name-heard = The act of {$speaker} commanding your true name compels you to stop.
-devil-true-name-heard-chaplain = The act of {$speaker}'s holy words commanding your true name burns away at your very soul.
+devil-true-name-heard = The act of {$speaker} commanding {$target}'s true name compels {POSS-ADJ($target)} to stop.
+devil-true-name-heard-chaplain = The act of {$speaker}'s holy words commanding your true name burns away at {$target}'s very soul.
 
 revival-contract-prompt = A sense of nostalgia draws you to your corpse... (Check your Verbs menu to accept or reject)
 
@@ -32,3 +34,7 @@ handshake-fail =  You shake {POSS-ADJ($user)} hand, but nothing happens!
 not-enough-souls = You do not have enough souls to use this spell!
 
 devil-component-bible-sizzle = {$target} bursts into flames upon contact with the bible!
+
+devil-power-level-increase-one = Bits of flame flare out from your fingertips. Your connection with hell has strengthened.
+devil-power-level-increase-two = You feel your power surge. Your connection with hell has strengthened.
+devil-power-level-increase-three = You've almost completed your tasks here. Just a few more souls.

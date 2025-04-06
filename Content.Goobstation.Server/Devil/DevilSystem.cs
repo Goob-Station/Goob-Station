@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Contract;
@@ -7,12 +8,10 @@ using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Religion;
-using Content.Server._Goobstation.Wizard.Teleport;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Bible.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
@@ -31,22 +30,17 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
-using Content.Shared.Store.Components;
 using Content.Shared.Temperature.Components;
-using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil;
 
@@ -71,11 +65,13 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly PosessionSystem _posession = default!;
 
 
+    // Ten. Thousand. EntProtoIds.
     private readonly EntProtoId _contractPrototype = "PaperDevilContract";
     private readonly EntProtoId _revivalContractPrototype = "PaperDevilContractRevival";
     private readonly EntProtoId _suitProto = "ClothingUniformJumpsuitDevil";
     private readonly EntProtoId _bookProto = "GuidebookCodexUmbra";
     private readonly EntProtoId _penProto = "PenDevil";
+    private readonly EntProtoId _pentagramEffectProto = "Pentagram";
 
     public override void Initialize()
     {
@@ -84,6 +80,7 @@ public sealed partial class DevilSystem : EntitySystem
         SubscribeLocalEvent<DevilComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<DevilComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<DevilComponent, SoulAmountChangedEvent>(OnSoulAmountChanged);
+        SubscribeLocalEvent<DevilComponent, PowerLevelChangedEvent>(OnPowerLevelChanged);
 
         InitializeHandshakeSystem();
         SubscribeAbilities();
@@ -93,6 +90,9 @@ public sealed partial class DevilSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, DevilComponent comp, ComponentStartup args)
     {
+        // Startup animation
+        Spawn(_pentagramEffectProto, Transform(uid).Coordinates);
+
         // Remove human components.
         RemComp<CombatModeComponent>(uid);
         RemComp<HungerComponent>(uid);
@@ -141,29 +141,61 @@ public sealed partial class DevilSystem : EntitySystem
 
     #region Event Listeners
 
-    private void OnSoulAmountChanged(EntityUid uid, DevilComponent comp, SoulAmountChangedEvent args)
+    private void OnSoulAmountChanged(EntityUid uid, DevilComponent comp, ref SoulAmountChangedEvent args)
     {
         // Add souls to internal souls tracker.
-        comp.Souls += args.amount;
+        comp.Souls += args.Amount;
 
-        if (!_mind.TryGetMind(args.user, out var mindId, out var mind))
+        _popup.PopupEntity(Loc.GetString("contract-soul-added"), args.User, args.User, PopupType.MediumCaution);
+
+        if (!_mind.TryGetMind(args.User, out var mindId, out var mind))
             return;
+
+        // If the new amount of souls is in range of a level up, increase the power level.
+        if (comp.Souls % 2 == 0 && comp.Souls <= 6)
+        {
+            // Set new power level
+            comp.PowerLevel = TryGetNewPowerLevel(args.User, comp);
+
+            // Raise event
+            var ev = new PowerLevelChangedEvent(args.User, comp.PowerLevel);
+            RaiseLocalEvent(args.User, ref ev);
+        }
+
 
         // Add souls to objective tracker.
         if (_mind.TryGetObjectiveComp<SignContractConditionComponent>(mindId, out var objectiveComp, mind))
-            objectiveComp.ContractsSigned += args.amount;
+            objectiveComp.ContractsSigned += args.Amount;
+    }
+
+    private void OnPowerLevelChanged(EntityUid uid, DevilComponent comp, ref PowerLevelChangedEvent args)
+    {
+        switch (args.NewLevel)
+        {
+            case 1:
+            {
+                _popup.PopupEntity(Loc.GetString("devil-power-level-increase-one"), args.User, args.User, PopupType.Large);
+                _actions.AddAction(args.User, "ActionDevilPossess");
+                break;
+            }
+            case 2:
+            {
+                _popup.PopupEntity(Loc.GetString("devil-power-level-increase-two"), args.User, args.User, PopupType.Large);
+                break;
+            }
+            case 3:
+            {
+                _popup.PopupEntity(Loc.GetString("devil-power-level-increase-three"), args.User, args.User, PopupType.Large);
+                break;
+            }
+        }
     }
 
     private void OnExamined(Entity<DevilComponent> comp, ref ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient)
-        {
+        if (args.IsInDetailsRange && !_net.IsClient && comp.Comp.PowerLevel >= 1)
             args.PushMarkup(Loc.GetString("devil-component-examined", ("target", Identity.Entity(comp, EntityManager))));
-        }
     }
-
-
-
     private void OnListen(EntityUid uid, DevilComponent comp, ListenEvent args)
     {
         // Other Devils and entities without souls have no authority over you.
@@ -180,15 +212,14 @@ public sealed partial class DevilSystem : EntitySystem
             "abort",        // Emergency stop
             "discontinue",  // Formal cancellation
             "refrain",       // Preventive stop
-            "fuck off"      // Rude stop. Lol.
+            "fuck off"  ,    // Rude stop. Lol.
         };
 
         var message = args.Message.ToLowerInvariant();
 
-        var trueNameMatch = message.Contains(comp.TrueName.ToLowerInvariant());
+        var trueNameMatch = message.Contains(comp.TrueName, StringComparison.InvariantCultureIgnoreCase);
 
-        var stopListMatch = stopList.Any(word =>
-            message.Contains(word.ToLowerInvariant()));
+        var stopListMatch = stopList.Any(word => message.Contains(word, StringComparison.InvariantCultureIgnoreCase)); // LINQ, AHHHH
 
         if (!trueNameMatch || !stopListMatch)
             return;
@@ -205,14 +236,14 @@ public sealed partial class DevilSystem : EntitySystem
             _damageable.TryChangeDamage(uid, holyDamage, true);
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
 
-            var popupHoly = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source));
-            _popup.PopupPredicted(popupHoly, uid, uid, PopupType.LargeCaution);
+            var popupHoly = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", uid));
+            _popup.PopupEntity(popupHoly, uid, PopupType.LargeCaution);
         }
         else
         {
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(4), false);
-            var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source));
-            _popup.PopupPredicted(popup, uid, uid, PopupType.LargeCaution);
+            var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", uid));
+            _popup.PopupEntity(popup, uid, PopupType.LargeCaution);
         }
     }
 
@@ -233,6 +264,18 @@ public sealed partial class DevilSystem : EntitySystem
 
         action.Handled = true;
         return true;
+    }
+
+    private int TryGetNewPowerLevel(EntityUid uid, DevilComponent comp)
+    {
+        // Every two souls is one level.
+        return comp.Souls switch
+        {
+            2 => 1,
+            4 => 2,
+            6 => 3,
+            _ => 0
+        };
     }
 
     private bool TryUseSoulsAbility(DevilComponent comp, BaseActionEvent action)

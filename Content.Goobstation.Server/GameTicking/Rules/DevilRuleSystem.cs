@@ -3,6 +3,7 @@ using Content.Goobstation.Server.Devil;
 using Content.Goobstation.Server.Devil.Roles;
 using Content.Goobstation.Shared.Devil;
 using Content.Server.Antag;
+using Content.Server.Bible.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives;
@@ -45,20 +46,23 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
     private void OnSelectAntag(EntityUid uid, DevilRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
     {
-        MakeDevil(args.EntityUid, comp);
+        // this isn't the best way to do this but idk how to do it better...
+        if (!HasComp<BibleUserComponent>(args.EntityUid))
+            MakeDevil(args.EntityUid, comp);
     }
 
     private bool MakeDevil(EntityUid target, DevilRuleComponent rule)
     {
-
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
+
 
         _role.MindAddRole(mindId, _devilMindRole.Id, mind, true);
 
         var devilComp = EnsureComp<DevilComponent>(target);
+        var meta = MetaData(target);
 
-        var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName));
+        var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", meta.EntityName));
 
         _antag.SendBriefing(target, briefing, Color.DarkRed, _briefingSound);
 
@@ -85,9 +89,7 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
             if (!_mind.TryGetMind(devil.Owner, out var mindId, out var mind))
                 continue;
 
-            // *shrugs
-            if (!TryComp<MetaDataComponent>(devil.Owner, out var metaData))
-                continue;
+            var metaData = MetaData(devil.Owner);
 
             if (devil.Souls > mostContracts)
             {

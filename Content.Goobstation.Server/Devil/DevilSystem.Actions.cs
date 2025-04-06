@@ -52,6 +52,7 @@ public sealed partial class DevilSystem
             return;
 
         Spawn("PolymorphShadowJauntAnimation", Transform(uid).Coordinates);
+        Spawn(_pentagramEffectProto, Transform(uid).Coordinates);
         _poly.PolymorphEntity(uid, "ShadowJaunt");
     }
 

@@ -11,7 +11,6 @@ public sealed partial class DevilComponent : Component
         "ActionCreateContract",
         "ActionShadowJaunt",
         "ActionCreateRevivalContract",
-        "ActionDevilPossess",
     };
 
     /// <summary>
@@ -26,6 +25,12 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public string TrueName;
+
+    /// <summary>
+    /// The current power level of the devil.
+    /// </summary>
+    [DataField]
+    public int PowerLevel;
 
     /// <summary>
     /// Sound effect played when summoning a contract.

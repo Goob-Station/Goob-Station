@@ -3,8 +3,8 @@ namespace Content.Goobstation.Server.Devil;
 /// <summary>
 /// Raised on a devil when the amount of souls in their storage changes.
 /// </summary>
-/// <param name="user">The Devil gaining souls.</param>
-/// <param name="victim">The entity losing its soul.</param>
-/// <param name="amount">How many souls they are gaining.</param>
+/// <param name="User">The Devil gaining souls.</param>
+/// <param name="Victim">The entity losing its soul.</param>
+/// <param name="Amount">How many souls they are gaining.</param>
 [ByRefEvent]
-public record struct SoulAmountChangedEvent(EntityUid user, EntityUid victim, int amount);
+public record struct SoulAmountChangedEvent(EntityUid User, EntityUid Victim, int Amount);

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseGuidebook
+  parent: [BaseGuidebook, BaseMagicContraband]
   id: GuidebookCodexUmbra
   suffix: guidebook
   name: Codex Umbra
@@ -11,11 +11,7 @@
     - state: cover_base
       color: black
     - state: decor_wingette
-      color: "#bbbbbb"
-    - state: icon_glow
-      color: red
-    - state: icon_corner
-      color: red
+      color: "#7e0100"
   - type: Tag
     tags:
     - Book
