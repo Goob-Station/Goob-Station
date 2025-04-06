@@ -38,7 +38,7 @@
             - material: GroundCannabis
               doAfter: 2
     - node: blunt
-      entity: BluntCigar
+      entity: BluntCigar # Shitmed Change
 
 - type: constructionGraph
   id: smokeableBluntRainbow

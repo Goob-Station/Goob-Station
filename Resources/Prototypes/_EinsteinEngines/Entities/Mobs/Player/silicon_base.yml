@@ -321,3 +321,6 @@
     - type: Carriable
     - type: Targeting
     - type: LayingDown
+    - type: Consciousness
+      cap: 190
+      threshold: 95

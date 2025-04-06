@@ -237,7 +237,7 @@ public sealed class BodySetupTest
         {
             foreach (var speciesPrototype in server.ProtoMan.EnumeratePrototypes<SpeciesPrototype>())
             {
-                if (_ignoredConsciousnessPrototypes.Contains(speciesPrototype.ID))
+                if (_ignoredPrototypes.Contains(speciesPrototype.ID))
                     continue;
 
                 var dummy = entMan.Spawn(speciesPrototype.Prototype);
@@ -264,7 +264,7 @@ public sealed class BodySetupTest
                     Assert.That(woundSystem.GetWoundableSeverityPoint(parentPart.Value), Is.GreaterThanOrEqualTo(FixedPoint2.Zero), $"Failed species to pass the test: {speciesPrototype.ID}");
                     Assert.That(woundSystem.GetWoundableSeverityPoint(groinEntity.Id), Is.GreaterThanOrEqualTo(FixedPoint2.Zero), $"Failed species to pass the test: {speciesPrototype.ID}");
 
-                    Assert.That(consciousnessSystem.CheckConscious(dummy), Is.True, $"Species not conscious upon rejuvenation: {speciesPrototype.ID}");
+                    Assert.That(consciousnessSystem.CheckConscious(dummy), Is.True, $"Species not conscious upon test: {speciesPrototype.ID}");
                 });
             }
         });

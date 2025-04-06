@@ -67,7 +67,7 @@
         amount: 1
       - id: ChestHuman
         amount: 1
-      - id: GroinHuman
+      - id: GroinHuman # Shitmed Change - more parts!!!!11!!!
         amount: 1
       - id: LeftArmHuman
         amount: 1
@@ -87,7 +87,7 @@
         amount: 1
   - type: Storage
     grid:
-    - 0,0,5,3
+    - 0,0,5,3 # Shitmed Change - more parts!!!!11!!!
     whitelist:
       components:
         - BodyPart
@@ -136,7 +136,7 @@
         amount: 1
       - id: ChestReptilian
         amount: 1
-      - id: GroinReptilian
+      - id: GroinReptilian # Shitmed Change - more parts!!!!11!!!
         amount: 1
       - id: LeftArmReptilian
         amount: 1
@@ -168,7 +168,7 @@
         amount: 1
       - id: ChestSlime
         amount: 1
-      - id: GroinSlime
+      - id: GroinSlime # Shitmed Change - more parts!!!!11!!!
         amount: 1
       - id: LeftArmSlime
         amount: 1
@@ -200,7 +200,7 @@
         amount: 1
       - id: ChestVulpkanin
         amount: 1
-      - id: GroinVulpkanin
+      - id: GroinVulpkanin # Shitmed Change - more parts!!!!11!!!
         amount: 1
       - id: LeftArmVulpkanin
         amount: 1
