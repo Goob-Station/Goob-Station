@@ -13,7 +13,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Chemistry.EntitySystems;
 

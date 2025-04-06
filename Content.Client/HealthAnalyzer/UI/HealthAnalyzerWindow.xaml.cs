@@ -22,9 +22,9 @@ using Robust.Shared.Utility;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Surgery.Wounds;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 
 namespace Content.Client.HealthAnalyzer.UI

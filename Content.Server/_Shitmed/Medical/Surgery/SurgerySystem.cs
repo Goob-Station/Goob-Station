@@ -7,7 +7,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared._Shitmed.Medical.Surgery;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
 using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
@@ -30,9 +30,8 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
-
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -94,7 +93,6 @@ public sealed class SurgerySystem : SharedSurgerySystem
         {
             foreach (var (type, amount) in damage.DamageDict.ToList())
             {
-                // TODO: We'd want to make stopping bleeds a surgery step, or a separate surgery.. But for now, just for sake of my sanity we do this.
                 // TODO: Also the scar treating surgery too, fuck. I hate this system and by every second I have to spend working with THIS I want to kill myself more and more
                 _wounds.TryHaltAllBleeding(part, force: true);
                 _wounds.TryHealWoundsOnWoundable(part, -amount, out _, damageGroup: GetDamageGroupByType(type));

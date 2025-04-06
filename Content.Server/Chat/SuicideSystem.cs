@@ -14,8 +14,8 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared._Shitmed.Surgery.Consciousness.Components; // Shitmed Change
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Chat;
 

@@ -1,9 +1,9 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Shitmed.Surgery.Traumas.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class BleedInflicterComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
@@ -17,9 +17,6 @@ public sealed partial class BleedInflicterComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public Dictionary<string, (int Priority, bool CanBleed)> BleedingModifiers = new();
-    
-    [DataField("canGrow"), ViewVariables(VVAccess.ReadOnly)]
-    public bool BleedingScales = true;
 
     // it's calculated when a wound is spawned.
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]

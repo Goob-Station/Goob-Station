@@ -15,7 +15,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Body.Components;
 using System.Linq;
 using Robust.Server.Audio;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Chemistry.EntitySystems;
 

@@ -2,7 +2,7 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Shitmed.Surgery.Pain.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class NerveComponent : Component

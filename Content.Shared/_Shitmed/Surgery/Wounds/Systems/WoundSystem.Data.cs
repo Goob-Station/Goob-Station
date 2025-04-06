@@ -1,6 +1,6 @@
 ﻿using Content.Shared.FixedPoint;
 
-namespace Content.Shared._Shitmed.Surgery.Wounds.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 public partial class WoundSystem
 {

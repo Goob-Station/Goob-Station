@@ -1,8 +1,8 @@
-﻿using Content.Shared._Shitmed.Surgery.Pain.Components;
+﻿using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Shitmed.Surgery.Consciousness.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ConsciousnessComponent : Component
@@ -12,7 +12,7 @@ public sealed partial class ConsciousnessComponent : Component
     /// </summary>
     [DataField(required: true)]
     [ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 Threshold = 90;
+    public FixedPoint2 Threshold = 95;
 
     /// <summary>
     /// Represents the base consciousness value before applying any modifiers.
@@ -39,7 +39,7 @@ public sealed partial class ConsciousnessComponent : Component
     /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 Cap = 175;
+    public FixedPoint2 Cap = 190;
 
     /// <summary>
     /// Represents the collection of additional effects that modify the base consciousness level.
@@ -61,6 +61,12 @@ public sealed partial class ConsciousnessComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public Entity<NerveSystemComponent> NerveSystem = default;
+
+    [DataField] // whoops.
+    public TimeSpan ConsciousnessUpdateTime = TimeSpan.FromSeconds(0.8f);
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextConsciousnessUpdate;
 
     // Forceful control attributes, it's recommended not to use them directly.
     [ViewVariables(VVAccess.ReadWrite)]

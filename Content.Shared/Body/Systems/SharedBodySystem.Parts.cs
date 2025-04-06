@@ -335,6 +335,7 @@ public partial class SharedBodySystem
         EntityUid partUid,
         string slotId,
         BodyPartType partType,
+        BodyPartSymmetry symmetry, // Shitmed Change - Adds Symmetry to BodyPartSlot
         BodyPartComponent? part = null)
     {
         if (!Resolve(partUid, ref part, logMissing: false))
@@ -345,7 +346,7 @@ public partial class SharedBodySystem
         if (part.Children.TryGetValue(slotId, out var existing))
             return existing;
 
-        var partSlot = new BodyPartSlot(slotId, partType);
+        var partSlot = new BodyPartSlot(slotId, partType, symmetry); // Shitmed Change
         part.Children.Add(slotId, partSlot);
         Dirty(partUid, part);
         return partSlot;
@@ -359,6 +360,7 @@ public partial class SharedBodySystem
         EntityUid? partId,
         string slotId,
         BodyPartType partType,
+        BodyPartSymmetry symmetry, // Shitmed Change - Adds Symmetry to BodyPartSlot
         [NotNullWhen(true)] out BodyPartSlot? slot,
         BodyPartComponent? part = null)
     {
@@ -371,7 +373,7 @@ public partial class SharedBodySystem
         }
 
         Containers.EnsureContainer<ContainerSlot>(partId.Value, GetPartSlotContainerId(slotId));
-        slot = new BodyPartSlot(slotId, partType);
+        slot = new BodyPartSlot(slotId, partType, symmetry); // Shitmed Change
 
         if (!part.Children.ContainsKey(slotId) // Shitmed Change
             && !part.Children.TryAdd(slotId, slot.Value))
@@ -386,10 +388,11 @@ public partial class SharedBodySystem
         string slotId,
         EntityUid childId,
         BodyPartType partType,
+        BodyPartSymmetry symmetry, // Shitmed Change - Adds Symmetry to BodyPartSlot
         BodyPartComponent? parent = null,
         BodyPartComponent? child = null)
     {
-        return TryCreatePartSlot(parentId, slotId, partType, out _, parent)
+        return TryCreatePartSlot(parentId, slotId, partType, symmetry, out _, parent)
                && AttachPart(parentId, slotId, childId, parent, child);
     }
 
@@ -1041,7 +1044,11 @@ public TargetBodyPart? GetRandomBodyPart(EntityUid target,
 
     public TargetBodyPart? GetRandomBodyPart(EntityUid target)
     {
-        return GetTargetBodyPart(_random.PickAndTake(GetBodyChildren(target).ToList()));
+        var children = GetBodyChildren(target).ToList();
+        if (children.Count == 0)
+            return null;
+
+        return GetTargetBodyPart(_random.PickAndTake(children));
     }
 
     public TargetBodyPart? GetTargetBodyPart(Entity<BodyPartComponent> part)

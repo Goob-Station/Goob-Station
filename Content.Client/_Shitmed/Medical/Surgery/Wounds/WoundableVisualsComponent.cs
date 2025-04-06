@@ -1,8 +1,8 @@
-using Content.Shared._Shitmed.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 
-namespace Content.Client._Shitmed.Surgery.Wounds;
+namespace Content.Client._Shitmed.Medical.Surgery.Wounds;
 
 [RegisterComponent]
 public sealed partial class WoundableVisualsComponent : Component

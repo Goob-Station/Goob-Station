@@ -5,7 +5,6 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.EntityEffects.EffectConditions;
 

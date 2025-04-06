@@ -1,6 +1,6 @@
-﻿using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
-using Content.Shared._Shitmed.Surgery.Pain.Systems;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+﻿using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Inventory;
@@ -14,7 +14,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Shitmed.Surgery.Traumas.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 [Virtual]
 public sealed partial class TraumaSystem : EntitySystem
@@ -25,16 +25,15 @@ public sealed partial class TraumaSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly PainSystem _pain = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
-
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     private ISawmill _sawmill = default!;
 

@@ -2,7 +2,6 @@ using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server._Goobstation.EntityEffects.EffectConditions;
 

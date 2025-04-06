@@ -82,3 +82,30 @@
   id: PainShockWhimpersFemale
   files:
   - /Audio/_Shitmed/ReBELL/BrutalDeathRattles/StillAlivePainedFemale1.ogg
+
+# Organ damage gaggling
+- type: soundCollection
+  id: OrganDamagePainedMale
+  files:
+  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedMale1.ogg
+  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedMale2.ogg
+
+- type: soundCollection
+  id: OrganDamageWhimpersMale
+  files:
+  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersMale1.ogg
+  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersMale2.ogg
+  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersMale3.ogg
+
+- type: soundCollection
+  id: OrganDamagePainedFemale
+  files:
+  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedFemale1.ogg
+  - /Audio/Voice/BrutalDeathRattles/OrganDamagePainedFemale2.ogg
+
+- type: soundCollection
+  id: OrganDamageWhimpersFemale
+  files:
+  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersFemale1.ogg
+  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersFemale2.ogg
+  - /Audio/Voice/BrutalDeathRattles/OrganDamageWhimpersFemale3.ogg

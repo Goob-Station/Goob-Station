@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Content.Shared._Shitmed.Surgery.Traumas.Components;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.FixedPoint;
@@ -8,7 +8,7 @@ using Content.Shared.Movement.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Shitmed.Surgery.Traumas.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 public partial class TraumaSystem
 {
@@ -32,19 +32,12 @@ public partial class TraumaSystem
 
         switch (args.NewSeverity)
         {
-            case BoneSeverity.Normal:
-                if (bodyComp.PartType == BodyPartType.Hand)
-                {
-                    _virtual.DeleteInHandsMatching(bodyComp.Body.Value, bone);
-                }
-
-                break;
-
             case BoneSeverity.Damaged:
                 _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(-8f));
                 break;
 
             case BoneSeverity.Broken:
+                _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(6f));
                 if (bodyComp.PartType == BodyPartType.Hand)
                 {
                     _virtual.TrySpawnVirtualItemInHand(bone, bodyComp.Body.Value);
@@ -61,6 +54,16 @@ public partial class TraumaSystem
         var bodyComp = Comp<BodyPartComponent>(bone.Comp.BoneWoundable.Value);
         if (!bodyComp.Body.HasValue)
             return;
+
+        if (args.NewIntegrity == bone.Comp.IntegrityCap)
+        {
+            if (bodyComp.PartType == BodyPartType.Hand)
+                _virtual.DeleteInHandsMatching(bodyComp.Body.Value, bone);
+
+            if (TryGetWoundableTrauma(bone.Comp.BoneWoundable.Value, out var traumas, TraumaType.BoneDamage))
+                foreach (var trauma in traumas.Where(trauma => trauma.Comp.TraumaTarget == bone))
+                    RemoveTrauma(trauma);
+        }
 
         switch (bodyComp.PartType)
         {
@@ -79,7 +82,8 @@ public partial class TraumaSystem
 
     public bool ApplyDamageToBone(EntityUid bone, FixedPoint2 severity, BoneComponent? boneComp = null)
     {
-        if (!Resolve(bone, ref boneComp))
+        if (severity == 0
+            || !Resolve(bone, ref boneComp))
             return false;
 
         var newIntegrity = FixedPoint2.Clamp(boneComp.BoneIntegrity - severity, 0, boneComp.IntegrityCap);

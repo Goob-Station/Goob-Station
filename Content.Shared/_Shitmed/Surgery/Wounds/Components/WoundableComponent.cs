@@ -5,7 +5,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Shitmed.Surgery.Wounds.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WoundableComponent : Component
@@ -109,11 +109,17 @@ public sealed partial class WoundableComponent : Component
     /// Container potentially holding wounds.
     /// </summary>
     [ViewVariables]
-    public Container? Wounds;
+    public Container Wounds;
 
     /// <summary>
     /// Container holding this woundables bone.
     /// </summary>
     [ViewVariables]
-    public Container? Bone;
+    public Container Bone;
+
+    /// <summary>
+    /// Whether this woundable can be removed from a body..
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public bool CanRemove = true;
 }

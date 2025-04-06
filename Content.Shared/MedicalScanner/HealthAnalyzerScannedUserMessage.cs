@@ -1,4 +1,4 @@
-using Content.Shared._Shitmed.Surgery.Wounds; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Wounds; // Shitmed Change
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Robust.Shared.Serialization;
 

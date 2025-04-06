@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.GameStates;
 
-namespace Content.Shared._Shitmed.Surgery.Consciousness.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ConsciousnessRequiredComponent : Component

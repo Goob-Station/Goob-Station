@@ -20,11 +20,10 @@ using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared._Shitmed.Medical.Surgery;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Surgery.Traumas.Systems;
-using Content.Shared._Shitmed.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
@@ -216,7 +215,7 @@ public partial class SharedBodySystem
                 cameFromEntities[connection] = childPart;
 
                 var childPartComponent = Comp<BodyPartComponent>(childPart);
-                TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, out var partSlot, parentPartComponent);
+                TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, childPartComponent.Symmetry, out var partSlot, parentPartComponent);
                 // Shitmed Change Start
                 childPartComponent.ParentSlot = partSlot;
                 Dirty(childPart, childPartComponent);
@@ -416,7 +415,7 @@ public partial class SharedBodySystem
 
         if (part.Body is { } bodyEnt)
         {
-            if (IsPartRoot(bodyEnt, partId, part: part) || !part.CanSever)
+            if (IsPartRoot(bodyEnt, partId, part: part))
                 return gibs;
 
             DropSlotContents((partId, part));
@@ -605,7 +604,7 @@ public partial class SharedBodySystem
 
                         var childPartComponent = Comp<BodyPartComponent>(childPart);
 
-                        var partSlot = new BodyPartSlot(connection, childPartComponent.PartType);
+                        var partSlot = new BodyPartSlot(connection, childPartComponent.PartType, childPartComponent.Symmetry);
                         childPartComponent.ParentSlot = partSlot;
                         parentPartComponent.Children.TryAdd(connection, partSlot);
 
@@ -624,7 +623,7 @@ public partial class SharedBodySystem
 
                     var childPartComponent = Comp<BodyPartComponent>(childPart);
 
-                    var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
+                    var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, childPartComponent.Symmetry, parentPartComponent);
                     childPartComponent.ParentSlot = partSlot;
 
                     Dirty(parentEntity, parentPartComponent);
@@ -661,6 +660,12 @@ public partial class SharedBodySystem
             _woundSystem.TryHaltAllBleeding(bodyPart.Id, woundable);
             _woundSystem.ForceHealWoundsOnWoundable(bodyPart.Id, out _);
         }
+
+        if (!_trauma.TryGetBodyTraumas(ent, out var traumas, bodyComp: body))
+            return;
+
+        foreach (var trauma in traumas)
+            _trauma.RemoveTrauma(trauma);
     }
 
     // Shitmed Change End

@@ -1,8 +1,8 @@
-﻿using Content.Shared._Shitmed.Surgery.Pain;
+﻿using Content.Shared._Shitmed.Medical.Surgery.Pain;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Surgery.Consciousness;
+namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 
 [Serializable]
 public enum ConsciousnessModType

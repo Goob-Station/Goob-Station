@@ -1,7 +1,7 @@
 ﻿using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Shitmed.Surgery.Pain.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 
 /// <summary>
 /// Used to mark wounds, that afflict pain; It's calculated automatically from severity and the multiplier

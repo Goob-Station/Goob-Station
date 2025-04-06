@@ -98,8 +98,8 @@
             state: shoes
     # WWDP-Edit-End
   - type: Consciousness # Idk they are kinda more resistant to pain
-    threshold: 100
-    cap: 200
+    threshold: 105
+    cap: 210
   
 - type: entity
   parent: BaseSpeciesDummy

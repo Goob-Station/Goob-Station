@@ -8,8 +8,9 @@ using Content.Shared.Mobs.Events;
 using Robust.Shared.GameStates;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Surgery.Wounds;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Network;
@@ -404,21 +405,15 @@ public sealed class MobThresholdSystem : EntitySystem
         {
             // Shitmed Change Start
             var totalDamage = (FixedPoint2) 0;
-            switch (body)
+            if (damageable != null && !HasComp<ConsciousnessComponent>(target))
             {
-                case null when damageable != null:
-                    totalDamage = damageable.TotalDamage;
-                    break;
-
-                case { RootContainer.ContainedEntity: not null }:
-                    {
-                        foreach (var (_, wound) in _wound.GetAllWounds(body.RootContainer.ContainedEntity.Value))
-                        {
-                            totalDamage += wound.WoundSeverityPoint;
-                        }
-
-                        break;
-                    }
+                totalDamage = damageable.TotalDamage;
+            }
+            else
+            {
+                if (body is { RootContainer.ContainedEntity: not null })
+                    foreach (var (_, wound) in _wound.GetAllWounds(body.RootContainer.ContainedEntity.Value))
+                        totalDamage += wound.WoundSeverityPoint;
             }
             // Shitmed Change End
             var severity = _alerts.GetMinSeverity(currentAlert);

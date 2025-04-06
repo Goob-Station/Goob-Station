@@ -1,16 +1,19 @@
 using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
-using Content.Shared.Body.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 //using Content.Shared._RMC14.Xenonids.Parasite;
-using Content.Shared.Body.Part;
-using Content.Shared.Damage;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Body.Components;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.GameTicking;
@@ -27,7 +30,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -39,7 +42,6 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
@@ -50,7 +52,10 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly WoundSystem _wounds = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly TraumaSystem _trauma = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
+    [Dependency] private readonly PainSystem _pain = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     /// <summary>
     /// Cache of all surgery prototypes' singleton entities.
@@ -82,6 +87,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         SubscribeLocalEvent<SurgeryWoundedConditionComponent, SurgeryValidEvent>(OnWoundedValid);
         SubscribeLocalEvent<SurgeryPartRemovedConditionComponent, SurgeryValidEvent>(OnPartRemovedConditionValid);
         SubscribeLocalEvent<SurgeryPartPresentConditionComponent, SurgeryValidEvent>(OnPartPresentConditionValid);
+        SubscribeLocalEvent<SurgeryTraumaPresentConditionComponent, SurgeryValidEvent>(OnTraumaPresentConditionValid);
+        SubscribeLocalEvent<SurgeryBleedsPresentConditionComponent, SurgeryValidEvent>(OnBleedsPresentConditionValid);
         SubscribeLocalEvent<SurgeryMarkingConditionComponent, SurgeryValidEvent>(OnMarkingPresentValid);
         SubscribeLocalEvent<SurgeryBodyComponentConditionComponent, SurgeryValidEvent>(OnBodyComponentConditionValid);
         SubscribeLocalEvent<SurgeryPartComponentConditionComponent, SurgeryValidEvent>(OnPartComponentConditionValid);
@@ -149,13 +156,8 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnWoundedValid(Entity<SurgeryWoundedConditionComponent> ent, ref SurgeryValidEvent args)
     {
-        if (!TryComp(args.Body, out DamageableComponent? damageable)
-            || !TryComp(args.Part, out DamageableComponent? partDamageable)
-            || !TryComp(args.Part, out WoundableComponent? partwoundable)
-            || damageable.TotalDamage <= 0
-            && partDamageable.TotalDamage <= 0
-            && partwoundable.Wounds!.Count == 0
-            && !HasComp<IncisionOpenComponent>(args.Part))
+        if (!TryComp(args.Part, out WoundableComponent? partWoundable)
+            || _wounds.GetWoundableSeverityPoint(args.Part, partWoundable, healable: true) <= 0)
             args.Cancelled = true;
     }
 
@@ -304,6 +306,37 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (args.Part == EntityUid.Invalid
             || !HasComp<BodyPartComponent>(args.Part))
             args.Cancelled = true;
+    }
+
+    private void OnTraumaPresentConditionValid(Entity<SurgeryTraumaPresentConditionComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        // inverted = not cancelled (no trauma present), not inverted = cancelled (trauma present)
+        args.Cancelled = !ent.Comp.Inverted;
+        if (_trauma.HasWoundableTrauma(args.Part, ent.Comp.TraumaType))
+            args.Cancelled = ent.Comp.Inverted;
+        // if trauma is present and inverted - cancelled; if trauma is NOT present and inverted - not cancelled
+        // if trauma is NOT present and NOT inverted = cancelled; if trauma is present and NOT inverted = not cancelled
+    }
+
+    private void OnBleedsPresentConditionValid(Entity<SurgeryBleedsPresentConditionComponent> ent, ref SurgeryValidEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        // inverted = not cancelled; not inverted = cancelled
+        args.Cancelled = !ent.Comp.Inverted;
+        foreach (var woundEnt in _wounds.GetWoundableWounds(args.Part))
+        {
+            if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleeds) || !bleeds.IsBleeding)
+                continue;
+
+            // if bleeds are present, and it's inverted... we cancel; Else we do not
+            args.Cancelled = ent.Comp.Inverted;
+            break;
+        }
     }
 
     private void OnMarkingPresentValid(Entity<SurgeryMarkingConditionComponent> ent, ref SurgeryValidEvent args)

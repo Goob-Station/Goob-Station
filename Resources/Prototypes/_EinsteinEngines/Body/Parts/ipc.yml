@@ -58,7 +58,7 @@
       - !type:GibPartBehavior { }
 
 - type: entity
-  parent: [ ChestIPC, BaseGroinInorganic ]
+  parent: [ PartIPCBase, BaseGroinInorganic ]
   id: GroinIPC
   name: "ipc groin"
 

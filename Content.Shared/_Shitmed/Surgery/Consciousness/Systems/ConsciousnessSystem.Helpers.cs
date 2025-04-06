@@ -1,12 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 public partial class ConsciousnessSystem
 {
@@ -36,12 +36,10 @@ public partial class ConsciousnessSystem
         [NotNullWhen(true)] out Entity<NerveSystemComponent>? nerveSys)
     {
         nerveSys = null;
-        Logger.Debug($"TRYGETNERVESYSTEM: Trying to get nerve system for {body}");
         if (!TryComp<ConsciousnessComponent>(body, out var consciousness))
             return false;
 
         nerveSys = consciousness.NerveSystem;
-        Logger.Debug($"TRYGETNERVESYSTEM: Got consciousness {consciousness} and nerve system {nerveSys} for {body}");
         return true;
     }
 
@@ -54,7 +52,7 @@ public partial class ConsciousnessSystem
     /// <param name="mobState">MobStateComponent</param>
     public bool CheckConscious(EntityUid target, ConsciousnessComponent? consciousness = null, MobStateComponent? mobState = null)
     {
-        if (!Resolve(target, ref consciousness, ref mobState))
+        if (!Resolve(target, ref consciousness, ref mobState, false))
             return false;
 
         var shouldBeConscious =

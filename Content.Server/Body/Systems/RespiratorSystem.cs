@@ -25,8 +25,8 @@ using Content.Shared.Movement.Pulling.Systems; // Goobstation
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
-using Content.Shared._Shitmed.Surgery.Consciousness;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 namespace Content.Server.Body.Systems;
 

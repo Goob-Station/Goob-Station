@@ -1,10 +1,10 @@
-﻿using Content.Shared._Shitmed.Surgery.Traumas.Components;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
+﻿using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Surgery.Traumas;
+namespace Content.Shared._Shitmed.Medical.Surgery.Traumas;
 
 [Serializable, NetSerializable]
 public enum TraumaType
@@ -46,6 +46,8 @@ public record struct BeforeTraumaInducedEvent(FixedPoint2 TraumaSeverity, Entity
 [ByRefEvent]
 public record struct TraumaInducedEvent(Entity<TraumaComponent> Trauma, EntityUid TraumaTarget, FixedPoint2 TraumaSeverity, TraumaType TraumaType);
 
+[ByRefEvent]
+public record struct TraumaBeingRemovedEvent(Entity<TraumaComponent> Trauma, EntityUid TraumaTarget, FixedPoint2 TraumaSeverity, TraumaType TraumaType);
 
 #endregion
 

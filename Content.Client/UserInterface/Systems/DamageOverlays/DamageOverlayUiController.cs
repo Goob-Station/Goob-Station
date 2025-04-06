@@ -12,8 +12,8 @@ using Robust.Client.UserInterface.Controllers;
 using Robust.Shared.Player;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared.Body.Components;
 
 namespace Content.Client.UserInterface.Systems.DamageOverlays;

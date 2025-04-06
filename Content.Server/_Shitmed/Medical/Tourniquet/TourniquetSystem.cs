@@ -1,10 +1,13 @@
 using System.Linq;
 using Content.Server.Body.Systems;
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Surgery.Pain.Systems;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
@@ -16,6 +19,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Shitmed.Medical.Tourniquet;
 
@@ -58,16 +62,14 @@ public sealed class TourniquetSystem : EntitySystem
         if (!HasComp<BodyComponent>(target) || !HasComp<ConsciousnessComponent>(target))
             return false;
 
-        var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+        var (partType, _) = _body.ConvertTargetBodyPart(targeting.Target);
         if (tourniquet.BlockedBodyParts.Contains(partType))
         {
             _popup.PopupEntity(Loc.GetString("cant-put-tourniquet-here"), target, PopupType.MediumCaution);
             return false;
         }
 
-        var targetPart = _body.GetBodyChildrenOfType(target, partType, symmetry: symmetry).FirstOrDefault();
-        _popup.PopupEntity(Loc.GetString("puts-on-a-tourniquet", ("user", user), ("part", targetPart.Id)), target, PopupType.Medium);
-
+        _popup.PopupEntity(Loc.GetString("puts-on-a-tourniquet", ("user", user), ("target", target)), target, PopupType.Medium);
         _audio.PlayPvs(tourniquet.TourniquetPutOnSound, target, AudioParams.Default.WithVariation(0.125f).WithVolume(1f));
 
         var doAfterEventArgs =
@@ -129,10 +131,6 @@ public sealed class TourniquetSystem : EntitySystem
         if (!TryComp<TargetingComponent>(args.User, out var targeting))
             return;
 
-        var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
-        if (tourniquet.BlockedBodyParts.Contains(partType))
-            return;
-
         var container = _container.EnsureContainer<ContainerSlot>(args.Target!.Value, TourniquetContainerId);
         if (container.ContainedEntity.HasValue)
         {
@@ -140,26 +138,74 @@ public sealed class TourniquetSystem : EntitySystem
             return;
         }
 
-        if (!_container.Insert(args.Used.Value, container))
+        var (partType, symmetry) = _body.ConvertTargetBodyPart(targeting.Target);
+
+        var targetPart = _body.GetBodyChildrenOfType(ent, partType, symmetry: symmetry).FirstOrNull();
+
+        if (targetPart == null)
         {
-            _popup.PopupEntity(Loc.GetString("cant-tourniquet"), ent, PopupType.Medium);
-            return;
+            var tourniquetable = EntityUid.Invalid;
+            foreach (var bodyPart in _body.GetBodyChildren(ent, comp))
+            {
+                if (!bodyPart.Component.Children
+                        .Any(bodyPartSlot =>
+                            bodyPartSlot.Value.Type == partType && bodyPartSlot.Value.Symmetry == symmetry))
+                tourniquetable = bodyPart.Id;
+                break;
+            }
+
+            if (tourniquetable == EntityUid.Invalid)
+            {
+                _popup.PopupEntity(Loc.GetString("does-not-exist-rebell"), ent, args.User, PopupType.MediumCaution);
+                return;
+            }
+
+            var tourniquetableWounds = new List<Entity<WoundComponent, TourniquetableComponent>>();
+            
+            foreach (var woundEnt in _wound.GetWoundableWounds(tourniquetable))
+            {
+                if (!TryComp<TourniquetableComponent>(woundEnt, out var tourniquetableComp))
+                    continue;
+
+                if (tourniquetableComp.SeveredSymmetry == symmetry && tourniquetableComp.SeveredPartType == partType)
+                    tourniquetableWounds.Add((woundEnt.Owner, woundEnt.Comp, tourniquetableComp));
+            }
+
+            if (tourniquetableWounds.Count <= 0 || !_container.Insert(args.Used.Value, container))
+            {
+                _popup.PopupEntity(Loc.GetString("cant-tourniquet"), ent, PopupType.Medium);
+                return;
+            }
+
+            foreach (var woundEnt in tourniquetableWounds)
+            {
+                if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleedInflicter))
+                    continue;
+
+                _bloodstream.TryAddBleedModifier(woundEnt, "TourniquetPresent", 100, false, bleedInflicter);
+                woundEnt.Comp2.CurrentTourniquetEntity = args.Used;
+            }
+
+            tourniquet.BodyPartTorniqueted = tourniquetable;
         }
-
-        var targetPart = _body.GetBodyChildrenOfType(ent, partType, symmetry: symmetry).FirstOrDefault();
-
-        _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", targetPart.Id, -10f);
-        _bloodstream.TryAddBleedModifier(targetPart.Id, "TourniquetPresent", 100, false, true);
-
-        foreach (var woundable in _wound.GetAllWoundableChildren(targetPart.Id))
+        else
         {
-            _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", targetPart.Id, -10f);
-            _bloodstream.TryAddBleedModifier(woundable, "TourniquetPresent", 100, false, true, woundable);
+            if (!_container.Insert(args.Used.Value, container))
+            {
+                _popup.PopupEntity(Loc.GetString("cant-tourniquet"), ent, PopupType.Medium);
+                return;
+            }
+            _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", targetPart.Value.Id, -10f);
+            _bloodstream.TryAddBleedModifier(targetPart.Value.Id, "TourniquetPresent", 100, false, true);
+
+            foreach (var woundable in _wound.GetAllWoundableChildren(targetPart.Value.Id))
+            {
+                _pain.TryAddPainFeelsModifier(args.Used.Value, "Tourniquet", woundable, -10f);
+                _bloodstream.TryAddBleedModifier(woundable, "TourniquetPresent", 100, false, true, woundable);
+            }
+
+            tourniquet.BodyPartTorniqueted = targetPart.Value.Id;
         }
-
-        tourniquet.BodyPartTorniqueted = targetPart.Id;
-
-        args.Repeat = false;
         args.Handled = true;
     }
 
@@ -174,14 +220,38 @@ public sealed class TourniquetSystem : EntitySystem
         if (!_container.TryGetContainer(ent, TourniquetContainerId, out var container))
             return;
 
-        var tourniquetedBodyPart = tourniquet.BodyPartTorniqueted!.Value;
-        _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", tourniquet.BodyPartTorniqueted!.Value);
-        _bloodstream.TryRemoveBleedModifier(tourniquetedBodyPart, "TourniquetPresent", true);
+        var tourniquetedBodyPart = tourniquet.BodyPartTorniqueted;
+        if (tourniquetedBodyPart == null)
+            return;
 
-        foreach (var woundable in _wound.GetAllWoundableChildren(tourniquet.BodyPartTorniqueted!.Value))
+        var bodyPartComp = Comp<BodyPartComponent>(tourniquetedBodyPart.Value);
+        if (tourniquet.BlockedBodyParts.Contains(bodyPartComp.PartType))
         {
-            _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", woundable);
-            _bloodstream.TryRemoveBleedModifier(woundable, "TourniquetPresent", true, woundable);
+            foreach (var woundEnt in _wound.GetWoundableWounds(tourniquetedBodyPart.Value))
+            {
+                if (!TryComp<BleedInflicterComponent>(woundEnt, out var bleedInflicter))
+                    continue;
+
+                if (!TryComp<TourniquetableComponent>(woundEnt, out var tourniquetableComp))
+                    continue;
+
+                if (tourniquetableComp.CurrentTourniquetEntity != args.Used)
+                    continue;
+
+                tourniquetableComp.CurrentTourniquetEntity = null;
+                _bloodstream.TryRemoveBleedModifier(woundEnt, "TourniquetPresent", bleedInflicter);
+            }
+        }
+        else
+        {
+            _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", tourniquetedBodyPart.Value);
+            _bloodstream.TryRemoveBleedModifier(tourniquetedBodyPart.Value, "TourniquetPresent", true);
+
+            foreach (var woundable in _wound.GetAllWoundableChildren(tourniquetedBodyPart.Value))
+            {
+                _pain.TryRemovePainFeelsModifier(args.Used.Value, "Tourniquet", woundable);
+                _bloodstream.TryRemoveBleedModifier(woundable, "TourniquetPresent", true, woundable);
+            }
         }
 
         _container.Remove(args.Used.Value, container);

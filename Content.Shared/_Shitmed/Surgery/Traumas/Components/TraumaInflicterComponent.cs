@@ -3,7 +3,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Shitmed.Surgery.Traumas.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 
 [RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
 public sealed partial class TraumaInflicterComponent : Component

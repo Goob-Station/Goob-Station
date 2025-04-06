@@ -11,7 +11,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition;
 using Content.Shared.Atmos;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 /// <summary>
 /// System for vapes

@@ -24,7 +24,6 @@ using System.Linq;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Inventory;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Fluids.EntitySystems;
 

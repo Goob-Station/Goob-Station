@@ -1,7 +1,7 @@
-﻿using Content.Shared._Shitmed.Surgery.Wounds;
+﻿using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared.FixedPoint;
 
-namespace Content.Shared._Shitmed.Surgery.Traumas.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 public partial class TraumaSystem
 {
@@ -23,12 +23,11 @@ public partial class TraumaSystem
 
     private readonly Dictionary<WoundableSeverity, FixedPoint2> _boneTraumaChanceMultipliers = new()
     {
-        { WoundableSeverity.Healthy, 0 },
-        { WoundableSeverity.Minor, 0.1 },
-        { WoundableSeverity.Moderate, 0.3 },
-        { WoundableSeverity.Severe, 0.5 },
-        { WoundableSeverity.Critical, 0.7 },
-        { WoundableSeverity.Loss, 0.01 }, // If we lost the woundable holding this bone, I guess we don't care, if is it broken.
+        { WoundableSeverity.Minor, 0.01 },
+        { WoundableSeverity.Moderate, 0.04 },
+        { WoundableSeverity.Severe, 0.12 },
+        { WoundableSeverity.Critical, 0.21 },
+        { WoundableSeverity.Loss, 0.21 },
     };
 
     private readonly Dictionary<WoundableSeverity, FixedPoint2> _boneDamageMultipliers = new()

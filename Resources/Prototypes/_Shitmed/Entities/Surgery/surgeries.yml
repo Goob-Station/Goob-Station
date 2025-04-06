@@ -12,8 +12,39 @@
     steps:
     - SurgeryStepOpenIncisionScalpel
     - SurgeryStepRetractSkin
-    - SurgeryStepClampBleeders
   - type: SurgeryPartPresentCondition
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryStopBloodOutput
+  name: Stop Constant Blood Output
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepCloseBloodOutputs
+    - SurgeryStepClampBleeders
+  - type: SurgeryBleedsPresentCondition
+  - type: SurgeryPartPresentCondition
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryFixDismemberment
+  name: Fix Dismemberment Leftovers
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepRemoveSeveredSkin
+    - SurgeryStepRemoveLeftoverBones
+    - SurgeryStepSealDismembermentWound
+  - type: SurgeryPartPresentCondition
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaPresentCondition
+    trauma: Dismemberment
 
 - type: entity
   parent: SurgeryBase
@@ -60,6 +91,41 @@
     part: Chest
     inverse: true
 
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryMendBones
+  name: Mend Bones
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepMendBones
+  - type: SurgeryPartPresentCondition
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaPresentCondition
+    trauma: BoneDamage
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryHealOrgans
+  name: Heal Organs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepHealOrgans
+  - type: SurgeryPartPresentCondition
+  - type: SurgeryBleedsPresentCondition
+    inverted: true
+  - type: SurgeryTraumaPresentCondition
+    trauma: OrganDamage
+
 # I fucking hate hardcoding all of this shit to accomodate for surgery BUI.
 # If anyone can give me pointers on how to make it better I'd be incredibly grateful.
 
@@ -76,6 +142,9 @@
     - SurgeryStepSealWounds
   - type: SurgeryPartCondition
     part: Chest
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: head
     part: Head
@@ -93,6 +162,9 @@
     - SurgeryStepSealWounds
   - type: SurgeryPartCondition
     part: Chest
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: left arm
     part: Arm
@@ -111,6 +183,9 @@
     - SurgeryStepSealWounds
   - type: SurgeryPartCondition
     part: Chest
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: right arm
     part: Arm
@@ -147,6 +222,9 @@
     - SurgeryStepSealWounds
   - type: SurgeryPartCondition
     part: Groin
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: left leg
     part: Leg
@@ -165,27 +243,14 @@
     - SurgeryStepSealWounds
   - type: SurgeryPartCondition
     part: Groin
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: right leg
     part: Leg
     symmetry: Right
 
-- type: entity
-  parent: SurgeryBase
-  id: SurgeryAttachHands
-  name: Attach Hands
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    - SurgeryStepInsertFeature
-    - SurgeryStepSealWounds
-  - type: SurgeryPartCondition
-    part: Chest
-  - type: SurgeryPartRemovedCondition
-    connection: hands
-    part: Hand
 
 - type: entity
   parent: SurgeryBase
@@ -201,6 +266,9 @@
   - type: SurgeryPartCondition
     part: Arm
     symmetry: Left
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: left hand
     part: Hand
@@ -220,28 +288,13 @@
   - type: SurgeryPartCondition
     part: Arm
     symmetry: Right
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: right hand
     part: Hand
     symmetry: Right
-
-- type: entity
-  parent: SurgeryBase
-  id: SurgeryAttachFeet
-  name: Attach Feet
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    - SurgeryStepInsertFeature
-    - SurgeryStepSealWounds
-  - type: SurgeryPartCondition
-    part: Groin
-  - type: SurgeryPartRemovedCondition
-    connection: feet
-    part: Foot
-    symmetry: None
 
 - type: entity
   parent: SurgeryBase
@@ -257,6 +310,9 @@
   - type: SurgeryPartCondition
     part: Leg
     symmetry: Left
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: left foot
     part: Foot
@@ -276,10 +332,68 @@
   - type: SurgeryPartCondition
     part: Leg
     symmetry: Right
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
   - type: SurgeryPartRemovedCondition
     connection: right foot
     part: Foot
     symmetry: Right
+
+# Surgery for animals - They have a single legs/hands entity.
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryAttachLegs
+  name: Attach Legs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepInsertFeature
+    - SurgeryStepSealWounds
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryPartRemovedCondition
+    connection: legs
+    part: Leg
+    symmetry: None
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryAttachHands
+  name: Attach Hands
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepInsertFeature
+    - SurgeryStepSealWounds
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryPartRemovedCondition
+    connection: hands
+    part: Hand
+    symmetry: Left # shitcode i guess because of ui icons
+
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryAttachFeet
+  name: Attach Feet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepInsertFeature
+    - SurgeryStepSealWounds
+  - type: SurgeryPartCondition
+    part: Groin
+  - type: SurgeryPartRemovedCondition
+    connection: feet
+    part: Foot
 
 - type: entity
   parent: SurgeryBase
@@ -443,9 +557,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
-    requirement: SurgeryOpenRibcage
+    requirement: SurgeryOpenIncision
     steps:
-    - SurgeryStepSawBones
+    - SurgeryStepCarefulIncisionScalpel
     - SurgeryStepClampInternalBleeders
     - SurgeryStepRemoveOrgan
   - type: SurgeryPartCondition
@@ -461,9 +575,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
-    requirement: SurgeryOpenRibcage
+    requirement: SurgeryOpenIncision
     steps:
-    - SurgeryStepSawBones
     - SurgeryStepInsertLiver
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
@@ -519,9 +632,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
-    requirement: SurgeryOpenRibcage
+    requirement: SurgeryOpenIncision
     steps:
-    - SurgeryStepSawBones
+    - SurgeryStepCarefulIncisionScalpel
     - SurgeryStepClampInternalBleeders
     - SurgeryStepRemoveOrgan
   - type: SurgeryPartCondition
@@ -537,9 +650,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Surgery
-    requirement: SurgeryOpenRibcage
+    requirement: SurgeryOpenIncision
     steps:
-    - SurgeryStepSawBones
     - SurgeryStepInsertStomach
     - SurgeryStepSealOrganWound
   - type: SurgeryPartCondition
@@ -588,58 +700,7 @@
     inverse: true
     reattaching: true
 
-- type: entity
-  parent: SurgeryBase
-  id: SurgeryLobotomize
-  name: Lobotomize
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    - SurgeryStepLobotomize
-    - SurgeryStepCloseIncision
-  - type: SurgeryOrganCondition
-    organ:
-    - type: Brain
-  - type: SurgeryOrganOnAddCondition
-    components:
-      brain:
-        - type: OhioAccent
-        - type: RatvarianLanguage
-        - type: Clumsy
-          #clumsyDamage: # Placeholder values to be able to initialize the component
-          #  types:
-          #    Blunt: 0
-    inverse: true
-  - type: SurgeryPartCondition
-    part: Head
 
-- type: entity
-  parent: SurgeryBase
-  id: SurgeryMendBrainTissue
-  name: Mend brain tissue
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenIncision
-    steps:
-    - SurgeryStepMendBrainTissue
-    - SurgeryStepCloseIncision
-  - type: SurgeryOrganCondition
-    organ:
-    - type: Brain
-  - type: SurgeryOrganOnAddCondition
-    components:
-      brain:
-        - type: OhioAccent
-        - type: RatvarianLanguage
-        - type: Clumsy
-          #clumsyDamage:
-          #  types:
-          #    Blunt: 0
-  - type: SurgeryPartCondition
-    part: Head
 
 # Fluff/Joke Surgeries
 

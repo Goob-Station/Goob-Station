@@ -1,7 +1,7 @@
-﻿using Content.Shared._Shitmed.Surgery.Consciousness.Components;
+﻿using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 public partial class ConsciousnessSystem
 {

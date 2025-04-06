@@ -168,7 +168,6 @@
   - type: BodyPart
     partType: Head
     toolName: "a head" # Shitmed Change
-    vital: true
     organs: # Shitmed Change
       brain:
         id: brain

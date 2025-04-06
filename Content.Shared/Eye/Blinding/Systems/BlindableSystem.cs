@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
-using Content.Shared._Shitmed.Surgery.Traumas.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 

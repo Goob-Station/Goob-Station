@@ -1,6 +1,6 @@
 ﻿using Content.Shared._Shitmed.CCVar;
-using Content.Shared._Shitmed.Surgery.Traumas.Systems;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
@@ -15,7 +15,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Shitmed.Surgery.Wounds.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 
 [Virtual]
 public partial class WoundSystem : EntitySystem

@@ -1,5 +1,13 @@
 - type: entity
+  id: WoundBase
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Wound
+
+- type: entity
   id: Blunt
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -31,6 +39,7 @@
 
 - type: entity
   id: Piercing
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -52,7 +61,7 @@
     traumasChances:
       Dismemberment: -0.17
       OrganDamage: 0.34
-      BoneDamage: 0.34
+      BoneDamage: 0.14
       VeinsDamage: -0.4 # goes through rather easy.
       NerveDamage: -0.4
   - type: PainInflicter
@@ -61,12 +70,13 @@
 
 - type: entity
   id: ArmorPiercing
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     woundType: External
     woundVisibility: Always
-    scarWound: BluntScar
+    scarWound: PiercingScar
     integrityMultiplier: 0.34
     bleedsScaling: 0.5 # Bullets go through people
   - type: TraumaInflicter
@@ -88,6 +98,7 @@
 
 - type: entity
   id: Slash
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -118,6 +129,7 @@
 
 - type: entity
   id: Heat
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -148,6 +160,7 @@
 
 - type: entity
   id: Cold
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -171,6 +184,7 @@
 
 - type: entity
   id: Caustic
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -194,6 +208,7 @@
 
 - type: entity
   id: Radiation
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -218,17 +233,30 @@
   - type: PainInflicter
     multiplier: 0.12
 
-# TODO: Special handling for Poison and Asphyxiation, Poison just applies pain as of current
 - type: entity
   id: Poison
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
     woundType: Internal
     woundVisibility: HandScanner
+    scarWound: RadiationScar
     integrityMultiplier: 0
+  - type: TraumaInflicter
+    severityThreshold: 0
+    allowedTraumas:
+    - OrganDamage
+    - VeinsDamage
+    - NerveDamage
+    traumasChances:
+      Dismemberment: 0
+      OrganDamage: 0.12
+      BoneDamage: 0
+      VeinsDamage: 0.12
+      NerveDamage: 0.12
   - type: PainInflicter
-    multiplier: 0.75
+    multiplier: 2
 
 - type: entity
   id: BoneDamage

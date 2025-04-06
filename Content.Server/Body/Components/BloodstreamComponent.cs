@@ -1,5 +1,7 @@
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
+using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -9,9 +11,9 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Shitmed.Surgery.Traumas.Components
+namespace Content.Server.Body.Components
 {
-    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    [RegisterComponent, Access(typeof(SharedBloodstreamSystem), typeof(ReactionMixerSystem))]
     public sealed partial class BloodstreamComponent : Component
     {
         public static string DefaultChemicalsSolutionName = "chemicals";
@@ -40,52 +42,52 @@ namespace Content.Shared._Shitmed.Surgery.Traumas.Components
         /// <remarks>
         ///     This generally corresponds to an amount of damage and can't go above 100.
         /// </remarks>
-        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+        [ViewVariables(VVAccess.ReadWrite)]
         public float BleedAmount;
 
         /// <summary>
         ///     How much should bleeding be reduced every update interval?
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public float BleedReductionAmount = 0.33f;
 
         /// <summary>
         ///     How high can <see cref="BleedAmount"/> go?
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public float MaxBleedAmount = 10.0f;
 
         /// <summary>
         ///     What percentage of current blood is necessary to avoid dealing blood loss damage?
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public float BloodlossThreshold = 0.9f;
 
         /// <summary>
         ///     The base bloodloss damage to be incurred if below <see cref="BloodlossThreshold"/>
         ///     The default values are defined per mob/species in YML.
         /// </summary>
-        [DataField(required: true), AutoNetworkedField]
+        [DataField(required: true)]
         public DamageSpecifier BloodlossDamage = new();
 
         /// <summary>
         ///     The base bloodloss damage to be healed if above <see cref="BloodlossThreshold"/>
         ///     The default values are defined per mob/species in YML.
         /// </summary>
-        [DataField(required: true), AutoNetworkedField]
+        [DataField(required: true)]
         public DamageSpecifier BloodlossHealDamage = new();
 
         // TODO shouldn't be hardcoded, should just use some organ simulation like bone marrow or smth.
         /// <summary>
         ///     How much reagent of blood should be restored each update interval?
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public FixedPoint2 BloodRefreshAmount = 1.0f;
 
         /// <summary>
         ///     How much blood needs to be in the temporary solution in order to create a puddle?
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public FixedPoint2 BleedPuddleThreshold = 1.0f;
 
         /// <summary>
@@ -122,14 +124,14 @@ namespace Content.Shared._Shitmed.Surgery.Traumas.Components
         /// <summary>
         ///     Max volume of internal chemical solution storage
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public FixedPoint2 ChemicalMaxVolume = FixedPoint2.New(250);
 
         /// <summary>
         ///     Max volume of internal blood storage,
         ///     and starting level of blood.
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public FixedPoint2 BloodMaxVolume = FixedPoint2.New(300);
 
         /// <summary>
@@ -138,19 +140,19 @@ namespace Content.Shared._Shitmed.Surgery.Traumas.Components
         /// <remarks>
         ///     Slime-people might use slime as their blood or something like that.
         /// </remarks>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public ProtoId<ReagentPrototype> BloodReagent = "Blood";
 
         /// <summary>Name/Key that <see cref="BloodSolution"/> is indexed by.</summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public string BloodSolutionName = DefaultBloodSolutionName;
 
         /// <summary>Name/Key that <see cref="ChemicalSolution"/> is indexed by.</summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public string ChemicalSolutionName = DefaultChemicalsSolutionName;
 
         /// <summary>Name/Key that <see cref="TemporarySolution"/> is indexed by.</summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         public string BloodTemporarySolutionName = DefaultBloodTemporarySolutionName;
 
         /// <summary>
@@ -179,7 +181,7 @@ namespace Content.Shared._Shitmed.Surgery.Traumas.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public TimeSpan StatusTime;
 
-        [DataField, AutoNetworkedField]
+        [DataField]
         public ProtoId<AlertPrototype> BleedingAlert = "Bleed";
     }
 }

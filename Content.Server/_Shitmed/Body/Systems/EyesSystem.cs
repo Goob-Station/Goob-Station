@@ -2,7 +2,7 @@ using Content.Server.Body.Systems;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
-using Content.Shared._Shitmed.Surgery.Traumas;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Robust.Shared.Containers;

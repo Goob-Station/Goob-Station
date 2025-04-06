@@ -11,6 +11,7 @@
       - id: Gauze
       - id: PillCanisterTricordrazine
       - id: PillCanisterIron # Goobstation
+      - id: Tourniquet # Shitmed Change
       # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
 
 - type: entity
@@ -88,6 +89,7 @@
       - id: RegenerativeMesh
       - id: Bloodpack
         amount: 2
+      - id: Tourniquet # Shitmed Change
 
 - type: entity
   id: MedkitCombatFilled

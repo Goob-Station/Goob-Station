@@ -22,8 +22,8 @@ using Content.Shared.Timing;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 namespace Content.Server.Medical;
 
@@ -213,6 +213,8 @@ public sealed class DefibrillatorSystem : EntitySystem
                         nerveSys.Value,
                         component.ZapHeal.GetTotal(),
                         "Suffocation");
+
+                    _consciousness.RemoveConsciousnessModifier(target, target, "DeathThreshold");
                 }
                 else
                 {

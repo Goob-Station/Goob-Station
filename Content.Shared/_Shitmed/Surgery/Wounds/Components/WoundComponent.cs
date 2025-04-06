@@ -1,7 +1,7 @@
 ﻿using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Shitmed.Surgery.Wounds.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WoundComponent : Component

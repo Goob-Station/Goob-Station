@@ -1,5 +1,6 @@
 - type: entity
   id: BluntScar
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -11,6 +12,7 @@
 
 - type: entity
   id: PiercingScar
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -22,6 +24,7 @@
 
 - type: entity
   id: SlashScar
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -33,6 +36,7 @@
 
 - type: entity
   id: BurnScar
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -44,6 +48,7 @@
 
 - type: entity
   id: RadiationScar
+  parent: WoundBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
@@ -52,4 +57,4 @@
     canBeHealed: false
     isScar: true
   - type: PainInflicter
-    multiplier: 0.01 # lmao
+    multiplier: 0 # lmao

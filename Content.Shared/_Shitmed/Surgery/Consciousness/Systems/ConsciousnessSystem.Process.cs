@@ -1,13 +1,14 @@
 ﻿using System.Linq;
 using Content.Shared.Body.Part;
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Rejuvenate;
 
-namespace Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 public partial class ConsciousnessSystem
 {
@@ -34,8 +35,11 @@ public partial class ConsciousnessSystem
         var query = EntityQueryEnumerator<ConsciousnessComponent>();
         while (query.MoveNext(out var ent, out var consciousness))
         {
-            if (consciousness.ForceDead)
+            if (consciousness.ForceDead
+                || _timing.CurTime < consciousness.NextConsciousnessUpdate)
                 continue;
+
+            consciousness.NextConsciousnessUpdate = _timing.CurTime + consciousness.ConsciousnessUpdateTime;
 
             foreach (var modifier in consciousness.Modifiers.Where(modifier => modifier.Value.Time < _timing.CurTime))
             {

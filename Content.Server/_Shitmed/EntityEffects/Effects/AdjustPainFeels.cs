@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using Content.Server.Body.Systems;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
-using Content.Shared._Shitmed.Surgery.Pain.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;

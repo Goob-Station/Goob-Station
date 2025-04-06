@@ -16,14 +16,13 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Surgery.Wounds.Components;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Content.Shared.Mind.Components;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Damage
@@ -216,7 +215,7 @@ namespace Content.Shared.Damage
             if (!uid.HasValue)
                 return null;
 
-            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canBeCancelled, heavyAttack); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart, heavyAttack); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -281,7 +280,7 @@ namespace Content.Shared.Damage
                     ignoreResistances,
                     partMultiplier);
 
-                var beforeDamage = new BeforeDamageChangedEvent(damage, origin);
+                var beforeDamage = new BeforeDamageChangedEvent(damage, origin, canBeCancelled);
                 RaiseLocalEvent(chosenTarget.Id, ref beforeDamage);
 
                 if (beforeDamage.Cancelled)
@@ -326,8 +325,8 @@ namespace Content.Shared.Damage
 
                             foreach (var bodyPart in pieces)
                             {
-                                var beforePartAll = new BeforeDamageChangedEvent(damage, origin);
-                                RaiseLocalEvent(bodyPart.Id, ref before);
+                                var beforePartAll = new BeforeDamageChangedEvent(damage, origin, canBeCancelled);
+                                RaiseLocalEvent(bodyPart.Id, ref beforePartAll);
 
                                 if (beforePartAll.Cancelled)
                                     continue;
@@ -354,8 +353,8 @@ namespace Content.Shared.Damage
 
                     default:
                         {
-                            var beforePart = new BeforeDamageChangedEvent(damage, origin);
-                            RaiseLocalEvent(chosenTarget.Id, ref before);
+                            var beforePart = new BeforeDamageChangedEvent(damage, origin, canBeCancelled);
+                            RaiseLocalEvent(chosenTarget.Id, ref beforePart);
 
                             if (beforePart.Cancelled)
                                 return null;
@@ -547,7 +546,7 @@ namespace Content.Shared.Damage
 
             return damageDict;
         }
-        public void SetDamageModifierSetId(EntityUid uid, string damageModifierSetId, DamageableComponent? comp = null)
+        public void SetDamageModifierSetId(EntityUid uid, string? damageModifierSetId, DamageableComponent? comp = null)
         {
             if (!_damageableQuery.Resolve(uid, ref comp))
                 return;
@@ -629,8 +628,8 @@ namespace Content.Shared.Damage
     public record struct BeforeDamageChangedEvent(
         DamageSpecifier Damage,
         EntityUid? Origin = null,
-        TargetBodyPart? TargetPart = null, // Shitmed Change
         bool CanBeCancelled = false, // Shitmed Change
+        TargetBodyPart? TargetPart = null, // Shitmed Change
         bool Cancelled = false,
         bool HeavyAttack = false);
 

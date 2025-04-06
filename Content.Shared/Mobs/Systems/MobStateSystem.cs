@@ -3,7 +3,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 namespace Content.Shared.Mobs.Systems;
 

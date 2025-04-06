@@ -4,8 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
-using Content.Shared._Shitmed.Surgery.Consciousness;
-using Content.Shared._Shitmed.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Content.Shared.FixedPoint;
@@ -18,7 +19,7 @@ using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Shitmed.Surgery.Pain.Systems;
+namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 
 public partial class PainSystem
 {
@@ -576,7 +577,8 @@ public partial class PainSystem
 
     private void UpdateDamage(EntityUid nerveSysEnt, NerveSystemComponent nerveSys)
     {
-        if (_timing.ApplyingState || TerminatingOrDeleted(nerveSysEnt))
+        if (!_timing.IsFirstTimePredicted
+            || TerminatingOrDeleted(nerveSysEnt))
             return;
 
         if (nerveSys.LastPainThreshold != nerveSys.Pain && _timing.CurTime > nerveSys.UpdateTime)
@@ -584,7 +586,10 @@ public partial class PainSystem
 
         if (_timing.CurTime > nerveSys.NextCritScream)
         {
-            var body = Comp<OrganComponent>(nerveSysEnt).Body;
+            if (!TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan))
+                return;
+
+            var body = nerveSysOrgan.Body;
             if (body != null && _mobState.IsCritical(body.Value))
             {
                 var sex = Sex.Unsexed;
@@ -592,18 +597,29 @@ public partial class PainSystem
                     sex = humanoid.Sex;
 
                 CleanupSounds(nerveSys);
-                if (_random.Prob(0.34f))
+                if (_trauma.HasBodyTrauma(body.Value, TraumaType.OrganDamage))
                 {
-                    // Play screaming with less chance
-                    PlayPainSound(body.Value, nerveSys, nerveSys.PainShockScreams[sex], AudioParams.Default.WithVolume(12f));
+                    // If the person suffers organ damage, do funny gaggling sound :3
+                    PlayPainSound(body.Value,
+                        nerveSys,
+                        nerveSys.OrganDamageWhimpersSounds[sex],
+                        AudioParams.Default.WithVolume(-12f));
                 }
                 else
                 {
-                    // Whimpering
-                    PlayPainSound(body.Value,
-                        nerveSys,                    // Pained or normal
-                        _random.Prob(0.34f) ? nerveSys.PainShockWhimpers[sex] : nerveSys.CritWhimpers[sex],
-                        AudioParams.Default.WithVolume(-12f));
+                    if (_random.Prob(0.34f))
+                    {
+                        // Play screaming with less chance
+                        PlayPainSound(body.Value, nerveSys, nerveSys.PainShockScreams[sex], AudioParams.Default.WithVolume(12f));
+                    }
+                    else
+                    {
+                        // Whimpering
+                        PlayPainSound(body.Value,
+                            nerveSys,                    // Pained or normal
+                            _random.Prob(0.34f) ? nerveSys.PainShockWhimpers[sex] : nerveSys.CritWhimpers[sex],
+                            AudioParams.Default.WithVolume(-12f));
+                    }
                 }
 
                 nerveSys.NextCritScream = _timing.CurTime + _random.Next(nerveSys.CritScreamsIntervalMin, nerveSys.CritScreamsIntervalMax);
@@ -644,14 +660,12 @@ public partial class PainSystem
 
     private void UpdateNerveSystemPain(EntityUid uid, NerveSystemComponent? nerveSys = null)
     {
-        if (!Resolve(uid, ref nerveSys, false))
+        if (!Resolve(uid, ref nerveSys))
             return;
 
-        Logger.Debug($"UPDATENERVESYSTEMPAIN: Updating nerve system pain for {uid}");
         if (!TryComp<OrganComponent>(uid, out var organ) || organ.Body == null)
             return;
 
-        Logger.Debug($"UPDATENERVESYSTEMPAIN: Organ found");
         var totalPain = (FixedPoint2) 0;
         var woundPain = (FixedPoint2) 0;
 
@@ -665,7 +679,6 @@ public partial class PainSystem
 
         nerveSys.Pain = FixedPoint2.Clamp(woundPain, 0, nerveSys.SoftPainCap) + totalPain - woundPain;
 
-        Logger.Debug($"UPDATENERVESYSTEMPAIN: Pain calculated");
         UpdatePainThreshold(uid, nerveSys);
         if (!_consciousness.SetConsciousnessModifier(
                 organ.Body.Value,
@@ -702,7 +715,6 @@ public partial class PainSystem
         if (!_net.IsServer)
             return;
 
-        Logger.Debug($"APPLYPAINREFLEXESEFFECTS: Applying pain reflexes effects for {body}");
         var sex = Sex.Unsexed;
         if (TryComp<HumanoidAppearanceComponent>(body, out var humanoid))
             sex = humanoid.Sex;
@@ -797,13 +809,11 @@ public partial class PainSystem
 
     private void UpdatePainThreshold(EntityUid uid, NerveSystemComponent nerveSys)
     {
-        Logger.Debug($"Updating pain threshold: {nerveSys.Pain} - {nerveSys.LastPainThreshold}");
         var painInput = nerveSys.Pain - nerveSys.LastPainThreshold;
 
         var nearestReflex = PainThresholdTypes.None;
         foreach (var (reflex, threshold) in nerveSys.PainThresholds.OrderByDescending(kv => kv.Value))
         {
-            Logger.Debug($"Checking threshold: {reflex} - {threshold}");
             if (painInput < threshold)
                 continue;
 
@@ -811,34 +821,27 @@ public partial class PainSystem
             break;
         }
 
-        Logger.Debug($"Nearest reflex: {nearestReflex}");
         if (nearestReflex == PainThresholdTypes.None)
             return;
 
-        Logger.Debug($"Last threshold type: {nerveSys.LastThresholdType}");
         if (nerveSys.LastThresholdType == nearestReflex && _timing.CurTime < nerveSys.UpdateTime)
             return;
 
-        Logger.Debug("Updating threshold");
         if (!TryComp<OrganComponent>(uid, out var organ) || !organ.Body.HasValue)
             return;
 
-        Logger.Debug("Raising event");
         var ev1 = new PainThresholdTriggered((uid, nerveSys), nearestReflex, painInput);
         RaiseLocalEvent(organ.Body.Value, ref ev1);
 
         if (ev1.Cancelled || _mobState.IsDead(organ.Body.Value))
             return;
 
-        Logger.Debug("Raising event 2");
         var ev2 = new PainThresholdEffected((uid, nerveSys), nearestReflex, painInput);
         RaiseLocalEvent(organ.Body.Value, ref ev2);
 
-        Logger.Debug("Updating time");
         nerveSys.UpdateTime = _timing.CurTime + nerveSys.ThresholdUpdateTime;
         nerveSys.LastThresholdType = nearestReflex;
 
-        Logger.Debug("Applying effects");
         ApplyPainReflexesEffects(organ.Body.Value, (uid, nerveSys), nearestReflex);
     }
 

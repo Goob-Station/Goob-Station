@@ -24,10 +24,8 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Targeting;
 using System.Linq;
-using Content.Server.Traits.Assorted;
-using Content.Shared._Shitmed.Surgery.Traumas.Components;
-using Content.Shared._Shitmed.Surgery.Wounds;
-using Content.Shared._Shitmed.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
 
 namespace Content.Server.Medical;
@@ -44,7 +42,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly WoundSystem _woundSystem = default!;
+    [Dependency] private readonly WoundSystem _woundSystem = default!; // Shitmed Change
 
     public override void Initialize()
     {

@@ -1,6 +1,7 @@
 - type: entity
   id: SurgeryStepBase
   abstract: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
 
@@ -24,7 +25,9 @@
       types:
         Bloodloss: 10
     sleepModifier: 0.5
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 9
+    sleepModifier: 0.34
 
 - type: entity
   parent: SurgeryStepBase
@@ -37,15 +40,32 @@
     - type: Hemostat
     add:
     - type: BleedersClamped
-    duration: 2
+    duration: 4
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
-  - type: SurgeryDamageChangeEffect
-    damage:
-      types:
-        Bloodloss: -5
-    sleepModifier: 2
+  - type: SurgeryRepeatableStep
+  - type: SurgeryBleedsTreatmentStep
+    amount: 2
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepCloseBloodOutputs
+  name: Stitch up destroyed tissues
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Stitches
+    add:
+    - type: BleedersClamped
+    duration: 5
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
+    state: stitches
+  - type: SurgeryStepPainInflicter
+    amount: 9
+    sleepModifier: 0.34
 
 - type: entity
   parent: SurgeryStepBase
@@ -65,6 +85,25 @@
 
 - type: entity
   parent: SurgeryStepBase
+  id: SurgeryStepRemoveSeveredSkin
+  name: Remove the dead skin
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Scalpel
+    add:
+    - type: BodyPartSawed
+    duration: 4
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
+    state: scalpel
+  - type: SurgeryStepPainInflicter
+    amount: 21
+    sleepModifier: 0.1
+
+- type: entity
+  parent: SurgeryStepBase
   id: SurgeryStepSawBones
   name: Saw through bones
   categories: [ HideSpawnMenu ]
@@ -78,7 +117,73 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    painType: TraumaticPain
+    painDuration: 21
+    amount: 21
+    sleepModifier: 0
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepRemoveLeftoverBones
+  name: Clear up bone leftovers
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: BoneSaw
+    add:
+    - type: RibcageOpen
+    duration: 5
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
+    state: circular-saw
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepMendBones
+  name: Востановить кости
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: BoneGel
+    duration: 7
+  - type: SurgeryAffixPartStep
+  - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/bone_gel.rsi
+    state: bone-gel
+  - type: SurgeryStepPainInflicter
+    amount: 12
+    painType: TraumaticPain
+    sleepModifier: 0
+  - type: SurgeryRepeatableStep
+  - type: SurgeryTraumaTreatmentStep
+    traumaType: BoneDamage
+    amount: 12
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepHealOrgans
+  name: Heal Organs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Tending
+    duration: 7
+  - type: SurgeryAffixOrganStep
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
+    state: hemostat
+  - type: SurgeryStepPainInflicter
+    amount: 12
+    painType: TraumaticPain
+    sleepModifier: 0
+  - type: SurgeryRepeatableStep
+  - type: SurgeryTraumaTreatmentStep
+    traumaType: OrganDamage
+    amount: 12
 
 - type: entity
   parent: SurgeryStepBase
@@ -189,7 +294,9 @@
       types:
         Heat: -5
     sleepModifier: 2
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 9
+    sleepModifier: 0.34
 
 # Feature Insertion
 
@@ -227,7 +334,9 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 12
+    sleepModifier: 0.34
   - type: SurgeryDamageChangeEffect
     damage:
       types:
@@ -251,7 +360,10 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 12
+    painType: TraumaticPain
+    sleepModifier: 0.5
 
 - type: entity
   parent: SurgeryStepBase
@@ -294,7 +406,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
   - type: SurgeryRemovePartStep
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 21
+    painType: TraumaticPain
+    sleepModifier: 0.25
 
 # Tend Wounds
 
@@ -313,7 +428,9 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 9
+    sleepModifier: 0
 
 - type: entity
   parent: SurgeryStepBase
@@ -374,7 +491,31 @@
       types:
         Heat: -5
     sleepModifier: 2
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 9
+    sleepModifier: 0.34
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepSealDismembermentWound
+  name: Stitch up the dismemberment wound
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Stitches
+    remove:
+    - type: IncisionOpen
+    duration: 8
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
+    state: stitches
+  - type: SurgeryTraumaTreatmentStep
+    traumaType: Dismemberment
+  - type: SurgeryStepPainInflicter
+    amount: 12
+    painType: TraumaticPain
+    sleepModifier: 0.5
 
 # Cavity Implanting
 
@@ -391,7 +532,10 @@
     state: insertion
   - type: SurgeryStepCavityEffect
     action: Insert
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 34
+    painType: TraumaticPain
+    sleepModifier: 0
 
 - type: entity
   parent: SurgeryStepBase
@@ -406,7 +550,10 @@
     state: insertion
   - type: SurgeryStepCavityEffect
     action: Remove
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 34
+    painType: TraumaticPain
+    sleepModifier: 0
 
 # Organ Manipulation
 
@@ -424,7 +571,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryRemoveOrganStep
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 52
+    painType: TraumaticPain
+    sleepModifier: 0
 
 - type: entity
   parent: SurgeryStepBase
@@ -440,7 +590,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
   - type: SurgeryAddOrganStep
-  - type: SurgeryStepEmoteEffect
+  - type: SurgeryStepPainInflicter
+    amount: 52
+    painType: TraumaticPain
+    sleepModifier: 0
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -454,13 +607,6 @@
         Asphyxiation: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
     sleepModifier: 1
     isConsumable: true
-
-- type: entity
-  parent: SurgeryStepInsertOrgan
-  id: SurgeryStepInsertStomach
-  name: Add stomach
-  categories: [ HideSpawnMenu ]
-  # no effect its just for minmaxing metabolism
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -491,6 +637,13 @@
     damageType: Rot
     isConsumable: true
 
+# Doesn't serve much of a purpose right now. Just here for completeness-sake.
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertStomach
+  name: Add stomach
+  categories: [ HideSpawnMenu ]
+
 - type: entity
   parent: SurgeryStepBase
   id: SurgeryStepSealOrganWound
@@ -505,65 +658,16 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
-  - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect
     damage:
       types:
         Heat: -5
     sleepModifier: 2
+  - type: SurgeryStepPainInflicter
+    amount: 9
+    sleepModifier: 0.34
 
-- type: entity
-  parent: SurgeryStepBase
-  id: SurgeryStepLobotomize
-  name: Lobotomize patient
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SurgeryStep
-    tool:
-    - type: Drill
-    addOrganOnAdd:
-      brain:
-        - type: OhioAccent
-        - type: RatvarianLanguage
-        - type: Clumsy
-          # clumsyDamage:
-          #   types:
-          #     Blunt: 5
-          #     Piercing: 4
-          #   groups:
-          #     Burn: 3
-    duration: 5
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
-    state: drill
-  - type: SurgeryStepEmoteEffect
-  - type: SurgeryDamageChangeEffect
-    damage:
-      types:
-        Piercing: 10
 
-- type: entity
-  parent: SurgeryStepBase
-  id: SurgeryStepMendBrainTissue
-  name: Mend brain tissue
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SurgeryStep
-    tool:
-    - type: Hemostat
-    duration: 4
-    removeOrganOnAdd:
-      brain:
-        - type: OhioAccent
-        - type: RatvarianLanguage
-        - type: Clumsy
-          # clumsyDamage:
-          #   types:
-          #     Blunt: 0
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
-    state: hemostat
-  - type: SurgeryStepEmoteEffect
 
 # The lengths I go to just for a joke... I HATE HARDCODING AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 # Maybe I should modify species prototypes to include tails and ears properly...

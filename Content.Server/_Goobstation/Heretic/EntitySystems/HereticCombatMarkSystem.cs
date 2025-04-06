@@ -16,7 +16,6 @@ using Content.Shared.Humanoid;
 using Content.Server.Temperature.Components;
 using Content.Server.Body.Components;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Heretic.EntitySystems;
 

@@ -10,7 +10,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared._Shitmed.Surgery.Traumas.Components;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 

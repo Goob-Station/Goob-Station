@@ -1,4 +1,4 @@
-using Content.Shared._Shitmed.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Shitmed.Targeting;

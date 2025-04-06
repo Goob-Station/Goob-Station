@@ -1,8 +1,8 @@
-﻿using Content.Shared._Shitmed.Surgery.Pain.Components;
+﻿using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Shitmed.Surgery.Pain;
+namespace Content.Shared._Shitmed.Medical.Surgery.Pain;
 
 
 [Serializable, NetSerializable]

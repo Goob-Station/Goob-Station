@@ -4,15 +4,6 @@
   parent: BasePartInorganic
   id: PartSiliconBase
   components:
-  - type: WoundableVisuals
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#DD8822"
-      Burn:
-        # TODO: stuff here
-        sprite: Mobs/Effects/burn_damage.rsi # Would have been cool if those were some fancy burns or stuff
-    bleedingOverlay: Mobs/Effects/bleeding_damage.rsi # they bleed oil, no? Change this if possible
   - type: Sprite
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
   - type: Icon

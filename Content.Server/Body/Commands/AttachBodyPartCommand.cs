@@ -115,7 +115,8 @@ namespace Content.Server.Body.Commands
             else
             {
                 var (rootPartId, rootPart) = bodySystem.GetRootPartOrNull(bodyId, body)!.Value;
-                if (!bodySystem.TryCreatePartSlotAndAttach(rootPartId, slotId, partUid.Value, part.PartType, rootPart, part))
+                // Shitmed Change: Symmetry
+                if (!bodySystem.TryCreatePartSlotAndAttach(rootPartId, slotId, partUid.Value, part.PartType, part.Symmetry, rootPart, part))
                 {
                     shell.WriteError($"Could not create slot {slotId} on entity {_entManager.ToPrettyString(bodyId)}");
                     return;

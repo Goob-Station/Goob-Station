@@ -3,9 +3,8 @@ using Content.Shared.Humanoid;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Shitmed.Surgery.Pain.Components;
+namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NerveSystemComponent : Component
@@ -48,15 +47,15 @@ public sealed partial class NerveSystemComponent : Component
     [DataField("thresholdUpdate")]
     public TimeSpan ThresholdUpdateTime = TimeSpan.FromSeconds(1.2f);
 
-    [DataField("accumulated", customTypeSerializer: typeof(TimeOffsetSerializer))]
-    public TimeSpan UpdateTime = TimeSpan.Zero;
+    [DataField("accumulated")]
+    public TimeSpan UpdateTime;
 
     [DataField("painShockStun")]
     public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(7f);
 
-    [DataField("organDamageStun", customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [DataField("organDamageStun")]
     public TimeSpan OrganDamageStunTime = TimeSpan.FromSeconds(12f);
-    public TimeSpan NextCritScream = TimeSpan.Zero;
+    public TimeSpan NextCritScream;
 
     [DataField]
     public TimeSpan CritScreamsIntervalMin = TimeSpan.FromSeconds(13f);
@@ -176,6 +175,52 @@ public sealed partial class NerveSystemComponent : Component
         },
         {
             Sex.Unsexed, new SoundCollectionSpecifier("PainShockWhimpersMale") // yeah
+            {
+                Params = AudioParams.Default,
+            }
+        },
+    };
+
+    [DataField]
+    public Dictionary<Sex, SoundSpecifier> OrganDestructionReflexSounds = new()
+    {
+        {
+            Sex.Male, new SoundCollectionSpecifier("OrganDamagePainedMale")
+            {
+                Params = AudioParams.Default,
+            }
+       },
+       {
+            Sex.Female, new SoundCollectionSpecifier("OrganDamagePainedFemale")
+            {
+                Params = AudioParams.Default,
+            }
+        },
+        {
+            Sex.Unsexed, new SoundCollectionSpecifier("OrganDamagePainedMale")
+            {
+                Params = AudioParams.Default,
+            }
+        },
+    };
+
+    [DataField]
+    public Dictionary<Sex, SoundSpecifier> OrganDamageWhimpersSounds = new()
+    {
+        {
+            Sex.Male, new SoundCollectionSpecifier("OrganDamageWhimpersMale")
+            {
+                Params = AudioParams.Default,
+            }
+        },
+        {
+            Sex.Female, new SoundCollectionSpecifier("OrganDamageWhimpersFemale")
+            {
+                Params = AudioParams.Default,
+            }
+        },
+        {
+            Sex.Unsexed, new SoundCollectionSpecifier("OrganDamageWhimpersMale")
             {
                 Params = AudioParams.Default,
             }

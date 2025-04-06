@@ -5,9 +5,9 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Surgery.Consciousness;
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
-using Content.Shared._Shitmed.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared.Body.Components;
 
 namespace Content.Shared.Chat;
@@ -23,6 +23,14 @@ public sealed class SharedSuicideSystem : EntitySystem
     /// </summary>
     public void ApplyLethalDamage(Entity<DamageableComponent> target, DamageSpecifier damageSpecifier)
     {
+        // Shitmed Change Start
+        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness))
+        {
+            KillConsciousness((target, victimConsciousness));
+            return;
+        }
+        // Shitmed Change End
+
         // Create a new damageSpecifier so that we don't make alterations to the original DamageSpecifier
         // Failing  to do this will permanently change a weapon's damage making it insta-kill people
         var appliedDamageSpecifier = new DamageSpecifier(damageSpecifier);
@@ -53,6 +61,15 @@ public sealed class SharedSuicideSystem : EntitySystem
     /// </summary>
     public void ApplyLethalDamage(Entity<DamageableComponent> target, ProtoId<DamageTypePrototype>? damageType)
     {
+        // Shitmed Change Start
+        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness))
+        {
+            // redirect suicide to consciousness
+            KillConsciousness((target, victimConsciousness));
+            return;
+        }
+        // Shitmed Change End
+
         if (!TryComp<MobThresholdsComponent>(target, out var mobThresholds))
             return;
 

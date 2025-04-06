@@ -55,7 +55,6 @@ using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech.Components;
-using Content.Shared._Shitmed.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Administration.Systems;
 

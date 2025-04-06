@@ -21,7 +21,7 @@ using Robust.Shared.Utility;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 // Shitmed Change
-using Content.Shared._Shitmed.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared.Body.Components;
 using System.Linq;
 
