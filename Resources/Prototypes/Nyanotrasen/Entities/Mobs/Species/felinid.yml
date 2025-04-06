@@ -76,8 +76,8 @@
     - FelinidEmotes
   - type: FootPrints # WD EDIT
   - type: Consciousness
-    cap: 85
-    threshold: 25
+    cap: 160
+    threshold: 80
 
 - type: entity
   save: false

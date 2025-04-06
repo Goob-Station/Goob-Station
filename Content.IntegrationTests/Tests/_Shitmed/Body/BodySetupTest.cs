@@ -27,10 +27,11 @@ public sealed class BodySetupTest
     private readonly HashSet<string> _ignoredPrototypes = new()
     {
         "Skeleton",
-        "Monkey",
+        "Cyborg" // Since cyborgs are now a species just for appearance comps, we have to add em here.
     };
 
-    [Test]
+    // This test is kinda useless for us since the only place where we use InnateToolComponent is fuckin behonkers lmao.
+    /*[Test]
     public async Task InnateToolTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -82,7 +83,7 @@ public sealed class BodySetupTest
 
 
         await pair.CleanReturnAsync();
-    }
+    }*/
 
     [Test]
     public async Task AllSpeciesHaveLegs()
@@ -136,6 +137,9 @@ public sealed class BodySetupTest
 
         foreach (var speciesPrototype in server.ProtoMan.EnumeratePrototypes<SpeciesPrototype>())
         {
+            if (_ignoredPrototypes.Contains(speciesPrototype.ID))
+                continue;
+
             var dummy = EntityUid.Invalid;
             await server.WaitAssertion(() =>
             {

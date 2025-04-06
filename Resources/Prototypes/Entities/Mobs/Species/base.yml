@@ -229,8 +229,9 @@
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
-  - type: Consciousness # Shitmed - Damnation
-    threshold: 90
+  - type: Consciousness
+    cap: 190
+    threshold: 95
 
 - type: entity
   save: false

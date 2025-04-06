@@ -1460,9 +1460,6 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
-  - type: Consciousness
-    threshold: 30
-    cap: 90
 
 - type: entity
   name: monkey

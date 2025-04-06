@@ -13,6 +13,7 @@
       - right arm
       - left arm
       - head # Shitmed
+      - groin # Shitmed
     groin:
       part: GroinSkeleton
       connections:

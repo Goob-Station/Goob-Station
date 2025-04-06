@@ -1,7 +1,7 @@
 {
 	"version": 1,
-	"license": "CC-BY-SA-3.0",
-  "copyright": "stolen from goobstation",
+	"license": "CC-BY-NC-SA-3.0",
+  	"copyright": "Taken from Goonstation at commit https://github.com/goonstation/goonstation/commit/2386d56a5e86e01744d0f5bae1c9ef9c7968dffe",
 	"size": {
 		"x": 32,
 		"y": 32
