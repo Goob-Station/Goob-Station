@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionFingerGun
+  name: Finger Gun
+  description: The peak of the mime powers.
+  components:
+  - type: InstantAction
+    useDelay: 3
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Objects/Misc/mimery.rsi
+      state: finger_gun
+    event: !type:FingerGunEvent

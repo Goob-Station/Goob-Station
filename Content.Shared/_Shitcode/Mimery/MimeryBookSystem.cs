@@ -28,6 +28,8 @@ public sealed class MimeryBookSystem : EntitySystem
 
         Logger.Debug("granted action");
         _actions.AddAction(args.Args.User, "ActionMimeryWall");
+        EnsureComp<FingerGunComponent>(args.Args.User);
+
 
     }
 
