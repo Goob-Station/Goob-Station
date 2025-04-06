@@ -306,22 +306,6 @@ public abstract partial class SharedSurgerySystem
         args.Cancelled = !_body.CanInsertOrgan(args.Part, condition.OrganSlot);
     }
 
-    private void OnAddOrganSlotStep(Entity<SurgeryAddOrganSlotStepComponent> ent, ref SurgeryStepEvent args)
-    {
-        if (!TryComp(args.Surgery, out SurgeryOrganSlotConditionComponent? condition))
-            return;
-
-        _body.TryCreateOrganSlot(args.Part, condition.OrganSlot, out _);
-    }
-
-    private void OnAddOrganSlotCheck(Entity<SurgeryAddOrganSlotStepComponent> ent, ref SurgeryStepCompleteCheckEvent args)
-    {
-        if (!TryComp(args.Surgery, out SurgeryOrganSlotConditionComponent? condition))
-            return;
-
-        args.Cancelled = !_body.CanInsertOrgan(args.Part, condition.OrganSlot);
-    }
-
     private void OnAffixPartStep(Entity<SurgeryAffixPartStepComponent> ent, ref SurgeryStepEvent args)
     {
         if (!TryComp(args.Surgery, out SurgeryPartRemovedConditionComponent? removedComp))

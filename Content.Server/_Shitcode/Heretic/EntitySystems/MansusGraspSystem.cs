@@ -380,7 +380,7 @@ public sealed class MansusGraspSystem : EntitySystem
                             ignoreResistances: true,
                             damageable: damageable,
                             origin: performer,
-                            targetPart: TargetBodyPart.Torso);
+                            targetPart: TargetBodyPart.Chest);
                     }
                     break;
                 }
