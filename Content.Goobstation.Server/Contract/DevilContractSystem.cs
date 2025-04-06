@@ -2,6 +2,7 @@ using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Devil;
+using Content.Server.Administration.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Movement.Systems;
@@ -20,6 +21,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly EntityManager _entityManager = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly RejuvenateSystem _rejuvenateSystem = null!;
 
     private ISawmill _sawmill = null!;
 

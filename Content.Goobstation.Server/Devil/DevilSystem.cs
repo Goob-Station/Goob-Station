@@ -6,6 +6,7 @@ using Content.Goobstation.Server.Posession;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Religion;
 using Content.Server._Goobstation.Wizard.Teleport;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
@@ -74,6 +75,7 @@ public sealed partial class DevilSystem : EntitySystem
     private readonly EntProtoId _revivalContractPrototype = "PaperDevilContractRevival";
     private readonly EntProtoId _suitProto = "ClothingUniformJumpsuitDevil";
     private readonly EntProtoId _bookProto = "GuidebookCodexUmbra";
+    private readonly EntProtoId _penProto = "PenDevil";
 
     public override void Initialize()
     {
@@ -104,6 +106,7 @@ public sealed partial class DevilSystem : EntitySystem
         EnsureComp<BreathingImmunityComponent>(uid);
         EnsureComp<PressureImmunityComponent>(uid);
         EnsureComp<ActiveListenerComponent>(uid);
+        EnsureComp<WeakToHolyComponent>(uid);
 
         // Allow infinite revival
         var revival = EnsureComp<CheatDeathComponent>(uid);
@@ -128,8 +131,9 @@ public sealed partial class DevilSystem : EntitySystem
         var newSuit = SpawnNextToOrDrop(_suitProto, uid);
         _inventory.TryEquip(uid, newSuit, "jumpsuit", true, true, true);
 
-        // Spawn codex
+        // Spawn codex & pen
         _inventory.SpawnItemOnEntity(uid, _bookProto);
+        _inventory.SpawnItemOnEntity(uid, _penProto);
 
     }
 
@@ -197,7 +201,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (HasComp<BibleUserComponent>(args.Source))
         {
-            var holyDamage = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Heat"), 25);
+            var holyDamage = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Holy"), 25);
             _damageable.TryChangeDamage(uid, holyDamage, true);
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
 

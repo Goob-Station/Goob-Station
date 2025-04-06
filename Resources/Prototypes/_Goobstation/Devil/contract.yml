@@ -2,8 +2,11 @@
   id: BaseDevilContract
   parent: [BaseItem, BaseMagicContraband]
   abstract: true
+  name: contract from below
+  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
   components:
   - type: PaperLabelType
+  - type: Paper
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
     requiresComplex: false
@@ -12,6 +15,7 @@
       enum.PaperUiKey.Key:
         type: PaperBoundUserInterface
   - type: Item
+    sprite: _Goobstation/Objects/Misc/devil_contract.rsi
     size: Normal
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
@@ -20,14 +24,19 @@
     - state: contract-signed
       map: [ "enum.PaperVisualLayers.Stamp" ]
       visible: false
-    - type: paper
+    - type: contract
+
+- type: entity
+  id: PaperDevilContractBlank
+  suffix: Blank
+  parent: BaseDevilContract
+  components:
+  - type: DevilContract
 
 - type: entity
   id: PaperDevilContract
   suffix: "Devil Contract"
   parent: BaseDevilContract
-  name: contract from below
-  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
   components:
   - type: DevilContract
   - type: Paper # Not localized because FTL doesn't support formatting. Or at least I don't know how.

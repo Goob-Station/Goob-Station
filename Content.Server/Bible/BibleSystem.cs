@@ -1,10 +1,14 @@
+using Content.Goobstation.Shared.Devil;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
+using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Bible;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -16,6 +20,7 @@ using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Bible
@@ -32,6 +37,9 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Goobstation
+        [Dependency] private readonly StunSystem _stun = default!; // Goobstation
 
         public override void Initialize()
         {
@@ -109,6 +117,21 @@ namespace Content.Server.Bible
 
                 _audio.PlayPvs(component.SizzleSoundPath, args.User);
                 _damageableSystem.TryChangeDamage(args.User, component.DamageOnUntrainedUse, true, origin: uid);
+                _delay.TryResetDelay((uid, useDelay));
+
+                return;
+            }
+
+            if (HasComp<DevilComponent>(args.Target)) // Goobstation - Devils
+            {
+                _popupSystem.PopupEntity(Loc.GetString("devil-component-bible-sizzle", ("target", args.Target.Value)), args.Target.Value, PopupType.LargeCaution);
+
+                _audio.PlayPvs(component.SizzleSoundPath, args.Target.Value);
+                _damageableSystem.TryChangeDamage(args.Target.Value, component.DamageOnUntrainedUse, true, origin: uid);
+                _flammable.SetFireStacks(args.Target.Value, 5, ignite:true);
+                var holyDamage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Holy"), 25);
+                _damageableSystem.TryChangeDamage(args.Target, holyDamage, true, origin: uid);
+                _stun.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
                 _delay.TryResetDelay((uid, useDelay));
 
                 return;

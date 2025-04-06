@@ -30,3 +30,5 @@ handshake-success = You feel slightly lighter as you shake {$user}'s hand.
 handshake-fail =  You shake {POSS-ADJ($user)} hand, but nothing happens!
 
 not-enough-souls = You do not have enough souls to use this spell!
+
+devil-component-bible-sizzle = {$target} bursts into flames upon contact with the bible!

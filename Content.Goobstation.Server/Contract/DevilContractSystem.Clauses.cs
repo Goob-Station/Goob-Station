@@ -171,6 +171,7 @@ public sealed partial class DevilContractSystem
             {
                 EnsureComp<CheatDeathComponent>(target, out var cheatDeathComponent);
                 cheatDeathComponent.ReviveAmount++;
+                _rejuvenateSystem.PerformRejuvenate(target);
             },
 
             // Grants an infinite amount of revives.
