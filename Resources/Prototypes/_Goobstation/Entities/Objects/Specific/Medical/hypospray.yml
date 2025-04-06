@@ -278,7 +278,7 @@
 
 - type: entity
   name: amnestic autoinjector cartridge
-  parent: BaseCartridgeAutoinjector
+  parent: [ BaseCentcommContraband , BaseAutoinjectorCartridge ]
   description: Contains 10u of dimtremethic-neuramincyl acid, used in a cartridge autoinjector.
   id: CartridgeAmnestic
   components:
