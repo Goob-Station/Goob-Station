@@ -43,7 +43,6 @@ public abstract partial class SharedToolSystem : EntitySystem
         InitializeMultipleTool();
         InitializeTile();
         InitializeWelder();
-        InitializeFirefightingNozzle(); // Assmos - Extinguisher Nozzle
         SubscribeLocalEvent<ToolComponent, ToolDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ToolComponent, ExaminedEvent>(OnExamine);
     }

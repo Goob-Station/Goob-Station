@@ -147,3 +147,25 @@
   cost: 350
   category: cargoproduct-category-name-engineering
   group: market
+
+# RPD
+- type: cargoProduct
+  id: EngineeringRPD
+  icon:
+    sprite: Objects/Tools/rpd.rsi
+    state: icon
+  product: CrateRPD
+  cost: 800
+  category: cargoproduct-category-name-engineering
+  group: market
+
+# Assmos - Extinguisher Nozzle
+- type: cargoProduct 
+  id: EngineeringFirefighterBackpackTank
+  icon:
+    sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi
+    state: icon
+  product: CrateEngineeringFirefighterBackpackTank
+  cost: 1000
+  category: cargoproduct-category-name-engineering
+  group: market

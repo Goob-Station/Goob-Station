@@ -1,18 +1,15 @@
 // Assmos - Extinguisher Nozzle
 
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.FixedPoint;
-using Content.Shared.Tools.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Content.Shared.Inventory; 
-using Content.Shared.Whitelist; 
+using Content.Shared.Inventory;
+using Content.Shared.Whitelist;
 
-namespace Content.Shared.Tools.Components;
+namespace Content.Goobstation.Shared.Atmos.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), Access(typeof(SharedToolSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class FirefightingNozzleComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -25,7 +22,7 @@ public sealed partial class FirefightingNozzleComponent : Component
     public const string SolutionName = "tank";
 
     /// <summary>
-    ///     Reagent that will be used as fuel for welding.
+    ///     Reagent that will be used in backpack.
     /// </summary>
     [DataField]
     public ProtoId<ReagentPrototype> TankReagent = "Water";
@@ -40,7 +37,7 @@ public sealed partial class FirefightingNozzleComponent : Component
     public bool ExternalContainer = false;
 
     /// <summary>
-    ///     Sound played when refilling the welder.
+    ///     Sound played when refilling the backpack.
     /// </summary>
     [DataField]
     public SoundSpecifier FirefightingNozzleRefill = new SoundPathSpecifier("/Audio/Effects/refill.ogg");

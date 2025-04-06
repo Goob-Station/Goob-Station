@@ -1,10 +1,9 @@
-using Content.Server.Atmos.EntitySystems;
+using Content.Goobstation.Server.Atmos.EntitySystems;
 
-namespace Content.Server.Atmos.Components;
+namespace Content.Goobstation.Server.Atmos.Components;
 
 /// <summary>
 /// Assmos - Extinguisher Nozzle
-/// When a <c>TimedDespawnComponent"</c> despawns, another one will be spawned in its place.
 /// </summary>
 [RegisterComponent, Access(typeof(AtmosResinDespawnSystem))]
 public sealed partial class AtmosResinDespawnComponent : Component
