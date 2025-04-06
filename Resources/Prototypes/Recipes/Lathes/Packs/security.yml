@@ -30,12 +30,12 @@
   recipes:
   - BoxLethalshot
   - BoxShotgunSlug
-  - MagazineBoxLightRifle
+  # - MagazineBoxLightRifle # Goobstation - remove light rifle
   - MagazineBoxMagnum
   - MagazineBoxPistol
   - MagazineBoxRifle
-  - MagazineLightRifle
-  - MagazineLightRifleEmpty
+  # - MagazineLightRifle # Goobstation - remove light rifle
+  # - MagazineLightRifleEmpty # Goobstation - remove light rifle
   - MagazinePistol
   - MagazinePistolEmpty
   - MagazinePistolSubMachineGun
@@ -98,16 +98,16 @@
   - BoxShotgunIncendiary
   - BoxShotgunUranium
   - BoxShellTranquilizer
-  - MagazineBoxLightRifleIncendiary
-  - MagazineBoxLightRifleUranium
+  # - MagazineBoxLightRifleIncendiary # Goobstation - remove light rifle
+  # - MagazineBoxLightRifleUranium # Goobstation - remove light rifle
   - MagazineBoxMagnumIncendiary
   - MagazineBoxMagnumUranium
   - MagazineBoxPistolIncendiary
   - MagazineBoxPistolUranium
   - MagazineBoxRifleIncendiary
   - MagazineBoxRifleUranium
-  - MagazineLightRifleIncendiary
-  - MagazineLightRifleUranium
+  # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
+  # - MagazineLightRifleUranium # Goobstation - remove light rifle
   - MagazinePistolIncendiary
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunIncendiary
