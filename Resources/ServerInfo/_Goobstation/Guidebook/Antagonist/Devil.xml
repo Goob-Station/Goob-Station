@@ -1,0 +1,65 @@
+<Document>
+  # Devil
+
+  [color=#ff0000]A devilish trickster with a silver tongue has been making deals.[/color]
+
+  A devil is an entity originating from some ungodly dimension far, far away from our own.
+  <Box>
+    <GuideEntityEmbed Entity="PaperDevilContract" Caption="Contract"/>
+    <GuideEntityEmbed Entity="ClothingUniformJumpsuitDevil" Caption="Devilish Attire"/>
+  </Box>
+
+  Unlike most depictions in media, a devil isn't easy to find at a glance. There's no fire and brimstone, no pitchfork and screaming. The easiest way to tell is that red glow in their eyes, and sometimes the horns or tail.
+  [bold] Not everyone with a tail or horns is a devil, that's just specist! [/bold]
+
+  ## Contracts
+
+  The bread and butter of a devil is their [color=darkred]contracts[/color]. When signing a contract, various effects can be applied onto an entity.
+
+  Contracts are indestructible once signed, there's no going back once pen touches parchment.
+
+  The particular effect of a contract changes depending on which [bold] clauses [/bold] are written on it.
+  Effects can be applied to the Contractor, the Devil, or the Contractee, the signer.
+
+  Prefixing a [bold]clause[/bold] with either "Contractee:" or "Contractor:" will dictate who it applies to.
+
+  A [bold] Clause [/bold] is a concept or thing that one of the parties is giving up, either to the other or destroying it entirely.
+
+  Example:
+  <Box>
+    Contractee: Weakness Contractee: Soul
+  </Box>
+
+  In the above contract, the contractee is giving up their weakness and the rights to their soul.
+  Giving up your weakness will grant you massive resistance to all damage types, but giving up your soul could have unforeseen consequences.
+
+  ## Contract Weight
+
+  Every contract has a weight associated with it, which can be viewed by inspecting it.
+  Contracts with an uneven weight (below zero) cannot be signed.
+
+  Each clause has its own weight value.
+  As a general rule of thumb, the better the clause is for the contractee the higher the weight will be.
+
+  This effectively means you have to balance good clauses with bad clauses.
+  [italic] It's important to note that there is no limit on how many bad clauses you can put on one contract, always read the fine-print! [/italic]
+
+  ## Selling your soul?
+
+  Selling your soul is a fickle thing; and usually what most devils are after.
+  As a devil, your main objective is to collect as many souls as possible. The more souls you gain, the more powerful you become.
+
+  As a contractee, selling your soul has consequences.
+  - Without a soul, you will be un-revivable on death.
+  - You cannot make any more deals after selling your soul.
+  - You will be marked as "Condemned", which could have other consequences.
+
+  ## Dealing with the devil
+
+  The contractee is not the only person that can be tricked.
+  Contract weight is applied [bold] no matter who the effect applies to [/bold]
+
+  This means if you can trick a devil to sign a paper negatively affecting them, you can get some positive clauses for free!
+
+  [textlink="Learn more about each clause." link="DevilClauses"]
+</Document>

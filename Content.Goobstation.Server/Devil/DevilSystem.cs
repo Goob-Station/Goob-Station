@@ -5,9 +5,11 @@ using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Server._Goobstation.Wizard.Teleport;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
+using Content.Server.Bible.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
@@ -24,6 +26,7 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -63,11 +66,13 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly DevilContractSystem _contract = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly WizardTeleportSystem _teleport = default!;
 
 
     private readonly EntProtoId _contractPrototype = "PaperDevilContract";
     private readonly EntProtoId _revivalContractPrototype = "PaperDevilContractRevival";
     private readonly EntProtoId _suitProto = "ClothingUniformJumpsuitDevil";
+    private readonly EntProtoId _bookProto = "GuidebookCodexUmbra";
 
     public override void Initialize()
     {
@@ -120,6 +125,9 @@ public sealed partial class DevilSystem : EntitySystem
         Del(jumpsuit);
         var newSuit = SpawnNextToOrDrop(_suitProto, uid);
         _inventory.TryEquip(uid, newSuit, "jumpsuit", true, true, true);
+
+        // Spawn codex
+        _inventory.SpawnItemOnEntity(uid, _bookProto);
 
     }
 
@@ -179,10 +187,26 @@ public sealed partial class DevilSystem : EntitySystem
         if (!trueNameMatch || !stopListMatch)
             return;
 
-        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(4), false);
-        _stun.TryStun(uid, TimeSpan.FromSeconds(4), false);
-        var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source));
-        _popup.PopupPredicted(popup, uid, uid, PopupType.LargeCaution);
+        var curTime = _timing.CurTime;
+        if (curTime < comp.LastTriggeredTime + comp.CooldownDuration)
+            return;
+
+        comp.LastTriggeredTime = curTime;
+
+        if (!HasComp<BibleUserComponent>(args.Source))
+        {
+            _stun.TryKnockdown(uid, TimeSpan.FromSeconds(4), false);
+            _stun.TryStun(uid, TimeSpan.FromSeconds(4), false);
+            var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source));
+            _popup.PopupPredicted(popup, uid, uid, PopupType.LargeCaution);
+        }
+
+        var holyDamage = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Holy"), 15);
+        _damageable.TryChangeDamage(uid, holyDamage, true);
+        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(8), false);
+        _stun.TryStun(uid, TimeSpan.FromSeconds(8), false);
+        var popupHoly = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source));
+        _popup.PopupPredicted(popupHoly, uid, uid, PopupType.LargeCaution);
 
     }
 

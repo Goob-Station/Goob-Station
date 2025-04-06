@@ -4,7 +4,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-devil-description
-  guides: [ Blob ] # Change this
+  guides: [ Devil ]
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 72000 #20 hrs
+  - !type:RoleTimeRequirement
+    role: JobLawyer
+    time: 36000 #10 hrs

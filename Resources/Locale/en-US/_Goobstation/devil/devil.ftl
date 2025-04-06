@@ -1,6 +1,8 @@
 devil-roundend-name = Devil
 objective-issuer-devil = Devil
 
+roundend-prepend-devil-contracts = [color=white]{$name}[/color] has made [color=red]{$number}[/color] sucessful contracts.
+
 devil-component-examined = [color=darkred]{CAPITALIZE($target)}'s eyes glow a faint red.[/color]
 condemned-component-examined = [color=lightgray]{CAPITALIZE($target)}'s eyes are dull and lifeless. {POSS-ADJ($target)} stare ahead listlessly[/color]
 
@@ -9,6 +11,7 @@ devil-role-greeting = You are a devil from the depths of hell.
   Your true name is {$trueName} - Try to keep it a secret, will you?
 
 devil-true-name-heard = The act of {$speaker} commanding your true name compels you to stop.
+devil-true-name-heard-chaplain = The act of {$speaker}'s holy words commanding your true name burns away at your very soul.
 
 revival-contract-prompt = A sense of nostalgia draws you to your corpse... (Check your Verbs menu to accept or reject)
 

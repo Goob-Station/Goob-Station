@@ -31,4 +31,16 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public SoundPathSpecifier FwooshPath = new SoundPathSpecifier("/Audio/_Goobstation/Effects/fwoosh.ogg");
+
+    /// <summary>
+    /// When the true-name stun was last triggered
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan LastTriggeredTime;
+
+    /// <summary>
+    /// Minimum time between true-name triggers
+    /// </summary>
+    [DataField]
+    public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30);
 }

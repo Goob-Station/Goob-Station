@@ -1,3 +1,4 @@
+using System.Text;
 using Content.Goobstation.Server.Devil;
 using Content.Goobstation.Server.Devil.Roles;
 using Content.Goobstation.Shared.Devil;
@@ -39,6 +40,7 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         base.Initialize();
 
         SubscribeLocalEvent<DevilRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
+        SubscribeLocalEvent<DevilRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
     }
 
     private void OnSelectAntag(EntityUid uid, DevilRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
@@ -71,5 +73,32 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         rule.DevilMinds.Add(mindId);
 
         return true;
+    }
+
+    private void OnTextPrepend(EntityUid uid, DevilRuleComponent comp, ref ObjectivesTextPrependEvent args)
+    {
+        var mostContractsName = string.Empty;
+        var mostContracts = 0f;
+
+        foreach (var devil in EntityQuery<DevilComponent>())
+        {
+            if (!_mind.TryGetMind(devil.Owner, out var mindId, out var mind))
+                continue;
+
+            // *shrugs
+            if (!TryComp<MetaDataComponent>(devil.Owner, out var metaData))
+                continue;
+
+            if (devil.Souls > mostContracts)
+            {
+                mostContracts = devil.Souls;
+                mostContractsName = _objective.GetTitle((mindId, mind), metaData.EntityName);
+            }
+        }
+
+        var sb = new StringBuilder();
+        sb.AppendLine(Loc.GetString($"roundend-prepend-devil-contracts{(!string.IsNullOrWhiteSpace(mostContractsName) ? "-named" : "")}", ("name", mostContractsName), ("number", mostContracts)));
+
+        args.Text = sb.ToString();
     }
 }

@@ -4,6 +4,7 @@ using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Devil;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
@@ -54,15 +55,20 @@ public sealed partial class DevilContractSystem : EntitySystem
     // The lower the value, the more beneficial it is for the contractee.
     private readonly Dictionary<string, int> _clauseWeights = new()
     {
-        ["death everlasting"] = -100,
+        ["mortality"] = -100,
         ["weakness"] = -35,
-        ["locks"] = 35,
         ["death"] = -25,
+        ["fear of space"] = -25,
+        ["fear of fire"] = -20,
+        ["fear of light"] = -15,
+        ["fear of electricity"] = -15,
         ["soul ownership"] = 25,
         ["strength"] = 25,
         ["coherence"] = 25,
+        ["voice"] = 30,
         ["a hand"] = 30,
         ["a leg"] = 30,
+        ["sanity"] = 35,
         ["legs"] = 40,
         ["an organ"] = 45,
         ["sight"] = 60,

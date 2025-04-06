@@ -2,19 +2,28 @@ using System.Linq;
 using Content.Goobstation.Common.Traits;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Devil;
+using Content.Goobstation.Server.Insanity;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Access.Systems;
+using Content.Server.Atmos;
+using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Flash.Components;
 using Content.Server.NPC.Queries.Considerations;
 using Content.Server.Speech.Components;
+using Content.Shared._Shitmed.Body.Components;
+using Content.Shared._vg.TileMovement;
 using Content.Shared.Access.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Clumsy;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Electrocution;
+using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
+using Content.Shared.Speech.Muting;
 using Content.Shared.Traits.Assorted;
 
 namespace Content.Goobstation.Server.Contract;
@@ -47,7 +56,32 @@ public sealed partial class DevilContractSystem
             ["weakness"] = (target, contract) =>
             {
                 _damageable.SetDamageModifierSetId(target, "DevilDealPositive");
+            },
 
+            // Makes the target immune to fire
+            ["fear of fire"] = (target, contract) =>
+            {
+                _damageable.SetDamageModifierSetId(target, "HellSpawn");
+                RemComp<FlammableComponent>(target);
+            },
+
+            // Makes the target immune to spacing and not need to breath.
+            ["fear of space"] = (target, contract) =>
+            {
+                EnsureComp<BreathingImmunityComponent>(target);
+                EnsureComp<PressureImmunityComponent>(target);
+            },
+
+            // Makes the target immune to flashes
+            ["fear of light"] = (target, contract) =>
+            {
+                EnsureComp<FlashImmunityComponent>(target);
+            },
+
+            // Makes the target immune to electricity.
+            ["fear of electricity"] = (target, contract) =>
+            {
+                EnsureComp<InsulatedComponent>(target);
             },
 
             // Doubles all damage taken.
@@ -102,6 +136,30 @@ public sealed partial class DevilContractSystem
                 EnsureComp<ClumsyComponent>(target);
             },
 
+            // Mutes you
+            ["voice"] = (target, contract) =>
+            {
+                EnsureComp<MutedComponent>(target);
+            },
+
+            // Makes you fucking crazy!!
+            ["sanity"] = (target, contract) =>
+            {
+                EnsureComp<InsanityComponent>(target);
+            },
+
+            // Makes you walk with inverted controls
+            ["stability"] = (target, contract) =>
+            {
+                TryComp<MovementSpeedModifierComponent>(target, out var movement);
+            },
+
+            // Gives you tile movement
+            ["inner peace"] = (target, contract) =>
+            {
+                EnsureComp<TileMovementComponent>(target);
+            },
+
             // Paralyzes both legs
             ["legs"] = (target, contract) =>
             {
@@ -116,20 +174,17 @@ public sealed partial class DevilContractSystem
             },
 
             // Grants an infinite amount of revives.
-            ["death everlasting"] = (target, contract) =>
+            ["mortality"] = (target, contract) =>
             {
                 EnsureComp<CheatDeathComponent>(target, out var cheatDeathComponent);
                 cheatDeathComponent.ReviveAmount = -1;
             },
 
-            // Grants all-access // Todo - Implement
-            ["locks"] = (target, contract) =>
-            {
-            },
-
             // Kills the target after five minutes
             ["time"] = (target, contract) =>
             {
+                // Can't cheat this one pal.
+                RemComp<CheatDeathComponent>(target);
                 EnsureComp<DelayedDeathComponent>(target, out var delayedDeathComponent);
                 EnsureComp<UnrevivableComponent>(target);
                 delayedDeathComponent.DeathTime = 300;

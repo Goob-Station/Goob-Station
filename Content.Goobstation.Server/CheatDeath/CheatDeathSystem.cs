@@ -5,6 +5,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Traits.Assorted;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.CheatDeath;
@@ -41,8 +42,8 @@ public sealed partial class CheatDeathSystem : EntitySystem
         if (args.Handled || !_mobStateSystem.IsDead(uid))
             return;
 
-        // If the entity is not dead, or if the entity is out of revives, return.
-        if (comp.ReviveAmount == 0)
+        // If the entity is out of revives, or if they are unrevivable, return.
+        if (comp.ReviveAmount == 0 || HasComp<UnrevivableComponent>(args.Performer))
         {
             var failPopup = Loc.GetString("action-cheat-death-fail");
             _popupSystem.PopupEntity(failPopup, uid, PopupType.LargeCaution);
