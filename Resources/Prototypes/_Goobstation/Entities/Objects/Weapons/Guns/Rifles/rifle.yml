@@ -12,7 +12,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 3.5
+    fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
@@ -177,10 +177,10 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
   - type: Gun
     availableModes:
-    - SemiAuto
     - Burst
     selectedMode: Burst
     burstFireRate: 18
+    shotsPerBurst: 5
     burstCooldown: 0.5
     projectileSpeed: 35
     soundGunshot:

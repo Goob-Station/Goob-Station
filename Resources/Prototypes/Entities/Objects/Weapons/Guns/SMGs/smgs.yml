@@ -125,7 +125,7 @@
   name: Drozd
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: An excellent fully automatic Heavy SMG.
+  description: An excellent burst-fire Heavy SMG. # Goobstation edit
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
@@ -150,10 +150,11 @@
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
       - Burst
-      - FullAuto
-      - SemiAuto
-      shotsPerBurst: 3
-      burstCooldown: 0.25
+      #- FullAuto # Goobstation - start
+      #- SemiAuto
+      selectedMode: Burst
+      shotsPerBurst: 5
+      burstCooldown: 0.75 # Goobstation - end
     - type: ItemSlots
       slots:
         gun_magazine:
@@ -240,3 +241,5 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.5

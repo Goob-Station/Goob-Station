@@ -19,13 +19,14 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.8 # Goobstation
+    fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
+    autoCycle: false # Goobstation
     capacity: 10
     proto: CartridgeLightRifle
     whitelist:
@@ -48,6 +49,8 @@
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Item  # Goob edit start
     size: Large
+  - type: Gun
+    fireRate: 1.5
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
@@ -75,7 +78,7 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.4
+    # fireRate: 0.4 # Goobstation edit
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

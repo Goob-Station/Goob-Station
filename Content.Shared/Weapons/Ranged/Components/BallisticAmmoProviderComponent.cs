@@ -57,4 +57,10 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan FillDelay = TimeSpan.FromSeconds(0.5);
+
+    /// <summary>
+    /// Goobstation - is ammo automatically ejected after each shot
+    /// </summary>
+    [DataField]
+    public bool AutoCycle = true;
 }
