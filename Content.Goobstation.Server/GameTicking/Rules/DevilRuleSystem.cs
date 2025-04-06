@@ -60,7 +60,7 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
         var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName));
 
-        _antag.SendBriefing(target, briefing, Color.Yellow, _briefingSound);
+        _antag.SendBriefing(target, briefing, Color.DarkRed, _briefingSound);
 
         if (_role.MindHasRole<DevilRoleComponent>(mindId, out var mr))
             AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefing }, overwrite: true);

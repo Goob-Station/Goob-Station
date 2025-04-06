@@ -13,8 +13,8 @@
   components:
   - type: Objective
     icon:
-      sprite: _Goobstation/Actions/devil.rsi
-      state: summon-contract
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: contract-written
   - type: NumberObjective
     min: 7
     max: 9

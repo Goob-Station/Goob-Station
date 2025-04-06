@@ -170,7 +170,7 @@ public sealed partial class DevilContractSystem
             ["death"] = (target, contract) =>
             {
                 EnsureComp<CheatDeathComponent>(target, out var cheatDeathComponent);
-                cheatDeathComponent.ReviveAmount = 1;
+                cheatDeathComponent.ReviveAmount++;
             },
 
             // Grants an infinite amount of revives.

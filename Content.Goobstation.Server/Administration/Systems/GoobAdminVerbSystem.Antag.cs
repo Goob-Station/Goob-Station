@@ -64,7 +64,7 @@ public sealed partial class GoobAdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-devil"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Blob/Actions/blob.rsi"), "blobFactory"), // Todo - change this
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<DevilRuleComponent>(targetPlayer, "Devil");

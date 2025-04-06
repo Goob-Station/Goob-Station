@@ -48,11 +48,11 @@
 - type: entity
   id: ActionDevilPossess
   name: Possess target
-  description: Temporarily posess a target.
+  description: Temporarily possess a target. Requires two souls to use.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 5
+    useDelay: 45
     whitelist:
       components:
       - Body
@@ -61,9 +61,10 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
-      state: shadow-jaunt
+      state: possess
     event: !type:DevilPosessionEvent {}
   - type: DevilAction
+    soulsRequired: 2
 
 # Deals
 

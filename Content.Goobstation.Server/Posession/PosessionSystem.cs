@@ -1,3 +1,4 @@
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Network;
@@ -13,6 +14,7 @@ public sealed partial class PosessionSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<PossessedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PossessedComponent, ComponentRemove>(OnComponentRemoved);
     }
 
@@ -23,16 +25,31 @@ public sealed partial class PosessionSystem : EntitySystem
         var query = EntityQueryEnumerator<PossessedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.PosessionEndTime)
+            if (_timing.CurTime >= comp.PossessionEndTime)
             {
                 RemComp<PossessedComponent>(uid);
             }
         }
     }
 
-    private void OnComponentRemoved(EntityUid uid, PossessedComponent component, ComponentRemove args)
+    private void OnStartup(EntityUid uid, PossessedComponent comp, ComponentStartup args)
     {
-        RevertPossession(uid, component);
+        if (HasComp<PacifiedComponent>(uid))
+        {
+            comp.WasPacified = true;
+            return;
+        }
+
+        EnsureComp<PacifiedComponent>(uid);
+
+    }
+
+    private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
+    {
+        if (!comp.WasPacified)
+            RemComp<PacifiedComponent>(uid);
+
+        RevertPossession(uid, comp);
     }
 
     public void TryPossessTarget(NetUserId targetUserId, NetUserId possessorUserId)
@@ -55,7 +72,7 @@ public sealed partial class PosessionSystem : EntitySystem
         component.OriginalMindId = targetUserId;
         component.PossessorMindId = possessorUserId;
         component.PossessorOriginalEntity = possessorEntity.Value;
-        component.PosessionEndTime = _timing.CurTime + TimeSpan.FromSeconds(30);
+        component.PossessionEndTime = _timing.CurTime + TimeSpan.FromSeconds(30);
 
         _mindSystem.TransferTo(possessorMind.Value, targetEntity.Value);
     }

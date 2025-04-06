@@ -112,6 +112,7 @@ public sealed partial class DevilSystem : EntitySystem
         // Change damage modifier
         TryComp<DamageableComponent>(uid, out var damageable);
         _damageable.SetDamageModifierSetId(uid, "DevilDealPositive");
+        // When nullrods are done, allow devils to take holy damage.
 
         // Add base actions
         foreach (var actionId in comp.BaseDevilActions)
@@ -194,21 +195,21 @@ public sealed partial class DevilSystem : EntitySystem
 
         comp.LastTriggeredTime = curTime;
 
-        if (!HasComp<BibleUserComponent>(args.Source))
+        if (HasComp<BibleUserComponent>(args.Source))
         {
-            _stun.TryKnockdown(uid, TimeSpan.FromSeconds(4), false);
-            _stun.TryStun(uid, TimeSpan.FromSeconds(4), false);
+            var holyDamage = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Heat"), 25);
+            _damageable.TryChangeDamage(uid, holyDamage, true);
+            _stun.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
+
+            var popupHoly = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source));
+            _popup.PopupPredicted(popupHoly, uid, uid, PopupType.LargeCaution);
+        }
+        else
+        {
+            _stun.TryParalyze(uid, TimeSpan.FromSeconds(4), false);
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source));
             _popup.PopupPredicted(popup, uid, uid, PopupType.LargeCaution);
         }
-
-        var holyDamage = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Holy"), 15);
-        _damageable.TryChangeDamage(uid, holyDamage, true);
-        _stun.TryKnockdown(uid, TimeSpan.FromSeconds(8), false);
-        _stun.TryStun(uid, TimeSpan.FromSeconds(8), false);
-        var popupHoly = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source));
-        _popup.PopupPredicted(popupHoly, uid, uid, PopupType.LargeCaution);
-
     }
 
     #endregion
@@ -228,6 +229,14 @@ public sealed partial class DevilSystem : EntitySystem
 
         action.Handled = true;
         return true;
+    }
+
+    private bool TryUseSoulsAbility(DevilComponent comp, BaseActionEvent action)
+    {
+        if (!TryComp<DevilActionComponent>(action.Action, out var devilAction))
+            return false;
+
+        return !(devilAction.SoulsRequired > comp.Souls);
     }
 
     private void PlayFwooshSound(EntityUid uid, DevilComponent comp)

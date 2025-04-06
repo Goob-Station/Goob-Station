@@ -1,4 +1,5 @@
 using Content.Goobstation.Server.Contract;
+using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
@@ -28,7 +29,7 @@ public sealed partial class DevilSystem
         {
             Act = () => OfferHandshake(args.User, args.Target),
             Text = Loc.GetString("hand-shake-prompt-verb", ("target", args.Target)),
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "cheat-death"),
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
             Priority = 1 // Higher priority than default verbs
         };
 
@@ -88,5 +89,7 @@ public sealed partial class DevilSystem
         var handshakeSucess = Loc.GetString("handshake-success", ("user", user));
         _popup.PopupEntity(handshakeSucess, target, target);
         _rejuvenate.PerformRejuvenate(target);
+        var cheatdeath = EnsureComp<CheatDeathComponent>(target);
+        cheatdeath.ReviveAmount = 1;
     }
 }
