@@ -185,7 +185,6 @@
     - WeaponShotgunKammerer
   - type: BallisticAmmoProvider # Goobstation
     capacity: 4
-    # autoCycle: false
 
 - type: entity
   name: sawn-off shotgun
