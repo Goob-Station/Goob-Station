@@ -16,12 +16,9 @@
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
-    - state: contract
+    - state: contract-written
     - state: contract-signed
       map: [ "enum.PaperVisualLayers.Stamp" ]
-      visible: false
-    - state: contract-written
-      map: [ "enum.PaperVisualLayers.Writing" ]
       visible: false
     - type: paper
 
@@ -60,7 +57,7 @@
   id: PaperDevilContractRevival
   suffix: "Devil Contract, Revival"
   parent: BaseDevilContract
-  name: contract from below
+  name: contract from the depths
   description: A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
   components:
   - type: RevivalContract

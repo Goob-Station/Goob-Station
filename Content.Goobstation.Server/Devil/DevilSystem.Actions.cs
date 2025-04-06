@@ -1,7 +1,10 @@
 using Content.Goobstation.Server.Contract;
+using Content.Goobstation.Server.Contract.Revival;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Shared.Store.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Server.Devil;
 
@@ -9,18 +12,9 @@ public sealed partial class DevilSystem
 {
     private void SubscribeAbilities()
     {
-        SubscribeLocalEvent<DevilComponent, OpenSoulStoreEvent>(OnStoreOpened);
         SubscribeLocalEvent<DevilComponent, CreateContractEvent>(OnContractCreated);
         SubscribeLocalEvent<DevilComponent, CreateRevivalContractEvent>(OnRevivalContractCreated);
         SubscribeLocalEvent<DevilComponent, ShadowJauntEvent>(OnShadowJaunt);
-    }
-
-    private void OnStoreOpened(EntityUid uid, DevilComponent comp, ref OpenSoulStoreEvent args)
-    {
-        if (!TryComp<StoreComponent>(uid, out var store))
-            return;
-
-        _store.ToggleUi(uid, uid, store);
     }
 
     private void OnContractCreated(EntityUid uid, DevilComponent comp, ref CreateContractEvent args)
@@ -35,8 +29,7 @@ public sealed partial class DevilSystem
             return;
 
         contractComponent.ContractOwner = args.Performer;
-
-        // Add a firey sound effect here
+        PlayFwooshSound(uid, comp);
     }
 
     private void OnRevivalContractCreated(EntityUid uid, DevilComponent comp, ref CreateRevivalContractEvent args)
@@ -47,12 +40,11 @@ public sealed partial class DevilSystem
         var contract = Spawn(_revivalContractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
 
-        if (!TryComp<DevilContractComponent>(contract, out var contractComponent))
+        if (!TryComp<RevivalContractComponent>(contract, out var contractComponent))
             return;
 
         contractComponent.ContractOwner = args.Performer;
-
-        // Add a firey sound effect here
+        PlayFwooshSound(uid, comp);
     }
 
     private void OnShadowJaunt(EntityUid uid, DevilComponent comp, ref ShadowJauntEvent args)
@@ -60,6 +52,7 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(comp, args))
             return;
 
+        Spawn("PolymorphShadowJauntAnimation", Transform(uid).Coordinates);
         _poly.PolymorphEntity(uid, "ShadowJaunt");
     }
 

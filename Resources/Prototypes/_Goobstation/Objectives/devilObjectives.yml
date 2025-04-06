@@ -13,8 +13,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Mobs/Demons/abomination.rsi # Todo : Change this
-      state: dead
+      sprite: _Goobstation/Actions/devil.rsi
+      state: summon-contract
   - type: NumberObjective
     min: 7
     max: 9

@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Devil;
@@ -7,7 +8,6 @@ public sealed partial class DevilComponent : Component
 {
     public readonly List<EntProtoId> BaseDevilActions = new()
     {
-        "ActionSoulStoreMenu",
         "ActionCreateContract",
         "ActionShadowJaunt",
         "ActionCreateRevivalContract",
@@ -17,7 +17,7 @@ public sealed partial class DevilComponent : Component
     /// The amount of souls or successful contracts the entity has.
     /// </summary>
     [DataField]
-    public float Souls = 0f;
+    public int Souls = 0;
 
     /// <summary>
     /// The true name of the devil.
@@ -25,4 +25,10 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public string TrueName;
+
+    /// <summary>
+    /// Sound effect played when summoning a contract.
+    /// </summary>
+    [DataField]
+    public SoundPathSpecifier FwooshPath = new SoundPathSpecifier("/Audio/_Goobstation/Effects/fwoosh.ogg");
 }

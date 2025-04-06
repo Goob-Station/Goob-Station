@@ -43,6 +43,8 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+      - type: Condemned
+        isCorporateOwned: true
 
 - type: startingGear
   id: BlueshieldOfficerGear

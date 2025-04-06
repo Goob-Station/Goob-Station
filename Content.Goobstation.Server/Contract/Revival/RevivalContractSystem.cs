@@ -1,4 +1,4 @@
-using Content.Goobstation.Server.Condemned;
+using Content.Goobstation.Shared.Devil;
 using Content.Server.Administration.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
@@ -14,6 +14,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
+    [Dependency] private readonly DevilContractSystem _contract = default!;
 
     public override void Initialize()
     {
@@ -25,16 +26,25 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     private void AfterInteract(EntityUid uid, RevivalContractComponent comp, AfterInteractEvent args)
     {
+        // Block of shitcode.
         if (!TryComp<MobStateComponent>(args.Target, out var mobState) ||
             mobState.CurrentState != MobState.Dead ||
             !HasComp<RevivalContractComponent>(args.Used)
             || args.Target == null || args.Handled) // Todo: Give this an actor comp check when done testing.
             return;
 
+        // Non-devils can't offer deals silly.
+        if (!HasComp<DevilComponent>(args.User))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("devil-sign-invalid-user"), args.User, PopupType.MediumCaution);
+            return;
+        }
+
+        // You can't offer two deals at once.
         if (HasComp<PendingRevivalContractComponent>((EntityUid)args.Target))
         {
-            var popup = Loc.GetString("revival-contract-use-failed");
-            _popupSystem.PopupEntity(popup, uid);
+            var failedPopup = Loc.GetString("revival-contract-use-failed");
+            _popupSystem.PopupEntity(failedPopup, uid);
             return;
         }
 
@@ -44,9 +54,14 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         pending.Offerer = args.User;
         pending.ExpiryTime = _timing.CurTime + TimeSpan.FromSeconds(45);
 
+        // Show confirmation
+        var sucessPopup = Loc.GetString("revival-contract-use-success", ("target", args.Target));
+        _popupSystem.PopupEntity(sucessPopup, uid);
+
+
         // Show instructions
-        var msg = Loc.GetString("revival-contract-prompt");
-        _popupSystem.PopupEntity(msg, (EntityUid)args.Target, (EntityUid)args.Target);
+        var prompt = Loc.GetString("revival-contract-prompt", ("offerer", args.User));
+        _popupSystem.PopupEntity(prompt, (EntityUid)args.Target, (EntityUid)args.Target);
         args.Handled = true;
 
     }
@@ -58,14 +73,14 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         {
             Act = () => HandleContractResponse(args.Target, true),
             Text = Loc.GetString("revival-contract-prompt-accept"),
-            Icon = new SpriteSpecifier.Rsi(new("Interface/Alerts/human_alive.rsi"), "health4"), // Todo: Change to a check
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "cheat-death"),
         };
 
         InnateVerb rejectVerb = new()
         {
             Act = () => HandleContractResponse(args.Target, false),
             Text = Loc.GetString("revival-contract-prompt-reject"),
-            Icon = new SpriteSpecifier.Rsi(new("Interface/Alerts/human_alive.rsi"), "health4"), // Todo: Change to an X
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "broken-heart"),
         };
 
         args.Verbs.Add(acceptVerb);
@@ -84,8 +99,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
                 _rejuvenate.PerformRejuvenate(target);
                 _popupSystem.PopupEntity(Loc.GetString("revival-contract-accepted"), target);
 
-                EnsureComp<CondemnedComponent>(target, out var condemnedComponent);
-                condemnedComponent.SoulOwner = contract.ContractOwner;
+               _contract.TryTransferSouls(contract.ContractOwner, contract.Signer, 1);
             }
         }
         else

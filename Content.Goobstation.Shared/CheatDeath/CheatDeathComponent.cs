@@ -14,6 +14,7 @@ public sealed partial class CheatDeathComponent : Component
     /// </remarks>
     [DataField]
     public int ReviveAmount = 1;
+
 }
 
 public sealed partial class CheatDeathEvent : InstantActionEvent { }

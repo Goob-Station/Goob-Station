@@ -32,9 +32,6 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
     private void OnExamined(Entity<CheatDeathComponent> comp, ref ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient && args.Examined != args.Examiner && comp.Comp.ReviveAmount > 0)
-            args.PushMarkup(Loc.GetString("cheat-death-component-examined", ("target", Identity.Entity(comp, EntityManager))));
-
         if (args.Examined == args.Examiner && !_net.IsClient)
             args.PushMarkup(Loc.GetString("cheat-death-component-remaining-revives", ("amount", comp.Comp.ReviveAmount)));
     }

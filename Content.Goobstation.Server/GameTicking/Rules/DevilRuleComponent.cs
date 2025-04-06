@@ -8,9 +8,4 @@ namespace Content.Goobstation.Server.GameTicking.Rules;
 public sealed partial class DevilRuleComponent : Component
 {
     public readonly List<EntityUid> DevilMinds = new();
-
-    public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
-    {
-        "DevilAbilityUtility",
-    };
 }

@@ -1,4 +1,0 @@
-- type: currency
-  id: SoulPoint
-  displayName: store-currency-display-soulpoints
-  canWithdraw: false

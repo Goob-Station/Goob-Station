@@ -14,5 +14,9 @@ devil-deal-time-ran-out = Your vision goes black as your muscles fail you. You'v
 revival-contract-accepted = You feel your connection to your body strengthen...
 revival-contract-rejected = You reject the unholy offer.
 revival-contract-expired = Times up.
-revival-contract-prompt = "A dark contract offers to restore your life... Do you accept? (Check your verbs)"
+revival-contract-prompt = {$offerer} offers to restore your life for a price... Do you accept? (Return to your body and check verbs.)
+revival-contract-use-success = You offer {$target} a deal no man could refuse...
+revival-contract-use-failed = You cannot offer {$target} two deals at once.
 
+revival-contract-prompt-reject = Reject Offer
+revival-contract-prompt-accept = Accept Offer

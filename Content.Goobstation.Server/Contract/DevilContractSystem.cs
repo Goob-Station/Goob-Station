@@ -1,6 +1,7 @@
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Condemned;
+using Content.Goobstation.Server.Devil;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Paper;
@@ -12,17 +13,17 @@ namespace Content.Goobstation.Server.Contract;
 
 public sealed partial class DevilContractSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
+    [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly INetManager _net = null!;
+    [Dependency] private readonly EntityManager _entityManager = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
 
-    private ISawmill _sawmill = default!;
+    private ISawmill _sawmill = null!;
 
     private TimeSpan _nextExecutionTime = TimeSpan.Zero;
-    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
+    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(2);
 
     public override void Initialize()
     {
@@ -84,36 +85,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (_timing.CurTime < _nextExecutionTime)
             return;
 
-        var query = EntityQueryEnumerator<DevilContractComponent>();
-        while (query.MoveNext(out var uid, out var contract))
-        {
-            if (!TryComp<PaperComponent>(uid, out var paper))
-                continue;
-
-            var matches = ClauseRegex.Matches(paper.Content);
-            int newWeight = 0;
-
-            foreach (Match match in matches)
-            {
-                if (!match.Success) continue;
-
-                var clauseKey = match.Groups["clause"].Value.Trim().ToLower();
-                if (_clauseWeights.TryGetValue(clauseKey, out var weight))
-                {
-                    newWeight += weight;
-                }
-                else
-                {
-                    _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
-                }
-            }
-
-            // Update contract weight only if changed
-            if (contract.ContractWeight != newWeight)
-            {
-                contract.ContractWeight = newWeight;
-            }
-        }
+        TryUpdateContractWeight();
 
         _nextExecutionTime = _timing.CurTime + ExecutionInterval;
     }
@@ -130,7 +102,15 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     private void OnContractSignAttempt(EntityUid uid, DevilContractComponent comp, ref BeingSignedAttemptEvent args)
     {
-        // Only handle unsigned contracts
+        // Don't allow mortals to sign contracts for other people.
+        // It won't work, but you still shouldn't be able to.
+        if (comp.IsVictimSigned && args.Signer != comp.ContractOwner)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("devil-sign-invalid-user"), uid);
+            return;
+        }
+
+        // Only handle unsigned contracts.
         if (comp.IsVictimSigned || comp.IsDevilSigned)
             return;
 
@@ -189,30 +169,18 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     private void HandleVictimSign(EntityUid uid, DevilContractComponent comp, SignSuccessfulEvent args)
     {
-        if (comp.ContractOwner == args.User)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("devil-sign-too-early"), uid);
-            return;
-        }
-
         // No funny business with a cybersun pen!
-        if (TryComp<PaperComponent>(comp.Owner, out var paper))
+        if (TryComp<PaperComponent>(args.Paper, out var paper))
             paper.EditingDisabled = true;
 
         comp.Signer = args.User;
         comp.IsVictimSigned = true;
-        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), uid);
+        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), args.User);
 
     }
 
     private void HandleDevilSign(EntityUid uid, DevilContractComponent comp, SignSuccessfulEvent args)
     {
-        if (comp.ContractOwner != args.User)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("devil-sign-invalid-user"), uid);
-            return;
-        }
-
         comp.IsDevilSigned = true;
         _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), uid);
 
@@ -222,6 +190,9 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         // Common final activation logic
         TryContractEffects(uid, comp);
+
+        // Make sure the weight is set properly.
+        TryUpdateContractWeight();
 
         // Visual feedback
         // _appearance.SetData(uid, ContractVisuals.Active, true);
@@ -233,6 +204,54 @@ public sealed partial class DevilContractSystem : EntitySystem
     #endregion
 
     #region Helper Events
+
+    public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
+    {
+        if (HasComp<CondemnedComponent>(contractee))
+            return false;
+
+        var ev = new SoulAmountChangedEvent(devil, contractee, added);
+        RaiseLocalEvent(devil, ref ev);
+
+        var condemned = EnsureComp<CondemnedComponent>(contractee);
+        condemned.SoulOwner = devil;
+
+        return true;
+    }
+
+    private void TryUpdateContractWeight()
+    {
+        var query = EntityQueryEnumerator<DevilContractComponent>();
+        while (query.MoveNext(out var uid, out var contract))
+        {
+            if (!TryComp<PaperComponent>(uid, out var paper))
+                continue;
+
+            var matches = ClauseRegex.Matches(paper.Content);
+            int newWeight = 0;
+
+            foreach (Match match in matches)
+            {
+                if (!match.Success) continue;
+
+                var clauseKey = match.Groups["clause"].Value.Trim().ToLower();
+                if (_clauseWeights.TryGetValue(clauseKey, out var weight))
+                {
+                    newWeight += weight;
+                }
+                else
+                {
+                    _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
+                }
+            }
+
+            // Update contract weight only if changed
+            if (contract.ContractWeight != newWeight)
+            {
+                contract.ContractWeight = newWeight;
+            }
+        }
+    }
 
     private void TryContractEffects(EntityUid uid, DevilContractComponent comp)
     {

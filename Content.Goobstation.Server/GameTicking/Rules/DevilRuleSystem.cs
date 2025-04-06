@@ -24,17 +24,12 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
 
-    private readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg");
+    private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/devil_start.ogg");
 
     [ValidatePrototypeId<NpcFactionPrototype>]
-    public const string DevilFaction = "DevilFaction";
+    private const string DevilFaction = "DevilFaction";
 
-    public readonly ProtoId<AntagPrototype> DevilPrototypeId = "Devil";
-
-    private EntProtoId DevilMindRole = "DevilMindRole";
-
-    [ValidatePrototypeId<CurrencyPrototype>]
-    public const string SoulCurrency = "SoulPoint";
+    private readonly EntProtoId _devilMindRole = "DevilMindRole";
 
     [ValidatePrototypeId<NpcFactionPrototype>]
     private const string NanotrasenFaction = "NanoTrasen";
@@ -57,13 +52,13 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, DevilMindRole.Id, mind, true);
+        _role.MindAddRole(mindId, _devilMindRole.Id, mind, true);
 
         var devilComp = EnsureComp<DevilComponent>(target);
 
         var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName));
 
-        _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
+        _antag.SendBriefing(target, briefing, Color.Yellow, _briefingSound);
 
         if (_role.MindHasRole<DevilRoleComponent>(mindId, out var mr))
             AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefing }, overwrite: true);
@@ -72,13 +67,6 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         _npcFaction.AddFaction(target, DevilFaction);
 
         EnsureComp<DevilComponent>(target);
-
-        var store = EnsureComp<StoreComponent>(target);
-
-        foreach (var category in rule.StoreCategories)
-            store.Categories.Add(category);
-
-        store.CurrencyWhitelist.Add(SoulCurrency);
 
         rule.DevilMinds.Add(mindId);
 

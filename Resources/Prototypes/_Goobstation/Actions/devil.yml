@@ -1,20 +1,6 @@
 # Devil Specific
 
 - type: entity
-  id: ActionSoulStoreMenu
-  name: Open soul store menu
-  description: Opens the soul store menu.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
-      state: evolution_menu
-    event: !type:OpenSoulStoreEvent {}
-  - type: DevilAction
-
-- type: entity
   id: ActionCreateContract
   name: Summon infernal contract
   description: Creates an infernal contract in the Devil's hand.
@@ -24,8 +10,8 @@
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
-      state: evolution_menu
+      sprite: _Goobstation/Actions/devil.rsi
+      state: summon-contract
     event: !type:CreateContractEvent {}
   - type: DevilAction
 
@@ -39,8 +25,8 @@
     useDelay: 30
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
-      state: evolution_menu
+      sprite: _Goobstation/Actions/devil.rsi
+      state: summon-contract-revival
     event: !type:CreateRevivalContractEvent {}
   - type: DevilAction
 
@@ -54,8 +40,8 @@
     useDelay: 5
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi # Change this
-      state: evolution_menu
+      sprite: _Goobstation/Actions/devil.rsi
+      state: shadow-jaunt
     event: !type:ShadowJauntEvent {}
   - type: DevilAction
 
@@ -73,6 +59,6 @@
     checkCanInteract: false
     checkConsciousness: false
     icon:
-      sprite: Objects/Weapons/Grenades/smoke.rsi # Todo: Change this to like wings or something
-      state: icon
+      sprite: _Goobstation/Actions/devil.rsi
+      state: cheat-death
     event: !type:CheatDeathEvent {}

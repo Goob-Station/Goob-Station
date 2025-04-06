@@ -1,11 +1,13 @@
 using System.Linq;
 using Content.Goobstation.Common.Traits;
 using Content.Goobstation.Server.Condemned;
+using Content.Goobstation.Server.Devil;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Access.Systems;
 using Content.Server.Body.Systems;
+using Content.Server.NPC.Queries.Considerations;
 using Content.Server.Speech.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Body.Components;
@@ -31,12 +33,13 @@ public sealed partial class DevilContractSystem
 
                 if (TryComp<DevilComponent>(contract.ContractOwner, out var devil))
                 {
-                    devil.Souls++;
                     _popupSystem.PopupEntity(
                         Loc.GetString("contract-soul-added"),
                         (EntityUid)contract.ContractOwner,
                         PopupType.LargeCaution);
 
+                    // Transfer soul
+                    TryTransferSouls(contract.ContractOwner, target, 1);
                 }
             },
 

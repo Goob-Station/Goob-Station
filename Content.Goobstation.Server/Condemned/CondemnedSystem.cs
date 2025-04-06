@@ -19,15 +19,13 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, CondemnedComponent comp, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient)
-        {
+        if (args.IsInDetailsRange && !_net.IsClient && !comp.IsCorporateOwned)
             args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", uid)));
-        }
     }
 
     private void OnMobStateChanged(EntityUid uid, CondemnedComponent comp, MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead)
+        if (args.NewMobState != MobState.Dead && !comp.IsCorporateOwned)
             return;
 
         if (TryComp<CheatDeathComponent>(uid, out var cheatDeath) && cheatDeath.ReviveAmount > 0)

@@ -78,11 +78,14 @@ public sealed class SignatureSystem : EntitySystem
         if (!comp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState))
         {
             // Show popups and play a paper writing sound
-            var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper.Owner));
-            _popup.PopupEntity(signedOtherMessage, signer, Filter.PvsExcept(signer, entityManager: EntityManager), true);
+            if (!HasComp<DevilComponent>(signer)) // Goobstation - Don't display popups for devils, it covers the others.
+            {
+                var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper.Owner));
+                _popup.PopupEntity(signedOtherMessage, signer, Filter.PvsExcept(signer, entityManager: EntityManager), true);
 
-            var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", paper.Owner));
-            _popup.PopupEntity(signedSelfMessage, signer, signer);
+                var signedSelfMessage = Loc.GetString("paper-signed-self", ("target", paper.Owner));
+                _popup.PopupEntity(signedSelfMessage, signer, signer);
+            }
 
             _audio.PlayPvs(comp.Sound, signer);
 
