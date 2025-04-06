@@ -9,3 +9,4 @@
     state: mimery_book
   - type: UseDelay
     delay: 1
+  - type: MimeryBook

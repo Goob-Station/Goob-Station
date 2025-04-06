@@ -1,0 +1,15 @@
+- type: entity
+  id: ActionMimeryWall
+  name: triplewall
+  description: Creates a magical barrier.
+  components:
+  - type: InstantAction
+    useDelay: 20
+    itemIconStyle: BigAction
+    icon:
+      sprite: Structures/Walls/solid.rsi
+      state: full
+    event: !type:InstantSpawnSpellEvent
+      prototype: WallInvisible
+      posData: !type:TargetInFront
+      preventCollideWithCaster: False
