@@ -163,7 +163,7 @@ namespace Content.Shared.Entry
             // Client or Server not being found is fine - both is bad.
             if (count < _goobmods.Count-1)
             {
-                throw new InvalidOperationException("Missing goobmods in appdomain! Did you build solution?");
+                throw new InvalidOperationException("Missing goobmods in appdomain! Did you build the solution?");
             }
         }
     }
