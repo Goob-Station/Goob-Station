@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
@@ -52,4 +56,8 @@
     - PinpointerSyndicateNuclear
     - CombatMedipen
     - DeathAcidifierImplanter
+<<<<<<< HEAD
     - MedkitCombatFilled
+=======
+    - OmnimedToolSyndie # Shitmed
+>>>>>>> master

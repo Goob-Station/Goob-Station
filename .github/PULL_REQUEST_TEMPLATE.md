@@ -1,5 +1,6 @@
 <!-- Guidelines: https://docs.spacestation14.io/en/getting-started/pr-guideline -->
-
+LICENSE: AGPL
+<!-- The license you want applied to new files, currently available licenses are AGPL and MIT. -->
 ## About the PR
 <!-- What did you change? -->
 
