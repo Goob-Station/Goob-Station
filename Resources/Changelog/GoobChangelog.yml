@@ -7080,3 +7080,9 @@ Entries:
       message: Atropine no longer paralyzes without OD.
   id: 822
   time: '2025-04-05T11:57:11.0000000+00:00'
+- author: _kote, Mocho, Durk
+  changes:
+    - type: Add
+      message: R&D console got fully reworked!
+  id: 823
+  time: '2025-04-07T08:05:52.0000000+00:00'
