@@ -1,4 +1,11 @@
-﻿<BoxContainer xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<BoxContainer xmlns="https://spacestation14.io"
               Orientation="Vertical">
     <Label Text="{Loc 'ui-info-header-controls'}" StyleClasses="LabelHeading"/>
     <BoxContainer Orientation="Horizontal"

@@ -1,4 +1,14 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
                xmlns:ui="clr-namespace:Content.Client.Disposal.UI"
                MinSize="300 400"
             SetSize="300 400"

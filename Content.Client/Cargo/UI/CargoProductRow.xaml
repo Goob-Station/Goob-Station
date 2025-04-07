@@ -1,4 +1,14 @@
-﻿<PanelContainer xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<PanelContainer xmlns="https://spacestation14.io"
                 HorizontalExpand="True">
     <Button Name="MainButton"
             ToolTip=""

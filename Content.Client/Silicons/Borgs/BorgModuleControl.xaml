@@ -1,4 +1,11 @@
-﻿<PanelContainer xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<PanelContainer xmlns="https://spacestation14.io"
                 HorizontalExpand="True"
                 StyleClasses="PanelBackgroundLight"
                 Margin="5 5 5 0">
