@@ -17,9 +17,13 @@ on:
       - reopened
       - ready_for_review
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   Label:
-    if: ( github.event.pull_request.draft == false ) && ( github.actor != 'PJBot' )
+    if: ( github.event.pull_request.draft == false ) && ( github.actor != 'GoobBot' )
     runs-on: ubuntu-latest
     steps:
       - name: Check for Merge Conflicts

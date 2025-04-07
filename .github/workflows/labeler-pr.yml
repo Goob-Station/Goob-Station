@@ -9,9 +9,13 @@ name: "Labels: PR"
 on:
 - pull_request_target
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   labeler:
-    if: github.actor != 'PJBot'
+    if: github.actor != 'GoobBot'
     permissions:
       contents: read
       pull-requests: write
