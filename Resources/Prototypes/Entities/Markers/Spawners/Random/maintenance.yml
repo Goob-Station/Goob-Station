@@ -27,6 +27,7 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingShoeSlippersDuck
       - id: ClothingUnderSocksBee
+      - id: ClothingShoesFakeJordans
       - id: ClothingUnderSocksCoder
       - id: ClothingHeadHatSquid
       # Animal Masks
@@ -118,6 +119,7 @@
       - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
+      - id: FoodSnackLollypopWrappedMysteryNeutral # Goobstation - Lollypops!
       # Cult
       - !type:AllSelector
         children:
@@ -142,6 +144,7 @@
       - !type:GroupSelector
         children:
         - id: ClothingNeckLGBTPin
+        - id: ClothingNeckAllyPin
         - id: ClothingNeckAromanticPin
         - id: ClothingNeckAsexualPin
         - id: ClothingNeckBisexualPin
@@ -151,6 +154,7 @@
         - id: ClothingNeckNonBinaryPin
         - id: ClothingNeckPansexualPin
         - id: ClothingNeckOmnisexualPin
+        - id: ClothingNeckGenderqueerPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
     # Rare Group
@@ -166,6 +170,7 @@
       - id: WristwatchGold
       - id: RubberStampGreytide
       - id: ClothingShoesWizardSkates #GoobStation - Wizard Skates
+      - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation - Lollypops!
 
 - type: entity
   name: Maint Loot Spawner
@@ -280,6 +285,7 @@
     - !type:GroupSelector
       weight: 2
       children:
+      - id: Binoculars
       - id: LanternFlash
       - id: PowerCellHigh
       - id: NetProbeCartridge

@@ -10,8 +10,8 @@
 
 - type: entity  # Goobstation original
   parent: ClothingUniformJumpsuitAtmosSyndie
-  id: ClothingUniformJumpsuitAtmosSyndieAdmin
-  suffix: Contortionistic, Admeme
+  id: ClothingUniformJumpsuitAtmosSyndieAdvanced
+  suffix: Contortionistic, Inventory
   components:
   - type: ClothingGrantComponent
     component:

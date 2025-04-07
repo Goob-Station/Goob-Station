@@ -40,6 +40,20 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: UplinkSarinGasGrenade
+  name: uplink-sarin-gas-grenade-name
+  description: uplink-sarin-gas-grenade-desc
+  productEntity: SarinGasGrenade
+  cost:
+    Telecrystal: 12
+  categories:
+    -  UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Weaponry
 
@@ -158,17 +172,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkDualettaKit
-  name: uplink-dualetta-kit-name
-  description: uplink-dualetta-kit-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
-  productEntity: BoxDualettaKit
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkPistolAnaconda
   name: uplink-anaconda-name
   description: uplink-anaconda-desc
@@ -189,6 +192,17 @@
     - UplinkWeaponry
 
 # Wearables
+
+- type: listing
+  id: UplinkClothingDreadnought
+  name: uplink-hardsuit-cybersun-dreadnought-name
+  description: uplink-hardsuit-cybersun-dreadnought-desc
+  icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
+  productEntity: CrateSyndicateDreadnought
+  cost:
+    Telecrystal: 150
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkClothingHeadHelmetSwatSyndicate
@@ -247,6 +261,17 @@
   productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   cost:
     Telecrystal: 75
+  categories:
+  - UplinkWearables
+
+- type: listing
+  id: UplinkReverseBearTrap
+  name: uplink-reverse-bear-trap-name
+  description: uplink-reverse-bear-trap-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
+  productEntity: BoxReverseBearTrap
+  cost:
+    Telecrystal: 23 # novelty item for rp
   categories:
   - UplinkWearables
 
@@ -312,6 +337,20 @@
     - Clown
     - Mime
 
+- type: listing
+  id: UplinkClowncar
+  name: uplink-clowncar-name
+  description: uplink-clowncar-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Vehicles/clowncar.rsi, state: clowncar }
+  productEntity: CrateFunClownCarUplink
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -415,6 +454,18 @@
   productEntity: SmokeImplanter
   cost:
     Telecrystal: 10
+  categories:
+    - UplinkImplants
+
+
+- type: listing
+  id: UplinkKravMagaImplanter
+  name: uplink-krav-maga-implant-name
+  description: uplink-krav-maga-implant-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+  productEntity: KravMagaImplanter
+  cost:
+    Telecrystal: 40
   categories:
     - UplinkImplants
 
@@ -620,8 +671,60 @@
       tags:
       - NukeOpsUplink
 
-# Misc
+# Martial Arts
+- type: listing
+  id: UplinkCQCManual
+  name: uplink-cqc-name
+  description: uplink-cqc-desc
+  productEntity: CQCManual
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
+- type: listing
+  id: UplinkMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+# Explosives
+
+- type: listing
+  id: UplinkPizzaBomb   # Harmony
+  name: uplink-pizza-bomb-name
+  description: uplink-pizza-bomb-desc
+  productEntity: FoodBoxPizzaBomb
+  cost:
+    Telecrystal: 10  # Goob
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkPizzaParty
+  name: uplink-pizza-party-crate-name
+  description: uplink-pizza-party-crate-desc
+  productEntity: CratePizzaParty
+  cost:
+    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
+  categories:
+  - UplinkExplosives
+
+# Misc
 - type: listing
   id: UplinkDimensionPot
   name: uplink-dimension-pot-name
@@ -631,3 +734,18 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
+
+- type: listing
+  id: NukieMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink

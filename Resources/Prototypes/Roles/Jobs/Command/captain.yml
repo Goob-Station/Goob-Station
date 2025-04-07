@@ -16,6 +16,7 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 54000 # 15 hours
+  goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -39,10 +40,8 @@
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
-    pocket1: WeaponPistolN1984
   storage:
     back:
-    - MagazineMagnum
     - Flash
     - TelescopicBaton # Goobstation
     # - StationCharter

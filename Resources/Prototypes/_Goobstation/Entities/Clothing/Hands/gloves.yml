@@ -43,6 +43,88 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
+  parent: [ClothingHandsGlovesCombat, BaseCentcommContraband]
+  id: ClothingHandsGlovesDeathsquad
+  suffix: DO NOT MAP # Just don't...
+  name: deathsquad power claws
+  description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-pitch-black
+  - type: ClothingGrantComponent
+    component:
+    - type: Prying
+      pryPowered: true
+      force: true
+      speedModifier: 4.5
+  - type: MeleeWeapon
+    attackRate: 2
+    autoAttack: true
+    damage:
+      types:
+        Slash: 25
+        Structural: 60
+    mustBeEquippedToUse: true
+
+  - type: ItemSwitch
+    showLabel: true
+    state: gauntlet
+    states:
+      gauntlet: !type:ItemSwitchState
+        verb: gauntlet
+        sprite:
+          sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+          state: icon
+        components:
+          - type: MeleeWeapon
+            attackRate: 1.2
+            damage:
+              types:
+                Blunt: 32
+                Structural: 80
+            mustBeEquippedToUse: true
+          - type: StaminaDamageOnHit
+            damage: 45
+            overtime: 80
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+      claws: !type:ItemSwitchState
+        verb: claws
+        sprite:
+          sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+          state: icon-on
+        components:
+          - type: MeleeWeapon
+            attackRate: 2
+            autoAttack: true
+            damage:
+              types:
+                Slash: 25
+                Structural: 50
+                Cellular: 15 # Rip and tear until it is done.
+            mustBeEquippedToUse: true
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+
+- type: entity
+  parent: ClothingHandsGlovesDeathsquad
+  id: ClothingHandsGlovesDeathsquadUnremovable
+  suffix: Unremovable
+  components:
+  - type: Unremoveable
+
+- type: entity
   parent: ClothingHandsGlovesColorYellow
   id: ClothingHandsGlovesAtmosInsulated
   name: insulated atmos gloves
@@ -54,3 +136,32 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
   - type: Fiber
     fiberColor: fibers-blue
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesHeavyGoldenTrim
+  name: heavy gold-trimmed gloves
+  description: A pair of gold-trimmed gloves made for Central Command staff. These ones are insulated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesGoldenTrim
+  name: gold-trimmed gloves
+  description: A pair of gold-trimmed gloves made for Central Command staff. Not insulated.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Fiber
+    fiberMaterial: fibers-classified
+    fiberColor: fibers-white

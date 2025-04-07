@@ -45,6 +45,14 @@
   name: brain
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Speech
+    enabled: false
+  - type: TypingIndicator
+    proto: empty
+  - type: Emoting
+    enabled: false
   - type: Item
     size: Small
     heldPrefix: brain

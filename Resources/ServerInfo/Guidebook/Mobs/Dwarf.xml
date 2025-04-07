@@ -5,7 +5,10 @@
     <GuideEntityEmbed Entity="MobDwarf" Caption=""/>
   </Box>
 
-  Dwarves are similar to humans in most respect, but tolerate alcohol better and are healed by it. They are also able to feel nearby ore in 3 tile radius.
-
+  Dwarves are similar to humans in most respects, however,
+  They are not poisoned by alcohol and instead are even slightly healed by it.
+  Their mining instincts allow them to feel nearby ore in 3 tile radius.
+  They are slightly smaller than humans, though are also slightly heavier.
+  They suffocate two times faster.
 
 </Document>

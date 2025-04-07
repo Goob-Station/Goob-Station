@@ -959,16 +959,19 @@
     tags:
     - DoorBumpOpener
 
-- type: entity
-  parent: CentcomPDA
-  id: DeathsquadPDA
-  suffix: Death Squad
-  components:
-  - type: Pda
-    id: CentcomIDCardDeathsquad
-  - type: Tag #  Ignore Chameleon tags
-    tags:
-    - DoorBumpOpener
+#- type: entity - Completely re-making this in goob files.
+#  parent: CentcomPDA
+#  id: DeathsquadPDA
+#  suffix: Death Squad
+#  description: Holding it fills you with a sense of anger. Rip & tear until it is done.
+#  components:
+#  - type: Pda
+#    id: CentcomIDCardDeathsquad
+#  - type: Icon
+#    sprite: _Goobstation/Objects/Devices/pda.rsi
+#    state: pda-deathsquad
+#  - type: Sprite
+#    sprite: _Goobstation/Objects/Devices/pda.rsi
 
 - type: entity
   parent: BasePDA

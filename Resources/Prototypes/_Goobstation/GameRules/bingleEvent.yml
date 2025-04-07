@@ -7,5 +7,11 @@
     weight: 8
     duration: 50
     minimumPlayers: 15
+    chaos: # Goobstation
+      Hostile: 100
+      Friend: 20
+      Combat: 100
+      Death: 100
+      Medical: 100
   - type: RandomSpawnRule
     prototype: SpawnPointGhostBinglePrime

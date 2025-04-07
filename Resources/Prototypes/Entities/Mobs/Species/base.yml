@@ -27,12 +27,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "neck" ]
+    - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -141,6 +141,7 @@
     - Brainrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline
     - Brainrotted # Goobstation - skibidi rizz ohio update
+    - Dementia # Goobstation - Amnestic spray!
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -200,9 +201,6 @@
       enum.WizardTeleportUiKey.Key: # Goobstation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
-      # Shitmed
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -229,7 +227,6 @@
     - AnomalyHost
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
-  - type: SurgeryTarget # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
 
 - type: entity
@@ -301,6 +298,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
 
 - type: entity
   save: false
@@ -340,12 +338,12 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "neck" ]
+    - map: [ "outerClothing" ]
     - map: [ "back" ]
+    - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

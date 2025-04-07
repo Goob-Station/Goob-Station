@@ -1,0 +1,72 @@
+- type: entity # To-do - Replace all sounds with Nanotrasen energy sounds once blueshield shield PR is merged.
+  name: phoron sabre
+  parent: [BaseMeleeWeaponEnergy, BaseCentcommContraband]
+  id: PhoronSabre
+  suffix: DO NOT MAP
+  description: The signature weapon of the dreaded deathsquads. It's mostly for show.
+  components:
+  - type: ItemToggle
+    # Goobstation start
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    # Goobstation end
+    soundActivate:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+    soundDeactivate:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
+  - type: ItemToggleActiveSound
+    activeSound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/phoron_sabre.rsi
+    layers:
+    - state: p_sword
+    - state: p_sword_blade
+      color: "#b5fbfa"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 30
+        Heat: 35
+        Radiation: 10
+        Structural: 80
+
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/phoron_sabre_inhands.rsi
+  - type: Reflect
+    reflectProb: 1
+    otherTypeReflectProb: 0.4
+    reflects:
+      - Energy
+  - type: Tag
+    tags:
+    - EnergySword
+  - type: ThrowableBlocker
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
+
+  - type: Sharp
+  - type: Execution # Off with his head!
+    doAfterDuration: 4.0

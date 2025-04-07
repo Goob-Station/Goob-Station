@@ -1,5 +1,5 @@
-﻿using Content.Shared.Alert;
-using Content.Shared.Movement.Pulling.Systems;
+﻿using Content.Goobstation.Common.MartialArts;
+using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -10,7 +10,6 @@ namespace Content.Shared.Movement.Pulling.Components;
 /// Specifies an entity as being able to pull another entity with <see cref="PullableComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(PullingSystem))]
 public sealed partial class PullerComponent : Component
 {
     // My raiding guild
@@ -81,7 +80,7 @@ public sealed partial class PullerComponent : Component
     public float SuffocateGrabStaminaDamage = 10f;
 
     [DataField]
-    public float GrabThrowDamageModifier = 1f;
+    public float GrabThrowDamageModifier = 2f;
 
     [ViewVariables]
     public List<EntityUid> GrabVirtualItems = new();
@@ -91,6 +90,21 @@ public sealed partial class PullerComponent : Component
     {
         { GrabStage.Suffocate, 1 },
     };
+
+    [DataField]
+    public float GrabThrownSpeed = 7f;
+
+    [DataField]
+    public float ThrowingDistance = 4f;
+
+    [DataField]
+    public float SoftGrabSpeedModifier = 0.9f;
+
+    [DataField]
+    public float HardGrabSpeedModifier = 0.7f;
+
+    [DataField]
+    public float ChokeGrabSpeedModifier = 0.4f;
     // Goobstation end
 }
 

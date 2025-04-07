@@ -58,3 +58,19 @@
 #      map: ["enum.GunVisualLayers.Mag"]
 #    - state: incendiary
 #      color: "#fff94d"
+
+- type: entity
+  id: MagazineBoxMagnumNeurotoxin
+  parent: BaseMagazineBoxMagnum
+  name: ammunition box (.45 magnum neurotoxin)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumNeurotoxin
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#00FF00"

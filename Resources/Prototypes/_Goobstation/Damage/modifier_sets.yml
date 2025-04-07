@@ -22,11 +22,9 @@
 - type: damageModifierSet
   id: Yowie
   coefficients:
-    Blunt: 0.85
-    Slash: 0.85
-    Piercing: 0.85
-    Heat: 1.15
-    Shock: 1
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.75
     Cold: 0.9
     Bloodloss: 0.9
     Poison: 0.0 # Yea, heroin is heaps good for ya
@@ -165,6 +163,16 @@
 
 - type: damageModifierSet
   id: Bingle
+  coefficients:
+    Blunt: 0.9  # 10% reduction to all
+    Slash: 0.9
+    Piercing: 0.9
+    Shock: 0.9
+    Heat: 0.9
+    Ion: 2.0 # double damage from ion
+
+- type: damageModifierSet
+  id: BingleUpgraded
   coefficients:
     Blunt: 0.8  # 20% reduction to all
     Slash: 0.8

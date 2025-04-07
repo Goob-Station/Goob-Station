@@ -1,13 +1,19 @@
 - type: entity
-  name: dualetta kit
+  name: box of lube & glue grenades
   parent: BoxCardboard
-  id: BoxDualettaKit
-  description: A box full of completely legal stuff.
+  id: BoxReagentGrenades
+  description: A box full of lube & glue grenades.
   components:
   - type: StorageFill
     contents:
-    - id: WeaponPistolDualetta
+    - id: LubeGrenade
       amount: 2
+    - id: GlueGrenade
+      amount: 2
+  - type: Sprite
+    layers:
+    - state: box
+    - state: flashbang
 
 - type: entity
   name: box of lollypops

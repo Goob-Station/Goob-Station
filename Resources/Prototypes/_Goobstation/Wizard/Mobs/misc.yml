@@ -113,7 +113,7 @@
       - Wizard
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: SimpleHumanoidHostileCompound # Humanoid for staff of change shenanigans
   - type: Reactive
     groups:
       Flammable: [ Touch ]

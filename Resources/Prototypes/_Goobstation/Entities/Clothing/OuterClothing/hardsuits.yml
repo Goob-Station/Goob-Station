@@ -1,4 +1,4 @@
-#chrono/future soldier hardsuit
+# Chronolegioneer Hardsuit
 
 - type: entity
   parent: ClothingOuterHardsuitBase
@@ -47,44 +47,79 @@
   components:
   - type: Unremoveable
 
-#bso hardsuit
+# Blueshield Hardsuit
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
-  id: ClothingOuterHardsuitBlueshield
-  name: blueshield hardsuit
-  description: A hardsuit for the captains personal bodyguard.
+  parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
+  id: ClothingOuterHardsuitBlueshieldLight
+  name: "'praetorian' escort hardsuit"
+  description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.65
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    sprintModifier: 0.9
+    walkModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitBlueshield
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1.5
+    knockdownTimeDelta: -1.5
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
+  id: ClothingOuterHardsuitBlueshieldHeavy
+  name: "'praetorian' bulwark hardsuit"
+  description: A hardsuit designed for an elite bodyguard. This particular one has addition plating outside, at the cost of maneuverability.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
   - type: PressureProtection
-    highPressureMultiplier: 0.5
+    highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.45
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.5
+        Piercing: 0.45
         Radiation: 0.5
-        Caustic: 0.6
-        Heat: 0.6
+        Caustic: 0.5
+        Heat: 0.45
   - type: ClothingSpeedModifier
-    walkModifier: 0.75
     sprintModifier: 0.75
+    walkModifier: 1
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
 
-# cybersun stealth
+# Cybersun Stealth
 
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
@@ -132,3 +167,60 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
+
+# cybersun dreadnought suit
+
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitCybersunDreadnought
+  name: cybersun dreadnought suit
+  description: The syndicate places it's glory on your shoulders, do not dissapoint.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
+  - type: Item
+    size: Ginormous #damn its hard to spell
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
+    equipDelay: 15
+    unequipDelay: 600 # if i add the unremovable comp then you couldnt even put this on
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.1 # chinalake meta would go hard
+  - type: FireProtection
+    reduction: 0.9 # atmos fire suit is 0.8, so i guess this is fine? Reduction goes the opossite way right?
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.1 # holy shit bruv
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0.25 # do people even know rad ammo exists? anyway making rad its weakness is kinda fair
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.5
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitDreadnought
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: ClothingGrantComponent
+    component:
+    - type: DamageOverTime
+      damage:
+        types:
+          Slash: 0.3
+      interval: 1.0
+      ignoreResistances: true
+  - type: StaminaDamageResistance
+    coefficient: 0.10 # 90% stamdgm resist
+  - type: ModifyDelayedKnockdown
+    delayDelta: 6
+    knockdownTimeDelta: -4

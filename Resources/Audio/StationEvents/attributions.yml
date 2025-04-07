@@ -18,6 +18,11 @@
   license: "CC-BY-3.0"
   copyright: "Moranbong Band"
   source: "https://goobstation.com"
+  
+- files: ["rescue_imminent.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by mrjajkes"
+  source: "https://www.youtube.com/watch?v=DjV0OMskwiE"
 
 - files: ["blobin_time.ogg"]
   license: "CC-BY-3.0"
@@ -38,3 +43,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by qwertyquerty"
   source: "https://github.com/BeeStation/BeeStation-Hornet/commit/7f48971438492805af286023a72e7609a729234a"
+
+- files: ["sponsored-by-syndicate.ogg"]
+  license: "Custom"
+  copyright: "Sponsored By Syndicate by mrjajkes is licensed under the following terms: free use and modification with proper credit to the original creator, excluding usage by FulpStation, White Dream, and any ERP/sexually-oriented servers, or for commercial use unless granted permission by the author. For commercial use (Patreon is fine). please contact the author to discuss details."
+  source: "https://youtu.be/vO_dMp4d3ew"

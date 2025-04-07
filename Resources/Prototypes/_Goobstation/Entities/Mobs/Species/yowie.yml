@@ -47,6 +47,18 @@
     damage:
       types:
         Blunt: 4
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.42 # they r big
+        density: 185 # but not as buff as oni
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   parent: BaseSpeciesDummy

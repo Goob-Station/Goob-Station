@@ -1,3 +1,4 @@
+using Content.Goobstation.Common.MartialArts;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -60,7 +61,11 @@ public sealed class RespiratorSystem : EntitySystem
     {
         if(respirator.Saturation < respirator.SuffocationThreshold)
             return false;
-        return !TryComp<PullableComponent>(uid, out var pullable) || pullable.GrabStage != GrabStage.Suffocate;
+        if (TryComp<PullableComponent>(uid, out var pullable)
+            && pullable.GrabStage == GrabStage.Suffocate)
+            return false;
+
+        return !HasComp<KravMagaBlockedBreathingComponent>(uid);
     }
     // Goobstation end
     private void OnMapInit(Entity<RespiratorComponent> ent, ref MapInitEvent args)

@@ -1,16 +1,105 @@
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, BaseCommandContraband ]
   id: ClothingBeltMilitaryWebbingCMO
   name: chief medical officer's chest rig
-  description: A medical chest rig with deep pockets, for use by paramedics and health professionals.
+  description: A medical chest rig with deep pockets, for use by health professionals.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
+  - type: Storage
+    grid:
+      - 0,0,6,2
+    whitelist: # I have no idea why is, say, wrench here, but it's just copied from medical belt.
+      tags:
+        - Wrench
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - Tourniquet #Goobstation
+        - MedicalPatch # Goobstation
+        - AutoinjectorCartridge # Goobstation
+        - HandheldCrewMonitor # Goobstation
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+        - SurgeryTool # Shitmed Change
+        - Defibrillator # Goobstation
+
+
+- type: entity
+  parent: [ ClothingBeltStorageBase, BaseCentcommContraband ]
+  id: ClothingBeltDeathsquadWebbing
+  suffix: DO NOT MAP
+  name: deathsquad operative chestrig
+  description: A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltSecurityWebbingMedical
+  name: ert doctor's chest rig
+  description: "A medical chest rig with deep pockets, for use by ERT operatives."
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/securitywebbing.rsi
   - type: Item
     size: Large
   - type: Storage
     maxItemSize: Normal
     grid:
-      - 0,0,6,2
+    - 0,0,6,2
+
+- type: entity
+  parent: ClothingBeltSecurity
+  id: ClothingBeltCorporateJudo
+  name: Corporate Judo Belt
+  description: Teaches the wearer NT Corporate Judo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+  - type: GrantCorporateJudo
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - BolaEnergy
+      components:
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
