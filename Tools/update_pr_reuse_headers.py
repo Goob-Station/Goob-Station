@@ -243,7 +243,7 @@ def extract_license_identifier(content, comment_prefix):
         stripped_line = line.strip()
         if stripped_line.startswith(spdx_license_prefix):
             return stripped_line[len(spdx_license_prefix):].strip()
-        if i > 20: # Stop searching after a reasonable number of lines
+        if i > 50: # Stop searching after a reasonable number of lines
             break
     return None
 
