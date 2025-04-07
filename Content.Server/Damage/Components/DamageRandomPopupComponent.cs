@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Damage.Systems;
 
 namespace Content.Server.Damage.Components;

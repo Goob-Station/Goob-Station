@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 #list of all contibuters for naming maintanence drones
 - type: dataset
   id: names_drone

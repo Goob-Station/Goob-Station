@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.MassMedia.Systems;
 using Robust.Shared.Serialization;
 

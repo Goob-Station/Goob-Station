@@ -170,5 +170,3 @@ public sealed class IdExaminableSystem : EntitySystem
 
         return val;
     }
-}
-

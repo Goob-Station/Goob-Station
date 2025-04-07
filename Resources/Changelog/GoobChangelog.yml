@@ -7086,3 +7086,9 @@ Entries:
       message: R&D console got fully reworked!
   id: 823
   time: '2025-04-07T08:05:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Group retaliation to monkeys and mice.
+  id: 824
+  time: '2025-04-07T18:48:11.0000000+00:00'
