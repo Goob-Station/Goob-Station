@@ -1,13 +1,14 @@
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
 // SPDX-FileCopyrightText: 2023 deltanedas <deltanedas@laptop>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //

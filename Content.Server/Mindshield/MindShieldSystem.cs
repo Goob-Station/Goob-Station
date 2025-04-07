@@ -1,13 +1,14 @@
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 EmoGarbage404 <retron404@gmail.com>
 // SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 EmoGarbage404 <retron404@gmail.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
