@@ -1,3 +1,26 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
+# SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Jay <67732946+DuskyJay@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   parent: BoxCardboard
   id: BoxSurvival

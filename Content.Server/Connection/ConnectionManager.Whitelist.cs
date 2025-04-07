@@ -1,4 +1,10 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Connection.Whitelist;
 using Content.Server.Connection.Whitelist.Conditions;

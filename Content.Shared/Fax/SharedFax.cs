@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Arimah Greene <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
+// SPDX-FileCopyrightText: 2024 Guilherme Ornel <86210200+joshepvodka@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Fax;

@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pok <113675512+Pok27@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Trevor Day <tday93@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Blazeror <154933882+Blazeror@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # TODO: Have a seperate lid state that can be popped on and off (not as a seperate item) that changes whether the vial can be spilled or not.
 
 - type: entity

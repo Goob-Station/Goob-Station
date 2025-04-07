@@ -1,4 +1,7 @@
-﻿using Content.Goobstation.Common.IoC;
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Goobstation.Common.IoC;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 

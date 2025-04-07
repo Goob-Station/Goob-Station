@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.NukeOps;
 

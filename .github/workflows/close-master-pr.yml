@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 name: Close PRs on master
 
 on:

@@ -1,4 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Database;
 using Content.Shared.Administration.Logs;

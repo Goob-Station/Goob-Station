@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using System.Linq;
 using Content.Client.Administration.UI.Notes;
 using Content.Client.UserInterface.Controls;

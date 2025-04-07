@@ -1,4 +1,8 @@
-﻿using Content.Shared.Sticky.Systems;
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Shared.Sticky.Systems;
 ﻿using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;

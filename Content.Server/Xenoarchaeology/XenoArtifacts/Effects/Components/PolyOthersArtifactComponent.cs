@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;
 using Robust.Shared.Audio;
 using Content.Shared.Polymorph;

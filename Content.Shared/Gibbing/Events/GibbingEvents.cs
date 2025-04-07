@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Gibbing.Events;
 

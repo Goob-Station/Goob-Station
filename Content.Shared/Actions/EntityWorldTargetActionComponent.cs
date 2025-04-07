@@ -1,4 +1,10 @@
-﻿using Content.Shared.Whitelist;
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 

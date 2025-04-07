@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;

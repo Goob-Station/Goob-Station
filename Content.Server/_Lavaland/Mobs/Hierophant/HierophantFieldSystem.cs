@@ -1,4 +1,7 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Linq;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Robust.Shared.Map.Components;

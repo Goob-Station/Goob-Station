@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using Content.Shared.Chat.V2;

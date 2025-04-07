@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Linq;
 using Content.Server.Anomaly.Components;
 using Content.Server.DeviceLinking.Systems;

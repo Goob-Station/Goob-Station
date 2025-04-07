@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Server.Interaction;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Melee;

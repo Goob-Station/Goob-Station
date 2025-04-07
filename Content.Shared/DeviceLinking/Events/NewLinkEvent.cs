@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+//
+// SPDX-License-Identifier: MIT
 namespace Content.Shared.DeviceLinking.Events;
 
 public sealed class NewLinkEvent : EntityEventArgs

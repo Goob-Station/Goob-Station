@@ -1,4 +1,7 @@
-﻿using Content.Goobstation.Server.StationEvents.Metric.Components;
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Goobstation.Server.StationEvents.Metric.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind.Components;
@@ -82,4 +85,3 @@ public sealed class FoodMetricSystem : ChaosMetricSystem<FoodMetricComponent>
     }
 
 }
-

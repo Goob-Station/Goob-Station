@@ -1,4 +1,8 @@
-﻿using Content.Shared.Examine;
+// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.StepTrigger.Components;
 

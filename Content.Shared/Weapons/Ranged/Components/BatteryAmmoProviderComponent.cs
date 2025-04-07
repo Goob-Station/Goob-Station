@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 LordEclipse <106132477+LordEclipse@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 namespace Content.Shared.Weapons.Ranged.Components;
 
 public abstract partial class BatteryAmmoProviderComponent : AmmoProviderComponent

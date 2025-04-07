@@ -1,4 +1,9 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Shared.Administration;
 using Robust.Shared.Toolshed;
 
 namespace Content.Server.Administration.Toolshed;

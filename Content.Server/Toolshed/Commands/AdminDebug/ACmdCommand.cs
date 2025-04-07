@@ -1,4 +1,9 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Player;

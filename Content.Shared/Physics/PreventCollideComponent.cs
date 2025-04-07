@@ -1,4 +1,10 @@
-﻿using Content.Shared.Whitelist;
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Physics;
@@ -16,4 +22,3 @@ public sealed partial class PreventCollideComponent : Component
     [DataField, AutoNetworkedField]
     public EntityWhitelist? Whitelist;
 }
-

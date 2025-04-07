@@ -1,4 +1,11 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2023 M3739 <47579354+M3739@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
   id: CyborgEndoskeleton
   name: cyborg endoskeleton
   description: A frame that cyborgs are built on. Significantly less spooky than expected.

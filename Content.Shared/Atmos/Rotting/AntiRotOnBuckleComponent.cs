@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Atmos.Rotting;

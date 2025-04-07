@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 

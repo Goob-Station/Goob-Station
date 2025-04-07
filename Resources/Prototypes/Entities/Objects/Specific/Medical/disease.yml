@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   parent: BaseItem
   id: DiseaseSwab

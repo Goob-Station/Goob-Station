@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Milon <plmilonpl@gmail.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Overlays;
 using Robust.Client.Player;

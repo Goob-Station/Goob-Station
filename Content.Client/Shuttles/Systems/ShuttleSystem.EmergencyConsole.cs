@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Numerics;
 using Content.Shared.Shuttles.Events;
 using Content.Shared.Shuttles.Systems;

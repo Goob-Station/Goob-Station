@@ -1,4 +1,9 @@
-﻿using System.IO;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+using System.IO;
 using Robust.Shared.Log;
 using Robust.Shared.Timing;
 using Serilog.Events;

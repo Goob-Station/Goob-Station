@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;

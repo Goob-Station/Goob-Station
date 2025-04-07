@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Content.Server.Physics.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Singularity.Components;

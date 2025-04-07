@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+# SPDX-FileCopyrightText: 2022 Zymem <97173622+Zymem@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 - type: inventoryTemplate
   id: head
   slots:

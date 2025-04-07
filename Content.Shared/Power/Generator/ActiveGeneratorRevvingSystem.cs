@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 namespace Content.Shared.Power.Generator;
 
 public sealed class ActiveGeneratorRevvingSystem : EntitySystem

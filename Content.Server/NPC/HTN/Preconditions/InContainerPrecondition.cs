@@ -1,4 +1,7 @@
-﻿using Robust.Server.Containers;
+// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Robust.Server.Containers;
 
 namespace Content.Server.NPC.HTN.Preconditions;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;

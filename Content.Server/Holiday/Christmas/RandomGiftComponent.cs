@@ -1,4 +1,8 @@
-﻿using Content.Shared.Whitelist;
+// SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

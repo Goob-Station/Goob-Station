@@ -1,3 +1,58 @@
+// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2018 PJB3005 <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2018 clusterfack <8516830+clusterfack@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2018 Centronias <Centronias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2018 clusterfack <clusterfack@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 moneyl <8206401+Moneyl@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2019 Injazz <43905364+Injazz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2019 PrPleGoo <PrPleGoo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2019 ScumbagDog <33865465+ScumbagDog@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+// SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
+// SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Palladinium <patrick.chieppe@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Server._durkcode.ServerCurrency;
 using Content.Server.Acz;
 using Content.Server.Administration;

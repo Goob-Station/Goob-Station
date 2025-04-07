@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Menshin <Menshin@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   id: AirSensorBase
   abstract: true

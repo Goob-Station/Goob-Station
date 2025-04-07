@@ -1,4 +1,12 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
   id: OreBox
   name: ore box
   description: A large storage container for holding unprocessed ores.

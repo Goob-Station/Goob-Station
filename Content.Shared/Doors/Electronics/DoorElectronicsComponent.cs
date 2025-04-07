@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;

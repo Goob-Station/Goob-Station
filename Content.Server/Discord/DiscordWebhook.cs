@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Jacob <jakevilevac@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;

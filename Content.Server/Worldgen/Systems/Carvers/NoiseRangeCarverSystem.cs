@@ -1,4 +1,8 @@
-﻿using Content.Server.Worldgen.Components.Carvers;
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.Worldgen.Components.Carvers;
 using Content.Server.Worldgen.Systems.Debris;
 
 namespace Content.Server.Worldgen.Systems.Carvers;
@@ -33,4 +37,3 @@ public sealed class NoiseRangeCarverSystem : EntitySystem
         }
     }
 }
-

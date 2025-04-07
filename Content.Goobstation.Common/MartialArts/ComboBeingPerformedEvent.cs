@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;

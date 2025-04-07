@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 meta:
   format: 2
   postmapinit: false
@@ -96,4 +100,3 @@ entities:
     type: Transform
   - index: 0
     type: MapGrid
-

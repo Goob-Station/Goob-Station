@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Numerics;
 using Content.Server.Worldgen.Components;
 using JetBrains.Annotations;
@@ -57,4 +65,3 @@ public abstract class BaseWorldSystem : EntitySystem
         return _worldController.GetOrCreateChunk(chunk, map, controller);
     }
 }
-

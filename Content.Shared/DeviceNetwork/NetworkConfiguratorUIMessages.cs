@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+//
+// SPDX-License-Identifier: MIT
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.DeviceNetwork;
 

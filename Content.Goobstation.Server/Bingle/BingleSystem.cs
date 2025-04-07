@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
@@ -82,4 +86,3 @@ public sealed class BingleSystem : EntitySystem
         _appearance.SetData(uid, BingleVisual.Combat, combat.IsInCombatMode);
     }
 }
-

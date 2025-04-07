@@ -1,4 +1,8 @@
-﻿using Content.Server.Worldgen.Systems;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.Worldgen.Systems;
 
 namespace Content.Server.Worldgen.Components;
 
@@ -19,4 +23,3 @@ public sealed partial class WorldChunkComponent : Component
     /// </summary>
     [DataField("map")] public EntityUid Map;
 }
-

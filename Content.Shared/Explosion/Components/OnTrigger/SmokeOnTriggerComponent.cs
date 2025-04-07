@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
+// SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.GameStates;

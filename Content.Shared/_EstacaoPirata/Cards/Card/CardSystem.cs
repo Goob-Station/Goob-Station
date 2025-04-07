@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared._EstacaoPirata.Cards.Deck;
 using Content.Shared._EstacaoPirata.Cards.Hand;
 using Content.Shared._EstacaoPirata.Cards.Stack;

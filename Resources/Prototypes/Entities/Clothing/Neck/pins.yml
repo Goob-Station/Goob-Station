@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Terraspark4941 <terraspark4941@gmail.com>
+# SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckPinBase
@@ -165,4 +179,3 @@
     state: autism
   - type: Clothing
     equippedPrefix: autism
-

@@ -1,4 +1,7 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: MIT
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 
 namespace Content.Server.Worldgen;
@@ -56,4 +59,3 @@ public struct GridPointsNearEnumerator
         return true;
     }
 }
-

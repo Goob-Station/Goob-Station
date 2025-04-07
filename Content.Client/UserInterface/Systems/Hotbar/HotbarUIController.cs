@@ -1,4 +1,12 @@
-﻿using Content.Client.UserInterface.Systems.Gameplay;
+// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Hands;
 using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.UserInterface.Systems.Hotbar.Widgets;

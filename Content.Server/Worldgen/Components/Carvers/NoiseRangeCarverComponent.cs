@@ -1,4 +1,9 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: MIT
+using System.Numerics;
 using Content.Server.Worldgen.Prototypes;
 using Content.Server.Worldgen.Systems.Carvers;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -25,4 +30,3 @@ public sealed partial class NoiseRangeCarverComponent : Component
     [DataField("ranges", required: true)]
     public List<Vector2> Ranges { get; private set; } = default!;
 }
-

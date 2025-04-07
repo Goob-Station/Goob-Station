@@ -1,4 +1,8 @@
-﻿using System.Threading;
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Temperature.Systems;

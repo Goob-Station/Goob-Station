@@ -1,4 +1,9 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+using System.Linq;
 using Content.Client.UserInterface.Systems.Inventory.Controls;
 using Robust.Client.UserInterface.Controls;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Goobstation.Common.CCVar; // Goob Edit
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;

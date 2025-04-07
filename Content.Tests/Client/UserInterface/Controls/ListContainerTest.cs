@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 RadioMull <147113069+RadioMull@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using System;
 using System.Collections.Generic;
 using System.Linq;

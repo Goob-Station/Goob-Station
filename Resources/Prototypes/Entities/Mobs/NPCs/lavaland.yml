@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2023 Dvir <39403717+dvir001@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zokkie <6126135+Zokkie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   name: watcher
   id: MobWatcherBase

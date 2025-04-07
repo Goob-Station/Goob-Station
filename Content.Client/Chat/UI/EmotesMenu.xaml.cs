@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Chat.Prototypes;

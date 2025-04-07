@@ -1,4 +1,7 @@
-﻿using Content.Server.Worldgen.Components.Debris;
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.Worldgen.Components.Debris;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
@@ -56,4 +59,3 @@ public sealed class NoiseDrivenDebrisSelectorSystem : BaseWorldSystem
         args.DebrisProto = l[0];
     }
 }
-

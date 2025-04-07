@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 namespace Content.Server.Gateway.Components;
 
 /// <summary>
@@ -34,4 +37,3 @@ public sealed partial class GatewayGeneratorDestinationComponent : Component
     [DataField]
     public Vector2i Origin;
 }
-

@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2025 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 jorgun <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Timers
 - type: loadoutEffectGroup
   id: Command

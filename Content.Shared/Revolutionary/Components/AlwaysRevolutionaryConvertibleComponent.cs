@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Revolutionary.Components;

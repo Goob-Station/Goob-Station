@@ -1,4 +1,7 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Linq;
 using Content.Goobstation.Server.StationEvents.Metric.Components;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;

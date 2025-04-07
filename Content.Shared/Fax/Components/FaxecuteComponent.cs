@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
@@ -16,4 +19,3 @@ public sealed partial class FaxecuteComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public DamageSpecifier Damage = new();
 }
-

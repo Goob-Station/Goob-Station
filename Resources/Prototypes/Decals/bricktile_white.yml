@@ -1,4 +1,7 @@
-﻿- type: decal
+# SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
+#
+# SPDX-License-Identifier: MIT
+- type: decal
   id: BrickTileWhiteBox
   tags: ["station", "markings"]
   sprite:

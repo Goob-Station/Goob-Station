@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;

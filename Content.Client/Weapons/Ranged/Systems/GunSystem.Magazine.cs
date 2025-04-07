@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 778b <33431126+778b@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Content.Shared.Weapons.Ranged;
 
 namespace Content.Client.Weapons.Ranged.Systems;

@@ -1,4 +1,7 @@
-﻿using Content.Server.Power.EntitySystems;
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Power;
 
 namespace Content.Server.Power.Components;

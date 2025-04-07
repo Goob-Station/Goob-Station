@@ -1,4 +1,7 @@
-﻿- type: examinableDamage
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+#
+# SPDX-License-Identifier: MIT
+- type: examinableDamage
   id: WindowMessages
   messages:
     - comp-window-damaged-1

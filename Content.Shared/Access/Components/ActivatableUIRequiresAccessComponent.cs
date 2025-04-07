@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Content.Shared.Access.Systems;
 using Robust.Shared.GameStates;
 

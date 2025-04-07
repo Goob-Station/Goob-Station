@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 AlexMorgan3817 <46600554+AlexMorgan3817@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Robust.Shared.Timing;
 using Robust.Shared.Serialization.Manager;
 using Content.Server.Explosion.Components.OnTrigger;
