@@ -387,9 +387,6 @@
       collection: Punch
     animation: WeaponArcFist
     mustBeEquippedToUse: true
-  - type: Reflect
-    reflectProb: .50
-    spread: 0
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -403,6 +400,8 @@
   - type: SolutionTransfer
     transferAmount: 5
     maxTransferAmount: 5
+  - type: StaminaDamageResistance
+    coefficient: 0.5
   - type: Execution
     doAfterDuration: 0
   - type: Scalpel
@@ -431,9 +430,6 @@
     damage:
       types:
         Slash: 15
-  - type: Reflect
-    reflectProb: .50
-    spread: 0
     soundHit:
       collection: Punch
     animation: WeaponArcFist
