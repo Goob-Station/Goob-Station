@@ -16,4 +16,4 @@ public sealed partial class CreateRevivalContractEvent : InstantActionEvent { }
 
 public sealed partial class ShadowJauntEvent : InstantActionEvent { }
 
-public sealed partial class DevilPosessionEvent : EntityTargetActionEvent { }
+public sealed partial class DevilPossessionEvent : EntityTargetActionEvent { }

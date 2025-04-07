@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+
 namespace Content.Goobstation.Server.Insanity;
 
 [RegisterComponent]

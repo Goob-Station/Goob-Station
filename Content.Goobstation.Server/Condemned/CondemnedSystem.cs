@@ -25,7 +25,7 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, CondemnedComponent comp, MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead && !comp.IsCorporateOwned)
+        if (args.NewMobState != MobState.Dead || comp.IsCorporateOwned)
             return;
 
         if (TryComp<CheatDeathComponent>(uid, out var cheatDeath) && cheatDeath.ReviveAmount > 0)

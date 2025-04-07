@@ -1,10 +1,11 @@
+using Content.Goobstation.Server.Posession;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Posession;
+namespace Content.Goobstation.Server.Possession;
 
 public sealed partial class PosessionSystem : EntitySystem
 {

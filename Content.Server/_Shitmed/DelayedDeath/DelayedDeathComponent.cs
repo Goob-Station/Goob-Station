@@ -17,5 +17,6 @@ public sealed partial class DelayedDeathComponent : Component
     /// <summary>
     /// What message is displayed when the time runs out - Goobstation
     /// </summary>
+    [DataField]
     public LocId DeathMessageId;
 }

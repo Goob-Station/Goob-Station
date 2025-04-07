@@ -24,7 +24,6 @@
     - state: contract-signed
       map: [ "enum.PaperVisualLayers.Stamp" ]
       visible: false
-    - type: contract
 
 - type: entity
   id: PaperDevilContractBlank

@@ -96,6 +96,9 @@ public sealed partial class DevilContractSystem
                 var bodySystem = _entityManager.System<BodySystem>();
                 TryComp<BodyComponent>(target, out var body);
                 var hand = bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).FirstOrDefault();
+                if (!hand.Id.Valid)
+                    return;
+
                 _transform.AttachToGridOrMap(hand.Id);
             },
 
@@ -105,6 +108,9 @@ public sealed partial class DevilContractSystem
                 var bodySystem = _entityManager.System<BodySystem>();
                 TryComp<BodyComponent>(target, out var body);
                 var leg = bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, body).FirstOrDefault();
+                if (!leg.Id.Valid)
+                    return;
+
                 _transform.AttachToGridOrMap(leg.Id);
             },
 
@@ -114,6 +120,9 @@ public sealed partial class DevilContractSystem
                 var bodySystem = _entityManager.System<BodySystem>();
                 TryComp<BodyComponent>(target, out var body);
                 var organ = bodySystem.GetBodyOrgans(target).FirstOrDefault();
+                if (!organ.Id.Valid)
+                    return;
+
                 _transform.AttachToGridOrMap(organ.Id);
             },
 

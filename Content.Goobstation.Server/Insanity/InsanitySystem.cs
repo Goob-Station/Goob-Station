@@ -27,9 +27,9 @@ public sealed partial class InsanitySystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime < comp.NextInsanityTick )
-                return;
+                continue;
 
-            var seed = _random.Next(1, 5);
+            var seed = _random.Next(0, 6);
             ClearPreviousEffect(comp, uid);
             TryInsanityEffect(seed, uid, comp);
 

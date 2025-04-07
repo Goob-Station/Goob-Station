@@ -4,7 +4,7 @@ namespace Content.Goobstation.Server.Contract;
 public sealed partial class PendingHandshakeComponent : Component
 {
     [DataField]
-    public EntityUid Offerer;
+    public EntityUid? Offerer;
 
     [DataField]
     public TimeSpan ExpiryTime;

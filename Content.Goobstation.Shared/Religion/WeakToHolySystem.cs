@@ -24,6 +24,10 @@ public sealed partial class WeakToHolySystem : EntitySystem
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
 
+    private const string BiologicalContainer = "Biological";
+    private const string BiologicalMetaphysicalContainer = "BiologicalMetaphysical";
+    private const string HolyDamageType = "Holy";
+    private const int HealingAmount = 10; // Positive for display, will be negated when applying.
     public override void Initialize()
     {
         base.Initialize();
@@ -31,12 +35,13 @@ public sealed partial class WeakToHolySystem : EntitySystem
         SubscribeLocalEvent<WeakToHolyComponent, ComponentStartup>(OnCompStartup);
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
+        SubscribeLocalEvent<PassiveDamageComponent, ComponentRemove>(OnComponentRemoved);
     }
 
     private void OnCompStartup(Entity<WeakToHolyComponent> ent, ref ComponentStartup args)
     {
-        if (!_netManager.IsServer || TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == "Biological")
-            _damageableSystem.ChangeDamageContainer(ent, "BiologicalMetaphysical");
+        if (!_netManager.IsServer || TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == BiologicalContainer)
+            _damageableSystem.ChangeDamageContainer(ent, BiologicalMetaphysicalContainer);
     }
 
     // Heal passively on heretic runes.
@@ -44,14 +49,14 @@ public sealed partial class WeakToHolySystem : EntitySystem
     {
         var heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
 
-        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && heretic.Damage.DamageDict.TryGetValue("Holy", out var holy))
+        if (!HasComp<WeakToHolyComponent>(args.OtherEntity))
             return;
 
         // Store the original DamageCap if it hasn't already been stored
         if (!_originalDamageCaps.ContainsKey(args.OtherEntity))
             _originalDamageCaps[args.OtherEntity] = heretic.DamageCap;
 
-        heretic.Damage.DamageDict.TryAdd("Holy", -10);
+        heretic.Damage.DamageDict.TryAdd(HolyDamageType, -HealingAmount);
         heretic.DamageCap = FixedPoint2.New(0);
         DirtyEntity(args.OtherEntity);
 
@@ -59,17 +64,33 @@ public sealed partial class WeakToHolySystem : EntitySystem
 
     private void OnCollideEnd(EntityUid uid, HereticRitualRuneComponent component, ref EndCollideEvent args)
     {
-        if (!TryComp<PassiveDamageComponent>(args.OtherEntity, out var heretic))
+        TryReturnOriginalDamage(uid);
+    }
+
+    private void OnComponentRemoved(EntityUid uid, PassiveDamageComponent comp, ComponentRemove args)
+    {
+        TryReturnOriginalDamage(uid);
+    }
+
+    private void TryReturnOriginalDamage(EntityUid target)
+    {
+        if (!TryComp<PassiveDamageComponent>(target, out var heretic))
             return;
 
         // Restore the original DamageCap if it was stored
-        if (_originalDamageCaps.TryGetValue(args.OtherEntity, out var originalCap))
+        if (_originalDamageCaps.TryGetValue(target, out var originalCap))
         {
             heretic.DamageCap = originalCap;
-            _originalDamageCaps.Remove(args.OtherEntity); // Clean up after restoring
+            _originalDamageCaps.Remove(target); // Clean up after restoring
         }
 
-        heretic.Damage.DamageDict.Remove("Holy");
-        DirtyEntity(args.OtherEntity);
+        heretic.Damage.DamageDict.Remove(HolyDamageType);
+        DirtyEntity(target);
+    }
+
+    public override void Shutdown()
+    {
+        _originalDamageCaps.Clear();
+        base.Shutdown();
     }
 }

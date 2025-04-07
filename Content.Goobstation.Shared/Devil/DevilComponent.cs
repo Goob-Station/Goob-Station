@@ -30,7 +30,7 @@ public sealed partial class DevilComponent : Component
     /// The current power level of the devil.
     /// </summary>
     [DataField]
-    public int PowerLevel;
+    public int PowerLevel = 0;
 
     /// <summary>
     /// Sound effect played when summoning a contract.

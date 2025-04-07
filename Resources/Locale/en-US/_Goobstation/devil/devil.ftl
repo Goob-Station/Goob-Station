@@ -1,7 +1,7 @@
 devil-roundend-name = Devil
 objective-issuer-devil = Devil
 
-roundend-prepend-devil-contracts = Some has made [color=red]{$number}[/color] successful contracts.
+roundend-prepend-devil-contracts = Someone has made [color=red]{$number}[/color] successful contracts.
 roundend-prepend-devil-contracts-named = [color=white]{$name}[/color] has made [color=red]{$number}[/color] successful contracts.
 
 devil-component-examined = [color=darkred]{CAPITALIZE(POSS-ADJ($target))} eyes glow a faint red.[/color]
@@ -34,6 +34,8 @@ handshake-fail =  You shake {POSS-ADJ($user)} hand, but nothing happens!
 not-enough-souls = You do not have enough souls to use this spell!
 
 devil-component-bible-sizzle = {$target} bursts into flames upon contact with the bible!
+
+invalid-possession-target = You cannot possess this target!
 
 devil-power-level-increase-one = Bits of flame flare out from your fingertips. Your connection with hell has strengthened.
 devil-power-level-increase-two = You feel your power surge. Your connection with hell has strengthened.

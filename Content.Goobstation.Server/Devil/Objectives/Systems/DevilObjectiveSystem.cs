@@ -18,6 +18,6 @@ public sealed partial class DevilObjectiveSystem : EntitySystem
     private void OnContractGetProgress(EntityUid uid, SignContractConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         var target = _number.GetTarget(uid);
-        args.Progress = target != 0 ? MathF.Min(comp.ContractsSigned / target, 1f) : 1f;
+        args.Progress = target != 0 ? MathF.Min((float)comp.ContractsSigned / target, 1f) : 1f;
     }
 }

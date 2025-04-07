@@ -13,7 +13,7 @@ public sealed partial class DevilSystem
         SubscribeLocalEvent<DevilComponent, CreateContractEvent>(OnContractCreated);
         SubscribeLocalEvent<DevilComponent, CreateRevivalContractEvent>(OnRevivalContractCreated);
         SubscribeLocalEvent<DevilComponent, ShadowJauntEvent>(OnShadowJaunt);
-        SubscribeLocalEvent<DevilComponent, DevilPosessionEvent>(OnPossess);
+        SubscribeLocalEvent<DevilComponent, DevilPossessionEvent>(OnPossess);
     }
 
     private void OnContractCreated(EntityUid uid, DevilComponent comp, ref CreateContractEvent args)
@@ -56,8 +56,14 @@ public sealed partial class DevilSystem
         _poly.PolymorphEntity(uid, "ShadowJaunt");
     }
 
-    private void OnPossess(EntityUid uid, DevilComponent comp, ref DevilPosessionEvent args)
+    private void OnPossess(EntityUid uid, DevilComponent comp, ref DevilPossessionEvent args)
     {
+        if (args.Target == default)
+        {
+            var message = Loc.GetString("invalid-possession-target");
+            _popup.PopupEntity(message, uid, uid);
+            return;
+        }
         if (!TryUseSoulsAbility(comp, args))
         {
             var message = Loc.GetString("not-enough-souls");

@@ -131,7 +131,7 @@ namespace Content.Server.Bible
                 _flammable.SetFireStacks(args.Target.Value, 5, ignite:true);
                 var holyDamage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Holy"), 25);
                 _damageableSystem.TryChangeDamage(args.Target, holyDamage, true, origin: uid);
-                _stun.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
+                _stun.TryParalyze(args.Target.Value, TimeSpan.FromSeconds(8), false);
                 _delay.TryResetDelay((uid, useDelay));
 
                 return;
