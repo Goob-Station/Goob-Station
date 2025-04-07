@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+// SPDX-FileCopyrightText: 2024 Your Name <you@example.com>
+//
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Chat.V2;
 
 /// <summary>

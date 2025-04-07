@@ -1,4 +1,8 @@
-﻿using Content.Server.Kitchen.Components;
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Kitchen.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;

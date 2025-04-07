@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: construction
   name: web wall
   id: WallWeb
