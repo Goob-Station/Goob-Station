@@ -14,6 +14,7 @@
   - ShuttleGunKineticCircuitboard
   - MechEquipmentKineticAccelerator # Goobstation
   # These are roundstart but not replenishable for salvage
+  position: 1,0 # Goobstation R&D Console rework
 
 - type: technology
   id: DraconicMunitions
@@ -29,14 +30,19 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
+  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
-  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  # Goobstation R&D Console rework start
+  position: 2,2
+  technologyPrerequisites:
+  - SalvageWeapons
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -51,6 +57,11 @@
   - WeaponLaserCarbine
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
+  # Goobstation R&D Console rework start
+  position: 4,0
+  technologyPrerequisites:
+  - WeaponPlasmaRifleTech
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: NonlethalAmmunition
@@ -68,6 +79,11 @@
   - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
+  # Goobstation R&D Console rework start
+  position: 2,3
+  technologyPrerequisites:
+  - SalvageWeapons
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: UraniumMunitions
@@ -90,6 +106,11 @@
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
   - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+  # Goobstation R&D Console rework start
+  position: 3,2
+  technologyPrerequisites:
+  - DraconicMunitions
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedRiotControl
@@ -105,6 +126,11 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  # Goobstation R&D Console rework start
+  position: 3,3
+  technologyPrerequisites:
+  - NonlethalAmmunition
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: ExplosiveTechnology
@@ -123,6 +149,9 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  technologyPrerequisites:
+  - SalvageWeapons # Goobstation R&D Console rework
+  position: 2,-1  # Goobstation R&D Console rework
 
 - type: technology
   id: SpecialMeans
@@ -135,6 +164,11 @@
   cost: 5000
   recipeUnlocks:
   - ClothingBackpackElectropack
+  # Goobstation R&D Console rework start
+  position: 4,3
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  # Goobstation R&D Console rework end
 
 # Tier 2
 
@@ -150,6 +184,11 @@
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
+  # Goobstation R&D Console rework start
+  position: 5,0
+  technologyPrerequisites:
+  - WeaponizedLaserManipulation
+  # Goobstation R&D Console rework end
 
 # Goobstation - Consolidated ( AGAIN !!! )
 #- type: technology
@@ -184,7 +223,9 @@
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
-  - SalvageWeapons
+  - ExplosiveTechnology # Goobstation R&D Console rework
+  - Shuttlecraft  # Goobstation R&D Console rework
+  position: 3,-4  # Goobstation R&D Console rework
 
 # Tier 3
 
@@ -196,23 +237,29 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
   - WeaponMechCombatImmolationGun # Goobstation
+  # Goobstation R&D Console rework start
+  position: 6,0
+  technologyPrerequisites:
+  - ConcentratedLaserWeaponry
+  # Goobstation R&D Console rework end
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
+# Goobstation commented
+# - type: technology
+#   id: ExperimentalBatteryAmmo
+#   name: research-technology-experimental-battery-ammo
+#   icon:
+#     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+#     state: icon
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 20000
+#   recipeUnlocks:
+#   - WeaponLaserSvalinn
 
 - type: technology
   id: AdvancedShuttleWeapon
@@ -222,10 +269,12 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - GrenadeEMP
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
+  - Shuttlecraft  # Goobstation R&D Console rework
+  position: 4,-4  # Goobstation R&D Console rework
