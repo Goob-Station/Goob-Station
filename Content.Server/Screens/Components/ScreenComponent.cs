@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Screens.Components;
 
 [RegisterComponent]
@@ -32,4 +36,3 @@ public sealed class ShuttleTimerMasks
     public static readonly string Bye = Loc.GetString("shuttle-timer-bye");
     public static readonly string Kill = Loc.GetString("shuttle-timer-kill");
 }
-

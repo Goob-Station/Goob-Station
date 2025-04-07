@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Containers;
 using Content.Shared.Radio.Components;
 using Content.Shared.Roles;

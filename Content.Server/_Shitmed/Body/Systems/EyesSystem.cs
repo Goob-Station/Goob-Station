@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Eye.Blinding.Components;

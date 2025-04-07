@@ -1,4 +1,8 @@
-﻿using Content.Shared.Weapons.Ranged.Components;
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
