@@ -109,3 +109,11 @@
     forced: true
     duration: 90
     attachToGridOrMap: true
+
+- type: polymorph
+  id: ShadowJaunt180
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 180
+    attachToGridOrMap: true

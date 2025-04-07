@@ -71,7 +71,7 @@
     components:
       - type: CommandStaff
       - type: Condemned
-        isCorporateOwned: true
+        soulOwnedNotDevil: true
 
 - type: startingGear
   id: BlueshieldOfficerGear

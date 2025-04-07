@@ -216,6 +216,7 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         var condemned = EnsureComp<CondemnedComponent>(contractee);
         condemned.SoulOwner = devil;
+        condemned.CondemnOnDeath = true;
 
         return true;
     }

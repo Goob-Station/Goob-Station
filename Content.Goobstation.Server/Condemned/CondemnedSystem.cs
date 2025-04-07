@@ -1,8 +1,9 @@
-using Content.Goobstation.Shared.CheatDeath;
-using Content.Server.Atmos.Piping.Unary.Components;
+using Content.Goobstation.Shared.Devil;
+using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Mobs;
-using Robust.Server.Audio;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Polymorph;
+using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -15,10 +16,14 @@ public sealed partial class CondemnedSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly PolymorphSystem _poly = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private readonly EntProtoId _pentagramEffectProto = "Pentagram";
-    private readonly EntProtoId _hellgraspEffectProto = "HellHand";
-    private readonly SoundPathSpecifier _earthquakeSoundPath = new("/Audio/_Goobstation/Effects/earth_quake.ogg");
+    private readonly EntProtoId _defaultPentagramProto = "Pentagram";
+    private readonly EntProtoId _defaultHandProto = "HellHand";
+    private readonly SoundPathSpecifier _defaultSoundPath = new("/Audio/_Goobstation/Effects/earth_quake.ogg");
+    private readonly ProtoId<PolymorphPrototype> _banishProto = "ShadowJaunt180";
 
     public enum CondemnedPhase : byte
     {
@@ -28,11 +33,15 @@ public sealed partial class CondemnedSystem : EntitySystem
         Complete
     }
 
+    public enum CondemnedBehavior : byte
+    {
+        Delete,
+        Banish,
+    }
+
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<CondemnedComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<CondemnedComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -43,30 +52,61 @@ public sealed partial class CondemnedSystem : EntitySystem
         var query = EntityQueryEnumerator<CondemnedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            switch (comp)
+            switch (comp.CurrentPhase)
             {
-                case { CurrentPhase: CondemnedPhase.PentagramActive }:
+                case CondemnedPhase.PentagramActive:
                     UpdatePentagramPhase(uid, comp, frameTime);
                     break;
-
-                case { CurrentPhase: CondemnedPhase.HandActive }:
+                case CondemnedPhase.HandActive:
                     UpdateHandPhase(uid, comp, frameTime);
                     break;
             }
         }
     }
 
+    public void StartCondemnation(
+        EntityUid uid,
+        CondemnedComponent? comp = null,
+        SoundPathSpecifier? sound = null,
+        bool freezeEntity = true,
+        CondemnedBehavior behavior = CondemnedBehavior.Delete)
+    {
+        EnsureComp<CondemnedComponent>(uid);
+        if (!Resolve(uid, ref comp))
+            return;
+
+        comp.CondemnOnDeath = false;
+
+        var soundPath = sound ?? _defaultSoundPath;
+
+        if (freezeEntity)
+        {
+            comp.FreezeDuringCondemnation = true;
+            EnsureComp<BlockMovementComponent>(uid);
+        }
+
+        var coords = Transform(uid).Coordinates;
+        Spawn(_defaultPentagramProto, coords);
+        _audio.PlayPvs(soundPath, uid);
+
+        comp.CurrentPhase = CondemnedPhase.PentagramActive;
+        comp.PhaseTimer = 0f;
+        comp.CondemnedBehavior = behavior;
+    }
+
     private void UpdatePentagramPhase(EntityUid uid, CondemnedComponent comp, float frameTime)
     {
         comp.PhaseTimer += frameTime;
 
-        if (!(comp.PhaseTimer >= 3f))
+        if (comp.PhaseTimer < 3f)
             return;
 
         var coords = Transform(uid).Coordinates;
-        comp.HandEntity = Spawn(_hellgraspEffectProto, coords);
+        var handEntity = Spawn(_defaultHandProto, coords);
 
-        comp.HandDuration = TryComp<TimedDespawnComponent>(comp.HandEntity, out var timedDespawn) ? timedDespawn.Lifetime : 1f;
+        comp.HandDuration = TryComp<TimedDespawnComponent>(handEntity, out var timedDespawn)
+            ? timedDespawn.Lifetime
+            : 1f;
 
         comp.CurrentPhase = CondemnedPhase.HandActive;
         comp.PhaseTimer = 0f;
@@ -76,40 +116,37 @@ public sealed partial class CondemnedSystem : EntitySystem
     {
         comp.PhaseTimer += frameTime;
 
-        // Wait for hand animation duration before deleting
-        if (!(comp.PhaseTimer >= comp.HandDuration))
+        if (comp.PhaseTimer < comp.HandDuration)
             return;
 
-        QueueDel(uid);
+        if (comp.FreezeDuringCondemnation)
+            RemComp<BlockMovementComponent>(uid);
+
+        TryDoCondemnedBehavior(uid, comp);
+
         comp.CurrentPhase = CondemnedPhase.Complete;
+        RemComp<CondemnedComponent>(uid);
     }
 
-    private void TryObliterateEntity(EntityUid uid, CondemnedComponent comp)
+    private void TryDoCondemnedBehavior(EntityUid uid, CondemnedComponent comp)
     {
-        // Initial effect setup
-        var coords = Transform(uid).Coordinates;
-        Spawn(_pentagramEffectProto, coords);
-        _audio.PlayPvs(_earthquakeSoundPath, uid);
-
-        // Start update sequence
-        comp.CurrentPhase = CondemnedPhase.PentagramActive;
-        comp.PhaseTimer = 0f;
+        switch (comp.CondemnedBehavior)
+        {
+            case CondemnedBehavior.Delete:
+                QueueDel(uid);
+                break;
+            case CondemnedBehavior.Banish:
+                _poly.PolymorphEntity(uid, _banishProto);
+                break;
+            default:
+                QueueDel(uid);
+                break;
+        }
     }
 
     private void OnExamined(EntityUid uid, CondemnedComponent comp, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient && !comp.IsCorporateOwned)
+        if (args.IsInDetailsRange && !comp.SoulOwnedNotDevil)
             args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", uid)));
-    }
-
-    private void OnMobStateChanged(EntityUid uid, CondemnedComponent comp, MobStateChangedEvent args)
-    {
-        if (args.NewMobState != MobState.Dead || comp.IsCorporateOwned)
-            return;
-
-        if (TryComp<CheatDeathComponent>(uid, out var cheatDeath) && cheatDeath.ReviveAmount > 0)
-            return;
-
-        TryObliterateEntity(uid, comp);
     }
 }

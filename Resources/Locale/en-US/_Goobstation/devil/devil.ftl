@@ -34,6 +34,8 @@ handshake-fail =  You shake {POSS-ADJ($user)} hand, but nothing happens!
 not-enough-souls = You do not have enough souls to use this spell!
 
 devil-component-bible-sizzle = {$target} bursts into flames upon contact with the bible!
+devil-banish-begin = {$user} begins to perform an exorcism on {$target}!
+devil-exorcised = The ground cracks and splinters beneath {$target} as they are forcefully returned to hell!
 
 invalid-possession-target = You cannot possess this target!
 

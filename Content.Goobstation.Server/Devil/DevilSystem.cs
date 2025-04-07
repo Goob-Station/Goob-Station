@@ -4,8 +4,10 @@ using Content.Goobstation.Server.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.CheatDeath;
+using Content.Goobstation.Shared.CrematorImmune;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
@@ -63,6 +65,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PossessionSystem _possession = default!;
+    [Dependency] private readonly CondemnedSystem _condemned = default!;
 
 
     // Ten. Thousand. EntProtoIds.
@@ -73,6 +76,7 @@ public sealed partial class DevilSystem : EntitySystem
     private readonly EntProtoId _penProto = "PenDevil";
     private readonly EntProtoId _pentagramEffectProto = "Pentagram";
 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -81,6 +85,7 @@ public sealed partial class DevilSystem : EntitySystem
         SubscribeLocalEvent<DevilComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<DevilComponent, SoulAmountChangedEvent>(OnSoulAmountChanged);
         SubscribeLocalEvent<DevilComponent, PowerLevelChangedEvent>(OnPowerLevelChanged);
+        SubscribeLocalEvent<DevilComponent, ExorcismDoAfterEvent>(OnExorcismDoAfter);
 
         InitializeHandshakeSystem();
         SubscribeAbilities();
@@ -105,15 +110,14 @@ public sealed partial class DevilSystem : EntitySystem
         EnsureComp<PressureImmunityComponent>(uid);
         EnsureComp<ActiveListenerComponent>(uid);
         EnsureComp<WeakToHolyComponent>(uid);
+        EnsureComp<CrematoriumImmuneComponent>(uid);
 
         // Allow infinite revival
         var revival = EnsureComp<CheatDeathComponent>(uid);
         revival.ReviveAmount = -1;
 
         // Change damage modifier
-        TryComp<DamageableComponent>(uid, out var damageable);
         _damageable.SetDamageModifierSetId(uid, "DevilDealPositive");
-        // When nullrods are done, allow devils to take holy damage.
 
         // Add base actions
         foreach (var actionId in comp.BaseDevilActions)
@@ -243,6 +247,15 @@ public sealed partial class DevilSystem : EntitySystem
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", uid));
             _popup.PopupEntity(popup, uid, PopupType.LargeCaution);
         }
+    }
+
+    private void OnExorcismDoAfter(Entity<DevilComponent> devil, ref ExorcismDoAfterEvent args)
+    {
+        if (!args.Target.HasValue || args.Cancelled || args.Handled)
+            return;
+
+        _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", devil.Comp.TrueName)), devil, PopupType.LargeCaution);
+        _condemned.StartCondemnation(args.Target.Value, behavior: CondemnedSystem.CondemnedBehavior.Banish);
     }
 
     #endregion
