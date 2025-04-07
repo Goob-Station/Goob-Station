@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["hahaha.ogg", "pew_pew.ogg", "sting_*.ogg"]
   license: "CC0-1.0"
   copyright: "Recorded by https://github.com/Tayrtahn"
