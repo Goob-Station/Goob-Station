@@ -1660,6 +1660,9 @@
   - type: CanHostGuardian
   - type: NPCRetaliation
     attackMemoryLength: 10
+  # Goobstation
+  - type: GroupRetaliation
+    range: 8
   - type: FactionException
   - type: NpcFactionMember
     factions:
@@ -2122,6 +2125,10 @@
   - type: Stamina
     critThreshold: 20
   - type: LayingDown
+  - type: NPCRetaliation
+    attackMemoryLength: 5 # stop caring fast if you don't keep hitting
+  - type: GroupRetaliation
+    range: 5 # slightly lower for mice
   # </Goobstation>
 
 - type: entity
