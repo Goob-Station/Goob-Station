@@ -69,7 +69,7 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(comp, args))
             return;
 
-        _possession.TryPossessTarget(args);
+        _possession.TryPossessTarget(args, true, true);
     }
 
 

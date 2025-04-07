@@ -24,5 +24,8 @@ public sealed partial class PossessedComponent : Component
     public bool WasPacified;
 
     [DataField]
+    public bool DoPacify = false;
+
+    [DataField]
     public SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");
 }

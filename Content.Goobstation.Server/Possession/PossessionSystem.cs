@@ -60,6 +60,9 @@ public sealed partial class PossessionSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, PossessedComponent comp, ComponentStartup args)
     {
+        if (!comp.DoPacify)
+            return;
+
         if (HasComp<PacifiedComponent>(uid))
         {
             comp.WasPacified = true;
@@ -91,7 +94,7 @@ public sealed partial class PossessionSystem : EntitySystem
         args.PushMarkup(Loc.GetString("possessed-component-examined", ("timeremaining", timeremaining)));
     }
 
-    public void TryPossessTarget(DevilPossessionEvent args)
+    public void TryPossessTarget(DevilPossessionEvent args, bool hidePossessorEntity, bool pacifyPossessed)
     {
         // Possessing a dead guy? What.
         if (_mobState.IsIncapacitated(args.Target) || HasComp<ZombieComponent>(args.Target))
@@ -100,8 +103,8 @@ public sealed partial class PossessionSystem : EntitySystem
             return;
         }
 
-        List<(Type, string)> blockers = new()
-        {
+        List<(Type, string)> blockers =
+        [
             (typeof(ChangelingComponent), "changeling"),
             (typeof(HereticComponent), "heretic"),
             (typeof(GhoulComponent), "ghoul"),
@@ -109,7 +112,7 @@ public sealed partial class PossessionSystem : EntitySystem
             (typeof(SpectralComponent), "ghost"),
             (typeof(TimedDespawnComponent), "temporary"),
             (typeof(FadingTimedDespawnComponent), "temporary"),
-        };
+        ];
 
         foreach (var (item1, item2) in blockers)
         {
@@ -123,6 +126,10 @@ public sealed partial class PossessionSystem : EntitySystem
             return;
 
         var possessedComp = EnsureComp<PossessedComponent>(args.Target);
+
+        // I love generic systems.
+        if (pacifyPossessed)
+            possessedComp.DoPacify = true;
 
         // Get the possession time.
         if (TryComp<DevilComponent>(args.Performer, out var devilComponent))
@@ -144,11 +151,14 @@ public sealed partial class PossessionSystem : EntitySystem
 
         // Jaunt the body so it can't be tampered with.
         // Easier than sending you to the paused map lol.
-        Spawn("PolymorphShadowJauntAnimation", Transform(possessedComp.PossessorOriginalEntity).Coordinates);
-        Spawn(_pentagramEffectProto, Transform(possessedComp.PossessorOriginalEntity).Coordinates);
+        if (hidePossessorEntity)
+        {
+            Spawn("PolymorphShadowJauntAnimation", Transform(possessedComp.PossessorOriginalEntity).Coordinates);
+            Spawn(_pentagramEffectProto, Transform(possessedComp.PossessorOriginalEntity).Coordinates);
 
-        if (devilComponent != null)
-            _poly.PolymorphEntity(possessedComp.PossessorOriginalEntity, GetJauntEntity(devilComponent));
+            if (devilComponent != null)
+                _poly.PolymorphEntity(possessedComp.PossessorOriginalEntity, GetJauntEntity(devilComponent));
+        }
 
         if (!_net.IsServer)
             return;
