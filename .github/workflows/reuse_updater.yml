@@ -48,23 +48,25 @@ jobs:
           echo "ADDED_FILES_LIST=$ADDED_FILES" >> $GITHUB_ENV
           echo "MODIFIED_FILES_LIST=$MODIFIED_FILES" >> $GITHUB_ENV
 
-          # Pass PR labels as a JSON string - escape properly for environment variable
-          # Convert the JSON to a single line with escaped quotes
-          LABELS_JSON=$(echo '${{ toJSON(github.event.pull_request.labels) }}' | jq -c .)
-          echo "PR_LABELS_JSON<<EOF" >> $GITHUB_ENV
-          echo "$LABELS_JSON" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-          echo "Labels JSON: $LABELS_JSON"
+          # Extract license from PR description if specified (format: LICENSE: MIT or LICENSE: AGPL)
+          PR_BODY="${{ github.event.pull_request.body }}"
+          if echo "$PR_BODY" | grep -q "LICENSE: MIT"; then
+            echo "PR_LICENSE=mit" >> $GITHUB_ENV
+            echo "License specified in PR: MIT"
+          elif echo "$PR_BODY" | grep -q "LICENSE: AGPL"; then
+            echo "PR_LICENSE=agpl" >> $GITHUB_ENV
+            echo "License specified in PR: AGPL"
+          else
+            echo "PR_LICENSE=agpl" >> $GITHUB_ENV
+            echo "No license specified in PR, using default: AGPL"
+          fi
 
       - name: Run REUSE Header Update Script
         run: |
-          # Create temporary file for labels JSON
-          echo '${{ env.PR_LABELS_JSON }}' > /tmp/pr_labels.json
-
           python Tools/update_pr_reuse_headers.py \
             --files-added ${{ env.ADDED_FILES_LIST }} \
             --files-modified ${{ env.MODIFIED_FILES_LIST }} \
-            --pr-labels-file /tmp/pr_labels.json \
+            --pr-license ${{ env.PR_LICENSE }} \
             --pr-base-sha "${{ github.event.pull_request.base.sha }}" \
             --pr-head-sha "${{ github.event.pull_request.head.sha }}"
         working-directory: ${{ github.workspace }}
