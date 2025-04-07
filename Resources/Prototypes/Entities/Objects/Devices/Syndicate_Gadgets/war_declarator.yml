@@ -37,3 +37,4 @@
         path: /Audio/_Goobstation/Announcements/war.ogg
     - type: AccessReader
       access: [["NuclearOperative"]]
+
