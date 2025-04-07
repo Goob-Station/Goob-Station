@@ -50,17 +50,23 @@ def get_authors_from_git(file_path, base_sha=None, head_sha=None, cwd=REPO_PATH)
     If base_sha and head_sha are provided, only gets authors from that commit range.
     Returns: dict like {"Author Name <email>": (min_year, max_year)}
     """
-    # Prepare git log command
-    if base_sha and head_sha:
-        # For PR commits only
-        commit_range = f"{base_sha}..{head_sha}"
-        command = ["git", "log", commit_range, "--pretty=format:%at|%an|%ae|%b", "--", file_path]
-    else:
-        # For all historical commits
-        command = ["git", "log", "--pretty=format:%at|%an|%ae|%b", "--follow", "--", file_path]
+    # Always get all authors
+    command = ["git", "log", "--pretty=format:%at|%an|%ae|%b", "--follow", "--", file_path]
 
     output = run_git_command(command, cwd=cwd, check=False)
     if not output:
+        # Try to get the current user from git config as a fallback
+        try:
+            name_cmd = ["git", "config", "user.name"]
+            email_cmd = ["git", "config", "user.email"]
+            user_name = run_git_command(name_cmd, cwd=cwd, check=False) or "Unknown"
+            user_email = run_git_command(email_cmd, cwd=cwd, check=False) or "unknown@example.com"
+
+            # Use current year
+            current_year = datetime.now(timezone.utc).year
+            return {f"{user_name} <{user_email}>": (current_year, current_year)}
+        except Exception as e:
+            print(f"Error getting git user: {e}")
         return {}
 
     # Process the output
