@@ -27,7 +27,6 @@
     malus: 0
   - type: MeleeThrowOnHit
     speed: 5
-    lifetime: 0.5
   - type: KnockdownOnHit
     duration: 0
     knockdownOnHeavyAttack: false

@@ -48,12 +48,15 @@
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Item  # Goob edit start
     size: Large
+  - type: AltFireMelee
+    attackType: Heavy
   - type: MeleeWeapon
     damage:
       types:
        Slash: 6
        Piercing: 7
     angle: 0
+    animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     animation: WeaponArcThrust
     soundHit:

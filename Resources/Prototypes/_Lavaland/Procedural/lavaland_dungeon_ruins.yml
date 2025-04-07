@@ -1,0 +1,5 @@
+- type: lavalandDungeonRuin
+  id: CommonRuin5x5
+  boundary: 5,5
+  spawnedMarker: LavalandInteriorRoomMarker
+  priority: 0

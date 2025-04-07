@@ -1,0 +1,97 @@
+- type: entity
+  parent: BaseStorageItem
+  id: BaseSyringeGun
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,0,0
+    whitelist:
+      tags:
+      - SyringeGunAmmo
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: ContainerAmmoProvider
+    container: storagebase
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,3,0
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: SyringeGun
+  - type: PacifismAllowedGun
+
+- type: entity
+  name: syringe gun
+  parent: [ BaseSyringeGun, BaseMedicalContraband ]
+  id: SyringeGun
+  description: A gun that allows you to fire syringes to slowly inject their contents on a target.
+  components:
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    slots:
+    - back
+    - suitStorage
+    quickEquip: false
+
+- type: entity
+  name: rapid syringe gun
+  parent: [ BaseSyringeGun, BaseGrandTheftContraband ]
+  id: RapidSyringeGun
+  description: A finely-tuned syringe gun featuring a faster fire rate and more room for ammo, made for the most experienced medical officers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    slots:
+    - back
+    - suitStorage
+    quickEquip: false
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: Gun
+    fireRate: 2
+  - type: SyringeGun
+    injectionSpeedMultiplier: 1.5
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: StealTarget
+    stealGroup: RapidSyringeGun
+  - type: Tag
+    tags:
+    - HighRiskItem
+
+- type: entity
+  name: dart syringe gun
+  parent: [ BaseSyringeGun, BaseSyndicateContraband ]
+  id: DartSyringeGun
+  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also pierces skin better, resulting in faster injection.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-dart
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: SyringeGun
+    pierceArmor: true
+    injectionSpeedMultiplier: 2
+
+# TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir

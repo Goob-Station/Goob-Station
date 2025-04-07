@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: Changelings
+  name: "Changelings"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Changelings.xml"
+  children:
+  - ChangelingsAbilities
+
+- type: guideEntry
+  id: ChangelingsAbilities
+  name: "Changeling Abilities"
+  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/ChangelingsAbilities.xml"

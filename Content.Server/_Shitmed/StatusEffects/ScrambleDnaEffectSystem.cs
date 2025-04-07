@@ -5,6 +5,7 @@ using Content.Shared.Forensics;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Content.Shared.Popups;
+using Content.Shared.Forensics.Components;
 
 namespace Content.Server._Shitmed.StatusEffects;
 

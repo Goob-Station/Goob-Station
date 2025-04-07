@@ -10,7 +10,7 @@
       organs:
         lungs: OrganAnimalLungs
         stomach: OrganAnimalRuminantStomach
-        stomach2: OrganAnimalRuminantStomach
+        stomach2: OrganAnimalRuminantStomach2 # Shitmed change: UI shits itself if multiple organs have the same slotId
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys

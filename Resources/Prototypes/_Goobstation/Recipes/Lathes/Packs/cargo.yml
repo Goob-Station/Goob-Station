@@ -1,0 +1,32 @@
+## Static
+- type: latheRecipePack
+  id: MiningToolsStatic
+  recipes:
+  - Fulton
+  - FultonBeacon
+  - OreBag
+
+- type: latheRecipePack
+  id: SalvageExplosivesStatic # emag-locked
+  recipes:
+  - SeismicCharge
+
+## Dynamic
+- type: latheRecipePack
+  id: MiningWeapons
+  recipes:
+  - WeaponProtoKineticAccelerator
+  - WeaponPlasmaCutter
+  - WeaponPlasmaRifle
+
+- type: latheRecipePack
+  id: MiningBoards
+  recipes:
+  - ShuttleGunKineticCircuitboard
+
+- type: latheRecipePack
+  id: MiningUpgrades
+  recipes:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate

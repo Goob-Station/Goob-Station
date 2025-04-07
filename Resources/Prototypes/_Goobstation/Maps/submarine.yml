@@ -67,3 +67,9 @@
             CargoTechnician: [ 3, 5 ]
             SalvageSpecialist: [ 7, 7 ]
             Quartermaster: [ 1, 1 ]
+
+      # Blob Config - Huge
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900

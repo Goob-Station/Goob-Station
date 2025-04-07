@@ -67,6 +67,12 @@ public sealed class LavalandStormSchedulerRule : GameRuleSystem<LavalandStormSch
         base.Started(uid, component, gameRule, args);
 
         ResetTimer(component);
+
+        if (_lavaland.LavalandEnabled)
+        {
+            _lavaland.EnsurePreloaderMap();
+            _lavaland.SetupLavalands();
+        }
     }
     protected override void Ended(EntityUid uid, LavalandStormSchedulerRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {

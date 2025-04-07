@@ -191,3 +191,47 @@
     radius: 1.5
     energy: 1.6
     color: "#4b93ad"
+
+- type: entity
+  id: VendingMachineSweetToof
+  parent: VendingMachine
+  name: sweet-toof co. candy
+  description: A vending machine selling an unhealthy amount of candy. You'd have to have a 'sweet-tooth' to enjoy it.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Structures/Machines/VendingMachines/sweettoof.rsi # Todo - Change this
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: SweetToofInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
+    ejectState: eject-unshaded
+    screenState: screen
+  - type: Advertise
+    pack: SweetToofAds # Todo - Make these
+  - type: SpeakOnUIClosed
+    pack: GenericVendGoodbyes
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: false
+    rotateWhilePulling: true
+  - type: PointLight
+    radius: 2
+    energy: 1.6
+    color: "#9dc5c9"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true

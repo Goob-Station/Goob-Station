@@ -6,6 +6,7 @@
   startingGear: ClownGear
   icon: "JobIconClown"
   supervisors: job-supervisors-hop
+  goobcoins: 15 #Goob content
   access:
   - Theatre
   - Maintenance

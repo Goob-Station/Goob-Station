@@ -53,5 +53,5 @@ public sealed partial class SalvageExpeditionComponent : SharedSalvageExpedition
     /// Song selected on MapInit so we can predict the audio countdown properly.
     /// </summary>
     [DataField]
-    public SoundPathSpecifier SelectedSong;
+    public ResolvedSoundSpecifier SelectedSong;
 }

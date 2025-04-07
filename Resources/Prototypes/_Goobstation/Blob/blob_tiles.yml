@@ -35,6 +35,10 @@
         Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#df9229"
   - type: Flammable
     fireSpread: true
     damage:
@@ -117,6 +121,10 @@
         Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#df9229"
   - type: Flammable
     fireSpread: true
     damage:
@@ -333,7 +341,7 @@
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
     - type: Reflect
-      reflectProb: 0.9
+      reflectProb: 1
       spread: 20
       reflects:
         - Energy

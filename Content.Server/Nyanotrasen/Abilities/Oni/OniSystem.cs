@@ -1,5 +1,6 @@
 using Content.Server.Tools;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.Abilities.Oni;
 using Content.Shared.Tools.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Nyanotrasen.Abilities.Oni;

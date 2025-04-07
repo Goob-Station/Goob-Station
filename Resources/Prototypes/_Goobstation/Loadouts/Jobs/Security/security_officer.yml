@@ -1,0 +1,4 @@
+- type: loadout
+  id: SecurityJudoBelt
+  equipment:
+    belt: ClothingBeltCorporateJudoFilled

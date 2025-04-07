@@ -23,11 +23,6 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
   - type: StaticPrice
     price: 500
   - type: Cautery # Shitmed
@@ -176,6 +171,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: HitscanBatteryAmmoProvider
@@ -229,6 +229,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
@@ -241,6 +246,9 @@
   - type: StaticPrice
     price: 300
   - type: PacifismAllowedGun
+  # Goobstation
+  - type: Item
+    size: Large
 
 
 - type: entity
@@ -259,7 +267,7 @@
   name: pulse pistol
   parent: BaseWeaponBatterySmall
   id: WeaponPulsePistol
-  description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
+  description: A state-of-the-art pulse based weapon. It's smaller frame allows it to passively regenerate charge. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
@@ -269,6 +277,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   - type: Gun
@@ -284,12 +297,15 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: Multishot # Goobstation
+  - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
+    autoRecharge: true
+    autoRechargeRate: 40
 
 - type: entity
   name: pulse carbine
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
-  description: A high tech energy carbine favoured by the NT-ERT operatives.
+  description: A state-of-the-art pulse carbine, typically used by Nanotrasen militia. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
@@ -299,6 +315,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
   - type: Gun
@@ -315,12 +336,15 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband] # Goobstation - Deathsquad revamp
   id: WeaponPulseRifle
-  description: A weapon that is almost as infamous as its users.
+  description: A weapon almost as infamous as its users. # Goobstation - Sometimes less is more.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
@@ -330,6 +354,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
@@ -337,11 +366,14 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+    proto: HeavyPulse # Goobstation - Deathsquad revamp
     fireCost: 100
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: laser cannon
@@ -357,6 +389,11 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
   - type: Gun
@@ -366,6 +403,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: portable particle decelerator
@@ -402,6 +442,9 @@
         Steel: 187
         Plasma: 37
         Uranium: 37
+    - type: Tag # Goobstation
+      tags:
+      - Rifle
 
 - type: entity
   name: x-ray cannon
@@ -430,6 +473,9 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Tag # Goobstation
+    tags:
+    - Rifle
 
 - type: entity
   name: practice disabler
@@ -459,11 +505,12 @@
     price: 100
   - type: Gun
     fireRate: 2
+    #projectileSpeed: 35 # Goobstation - nuh uh
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 100
+    fireCost: 25 # Goobstation - billions must troll with practice disabler
   - type: Tag
     tags:
     - Taser
@@ -493,7 +540,7 @@
       - Belt
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 100
+    fireCost: 50
   - type: GuideHelp
     guides:
     - Security
@@ -522,7 +569,7 @@
         shader: unshaded
   - type: Gun
     selectedMode: FullAuto
-    fireRate: 4
+    fireRate: 4.5
     availableModes:
       - SemiAuto
       - FullAuto
@@ -530,11 +577,12 @@
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmg
-    fireCost: 33
+    fireCost: 25
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Appearance
   - type: StaticPrice
     price: 260
   - type: PacifismAllowedGun
@@ -582,7 +630,7 @@
   name: antique laser pistol
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponAntiqueLaser
-  description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy.
+  description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with a mahogany grip and chrome filigree. The object menaces with spikes of energy. On the item is an image of a captain and a clown. The clown is dead. The captain is striking a heroic pose.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
@@ -752,11 +800,6 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
   - type: StaticPrice
     price: 750
 
@@ -774,6 +817,11 @@
       - state: mag-unshaded-4
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
   - type: Gun
@@ -822,103 +870,3 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
-
-- type: entity
-  name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseGrandTheftContraband
-  id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
-  components:
-  - type: Sprite
-    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mode # Goob edit
-      shader: unshaded
-      color: "#00B2FF" # Goobstation
-      map: [ "Firemode" ]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Clothing
-    quickEquip: false # Frontier
-    slots: # Frontier
-    # - Back # Frontier
-    - suitStorage #Frontier
-    - belt # Goobstation
-    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
-  - type: Gun
-    soundGunshot:
-      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
-    soundEmpty:
-      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
-  - type: Battery
-    maxCharge: 1000 # Goob edit
-    startingCharge: 1000 # Goob edit
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 50 # Goob edit
-  # Goob edit start
-  #- type: EnergyGun
-  #  fireModes:
-  #  - proto: BulletDisabler
-  #    fireCost: 50
-  #    name: disabling
-  #    state: disabler
-  #  - proto: BulletEnergyGunLaser
-  #    fireCost: 100
-  #    name: lethal
-  #    state: lethal
-  #  - proto: BulletEnergyGunIon
-  #    fireCost: 100
-  #    name: ion
-  #    state: special
-  - type: AmmoSelector
-    prototypes:
-      - BulletDisabler
-      - BulletEnergyGunLaser
-      - BulletEnergyGunIon
-  - type: UserInterface
-    interfaces:
-      enum.AmmoSelectorUiKey.Key:
-        type: AmmoSelectorMenuBoundUserInterface
-  - type: ActivatableUI
-    inHandsOnly: true
-    key: enum.AmmoSelectorUiKey.Key
-  - type: ItemToggle
-    activated: true
-    onActivate: false
-    onUse: false
-    wieldToggle: false
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: ItemToggleColor
-  - type: Appearance
-  - type: ToggleableLightVisuals
-    spriteLayer: Firemode
-    inhandVisuals:
-      left:
-      - state: mode-inhand-left
-        shader: unshaded
-      right:
-      - state: mode-inhand-right
-        shader: unshaded
-  #- type: GenericVisualizer
-  #  visuals:
-  #    enum.EnergyGunFireModeVisuals.State:
-  #      Firemode:
-  #        Disabler: { state: mode-disabler }
-  #        Lethal: { state: mode-lethal }
-  #        Special: { state: mode-ion }
-  # Goob edit end
-  - type: Tag
-    tags:
-    - HighRiskItem
-    - Sidearm
-  - type: StealTarget # Goobstation
-    stealGroup: WeaponEnergyGunMultiphase
-  - type: StaticPrice
-    price: 750

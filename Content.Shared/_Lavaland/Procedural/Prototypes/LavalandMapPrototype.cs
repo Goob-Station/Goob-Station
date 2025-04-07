@@ -1,9 +1,10 @@
-﻿using Content.Shared._Lavaland.Weather;
+using Content.Shared._Lavaland.Weather;
 using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Lavaland.Procedural.Prototypes;
 
@@ -18,7 +19,7 @@ public sealed partial class LavalandMapPrototype : IPrototype
     [DataField] public LocId Name = "lavaland-planet-name-unknown";
 
     [DataField]
-    public string OutpostPath = "";
+    public ResPath OutpostPath = new ResPath("");
 
     [DataField]
     public float RestrictedRange = 512f;
@@ -57,10 +58,10 @@ public sealed partial class LavalandMapPrototype : IPrototype
         "OreSilver",
         "OrePlasma",
         "OreUranium",
+        "BSCrystal",
         "OreBananium",
         "OreArtifactFragment",
         "OreDiamond",
-        "BSCrystal",
     };
 
     [DataField("weather")]

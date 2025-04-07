@@ -137,6 +137,9 @@
       "name": "cpu_syndicate"
     },
     {
+      "name": "cpu_centcomm"
+    },
+    {
       "name": "cpuboard"
     },
     {

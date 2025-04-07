@@ -1,0 +1,29 @@
+- type: entity
+  parent: Jug
+  suffix: salicylic acid
+  id: JugSalicylicAcid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-salicylic-acid
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: SalicylicAcid
+          Quantity: 200
+
+- type: entity
+  parent: Jug
+  suffix: oxandrolone
+  id: JugOxandrolone
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-oxandrolone
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Oxandrolone
+          Quantity: 200

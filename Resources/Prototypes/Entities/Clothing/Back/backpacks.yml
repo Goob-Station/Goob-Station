@@ -192,7 +192,7 @@
 
 #ERT
 - type: entity
-  parent: [ ClothingBackpack, BaseCentcommContraband ]
+  parent: [ ClothingBackpack, ContentsExplosionResistanceBase, BaseCentcommContraband ] # Goobstation
   id: ClothingBackpackERTLeader
   name: ERT leader backpack
   description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
@@ -202,6 +202,8 @@
   - type: Storage
     grid:
     - 0,0,10,3
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.1
 
 - type: entity
   parent: ClothingBackpackERTLeader

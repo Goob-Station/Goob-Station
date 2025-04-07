@@ -11,6 +11,7 @@
     tags:
     - PlantSampleTaker
     - Wirecutter
+    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/wirecutters.rsi
     layers:
@@ -18,6 +19,7 @@
       map: [ "enum.DamageStateVisualLayers.Base" ]
     - state: cutters-cutty-thingy
   - type: MeleeWeapon
+    animationRotation: -90 # WWDP
     wideAnimationRotation: -90
     damage:
       types:
@@ -69,6 +71,7 @@
   - type: Tag
     tags:
     - Screwdriver
+    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
     layers:
@@ -79,6 +82,7 @@
     sprite: Objects/Tools/screwdriver.rsi
     storedRotation: -90
   - type: MeleeWeapon
+    animationRotation: -90 # WWDP
     wideAnimationRotation: -90
     attackRate: 1
     damage:
@@ -122,6 +126,7 @@
   - type: Tag
     tags:
     - Wrench
+    - DroneUsable # Goobstation
   - type: Sprite
     sprite: Objects/Tools/wrench.rsi
     state: icon
@@ -131,6 +136,7 @@
       sprite: Objects/Tools/wrench.rsi
       state: storage
   - type: MeleeWeapon
+    animationRotation: 225 # WWDP
     wideAnimationRotation: 135
     attackRate: 1.5
     damage:
@@ -193,6 +199,7 @@
     tags:
       - Multitool
       - DoorElectronicsConfigurator
+      - DroneUsable # Goobstation
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -311,6 +318,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: -90
     attackRate: 1.5
+    animationRotation: 90 # WWDP
+    range: 1.4
     damage:
       types:
         Piercing: 10
@@ -376,6 +385,9 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
 
 - type: entity
   id: RPD
@@ -482,7 +494,7 @@
   - type: Prying
     enabled: false
   - type: UseDelay # Goobstation - For insta prying
-    delay: 1
+    delay: 0 # Goobstation - no switch CD
   - type: Tool
     qualities:
       - Screwing
@@ -542,6 +554,7 @@
     sprite: Objects/Tools/shovel.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     damage:
       types:
@@ -577,6 +590,7 @@
     slots:
     - Belt
   - type: MeleeWeapon
+    animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     damage:
       types:

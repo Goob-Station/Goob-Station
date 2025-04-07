@@ -51,8 +51,9 @@
   suffix: Goliath
   components:
   - type: Tendril
-    maxSpawns: 1
-    mobsToDefeat: 3
+    maxSpawns: 2
+    mobsToDefeat: 6
+    spawnDelay: 15.0
     spawns:
     - MobGoliath
 
@@ -76,7 +77,8 @@
   components:
   - type: Tendril
     maxSpawns: 2
-    mobsToDefeat: 4
+    mobsToDefeat: 8
+    spawnDelay: 12.0
     spawns:
     - MobWatcherLavaland
 
@@ -90,6 +92,7 @@
   - type: Tendril
     maxSpawns: 2
     mobsToDefeat: 4
+    spawnDelay: 12.0
     spawns:
     - MobWatcherIcewing
 
@@ -103,6 +106,7 @@
   - type: Tendril
     maxSpawns: 2
     mobsToDefeat: 4
+    spawnDelay: 12.0
     spawns:
     - MobWatcherMagmawing
 
@@ -116,39 +120,6 @@
   - type: Tendril
     maxSpawns: 4
     mobsToDefeat: 8
-    spawnDelay: 6.0
+    spawnDelay: 8.0
     spawns:
     - MobCarpDungeon
-
-# Tendril Random Spawners
-- type: entityTable
-  id: LavalandTendrils
-  table: !type:GroupSelector
-    children:
-    - !type:GroupSelector
-      weight: 70
-      children:
-      - id: LavalandTendrilMagmawingWatcher
-      - id: LavalandTendrilSpaceCarp
-    - !type:GroupSelector
-      weight: 30
-      children:
-      - id: LavalandTendrilGoliath
-      #- id: LavalandTendrilLegion
-
-- type: entity
-  name: tendril spawner
-  id: SpawnerRandomTendrilLavaland
-  parent: MarkerBase
-  suffix: Lavaland
-  components:
-  - type: Sprite
-    layers:
-    - state: red
-    - sprite: _Lavaland/Structures/Specific/tendril.rsi
-      state: tendril
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
-      tableId: LavalandTendrils
-  placement:
-    mode: AlignTileAny

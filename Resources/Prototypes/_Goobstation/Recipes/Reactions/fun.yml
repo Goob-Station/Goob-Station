@@ -46,7 +46,7 @@
       amount: 1
   products:
     Copium: 3
-    
+
 - type: reaction
   id: CatDrugs
   minTemp: 370
@@ -61,3 +61,41 @@
       amount: 1
   products:
     CatDrugs: 4
+
+- type: reaction
+  id: SolidifyGoldHercuri
+  impact: Low
+  quantized: true
+  reactants:
+    Gold:
+      amount: 10
+    Hercuri:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: IngotGold1
+
+- type: reaction
+  id: SolidifySilverHercuri
+  impact: Low
+  quantized: true
+  reactants:
+    Silver:
+      amount: 10
+    Hercuri:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: IngotSilver1
+
+- type: reaction
+  id: Tilenol
+  impact: Low
+  quantized: true
+  reactants:
+    Copium:
+      amount: 1
+    Nostalgia:
+      amount: 4
+  products:
+    Tilenol: 1

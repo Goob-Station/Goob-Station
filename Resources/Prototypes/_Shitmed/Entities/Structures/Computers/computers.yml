@@ -65,7 +65,7 @@
   id: AbductorHumanObservationConsoleEye
   name: abductor eye
   description: The abductor's viewer.
-  categories: [ HideSpawnMenu ]
+  categories: [ HideSpawnMenu, DoNotMap ]
   suffix: DO NOT MAP
   components:
   - type: NoFTL

@@ -12,17 +12,16 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Server.Interaction;
 using Content.Server.Body.Components;
 using System.Linq;
 using Robust.Server.Audio;
+using Content.Goobstation.Shared.Chemistry.Hypospray; // Goobstation
 
 namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed class HypospraySystem : SharedHypospraySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly InteractionSystem _interaction = default!;
 
     public override void Initialize()
     {
@@ -128,7 +127,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
         if (!_solutionContainers.TryGetSolution(uid, component.SolutionName, out var hypoSpraySoln, out var hypoSpraySolution) || hypoSpraySolution.Volume == 0)
         {
             _popup.PopupEntity(Loc.GetString("hypospray-component-empty-message"), target, user);
-            return true;
+            return false; // Goobstation edit - why was it true?
         }
 
         if (!_solutionContainers.TryGetInjectableSolution(target, out var targetSoln, out var targetSolution))
@@ -172,6 +171,9 @@ public sealed class HypospraySystem : SharedHypospraySystem
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = uid };
         RaiseLocalEvent(target, ref ev);
+
+        var afterinjectev = new AfterHyposprayInjectsEvent { User = user, Target = target }; // Goobstation
+        RaiseLocalEvent(uid, ref afterinjectev); // Goobstation
 
         // same LogType as syringes...
         _adminLogger.Add(LogType.ForceFeed, $"{EntityManager.ToPrettyString(user):user} injected {EntityManager.ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {EntityManager.ToPrettyString(uid):using}");
