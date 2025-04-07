@@ -16,7 +16,6 @@ public sealed partial class DevilComponent : Component
         "ActionCreateContract",
         "ActionShadowJaunt",
         "ActionCreateRevivalContract",
-        "ActionDevilPossess", // Temporarily given on start for testing.
     };
 
     /// <summary>

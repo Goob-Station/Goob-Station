@@ -39,7 +39,6 @@ public sealed partial class PossessionSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PossessedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PossessedComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeLocalEvent<PossessedComponent, ExaminedEvent>(OnExamined);
     }
@@ -54,24 +53,15 @@ public sealed partial class PossessionSystem : EntitySystem
             if (_timing.CurTime >= comp.PossessionEndTime)
                 RemComp<PossessedComponent>(uid);
 
+            if (comp.DoPacify)
+            {
+                comp.WasPacified = true;
+                EnsureComp<PacifiedComponent>(uid);
+            }
+
             comp.PossessionTimeRemaining = _timing.CurTime - comp.PossessionEndTime;
         }
     }
-
-    private void OnStartup(EntityUid uid, PossessedComponent comp, ComponentStartup args)
-    {
-        if (!comp.DoPacify)
-            return;
-
-        if (HasComp<PacifiedComponent>(uid))
-        {
-            comp.WasPacified = true;
-            return;
-        }
-
-        EnsureComp<PacifiedComponent>(uid);
-    }
-
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
     {
         if (!comp.WasPacified)
@@ -178,7 +168,7 @@ public sealed partial class PossessionSystem : EntitySystem
         return true;
     }
 
-    private TimeSpan GetPossessionDuration(DevilComponent comp)
+    private static TimeSpan GetPossessionDuration(DevilComponent comp)
     {
         return comp.PowerLevel switch
         {
