@@ -235,12 +235,14 @@
   id: JobVirologist
   groups:
    - GroupTankHarness
+   - MedicalDoctorHead
    - MedicalMask
    - VirologistJumpsuit
    - MedicalGloves
    - VirologistBackpack
    - VirologistOuterClothing
    - MedicalShoes
+   - VirologistPDA
    - SurvivalMedical
    - Trinkets
-   - GroupSpeciesBreathTool
+   - GroupSpeciesBreathToolMedical
