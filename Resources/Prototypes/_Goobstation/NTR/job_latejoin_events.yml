@@ -62,6 +62,6 @@
   - type: StationEvent
     minimumPlayers: 0
     weight: 0
-  - type: DepartmentJobUnlockRule
+  - type: LateJobUnlockRule
     jobsToAdd:
       MedicalDoctor: 2
