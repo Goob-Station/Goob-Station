@@ -15,7 +15,6 @@ job-name-overall = Overall
 job-name-tider = Tider
 
 job-name-exec = Executive Access
-job-name-virologist = Virologist
 
 # Navy Stuff
 

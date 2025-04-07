@@ -1,5 +1,6 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Shared.Rejuvenate;
 using Content.Goobstation.Shared.Disease;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -22,6 +23,7 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         SubscribeLocalEvent<DiseaseComponent, DiseaseCloneEvent>(OnClonedInto);
         SubscribeLocalEvent<GrantDiseaseComponent, MapInitEvent>(OnGrantDiseaseInit);
         SubscribeLocalEvent<InternalsComponent, DiseaseIncomingSpreadAttemptEvent>(OnInternalsIncomingSpread);
+        SubscribeLocalEvent<DiseaseCarrierComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
     private void OnClonedInto(EntityUid uid, DiseaseComponent disease, DiseaseCloneEvent args)
@@ -70,6 +72,15 @@ public sealed partial class DiseaseSystem : SharedDiseaseSystem
         if (_proto.TryIndex<DiseaseSpreadPrototype>(args.Type, out var spreadProto) && _internals.AreInternalsWorking(uid, internals))
         {
             args.ApplyModifier(internals.IncomingInfectionModifier);
+        }
+    }
+
+    private void OnRejuvenate(EntityUid uid, DiseaseCarrierComponent comp, RejuvenateEvent args)
+    {
+        while (comp.Diseases.Count != 0)
+        {
+            if (!TryCure(uid, comp.Diseases[0], comp))
+                break;
         }
     }
 
