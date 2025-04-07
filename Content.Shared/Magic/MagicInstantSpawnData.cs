@@ -1,4 +1,9 @@
-﻿namespace Content.Shared.Magic;
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Shared.Magic;
 
 // TODO: If still needed, move to magic component
 [ImplicitDataDefinitionForInheritors]

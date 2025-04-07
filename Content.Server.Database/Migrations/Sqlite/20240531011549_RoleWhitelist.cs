@@ -1,4 +1,9 @@
-﻿#nullable disable
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+#nullable disable
 
 using System;
 using Microsoft.EntityFrameworkCore.Migrations;

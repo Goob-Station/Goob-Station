@@ -1,4 +1,10 @@
-﻿using Robust.Client.UserInterface;
+// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client.Hands.UI
