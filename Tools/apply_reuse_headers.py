@@ -1,13 +1,16 @@
-# apply_reuse_headers.py
-import subprocess
+#!/usr/bin/env python3
+# apply_reuse_headers.py - A script to add REUSE headers to C# files
+
 import os
 import sys
+import re
+import subprocess
+import argparse
 from datetime import datetime, timezone
 from collections import defaultdict
-import time
 import concurrent.futures
 import threading
-import re
+import time
 
 # --- Configuration ---
 CUTOFF_COMMIT_HASH = "8270907bdc509a3fb5ecfecde8cc14e5845ede36"
@@ -16,6 +19,12 @@ LICENSE_AFTER = "AGPL-3.0-or-later"
 FILE_PATTERNS = ["*.cs", "*.yaml", "*.yml"]
 REPO_PATH = "."
 MAX_WORKERS = os.cpu_count() or 4
+
+COMMENT_PREFIXES = {
+    ".cs": "//",
+    ".yaml": "#",
+    ".yml": "#",
+}
 
 # --- Shared State and Lock ---
 progress_lock = threading.Lock()
@@ -29,7 +38,7 @@ last_license_type = ""
 all_warnings = []
 total_files = 0
 
-# --- Helper Functions ---
+# --- Helper Functions (Copied from update_pr_reuse_headers.py) ---
 
 def run_git_command(command, cwd=REPO_PATH, check=True):
     """Runs a git command and returns its output."""
@@ -45,7 +54,6 @@ def run_git_command(command, cwd=REPO_PATH, check=True):
         )
         return result.stdout.strip()
     except subprocess.CalledProcessError as e:
-        # Don't print error if check=False and it returns non-zero, git log might return empty
         if check:
             print(f"Error running git command {' '.join(command)}: {e.stderr}", file=sys.stderr)
         return None
@@ -53,6 +61,149 @@ def run_git_command(command, cwd=REPO_PATH, check=True):
         with progress_lock:
             all_warnings.append("FATAL: 'git' command not found. Make sure git is installed and in your PATH.")
         return None
+
+def get_authors_from_git(file_path, cwd=REPO_PATH):
+    """
+    Gets authors and their contribution years for a specific file.
+    Returns: dict like {"Author Name <email>": (min_year, max_year)}
+    """
+    # Always get all authors
+    command = ["git", "log", "--pretty=format:%at|%an|%ae|%b", "--follow", "--", file_path]
+
+    output = run_git_command(command, cwd=cwd, check=False)
+    if not output:
+        # Try to get the current user from git config as a fallback
+        try:
+            name_cmd = ["git", "config", "user.name"]
+            email_cmd = ["git", "config", "user.email"]
+            user_name = run_git_command(name_cmd, cwd=cwd, check=False)
+            user_email = run_git_command(email_cmd, cwd=cwd, check=False)
+
+            if user_name and user_email and user_name.strip() != "Unknown":
+                # Use current year
+                current_year = datetime.now(timezone.utc).year
+                return {f"{user_name} <{user_email}>": (current_year, current_year)}
+            else:
+                print("Warning: Could not get current user from git config or name is 'Unknown'")
+                return {}
+        except Exception as e:
+            print(f"Error getting git user: {e}")
+        return {}
+
+    # Process the output
+    author_timestamps = defaultdict(list)
+    co_author_regex = re.compile(r"^Co-authored-by:\s*(.*?)\s*<([^>]+)>", re.MULTILINE)
+
+    for line in output.splitlines():
+        if not line.strip():
+            continue
+
+        parts = line.split('|', 3)
+        if len(parts) < 4:
+            continue
+
+        timestamp_str, author_name, author_email, body = parts
+
+        try:
+            timestamp = int(timestamp_str)
+        except ValueError:
+            continue
+
+        # Add main author
+        if author_name and author_email and author_name.strip() != "Unknown":
+            author_key = f"{author_name.strip()} <{author_email.strip()}>"
+            author_timestamps[author_key].append(timestamp)
+
+        # Add co-authors
+        for match in co_author_regex.finditer(body):
+            co_author_name = match.group(1).strip()
+            co_author_email = match.group(2).strip()
+            if co_author_name and co_author_email and co_author_name.strip() != "Unknown":
+                co_author_key = f"{co_author_name} <{co_author_email}>"
+                author_timestamps[co_author_key].append(timestamp)
+
+    # Convert timestamps to years
+    author_years = {}
+    for author, timestamps in author_timestamps.items():
+        if not timestamps:
+            continue
+        min_ts = min(timestamps)
+        max_ts = max(timestamps)
+        min_year = datetime.fromtimestamp(min_ts, timezone.utc).year
+        max_year = datetime.fromtimestamp(max_ts, timezone.utc).year
+        author_years[author] = (min_year, max_year)
+
+    return author_years
+
+def parse_existing_header(content, comment_prefix):
+    """
+    Parses an existing REUSE header to extract authors and license.
+    Returns: (authors_dict, license_id, header_lines)
+    """
+    lines = content.splitlines()
+    authors = {}
+    license_id = None
+    header_lines = []
+
+    # Regular expressions for parsing
+    copyright_regex = re.compile(f"^{re.escape(comment_prefix)} SPDX-FileCopyrightText: (\\d{{4}}) (.+)$")
+    license_regex = re.compile(f"^{re.escape(comment_prefix)} SPDX-License-Identifier: (.+)$")
+
+    # Find the header section
+    in_header = True
+    for i, line in enumerate(lines):
+        if in_header:
+            header_lines.append(line)
+
+            # Check for copyright line
+            copyright_match = copyright_regex.match(line)
+            if copyright_match:
+                year = int(copyright_match.group(1))
+                author = copyright_match.group(2).strip()
+                authors[author] = (year, year)
+                continue
+
+            # Check for license line
+            license_match = license_regex.match(line)
+            if license_match:
+                license_id = license_match.group(1).strip()
+                continue
+
+            # Empty comment line or separator
+            if line.strip() == comment_prefix:
+                continue
+
+            # If we get here, we've reached the end of the header
+            if i > 0:  # Only if we've processed at least one line
+                header_lines.pop()  # Remove the non-header line
+                in_header = False
+        else:
+            break
+
+    return authors, license_id, header_lines
+
+def create_header(authors, license_id, comment_prefix):
+    """
+    Creates a REUSE header with the given authors and license.
+    Returns: header string
+    """
+    lines = []
+
+    # Add copyright lines
+    if authors:
+        for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
+            if not author.startswith("Unknown <"):
+                lines.append(f"{comment_prefix} SPDX-FileCopyrightText: {year} {author}")
+    else:
+        lines.append(f"{comment_prefix} SPDX-FileCopyrightText: Contributors to the DoobStation14 project")
+
+    # Add separator
+    lines.append(f"{comment_prefix}")
+
+    # Add license line
+    lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
+
+    return "\n".join(lines)
 
 def get_commit_timestamp(commit_hash, cwd=REPO_PATH):
     """Gets the Unix timestamp of a specific commit."""
@@ -78,137 +229,6 @@ def get_last_commit_timestamp(file_path, cwd=REPO_PATH):
                 all_warnings.append(f"Warning: Could not parse last commit timestamp for {file_path}")
             return None
     return None
-
-def get_author_contribution_years(file_path, cwd=REPO_PATH):
-    """
-    Gets a dictionary mapping authors (including co-authors) to their first and last
-    contribution years for a file.
-    Returns: (dict like {"Author Name <email>": (min_year, max_year)}, list_of_warnings)
-    """
-    # Use %x1E (Record Separator) to split commits reliably
-    # Include commit body (%b) to parse Co-authored-by lines
-    # Use %an for author name, %ae for email
-    command = ["git", "log", "--pretty=format:%at%x00%an%x00%ae%x00%b%x1E", "--follow", "--", file_path]
-    # Regex to find Co-authored-by lines
-    co_author_regex = re.compile(r"^Co-authored-by:\s*(.*?)\s*<([^>]+)>", re.IGNORECASE | re.MULTILINE)
-
-    output = run_git_command(command, cwd=cwd, check=False) # Don't fail if file has no history
-    author_timestamps = defaultdict(list)
-    warnings = []
-
-    if output is None or not output.strip():
-        return {}, warnings # No history found
-
-    commits = output.strip().split('\x1E') # Split into individual commit records
-
-    for commit_data in commits:
-        if not commit_data.strip():
-            continue
-
-        parts = commit_data.strip().split('\x00')
-        if len(parts) < 4: # timestamp, name, email, body
-            warnings.append(f"Skipping malformed commit data for {file_path}: {commit_data[:100]}...")
-            continue
-
-        timestamp_str, author_name, author_email, body = parts[0], parts[1], parts[2], parts[3]
-
-        try:
-            ts_int = int(timestamp_str)
-        except ValueError:
-            warnings.append(f"Skipping invalid timestamp for {file_path}: {timestamp_str}")
-            continue
-
-        # Process main author
-        if author_name and author_email:
-            author_key = f"{author_name.strip()} <{author_email.strip()}>"
-            author_timestamps[author_key].append(ts_int)
-        else:
-            warnings.append(f"Skipping commit with missing author info for {file_path}: Name='{author_name}', Email='{author_email}'")
-
-        # Process co-authors from commit body
-        for match in co_author_regex.finditer(body):
-            co_author_name = match.group(1).strip()
-            co_author_email = match.group(2).strip()
-            if co_author_name and co_author_email:
-                co_author_key = f"{co_author_name} <{co_author_email}>"
-                author_timestamps[co_author_key].append(ts_int)
-            else:
-                 warnings.append(f"Skipping malformed Co-authored-by line in commit body for {file_path}: Name='{co_author_name}', Email='{co_author_email}'")
-
-
-    author_years = {}
-    for author, timestamps in author_timestamps.items():
-        if not timestamps:
-            continue
-        try:
-            min_ts = min(timestamps)
-            max_ts = max(timestamps)
-            min_year = datetime.fromtimestamp(min_ts, timezone.utc).year
-            max_year = datetime.fromtimestamp(max_ts, timezone.utc).year
-            author_years[author] = (min_year, max_year) # Store tuple (min_year, max_year)
-        except Exception as e:
-             warnings.append(f"Error calculating year range for author {author} on file {file_path}: {e}")
-
-    return author_years, warnings
-
-
-def create_reuse_header(author_years, license_id, comment_prefix):
-    """
-    Creates the REUSE compliant header string, sorted by first contribution year,
-    displaying the latest contribution year.
-    """
-    header_lines = []
-    copyright_prefix = f"{comment_prefix} SPDX-FileCopyrightText:"
-    if not author_years:
-        header_lines.append(f"{copyright_prefix} Contributors to the DoobStation14 project")
-    else:
-        # Sort authors by their minimum (first) contribution year
-        sorted_authors = sorted(author_years.items(), key=lambda item: item[1][0])
-        for author, (min_year, max_year) in sorted_authors:
-            # Display the maximum (latest) year in the copyright line
-            year_string = str(max_year)
-            clean_author = author.replace('\n', ' ').replace('\r', '')
-            header_lines.append(f"{copyright_prefix} {year_string} {clean_author}")
-
-    header_lines.append(f"{comment_prefix}") # Separator line
-    header_lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
-    return "\n".join(header_lines)
-
-def remove_existing_reuse_header(content, comment_prefix):
-    """Removes existing SPDX comment lines from the start of the content."""
-    lines = content.splitlines()
-    cleaned_lines = []
-    in_header = True
-    header_removed = False
-    spdx_prefix = f"{comment_prefix} SPDX-"
-    copyright_prefix_long = f"{comment_prefix} SPDX-FileCopyrightText:"
-    copyright_prefix_short = f"{comment_prefix} Copyright"
-    separator = f"{comment_prefix}"
-
-    for i, line in enumerate(lines):
-        stripped_line = line.strip()
-        is_spdx_comment = stripped_line.startswith(spdx_prefix)
-        is_copyright_comment = stripped_line.startswith(copyright_prefix_long) or stripped_line.startswith(copyright_prefix_short)
-        is_separator_comment = stripped_line == separator and i < 5 # Only consider separators early on
-        is_header_line = is_spdx_comment or is_copyright_comment or is_separator_comment
-
-        if in_header and is_header_line:
-            header_removed = True
-            continue
-        # Stop considering it a header if we hit a non-header line or go too deep
-        if in_header and (not is_header_line or i >= 50):
-             in_header = False
-        cleaned_lines.append(line)
-
-    # Trim leading whitespace after removing header
-    first_content_line_index = 0
-    for i, line in enumerate(cleaned_lines):
-        if line.strip():
-            first_content_line_index = i
-            break
-
-    return "\n".join(cleaned_lines[first_content_line_index:]) if cleaned_lines else ""
-
 
 def print_progress(current_processed_count, bar_length=40):
     """Prints the progress status block (thread-safe access to globals)."""
@@ -237,14 +257,13 @@ def process_file(file_path_tuple):
 
     file_path, cutoff_ts = file_path_tuple
     file_warnings = []
-    license_id = None
     status = 'skipped'
     comment_prefix = None
 
+    # Check file extension
     _, ext = os.path.splitext(file_path)
-    if ext == '.cs': comment_prefix = '//'
-    elif ext in ['.yaml', '.yml']: comment_prefix = '#'
-    else:
+    comment_prefix = COMMENT_PREFIXES.get(ext)
+    if not comment_prefix:
         file_warnings.append(f"Skipped (Unsupported Extension): {file_path}")
         status = 'skipped_unsupported'
         with progress_lock:
@@ -254,58 +273,115 @@ def process_file(file_path_tuple):
         print_progress(progress_count_snapshot)
         return status
 
-    full_file_path = os.path.join(REPO_PATH, file_path)
-    if not os.path.exists(full_file_path):
+    # Check if file exists
+    full_path = os.path.join(REPO_PATH, file_path)
+    if not os.path.exists(full_path):
         file_warnings.append(f"Skipped (Not Found): {file_path}")
         status = 'skipped_not_found'
     else:
+        # Read file content
+        with open(full_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
+            content = f.read()
+
+        # Parse existing header if any
+        existing_authors, existing_license, header_lines = parse_existing_header(content, comment_prefix)
+
+        # Get all authors from git
+        git_authors = get_authors_from_git(file_path)
+
+        # Add current user to authors
+        try:
+            name_cmd = ["git", "config", "user.name"]
+            email_cmd = ["git", "config", "user.email"]
+            user_name = run_git_command(name_cmd, check=False)
+            user_email = run_git_command(email_cmd, check=False)
+
+            if user_name and user_email and user_name.strip() != "Unknown":
+                current_year = datetime.now(timezone.utc).year
+                current_user = f"{user_name} <{user_email}>"
+                if current_user not in git_authors:
+                    git_authors[current_user] = (current_year, current_year)
+                    print(f"  Added current user: {current_user}")
+                else:
+                    min_year, max_year = git_authors[current_user]
+                    git_authors[current_user] = (min(min_year, current_year), max(max_year, current_year))
+            else:
+                print("Warning: Could not get current user from git config or name is 'Unknown'")
+        except Exception as e:
+            print(f"Error getting git user: {e}")
+
+        # Determine license based on cutoff commit
         last_commit_timestamp = get_last_commit_timestamp(file_path, REPO_PATH)
         if last_commit_timestamp is None:
             file_warnings.append(f"Warning (No Timestamp): Assuming AGPL for {file_path}")
-            license_id = LICENSE_AFTER
+            determined_license_id = LICENSE_AFTER
         else:
-            license_id = LICENSE_AFTER if last_commit_timestamp > cutoff_ts else LICENSE_BEFORE
+            determined_license_id = LICENSE_AFTER if last_commit_timestamp > cutoff_ts else LICENSE_BEFORE
 
-        # Use the updated function which includes co-authors
-        author_years, author_warnings = get_author_contribution_years(file_path, REPO_PATH)
-        file_warnings.extend(author_warnings)
-        if not author_years and not author_warnings:
-             file_warnings.append(f"Warning (No Authors): Using generic copyright for {file_path}")
+        # Determine what to do based on existing header
+        if existing_license:
+            print(f"Updating existing header for {file_path} (License: {existing_license})")
 
-        # Pass the author_years dict (containing min/max tuples)
-        reuse_header = create_reuse_header(author_years, license_id, comment_prefix)
+            # Combine existing and git authors
+            combined_authors = existing_authors.copy()
+            for author, (git_min, git_max) in git_authors.items():
+                if author.startswith("Unknown <"):
+                    continue
+                if author in combined_authors:
+                    existing_min, existing_max = combined_authors[author]
+                    combined_authors[author] = (min(existing_min, git_min), max(existing_max, git_max))
+                else:
+                    combined_authors[author] = (git_min, git_max)
+                    print(f"  Adding new author: {author}")
 
-        try:
-            with open(full_file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
-                original_content = f.read()
-            cleaned_content = remove_existing_reuse_header(original_content, comment_prefix)
-            separator = "\n\n" if cleaned_content.strip() else "" # Add extra newline for new files
+            # Create new header with existing license
+            new_header = create_header(combined_authors, existing_license, comment_prefix)
 
-            # Handle shebangs or initial comments for YAML
-            if comment_prefix == '#' and cleaned_content.startswith('#'):
-                 new_content = reuse_header + "\n" + cleaned_content
+            # Replace old header with new header
+            if header_lines:
+                old_header = "\n".join(header_lines)
+                new_content = content.replace(old_header, new_header, 1)
             else:
-                 new_content = reuse_header + separator + cleaned_content
+                # No header found (shouldn't happen if existing_license is set)
+                new_content = new_header + "\n\n" + content
 
-            final_content_lf = new_content.replace('\r\n', '\n').replace('\r', '\n')
-            original_content_lf = original_content.replace('\r\n', '\n').replace('\r', '\n')
-            if final_content_lf != original_content_lf:
-                with open(full_file_path, 'w', encoding='utf-8', newline='\n') as f:
-                    f.write(final_content_lf)
+            license_id_used = existing_license
+        else:
+            print(f"Adding new header to {file_path} (License: {determined_license_id})")
+
+            # Create new header with determined license
+            new_header = create_header(git_authors, determined_license_id, comment_prefix)
+
+            # Add header to file
+            if content.strip():
+                new_content = new_header + "\n\n" + content
+            else:
+                new_content = new_header + "\n"
+
+            license_id_used = determined_license_id
+
+        # Check if content changed
+        if new_content == content:
+            print(f"No changes needed for {file_path}")
+            status = 'skipped_no_change'
+        else:
+            # Write updated content
+            try:
+                with open(full_path, 'w', encoding='utf-8', newline='\n') as f:
+                    f.write(new_content)
                 status = 'updated'
-            else:
-                status = 'skipped_no_change'
-        except Exception as e:
-            file_warnings.append(f"Error processing file {file_path}: {e}")
-            status = 'error'
+            except Exception as e:
+                file_warnings.append(f"Error writing file {file_path}: {e}")
+                status = 'error'
 
+    # Update progress
     with progress_lock:
         current_total_processed = processed_count + skipped_count + error_count + 1
         if status == 'updated':
             processed_count += 1
             last_file_processed = file_path
-            last_license_type = license_id
-            if license_id == LICENSE_BEFORE: mit_count += 1
+            last_license_type = license_id_used
+            if license_id_used == LICENSE_BEFORE: mit_count += 1
             else: agpl_count += 1
         elif status == 'error': error_count += 1
         else: skipped_count += 1
