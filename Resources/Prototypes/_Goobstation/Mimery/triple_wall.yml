@@ -1,6 +1,6 @@
 - type: entity
   id: ActionMimeryWall
-  name: triplewall
+  name: Triple Wall
   description: Creates a magical barrier.
   components:
   - type: InstantAction

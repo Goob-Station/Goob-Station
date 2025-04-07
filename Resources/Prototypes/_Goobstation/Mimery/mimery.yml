@@ -12,13 +12,3 @@
   - type: MimeryBook
 
 
-
-- type: entity
-  id: FingerGun
-  name: Finger Gun
-  parent: BaseItem
-  description: A gun gesture, theres no way this could be harmful right?
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Misc/mimery.rsi
-    state: finger_gun

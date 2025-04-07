@@ -749,3 +749,17 @@
     whitelist:
       tags:
       - LoneOpsUplink
+
+- type: listing
+  id: uplinkMimeryBook
+  name: Book of Advanced Mimery
+  description: Contains a secret method to learn the forbidden mimery techniques.
+  productEntity: MimeryBook
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Mime

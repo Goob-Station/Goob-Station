@@ -1,13 +1,14 @@
+using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 
-namespace Content.Shared._Shitcode.Mimery;
+namespace Content.Server._Shitcode.Mimery;
 
 public sealed class MimeryBookSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+
 
     public override void Initialize()
     {
@@ -26,11 +27,7 @@ public sealed class MimeryBookSystem : EntitySystem
             return;
         args.Handled = true;
 
-        Logger.Debug("granted action");
-        _actions.AddAction(args.Args.User, "ActionMimeryWall");
-        EnsureComp<FingerGunComponent>(args.Args.User);
-
-
+        EnsureComp<MimeryPowersComponent>(args.Args.User); // i gotta make the sv add fingerguncomponent, its serversided
     }
 
     private void AttmeptLearn(Entity<MimeryBookComponent> ent, UseInHandEvent args)

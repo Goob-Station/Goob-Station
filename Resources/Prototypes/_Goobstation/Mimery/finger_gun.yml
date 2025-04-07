@@ -10,3 +10,31 @@
       sprite: _Goobstation/Objects/Misc/mimery.rsi
       state: finger_gun
     event: !type:FingerGunEvent
+
+- type: entity
+  name: Finger Gun
+  parent: [BaseWeaponBatterySmall, BaseSyndicateContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  id: FingerGun
+  description: The peak of the Mime powers, only achieved by a secret method.
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/mimery.rsi
+    state: finger_gun
+  - type: Gun
+    soundGunshot: null
+    soundEmpty: null
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletFingerGun
+    fireCost: 100
+  - type: Appearance
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50

@@ -1,4 +1,4 @@
-namespace Content.Shared._Shitcode.Mimery;
+namespace Content.Server._Shitcode.Mimery;
 
 [RegisterComponent]
 public sealed partial class MimeryBookComponent : Component
