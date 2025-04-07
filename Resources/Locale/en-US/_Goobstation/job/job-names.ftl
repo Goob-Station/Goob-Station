@@ -14,6 +14,7 @@ job-name-bs = Blueshield
 job-name-overall = Overall
 
 job-name-exec = Executive Access
+job-name-virologist = Virologist
 
 # Navy Stuff
 
@@ -52,3 +53,5 @@ JobGovernmentMan = The G-Man
 JobConquest = Conquest
 JobInspector = Central Command Auditor
 JobMercenaryCaptain = Mercenary Captain
+
+JobVirologist = Virologist
