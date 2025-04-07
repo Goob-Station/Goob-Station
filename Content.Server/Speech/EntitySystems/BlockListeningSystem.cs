@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems;

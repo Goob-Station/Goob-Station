@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Radiation.Components;
 using Content.Shared.Doors;
 using Content.Shared.Doors.Components;

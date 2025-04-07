@@ -1,4 +1,9 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable

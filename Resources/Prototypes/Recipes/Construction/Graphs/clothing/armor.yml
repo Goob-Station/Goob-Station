@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Tunguso4ka <71643624+Tunguso4ka@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: BoneArmor
   start: start
