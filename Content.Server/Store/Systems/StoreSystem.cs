@@ -10,6 +10,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._White.StoreDiscount;
+using Content.Server.Station.Systems;
 using Content.Shared.Mind;
 
 namespace Content.Server.Store.Systems;
@@ -25,6 +26,7 @@ public sealed partial class StoreSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StoreDiscountSystem _storeDiscount = default!; // WD EDIT
+    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
     {
