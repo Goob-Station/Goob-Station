@@ -13,7 +13,7 @@ import re
 CUTOFF_COMMIT_HASH = "8270907bdc509a3fb5ecfecde8cc14e5845ede36"
 LICENSE_BEFORE = "MIT"
 LICENSE_AFTER = "AGPL-3.0-or-later"
-FILE_PATTERNS = ["*.cs", "*.yaml", "*.yml"]
+FILE_PATTERNS = ["*.cs", "*.yaml", "*.yml", "*.xaml", "*.xml"]
 REPO_PATH = "."
 MAX_WORKERS = os.cpu_count() or 4
 
@@ -152,53 +152,110 @@ def get_author_contribution_years(file_path, cwd=REPO_PATH):
     return author_years, warnings
 
 
-def create_reuse_header(author_years, license_id, comment_prefix):
+def create_reuse_header(author_years, license_id, comment_style):
     """
     Creates the REUSE compliant header string, sorted by first contribution year,
     displaying the latest contribution year.
-    """
-    header_lines = []
-    copyright_prefix = f"{comment_prefix} SPDX-FileCopyrightText:"
-    if not author_years:
-        header_lines.append(f"{copyright_prefix} Contributors to the DoobStation14 project")
-    else:
-        # Sort authors by their minimum (first) contribution year
-        sorted_authors = sorted(author_years.items(), key=lambda item: item[1][0])
-        for author, (min_year, max_year) in sorted_authors:
-            # Display the maximum (latest) year in the copyright line
-            year_string = str(max_year)
-            clean_author = author.replace('\n', ' ').replace('\r', '')
-            header_lines.append(f"{copyright_prefix} {year_string} {clean_author}")
 
-    header_lines.append(f"{comment_prefix}") # Separator line
-    header_lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
+    comment_style is a tuple of (prefix, suffix)
+    """
+    prefix, suffix = comment_style
+    header_lines = []
+
+    if suffix is None:
+        # Single-line comment style (e.g., //, #)
+        copyright_prefix = f"{prefix} SPDX-FileCopyrightText:"
+        if not author_years:
+            header_lines.append(f"{copyright_prefix} Contributors to the DoobStation14 project")
+        else:
+            # Sort authors by their minimum (first) contribution year
+            sorted_authors = sorted(author_years.items(), key=lambda item: item[1][0])
+            for author, (min_year, max_year) in sorted_authors:
+                # Display the maximum (latest) year in the copyright line
+                year_string = str(max_year)
+                clean_author = author.replace('\n', ' ').replace('\r', '')
+                header_lines.append(f"{copyright_prefix} {year_string} {clean_author}")
+
+        header_lines.append(f"{prefix}") # Separator line
+        header_lines.append(f"{prefix} SPDX-License-Identifier: {license_id}")
+    else:
+        # Multi-line comment style (e.g., <!-- -->)
+        # Start comment
+        header_lines.append(f"{prefix}")
+
+        # Add copyright lines
+        if not author_years:
+            header_lines.append(f"SPDX-FileCopyrightText: Contributors to the DoobStation14 project")
+        else:
+            # Sort authors by their minimum (first) contribution year
+            sorted_authors = sorted(author_years.items(), key=lambda item: item[1][0])
+            for author, (min_year, max_year) in sorted_authors:
+                # Display the maximum (latest) year in the copyright line
+                year_string = str(max_year)
+                clean_author = author.replace('\n', ' ').replace('\r', '')
+                header_lines.append(f"SPDX-FileCopyrightText: {year_string} {clean_author}")
+
+        # Add separator
+        header_lines.append("")
+
+        # Add license line
+        header_lines.append(f"SPDX-License-Identifier: {license_id}")
+
+        # End comment
+        header_lines.append(f"{suffix}")
+
     return "\n".join(header_lines)
 
-def remove_existing_reuse_header(content, comment_prefix):
+def remove_existing_reuse_header(content, comment_style):
     """Removes existing SPDX comment lines from the start of the content."""
+    prefix, suffix = comment_style
     lines = content.splitlines()
     cleaned_lines = []
-    in_header = True
-    header_removed = False
-    spdx_prefix = f"{comment_prefix} SPDX-"
-    copyright_prefix_long = f"{comment_prefix} SPDX-FileCopyrightText:"
-    copyright_prefix_short = f"{comment_prefix} Copyright"
-    separator = f"{comment_prefix}"
 
-    for i, line in enumerate(lines):
-        stripped_line = line.strip()
-        is_spdx_comment = stripped_line.startswith(spdx_prefix)
-        is_copyright_comment = stripped_line.startswith(copyright_prefix_long) or stripped_line.startswith(copyright_prefix_short)
-        is_separator_comment = stripped_line == separator and i < 5 # Only consider separators early on
-        is_header_line = is_spdx_comment or is_copyright_comment or is_separator_comment
+    if suffix is None:
+        # Single-line comment style (e.g., //, #)
+        in_header = True
+        header_removed = False
+        spdx_prefix = f"{prefix} SPDX-"
+        copyright_prefix_long = f"{prefix} SPDX-FileCopyrightText:"
+        copyright_prefix_short = f"{prefix} Copyright"
+        separator = f"{prefix}"
 
-        if in_header and is_header_line:
-            header_removed = True
-            continue
-        # Stop considering it a header if we hit a non-header line or go too deep
-        if in_header and (not is_header_line or i >= 50):
-             in_header = False
-        cleaned_lines.append(line)
+        for i, line in enumerate(lines):
+            stripped_line = line.strip()
+            is_spdx_comment = stripped_line.startswith(spdx_prefix)
+            is_copyright_comment = stripped_line.startswith(copyright_prefix_long) or stripped_line.startswith(copyright_prefix_short)
+            is_separator_comment = stripped_line == separator and i < 5 # Only consider separators early on
+            is_header_line = is_spdx_comment or is_copyright_comment or is_separator_comment
+
+            if in_header and is_header_line:
+                header_removed = True
+                continue
+            # Stop considering it a header if we hit a non-header line or go too deep
+            if in_header and (not is_header_line or i >= 50):
+                in_header = False
+            cleaned_lines.append(line)
+    else:
+        # Multi-line comment style (e.g., <!-- -->)
+        i = 0
+        while i < len(lines):
+            # Look for the start of a comment block
+            if lines[i].strip() == prefix:
+                # Check if this is a REUSE header
+                is_reuse_header = False
+                j = i + 1
+                while j < len(lines) and lines[j].strip() != suffix:
+                    if "SPDX-" in lines[j]:
+                        is_reuse_header = True
+                    j += 1
+
+                # Skip the entire comment block if it's a REUSE header
+                if is_reuse_header and j < len(lines):
+                    i = j + 1  # Skip to after the closing comment
+                    continue
+
+            cleaned_lines.append(lines[i])
+            i += 1
 
     # Trim leading whitespace after removing header
     first_content_line_index = 0
@@ -241,10 +298,20 @@ def process_file(file_path_tuple):
     status = 'skipped'
     comment_prefix = None
 
+    # Dictionary mapping file extensions to comment styles
+    # Format: {extension: (prefix, suffix)}
+    # If suffix is None, it's a single-line comment style
+    COMMENT_STYLES = {
+        ".cs": ("//", None),
+        ".yaml": ("#", None),
+        ".yml": ("#", None),
+        ".xaml": ("<!--", "-->"),
+        ".xml": ("<!--", "-->"),
+    }
+
     _, ext = os.path.splitext(file_path)
-    if ext == '.cs': comment_prefix = '//'
-    elif ext in ['.yaml', '.yml']: comment_prefix = '#'
-    else:
+    comment_style = COMMENT_STYLES.get(ext)
+    if not comment_style:
         file_warnings.append(f"Skipped (Unsupported Extension): {file_path}")
         status = 'skipped_unsupported'
         with progress_lock:
@@ -273,19 +340,29 @@ def process_file(file_path_tuple):
              file_warnings.append(f"Warning (No Authors): Using generic copyright for {file_path}")
 
         # Pass the author_years dict (containing min/max tuples)
-        reuse_header = create_reuse_header(author_years, license_id, comment_prefix)
+        reuse_header = create_reuse_header(author_years, license_id, comment_style)
 
         try:
             with open(full_file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
                 original_content = f.read()
-            cleaned_content = remove_existing_reuse_header(original_content, comment_prefix)
+            cleaned_content = remove_existing_reuse_header(original_content, comment_style)
             separator = "\n\n" if cleaned_content.strip() else "" # Add extra newline for new files
 
+            # Handle special cases
+            prefix, suffix = comment_style
+
             # Handle shebangs or initial comments for YAML
-            if comment_prefix == '#' and cleaned_content.startswith('#'):
-                 new_content = reuse_header + "\n" + cleaned_content
+            if prefix == '#' and cleaned_content.startswith('#'):
+                new_content = reuse_header + "\n" + cleaned_content
+            # Handle XML declaration
+            elif suffix and cleaned_content.lstrip().startswith("<?xml"):
+                # Find the end of the XML declaration
+                xml_decl_end = cleaned_content.find("?>") + 2
+                xml_declaration = cleaned_content[:xml_decl_end]
+                rest_of_content = cleaned_content[xml_decl_end:].lstrip()
+                new_content = xml_declaration + "\n" + reuse_header + "\n\n" + rest_of_content
             else:
-                 new_content = reuse_header + separator + cleaned_content
+                new_content = reuse_header + separator + cleaned_content
 
             final_content_lf = new_content.replace('\r\n', '\n').replace('\r', '\n')
             original_content_lf = original_content.replace('\r\n', '\n').replace('\r', '\n')
