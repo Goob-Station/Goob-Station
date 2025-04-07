@@ -11,6 +11,7 @@ namespace Content.Server.Chat.Commands
     internal sealed class SuicideCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _e = default!;
+        [Dependency] private readonly BlockSuicideSystem _blockSuicide = default!; // Goobstation - Block Suicide
 
         public string Command => "suicide";
 
@@ -41,23 +42,8 @@ namespace Content.Server.Chat.Commands
 
             var suicideSystem = _e.System<SuicideSystem>();
 
-            if (_e.HasComponent<AdminFrozenComponent>(victim))
-            {
-                var deniedMessage = Loc.GetString("suicide-command-denied");
-                shell.WriteLine(deniedMessage);
-                _e.System<PopupSystem>()
-                    .PopupEntity(deniedMessage, victim, victim);
+            if (_blockSuicide.TryBlock(victim, _e, shell)) // Goobstation - Block Suicide
                 return;
-            }
-
-            if (_e.HasComponent<BlockSuicideComponent>(victim)) // Goobstation
-            {
-                var deniedMessage = Loc.GetString("suicide-command-denied");
-                shell.WriteLine(deniedMessage);
-                _e.System<PopupSystem>()
-                    .PopupEntity(deniedMessage, victim, victim);
-                return;
-            }
 
             if (suicideSystem.Suicide(victim))
                 return;

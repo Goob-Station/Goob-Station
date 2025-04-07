@@ -12,6 +12,7 @@ namespace Content.Server.Ghost
     public sealed class GhostCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private readonly BlockSuicideSystem _blockSuicide = default!; // Goobstation - Block Suicide
 
         public string Command => "ghost";
         public string Description => Loc.GetString("ghost-command-description");
@@ -34,25 +35,9 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            if (player.AttachedEntity is { Valid: true } frozen &&
-                _entities.HasComponent<AdminFrozenComponent>(frozen))
-            {
-                var deniedMessage = Loc.GetString("ghost-command-denied");
-                shell.WriteLine(deniedMessage);
-                _entities.System<PopupSystem>()
-                    .PopupEntity(deniedMessage, frozen, frozen);
+            if (player.AttachedEntity is { Valid: true } user
+                && _blockSuicide.TryBlock(user, _entities, shell)) // Goobstation - Block Suicide
                 return;
-            }
-
-            if (player.AttachedEntity is { Valid: true } suicideblock && // Goobstation
-                _entities.HasComponent<BlockSuicideComponent>(suicideblock))
-            {
-                var deniedMessage = Loc.GetString("ghost-command-denied");
-                shell.WriteLine(deniedMessage);
-                _entities.System<PopupSystem>()
-                    .PopupEntity(deniedMessage, suicideblock, suicideblock);
-                return;
-            }
 
             var minds = _entities.System<SharedMindSystem>();
             if (!minds.TryGetMind(player, out var mindId, out var mind))
