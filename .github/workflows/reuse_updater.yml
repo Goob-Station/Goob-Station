@@ -32,9 +32,15 @@ jobs:
           echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
           echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
 
-          # Use git diff to find added (A) and modified (M) files, filter by extension
-          ADDED_FILES=$(git diff --name-status --diff-filter=A ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
-          MODIFIED_FILES=$(git diff --name-status --diff-filter=M ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
+          # Use GitHub API to get the list of files changed in the PR
+          PR_FILES=$(curl -s -H "Authorization: token ${{ github.token }}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
+            | jq -r '.[] | "\(.status) \(.filename)"')
+
+          # Filter and separate added and modified files
+          ADDED_FILES=$(echo "$PR_FILES" | grep "^added" | grep -E '\.(cs|ya?ml)$' | sed 's/^added //' | xargs)
+          MODIFIED_FILES=$(echo "$PR_FILES" | grep "^modified" | grep -E '\.(cs|ya?ml)$' | sed 's/^modified //' | xargs)
+
           echo "Added Files: $ADDED_FILES"
           echo "Modified Files: $MODIFIED_FILES"
 
