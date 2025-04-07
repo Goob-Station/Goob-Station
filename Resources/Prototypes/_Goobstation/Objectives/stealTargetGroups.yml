@@ -18,3 +18,10 @@
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: ExecutiveBriefcase
+  name: steal-target-groups-executive-briefcase
+  sprite:
+    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    state: icon

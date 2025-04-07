@@ -1,9 +1,9 @@
 - type: entity
   name: Executive briefcase
-  parent: [BaseItem, StorePresetNTR]
-  suffix: Debug
+  parent: [BaseItem, StorePresetNTR, BaseGrandTheftContraband]
+  suffix: Empty
   id: ExecutiveBriefcaseEmpty
-  description: A standart issued executive briefcase for accessing NTnet.
+  description: A standard-issue executive briefcase for secure NanoNeT access.
   components:
   - type: Item
     size: Ginormous
@@ -19,7 +19,38 @@
     key: enum.StoreUiKey.Key
   - type: Store
     balance:
-      NTLoyaltyPoint: 999 # change this to 0 before pr-ing
+      NTLoyaltyPoint: 0
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: ExecutiveBriefcase
+  - type: BriefcaseScanner
+    scanDuration: 7.5
+  - type: CorporateOverride
+  - type: ItemSlots
+    slots:
+      CorporateOverrideSlot:
+        whitelist:
+          tags:
+          - CorporateOverride
+        insertSound:
+          path: /Audio/Machines/id_insert.ogg
+
+- type: entity
+  id: ExecutiveBriefcaseDebug
+  parent: ExecutiveBriefcaseEmpty
+  suffix: Debug
+  components:
+  - type: Store
+    balance:
+      NTLoyaltyPoint: 999
+    categories:
+    - NTRstation
+    - NTRpersonal
+    - NTRresponse
+    - NTRBoards
+    - NTREvil
 
 # Executive briefcase store
 # i dont want to make a bunch of new files for 1 prototype so....
@@ -32,11 +63,14 @@
     categories:
     - NTRstation # for stuff like buying spesos, disablers, etc
     - NTRpersonal # for, well, personal stuff.
-    - NTRresponse # for stuff like ert
+#    - NTRresponse # NO, DO NOT. IM NOT RESPONSIBLE IF YOU PUT THIS IN NORMAL EXEC STORE.
+    - NTRBoards # for hard to get boards
+#    - NTREvil # for evil stuff
     currencyWhitelist:
     - NTLoyaltyPoint
     sales:
       enabled: false
+    ownerOnly: true
 
 - type: storeCategory
   id: NTRstation
@@ -52,6 +86,17 @@
   id: NTRpersonal
   name: ntr-executive-tier-3-name
   priority: 1
+
+- type: storeCategory
+  id: NTRBoards
+  name: ntr-executive-tier-5-name
+  priority: 3
+
+- type: storeCategory
+  id: NTREvil
+  name: Evil
+  priority: 5
+  evil: true # lol
 
 - type: currency
   id: NTLoyaltyPoint

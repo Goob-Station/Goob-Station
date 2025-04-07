@@ -78,3 +78,77 @@
   - type: Sprite
     sprite: Structures\Wallmounts\signs.rsi
     state: zomlab
+
+# job unlockers
+
+# Security Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerSecurity
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "SecurityJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: security_officer
+
+# Science Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerScience
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "ScienceJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: scientist
+
+# Service Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerService
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "ServiceJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: janitor
+
+# Cargo Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerCargo
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "CargoJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: cargo_tech
+
+# Engineering Department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerEngineering
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "EngineeringJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: technicalassistant
+
+# Medical department Unlocker
+- type: entity
+  id: NTRgameruleSpawnerMedical
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "MedicalJobUnlock"
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: doctor

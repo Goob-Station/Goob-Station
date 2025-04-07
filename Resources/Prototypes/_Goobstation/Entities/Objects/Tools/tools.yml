@@ -177,16 +177,6 @@
   - type: MultiHandedItem
 
 - type: entity
-  name: Executive briefcase
-  parent: BaseItem
-  id: ExecutiveBriefcase
-  description: A standart issued executive briefcase for accessing NTnet.
-  components:
-  - type: Item
-    size: Ginormous
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
-
-- type: entity
   name: CentComm official handheld fax
   parent: HandheldFax
   id: HandheldFaxOfficial

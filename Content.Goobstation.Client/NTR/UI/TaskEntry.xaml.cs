@@ -18,12 +18,6 @@ public sealed partial class TaskEntry : BoxContainer
 
     public TimeSpan EndTime;
     public TimeSpan UntilNextSkip;
-
-    /// <summary>
-    /// Логика для заполнения задачи информацией.
-    /// </summary>
-    /// <param name="task"></param>
-    /// <param name="untilNextSkip"></param>
     public TaskEntry(NtrTaskData task, TimeSpan untilNextSkip)
     {
         RobustXamlLoader.Load(this);
@@ -49,10 +43,6 @@ public sealed partial class TaskEntry : BoxContainer
         SkipButton.OnPressed += _ => OnSkipButtonPressed?.Invoke();
     }
 
-    /// <summary>
-    /// Обновляем таймер
-    /// </summary>
-    /// <param name="deltaSeconds"></param>
     private void UpdateSkipButton(float deltaSeconds)
     {
         UntilNextSkip -= TimeSpan.FromSeconds(deltaSeconds);
@@ -66,11 +56,6 @@ public sealed partial class TaskEntry : BoxContainer
         SkipButton.Label.Text = Loc.GetString("bounty-console-skip-button-text");
         SkipButton.Disabled = false;
     }
-
-    /// <summary>
-    /// Обновление каждый тик
-    /// </summary>
-    /// <param name="args"></param>
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
