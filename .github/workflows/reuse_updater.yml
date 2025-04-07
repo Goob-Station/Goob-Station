@@ -48,9 +48,12 @@ jobs:
           echo "ADDED_FILES_LIST=$ADDED_FILES" >> $GITHUB_ENV
           echo "MODIFIED_FILES_LIST=$MODIFIED_FILES" >> $GITHUB_ENV
 
-          # Pass PR labels as a JSON string
-          LABELS_JSON=$(echo '${{ toJSON(github.event.pull_request.labels) }}')
-          echo "PR_LABELS_JSON=$LABELS_JSON" >> $GITHUB_ENV
+          # Pass PR labels as a JSON string - escape properly for environment variable
+          # Convert the JSON to a single line with escaped quotes
+          LABELS_JSON=$(echo '${{ toJSON(github.event.pull_request.labels) }}' | jq -c .)
+          echo "PR_LABELS_JSON<<EOF" >> $GITHUB_ENV
+          echo "$LABELS_JSON" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
           echo "Labels JSON: $LABELS_JSON"
 
       - name: Run REUSE Header Update Script
