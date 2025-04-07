@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Temperature.Systems;
 
 namespace Content.Shared.Temperature.Components;
