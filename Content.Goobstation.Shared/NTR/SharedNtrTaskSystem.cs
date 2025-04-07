@@ -4,6 +4,7 @@ using System.Threading;
 using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Goobstation.Shared.NTR;
+using Content.Goobstation.Shared.NTR.Events;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Station;
@@ -14,7 +15,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.NTR;
 
-public sealed class NTRTaskSystem : EntitySystem
+public sealed class SharedNtrTaskSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -56,7 +57,8 @@ public sealed class NTRTaskSystem : EntitySystem
             {
                 if (!_prototypeManager.TryIndex(task, out NtrTaskPrototype? taskProto))
                     return;
-                RaiseLocalEvent(uid, new TaskCompletedEvent(taskProto));
+                if (args.User != null)
+                    RaiseLocalEvent(uid, new TaskCompletedEvent(taskProto, args.User.Value));
             }
             _entityManager.QueueDeleteEntity(args.Item);
         }
