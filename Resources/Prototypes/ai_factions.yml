@@ -32,7 +32,7 @@
 
 - type: npcFaction
   id: Mouse
-  # not hostile to anything so they don't attack things
+  # Goobstation - not hostile to anything so they don't attack things
 
 - type: npcFaction
   id: Passive
