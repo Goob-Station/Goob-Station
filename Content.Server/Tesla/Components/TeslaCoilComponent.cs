@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Tesla.EntitySystems;
 
 namespace Content.Server.Tesla.Components;

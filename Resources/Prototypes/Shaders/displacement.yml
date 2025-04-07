@@ -1,4 +1,8 @@
-﻿- type: shader
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: shader
   id: DisplacedStencilDraw
   kind: source
   path: "/Textures/Shaders/displacement.swsl"

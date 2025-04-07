@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Menshin <Menshin@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.Piping.Portable.Components;
