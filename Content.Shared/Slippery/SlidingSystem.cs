@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Events;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
