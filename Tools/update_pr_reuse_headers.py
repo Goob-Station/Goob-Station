@@ -400,6 +400,20 @@ def process_modified_file(file_path, base_sha, head_sha):
             license_id_to_use = existing_license # Keep existing
 
         cleaned_content = remove_existing_reuse_header(original_content, comment_prefix)
+
+        # Check if there's still a license identifier in the cleaned content
+        # This can happen if there are multiple license identifiers in the file
+        license_prefix = f"{comment_prefix} SPDX-License-Identifier:"
+        lines = cleaned_content.splitlines()
+        filtered_lines = []
+
+        for line in lines:
+            if not line.strip().startswith(license_prefix):
+                filtered_lines.append(line)
+            else:
+                print(f"  Removing additional license identifier: {line.strip()}")
+
+        cleaned_content = "\n".join(filtered_lines)
         separator = "\n\n" if cleaned_content.strip() else ""
 
         # Handle shebangs or initial comments for YAML
