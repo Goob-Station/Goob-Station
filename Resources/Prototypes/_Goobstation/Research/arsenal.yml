@@ -10,6 +10,10 @@
   cost: 5000
   recipeUnlocks:
   - WeaponPlasmaRifle
+  - WeaponLaserSvalinn
+  position: 3,0
+  technologyPrerequisites:
+  - DraconicMunitions
 
 # Tier 2
 
@@ -35,7 +39,9 @@
   - GygaxTargetingElectronics
   - WeaponMechCombatUltraRifle
   technologyPrerequisites:
-  - Ripley2
+  - RipleyAPLU
+  - ExplosiveTechnology
+  position: 3,-1
 
 - type: technology
   id: AdvancedWeaponry
@@ -51,6 +57,7 @@
   - WeaponXrayCannon
   technologyPrerequisites:
   - WeaponizedLaserManipulation
+  position: 5,1
 
 - type: technology
   id: EnergyBoltBasedWeaponry # for future energy bolt weapon
@@ -68,6 +75,7 @@
   - EnergyMagRifleLethal
   technologyPrerequisites:
   - AdvancedWeaponry
+  position: 6,1
 
 # Tier 3
 
@@ -83,7 +91,8 @@
   recipeUnlocks:
   - WeaponMechCombatMissileRack8
   technologyPrerequisites:
-  - ExplosiveTechnology
+  - Gygax
+  position: 4,-2
 
 - type: technology
   id: Durand
@@ -109,6 +118,7 @@
   - WeaponMechCombatShotgunIncendiary
   technologyPrerequisites:
   - Gygax
+  position: 4,-1
 
 - type: technology
   id: SmartWeaponry
@@ -122,3 +132,6 @@
   recipeUnlocks:
   - WeaponSubMachineSmart
   - MagazineSmart
+  technologyPrerequisites:
+  - UraniumMunitions
+  position: 4,2
