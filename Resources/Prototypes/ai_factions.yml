@@ -32,9 +32,7 @@
 
 - type: npcFaction
   id: Mouse
-  hostile:
-    - PetsNT
-    - AllHostile
+  # not hostile to anything so they don't attack things
 
 - type: npcFaction
   id: Passive
