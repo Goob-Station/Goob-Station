@@ -74,8 +74,8 @@ def get_last_commit_timestamp(file_path, cwd=REPO_PATH):
             # Handle potential multiple lines if file history is complex, take the first timestamp
             return int(output.split('\n')[0])
         except (ValueError, IndexError):
-             with progress_lock:
-                 all_warnings.append(f"Warning: Could not parse last commit timestamp for {file_path}")
+            with progress_lock:
+                all_warnings.append(f"Warning: Could not parse last commit timestamp for {file_path}")
             return None
     return None
 
