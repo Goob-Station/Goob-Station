@@ -1,9 +1,10 @@
-possession-fail-changeling = You can't possess the changeling!
-possession-fail-heretic = You can't possess the heretic!
-possession-fail-ghoul = You can't possess the ghoul!
-possession-fail-ghost = You can't possess the ghost!
-possession-fail-temporary = You can't possess temporary creatures!
-possession-fail-target-dead = You don't particularly want to be dead!
+possession-fail-changeling = There's no soul to tamper with!
+possession-fail-heretic = The power of the mansus prevents you from possessing them!
+possession-fail-ghoul = There's no mind for you to possess!
+possession-fail-ghost = There's no mind for you to possess!
+possession-fail-temporary = There's no mind for you to possess!
+possession-fail-target-dead = There's no mind for you to possess!
+possession-fail-target-shielded = A pesky shield prevents you from prying at their mind!
 
 possession-popup-others = {$target}'s limbs contort in a strange way, {POSS-ADJ($target)} eyes rolling back in {POSS-ADJ($target)} head.
 possession-popup-self = Your soul is forced out of your body!

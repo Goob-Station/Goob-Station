@@ -19,8 +19,10 @@ public sealed partial class DevilSystem
 
     private void OnContractCreated(EntityUid uid, DevilComponent comp, ref CreateContractEvent args)
     {
-        if (!TryUseAbility(comp, args))
+        if (!TryUseAbility(args))
             return;
+
+        args.Handled = true;
 
         var contract = Spawn(_contractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
@@ -34,8 +36,10 @@ public sealed partial class DevilSystem
 
     private void OnRevivalContractCreated(EntityUid uid, DevilComponent comp, ref CreateRevivalContractEvent args)
     {
-        if (!TryUseAbility(comp, args))
+        if (!TryUseAbility(args))
             return;
+
+        args.Handled = true;
 
         var contract = Spawn(_revivalContractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
@@ -49,8 +53,10 @@ public sealed partial class DevilSystem
 
     private void OnShadowJaunt(EntityUid uid, DevilComponent comp, ref ShadowJauntEvent args)
     {
-        if (!TryUseAbility(comp, args))
+        if (!TryUseAbility(args))
             return;
+
+        args.Handled = true;
 
         Spawn("PolymorphShadowJauntAnimation", Transform(uid).Coordinates);
         Spawn(_pentagramEffectProto, Transform(uid).Coordinates);
@@ -66,10 +72,17 @@ public sealed partial class DevilSystem
             return;
         }
 
-        if (!TryUseAbility(comp, args))
+        if (!TryUseAbility(args))
             return;
 
-        _possession.TryPossessTarget(args, true, true);
+        args.Handled = true;
+
+        Spawn("PolymorphShadowJauntAnimation", Transform(args.Performer).Coordinates);
+        Spawn(_pentagramEffectProto, Transform(args.Performer).Coordinates);
+
+        _poly.PolymorphEntity(args.Performer, GetJauntEntity(comp));
+
+        _possession.TryPossessTarget(args.Target, args.Performer, GetPossessionDuration(comp), true);
     }
 
 

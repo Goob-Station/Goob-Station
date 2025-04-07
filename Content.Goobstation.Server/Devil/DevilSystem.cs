@@ -32,6 +32,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
@@ -248,7 +249,7 @@ public sealed partial class DevilSystem : EntitySystem
 
     #region Helper Methods
 
-    private static bool TryUseAbility(DevilComponent comp, BaseActionEvent action)
+    private static bool TryUseAbility(BaseActionEvent action)
     {
         if (action.Handled)
             return false;
@@ -272,6 +273,26 @@ public sealed partial class DevilSystem : EntitySystem
     private void PlayFwooshSound(EntityUid uid, DevilComponent comp)
     {
         _audio.PlayPvs(comp.FwooshPath, uid, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
+    }
+
+    private static TimeSpan GetPossessionDuration(DevilComponent comp)
+    {
+        return comp.PowerLevel switch
+        {
+            2 => TimeSpan.FromSeconds(60),
+            3 => TimeSpan.FromSeconds(90),
+            _ => TimeSpan.FromSeconds(30),
+        };
+    }
+
+    private ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
+    {
+        return comp.PowerLevel switch
+        {
+            2 => "ShadowJaunt60",
+            3 => "ShadowJaunt90",
+            _ => "ShadowJaunt30",
+        };
     }
 
     #endregion

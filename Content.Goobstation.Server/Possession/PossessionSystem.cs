@@ -5,11 +5,13 @@ using Content.Server.Ghost;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared.Actions;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
@@ -84,12 +86,27 @@ public sealed partial class PossessionSystem : EntitySystem
         args.PushMarkup(Loc.GetString("possessed-component-examined", ("timeremaining", timeremaining)));
     }
 
-    public void TryPossessTarget(DevilPossessionEvent args, bool hidePossessorEntity, bool pacifyPossessed)
+    /// <summary>
+    /// Attempts to temporarily possess a target.
+    /// </summary>
+    /// <param name="possessed">The entity being possessed.</param>
+    /// <param name="possessor">The entity possessing the previous entity.</param>
+    /// <param name="possessionDuration">How long does the possession last in seconds.</param>
+    /// <param name="pacifyPossessed">Should the possessor be pacified while inside the possessed body?</param>
+    /// <param name="doesMindshieldBlock">Does having a mindshield block being possessed?</param>
+    public void TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false)
     {
         // Possessing a dead guy? What.
-        if (_mobState.IsIncapacitated(args.Target) || HasComp<ZombieComponent>(args.Target))
+        if (_mobState.IsIncapacitated(possessed) || HasComp<ZombieComponent>(possessed))
         {
-            _popup.PopupClient(Loc.GetString("possession-fail-target-dead"), args.Performer, args.Target);
+            _popup.PopupClient(Loc.GetString("possession-fail-target-dead"), possessor, possessor);
+            return;
+        }
+
+        // if you ever wanted to prevent this
+        if (doesMindshieldBlock && HasComp<MindShieldComponent>(possessed))
+        {
+            _popup.PopupClient(Loc.GetString("possession-fail-target-shielded"), possessor, possessor);
             return;
         }
 
@@ -106,85 +123,52 @@ public sealed partial class PossessionSystem : EntitySystem
 
         foreach (var (item1, item2) in blockers)
         {
-            if (CheckMindswapBlocker(item1, item2, args))
+            if (CheckMindswapBlocker(item1, item2, possessed, possessor))
                 return;
         }
 
-        args.Handled = true;
-
-        if (!_mind.TryGetMind(args.Performer, out var userMind, out var userMindComp))
+        if (!_mind.TryGetMind(possessor, out var possessorMind, out var possessorMindComp))
             return;
 
-        var possessedComp = EnsureComp<PossessedComponent>(args.Target);
+        var possessedComp = EnsureComp<PossessedComponent>(possessed);
 
-        // I love generic systems.
         if (pacifyPossessed)
             possessedComp.DoPacify = true;
 
         // Get the possession time.
-        if (TryComp<DevilComponent>(args.Performer, out var devilComponent))
-            possessedComp.PossessionEndTime = _timing.CurTime + GetPossessionDuration(devilComponent);
+        possessedComp.PossessionEndTime = _timing.CurTime + possessionDuration;
 
         // Store possessors original information.
-        possessedComp.PossessorMindId = userMind;
-        possessedComp.PossessorOriginalEntity = args.Performer;
+        possessedComp.PossessorMindId = possessorMind;
+        possessedComp.PossessorOriginalEntity = possessor;
 
         // Store targets original mind, and detach them.
-        if (_mind.TryGetMind(args.Target, out var targetMind, out var targetMindComp) && targetMindComp.UserId != null)
+        if (_mind.TryGetMind(possessed, out var possessedMind, out var possessedMindComp) && possessedMindComp.UserId != null)
         {
-            possessedComp.OriginalMindId = targetMind;
-            _mind.TransferTo(targetMind, null);
+            possessedComp.OriginalMindId = possessedMind;
+            _mind.TransferTo(possessedMind, null);
         }
 
         // Transfer into target
-        _mind.TransferTo(userMind, args.Target);
-
-        // Jaunt the body so it can't be tampered with.
-        // Easier than sending you to the paused map lol.
-        if (hidePossessorEntity)
-        {
-            Spawn("PolymorphShadowJauntAnimation", Transform(possessedComp.PossessorOriginalEntity).Coordinates);
-            Spawn(_pentagramEffectProto, Transform(possessedComp.PossessorOriginalEntity).Coordinates);
-
-            if (devilComponent != null)
-                _poly.PolymorphEntity(possessedComp.PossessorOriginalEntity, GetJauntEntity(devilComponent));
-        }
+        _mind.TransferTo(possessorMind, possessed);
 
         if (!_net.IsServer)
             return;
 
         // SFX
-        _popup.PopupEntity(Loc.GetString("possession-popup-self"), targetMind, targetMind, PopupType.LargeCaution);
-        _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", args.Target)), args.Target, PopupType.MediumCaution);
-        _audio.PlayPvs(possessedComp.PossessionSoundPath, args.Target);
+        _popup.PopupEntity(Loc.GetString("possession-popup-self"), possessedMind, possessedMind, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", possessed)), possessed, PopupType.MediumCaution);
+        _audio.PlayPvs(possessedComp.PossessionSoundPath, possessed);
     }
 
-    private bool CheckMindswapBlocker(Type type, string message, DevilPossessionEvent args)
+    private bool CheckMindswapBlocker(Type type, string message, EntityUid possessed, EntityUid possessor)
     {
-        if (!HasComp(args.Target, type))
+        if (!HasComp(possessed, type))
             return false;
 
-        _popup.PopupClient(Loc.GetString($"possession-fail-{message}"), args.Performer, args.Performer); // Change this later
+        _popup.PopupClient(Loc.GetString($"possession-fail-{message}"), possessor, possessor);
         return true;
     }
 
-    private static TimeSpan GetPossessionDuration(DevilComponent comp)
-    {
-        return comp.PowerLevel switch
-        {
-            2 => TimeSpan.FromSeconds(60),
-            3 => TimeSpan.FromSeconds(90),
-            _ => TimeSpan.FromSeconds(30),
-        };
-    }
 
-    private ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
-    {
-        return comp.PowerLevel switch
-        {
-            2 => "ShadowJaunt60",
-            3 => "ShadowJaunt90",
-            _ => "ShadowJaunt30",
-        };
-    }
 }
