@@ -14,13 +14,14 @@
 
 name: Publish
 
-concurrency:
-  group: publish
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 10 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -29,7 +30,7 @@ jobs:
     steps:
     - name: Install dependencies
       run: sudo apt-get install -y python3-paramiko python3-lxml
-      
+
     - name: Check .NET Installation
       id: check-dotnet
       run: |

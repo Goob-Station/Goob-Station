@@ -5,11 +5,12 @@
 name: Update REUSE Headers
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-
-permissions:
-  contents: write
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
 
 jobs:
   update_headers:
@@ -17,9 +18,9 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Fetch Base Branch History
-        run: git fetch --depth=1 origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -73,6 +74,3 @@ jobs:
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: Automatically update REUSE headers"
-          branch: ${{ github.head_ref || github.ref_name }}
