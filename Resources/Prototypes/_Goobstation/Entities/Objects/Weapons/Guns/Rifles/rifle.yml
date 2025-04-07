@@ -179,9 +179,9 @@
     availableModes:
     - Burst
     selectedMode: Burst
-    burstFireRate: 18
-    shotsPerBurst: 5
-    burstCooldown: 0.5
+    burstFireRate: 24
+    shotsPerBurst: 3
+    burstCooldown: 0.3
     projectileSpeed: 35
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
