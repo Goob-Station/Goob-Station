@@ -41,3 +41,8 @@
   equipment:
     outerClothing: ClothingOuterWinterViro
 
+# ID
+- type: loadout
+  id: VirologistPDA
+  equipment:
+    id: VirologistPDA
