@@ -1,4 +1,9 @@
-﻿namespace Content.Shared.Chat.V2.Moderation;
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Shared.Chat.V2.Moderation;
 
 public interface IChatCensor
 {

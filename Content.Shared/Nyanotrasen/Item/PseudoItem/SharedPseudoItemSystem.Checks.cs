@@ -1,4 +1,8 @@
-﻿using Content.Shared.Item;
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Item;
 using Content.Shared.Storage;
 
 namespace Content.Shared.Nyanotrasen.Item.PseudoItem;
