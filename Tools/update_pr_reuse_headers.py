@@ -44,10 +44,9 @@ def run_git_command(command, cwd=REPO_PATH, check=True):
         print("FATAL: 'git' command not found. Make sure git is installed and in your PATH.", file=sys.stderr)
         return None
 
-def get_authors_from_git(file_path, base_sha=None, head_sha=None, cwd=REPO_PATH):
+def get_authors_from_git(file_path, cwd=REPO_PATH):
     """
     Gets authors and their contribution years for a specific file.
-    If base_sha and head_sha are provided, only gets authors from that commit range.
     Returns: dict like {"Author Name <email>": (min_year, max_year)}
     """
     # Always get all authors
@@ -59,12 +58,16 @@ def get_authors_from_git(file_path, base_sha=None, head_sha=None, cwd=REPO_PATH)
         try:
             name_cmd = ["git", "config", "user.name"]
             email_cmd = ["git", "config", "user.email"]
-            user_name = run_git_command(name_cmd, cwd=cwd, check=False) or "Unknown"
-            user_email = run_git_command(email_cmd, cwd=cwd, check=False) or "unknown@example.com"
+            user_name = run_git_command(name_cmd, cwd=cwd, check=False)
+            user_email = run_git_command(email_cmd, cwd=cwd, check=False)
 
             # Use current year
             current_year = datetime.now(timezone.utc).year
-            return {f"{user_name} <{user_email}>": (current_year, current_year)}
+            if user_name and user_email and user_name.strip() != "Unknown":
+                return {f"{user_name} <{user_email}>": (current_year, current_year)}
+            else:
+                print("Warning: Could not get current user from git config or name is 'Unknown'")
+                return {}
         except Exception as e:
             print(f"Error getting git user: {e}")
         return {}
@@ -89,7 +92,7 @@ def get_authors_from_git(file_path, base_sha=None, head_sha=None, cwd=REPO_PATH)
             continue
 
         # Add main author
-        if author_name and author_email:
+        if author_name and author_email and author_name.strip() != "Unknown":
             author_key = f"{author_name.strip()} <{author_email.strip()}>"
             author_timestamps[author_key].append(timestamp)
 
@@ -97,7 +100,7 @@ def get_authors_from_git(file_path, base_sha=None, head_sha=None, cwd=REPO_PATH)
         for match in co_author_regex.finditer(body):
             co_author_name = match.group(1).strip()
             co_author_email = match.group(2).strip()
-            if co_author_name and co_author_email:
+            if co_author_name and co_author_email and co_author_name.strip() != "Unknown":
                 co_author_key = f"{co_author_name} <{co_author_email}>"
                 author_timestamps[co_author_key].append(timestamp)
 
@@ -171,7 +174,8 @@ def create_header(authors, license_id, comment_prefix):
     # Add copyright lines
     if authors:
         for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
-            lines.append(f"{comment_prefix} SPDX-FileCopyrightText: {year} {author}")
+            if not author.startswith("Unknown <"):
+                lines.append(f"{comment_prefix} SPDX-FileCopyrightText: {year} {author}")
     else:
         lines.append(f"{comment_prefix} SPDX-FileCopyrightText: Contributors to the GoobStation14 project")
 
@@ -183,7 +187,7 @@ def create_header(authors, license_id, comment_prefix):
 
     return "\n".join(lines)
 
-def process_file(file_path, default_license_id, base_sha=None, head_sha=None):
+def process_file(file_path, default_license_id):
     """
     Processes a file to add or update REUSE headers.
     Returns: True if file was modified, False otherwise
@@ -208,23 +212,33 @@ def process_file(file_path, default_license_id, base_sha=None, head_sha=None):
     # Parse existing header if any
     existing_authors, existing_license, header_lines = parse_existing_header(content, comment_prefix)
 
-    # Get authors from git
-    if base_sha and head_sha:
-        # For modified files, get both historical and PR authors
-        all_authors = get_authors_from_git(file_path)
-        pr_authors = get_authors_from_git(file_path, base_sha, head_sha)
+    # Get all authors from git
+    git_authors = get_authors_from_git(file_path)
 
-        # Combine all authors
-        git_authors = all_authors.copy()
-        for author, (pr_min, pr_max) in pr_authors.items():
-            if author in git_authors:
-                all_min, all_max = git_authors[author]
-                git_authors[author] = (min(all_min, pr_min), max(all_max, pr_max))
+    # Add current user to authors
+    try:
+        name_cmd = ["git", "config", "user.name"]
+        email_cmd = ["git", "config", "user.email"]
+        user_name = run_git_command(name_cmd, check=False)
+        user_email = run_git_command(email_cmd, check=False)
+
+        if user_name and user_email and user_name.strip() != "Unknown":
+            # Use current year
+            current_year = datetime.now(timezone.utc).year
+            current_user = f"{user_name} <{user_email}>"
+
+            # Add current user if not already present
+            if current_user not in git_authors:
+                git_authors[current_user] = (current_year, current_year)
+                print(f"  Added current user: {current_user}")
             else:
-                git_authors[author] = (pr_min, pr_max)
-    else:
-        # For new files, just get PR authors
-        git_authors = get_authors_from_git(file_path, base_sha, head_sha)
+                # Update year if necessary
+                min_year, max_year = git_authors[current_user]
+                git_authors[current_user] = (min(min_year, current_year), max(max_year, current_year))
+        else:
+            print("Warning: Could not get current user from git config or name is 'Unknown'")
+    except Exception as e:
+        print(f"Error getting git user: {e}")
 
     # Determine what to do based on existing header
     if existing_license:
@@ -233,11 +247,14 @@ def process_file(file_path, default_license_id, base_sha=None, head_sha=None):
         # Combine existing and git authors
         combined_authors = existing_authors.copy()
         for author, (git_min, git_max) in git_authors.items():
+            if author.startswith("Unknown <"):
+                continue
             if author in combined_authors:
                 existing_min, existing_max = combined_authors[author]
                 combined_authors[author] = (min(existing_min, git_min), max(existing_max, git_max))
             else:
                 combined_authors[author] = (git_min, git_max)
+                print(f"  Adding new author: {author}")
 
         # Create new header with existing license
         new_header = create_header(combined_authors, existing_license, comment_prefix)
@@ -278,8 +295,6 @@ def main():
     parser.add_argument("--files-added", nargs="*", default=[], help="List of added files")
     parser.add_argument("--files-modified", nargs="*", default=[], help="List of modified files")
     parser.add_argument("--pr-license", default=DEFAULT_LICENSE_LABEL, help="License to use for new files")
-    parser.add_argument("--pr-base-sha", help="Base SHA of the PR")
-    parser.add_argument("--pr-head-sha", help="Head SHA of the PR")
 
     args = parser.parse_args()
 
@@ -297,12 +312,12 @@ def main():
 
     print("\n--- Processing Added Files ---")
     for file in args.files_added:
-        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
+        if process_file(file, license_id):
             files_changed = True
 
     print("\n--- Processing Modified Files ---")
     for file in args.files_modified:
-        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
+        if process_file(file, license_id):
             files_changed = True
 
     print("\n--- Summary ---")
