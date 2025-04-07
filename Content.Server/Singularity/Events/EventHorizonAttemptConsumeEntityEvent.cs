@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.Singularity.Components;
 
 namespace Content.Server.Singularity.Events;

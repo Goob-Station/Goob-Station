@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Hebi <spiritbreakz@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 namespace Content.Client.Guidebook.Controls;
 public interface ISearchableControl
 {

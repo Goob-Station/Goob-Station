@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Content.Shared.Access.Components;
@@ -31,3 +28,4 @@ public sealed class ActivatableUIRequiresAccessSystem : EntitySystem
         }
     }
 }
+

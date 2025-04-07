@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-//
-// SPDX-License-Identifier: MIT
-using Content.Server.Worldgen.Components;
+﻿using Content.Server.Worldgen.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Worldgen.Systems;
@@ -65,3 +60,4 @@ public sealed class LocalityLoaderSystem : BaseWorldSystem
 ///     A directed fired on a loadable entity when a local loader enters it's vicinity.
 /// </summary>
 public record struct LocalStructureLoadedEvent;
+

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -40,3 +37,4 @@ namespace Content.Shared.Toilet.Components
         SeatDown
     }
 }
+

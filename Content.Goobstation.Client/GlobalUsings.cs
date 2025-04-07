@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-global using System;
+﻿global using System;
 global using System.Collections.Generic;
 global using Robust.Shared.Analyzers;
 global using Robust.Shared.Log;

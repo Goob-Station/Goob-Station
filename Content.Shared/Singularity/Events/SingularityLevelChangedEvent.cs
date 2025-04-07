@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 TemporalOroboros <TemporalOroboros@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.Singularity.Components;
 
 namespace Content.Shared.Singularity.Events;

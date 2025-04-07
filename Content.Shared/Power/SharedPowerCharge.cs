@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Robust.Shared.Serialization;
+﻿using Robust.Shared.Serialization;
 
 namespace Content.Shared.Power;
 

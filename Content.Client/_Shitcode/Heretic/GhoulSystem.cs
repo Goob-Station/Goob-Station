@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.Heretic;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;

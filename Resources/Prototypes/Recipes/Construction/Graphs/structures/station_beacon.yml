@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
-- type: constructionGraph
+﻿- type: constructionGraph
   id: StationBeaconPart
   start: start
   graph:
@@ -26,3 +23,4 @@
             prototype: SheetSteel1
             amount: 1
           - !type:DeleteEntity
+

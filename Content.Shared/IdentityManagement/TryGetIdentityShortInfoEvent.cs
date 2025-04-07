@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 namespace Content.Shared.IdentityManagement;
 
 /// <summary>

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Server.Objectives.Systems;
 using Content.Shared.Ninja.Systems;
 

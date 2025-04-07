@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Disposal.Components;
+﻿using Content.Shared.Disposal.Components;
 
 namespace Content.Server.Disposal.Mailing;
 

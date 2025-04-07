@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Client.GameTicking.Managers;
 using Content.Shared.GameTicking;
 using Content.Shared.Input;

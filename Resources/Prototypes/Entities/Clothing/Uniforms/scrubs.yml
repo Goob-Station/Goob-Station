@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-#
-# SPDX-License-Identifier: MIT
 - type: entity
   parent: ClothingUniformBase
   id: UniformScrubsColorPurple

@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Server.Explosion.EntitySystems;
+﻿using Content.Server.Explosion.EntitySystems;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 

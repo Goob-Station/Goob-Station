@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-namespace Content.Shared.Magic.Events;
+﻿namespace Content.Shared.Magic.Events;
 
 [ByRefEvent]
 public struct BeforeCastSpellEvent(EntityUid performer)

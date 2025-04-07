@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Robust.Shared.Console;
+﻿using Robust.Shared.Console;
 
 namespace Content.Client.Ghost.Commands;
 

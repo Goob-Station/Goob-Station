@@ -1,10 +1,4 @@
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-//
-// SPDX-License-Identifier: MIT
-using Content.Server.Maps.NameGenerators;
+﻿using Content.Server.Maps.NameGenerators;
 
 namespace Content.Server.Station.Components;
 

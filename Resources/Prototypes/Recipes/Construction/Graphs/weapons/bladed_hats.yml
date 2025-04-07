@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
-- type: constructionGraph
+﻿- type: constructionGraph
   id: BladedFlatcapGrey
   start: start
   graph:

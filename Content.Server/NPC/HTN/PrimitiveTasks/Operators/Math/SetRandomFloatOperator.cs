@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Robust.Shared.Random;
 

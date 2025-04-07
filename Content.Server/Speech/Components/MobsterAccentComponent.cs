@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-namespace Content.Server.Speech.Components;
+﻿namespace Content.Server.Speech.Components;
 
 /// <summary>
 ///     Nyehh, my gabagool, see?

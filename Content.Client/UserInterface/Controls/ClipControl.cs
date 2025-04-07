@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using System.Numerics;
+﻿using System.Numerics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 

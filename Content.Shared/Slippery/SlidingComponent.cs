@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Slippery;

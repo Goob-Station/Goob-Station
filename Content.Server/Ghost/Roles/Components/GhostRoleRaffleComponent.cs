@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Server.Ghost.Roles.Raffles;
+﻿using Content.Server.Ghost.Roles.Raffles;
 using Robust.Shared.Player;
 
 namespace Content.Server.Ghost.Roles.Components;

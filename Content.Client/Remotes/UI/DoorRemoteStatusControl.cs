@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Client.Message;
 using Content.Client.Stylesheets;
 using Content.Shared.Remotes.Components;

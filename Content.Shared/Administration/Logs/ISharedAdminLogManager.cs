@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Database;
+﻿using Content.Shared.Database;
 
 namespace Content.Shared.Administration.Logs;
 

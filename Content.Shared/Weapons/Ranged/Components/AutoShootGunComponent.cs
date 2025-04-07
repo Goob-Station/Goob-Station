@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameStates;
 

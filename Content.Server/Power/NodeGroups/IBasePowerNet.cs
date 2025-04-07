@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Server.Power.Components;
+﻿using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
 
 namespace Content.Server.Power.NodeGroups

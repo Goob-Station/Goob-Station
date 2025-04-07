@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-//
-// SPDX-License-Identifier: MIT
-using System.Linq;
+﻿using System.Linq;
 using Content.Shared.Storage;
 using Robust.Shared.Random;
 
@@ -96,3 +93,4 @@ public sealed class EntitySpawnCollectionCache
         [ViewVariables] public float CumulativeProbability { get; set; }
     }
 }
+

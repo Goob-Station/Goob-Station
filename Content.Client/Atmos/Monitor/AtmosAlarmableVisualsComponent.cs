@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.Atmos.Monitor;
 
 namespace Content.Client.Atmos.Monitor;

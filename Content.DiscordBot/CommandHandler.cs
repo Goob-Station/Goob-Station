@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.Reflection;
 using Content.DiscordBot.Modules;
 using Content.Server.Database;

@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Mobs.Systems;
+﻿using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared.Mobs.Components;
 

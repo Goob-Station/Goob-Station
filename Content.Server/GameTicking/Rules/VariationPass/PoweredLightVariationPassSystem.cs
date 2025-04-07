@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Server.GameTicking.Rules.VariationPass.Components;
+﻿using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.Light.Components;

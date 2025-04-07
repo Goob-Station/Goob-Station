@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using JetBrains.Annotations;
 
 namespace Content.Shared.Throwing;

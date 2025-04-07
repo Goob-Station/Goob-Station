@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 namespace Content.Shared.Database
 {
     /// <summary>

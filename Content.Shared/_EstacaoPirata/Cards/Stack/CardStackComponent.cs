@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -81,5 +78,6 @@ public sealed class CardStackFlippedEvent(NetEntity cardStack) : EntityEventArgs
 {
     public NetEntity CardStack = cardStack;
 }
+
 
 

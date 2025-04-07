@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Linq;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Radio.Components;

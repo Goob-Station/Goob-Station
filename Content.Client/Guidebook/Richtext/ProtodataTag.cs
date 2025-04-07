@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Globalization;
 using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Utility;

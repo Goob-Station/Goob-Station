@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-namespace Content.Shared.Radiation.Events;
+﻿namespace Content.Shared.Radiation.Events;
 
 /// <summary>
 ///     Raised on entity when it was irradiated

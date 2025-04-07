@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Linq;
 using Content.Shared.VentCrawler.Tube.Components;
 using Content.Shared._Starlight.VentCrawling.Components;

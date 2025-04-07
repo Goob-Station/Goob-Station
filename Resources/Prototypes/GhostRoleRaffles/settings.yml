@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 # for important antag roles (nukie reinforcements, ninja, etc.)
 - type: ghostRoleRaffleSettings
   id: default

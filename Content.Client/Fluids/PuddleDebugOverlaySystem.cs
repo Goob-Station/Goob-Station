@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Shared.Fluids;
+﻿using Content.Shared.Fluids;
 using Robust.Client.Graphics;
 
 namespace Content.Client.Fluids;

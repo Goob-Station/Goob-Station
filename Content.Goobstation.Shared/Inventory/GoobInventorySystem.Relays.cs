@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Goobstation.Shared.Clothing;
 using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Stunnable;
@@ -44,3 +41,4 @@ public partial class GoobInventorySystem
         _inventorySystem.RelayEvent((uid, component), args);
     }
 }
+

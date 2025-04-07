@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 namespace Content.Shared.Shuttles.Components;
 using Robust.Shared.GameStates;
 

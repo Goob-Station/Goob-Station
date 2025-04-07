@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 namespace Content.Server.Fax;
 
 public static class FaxConstants

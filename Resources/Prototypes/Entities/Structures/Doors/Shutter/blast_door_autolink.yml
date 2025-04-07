@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2024 Zealith-Gamer <61980908+Zealith-Gamer@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
 # AutoLink variants of BlastDoor (from Outer Rim)
 
 - type: entity
@@ -130,3 +126,4 @@
   components:
     - type: AutoLinkReceiver
       channel: Windows
+

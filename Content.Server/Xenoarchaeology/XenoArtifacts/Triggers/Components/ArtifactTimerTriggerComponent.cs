@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
+﻿namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 
 /// <summary>
 ///     Will try to activate artifact periodically.

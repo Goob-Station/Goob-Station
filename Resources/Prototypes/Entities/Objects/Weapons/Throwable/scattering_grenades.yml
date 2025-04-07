@@ -1,8 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-# ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
+﻿# ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
 - type: entity
   abstract: true
   parent: BaseItem

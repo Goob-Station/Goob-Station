@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Shared._Shitmed.Antags.Abductor;
+﻿using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Client._Shitmed.Choice.UI;
 using JetBrains.Annotations;
 using static Content.Shared.Pinpointer.SharedNavMapSystem;

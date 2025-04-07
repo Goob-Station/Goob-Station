@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Parallax.Biomes.Markers;
+﻿using Content.Shared.Parallax.Biomes.Markers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -71,3 +66,4 @@ public sealed partial class GatewayGeneratorComponent : Component
         "OreArtifactFragment",
     };
 }
+

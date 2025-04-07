@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Server.Administration;
+﻿using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

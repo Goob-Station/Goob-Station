@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Server.Administration;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
@@ -87,3 +82,4 @@ public sealed class WorldgenConfigSystem : EntitySystem
         DebugTools.Assert(HasComp<WorldControllerComponent>(target));
     }
 }
+

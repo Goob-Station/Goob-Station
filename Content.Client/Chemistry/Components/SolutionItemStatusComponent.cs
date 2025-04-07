@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Client.Chemistry.EntitySystems;
+﻿using Content.Client.Chemistry.EntitySystems;
 using Content.Client.Chemistry.UI;
 
 namespace Content.Client.Chemistry.Components;

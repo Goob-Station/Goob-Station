@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TaralGit <76408146+TaralGit@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Robust.Shared.Map;
 
 namespace Content.Shared.Weapons.Ranged.Events;

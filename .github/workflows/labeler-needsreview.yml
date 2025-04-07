@@ -1,8 +1,4 @@
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-name: "Labels: Review"
+﻿name: "Labels: Review"
 
 on:
   pull_request_target:

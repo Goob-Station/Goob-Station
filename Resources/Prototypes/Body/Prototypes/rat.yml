@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
-- type: body
+﻿- type: body
   id: Rat
   name: "animal"
   root: torso

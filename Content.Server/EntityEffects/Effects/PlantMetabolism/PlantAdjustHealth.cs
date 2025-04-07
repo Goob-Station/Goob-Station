@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Server.Botany.Systems;
 using Content.Shared.EntityEffects;
 
@@ -21,3 +18,4 @@ public sealed partial class PlantAdjustHealth : PlantAdjustAttribute
         plantHolder.CheckHealth(args.TargetEntity, plantHolderComp);
     }
 }
+

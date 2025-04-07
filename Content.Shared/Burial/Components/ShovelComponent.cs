@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Burial.Components;

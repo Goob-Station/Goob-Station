@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Smoking;
+﻿using Content.Shared.Smoking;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Chemistry.Visualizers;

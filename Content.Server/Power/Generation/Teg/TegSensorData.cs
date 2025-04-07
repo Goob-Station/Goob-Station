@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Server.Power.Components;
+﻿using Content.Server.Power.Components;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -52,3 +49,4 @@ public sealed class TegSensorData
         float InletTemperature,
         float OutletTemperature);
 }
+

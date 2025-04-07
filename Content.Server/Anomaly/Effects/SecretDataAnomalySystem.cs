@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Server.Anomaly.Components;
 using Robust.Shared.Random;
 
@@ -40,3 +37,4 @@ public sealed class SecretDataAnomalySystem : EntitySystem
         }
     }
 }
+

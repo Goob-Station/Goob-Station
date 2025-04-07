@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Power;
+﻿using Content.Shared.Power;
 using Content.Shared.SMES;
 using Robust.Client.GameObjects;
 

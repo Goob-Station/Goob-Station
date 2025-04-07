@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 
 /// <summary>

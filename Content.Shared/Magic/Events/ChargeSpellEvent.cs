@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Shared.Actions;
+﻿using Content.Shared.Actions;
 
 namespace Content.Shared.Magic.Events;
 

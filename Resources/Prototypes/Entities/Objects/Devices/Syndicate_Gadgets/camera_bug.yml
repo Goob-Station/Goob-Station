@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2024 pofitlo <kuzminvladislav237@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   id: CameraBug
   parent: [ BaseItem, BaseSyndicateContraband ]

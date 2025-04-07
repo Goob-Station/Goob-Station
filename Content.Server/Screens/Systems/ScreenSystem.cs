@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.TextScreen;
 using Content.Server.Screens.Components;
 using Content.Server.DeviceNetwork.Components;

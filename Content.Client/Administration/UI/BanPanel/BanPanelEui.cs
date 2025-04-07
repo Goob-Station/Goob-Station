@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Client.Eui;
 using Content.Shared.Administration;
 using Content.Shared.Eui;

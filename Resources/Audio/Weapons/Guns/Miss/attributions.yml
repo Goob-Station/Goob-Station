@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2023 RieBi <42877671+RieBi@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
 - files: ["bullet_miss1.ogg", "bullet_miss2.ogg", "bullet_miss3.ogg", "bullet_miss4.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from CM-SS13"

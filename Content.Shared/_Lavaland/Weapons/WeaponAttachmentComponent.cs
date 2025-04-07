@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Robust.Shared.GameStates;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;

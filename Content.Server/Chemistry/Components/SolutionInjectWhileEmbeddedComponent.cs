@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 
@@ -42,3 +38,4 @@ public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionI
         public int? Injections = 0;
         // </Goobstation>
 }
+

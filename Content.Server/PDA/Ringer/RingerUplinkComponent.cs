@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.PDA;
 
 namespace Content.Server.PDA.Ringer;

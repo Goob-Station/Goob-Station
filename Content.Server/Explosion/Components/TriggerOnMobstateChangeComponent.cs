@@ -1,10 +1,4 @@
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Mobs;
+﻿using Content.Shared.Mobs;
 
 namespace Content.Server.Explosion.Components;
 

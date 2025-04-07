@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Shared.CCVar;
+﻿using Content.Shared.CCVar;
 using Robust.Client;
 using Robust.Client.Graphics;
 using Robust.Shared;

@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Disposal;
+﻿using Content.Shared.Disposal;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;

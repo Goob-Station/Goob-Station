@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-using System;
+﻿using System;
 using System.Numerics;
 using System.Text;
 using System.Linq;

@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using System;
+﻿using System;
 using Content.Server.Database;
 using Content.Shared.Preferences;
 using NUnit.Framework;

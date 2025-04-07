@@ -1,8 +1,4 @@
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
-- type: constructionGraph
+﻿- type: constructionGraph
   id: ThermomachineBoard
   start: freezer
   graph:

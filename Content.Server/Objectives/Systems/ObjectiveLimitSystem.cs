@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;

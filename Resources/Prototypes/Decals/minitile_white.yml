@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
-#
-# SPDX-License-Identifier: MIT
-- type: decal
+﻿- type: decal
   id: MiniTileWhiteBox
   tags: ["station", "markings"]
   sprite:

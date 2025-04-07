@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-#
-# SPDX-License-Identifier: MIT
-- type: constructionGraph
+﻿- type: constructionGraph
   id: ImprovisedBow
   start: start
   graph:

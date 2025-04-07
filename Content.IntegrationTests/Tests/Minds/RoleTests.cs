@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using System.Linq;
+﻿using System.Linq;
 using Content.Server.Roles;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;

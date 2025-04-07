@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Client._EinsteinEngines.Flight.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;

@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-using System.Text.Unicode;
+﻿using System.Text.Unicode;
 using Content.Shared.Chat.V2.Moderation;
 using NUnit.Framework;
 

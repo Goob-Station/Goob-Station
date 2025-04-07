@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-//
-// SPDX-License-Identifier: MIT
 using Robust.Shared.Random;
 
 namespace Content.Server.Wires;

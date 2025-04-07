@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-// Global usings for Content.Server
+﻿// Global usings for Content.Server
 
 global using System;
 global using System.Collections.Generic;

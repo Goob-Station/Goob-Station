@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 using Content.Shared.Storage;
 using Content.Shared.Lock;
 using Robust.Client.GameObjects;

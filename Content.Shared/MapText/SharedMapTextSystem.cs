@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-namespace Content.Shared.MapText;
+﻿namespace Content.Shared.MapText;
 
 /// <summary>
 /// This handles registering the map text overlay, caching the text font and handling component state

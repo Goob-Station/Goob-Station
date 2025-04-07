@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-using Content.Shared.Ghost;
+﻿using Content.Shared.Ghost;
 using Robust.Client.GameObjects;
 using Robust.Shared.Console;
 

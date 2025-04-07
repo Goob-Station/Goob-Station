@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Simon <63975668+Simyon264@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-namespace Content.Server.Zombies;
+﻿namespace Content.Server.Zombies;
 
 /// <summary>
 /// Overrides the applied accent for zombies.

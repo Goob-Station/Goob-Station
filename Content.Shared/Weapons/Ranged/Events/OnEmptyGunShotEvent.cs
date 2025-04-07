@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
 namespace Content.Shared.Weapons.Ranged.Events;
 
 /// <summary>

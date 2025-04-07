@@ -1,10 +1,4 @@
-// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using Content.Shared.Damage; // Goobstation - Armor resisting syringe gun
+﻿using Content.Shared.Damage; // Goobstation - Armor resisting syringe gun
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 

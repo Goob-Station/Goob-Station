@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-using System.Text.Json;
+﻿using System.Text.Json;
 using Robust.Shared.Asynchronous;
 
 namespace Content.Server.Database;

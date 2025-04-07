@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared._Shitmed.Autodoc.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

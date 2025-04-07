@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-//
-// SPDX-License-Identifier: MIT
-using System.Threading;
+﻿using System.Threading;
 using Content.Client.Stylesheets;
 using Robust.Client.UserInterface.Controls;
 using Timer = Robust.Shared.Timing.Timer;
