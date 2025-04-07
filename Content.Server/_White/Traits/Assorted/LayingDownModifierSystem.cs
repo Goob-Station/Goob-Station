@@ -1,4 +1,9 @@
-using Content.Shared._White.Standing;
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.Standing;
 
 namespace Content.Server._White.Traits.Assorted;
 

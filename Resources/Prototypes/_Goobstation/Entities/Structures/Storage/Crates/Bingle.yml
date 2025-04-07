@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateBingle
+  name: bingle crate
+  components:
+  - type: Icon
+    sprite: _Goobstation/Objects/Storage/binglecrate.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/binglecrate.rsi
