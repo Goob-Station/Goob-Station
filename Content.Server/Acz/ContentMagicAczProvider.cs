@@ -1,4 +1,10 @@
-﻿using System.Threading;
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Packaging;
 using Robust.Packaging;

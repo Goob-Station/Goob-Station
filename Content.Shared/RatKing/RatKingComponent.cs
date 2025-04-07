@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

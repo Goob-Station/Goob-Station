@@ -1,4 +1,12 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 
