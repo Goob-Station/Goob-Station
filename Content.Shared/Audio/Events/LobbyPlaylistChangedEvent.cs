@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
 // SPDX-FileCopyrightText: 2024 pa.pecherskij <pa.pecherskij@interfax.ru>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
