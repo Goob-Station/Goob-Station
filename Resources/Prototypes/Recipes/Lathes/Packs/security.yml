@@ -16,7 +16,7 @@
   id: SecurityPracticeStatic
   recipes:
   - BoxShotgunPractice
-  - MagazineBoxLightRiflePractice
+  # - MagazineBoxLightRiflePractice # Goobstation - remove light rifle
   - MagazineBoxMagnumPractice
   - MagazineBoxPistolPractice
   - MagazineBoxRiflePractice
