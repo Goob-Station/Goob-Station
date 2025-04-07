@@ -75,3 +75,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: Automatically update REUSE headers"
+          branch: ${{ github.head_ref || github.ref_name }}
