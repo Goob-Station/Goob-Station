@@ -30,12 +30,8 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
-<<<<<<< HEAD
-  # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
-=======
   - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
-  - MagazineLightRifleIncendiary
->>>>>>> master
+  # - MagazineLightRifleIncendiary # Goobstation - remove light rifle
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
