@@ -65,7 +65,9 @@ jobs:
           python Tools/update_pr_reuse_headers.py \
             --files-added ${{ env.ADDED_FILES_LIST }} \
             --files-modified ${{ env.MODIFIED_FILES_LIST }} \
-            --pr-license ${{ env.PR_LICENSE }}
+            --pr-license ${{ env.PR_LICENSE }} \
+            --pr-base-sha ${{ github.event.pull_request.base.sha }} \
+            --pr-head-sha ${{ github.event.pull_request.head.sha }}
         working-directory: ${{ github.workspace }}
 
       - name: Commit changes
