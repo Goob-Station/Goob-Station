@@ -16,10 +16,14 @@ on:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   yaml-schema-validation:
     name: YAML map schema validator
-    if: github.actor != 'PJBot' && github.event.pull_request.draft == false
+    if: github.actor != 'GoobBot' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3.6.0

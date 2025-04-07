@@ -196,7 +196,7 @@ def remove_existing_reuse_header(content, comment_prefix):
             header_removed = True
             continue
         # Stop considering it a header if we hit a non-header line or go too deep
-        if in_header and (not is_header_line or i >= 20):
+        if in_header and (not is_header_line or i >= 50):
              in_header = False
         cleaned_lines.append(line)
 

@@ -57,9 +57,7 @@
 
 - type: npcFaction
   id: Mouse
-  hostile:
-    - PetsNT
-    - AllHostile
+  # Goobstation - not hostile to anything so they don't attack things
 
 - type: npcFaction
   id: Passive
