@@ -344,3 +344,46 @@
     whitelist:
       components:
       - Body
+
+- type: entity #Goob content start
+  id: Gokuball
+  name: Gokuball?
+  description: What the balls?
+  parent: BulletRocket
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: "#29d0df"
+    radius: 3.0
+    energy: 5.0
+  - type: Projectile
+    damage:
+      types:
+        Heat: 50
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: gokuball
+      shader: unshaded
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 6.5 # Goob edit
+    intensitySlope: 3 # Goob edit
+    totalIntensity: 28 # Gobo edit
+    maxTileBreak: 0
+  - type: IgnitionSource
+    temperature: 400
+    ignited: true
+  - type: IgniteOnCollide
+    fireStacks: 60.00
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: FlashOnTrigger # Goobstation
+    duration: 20
+    range: 1.8
+  - type: Flashbang # Goobstation
+    stunTime: 30
+    knockdownTime: 60
+  - type: Tag # Goobstation
+    tags:
+      - FlashIgnoreResistances #Goob end
