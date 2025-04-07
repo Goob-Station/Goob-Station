@@ -16,10 +16,15 @@ LICENSE_CONFIG = {
 }
 DEFAULT_LICENSE_LABEL = "agpl"
 
-COMMENT_PREFIXES = {
-    ".cs": "//",
-    ".yaml": "#",
-    ".yml": "#",
+# Dictionary mapping file extensions to comment styles
+# Format: {extension: (prefix, suffix)}
+# If suffix is None, it's a single-line comment style
+COMMENT_STYLES = {
+    ".cs": ("//", None),
+    ".yaml": ("#", None),
+    ".yml": ("#", None),
+    ".xaml": ("<!--", "-->"),
+    ".xml": ("<!--", "-->"),
 }
 REPO_PATH = "."
 
@@ -117,73 +122,142 @@ def get_authors_from_git(file_path, cwd=REPO_PATH):
 
     return author_years
 
-def parse_existing_header(content, comment_prefix):
+def parse_existing_header(content, comment_style):
     """
     Parses an existing REUSE header to extract authors and license.
     Returns: (authors_dict, license_id, header_lines)
+
+    comment_style is a tuple of (prefix, suffix)
     """
+    prefix, suffix = comment_style
     lines = content.splitlines()
     authors = {}
     license_id = None
     header_lines = []
 
-    # Regular expressions for parsing
-    copyright_regex = re.compile(f"^{re.escape(comment_prefix)} SPDX-FileCopyrightText: (\\d{{4}}) (.+)$")
-    license_regex = re.compile(f"^{re.escape(comment_prefix)} SPDX-License-Identifier: (.+)$")
+    if suffix is None:
+        # Single-line comment style (e.g., //, #)
+        # Regular expressions for parsing
+        copyright_regex = re.compile(f"^{re.escape(prefix)} SPDX-FileCopyrightText: (\\d{{4}}) (.+)$")
+        license_regex = re.compile(f"^{re.escape(prefix)} SPDX-License-Identifier: (.+)$")
 
-    # Find the header section
-    in_header = True
-    for i, line in enumerate(lines):
-        if in_header:
-            header_lines.append(line)
+        # Find the header section
+        in_header = True
+        for i, line in enumerate(lines):
+            if in_header:
+                header_lines.append(line)
 
-            # Check for copyright line
-            copyright_match = copyright_regex.match(line)
-            if copyright_match:
-                year = int(copyright_match.group(1))
-                author = copyright_match.group(2).strip()
-                authors[author] = (year, year)
+                # Check for copyright line
+                copyright_match = copyright_regex.match(line)
+                if copyright_match:
+                    year = int(copyright_match.group(1))
+                    author = copyright_match.group(2).strip()
+                    authors[author] = (year, year)
+                    continue
+
+                # Check for license line
+                license_match = license_regex.match(line)
+                if license_match:
+                    license_id = license_match.group(1).strip()
+                    continue
+
+                # Empty comment line or separator
+                if line.strip() == prefix:
+                    continue
+
+                # If we get here, we've reached the end of the header
+                if i > 0:  # Only if we've processed at least one line
+                    header_lines.pop()  # Remove the non-header line
+                    in_header = False
+            else:
+                break
+    else:
+        # Multi-line comment style (e.g., <!-- -->)
+        # Regular expressions for parsing
+        copyright_regex = re.compile(r"^SPDX-FileCopyrightText: (\d{4}) (.+)$")
+        license_regex = re.compile(r"^SPDX-License-Identifier: (.+)$")
+
+        # Find the header section
+        in_comment = False
+        for i, line in enumerate(lines):
+            stripped_line = line.strip()
+
+            # Start of comment
+            if stripped_line == prefix:
+                in_comment = True
+                header_lines.append(line)
                 continue
 
-            # Check for license line
-            license_match = license_regex.match(line)
-            if license_match:
-                license_id = license_match.group(1).strip()
-                continue
+            # End of comment
+            if stripped_line == suffix and in_comment:
+                header_lines.append(line)
+                break
 
-            # Empty comment line or separator
-            if line.strip() == comment_prefix:
-                continue
+            if in_comment:
+                header_lines.append(line)
 
-            # If we get here, we've reached the end of the header
-            if i > 0:  # Only if we've processed at least one line
-                header_lines.pop()  # Remove the non-header line
-                in_header = False
-        else:
-            break
+                # Check for copyright line
+                copyright_match = copyright_regex.match(stripped_line)
+                if copyright_match:
+                    year = int(copyright_match.group(1))
+                    author = copyright_match.group(2).strip()
+                    authors[author] = (year, year)
+                    continue
+
+                # Check for license line
+                license_match = license_regex.match(stripped_line)
+                if license_match:
+                    license_id = license_match.group(1).strip()
+                    continue
 
     return authors, license_id, header_lines
 
-def create_header(authors, license_id, comment_prefix):
+def create_header(authors, license_id, comment_style):
     """
     Creates a REUSE header with the given authors and license.
     Returns: header string
+
+    comment_style is a tuple of (prefix, suffix)
     """
+    prefix, suffix = comment_style
     lines = []
 
-    # Add copyright lines
-    if authors:
-        for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
-            if not author.startswith("Unknown <"):
-                lines.append(f"{comment_prefix} SPDX-FileCopyrightText: {year} {author}")
+    if suffix is None:
+        # Single-line comment style (e.g., //, #)
+        # Add copyright lines
+        if authors:
+            for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
+                if not author.startswith("Unknown <"):
+                    lines.append(f"{prefix} SPDX-FileCopyrightText: {year} {author}")
+        else:
+            lines.append(f"{prefix} SPDX-FileCopyrightText: Contributors to the GoobStation14 project")
+
+        # Add separator
+        lines.append(f"{prefix}")
+
+        # Add license line
+        lines.append(f"{prefix} SPDX-License-Identifier: {license_id}")
     else:
-        lines.append(f"{comment_prefix} SPDX-FileCopyrightText: Contributors to the GoobStation14 project")
+        # Multi-line comment style (e.g., <!-- -->)
+        # Start comment
+        lines.append(f"{prefix}")
 
-    # Add separator
-    lines.append(f"{comment_prefix}")
+        # Add copyright lines
+        if authors:
+            for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
+                if not author.startswith("Unknown <"):
+                    lines.append(f"SPDX-FileCopyrightText: {year} {author}")
+        else:
+            lines.append(f"SPDX-FileCopyrightText: Contributors to the GoobStation14 project")
 
-    # Add license line
-    lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
+        # Add separator
+        lines.append("")
+
+        # Add license line
+        lines.append(f"SPDX-License-Identifier: {license_id}")
+
+        # End comment
+        lines.append(f"{suffix}")
 
     return "\n".join(lines)
 
@@ -194,8 +268,8 @@ def process_file(file_path, default_license_id):
     """
     # Check file extension
     _, ext = os.path.splitext(file_path)
-    comment_prefix = COMMENT_PREFIXES.get(ext)
-    if not comment_prefix:
+    comment_style = COMMENT_STYLES.get(ext)
+    if not comment_style:
         print(f"Skipping unsupported file type: {file_path}")
         return False
 
@@ -210,7 +284,7 @@ def process_file(file_path, default_license_id):
         content = f.read()
 
     # Parse existing header if any
-    existing_authors, existing_license, header_lines = parse_existing_header(content, comment_prefix)
+    existing_authors, existing_license, header_lines = parse_existing_header(content, comment_style)
 
     # Get all authors from git
     git_authors = get_authors_from_git(file_path)
@@ -257,7 +331,7 @@ def process_file(file_path, default_license_id):
                 print(f"  Adding new author: {author}")
 
         # Create new header with existing license
-        new_header = create_header(combined_authors, existing_license, comment_prefix)
+        new_header = create_header(combined_authors, existing_license, comment_style)
 
         # Replace old header with new header
         if header_lines:
@@ -270,11 +344,20 @@ def process_file(file_path, default_license_id):
         print(f"Adding new header to {file_path} (License: {default_license_id})")
 
         # Create new header with default license
-        new_header = create_header(git_authors, default_license_id, comment_prefix)
+        new_header = create_header(git_authors, default_license_id, comment_style)
 
         # Add header to file
         if content.strip():
-            new_content = new_header + "\n\n" + content
+            # For XML files, we need to add the header after the XML declaration if present
+            prefix, suffix = comment_style
+            if suffix and content.lstrip().startswith("<?xml"):
+                # Find the end of the XML declaration
+                xml_decl_end = content.find("?>") + 2
+                xml_declaration = content[:xml_decl_end]
+                rest_of_content = content[xml_decl_end:].lstrip()
+                new_content = xml_declaration + "\n" + new_header + "\n\n" + rest_of_content
+            else:
+                new_content = new_header + "\n\n" + content
         else:
             new_content = new_header + "\n"
 
