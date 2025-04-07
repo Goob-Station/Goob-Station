@@ -20,6 +20,10 @@
 
 name: Build & Test Debug
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches: [ master, staging, stable ]
@@ -30,7 +34,7 @@ on:
 
 jobs:
   build:
-    if: github.actor != 'PJBot' && github.event.pull_request.draft == false
+    if: github.actor != 'GoobBot' && github.event.pull_request.draft == false
     strategy:
       matrix:
         os: [ubuntu-latest]
