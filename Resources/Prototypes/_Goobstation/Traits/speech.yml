@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 smudge <138918973+Cerise-Cattowo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Cattowo <2spoopy4u2handle@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 bedroomvampire <leannetoni@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: trait
   id: Dementia
   name: trait-dementia-name

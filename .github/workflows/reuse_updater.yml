@@ -1,0 +1,64 @@
+# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: Update REUSE Headers
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  update_headers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Get Changed Files and PR Info
+        id: changed_files
+        run: |
+          echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
+          echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
+
+          # Use git diff to find added (A) and modified (M) files, filter by extension
+          ADDED_FILES=$(git diff --name-status --diff-filter=A ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
+          MODIFIED_FILES=$(git diff --name-status --diff-filter=M ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
+
+          echo "Added Files: $ADDED_FILES"
+          echo "Modified Files: $MODIFIED_FILES"
+
+          # Store lists as environment variables for the next step
+          echo "ADDED_FILES_LIST=$ADDED_FILES" >> $GITHUB_ENV
+          echo "MODIFIED_FILES_LIST=$MODIFIED_FILES" >> $GITHUB_ENV
+
+          # Pass PR labels as a JSON string
+          LABELS_JSON=$(echo '${{ toJSON(github.event.pull_request.labels) }}')
+          echo "PR_LABELS_JSON=$LABELS_JSON" >> $GITHUB_ENV
+          echo "Labels JSON: $LABELS_JSON"
+
+      - name: Run REUSE Header Update Script
+        run: |
+          python Tools/update_pr_reuse_headers.py \
+            --files-added ${{ env.ADDED_FILES_LIST }} \
+            --files-modified ${{ env.MODIFIED_FILES_LIST }} \
+            --pr-labels "${{ env.PR_LABELS_JSON }}" \
+            --pr-base-sha "${{ github.event.pull_request.base.sha }}" \
+            --pr-head-sha "${{ github.event.pull_request.head.sha }}"
+        working-directory: ${{ github.workspace }} # Ensure script runs from repo root
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: Automatically update REUSE headers"

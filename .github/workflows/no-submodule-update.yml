@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+#
+# SPDX-License-Identifier: MIT
+
 name: No submodule update checker
 
 on:

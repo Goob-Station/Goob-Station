@@ -1,4 +1,8 @@
-﻿using Content.Server.Explosion.EntitySystems;
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Explosion.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
