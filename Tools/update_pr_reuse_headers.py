@@ -199,6 +199,31 @@ def create_reuse_header(author_years, license_id, comment_prefix):
     header_lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
     return "\n".join(header_lines)
 
+def extract_existing_authors(content, comment_prefix):
+    """Extracts existing authors from SPDX-FileCopyrightText headers."""
+    copyright_prefix = f"{comment_prefix} SPDX-FileCopyrightText:"
+    lines = content.splitlines()
+    authors = {}
+
+    author_regex = re.compile(r"(\d{4})\s+(.*)")
+
+    for line in lines:
+        stripped_line = line.strip()
+        if stripped_line.startswith(copyright_prefix):
+            # Extract year and author
+            author_text = stripped_line[len(copyright_prefix):].strip()
+            match = author_regex.match(author_text)
+            if match:
+                year = int(match.group(1))
+                author = match.group(2).strip()
+                if author in authors:
+                    _, max_year = authors[author]
+                    authors[author] = (min(year, max_year), max(year, max_year))
+                else:
+                    authors[author] = (year, year)
+
+    return authors
+
 def remove_existing_reuse_header(content, comment_prefix):
     """Removes existing SPDX comment lines from the start of the content."""
     lines = content.splitlines()
@@ -315,6 +340,10 @@ def process_modified_file(file_path, base_sha, head_sha):
         with open(full_file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
             original_content = f.read()
 
+        # Extract existing authors from the file header
+        existing_authors = extract_existing_authors(original_content, comment_prefix)
+        print(f"  Found {len(existing_authors)} existing authors in header")
+
         existing_license = extract_license_identifier(original_content, comment_prefix)
         if not existing_license:
             # File was modified but had no header. Treat as ADDED with default license.
@@ -324,7 +353,17 @@ def process_modified_file(file_path, base_sha, head_sha):
             author_years, warnings = get_all_authors_for_file(file_path, REPO_PATH)
             if warnings:
                 for warn in warnings: print(f"  Warning: {warn}", file=sys.stderr)
-            reuse_header = create_reuse_header(author_years, default_license_id, comment_prefix)
+
+            # Combine with existing authors from header
+            combined_authors = author_years.copy()
+            for author, (min_year, max_year) in existing_authors.items():
+                if author in combined_authors:
+                    hist_min, hist_max = combined_authors[author]
+                    combined_authors[author] = (min(hist_min, min_year), max(hist_max, max_year))
+                else:
+                    combined_authors[author] = (min_year, max_year)
+
+            reuse_header = create_reuse_header(combined_authors, default_license_id, comment_prefix)
             license_id_to_use = default_license_id
         else:
             # File has a header, preserve license, update authors
@@ -337,12 +376,23 @@ def process_modified_file(file_path, base_sha, head_sha):
             if warnings_all or warnings_pr:
                 for warn in warnings_all + warnings_pr: print(f"  Warning: {warn}", file=sys.stderr)
 
-            # Combine authors - ensuring we have the latest max year for each author
-            combined_authors = all_author_years.copy()
+            # Combine authors from git history, existing header, and PR commits
+            # Start with existing authors from header
+            combined_authors = existing_authors.copy()
+
+            # Add authors from git history
+            for author, (hist_min, hist_max) in all_author_years.items():
+                if author in combined_authors:
+                    existing_min, existing_max = combined_authors[author]
+                    combined_authors[author] = (min(existing_min, hist_min), max(existing_max, hist_max))
+                else:
+                    combined_authors[author] = (hist_min, hist_max)
+
+            # Add authors from PR commits
             for author, (pr_min, pr_max) in pr_author_years.items():
                 if author in combined_authors:
-                    hist_min, hist_max = combined_authors[author]
-                    combined_authors[author] = (min(hist_min, pr_min), max(hist_max, pr_max))
+                    existing_min, existing_max = combined_authors[author]
+                    combined_authors[author] = (min(existing_min, pr_min), max(existing_max, pr_max))
                 else:
                     combined_authors[author] = (pr_min, pr_max)
 
