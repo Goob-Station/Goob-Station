@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   id: OrganDubiousBase
   parent: [ OrganHumanHeart, BaseMajorContraband ]
@@ -255,4 +260,3 @@
     onAdd:
     - type: VentCrawler
       allowInventory: false
-

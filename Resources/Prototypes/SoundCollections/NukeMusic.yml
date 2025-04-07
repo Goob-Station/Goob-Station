@@ -1,4 +1,17 @@
-﻿- type: soundCollection
+# SPDX-FileCopyrightText: 2023 pofitlo <107665898+pofitlo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 marbow <152051971+marboww@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-JohnAlex <94056103+CMDR-JohnAlex@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 he1acdvv <128906677+he1acdvv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: soundCollection
   id: NukeMusic
   files:
     - /Audio/StationEvents/running_out.ogg

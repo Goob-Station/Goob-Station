@@ -1,4 +1,7 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: entity
   id: ActionCreateBlobFactory
   name: blob-create-factory-action-name
   description: blob-create-factory-action-desc

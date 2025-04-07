@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 - type: constructionGraph
   id: ImprovisedShotgunShellGraph
   start: start

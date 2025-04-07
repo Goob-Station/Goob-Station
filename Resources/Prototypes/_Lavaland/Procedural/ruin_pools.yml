@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Lavaland ruins are loaded as separate grids.
 # HugeRuins should contain the biggest and most valuable ruins,
 # while SmallRuins should spawn only small and not important ruins.

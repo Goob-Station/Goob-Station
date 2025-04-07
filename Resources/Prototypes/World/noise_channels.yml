@@ -1,4 +1,7 @@
-﻿- type: noiseChannel
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+#
+# SPDX-License-Identifier: MIT
+- type: noiseChannel
   id: Density
   noiseType: Perlin
   fractalLacunarityByPi: 0.666666666

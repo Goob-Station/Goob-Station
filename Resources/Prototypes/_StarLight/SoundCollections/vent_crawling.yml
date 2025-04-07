@@ -1,4 +1,7 @@
-﻿- type: soundCollection
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+- type: soundCollection
   id: VentCrawlingSounds
   files:
   - /Audio/_Starlight/VentCrawling/crawling1.ogg

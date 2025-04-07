@@ -1,4 +1,7 @@
-﻿- type: soundCollection
+# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+- type: soundCollection
   id: SadTrombone
   files:
     - /Audio/Effects/sadtrombone.ogg

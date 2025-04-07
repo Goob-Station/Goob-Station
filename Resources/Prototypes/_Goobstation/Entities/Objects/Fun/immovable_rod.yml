@@ -1,4 +1,9 @@
-﻿#Goobstation - add a skibidi toilet as an immovable rod sprite
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#Goobstation - add a skibidi toilet as an immovable rod sprite
 - type: entity
   parent: ImmovableRodKeepTilesStill
   id: ImmovableRodSkibidi

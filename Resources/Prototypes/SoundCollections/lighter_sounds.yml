@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
+#
+# SPDX-License-Identifier: MIT
 - type: soundCollection
   id: lighterOnSounds
   files:
