@@ -1,4 +1,8 @@
-﻿namespace Content.Shared.Atmos.Reactions;
+// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Shared.Atmos.Reactions;
 
 [Flags]
 public enum ReactionResult : byte
