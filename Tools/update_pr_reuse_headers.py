@@ -49,16 +49,34 @@ def run_git_command(command, cwd=REPO_PATH, check=True):
         print("FATAL: 'git' command not found. Make sure git is installed and in your PATH.", file=sys.stderr)
         return None
 
-def get_authors_from_git(file_path, cwd=REPO_PATH):
+def get_authors_from_git(file_path, cwd=REPO_PATH, pr_base_sha=None, pr_head_sha=None):
     """
     Gets authors and their contribution years for a specific file.
+    If pr_base_sha and pr_head_sha are provided, also includes authors from the PR's commits.
     Returns: dict like {"Author Name <email>": (min_year, max_year)}
     """
-    # Always get all authors
-    command = ["git", "log", "--pretty=format:%at|%an|%ae|%b", "--follow", "--", file_path]
+    author_timestamps = defaultdict(list)
 
+    # Get authors from the PR's commits if base and head SHAs are provided
+    if pr_base_sha and pr_head_sha:
+        print(f"Getting authors from PR commits for {file_path}")
+        pr_command = ["git", "log", f"{pr_base_sha}..{pr_head_sha}", "--pretty=format:%at|%an|%ae|%b", "--", file_path]
+        pr_output = run_git_command(pr_command, cwd=cwd, check=False)
+
+        if pr_output:
+            # Process PR authors
+            process_git_log_output(pr_output, author_timestamps)
+            print(f"Found {len(author_timestamps)} authors in PR commits for {file_path}")
+
+    # Get all historical authors
+    command = ["git", "log", "--pretty=format:%at|%an|%ae|%b", "--follow", "--", file_path]
     output = run_git_command(command, cwd=cwd, check=False)
-    if not output:
+
+    if output:
+        # Process historical authors
+        process_git_log_output(output, author_timestamps)
+
+    if not author_timestamps:
         # Try to get the current user from git config as a fallback
         try:
             name_cmd = ["git", "config", "user.name"]
@@ -77,8 +95,23 @@ def get_authors_from_git(file_path, cwd=REPO_PATH):
             print(f"Error getting git user: {e}")
         return {}
 
-    # Process the output
-    author_timestamps = defaultdict(list)
+    # Convert timestamps to years
+    author_years = {}
+    for author, timestamps in author_timestamps.items():
+        if not timestamps:
+            continue
+        min_ts = min(timestamps)
+        max_ts = max(timestamps)
+        min_year = datetime.fromtimestamp(min_ts, timezone.utc).year
+        max_year = datetime.fromtimestamp(max_ts, timezone.utc).year
+        author_years[author] = (min_year, max_year)
+
+    return author_years
+
+def process_git_log_output(output, author_timestamps):
+    """
+    Process git log output and add authors to author_timestamps.
+    """
     co_author_regex = re.compile(r"^Co-authored-by:\s*(.*?)\s*<([^>]+)>", re.MULTILINE)
 
     for line in output.splitlines():
@@ -109,18 +142,7 @@ def get_authors_from_git(file_path, cwd=REPO_PATH):
                 co_author_key = f"{co_author_name} <{co_author_email}>"
                 author_timestamps[co_author_key].append(timestamp)
 
-    # Convert timestamps to years
-    author_years = {}
-    for author, timestamps in author_timestamps.items():
-        if not timestamps:
-            continue
-        min_ts = min(timestamps)
-        max_ts = max(timestamps)
-        min_year = datetime.fromtimestamp(min_ts, timezone.utc).year
-        max_year = datetime.fromtimestamp(max_ts, timezone.utc).year
-        author_years[author] = (min_year, max_year)
-
-    return author_years
+    # No need to convert timestamps to years here, it's done in get_authors_from_git
 
 def parse_existing_header(content, comment_style):
     """
@@ -261,7 +283,7 @@ def create_header(authors, license_id, comment_style):
 
     return "\n".join(lines)
 
-def process_file(file_path, default_license_id):
+def process_file(file_path, default_license_id, pr_base_sha=None, pr_head_sha=None):
     """
     Processes a file to add or update REUSE headers.
     Returns: True if file was modified, False otherwise
@@ -287,7 +309,7 @@ def process_file(file_path, default_license_id):
     existing_authors, existing_license, header_lines = parse_existing_header(content, comment_style)
 
     # Get all authors from git
-    git_authors = get_authors_from_git(file_path)
+    git_authors = get_authors_from_git(file_path, REPO_PATH, pr_base_sha, pr_head_sha)
 
     # Add current user to authors
     try:
@@ -378,6 +400,8 @@ def main():
     parser.add_argument("--files-added", nargs="*", default=[], help="List of added files")
     parser.add_argument("--files-modified", nargs="*", default=[], help="List of modified files")
     parser.add_argument("--pr-license", default=DEFAULT_LICENSE_LABEL, help="License to use for new files")
+    parser.add_argument("--pr-base-sha", help="Base SHA of the PR")
+    parser.add_argument("--pr-head-sha", help="Head SHA of the PR")
 
     args = parser.parse_args()
 
@@ -395,12 +419,12 @@ def main():
 
     print("\n--- Processing Added Files ---")
     for file in args.files_added:
-        if process_file(file, license_id):
+        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
             files_changed = True
 
     print("\n--- Processing Modified Files ---")
     for file in args.files_modified:
-        if process_file(file, license_id):
+        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
             files_changed = True
 
     print("\n--- Summary ---")
