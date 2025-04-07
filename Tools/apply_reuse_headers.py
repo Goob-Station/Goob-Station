@@ -7,6 +7,7 @@ from collections import defaultdict
 import time
 import concurrent.futures
 import threading
+import re
 
 # --- Configuration ---
 CUTOFF_COMMIT_HASH = "8270907bdc509a3fb5ecfecde8cc14e5845ede36"
@@ -30,20 +31,23 @@ total_files = 0
 
 # --- Helper Functions ---
 
-def run_git_command(command, cwd=REPO_PATH):
+def run_git_command(command, cwd=REPO_PATH, check=True):
     """Runs a git command and returns its output."""
     try:
         result = subprocess.run(
             command,
             capture_output=True,
             text=True,
-            check=True,
+            check=check,
             cwd=cwd,
             encoding='utf-8',
             errors='ignore'
         )
         return result.stdout.strip()
-    except subprocess.CalledProcessError:
+    except subprocess.CalledProcessError as e:
+        # Don't print error if check=False and it returns non-zero, git log might return empty
+        if check:
+            print(f"Error running git command {' '.join(command)}: {e.stderr}", file=sys.stderr)
         return None
     except FileNotFoundError:
         with progress_lock:
@@ -67,65 +71,70 @@ def get_last_commit_timestamp(file_path, cwd=REPO_PATH):
     output = run_git_command(["git", "log", "-1", "--format=%ct", "--follow", "--", file_path], cwd=cwd)
     if output:
         try:
+            # Handle potential multiple lines if file history is complex, take the first timestamp
             return int(output.split('\n')[0])
-        except ValueError:
+        except (ValueError, IndexError):
+             with progress_lock:
+                 all_warnings.append(f"Warning: Could not parse last commit timestamp for {file_path}")
             return None
     return None
 
 def get_author_contribution_years(file_path, cwd=REPO_PATH):
     """
-    Gets a dictionary mapping authors to their first and last contribution years for a file.
+    Gets a dictionary mapping authors (including co-authors) to their first and last
+    contribution years for a file.
     Returns: (dict like {"Author Name <email>": (min_year, max_year)}, list_of_warnings)
     """
-    command = ["git", "log", "--pretty=format:%at %aN <%aE>", "--follow", "--", file_path]
-    output = run_git_command(command, cwd=cwd)
+    # Use %x1E (Record Separator) to split commits reliably
+    # Include commit body (%b) to parse Co-authored-by lines
+    # Use %an for author name, %ae for email
+    command = ["git", "log", "--pretty=format:%at%x00%an%x00%ae%x00%b%x1E", "--follow", "--", file_path]
+    # Regex to find Co-authored-by lines
+    co_author_regex = re.compile(r"^Co-authored-by:\s*(.*?)\s*<([^>]+)>", re.IGNORECASE | re.MULTILINE)
+
+    output = run_git_command(command, cwd=cwd, check=False) # Don't fail if file has no history
     author_timestamps = defaultdict(list)
     warnings = []
 
-    if output is None:
-        return {}, warnings
+    if output is None or not output.strip():
+        return {}, warnings # No history found
 
-    lines = output.splitlines()
-    for line in lines:
+    commits = output.strip().split('\x1E') # Split into individual commit records
+
+    for commit_data in commits:
+        if not commit_data.strip():
+            continue
+
+        parts = commit_data.strip().split('\x00')
+        if len(parts) < 4: # timestamp, name, email, body
+            warnings.append(f"Skipping malformed commit data for {file_path}: {commit_data[:100]}...")
+            continue
+
+        timestamp_str, author_name, author_email, body = parts[0], parts[1], parts[2], parts[3]
+
         try:
-            first_space_index = line.find(' ')
-            if first_space_index == -1:
-                warnings.append(f"Skipping line with no space (timestamp?): {file_path}: {line}")
-                continue
+            ts_int = int(timestamp_str)
+        except ValueError:
+            warnings.append(f"Skipping invalid timestamp for {file_path}: {timestamp_str}")
+            continue
 
-            timestamp_str = line[:first_space_index]
-            rest_of_line = line[first_space_index+1:].strip()
+        # Process main author
+        if author_name and author_email:
+            author_key = f"{author_name.strip()} <{author_email.strip()}>"
+            author_timestamps[author_key].append(ts_int)
+        else:
+            warnings.append(f"Skipping commit with missing author info for {file_path}: Name='{author_name}', Email='{author_email}'")
 
-            email_start_index = rest_of_line.rfind('<')
-            email_end_index = rest_of_line.rfind('>')
-
-            if email_start_index == -1 or email_end_index == -1 or email_start_index >= email_end_index:
-                parts = rest_of_line.split()
-                if len(parts) >= 2 and '@' in parts[-1]:
-                     author_name = " ".join(parts[:-1])
-                     author_email_bracketed = f"<{parts[-1]}>"
-                     if not author_name:
-                          warnings.append(f"Skipping line with empty author name (fallback parse) for {file_path}: {line}")
-                          continue
-                else:
-                    warnings.append(f"Skipping line with malformed/missing email section for {file_path}: {line}")
-                    continue
+        # Process co-authors from commit body
+        for match in co_author_regex.finditer(body):
+            co_author_name = match.group(1).strip()
+            co_author_email = match.group(2).strip()
+            if co_author_name and co_author_email:
+                co_author_key = f"{co_author_name} <{co_author_email}>"
+                author_timestamps[co_author_key].append(ts_int)
             else:
-                author_name = rest_of_line[:email_start_index].strip()
-                author_email_bracketed = rest_of_line[email_start_index:email_end_index+1]
-                if not author_name:
-                     warnings.append(f"Skipping line with empty author name for {file_path}: {line}")
-                     continue
+                 warnings.append(f"Skipping malformed Co-authored-by line in commit body for {file_path}: Name='{co_author_name}', Email='{co_author_email}'")
 
-            author_key = f"{author_name} {author_email_bracketed}"
-            try:
-                ts_int = int(timestamp_str)
-                author_timestamps[author_key].append(ts_int)
-            except ValueError:
-                 warnings.append(f"Skipping invalid timestamp for {file_path}: {timestamp_str}")
-
-        except Exception as e:
-            warnings.append(f"Error parsing line for {file_path}: {line} - {e}")
 
     author_years = {}
     for author, timestamps in author_timestamps.items():
@@ -141,6 +150,7 @@ def get_author_contribution_years(file_path, cwd=REPO_PATH):
              warnings.append(f"Error calculating year range for author {author} on file {file_path}: {e}")
 
     return author_years, warnings
+
 
 def create_reuse_header(author_years, license_id, comment_prefix):
     """
@@ -179,27 +189,26 @@ def remove_existing_reuse_header(content, comment_prefix):
         stripped_line = line.strip()
         is_spdx_comment = stripped_line.startswith(spdx_prefix)
         is_copyright_comment = stripped_line.startswith(copyright_prefix_long) or stripped_line.startswith(copyright_prefix_short)
-        is_separator_comment = stripped_line == separator and in_header
+        is_separator_comment = stripped_line == separator and i < 5 # Only consider separators early on
         is_header_line = is_spdx_comment or is_copyright_comment or is_separator_comment
 
-        if not is_header_line and in_header:
-            in_header = False
         if in_header and is_header_line:
             header_removed = True
             continue
-        if in_header and not is_header_line:
+        # Stop considering it a header if we hit a non-header line or go too deep
+        if in_header and (not is_header_line or i >= 20):
              in_header = False
         cleaned_lines.append(line)
 
-    if header_removed:
-        first_content_line_index = 0
-        for i, line in enumerate(cleaned_lines):
-            if line.strip():
-                first_content_line_index = i
-                break
-        return "\n".join(cleaned_lines[first_content_line_index:]) if cleaned_lines else ""
-    else:
-        return "\n".join(lines)
+    # Trim leading whitespace after removing header
+    first_content_line_index = 0
+    for i, line in enumerate(cleaned_lines):
+        if line.strip():
+            first_content_line_index = i
+            break
+
+    return "\n".join(cleaned_lines[first_content_line_index:]) if cleaned_lines else ""
+
 
 def print_progress(current_processed_count, bar_length=40):
     """Prints the progress status block (thread-safe access to globals)."""
@@ -257,7 +266,7 @@ def process_file(file_path_tuple):
         else:
             license_id = LICENSE_AFTER if last_commit_timestamp > cutoff_ts else LICENSE_BEFORE
 
-        # Use the renamed function
+        # Use the updated function which includes co-authors
         author_years, author_warnings = get_author_contribution_years(file_path, REPO_PATH)
         file_warnings.extend(author_warnings)
         if not author_years and not author_warnings:
@@ -270,13 +279,14 @@ def process_file(file_path_tuple):
             with open(full_file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
                 original_content = f.read()
             cleaned_content = remove_existing_reuse_header(original_content, comment_prefix)
-            separator = "\n" if cleaned_content.strip() else ""
+            separator = "\n\n" if cleaned_content.strip() else "" # Add extra newline for new files
+
+            # Handle shebangs or initial comments for YAML
             if comment_prefix == '#' and cleaned_content.startswith('#'):
-                 new_content = reuse_header + "\n" + cleaned_content
-            elif comment_prefix == '#' and not cleaned_content.strip().startswith('#') and cleaned_content.strip():
                  new_content = reuse_header + "\n" + cleaned_content
             else:
                  new_content = reuse_header + separator + cleaned_content
+
             final_content_lf = new_content.replace('\r\n', '\n').replace('\r', '\n')
             original_content_lf = original_content.replace('\r\n', '\n').replace('\r', '\n')
             if final_content_lf != original_content_lf:
