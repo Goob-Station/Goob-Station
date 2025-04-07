@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Systems;
 using Content.Shared.Climbing.Components;
 

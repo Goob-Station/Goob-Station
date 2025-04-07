@@ -1,4 +1,9 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Antags.Abductor;
 

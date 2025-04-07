@@ -1,4 +1,9 @@
-﻿using System.Data;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;

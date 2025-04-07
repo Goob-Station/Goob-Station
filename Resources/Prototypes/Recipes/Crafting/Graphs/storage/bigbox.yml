@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 PeterFuto <futo.petr@gmail.com>
+# SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: BaseBigBox
   start: start

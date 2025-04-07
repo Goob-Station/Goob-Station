@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # This is such a fucking ass way to do this, but who cares.
 - type: entity
   parent: CandyBowl
