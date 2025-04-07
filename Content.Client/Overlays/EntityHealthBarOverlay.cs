@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client.StatusIcon;
 using Content.Client.UserInterface.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
@@ -125,32 +126,49 @@ public sealed class EntityHealthBarOverlay : Overlay
     /// <summary>
     /// Returns a ratio between 0 and 1, and whether the entity is in crit.
     /// </summary>
-    private (float ratio, bool inCrit)? CalcProgress(EntityUid uid, MobStateComponent component, DamageableComponent dmg, MobThresholdsComponent thresholds)
+private (float ratio, bool inCrit)? CalcProgress(EntityUid uid, MobStateComponent component, DamageableComponent dmg, MobThresholdsComponent thresholds)
     {
-        if (_mobStateSystem.IsAlive(uid, component))
+        // Shitmed Change Start
+        if (_entManager.TryGetComponent<ConsciousnessComponent>(uid, out var consciousness))
         {
-            if (dmg.HealthBarThreshold != null && dmg.TotalDamage < dmg.HealthBarThreshold)
-                return null;
-
-            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
-                !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))
-                return (1, false);
-
-            var ratio = 1 - ((FixedPoint2) (dmg.TotalDamage / threshold)).Float();
-            return (ratio, false);
-        }
-
-        if (_mobStateSystem.IsCritical(uid, component))
-        {
-            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var critThreshold, thresholds) ||
-                !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, thresholds))
+            if (_mobStateSystem.IsAlive(uid, component))
             {
-                return (1, true);
+                var ratio = 1 - ((consciousness.Cap - consciousness.Consciousness) / (consciousness.Cap - consciousness.Threshold)).Float();
+                return (ratio, false);
             }
 
-            var ratio = 1 - ((dmg.TotalDamage - critThreshold) / (deadThreshold - critThreshold)).Value.Float();
+            if (_mobStateSystem.IsCritical(uid, component))
+            {
+                var ratio = 1 - ((consciousness.Threshold - consciousness.Consciousness) / consciousness.Threshold).Float();
+                return (ratio, true);
+            }
+        }
+        else // Shitmed Change End
+        {
+            // Typical management
+            if (_mobStateSystem.IsAlive(uid, component))
+            {
+                if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds))
+                    return (1, false);
 
-            return (ratio, true);
+                var ratio = 1 - ((FixedPoint2)(dmg.TotalDamage / threshold)).Float();
+                return (ratio, false);
+            }
+
+            if (_mobStateSystem.IsCritical(uid, component))
+            {
+                if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var critThreshold, thresholds) ||
+                    !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, thresholds))
+                {
+                    return (1, true);
+                }
+
+                var ratio = 1 -
+                            ((dmg.TotalDamage - critThreshold) /
+                             (deadThreshold - critThreshold)).Value.Float();
+
+                return (ratio, true);
+            }
         }
 
         return (0, true);

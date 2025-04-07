@@ -228,6 +228,11 @@
     graph: BananaClownJumpsuit
     node: jumpsuit
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Leg
     modifiers:
       coefficients:
         Radiation: 0.8

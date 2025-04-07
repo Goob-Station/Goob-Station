@@ -1,18 +1,23 @@
 ﻿- type: body
   id: AnimalNymphBrain
   name: "nymph"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
       connections:
-      - legs
+      - groin
       organs:
         brain: OrganDionaBrain
         lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
+      connections:
+      - legs
+      organs:
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal
@@ -24,17 +29,22 @@
 - type: body
   id: AnimalNymphLungs
   name: "nymph"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
+      connections:
+      - groin
+      organs:
+        lungs: OrganDionaLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
       connections:
       - legs
       organs:
-        lungs: OrganDionaLungs
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal
@@ -46,17 +56,22 @@
 - type: body
   id: AnimalNymphStomach
   name: "nymph"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
+      connections:
+      - groin
+      organs:
+        lungs: OrganAnimalLungs
+        heart: OrganAnimalHeart
+    groin:
+      part: GroinAnimal
       connections:
       - legs
       organs:
-        lungs: OrganAnimalLungs
         stomach: OrganDionaStomach
         liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal

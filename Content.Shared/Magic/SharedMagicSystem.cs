@@ -837,7 +837,6 @@ public abstract class SharedMagicSystem : EntitySystem
                     -invocationEv.ToHeal,
                     true,
                     false,
-                    canSever: false,
                     targetPart: TargetBodyPart.All);
             }
         }

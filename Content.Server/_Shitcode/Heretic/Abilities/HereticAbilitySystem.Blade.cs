@@ -40,7 +40,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         EnsureComp<RiposteeComponent>(ent);
     }
-    
+
     private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
     {
         if (!TryUseAbility(ent, args))
@@ -71,8 +71,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void OnChampionStance(Entity<HereticComponent> ent, ref HereticChampionStanceEvent args)
     {
         // remove limbloss
-        foreach (var part in _body.GetBodyChildren(ent))
-            part.Component.CanSever = false;
+        //foreach (var part in _body.GetBodyChildren(ent))
+            //part.Component.CanSever = false; - Pending rework lmao
 
         EnsureComp<ChampionStanceComponent>(ent);
     }

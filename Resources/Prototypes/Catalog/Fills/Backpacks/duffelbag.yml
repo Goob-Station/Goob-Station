@@ -13,6 +13,7 @@
       - id: Retractor
       - id: Scalpel
       - id: BoneGel # Shitmed Change
+      - id: MedicalStitches # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -30,6 +31,7 @@
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
       - id: BoneGel # Shitmed Change
+      - id: MedicalStitches # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

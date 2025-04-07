@@ -1426,7 +1426,9 @@
       Female: MonkeyMode
       Unsexed: MonkeyMode
     wilhelmProbability: 0.001
-
+  - type: Consciousness
+    threshold: 70
+    cap: 140
 
 
 - type: entity

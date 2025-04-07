@@ -768,7 +768,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         // Shitmed: Prevent changelings from getting their body parts severed
         foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
         {
-            part.CanSever = false;
+            //part.CanSever = false; - Pending rework lmao
             Dirty(id, part);
         }
     }

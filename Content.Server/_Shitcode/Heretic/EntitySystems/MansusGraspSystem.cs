@@ -327,7 +327,7 @@ public sealed class MansusGraspSystem : EntitySystem
                         _damage.TryChangeDamage(target,
                             new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
                             origin: performer,
-                            targetPart: TargetBodyPart.Torso);
+                            targetPart: TargetBodyPart.Chest);
                     }
                     break;
                 }
@@ -380,7 +380,7 @@ public sealed class MansusGraspSystem : EntitySystem
                             ignoreResistances: true,
                             damageable: damageable,
                             origin: performer,
-                            targetPart: TargetBodyPart.Torso);
+                            targetPart: TargetBodyPart.Chest);
                     }
                     break;
                 }

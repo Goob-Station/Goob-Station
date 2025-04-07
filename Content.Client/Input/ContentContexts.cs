@@ -88,7 +88,8 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Arcade3);
             // Shitmed Change Start - TODO: Add hands, feet and groin targeting.
             human.AddFunction(ContentKeyFunctions.TargetHead);
-            human.AddFunction(ContentKeyFunctions.TargetTorso);
+            human.AddFunction(ContentKeyFunctions.TargetChest);
+            human.AddFunction(ContentKeyFunctions.TargetGroin);
             human.AddFunction(ContentKeyFunctions.TargetLeftArm);
             human.AddFunction(ContentKeyFunctions.TargetLeftHand);
             human.AddFunction(ContentKeyFunctions.TargetRightArm);

@@ -30,6 +30,13 @@
       - state: equipped-OUTERCLOTHING-sealed
         shader: unshaded
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
         Blunt: 0.85

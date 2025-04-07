@@ -11,6 +11,7 @@ namespace Content.Shared.Humanoid
         Hair,
         FacialHair,
         Chest,
+        Groin,
         Head,
         Snout,
         HeadSide, // side parts (i.e., frills)
