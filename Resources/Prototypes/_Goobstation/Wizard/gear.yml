@@ -19,9 +19,6 @@
     head: ClothingHeadHatBlackwizardReal
     outerClothing: ClothingOuterWizardBlackReal
     shoes: ClothingShoesWizard
-    gloves: ClothingHandsGlovesWizard
-    back: ClothingBackpack
-    pocket1: CrowbarWizard
 
 - type: startingGear
   id: OblivionEnforcerGear

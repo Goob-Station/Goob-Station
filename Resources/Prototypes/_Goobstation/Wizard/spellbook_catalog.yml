@@ -421,7 +421,7 @@
   description: spellbook-bind-soul-desc
   productAction: ActionBindSoul
   cost:
-    WizCoin: 2
+    WizCoin: 5
   categories:
   - SpellbookDefensive
   conditions:
