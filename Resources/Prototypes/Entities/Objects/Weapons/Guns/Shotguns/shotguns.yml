@@ -48,7 +48,7 @@
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunBulldog
-  description: A rapid-fire magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells. # Goobstation edit
+  description: A full-auto magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
@@ -68,13 +68,10 @@
   - type: AmmoCounter
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 2
-    selectedMode: Burst # Goobstation - start
+    fireRate: 3 # Goobstation edit
+    selectedMode: FullAuto
     availableModes:
-    - Burst
-    burstFireRate: 12
-    shotsPerBurst: 2
-    burstCooldown: 0.5 # Goobstation - end
+    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
