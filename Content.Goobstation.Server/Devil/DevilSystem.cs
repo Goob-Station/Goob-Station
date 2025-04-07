@@ -61,7 +61,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly DevilContractSystem _contract = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly PossessionSystem _posession = default!;
+    [Dependency] private readonly PossessionSystem _possession = default!;
 
 
     // Ten. Thousand. EntProtoIds.
@@ -85,12 +85,10 @@ public sealed partial class DevilSystem : EntitySystem
         SubscribeAbilities();
     }
 
-    #region Startup
+    #region Startup & Remove
 
     private void OnStartup(EntityUid uid, DevilComponent comp, ComponentStartup args)
     {
-        // Startup animation
-        Spawn(_pentagramEffectProto, Transform(uid).Coordinates);
 
         // Remove human components.
         RemComp<CombatModeComponent>(uid);
@@ -250,22 +248,16 @@ public sealed partial class DevilSystem : EntitySystem
 
     #region Helper Methods
 
-    private bool TryUseAbility(DevilComponent comp, BaseActionEvent action)
+    private static bool TryUseAbility(DevilComponent comp, BaseActionEvent action)
     {
         if (action.Handled)
-            return false;
-
-        if (!TryComp<DevilActionComponent>(action.Action, out var devilAction))
-            return false;
-
-        if (devilAction.SoulsRequired > comp.Souls)
             return false;
 
         action.Handled = true;
         return true;
     }
 
-    private int TryGetNewPowerLevel(EntityUid uid, DevilComponent comp)
+    private static int TryGetNewPowerLevel(EntityUid uid, DevilComponent comp)
     {
         // Every two souls is one level.
         return comp.Souls switch
@@ -273,16 +265,8 @@ public sealed partial class DevilSystem : EntitySystem
             2 => 1,
             4 => 2,
             6 => 3,
-            _ => 0
+            _ => 0,
         };
-    }
-
-    private bool TryUseSoulsAbility(DevilComponent comp, BaseActionEvent action)
-    {
-        if (!TryComp<DevilActionComponent>(action.Action, out var devilAction))
-            return false;
-
-        return !(devilAction.SoulsRequired > comp.Souls);
     }
 
     private void PlayFwooshSound(EntityUid uid, DevilComponent comp)

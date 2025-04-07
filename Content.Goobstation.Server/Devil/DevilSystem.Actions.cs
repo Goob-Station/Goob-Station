@@ -1,5 +1,6 @@
 using Content.Goobstation.Server.Contract;
 using Content.Goobstation.Server.Contract.Revival;
+using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Robust.Shared.Player;
@@ -64,21 +65,11 @@ public sealed partial class DevilSystem
             _popup.PopupEntity(message, uid, uid);
             return;
         }
-        if (!TryUseSoulsAbility(comp, args))
-        {
-            var message = Loc.GetString("not-enough-souls");
-            _popup.PopupEntity(message, uid, uid);
-            return;
-        }
 
         if (!TryUseAbility(comp, args))
             return;
 
-        if (!(TryComp<ActorComponent>(args.Performer, out var performerActor) && TryComp<ActorComponent>(args.Target, out var targetActor)))
-            return;
-
-        _posession.TryPossessTarget(performerActor.PlayerSession.UserId, targetActor.PlayerSession.UserId);
-        args.Handled = true;
+        _possession.TryPossessTarget(args);
     }
 
 

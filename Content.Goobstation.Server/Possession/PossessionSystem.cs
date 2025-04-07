@@ -1,22 +1,47 @@
-using Content.Goobstation.Server.Possession;
+using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Actions;
+using Content.Server.Ghost;
+using Content.Server.Polymorph.Systems;
+using Content.Server.Stunnable;
+using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Examine;
+using Content.Shared.Ghost;
+using Content.Shared.Heretic;
 using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Polymorph;
+using Content.Shared.Popups;
+using Content.Shared.Zombies;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Possession;
 
 public sealed partial class PossessionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly PolymorphSystem _poly = default!;
+
+    private readonly EntProtoId _pentagramEffectProto = "Pentagram";
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PossessedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PossessedComponent, ComponentRemove>(OnComponentRemoved);
+        SubscribeLocalEvent<PossessedComponent, ExaminedEvent>(OnExamined);
     }
 
     public override void Update(float frameTime)
@@ -27,9 +52,9 @@ public sealed partial class PossessionSystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (_timing.CurTime >= comp.PossessionEndTime)
-            {
                 RemComp<PossessedComponent>(uid);
-            }
+
+            comp.PossessionTimeRemaining = _timing.CurTime - comp.PossessionEndTime;
         }
     }
 
@@ -42,7 +67,6 @@ public sealed partial class PossessionSystem : EntitySystem
         }
 
         EnsureComp<PacifiedComponent>(uid);
-
     }
 
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
@@ -50,67 +74,117 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!comp.WasPacified)
             RemComp<PacifiedComponent>(uid);
 
-        RevertPossession(uid, comp);
+        // Return the possessors mind to their body, and the target to theirs.
+        _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
+        _mind.TransferTo(comp.OriginalMindId, uid);
+
+        _stun.TryParalyze(uid, TimeSpan.FromSeconds(10), false);
+        _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
     }
 
-    public void TryPossessTarget(NetUserId targetUserId, NetUserId possessorUserId)
+    private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)
     {
-        if (!_mindSystem.TryGetMind(targetUserId, out var targetMind))
-            return;
-        if (!_mindSystem.TryGetMind(possessorUserId, out var possessorMind))
+        if (!args.IsInDetailsRange || _net.IsClient || comp.PossessorMindId == args.Examiner)
             return;
 
-        var targetEntity = GetEntityFromMind(targetMind.Value);
-        var possessorEntity = GetEntityFromMind(possessorMind.Value);
-
-        if (targetEntity == null || possessorEntity == null)
-            return;
-
-        if (HasComp<PossessedComponent>(targetEntity.Value))
-            return;
-
-        var component = AddComp<PossessedComponent>(targetEntity.Value);
-        component.OriginalMindId = targetUserId;
-        component.PossessorMindId = possessorUserId;
-        component.PossessorOriginalEntity = possessorEntity.Value;
-        component.PossessionEndTime = _timing.CurTime + TimeSpan.FromSeconds(30);
-
-        _mindSystem.TransferTo(possessorMind.Value, targetEntity.Value);
+        var timeremaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds);
+        args.PushMarkup(Loc.GetString("possessed-component-examined", ("timeremaining", timeremaining)));
     }
 
-    private void RevertPossession(EntityUid targetEntity, PossessedComponent component)
+    public void TryPossessTarget(DevilPossessionEvent args)
     {
-        var originalMindId = component.OriginalMindId;
-        var possessorMindId = component.PossessorMindId;
-        var possessorOriginalEntity = component.PossessorOriginalEntity;
-
-        // Transfer original mind back if possible
-        if (_mindSystem.TryGetMind(originalMindId, out var originalMind))
+        // Possessing a dead guy? What.
+        if (_mobState.IsIncapacitated(args.Target) || HasComp<ZombieComponent>(args.Target))
         {
-            if (Exists(targetEntity) && !Terminating(targetEntity))
-                _mindSystem.TransferTo(originalMind.Value, targetEntity);
-            else
-                _mindSystem.TransferTo(originalMind.Value, null); // Become ghost if body is gone
+            _popup.PopupClient(Loc.GetString("possession-fail-target-dead"), args.Performer, args.Target);
+            return;
         }
 
-        // Transfer possessor back to their original entity or ghost
-        if (_mindSystem.TryGetMind(possessorMindId, out var possessorMind))
+        List<(Type, string)> blockers = new()
         {
-            if (Exists(possessorOriginalEntity) && !Terminating(possessorOriginalEntity))
-                _mindSystem.TransferTo(possessorMind.Value, possessorOriginalEntity);
-            else
-                _mindSystem.TransferTo(possessorMind.Value, null);
+            (typeof(ChangelingComponent), "changeling"),
+            (typeof(HereticComponent), "heretic"),
+            (typeof(GhoulComponent), "ghoul"),
+            (typeof(GhostComponent), "ghost"),
+            (typeof(SpectralComponent), "ghost"),
+            (typeof(TimedDespawnComponent), "temporary"),
+            (typeof(FadingTimedDespawnComponent), "temporary"),
+        };
+
+        foreach (var (item1, item2) in blockers)
+        {
+            if (CheckMindswapBlocker(item1, item2, args))
+                return;
         }
+
+        args.Handled = true;
+
+        if (!_mind.TryGetMind(args.Performer, out var userMind, out var userMindComp))
+            return;
+
+        var possessedComp = EnsureComp<PossessedComponent>(args.Target);
+
+        // Get the possession time.
+        if (TryComp<DevilComponent>(args.Performer, out var devilComponent))
+            possessedComp.PossessionEndTime = _timing.CurTime + GetPossessionDuration(devilComponent);
+
+        // Store possessors original information.
+        possessedComp.PossessorMindId = userMind;
+        possessedComp.PossessorOriginalEntity = args.Performer;
+
+        // Store targets original mind, and detach them.
+        if (_mind.TryGetMind(args.Target, out var targetMind, out var targetMindComp) && targetMindComp.UserId != null)
+        {
+            possessedComp.OriginalMindId = targetMind;
+            _mind.TransferTo(targetMind, null);
+        }
+
+        // Transfer into target
+        _mind.TransferTo(userMind, args.Target);
+
+        // Jaunt the body so it can't be tampered with.
+        // Easier than sending you to the paused map lol.
+        Spawn("PolymorphShadowJauntAnimation", Transform(possessedComp.PossessorOriginalEntity).Coordinates);
+        Spawn(_pentagramEffectProto, Transform(possessedComp.PossessorOriginalEntity).Coordinates);
+
+        if (devilComponent != null)
+            _poly.PolymorphEntity(possessedComp.PossessorOriginalEntity, GetJauntEntity(devilComponent));
+
+        if (!_net.IsServer)
+            return;
+
+        // SFX
+        _popup.PopupEntity(Loc.GetString("possession-popup-self"), targetMind, targetMind, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", args.Target)), args.Target, PopupType.MediumCaution);
+        _audio.PlayPvs(possessedComp.PossessionSoundPath, args.Target);
     }
 
-    private EntityUid? GetEntityFromMind(MindComponent mind)
+    private bool CheckMindswapBlocker(Type type, string message, DevilPossessionEvent args)
     {
-        var query = EntityManager.EntityQueryEnumerator<MindContainerComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        if (!HasComp(args.Target, type))
+            return false;
+
+        _popup.PopupClient(Loc.GetString($"possession-fail-{message}"), args.Performer, args.Performer); // Change this later
+        return true;
+    }
+
+    private TimeSpan GetPossessionDuration(DevilComponent comp)
+    {
+        return comp.PowerLevel switch
         {
-            if (comp.Mind == mind.OwnedEntity)
-                return uid;
-        }
-        return null;
+            2 => TimeSpan.FromSeconds(60),
+            3 => TimeSpan.FromSeconds(90),
+            _ => TimeSpan.FromSeconds(30),
+        };
+    }
+
+    private ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
+    {
+        return comp.PowerLevel switch
+        {
+            2 => "ShadowJaunt60",
+            3 => "ShadowJaunt90",
+            _ => "ShadowJaunt30",
+        };
     }
 }

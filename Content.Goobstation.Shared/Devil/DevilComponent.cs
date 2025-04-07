@@ -1,3 +1,8 @@
+using Content.Goobstation.Shared.Religion;
+using Content.Shared._Shitmed.Body.Components;
+using Content.Shared.CombatMode;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -11,6 +16,7 @@ public sealed partial class DevilComponent : Component
         "ActionCreateContract",
         "ActionShadowJaunt",
         "ActionCreateRevivalContract",
+        "ActionDevilPossess", // Temporarily given on start for testing.
     };
 
     /// <summary>
@@ -18,6 +24,15 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public int Souls = 0;
+
+    /// <summary>
+    /// Should it perform startup tasks and apply items?
+    /// </summary>
+    /// <remarks>
+    /// False by default so possession doesn't bork.
+    /// Run the gamerule if you want to make someone a devil silly.
+    /// </remarks>
+    public bool DoStartup = false;
 
     /// <summary>
     /// The true name of the devil.
@@ -49,4 +64,6 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30);
+
+
 }

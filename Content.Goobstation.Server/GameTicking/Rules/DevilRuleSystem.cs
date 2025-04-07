@@ -56,10 +56,10 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-
         _role.MindAddRole(mindId, _devilMindRole.Id, mind, true);
 
         var devilComp = EnsureComp<DevilComponent>(target);
+
         var meta = MetaData(target);
 
         var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", meta.EntityName));
@@ -71,8 +71,6 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
         _npcFaction.RemoveFaction(target, NanotrasenFaction);
         _npcFaction.AddFaction(target, DevilFaction);
-
-        EnsureComp<DevilComponent>(target);
 
         rule.DevilMinds.Add(mindId);
 

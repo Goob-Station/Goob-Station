@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Possession;
@@ -7,9 +8,9 @@ namespace Content.Goobstation.Server.Possession;
 public sealed partial class PossessedComponent : Component
 {
     [DataField]
-    public NetUserId OriginalMindId { get; set; }
+    public EntityUid OriginalMindId { get; set; }
     [DataField]
-    public NetUserId PossessorMindId { get; set; }
+    public EntityUid PossessorMindId { get; set; }
     [DataField]
     public EntityUid PossessorOriginalEntity { get; set; }
 
@@ -17,5 +18,11 @@ public sealed partial class PossessedComponent : Component
     public TimeSpan PossessionEndTime { get; set; }
 
     [DataField]
+    public TimeSpan PossessionTimeRemaining;
+
+    [DataField]
     public bool WasPacified;
+
+    [DataField]
+    public SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");
 }
