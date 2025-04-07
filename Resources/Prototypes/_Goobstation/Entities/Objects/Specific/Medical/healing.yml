@@ -46,3 +46,18 @@
         reagents:
         - ReagentId: Fentanyl
           Quantity: 7
+
+- type: entity
+  suffix: blue rot
+  parent: PrefilledSyringe
+  id: SyringeBlueRot
+  components:
+  - type: Label
+    currentLabel: "Blue Rot"
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: BlueRot
+          Quantity: 15

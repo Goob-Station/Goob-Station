@@ -4,3 +4,4 @@ reagent-physical-desc-sigma = sigma
 reagent-physical-desc-ling = living
 reagent-physical-desc-comforting = comforting
 reagent-physical-desc-alien = alien
+reagent-physical-desc-disturbing = disturbing
