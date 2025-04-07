@@ -15,6 +15,7 @@ job-name-overall = Overall
 job-name-tider = Tider
 
 job-name-exec = Executive Access
+job-name-virologist = Virologist
 
 # Navy Stuff
 
@@ -54,3 +55,5 @@ JobConquest = Conquest
 JobInspector = Central Command Auditor
 JobMercenaryCaptain = Mercenary Captain
 JobRoboticist = Roboticist
+
+JobVirologist = Virologist
