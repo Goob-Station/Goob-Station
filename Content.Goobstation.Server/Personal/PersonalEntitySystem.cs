@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Personal;
 using Content.Server.Hands.Systems;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.GameTicking;
@@ -33,7 +34,7 @@ public sealed class PersonalEntitySystem : EntitySystem
 
         var mind = args.Player.GetMind();
 
-        if (mind == null || TryComp<PersonalEntityMarkerComponent>(mind, out var personalComp) && personalComp.IsSpawned)
+        if (mind == null)
             return;
 
         foreach (var item in personalProto.ItemList)
@@ -41,10 +42,6 @@ public sealed class PersonalEntitySystem : EntitySystem
             var spawned = SpawnNextToOrDrop(item, args.Mob);
             TryPutInBackpackOrHands(args.Mob, spawned);
         }
-
-        var markerComp = EnsureComp<PersonalEntityMarkerComponent>(mind.Value);
-        markerComp.PersonalPrototype = personalProto;
-        markerComp.IsSpawned = true;
     }
 
     /// <summary>

@@ -1,9 +1,9 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Personal;
+namespace Content.Goobstation.Shared.Personal;
 
 [Prototype("personalItems")]
-public sealed class PersonalEntityPrototype : IPrototype
+public sealed partial class PersonalEntityPrototype : IPrototype
 {
     /// <summary>
     /// ID's for prototype should be named username + "Personal". Example: "NikitosPersonal" if user's name Nikitos.
