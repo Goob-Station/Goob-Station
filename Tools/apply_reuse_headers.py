@@ -396,7 +396,6 @@ if __name__ == "__main__":
 
     print(f"Using license for new files: {new_file_license_label}")
 
-
     new_file_license_id = LICENSE_CONFIG.get(new_file_license_label, {}).get("id")
     if not new_file_license_id:
         print(f"FATAL: Could not find SPDX ID for license label '{new_file_license_label}'. Check LICENSE_CONFIG.", file=sys.stderr)
