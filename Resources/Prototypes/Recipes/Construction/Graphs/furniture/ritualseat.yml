@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Zymem <97173622+Zymem@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Artur <thearturzh@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: RitualSeat
   start: start

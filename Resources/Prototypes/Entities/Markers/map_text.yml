@@ -1,4 +1,8 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
   id: MapText
   parent: MarkerBase
   name: map text
@@ -8,4 +12,3 @@
   - type: MapText
   - type: Sprite
     state: pink
-

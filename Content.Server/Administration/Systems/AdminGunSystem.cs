@@ -1,4 +1,8 @@
-﻿using Content.Server.Administration.Components;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration.Components;
 using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Server.Administration.Systems;

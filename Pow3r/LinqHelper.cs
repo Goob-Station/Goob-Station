@@ -1,4 +1,9 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 
 namespace Pow3r

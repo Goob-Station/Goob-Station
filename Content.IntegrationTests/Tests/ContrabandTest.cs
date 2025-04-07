@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Contraband;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;

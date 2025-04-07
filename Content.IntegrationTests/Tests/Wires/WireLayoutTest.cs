@@ -1,4 +1,8 @@
-﻿using Content.Server.Doors;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Doors;
 using Content.Server.Power;
 using Content.Server.Wires;
 using Robust.Shared.GameObjects;

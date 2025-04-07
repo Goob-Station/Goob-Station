@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: [electric.ogg]
   license: CC0-1.0
   copyright: '"Electricity Shock 3 Full" by The-Sacha-Rush on Freesound.org'

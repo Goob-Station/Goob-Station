@@ -1,4 +1,9 @@
-﻿using Robust.Client.UserInterface;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.UserInterface;
 using Robust.Shared.Timing;
 
 namespace Content.Client.Items.UI;

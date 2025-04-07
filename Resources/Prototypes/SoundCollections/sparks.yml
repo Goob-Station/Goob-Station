@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
+#
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: sparks
   files:

@@ -1,4 +1,8 @@
-﻿using Content.Shared.StatusEffect;
+// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.StatusEffect;
 
 namespace Content.Shared.Speech.EntitySystems;
 

@@ -1,4 +1,8 @@
-﻿using Content.Shared.Database;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Database;
 using Robust.Shared.Network;
 
 namespace Content.Server.Connection;

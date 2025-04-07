@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Power;
 using Robust.Client.GameObjects;
 

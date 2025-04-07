@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage;
 
 
@@ -15,4 +20,3 @@ public sealed partial class DamageOnHitComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = default!;
 }
-

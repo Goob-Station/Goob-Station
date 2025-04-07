@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 778b <33431126+778b@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Nutrition.Components;
 
 namespace Content.Server.NPC.HTN.Preconditions;

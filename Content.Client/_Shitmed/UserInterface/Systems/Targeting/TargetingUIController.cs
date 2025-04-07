@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Gameplay;
 using Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets;
 using Content.Shared._Shitmed.Targeting;

@@ -1,4 +1,8 @@
-﻿namespace Content.Server.GameTicking.Rules.Components;
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>
 /// This is a marker component placed on rule entities which are a single "pass" of station variation.

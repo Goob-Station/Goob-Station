@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Arcade;
 using System.Linq;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Shuttles.Components;
 
 namespace Content.Server.Shuttles.Events;

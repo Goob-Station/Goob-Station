@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mobs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Deathsquad
 - type: preloadedGrid
   id: ConsulShuttle
@@ -31,4 +35,3 @@
   id: RetortShuttleCBURN
   path: /Maps/_Goobstation/Shuttles/retort_cburn.yml
   copies: 1
-

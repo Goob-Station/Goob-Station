@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Maps;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

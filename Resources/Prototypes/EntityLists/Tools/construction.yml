@@ -1,4 +1,8 @@
-﻿- type: entityList
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entityList
   id: tools
   entities:
   - WelderExperimental

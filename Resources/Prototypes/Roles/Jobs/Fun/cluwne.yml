@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: startingGear
   id: CluwneGear
   equipment:
@@ -13,4 +17,3 @@
   id: HoloClownGear
   equipment:
     pocket1: BikeHorn
-

@@ -1,4 +1,10 @@
-﻿using Content.Shared.CrewManifest;
+// SPDX-FileCopyrightText: 2023 Phill101 <28949487+Phill101@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Phill101 <holypics4@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CrewManifest;
 using Content.Shared.Roles;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;

@@ -1,4 +1,9 @@
-﻿- type: body
+# SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: body
   id: Bot
   name: "bot"
   root: hand 1

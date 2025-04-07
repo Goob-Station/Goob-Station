@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Content.Shared.Access.Components;
@@ -28,4 +33,3 @@ public sealed class ActivatableUIRequiresAccessSystem : EntitySystem
         }
     }
 }
-

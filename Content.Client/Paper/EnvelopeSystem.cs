@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Paper;
 using Robust.Client.GameObjects;
 

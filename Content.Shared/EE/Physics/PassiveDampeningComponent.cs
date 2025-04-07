@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 namespace Content.Shared.Physics;
 
 /// <summary>

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Base Prototypes
 # Lollypops are meant to hold chems. If you can implement them injecting chems while on the mask slot, that'd be cool.
 

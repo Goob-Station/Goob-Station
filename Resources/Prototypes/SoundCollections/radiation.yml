@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: RadiationPulse
   files:

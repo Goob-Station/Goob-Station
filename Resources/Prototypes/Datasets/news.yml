@@ -1,4 +1,10 @@
-﻿- type: dataset
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: dataset
   id: news
   values:
   - "Tree stuck in tajaran; firefighters baffled."

@@ -1,4 +1,9 @@
-﻿using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 

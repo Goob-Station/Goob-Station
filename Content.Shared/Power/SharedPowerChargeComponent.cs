@@ -1,4 +1,10 @@
-﻿namespace Content.Shared.Power;
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Shared.Power;
 
 /// <summary>
 /// Component for a powered machine that slowly powers on and off over a period of time.

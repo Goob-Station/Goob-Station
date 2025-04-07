@@ -1,4 +1,10 @@
-﻿namespace Content.Client.PDA;
+// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+//
+// SPDX-License-Identifier: MIT
+
+namespace Content.Client.PDA;
 
 /// <summary>
 /// Used for specifying the pda windows border colors

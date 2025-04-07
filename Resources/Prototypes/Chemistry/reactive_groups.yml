@@ -1,4 +1,8 @@
-﻿- type: reactiveGroup
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: reactiveGroup
   id: Flammable
 
 - type: reactiveGroup

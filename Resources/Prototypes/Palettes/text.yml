@@ -1,4 +1,10 @@
-﻿- type: palette
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ike709 <ike709@github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: palette
   id: Material
   name: Material
   colors:

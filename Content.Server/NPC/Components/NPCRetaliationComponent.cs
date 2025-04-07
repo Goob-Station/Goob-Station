@@ -1,4 +1,8 @@
-﻿using Content.Server.NPC.Systems;
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Content.Server.NPC.Systems;
 
 namespace Content.Server.NPC.Components;
 

@@ -1,4 +1,10 @@
-﻿using Content.Shared.Medical.SuitSensor;
+// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Medical.SuitSensor;
 
 namespace Content.Server.Medical.CrewMonitoring;
 

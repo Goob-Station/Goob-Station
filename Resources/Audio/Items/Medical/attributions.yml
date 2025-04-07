@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 RieBi <42877671+RieBi@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["healthscanner.ogg"]
   license: "CC-BY-4.0"
   copyright: "Taken from FM Synthesis on freesound.org"

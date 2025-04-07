@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Construction.NodeEntities;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

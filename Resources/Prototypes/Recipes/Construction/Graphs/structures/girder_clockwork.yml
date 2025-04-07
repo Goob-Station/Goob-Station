@@ -1,4 +1,8 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: ClockworkGirder
   start: start
   graph:

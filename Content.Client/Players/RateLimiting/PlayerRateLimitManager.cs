@@ -1,4 +1,8 @@
-﻿using Content.Shared.Players.RateLimiting;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Players.RateLimiting;
 using Robust.Shared.Player;
 
 namespace Content.Client.Players.RateLimiting;

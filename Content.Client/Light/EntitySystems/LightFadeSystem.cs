@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Light.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;

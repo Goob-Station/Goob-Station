@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Singularity.EntitySystems;
 using Content.Shared.Singularity.Components;
 

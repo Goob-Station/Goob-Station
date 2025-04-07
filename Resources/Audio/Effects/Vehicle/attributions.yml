@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files:
   - vehiclestartup.ogg
   - vehicleengineindle.ogg

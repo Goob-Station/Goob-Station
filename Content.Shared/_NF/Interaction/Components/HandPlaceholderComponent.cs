@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
+// SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._NF.Interaction.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

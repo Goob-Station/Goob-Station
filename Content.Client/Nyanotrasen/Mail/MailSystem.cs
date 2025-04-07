@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Client.GameObjects;
 using Content.Shared.Mail;
 using Content.Shared.StatusIcon;

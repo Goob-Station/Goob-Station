@@ -1,4 +1,8 @@
-﻿using System.Text.Json;
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json;
 using Content.Server.Atmos;
 
 namespace Content.Server.Administration.Logs.Converters;

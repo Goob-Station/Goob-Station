@@ -1,5 +1,9 @@
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["energy_low.ogg"]
   license: "CC-BY-3.0"
   copyright: "fishbait"
   source: "https://ttsmaker.com/"
-

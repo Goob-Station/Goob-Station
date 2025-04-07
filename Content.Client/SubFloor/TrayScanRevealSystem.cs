@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <slambamactionman@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.SubFloor;
 using Robust.Shared.Map.Components;
