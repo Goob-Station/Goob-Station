@@ -72,7 +72,7 @@
   - EnergyMagRifleDisabler
   - EnergyMagRifleLethal
   technologyPrerequisites:
-  - AdvancedWeaponry
+  - WaveParticleHarnessing
   position: 6,1
 
 # Tier 3
