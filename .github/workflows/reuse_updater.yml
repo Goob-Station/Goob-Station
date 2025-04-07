@@ -30,9 +30,8 @@ jobs:
           echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
 
           # Use git diff to find added (A) and modified (M) files, filter by extension
-          ADDED_FILES=$(git diff --name-status --diff-filter=A ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
-          MODIFIED_FILES=$(git diff --name-status --diff-filter=M ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
-
+          ADDED_FILES=$(git diff --name-status --diff-filter=A ${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
+          MODIFIED_FILES=$(git diff --name-status --diff-filter=M ${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }} | grep -E '\.(cs|ya?ml)$' | cut -f2 | xargs)
           echo "Added Files: $ADDED_FILES"
           echo "Modified Files: $MODIFIED_FILES"
 
