@@ -183,7 +183,7 @@ def create_header(authors, license_id, comment_prefix):
 
     return "\n".join(lines)
 
-def process_file(file_path, default_license_id, base_sha=None, head_sha=None):
+def process_file(file_path, default_license_id):
     """
     Processes a file to add or update REUSE headers.
     Returns: True if file was modified, False otherwise
@@ -208,23 +208,25 @@ def process_file(file_path, default_license_id, base_sha=None, head_sha=None):
     # Parse existing header if any
     existing_authors, existing_license, header_lines = parse_existing_header(content, comment_prefix)
 
-    # Get authors from git
-    if base_sha and head_sha:
-        # For modified files, get both historical and PR authors
-        all_authors = get_authors_from_git(file_path)
-        pr_authors = get_authors_from_git(file_path, base_sha, head_sha)
+    # Get all authors from git
+    git_authors = get_authors_from_git(file_path)
 
-        # Combine all authors
-        git_authors = all_authors.copy()
-        for author, (pr_min, pr_max) in pr_authors.items():
-            if author in git_authors:
-                all_min, all_max = git_authors[author]
-                git_authors[author] = (min(all_min, pr_min), max(all_max, pr_max))
-            else:
-                git_authors[author] = (pr_min, pr_max)
-    else:
-        # For new files, just get PR authors
-        git_authors = get_authors_from_git(file_path, base_sha, head_sha)
+    # Add current user to authors
+    try:
+        name_cmd = ["git", "config", "user.name"]
+        email_cmd = ["git", "config", "user.email"]
+        user_name = run_git_command(name_cmd, check=False) or "Unknown"
+        user_email = run_git_command(email_cmd, check=False) or "unknown@example.com"
+
+        # Use current year
+        current_year = datetime.now(timezone.utc).year
+        current_user = f"{user_name} <{user_email}>"
+
+        # Add current user if not already present
+        if current_user not in git_authors:
+            git_authors[current_user] = (current_year, current_year)
+    except Exception as e:
+        print(f"Error getting git user: {e}")
 
     # Determine what to do based on existing header
     if existing_license:
@@ -297,12 +299,12 @@ def main():
 
     print("\n--- Processing Added Files ---")
     for file in args.files_added:
-        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
+        if process_file(file, license_id):
             files_changed = True
 
     print("\n--- Processing Modified Files ---")
     for file in args.files_modified:
-        if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
+        if process_file(file, license_id):
             files_changed = True
 
     print("\n--- Summary ---")
