@@ -901,6 +901,7 @@
       - MagazineBoxShotgunHighCaliber # Goobstation
       - MagazineBoxShotgunSlugHighCaliber # Goobstation
       - MagazineBoxShotgunPracticeHighCaliber # Goobstation
+      - WeaponSniperNTMosin # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary

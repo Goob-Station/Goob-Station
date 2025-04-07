@@ -94,6 +94,14 @@
   materials:
     Steel: 550
 
+# Weapons
+
+- type: latheRecipe
+  id: WeaponSniperNTMosin
+  result: WeaponSniperNTMosin
+  materials:
+    Steel: 800
+
 # Mech Weapons
 - type: latheRecipe
   id: WeaponMechCombatImmolationGun

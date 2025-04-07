@@ -1,0 +1,14 @@
+- type: entity
+  name: corporate mosin
+  parent: [BaseSecurityContraband, WeaponSniperMosin]
+  id: WeaponSniperNTMosin
+  description: The blue paint means it's an NT original design. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/nt_bolt_gun_wood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/nt_bolt_gun_wood.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
