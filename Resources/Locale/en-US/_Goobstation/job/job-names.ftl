@@ -14,7 +14,6 @@ job-name-bs = Blueshield
 job-name-overall = Overall
 
 job-name-exec = Executive Access
-job-name-virologist = Virologist
 
 # Navy Stuff
 
