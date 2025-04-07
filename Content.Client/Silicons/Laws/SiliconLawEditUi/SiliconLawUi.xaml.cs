@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿// SPDX-FileCopyrightText: 2024 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.FixedPoint;
 using Content.Shared.Silicons.Laws;

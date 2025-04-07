@@ -1,4 +1,9 @@
-﻿using Content.Server.StationEvents.Events;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.StationEvents.Events;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 namespace Content.Shared.Preferences
 {
     /// <summary>

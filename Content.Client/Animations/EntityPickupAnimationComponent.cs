@@ -1,4 +1,7 @@
-﻿namespace Content.Client.Animations;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+namespace Content.Client.Animations;
 
 /// <summary>
 ///     Applied to client-side clone entities to animate them approaching the player that

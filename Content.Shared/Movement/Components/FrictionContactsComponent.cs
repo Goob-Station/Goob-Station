@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 KISS <59531932+YuriyKiss@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Content.Shared.Movement.Systems;
 using Robust.Shared.GameStates;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Content.Client.Eui;
 using Content.Shared.Administration.Notes;
 using Content.Shared.Eui;

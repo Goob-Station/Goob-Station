@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2017 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 namespace Content.Shared.Maths
 {
     /// <summary>

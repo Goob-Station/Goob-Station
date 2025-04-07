@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Administration.Logs;

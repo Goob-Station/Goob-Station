@@ -1,4 +1,9 @@
-﻿using Content.Client.Weapons.Melee;
+﻿// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Content.Client.Weapons.Melee;
 using Content.Goobstation.Shared.Blob;
 using Content.Goobstation.Shared.Blob.Events;
 using Robust.Shared.Prototypes;

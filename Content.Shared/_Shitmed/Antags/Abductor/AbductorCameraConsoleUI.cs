@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Prototypes;
+﻿// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using static Content.Shared.Pinpointer.SharedNavMapSystem;
 

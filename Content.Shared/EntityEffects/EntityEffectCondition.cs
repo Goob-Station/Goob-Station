@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using System.Text.Json.Serialization;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -19,4 +22,3 @@ public abstract partial class EntityEffectCondition
     /// <returns></returns>
     public abstract string GuidebookExplanation(IPrototypeManager prototype);
 }
-

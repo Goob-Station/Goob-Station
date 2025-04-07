@@ -1,4 +1,8 @@
-﻿using Content.Server.Worldgen.Systems.Debris;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.Worldgen.Systems.Debris;
 using Content.Server.Worldgen.Tools;
 using Content.Shared.Storage;
 
@@ -31,4 +35,3 @@ public sealed partial class SimpleDebrisSelectorComponent : Component
         }
     }
 }
-

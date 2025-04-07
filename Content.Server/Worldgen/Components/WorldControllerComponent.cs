@@ -1,4 +1,8 @@
-﻿using Content.Server.Worldgen.Systems;
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.Worldgen.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -22,4 +26,3 @@ public sealed partial class WorldControllerComponent : Component
     /// </summary>
     [DataField("chunks")] public Dictionary<Vector2i, EntityUid> Chunks = new();
 }
-

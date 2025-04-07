@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 

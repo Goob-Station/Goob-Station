@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Server.Botany.Systems;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
@@ -19,4 +22,3 @@ public sealed partial class PlantAffectGrowth : PlantAdjustAttribute
         plantHolder.AffectGrowth(args.TargetEntity, (int) Amount, plantHolderComp);
     }
 }
-

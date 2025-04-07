@@ -1,4 +1,7 @@
-﻿using Robust.Shared.GameStates;
+﻿// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Inventory.VirtualItem;
 

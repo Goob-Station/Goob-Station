@@ -1,4 +1,7 @@
-﻿using System.Threading;
+﻿// SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._RMC14.LinkAccount;

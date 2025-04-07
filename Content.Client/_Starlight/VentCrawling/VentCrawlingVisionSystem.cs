@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Client.SubFloor;
 using Content.Shared._Starlight.VentCrawling;
 using Robust.Client.Player;

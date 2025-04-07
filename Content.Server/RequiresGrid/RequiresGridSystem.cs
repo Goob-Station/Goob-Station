@@ -1,4 +1,7 @@
-﻿using Content.Server.Destructible;
+﻿// SPDX-FileCopyrightText: 2024 HoofedEar <HoofedEar@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.Destructible;
 
 namespace Content.Server.RequiresGrid;
 

@@ -1,4 +1,8 @@
-﻿using System.Diagnostics.Contracts;
+﻿// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+using System.Diagnostics.Contracts;
 using System.Numerics;
 
 namespace Content.Server.Worldgen;
@@ -69,4 +73,3 @@ public static class WorldGen
         return inp * ChunkSize + Vector2i.One * (ChunkSize / 2);
     }
 }
-

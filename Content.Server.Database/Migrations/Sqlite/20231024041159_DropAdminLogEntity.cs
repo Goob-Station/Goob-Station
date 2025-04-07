@@ -1,4 +1,7 @@
-﻿#nullable disable
+﻿// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+#nullable disable
 
 using Microsoft.EntityFrameworkCore.Migrations;
 

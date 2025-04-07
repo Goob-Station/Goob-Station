@@ -1,4 +1,7 @@
-﻿using System.Buffers.Binary;
+﻿// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Buffers.Binary;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;

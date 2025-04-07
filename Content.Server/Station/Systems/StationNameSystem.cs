@@ -1,4 +1,7 @@
-﻿using Content.Server.Station.Components;
+﻿// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+//
+// SPDX-License-Identifier: MIT
+using Content.Server.Station.Components;
 
 namespace Content.Server.Station.Systems;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Dakamakat <52600490+dakamakat@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 namespace Content.Shared.Projectiles;
 
 /// <summary>

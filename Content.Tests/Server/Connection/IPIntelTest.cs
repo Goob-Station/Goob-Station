@@ -1,4 +1,7 @@
-﻿using System;
+﻿// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;

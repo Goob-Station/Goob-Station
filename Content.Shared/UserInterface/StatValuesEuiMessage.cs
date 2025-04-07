@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 

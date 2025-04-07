@@ -1,4 +1,8 @@
-﻿using System.Collections.Immutable;
+﻿// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+using System.Collections.Immutable;
 using System.Net;
 using Content.Server.IP;
 using Content.Shared.Database;

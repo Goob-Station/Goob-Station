@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 using Content.Shared.Slippery;
 using Content.Shared.Standing;
 using Content.Shared.StepTrigger.Components;

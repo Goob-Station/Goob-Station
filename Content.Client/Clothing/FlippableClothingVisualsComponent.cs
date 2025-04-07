@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
 namespace Content.Client.Clothing;
 
 /// <summary>
