@@ -1,9 +1,8 @@
-using System.Diagnostics;
 using System.Linq;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
-using Content.Goobstation.Server.Posession;
+using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
@@ -62,7 +61,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly DevilContractSystem _contract = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly PosessionSystem _posession = default!;
+    [Dependency] private readonly PossessionSystem _posession = default!;
 
 
     // Ten. Thousand. EntProtoIds.

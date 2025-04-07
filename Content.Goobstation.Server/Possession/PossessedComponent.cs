@@ -2,6 +2,7 @@ using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Possession;
 
+
 [RegisterComponent]
 public sealed partial class PossessedComponent : Component
 {

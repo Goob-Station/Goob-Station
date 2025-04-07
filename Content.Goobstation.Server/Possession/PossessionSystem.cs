@@ -1,4 +1,4 @@
-using Content.Goobstation.Server.Posession;
+using Content.Goobstation.Server.Possession;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Possession;
 
-public sealed partial class PosessionSystem : EntitySystem
+public sealed partial class PossessionSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

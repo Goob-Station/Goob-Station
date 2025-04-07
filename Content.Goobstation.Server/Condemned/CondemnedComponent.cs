@@ -2,23 +2,30 @@ namespace Content.Goobstation.Server.Condemned;
 
 /// <summary>
 /// Marks an entity as having sold their soul.
-/// This means they cannot be revived, and they cannot sell their soul again.
+/// When you die, do NOT collect 200, do NOT pass go. Go directly to hell
 /// </summary>
+/// <remarks>
+/// In the future, this will actually send you to hell.
+/// But right now it just plays a fancy animation and deletes you :godo:
+/// </remarks>
 [RegisterComponent]
 public sealed partial class CondemnedComponent : Component
 {
-    /// <summary>
-    /// The entity who the component owner sold their soul to.
-    /// </summary>
-    [DataField]
-    public EntityUid? SoulOwner;
-
-    /// <summary>
-    /// Is the entities soul owned by a corporation?
-    /// </summary>
-    /// <remarks>
-    /// Jobs like captain, NTR, BSO, and other CC roles cannot sell their soul because Nanotrasen already owns it.
-    /// </remarks>
     [DataField]
     public bool IsCorporateOwned = false;
+
+    [DataField]
+    public EntityUid SoulOwner;
+
+    [ViewVariables]
+    public CondemnedSystem.CondemnedPhase CurrentPhase = CondemnedSystem.CondemnedPhase.Waiting;
+
+    [ViewVariables]
+    public float PhaseTimer;
+
+    [ViewVariables]
+    public float HandDuration;
+
+    [ViewVariables]
+    public EntityUid? HandEntity;
 }
