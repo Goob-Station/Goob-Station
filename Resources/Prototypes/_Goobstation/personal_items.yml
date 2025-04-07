@@ -1,0 +1,14 @@
+- type: personalItems
+  id: BombasterDSPersonal
+  itemList:
+  - Error
+
+- type: personalItems
+  id: BumblebirbPersonal
+  itemList:
+  - MobCatLonnie
+
+- type: personalItems
+  id: kerpudhatPersonal
+  itemList:
+  - MobCatYorick

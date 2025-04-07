@@ -1,0 +1,29 @@
+- type: entity
+  name: Lonnie
+  parent: MobCatRuntime
+  id: MobCatLonnie
+  description: Bumblebirb's cat.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Pets/lonnie.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: lonnie
+  - type: Item
+    size: Ginormous
+    heldPrefix: lonnie
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lonnie
+      Critical:
+        Base: lonnie_dead
+      Dead:
+        Base: lonnie_dead
+
+- type: entity
+  name: Yorick 
+  parent: MobCatLonnie
+  id: MobCatYorick
+  description: Kerpudhat's cat.
