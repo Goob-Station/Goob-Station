@@ -1,0 +1,500 @@
+# BASE
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackMessengerBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/color.rsi
+  - type: Storage
+    grid:
+    - 0,0,7,0
+    - 0,2,7,3
+    - 0,5,7,5
+    - 0,0,0,5
+    - 7,0,7,5
+
+# COMMON
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessenger
+  name: messenger bag
+  description: A robust bag for keeping small stuff.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/messenger.rsi
+
+# DEPARTMENTAL
+# Command
+- type: entity
+  parent: [ BaseCommandContraband , ClothingBackpackMessengerBase ]
+  id: ClothingBackpackMessengerCaptain
+  name: captain's messenger bag
+  description: A robust bag made exclusively for Nanotrasen officers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#3c6381"
+    - state: icon-sling
+      color: "#d6a033"
+    - state: icon-clasp
+      color: "#f6d56a"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#3c6381"
+      - state: sling-equipped-BACKPACK
+        color: "#d6a033"
+      - state: clasp-equipped-BACKPACK
+        color: "#f6d56a"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#3c6381"
+      - state: clasp-inhand-left
+        color: "#f6d56a"
+      right:
+      - state: base-inhand-right
+        color: "#3c6381"
+      - state: clasp-inhand-right
+        color: "#f6d56a"
+
+- type: entity
+  parent: [ BaseCentcommContraband , ClothingBackpackMessengerBase ]
+  id: ClothingBackpackMessengerCentcomm
+  name: centcomm messenger bag
+  description: A robust bag made for Nanotrasen high-ranking officials.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#2c6a30"
+    - state: icon-sling
+      color: "#fbe6b8"
+    - state: icon-clasp
+      color: "#eca615"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#2c6a30"
+      - state: sling-equipped-BACKPACK
+        color: "#fbe6b8"
+      - state: clasp-equipped-BACKPACK
+        color: "#eca615"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#2c6a30"
+      - state: clasp-inhand-left
+        color: "#eca615"
+      right:
+      - state: base-inhand-right
+        color: "#2c6a30"
+      - state: clasp-inhand-right
+        color: "#eca615"
+
+- type: entity
+  parent: [ BaseCentcommContraband , ClothingBackpackMessengerBase ]
+  id: ClothingBackpackMessengerBlueshield
+  name: blueshield officer messenger bag
+  description: A robust bag made of protective materials. Smells like emergy gun.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#404040"
+    - state: icon-sling
+      color: "#004281"
+    - state: icon-clasp
+      color: "#005DBF"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#404040"
+      - state: sling-equipped-BACKPACK
+        color: "#004281"
+      - state: clasp-equipped-BACKPACK
+        color: "#005DBF"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#404040"
+      - state: clasp-inhand-left
+        color: "#eca615"
+      right:
+      - state: base-inhand-right
+        color: "#404040"
+      - state: clasp-inhand-right
+        color: "#eca615"
+
+# Engineering
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerAtmospherics
+  name: atmospherics messenger bag
+  description: A robust bag made of fire resistant fibers. Smells like plasma.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/atmospherics.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerEngineering
+  name: engineering messenger bag
+  description: A robust bag for keeping extra tools.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#a48965"
+    - state: icon-sling
+      color: "#e78c2e"
+    - state: icon-clasp
+      color: "#eeeeee"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#a48965"
+      - state: sling-equipped-BACKPACK
+        color: "#e78c2e"
+      - state: clasp-equipped-BACKPACK
+        color: "#eeeeee"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#a48965"
+      - state: clasp-inhand-left
+        color: "#eeeeee"
+      right:
+      - state: base-inhand-right
+        color: "#a48965"
+      - state: clasp-inhand-right
+        color: "#eeeeee"
+
+# Cargo
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerCargo
+  name: cargo messenger bag
+  description: A robust bag for keeping lots of spesos.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#c99840"
+    - state: icon-base-top
+      color: "#aaaaaa"
+    - state: icon-sling
+      color: "#776756"
+    - state: icon-clasp
+      color: "#eeeeee"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#c99840"
+      - state: base-top-equipped-BACKPACK
+        color: "#aaaaaa"
+      - state: sling-equipped-BACKPACK
+        color: "#776756"
+      - state: clasp-equipped-BACKPACK
+        color: "#eeeeee"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#c99840"
+      - state: base-top-inhand-left
+        color: "#aaaaaa"
+      - state: clasp-inhand-left
+        color: "#eeeeee"
+      right:
+      - state: base-inhand-right
+        color: "#c99840"
+      - state: base-top-inhand-right
+        color: "#aaaaaa"
+      - state: clasp-inhand-right
+        color: "#eeeeee"
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerSalvage
+  name: salvage messenger bag
+  description: A robust bag for stashing Lavaland loot.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#766245"
+    - state: icon-sling
+      color: "#766245"
+    - state: icon-clasp
+      color: "#5f539a"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#766245"
+      - state: sling-equipped-BACKPACK
+        color: "#766245"
+      - state: clasp-equipped-BACKPACK
+        color: "#5f539a"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#766245"
+      - state: clasp-inhand-left
+        color: "#5f539a"
+      right:
+      - state: base-inhand-right
+        color: "#766245"
+      - state: clasp-inhand-right
+        color: "#5f539a"
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerMailman
+  name: mailman messenger bag
+  description: A robust bag for transportation of letters and parcels.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/mailman.rsi
+
+# Medical
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerMedical
+  name: medical messenger bag
+  description: A robust bag for keeping extra medicine.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/medical.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerChemistry
+  name: chemistry messenger bag
+  description: A robust bag for keeping extra beakers and vials.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/chemistry.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerVirology
+  name: virology messenger bag
+  description: A robust bag made of hypo-allergenic fibers to prevent the spread of disease.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/virology.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerGenetics
+  name: genetics messenger bag
+  description: A robust sterile bag with geneticist colours.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/genetics.rsi
+
+## Science
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerScience
+  name: science messenger bag
+  description: A robust bag for holding research materials.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/science.rsi
+
+# Civilian
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerClown
+  name: clown messenger bag
+  description: A robust bag for keeping extra pies.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/clown.rsi
+  - type: Storage
+    storageOpenSound:
+      collection: BikeHorn
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerMime
+  name: mime messenger bag
+  description: A robust bag for keeping the vow of silence.
+  components:
+    - type: Sprite
+      sprite: _NF/Clothing/Back/Messenger/mime.rsi
+
+- type: entity
+  parent: ClothingBackpackMessengerBase
+  id: ClothingBackpackMessengerHydroponics
+  name: hydroponics messenger bag
+  description: A robust bag made of all natural fibers. Smells like dirt.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#548ddc"
+    - state: icon-base-top
+      color: "#69c05b"
+    - state: icon-sling
+      color: "#776756"
+    - state: icon-clasp
+      color: "#eeeeee"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#548ddc"
+      - state: base-top-equipped-BACKPACK
+        color: "#69c05b"
+      - state: sling-equipped-BACKPACK
+        color: "#776756"
+      - state: clasp-equipped-BACKPACK
+        color: "#eeeeee"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#548ddc"
+      - state: base-top-inhand-left
+        color: "#69c05b"
+      - state: clasp-inhand-left
+        color: "#eeeeee"
+      right:
+      - state: base-inhand-right
+        color: "#548ddc"
+      - state: base-top-inhand-right
+        color: "#69c05b"
+      - state: clasp-inhand-right
+        color: "#eeeeee"
+
+# Security
+- type: entity
+  parent: [ BaseSecurityContraband , ClothingBackpackMessengerBase ]
+  id: ClothingBackpackMessengerSecurity
+  name: security messenger bag
+  description: A robust bag for storing extra arrest equipment.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#282828"
+    - state: icon-base-top
+      color: "#4c4b4f"
+    - state: icon-sling
+      color: "#88242d"
+    - state: icon-clasp
+      color: "#a52f29"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#282828"
+      - state: base-top-equipped-BACKPACK
+        color: "#4c4b4f"
+      - state: sling-equipped-BACKPACK
+        color: "#88242d"
+      - state: clasp-equipped-BACKPACK
+        color: "#a52f29"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#282828"
+      - state: base-top-inhand-left
+        color: "#4c4b4f"
+      - state: clasp-inhand-left
+        color: "#eca615"
+      right:
+      - state: base-inhand-right
+        color: "#282828"
+      - state: base-top-inhand-right
+        color: "#4c4b4f"
+      - state: clasp-inhand-right
+        color: "#eca615"
+
+# HOLDING
+- type: entity
+  parent: ClothingBackpackHolding
+  id: ClothingBackpackMessengerHolding
+  name: messenger bag of holding
+  description: A messenger bag that opens into a localized pocket of bluespace.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Messenger/holding.rsi
+    state: icon
+    layers:
+    - state: icon
+    - state: icon-unlit
+      shader: unshaded
+  - type: Clothing
+    sprite: _NF/Clothing/Back/Messenger/holding.rsi
+    clothingVisuals:
+      back:
+      - state: holding-equipped-BACKPACK
+      - state: holding-equipped-BACKPACK-unlit
+        shader: unshaded
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unlit
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unlit
+        shader: unshaded
+
+# ANTAGONISTS
+- type: entity
+  parent: [ BaseSyndicateContraband , ClothingBackpackMessengerBase ]
+  id: ClothingBackpackMessengerSyndicate
+  name: syndicate messenger bag
+  description: A robust bag for storing extra cartridges and explosives.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-base
+      color: "#393939"
+    - state: icon-sling
+      color: "#b22c20"
+    - state: icon-clasp
+      color: "#c60200"
+  - type: Clothing
+    clothingVisuals:
+      back:
+      - state: base-equipped-BACKPACK
+        color: "#393939"
+      - state: sling-equipped-BACKPACK
+        color: "#b22c20"
+      - state: clasp-equipped-BACKPACK
+        color: "#c60200"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-inhand-left
+        color: "#393939"
+      - state: clasp-inhand-left
+        color: "#c60200"
+      right:
+      - state: base-inhand-right
+        color: "#393939"
+      - state: clasp-inhand-right
+        color: "#c60200"
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

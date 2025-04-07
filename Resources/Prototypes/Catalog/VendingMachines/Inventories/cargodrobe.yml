@@ -4,6 +4,7 @@
     ClothingBackpackCargo: 3
     ClothingBackpackSatchelCargo: 3
     ClothingBackpackDuffelCargo: 3
+    ClothingBackpackMessengerCargo: 3 # Frontier
     ClothingUniformJumpsuitCargo: 3
     ClothingUniformJumpskirtCargo: 3
     ClothingShoesColorBlack: 3
