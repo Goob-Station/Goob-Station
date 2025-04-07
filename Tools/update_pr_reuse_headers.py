@@ -60,21 +60,59 @@ def get_authors_from_git(file_path, cwd=REPO_PATH, pr_base_sha=None, pr_head_sha
     # Get authors from the PR's commits if base and head SHAs are provided
     if pr_base_sha and pr_head_sha:
         print(f"Getting authors from PR commits for {file_path}")
-        pr_command = ["git", "log", f"{pr_base_sha}..{pr_head_sha}", "--pretty=format:%at|%an|%ae|%b", "--", file_path]
+        print(f"PR base SHA: {pr_base_sha}")
+        print(f"PR head SHA: {pr_head_sha}")
+
+        # First, let's log all commits in the PR
+        all_commits_command = ["git", "log", f"{pr_base_sha}..{pr_head_sha}", "--pretty=format:%H|%an|%ae", "--", file_path]
+        print(f"Running command: {' '.join(all_commits_command)}")
+        all_commits_output = run_git_command(all_commits_command, cwd=cwd, check=False)
+
+        if all_commits_output:
+            print(f"Commits found in PR for {file_path}:")
+            for line in all_commits_output.splitlines():
+                print(f"  {line}")
+        else:
+            print(f"No commits found in PR for {file_path}")
+
+        # Now get the authors with timestamps
+        pr_command = ["git", "log", f"{pr_base_sha}..{pr_head_sha}", "--pretty=format:%H|%at|%an|%ae|%b", "--", file_path]
+        print(f"Running command: {' '.join(pr_command)}")
         pr_output = run_git_command(pr_command, cwd=cwd, check=False)
 
         if pr_output:
             # Process PR authors
+            print(f"Raw PR output for {file_path}:")
+            for line in pr_output.splitlines():
+                print(f"  {line}")
+
             process_git_log_output(pr_output, author_timestamps)
             print(f"Found {len(author_timestamps)} authors in PR commits for {file_path}")
 
+            # Print the authors found
+            print(f"Authors found in PR commits for {file_path}:")
+            for author, timestamps in author_timestamps.items():
+                print(f"  {author}: {timestamps}")
+        else:
+            print(f"No PR output found for {file_path}")
+
     # Get all historical authors
-    command = ["git", "log", "--pretty=format:%at|%an|%ae|%b", "--follow", "--", file_path]
+    print(f"Getting historical authors for {file_path}")
+    command = ["git", "log", "--pretty=format:%H|%at|%an|%ae|%b", "--follow", "--", file_path]
+    print(f"Running command: {' '.join(command)}")
     output = run_git_command(command, cwd=cwd, check=False)
 
     if output:
         # Process historical authors
+        print(f"Processing historical authors for {file_path}")
         process_git_log_output(output, author_timestamps)
+
+        # Print the authors found
+        print(f"All authors found for {file_path} (after adding historical):")
+        for author, timestamps in author_timestamps.items():
+            print(f"  {author}: {timestamps}")
+    else:
+        print(f"No historical output found for {file_path}")
 
     if not author_timestamps:
         # Try to get the current user from git config as a fallback
@@ -118,11 +156,13 @@ def process_git_log_output(output, author_timestamps):
         if not line.strip():
             continue
 
-        parts = line.split('|', 3)
-        if len(parts) < 4:
+        parts = line.split('|', 4)
+        if len(parts) < 5:
+            print(f"Skipping malformed line: {line}")
             continue
 
-        timestamp_str, author_name, author_email, body = parts
+        commit_hash, timestamp_str, author_name, author_email, body = parts
+        print(f"Processing commit {commit_hash[:8]} by {author_name} <{author_email}>")
 
         try:
             timestamp = int(timestamp_str)
@@ -417,13 +457,19 @@ def main():
     # Process files
     files_changed = False
 
+    # Print the PR base and head SHAs
+    print(f"\nPR Base SHA: {args.pr_base_sha}")
+    print(f"PR Head SHA: {args.pr_head_sha}")
+
     print("\n--- Processing Added Files ---")
     for file in args.files_added:
+        print(f"\nProcessing added file: {file}")
         if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
             files_changed = True
 
     print("\n--- Processing Modified Files ---")
     for file in args.files_modified:
+        print(f"\nProcessing modified file: {file}")
         if process_file(file, license_id, args.pr_base_sha, args.pr_head_sha):
             files_changed = True
 
