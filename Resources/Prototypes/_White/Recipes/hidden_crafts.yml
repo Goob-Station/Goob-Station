@@ -9,15 +9,3 @@
           - tag: EnergySword
   - node: desword
     entity: EnergySwordDouble
-
-- type: constructionGraph
-  id: HiddenBladeGlovesGraph
-  start: hiddenblade
-  graph:
-  - node: hiddenblade
-    edges:
-    - to: hiddenblades
-      steps:
-      - tag: HiddenBlade
-  - node: hiddenblades
-    entity: HiddenBladeGloves
