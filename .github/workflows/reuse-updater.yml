@@ -68,3 +68,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: Automatically update REUSE headers"
+          commit_user_name: ${{ vars.CHANGELOG_USER }}
+          commit_user_email: ${{ vars.CHANGELOG_EMAIL }}
