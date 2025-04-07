@@ -17,11 +17,14 @@ public sealed class FingerGunSystem : EntitySystem
     {
         string test = ent.ToString();
         Logger.Debug(test);
-        _actions.AddAction(ent, "ActionFingerGun"); // NO WORKY D:
+        _actions.AddAction(ent, "ActionFingerGun");
     }
 
     private void OnUse(Entity<FingerGunComponent> ent, ref FingerGunEvent args)
     {
-
+        if (args.Handled)
+            return;
+        args.Handled = true;
+        Spawn("FingerGun", Transform(ent).Coordinates);
     }
 }
