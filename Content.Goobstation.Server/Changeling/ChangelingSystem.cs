@@ -1,21 +1,22 @@
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -30,6 +31,8 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
+using Content.Server.Body.Systems;
+using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Emp;
@@ -149,9 +152,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
     public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
 
-    public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
-    public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -215,7 +215,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnRefreshSpeed(Entity<ChangelingIdentityComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
-            args.ModifySpeed(1.25f, 1.5f);
+            args.ModifySpeed(1.5f, 2.0f);
         else
             args.ModifySpeed(1f, 1f);
     }
@@ -257,7 +257,20 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         var chemicals = comp.Chemicals;
         // either amount or regen
-        chemicals += amount ?? 1 + comp.BonusChemicalRegen;
+
+        if (TryComp<FlammableComponent>(uid, out var flame)) // if on fire, reduce total chemicals restored to a 1/4 - if not, continue as normal //
+        {
+            if (!flame.OnFire)
+            {
+                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
+            }
+            else
+            {
+                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
+            }
+
+        }
+
         comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
@@ -327,7 +340,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 15f, visual: false, immediate: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -392,13 +405,23 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public bool TryUseAbility(EntityUid uid,
         ChangelingIdentityComponent comp,
         BaseActionEvent action,
-        float? chemCostOverride = null)
+        float? chemCostOverride = null,
+        bool fireAffected = true)
     {
         if (action.Handled)
             return false;
 
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
+
+        if (TryComp<FlammableComponent>(uid, out var fire)) // checks if the changeling is on fire, and if the ability is affected by fire
+        {
+            if (fire.OnFire && fireAffected)
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
+                return false;
+            }
+        }
 
         if (comp.Biomass < 1 && lingAction.RequireBiomass)
         {
@@ -536,15 +559,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
 
             comp.ActiveArmor = newArmor;
+            comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
         }
+        else
+        {
+            // Unequip armor
+            foreach (var armor in comp.ActiveArmor)
+                QueueDel(armor);
 
-        // Unequip armor
-        foreach (var armor in comp.ActiveArmor)
-            QueueDel(armor);
-
-        comp.ActiveArmor = null!;
-        return true;
+            comp.ActiveArmor = null!;
+            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
+            return true;
+        }
     }
 
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingIdentityComponent comp, bool countObjective = false)
@@ -742,8 +769,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (newUid != null)
         {
             PlayMeatySound((EntityUid) newUid, comp);
-            var loc = Loc.GetString("changeling-transform-others", ("user", locName));
-            _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
         }
 
         return true;

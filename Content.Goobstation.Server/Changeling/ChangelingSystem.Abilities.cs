@@ -1,21 +1,22 @@
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -44,13 +45,25 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
+using Content.Server.Temperature.Components;
+using Content.Server.Atmos.Components;
+using Content.Shared._Shitmed.Body.Components;
+using Content.Server.Flash.Components;
+using Content.Shared.StatusEffect;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Goobstation.Shared.Overlays;
 
 namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class ChangelingSystem
 {
+    #region Dependencies
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    #endregion
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<ChangelingIdentityComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
@@ -81,11 +94,11 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionBiodegradeEvent>(OnBiodegrade);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionChameleonSkinEvent>(OnChameleonSkin);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ActionEphedrineOverdoseEvent>(OnEphedrineOverdose);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionAdrenalineReservesEvent>(OnAdrenalineReserves);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionFleshmendEvent>(OnHealUltraSwag);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLastResortEvent>(OnLastResort);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionLesserFormEvent>(OnLesserForm);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ActionSpacesuitEvent>(OnSpacesuit);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionVoidAdaptEvent>(OnVoidAdapt);
         SubscribeLocalEvent<ChangelingIdentityComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterEvent>(OnAbsorbBiomatter);
         SubscribeLocalEvent<ChangelingIdentityComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
@@ -119,6 +132,14 @@ public sealed partial class ChangelingSystem
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
             return;
+        }
+        if (TryComp<FlammableComponent>(target, out var flame)) // checks if the target is on fire
+        {
+            if (flame.OnFire)
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
+                return;
+            }
         }
 
         if (!TryUseAbility(uid, comp, args))
@@ -315,7 +336,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
 
         comp.Chemicals = 0f;
@@ -348,7 +369,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fires
             return;
 
         if (!TryComp<DamageableComponent>(uid, out var damageable))
@@ -360,6 +381,16 @@ public sealed partial class ChangelingSystem
         _popup.PopupEntity(Loc.GetString("changeling-stasis-exit"), uid, uid);
 
         comp.IsInStasis = false;
+
+        // stuns or knocks down anybody grabbing you
+        if (_pull.IsPulled(uid))
+        {
+            var puller = Comp<PullableComponent>(uid).Puller;
+            if (puller != null)
+            {
+                _stun.KnockdownOrStun((EntityUid) puller, TimeSpan.FromSeconds(1), true);
+            }
+        }
     }
 
     #endregion
@@ -481,7 +512,7 @@ public sealed partial class ChangelingSystem
     }
     private void OnShriekDissonant(EntityUid uid, ChangelingIdentityComponent comp, ref ShriekDissonantEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
         DoScreech(uid, comp);
@@ -492,13 +523,26 @@ public sealed partial class ChangelingSystem
     }
     private void OnShriekResonant(EntityUid uid, ChangelingIdentityComponent comp, ref ShriekResonantEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
         DoScreech(uid, comp);
 
         var power = comp.ShriekPower;
-        _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+
+        if (HasComp<FlashImmunityComponent>(uid) && !HasComp<ThermalVisionComponent>(uid))
+        {
+            _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
+        }
+        else
+        {
+            thermalVision.FlashDurationMultiplier -= 1f;
+            EnsureComp<FlashImmunityComponent>(uid);
+            _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
+            RemComp<FlashImmunityComponent>(uid);
+            thermalVision.FlashDurationMultiplier += 1f;
+        }
 
         var lookup = _lookup.GetEntitiesInRange(uid, power);
         var lights = GetEntityQuery<PoweredLightComponent>();
@@ -509,7 +553,7 @@ public sealed partial class ChangelingSystem
     }
     private void OnToggleStrainedMuscles(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleStrainedMusclesEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
         ToggleStrainedMuscles(uid, comp);
@@ -584,7 +628,14 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
-
+        if (TryComp<FlammableComponent>(target, out var flame)) // checks if the target is on fire
+        {
+            if (flame.OnFire)
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
+                return;
+            }
+        }
         var mind = _mind.GetMind(uid);
         if (mind == null)
             return;
@@ -626,13 +677,12 @@ public sealed partial class ChangelingSystem
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
-        else
-            return;
+        else return;
         PlayMeatySound(uid, comp);
     }
     public void OnBiodegrade(EntityUid uid, ChangelingIdentityComponent comp, ref ActionBiodegradeEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
@@ -652,6 +702,16 @@ public sealed partial class ChangelingSystem
             if (puller != null)
             {
                 _puddle.TrySplashSpillAt((EntityUid) puller, Transform((EntityUid) puller).Coordinates, soln, out _);
+                _stun.KnockdownOrStun((EntityUid) puller, TimeSpan.FromSeconds(1.5), true);
+
+                if (!TryComp((EntityUid) puller, out StatusEffectsComponent? status))
+                    return;
+
+                _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>((EntityUid) puller,
+                    "TemporaryBlindness",
+                    TimeSpan.FromSeconds(2f),
+                    true,
+                    status);
                 return;
             }
         }
@@ -662,21 +722,57 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (HasComp<StealthComponent>(uid) && HasComp<StealthOnMoveComponent>(uid))
+        if (!comp.ChameleonActive)
+        {
+            EnsureComp<StealthComponent>(uid);
+            EnsureComp<StealthOnMoveComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
+            comp.ChameleonActive = true;
+            comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
+        }
+        else
         {
             RemComp<StealthComponent>(uid);
             RemComp<StealthOnMoveComponent>(uid);
             _popup.PopupEntity(Loc.GetString("changeling-chameleon-end"), uid, uid);
-            return;
+            comp.ChameleonActive = false;
+            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
         }
-
-        EnsureComp<StealthComponent>(uid);
-        EnsureComp<StealthOnMoveComponent>(uid);
-        _popup.PopupEntity(Loc.GetString("changeling-chameleon-start"), uid, uid);
     }
-    public void OnEphedrineOverdose(EntityUid uid, ChangelingIdentityComponent comp, ref ActionEphedrineOverdoseEvent args)
+    public void OnVoidAdapt(EntityUid uid, ChangelingIdentityComponent comp, ref ActionVoidAdaptEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (TryComp<TemperatureComponent>(uid, out var tempComp))
+        {
+            if (!TryUseAbility(uid, comp, args))
+                return;
+
+            if (!comp.VoidAdaptActive)
+            {
+                comp.DefaultColdDamageThreshold = tempComp.ColdDamageThreshold; // to account for species having different temp thresholds
+
+                EnsureComp<BreathingImmunityComponent>(uid);
+                EnsureComp<PressureImmunityComponent>(uid);
+                EnsureComp<TemperatureSlowImmuneComponent>(uid);
+                tempComp.ColdDamageThreshold = -273.15f;
+                _popup.PopupEntity(Loc.GetString("changeling-voidadapt-start"), uid, uid);
+                comp.VoidAdaptActive = true;
+                comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
+            }
+            else
+            {
+                RemComp<BreathingImmunityComponent>(uid);
+                RemComp<PressureImmunityComponent>(uid);
+                RemComp<TemperatureSlowImmuneComponent>(uid);
+                tempComp.ColdDamageThreshold = comp.DefaultColdDamageThreshold;
+                _popup.PopupEntity(Loc.GetString("changeling-voidadapt-end"), uid, uid);
+                comp.VoidAdaptActive = false;
+                comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
+            }
+        }
+    }
+    public void OnAdrenalineReserves(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAdrenalineReservesEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
         var stam = EnsureComp<StaminaComponent>(uid);
@@ -684,7 +780,7 @@ public sealed partial class ChangelingSystem
 
         var reagents = new Dictionary<string, FixedPoint2>
         {
-            { "Desoxyephedrine", 5f }
+            { "LingAdrenaline", 5f }
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-inject"), uid, uid);
@@ -701,7 +797,7 @@ public sealed partial class ChangelingSystem
 
         var reagents = new Dictionary<string, FixedPoint2>
         {
-            { "LingFleshmend", 10f },
+            { "LingFleshmend", 5f },
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);
@@ -710,7 +806,7 @@ public sealed partial class ChangelingSystem
     }
     public void OnLastResort(EntityUid uid, ChangelingIdentityComponent comp, ref ActionLastResortEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
         comp.IsInLastResort = true;
@@ -753,29 +849,12 @@ public sealed partial class ChangelingSystem
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             return;
         }
-
         PlayMeatySound((EntityUid) newUid, comp);
-        var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) newUid, EntityManager)));
-        _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
-    }
-    public void OnSpacesuit(EntityUid uid, ChangelingIdentityComponent comp, ref ActionSpacesuitEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        if (!TryToggleArmor(uid, comp, [(SpacesuitHelmetPrototype, "head"), (SpacesuitPrototype, "outerClothing")]))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-            return;
-        }
-
-        PlayMeatySound(uid, comp);
     }
     public ProtoId<TagPrototype> HivemindTag = "LingMind";
     public void OnHivemindAccess(EntityUid uid, ChangelingIdentityComponent comp, ref ActionHivemindAccessEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
         if (HasComp<HivemindComponent>(uid))

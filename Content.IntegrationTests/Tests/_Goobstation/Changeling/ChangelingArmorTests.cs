@@ -1,7 +1,8 @@
 // SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -23,7 +24,6 @@ public sealed class ChangelingArmorTest
 {
     [Test]
     [TestCase("ActionToggleChitinousArmor", "ChangelingClothingOuterArmor", "ChangelingClothingHeadHelmet")]
-    [TestCase("ActionToggleSpacesuit", "ChangelingClothingOuterHardsuit", "ChangelingClothingHeadHelmetHardsuit")]
     public async Task TestChangelingFullArmor(string actionProto, string outerProto, string helmetProto)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings

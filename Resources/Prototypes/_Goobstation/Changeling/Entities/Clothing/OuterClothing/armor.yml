@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
-# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,6 +18,8 @@
     sprite: _Goobstation/Changeling/ling_armor.rsi
   - type: Clothing
     sprite: _Goobstation/Changeling/ling_armor.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.35 # solid protection, resists WEAKER fires
   - type: Armor
     modifiers:
       coefficients:
@@ -26,6 +29,8 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
+  - type: FireProtection
+    reduction: 0.65 # made to help protect changelings against fire. gives it a real purpose to use over regular armor
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
