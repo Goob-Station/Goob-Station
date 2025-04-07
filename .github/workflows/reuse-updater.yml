@@ -1,78 +1,314 @@
-# SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
+#!/usr/bin/env python3
 
-name: Update REUSE Headers
+import subprocess
+import os
+import sys
+import re
+import argparse
+import json
+from datetime import datetime, timezone
+from collections import defaultdict
 
-on:
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
+# --- Configuration ---
+LICENSE_CONFIG = {
+    "mit": {"id": "MIT", "path": "LICENSES/MIT.txt"},
+    "agpl": {"id": "AGPL-3.0-or-later", "path": "LICENSES/AGPLv3.txt"},
+}
+DEFAULT_LICENSE_LABEL = "agpl"
 
-jobs:
-  update_headers:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.head_ref }}
+COMMENT_PREFIXES = {
+    ".cs": "//",
+    ".yaml": "#",
+    ".yml": "#",
+}
+REPO_PATH = "."
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+def run_git_command(command, cwd=REPO_PATH, check=True):
+    """Runs a git command and returns its output."""
+    try:
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            check=check,
+            cwd=cwd,
+            encoding='utf-8',
+            errors='ignore'
+        )
+        return result.stdout.strip()
+    except subprocess.CalledProcessError as e:
+        if check:
+            print(f"Error running git command {' '.join(command)}: {e.stderr}", file=sys.stderr)
+        return None
+    except FileNotFoundError:
+        print("FATAL: 'git' command not found. Make sure git is installed and in your PATH.", file=sys.stderr)
+        return None
 
-      - name: Get Changed Files and PR Info
-        id: changed_files
-        run: |
-          echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
-          echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
+def get_authors_from_git(file_path, cwd=REPO_PATH):
+    """
+    Gets authors and their contribution years for a specific file.
+    Returns: dict like {"Author Name <email>": (min_year, max_year)}
+    """
+    # Always get all authors
+    command = ["git", "log", "--pretty=format:%at|%an|%ae|%b", "--follow", "--", file_path]
 
-          # Use GitHub API to get the list of files changed in the PR
-          PR_FILES=$(curl -s -H "Authorization: token ${{ github.token }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
-            | jq -r '.[] | "\(.status) \(.filename)"')
+    output = run_git_command(command, cwd=cwd, check=False)
+    if not output:
+        # Try to get the current user from git config as a fallback
+        try:
+            name_cmd = ["git", "config", "user.name"]
+            email_cmd = ["git", "config", "user.email"]
+            user_name = run_git_command(name_cmd, cwd=cwd, check=False) or "Unknown"
+            user_email = run_git_command(email_cmd, cwd=cwd, check=False) or "unknown@example.com"
 
-          # Filter and separate added and modified files
-          ADDED_FILES=$(echo "$PR_FILES" | grep "^added" | grep -E '\.(cs|ya?ml)$' | sed 's/^added //' | xargs)
-          MODIFIED_FILES=$(echo "$PR_FILES" | grep "^modified" | grep -E '\.(cs|ya?ml)$' | sed 's/^modified //' | xargs)
+            # Use current year
+            current_year = datetime.now(timezone.utc).year
+            return {f"{user_name} <{user_email}>": (current_year, current_year)}
+        except Exception as e:
+            print(f"Error getting git user: {e}")
+        return {}
 
-          echo "Added Files: $ADDED_FILES"
-          echo "Modified Files: $MODIFIED_FILES"
+    # Process the output
+    author_timestamps = defaultdict(list)
+    co_author_regex = re.compile(r"^Co-authored-by:\s*(.*?)\s*<([^>]+)>", re.MULTILINE)
 
-          # Store lists as environment variables for the next step
-          echo "ADDED_FILES_LIST=$ADDED_FILES" >> $GITHUB_ENV
-          echo "MODIFIED_FILES_LIST=$MODIFIED_FILES" >> $GITHUB_ENV
+    for line in output.splitlines():
+        if not line.strip():
+            continue
 
-          # Extract license from PR description if specified (format: LICENSE: MIT or LICENSE: AGPL)
-          PR_BODY="${{ github.event.pull_request.body }}"
-          if echo "$PR_BODY" | grep -q "LICENSE: MIT"; then
-            echo "PR_LICENSE=mit" >> $GITHUB_ENV
-            echo "License specified in PR: MIT"
-          elif echo "$PR_BODY" | grep -q "LICENSE: AGPL"; then
-            echo "PR_LICENSE=agpl" >> $GITHUB_ENV
-            echo "License specified in PR: AGPL"
-          else
-            echo "PR_LICENSE=agpl" >> $GITHUB_ENV
-            echo "No license specified in PR, using default: AGPL"
-          fi
+        parts = line.split('|', 3)
+        if len(parts) < 4:
+            continue
 
-      - name: Run REUSE Header Update Script
-        run: |
-          python Tools/update_pr_reuse_headers.py \
-            --files-added ${{ env.ADDED_FILES_LIST }} \
-            --files-modified ${{ env.MODIFIED_FILES_LIST }} \
-            --pr-license ${{ env.PR_LICENSE }} \
-            --pr-base-sha "${{ github.event.pull_request.base.sha }}" \
-            --pr-head-sha "${{ github.event.pull_request.head.sha }}"
-        working-directory: ${{ github.workspace }}
+        timestamp_str, author_name, author_email, body = parts
 
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: Automatically update REUSE headers"
+        try:
+            timestamp = int(timestamp_str)
+        except ValueError:
+            continue
+
+        # Add main author
+        if author_name and author_email:
+            author_key = f"{author_name.strip()} <{author_email.strip()}>"
+            author_timestamps[author_key].append(timestamp)
+
+        # Add co-authors
+        for match in co_author_regex.finditer(body):
+            co_author_name = match.group(1).strip()
+            co_author_email = match.group(2).strip()
+            if co_author_name and co_author_email:
+                co_author_key = f"{co_author_name} <{co_author_email}>"
+                author_timestamps[co_author_key].append(timestamp)
+
+    # Convert timestamps to years
+    author_years = {}
+    for author, timestamps in author_timestamps.items():
+        if not timestamps:
+            continue
+        min_ts = min(timestamps)
+        max_ts = max(timestamps)
+        min_year = datetime.fromtimestamp(min_ts, timezone.utc).year
+        max_year = datetime.fromtimestamp(max_ts, timezone.utc).year
+        author_years[author] = (min_year, max_year)
+
+    return author_years
+
+def parse_existing_header(content, comment_prefix):
+    """
+    Parses an existing REUSE header to extract authors and license.
+    Returns: (authors_dict, license_id, header_lines)
+    """
+    lines = content.splitlines()
+    authors = {}
+    license_id = None
+    header_lines = []
+
+    # Regular expressions for parsing
+    copyright_regex = re.compile(f"^{re.escape(comment_prefix)} SPDX-FileCopyrightText: (\\d{{4}}) (.+)$")
+    license_regex = re.compile(f"^{re.escape(comment_prefix)} SPDX-License-Identifier: (.+)$")
+
+    # Find the header section
+    in_header = True
+    for i, line in enumerate(lines):
+        if in_header:
+            header_lines.append(line)
+
+            # Check for copyright line
+            copyright_match = copyright_regex.match(line)
+            if copyright_match:
+                year = int(copyright_match.group(1))
+                author = copyright_match.group(2).strip()
+                authors[author] = (year, year)
+                continue
+
+            # Check for license line
+            license_match = license_regex.match(line)
+            if license_match:
+                license_id = license_match.group(1).strip()
+                continue
+
+            # Empty comment line or separator
+            if line.strip() == comment_prefix:
+                continue
+
+            # If we get here, we've reached the end of the header
+            if i > 0:  # Only if we've processed at least one line
+                header_lines.pop()  # Remove the non-header line
+                in_header = False
+        else:
+            break
+
+    return authors, license_id, header_lines
+
+def create_header(authors, license_id, comment_prefix):
+    """
+    Creates a REUSE header with the given authors and license.
+    Returns: header string
+    """
+    lines = []
+
+    # Add copyright lines
+    if authors:
+        for author, (_, year) in sorted(authors.items(), key=lambda x: (x[1][1], x[0])):
+            lines.append(f"{comment_prefix} SPDX-FileCopyrightText: {year} {author}")
+    else:
+        lines.append(f"{comment_prefix} SPDX-FileCopyrightText: Contributors to the GoobStation14 project")
+
+    # Add separator
+    lines.append(f"{comment_prefix}")
+
+    # Add license line
+    lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
+
+    return "\n".join(lines)
+
+def process_file(file_path, default_license_id):
+    """
+    Processes a file to add or update REUSE headers.
+    Returns: True if file was modified, False otherwise
+    """
+    # Check file extension
+    _, ext = os.path.splitext(file_path)
+    comment_prefix = COMMENT_PREFIXES.get(ext)
+    if not comment_prefix:
+        print(f"Skipping unsupported file type: {file_path}")
+        return False
+
+    # Check if file exists
+    full_path = os.path.join(REPO_PATH, file_path)
+    if not os.path.exists(full_path):
+        print(f"File not found: {file_path}")
+        return False
+
+    # Read file content
+    with open(full_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
+        content = f.read()
+
+    # Parse existing header if any
+    existing_authors, existing_license, header_lines = parse_existing_header(content, comment_prefix)
+
+    # Get all authors from git
+    git_authors = get_authors_from_git(file_path)
+
+    # Add current user to authors
+    try:
+        name_cmd = ["git", "config", "user.name"]
+        email_cmd = ["git", "config", "user.email"]
+        user_name = run_git_command(name_cmd, check=False) or "Unknown"
+        user_email = run_git_command(email_cmd, check=False) or "unknown@example.com"
+
+        # Use current year
+        current_year = datetime.now(timezone.utc).year
+        current_user = f"{user_name} <{user_email}>"
+
+        # Add current user if not already present
+        if current_user not in git_authors:
+            git_authors[current_user] = (current_year, current_year)
+    except Exception as e:
+        print(f"Error getting git user: {e}")
+
+    # Determine what to do based on existing header
+    if existing_license:
+        print(f"Updating existing header for {file_path} (License: {existing_license})")
+
+        # Combine existing and git authors
+        combined_authors = existing_authors.copy()
+        for author, (git_min, git_max) in git_authors.items():
+            if author in combined_authors:
+                existing_min, existing_max = combined_authors[author]
+                combined_authors[author] = (min(existing_min, git_min), max(existing_max, git_max))
+            else:
+                combined_authors[author] = (git_min, git_max)
+
+        # Create new header with existing license
+        new_header = create_header(combined_authors, existing_license, comment_prefix)
+
+        # Replace old header with new header
+        if header_lines:
+            old_header = "\n".join(header_lines)
+            new_content = content.replace(old_header, new_header, 1)
+        else:
+            # No header found (shouldn't happen if existing_license is set)
+            new_content = new_header + "\n\n" + content
+    else:
+        print(f"Adding new header to {file_path} (License: {default_license_id})")
+
+        # Create new header with default license
+        new_header = create_header(git_authors, default_license_id, comment_prefix)
+
+        # Add header to file
+        if content.strip():
+            new_content = new_header + "\n\n" + content
+        else:
+            new_content = new_header + "\n"
+
+    # Check if content changed
+    if new_content == content:
+        print(f"No changes needed for {file_path}")
+        return False
+
+    # Write updated content
+    with open(full_path, 'w', encoding='utf-8', newline='\n') as f:
+        f.write(new_content)
+
+    print(f"Updated {file_path}")
+    return True
+
+def main():
+    parser = argparse.ArgumentParser(description="Update REUSE headers for PR files")
+    parser.add_argument("--files-added", nargs="*", default=[], help="List of added files")
+    parser.add_argument("--files-modified", nargs="*", default=[], help="List of modified files")
+    parser.add_argument("--pr-license", default=DEFAULT_LICENSE_LABEL, help="License to use for new files")
+
+    args = parser.parse_args()
+
+    # Validate license
+    license_label = args.pr_license.lower()
+    if license_label not in LICENSE_CONFIG:
+        print(f"Warning: Unknown license '{license_label}', using default: {DEFAULT_LICENSE_LABEL}")
+        license_label = DEFAULT_LICENSE_LABEL
+
+    license_id = LICENSE_CONFIG[license_label]["id"]
+    print(f"Using license for new files: {license_id}")
+
+    # Process files
+    files_changed = False
+
+    print("\n--- Processing Added Files ---")
+    for file in args.files_added:
+        if process_file(file, license_id):
+            files_changed = True
+
+    print("\n--- Processing Modified Files ---")
+    for file in args.files_modified:
+        if process_file(file, license_id):
+            files_changed = True
+
+    print("\n--- Summary ---")
+    if files_changed:
+        print("Files were modified")
+    else:
+        print("No files needed changes")
+
+if __name__ == "__main__":
+    main()
