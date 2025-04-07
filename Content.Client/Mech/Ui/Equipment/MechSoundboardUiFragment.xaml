@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <equipment:MechSoundboardUiFragment
     xmlns:equipment="clr-namespace:Content.Client.Mech.Ui.Equipment"
     xmlns="https://spacestation14.io" Margin="1 0 2 0" HorizontalExpand="True" VerticalExpand="True">
