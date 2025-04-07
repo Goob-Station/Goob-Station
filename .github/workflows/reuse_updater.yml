@@ -5,11 +5,10 @@
 name: Update REUSE Headers
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]
-
-permissions:
-  contents: write
+    paths:
+      - '**.cs/**.yml'
 
 jobs:
   update_headers:
