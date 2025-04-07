@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#Lost Frontier Prospector
+
 - type: loadoutEffectGroup
   id: MasterMiner
   effects:
@@ -7,7 +14,14 @@
       role: JobSalvageSpecialist
       time: 72000 #20 hours
 
-#Lost Frontier Prospector
+- type: loadout
+  id: MinerCloak
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterMiner
+  equipment:
+    neck: ClothingNeckCloakMiner
+
 - type: startingGear
   id: LostFrontierProspectorSuit
   equipment:
@@ -16,11 +30,3 @@
     id: SalvagePDA
     back: ClothingBackpackSalvage
     ears: ClothingHeadsetCargo
-
-- type: loadout
-  id: MinerCloak
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterMiner
-  equipment:
-    neck: ClothingNeckCloakMiner

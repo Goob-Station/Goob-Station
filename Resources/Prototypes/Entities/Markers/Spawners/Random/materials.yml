@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Normal materials spawners
 - type: entity
   name: materials spawner

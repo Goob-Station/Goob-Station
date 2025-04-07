@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Materials;
 using Robust.Client.UserInterface.Controllers;
 

@@ -1,4 +1,9 @@
-﻿namespace Content.Server.GameTicking.Rules.Components;
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>
 /// This is used for a rule that announces kills globally.
