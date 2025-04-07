@@ -77,8 +77,15 @@ public sealed class StickySystem : EntitySystem
         if (attemptEv.Cancelled)
             return false;
 
+        // Goobstation start
+        var stickDelay = comp.StickDelay;
+        var IsUser = target == user;
+        if (IsUser)
+            stickDelay *= comp.SelfStickTimeMultiplier;
+        // Goobstation end
+
         // skip doafter and popup if it's instant
-        if (comp.StickDelay <= TimeSpan.Zero)
+        if (stickDelay <= TimeSpan.Zero) // Goob edit
         {
             StickToEntity(ent, target, user);
             return true;
@@ -92,9 +99,9 @@ public sealed class StickySystem : EntitySystem
         }
 
         // start sticking object to target
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, comp.StickDelay, new StickyDoAfterEvent(), uid, target: target, used: uid)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, stickDelay, new StickyDoAfterEvent(), uid, target: target, used: uid) // Goob edit
         {
-            BreakOnMove = true,
+            BreakOnMove = !IsUser || comp.SelfStickBreakOnMove, // Goob edit
             NeedHand = true,
         });
 
@@ -127,8 +134,15 @@ public sealed class StickySystem : EntitySystem
         if (attemptEv.Cancelled)
             return;
 
+        // Goobstation start
+        var unstickDelay = comp.StickDelay;
+        var IsUser = stuckTo == user;
+        if (IsUser)
+            unstickDelay *= comp.SelfUnstickTimeMultiplier;
+        // Goobstation end
+
         // skip doafter and popup if it's instant
-        if (comp.UnstickDelay <= TimeSpan.Zero)
+        if (unstickDelay <= TimeSpan.Zero) // Goob edit
         {
             UnstickFromEntity(ent, user);
             return;
@@ -142,9 +156,9 @@ public sealed class StickySystem : EntitySystem
         }
 
         // start unsticking object
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, comp.UnstickDelay, new StickyDoAfterEvent(), uid, target: uid)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, unstickDelay, new StickyDoAfterEvent(), uid, target: uid) // Goob edit
         {
-            BreakOnMove = true,
+            BreakOnMove = !IsUser || comp.SelfUnstickBreakOnMove, // Goob edit
             NeedHand = true,
         });
     }

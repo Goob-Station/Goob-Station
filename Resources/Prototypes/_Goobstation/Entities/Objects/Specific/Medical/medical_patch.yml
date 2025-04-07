@@ -5,6 +5,8 @@
   description: A patch for applying medicine over time to patients.
   abstract: true
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: GenericPatch
@@ -21,6 +23,9 @@
     stickPopupSuccess: goobstation-medicalpatch-sticy-trystick-success
     unstickPopupStart: goobstation-medicalpatch-sticy-tryremove
     unstickPopupSuccess: goobstation-medicalpatch-sticy-tryremove-success
+    selfStickBreakOnMove: false
+    selfUnstickBreakOnMove: false
+    selfStickTimeMultiplier: 0.5
     whitelist:
       components:
       - Bloodstream

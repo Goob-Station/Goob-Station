@@ -32,6 +32,9 @@
         ents: []
   - type: SyringeGun
   - type: PacifismAllowedGun
+  - type: Tag
+    tags:
+    - GunCanAimShooter
 
 - type: entity
   name: syringe gun
@@ -76,6 +79,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - GunCanAimShooter
 
 - type: entity
   name: dart syringe gun
