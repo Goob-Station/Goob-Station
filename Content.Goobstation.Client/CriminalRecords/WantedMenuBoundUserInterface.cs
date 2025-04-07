@@ -1,10 +1,9 @@
-using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Robust.Client.Player;
 using Robust.Shared.Random;
 
-namespace Content.Client._Goobstation.CriminalRecords;
+namespace Content.Goobstation.Client.CriminalRecords;
 
 public sealed class WantedMenuBoundUserInterface : BoundUserInterface
 {

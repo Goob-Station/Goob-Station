@@ -1,5 +1,5 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
-          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+          xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
           Title="{Loc 'criminal-verb-UI-name'}"
           MinSize="220 110">
     <BoxContainer Name="PersonContainer"
@@ -13,8 +13,6 @@
         <BoxContainer Orientation="Horizontal"
                       Margin="0 0 0 5">
             <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
-                   FontColorOverride="DarkGray" />
-            <Label Text=":"
                    FontColorOverride="DarkGray" />
             <TextureRect Name="PersonJobIcon"
                          TextureScale="2 2"

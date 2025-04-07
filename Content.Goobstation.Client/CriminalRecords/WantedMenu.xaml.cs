@@ -15,7 +15,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
 
-namespace Content.Client._Goobstation.CriminalRecords;
+namespace Content.Goobstation.Client.CriminalRecords;
 
 [GenerateTypedNameReferences]
 public sealed partial class WantedMenu : FancyWindow
