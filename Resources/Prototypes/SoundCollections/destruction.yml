@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-#
-# SPDX-License-Identifier: MIT
 - type: soundCollection
   id: GlassBreak
   files:

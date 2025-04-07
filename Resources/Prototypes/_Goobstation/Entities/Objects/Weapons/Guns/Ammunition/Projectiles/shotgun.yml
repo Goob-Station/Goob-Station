@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 ## Buckshot
 
 # Carpshot
@@ -220,3 +217,4 @@
         Blunt: 20 # ye-OUCH
   - type: StaminaDamageOnCollide
     damage: 65 # ye-OW
+

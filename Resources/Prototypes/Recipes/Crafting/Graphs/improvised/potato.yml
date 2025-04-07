@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TheWaffleJesus <106146578+TheWaffleJesus@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: constructionGraph
   id: PowerCellPotato
   start: start

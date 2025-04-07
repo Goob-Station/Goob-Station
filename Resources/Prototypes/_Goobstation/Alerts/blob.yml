@@ -1,7 +1,4 @@
-# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-- type: alert
+﻿- type: alert
   id: BlobResource
   icons:
   - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 # This is kinda shitty, but the other choice is fucking with StackSystem to allow it to track entities so I can keep tabs on which ore specifically has been clained.
 # Or cook some nasty shitcode to split the unclaimed value across all of the entities in the stack if there is any. But that feels fairly wonky.
 # Enjoy having to shove any new ores here.
@@ -215,3 +211,4 @@
   components:
   - type: Stack
     count: 15
+

@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   parent: [ SmokeGrenade , BaseSyndicateContraband ]
   id: SarinGasGrenade

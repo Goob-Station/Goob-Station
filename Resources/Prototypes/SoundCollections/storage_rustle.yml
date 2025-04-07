@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-#
-# SPDX-License-Identifier: MIT
 - type: soundCollection
   id: storageRustle
   files:

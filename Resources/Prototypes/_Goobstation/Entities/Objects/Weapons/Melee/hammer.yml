@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
 - type: entity
   name: hammer
   parent: BaseItem
@@ -22,4 +19,5 @@
   - type: Item
     size: Small
     sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi
+
 
