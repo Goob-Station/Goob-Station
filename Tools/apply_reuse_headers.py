@@ -1,3 +1,4 @@
+# update_pr_reuse_headers.py
 import subprocess
 import os
 import sys
@@ -220,7 +221,7 @@ def remove_existing_reuse_header(content, comment_prefix):
             header_removed = True
             continue
         # Stop considering it a header if we hit a non-header line or go too deep
-        if in_header and (not is_header_line or i >= 50):
+        if in_header and (not is_header_line or i >= 20):
              in_header = False
         cleaned_lines.append(line)
 
@@ -242,7 +243,7 @@ def extract_license_identifier(content, comment_prefix):
         stripped_line = line.strip()
         if stripped_line.startswith(spdx_license_prefix):
             return stripped_line[len(spdx_license_prefix):].strip()
-        if i > 50: # Stop searching after a reasonable number of lines
+        if i > 20: # Stop searching after a reasonable number of lines
             break
     return None
 
@@ -377,8 +378,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Update REUSE headers for PR.")
     parser.add_argument("--files-added", nargs='*', default=[], help="List of added files.")
     parser.add_argument("--files-modified", nargs='*', default=[], help="List of modified files.")
-    parser.add_argument("--pr-labels", default="[]", help="JSON string of PR labels.")
-    parser.add_argument("--pr-labels-file", help="Path to file containing JSON string of PR labels.")
+    parser.add_argument("--pr-license", default=DEFAULT_LICENSE_LABEL, help="License to use for new files (mit or agpl).")
     parser.add_argument("--pr-base-sha", required=True, help="Base SHA of the PR.")
     parser.add_argument("--pr-head-sha", required=True, help="Head SHA of the PR.")
 
@@ -389,32 +389,12 @@ if __name__ == "__main__":
     print(f"Head SHA: {args.pr_head_sha}")
 
     # Determine license for new files
-    new_file_license_label = DEFAULT_LICENSE_LABEL
-    try:
-        # Load labels from file if provided, otherwise use the direct parameter
-        if args.pr_labels_file:
-            with open(args.pr_labels_file, 'r') as f:
-                labels_json = f.read().strip()
-        else:
-            labels_json = args.pr_labels
+    new_file_license_label = args.pr_license.lower()
+    if new_file_license_label not in LICENSE_CONFIG:
+        print(f"  Warning: Unrecognized license '{new_file_license_label}', using default: {DEFAULT_LICENSE_LABEL}", file=sys.stderr)
+        new_file_license_label = DEFAULT_LICENSE_LABEL
 
-        labels = json.loads(labels_json)
-        label_names = {label.get("name", "").lower() for label in labels}
-        print(f"PR Labels: {label_names}")
-        found_license = False
-        for label_key, config in LICENSE_CONFIG.items():
-            if label_key in label_names:
-                new_file_license_label = label_key
-                print(f"  Found license label: {label_key}")
-                found_license = True
-                break # Prioritize first match in config order if multiple labels exist
-        if not found_license:
-             print(f"  No specific license label found, using default: {DEFAULT_LICENSE_LABEL}")
-
-    except json.JSONDecodeError:
-        print("  Warning: Could not parse PR labels JSON.", file=sys.stderr)
-    except Exception as e:
-         print(f"  Warning: Error processing PR labels: {e}", file=sys.stderr)
+    print(f"Using license for new files: {new_file_license_label}")
 
 
     new_file_license_id = LICENSE_CONFIG.get(new_file_license_label, {}).get("id")
