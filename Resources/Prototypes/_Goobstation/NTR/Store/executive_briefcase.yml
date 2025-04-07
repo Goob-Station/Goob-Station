@@ -25,6 +25,8 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: ExecutiveBriefcase
+  - type: BriefcaseScanner
+    scanDuration: 7.5
   - type: CorporateOverride
   - type: ItemSlots
     slots:

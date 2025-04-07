@@ -103,6 +103,89 @@
   resetRestockOnPurchase: true
   restockAfterPurchase: 600 # 10 min
 
+# Security
+- type: listing
+  id: NTRExecutiveLatejoinSecurity
+  name: Security Staff Request
+  description: Adds 1 security officer and 1 cadet slot to the station.
+  productEntity: NTRgameruleSpawnerSecurity
+  cost:
+    NTLoyaltyPoint: 15
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15 min
+
+# Science
+- type: listing
+  id: NTRExecutiveLatejoinScience
+  name: Science Staff Request
+  description: Adds 1 scientist and 1 lab assistant slot to the station.
+  productEntity: NTRgameruleSpawnerScience
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15 min
+
+# Service
+- type: listing
+  id: NTRExecutiveLatejoinService
+  name: Service Staff Request
+  description: Adds 1 janitor and 1 service worker slot to the station.
+  productEntity: NTRgameruleSpawnerService
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15 min
+
+# Cargo
+- type: listing
+  id: NTRExecutiveLatejoinCargo
+  name: Cargo Staff Request
+  description: Adds 1 cargo tech and 1 salvage worker slot to the station.
+  productEntity: NTRgameruleSpawnerCargo
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15 min
+
+# Engineering
+- type: listing
+  id: NTRExecutiveLatejoinEngineering
+  name: Engineering Staff Request
+  description: Adds 1 engineer and 1 technical assistant slot to the station.
+  productEntity: NTRgameruleSpawnerEngineering
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15 min
+
+- type: listing
+  id: NTRExecutiveLatejoinMedical
+  name: Medical Staff Request
+  description: Adds 1 medical doctor and 1 medical intern slot to the station.
+  productEntity: NTRgameruleSpawnerMedical
+  cost:
+    NTLoyaltyPoint: 10
+  categories:
+  - NTRstation
+  restockTime: 600
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900
+
 # personal
 - type: listing
   id: NTRExecutiveInternCall
