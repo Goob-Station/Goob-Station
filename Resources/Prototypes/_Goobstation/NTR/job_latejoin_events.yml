@@ -54,3 +54,14 @@
   - type: LateJobUnlockRule
     jobsToAdd:
       StationEngineer: 2
+
+- type: entity
+  parent: BaseGameRule
+  id: MedicalJobUnlock
+  components:
+  - type: StationEvent
+    minimumPlayers: 0
+    weight: 0
+  - type: DepartmentJobUnlockRule
+    jobsToAdd:
+      MedicalDoctor: 2

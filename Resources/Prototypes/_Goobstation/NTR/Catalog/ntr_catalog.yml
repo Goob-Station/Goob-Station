@@ -107,7 +107,7 @@
 - type: listing
   id: NTRExecutiveLatejoinSecurity
   name: Security Staff Request
-  description: Adds 1 security officer and 1 cadet slot to the station.
+  description: Adds 2 security officers to the station.
   productEntity: NTRgameruleSpawnerSecurity
   cost:
     NTLoyaltyPoint: 15
@@ -121,7 +121,7 @@
 - type: listing
   id: NTRExecutiveLatejoinScience
   name: Science Staff Request
-  description: Adds 1 scientist and 1 lab assistant slot to the station.
+  description: Adds 2 scientists to the station.
   productEntity: NTRgameruleSpawnerScience
   cost:
     NTLoyaltyPoint: 10
@@ -149,7 +149,7 @@
 - type: listing
   id: NTRExecutiveLatejoinCargo
   name: Cargo Staff Request
-  description: Adds 1 cargo tech and 1 salvage worker slot to the station.
+  description: Adds 1 cargo tech and 1 salvage slot to the station.
   productEntity: NTRgameruleSpawnerCargo
   cost:
     NTLoyaltyPoint: 10
@@ -163,7 +163,7 @@
 - type: listing
   id: NTRExecutiveLatejoinEngineering
   name: Engineering Staff Request
-  description: Adds 1 engineer and 1 technical assistant slot to the station.
+  description: Adds 2 engineers to the station.
   productEntity: NTRgameruleSpawnerEngineering
   cost:
     NTLoyaltyPoint: 10
@@ -176,7 +176,7 @@
 - type: listing
   id: NTRExecutiveLatejoinMedical
   name: Medical Staff Request
-  description: Adds 1 medical doctor and 1 medical intern slot to the station.
+  description: Adds 2 medical doctors to the station.
   productEntity: NTRgameruleSpawnerMedical
   cost:
     NTLoyaltyPoint: 10
