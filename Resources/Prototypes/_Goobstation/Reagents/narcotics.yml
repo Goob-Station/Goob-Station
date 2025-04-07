@@ -280,7 +280,7 @@
         prototype: MouseSentient
         conditions:
         - !type:ReagentThreshold
-          min: 30
+          min: 50 # raised because mouse retaliation is now a thing
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold

@@ -40,6 +40,10 @@
     - tasks:
         - !type:HTNCompoundTask
           task: FoodCompound
+    # Goobstation - for retaliation; yes, they care about food more
+    - tasks:
+        - !type:HTNCompoundTask
+          task: MeleeCombatCompound
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
