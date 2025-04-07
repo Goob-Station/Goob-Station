@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: dataset
   id: names_tajaran_first
   values: # Randomly generated based on https://github.com/ParadiseSS13/Paradise/blob/5b516c3166a07cd10d035be1616248ba126e31a1/code/modules/mob/language.dm

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CCVar;
 
 namespace Content.Server.Radiation.Systems;

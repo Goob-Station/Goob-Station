@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Collections.Generic;
 using Content.Client.Weapons.Ranged.Components;
 using Content.Shared.Prototypes;

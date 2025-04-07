@@ -1,4 +1,8 @@
-﻿using Content.Shared.Preferences;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <drsmugleaf@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 
