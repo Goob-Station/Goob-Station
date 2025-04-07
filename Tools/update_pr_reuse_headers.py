@@ -44,10 +44,9 @@ def run_git_command(command, cwd=REPO_PATH, check=True):
         print("FATAL: 'git' command not found. Make sure git is installed and in your PATH.", file=sys.stderr)
         return None
 
-def get_authors_from_git(file_path, base_sha=None, head_sha=None, cwd=REPO_PATH):
+def get_authors_from_git(file_path, cwd=REPO_PATH):
     """
     Gets authors and their contribution years for a specific file.
-    If base_sha and head_sha are provided, only gets authors from that commit range.
     Returns: dict like {"Author Name <email>": (min_year, max_year)}
     """
     # Always get all authors
@@ -280,8 +279,6 @@ def main():
     parser.add_argument("--files-added", nargs="*", default=[], help="List of added files")
     parser.add_argument("--files-modified", nargs="*", default=[], help="List of modified files")
     parser.add_argument("--pr-license", default=DEFAULT_LICENSE_LABEL, help="License to use for new files")
-    parser.add_argument("--pr-base-sha", help="Base SHA of the PR")
-    parser.add_argument("--pr-head-sha", help="Head SHA of the PR")
 
     args = parser.parse_args()
 
