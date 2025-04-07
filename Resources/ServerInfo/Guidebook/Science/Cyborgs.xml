@@ -1,3 +1,11 @@
+<!--
+SPDX-FileCopyrightText: 2023 M3739 <47579354+M3739@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
   # Cyborgs
   Cyborgs are man-machine hybrids, purpose-built by the [textlink="robotics"  link="Robotics"] division of science for various duties across the station. Bound by strictly-followed [color=cyan]silicon laws[/color], they serve the crew unconditionally. [italic](Most of the time.)[italic]
@@ -63,4 +71,3 @@
   </Box>
   Additional modules with advanced or novel capabilities can be acquired through new [textlink="technologies"  link="Technologies"] researched by scientists.
 </Document>
-

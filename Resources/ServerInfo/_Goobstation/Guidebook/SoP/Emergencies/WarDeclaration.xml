@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
 # War Declaration Procedures
 In the event of a station-wide war declaration made by enemy forces, the Command should immediately set the station alert to [color=#ba292c]Red Alert[/color].

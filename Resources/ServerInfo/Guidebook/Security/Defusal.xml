@@ -1,4 +1,15 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2023 Just-a-Unity-Dev <just-a-unity-dev@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 LankLTE <twlowe06@gmail.com>
+SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
   # Large Bomb Defusal
   So, you found a large bomb and it's beeping. These bombs take a long time to detonate and punch a big hole into the hull. Just keep reading, and nobody will explode.
 
