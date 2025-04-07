@@ -45,6 +45,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: BallisticAmmoProvider
+    autoCycle: false # Goobstation
     whitelist:
       tags:
         - Grenade

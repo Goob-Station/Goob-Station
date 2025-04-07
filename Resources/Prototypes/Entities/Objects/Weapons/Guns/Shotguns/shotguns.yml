@@ -149,7 +149,7 @@
   - type: BallisticAmmoProvider
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 1.6 # Goobstation
+    fireRate: 1.7 # Goobstation
 
 - type: entity
   parent: WeaponShotgunEnforcer
@@ -181,7 +181,7 @@
     tags:
     - WeaponShotgunKammerer
   - type: BallisticAmmoProvider # Goobstation
-    capacity: 4
+    autoCycle: false
 
 - type: entity
   name: sawn-off shotgun
