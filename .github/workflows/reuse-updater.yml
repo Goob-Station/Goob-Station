@@ -5,12 +5,11 @@
 name: Update REUSE Headers
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: write
 
 jobs:
   update_headers:
@@ -18,9 +17,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.head_ref }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -30,8 +26,6 @@ jobs:
       - name: Get Changed Files and PR Info
         id: changed_files
         run: |
-          echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
-          echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
 
           # Use GitHub API to get the list of files changed in the PR
           PR_FILES=$(curl -s -H "Authorization: token ${{ github.token }}" \
@@ -67,9 +61,7 @@ jobs:
           python Tools/update_pr_reuse_headers.py \
             --files-added ${{ env.ADDED_FILES_LIST }} \
             --files-modified ${{ env.MODIFIED_FILES_LIST }} \
-            --pr-license ${{ env.PR_LICENSE }} \
-            --pr-base-sha "${{ github.event.pull_request.base.sha }}" \
-            --pr-head-sha "${{ github.event.pull_request.head.sha }}"
+            --pr-license ${{ env.PR_LICENSE }}
         working-directory: ${{ github.workspace }}
 
       - name: Commit changes
