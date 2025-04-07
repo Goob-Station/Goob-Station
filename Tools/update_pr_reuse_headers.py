@@ -182,7 +182,7 @@ def get_all_authors_for_file(file_path, cwd=REPO_PATH):
     return author_years, warnings
 
 
-def create_reuse_header(author_years, license_id, comment_prefix):
+def create_reuse_header(author_years, license_id, comment_prefix, include_license=True):
     """Creates the REUSE compliant header string."""
     header_lines = []
     copyright_prefix = f"{comment_prefix} SPDX-FileCopyrightText:"
@@ -196,7 +196,11 @@ def create_reuse_header(author_years, license_id, comment_prefix):
             header_lines.append(f"{copyright_prefix} {year_string} {clean_author}")
 
     header_lines.append(f"{comment_prefix}")
-    header_lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
+
+    # Only include the license identifier if requested
+    if include_license:
+        header_lines.append(f"{comment_prefix} SPDX-License-Identifier: {license_id}")
+
     return "\n".join(header_lines)
 
 def extract_existing_authors(content, comment_prefix):
@@ -291,7 +295,8 @@ def process_added_file(file_path, license_id, base_sha, head_sha):
     if warnings:
         for warn in warnings: print(f"  Warning: {warn}", file=sys.stderr)
 
-    reuse_header = create_reuse_header(author_years, license_id, comment_prefix)
+    # For new files, include the license identifier
+    reuse_header = create_reuse_header(author_years, license_id, comment_prefix, include_license=True)
 
     try:
         with open(full_file_path, 'r', encoding='utf-8-sig', errors='ignore') as f:
@@ -304,6 +309,20 @@ def process_added_file(file_path, license_id, base_sha, head_sha):
             return False
 
         cleaned_content = remove_existing_reuse_header(original_content, comment_prefix) # Should ideally do nothing if no header
+
+        # Check if there's still a license identifier in the cleaned content
+        # This can happen if there are multiple license identifiers in the file
+        license_prefix = f"{comment_prefix} SPDX-License-Identifier:"
+        lines = cleaned_content.splitlines()
+        filtered_lines = []
+
+        for line in lines:
+            if not line.strip().startswith(license_prefix):
+                filtered_lines.append(line)
+            else:
+                print(f"  Removing additional license identifier: {line.strip()}")
+
+        cleaned_content = "\n".join(filtered_lines)
         separator = "\n\n" if cleaned_content.strip() else "" # Add extra newline for new files
 
         # Handle shebangs or initial comments for YAML
@@ -363,7 +382,8 @@ def process_modified_file(file_path, base_sha, head_sha):
                 else:
                     combined_authors[author] = (min_year, max_year)
 
-            reuse_header = create_reuse_header(combined_authors, default_license_id, comment_prefix)
+            # For files without a header, include the license identifier
+            reuse_header = create_reuse_header(combined_authors, default_license_id, comment_prefix, include_license=True)
             license_id_to_use = default_license_id
         else:
             # File has a header, preserve license, update authors
@@ -396,7 +416,8 @@ def process_modified_file(file_path, base_sha, head_sha):
                 else:
                     combined_authors[author] = (pr_min, pr_max)
 
-            reuse_header = create_reuse_header(combined_authors, existing_license, comment_prefix)
+            # For existing files with a header, don't include the license identifier
+            reuse_header = create_reuse_header(combined_authors, existing_license, comment_prefix, include_license=False)
             license_id_to_use = existing_license # Keep existing
 
         cleaned_content = remove_existing_reuse_header(original_content, comment_prefix)
