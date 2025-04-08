@@ -77,6 +77,11 @@ public sealed partial class ScrubberControl : BoxContainer
             ScrubberDataCopied?.Invoke(_data);
         };
 
+        // Assmos changes start here
+        CSelectAllButton.OnPressed += _ => SelectAllGases();
+        CDeselectAllButton.OnPressed += _ => DeselectAllGases();
+        // End of Assmos changes
+
         foreach (var value in Enum.GetValues<Gas>())
         {
             var gasButton = new Button
@@ -122,4 +127,26 @@ public sealed partial class ScrubberControl : BoxContainer
             _gasControls[value].Pressed = data.FilterGases.Contains(value);
         }
     }
+
+    // Assmos changes start here
+    private void SelectAllGases()
+    {
+        foreach (var (gas, button) in _gasControls)
+        {
+            button.Pressed = true;
+            _data.FilterGases.Add(gas);
+        }
+        ScrubberDataChanged?.Invoke(_address, _data);
+    }
+
+    private void DeselectAllGases()
+    {
+        foreach (var (_, button) in _gasControls)
+        {
+            button.Pressed = false;
+        }
+        _data.FilterGases.Clear();
+        ScrubberDataChanged?.Invoke(_address, _data);
+    }
+    // Assmos changes end
 }
