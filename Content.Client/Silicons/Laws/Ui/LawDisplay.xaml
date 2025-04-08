@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <Control xmlns="https://spacestation14.io"
          xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
          Margin="0 0 0 10">
