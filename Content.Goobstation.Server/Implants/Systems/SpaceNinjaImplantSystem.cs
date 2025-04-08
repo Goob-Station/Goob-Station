@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Server.Implants.Components;
 using Content.Shared.Implants;
 using Content.Shared.Ninja.Components;
