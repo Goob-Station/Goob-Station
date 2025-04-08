@@ -1,7 +1,7 @@
 <!-- Guidelines: https://docs.spacestation14.io/en/getting-started/pr-guideline -->
 <!--
 LICENSE: AGPL
-The license you want applied to new files, currently available licenses are AGPL and MIT. Uncomment if you want to change from default (AGPL). -->
+The license you want applied to new files, currently available licenses are AGPL, MPL, and MIT. Uncomment if you want to change from default (AGPL). -->
 ## About the PR
 <!-- What did you change? -->
 
@@ -12,7 +12,7 @@ The license you want applied to new files, currently available licenses are AGPL
 <!-- Summary of code changes for easier review. -->
 
 ## Media
-<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc). 
+<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc).
 Small fixes/refactors are exempt. Media may be used in SS14 progress reports with credit. -->
 
 ## Requirements
