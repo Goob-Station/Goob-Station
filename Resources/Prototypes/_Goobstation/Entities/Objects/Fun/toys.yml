@@ -395,3 +395,21 @@
     ocNames:
     - rosef
     - SolsticeOfTheWinter
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: TableSalt # .... get it?
+        Quantity: 10
+      - ReagentId: Ice
+        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Ice
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 5
