@@ -1287,7 +1287,6 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAllies
-  - UplinkAlliesContravend
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:

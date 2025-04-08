@@ -19,7 +19,6 @@
     WizCoin: 1
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -39,7 +38,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -59,7 +57,6 @@
     WizCoin: 1
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -79,7 +76,6 @@
     WizCoin: 1
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -99,7 +95,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -119,7 +114,6 @@
     WizCoin: 1
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -139,7 +133,6 @@
     WizCoin: 1
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -159,7 +152,6 @@
     WizCoin: 1
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -179,7 +171,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -199,7 +190,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -219,7 +209,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -239,7 +228,6 @@
     WizCoin: 1
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -259,7 +247,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -279,7 +266,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -299,7 +285,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -325,6 +310,10 @@
     - SpellbookRodForm
   - !type:ListingLimitedStockCondition
     stock: 4
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - GrimoireGhost
 
 - type: listing
   id: SpellbookSpellCardsUpgrade
@@ -338,7 +327,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -363,7 +351,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  - SpellbookOffensiveGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -551,6 +538,10 @@
     - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
 
 - type: listing
   id: SpellbookSwapUpgrade
@@ -564,7 +555,6 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
-  - SpellbookUtilityGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -587,7 +577,6 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
-  - SpellbookUtilityGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -610,7 +599,6 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
-  - SpellbookUtilityGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -633,7 +621,6 @@
     WizCoin: 2
   categories:
   - SpellbookUtility
-  - SpellbookUtilityGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
@@ -656,7 +643,6 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
-  - SpellbookUtilityGhost
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
