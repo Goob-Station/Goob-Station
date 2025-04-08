@@ -130,6 +130,8 @@
   - type: ClothingGrantComponent
     component:
     - type: KravMaga # Silly
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]

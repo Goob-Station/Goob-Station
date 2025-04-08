@@ -65,6 +65,8 @@
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Ears/Headsets/deathsquad.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: [ClothingHeadsetAlt, BaseSecurityContraband]

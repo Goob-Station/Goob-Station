@@ -131,3 +131,5 @@
     autoRechargeRate: 150
   - type: Item
     size: Normal
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

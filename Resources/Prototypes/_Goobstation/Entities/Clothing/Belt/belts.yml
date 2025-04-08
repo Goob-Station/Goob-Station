@@ -62,6 +62,8 @@
     sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 
 - type: entity

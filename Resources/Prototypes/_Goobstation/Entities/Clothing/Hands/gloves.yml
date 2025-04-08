@@ -151,6 +151,8 @@
         Slash: 25
         Structural: 60
     mustBeEquippedToUse: true
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
   - type: ItemSwitch
     showLabel: true

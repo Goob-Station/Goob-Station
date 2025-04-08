@@ -88,9 +88,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 1.10
     sprintModifier: 1.10
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHeavySuit
@@ -103,6 +100,8 @@
       moles:
       - 0.153853429 # oxygen
       - 0.153853429 # nitrogen
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseMagicContraband]

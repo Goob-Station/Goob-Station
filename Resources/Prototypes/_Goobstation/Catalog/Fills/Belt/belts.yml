@@ -51,6 +51,8 @@
       - id: CentcommStimpack
         amount: 2
       - id: OmnimedTool
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   id: ClothingBeltHolsterFilledCentComm

@@ -917,6 +917,8 @@
     color: "#98EEFB"
     lightRadius: 15
   # WD EDIT END
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 
 #MISC. HARDSUITS

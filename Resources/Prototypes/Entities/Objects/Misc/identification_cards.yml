@@ -738,6 +738,8 @@
     job: DeathSquad
   - type: NanoChatCard # DeltaV
     listNumber: false
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   name: passenger ID card

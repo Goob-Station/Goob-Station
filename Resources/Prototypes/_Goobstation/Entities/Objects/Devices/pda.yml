@@ -152,6 +152,8 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-deathsquad
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: CentcomPDA

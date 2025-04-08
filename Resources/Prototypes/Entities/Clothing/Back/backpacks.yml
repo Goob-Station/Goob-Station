@@ -321,6 +321,8 @@
     - type: Storage
       grid:
       - 0,0,7,6
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
 
 #Syndicate
 - type: entity
