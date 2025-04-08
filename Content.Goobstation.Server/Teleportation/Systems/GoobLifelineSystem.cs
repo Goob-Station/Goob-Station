@@ -29,10 +29,8 @@ public sealed class GoobLifelineSystem : EntitySystem
     private void WarpParent(EntityUid uid, WarpParentOnTriggerComponent component)
     {
         var location = FindWarpPoint(component.WarpLocation);
-        if (location == null)
-            return;
-
-        if (!TryComp<TransformComponent>(uid, out var transform))
+        
+        if (location == null || !TryComp<TransformComponent>(uid, out var transform))
             return;
 
         var parentUid = transform.ParentUid;
