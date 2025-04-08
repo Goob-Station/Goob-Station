@@ -7,6 +7,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Content.Shared.Interaction.Components;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Sticky.Systems;
 
@@ -19,6 +20,7 @@ public sealed class StickySystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     private const string StickerSlotId = "stickers_container";
 
@@ -186,7 +188,8 @@ public sealed class StickySystem : EntitySystem
 
         // send information to appearance that entity is stuck
         _appearance.SetData(uid, StickyVisuals.IsStuck, true);
-        EnsureComp<UnremoveableComponent>(uid); //Goobstation - MedicalPatch
+        if (_net.IsServer) // Check for server, otherwise console spams errors
+            EnsureComp<UnremoveableComponent>(uid); //Goobstation - MedicalPatch
         comp.StuckTo = target;
         Dirty(uid, comp);
 
