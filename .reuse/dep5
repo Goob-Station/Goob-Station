@@ -8,3 +8,8 @@ Source: https://www.goobstation.com
 Files: Resources/Audio/*, Resources/Textures/*
 Copyright: 2025 Goob Station Contributors
 License: Custom
+
+# Ignore all TXT and JSON files in the repo, as they dont support comments
+Files: *.txt, *.json
+Copyright: 2025 Goob Station Contributors
+License: Custom
