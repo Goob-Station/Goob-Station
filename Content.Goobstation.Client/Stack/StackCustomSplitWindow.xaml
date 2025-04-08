@@ -1,0 +1,30 @@
+<!--
+SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            x:Class="Content.Goobstation.Client.Stack.StackCustomSplitWindow"
+            Title="{Loc 'ui-custom-stack-split-title'}"
+            Resizable="False">
+
+    <BoxContainer Orientation="Vertical" SeparationOverride="4" MinSize="240 80">
+        <BoxContainer Orientation="Horizontal">
+            <LineEdit Name="AmountLineEdit" Access="Public" HorizontalExpand="True" PlaceHolder="{Loc 'ui-custom-stack-split-line-edit-placeholder'}"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal">
+          <Label Name="MaximumAmount" Access="Public" />
+        </BoxContainer>
+        <Button Name="ApplyButton" Access="Public" Text="{Loc 'ui-custom-stack-split-apply'}"/>
+    </BoxContainer>
+</DefaultWindow>

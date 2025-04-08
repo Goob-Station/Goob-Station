@@ -1,10 +1,23 @@
-using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
-using Content.Shared.Body.Components;
-using Content.Shared._Goobstation.CCVar; // Shitmed Change
-using Content.Shared._Goobstation.Clothing.Components;
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.Standing;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared._Goobstation.Wizard.Traps;
-using Content.Shared.Administration; // Shitmed Change
+using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared.Administration;
+using Content.Shared.Body.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -177,11 +190,3 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed partial class StandingUpDoAfterEvent : SimpleDoAfterEvent;
-
-[Serializable, NetSerializable]
-public enum DropHeldItemsBehavior : byte
-{
-    NoDrop,
-    DropIfStanding,
-    AlwaysDrop
-}

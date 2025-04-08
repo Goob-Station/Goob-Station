@@ -1,3 +1,43 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tristan <traynor123123@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tryded <139474617+Tryded@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Disruption
 
 - type: listing
@@ -40,6 +80,20 @@
   categories:
     - UplinkDisruption
 
+- type: listing
+  id: UplinkSarinGasGrenade
+  name: uplink-sarin-gas-grenade-name
+  description: uplink-sarin-gas-grenade-desc
+  productEntity: SarinGasGrenade
+  cost:
+    Telecrystal: 12
+  categories:
+    -  UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Weaponry
 
@@ -158,17 +212,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkDualettaKit
-  name: uplink-dualetta-kit-name
-  description: uplink-dualetta-kit-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
-  productEntity: BoxDualettaKit
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkPistolAnaconda
   name: uplink-anaconda-name
   description: uplink-anaconda-desc
@@ -187,26 +230,6 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
-
-- type: listing
-  id: UplinkGlovesKravmaga
-  name: uplink-kravgloves-name
-  description: uplink-kravgloves-desc
-  productEntity: ClothingHandsGlovesKravMagaStealthy
-  cost:
-    Telecrystal: 35
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkGlovesGuerilla
-  name: uplink-guerrillagloves-name
-  description: uplink-guerrillagloves-desc
-  productEntity: ClothingHandsGlovesGuerrilla
-  cost:
-    Telecrystal: 40
-  categories:
-  - UplinkWeaponry
 
 # Wearables
 
@@ -474,21 +497,17 @@
   categories:
     - UplinkImplants
 
+
 - type: listing
-  id: UplinkJaunterImplanter
-  name: uplink-jaunter-implanter-name
-  description: uplink-jaunter-implanter-desc
-  icon: { sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi, state: icon }
-  productEntity: JaunterImplanter
+  id: UplinkKravMagaImplanter
+  name: uplink-krav-maga-implant-name
+  description: uplink-krav-maga-implant-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+  productEntity: KravMagaImplanter
   cost:
-    Telecrystal: 100
+    Telecrystal: 40
   categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+    - UplinkImplants
 
 # Deception
 
@@ -723,6 +742,27 @@
       tags:
       - NukeOpsUplink
 
+# Explosives
+
+- type: listing
+  id: UplinkPizzaBomb   # Harmony
+  name: uplink-pizza-bomb-name
+  description: uplink-pizza-bomb-desc
+  productEntity: FoodBoxPizzaBomb
+  cost:
+    Telecrystal: 10  # Goob
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkPizzaParty
+  name: uplink-pizza-party-crate-name
+  description: uplink-pizza-party-crate-desc
+  productEntity: CratePizzaParty
+  cost:
+    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
+  categories:
+  - UplinkExplosives
 
 # Misc
 - type: listing
@@ -734,3 +774,18 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
+
+- type: listing
+  id: NukieMysteriousScroll
+  name: uplink-sleeping-carp-name
+  description: uplink-sleeping-carp-desc
+  productEntity: SleepingCarpScroll
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - LoneOpsUplink

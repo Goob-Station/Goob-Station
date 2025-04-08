@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BasePlushie
   id: PlushieLouie
@@ -194,17 +213,61 @@
     size: Small
   - type: DisarmMalus
     malus: 0
-    
+
 - type: entity
   parent: BasePlushie
   id: PlushieBingle
-  name: bingle plushie
+  name: full size bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
   components:
   - type: Sprite
     norot: true
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: alive
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBingleSmall
+  name: bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: bingleing
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBingleYakub
+  name: yakub bingle plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
+    state: yakubbingle
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBongle
+  name: bongle plushie
+  description: A cute stuffed toy that resembles a red alien. You feel a strange compulsion to say bongle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: bongle
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBinglePony
+  name: bingle pony plushie
+  description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
+  components:
+  - type: Sprite
+    norot: true
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: bingle_pony
 
 - type: entity
   id: GrenadeToy

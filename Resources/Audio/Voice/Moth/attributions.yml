@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["moth_scream.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from https://github.com/tgstation/tgstation/commit/31c19654e0f641166ecd80c672ea05362fd19488"
