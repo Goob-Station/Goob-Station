@@ -40,6 +40,6 @@
   - type: Store
     balance:
       Telecrystal: 100
-  - type: Tags
+  - type: tags
     tags:
       - ContravendUplink
