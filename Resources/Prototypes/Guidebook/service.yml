@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2023 AjexRose <112997230+AjexRose@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Hebi <spiritbreakz@gmail.com>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2023 Nails+Tape <124523848+Nails-n-Tape@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OttoMaticode <124523848+OttoMaticode@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Sir Winters <7543955+Owai-Seek@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
+# SPDX-FileCopyrightText: 2024 f0x-n3rd <150924715+f0x-n3rd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: guideEntry
   id: Service
   name: guide-entry-service

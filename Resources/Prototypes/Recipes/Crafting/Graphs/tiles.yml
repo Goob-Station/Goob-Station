@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ninruB <38016303+asperger-sind@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: TileSteel
   start: start
