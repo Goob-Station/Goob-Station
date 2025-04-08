@@ -117,11 +117,10 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var pending))
         {
-            if (_timing.CurTime > pending.ExpiryTime)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("revival-contract-expired"), uid);
-                RemComp<PendingRevivalContractComponent>(uid);
-            }
+            if (_timing.CurTime <= pending.ExpiryTime)
+                continue;
+            _popupSystem.PopupEntity(Loc.GetString("revival-contract-expired"), uid);
+            RemComp<PendingRevivalContractComponent>(uid);
 
         }
     }

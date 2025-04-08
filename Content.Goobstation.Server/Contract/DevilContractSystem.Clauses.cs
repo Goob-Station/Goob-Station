@@ -8,6 +8,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Flash.Components;
 using Content.Server.Speech.Components;
 using Content.Shared._Shitmed.Body.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._vg.TileMovement;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -29,7 +30,8 @@ public sealed partial class DevilContractSystem
             // If you die with no soul, you go to hell!!
             ["soul ownership"] = (target, contract) =>
             {
-                TryTransferSouls(contract.ContractOwner, target, 1);
+                if (contract.ContractOwner != null)
+                    TryTransferSouls((EntityUid) contract.ContractOwner, target, 1);
             },
 
             // Cuts all damage taken in half.

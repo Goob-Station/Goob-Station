@@ -4,10 +4,6 @@ namespace Content.Goobstation.Server.Condemned;
 /// Marks an entity as having sold their soul.
 /// When you die, do NOT collect 200, do NOT pass go. Go directly to hell
 /// </summary>
-/// <remarks>
-/// In the future, this will actually send you to hell.
-/// But right now it just plays a fancy animation and deletes you :godo:
-/// </remarks>
 [RegisterComponent]
 public sealed partial class CondemnedComponent : Component
 {

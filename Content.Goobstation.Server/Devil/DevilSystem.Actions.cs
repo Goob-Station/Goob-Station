@@ -32,6 +32,7 @@ public sealed partial class DevilSystem
 
         contractComponent.ContractOwner = args.Performer;
         PlayFwooshSound(uid, comp);
+        DoContractFlavor(uid, Name(uid));
     }
 
     private void OnRevivalContractCreated(EntityUid uid, DevilComponent comp, ref CreateRevivalContractEvent args)
@@ -49,6 +50,7 @@ public sealed partial class DevilSystem
 
         contractComponent.ContractOwner = args.Performer;
         PlayFwooshSound(uid, comp);
+        DoContractFlavor(uid, Name(uid));
     }
 
     private void OnShadowJaunt(EntityUid uid, DevilComponent comp, ref ShadowJauntEvent args)

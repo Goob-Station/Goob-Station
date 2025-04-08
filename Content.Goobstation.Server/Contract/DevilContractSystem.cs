@@ -2,14 +2,20 @@ using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Devil;
+using Content.Goobstation.Shared.Devil;
 using Content.Server.Administration.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
+using Content.Shared.Verbs;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Contract;
 
@@ -22,11 +28,10 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly EntityManager _entityManager = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly RejuvenateSystem _rejuvenateSystem = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
 
     private ISawmill _sawmill = null!;
-
-    private TimeSpan _nextExecutionTime = TimeSpan.Zero;
-    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(2);
+    private readonly EntProtoId _fireEffectProto = "FireEffect";
 
     public override void Initialize()
     {
@@ -36,6 +41,7 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         SubscribeLocalEvent<DevilContractComponent, BeingSignedAttemptEvent>(OnContractSignAttempt);
         SubscribeLocalEvent<DevilContractComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<DevilContractComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
 
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
     }
@@ -86,22 +92,49 @@ public sealed partial class DevilContractSystem : EntitySystem
         RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline
     );
 
-    public override void Update(float frametime)
+    private void OnGetVerbs(EntityUid uid, DevilContractComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
-        base.Update(frametime);
-
-        if (_timing.CurTime < _nextExecutionTime)
+        if (!args.CanInteract || !args.CanAccess || !TryComp<DevilComponent>(args.User, out var devilComp))
             return;
 
-        TryUpdateContractWeight();
+        if (!TryComp<DevilContractComponent>(uid, out var contractComp))
+            return;
 
-        _nextExecutionTime = _timing.CurTime + ExecutionInterval;
+        AlternativeVerb burnVerb = new()
+        {
+            Act = () => TryBurnContract(uid, contractComp,  devilComp),
+            Text = Loc.GetString("burn-contract-prompt"),
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Effects/fire.rsi"), "fire"),
+        };
+
+        args.Verbs.Add(burnVerb);
+    }
+
+    private void TryBurnContract(EntityUid contract, DevilContractComponent contractComponent, DevilComponent devilComp)
+    {
+        var coordinates = Transform(contract).Coordinates;
+
+        if (contractComponent.ContractOwner == null)
+            return;
+
+        if (contractComponent is { IsDevilSigned: true, IsVictimSigned: true } or { IsDevilSigned: false, IsVictimSigned: false })
+        {
+            Spawn(_fireEffectProto, coordinates);
+            _audio.PlayPvs(devilComp.FwooshPath, coordinates, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
+            _popupSystem.PopupCoordinates(Loc.GetString("burn-contract-popup-success"), coordinates, PopupType.MediumCaution);
+            QueueDel(contract);
+        }
+        else
+        {
+            _popupSystem.PopupCoordinates(Loc.GetString("burn-contract-popup-fail"), coordinates, (EntityUid)contractComponent.ContractOwner, PopupType.MediumCaution);
+        }
     }
 
     private void OnExamined(EntityUid uid, DevilContractComponent comp, ExaminedEvent args)
     {
         if (args.IsInDetailsRange && !_net.IsClient)
         {
+            TryUpdateContractWeight();
             args.PushMarkup(Loc.GetString("devil-contract-examined", ("weight", comp.ContractWeight)));
         }
     }
@@ -110,6 +143,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     private void OnContractSignAttempt(EntityUid uid, DevilContractComponent comp, ref BeingSignedAttemptEvent args)
     {
+        // Make sure that weight is set properly!
+        TryUpdateContractWeight();
         // Don't allow mortals to sign contracts for other people.
         // Also don't let silicons sell their souls, they don't have one.
         // It won't work, but you still shouldn't be able to.
@@ -158,7 +193,6 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     private void OnSignStep(EntityUid uid, DevilContractComponent comp, SignSuccessfulEvent args)
     {
-
         // Determine signing phase
         if (!comp.IsVictimSigned)
         {
@@ -294,9 +328,9 @@ public sealed partial class DevilContractSystem : EntitySystem
                 // Scrapped idea, but it's funnier if I leave it tbh.
                 case "both":
                     if (Exists(comp.Signer))
-                        effect(comp.Signer, comp);
+                        effect((EntityUid)comp.Signer, comp);
                     if (Exists(comp.ContractOwner))
-                        effect(comp.ContractOwner, comp);
+                        effect((EntityUid)comp.ContractOwner, comp);
                     break;
                 default:
                     if (target.HasValue && Exists(target.Value))

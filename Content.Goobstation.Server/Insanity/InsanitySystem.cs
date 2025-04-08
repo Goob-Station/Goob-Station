@@ -60,7 +60,7 @@ public sealed partial class InsanitySystem : EntitySystem
         {
             case 0:
             {
-                _popupSystem.PopupEntity(Loc.GetString("insanity-comp-one"), uid, uid);
+                _popupSystem.PopupEntity(Loc.GetString("insanity-comp-one"), uid, uid, PopupType.LargeCaution);
                 break;
             }
             case 1:
@@ -76,7 +76,7 @@ public sealed partial class InsanitySystem : EntitySystem
             }
             case 3:
             {
-                _popupSystem.PopupEntity(Loc.GetString("insanity-comp-two"), uid, uid);
+                _popupSystem.PopupEntity(Loc.GetString("insanity-comp-two"), uid, uid, PopupType.LargeCaution);
                 break;
             }
             case 4:

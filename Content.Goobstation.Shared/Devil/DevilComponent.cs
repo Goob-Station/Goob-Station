@@ -1,8 +1,3 @@
-using Content.Goobstation.Shared.Religion;
-using Content.Shared._Shitmed.Body.Components;
-using Content.Shared.CombatMode;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
