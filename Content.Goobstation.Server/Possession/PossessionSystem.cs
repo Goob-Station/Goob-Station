@@ -6,12 +6,14 @@
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Religion;
 using Content.Server.Ghost;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Coordinates;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Heretic;
@@ -39,13 +41,12 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly PolymorphSystem _poly = default!;
-
-    private readonly EntProtoId _pentagramEffectProto = "Pentagram";
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<PossessedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PossessedComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeLocalEvent<PossessedComponent, ExaminedEvent>(OnExamined);
     }
@@ -69,17 +70,27 @@ public sealed partial class PossessionSystem : EntitySystem
             comp.PossessionTimeRemaining = _timing.CurTime - comp.PossessionEndTime;
         }
     }
+
+    private void OnStartup(EntityUid uid, PossessedComponent comp, ComponentStartup args)
+    {
+        EnsureComp<WeakToHolyComponent>(uid);
+    }
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
     {
+        // Remove associated components.
         if (!comp.WasPacified)
             RemComp<PacifiedComponent>(uid);
+        RemComp<WeakToHolyComponent>(uid);
 
         // Return the possessors mind to their body, and the target to theirs.
         _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
         _mind.TransferTo(comp.OriginalMindId, uid);
 
+        // Paralyze, so you can't just magdump them.
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(10), false);
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
+        // Teleport to the entity, kinda like you're popping out of their head!
+        _transform.SetCoordinates(comp.PossessorOriginalEntity, uid.ToCoordinates());
     }
 
     private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)

@@ -55,6 +55,12 @@ public sealed partial class CondemnedComponent : Component
     public bool CondemnOnDeath = true;
 
     /// <summary>
+    /// Was this target already weak to holy before becoming condemned?
+    /// </summary>
+    [DataField]
+    public bool WasWeakToHoly;
+
+    /// <summary>
     /// Should movement be locked during the animation?
     /// </summary>
     [DataField]

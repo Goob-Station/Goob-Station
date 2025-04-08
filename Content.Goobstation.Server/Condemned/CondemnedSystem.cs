@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Religion;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Components;
@@ -48,6 +49,8 @@ public sealed partial class CondemnedSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<CondemnedComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<CondemnedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CondemnedComponent, ComponentRemove>(OnRemoved);
     }
 
     public override void Update(float frameTime)
@@ -67,6 +70,22 @@ public sealed partial class CondemnedSystem : EntitySystem
                     break;
             }
         }
+    }
+
+    private void OnStartup(EntityUid uid, CondemnedComponent comp, ComponentStartup args)
+    {
+        if (HasComp<WeakToHolyComponent>(uid))
+            return;
+
+        EnsureComp<WeakToHolyComponent>(uid);
+        comp.WasWeakToHoly = true;
+
+    }
+
+    private void OnRemoved(EntityUid uid, CondemnedComponent comp, ComponentRemove  args)
+    {
+        if (comp.WasWeakToHoly)
+            RemComp<WeakToHolyComponent>(uid);
     }
 
     public void StartCondemnation(
