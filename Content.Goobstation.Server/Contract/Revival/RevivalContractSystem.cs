@@ -84,7 +84,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         {
             Act = () => HandleContractResponse(args.Target, false),
             Text = Loc.GetString("revival-contract-prompt-reject"),
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "broken-heart"),
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "heart-broken"),
         };
 
         args.Verbs.Add(acceptVerb);

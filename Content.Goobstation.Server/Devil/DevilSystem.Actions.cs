@@ -4,10 +4,8 @@
 
 using Content.Goobstation.Server.Contract;
 using Content.Goobstation.Server.Contract.Revival;
-using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
-using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Devil;
 
@@ -83,12 +81,15 @@ public sealed partial class DevilSystem
 
         args.Handled = true;
 
-        Spawn("PolymorphShadowJauntAnimation", Transform(args.Performer).Coordinates);
-        Spawn(_pentagramEffectProto, Transform(args.Performer).Coordinates);
 
-        _poly.PolymorphEntity(args.Performer, GetJauntEntity(comp));
 
-        _possession.TryPossessTarget(args.Target, args.Performer, GetPossessionDuration(comp), true);
+        if (_possession.TryPossessTarget(args.Target, args.Performer, GetPossessionDuration(comp), true))
+        {
+            Spawn("PolymorphShadowJauntAnimation", Transform(args.Performer).Coordinates);
+            Spawn(_pentagramEffectProto, Transform(args.Performer).Coordinates);
+            _poly.PolymorphEntity(args.Performer, GetJauntEntity(comp));
+        }
+
     }
 
 

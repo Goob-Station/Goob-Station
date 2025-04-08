@@ -19,6 +19,12 @@ public sealed partial class CheatDeathComponent : Component
     [DataField]
     public int ReviveAmount = 1;
 
+    /// <summary>
+    /// Can this entity heal themselves while not being dead?
+    /// </summary>
+    [DataField]
+    public bool CanCheatStanding;
+
 }
 
 public sealed partial class CheatDeathEvent : InstantActionEvent { }

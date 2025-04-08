@@ -86,7 +86,7 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!args.IsInDetailsRange || _net.IsClient || comp.PossessorMindId == args.Examiner)
             return;
 
-        var timeremaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds);
+        var timeremaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds) * -1;
         args.PushMarkup(Loc.GetString("possessed-component-examined", ("timeremaining", timeremaining)));
     }
 
@@ -98,20 +98,20 @@ public sealed partial class PossessionSystem : EntitySystem
     /// <param name="possessionDuration">How long does the possession last in seconds.</param>
     /// <param name="pacifyPossessed">Should the possessor be pacified while inside the possessed body?</param>
     /// <param name="doesMindshieldBlock">Does having a mindshield block being possessed?</param>
-    public void TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false)
+    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false)
     {
         // Possessing a dead guy? What.
         if (_mobState.IsIncapacitated(possessed) || HasComp<ZombieComponent>(possessed))
         {
             _popup.PopupClient(Loc.GetString("possession-fail-target-dead"), possessor, possessor);
-            return;
+            return false;
         }
 
         // if you ever wanted to prevent this
         if (doesMindshieldBlock && HasComp<MindShieldComponent>(possessed))
         {
             _popup.PopupClient(Loc.GetString("possession-fail-target-shielded"), possessor, possessor);
-            return;
+            return false;
         }
 
         List<(Type, string)> blockers =
@@ -128,11 +128,11 @@ public sealed partial class PossessionSystem : EntitySystem
         foreach (var (item1, item2) in blockers)
         {
             if (CheckMindswapBlocker(item1, item2, possessed, possessor))
-                return;
+                return false;
         }
 
         if (!_mind.TryGetMind(possessor, out var possessorMind, out var possessorMindComp))
-            return;
+            return false;
 
         var possessedComp = EnsureComp<PossessedComponent>(possessed);
 
@@ -156,13 +156,12 @@ public sealed partial class PossessionSystem : EntitySystem
         // Transfer into target
         _mind.TransferTo(possessorMind, possessed);
 
-        if (!_net.IsServer)
-            return;
-
         // SFX
         _popup.PopupEntity(Loc.GetString("possession-popup-self"), possessedMind, possessedMind, PopupType.LargeCaution);
         _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", possessed)), possessed, PopupType.MediumCaution);
         _audio.PlayPvs(possessedComp.PossessionSoundPath, possessed);
+
+        return true;
     }
 
     private bool CheckMindswapBlocker(Type type, string message, EntityUid possessed, EntityUid possessor)

@@ -43,7 +43,10 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
     private void OnDeathCheatAttempt(EntityUid uid, CheatDeathComponent comp, CheatDeathEvent args)
     {
-        if (args.Handled || !_mobStateSystem.IsDead(uid))
+        if (args.Handled)
+            return;
+
+        if (!_mobStateSystem.IsDead(uid) && !comp.CanCheatStanding)
             return;
 
         // If the entity is out of revives, or if they are unrevivable, return.
@@ -59,7 +62,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
         _rejuvenateSystem.PerformRejuvenate(uid);
 
         // Show popup
-        var popup = Loc.GetString("action-cheated-death");
+        var popup = Loc.GetString("action-cheated-death", ("name", Name(uid)));
         _popupSystem.PopupEntity(popup, uid, PopupType.LargeCaution);
 
         // Decrement remaining revives.
