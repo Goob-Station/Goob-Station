@@ -16,7 +16,7 @@ import time
 CUTOFF_COMMIT_HASH = "8270907bdc509a3fb5ecfecde8cc14e5845ede36"
 LICENSE_BEFORE = "MIT"
 LICENSE_AFTER = "AGPL-3.0-or-later"
-FILE_PATTERNS = ["*.cs", "*.yml", ".yaml", "*.xaml", "*.xml", "*.ftl"]
+FILE_PATTERNS = ["*.cs", "*.yml", ".yaml", "*.xaml", "*.xml", "*.ftl", "*.js", "*.py", "*.sh", "*.ps1", "*.bat"]
 REPO_PATH = "."
 MAX_WORKERS = os.cpu_count() or 4
 
@@ -25,9 +25,14 @@ MAX_WORKERS = os.cpu_count() or 4
 # If suffix is None, it's a single-line comment style
 COMMENT_STYLES = {
     ".cs": ("//", None),
+    ".js": ("//", None),
     ".yaml": ("#", None),
     ".yml": ("#", None),
     ".ftl": ("#", None),
+    ".py": ("#", None),
+    ".sh": ("#", None),
+    ".ps1": ("#", None),
+    ".bat": ("REM", None),
     ".xaml": ("<!--", "-->"),
     ".xml": ("<!--", "-->"),
 }

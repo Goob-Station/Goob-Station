@@ -23,9 +23,14 @@ DEFAULT_LICENSE_LABEL = "agpl"
 # If suffix is None, it's a single-line comment style
 COMMENT_STYLES = {
     ".cs": ("//", None),
+    ".js": ("//", None),
     ".yaml": ("#", None),
     ".yml": ("#", None),
     ".ftl": ("#", None),
+    ".py": ("#", None),
+    ".sh": ("#", None),
+    ".ps1": ("#", None),
+    ".bat": ("REM", None),
     ".xaml": ("<!--", "-->"),
     ".xml": ("<!--", "-->"),
 }
