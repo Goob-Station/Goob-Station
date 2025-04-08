@@ -161,7 +161,7 @@ namespace Content.Shared.Entry
             var count = asm.Select(ass => ass.GetName().Name!).Count(assemblyName => _goobmods.Contains(assemblyName));
 
             // Client or Server not being found is fine - both is bad.
-            if (count < _goobmods.Count-1)
+            if (0 < count < _goobmods.Count-1)
             {
                 throw new InvalidOperationException("Missing goobmods in appdomain! Did you build the solution?");
             }
