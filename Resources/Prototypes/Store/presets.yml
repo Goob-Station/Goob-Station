@@ -54,11 +54,11 @@
   - type: Store
     name: store-preset-name-spellbook-ghost
     categories:
-    - SpellbookOffensiveGhost   #Fireball, Rod Form
+    - SpellbookOffensive   #Fireball, Rod Form
     - SpellbookDefensive    #Magic Missile, Wall of Force
-    - SpellbookUtilityGhost      #Body Swap, Lich, Teleport, Knock, Polymorph
+    - SpellbookUtility      #Body Swap, Lich, Teleport, Knock, Polymorph
     - SpellbookEquipment    #Battlemage Robes, Staff of Locker
-    - SpellbookSummonsGhost      #Goobstation
+    - SpellbookSummons      #Goobstation
     - SpellbookBundles      #Goobstation
     currencyWhitelist:
     - WizCoin
@@ -74,10 +74,10 @@
     - UplinkAmmo
     - UplinkExplosives
     - UplinkChemicals
-    - UplinkDeceptionContravend
+    - UplinkDeception
     - UplinkDisruption
-    - UplinkImplantsContravend
-    - UplinkAlliesContravend
+    - UplinkImplants
+    - UplinkAllies
     - UplinkWearables
     - UplinkJob
     - UplinkPointless

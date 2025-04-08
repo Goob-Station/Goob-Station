@@ -456,6 +456,7 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+          - ContravendUplink
 
 - type: listing
   id: UplinkSmokeImplanter
@@ -467,7 +468,6 @@
     Telecrystal: 10
   categories:
     - UplinkImplants
-    - UplinkImplantsContravend
 
 
 - type: listing
@@ -480,7 +480,6 @@
     Telecrystal: 40
   categories:
     - UplinkImplants
-    - UplinkImplantsContravend
 
 # Deception
 
@@ -494,7 +493,6 @@
     Telecrystal: 15
   categories:
   - UplinkDeception
-  - UplinkDeceptionContravend
 
 - type: listing
   id: UplinkClothingExplosiveGloves
@@ -505,7 +503,6 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
-  - UplinkDeceptionContravend
 
 # Ammo
 
@@ -669,7 +666,6 @@
     Telecrystal: 400
   categories:
   - UplinkAllies
-  - UplinkAlliesContravend
 
 - type: listing
   id: UplinkMauler
@@ -686,6 +682,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+      - ContravendUplink
 
 # Martial Arts
 - type: listing
@@ -697,12 +694,12 @@
     Telecrystal: 60
   categories:
   - UplinkDeception
-  - UplinkDeceptionContravend
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
       - NukeOpsUplink
+      - ContravendUplink
 
 - type: listing
   id: UplinkMysteriousScroll
@@ -751,7 +748,6 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
-  - UplinkDeceptionContravend
 
 - type: listing
   id: NukieMysteriousScroll

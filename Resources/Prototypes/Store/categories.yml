@@ -116,37 +116,3 @@
   id: DiscountedItems
   name: store-discounted-items
   priority: 200
-
-#antag planet uplink
-
-- type: storeCategory
-  id: UplinkDeceptionContravend
-  name: store-category-deception
-  priority: 5
-
-- type: storeCategory
-  id: UplinkImplantsContravend
-  name: store-category-implants
-  priority: 7
-
-- type: storeCategory
-  id: UplinkAlliesContravend
-  name: store-category-allies
-  priority: 8
-
-#antag planet spellbook
-
-- type: storeCategory
-  id: SpellbookOffensiveGhost
-  name: store-caregory-spellbook-offensive
-  priority: 0
-
-- type: storeCategory
-  id: SpellbookUtilityGhost
-  name: store-caregory-spellbook-utility
-  priority: 2
-
-- type: storeCategory
-  id: SpellbookSummonsGhost
-  name: store-caregory-spellbook-summons
-  priority: 5
