@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 #!/usr/bin/env python3
 # apply_reuse_headers.py - A script to add REUSE headers to C# files
 
