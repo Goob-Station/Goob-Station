@@ -27,3 +27,14 @@
   parent: MobCatLonnie
   id: MobCatYorick
   description: Kerpudhat's cat.
+  components:
+  - type: Godmode # can't remove damageable from prototype >:(
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 0
