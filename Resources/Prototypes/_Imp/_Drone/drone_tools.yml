@@ -1,0 +1,81 @@
+# Imp special. This file covers all of the stuff needed for repair drones to spawn with their tools.
+
+# Unremovable versions of their items. I am aware that unremoveable is spelled wrong.
+- type: entity
+  parent: ClothingBackpackSatchelDrone
+  id: DroneSatchelUnremovable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _Imp/Drone/dronesatchel.rsi
+
+- type: entity
+  parent: trayScanner
+  id: trayScannerUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: Omnitool
+  id: OmnitoolUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: WelderExperimental
+  id: WelderExperimentalUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: PinpointerStation
+  id: PinpointerStationUnremoveable
+  description: You are the station. Find yourself. Press E to activate.
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+  - type: Pinpointer
+    component: ResearchServer
+    targetName: the station
+
+# PAI actions
+
+- type: entity
+  id: ActionDroneOpenMap
+  name: Open Map
+  description: Look upon yourself.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
+    event: !type:OpenUiActionEvent
+      key: enum.StationMapUiKey.Key
+
+- type: entity
+  id: ActionDronePlayMidi
+  name: Play MIDI
+  description: Contribute to the ambiance.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: Interface/Actions/pai-midi.png
+    event: !type:OpenUiActionEvent
+      key: enum.InstrumentUiKey.Key
+
+# StartingGear
+
+- type: startingGear
+  id: StartingGearDroneTools
+  equipment:
+    pocket1: trayScannerUnremoveable
+    pocket2: PinpointerStationUnremoveable
+    back: DroneSatchelUnremovable
+  inhand:
+  - OmnitoolUnremoveable
+  - WelderExperimentalUnremoveable

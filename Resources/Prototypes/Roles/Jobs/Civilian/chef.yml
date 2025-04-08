@@ -9,6 +9,7 @@
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
+  goobcoins: 15 #Goob content
   access:
   - Service
   - Maintenance
@@ -16,6 +17,11 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  special: # Goobstation - Martial Arts
+  - !type:AddComponentSpecial # Goobstation - Martial Arts
+    components: # Goobstation - Martial Arts
+      - type: GrantCqc # Goobstation - Martial Arts
+        isBlocked: true # Goobstation - Martial Arts
 
 - type: startingGear
   id: ChefGear

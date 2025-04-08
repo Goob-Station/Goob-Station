@@ -227,7 +227,7 @@
     - id: Fulton
       amount: !type:RangeNumberSelector
         range: 1, 3
-    - id: HandHeldMassScanner
+    #- id: HandHeldMassScanner - Removed by Lavaland
     - id: WeaponCrusherDagger
     - id: MiningDrill
     - id: ClothingEyesGlassesMeson

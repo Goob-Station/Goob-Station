@@ -1,0 +1,16 @@
+- type: construction
+  name: wall torch
+  id: WallTorch
+  graph: WallTorchGraph
+  startNode: start
+  targetNode: wallTorch
+  category: construction-category-furniture
+  description: Free infinite lighting
+  icon:
+    sprite: _Goobstation/Structures/Wallmounts/torch.rsi
+    state: torch
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

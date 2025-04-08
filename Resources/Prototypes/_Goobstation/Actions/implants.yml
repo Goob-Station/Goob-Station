@@ -1,0 +1,26 @@
+- type: entity
+  id: ActionSwapImplant
+  name: Swap
+  description: Allows you to swap locations with any living being.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 5
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - Transform
+      - MobState
+    canTargetSelf: true
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
+      state: icon
+    event: !type:SwapSpellEvent
+      sound:
+        path: /Audio/Effects/Lightning/lightningbolt.ogg
+  - type: SwapSpell

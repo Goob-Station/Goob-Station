@@ -1,5 +1,4 @@
 ﻿using Content.Shared._Lavaland.Procedural.Prototypes;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Procedural.Components;
@@ -11,11 +10,20 @@ public sealed partial class LavalandMapComponent : Component
     public EntityUid Outpost;
 
     [ViewVariables]
-    public MapId MapId;
-
-    [ViewVariables]
     public int Seed;
 
     [ViewVariables]
     public ProtoId<LavalandMapPrototype>? PrototypeId;
+
+    /// <summary>
+    /// Chunks in this area are always loaded
+    /// </summary>
+    [ViewVariables]
+    public Box2 LoadArea;
+
+    /// <summary>
+    /// Currently active chunks
+    /// </summary>
+    [DataField("loadedChunks")]
+    public HashSet<Vector2i> LoadedChunks = new();
 }

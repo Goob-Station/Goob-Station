@@ -9,12 +9,14 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Weapons.SmartGun;
 
 public abstract class SharedLaserPointerSystem : EntitySystem
 {
+    [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -30,16 +32,24 @@ public abstract class SharedLaserPointerSystem : EntitySystem
         SubscribeAllEvent<LaserPointerEntityHoveredEvent>(OnHovered);
     }
 
-    private void OnHovered(LaserPointerEntityHoveredEvent ev)
+    private void OnHovered(LaserPointerEntityHoveredEvent msg, EntitySessionEventArgs args)
     {
-        var pointer = GetEntity(ev.LaserPointerEntity);
+        var pointer = GetEntity(msg.LaserPointerEntity);
 
-        if (!TryComp(pointer, out LaserPointerComponent? laser) || !TryComp(pointer, out WieldableComponent? wieldable))
+        if (!TryComp(pointer, out LaserPointerComponent? laser))
             return;
 
-        var hovered = GetEntity(ev.Hovered);
+        laser.LastNetworkEventTime = Timing.CurTime;
 
-        AddOrRemoveLine(ev.LaserPointerEntity, laser, wieldable, Transform(pointer), ev.Dir, hovered);
+        if (!TryComp(pointer, out WieldableComponent? wieldable))
+            return;
+
+        var hovered = GetEntity(msg.Hovered);
+
+        if (hovered == args.SenderSession.AttachedEntity)
+            hovered = null;
+
+        AddOrRemoveLine(msg.LaserPointerEntity, laser, wieldable, Transform(pointer), msg.Dir, hovered);
     }
 
     public void AddLine(NetEntity laserPointer, Color color, Vector2 start, Vector2 end)

@@ -59,7 +59,6 @@
         Slash: 6
   - type: ReplacementAccent
     accent: genericAggressive
-  - type: Fauna # Lavaland Change
 
 - type: entity
   parent: BaseMobFlesh

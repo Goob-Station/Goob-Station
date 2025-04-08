@@ -30,6 +30,9 @@
       tags:
         - HidesHair
         - BlobMob
+        - BlobMind
+    - type: CollectiveMind
+      defaultChannel: Blobmind
     - type: IngestionBlocker
     - type: IdentityBlocker
     - type: BlobPod
@@ -116,6 +119,9 @@
     - type: Tag
       tags:
         - BlobMob
+        - BlobMind
+    - type: CollectiveMind
+      defaultChannel: Blobmind
     - type: GhostRole
       name: ghost-role-information-blobbernaut-name
       description: ghost-role-information-blobbernaut-description
@@ -210,10 +216,6 @@
     - type: Alerts
     - type: ReplacementAccent
       accent: genericAggressive
-    - type: ActiveRadio
-      channels:
-      - Hivemind
-    #- type: BlobSpeak
     - type: Hands
       showInHands: true
     - type: BlobObserver
@@ -261,3 +263,6 @@
     - type: Tag
       tags:
       - BypassInteractionRangeChecks
+      - BlobMind
+    - type: CollectiveMind
+      defaultChannel: Blobmind

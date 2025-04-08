@@ -1,0 +1,81 @@
+# Standard Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatStandard
+  name: combat hardsuit helmet
+  description: An armoured helmet with a yellow visor and dual head-mounted lights.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/standard.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.50
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatOfficer
+  name: security combat hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/officer.rsi
+
+# Medical Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatMedical
+  name: medical combat hardsuit helmet
+  description: A lightweight armoured helmet with full-face blue visor and head-mounted light.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/medical.rsi
+  - type: PointLight
+    color: "#00FFFF"
+  - type: PressureProtection
+    highPressureMultiplier: 0.60
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+# Riot Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatRiot
+  name: riot combat hardsuit helmet
+  description: A heavy armoured helmet with a sealed visor with yellow slits and dual head-mounted lights.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/Head/Hardsuits/Combat/riot.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85

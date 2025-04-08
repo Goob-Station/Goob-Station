@@ -54,7 +54,7 @@
             Lawyer: [ 3, 3 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 3, 3 ]
+            SalvageSpecialist: [ 6, 6 ]
             CargoTechnician: [ 5, 5 ]
             #civilian
             Passenger: [ -1, -1 ]
@@ -64,3 +64,10 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 4, 4 ]
+
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # backmen blob-config-end

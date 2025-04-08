@@ -39,7 +39,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             EnsureComp<FoodSequenceElementComponent>(args.Used);
 
         if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
-            TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
+            args.Handled = TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
     }
 
     private bool TryAddFoodElement(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element, EntityUid? user = null)

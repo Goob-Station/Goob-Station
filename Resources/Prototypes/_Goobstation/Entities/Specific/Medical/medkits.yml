@@ -31,3 +31,30 @@
     price: 500
   - type: Tag
     tags: []
+
+- type: entity
+  name: tactical medical kit
+  description: Contains everything you need to get a person back up quickly.
+  parent: Medkit
+  id: MedkitBSO
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    state: bsokit
+  - type: Item
+    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    heldPrefix: bsokit
+    size: Normal
+  - type: Storage
+    defaultStorageOrientation: Vertical
+
+- type: entity
+  name: tactical repairing kit
+  description: Contains everything you need to get a silicon back up quickly.
+  parent: MedkitBSO
+  id: MedkitBSOIPC
+  components:
+  - type: Sprite
+    state: bsokit-ipc
+  - type: Item
+    heldPrefix: bsokit-ipc

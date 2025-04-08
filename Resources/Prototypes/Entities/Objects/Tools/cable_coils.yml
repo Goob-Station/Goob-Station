@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - CableCoil
+    - DroneUsable # Goobstation
   - type: Stack
     stackType: Cable
   # Goobstation - Custom stack splitting dialog

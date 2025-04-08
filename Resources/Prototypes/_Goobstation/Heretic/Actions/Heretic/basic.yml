@@ -21,7 +21,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
@@ -49,7 +48,7 @@
 - type: entity
   id: ActionHereticMansusLink
   name: Manse Link
-  description: Pierce through reality and connect minds to one another. Default radio key is :z
+  description: Pierce through reality and connect minds to one another. Default key is +m
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction

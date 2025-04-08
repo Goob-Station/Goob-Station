@@ -62,6 +62,13 @@ public sealed partial class HungerComponent : Component
     public HungerThreshold CurrentThreshold;
 
     /// <summary>
+    /// Goobstation
+    /// Starting hunger value the entity should be at, if set then it overrides the default hunger value randomization behaviour.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public float? StartingHunger = null;
+
+    /// <summary>
     /// A dictionary relating HungerThreshold to the amount of <see cref="HungerSystem.GetHunger">current hunger</see> needed for each one
     /// </summary>
     [DataField("thresholds", customTypeSerializer: typeof(DictionarySerializer<HungerThreshold, float>))]

@@ -10,6 +10,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Power;
 using Content.Server.DeviceLinking.Systems;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Goobstation.Contraband;
 
@@ -20,6 +21,7 @@ public sealed class ContrabandDetectorSystem : EntitySystem
     [Dependency] private readonly SharedIdCardSystem _id = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -30,8 +32,36 @@ public sealed class ContrabandDetectorSystem : EntitySystem
         SubscribeLocalEvent<ContrabandDetectorComponent, PowerChangedEvent>(OnPowerchange);
     }
 
+    public override void Update(float frameTime)
+    {
+        var query = EntityQueryEnumerator<ContrabandDetectorComponent>();
+        while (query.MoveNext(out var _, out var detectors))
+        {
+            if (detectors.Scanned.Count == 0)// go to next if there are no scanned
+                continue;
+
+            var keysToRemove = new List<EntityUid>(detectors.Scanned.Count);
+            foreach (var scan in detectors.Scanned)
+            {
+                if (_timing.CurTime > scan.Value)
+                    keysToRemove.Add(scan.Key);
+            }
+            foreach (var key in keysToRemove)
+            {
+                detectors.Scanned.Remove(key);
+            }
+            if (keysToRemove.Count > 0)
+                detectors.Scanned.TrimExcess();
+        }
+    }
+
     private void HandleStepOnTriggered(EntityUid uid, ContrabandDetectorComponent component, ref StepTriggeredOnEvent args)
     {
+        if (component.Scanned.ContainsKey(args.Tripper))
+            return;
+
+        component.Scanned.Add(args.Tripper, _timing.CurTime + TimeSpan.FromSeconds(component.ScanTimeOut));
+
         var list = RecursiveFindContraband(args.Tripper, 0);
         list = RemovePermitedItems(args.Tripper, ref list);
 

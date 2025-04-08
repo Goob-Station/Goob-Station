@@ -12,14 +12,12 @@ using Robust.Client.Player;
 using Robust.Client.State;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Client._Goobstation.Weapons.LaserPointer;
 
 public sealed class LaserPointerSystem : SharedLaserPointerSystem
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
@@ -46,7 +44,7 @@ public sealed class LaserPointerSystem : SharedLaserPointerSystem
     {
         base.Update(frameTime);
 
-        if (!_timing.IsFirstTimePredicted)
+        if (!Timing.IsFirstTimePredicted)
             return;
 
         if (!TryComp(_player.LocalEntity, out HandsComponent? hands) ||

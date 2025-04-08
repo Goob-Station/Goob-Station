@@ -58,14 +58,11 @@
     rules: ghostrole-ghoul-rules
     raffle:
       settings: short
-  - type: ActiveRadio
-    channels:
-    - Mansus
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Mansus
-
+  - type: Tag
+    tags:
+    - MansusLinkMind
+  - type: CollectiveMind
+    defaultChannel: MansusLink
 
 - type: entity
   parent: BaseMobGhoul
@@ -127,6 +124,7 @@
   name: rust walker
   description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Ghoul
     totalHealth: 100

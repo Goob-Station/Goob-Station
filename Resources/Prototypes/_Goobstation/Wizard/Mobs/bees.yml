@@ -3,8 +3,9 @@
   id: MobAngryBeeWizard
   abstract: true
   components:
-  - type: TimedDespawn
-    lifetime: 50
+  - type: FadingTimedDespawn
+    lifetime: 48
+    fadeOutTime: 2
   - type: Bloodstream
     bloodReagent: Water
     chemicalMaxVolume: 12.5
@@ -18,6 +19,9 @@
     damage:
       types:
         Piercing: 1
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound # Humanoid for staff of change shenanigans
 
 # I intentionally don't use suffixes so it's funnier
 - type: entity

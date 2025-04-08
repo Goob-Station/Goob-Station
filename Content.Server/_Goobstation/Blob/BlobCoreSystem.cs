@@ -141,6 +141,8 @@ public sealed class BlobCoreSystem : EntitySystem
             if (actionUid != null)
                 component.Actions.Add(actionUid.Value);
         }
+
+        ChangeBlobPoint((uid, component), component.StartingMoney, store);
     }
 
     private void OnTerminating(EntityUid uid, BlobCoreComponent component, ref EntityTerminatingEvent args)

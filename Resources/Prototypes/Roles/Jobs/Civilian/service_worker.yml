@@ -6,7 +6,7 @@
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
-  canBeAntag: false # GOOBSTATION: THE RECKONING COMES. DONT TRY AND BYPASS IT.
+  goobcoins: 10 #Goob content
   access:
   - Service
   - Maintenance

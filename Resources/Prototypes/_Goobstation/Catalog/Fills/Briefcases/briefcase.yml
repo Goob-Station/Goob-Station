@@ -19,3 +19,23 @@
       - id: ClothingUniformJumpsuitDetectiveGrey
       - id: ClothingOuterCoatDetectiveLoadout
       - id: ClothingShoesBootsLaceup
+
+- type: entity
+  id: BriefcaseCentcomm
+  parent: BriefcaseBrown
+  suffix: Admeme, DO NOT MAP
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,8,4
+  - type: StorageFill
+    contents:
+    - id: PenCentcom # Reference to half life. If you look inside G-Mans briefcase, this is whats inside.
+    - id: PenCap # Todo - Maybe make these unique pens?
+    - id: CyberPen
+    - id: Paper
+    - id: ExecutiveIDCard
+    - id: WeaponPistolAnaconda # Todo - Make this a custom one.

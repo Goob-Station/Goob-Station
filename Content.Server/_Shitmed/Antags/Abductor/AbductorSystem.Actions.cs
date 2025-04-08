@@ -72,7 +72,6 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
     private void OnSendYourself(SendYourselfEvent ev)
     {
-        Logger.Debug($"{ToPrettyString(ev.Performer)}");
         AddTeleportationEffect(ev.Performer, 5.0f, TeleportationEffectEntity, out var effectEnt, true, false);
         var effect = _entityManager.SpawnEntity(TeleportationEffect, ev.Target);
         EnsureComp<TimedDespawnComponent>(effect, out var _);

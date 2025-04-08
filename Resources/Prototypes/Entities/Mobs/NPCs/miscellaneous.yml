@@ -39,6 +39,10 @@
       thresholds:
         0: Alive
         100: Dead
+    - type: Butcherable
+      spawned:
+      - id: FoodMeatChicken
+        amount: 2
     - type: MovementSpeedModifier
       baseWalkSpeed: 2
       baseSprintSpeed: 5
@@ -52,7 +56,6 @@
       interactFailureString: petting-failure-generic
       interactSuccessSound:
         path: /Audio/Animals/lizard_happy.ogg
-    - type: Fauna # Lavaland Change
 
 - type: entity
   id: MobTomatoKiller
@@ -210,4 +213,3 @@
   #      Blunt: 0.11
   - type: StaticPrice
     price: 400
-  - type: Fauna # Lavaland Change

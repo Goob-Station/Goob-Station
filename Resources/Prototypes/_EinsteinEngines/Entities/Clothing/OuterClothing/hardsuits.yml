@@ -1,0 +1,118 @@
+# Standard Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCombatStandard
+  name: combat hardsuit
+  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/standard.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.50
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.50
+  - type: Armor # Good armour resistance across the board, comparable to the standard security hardsuit.
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Radiation: 0.75
+        Caustic: 0.75
+        Heat: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototypes: #goobstation change
+      head: ClothingHeadHelmetHardsuitCombatStandard
+  - type: AllowSuitStorage
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
+
+- type: entity
+  parent: [ClothingOuterHardsuitCombatStandard,BaseCommandContraband]
+  id: ClothingOuterHardsuitCombatOfficer
+  name: security combat hardsuit
+  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments. This one has station security markings.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitCombatOfficer #goobstation change
+
+# Medical Combat Hardsuits
+- type: entity
+  parent: [ClothingOuterHardsuitBase,BaseCommandContraband]
+  id: ClothingOuterHardsuitCombatMedical
+  name: medical combat hardsuit
+  description: A purpose-built combat suit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/medical.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/medical.rsi
+  - type: PressureProtection # Less protective from high pressure than a standard hardsuit due to less plating.
+    highPressureMultiplier: 0.60
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.60
+  - type: Armor # Slightly less armour than the standard hardsuit, but far higher mobility.
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Radiation: 0.80
+        Caustic: 0.80
+        Heat: 0.80
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: ToggleableClothing
+    clothingPrototypes: #goobstation change
+      head: ClothingHeadHelmetHardsuitCombatMedical
+  - type: AllowSuitStorage
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 1
+    knockdownTimeDelta: -1
+
+# Riot Combat Hardsuits
+- type: entity
+  parent: [ClothingOuterHardsuitBase,BaseCommandContraband]
+  id: ClothingOuterHardsuitCombatRiot
+  name: riot combat hardsuit
+  description: A purpose-built combat suit designed for crowd control against armed combatants in low pressure environments.
+  components:
+  - type: Sprite
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/riot.rsi
+  - type: Clothing
+    sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/riot.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.40
+  - type: Armor # More protective than a standard security hardsuit, but far slower.
+    modifiers:
+      coefficients:
+        Blunt: 0.50
+        Slash: 0.50
+        Piercing: 0.40
+        Radiation: 0.70
+        Caustic: 0.70
+        Heat: 0.40
+  - type: ClothingSpeedModifier
+    walkModifier: 0.60
+    sprintModifier: 0.60
+  - type: ToggleableClothing
+    clothingPrototypes: #goobstation change
+      head: ClothingHeadHelmetHardsuitCombatRiot
+  - type: AllowSuitStorage

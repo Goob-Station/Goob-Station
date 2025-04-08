@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared.Physics;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -24,4 +23,10 @@ public sealed partial class LaserPointerComponent : Component
 
     [DataField]
     public Color DefaultColor = Color.Red;
+
+    [ViewVariables]
+    public TimeSpan LastNetworkEventTime = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan MaxDelayBetweenNetworkEvents = TimeSpan.FromSeconds(0.5);
 }

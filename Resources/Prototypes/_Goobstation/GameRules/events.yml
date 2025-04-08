@@ -6,25 +6,19 @@
     weight: 3 # rare
     duration: 1
     # no occurences limit so newly arriving tiders can also get it
-  - type: JobAddComponentsRule
+  - type: JobAddTagsRule
     message: station-event-tidemind-message
     affected:
       - Passenger
-    components:
-    - type: IntrinsicRadioReceiver
-    - type: IntrinsicRadioTransmitter
-      channels:
-      - TideHivemind
-    - type: ActiveRadio
-      channels:
-      - TideHivemind
+    tags:
+      - TidemindMind
 
 - type: entity
   parent: BaseGameRule
   id: DerelictCyborgSyndicateSpawn
   components:
   - type: StationEvent
-    weight: 2
+    weight: 6 # Rare, but not AS rare
     earliestStart: 15
     reoccurrenceDelay: 20
     minimumPlayers: 4

@@ -22,6 +22,8 @@ public sealed class AutodocBoundUserInterface : BoundUserInterface
         _window.OnAddStep += (program, step, index) => SendMessage(new AutodocAddStepMessage(program, step, index));
         _window.OnRemoveStep += (program, stepIndex) => SendMessage(new AutodocRemoveStepMessage(program, stepIndex));
 
+        _window.OnImportProgram += (program) => SendMessage(new AutodocImportProgramMessage(program));
+
         _window.OnStart += program => SendMessage(new AutodocStartMessage(program));
         _window.OnStop += () => SendMessage(new AutodocStopMessage());
 

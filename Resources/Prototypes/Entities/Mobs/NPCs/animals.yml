@@ -111,6 +111,17 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -118,6 +129,7 @@
     - Bee
     - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -233,6 +245,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -434,6 +447,7 @@
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: mothroach
@@ -549,7 +563,6 @@
     - Mouse
   - type: Body
     prototype: Mothroach
-  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -568,8 +581,6 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # Shitmed
-        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -669,6 +680,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExaminableHunger
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -775,7 +787,24 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1
+  - type: Butcherable
+    spawned:
+    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
   - type: Bloodstream
+    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -834,6 +863,7 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
+  - type: ExaminableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -856,11 +886,6 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -937,11 +962,6 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 - type: entity
   name: goat
@@ -1001,6 +1021,7 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
+  - type: ExaminableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -1038,11 +1059,6 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1162,7 +1178,6 @@
     speedModifierThresholds:
       80: 0.7
       100: 0.5
-  - type: Fauna # Lavaland Change
 
 - type: entity
   name: kangaroo
@@ -1273,7 +1288,6 @@
     allowInventory: false
   - type: CombatMode
   # Shitmed Change Start
-  - type: SurgeryTarget
   - type: Targeting
   - type: HumanoidAppearance
     species: Monkey
@@ -1324,10 +1338,10 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "id" ]
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
-    - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -1351,12 +1365,6 @@
   - type: Body # Shitmed Change
     prototype: Monkey
     requiredLegs: 2
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1412,6 +1420,12 @@
       effects:
       - !type:WashCreamPieReaction
   - type: LayingDown # Goobstation
+  - type: Vocal # Goobstation
+    sounds:
+      Male: MonkeyMode
+      Female: MonkeyMode
+      Unsexed: MonkeyMode
+    wilhelmProbability: 0.001
 
 
 
@@ -1435,7 +1449,7 @@
     makeSentient: true
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
-    rules: ghost-role-information-nonantagonist-rules
+    rules: ghost-role-information-freeagent-rules # Goobstation - - remove: 1984
   - type: GhostTakeoverAvailable
   - type: Clumsy
     gunShootFailDamage:
@@ -1446,7 +1460,6 @@
         Burn: 3
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
-  - type: Fauna # Lavaland Change
 
 - type: entity
   name: monkey
@@ -1641,11 +1654,6 @@
   - type: VentCrawler # goobstation - Ventcrawl
   - type: Body
     prototype: Mouse
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -1738,13 +1746,14 @@
       Dead: 0
     baseDecayRate: 0.04
   - type: Hunger
+    startingHunger: 15 # Goobstation change
     thresholds:
       Overfed: 35
       Okay: 25
       Peckish: 15
       Starving: 10
       Dead: 0
-    baseDecayRate: 0.5 # I'm very hungry! Give me. The cheese.
+    baseDecayRate: 0.04 #Goob change
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager
@@ -1753,6 +1762,10 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
+        - ReagentId: MouseBites
+          Quantity: 3
+      melee:
+        maxVol: 5
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -1792,7 +1805,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Slash: 1 # Goobstation - LET THE HORDES ROAM!!
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
@@ -1817,10 +1830,36 @@
         sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
-  - type: NightVision # Goobstation - Nigthvision
+  # <Goobstation>
+  - type: NightVision
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: EggLayer
+    eggSpawn:
+    - id: MobMouse
+    hungerUsage: 20
+    eggLayAction: MouseMultiply
+    hungerRequired: true
+  - type: SolutionRegeneration
+    solution: melee
+    generated:
+      reagents:
+      - ReagentId: MouseBites
+        Quantity: 1
+  - type: MeleeChemicalInjector
+    transferAmount: 1
+    solution: melee
+  - type: GibThisGuy
+    ocNames:
+    - BombasterDS
+    - Gallagin
+  - type: DodgeWideswing
+    staminaRatio: 1 # mice are small so can probably evade without much stamina drain
+  - type: Stamina
+    critThreshold: 20
+  - type: LayingDown
+  # </Goobstation>
 
 - type: entity
   parent: MobMouse
@@ -2383,11 +2422,6 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -2457,7 +2491,6 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: Fauna # Lavaland Change
 
 - type: entity
   parent: MobSpiderBase
@@ -2803,6 +2836,7 @@
   - type: Physics
   - type: Speech
     speechVerb: Canine
+    speechSounds: Dog
   - type: Fixtures
     fixtures:
       fix1:
@@ -3005,6 +3039,7 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: VentCrawler # goobstation - Ventcrawl
 
 - type: entity
   name: calico cat

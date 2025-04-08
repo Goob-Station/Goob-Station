@@ -15,8 +15,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3.75
-            Brute: -1.25
+            Burn: -1.75
+            Brute: -1.75
           types:
             Bloodloss: -1.25
       - !type:ModifyBloodLevel
@@ -29,8 +29,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3.75
-            Brute: -1.25
+            Burn: -4.75
+            Brute: -4.75
           types:
             Bloodloss: -1.25
         conditions:
@@ -56,3 +56,44 @@
         emote: Scream
         probability: 0.05
         #It's balanced I swear!
+
+- type: reagent
+  id: Luxurium
+  name: reagent-name-luxurium
+  group: Medicine
+  desc: reagent-desc-luxurium
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: metallic
+  color: "#302f70"
+  recognizable: true
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 2
+            Asphyxiation: 1.75
+            Bloodloss: 3
+          groups:
+            Toxin: 1.5
+            Brute: 7.5
+            Burn: 4
+            Airloss: 1.5
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: -2
+            Asphyxiation: -1.75
+            Bloodloss: -3
+          groups:
+            Toxin: -1.5
+            Brute: -7.5
+            Burn: -4
+            Airloss: -1.5
+        conditions:
+          - !type:PressureThreshold
+            min: 0
+            max: 50
+            worksOnLavaland: true
+      # Cuts the amount healed roughly by 50% when in normal pressure.

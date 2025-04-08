@@ -1,6 +1,7 @@
 using Content.Server.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Bed.Sleep; // Shitmed Change
 using Content.Shared.Body.Organ;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -146,7 +147,7 @@ namespace Content.Server.Body.Systems
             var list = solution.Contents.ToArray();
             _random.Shuffle(list);
 
-            int reagents = 0;
+            int poisons = 0;
             foreach (var (reagent, quantity) in list)
             {
                 if (!_prototypeManager.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto))
@@ -163,9 +164,9 @@ namespace Content.Server.Body.Systems
                     continue;
                 }
 
-                // we're done here entirely if this is true
-                if (reagents >= ent.Comp1.MaxReagentsProcessable)
-                    return;
+                // Already processed all poisons, skip to the next reagent.
+                if (poisons >= ent.Comp1.MaxPoisonsProcessable && proto.Metabolisms.ContainsKey("Poison"))
+                    continue;
 
 
                 // loop over all our groups and see which ones apply
@@ -189,8 +190,17 @@ namespace Content.Server.Body.Systems
                     // still remove reagents
                     if (TryComp<MobStateComponent>(solutionEntityUid.Value, out var state))
                     {
+                        // Shitmed Change Start
+
                         if (!proto.WorksOnTheDead && _mobStateSystem.IsDead(solutionEntityUid.Value, state))
                             continue;
+
+                        if (proto.WorksOnUnconscious == true &&
+                            (_mobStateSystem.IsCritical(solutionEntityUid.Value, state) ||
+                             HasComp<SleepingComponent>(solutionEntityUid.Value)))
+                            continue;
+
+                        // Shitmed Change End
                     }
 
                     var actualEntity = ent.Comp2?.Body ?? solutionEntityUid.Value;
@@ -223,8 +233,9 @@ namespace Content.Server.Body.Systems
                 {
                     solution.RemoveReagent(reagent, mostToRemove);
 
-                    // We have processed a reagant, so count it towards the cap
-                    reagents += 1;
+                    // We have processed a poison, so count it towards the cap
+                    if (proto.Metabolisms.ContainsKey("Poison"))
+                        poisons++;
                 }
             }
 

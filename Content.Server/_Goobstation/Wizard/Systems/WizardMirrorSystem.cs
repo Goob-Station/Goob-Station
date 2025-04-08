@@ -1,6 +1,10 @@
+using Content.Server.Guardian;
 using Content.Server.Humanoid;
+using Content.Server.Mind;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Server.Popups;
+using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.MagicMirror;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Humanoid;
@@ -21,6 +25,8 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
     [Dependency] private readonly GrammarSystem _grammar = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     public override void Initialize()
     {
@@ -57,6 +63,12 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
         if (humanoid.Species != profile.Species && component.AllowedSpecies.Contains(profile.Species) &&
             _proto.TryIndex(profile.Species, out var speciesProto))
         {
+            if (HasComp<GuardianHostComponent>(target))
+            {
+                _popup.PopupEntity(Loc.GetString("wizard-mirror-guardian-change-species-fail"), target, target);
+                return;
+            }
+
             var config = new PolymorphConfiguration
             {
                 Entity = speciesProto.Prototype,
@@ -68,9 +80,9 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
                 RevertOnDeath = false,
                 ComponentsToTransfer = new()
                 {
-                    "Wizard",
-                    "Apprentice",
-                    "NpcFactionMember",
+                    new("Wizard", mirror: true),
+                    new ("Apprentice", mirror: true),
+                    new ("NpcFactionMember"),
                 },
             };
             var newUid = _polymorph.PolymorphEntity(target, config);
@@ -148,6 +160,15 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
             _grammar.SetGender((identity, identityGrammar), profile.Gender);
 
         humanoid.Age = age;
+
+        if (_mind.TryGetMind(target, out var mind, out _) && TryComp(mind, out SoulBoundComponent? soulBound))
+        {
+            soulBound.Name = profile.Name;
+            soulBound.Age = age;
+            soulBound.Gender = profile.Gender;
+            soulBound.Sex = profile.Sex;
+            Dirty(mind, soulBound);
+        }
 
         RaiseLocalEvent(target, new ProfileLoadFinishedEvent());
         Dirty(target, humanoid);

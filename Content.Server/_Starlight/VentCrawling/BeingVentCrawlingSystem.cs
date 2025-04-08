@@ -5,8 +5,7 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared._Starlight.VentCrawling.Components;
 using Content.Shared.Actions.Events;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -28,8 +27,7 @@ public sealed class BeingVentCrawSystem : EntitySystem
 
         // List of all actions you cant do while in the pipe
         SubscribeLocalEvent<BeingVentCrawlerComponent, ActionAttemptEvent>(OnActionAttempt);
-        SubscribeLocalEvent<BeingVentCrawlerComponent, AttemptMeleeEvent>(OnMeleeAttempt);
-        SubscribeLocalEvent<BeingVentCrawlerComponent, ShotAttemptedEvent>(OnShootAttempt);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<BeingVentCrawlerComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<BeingVentCrawlerComponent, ThrowAttemptEvent>(OnThrowAttempt);
         SubscribeLocalEvent<BeingVentCrawlerComponent, DropAttemptEvent>(OnDropAttempt);
@@ -102,10 +100,7 @@ public sealed class BeingVentCrawSystem : EntitySystem
     private void OnActionAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref ActionAttemptEvent args)
         => args.Cancelled = true;
 
-    private void OnMeleeAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref AttemptMeleeEvent args)
-        => args.Cancelled = true;
-
-    private void OnShootAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref ShotAttemptedEvent args)
+    private void OnAttackAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref AttackAttemptEvent args)
         => args.Cancel();
 
     private void OnPickupAttempt(EntityUid uid, BeingVentCrawlerComponent component, ref PickupAttemptEvent args)

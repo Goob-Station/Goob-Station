@@ -8,13 +8,13 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
+using Content.Shared.Cloning;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -22,6 +22,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Parallax;
 using Robust.Server.Audio;
 using Robust.Shared.Player;
@@ -37,11 +38,11 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly IAdminLogManager _log = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
@@ -60,12 +61,30 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
         SubscribeLocalEvent<WizardComponent, MobStateChangedEvent>(OnStateChanged);
         SubscribeLocalEvent<WizardComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<WizardComponent, CloningEvent>(OnWizardClone);
         SubscribeLocalEvent<ApprenticeComponent, MobStateChangedEvent>(OnStateChanged);
         SubscribeLocalEvent<ApprenticeComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<ApprenticeComponent, CloningEvent>(OnApprenticeClone);
         SubscribeLocalEvent<PhylacteryComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
 
         SubscribeLocalEvent<DimensionShiftEvent>(OnDimensionShift);
+    }
+
+    private void OnApprenticeClone(Entity<ApprenticeComponent> ent, ref CloningEvent args)
+    {
+        EnsureComp<ApprenticeComponent>(args.Target);
+        RemCompDeferred<ApprenticeComponent>(args.Source);
+        _faction.ClearFactions(args.Target, false);
+        _faction.AddFaction(args.Target, Faction);
+    }
+
+    private void OnWizardClone(Entity<WizardComponent> ent, ref CloningEvent args)
+    {
+        EnsureComp<WizardComponent>(args.Target);
+        RemCompDeferred<WizardComponent>(args.Source);
+        _faction.ClearFactions(args.Target, false);
+        _faction.AddFaction(args.Target, Faction);
     }
 
     private void OnDimensionShift(DimensionShiftEvent ev)
@@ -158,7 +177,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private void CheckRoundShouldEnd()
     {
-        if (!_gameTicker.IsGameRuleActive<EndRoundOnWizardDeathRuleComponent>() ||
+        if (!_gameTicker.IsGameRuleActive<RuleOnWizardDeathRuleComponent>() ||
             !_gameTicker.IsGameRuleActive<WizardRuleComponent>())
             return;
 
@@ -188,12 +207,12 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         if (!endRound)
             return;
 
-        var endQuery = EntityQueryEnumerator<EndRoundOnWizardDeathRuleComponent, GameRuleComponent>();
-        while (endQuery.MoveNext(out var uid, out _, out var gameRule))
+        var endQuery = EntityQueryEnumerator<RuleOnWizardDeathRuleComponent, GameRuleComponent>();
+        while (endQuery.MoveNext(out var uid, out var ruleOnDeath, out var gameRule))
         {
             _gameTicker.EndGameRule(uid, gameRule);
+            _gameTicker.StartGameRule(ruleOnDeath.Rule);
         }
-        _roundEnd.EndRound();
     }
 
     public IEnumerable<Entity<StationDataComponent>> GetWizardTargetStations()

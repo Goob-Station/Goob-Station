@@ -8,7 +8,7 @@
     inventory: Drop
     revertOnDeath: false
     revertOnCrit: false
-    
+
 - type: polymorph
   id: Bananamen
   configuration:
@@ -32,3 +32,24 @@
     revertOnDeath: true
     revertOnCrit: true
     duration: 20
+
+- type: polymorph
+  id: MouseSentient
+  configuration:
+    entity: MobMouseSentient
+    forced: true
+    inventory: Transfer
+    revertOnDeath: true
+    transferName: true
+    revertOnCrit: true
+
+- type: polymorph
+  id: BinglePolymorph
+  configuration:
+    entity: MobBingleUpgraded
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Drop
+    revertOnDeath: false
+    revertOnCrit: false

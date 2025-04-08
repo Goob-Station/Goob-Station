@@ -199,6 +199,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    attachToGridOrMap: true # Goobstation
 
 # Temporary Jaunt
 # Don't make permanent jaunts until action system can be reworked to allow do afters and cooldown pausing
@@ -216,3 +217,4 @@
     # exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg # Goob edit
     duration: 5 # Gppb edot
     showPopup: false # Goobstation
+    attachToGridOrMap: true # Goobstation

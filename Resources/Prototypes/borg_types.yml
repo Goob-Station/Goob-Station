@@ -1,4 +1,4 @@
-﻿# Generic borg
+# Generic borg
 - type: borgType
   id: generic
 
@@ -80,9 +80,10 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleGrapplingGun
   - BorgModuleMining
+  - BorgModuleGrapplingGun
   - BorgModuleAppraisal
+  - BorgModulePKA # Lavaland
 
   radioChannels:
   - Supply
@@ -152,6 +153,7 @@
 
   defaultModules:
   - BorgModuleTreatment
+  - BorgModuleLollipop # Goobstation.
 
   radioChannels:
   - Science
@@ -165,8 +167,10 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-  - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
+  - type: SurgeryIgnoreClothing
+  - type: SurgerySpeedModifier
+    speedModifier: 1.5
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -203,6 +207,7 @@
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
+  - BorgModuleLollipop # Goobstation
 
   radioChannels:
   - Science

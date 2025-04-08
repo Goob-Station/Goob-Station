@@ -37,8 +37,8 @@
   #  overrideContainerOcclusion: true
   #  drawdepth: Ghosts
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3 # Goob edit
-    baseWalkSpeed: 3 # Goob edit
+    baseSprintSpeed: 4 # Goob edit
+    baseWalkSpeed: 4 # Goob edit
   - type: WizardJaunt # Goobstation
   - type: IsDeadIC # Goobstation
     dead: false

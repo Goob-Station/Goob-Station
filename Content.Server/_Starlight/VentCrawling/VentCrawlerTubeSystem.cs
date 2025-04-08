@@ -70,6 +70,9 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Args.Target == null || args.Args.Used == null)
             return;
 
+        if (!component.AllowInventory && IsHoldingItems(args.Args.Used.Value))
+            return;
+
         TryInsert(args.Args.Target.Value, args.Args.Used.Value);
 
         args.Handled = true;
@@ -83,23 +86,8 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
                 return;
             }
 
-        if (!crawler.AllowInventory){
-            if (_inventory.TryGetSlotEntity(user, "outerClothing", out var suit) || _inventory.TryGetSlotEntity(user, "back", out var backpack))
-            {
-                _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-equiptment"), user);
-                return;
-            }
-            if (_hands.TryGetHand(user, "body_part_slot_right hand", out var rhand) && !rhand.IsEmpty)
-            {
-                _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), user);
-                return;
-            }
-            if (_hands.TryGetHand(user, "body_part_slot_left hand", out var lhand) && !lhand.IsEmpty)
-            {
-                _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), user);
-                return;
-            }
-        }
+        if (!crawler.AllowInventory && IsHoldingItems(user))
+            return;
 
         var args = new DoAfterArgs(EntityManager, user, crawler.EnterDelay, new EnterVentDoAfterEvent(), user, uid, user)
         {
@@ -183,6 +171,9 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
 
         tube.Connected = false;
 
+        if (tube.Contents is null)
+            return; //runtime error on map load with prospector shuttle 4 some reason
+
         var query = GetEntityQuery<VentCrawlerHolderComponent>();
         foreach (var entity in tube.Contents.ContainedEntities.ToArray())
         {
@@ -213,5 +204,26 @@ public sealed class VentCrawlerTubeSystem : EntitySystem
         Dirty(entity, ventCrawlerComponent);
 
         return _ventCrawableSystem.EnterTube(holder, uid, holderComponent);
+    }
+
+    private bool IsHoldingItems (EntityUid uid)
+    {
+        if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var suit) || _inventory.TryGetSlotEntity(uid, "back", out var backpack))
+        {
+            _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-equiptment"), uid);
+            return true;
+        }
+        if (_hands.TryGetHand(uid, "body_part_slot_right hand", out var rhand) && !rhand.IsEmpty)
+        {
+            _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
+            return true;
+        }
+        if (_hands.TryGetHand(uid, "body_part_slot_left hand", out var lhand) && !lhand.IsEmpty)
+        {
+            _popup.PopupEntity(Loc.GetString("ventcrawling-block-enter-reson-hand"), uid);
+            return true;
+        }
+
+        return false;
     }
 }

@@ -10,8 +10,14 @@ public sealed partial class LavalandRuinPrototype : IPrototype
 {
     [IdDataField] public string ID { get; } = default!;
 
-    [DataField] public string Name = "Unknown Ruin";
+    [DataField] public LocId Name = "lavaland-ruin-unknown";
 
     [DataField(required: true)]
     public string Path { get; } = default!;
+
+    [DataField]
+    public int SpawnAttemps = 8;
+
+    [DataField(required: true)]
+    public int Priority = int.MinValue;
 }

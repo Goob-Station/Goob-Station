@@ -857,7 +857,7 @@
   parent: PosterBase
   id: PosterLegitEnlist
   name: "Enlist"
-  description: "Enlist in the Nanotrasen Deathsquadron reserves today!"
+  description: "Enlist in the Nanotrasen ERT reserves today!" # Goobstation - There's no such thing as a deathsquad.
   components:
   - type: Sprite
     state: poster29_legit

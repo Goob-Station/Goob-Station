@@ -83,6 +83,48 @@
     DefaultDeathgasp:
       collection: FemaleDeathGasp
 
+- type: emoteSounds ## GOOB CONTENT START
+  id: MonkeyMode
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MonkeyScreeches
+    Laugh:
+      collection: MonkeyScreeches
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MonkeyScreeches
+    Snore:
+      collection: MonkeyScreeches
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MonkeyScreeches
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp ## GOOB CONTENT END
+
 - type: emoteSounds
   id: MaleReptilian
   params:

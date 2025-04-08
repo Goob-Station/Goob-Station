@@ -109,11 +109,11 @@
   components:
   - type: Sharp
   - type: UnpoweredFlashlight
+  - type: MegafaunaWeaponLooter # So that the crusher, glaive, and dagger get this as well
   - type: PointLight
     color: "#ffeead"
     enabled: false
     radius: 4
-  - type: PressureDamageChange # Lavaland Change: Pressure damage change for kinetic weapons
 
 - type: entity
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
@@ -142,12 +142,12 @@
     capacity: 1
     count: 1
   - type: MeleeWeapon
-    attackRate: 1.2 # Lavaland Change
+    attackRate: 0.8 # Lavaland Change (slightly faster than fireaxe, still weaker damage wise)
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 13 # Lavaland Change: no damage when unwielded
-        Slash: 7
+        Blunt: 10 # Lavaland Change: no damage when unwielded2
+        Slash: 5
     soundHit:
       collection: MetalThud
   - type: Wieldable
@@ -163,15 +163,15 @@
   - type: DamageBoostOnMarker
     boost:
       types: # Totals to 70 damage when hitting marked targets
-        Blunt: 34
-        Slash: 16
+        Blunt: 32
+        Slash: 18
     backstabBoost: # And 30 extra for a backstab. Adding up to 100
       types:
         Blunt: 19
         Slash: 11
 
 - type: entity
-  parent: [ BaseWeaponCrusher, BaseSecurityCargoContraband]
+  parent: [ BaseKnife, BaseWeaponCrusher, BaseSecurityCargoContraband]
   id: WeaponCrusherDagger
   name: crusher dagger
   description: A scaled down version of a proto-kinetic crusher. Uses kinetic energy to vibrate the blade at high speeds.
@@ -189,6 +189,18 @@
   - type: Tag
     tags:
     - Knife
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+  - type: DisarmMalus
+    malus: 0.225
+  - type: ThrowingAngle
+    angle: 225
 
 # Like a crusher... but better
 - type: entity

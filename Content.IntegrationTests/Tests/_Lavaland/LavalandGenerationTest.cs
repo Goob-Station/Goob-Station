@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server._Lavaland.Procedural.Systems;
 using Content.Server.GameTicking;
@@ -16,7 +16,8 @@ public sealed class LavalandGenerationTest
     [Test]
     public async Task LavalandPlanetGenerationTest()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { DummyTicker = false, Dirty = true, Fresh = true});
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+            { DummyTicker = false, Dirty = true, Fresh = true });
         var server = pair.Server;
         var entMan = server.EntMan;
         var protoMan = server.ProtoMan;
@@ -27,10 +28,12 @@ public sealed class LavalandGenerationTest
         var mapSystem = entMan.System<SharedMapSystem>();
 
         // Setup
-        pair.Server.CfgMan.SetCVar(CCVars.LavalandEnabled, false);
+        pair.Server.CfgMan.SetCVar(CCVars.LavalandEnabled, true);
         pair.Server.CfgMan.SetCVar(CCVars.GameDummyTicker, false);
         var gameMap = pair.Server.CfgMan.GetCVar(CCVars.GameMap);
         pair.Server.CfgMan.SetCVar(CCVars.GameMap, "Saltern");
+        var gameMode = pair.Server.CfgMan.GetCVar(CCVars.GameLobbyDefaultPreset);
+        pair.Server.CfgMan.SetCVar(CCVars.GameLobbyDefaultPreset, "secret");
 
         await server.WaitPost(() => ticker.RestartRound());
         await pair.RunTicksSync(25);
@@ -46,15 +49,16 @@ public sealed class LavalandGenerationTest
             Entity<LavalandMapComponent>? lavaland = null;
 
             // Seed is always the same to reduce randomness
-            await server.WaitPost(() => attempt = lavaSystem.SetupLavaland(out lavaland, seed, planet));
+            await server.WaitPost(() => lavaSystem.EnsurePreloaderMap());
+            await server.WaitPost(() => attempt = lavaSystem.SetupLavalandPlanet(out lavaland, planet, seed));
             await pair.RunTicksSync(30);
 
+            Assert.That(attempt, Is.True);
             Assert.That(lavaland, Is.Not.Null);
 
-            var mapId = lavaland.Value.Comp.MapId;
+            var mapId = entMan.GetComponent<TransformComponent>(lavaland.Value).MapID;
 
             // Now check the basics
-            Assert.That(attempt, Is.True);
             Assert.That(mapMan.MapExists(mapId));
             Assert.That(entMan.EntityExists(lavaland.Value.Owner));
             Assert.That(entMan.EntityExists(lavaland.Value.Comp.Outpost));
@@ -75,8 +79,16 @@ public sealed class LavalandGenerationTest
         var lavalands = lavaSystem.GetLavalands();
         Assert.That(planets, Has.Count.EqualTo(lavalands.Count));
 
-        pair.Server.CfgMan.SetCVar(CCVars.GameMap, gameMap);
+        // Cleanup
+        foreach (var lavaland in lavalands)
+        {
+            entMan.QueueDeleteEntity(lavaland);
+        }
 
+        await pair.RunTicksSync(10);
+
+        pair.Server.CfgMan.SetCVar(CCVars.GameMap, gameMap);
+        pair.Server.CfgMan.SetCVar(CCVars.GameLobbyDefaultPreset, gameMode);
         pair.ClearModifiedCvars();
         await pair.CleanReturnAsync();
     }

@@ -17,22 +17,33 @@ public sealed class LavalandMappingCommand : IConsoleCommand
 
     public string Description => "Loads lavaland world on a new map. Be careful, this can cause freezes on runtime!";
 
-    public string Help => "mappinglavaland <prototype id> <seed>";
+    public string Help => "mappinglavaland <prototype id> <seed (optional)>";
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        LavalandMapPrototype? lavalandProto = null;
+        LavalandMapPrototype? lavalandProto;
         int? lavalandSeed = null;
 
         switch (args.Length)
         {
             case 0:
-                break;
+                shell.WriteLine(Loc.GetString("Enter Lavaland prototype ID as a first argument"));
+                shell.WriteLine(Help);
+                return;
             case 1:
-                lavalandProto = _proto.Index<LavalandMapPrototype>(args[0]);
+                if (!_proto.TryIndex(args[0], out lavalandProto))
+                {
+                    shell.WriteLine(Loc.GetString("Wrong lavaland prototype!"));
+                    return;
+                }
                 break;
             case 2:
-                lavalandProto = _proto.Index<LavalandMapPrototype>(args[0]);
+                if (!_proto.TryIndex(args[0], out lavalandProto))
+                {
+                    shell.WriteLine(Loc.GetString("Wrong lavaland prototype!"));
+                    return;
+                }
+
                 if (!ushort.TryParse(args[1], out var targetId))
                 {
                     shell.WriteLine(Loc.GetString("shell-argument-must-be-number"));
@@ -43,11 +54,17 @@ public sealed class LavalandMappingCommand : IConsoleCommand
             default:
                 shell.WriteLine(Loc.GetString("cmd-playerpanel-invalid-arguments"));
                 shell.WriteLine(Help);
-                break;
+                return;
         }
 
-        if (!_entityManager.System<LavalandPlanetSystem>().SetupLavaland(out var lavaland, lavalandSeed, lavalandProto))
-            shell.WriteLine("Failed to load lavaland due to an exception!");
+        shell.WriteLine("Starting lavaland map...");
+        var lavalandSys = _entityManager.System<LavalandPlanetSystem>();
+
+        if (lavalandSys.GetPreloaderEntity() == null)
+            lavalandSys.EnsurePreloaderMap();
+
+        if (!lavalandSys.SetupLavalandPlanet(out var lavaland, lavalandProto, lavalandSeed))
+            shell.WriteLine("Failed to load lavaland!");
 
         shell.WriteLine($"Successfully created new lavaland map: {_entityManager.ToPrettyString(lavaland)}");
     }

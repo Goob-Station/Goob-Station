@@ -28,7 +28,7 @@
   cost: 5000
   recipeUnlocks:
   - RadarConsoleCircuitboard
-  - HandHeldMassScanner
+#  - HandHeldMassScanner - Removed by Lavaland
   - BorgModuleGPS
 
 - type: technology

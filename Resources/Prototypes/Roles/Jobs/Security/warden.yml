@@ -11,6 +11,7 @@
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  goobcoins: 35 #Goob content
   access:
   - Security
   - Brig
@@ -36,3 +37,4 @@
     - Flash
     - MagazinePistol
     - SecHypo # Goobstation
+    - ClothingMaskGasSecurity # Goobstation

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Atmos.Components;
@@ -6,25 +7,24 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.Parallax;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Systems;
 using Content.Shared._Lavaland.Procedural.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
+using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
-using Content.Shared.Whitelist;
-using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Shared.Configuration;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Lavaland.Procedural.Systems;
 
@@ -33,11 +33,15 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 /// </summary>
 public sealed class LavalandPlanetSystem : EntitySystem
 {
-    [ViewVariables]
-    private (EntityUid Uid, MapId Id)? _lavalandPreloader; // Global map for lavaland preloading
+    /// <summary>
+    /// Whether lavaland is enabled or not.
+    /// </summary>
+    public bool LavalandEnabled = true;
 
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
@@ -48,8 +52,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -59,73 +61,54 @@ public sealed class LavalandPlanetSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PreGameMapLoad>(OnRreloadStart);
-        SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
         _fixtureQuery = GetEntityQuery<FixturesComponent>();
+
+        Subs.CVar(_config, CCVars.LavalandEnabled, value => LavalandEnabled = value, true);
     }
 
-    private void OnRreloadStart(PreGameMapLoad ev)
-    {
-        if (!_config.GetCVar(CCVars.LavalandEnabled))
-        {
-            return;
-        }
+    #region Events
 
-        SetupPreloader();
-        SetupLavaland(out _);
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        var ent = GetPreloaderEntity();
+        if (ent == null)
+            return;
+
+        Del(ent.Value.Owner);
     }
 
-    private void OnRoundStart(RoundStartAttemptEvent ev)
+    #endregion
+
+    #region Public API
+
+    public void EnsurePreloaderMap()
     {
-        if (!_config.GetCVar(CCVars.LavalandEnabled))
-        {
-            return;
-        }
-
-        var lavalands = GetLavalands();
-        if (lavalands.Count == 0)
-            return;
-
-        var defaultStation = _station.GetStationInMap(_ticker.DefaultMap);
-        if (defaultStation == null)
+        // Already have a preloader?
+        if (GetPreloaderEntity() != null)
             return;
 
-        foreach (var lavaland in lavalands)
-        {
-            // Add all outposts as a new station grid member
-            _station.AddGridToStation(defaultStation.Value, lavaland.Comp.Outpost);
-        }
-    }
-
-    private void OnCleanup(RoundRestartCleanupEvent ev)
-    {
-        ShutdownPreloader();
-    }
-
-    private void SetupPreloader()
-    {
-        if (_lavalandPreloader != null &&
-            !TerminatingOrDeleted(_lavalandPreloader.Value.Uid))
+        if (!LavalandEnabled)
             return;
 
         var mapUid = _map.CreateMap(out var mapId, false);
+        EnsureComp<LavalandPreloaderComponent>(mapUid);
         _metaData.SetEntityName(mapUid, "Lavaland Preloader Map");
         _map.SetPaused(mapId, true);
-        _lavalandPreloader = (mapUid, mapId);
     }
 
-    private void ShutdownPreloader()
+    public Entity<LavalandPreloaderComponent>? GetPreloaderEntity()
     {
-        if (_lavalandPreloader == null ||
-            TerminatingOrDeleted(_lavalandPreloader.Value.Uid))
-            return;
+        var query = AllEntityQuery<LavalandPreloaderComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            return (uid, comp);
+        }
 
-        _mapManager.DeleteMap(_lavalandPreloader.Value.Id);
-        _lavalandPreloader = null;
+        return null;
     }
 
     public List<Entity<LavalandMapComponent>> GetLavalands()
@@ -140,26 +123,100 @@ public sealed class LavalandPlanetSystem : EntitySystem
         return lavalands;
     }
 
-    public bool SetupLavaland(out Entity<LavalandMapComponent>? lavaland, int? seed = null, LavalandMapPrototype? prototype = null)
+    /// <summary>
+    /// Setup ALL instances of LavalandMapPrototype.
+    /// </summary>
+    public void SetupLavalands()
     {
-        if (_lavalandPreloader == null)
-            SetupPreloader();
+        foreach (var lavaland in _proto.EnumeratePrototypes<LavalandMapPrototype>())
+        {
+            if (!SetupLavalandPlanet(out _, lavaland))
+            {
+                Log.Error($"Failed to load lavaland planet: {lavaland.ID}");
+            }
+        }
+    }
+
+    #endregion
+
+    #region Planet Systems
+
+    public bool SetupLavalandPlanet(
+        out Entity<LavalandMapComponent>? lavaland,
+        LavalandMapPrototype prototype,
+        int? seed = null,
+        Entity<LavalandPreloaderComponent>? preloader = null)
+    {
+        lavaland = null;
+
+        if (preloader == null)
+        {
+            preloader = GetPreloaderEntity();
+            if (preloader == null)
+                return false;
+        }
 
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
         var mapComp = EnsureComp<LavalandMapComponent>(lavalandMap);
         lavaland = (lavalandMap, mapComp);
 
-        // If specified, force new seed or prototype
+        // If specified, force new seed
         seed ??= _random.Next();
-        prototype ??= _random.Pick(_proto.EnumeratePrototypes<LavalandMapPrototype>().ToList());
-        var lavalandSeed = seed.Value;
 
         var lavalandPrototypeId = prototype.ID;
-        _metaData.SetEntityName(lavalandMap, prototype.Name);
+
+        PlanetBasicSetup(lavalandMap, prototype, seed.Value);
+
+        // Ensure that it's paused
+        _map.SetPaused(lavalandMapId, true);
+
+        if (!SetupOutpost(lavalandMap, lavalandMapId, prototype.OutpostPath, out var outpost))
+            return false;
+
+        var loadBox = Box2.CentredAroundZero(new Vector2(prototype.RestrictedRange, prototype.RestrictedRange));
+
+        mapComp.Outpost = outpost;
+        mapComp.Seed = seed.Value;
+        mapComp.PrototypeId = lavalandPrototypeId;
+        mapComp.LoadArea = loadBox;
+
+        // Setup Ruins.
+        var pool = _proto.Index(prototype.RuinPool);
+        SetupRuins(pool, lavaland.Value, preloader.Value);
+
+        // Hide all grids from the mass scanner.
+        foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
+        {
+            var flag = IFFFlags.Hide;
+
+            #if DEBUG || TOOLS
+            flag = IFFFlags.HideLabel;
+            #endif
+
+            _shuttle.AddIFFFlag(grid, flag);
+        }
+
+        // Start!!1!!!
+        _map.InitializeMap(lavalandMapId);
+
+        // also preload the planet itself
+        _biome.Preload(lavalandMap, Comp<BiomeComponent>(lavalandMap), loadBox);
+
+        // Finally add destination
+        var dest = AddComp<FTLDestinationComponent>(lavalandMap);
+        dest.Whitelist = prototype.ShuttleWhitelist;
+
+        return true;
+    }
+
+    private void PlanetBasicSetup(EntityUid lavalandMap, LavalandMapPrototype prototype, int seed)
+    {
+        // Name
+        _metaData.SetEntityName(lavalandMap, Loc.GetString(prototype.Name));
 
         // Biomes
-        _biome.EnsurePlanet(lavalandMap, _proto.Index(prototype.BiomePrototype), lavalandSeed, mapLight: prototype.PlanetColor);
+        _biome.EnsurePlanet(lavalandMap, _proto.Index(prototype.BiomePrototype), seed, mapLight: prototype.PlanetColor);
 
         // Marker Layers
         var biome = EnsureComp<BiomeComponent>(lavalandMap);
@@ -167,12 +224,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
         {
             _biome.AddMarkerLayer(lavalandMap, biome, marker);
         }
-
-        foreach (var marker in prototype.MobLayers)
-        {
-            _biome.AddMarkerLayer(lavalandMap, biome, marker);
-        }
-
         Dirty(lavalandMap, biome);
 
         // Gravity
@@ -189,85 +240,44 @@ public sealed class LavalandPlanetSystem : EntitySystem
         var atmos = EnsureComp<MapAtmosphereComponent>(lavalandMap);
         _atmos.SetMapGasMixture(lavalandMap, new GasMixture(moles, prototype.Temperature), atmos);
 
-        _mapManager.SetMapPaused(lavalandMapId, true);
-
         // Restricted Range
-        // TODO: Fix restricted range...
         var restricted = new RestrictedRangeComponent
         {
             Range = prototype.RestrictedRange,
         };
         AddComp(lavalandMap, restricted);
 
+    }
+
+    private bool SetupOutpost(EntityUid lavaland, MapId lavalandMapId, ResPath path, out EntityUid outpost)
+    {
+        outpost = EntityUid.Invalid;
+
         // Setup Outpost
-        if (!_mapLoader.TryLoad(lavalandMapId, prototype.OutpostPath, out var outposts) || outposts.Count != 1)
+        if (!_mapLoader.TryLoadGrid(lavalandMapId, path, out var outpostGrid))
         {
-            Log.Error(outposts?.Count > 1
-                ? $"Loading Outpost on lavaland map failed, {prototype.OutpostPath} is not saved as a grid."
-                : $"Failed to spawn Outpost {prototype.OutpostPath} onto Lavaland map.");
+            Log.Error("Failed to load Lavaland outpost!");
             return false;
         }
 
-        // Get the outpost.
-        var outpost = EntityUid.Invalid;
-        foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
-        {
-            if (!HasComp<LavalandStationComponent>(grid))
-                continue;
+        outpost = outpostGrid.Value;
 
-            outpost = grid;
-            var member = EnsureComp<LavalandMemberComponent>(outpost);
-            member.LavalandMap = lavaland.Value;
-            member.SignalName = prototype.OutpostName;
-            break;
-        }
+        // Align outpost to planet
+        _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
 
-        if (TerminatingOrDeleted(outpost))
-        {
-            Log.Error("Lavaland outpost was loaded, but doesn't exist! (Maybe you forgot to add LavalandStationComponent?)");
-            return false;
-        }
-
-        // Align  outpost to planet
-        _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland.Value, 0, 0));
-
-        // Add outpost as a new station grid member (if it's in round)
-        var defaultStation = _station.GetStationInMap(_ticker.DefaultMap);
-        if (defaultStation != null && _ticker.RunLevel == GameRunLevel.InRound)
-            _station.AddGridToStation(defaultStation.Value, outpost);
-
-        mapComp.Outpost = outpost;
-        mapComp.Seed = seed.Value;
-        mapComp.MapId = lavalandMapId;
-        mapComp.PrototypeId = lavalandPrototypeId;
-
-        // Setup Ruins.
-        var pool = _proto.Index(prototype.RuinPool);
-        SetupRuins(pool, lavaland.Value);
-
-        // Hide all grids from the mass scanner.
-        foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
-        {
-            var flag = IFFFlags.Hide;
-
-            #if DEBUG || TOOLS
-            flag = IFFFlags.HideLabel;
-            #endif
-
-            _shuttle.AddIFFFlag(grid, flag);
-        }
-        // Start!!1!!!
-        _mapManager.DoMapInitialize(lavalandMapId);
-        _mapManager.SetMapPaused(lavalandMapId, false);
-
-        // Finally add destination, only for Mining Shittles
-        var dest = AddComp<FTLDestinationComponent>(lavalandMap);
-        dest.Whitelist = new EntityWhitelist {Components = ["MiningShuttle"]};
+        // Name it
+        _metaData.SetEntityName(outpost, Loc.GetString("lavaland-planet-outpost"));
+        var member = EnsureComp<LavalandMemberComponent>(outpost);
+        member.SignalName = Loc.GetString("lavaland-planet-outpost");
 
         return true;
     }
 
-    private void SetupRuins(LavalandRuinPoolPrototype pool, Entity<LavalandMapComponent> lavaland)
+    #endregion
+
+    #region Ruin Generation
+
+    private void SetupRuins(LavalandRuinPoolPrototype pool, Entity<LavalandMapComponent> lavaland, Entity<LavalandPreloaderComponent> preloader)
     {
         var random = new Random(lavaland.Comp.Seed);
 
@@ -275,107 +285,245 @@ public sealed class LavalandPlanetSystem : EntitySystem
         if (boundary == null)
             return;
 
-        // The LINQ shit is for filtering out all points that are inside the boundary.
         var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance);
-        var ruinsBounds = CalculateRuinBounds(pool);
-
-        List<LavalandRuinPrototype> hugeRuins = [];
-        List<LavalandRuinPrototype> smallRuins = [];
-
-        int i; // ruins stuff
-        int j; // attemps for loading
-        foreach (var selectRuin in pool.HugeRuins)
-        {
-            var proto = _proto.Index(selectRuin.Key);
-            for (i = 0; i < selectRuin.Value; i++)
-            {
-                hugeRuins.Add(proto);
-            }
-        }
-
-        foreach (var selectRuin in pool.SmallRuins)
-        {
-            var proto = _proto.Index(selectRuin.Key);
-            for (i = 0; i < selectRuin.Value; i++)
-            {
-                smallRuins.Add(proto);
-            }
-        }
-
-        // No ruins no fun
-        if (hugeRuins.Count == 0 && smallRuins.Count == 0)
-            return;
-
         random.Shuffle(coords);
-        random.Shuffle(smallRuins);
-        random.Shuffle(hugeRuins);
+        var usedSpace = new List<Box2> { boundary.Value };
 
-        var randomCoords = coords.ToHashSet();
-        var spawnSmallRuins = true;
-        // Cut off ruins if there's not enough places for them
-        if (hugeRuins.Count >= randomCoords.Count)
-        {
-            hugeRuins.RemoveRange(randomCoords.Count - 1, hugeRuins.Count - randomCoords.Count + 1);
-            spawnSmallRuins = false;
-        }
-
-        // Try to load everything...
-        var usedSpace = boundary.ToHashSet();
-
-        // The first priority is for Huge ruins, they are required to be spawned.
-        for (i = 0; i < hugeRuins.Count; i++)
-        {
-            var ruin = hugeRuins[i];
-            if (!ruinsBounds.TryGetValue(ruin.ID, out var box))
-                continue;
-
-            const int attemps = 5;
-            for (j = 0; j < attemps; j++)
-            {
-                if (!LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref randomCoords, out var spawned) ||
-                    spawned == null)
-                    continue;
-
-                var member = EnsureComp<LavalandMemberComponent>(spawned.Value);
-                member.LavalandMap = lavaland;
-                member.SignalName = ruin.Name;
-                break;
-            }
-        }
+        // Load grid ruins
+        SetupHugeRuins(pool.GridRuins, lavaland, preloader, random, pool.RuinDistance, ref coords, ref usedSpace);
 
         // Create a new list that excludes all already used spaces that intersect with big ruins.
         // Sweet optimization (another lag machine).
-        var newCoords = randomCoords.ToHashSet();
+        var newCoords = coords.ToHashSet();
         foreach (var usedBox in usedSpace)
         {
-            var list = randomCoords.Where(coord => !usedBox.Contains(coord)).ToHashSet();
+            var list = coords.Where(coord => !usedBox.Contains(coord)).ToHashSet();
             newCoords = newCoords.Concat(list).ToHashSet();
         }
 
-        if (newCoords.Count == 0 || !spawnSmallRuins)
-            return;
+        coords = newCoords.ToList();
 
-        if (smallRuins.Count >= newCoords.Count)
+        // Load dungeon ruins
+        // TODO: make it actual dungeons instead of spawning markers
+        SetupDungeonRuins(pool.DungeonRuins, lavaland, random, pool.RuinDistance, ref coords, ref usedSpace);
+    }
+
+    /// <summary>
+    /// Contains all already calculated ruin bounds to fastly reuse them in new rounds.
+    /// </summary>
+    private Dictionary<string, Box2> _ruinBoundariesDict = new();
+
+    private void SetupHugeRuins(
+        Dictionary<ProtoId<LavalandGridRuinPrototype>, ushort> ruins,
+        Entity<LavalandMapComponent> lavaland,
+        Entity<LavalandPreloaderComponent> preloader,
+        Random random,
+        float ruinDistance,
+        ref List<Vector2> coords,
+        ref List<Box2> usedSpace)
+    {
+        // Get and sort all ruins, because we can't sort dictionaries
+        var list = GetGridRuinProtos(ruins);
+        list.Sort((x, y) => x.Priority.CompareTo(y.Priority));
+
+        // Place them down randomly
+        foreach (var ruin in list)
         {
-            smallRuins.RemoveRange(newCoords.Count, smallRuins.Count - newCoords.Count);
-        }
-
-        // Go through all small ruins.
-        for (i = 0; i < smallRuins.Count; i++)
-        {
-            var ruin = smallRuins[i];
-            if (!ruinsBounds.TryGetValue(ruin.ID, out var box))
-                continue;
-
-            const int attemps = 3;
-            for (j = 0; j < attemps; j++)
+            var attempts = 0;
+            while (!LoadGridRuin(ruin, lavaland, preloader, random, ref _ruinBoundariesDict, ref usedSpace, ref coords, out var spawned))
             {
-                if (LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref newCoords, out var spawned) &&
-                    spawned != null)
+                attempts++;
+                if (attempts > ruin.SpawnAttemps)
                     break;
             }
         }
     }
+
+    private void SetupDungeonRuins(
+        Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> ruins,
+        Entity<LavalandMapComponent> lavaland,
+        Random random,
+        float ruinDistance,
+        ref List<Vector2> coords,
+        ref List<Box2> usedSpace)
+    {
+        // Get and sort all ruins, because we can't sort dictionaries
+        var list = GetDungeonRuinProtos(ruins);
+        list.Sort((x, y) => x.Priority.CompareTo(y.Priority));
+
+        // Place them down randomly
+        foreach (var ruin in list)
+        {
+            var attempts = 0;
+            while (!LoadDungeonRuin(ruin, lavaland, random, ref usedSpace, ref coords))
+            {
+                attempts++;
+                if (attempts > ruin.SpawnAttemps)
+                    break;
+            }
+        }
+    }
+
+    private Box2? GetOutpostBoundary(Entity<LavalandMapComponent> lavaland, FixturesComponent? manager = null, TransformComponent? xform = null)
+    {
+        var uid = lavaland.Comp.Outpost;
+
+        if (!Resolve(uid, ref manager, ref xform) || xform.MapUid != lavaland)
+            return null;
+
+        var aabbs = new Box2();
+
+        var transform = _physics.GetRelativePhysicsTransform((uid, xform), xform.MapUid.Value);
+        foreach (var fixture in manager.Fixtures.Values)
+        {
+            if (!fixture.Hard)
+                return null;
+
+            var aabb = fixture.Shape.ComputeAABB(transform, 0);
+            aabbs = aabbs.Union(aabb);
+        }
+
+        aabbs = aabbs.Enlarged(8f);
+        return aabbs;
+    }
+
+    private bool LoadGridRuin(
+        LavalandGridRuinPrototype ruin,
+        Entity<LavalandMapComponent> lavaland,
+        Entity<LavalandPreloaderComponent> preloader,
+        Random random,
+        ref Dictionary<string, Box2> ruinsBoundsDict,
+        ref List<Box2> usedSpace,
+        ref List<Vector2> coords,
+        [NotNullWhen(true)] out EntityUid? spawned)
+    {
+        spawned = null;
+        if (coords.Count == 0)
+            return false;
+
+        var coord = random.Pick(coords);
+        var mapXform = Transform(preloader);
+        Box2 ruinBox; // This is ruin box, but moved to it's correct coords on the map
+
+        // Check if we already calculated that boundary before, and if we didn't then calculate it now
+        if (!ruinsBoundsDict.TryGetValue(ruin.ID, out var box))
+        {
+            if (!_mapLoader.TryLoadGrid(mapXform.MapID, ruin.Path, out var spawnedBoundedGrid))
+            {
+                Log.Error($"Failed to load ruin {ruin.ID} onto dummy map, on stage of loading! AAAAA!!");
+                return false;
+            }
+
+            // It's not useless!
+            spawned = spawnedBoundedGrid.Value.Owner;
+
+            if (!_fixtureQuery.TryGetComponent(spawned, out var manager))
+            {
+                Log.Error($"Failed to load ruin {ruin.ID} onto dummy map, it doesn't have fixture component! AAAAA!!");
+                Del(spawned);
+                return false;
+            }
+
+            // Actually calculate ruin bound
+            var transform = _physics.GetRelativePhysicsTransform(spawned.Value, preloader.Owner);
+            // holy shit
+            var bounds = (from fixture in manager.Fixtures.Values where fixture.Hard select fixture.Shape.ComputeAABB(transform, 0).Rounded(0)).ToList();
+            // Round this list of boxes up to
+            var calculatedBox = _random.Pick(bounds);
+            foreach (var bound in bounds)
+            {
+                calculatedBox = calculatedBox.Union(bound);
+            }
+
+            // Safety measure
+            calculatedBox = calculatedBox.Enlarged(8f);
+
+            // Add calculated box to dictionary
+            ruinsBoundsDict.Add(ruin.ID, calculatedBox);
+
+            // Move our calculated box to correct position
+            var v1 = calculatedBox.BottomLeft + coord;
+            var v2 = calculatedBox.TopRight + coord;
+            ruinBox = new Box2(v1, v2);
+
+            // Teleport it into place on preloader map
+            _transform.SetCoordinates(spawned.Value, new EntityCoordinates(preloader, coord));
+        }
+        else
+        {
+            // Why there's no method to move the Box2 around???
+            var v1 = box.BottomLeft + coord;
+            var v2 = box.TopRight + coord;
+            ruinBox = new Box2(v1, v2);
+        }
+
+        // If any used boundary intersects with current boundary, return
+        if (usedSpace.Any(used => used.Intersects(ruinBox)))
+        {
+            Log.Debug("Ruin can't be placed on it's coordinates, skipping spawn");
+            return false;
+        }
+
+        // Try to load it on a dummy map if it wasn't already
+        if (spawned == null)
+        {
+            if (!_mapLoader.TryLoadGrid(mapXform.MapID, ruin.Path, out var spawnedGrid, offset: coord))
+            {
+                Log.Error($"Failed to load ruin {ruin.ID} onto dummy map, on stage of reparenting it to Lavaland! (this is really bad)");
+                return false;
+            }
+
+            spawned = spawnedGrid.Value.Owner;
+        }
+
+        // Set its position to Lavaland
+        var spawnedXForm = _xformQuery.GetComponent(spawned.Value);
+        _metaData.SetEntityName(spawned.Value, Loc.GetString(ruin.Name));
+        _transform.SetParent(spawned.Value, spawnedXForm, lavaland);
+        _transform.SetCoordinates(spawned.Value, new EntityCoordinates(lavaland, spawnedXForm.Coordinates.Position.Rounded()));
+
+        // yaaaaaaaaaaaaaaaay
+        usedSpace.Add(ruinBox);
+        coords.Remove(coord);
+        return true;
+    }
+
+    private bool LoadDungeonRuin(
+        LavalandDungeonRuinPrototype ruin,
+        Entity<LavalandMapComponent> lavaland,
+        Random random,
+        ref List<Box2> usedSpace,
+        ref List<Vector2> coords)
+    {
+        if (coords.Count == 0)
+            return false;
+
+        var coord = random.Pick(coords);
+        var box = Box2.CentredAroundZero(ruin.Boundary);
+
+        // Why there's no method to move the Box2 around???
+        var v1 = box.BottomLeft + coord;
+        var v2 = box.TopRight + coord;
+        var ruinBox = new Box2(v1, v2); // This is ruin box, but moved to it's correct coords on the map
+
+        // If any used boundary intersects with current boundary, return
+        if (usedSpace.Any(used => used.Intersects(ruinBox)))
+        {
+            Log.Debug("Ruin can't be placed on it's coordinates, skipping spawn");
+            return false;
+        }
+
+        // Spawn the marker
+        Spawn(ruin.SpawnedMarker, new EntityCoordinates(lavaland, coord));
+
+        usedSpace.Add(ruinBox);
+        coords.Remove(coord);
+        return true;
+    }
+
+    #endregion
+
+    #region Helper Methods
 
     private List<Vector2> GetCoordinates(float distance, float maxDistance)
     {
@@ -409,149 +557,36 @@ public sealed class LavalandPlanetSystem : EntitySystem
         return coords;
     }
 
-    private List<Box2>? GetOutpostBoundary(Entity<LavalandMapComponent> lavaland, FixturesComponent? manager = null, TransformComponent? xform = null)
+    private List<LavalandGridRuinPrototype> GetGridRuinProtos(Dictionary<ProtoId<LavalandGridRuinPrototype>, ushort> protos)
     {
-        var uid = lavaland.Comp.Outpost;
+        var list = new List<LavalandGridRuinPrototype>();
 
-        if (!Resolve(uid, ref manager, ref xform) || xform.MapUid != lavaland)
-            return null;
-
-        var aabbs = new List<Box2>(manager.Fixtures.Count);
-
-        var transform = _physics.GetRelativePhysicsTransform((uid, xform), xform.MapUid.Value);
-        foreach (var fixture in manager.Fixtures.Values)
+        foreach (var (protoId, count) in protos)
         {
-            if (!fixture.Hard)
-                return null;
-
-            var aabb = fixture.Shape.ComputeAABB(transform, 0);
-            aabb = aabb.Enlarged(8f);
-            aabbs.Add(aabb);
-        }
-
-        return aabbs;
-    }
-
-    private bool LoadRuin(
-        LavalandRuinPrototype ruin,
-        Entity<LavalandMapComponent> lavaland,
-        List<Box2> ruinBox,
-        Random random,
-        ref HashSet<Box2> usedSpace,
-        ref HashSet<Vector2> coords,
-        out EntityUid? spawned)
-    {
-        spawned = null;
-        if (coords.Count == 0)
-            return false;
-
-        var coord = random.Pick(coords);
-
-        // Why there's no method to move the Box2 around???
-        var bounds = new List<Box2>();
-        foreach (var box in ruinBox)
-        {
-            var v1 = box.BottomLeft + coord;
-            var v2 = box.TopRight + coord;
-            bounds.Add(new Box2(v1, v2));
-        }
-
-        // If any used boundary intersects with current boundary, return
-        if ((from used in usedSpace from bound in bounds where bound.Intersects(used) select used).Any())
-        {
-            coords.Remove(coord);
-            Log.Debug("Ruin can't be placed on it's coordinates, skipping spawn");
-            return false;
-        }
-
-        var salvMap = _lavalandPreloader!.Value.Uid;
-        var mapXform = Transform(salvMap);
-        var gridsCount = _mapManager.GetAllGrids(lavaland.Comp.MapId).Count();
-
-        // Try to load everything on a dummy map
-        var opts = new MapLoadOptions
-        {
-            Offset = coord
-        };
-
-        if (!_mapLoader.TryLoad(mapXform.MapID, ruin.Path, out _, opts) || mapXform.ChildCount != 1)
-        {
-            Log.Error($"Failed to load ruin {ruin.ID} onto dummy map!");
-            return false;
-        }
-
-        var mapChildren = mapXform.ChildEnumerator;
-
-        // It worked, move it into position and cleanup values.
-        while (mapChildren.MoveNext(out var mapChild))
-        {
-            var salvXForm = _xformQuery.GetComponent(mapChild);
-            _transform.SetParent(mapChild, salvXForm, lavaland);
-            _transform.SetCoordinates(mapChild, new EntityCoordinates(lavaland, salvXForm.Coordinates.Position.Rounded()));
-            _metaData.SetEntityName(mapChild, ruin.Name);
-            spawned = mapChild;
-        }
-
-        // There should be more grids on Lavaland than before after re-parenting.
-        if (_mapManager.GetAllGrids(lavaland.Comp.MapId).Count() <= gridsCount)
-        {
-            Log.Error("Failed to re-parent the grid from dummy map to Lavaland!");
-            return false;
-        }
-
-        usedSpace = usedSpace.Concat(bounds).ToHashSet();
-        coords.Remove(coord);
-        return true;
-    }
-
-    private Dictionary<ProtoId<LavalandRuinPrototype>, List<Box2>> CalculateRuinBounds(LavalandRuinPoolPrototype pool)
-    {
-        var ruinBounds = new Dictionary<ProtoId<LavalandRuinPrototype>, List<Box2>>();
-
-        if (_lavalandPreloader == null)
-        {
-            Log.Error("Tried to calculate ruin bounds, but Lavaland Preloader Map still doesn't exist!");
-            return ruinBounds;
-        }
-
-        // All possible ruins for this pool
-        var ruins = pool.SmallRuins.Keys.ToList().Concat(pool.HugeRuins.Keys).ToHashSet();
-
-        foreach (var id in ruins)
-        {
-            var mapId = _lavalandPreloader.Value.Id;
-            var mapUid = _lavalandPreloader.Value.Uid;
-            var dummyMapXform = Transform(mapUid);
-
-            var proto = _proto.Index(id);
-            var bounds = new List<Box2>();
-
-            // Try to load everything on a dummy map
-            var opts = new MapLoadOptions();
-
-            if (!_mapLoader.TryLoad(mapId, proto.Path, out _, opts) || dummyMapXform.ChildCount == 0)
+            var proto = _proto.Index(protoId);
+            for (var i = 0; i < count; i++)
             {
-                Log.Error($"Failed to load ruin {proto.ID} onto dummy map!");
-                continue;
+                list.Add(proto);
             }
-
-            var mapChildren = dummyMapXform.ChildEnumerator;
-            while (mapChildren.MoveNext(out var mapChild))
-            {
-                if (!_gridQuery.TryGetComponent(mapChild, out _) ||
-                    !_fixtureQuery.TryGetComponent(mapChild, out var manager) ||
-                    !_xformQuery.TryGetComponent(mapChild, out var xform) ||
-                    xform.MapUid == null)
-                    continue;
-
-                var transform = _physics.GetRelativePhysicsTransform((mapChild, xform), xform.MapUid.Value);
-                bounds = (from fixture in manager.Fixtures.Values where fixture.Hard select fixture.Shape.ComputeAABB(transform, 0).Rounded(0)).ToList();
-                Del(mapChild); // We don't need it anymore
-            }
-
-            ruinBounds.Add(id, bounds);
         }
 
-        return ruinBounds;
+        return list;
     }
+
+    private List<LavalandDungeonRuinPrototype> GetDungeonRuinProtos(Dictionary<ProtoId<LavalandDungeonRuinPrototype>, ushort> protos)
+    {
+        var list = new List<LavalandDungeonRuinPrototype>();
+        foreach (var (protoId, count) in protos)
+        {
+            var proto = _proto.Index(protoId);
+            for (var i = 0; i < count; i++)
+            {
+                list.Add(proto);
+            }
+        }
+
+        return list;
+    }
+
+    #endregion
 }

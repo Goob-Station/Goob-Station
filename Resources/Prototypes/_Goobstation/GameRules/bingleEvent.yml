@@ -3,12 +3,15 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: bingle-station-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    weight: 6
+    weight: 8
     duration: 50
     minimumPlayers: 15
+    chaos: # Goobstation
+      Hostile: 100
+      Friend: 20
+      Combat: 100
+      Death: 100
+      Medical: 100
   - type: RandomSpawnRule
     prototype: SpawnPointGhostBinglePrime

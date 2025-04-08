@@ -21,6 +21,7 @@
   - type: Tag
     tags:
     - Wall
+  - type: IsRoof
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -543,7 +544,7 @@
   - type: Tag
     tags:
     - Wall
-    - Diagonal    
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -1420,6 +1421,11 @@
           base:
             True: { state: forcewall }
             False: { state: forcewallspawn }
+    - type: PreventCollide
+      whitelist:
+        components:
+        - Wizard
+        - Apprentice
     # Goobstation end
 
 - type: entity

@@ -35,7 +35,7 @@ public sealed class MiningVoucherSystem : EntitySystem
 
     private void OnAfterInteract(Entity<MiningVoucherComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target is not {} target)
+        if (args.Target is not {} target || !args.CanReach)
             return;
 
         if (_whitelist.IsWhitelistFail(ent.Comp.VendorWhitelist, target))

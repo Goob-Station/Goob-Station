@@ -6,6 +6,7 @@
   placement:
     mode: PlaceFree
   components:
+  - type: Animateable
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -83,6 +84,64 @@
   - type: Rotatable
     rotateWhileAnchored: true
 
+# Goobstation - rolly chairs that actually roll!
+- type: entity
+  name: chair
+  id: RollingOfficeChairBase
+  description: Scoot from desk to desk because standing is for interns.
+  parent: BaseVehicle
+  abstract: true
+  components:
+  - type: Anchorable
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi
+    noRot: true
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,-0.05"
+  - type: Vehicle
+    requiredHands: 0
+    engineRunning: true
+    renderOver: North, NorthEast, NorthWest
+  - type: MovementSpeedModifier
+    acceleration: 10
+    friction: 3.5
+    baseSprintSpeed: 2.5
+    baseWalkSpeed: 1.5
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 75
+        mask:
+        - TableMask
+  - type: StaticPrice
+    price: 50
+
 #Starts anchored, can be rotated while anchored
 - type: entity
   name: stool
@@ -154,7 +213,7 @@
 - type: entity
   name: white office chair
   id: ChairOfficeLight
-  parent: OfficeChairBase
+  parent: RollingOfficeChairBase # Goobstation - make the rolly chairs roll!
   components:
   - type: Sprite
     state: office-white

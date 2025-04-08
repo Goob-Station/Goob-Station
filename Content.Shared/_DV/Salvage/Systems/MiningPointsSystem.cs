@@ -6,6 +6,7 @@ using Content.Shared.Materials;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared._Goobstation.Silo;
 
 namespace Content.Shared._DV.Salvage.Systems;
 
@@ -34,7 +35,11 @@ public sealed class MiningPointsSystem : EntitySystem
 
     private void OnMaterialEntityInserted(Entity<MiningPointsLatheComponent> ent, ref MaterialEntityInsertedEvent args)
     {
-        if (!TryComp<UnclaimedOreComponent>(args.Inserted, out var unclaimedOre) || !_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted
+            || !TryComp<UnclaimedOreComponent>(args.Inserted, out var unclaimedOre)
+            || !TryComp<SiloUtilizerComponent>(ent, out var utilizer)
+            || !utilizer.Silo.HasValue
+            || Transform(utilizer.Silo.Value).MapID != Transform(ent).MapID)
             return;
 
         var points = unclaimedOre.MiningPoints * args.Count;
