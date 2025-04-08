@@ -535,7 +535,8 @@
     - SpellbookSemiRandom
   - !type:StoreWhitelistCondition
     blacklist:
-    - GrimoireGhost
+      tags:
+      - GrimoireGhost
 
 - type: listing
   id: SpellbookSwap
@@ -812,7 +813,8 @@
     stock: 1
   - !type:StoreWhitelistCondition
     blacklist:
-    - GrimoireGhost
+      tags:
+      - GrimoireGhost
 
 # Event
 - type: listing

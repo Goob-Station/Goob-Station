@@ -51,7 +51,8 @@
     - SpellbookSemiRandom
   - !type:StoreWhitelistCondition # Goobstation
     blacklist:
-    - GrimoireGhost
+      tags:
+      - GrimoireGhost
 
 # Defensive
 - type: listing
