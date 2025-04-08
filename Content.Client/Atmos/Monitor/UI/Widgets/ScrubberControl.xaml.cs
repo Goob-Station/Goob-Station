@@ -149,6 +149,7 @@ public sealed partial class ScrubberControl : BoxContainer
     // Assmos changes start here
     private void SelectAllGases()
     {
+        _data.FilterGases.Clear();
         foreach (var (gas, button) in _gasControls)
         {
             button.Pressed = true;
