@@ -30,39 +30,12 @@
   id: PolymorphAshJaunt
   name: Unknown
   description: You can't figure out what that is.
+  parent: BaseMobJaunt
   categories: [ HideSpawnMenu ]
   components:
-  - type: MindContainer
-  - type: InputMover
-  - type: MobMover
-  - type: Input
-    context: "ghost"
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 3
-  - type: Physics
-    bodyType: KinematicController
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.40
-        density: 80
-        mask:
-        - GhostImpassable
-  - type: MovementIgnoreGravity
-  - type: Actions
-  - type: NoSlip
-  - type: Eye
-    drawFov: false
-    visMask:
-      - Normal
-      - Ghost
-  - type: ContentEye
-    maxZoom: 1.2, 1.2
-  - type: DoAfter
-  - type: Alerts
 
 # heretic ascend flesh form
 - type: entity
@@ -71,9 +44,19 @@
   name: eldritch horror
   description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
   suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Bloodstream
     bloodMaxVolume: 1984
+    bleedReductionAmount: 2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 3000 # no gibbing at 400
+      behaviors:
+      - !type:GibBehavior
   - type: NpcFactionMember
     factions:
     - Heretic
@@ -118,17 +101,19 @@
     thresholds:
       0: Alive
       1500: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      0: 1.0 # it's an unstoppable flesh abomination
   - type: Damageable
     damageContainer: Biological
   - type: StatusEffects
     allowed:
-    - SlowedDown
     - RadiationProtection
   - type: MeleeWeapon
     hidden: false
     altDisarm: false
     autoAttack: true
-    attackRate: 2.5
+    attackRate: 3
     damage:
       types:
        Blunt: 20
@@ -162,13 +147,9 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
-  - type: ActiveRadio
-    channels:
-    - Mansus
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Mansus
+    - MansusLinkMind
+  - type: CollectiveMind
+    defaultChannel: MansusLink
   - type: Examiner
   - type: Pullable
   - type: Reflect
@@ -181,5 +162,12 @@
   - type: Flammable
     damage:
       types: {}
+  - type: Temperature
+    damageCap: 0 # immune to temperature damage
   - type: Puller
     needsHands: false
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others

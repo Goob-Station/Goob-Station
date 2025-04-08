@@ -1,0 +1,125 @@
+- type: entity
+  id: LavalandTendrilBase
+  parent: BaseStructure
+  name: tendril
+  abstract: true
+  description: A huge structure.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Lavaland/Structures/Specific/tendril.rsi
+    state: tendril
+    drawdepth: Mobs
+  - type: Tendril
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Skeleton
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LavalandCrateNecropolisRandom:
+            min: 1
+            max: 1
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        density: 200
+
+- type: entity
+  id: LavalandTendrilGoliath
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Goliath
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 6
+    spawnDelay: 15.0
+    spawns:
+    - MobGoliath
+
+- type: entity
+  id: LavalandTendrilLegion
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Legion
+  components:
+  # TODO: Add Legioners
+  - type: Tendril
+    spawns: []
+
+- type: entity
+  id: LavalandTendrilLavaWatcher
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Watcher
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 8
+    spawnDelay: 12.0
+    spawns:
+    - MobWatcherLavaland
+
+- type: entity
+  id: LavalandTendrilIcewingWatcher
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Ice Watcher
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 4
+    spawnDelay: 12.0
+    spawns:
+    - MobWatcherIcewing
+
+- type: entity
+  id: LavalandTendrilMagmawingWatcher
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Magma Watcher
+  components:
+  - type: Tendril
+    maxSpawns: 2
+    mobsToDefeat: 4
+    spawnDelay: 12.0
+    spawns:
+    - MobWatcherMagmawing
+
+- type: entity
+  id: LavalandTendrilSpaceCarp
+  parent: LavalandTendrilBase
+  name: tendril
+  description: A huge structure.
+  suffix: Carp
+  components:
+  - type: Tendril
+    maxSpawns: 4
+    mobsToDefeat: 8
+    spawnDelay: 8.0
+    spawns:
+    - MobCarpDungeon

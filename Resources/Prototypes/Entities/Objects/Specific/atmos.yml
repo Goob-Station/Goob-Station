@@ -26,9 +26,18 @@
           enabled:
             True: { state: working }
             False: { state: icon }
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
   - type: StaticPrice
     price: 80
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 200
       Glass: 75
+  - type: GuideHelp
+    guides:
+    - AtmosTools
+    - PipeNetworks
+    - Pipes
+    - GasCanisters

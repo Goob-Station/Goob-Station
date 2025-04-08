@@ -1,0 +1,14 @@
+- type: entity
+  id: MouseMultiply
+  name: Multiply
+  description: Uses hunger to multiply.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Objects/Consumable/Food/ingredients.rsi
+      state: cheesewedge
+    useDelay: 1
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/pop.ogg
+    event: !type:EggLayInstantActionEvent
+

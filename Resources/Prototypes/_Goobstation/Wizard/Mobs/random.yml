@@ -1,0 +1,44 @@
+- type: entity
+  parent: MobArachnid
+  id: MobArachnidRandom
+  name: Urist McWeb
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_arachnid_first
+    - names_arachnid_last
+
+- type: entity
+  parent: MobIPC
+  id: MobIPCRandom
+  name: Urist McPositronic
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - IpcFirst
+
+- type: entity
+  parent: MobOni
+  id: MobOniRandom
+  name: Urist McOni
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_oni_location
+
+- type: entity
+  parent: MobCluwne
+  id: MobCluwneRandom
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last

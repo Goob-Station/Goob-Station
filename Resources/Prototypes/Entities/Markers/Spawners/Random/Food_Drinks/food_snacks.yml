@@ -45,5 +45,6 @@
       - FoodFrozenSnowconeRainbow
       - FoodSnackPistachios
       - FoodSnackSemki
+      - FoodSnackLollypopWrapped # Goobstation
     chance: 0.8
     offset: 0.0

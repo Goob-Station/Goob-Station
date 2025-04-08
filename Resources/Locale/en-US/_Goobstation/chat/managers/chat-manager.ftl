@@ -14,3 +14,10 @@ chat-speech-verb-dead-6 = whines
 chat-speech-verb-dead-7 = moans
 chat-speech-verb-dead-8 = cries
 chat-speech-verb-dead-9 = wails
+
+chat-speech-verb-VoiceModulator-name = Voice Modulator
+chat-speech-verb-VoiceModulator-1 = modulates
+chat-speech-verb-VoiceModulator-2 = buzzes
+chat-speech-verb-VoiceModulator-3 = drones
+chat-speech-verb-VoiceModulator-4 = hums
+chat-speech-verb-VoiceModulator-5 = crackles

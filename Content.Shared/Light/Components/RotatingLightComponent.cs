@@ -16,6 +16,19 @@ public sealed partial class RotatingLightComponent : Component
     [DataField("speed")]
     public float Speed = 90f;
 
+    /// <summary>
+    /// Goobstation.
+    /// if not null, speed is randomized between <see cref="Speed"/> and this.
+    /// </summary>
+    [DataField]
+    public float? MaxSpeed;
+
+    [DataField]
+    public bool RandomizeDirection;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public int Direction = 1;
+
     [ViewVariables, AutoNetworkedField]
     public bool Enabled = true;
 }

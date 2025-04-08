@@ -1,0 +1,283 @@
+# Door electronics
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsWizard
+  suffix: Wizard, Locked
+  components:
+  - type: AccessReader
+    access: [["Wizard"]]
+
+# Airlock
+- type: entity
+  parent: Airlock
+  id: AirlockUranium
+  suffix: Uranium
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Structures/Airlocks/Standard/uranium.rsi
+  - type: Construction
+    graph: AirlockUranium
+    node: airlock
+    containers:
+    - board
+  - type: StaticPrice
+    price: 600
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockUraniumGlass
+  suffix: Uranium, Glass
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Structures/Airlocks/Glass/uranium.rsi
+  - type: Construction
+    graph: AirlockUranium
+    node: glassAirlock
+    containers:
+    - board
+  - type: StaticPrice
+    price: 600
+
+# Access
+- type: entity
+  parent: AirlockUranium
+  id: AirlockUraniumWizardLocked
+  suffix: Wizard, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsWizard ]
+
+- type: entity
+  parent: AirlockUraniumGlass
+  id: AirlockUraniumGlassWizardLocked
+  suffix: Wizard, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsWizard ]
+
+# Assembly
+- type: entity
+  id: AirlockUraniumAssembly
+  name: airlock assembly
+  suffix: Uranium
+  parent: AirlockAssembly
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Structures/Airlocks/Standard/uranium.rsi
+    state: "assembly"
+  - type: Construction
+    graph: AirlockUranium
+    node: assembly
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  parent: AirlockUraniumAssembly
+  id: AirlockUraniumAssemblyGlass
+  suffix: Uranium, Glass
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Structures/Airlocks/Glass/uranium.rsi
+    state: "assembly"
+
+# Recipes
+- type: construction
+  name: uranium airlock
+  id: AirlockUranium
+  graph: AirlockUranium
+  startNode: start
+  targetNode: airlock
+  category: construction-category-structures
+  description: It opens, it closes, and maybe crushes you.
+  icon:
+    sprite: _Goobstation/Wizard/Structures/Airlocks/Standard/uranium.rsi
+    state: assembly
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: glass uranium airlock
+  id: AirlockUraniumGlass
+  graph: AirlockUranium
+  startNode: start
+  targetNode: glassAirlock
+  category: construction-category-structures
+  description: It opens, it closes, and maybe crushes you.
+  icon:
+    sprite: _Goobstation/Wizard/Structures/Airlocks/Glass/uranium.rsi
+    state: assembly
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+# Construction
+- type: constructionGraph
+  id: AirlockUranium
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: assembly
+      completed:
+      - !type:SetAnchor
+        value: false
+      steps:
+      - material: Uranium
+        amount: 4
+        doAfter: 2
+
+  - node: assembly
+    entity: AirlockUraniumAssembly
+    actions:
+    - !type:SnapToGrid {}
+    - !type:SetAnchor {}
+    edges:
+    - to: wired
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 2.5
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetUranium1
+        amount: 4
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 3
+
+  - node: wired
+    entity: AirlockUraniumAssembly
+    edges:
+    - to: electronics
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tag: DoorElectronics
+        store: board
+        name: "door electronics circuit board"
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "door_electronics"
+        doAfter: 3
+    - to: assembly
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 5
+      steps:
+      - tool: Cutting
+        doAfter: 2.5
+
+  - node: electronics
+    edges:
+    - to: airlock
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 2.5
+    - to: glassElectronics
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: ReinforcedUraniumGlass
+        amount: 1
+        doAfter: 2
+    - to: wired
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+  - node: glassElectronics
+    entity: AirlockUraniumAssemblyGlass
+    edges:
+    - to: glassAirlock
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: ReinforcedUraniumGlass
+        amount: 1
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2.5
+    - to: wired
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      - !type:SpawnPrototype
+        prototype: SheetRUGlass1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+## Glass airlock
+  - node: glassAirlock
+    entity: AirlockUraniumGlass
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: glassElectronics
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetRUGlass1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+## Standard airlock
+  - node: airlock
+    entity: AirlockUranium
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: wired
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Prying
+        doAfter: 5

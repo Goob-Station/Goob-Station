@@ -1,6 +1,6 @@
 using System.IO;
 using System.Linq;
-using Content.Shared._Goobstation.Actions;
+using Content.Goobstation.Common.Actions;
 using Content.Shared.Actions;
 using JetBrains.Annotations;
 using Robust.Client.Player;
@@ -108,6 +108,7 @@ namespace Content.Client.Actions
                 return;
 
             component.Whitelist = state.Whitelist;
+            component.Blacklist = state.Blacklist;
             component.CanTargetSelf = state.CanTargetSelf;
             BaseHandleState<EntityTargetActionComponent>(uid, component, state);
         }

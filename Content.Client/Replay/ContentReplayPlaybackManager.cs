@@ -4,6 +4,7 @@ using Content.Client.MainMenu;
 using Content.Client.Replay.Spectator;
 using Content.Client.Replay.UI.Loading;
 using Content.Client.UserInterface.Systems.Chat;
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Chat;
 using Content.Shared.Effects;
 using Content.Shared.GameTicking;
@@ -194,6 +195,7 @@ public sealed class ContentReplayPlaybackManager
             case InstrumentStartMidiEvent:
             case InstrumentMidiEventEvent:
             case InstrumentStopMidiEvent:
+            case ChargeSpellRaysEffectEvent: // Goobstation
                 // Block visual effects, pop-ups, and sounds
                 return true;
         }

@@ -77,3 +77,25 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNTR ]
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockAllServiceLocked
+  suffix: All Service, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAllService ]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  parent: AirlockServiceGlassLocked
+  id: AirlockAllServiceGlassLocked
+  suffix: All Service, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAllService ]
+  - type: Wires
+    layoutId: AirlockService

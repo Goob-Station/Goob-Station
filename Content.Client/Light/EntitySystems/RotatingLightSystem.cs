@@ -3,14 +3,16 @@ using Content.Shared.Light.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
+using Robust.Shared.Random;
 
 namespace Content.Client.Light.EntitySystems;
 
 public sealed class RotatingLightSystem : SharedRotatingLightSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _animations = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
-    private Animation GetAnimation(float speed)
+    private Animation GetAnimation(float speed, int dir) // Goob edit
     {
         var third = 120f / speed;
         return new Animation()
@@ -26,9 +28,11 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(Angle.Zero, 0),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(120), third),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(240), third),
-                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(360), third)
+                        // Goob edit start
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(120 * dir), third),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(240 * dir), third),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(360 * dir), third)
+                        // Goob edit end
                     }
                 }
             }
@@ -48,6 +52,12 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
 
     private void OnStartup(EntityUid uid, RotatingLightComponent comp, ComponentStartup args)
     {
+        if (comp.MaxSpeed != null && comp.MaxSpeed > comp.Speed) // Goobstation
+            comp.Speed = _random.NextFloat(comp.Speed, comp.MaxSpeed.Value);
+
+        if (comp.RandomizeDirection)
+            comp.Direction = _random.Pick(new List<int> { -1, 1 });
+
         var player = EnsureComp<AnimationPlayerComponent>(uid);
         PlayAnimation(uid, comp, player);
     }
@@ -85,7 +95,7 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
 
         if (!_animations.HasRunningAnimation(uid, player, AnimKey))
         {
-            _animations.Play(uid, player, GetAnimation(comp.Speed), AnimKey);
+            _animations.Play(uid, player, GetAnimation(comp.Speed, comp.Direction), AnimKey); // Goob edit
         }
     }
 }

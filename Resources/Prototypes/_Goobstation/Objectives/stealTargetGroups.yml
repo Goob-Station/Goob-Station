@@ -11,3 +11,10 @@
   sprite:
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: base
+
+- type: stealTargetGroup
+  id: RapidSyringeGun
+  name: steal-target-groups-rapid-syringe-gun
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    state: icon

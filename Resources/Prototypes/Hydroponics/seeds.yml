@@ -1136,7 +1136,7 @@
   idealLight: 9
   idealHeat: 298
   chemicals:
-    Frostoil:
+    FrostOil:
       Min: 1
       Max: 10
       PotencyDivisor: 10
@@ -1196,12 +1196,12 @@
   chemicals:
     Aloe:
       Min: 1
-      Max: 10
+      Max: 5
       PotencyDivisor: 10
-    Dermaline:
+    SilverSulfadiazine: # Goobstation
       Min: 1
-      Max: 10
-      PotencyDivisor: 10
+      Max: 20
+      PotencyDivisor: 5
 
 - type: seed
   id: lily
@@ -1226,7 +1226,7 @@
       Min: 1
       Max: 2
       PotencyDivisor: 50
-    Bicaridine:
+    StypticPowder: # Goobstation
       Min: 1
       Max: 20
       PotencyDivisor: 5
@@ -1713,6 +1713,8 @@
   packetPrototype: BerrySeeds
   productPrototypes:
     - FoodBerries
+  mutationPrototypes:
+    - strangeBerries #goobstation
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6

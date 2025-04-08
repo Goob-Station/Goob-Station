@@ -104,6 +104,9 @@
       prob: 0.001
       orGroup: Canister
     #weapons
+    - id: VehicleClowncarAntag #Goobstation - Clowncar
+      prob: 0.01
+      orGroup: Weapons
     - id: WeaponPulseCarbine
       prob: 0.0001
       orGroup: Weapons
@@ -230,6 +233,9 @@
       orGroup: Clothes
     - id: ClothingUniformJumpskirtOfLife
       prob: 0.01
+      orGroup: Clothes
+    - id: ClothingShoesWizardSkates #GoobStation - Wizzard Skates
+      prob: 0.001
       orGroup: Clothes
     #swag
     - id: ClothingNeckBling

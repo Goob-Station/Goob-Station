@@ -1,0 +1,16 @@
+## Static
+- type: latheRecipePack
+  id: SecurityBoardsStaticGoob
+  recipes:
+  - ContrabandDetectorCircuitboard  
+
+## Dynamic
+- type: latheRecipePack
+  id: MedicalBoardsStaticGoob
+  recipes: 
+  - OperatingTableCircuitboard
+
+- type: latheRecipePack
+  id: MedicalBoardsGoob
+  recipes:
+  - AutodocCircuitboard  

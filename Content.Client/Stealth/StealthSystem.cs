@@ -85,8 +85,9 @@ public sealed class StealthSystem : SharedStealthSystem
         reference.X = -reference.X;
         var visibility = GetVisibility(uid, component);
 
-        // actual visual visibility effect is limited to +/- 1.
-        visibility = Math.Clamp(visibility, -1f, 1f);
+        // Goobstation - Proper invisibility: changes -1 to -1.5
+        // actual visual visibility effect is limited to -1.5 to 1.
+        visibility = Math.Clamp(visibility, -1.5f, 1f);
 
         _shader.SetParameter("reference", reference);
         _shader.SetParameter("visibility", visibility);

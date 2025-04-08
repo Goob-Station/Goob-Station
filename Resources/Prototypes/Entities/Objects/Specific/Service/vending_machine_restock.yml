@@ -129,6 +129,7 @@
     - JaniDrobeInventory
     - LawDrobeInventory
     - MediDrobeInventory
+    - MiningDrobeInventory
     - RoboDrobeInventory
     - SciDrobeInventory
     - SecDrobeInventory
@@ -360,6 +361,7 @@
     - state: refill_sec
 
 - type: entity
+  abstract: true # DeltaV: Salvage vendor doesn't have stock anymore
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockSalvageEquipment
   name: Salvage Vendor restock box

@@ -36,3 +36,22 @@
   cost: 1
   components:
   - type: MaoistAccent
+
+- type: trait
+  id: MedievalAccent
+  name: trait-medieval-accent-name
+  description: trait-medieval-accent-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: MedievalAccent
+
+- type: trait
+  id: Tide
+  name: trait-tide-accent-name
+  description: trait-tide-accent-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ReplacementAccent
+    accent: tide

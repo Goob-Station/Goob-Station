@@ -1,0 +1,447 @@
+- type: entity
+  id: EffectRepulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeOutTime: 0.6
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: shieldsparkles
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: EffectElectricity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: electricity
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: Chronofield
+  name: chronofield
+  description: ZA WARUDO!
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    color: "#FFFFFF80"
+    drawdepth: FloorEffects
+    offset: 0, 0.5
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects160x160.rsi
+        state: time
+  - type: AnimationPlayer
+  - type: FreezeContacts
+  - type: GravPulseOnMapInit # This is required to trigger physics collision
+    maxRange: 2
+    baseRadialAcceleration: 0.01
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 2
+        hard: false
+        layer:
+        - Opaque
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        - BulletImpassable
+        - BlobImpassable
+
+- type: entity
+  id: ActionTargetMark
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+    layers:
+      - sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: marker
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Transform
+
+- type: entity
+  id: BaseFlashEffect
+  abstract: true
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 8
+    netsync: false
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  parent: BaseFlashEffect
+  id: SanguineFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: red
+
+- type: entity
+  parent: BaseFlashEffect
+  id: SupermatterFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: yellow
+
+- type: entity
+  parent: BaseFlashEffect
+  id: FireFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: orange
+
+- type: entity
+  parent: BaseFlashEffect
+  id: EmpFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 10
+    color: blue
+
+- type: entity
+  parent: BaseFlashEffect
+  id: BlindingTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+
+- type: entity
+  parent: BaseFlashEffect
+  id: FlameTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: red
+
+- type: entity
+  parent: BaseFlashEffect
+  id: ChillTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: lightblue
+
+- type: entity
+  parent: BaseFlashEffect
+  id: StunTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: yellow
+
+- type: entity
+  parent: BaseFlashEffect
+  id: DamageTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: green
+
+- type: entity
+  id: EffectSpark
+  name: sparks
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: sparks
+  - type: AnimationPlayer
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 4
+    color: "#FAA019"
+    netsync: false
+  - type: LightFade
+    duration: 0.7
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EtherealJauntStartEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    maxParticleAmount: 9
+    velocity: -0.4
+    lerpTime: 0.02
+    frequency: 10
+    lifetime: 3
+    alphaLerpAmount: 0.05
+    velocityLerpAmount: 0.07
+    velocityLerpTarget: 0.3
+    alphaLerpTarget: 0
+    color: "#0000FFFF"
+    renderedEntityRotationStrategy: Trail
+    shader: EtherealJaunt
+    shaderData:
+      reference: !type:GetShaderLocalPositionData
+    spawnRemainingTrail: false
+  - type: Transform
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: EtherealJauntEndEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    maxParticleAmount: 9
+    lerpTime: 0.01
+    frequency: 10
+    lifetime: 2.2
+    alphaLerpAmount: 0.01
+    alphaLerpTarget: 1
+    positionLerpAmount: 0.08
+    radius: 12
+    color: "#0000FF00"
+    renderedEntityRotationStrategy: Trail
+    shader: EtherealJaunt
+    shaderData:
+      reference: !type:GetShaderLocalPositionData
+    spawnRemainingTrail: false
+  - type: Transform
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: SwapSpellEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    lerpTime: 0.01
+    frequency: 0.01
+    maxParticleAmount: 10
+    lifetime: 2
+    positionLerpAmount: 0.3
+    alphaLerpAmount: 0.15
+    color: "#000000FF"
+    shader: unshaded
+    spawnRemainingTrail: false
+  - type: Transform
+    noRot: true
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: EffectRay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    autoRot: true
+    castShadows: false
+    radius: 5
+    energy: 8
+    mask: /Textures/_Goobstation/Wizard/Effects/LightMasks/ray.png
+  - type: RotatingLight
+    speed: 60
+    maxSpeed: 180
+    randomizeDirection: true
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 1
+  - type: AnimationPlayer
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: pulse
+      property: Energy
+      maxDuration: 2
+      minValue: 0
+      maxValue: 16
+      enabled: true
+
+- type: entity
+  parent: EffectRay
+  id: EffectRayCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: pulse
+      property: Energy
+      maxDuration: 1
+      minValue: 0
+      maxValue: 16
+      enabled: true
+
+- type: entity
+  id: SanguineBloodEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    maxParticleAmount: 45
+    velocity: 0.5
+    lerpTime: 0.001
+    frequency: 0.01
+    lifetime: 0.5
+    scaleLerpAmount: 0.05
+    scaleLerpTarget: 0.5
+    alphaLerpAmount: 0.15
+    velocityLerpAmount: 0.08
+    velocityLerpTarget: 0
+    spawnRemainingTrail: false
+    additionalLerpData:
+    - property: PositionLerpAmount
+      lerpTarget: 1
+      lerpAmount: 0.015
+      value: 0
+    shader: unshaded
+    sprite:
+      sprite: /Textures/_Goobstation/Wizard/Effects/blood.rsi
+      state: blood
+  - type: Transform
+    noRot: true
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: WeaponArcHighFreq
+  parent: WeaponArcStatic
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: RandomRotation
+  - type: Sprite
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: highfreq_slash
+
+- type: entity
+  id: WeaponArcTempSlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    fadeOutTime: 0.5
+    lifetime: 0
+  - type: RandomRotation
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: temporal_slash
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: BindSoulParticle
+  name: unholy energy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: false
+    sprite: _Goobstation/Wizard/Projectiles/lichparticle.rsi
+    layers:
+    - state: icon
+  - type: TimedDespawn
+  - type: Trail
+    frequency: 0.3
+    lifetime: 4
+    lerpTime: 0,1
+    alphaLerpAmount: 0.6
+    shader: unshaded
+    sprite:
+      sprite: /Textures/_Goobstation/Wizard/Projectiles/lichparticle.rsi
+      state: icon
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        hard: false
+  - type: HomingProjectile
+    homingSpeed: null

@@ -53,3 +53,14 @@
   components:
   - type: Sprite
     state: pirate_flag
+
+# RA
+- type: entity
+  parent: BaseFlag
+  id: AmericanFlag
+  name: american flag
+  description: A beautiful American flag with gold trim. God bless the United States of America.
+  components:
+  - type: Sprite
+    sprite: _RA/Structures/Wallmounts/flags.rsi
+    state: american_flag

@@ -6,7 +6,7 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using static System.Environment;
 
-var repository = new DirectoryInfo(Directory.GetCurrentDirectory()).Parent!.Parent!.Parent!.Parent!;
+var repository = new DirectoryInfo(Directory.GetCurrentDirectory());
 var patronsPath = Path.Combine(repository.FullName, "Resources/Credits/Patrons.yml");
 if (!File.Exists(patronsPath))
 {

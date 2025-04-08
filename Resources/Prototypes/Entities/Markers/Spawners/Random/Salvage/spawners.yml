@@ -493,8 +493,7 @@
         weight: 35
       - id: MobHivelord
         weight: 30
-      - id: MobArgocyteLeviathing #goobstation
-        weight: 10
-      - id: MobArgocyteFounder
-        weight: 25
-
+      #- id: MobArgocyteLeviathing #goobstation
+      #  weight: 10
+      #- id: MobArgocyteFounder
+      #  weight: 25

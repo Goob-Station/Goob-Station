@@ -21,6 +21,7 @@
   - type: Tag
     tags:
     - Wall
+  - type: IsRoof
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -56,9 +57,6 @@
   id: WallBrick
   name: brick wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/brick.rsi
   - type: Icon
@@ -84,6 +82,8 @@
   - type: IconSmooth
     key: bricks
     base: brick
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -116,6 +116,8 @@
   - type: IconSmooth
     key: walls
     base: clock
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -152,6 +154,8 @@
   - type: IconSmooth
     key: walls
     base: clown
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -215,6 +219,8 @@
   - type: IconSmooth
     key: walls
     base: cult
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -246,6 +252,8 @@
   - type: IconSmooth
     key: walls
     base: debug
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -279,6 +287,8 @@
   - type: IconSmooth
     key: walls
     base: diamond
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -353,6 +363,8 @@
   - type: IconSmooth
     key: walls
     base: ice
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 4 # Mark of rust
 
 - type: entity
   parent: BaseWall
@@ -462,6 +474,8 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
+    - type: RustRequiresPathStage # Goobstation
+      pathStage: 11 # Can't rust
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -485,6 +499,8 @@
                   max: 1
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: RustRequiresPathStage # Goobstation
+      pathStage: 10 # Ascension
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -529,6 +545,8 @@
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 10 # Ascension
 
 - type: entity
   id: WallPlastitaniumDiagonalIndestructible
@@ -546,6 +564,7 @@
   - type: Tag
     tags:
     - Wall
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -577,6 +596,8 @@
         - FullTileMask
         layer:
         - WallLayer
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 11 # Can't rust
 
 - type: entity
   parent: BaseWall
@@ -636,11 +657,12 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: WallReinforced
   id: WallReinforcedRust
-  name: reinforced wall
   suffix: rusted
   components:
   - type: Sprite
@@ -654,6 +676,30 @@
   - type: IconSmooth
     key: walls
     base: reinf_over
+  - type: RustedWall # Goobstation
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -665,6 +711,10 @@
     snap:
     - Wall
   components:
+  - type: Tag
+    tags:
+    - Wall # Goobstation
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
@@ -676,6 +726,8 @@
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 7 # Toxic blade
 
 # Riveting
 - type: entity
@@ -711,6 +763,8 @@
     base: riveted
   - type: StaticPrice
     price: 150
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 10 # Ascension
 
 - type: entity
   parent: BaseWall
@@ -807,6 +861,7 @@
   - type: Tag
     tags:
     - Wall
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
@@ -867,6 +922,8 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: BaseWall
@@ -926,6 +983,8 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: BaseWall
@@ -1041,7 +1100,6 @@
 - type: entity
   parent: WallSolid
   id: WallSolidRust
-  name: solid wall
   suffix: rusted
   components:
   - type: Sprite
@@ -1055,6 +1113,29 @@
   - type: IconSmooth
     key: walls
     base: solid
+  - type: RustedWall # Goobstation
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   parent: BaseWall
@@ -1100,13 +1181,14 @@
   parent: BaseWall
   id: WallWood
   name: wood wall
+  description: The traditional greytide defense.
   components:
   - type: Sprite
     sprite: Structures/Walls/wood.rsi
   - type: Icon
     sprite: Structures/Walls/wood.rsi
   - type: Construction
-    graph: Girder
+    graph: Barricade
     node: woodWall
   - type: Destructible
     thresholds:
@@ -1127,7 +1209,7 @@
         sound:
           collection: WoodDestroyHeavy
       - !type:ChangeConstructionNodeBehavior
-        node: girder
+        node: Barricade
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
@@ -1204,6 +1286,8 @@
   - type: IconSmooth
     key: walls
     base: necropolis
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 10 # Ascension
 
 - type: entity
   parent: BaseWall
@@ -1233,6 +1317,8 @@
     - mining
     - miningB
   - type: Appearance
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -1279,6 +1365,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 7 # Toxic blade
 
 - type: entity
   parent: WallVaultAlien
@@ -1328,16 +1416,19 @@
         layer:
         - GlassLayer
   - type: Airtight
+  - type: RustRequiresPathStage # Goobstation
+    pathStage: 11 # Can't rust
 
 - type: entity
   id: WallForce
   name: force wall
   components:
     - type: TimedDespawn
-      lifetime: 12
+      lifetime: 30 # Goob edit
     - type: Tag
       tags:
         - Wall
+        - BlockLightning # Goobstation
     - type: Physics
       bodyType: Static
     - type: Fixtures
@@ -1348,15 +1439,39 @@
             bounds: "-0.5,-0.5,0.5,0.5"
           mask:
             - FullTileMask
-          layer:
-            - WallLayer
+          layer: # Goob edit
+            - Opaque
+            - HighImpassable
+            - MidImpassable
+            - LowImpassable
+            - BulletImpassable
     - type: Airtight
     - type: Sprite
       sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
+      layers:
+      - state: forcewall
+        map: [ "base" ]
     - type: Icon
       sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
+      state: forcewallspawn
+    # Goobstation start
+    - type: SpawnAnimation
+      animationLength: 1
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.SpawnAnimationVisuals.Spawned:
+          base:
+            True: { state: forcewall }
+            False: { state: forcewallspawn }
+    - type: RustRequiresPathStage
+      pathStage: 11 # Can't rust
+    - type: PreventCollide
+      whitelist:
+        components:
+        - Wizard
+        - Apprentice
+    # Goobstation end
 
 - type: entity
   parent: BaseWall

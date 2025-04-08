@@ -1,0 +1,63 @@
+- type: ghostRole
+  id: ApprenticeDestruction
+  name: ghost-role-information-apprentice-destruction-name
+  description: ghost-role-information-apprentice-destruction-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeDestruction
+  iconPrototype: ActionFireball
+
+- type: ghostRole
+  id: ApprenticeEthereal
+  name: ghost-role-information-apprentice-ethereal-name
+  description: ghost-role-information-apprentice-ethereal-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeEthereal
+  iconPrototype: ActionPolymorphJaunt
+
+- type: ghostRole
+  id: ApprenticeSummon
+  name: ghost-role-information-apprentice-summon-name
+  description: ghost-role-information-apprentice-summon-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeSummon
+  iconPrototype: ActionLesserSummonBees
+
+- type: ghostRole
+  id: ApprenticeGun
+  name: ghost-role-information-apprentice-gun-name
+  description: ghost-role-information-apprentice-gun-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeGun
+  iconPrototype: ActionLesserSummonGuns
+
+- type: ghostRole
+  id: ApprenticeArcane
+  name: ghost-role-information-apprentice-arcane-name
+  description: ghost-role-information-apprentice-arcane-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeArcane
+  iconPrototype: ActionChargeSpell
+
+- type: ghostRole
+  id: ApprenticeSanguine
+  name: ghost-role-information-apprentice-sanguine-name
+  description: ghost-role-information-apprentice-sanguine-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeSanguine
+  iconPrototype: ActionScreamForMe
+
+- type: ghostRole
+  id: ApprenticeRobeless
+  name: ghost-role-information-apprentice-robeless-name
+  description: ghost-role-information-apprentice-robeless-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeRobeless
+  iconPrototype: ActionMindSwap
+
+- type: ghostRole
+  id: ApprenticeChaos
+  name: ghost-role-information-apprentice-chaos-name
+  description: ghost-role-information-apprentice-chaos-desc
+  rules: ghost-role-information-apprentice-rules
+  entityPrototype: MobHumanApprenticeChaos
+  iconPrototype: ApprenticeIconChaos

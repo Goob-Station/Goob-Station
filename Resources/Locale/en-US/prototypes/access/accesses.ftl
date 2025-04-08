@@ -2,6 +2,7 @@ id-card-access-level-command = Command
 id-card-access-level-captain = Captain
 id-card-access-level-head-of-personnel = Head of Personnel
 id-card-access-level-cryogenics = Cryogenics
+id-card-access-level-emergency-shuttle-repeal = E.Shuttle Repeal All
 
 id-card-access-level-head-of-security = Head of Security
 id-card-access-level-security = Security
@@ -45,3 +46,17 @@ id-card-access-level-syndicate-agent = Syndicate Agent
 id-card-access-level-central-command = Central Command
 
 id-card-access-level-wizard = Wizard
+
+id-card-access-level-1A = Dorm 1A
+id-card-access-level-1B = Dorm 1B
+id-card-access-level-2A = Dorm 2A
+id-card-access-level-2B = Dorm 2B
+id-card-access-level-3A = Dorm 3A
+id-card-access-level-3B = Dorm 3B
+id-card-access-level-4A = Dorm 4A
+id-card-access-level-4B = Dorm 4B
+id-card-access-level-5A = Dorm 5A
+id-card-access-level-5B = Dorm 5B
+id-card-access-level-6A = Dorm 6A
+id-card-access-level-6B = Dorm 6B
+id-card-access-level-7A = Dorm 7A

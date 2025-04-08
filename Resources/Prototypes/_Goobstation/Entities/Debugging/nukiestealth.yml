@@ -2,6 +2,7 @@
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndieStealthDebug
   suffix: DEBUG, DO NOT MAP, stealth
+  categories: [ DoNotMap ]
   name: syndicate stealth hardsuit
   description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
   components:
@@ -47,6 +48,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieStealthDebug
   suffix: DEBUG, DO NOT MAP, stealth
+  categories: [ DoNotMap ]
   name: syndicate stealth hardsuit helmet
   description: A helmet with plating for stealth operations.
   components:

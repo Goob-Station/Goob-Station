@@ -1,0 +1,19 @@
+- type: entity
+  parent: EggSpider
+  id: EggSpiderFertilized
+  name: spider egg
+  description: Is it a gemstone? Is it an egg? It looks expensive.
+  components:
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - MobGiantSpider
+    intervalSeconds: 60
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+  - type: TimedDespawn 
+    lifetime: 61
+  - type: FactionException
+  - type: PettableFriend
+    successString: petting-success-spider-egg
+    failureString: petting-failure-spider-egg

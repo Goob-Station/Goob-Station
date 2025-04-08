@@ -1,0 +1,87 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskPig
+  name: pig mask
+  description: A rubber pig mask with a built-in voice modulator.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+  - type: Tag
+    tags:
+    - CursedAnimalMask
+    - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: IdentityBlocker
+  - type: AddAccentClothing
+    accent: PigAccent
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskFrog
+  name: frog mask
+  description: An ancient mask carved in the shape of a frog. Sanity is like gravity, all it needs is a push.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Mask/frog.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Mask/frog.rsi
+  - type: Tag
+    tags:
+    - CursedAnimalMask
+    - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: IdentityBlocker
+  - type: AddAccentClothing
+    accent: FrogAccent
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskCow
+  name: cow mask
+  description: A mask made of soft vinyl and latex, representing the head of a cow.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Mask/cow.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Mask/cow.rsi
+  - type: Tag
+    tags:
+    - CursedAnimalMask
+    - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: IdentityBlocker
+  - type: AddAccentClothing
+    accent: CowAccent
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskHorse
+  name: horse mask
+  description: A mask made of soft vinyl and latex, representing the head of a horse.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Mask/horse.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Mask/horse.rsi
+  - type: Tag
+    tags:
+    - CursedAnimalMask
+    - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
+  - type: HideLayerClothing
+    slots:
+    - Snout
+  - type: IdentityBlocker
+  - type: AddAccentClothing
+    accent: HorseAccent

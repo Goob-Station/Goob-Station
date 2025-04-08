@@ -1,0 +1,59 @@
+# DO NOT use this as an actual species, its for borg part appearance to Just Work
+- type: species
+  id: Cyborg
+  name: species-name-human
+  roundStart: false
+  prototype: BorgChassisSelectable
+  sprites: CyborgSprites
+  defaultSkinTone: "#fff9e2"
+  markingLimits: MobHumanMarkingLimits
+  maleFirstNames: names_borg
+  femaleFirstNames: names_borg
+  dollPrototype: BorgChassisSelectable
+  skinColoration: TintedHues
+
+- type: speciesBaseSprites
+  id: CyborgSprites
+  sprites:
+    Head: CyborgHead
+    Chest: CyborgTorso
+    LArm: CyborgLArm
+    RArm: CyborgRArm
+    LLeg: CyborgLLeg
+    RLeg: CyborgRLeg
+
+- type: humanoidBaseSprite
+  id: CyborgHead
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_head
+
+- type: humanoidBaseSprite
+  id: CyborgTorso
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_chest
+
+- type: humanoidBaseSprite
+  id: CyborgLLeg
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_l_leg
+
+- type: humanoidBaseSprite
+  id: CyborgLArm
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_l_arm
+
+- type: humanoidBaseSprite
+  id: CyborgRLeg
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_r_leg
+
+- type: humanoidBaseSprite
+  id: CyborgRArm
+  baseSprite:
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+    state: borg_r_arm

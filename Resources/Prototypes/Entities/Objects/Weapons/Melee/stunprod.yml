@@ -31,6 +31,7 @@
         Shock: 5
   - type: Stunbaton
     energyPerUse: 120
+    lightAttackEnergyMultiplier: 1.5 # Goob edit
   - type: MeleeWeapon # goob edited
     angle: 0
     wideAnimationRotation: -135
@@ -42,16 +43,26 @@
   - type: StaminaDamageOnHit # goob edited
     damage: 15
     overtime: 40
+    lightAttackDamageMultiplier: 4
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide # goob edited
     damage: 15
     overtime: 40
     sound: /Audio/Weapons/egloves.ogg
+  - type: DelayedKnockdownOnHit # Goobstation
+    useDelay: stunbaton
+  - type: UseDelayBlockMelee # Goobstation
+    delays:
+    - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 360
     startingCharge: 360
   - type: UseDelay
+    delays: # Goobstation
+      stunbaton:
+        length: 2.5
   - type: Item
     heldPrefix: off
     size: Normal

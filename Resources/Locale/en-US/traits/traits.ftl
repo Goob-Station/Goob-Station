@@ -54,15 +54,6 @@ trait-german-desc = You seem to come from space Germany.
 trait-italian-name = Italian accent
 trait-italian-desc = Mamma mia! You seem to have lived in space Italy!
 
-trait-atheist-name = Atheist
-trait-atheist-desc = You are an Atheist. You cannot pray.
-
-trait-buddhist-name = Buddhist
-trait-buddhist-desc = You are a Buddhist.
-
-trait-christian-name = Christian
-trait-christian-desc = You are a Christian.
-
 trait-french-name = French accent
 trait-french-desc = Your accent seems to have a certain «je ne sais quoi».
 
@@ -71,3 +62,6 @@ trait-spanish-desc = Hola señor, donde esta la biblioteca.
 
 trait-dementia-name = Dementia
 trait-dementia-desc = I-... uh, what was this one about again? Oh thats right! You forget a lot sometimes
+
+trait-painnumbness-name = Numb
+trait-painnumbness-desc = You lack any sense of feeling pain, being unaware of how hurt you may be.

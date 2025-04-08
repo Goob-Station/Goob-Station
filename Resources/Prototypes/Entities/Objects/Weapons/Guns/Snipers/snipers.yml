@@ -46,6 +46,21 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: Item  # Goob edit start
+    size: Large
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Slash: 6
+       Piercing: 7
+    angle: 0
+    wideAnimationRotation: -135
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeRequiresWield # Goob edit end
 
 - type: entity
   name: Hristov
@@ -57,12 +72,27 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 0.4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - CartridgeAntiMateriel
-    capacity: 6 # Goobstation
+    capacity: 5
     proto: CartridgeAntiMateriel
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.25
+    sprintModifier: 0.25
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
 
 - type: entity
   name: musket
@@ -91,16 +121,16 @@
       - CartridgeAntiMateriel
     capacity: 1
     proto: CartridgeAntiMateriel
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 15 #you fucking stab em
-        Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
-    angle: 0
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
+  #- type: MeleeWeapon # Goobstation - commented this out cause it breaks NPCs and it doesn't work anyway lol
+  #  wideAnimationRotation: -135
+  #  damage:
+  #    types:
+  #      Piercing: 15 #you fucking stab em
+  #      Bloodloss: 2 #no way to apply bleed, triangular bayonet wounds are hard to fix(source:that one copypasta)
+  # angle: 0
+  # animation: WeaponArcThrust
+  # soundHit:
+  #   path: /Audio/Weapons/bladeslice.ogg
 
 - type: entity
   name: flintlock pistol

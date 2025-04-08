@@ -1,0 +1,74 @@
+- type: gameMap
+  id: Lambda
+  mapName: 'Lambda'
+  mapPath: /Maps/_Goobstation/lambda.yml
+  minPlayers: 35
+  maxPlayers: 70
+  fallback: true
+  stations:
+    Lambda:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Lambda Station {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'TG'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_raven.yml
+        - type: StationCargoShuttle
+          path: /Maps/Shuttles/cargo_fland.yml
+        - type: StationJobs
+          availableJobs:
+            #service
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 2 , 3 ]
+            Chef: [ 1, 2 ]
+            Janitor: [ 2, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 2, 3 ]
+            #engineering
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 2, 4 ]
+            StationEngineer: [ 4, 6 ]
+            TechnicalAssistant: [ 2, 4 ]
+            #medical
+            ChiefMedicalOfficer: [ 1, 1 ]
+            Chemist: [ 1, 2 ]
+            MedicalDoctor: [ 4, 5 ]
+            MedicalIntern: [ 3, 4 ]
+            Paramedic: [ 1, 2 ]
+            #science
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 4, 6 ]
+            ResearchAssistant: [ 3, 4 ]
+            #security
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 5, 6 ]
+            SecurityCadet: [ 3, 4 ]
+            Detective: [ 1, 1 ]
+            #supply
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 7, 7 ]
+            CargoTechnician: [ 4, 6 ]
+            #civillian
+            Passenger: [ -1, -1 ]
+            Clown: [ 2, 2 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            #Silicon
+            Borg: [ 3, 4 ]
+            StationAi: [ 1, 1 ]
+
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # Goobstation blob-config-end

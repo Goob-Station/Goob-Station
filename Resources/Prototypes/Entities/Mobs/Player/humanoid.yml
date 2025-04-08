@@ -2,12 +2,16 @@
 
 - type: randomHumanoidSettings
   id: EventHumanoid
-    # start-backmen: species
+  # Shitmed Change Start
   speciesBlacklist:
   - Monkey
   - Kobold
-  # end-backmen: species
-  - Yowie # Goobstation
+  - Abductor
+  # Shitmed Change End
+  - Yowie # Goobstation - No hardsuit
+  - IPC # Goobstation - Your EMP (when you're nukie, DS or ninja) can easily kill you. TODO: Make EMPImmune component for these roles?
+  - Diona # Goobstation - Lack of legs makes it weaker than other species in combat
+  - Harpy # Goobstation - Same with Diona
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -36,7 +40,7 @@
 
 - type: entity
   id: RandomHumanoidSpawnerDeathSquad
-  name: Death Squad Agent
+  name: Death Squad Operative
   suffix: ERTRole, Death Squad
   components:
     - type: Sprite
@@ -51,9 +55,11 @@
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanMindShielded # Goob edit
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
+    - type: GrantImplant
+      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
@@ -88,7 +94,7 @@
 
 - type: randomHumanoidSettings
   id: ERTLeader
-  parent: EventHumanMindShielded # Goob edit
+  parent: EventHumanoidMindShielded
   randomizeName: false
   components:
     - type: GhostRole
@@ -134,15 +140,15 @@
       roleLoadout: [ RoleSurvivalEVA ]
 
 - type: entity
-  id: RandomHumanoidSpawnerERTLeaderEVALecter
+  id: RandomHumanoidSpawnerERTLeaderEVAAnnie
   parent: RandomHumanoidSpawnerERTLeaderEVA
-  suffix: ERTRole, Lecter, EVA
+  suffix: ERTRole, Annie, EVA
   components:
     - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVALecter
+      settings: ERTLeaderEVAAnnie
 
 - type: randomHumanoidSettings
-  id: ERTLeaderEVALecter
+  id: ERTLeaderEVAAnnie
   parent: ERTLeaderEVA
   components:
     - type: GhostRole
@@ -153,7 +159,7 @@
         settings: short
       job: ERTLeader
     - type: Loadout
-      prototypes: [ ERTLeaderGearEVALecter ]
+      prototypes: [ ERTLeaderGearEVAAnnie ]
       roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Chaplain
@@ -414,28 +420,29 @@
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
 
-- type: entity
-  id: RandomHumanoidSpawnerERTSecurityEVALecter
-  parent: RandomHumanoidSpawnerERTSecurityEVA
-  suffix: ERTRole, Lecter, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVALecter
-
-- type: randomHumanoidSettings
-  id: ERTSecurityEVALecter
-  parent: ERTSecurityEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-security-name
-      description: ghost-role-information-ert-security-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTSecurity
-    - type: Loadout
-      prototypes: [ ERTSecurityGearEVALecter ]
-      roleLoadout: [ RoleSurvivalEVA ]
+# ERT Lecter is dead, and I have killed it. - Sol
+#- type: entity
+#  id: RandomHumanoidSpawnerERTSecurityEVALecter
+#  parent: RandomHumanoidSpawnerERTSecurityEVA
+#  suffix: ERTRole, Lecter, EVA
+#  components:
+#    - type: RandomHumanoidSpawner
+#      settings: ERTSecurityEVALecter
+#
+#- type: randomHumanoidSettings
+#  id: ERTSecurityEVALecter
+#  parent: ERTSecurityEVA
+#  components:
+#    - type: GhostRole
+#      name: ghost-role-information-ert-security-name
+#      description: ghost-role-information-ert-security-description
+#      rules: ghost-role-information-nonantagonist-rules
+#      raffle:
+#        settings: short
+#      job: ERTSecurity
+#    - type: Loadout
+#      prototypes: [ ERTSecurityGearEVALecter ]
+#      roleLoadout: [ RoleSurvivalEVA ]
 
 ## ERT Medic
 
@@ -516,8 +523,10 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  parent: EventHumanMindShielded # Goob edit
+  parent: EventHumanoidMindShielded
   components:
+    - type: GrantImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm ]
     - type: Loadout
       prototypes: [CBURNGear]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -546,8 +555,10 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
-  parent: EventHumanMindShielded
+  parent: EventHumanoidMindShielded
   components:
+    - type: GrantImplant
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
       description: ghost-role-information-centcom-official-description
@@ -573,8 +584,8 @@
       settings: SyndicateAgent
 
 - type: randomHumanoidSettings
+  parent: EventHumanoid # Goobstation
   id: SyndicateAgent
-  speciesWhitelist: Human # Goobstation
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -593,8 +604,8 @@
       settings: NukeOp
 
 - type: randomHumanoidSettings
+  parent: EventHumanoid # Goobstation
   id: NukeOp
-  speciesWhitelist: Human # Goobstation
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false

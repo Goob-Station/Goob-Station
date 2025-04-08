@@ -1,6 +1,6 @@
 - type: entity
   name: stun baton
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
@@ -32,14 +32,14 @@
     activatedDamage:
       types:
         Blunt: 0
-  - type: MeleeWeapon # goob edited
-    angle: 0
+  - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
-    animation: WeaponArcSlash
+    angle: 0
+    animation: WeaponArcThrust
   # it was ~35 now it's 55 so it's a buff ig
   - type: StaminaDamageOnHit # goob edited
     damage: 15
@@ -94,10 +94,12 @@
     guides:
     - Security
     - Antagonists
+  - type: MartialArtBlocked # Goobstation - Martial Arts
+    form: CorporateJudo # Goobstation - Martial Arts
 
 - type: entity
   name: truncheon
-  parent: [BaseItem, BaseRestrictedContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: Truncheon
   description: A rigid, steel-studded baton, meant to harm.
   components:
@@ -136,6 +138,7 @@
   name: flash
   parent: [BaseItem, BaseSecurityScienceCommandContraband]
   id: Flash
+  suffix: DO NOT MAP
   description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out.
   components:
     - type: Sprite
@@ -190,7 +193,7 @@
 
 - type: entity
   name: portable flasher
-  parent: [BaseMachine, BaseRestrictedContraband]
+  parent: [BaseMachine, BaseSecurityContraband]
   id: PortableFlasher
   description: An ultrabright flashbulb with a proximity trigger, useful for making an area security-only.
   components:

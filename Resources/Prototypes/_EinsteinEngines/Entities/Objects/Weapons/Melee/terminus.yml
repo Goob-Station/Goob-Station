@@ -1,0 +1,58 @@
+- type: entity
+  name: DT-8 "Terminus"
+  parent: BaseItem
+  id: Terminus
+  description: An advanced weapon crafted specifically for an oni. Capable of firing a spread of disabler shots from its tip.
+  components:
+  - type: Sprite
+    sprite: /Textures/_EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
+    state: icon
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: Gun
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 1
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletDisablerSmgSpread
+    capacity: 1
+    count: 1
+  - type: MeleeWeapon
+    attackRate: 0.65
+    range: 1.65
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 15
+        Slash: 5
+    bluntStaminaDamageFactor: 2.0
+    heavyStaminaCost: 7.5
+    angle: 120
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+        Slash: 10
+  - type: StaminaDamageOnHit # I stole the baseball bat code and thought it'd be funny to leave this.
+    damage: 10
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: Item
+    size: Ginormous
+  - type: DisarmMalus
+  - type: Tool
+    qualities:
+    - Prying
+  - type: Prying
+#  - type: RestrictedMelee - Lets add a really cool weapon and only make it usable by a single species, abysmal dogshit.
+#    whitelist:
+#      tags:
+#        - Oni

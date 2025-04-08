@@ -11,6 +11,7 @@
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  goobcoins: 30 #Goob content
   access:
   - Security
   - Brig
@@ -19,9 +20,20 @@
   - Detective
   - Cryogenics
   - External
+  - Kitchen
+  - Hydroponics
+  - Janitor
+  - Engineering
+  - Atmospherics
+  - Medical
+  - Research
+  - Cargo
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial # goobstation
+    components:
+      - type: SecurityStaff
 
 - type: startingGear
   id: DetectiveGear
@@ -37,3 +49,4 @@
     - ForensicPad
     - ForensicScanner
     - SecHypo # Goobstation
+    - ClothingMaskGasSecurity # Goobstation

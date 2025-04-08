@@ -16,8 +16,7 @@
     slots:
     - belt
   - type: Item
-    heldPrefix: off
-    size: Ginormous
+    size: Huge # DeltaV: Was Ginormous, lets it fit in conscription bag
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -47,3 +46,4 @@
           True: { state: orebag_on }
           False: { state: orebag_off }
   # WHITE EDIT END
+  - type: OreBag # Lavaland Change

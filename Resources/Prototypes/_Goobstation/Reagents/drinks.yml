@@ -1,0 +1,16 @@
+- type: reagent
+  id: TripleCitrus
+  name: reagent-name-triple-citrus
+  parent: BaseDrink
+  desc: reagent-desc-triple-citrus
+  physicalDesc: reagent-physical-desc-lemony-fresh
+  flavor: sour
+  color: "#d9f929"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:SatiateThirst
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1

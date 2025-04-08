@@ -1,6 +1,9 @@
 # PUT YOUR TAGS IN ALPHABETICAL ORDER
 
 - type: Tag
+  id: AccessBreakerImmune
+
+- type: Tag
   id: AirAlarm
 
 - type: Tag
@@ -11,6 +14,9 @@
 
 - type: Tag
   id: AirSensor
+
+- type: Tag
+  id: AllowGhostShownByEvent
 
 - type: Tag
   id: Ambrosia
@@ -429,6 +435,9 @@
   id: Debug
 
 - type: Tag
+  id: Diagonal
+
+- type: Tag
   id: Dice
 
 - type: Tag
@@ -645,6 +654,9 @@
   id: Hardsuit # Prevent melee injectors that can't penetrate hardsuits from injecting the wearer (nettles)
 
 - type: Tag
+  id: HardsuitSpatio
+
+- type: Tag
   id: Haunted
 
 - type: Tag
@@ -652,6 +664,9 @@
 
 - type: Tag
   id: HelmetEVA
+
+- type: Tag
+  id: HereticCarving
 
 - type: Tag
   id: HideContextMenu
@@ -812,6 +827,9 @@
   id: MagazineShotgun
 
 - type: Tag
+  id: MagazineShotgunLeverRifle
+
+- type: Tag
   id: MagazineMagnumSubMachineGun
 
 - type: Tag
@@ -824,6 +842,9 @@
 
 - type: Tag
   id: MailingUnitElectronics
+
+- type: Tag
+  id: Maints
 
 - type: Tag
   id: Matchstick
@@ -907,7 +928,13 @@
   id: NukeOpsUplink
 
 - type: Tag
+  id: LoneOpsUplink
+
+- type: Tag
   id: Ointment
+
+- type: Tag
+  id: Oni
 
 - type: Tag
   id: Ore
@@ -980,6 +1007,9 @@
 
 - type: Tag
   id: PlushieGhost
+
+- type: Tag
+  id: PlushieLizard
 
 - type: Tag
   id: PlushieSharkBlue
@@ -1177,6 +1207,9 @@
   id: Spray
 
 - type: Tag
+  id: SprayNozzle
+
+- type: Tag
   id: SpreaderIgnore
 
 - type: Tag
@@ -1322,6 +1355,12 @@
 
 - type: Tag
   id: WhitelistChameleon
+
+- type: Tag
+  id: WhitelistChameleonIdCard
+
+- type: Tag
+  id: WhitelistChameleonPDA
 
 - type: Tag
   id: Window

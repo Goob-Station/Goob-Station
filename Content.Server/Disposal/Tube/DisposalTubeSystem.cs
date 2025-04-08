@@ -225,7 +225,7 @@ namespace Content.Server.Disposal.Tube
             args.Next = Transform(uid).LocalRotation.GetDir();
         }
 
-        private void OnGetTransitConnectableDirections(EntityUid uid, DisposalTransitComponent component, ref GetDisposalsConnectableDirectionsEvent args)
+        public void OnGetTransitConnectableDirections(EntityUid uid, DisposalTransitComponent component, ref GetDisposalsConnectableDirectionsEvent args) // Goobstation - Modularity
         {
             var rotation = Transform(uid).LocalRotation;
             var opposite = new Angle(rotation.Theta + Math.PI);

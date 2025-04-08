@@ -1,0 +1,35 @@
+- type: entity
+  id: TidemindDevelop
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 3 # rare
+    duration: 1
+    # no occurences limit so newly arriving tiders can also get it
+  - type: JobAddTagsRule
+    message: station-event-tidemind-message
+    affected:
+      - Passenger
+    tags:
+      - TidemindMind
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictCyborgSyndicateSpawn
+  components:
+  - type: StationEvent
+    weight: 6 # Rare, but not AS rare
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelictSyndicateAssaultBattery
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborgSyndicate
+      min: 1
+      max: 1
+      pickPlayer: false

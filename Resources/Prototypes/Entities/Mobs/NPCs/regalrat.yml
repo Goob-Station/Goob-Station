@@ -4,6 +4,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00
@@ -58,13 +59,8 @@
         Slash: 12
         Piercing: 8
   - type: Body
-    prototype: Rat
+    prototype: RatKing
     requiredLegs: 1 # TODO: More than 1 leg
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -98,6 +94,9 @@
     rules: ghost-role-information-freeagent-rules
     raffle:
       settings: default
+    requirements: # Goobstation - ghost roles requirements
+    - !type:OverallPlaytimeRequirement
+      time: 18000 #5 hours
   - type: GhostTakeoverAvailable
   - type: Tag
     tags:
@@ -129,10 +128,13 @@
       gender: male
   - type: Sharp
   - type: NightVision # Goobstation - Nigthvision
-    toggleAction: null
-    color: "#808080"
+    color: "#d14343"
     activateSound: null
     deactivateSound: null
+  - type: Insulated # Goobstation
+    coefficient: 0.5
+  - type: CombatPower # Goobstation
+    factor: 2
 
 - type: entity
   id: MobRatKingBuff
@@ -171,6 +173,7 @@
     guides:
     - MinorAntagonists
 
+
 - type: entity
   name: rat servant
   id: MobRatServant
@@ -178,6 +181,7 @@
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
+  - type: VentCrawler # goobstation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
@@ -210,6 +214,7 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
+  - type: Insulated # Goobstation
 
   - type: SpriteMovement
     movementLayers:
@@ -251,11 +256,6 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200

@@ -1,11 +1,17 @@
-﻿- type: entity
+- type: entity
   id: ActionFireball
   name: Fireball
   description: Fires an explosive fireball towards the clicked location.
   components:
   - type: Magic
-  - type: WorldTargetAction
-    useDelay: 15
+    requiresSpeech: true # Goobstation
+    school: Evocation # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: fireball
+  - type: EntityWorldTargetAction # Goob edit
+    useDelay: 6 # Goob edit
+    checkCanInteract: false # Goobstation
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -13,8 +19,8 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: fireball # Goob edit
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
       speech: action-speech-spell-fireball
@@ -29,8 +35,9 @@
   name: Fireball II
   description: Fires a fireball, but faster!
   components:
-  - type: WorldTargetAction
-    useDelay: 10
+  - type: EntityWorldTargetAction # Goob edit
+    useDelay: 4 # Goob edit
+    checkCanInteract: false # Goobstation
     renewCharges: true
     itemIconStyle: BigAction
     checkCanAccess: false
@@ -39,8 +46,8 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: fireball # Goob edit
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
       speech: action-speech-spell-fireball
@@ -51,8 +58,9 @@
   name: Fireball III
   description: The fastest fireball in the west!
   components:
-    - type: WorldTargetAction
-      useDelay: 8
+    - type: EntityWorldTargetAction # Goob edit
+      useDelay: 2 # Goob edit
+      checkCanInteract: false # Goobstation
       renewCharges: true
       itemIconStyle: BigAction
       checkCanAccess: false
@@ -61,8 +69,8 @@
       sound: !type:SoundPathSpecifier
         path: /Audio/Magic/fireball.ogg
       icon:
-        sprite: Objects/Magic/magicactions.rsi
-        state: fireball
+        sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+        state: fireball # Goob edit
       event: !type:ProjectileSpellEvent
         prototype: ProjectileFireball
         speech: action-speech-spell-fireball

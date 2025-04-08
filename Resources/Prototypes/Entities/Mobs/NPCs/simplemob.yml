@@ -35,6 +35,8 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: StatusIcon # Goobstation
+    bounds: -0.5,-0.5,0.5,0.5
 
 - type: entity
   abstract: true
@@ -113,3 +115,5 @@
   - type: MobPrice
     price: 150
   - type: FloatingVisuals
+  - type: CombatPower # Goobstation
+    factor: 0.5 # As dangerous as half a crew-member

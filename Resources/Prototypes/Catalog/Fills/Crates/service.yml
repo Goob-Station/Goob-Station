@@ -322,8 +322,6 @@
           # Cigarette Stuff
         - id: Ash
           prob: 0.15
-        - id: CigaretteSpent
-          prob: 0.15
           # Bacteria
         - id: FoodBreadMoldySlice
           prob: 0.15

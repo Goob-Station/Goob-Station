@@ -1,6 +1,7 @@
 - type: vendingMachineInventory
   id: CentDrobeInventory
   startingInventory:
+    ClothingBackpackMessengerCentcomm: 2 # Frontier
     ClothingShoesBootsLaceup: 3
     ClothingShoesBootsJack: 3
     ClothingHandsGlovesCombat: 3
@@ -10,6 +11,7 @@
     ClothingUniformJumpsuitCentcomAgent: 3
     ClothingUniformJumpsuitCentcomFormal: 3
     ClothingUniformJumpskirtCentcomFormalDress: 3
+    ClothingUniformJumpsuitCasualCentcom: 3 # Goobstation
     ClothingHeadHatCentcom: 3
     ClothingHeadHatCentcomcap: 3
     ClothingMaskGasCentcom: 3
@@ -18,3 +20,6 @@
     ClothingOuterCoatExpensive: 1
     ClothingNeckScarfStripedCentcom: 3
     ClothingNeckCloakCentcom: 3
+  contrabandInventory:
+    ToyFigurineCaptain: 1
+    ToyFigurineHeadOfPersonnel: 1

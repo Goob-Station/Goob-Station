@@ -4,6 +4,7 @@
   name: warp point
   components:
   - type: WarpPoint
+  - type: WizardTeleportWarpPoint # Goobstation
   - type: Sprite
     state: pink
 

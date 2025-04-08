@@ -27,6 +27,7 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingShoeSlippersDuck
       - id: ClothingUnderSocksBee
+      - id: ClothingShoesFakeJordans
       - id: ClothingUnderSocksCoder
       - id: ClothingHeadHatSquid
       # Animal Masks
@@ -88,6 +89,7 @@
       - id: ClothingShoesTourist
       - id: ClothingUniformJumpsuitLoungewear
       - id: ClothingHeadHatCowboyRed
+      - id: ClothingShoesSkates #GoobStation
     # Uncommon Group
     - !type:GroupSelector
       weight: 23
@@ -117,6 +119,7 @@
       - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
+      - id: FoodSnackLollypopWrappedMysteryNeutral # Goobstation - Lollypops!
       # Cult
       - !type:AllSelector
         children:
@@ -141,6 +144,7 @@
       - !type:GroupSelector
         children:
         - id: ClothingNeckLGBTPin
+        - id: ClothingNeckAllyPin
         - id: ClothingNeckAromanticPin
         - id: ClothingNeckAsexualPin
         - id: ClothingNeckBisexualPin
@@ -149,6 +153,8 @@
         - id: ClothingNeckLesbianPin
         - id: ClothingNeckNonBinaryPin
         - id: ClothingNeckPansexualPin
+        - id: ClothingNeckOmnisexualPin
+        - id: ClothingNeckGenderqueerPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
     # Rare Group
@@ -158,12 +164,13 @@
       - id: Skub
       - id: PonderingOrb
       - id: CluwneHorn
-      - id: ClothingShoesSkates
       - id: DrinkMugDog
       - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
       - id: RubberStampGreytide
+      - id: ClothingShoesWizardSkates #GoobStation - Wizard Skates
+      - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation - Lollypops!
 
 - type: entity
   name: Maint Loot Spawner
@@ -278,6 +285,7 @@
     - !type:GroupSelector
       weight: 2
       children:
+      - id: Binoculars
       - id: LanternFlash
       - id: PowerCellHigh
       - id: NetProbeCartridge
@@ -380,3 +388,32 @@
         - Spaceshroom
       chance: 0.6
       offset: 0.0
+
+
+- type: entityTable
+  id: InsulsTable
+  table: !type:GroupSelector
+    children:
+    - id: ClothingHandsGlovesColorYellowBudget # budget insuls
+      weight: 85
+    - id: ClothingHandsGlovesColorYellow # true insuls
+      weight: 10
+    - id: ClothingHandsGlovesFingerlessInsulated # fingerless
+      weight: 4
+    - id: ClothingHandsGlovesConducting # conducting
+      weight: 1
+
+- type: entity
+  name: Maint Loot Spawner
+  id: MaintenanceInsulsSpawner
+  suffix: Insuls, safe
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: InsulsTable

@@ -1,7 +1,7 @@
 - type: entity
   id: ActionSummonGhosts
   name: Summon Ghosts
-  description: Makes all current ghosts permanently invisible
+  description: Makes all current ghosts permanently visible
   components:
   - type: InstantAction
     useDelay: 120
@@ -179,8 +179,6 @@
         orGroup: Magics
       - id: BlinkBook
         orGroup: Magics
-      - id: SmiteBook
-        orGroup: Magics
       - id: KnockSpellbook
         orGroup: Magics
       - id: FireballSpellbook
@@ -200,5 +198,9 @@
       - id: WeaponStaffHealing
         orGroup: Magics
       - id: WeaponStaffPolymorphDoor
+        orGroup: Magics
+      - id: AnimationStaff
+        orGroup: Magics
+      - id: RGBStaff
         orGroup: Magics
       speech: action-speech-spell-summon-magic

@@ -3,7 +3,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseToolRecipe
-  category: Tools
+  categories:
+  - Tools
   completetime: 2
   materials:
     Steel: 200
@@ -52,7 +53,8 @@
 - type: latheRecipe
   id: CableStack
   result: CableApcStack1
-  category: Parts
+  categories:
+  - Parts
   completetime: 0.1
   materials:
     Steel: 30
@@ -129,10 +131,10 @@
     Steel: 500
     Plastic: 250
 
-- type: latheRecipe
-  parent: BaseBigToolRecipe
-  id: HandHeldMassScanner
-  result: HandHeldMassScannerEmpty
+#- type: latheRecipe - Removed by Lavaland
+#  parent: BaseBigToolRecipe
+#  id: HandHeldMassScanner
+#  result: HandHeldMassScannerEmpty
 
 - type: latheRecipe
   parent: BaseBigToolRecipe

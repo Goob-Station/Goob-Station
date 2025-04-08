@@ -17,6 +17,9 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: Stack
     count: 1
+  - type: Tag
+    tags:
+      - DroneUsable # Goobstation
   # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
@@ -52,6 +55,14 @@
     damage:
       types:
         Blunt: 20
+  - type: GuideHelp
+    guides:
+    - ExpandingRepairingStation
+  - type: Extractable # Goobstation - Tilenol
+    juiceSolution:
+      reagents:
+      - ReagentId: Nostalgia
+        Quantity: 1
 
 - type: entity
   name: steel dark checker tile
@@ -1580,6 +1591,23 @@
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 25
+
+- type: entity
+  id: FloorTileItemAstroAsteroidSand
+  parent: FloorTileItemBase
+  name: asteroid astro-sand
+  description: Fake sand. Luckily, it's not as coarse as the real thing.
+  components:
+  - type: Sprite
+    state: asteroid
+  - type: Item
+    heldPrefix: asteroid
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorAstroAsteroidSand
+  - type: Stack
+    stackType: FloorTileAstroAsteroidSand
 
 - type: entity
   name: large wood floor

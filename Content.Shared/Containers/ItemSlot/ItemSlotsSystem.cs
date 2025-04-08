@@ -111,6 +111,7 @@ namespace Content.Shared.Containers.ItemSlots
             }
 
             slot.ContainerSlot = _containers.EnsureContainer<ContainerSlot>(uid, id);
+            slot.ContainerSlot.OccludesLight = slot.OccludesLight; // Lavaland Change
             itemSlots.Slots[id] = slot;
             Dirty(uid, itemSlots);
         }

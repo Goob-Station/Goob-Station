@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.DeviceNetwork.Components
 {
     [RegisterComponent]
-    [Access(typeof(DeviceNetworkSystem), typeof(DeviceNet))]
+    //Goobstation - sync device lists / modules had to nuke explicit access
     public sealed partial class DeviceNetworkComponent : Component
     {
         public enum DeviceNetIdDefaults
@@ -113,7 +113,7 @@ namespace Content.Server.DeviceNetwork.Components
         ///     A list of device-lists that this device is on.
         /// </summary>
         [DataField]
-        [Access(typeof(DeviceListSystem))]
+        // had to nuke explicit access for goob modules
         public HashSet<EntityUid> DeviceLists = new();
 
         /// <summary>

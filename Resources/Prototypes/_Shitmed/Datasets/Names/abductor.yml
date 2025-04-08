@@ -1,0 +1,60 @@
+- type: dataset
+  id: AbductorNames
+  values:
+  - Nnarp
+  - Nlarp
+  - Nlorp
+  - Nleeb
+  - Norp
+  - Norple
+  - Nip
+  - Nop
+  - Neegle
+  - Xnarp
+  - Xlarp
+  - Xlorp
+  - Xleeb
+  - Xorp
+  - Xorple
+  - Xip
+  - Xop
+  - Xeegle
+  - Znarp
+  - Zlarp
+  - Zlorp
+  - Zleeb
+  - Zorp
+  - Zorple
+  - Zip
+  - Zop
+  - Zeegle
+  - Vnarp
+  - Vlarp
+  - Vlorp
+  - Vleeb
+  - Vorp
+  - Vorple
+  - Vip
+  - Vop
+  - Veegle
+  - Gnarp
+  - Glarp
+  - Glorp
+  - Gleeb
+  - Gorp
+  - Gorple
+  - Gip
+  - Gop
+  - Geegle
+
+- type: dataset
+  id: AbductorScientistPrefix
+  values:
+  - Dr.
+  - Professor
+
+- type: dataset
+  id: AbductorAgentPrefix
+  values:
+  - Assistant
+  - Officer

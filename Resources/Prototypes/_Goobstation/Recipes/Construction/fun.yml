@@ -1,0 +1,10 @@
+- type: construction
+  name: bananium sword
+  id: BananiumSword
+  graph: BananiumSword
+  startNode: start
+  targetNode: bananiumSword
+  category: construction-category-weapons
+  description: An extremely slippery toy sword made from bananium.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_bananium.rsi, state: icon }
+  objectType: Item

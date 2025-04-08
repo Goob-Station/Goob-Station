@@ -1,0 +1,214 @@
+# This is kinda shitty, but the other choice is fucking with StackSystem to allow it to track entities so I can keep tabs on which ore specifically has been clained.
+# Or cook some nasty shitcode to split the unclaimed value across all of the entities in the stack if there is any. But that feels fairly wonky.
+# Enjoy having to shove any new ores here.
+
+# The mining point values are a bit of a hodgepodge between 13s, and some small considerations taken here as well.
+# Iron, Quartz, Coal and Bananium are all analogues to their 13 values, while Gold, Plasma, Uranium and Silver are all cut by 1/4.
+# And since Diamond should be fairly rare, its value is still left on 100. Bananium was modified as a test :) All values are subject to adjustment.
+- type: entity
+  parent: GoldOre
+  id: GoldOreUnprocessed
+  name: unprocessed gold ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: GoldOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 12
+
+- type: entity
+  parent: GoldOreUnprocessed
+  id: GoldOre1Unprocessed
+  name: unprocessed gold ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: DiamondOre
+  id: DiamondOreUnprocessed
+  name: unprocessed diamond ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: DiamondOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 1000 # rarest ore in the game, only 1 yield, used for endgame schematics 
+
+- type: entity
+  parent: DiamondOreUnprocessed
+  id: DiamondOre1Unprocessed
+  name: unprocessed diamond ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SteelOre
+  id: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: SteelOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 3 # very abundant, is used up more than coal (coal 0.1, iron 0.33)
+
+- type: entity
+  id: SteelOre1Unprocessed
+  parent: SteelOreUnprocessed
+  name: unprocessed iron ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: PlasmaOre
+  id: PlasmaOreUnprocessed
+  name: unprocessed plasma ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: PlasmaOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 6
+
+- type: entity
+  parent: PlasmaOreUnprocessed
+  id: PlasmaOre1Unprocessed
+  name: unprocessed plasma ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SilverOre
+  id: SilverOreUnprocessed
+  name: unprocessed silver ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: SilverOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 12
+
+- type: entity
+  parent: SilverOreUnprocessed
+  id: SilverOre1Unprocessed
+  name: unprocessed silver ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: SpaceQuartz
+  id: SpaceQuartzUnprocessed
+  name: unprocessed space quartz
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: SpaceQuartzUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 3.5 # slightly rarer than iron and coal
+
+- type: entity
+  parent: SpaceQuartzUnprocessed
+  id: SpaceQuartz1Unprocessed
+  name: unprocessed space quartz
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: UraniumOre
+  id: UraniumOreUnprocessed
+  name: unprocessed uranium ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: UraniumOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 24 # used for fuel, lategame schematics, artifacts ect
+
+- type: entity
+  parent: UraniumOreUnprocessed
+  id: UraniumOre1Unprocessed
+  name: unprocessed uranium ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: BananiumOre
+  id: BananiumOreUnprocessed
+  name: unprocessed bananium ore
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: BananiumOreUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 69 # nice
+
+- type: entity
+  parent: BananiumOreUnprocessed
+  id: BananiumOre1Unprocessed
+  name: unprocessed bananium ore
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: Coal
+  id: CoalUnprocessed
+  name: unprocessed coal
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: CoalUnprocessed
+  - type: UnclaimedOre
+    miningPoints: 1 # very abundant, used up much less in steel (0.1 coal, 0.33 iron)
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal1Unprocessed
+  name: unprocessed coal
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal5Unprocessed
+  name: unprocessed coal
+  suffix: Five
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal10Unprocessed
+  name: unprocessed coal
+  suffix: Ten
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: CoalUnprocessed
+  id: Coal15Unprocessed
+  name: unprocessed coal
+  suffix: Fifteen
+  components:
+  - type: Stack
+    count: 15
+

@@ -38,6 +38,13 @@ namespace Content.Server.Abilities.Mime
         public bool ReadyToRepent = false;
 
         /// <summary>
+        /// Goobstation
+        /// Whether this mime is able to break vow
+        /// </summary>
+        [DataField]
+        public bool CanBreakVow = true;
+
+        /// <summary>
         /// Time when the mime can repent their vow
         /// </summary>
         [DataField("vowRepentTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
@@ -54,6 +61,21 @@ namespace Content.Server.Abilities.Mime
 
         [DataField]
         public ProtoId<AlertPrototype> VowBrokenAlert = "VowBroken";
+
+        /// <summary>
+        /// Does this component prevent the mime from writing on paper while their vow is active?
+        /// </summary>
+        [DataField]
+        public bool PreventWriting = false;
+
+        /// <summary>
+        /// What message is displayed when the mime fails to write?
+        /// </summary>
+        [DataField]
+        public LocId FailWriteMessage = "paper-component-illiterate-mime";
+
+        [DataField]
+        public float PunishmentChance = 0.25f;
 
     }
 }

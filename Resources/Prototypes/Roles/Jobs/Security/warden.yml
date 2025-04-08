@@ -11,6 +11,7 @@
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  goobcoins: 35 #Goob content
   access:
   - Security
   - Brig
@@ -20,19 +21,31 @@
   - External
   - Detective
   - Cryogenics
+  - Kitchen
+  - Hydroponics
+  - Janitor
+  - Engineering
+  - Atmospherics
+  - Medical
+  - Research
+  - Cargo
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial # goobstation
+    components:
+      - type: SecurityStaff
 
 - type: startingGear
   id: WardenGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltWarden # Goobstation
     pocket1: WeaponPistolMk58
   storage:
     back:
     - Flash
     - MagazinePistol
     - SecHypo # Goobstation
+    - ClothingMaskGasSecurity # Goobstation

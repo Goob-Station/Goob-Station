@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterCaptainArmor
+  categories: [ HideSpawnMenu ]
+  name: captain's armored winter coat hood
+  description: An expensive hood, to keep the captain's head warm.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Head/Hoods/Coat/hoodcaptainarmor.rsi
+  - type: Clothing
+    sprite: _RA/Clothing/Head/Hoods/Coat/hoodcaptainarmor.rsi

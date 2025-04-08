@@ -1,0 +1,14 @@
+- type: entity
+  id: PuddleSpaceLube
+  parent: PuddleTemporary
+  suffix: SpaceLube
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: SpaceLube
+          Quantity: 30
+
+

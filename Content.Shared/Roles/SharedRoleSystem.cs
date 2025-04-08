@@ -49,7 +49,7 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity</param>
     /// <param name="silent">If true, no briefing will be generated upon receiving the mind role</param>
     public void MindAddRoles(EntityUid mindId,
-        List<ProtoId<EntityPrototype>>? roles,
+        List<EntProtoId>? roles,
         MindComponent? mind = null,
         bool silent = false)
     {
@@ -70,7 +70,7 @@ public abstract class SharedRoleSystem : EntitySystem
     /// <param name="mind">If the mind component is provided, it will be checked if it belongs to the mind entity</param>
     /// <param name="silent">If true, no briefing will be generated upon receiving the mind role</param>
     public void MindAddRole(EntityUid mindId,
-        ProtoId<EntityPrototype> protoId,
+        EntProtoId protoId,
         MindComponent? mind = null,
         bool silent = false)
     {
@@ -114,7 +114,7 @@ public abstract class SharedRoleSystem : EntitySystem
     ///     Creates a Mind Role
     /// </summary>
     private void MindAddRoleDo(EntityUid mindId,
-        ProtoId<EntityPrototype> protoId,
+        EntProtoId protoId,
         MindComponent? mind = null,
         bool silent = false,
         string? jobPrototype = null)
@@ -156,11 +156,12 @@ public abstract class SharedRoleSystem : EntitySystem
         var mindEv = new MindRoleAddedEvent(silent);
         RaiseLocalEvent(mindId, ref mindEv);
 
+        // RoleType refresh, Role time tracking, Update Admin playerlist
+
         var message = new RoleAddedEvent(mindId, mind, antagonist, silent);
         if (mind.OwnedEntity != null)
-        {
             RaiseLocalEvent(mind.OwnedEntity.Value, message, true);
-        }
+        // RaiseLocalEvent(mindId, message, true); // Upstream, if you see errors remove two above lines above and uncomments this
 
         var name = Loc.GetString(protoEnt.Name);
         if (mind.OwnedEntity is not null)
@@ -219,9 +220,8 @@ public abstract class SharedRoleSystem : EntitySystem
         var message = new RoleRemovedEvent(mindId, mind, antagonist);
 
         if (mind.OwnedEntity != null)
-        {
             RaiseLocalEvent(mind.OwnedEntity.Value, message, true);
-        }
+        // RaiseLocalEvent(mind, message, true); // Also here, remove lines above and use this if you see errors
         _adminLogger.Add(LogType.Mind,
             LogImpact.Low,
             $"'Role {typeof(T).Name}' removed from mind of {ToPrettyString(mind.OwnedEntity)}");

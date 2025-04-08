@@ -1,0 +1,9 @@
+# this only exists as a workaround to surgery not supporting multiple organs of the same type
+- type: entity
+  parent: OrganAnimalRuminantStomach
+  id: OrganAnimalRuminantStomach2
+  name: ruminant stomach 2
+  description: electric boogaloo
+  components:
+  - type: Organ
+    slotId: stomach2

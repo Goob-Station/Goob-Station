@@ -10,6 +10,7 @@
     engineering: Structures/Doors/Airlocks/Standard/engineering.rsi
     freezer:     Structures/Doors/Airlocks/Standard/freezer.rsi
     hydroponics: Structures/Doors/Airlocks/Standard/hydroponics.rsi
+    janitor:     _Goobstation/Structures/Doors/Airlocks/Standard/janitor.rsi # Goobstation - Sweet jani door recolour
     maintenance: Structures/Doors/Airlocks/Standard/maint.rsi
     medical:     Structures/Doors/Airlocks/Standard/medical.rsi
     science:     Structures/Doors/Airlocks/Standard/science.rsi
@@ -29,6 +30,7 @@
     engineering: Structures/Doors/Airlocks/Glass/engineering.rsi
     glass:       Structures/Doors/Airlocks/Glass/glass.rsi
     hydroponics: Structures/Doors/Airlocks/Glass/hydroponics.rsi
+    janitor:     _Goobstation/Structures/Doors/Airlocks/Glass/janitor.rsi # Goobstation - Sweet jani door recolour
     maintenance: Structures/Doors/Airlocks/Glass/maint.rsi
     medical:     Structures/Doors/Airlocks/Glass/medical.rsi
     security:    Structures/Doors/Airlocks/Glass/security.rsi
@@ -77,6 +79,7 @@
     freezer: Civilian
     glass: Civilian
     hydroponics: Civilian
+    janitor: Civilian # Goobstation - Sweet new jani door
     maintenance: Civilian
     medical: Medical
     science: Science

@@ -38,7 +38,7 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockServiceLocked
+  parent: AirlockJanitor # Goobstation - Sweet new jani door
   id: AirlockJanitorLocked
   suffix: Janitor, Locked
   components:
@@ -63,6 +63,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsBar ]
+
+- type: entity
+  parent: AirlockServiceLocked
+  id: AirlockBarKitchenLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
 
 - type: entity
   parent: AirlockHydroponics
@@ -471,6 +480,16 @@
       board: [ DoorElectronicsBar ]
 
 - type: entity
+  parent: AirlockServiceGlassLocked
+  id: AirlockBarKitchenGlassLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
+
+
+- type: entity
   parent: AirlockExternalGlass
   id: AirlockExternalGlassLocked
   suffix: External, Glass, Locked
@@ -544,7 +563,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockServiceGlassLocked
+  parent: AirlockJanitorGlass # Goobstation - Sweet new jani door
   id: AirlockJanitorGlassLocked
   suffix: Janitor, Locked
   components:
@@ -906,6 +925,15 @@
 
 - type: entity
   parent: AirlockMaintServiceLocked
+  id: AirlockMaintBarKitchenLocked
+  suffix: Bar&Kitchen, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBarKitchen ]
+
+- type: entity
+  parent: AirlockMaintServiceLocked
   id: AirlockMaintChapelLocked
   suffix: Chapel, Locked
   components:
@@ -968,6 +996,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsKitchen ]
+
+- type: entity
+  parent: AirlockMaintServiceLocked
+  id: AirlockMaintKitchenHydroLocked
+  suffix: Kitchen/Hydroponics, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsKitchenHydroponics ]
 
 - type: entity
   parent: AirlockMaint
@@ -1277,3 +1314,123 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSyndicateAgent ]
+
+
+# Dorm room doors RA
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock1ALocked
+  suffix: 1A, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics1A ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock1BLocked
+  suffix: 1B, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics1B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock2ALocked
+  suffix: 2A, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics2A ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock2BLocked
+  suffix: 2B, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics2B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock3ALocked
+  suffix: 3A, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics3A ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock3BLocked
+  suffix: 3B, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics3B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock4ALocked
+  suffix: 4A, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics4A ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock4BLocked
+  suffix: 4B, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics4B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock5ALocked
+  suffix: 5A, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics5A ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock5BLocked
+  suffix: 5B, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics5B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock6ALocked
+  suffix: 6A, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics6A ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock6BLocked
+  suffix: 6B, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics6B ]
+
+- type: entity
+  parent: AirlockDorms
+  id: Airlock7ALocked
+  suffix: 7A, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics7A ]

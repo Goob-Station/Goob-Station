@@ -1,0 +1,78 @@
+- type: entity
+  abstract: true
+  parent: BasePart
+  id: PartAbductorBase
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
+  - type: Icon
+    sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
+  - type: BodyPart
+    species: Abductor
+
+- type: entity
+  parent: [ PartAbductorBase, BaseTorso ]
+  id: TorsoAbductor
+  name: "abductor torso"
+  components:
+  - type: Sprite
+    state: torso
+  - type: Icon
+    state: torso
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 20
+
+- type: entity
+  parent: [ PartAbductorBase, BaseHead ]
+  id: HeadAbductor
+  name: "abductor head"
+  components:
+  - type: Sprite
+    state: head
+  - type: Icon
+    state: head
+
+- type: entity
+  parent: [ PartAbductorBase, BaseLeftArm ]
+  id: LeftArmAbductor
+  name: "left abductor arm"
+
+- type: entity
+  parent: [ PartAbductorBase, BaseRightArm ]
+  id: RightArmAbductor
+  name: "right abductor arm"
+
+- type: entity
+  parent: [ PartAbductorBase, BaseLeftHand ]
+  id: LeftHandAbductor
+  name: "left abductor hand"
+
+- type: entity
+  parent: [ PartAbductorBase, BaseRightHand ]
+  id: RightHandAbductor
+  name: "right abductor hand"
+
+- type: entity
+  parent: [ PartAbductorBase, BaseLeftLeg ]
+  id: LeftLegAbductor
+  name: "left abductor leg"
+
+- type: entity
+  parent: [ PartAbductorBase, BaseRightLeg ]
+  id: RightLegAbductor
+  name: "right abductor leg"
+
+- type: entity
+  parent: [ PartAbductorBase, BaseLeftFoot ]
+  id: LeftFootAbductor
+  name: "left abductor foot"
+
+- type: entity
+  parent: [ PartAbductorBase, BaseRightFoot ]
+  id: RightFootAbductor
+  name: "right abductor foot"

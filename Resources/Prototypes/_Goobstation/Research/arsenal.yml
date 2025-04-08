@@ -37,6 +37,38 @@
   technologyPrerequisites:
   - Ripley2
 
+- type: technology
+  id: AdvancedWeaponry
+  name: research-technology-advancedweaponry
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - Terminus
+  - WeaponXrayCannon
+  technologyPrerequisites:
+  - WeaponizedLaserManipulation
+
+- type: technology
+  id: EnergyBoltBasedWeaponry # for future energy bolt weapon
+  name: research-technology-energy-bolt-weaponry
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - WeaponEnergyRifle
+  - EnergyMagRifleIon
+  - EnergyMagRifleDisabler
+  - EnergyMagRifleLethal
+  technologyPrerequisites:
+  - AdvancedWeaponry
+
 # Tier 3
 
 - type: technology
@@ -77,3 +109,16 @@
   - WeaponMechCombatShotgunIncendiary
   technologyPrerequisites:
   - Gygax
+
+- type: technology
+  id: SmartWeaponry
+  name: research-technology-smart-weaponry
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - WeaponSubMachineSmart
+  - MagazineSmart

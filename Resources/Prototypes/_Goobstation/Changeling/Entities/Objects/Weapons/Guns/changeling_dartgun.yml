@@ -1,0 +1,104 @@
+- type: entity
+  parent: BaseItem
+  id: DartGunChangeling
+  name: ranged stinger
+  description: Reagent stinger able to fire organic darts at targets.
+  suffix: Unremoveable
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Changeling/dartgun.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Changeling/dartgun.rsi
+  - type: Unremoveable
+  - type: DisarmMalus
+    malus: 0
+  - type: Gun
+    fireRate: 1
+    clumsyProof: true
+    resetOnHandSelected: false
+    soundEmpty: null
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      params:
+        volume: -5
+  - type: ChangelingChemicalsAmmoProvider
+    proto: ChangelingDart
+  - type: AmmoSelector
+    soundSelect: null
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+
+- type: entity
+  id: ChangelingDart
+  parent: BaseBullet
+  name: organic dart
+  description: A needle thin dart formed of bone.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Changeling/dart.rsi
+    layers:
+    - state: icon
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 3
+
+- type: entity
+  id: ChangelingDartMute
+  parent: ChangelingDart
+  name: mute organic dart
+  categories: [ HideSpawnMenu ]
+  suffix: Mute
+  components:
+  - type: ChangelingDart
+    stingConfiguration: StingMute
+
+- type: entity
+  id: ChangelingDartBlind
+  parent: ChangelingDart
+  name: blinding organic dart
+  categories: [ HideSpawnMenu ]
+  suffix: Blind
+  components:
+  - type: ChangelingDart
+    stingConfiguration: StingBlind
+
+- type: entity
+  id: ChangelingDartCryo
+  parent: ChangelingDart
+  name: cryogenic organic dart
+  categories: [ HideSpawnMenu ]
+  suffix: Cryo
+  components:
+  - type: ChangelingDart
+    stingConfiguration: StingCryo
+
+- type: entity
+  id: ChangelingDartLethargic
+  parent: ChangelingDart
+  name: lethargic organic dart
+  categories: [ HideSpawnMenu ]
+  suffix: Lethargic
+  components:
+  - type: ChangelingDart
+    stingConfiguration: StingLethargic
