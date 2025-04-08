@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
+SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <controls:FancyWindow xmlns="https://spacestation14.io"
                xmlns:ui="clr-namespace:Content.Client.Power"
                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
