@@ -1118,6 +1118,7 @@
     blacklist:
       tags:
       - NukeOpsUplink
+      - ContravendUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -1141,6 +1142,7 @@
     blacklist:
       components:
       - SurplusBundle
+      - ContravendUplink
 
 - type: listing
   id: UplinkSingarityBeacon
