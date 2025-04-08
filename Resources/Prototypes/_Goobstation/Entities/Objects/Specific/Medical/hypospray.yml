@@ -85,13 +85,15 @@
   parent: [BaseCartridgeAutoinjector, BaseCentcommContraband]
   id: AmnestizineHypospray
   suffix: DO NOT MAP
-  description: Prevents the subject from remembering anything prior or during the injection.
+  description: A specialized cartridge injector intended for Central Command personnel. Primarily used to inject amnestics.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
     state: icon
   - type: Item
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+  - type: UseDelay
+    delay: 3
 
 # Autoinjector Cartridges
 
@@ -292,9 +294,11 @@
       - ReagentId: Haloperidol
         Quantity: 3
 
+# Q - Why is this edible?
+# A - Because the dispenser reminded me of a pez dispenser, and it'd be funny if you could eat them.
 - type: entity
   name: amnestic autoinjector cartridge
-  parent: [ BaseCentcommContraband , BaseAutoinjectorCartridge ]
+  parent: [ BaseCentcommContraband , BaseAutoinjectorCartridge, EdibleBase ]
   description: Contains 10u of dimtremethic-neuramincyl acid, used in a cartridge autoinjector.
   id: CartridgeAmnestic
   components:
@@ -310,6 +314,33 @@
       reagents:
       - ReagentId: Amnestizine
         Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Amnestizine
+          Quantity: 10
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Amnestizine
+        Quantity: 10
+  - type: Food
+    delay: 0.2
+    forceFeedDelay: 1.5
+    transferAmount: null
+    eatMessage: food-swallow
+    useSound: /Audio/Items/pill.ogg
+  - type: BadFood
+  - type: FlavorProfile
+    ignoreReagents: [ ]
+  - type: Pill
+  - type: Tag
+    tags:
+    - Pill
+    - AutoinjectorCartridge
 
 # Medipens
 

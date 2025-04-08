@@ -170,7 +170,7 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        amount: 15
+        amount: 7
         immediate: false
       - !type:PopupMessage
         visualType: MediumCaution

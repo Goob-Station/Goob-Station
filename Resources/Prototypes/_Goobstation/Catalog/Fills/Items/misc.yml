@@ -38,9 +38,6 @@
   - type: StorageFill
     contents:
     - id: AmnestizineHypospray
-    - id: CartridgeAmnestic
-    - id: CartridgeAmnestic
-    - id: CartridgeAmnestic
-    - id: CartridgeAmnestic
+    - id: BoxAmnestizineCartridge
     - id: TelescopicBatonAdvanced
     - id: HyperFlash
