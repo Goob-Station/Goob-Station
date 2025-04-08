@@ -210,14 +210,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 Entries:
-- author: Winkarst-cpu
-  changes:
-  - message: Now submit button in admin notes becomes disabled on switching type back
-      to note.
-    type: Fix
-  id: 7641
-  time: '2024-11-23T06:41:28.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/33456
 - author: metalgearsloth
   changes:
   - message: Fix airlock animations mispredicting if the closing animation is interrupted,
@@ -4104,3 +4096,10 @@ Entries:
   id: 8140
   time: '2025-04-08T09:37:11.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36380
+- author: TiniestShark
+  changes:
+  - message: BRB sign can now be worn in the Neck slot.
+    type: Add
+  id: 8141
+  time: '2025-04-08T21:27:07.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36036
