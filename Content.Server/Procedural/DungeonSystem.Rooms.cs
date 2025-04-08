@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Decals;
 using Content.Shared.Maps;

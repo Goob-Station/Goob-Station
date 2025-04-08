@@ -1,3 +1,23 @@
+// SPDX-FileCopyrightText: 2021 Kara Dinyes <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Item;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;

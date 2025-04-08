@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: vendingMachineInventory
   id: AmmoVendInventory
   startingInventory:

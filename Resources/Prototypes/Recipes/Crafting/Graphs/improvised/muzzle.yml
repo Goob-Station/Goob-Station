@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2022 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Muzzle
   start: start
