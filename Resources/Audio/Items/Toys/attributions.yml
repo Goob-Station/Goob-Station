@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Deatherd <69344159+Deatherd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 gambesun <116504990+gambesun@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["beep.ogg"]
   license: "CC0-1.0"
   copyright: "Created by Pól, converted to OGG and Mono by EmoGarbage"

@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: reagent
   id: Tranquility
   name: reagent-name-tranquility
@@ -28,6 +40,28 @@
           min: 10
       - !type:Polymorph
         prototype: Gondola
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+
+- type: reagent
+  id: BingleJuice
+  name: reagent-name-binglejuice
+  group: Toxins
+  desc: reagent-desc-binglejuice
+  physicalDesc: reagent-physical-desc-calming
+  flavor: bitter
+  color: "#1a6ac1"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:PopupMessage
+          type: Local
+          messages: [ "reagent-popup-binglejuice" ]
+          probability: 0.2
+      - !type:Polymorph
+        prototype: Bingle
         conditions:
         - !type:ReagentThreshold
           min: 25
