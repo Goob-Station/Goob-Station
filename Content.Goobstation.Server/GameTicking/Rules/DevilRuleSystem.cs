@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Text;
 using Content.Goobstation.Server.Devil;
 using Content.Goobstation.Server.Devil.Roles;
