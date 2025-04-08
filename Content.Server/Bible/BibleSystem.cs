@@ -29,6 +29,7 @@
 
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Exorcism;
+using Content.Goobstation.Shared.Religion;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
@@ -146,7 +147,7 @@ namespace Content.Server.Bible
             // I moved the mob state check below the devil check because the smite needs to work on incapacitated people. - Goobstation/Sol
             // Fuck this ENTIRE system bro
 
-            if (HasComp<DevilComponent>(args.Target) /* && HasComp<BibleUserComponent>(args.User)*/) // temp for testing
+            if (HasComp<WeakToHolyComponent>(args.Target) && HasComp<BibleUserComponent>(args.User))
             {
                 if (!_mobStateSystem.IsIncapacitated(args.Target.Value))
                 {
@@ -158,7 +159,7 @@ namespace Content.Server.Bible
                     _stun.TryParalyze(args.Target.Value, TimeSpan.FromSeconds(8), false);
                     _delay.TryResetDelay((uid, useDelay));
                 }
-                else
+                else if (HasComp<DevilComponent>(args.Target) && HasComp<BibleUserComponent>(args.User))
                 {
                     var doAfterArgs = new DoAfterArgs(
                         EntityManager,
