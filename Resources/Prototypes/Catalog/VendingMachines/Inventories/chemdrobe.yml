@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Joel Hedtjärn <joel.hedtjarn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: vendingMachineInventory
   id: ChemDrobeInventory
   startingInventory:
