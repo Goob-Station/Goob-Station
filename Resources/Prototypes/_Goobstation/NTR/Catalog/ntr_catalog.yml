@@ -110,12 +110,12 @@
   description: Adds 2 security officers to the station.
   productEntity: NTRgameruleSpawnerSecurity
   cost:
-    NTLoyaltyPoint: 15
+    NTLoyaltyPoint: 20
   categories:
   - NTRstation
   restockTime: 600
   resetRestockOnPurchase: true
-  restockAfterPurchase: 900 # 15 min
+  restockAfterPurchase: 1200 # 20 min
 
 # Science
 - type: listing
@@ -138,7 +138,7 @@
   description: Adds 1 janitor and 1 service worker slot to the station.
   productEntity: NTRgameruleSpawnerService
   cost:
-    NTLoyaltyPoint: 10
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 600
@@ -152,7 +152,7 @@
   description: Adds 1 cargo tech and 1 salvage slot to the station.
   productEntity: NTRgameruleSpawnerCargo
   cost:
-    NTLoyaltyPoint: 10
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 600
@@ -166,7 +166,7 @@
   description: Adds 2 engineers to the station.
   productEntity: NTRgameruleSpawnerEngineering
   cost:
-    NTLoyaltyPoint: 10
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 600
@@ -179,7 +179,7 @@
   description: Adds 2 medical doctors to the station.
   productEntity: NTRgameruleSpawnerMedical
   cost:
-    NTLoyaltyPoint: 10
+    NTLoyaltyPoint: 15
   categories:
   - NTRstation
   restockTime: 600
