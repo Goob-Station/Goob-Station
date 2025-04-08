@@ -3,7 +3,7 @@
 The REUSE Specification headers or separate .license files indicate a secondary license (e.g., MPL or MIT) solely to facilitate 
 integration for projects that do not use the AGPL license. This secondary license does not replace the fact that AGPL-3.0-or-later remains the primary and binding license. 
 Uncomment and modify the following line if you wish to change the license from the default of AGPL.-->
-<!--- License: AGPL -->
+<!--- LICENSE: AGPL -->
 ## About the PR
 <!-- What did you change? -->
 
