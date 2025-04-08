@@ -6,6 +6,7 @@
 using System.Linq;
 using Content.Goobstation.Common.Traits;
 using Content.Goobstation.Server.Insanity;
+using Content.Goobstation.Server.TeleportOnStateChange;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Atmos.Components;
@@ -21,7 +22,9 @@ using Content.Shared.Clumsy;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Electrocution;
 using Content.Shared.Movement.Components;
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Speech.Muting;
+using Content.Shared.Stealth.Components;
 using Content.Shared.Traits.Assorted;
 
 namespace Content.Goobstation.Server.Contract;
@@ -71,10 +74,27 @@ public sealed partial class DevilContractSystem
                 EnsureComp<InsulatedComponent>(target);
             },
 
+            // BUT YOU CAN'T EVEN SAY. MY NAME. IS THE MEMORY GONE ARE YOU FEELING NUMB OR HAVE I JUUST GONE INVIIISBLE!!!
+            ["shadows"] = (target, contract) =>
+            {
+                EnsureComp<StealthComponent>(target);
+                EnsureComp<StealthOnMoveComponent>(target);
+            },
+
             // Doubles all damage taken.
             ["strength"] = (target, contract) =>
             {
                 _damageable.SetDamageModifierSetId(target, "DevilDealNegative");
+            },
+
+            // Teleport to devil when you go crit.
+            ["loneliness"] = (target, contract) =>
+            {
+                if (contract.ContractOwner == null)
+                    return;
+
+                var recall = EnsureComp<TeleportOnStateChangeComponent>(target);
+                recall.EntityTeleportTo = contract.ContractOwner;
             },
 
             // Pacifies the target

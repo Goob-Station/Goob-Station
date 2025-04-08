@@ -12,6 +12,7 @@ using Content.Server.Administration.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -28,12 +29,12 @@ public sealed partial class DevilContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly EntityManager _entityManager = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly RejuvenateSystem _rejuvenateSystem = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly HungerSystem _hungerSystem = null!;
 
     private ISawmill _sawmill = null!;
     private readonly EntProtoId _fireEffectProto = "FireEffect";
@@ -71,10 +72,12 @@ public sealed partial class DevilContractSystem : EntitySystem
         ["mortality"] = -100,
         ["weakness"] = -35,
         ["death"] = -25,
+        ["shadows"] = -25,
         ["fear of space"] = -25,
         ["fear of fire"] = -20,
         ["fear of light"] = -15,
         ["fear of electricity"] = -15,
+        ["loneliness"] = -5,
         ["soul ownership"] = 25,
         ["strength"] = 25,
         ["coherence"] = 25,

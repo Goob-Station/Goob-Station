@@ -31,6 +31,13 @@
   - Makes the contractee immune to spacing
   - Disables the contractees need to breathe.
 
+  ## Shadows
+  <Box>
+    [color=#999999][italic]-25 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee invisible.
+
   ## Fear of Fire
   <Box>
     [color=#999999][italic]-20 Weight[/italic][/color]
@@ -50,7 +57,14 @@
     [color=#999999][italic]-15 Weight[/italic][/color]
   </Box>
 
-  - Makes the contractee immune electrical shocks.
+  - Makes the contractee immune to electrical shocks.
+
+  ## Loneliness
+  <Box>
+    [color=#999999][italic]-5 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee teleport to the devil upon going into critical.
 
   ## Strength
   <Box>
