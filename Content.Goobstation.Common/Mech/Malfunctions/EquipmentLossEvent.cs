@@ -1,6 +1,4 @@
-using Content.Shared.Mech.Components;
-
-namespace Content.Shared._Goobstation.Components.Malfunctions;
+namespace Content.Goobstation.Common.Mech.Malfunctions;
 
 /// <summary>
 /// Raises when EquipmentLossEvent randomly picked in MechSystem.

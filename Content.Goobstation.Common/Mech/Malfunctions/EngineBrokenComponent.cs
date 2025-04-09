@@ -1,5 +1,4 @@
-
-namespace Content.Shared.Mech.Components.Malfunctions;
+namespace Content.Goobstation.Common.Mech.Malfunctions;
 
 [RegisterComponent]
 public sealed partial class EngineBrokenComponent : Component

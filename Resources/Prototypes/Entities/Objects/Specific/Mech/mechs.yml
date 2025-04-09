@@ -13,6 +13,7 @@
       CabinBreach: !type:CabinBreachEvent
       EquipmentLoss: !type:EquipmentLossEvent
         range: 3
+  - type: MechMalfunction # Goobstation
   - type: MechAir
   - type: AirFilter
     # everything except oxygen and nitrogen

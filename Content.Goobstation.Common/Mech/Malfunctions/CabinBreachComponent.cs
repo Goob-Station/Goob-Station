@@ -1,6 +1,4 @@
-using Content.Shared.Mech.Components;
-
-namespace Content.Shared._Goobstation.Mech.Components.Malfunctions;
+namespace Content.Goobstation.Common.Mech.Malfunctions;
 
 [RegisterComponent]
 public sealed partial class CabinBreachComponent : Component
