@@ -184,12 +184,13 @@ public sealed partial class DevilSystem : EntitySystem
             case 1:
             {
                 _popup.PopupEntity(Loc.GetString("devil-power-level-increase-one"), args.User, args.User, PopupType.Large);
-                _actions.AddAction(args.User, "ActionDevilPossess");
+                _actions.AddAction(args.User, "ActionCreateRevivalContract");
                 break;
             }
             case 2:
             {
                 _popup.PopupEntity(Loc.GetString("devil-power-level-increase-two"), args.User, args.User, PopupType.Large);
+                _actions.AddAction(args.User, "ActionDevilPossess");
                 break;
             }
             case 3:
