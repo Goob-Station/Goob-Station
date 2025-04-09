@@ -42,6 +42,7 @@ public sealed class DevilContractSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeRegex();
 
         _sawmill = Logger.GetSawmill("Contract");
 
@@ -52,20 +53,34 @@ public sealed class DevilContractSystem : EntitySystem
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
     }
 
-    private readonly Dictionary<string, Func<DevilContractComponent, EntityUid?>> _targetResolvers = new()
+    private readonly Dictionary<LocId, Func<DevilContractComponent, EntityUid?>> _targetResolvers = new()
     {
         // The contractee is who is making the deal.
-        ["contractee"] = comp => comp.Signer,
+        ["devil-contract-contractee"] = comp => comp.Signer,
         // The contractor is the entity offering the deal.
-        ["contractor"] = comp => comp.ContractOwner,
+        ["devil-contract-contractor"] = comp => comp.ContractOwner,
         // Both is the entity offering, and the entity making the deal.
-        ["both"] = comp => null
+        ["devil-contract-both"] = comp => null
     };
 
-    private static readonly Regex ClauseRegex = new(
-        @"^\s*(?<target>Contractor|Contractee|Both)\s*:\s*(?<clause>.+?)\s*$", // Unholy.
-        RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline
-    );
+    private Regex _clauseRegex = null!;
+    private readonly Dictionary<string, LocId> _localizedTargetToLocId = new (StringComparer.OrdinalIgnoreCase);
+
+    private void InitializeRegex()
+    {
+        var escapedPatterns = new List<string>();
+        foreach (var locId in _targetResolvers.Keys)
+        {
+            var localized = Loc.GetString(locId);
+            escapedPatterns.Add(localized);
+            _localizedTargetToLocId[localized] = locId;
+        }
+
+        var targetPattern = string.Join("|", escapedPatterns);
+        _clauseRegex = new Regex($@"^\s*(?<target>{targetPattern})\s*:\s*(?<clause>.+?)\s*$",
+            RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline);
+
+    }
 
     private void OnGetVerbs(EntityUid uid, DevilContractComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
@@ -109,7 +124,7 @@ public sealed class DevilContractSystem : EntitySystem
     {
         if (args.IsInDetailsRange && !_net.IsClient)
         {
-            TryUpdateContractWeight();
+            TryUpdateContractWeight(uid, comp);
             args.PushMarkup(Loc.GetString("devil-contract-examined", ("weight", comp.ContractWeight)));
         }
     }
@@ -119,7 +134,7 @@ public sealed class DevilContractSystem : EntitySystem
     private void OnContractSignAttempt(EntityUid uid, DevilContractComponent comp, ref BeingSignedAttemptEvent args)
     {
         // Make sure that weight is set properly!
-        TryUpdateContractWeight();
+        TryUpdateContractWeight(uid, comp);
         // Don't allow mortals to sign contracts for other people.
         // Also don't let silicons sell their souls, they don't have one.
         // It won't work, but you still shouldn't be able to.
@@ -201,7 +216,7 @@ public sealed class DevilContractSystem : EntitySystem
     private void HandleBothPartiesSigned(EntityUid uid, DevilContractComponent comp)
     {
         // Common final activation logic
-        TryUpdateContractWeight();
+        TryUpdateContractWeight(uid, comp);
         TryContractEffects(uid, comp);
     }
 
@@ -211,7 +226,12 @@ public sealed class DevilContractSystem : EntitySystem
 
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
+        // Can't sell what doesn't exist.
         if (HasComp<CondemnedComponent>(contractee))
+            return false;
+
+        // Can't sell yer soul to yourself
+        if (devil == contractee)
             return false;
 
         var ev = new SoulAmountChangedEvent(devil, contractee, added);
@@ -224,32 +244,28 @@ public sealed class DevilContractSystem : EntitySystem
         return true;
     }
 
-    private void TryUpdateContractWeight()
+    private void TryUpdateContractWeight(EntityUid uid, DevilContractComponent contract)
     {
-        var query = EntityQueryEnumerator<DevilContractComponent>();
-        while (query.MoveNext(out var uid, out var contract))
+        if (!TryComp<PaperComponent>(uid, out var paper))
+            return;
+
+        var matches = _clauseRegex.Matches(paper.Content);
+        var newWeight = 0;
+
+        foreach (Match match in matches)
         {
-            if (!TryComp<PaperComponent>(uid, out var paper))
+            if (!match.Success)
                 continue;
 
-            var matches = ClauseRegex.Matches(paper.Content);
-            var newWeight = 0;
+            var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
-            foreach (Match match in matches)
-            {
-                if (!match.Success)
-                    continue;
-
-                var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
-
-                if (_prototypeManager.TryIndex(clauseKey, out DevilClauseProto? clauseProto))
-                    newWeight += clauseProto.ClauseWeight;
-                else
-                    _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
-            }
-
-            contract.ContractWeight = newWeight;
+            if (_prototypeManager.TryIndex(clauseKey, out DevilClauseProto? clauseProto))
+                newWeight += clauseProto.ClauseWeight;
+            else
+                _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
         }
+
+        contract.ContractWeight = newWeight;
     }
 
     private void TryContractEffects(EntityUid uid, DevilContractComponent comp)
@@ -257,7 +273,7 @@ public sealed class DevilContractSystem : EntitySystem
         if (!TryComp<PaperComponent>(uid, out var paper))
             return;
 
-        var matches = ClauseRegex.Matches(paper.Content);
+        var matches = _clauseRegex.Matches(paper.Content);
 
         foreach (Match match in matches)
         {
@@ -267,9 +283,12 @@ public sealed class DevilContractSystem : EntitySystem
             var targetKey = match.Groups["target"].Value.Trim().ToLowerInvariant().Replace(" ", "");
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
-            if (!_targetResolvers.TryGetValue(targetKey, out var resolver))
+            var locId = _targetResolvers.Keys.FirstOrDefault(id => Loc.GetString(id).Equals(targetKey, StringComparison.OrdinalIgnoreCase));
+            var resolver = _targetResolvers[locId];
+
+            if (resolver(comp) == null)
             {
-                _sawmill.Warning($"Invalid contract target: {targetKey}");
+                _sawmill.Warning($"Unknown resolver: {resolver(comp)}");
                 continue;
             }
 
@@ -279,11 +298,11 @@ public sealed class DevilContractSystem : EntitySystem
                 continue;
             }
 
-            ApplyEffectToTarget(targetKey, (EntityUid)resolver(comp)!, comp, clause);
+            ApplyEffectToTarget((EntityUid)resolver(comp)!, comp, clause);
         }
     }
 
-    private void ApplyEffectToTarget(string targetKey, EntityUid target, DevilContractComponent contract, DevilClauseProto clause)
+    private void ApplyEffectToTarget(EntityUid target, DevilContractComponent contract, DevilClauseProto clause)
     {
         if (clause.AddedComponents != null)
         {

@@ -1,3 +1,7 @@
+devil-contract-contractee = contractee
+devil-contract-contractor = contractor
+devil-contract-both = both
+
 devil-contract-early-sign-failed = The contractor must wait for the contractee to sign first!
 devil-contract-no-soul-sign-failed = You do not have a soul to sell!
 devil-sign-invalid-user = You do not have the power to fulfill this contract!

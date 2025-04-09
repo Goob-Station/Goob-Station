@@ -54,7 +54,6 @@ namespace Content.Goobstation.Server.Devil;
 
 public sealed partial class DevilSystem : EntitySystem
 {
-    [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
