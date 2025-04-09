@@ -192,7 +192,7 @@ namespace Content.Shared.Entry
             // Client or Server not being found is fine - both is bad.
             if (0 < count < _goobmods.Count-1)
             {
-                throw new InvalidOperationException("Missing goobmods in appdomain! Did you build the solution?");
+                throw new InvalidOperationException("Missing goobmods in appdomain! Try deleting your bin folder, running dotnet clean, and building the solution again.");
             }
         }
     }
