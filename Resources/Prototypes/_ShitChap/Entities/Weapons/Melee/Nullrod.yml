@@ -428,6 +428,7 @@
   - type: KnockdownOnHit
     duration: 0.2
     dropHeldItemsBehavior: DropIfStanding # Goob edit
+  - type: HonkmotherBaptism
   - type: UseDelay
     delay: 0.5
   - type: EmitSoundOnUse

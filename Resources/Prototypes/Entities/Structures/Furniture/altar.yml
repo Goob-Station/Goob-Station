@@ -194,7 +194,7 @@
     radius: 1.5
     energy: 1
     color: "#e0ffff"
-  - type: AltarSource # I couldn't remember which rod went here. Change it if this is wrong.
+  - type: AltarSource
     rodProto: ClothingBeltHolsterFilledChaplain
     effectProto: EffectSpark
     soundPath: /Audio/Effects/hallelujah.ogg
