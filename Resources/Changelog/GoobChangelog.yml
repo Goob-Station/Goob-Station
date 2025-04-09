@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 GoobBotTest <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 GoobBotTest[bot] <922032+GoobBotTest[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 GoobBot[bot] <923088+GoobBot[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 silver2127 <52584484+silver2127@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 Name: Gooblog
 Order: -1
 Entries:
@@ -6800,3 +6817,295 @@ Entries:
       message: Buff Full SMES Price by 3x
   id: 790
   time: '2025-03-25T14:37:49.0000000+00:00'
+- author: Mocho,
+  changes:
+    - type: Add
+      message: >-
+        April fools came early to Hierophant's Arena. Be sure to bring your
+        finest BYOND membership.
+    - type: Add
+      message: >-
+        You can now curse yourself with a tile movement trait. Whether or not it
+        gets 1984d is up to durk :trollface:
+    - type: Add
+      message: >-
+        Wizards now have obtained powerful curses that may affect your
+        mobility...
+    - type: Add
+      message: Tilenol is back. Show them who's the most robust by chugging 100u of it.
+    - type: Add
+      message: Mobs can also now spawn naturally at random in lavaland.
+    - type: Tweak
+      message: >-
+        Hierophant may or may not be more aggressive now. Also he deals more
+        damage :blunt:
+    - type: Tweak
+      message: Players get a 25% speed boost while on the Hierophant's arena now.
+    - type: Tweak
+      message: >-
+        Mass Scanner now displays grids in Lavaland. Temporary change until
+        Rouden finishes the GPS refactor :tm:
+    - type: Tweak
+      message: >-
+        Hierophant's club now deals more damage, and can teleport across maps or
+        grids without an issue.
+    - type: Tweak
+      message: >-
+        Hierophant's club now can toggle between free and tile movement for a
+        given target entity.
+    - type: Tweak
+      message: Hierophant's club can now be equipped to your back and suit storage.
+    - type: Tweak
+      message: >-
+        Alert icons for separate (OG) layout now start from the top right of
+        your screen instead of the middle right, just like in MRP. 
+    - type: Tweak
+      message: >-
+        Ore redemption/processing machines now display if you will obtain points
+        by dumping ore or not at that point in time.
+  id: 791
+  time: '2025-03-26T23:58:47.0000000+00:00'
+- author: Misandry, gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Custom goobstation module for faster compile times and shitcod
+        generation
+  id: 792
+  time: '2025-03-28T21:04:41.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Bullet speeds have been doubled.
+  id: 793
+  time: '2025-03-30T19:18:33.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix heretic jaunt freaking out when admin ghost follows it.
+  id: 794
+  time: '2025-03-30T19:20:51.0000000+00:00'
+- author: Gallagin
+  changes:
+    - type: Add
+      message: Department Lathes to Leonid
+    - type: Fix
+      message: Fixed map markers and other minor things on Leonid
+  id: 795
+  time: '2025-03-30T21:30:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Air alarms no longer go into danger state due to high oxygen amount.
+  id: 796
+  time: '2025-03-30T21:52:37.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now buy lavaland gateways at cargo for a high price.
+  id: 797
+  time: '2025-03-30T23:10:12.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Contraband detector now more user friendly!
+    - type: Tweak
+      message: Contraband detector got new wires and can be disassembled.
+  id: 798
+  time: '2025-03-31T00:56:33.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: Stealth now breaks on attacking or if you take damage
+  id: 799
+  time: '2025-03-31T04:37:35.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Changed shapes of M90, Burner, WSPR, Chester and Annie.
+  id: 800
+  time: '2025-03-31T04:43:21.0000000+00:00'
+- author: erhardsteinhauer, pheenty
+  changes:
+    - type: Add
+      message: Added new messenger bags, go check your loadout or the nearest vendor.
+  id: 801
+  time: '2025-03-31T04:44:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Laser rifles huge (4x4) -> large (4x2).
+  id: 802
+  time: '2025-03-31T04:44:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Doorjack to maints loot pool, a limited use door opening device.
+  id: 803
+  time: '2025-03-31T04:46:10.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Fix
+      message: >-
+        ipc no longer shows up in station and criminal records when filtering
+        for dna and fingerprints.
+  id: 804
+  time: '2025-03-31T04:47:40.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Brizby beware, abductors can say the word "Bald" now.
+  id: 805
+  time: '2025-03-31T04:48:14.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Blobbernauts can now flex their muscles.
+  id: 806
+  time: '2025-03-31T06:05:17.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: >-
+        Bingles can be butchered, cooked, and eaten. Eating too munch bingle
+        meat makes you a pitless bingle.
+  id: 807
+  time: '2025-04-01T19:01:13.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Roundstart nukeops can no longer spawn with revs, blob or zombies.
+    - type: Fix
+      message: >-
+        Fixed 2 roundstart nukie squads, 2 blobs or 2 wizards being selected
+        sometimes.
+  id: 808
+  time: '2025-04-01T23:00:49.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Tide accent
+  id: 809
+  time: '2025-04-02T03:10:31.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Add the homunculus - add 5U mutagen to an egg to summon one
+  id: 810
+  time: '2025-04-02T03:16:32.0000000+00:00'
+- author: JoeHammad, mrjajkes
+  changes:
+    - type: Add
+      message: Added new nuke music, "Sponsored by Syndicate".
+  id: 811
+  time: '2025-04-02T03:17:33.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Proto-kinetic weapons (except for accelerator) got slightly nerfed.
+  id: 812
+  time: '2025-04-02T18:13:18.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Syringe guns now inject their contents more smoothly.
+  id: 813
+  time: '2025-04-02T18:14:08.0000000+00:00'
+- author: Fishbait
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the ammounts of ui inventory windows you can have open at one
+        time
+  id: 814
+  time: '2025-04-02T18:15:59.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        Added new tier 2 arsenal research for energy bolt weapon and also our
+        first printable energy bolt weapon that is magazine swapable and 3
+        magazine types to go along with it.
+  id: 815
+  time: '2025-04-02T18:17:55.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Internals alert is hidden when not wearing a breath mask now.
+  id: 816
+  time: '2025-04-02T18:27:39.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Added emagged recipes for all departmental lathes and exosuit
+        fabricator. Go see what emagging them does.
+    - type: Remove
+      message: Removed Dualetta kit from uplink. Dualetta bundle is not affected.
+    - type: Tweak
+      message: >-
+        Changed flashbangs fired from mech flashbang launcher to actual
+        flashbangs that knock people down.
+    - type: Fix
+      message: >-
+        Fixed some oversights with lathe recipes. All things that should be
+        printable at a given lathe are printable, and these that shouldn't are
+        not.
+  id: 817
+  time: '2025-04-03T03:00:41.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Proximity airlock opening.
+  id: 818
+  time: '2025-04-03T08:14:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Captain no longer gets N1984.
+  id: 819
+  time: '2025-04-04T18:23:30.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Multiple storage behavior was reverted.
+  id: 820
+  time: '2025-04-04T22:54:28.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Shoving now moves objects and mobs, deals very small stamina damage.
+    - type: Add
+      message: Melee weapon regular swings now show the weapon.
+    - type: Fix
+      message: Grab Throw cooldown actually works.
+  id: 821
+  time: '2025-04-05T09:45:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cartridges can now be ejected from cartridge autoinjectors.
+    - type: Tweak
+      message: >-
+        Security no longer spawns with cartridge autoinjectors, but they can be
+        found in SecTech.
+    - type: Tweak
+      message: You can now make tirizene from haloperidol, phenol and plasma.
+    - type: Tweak
+      message: Changeling lethargic sting now actually makes people sleepy.
+    - type: Tweak
+      message: Atropine no longer paralyzes without OD.
+  id: 822
+  time: '2025-04-05T11:57:11.0000000+00:00'
+- author: _kote, Mocho, Durk
+  changes:
+    - type: Add
+      message: R&D console got fully reworked!
+  id: 823
+  time: '2025-04-07T08:05:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Group retaliation to monkeys and mice.
+  id: 824
+  time: '2025-04-07T18:48:11.0000000+00:00'
