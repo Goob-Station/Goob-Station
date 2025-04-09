@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: AccountAppend
+  id: DEBDEB01
+  userid: a092fc6c-5dbd-4c5c-ae0f-e637e50c060b
+  AppendComps:
+  - RussianAccent # Proklatie 220
