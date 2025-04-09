@@ -24,7 +24,7 @@ public sealed partial class DevilSystem
     private void OnGetVerbs(EntityUid uid, DevilComponent comp, GetVerbsEvent<InnateVerb> args)
     {
         // Can't shake your own hand, and you can't shake from a distance
-        if (!args.CanAccess || !args.CanInteract || args.User == args.Target)
+        if (!args.CanAccess || !args.CanInteract || args.User == args.Target || _state.IsIncapacitated(args.Target))
             return;
 
         // Only allow offering to living entities that can interact

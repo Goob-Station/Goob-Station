@@ -19,6 +19,7 @@ using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Bible.Components;
+using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
@@ -39,6 +40,7 @@ using Content.Shared.Dataset;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
@@ -71,6 +73,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PossessionSystem _possession = default!;
     [Dependency] private readonly CondemnedSystem _condemned = default!;
+    [Dependency] private readonly MobStateSystem _state = default!;
 
 
     // Ten. Thousand. EntProtoIds.
