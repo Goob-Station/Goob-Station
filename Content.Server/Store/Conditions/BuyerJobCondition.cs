@@ -41,11 +41,13 @@ public sealed partial class BuyerJobCondition : ListingCondition
     {
         var ent = args.EntityManager;
 
-        if (!ent.TryGetComponent<MindComponent>(args.Buyer, out var _))
-            return true; // inanimate objects don't have minds
+        var mind = args.Buyer; // Goob start
 
-        var jobs = ent.System<SharedJobSystem>();
-        jobs.MindTryGetJob(args.Buyer, out var job);
+        if (!ent.TryGetComponent<MindComponent> (args.Buyer, out var _) && !ent.System<SharedMindSystem>().TryGetMind(args.Buyer, out mind, out _))
+            return true;
+
+        var jobs = ent.system<SharedJobSystem>();
+        jobs.MindTryGetJob(mind, out var job); //Goob end
 
         if (Blacklist != null)
         {

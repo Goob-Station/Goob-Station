@@ -244,7 +244,7 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
+  description: "Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Breacher."
   components:
   - type: StorageFill
     contents:
@@ -255,11 +255,8 @@
       - id: MagazineShotgun
         amount: 4
       - id: MagazineLightRifleBox
-        amount: 2
-      - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
-        amount: 1
-      - id: MagazineHighCaliberExplosive # Goobstation - Burner Heavy Assault Rifle
-
+        amount: 3
+      - id: MagazineHighCaliber # Goobstation - Breacher Heavy Rifle
 
 - type: entity
   parent: ClothingBackpackDuffelClown

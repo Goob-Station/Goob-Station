@@ -138,6 +138,8 @@
   - type: Appearance
   - type: StaticPrice
     price: 1500
+  - type: Multishot #Goob
+    spreadMultiplier: 30
 
 - type: entity
   name: Inspector
@@ -153,6 +155,8 @@
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
+  - type: Multishot #Goob
+    spreadMultiplier: 30
 
 - type: entity
   name: Mateba
@@ -209,6 +213,8 @@
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
       params:
         volume: 2.25
+  - type: Multishot #Goob
+    spreadMultiplier: 30
 
 - type: entity
   parent: WeaponRevolverPython

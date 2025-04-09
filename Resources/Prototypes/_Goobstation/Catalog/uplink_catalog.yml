@@ -174,13 +174,13 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkWeaponRifleBurner
-  name: uplink-weapon-burner-name
-  description: uplink-weapon-burner-desc
+  id: UplinkWeaponRifleBreacher
+  name: uplink-weapon-breacher-name
+  description: uplink-weapon-breacher-desc
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
-  productEntity: WeaponRifleBurner
+  productEntity: WeaponRifleBreacher
   cost:
-    Telecrystal: 100 # don't kill me piras
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
 
@@ -596,18 +596,18 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 6 # Slightly more total damage compared to C20 mags
+    Telecrystal: 6
   categories:
   - UplinkAmmo
 
 - type: listing
-  id: UplinkMagazineHighCaliberExplosive
-  name: uplink-high-caliber-explosive-magazine-name
-  description: uplink-high-caliber-explosive-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
-  productEntity: MagazineHighCaliberExplosive
+  id: UplinkMagazineHighCaliberHP
+  name: uplink-high-caliberHP-magazine-name
+  description: uplink-high-caliberHP-magazine-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+  productEntity: MagazineHighCaliberHP
   cost:
-    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
+    Telecrystal: 6
   categories:
   - UplinkAmmo
 

@@ -53,8 +53,8 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
-uplink-weapon-burner-name = Burner Heavy Rifle
-uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
+uplink-weapon-breacher-name = Breacher Heavy Rifle
+uplink-weapon-breacher-desc = The Breacher Heavy Rifle, an excelent breaching weapon, great for breaking reinforcements fast.
 
 uplink-WSPR-name = WSPR Bundle
 uplink-WSPR-desc = PPPSSSSHhhhh.
@@ -107,10 +107,11 @@ uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
 uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
-uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
+uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Breacher.
 
-uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
-uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
+uplink-high-caliberHP-magazine-name = Heavy Rifle Magazine (.50 HP)
+uplink-high-caliberHP-magazine-desc = Emergency anti personell ammunition for the breacher, not very effective but works in a pinch.
+
 
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.

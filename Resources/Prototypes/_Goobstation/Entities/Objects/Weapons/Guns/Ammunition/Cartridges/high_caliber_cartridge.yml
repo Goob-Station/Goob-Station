@@ -26,6 +26,14 @@
     price: 20
 
 - type: entity
+  parent: CartridgeHighCaliber
+  id: CartridgeHighCaliberHP
+  name: cartridge (.50 HP)
+  components:
+  - type: CartridgeAmmo
+    proto: BulletHighCaliberHP
+
+- type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
   id: CartridgeHighCaliberExplosive
   name: cartridge (.50 high-explosive)

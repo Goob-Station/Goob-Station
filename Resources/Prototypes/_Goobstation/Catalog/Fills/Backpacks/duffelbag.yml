@@ -41,14 +41,13 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateBurner
-  name: Burner Bundle
-  description: "A high caliber Burner rifle, comes with some anti materiel and high explosive ammunition."
+  id: ClothingBackpackDuffelSyndicateBreacher
+  name: Breaching Bundle
+  description: "A high caliber Breacher rifle, comes with some anti materiel and high explosive ammunition."
   components:
   - type: StorageFill
     contents:
-      - id: WeaponRifleBurner
-      - id: MagazineHighCaliberExplosive
+      - id: WeaponRifleBreacher
       - id: MagazineHighCaliber
       - id: MagazineHighCaliber
 

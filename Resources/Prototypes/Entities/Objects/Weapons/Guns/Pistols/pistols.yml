@@ -200,6 +200,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
+  - type: Multishot #Goob
+    spreadMultiplier: 5
 
 - type: entity
   name: echis
@@ -354,3 +356,5 @@
         whitelist:
           tags:
             - CartridgeMagnum
+  - type: Multishot #Goob
+    spreadMultiplier: 30
