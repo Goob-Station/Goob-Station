@@ -32,7 +32,7 @@ public sealed class MimeryBookSystem : EntitySystem
         {
             if (mimePowersComponent.VowBroken)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mimery-book-fail-bow-broken-popup"), args.Args.User, args.Args.User);
+                _popupSystem.PopupEntity(Loc.GetString("mimery-book-fail-vow-broken-popup"), args.Args.User, args.Args.User);
                 return;
             }
             EnsureComp<MimeryPowersComponent>(args.Args.User);

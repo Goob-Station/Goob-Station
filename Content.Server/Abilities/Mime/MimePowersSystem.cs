@@ -1,4 +1,3 @@
-using Content.Goobstation.Shared.MimePunishment;
 using Content.Server.Popups;
 using Content.Shared.Abilities.Mime;
 using Content.Shared.Actions;
@@ -141,7 +140,6 @@ namespace Content.Server.Abilities.Mime
             _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
-            RaiseLocalEvent(uid, new MimePunishEvent(mimePowers.PunishmentChance));
         }
 
 

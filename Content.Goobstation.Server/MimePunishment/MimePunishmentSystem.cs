@@ -1,6 +1,5 @@
 using Content.Goobstation.Common.Speech;
 using Content.Goobstation.Server.Mimery;
-using Content.Goobstation.Shared.MimePunishment;
 using Content.Server.Abilities.Mime;
 using Content.Server.Administration.Components;
 using Content.Server.Body.Systems;
@@ -17,35 +16,24 @@ namespace Content.Goobstation.Server.MimePunishment;
 
 public sealed class MimePunishmentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _rand = default!; // Goobstation - Mime Enforcement
-    [Dependency] private readonly BodySystem _body = default!; // Goobstation - Mime Enforcement
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!; // Goobstation - Mime Enforcement
-    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!; // Goobstation - Mime Enforcement
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!; // Goobstation - Mime Enforcement
-    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Mime Enforcement
+    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly BodySystem _body = default!;
+    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<MimePunishmentComponent, MimePunishEvent>(OnMimePunish);
-        SubscribeLocalEvent<MimePowersComponent, MapInitEvent>(OnMimePowersInitialized);
-        SubscribeLocalEvent<MimeryPowersComponent, MapInitEvent>(OnMimeryPowersInitialized);
+        SubscribeLocalEvent<MimePowersComponent, BreakVowAlertEvent>(OnMimePunish);
     }
 
-    private void OnMimePunish(Entity<MimePunishmentComponent> ent, ref MimePunishEvent args)
+    private void OnMimePunish(Entity<MimePowersComponent> ent, ref BreakVowAlertEvent args)
     {
-        if (_rand.Prob(args.Chance)) {Punish(ent);} // Goobstation - Mime Enforcement
+        if (HasComp<MimeryPowersComponent>(ent) || _rand.Prob(args.PunishChance))
+            Punish(ent);
     }
 
-    private void OnMimePowersInitialized(Entity<MimePowersComponent> ent, ref MapInitEvent args)
-    {
-        EnsureComp<MimePunishmentComponent>(ent);
-    }
-
-    private void OnMimeryPowersInitialized(Entity<MimeryPowersComponent> ent, ref MapInitEvent args)
-    {
-        EnsureComp<MimePunishmentComponent>(ent);
-    }
-
-    private void Punish(EntityUid ent) // Goobstation - Mime Enforcement
+    private void Punish(EntityUid ent)
         {
             if (TryComp<MimeryPowersComponent>(ent, out var mimeryPowersComponent))
                 RemComp<MimeryPowersComponent>(ent);

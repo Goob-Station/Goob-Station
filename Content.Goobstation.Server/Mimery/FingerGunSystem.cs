@@ -17,7 +17,7 @@ public sealed class FingerGunSystem : EntitySystem
     {
         SubscribeLocalEvent<FingerGunComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<FingerGunComponent, Goobstation.Shared.Mimery.FingerGunEvent>(OnUse);
-        SubscribeLocalEvent<FingerGunComponent, BreakVowAlertEvent>(OnBreakVowAlert);
+        SubscribeLocalEvent<FingerGunComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void OnInit(Entity<FingerGunComponent> ent, ref ComponentInit args)
@@ -25,7 +25,7 @@ public sealed class FingerGunSystem : EntitySystem
         _actions.AddAction(ent, ref ent.Comp.FingerGunPower, "ActionFingerGun", ent);
     }
 
-    private void OnBreakVowAlert(Entity<FingerGunComponent> ent, ref BreakVowAlertEvent args)
+    private void OnComponentShutdown(Entity<FingerGunComponent> ent, ref ComponentShutdown args)
     {
         _actions.RemoveAction(ent, ent.Comp.FingerGunPower);
     }
