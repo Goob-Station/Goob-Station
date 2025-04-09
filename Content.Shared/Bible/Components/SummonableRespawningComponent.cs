@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Bible.Components
 namespace Content.Shared.Bible.Components
 {
     /// <summary>
