@@ -115,7 +115,7 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-    spreadMultiplier: 1.4
+    spreadMultiplier: 2
 
 - type: entity
   name: Atreides

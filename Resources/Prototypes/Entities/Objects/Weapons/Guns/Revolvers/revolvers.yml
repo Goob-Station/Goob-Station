@@ -109,7 +109,7 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-    spreadMultiplier: 1.2
+    spreadMultiplier: 30
 
 - type: entity
   name: Deckard
