@@ -5,13 +5,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wizard.Chuuni;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Magic;
-using Content.Shared.Magic.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -41,7 +41,7 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
     private void OnCheckChuuniEyePatch(Entity<ChuuniEyepatchComponent> ent, ref CheckChuuniEyePatchEvent args)
     {
         args.RequiresSpeech = true;
-        args.Flags = (int) SlotFlags.OUTERCLOTHING;
+        args.Flags = (int) SlotFlags.OUTERCLOTHING; // this is so ass
         args.RequiredSlots = 1;
     }
 

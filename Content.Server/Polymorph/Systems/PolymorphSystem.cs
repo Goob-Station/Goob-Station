@@ -94,6 +94,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
