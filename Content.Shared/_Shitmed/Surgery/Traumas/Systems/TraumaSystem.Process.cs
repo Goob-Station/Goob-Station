@@ -51,7 +51,7 @@ public partial class TraumaSystem
 
         args.State = state;
     }
- 
+
     private void OnComponentHandleState(EntityUid uid, TraumaComponent component, ref ComponentHandleState args)
     {
         if (args.Current is not TraumaComponentState state)
@@ -231,28 +231,30 @@ public partial class TraumaSystem
         FixedPoint2 severity,
         WoundableComponent? woundable = null)
     {
+        Logger.Debug("Executing random trauma chance");
         var traumaList = new List<TraumaType>();
         if (!Resolve(target, ref woundable))
             return traumaList;
 
-        if (woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.BoneDamage) &&
-            RandomBoneTraumaChance((target, woundable), woundInflicter))
-            traumaList.Add(TraumaType.BoneDamage);
 
         if (woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.NerveDamage) &&
             RandomNerveDamageChance((target, woundable), woundInflicter))
             traumaList.Add(TraumaType.NerveDamage);
 
-        if (woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.OrganDamage) &&
+        if (severity > 10 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.BoneDamage) &&
+            RandomBoneTraumaChance((target, woundable), woundInflicter))
+            traumaList.Add(TraumaType.BoneDamage);
+
+        if (severity > 10 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.Dismemberment) &&
+            RandomDismembermentTraumaChance((target, woundable), woundInflicter))
+            traumaList.Add(TraumaType.Dismemberment);
+
+        if (severity > 15 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.OrganDamage) &&
             RandomOrganTraumaChance((target, woundable), woundInflicter))
             traumaList.Add(TraumaType.OrganDamage);
 
         //if (RandomVeinsTraumaChance(woundable))
         //    traumaList.Add(TraumaType.VeinsDamage);
-
-        if (woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.Dismemberment) &&
-            RandomDismembermentTraumaChance((target, woundable), woundInflicter))
-            traumaList.Add(TraumaType.Dismemberment);
 
         return traumaList;
     }
@@ -297,6 +299,37 @@ public partial class TraumaSystem
         return deduction;
     }
 
+    public void ApplyMangledTraumas(EntityUid woundable,
+        EntityUid wound,
+        FixedPoint2 severity,
+        WoundableComponent? woundableComp = null,
+        TraumaInflicterComponent? inflicterComponent = null)
+    {
+        if (!Resolve(wound, ref inflicterComponent)
+            || !Resolve(woundable, ref woundableComp)
+            || inflicterComponent.MangledMultipliers == null)
+            return;
+
+        var traumasToInduce = new List<TraumaType>();
+        foreach (var traumaType in inflicterComponent.MangledMultipliers.Keys)
+        {
+            switch (traumaType)
+            {
+                case TraumaType.BoneDamage:
+                {
+                    var bone = woundableComp.Bone.ContainedEntities.FirstOrNull();
+                    if (bone == null || !TryComp<BoneComponent>(bone, out var boneComp))
+                        break;
+
+                    traumasToInduce.Add(TraumaType.BoneDamage);
+                    break;
+                }
+            }
+        }
+
+        ApplyTraumas((woundable, woundableComp), (wound, inflicterComponent), traumasToInduce, severity);
+    }
+
     #endregion
 
     #region Trauma Chance Randoming
@@ -323,6 +356,7 @@ public partial class TraumaSystem
             TraumaType.BoneDamage,
             bodyPart.PartType);
 
+        Logger.Debug($"Bone trauma chance deduction: {deduction}");
         // We do complete random to get the chance for trauma to happen,
         // We combine multiple parameters and do some math, to get the chance.
         // Even if we get 0.1 damage there's still a chance for injury to be applied, but with the extremely low chance.
@@ -334,7 +368,10 @@ public partial class TraumaSystem
             0,
             1);
 
-        return _random.Prob((float) chance);
+        Logger.Debug($"Bone trauma chance: {chance}");
+        var result = _random.Prob((float) chance);
+        Logger.Debug($"Bone trauma result: {result}");
+        return result;
     }
 
     public bool RandomNerveDamageChance(
@@ -396,6 +433,7 @@ public partial class TraumaSystem
         // organ damage is like, very deadly, but not yet
         // so like, like, yeah, we don't want a disabler to induce some EVIL ASS organ damage with a 0,000001% chance and ruin your round
         // Very unlikely to happen if your woundables are in a good condition
+
         var chance =
             FixedPoint2.Clamp(
                 target.Comp.IntegrityCap / target.Comp.WoundableIntegrity / totalIntegrity
@@ -434,13 +472,17 @@ public partial class TraumaSystem
         // Broken bones increase the chance of your limb getting delimbed
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
         if (bone != null && TryComp<BoneComponent>(bone, out var boneComp))
-            if (boneComp.BoneSeverity != BoneSeverity.Broken)
-                bonePenalty = boneComp.BoneIntegrity / boneComp.IntegrityCap;
+        {
+            if (boneComp.BoneSeverity < BoneSeverity.Cracked)
+                return false;
+
+            bonePenalty = 1 - boneComp.BoneIntegrity / boneComp.IntegrityCap;
+        }
 
         // random-y but not so random-y like bones. Heavily depends on woundable state and damage
         var chance =
             FixedPoint2.Clamp(
-                1 - target.Comp.WoundableIntegrity / target.Comp.IntegrityCap * bonePenalty
+                1 - (target.Comp.WoundableIntegrity / target.Comp.IntegrityCap * 0.5f * bonePenalty)
                 - deduction + woundInflicter.Comp.TraumasChances[TraumaType.Dismemberment],
                 0,
                 1);
@@ -530,6 +572,7 @@ public partial class TraumaSystem
 
     private void ApplyTraumas(Entity<WoundableComponent> target, Entity<TraumaInflicterComponent> inflicter, List<TraumaType> traumas, FixedPoint2 severity)
     {
+        Logger.Debug($"Applying traumas to {target}");
         var bodyPart = Comp<BodyPartComponent>(target);
         if (!bodyPart.Body.HasValue)
             return;
@@ -632,9 +675,6 @@ public partial class TraumaSystem
                 case TraumaType.Dismemberment:
                     if (!_wound.IsWoundableRoot(target))
                     {
-                        if (!_wound.TryContinueWound(targetChosen.Value, "Blunt", 10f))
-                            _wound.TryCreateWound(targetChosen.Value, "Blunt", 10f, "Brute");
-
                         foreach (var woundEnt in _wound.GetWoundableWounds(targetChosen.Value))
                         {
                             if (MetaData(woundEnt).EntityPrototype!.ID != "Blunt")

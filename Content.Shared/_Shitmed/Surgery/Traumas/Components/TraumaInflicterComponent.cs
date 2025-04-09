@@ -57,4 +57,10 @@ public sealed partial class TraumaInflicterComponent : Component
         { TraumaType.NerveDamage, 0 },
         { TraumaType.VeinsDamage, 0 },
     };
+
+    /// <summary>
+    /// When a wound is mangled, any receiving damage will be multiplied by these values and applied to the respective body elements.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<TraumaType, FixedPoint2>? MangledMultipliers;
 }

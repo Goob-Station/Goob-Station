@@ -712,7 +712,7 @@ public partial class PainSystem
 
     private void ApplyPainReflexesEffects(EntityUid body, Entity<NerveSystemComponent> nerveSys, PainThresholdTypes reaction)
     {
-        if (!_net.IsServer)
+        if (!_net.IsServer || _random.Prob(0.70f)) // I HATE THE CONSTANT SCREAMING.
             return;
 
         var sex = Sex.Unsexed;

@@ -1001,13 +1001,26 @@ public partial class SharedBodySystem
         return Containers.Remove(partId, container);
     }
 
-public TargetBodyPart? GetRandomBodyPart(EntityUid target,
+    /// <summary>
+    /// This override fetches a random body part for an entity based on the attacker's selected part, which introduces a random chance to miss
+    /// so long as the entity isnt incapacitated or laying down.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="attacker"></param>
+    /// <param name="targetComp"></param>
+    /// <param name="attackerComp"></param>
+    /// <returns></returns>
+    public TargetBodyPart? GetRandomBodyPart(EntityUid target,
         EntityUid attacker,
         TargetingComponent? targetComp = null,
         TargetingComponent? attackerComp = null)
     {
         if (!Resolve(target, ref targetComp) || !Resolve(attacker, ref attackerComp))
             return null;
+
+        if (_mobState.IsIncapacitated(target)
+            || Standing.IsDown(target))
+            return attackerComp.Target;
 
         var totalWeight = targetComp.TargetOdds[attackerComp.Target].Values.Sum();
         var randomValue = _random.NextFloat() * totalWeight;
@@ -1028,6 +1041,10 @@ public TargetBodyPart? GetRandomBodyPart(EntityUid target,
     {
         if (!Resolve(target, ref targetComp))
             return null;
+
+        if (_mobState.IsIncapacitated(target)
+            || Standing.IsDown(target))
+            return targetPart;
 
         var totalWeight = targetComp.TargetOdds[targetPart].Values.Sum();
         var randomValue = _random.NextFloat() * totalWeight;

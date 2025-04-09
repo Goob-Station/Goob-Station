@@ -36,12 +36,16 @@ public partial class TraumaSystem
                 _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(-8f));
                 break;
 
+            case BoneSeverity.Cracked:
+                _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(1f));
+                break;
+
             case BoneSeverity.Broken:
                 _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(6f));
+
                 if (bodyComp.PartType == BodyPartType.Hand)
-                {
                     _virtual.TrySpawnVirtualItemInHand(bone, bodyComp.Body.Value);
-                }
+
                 break;
         }
     }
@@ -176,7 +180,7 @@ public partial class TraumaSystem
 
         foreach (var legEntity in bodyComp.LegEntities)
         {
-             if (!TryComp<MovementBodyPartComponent>(legEntity, out var movement))
+            if (!TryComp<MovementBodyPartComponent>(legEntity, out var movement))
                 continue;
 
             var partWalkSpeed = movement.WalkSpeed;
@@ -204,6 +208,7 @@ public partial class TraumaSystem
                     penalty = footBone.BoneSeverity switch
                     {
                         BoneSeverity.Damaged => 0.77f,
+                        BoneSeverity.Cracked => 0.66f,
                         BoneSeverity.Broken => 0.55f,
                         _ => penalty,
                     };
@@ -222,17 +227,22 @@ public partial class TraumaSystem
 
             switch (boneComp.BoneSeverity)
             {
+                case BoneSeverity.Cracked:
+                    walkSpeed += partWalkSpeed / 2f;
+                    sprintSpeed += partSprintSpeed / 2f;
+                    acceleration += partAcceleration / 2f;
+                    break;
+
                 case BoneSeverity.Damaged:
                     walkSpeed += partWalkSpeed / 1.6f;
                     sprintSpeed += partSprintSpeed / 1.6f;
                     acceleration += partAcceleration / 1.6f;
-
                     break;
+
                 case BoneSeverity.Normal:
                     walkSpeed += partWalkSpeed;
                     sprintSpeed += partSprintSpeed;
                     acceleration += partAcceleration;
-
                     break;
             }
         }

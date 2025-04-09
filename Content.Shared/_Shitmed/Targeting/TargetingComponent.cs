@@ -18,94 +18,92 @@ public sealed partial class TargetingComponent : Component
     [DataField]
     public Dictionary<TargetBodyPart, Dictionary<TargetBodyPart, float>> TargetOdds = new()
     {
-            {
+        {
             TargetBodyPart.Head, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Head, 0.34f },
-                { TargetBodyPart.Chest, 0.27f },
-                { TargetBodyPart.LeftArm, 0.23f },
-                { TargetBodyPart.RightArm, 0.23f },
+                { TargetBodyPart.Head, 0.40f },
+                { TargetBodyPart.Chest, 0.40f },
+                { TargetBodyPart.LeftArm, 0.10f },
+                { TargetBodyPart.RightArm, 0.10f },
             }
         },
         {
             TargetBodyPart.Chest, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Chest, 0.34f },
-                { TargetBodyPart.Groin, 0.34f },
-                { TargetBodyPart.Head, 0.12f },
-                { TargetBodyPart.RightArm, 0.24f },
-                { TargetBodyPart.LeftArm, 0.24f },
+                { TargetBodyPart.Chest, 1f },
             }
         },
         {
             TargetBodyPart.Groin, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.Groin, 0.34f },
-                { TargetBodyPart.Chest, 0.34f },
-                { TargetBodyPart.RightLeg, 0.17f },
-                { TargetBodyPart.LeftLeg, 0.17f },
-                { TargetBodyPart.RightArm, 0.11f },
-                { TargetBodyPart.LeftArm, 0.11f },
+                { TargetBodyPart.Groin, 0.70f },
+                { TargetBodyPart.Chest, 0.20f },
+                { TargetBodyPart.RightLeg, 0.05f },
+                { TargetBodyPart.LeftLeg, 0.05f },
             }
         },
         {
             TargetBodyPart.RightArm, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightArm, 0.45f },
-                { TargetBodyPart.RightHand, 0.27f },
-                { TargetBodyPart.Chest, 0.22f },
+                { TargetBodyPart.RightArm, 0.70f },
+                { TargetBodyPart.Chest, 0.20f },
+                { TargetBodyPart.RightHand, 0.10f },
             }
         },
         {
             TargetBodyPart.LeftArm, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftArm, 0.45f },
-                { TargetBodyPart.LeftHand, 0.27f },
-                { TargetBodyPart.Chest, 0.22f },
+                { TargetBodyPart.LeftArm, 0.70f },
+                { TargetBodyPart.Chest, 0.20f },
+                { TargetBodyPart.LeftHand, 0.10f },
             }
         },
         {
             TargetBodyPart.RightHand, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightHand, 0.75f },
-                { TargetBodyPart.RightArm, 0.25f },
+                { TargetBodyPart.RightHand, 0.40f },
+                { TargetBodyPart.Chest, 0.40f },
+                { TargetBodyPart.RightArm, 0.20f },
             }
         },
         {
             TargetBodyPart.LeftHand, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftHand, 0.75f },
-                { TargetBodyPart.LeftArm, 0.25f },
+                { TargetBodyPart.LeftHand, 0.40f },
+                { TargetBodyPart.Chest, 0.40f },
+                { TargetBodyPart.LeftArm, 0.20f },
             }
         },
         {
             TargetBodyPart.RightLeg, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightLeg, 0.67f },
-                { TargetBodyPart.RightFoot, 0.23f },
-                { TargetBodyPart.Groin, 0.1f },
+                { TargetBodyPart.RightLeg, 0.70f },
+                { TargetBodyPart.Groin, 0.20f },
+                { TargetBodyPart.RightFoot, 0.10f },
             }
         },
         {
             TargetBodyPart.LeftLeg, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftLeg, 0.67f },
-                { TargetBodyPart.LeftFoot, 0.23f },
-                { TargetBodyPart.Groin, 0.1f },
+                { TargetBodyPart.LeftLeg, 0.70f },
+                { TargetBodyPart.Chest, 0.20f },
+                { TargetBodyPart.LeftFoot, 0.10f },
             }
         },
         {
             TargetBodyPart.RightFoot, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.RightFoot, 0.75f },
-                { TargetBodyPart.RightLeg, 0.25f },
+                { TargetBodyPart.RightFoot, 0.40f },
+                { TargetBodyPart.Chest, 0.40f },
+                { TargetBodyPart.RightLeg, 0.20f },
             }
         },
         {
             TargetBodyPart.LeftFoot, new Dictionary<TargetBodyPart, float>
             {
-                { TargetBodyPart.LeftFoot, 0.75f },
-                { TargetBodyPart.LeftLeg, 0.25f },
+                { TargetBodyPart.LeftFoot, 0.40f },
+                { TargetBodyPart.Chest, 0.40f },
+                { TargetBodyPart.LeftLeg, 0.20f },
             }
         },
     };

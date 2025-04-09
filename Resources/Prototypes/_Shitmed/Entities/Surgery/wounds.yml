@@ -33,6 +33,8 @@
       BoneDamage: 0.34
       VeinsDamage: 0
       NerveDamage: 0
+    mangledMultipliers:
+      BoneDamage: 1
   - type: PainInflicter
     multiplier: 0.87
   - type: BleedInflicter
@@ -48,6 +50,7 @@
     scarWound: PiercingScar
     integrityMultiplier: 0.3
     bleedsScaling: 1.2
+    mangleSeverity: Severe
   - type: TraumaInflicter
     severityThreshold: 12
     allowedTraumas:
@@ -64,6 +67,8 @@
       BoneDamage: 0.14
       VeinsDamage: -0.4 # goes through rather easy.
       NerveDamage: -0.4
+    mangledMultipliers:
+      BoneDamage: 0.75
   - type: PainInflicter
     multiplier: 0.67
   - type: BleedInflicter
@@ -107,6 +112,7 @@
     scarWound: SlashScar
     integrityMultiplier: 0.17
     bleedsScaling: 1.7
+    mangleSeverity: Severe
   - type: TraumaInflicter
     severityThreshold: 9
     allowedTraumas:
@@ -123,6 +129,8 @@
       BoneDamage: 0
       VeinsDamage: 0.27
       NerveDamage: 0.27
+    mangledMultipliers:
+      BoneDamage: 0.6
   - type: PainInflicter
     multiplier: 0.67
   - type: BleedInflicter
@@ -154,6 +162,8 @@
       BoneDamage: -0.21
       VeinsDamage: 0.34
       NerveDamage: 0.34
+    mangledMultipliers:
+      BoneDamage: 1
   - type: PainInflicter
     multiplier: 1.1
   - type: BleedInflicter

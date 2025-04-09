@@ -34,6 +34,9 @@ public abstract class SharedArmorSystem : EntitySystem
 
     private void OnDamageModify(EntityUid uid, ArmorComponent component, DamageModifyEvent args)
     {
+        if (args.TargetPart == null)
+            return;
+
         var (partType, _) = _body.ConvertTargetBodyPart(args.TargetPart);
 
         if (component.ArmorCoverage.Contains(partType))
@@ -55,6 +58,9 @@ public abstract class SharedArmorSystem : EntitySystem
 
     private void OnRelayDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
     {
+        if (args.Args.TargetPart == null)
+            return;
+
         var (partType, _) = _body.ConvertTargetBodyPart(args.Args.TargetPart);
 
         if (component.ArmorCoverage.Contains(partType))

@@ -21,9 +21,9 @@ public enum TraumaType
 [Serializable, NetSerializable]
 public enum OrganSeverity
 {
-    Normal,
-    Damaged,
-    Destroyed, // obliterated
+    Normal = 0,
+    Damaged = 1,
+    Destroyed = 2, // obliterated
 }
 
 [ByRefEvent]
@@ -56,9 +56,10 @@ public record struct TraumaBeingRemovedEvent(Entity<TraumaComponent> Trauma, Ent
 [Serializable, NetSerializable]
 public enum BoneSeverity
 {
-    Normal,
-    Damaged,
-    Broken, // Ha-ha.
+    Normal = 0,
+    Damaged = 1,
+    Cracked = 2,
+    Broken = 3, // Ha-ha.
 }
 
 [ByRefEvent]

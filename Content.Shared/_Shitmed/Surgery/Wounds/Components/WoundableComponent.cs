@@ -122,4 +122,12 @@ public sealed partial class WoundableComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool CanRemove = true;
+
+    /// <summary>
+    /// Whether this woundable's bone is exposed
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public bool IsBoneExposed = false;
+
+
 }
