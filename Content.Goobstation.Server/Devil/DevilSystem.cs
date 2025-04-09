@@ -81,7 +81,6 @@ public sealed partial class DevilSystem : EntitySystem
     private readonly EntProtoId _penProto = "PenDevil";
     private readonly EntProtoId _pentagramEffectProto = "Pentagram";
 
-
     public override void Initialize()
     {
         base.Initialize();
@@ -211,26 +210,11 @@ public sealed partial class DevilSystem : EntitySystem
         if (HasComp<DevilComponent>(args.Source) || HasComp<CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source))
             return;
 
-        var stopList = new List<string>
-        {
-            "stop",         // Basic stop
-            "cease",        // Formal stop
-            "halt",         // Urgent stop
-            "desist",       // Legal term
-            "terminate",    // Technical stop
-            "abort",        // Emergency stop
-            "discontinue",  // Formal cancellation
-            "refrain",       // Preventive stop
-            "fuck off"  ,    // Rude stop. Lol.
-        };
-
         var message = args.Message.ToLowerInvariant();
 
         var trueNameMatch = message.Contains(comp.TrueName, StringComparison.InvariantCultureIgnoreCase);
 
-        var stopListMatch = stopList.Any(word => message.Contains(word, StringComparison.InvariantCultureIgnoreCase)); // LINQ, AHHHH
-
-        if (!trueNameMatch || !stopListMatch)
+        if (!trueNameMatch)
             return;
 
         var curTime = _timing.CurTime;
