@@ -12,7 +12,7 @@
     event: !type:FingerGunEvent
 
 - type: entity
-  name: Finger Gun
+  name: finger gun
   parent: [BaseWeaponBatterySmall]
   id: FingerGun
   description: The peak of the Mime powers, only achieved by a secret method.

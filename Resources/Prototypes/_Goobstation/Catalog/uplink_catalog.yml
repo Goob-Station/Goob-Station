@@ -752,8 +752,8 @@
 
 - type: listing
   id: UplinkMimeryBook
-  name: Book of Advanced Mimery
-  description: Contains a secret method to learn the forbidden mimery techniques.
+  name: uplink-mimery-book-name
+  description: uplink-mimery-book-desc
   productEntity: MimeryBook
   cost:
     Telecrystal: 50

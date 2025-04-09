@@ -48,6 +48,9 @@ uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing 
 uplink-smugglers-satchel-name = Smuggler's Satchel
 uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
 
+uplink-mimery-book-name = Book of Advanced Mimery
+uplink-mimery-book-desc = Contains a secret method to learn the forbidden mimery techniques.
+
 # Weapons
 
 uplink-contractor-baton-name = Contractor Baton

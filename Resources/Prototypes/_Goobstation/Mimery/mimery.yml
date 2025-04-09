@@ -1,5 +1,5 @@
 - type: entity
-  name: Book of Mimery
+  name: book of mimery
   parent: BaseItem
   id: MimeryBook
   description: The Book of Mimery. Contains the forbidden methods to achieve the ultimate mimery powers.
