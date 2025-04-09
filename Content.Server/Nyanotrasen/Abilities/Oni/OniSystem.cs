@@ -11,6 +11,7 @@ using Content.Server.Tools;
 using Content.Shared.Abilities.Oni;
 using Content.Shared.Tools.Components;
 using Content.Shared.Damage.Events;
+using Content.Shared.Item;
 using Content.Shared.Nyanotrasen.Abilities.Oni;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -42,7 +43,9 @@ namespace Content.Server.Abilities.Oni
                 tool.SpeedModifier *= 1.66f;
 
             if (HasComp<GunComponent>(args.Entity)
-            && !HasComp<WieldableComponent>(args.Entity))
+            && !HasComp<WieldableComponent>(args.Entity)
+            && !HasComp<MultiHandedItemComponent>(args.Entity)
+            && !HasComp<OniAllowedGunComponent>(args.Entity))
             {
                 heldComp.WasOneHanded = true;
                 var wieldableComp = EnsureComp<WieldableComponent>(args.Entity);
