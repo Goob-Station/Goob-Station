@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["fishing_rod_cast.ogg"]
   license: "CC-BY-NC-SA-4.0"
   copyright: "Taken from Goon at commit 0c11a46275f493f295d6d05d1aa5fad1d935efb4"
