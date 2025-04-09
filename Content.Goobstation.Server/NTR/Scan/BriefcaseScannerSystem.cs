@@ -4,15 +4,10 @@ using Content.Shared.Popups;
 using Content.Shared.Store.Components;
 using Content.Shared.Interaction;
 using Content.Server.Store.Systems;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 using Content.Shared.FixedPoint;
-using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 using Content.Shared.Mind;
-using Robust.Shared.Player;
-using Content.Shared.UserInterface;
-using Content.Goobstation.Shared.NTR;
+using Content.Goobstation.Shared.NTR.Scan;
+using Content.Goobstation.Common.NTR.Scan;
 
 namespace Content.Goobstation.Server.NTR.Scan
 {
