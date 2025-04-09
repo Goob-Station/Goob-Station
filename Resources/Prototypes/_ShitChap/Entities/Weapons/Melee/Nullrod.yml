@@ -460,14 +460,10 @@
       reflects:
         - Magic
     - type: Sprite
-      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
-      layers:
-        - state: base
-          map: ["enum.GunVisualLayers.Base"]
-        - state: mag-0
-          map: ["enum.GunVisualLayers.Mag"]
+      sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
+      state: icon
     - type: Clothing
-      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/anaconda.rsi # Bweh!
+      sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi # Bweh!
       quickEquip: false
       slots:
         - suitStorage
@@ -493,7 +489,7 @@
       capacity: 6
       count: 6
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 10
+      rechargeCooldown: 12
       rechargeSound:
         path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
     - type: AmmoCounter
@@ -518,14 +514,10 @@
   description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
   components:
     - type: Sprite
-      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
-      layers:
-        - state: base
-          map: ["enum.GunVisualLayers.Base"]
-        - state: mag-0
-          map: ["enum.GunVisualLayers.Mag"]
+      sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
+      state: icon
     - type: Clothing
-      sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi # Todo - Change sprites
+      sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
     - type: Tag
       tags:
         - WeaponPistolJackal

@@ -37,8 +37,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
 
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
     {
-        if (!_netManager.IsServer
-            && TryComp<DamageableComponent>(ent, out var damageable)
+        if (TryComp<DamageableComponent>(ent, out var damageable)
             && damageable?.DamageContainerID == "Biological")
         {
             _damageableSystem.ChangeDamageContainer(ent, "BiologicalMetaphysical");
