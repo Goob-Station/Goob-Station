@@ -2,6 +2,8 @@
 store-currency-nt-loyalty-point = NT loyalty point
 store-preset-name-ntr = Executive briefcase store
 
+ntr-scan-fail = ERROR: Item rejected by scanning protocol.
+ntr-scan-success = SCAN COMPLETE: Credited {amount} loyalty points to your Nanotrasen account.
 # listing
 # station
 
