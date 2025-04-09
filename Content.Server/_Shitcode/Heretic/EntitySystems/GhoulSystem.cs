@@ -66,8 +66,6 @@ public sealed partial class GhoulSystem : EntitySystem
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);
 
-        AddComp<WeakToHolyComponent>(ent); //shitchap
-
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind && ent.Comp.BoundHeretic != null)
             SendBriefing(ent, mindId, mind);
@@ -138,6 +136,7 @@ public sealed partial class GhoulSystem : EntitySystem
     private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
     {
         GhoulifyEntity(ent);
+        EnsureComp<WeakToHolyComponent>(ent); //shitchap
     }
     private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)
     {
