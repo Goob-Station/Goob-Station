@@ -31,4 +31,8 @@ public sealed partial class FingerGunComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan LastChargeTime;
 
+    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? FingerGunPower;
+
 }

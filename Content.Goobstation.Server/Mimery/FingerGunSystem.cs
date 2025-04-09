@@ -1,5 +1,6 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Abilities.Mime;
 using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Timing;
@@ -16,12 +17,19 @@ public sealed class FingerGunSystem : EntitySystem
     {
         SubscribeLocalEvent<FingerGunComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<FingerGunComponent, Goobstation.Shared.Mimery.FingerGunEvent>(OnUse);
+        SubscribeLocalEvent<FingerGunComponent, BreakVowAlertEvent>(OnBreakVowAlert);
     }
 
     private void OnInit(Entity<FingerGunComponent> ent, ref ComponentInit args)
     {
-        _actions.AddAction(ent, "ActionFingerGun");
+        _actions.AddAction(ent, ref ent.Comp.FingerGunPower, "ActionFingerGun", ent);
     }
+
+    private void OnBreakVowAlert(Entity<FingerGunComponent> ent, ref BreakVowAlertEvent args)
+    {
+        _actions.RemoveAction(ent, ent.Comp.FingerGunPower);
+    }
+
 
     private void OnUse(Entity<FingerGunComponent> ent, ref Goobstation.Shared.Mimery.FingerGunEvent args)
     {
