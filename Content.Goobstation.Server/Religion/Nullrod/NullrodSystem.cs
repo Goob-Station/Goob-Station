@@ -1,4 +1,3 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
@@ -26,31 +25,32 @@ public sealed partial class NullRodSystem : EntitySystem
         SubscribeLocalEvent<NullrodComponent, AttemptShootEvent>(OnShootAttempt);
     }
 
-    private void OnMeleeHitEvent(EntityUid uid, NullrodComponent comp, MeleeHitEvent args)
+    private void OnMeleeHitEvent(Entity<NullrodComponent> ent, ref MeleeHitEvent args)
     {
         if (HasComp<BibleUserComponent>(args.User))
             return;
 
-        if (_damageableSystem.TryChangeDamage(args.User, comp.DamageOnUntrainedUse, false, origin: uid) == null)
-            return;
+        UntrainedDamageAndPopup(ent, args.User);
 
-        _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
-
-        _audio.PlayPvs(comp.UntrainedUseSound, args.User);
         args.Handled = true;
     }
 
-    private void OnShootAttempt(EntityUid uid, NullrodComponent comp, ref AttemptShootEvent args)
+    private void OnShootAttempt(Entity<NullrodComponent> ent, ref AttemptShootEvent args)
     {
         if (HasComp<BibleUserComponent>(args.User))
             return;
 
-        if (_damageableSystem.TryChangeDamage(args.User, comp.DamageOnUntrainedUse, false, origin: uid) == null)
-            return;
-
-        _popupSystem.PopupEntity(Loc.GetString(comp.UntrainedUseString), args.User, args.User, PopupType.MediumCaution);
-        _audio.PlayPvs(comp.UntrainedUseSound, args.User);
-
+        UntrainedDamageAndPopup(ent, args.User);
         args.Cancelled = true;
     }
+
+    private void UntrainedDamageAndPopup(Entity<NullrodComponent> ent, EntityUid user)
+    {
+        if (_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent) is null)
+            return;
+
+        _popupSystem.PopupEntity(Loc.GetString(ent.Comp.UntrainedUseString), user, user, PopupType.MediumCaution);
+        _audio.PlayPvs(ent.Comp.UntrainedUseSound, user);
+    }
+
 }
