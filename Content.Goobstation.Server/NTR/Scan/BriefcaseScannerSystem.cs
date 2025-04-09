@@ -8,6 +8,10 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 using Content.Goobstation.Shared.NTR.Scan;
 using Content.Goobstation.Common.NTR.Scan;
+using Content.Server.Chat.Systems;
+using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.NTR.Scan
 {
@@ -17,6 +21,7 @@ namespace Content.Goobstation.Server.NTR.Scan
         [Dependency] private readonly StoreSystem _storeSystem = default!;
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly ChatSystem _chatManager = default!;
 
         public override void Initialize()
         {
@@ -68,7 +73,8 @@ namespace Content.Goobstation.Server.NTR.Scan
                 var points = scannable.Points;
                 if (points <= 0)
                 {
-                    _popup.PopupEntity("womp womp", uid, args.User);
+                    _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-fail"),
+                        InGameICChatType.Speak, true);
                 }
                 else
                 {
@@ -76,6 +82,11 @@ namespace Content.Goobstation.Server.NTR.Scan
                     {
                         { "NTLoyaltyPoint", FixedPoint2.New(points) }
                     }, uid, store);
+                    _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-success", ("amount", points)),
+                        InGameICChatType.Speak, true);
+
+                    QueueDel(target);
+                    Spawn("BluespaceTeleportationEffect", Transform(target).Coordinates);
                 }
             }
 
