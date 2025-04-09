@@ -24,6 +24,6 @@ public sealed partial class CondemnedSystem : EntitySystem
         if (TryComp<CheatDeathComponent>(uid, out var cheatDeath) && cheatDeath.ReviveAmount > 0)
             return;
 
-        _condemned.StartCondemnation(uid, comp, behavior: CondemnedSystem.CondemnedBehavior.Delete);
+        _condemned.StartCondemnation(uid, comp, behavior: CondemnedBehavior.Delete);
     }
 }

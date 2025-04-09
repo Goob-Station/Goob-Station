@@ -81,7 +81,6 @@ public sealed partial class DevilSystem : EntitySystem
     private readonly EntProtoId _bookProto = "GuidebookCodexUmbra";
     private readonly EntProtoId _penProto = "PenDevil";
     private readonly EntProtoId _pentagramEffectProto = "Pentagram";
-    private readonly EntProtoId _fireEffectProto = "FireEffect";
 
 
     public override void Initialize()
@@ -298,7 +297,6 @@ public sealed partial class DevilSystem : EntitySystem
 
     private void DoContractFlavor(EntityUid devil, string name)
     {
-        Spawn(_fireEffectProto, Transform(devil).Coordinates);
         var flavor = Loc.GetString("contract-summon-flavor", ("name", name));
         _popup.PopupEntity(flavor, devil, PopupType.Medium);
     }

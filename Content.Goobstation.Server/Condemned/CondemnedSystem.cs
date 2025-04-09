@@ -92,7 +92,6 @@ public sealed partial class CondemnedSystem : EntitySystem
     public void StartCondemnation(
         EntityUid uid,
         CondemnedComponent? comp = null,
-        SoundPathSpecifier? sound = null,
         bool freezeEntity = true,
         CondemnedBehavior behavior = CondemnedBehavior.Delete)
     {
@@ -102,7 +101,6 @@ public sealed partial class CondemnedSystem : EntitySystem
 
         comp.CondemnOnDeath = false;
 
-        var soundPath = sound ?? _defaultSoundPath;
 
         if (freezeEntity)
         {
@@ -112,7 +110,10 @@ public sealed partial class CondemnedSystem : EntitySystem
 
         var coords = Transform(uid).Coordinates;
         Spawn(_defaultPentagramProto, coords);
-        _audio.PlayPvs(soundPath, uid);
+        _audio.PlayPvs(_defaultSoundPath, coords);
+
+        if (comp.CondemnedBehavior == CondemnedBehavior.Delete)
+            _popup.PopupCoordinates(Loc.GetString("condemned-start", ("target", Name(uid))), coords, PopupType.LargeCaution);
 
         comp.CurrentPhase = CondemnedPhase.PentagramActive;
         comp.PhaseTimer = 0f;
@@ -162,9 +163,6 @@ public sealed partial class CondemnedSystem : EntitySystem
                 break;
             case CondemnedBehavior.Banish:
                 _poly.PolymorphEntity(uid, _banishProto);
-                break;
-            default:
-                QueueDel(uid);
                 break;
         }
     }

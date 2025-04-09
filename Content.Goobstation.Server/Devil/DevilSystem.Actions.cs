@@ -70,19 +70,14 @@ public sealed partial class DevilSystem
 
     private void OnPossess(EntityUid uid, DevilComponent comp, ref DevilPossessionEvent args)
     {
-        if (args.Target == default)
+        if (args.Target == default || !TryUseAbility(args))
         {
             var message = Loc.GetString("invalid-possession-target");
             _popup.PopupEntity(message, uid, uid);
             return;
         }
 
-        if (!TryUseAbility(args))
-            return;
-
         args.Handled = true;
-
-
 
         if (_possession.TryPossessTarget(args.Target, args.Performer, GetPossessionDuration(comp), true))
         {

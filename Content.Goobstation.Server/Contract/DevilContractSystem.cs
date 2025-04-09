@@ -3,16 +3,18 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Devil;
 using Content.Goobstation.Shared.Devil;
-using Content.Server.Administration.Systems;
+using Content.Server.Body.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -20,7 +22,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Contract;
@@ -30,11 +31,10 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly INetManager _net = null!;
-    [Dependency] private readonly EntityManager _entityManager = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenateSystem = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
-    [Dependency] private readonly HungerSystem _hungerSystem = null!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
+    [Dependency] private readonly BodySystem _bodySystem = null!;
 
     private ISawmill _sawmill = null!;
     private readonly EntProtoId _fireEffectProto = "FireEffect";
@@ -52,10 +52,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
     }
 
-    #region Dictionaries
-
-    private readonly Dictionary<string, Action<EntityUid, DevilContractComponent>> ContractClauses;
-
     private readonly Dictionary<string, Func<DevilContractComponent, EntityUid?>> _targetResolvers = new()
     {
         // The contractee is who is making the deal.
@@ -65,35 +61,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         // Both is the entity offering, and the entity making the deal.
         ["both"] = comp => null
     };
-
-    // The lower the value, the more beneficial it is for the contractee.
-    private readonly Dictionary<string, int> _clauseWeights = new()
-    {
-        ["mortality"] = -100,
-        ["weakness"] = -35,
-        ["death"] = -25,
-        ["shadows"] = -25,
-        ["fear of space"] = -25,
-        ["fear of fire"] = -20,
-        ["fear of light"] = -15,
-        ["fear of electricity"] = -15,
-        ["loneliness"] = -5,
-        ["soul ownership"] = 25,
-        ["strength"] = 25,
-        ["coherence"] = 25,
-        ["voice"] = 30,
-        ["a hand"] = 30,
-        ["a leg"] = 30,
-        ["sanity"] = 35,
-        ["legs"] = 40,
-        ["an organ"] = 45,
-        ["sight"] = 60,
-        ["will to fight"] = 80,
-        ["time"] = 150,
-
-    };
-
-    #endregion
 
     private static readonly Regex ClauseRegex = new(
         @"^\s*(?<target>Contractor|Contractee|Both)\s*:\s*(?<clause>.+?)\s*$", // Unholy.
@@ -203,19 +170,13 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         // Determine signing phase
         if (!comp.IsVictimSigned)
-        {
             HandleVictimSign(uid, comp, args);
-        }
         else if (!comp.IsDevilSigned)
-        {
             HandleDevilSign(uid, comp, args);
-        }
 
         // Final activation check
-        if (comp.IsDevilSigned && comp.IsVictimSigned)
-        {
+        if (comp is { IsDevilSigned: true, IsVictimSigned: true })
             HandleBothPartiesSigned(uid, comp);
-        }
     }
 
     private void HandleVictimSign(EntityUid uid, DevilContractComponent comp, SignSuccessfulEvent args)
@@ -279,9 +240,10 @@ public sealed partial class DevilContractSystem : EntitySystem
                 if (!match.Success)
                     continue;
 
-                var clauseKey = match.Groups["clause"].Value.Trim().ToLower();
-                if (_clauseWeights.TryGetValue(clauseKey, out var weight))
-                    newWeight += weight;
+                var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
+
+                if (_prototypeManager.TryIndex(clauseKey, out DevilClauseProto? clauseProto))
+                    newWeight += clauseProto.ClauseWeight;
                 else
                     _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
             }
@@ -302,8 +264,8 @@ public sealed partial class DevilContractSystem : EntitySystem
             if (!match.Success)
                 continue;
 
-            var targetKey = match.Groups["target"].Value.Trim().ToLower();
-            var clauseKey = match.Groups["clause"].Value.Trim().ToLower();
+            var targetKey = match.Groups["target"].Value.Trim().ToLowerInvariant().Replace(" ", "");
+            var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
             if (!_targetResolvers.TryGetValue(targetKey, out var resolver))
             {
@@ -311,46 +273,65 @@ public sealed partial class DevilContractSystem : EntitySystem
                 continue;
             }
 
-            if (!ContractClauses.TryGetValue(clauseKey, out var effect))
+            if (!_prototypeManager.TryIndex(clauseKey, out DevilClauseProto? clause))
             {
                 _sawmill.Warning($"Unknown contract clause: {clauseKey}");
                 continue;
             }
 
-
-            // Pass all four required parameters
-            ApplyEffectToTarget(targetKey, resolver(comp), comp, effect);
+            ApplyEffectToTarget(targetKey, (EntityUid)resolver(comp)!, comp, clause);
         }
     }
 
-    private void ApplyEffectToTarget(
-        string targetKey,
-        EntityUid? target,
-        DevilContractComponent comp,
-        Action<EntityUid, DevilContractComponent> effect)
+    private void ApplyEffectToTarget(string targetKey, EntityUid target, DevilContractComponent contract, DevilClauseProto clause)
     {
-        try
+        if (clause.AddedComponents != null)
         {
-            switch (targetKey.ToLower())
+            foreach (var comp in clause.AddedComponents.Select(component => component.Value)) // im linqing it
+                EntityManager.AddComponent(target, comp);
+        }
+
+        if (clause.RemovedComponents != null)
+        {
+            foreach (var component in clause.RemovedComponents.Select(component => component.Value.Component))
+                EntityManager.RemoveComponent(target, component);
+        }
+
+        if (clause.DamageModifierSet != null)
+            _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet);
+
+        if (clause.SpecialActions == null)
+            return;
+
+        foreach (var specialAction in clause.SpecialActions)
+        {
+            switch (specialAction)
             {
-                // Scrapped idea, but it's funnier if I leave it tbh.
-                case "both":
-                    if (Exists(comp.Signer))
-                        effect((EntityUid)comp.Signer, comp);
-                    if (Exists(comp.ContractOwner))
-                        effect((EntityUid)comp.ContractOwner, comp);
+                case "SoulOwnership":
+                    TryTransferSouls(contract.ContractOwner!.Value, target, 1);
                     break;
-                default:
-                    if (target.HasValue && Exists(target.Value))
-                        effect(target.Value, comp);
-                    else
-                        _sawmill.Warning($"Invalid target for {targetKey} clause");
+
+                case "RemoveHand":
+                    TryComp<BodyComponent>(target, out var body);
+                    var hand = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).FirstOrDefault();
+                    if (hand.Id.Valid)
+                        _transform.AttachToGridOrMap(hand.Id);
+                    break;
+
+                case "RemoveLeg":
+                    TryComp<BodyComponent>(target, out var bodyLeg);
+                    var leg = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).FirstOrDefault();
+                    if (leg.Id.Valid)
+                        _transform.AttachToGridOrMap(leg.Id);
+                    break;
+
+                case "RemoveOrgan":
+                    TryComp<BodyComponent>(target, out var bodyOrgan);
+                    var organ = _bodySystem.GetBodyOrgans(target).FirstOrDefault();
+                    if (organ.Id.Valid)
+                        _transform.AttachToGridOrMap(organ.Id);
                     break;
             }
-        }
-        catch (Exception ex)
-        {
-            _sawmill.Error($"Failed to apply {targetKey} clause: {ex}");
         }
     }
 

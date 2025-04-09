@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Mind;
 using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Server.Possession;
@@ -13,10 +14,20 @@ public sealed partial class PossessedComponent : Component
 {
     [DataField]
     public EntityUid OriginalMindId { get; set; }
+
+    [DataField]
+    public EntityUid OriginalEntity { get; set; }
+
+    [DataField]
+    public MindComponent OriginalMindComponent { get; set; }
+
     [DataField]
     public EntityUid PossessorMindId { get; set; }
     [DataField]
     public EntityUid PossessorOriginalEntity { get; set; }
+
+    [DataField]
+    public MindComponent PossessorMindComponent  { get; set; }
 
     [DataField]
     public TimeSpan PossessionEndTime { get; set; }

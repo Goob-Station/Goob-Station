@@ -26,6 +26,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
@@ -79,18 +80,32 @@ public sealed partial class PossessionSystem : EntitySystem
     {
         // Remove associated components.
         if (!comp.WasPacified)
-            RemComp<PacifiedComponent>(uid);
-        RemComp<WeakToHolyComponent>(uid);
+            RemComp<PacifiedComponent>(comp.OriginalEntity);
+        RemComp<WeakToHolyComponent>(comp.OriginalEntity);
 
         // Return the possessors mind to their body, and the target to theirs.
-        _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
-        _mind.TransferTo(comp.OriginalMindId, uid);
+        if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
+            _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
+        if (!TerminatingOrDeleted(comp.OriginalEntity))
+            _mind.TransferTo(comp.OriginalMindId, comp.OriginalEntity);
+
+        // Uncross those beams. This shit is jank yo!
+        if (TryComp<ActorComponent>(comp.PossessorOriginalEntity, out var possessorActorComponent))
+            _mind.SetUserId(comp.PossessorMindId, possessorActorComponent.PlayerSession.UserId);
+
+        if (TryComp<ActorComponent>(comp.OriginalEntity, out var originalActorComponent))
+            _mind.SetUserId(comp.OriginalMindId, originalActorComponent.PlayerSession.UserId);
+        else
+            _mind.SetUserId(comp.OriginalMindId, null);
+
 
         // Paralyze, so you can't just magdump them.
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(10), false);
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
+
         // Teleport to the entity, kinda like you're popping out of their head!
-        _transform.SetCoordinates(comp.PossessorOriginalEntity, uid.ToCoordinates());
+        var coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
+        _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates);
     }
 
     private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)
@@ -146,6 +161,8 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!_mind.TryGetMind(possessor, out var possessorMind, out var possessorMindComp))
             return false;
 
+        _mind.TryGetMind(possessed, out var possessedMind, out var possessedMindComp);
+
         var possessedComp = EnsureComp<PossessedComponent>(possessed);
 
         if (pacifyPossessed)
@@ -155,15 +172,19 @@ public sealed partial class PossessionSystem : EntitySystem
         possessedComp.PossessionEndTime = _timing.CurTime + possessionDuration;
 
         // Store possessors original information.
-        possessedComp.PossessorMindId = possessorMind;
         possessedComp.PossessorOriginalEntity = possessor;
+        possessedComp.PossessorMindId = possessorMind;
+        possessedComp.PossessorMindComponent = possessorMindComp;
 
-        // Store targets original mind, and detach them.
-        if (_mind.TryGetMind(possessed, out var possessedMind, out var possessedMindComp) && possessedMindComp.UserId != null)
-        {
-            possessedComp.OriginalMindId = possessedMind;
-            _mind.TransferTo(possessedMind, null);
-        }
+        // Store possessed original info
+        possessedComp.OriginalEntity = possessed;
+        possessedComp.OriginalMindId = possessedMind;
+
+        if (possessedMindComp != null)
+            possessedComp.OriginalMindComponent = possessedMindComp;
+
+        // Detach target
+        _mind.TransferTo(possessedMind, null);
 
         // Transfer into target
         _mind.TransferTo(possessorMind, possessed);

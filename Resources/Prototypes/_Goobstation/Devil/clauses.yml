@@ -1,99 +1,133 @@
-- type: clause
-  id: SoulOwnership
-  # Note: This one needs special handling as it has custom logic
-  # Would need additional system code for the soul transfer
+- type: devilClause
+  id: soulownership
+  clauseWeight: 25
+  specialActions:
+  - SoulOwnership
 
-- type: clause
-  id: Weakness
+- type: devilClause
+  id: weakness
+  clauseWeight: -35
   damageModifierSet: DevilDealPositive
 
-- type: clause
-  id: FearOfFire
+- type: devilClause
+  id: fearoffire
+  clauseWeight: -20
   damageModifierSet: HellSpawn
-  removedComponent:
-  - type: Flammable
 
-- type: clause
-  id: FearOfSpace
-  addedComponent:
+- type: devilClause
+  id: fearofspace
+  clauseWeight: -25
+  addedComponents:
   - type: BreathingImmunity
   - type: PressureImmunity
 
-- type: clause
-  id: FearOfLight
-  addedComponent:
+- type: devilClause
+  id: fearoflight
+  clauseWeight: -15
+  addedComponents:
   - type: FlashImmunity
 
-- type: clause
-  id: FearOfElectricity
-  addedComponent:
+- type: devilClause
+  id: fearofelectricity
+  clauseWeight: -15
+  addedComponents:
   - type: Insulated
 
-- type: clause
-  id: Shadows
-  addedComponent:
+- type: devilClause
+  id: shadows
+  clauseWeight: -25
+  addedComponents:
   - type: Stealth
   - type: StealthOnMove
 
-- type: clause
-  id: Strength
+- type: devilClause
+  id: strength
+  clauseWeight: 30
   damageModifierSet: DevilDealNegative
 
-- type: clause
-  id: Loneliness
-  addedComponent:
-  - type: TeleportOnStateChange
-    entityTeleportTo: ContractOwner # Would need special handling
-
-- type: clause
-  id: WillToFight
-  addedComponent:
+- type: devilClause
+  id: willtofight
+  clauseWeight: 60
+  addedComponents:
   - type: Pacified
 
-- type: clause
-  id: Sight
-  addedComponent:
+- type: devilClause
+  id: sight
+  clauseWeight: 60
+  addedComponents:
   - type: PermanentBlindness
 
-- type: clause
-  id: Coherence
-  addedComponent:
+- type: devilClause
+  id: coherence
+  clauseWeight: 30
+  addedComponents:
   - type: BackwardsAccent
   - type: Clumsy
 
-- type: clause
-  id: Voice
-  addedComponent:
+- type: devilClause
+  id: voice
+  clauseWeight: 25
+  addedComponents:
   - type: Muted
 
-- type: clause
-  id: Sanity
-  addedComponent:
+- type: devilClause
+  id: aleg
+  clauseWeight: 30
+  specialActions:
+  - RemoveLeg
+
+- type: devilClause
+  id: ahand
+  clauseWeight: 30
+  specialActions:
+  - RemoveHand
+
+- type: devilClause
+  id: sanity
+  clauseWeight: 35
+  addedComponents:
   - type: Insanity
 
-- type: clause
-  id: Legs
-  addedComponent:
+- type: devilClause
+  id: anorgan
+  clauseWeight: 45
+  specialActions:
+  - RemoveOrgan
+
+- type: devilClause
+  id: legs
+  clauseWeight: 40
+  addedComponents:
   - type: LegsParalyzed
 
-- type: clause
-  id: Death
-  addedComponent:
+- type: devilClause
+  id: innerpeace
+  clauseWeight: 5
+  addedComponents:
+  - type: TileMovement
+
+- type: devilClause
+  id: death
+  clauseWeight: -25
+  addedComponents:
   - type: CheatDeath
     reviveAmount: 1
 
-- type: clause
-  id: Mortality
-  addedComponent:
+- type: devilClause
+  id: mortality
+  clauseWeight: -100
+  addedComponents:
   - type: CheatDeath
     reviveAmount: -1
 
-- type: clause
-  id: Time
-  removedComponent:
+- type: devilClause
+  id: time
+  clauseWeight: 150
+  removedComponents:
   - type: CheatDeath
-  addedComponent:
+  addedComponents:
   - type: DelayedDeath
     deathTime: 300
     deathMessageId: devil-deal-time-ran-out
   - type: Unrevivable
+  - type: Condemned

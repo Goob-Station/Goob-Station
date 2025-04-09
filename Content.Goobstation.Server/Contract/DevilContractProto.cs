@@ -4,22 +4,25 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Contract;
 
-[Prototype("clause")]
-public sealed partial class DevilContractProto : IPrototype
+[Prototype("devilClause")]
+public sealed class DevilClauseProto : IPrototype
 {
     [IdDataField]
     public string ID { get; private init; } = default!;
 
-    [DataField]
-    public LocId LocalizeClauseName { get; private init; } = default!;
+    [DataField(required: true)]
+    public int ClauseWeight = default!;
 
     [DataField]
-    public List<IComponent>? AddedComponents { get; set; }
+    public ComponentRegistry? AddedComponents { get; set; }
 
     [DataField]
-    public List<IComponent>? RemovedComponents { get; set; }
+    public ComponentRegistry? RemovedComponents { get; set; }
 
     [DataField]
-    public DamageModifierSetPrototype? DamageModifierSet { get; set; }
+    public string? DamageModifierSet { get; set; }
+
+    [DataField]
+    public List<string>? SpecialActions { get; set; }
 
 }
