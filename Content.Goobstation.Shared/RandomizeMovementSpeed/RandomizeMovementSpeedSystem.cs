@@ -78,10 +78,10 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.Whitelist == null || !_whitelist.IsValid(comp.Whitelist, comp.EntityUid))
-                return;
+                continue;
 
             if (_timing.CurTime < comp.NextExecutionTime)
-                return;
+                continue;
 
             var modifier = GetMovementSpeedModifiers(comp);
             comp.CurrentModifier = modifier;
