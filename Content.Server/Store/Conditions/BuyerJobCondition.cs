@@ -46,7 +46,7 @@ public sealed partial class BuyerJobCondition : ListingCondition
         if (!ent.TryGetComponent<MindComponent> (args.Buyer, out var _) && !ent.System<SharedMindSystem>().TryGetMind(args.Buyer, out mind, out _))
             return true;
 
-        var jobs = ent.system<SharedJobSystem>();
+        var jobs = ent.System<SharedJobSystem>();
         jobs.MindTryGetJob(mind, out var job); //Goob end
 
         if (Blacklist != null)

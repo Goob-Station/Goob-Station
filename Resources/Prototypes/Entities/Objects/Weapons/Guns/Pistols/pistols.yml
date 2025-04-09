@@ -166,7 +166,7 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-    spreadMultiplier: 1.25
+    spreadMultiplier: 2
 
 - type: entity
   name: viper
