@@ -1,43 +1,37 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Shared.NTR;
-using Content.Goobstation.Shared.NTR.Events;
-using Content.Server.DeviceLinking.Systems;
 using Content.Server.NameIdentifier;
-using Content.Server.Popups;
-using Content.Server.Radio.EntitySystems;
-using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Systems;
-using Content.Server.Store.Systems;
+using Content.Goobstation.Shared.NTR;
 using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
-using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Inventory;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Paper;
-using Content.Shared.Store;
-using Content.Shared.Store.Components;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Server.Containers;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+using Content.Server.DeviceLinking.Systems;
+using Content.Server.Popups;
+using Content.Server.Shuttles.Systems;
+using Content.Server.Station.Systems;
+using Content.Shared.Access.Systems;
+using Content.Shared.Administration.Logs;
+using Content.Server.Radio.EntitySystems;
+using Content.Shared.Containers.ItemSlots;
+using Content.Goobstation.Shared.NTR;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.NTR;
 
-public sealed partial class NtrTaskSystem : EntitySystem
+public sealed class NTRTaskSystem : EntitySystem
 {
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
@@ -65,23 +59,13 @@ public sealed partial class NtrTaskSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NtrAccountClientComponent, NtrAccountBalanceUpdatedEvent>(OnBalanceUpdated);
+
         SubscribeLocalEvent<NtrTaskProviderComponent, BoundUIOpenedEvent>(OnOpened);
         SubscribeLocalEvent<NtrTaskProviderComponent, TaskPrintLabelMessage>(OnPrintLabelMessage);
         SubscribeLocalEvent<NtrTaskProviderComponent, TaskSkipMessage>(OnTaskSkipMessage);
         SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnMapInit);
 
         SubscribeLocalEvent<NtrTaskProviderComponent, TaskCompletedEvent>(OnTaskCompleted);
-    }
-    private void OnBalanceUpdated(EntityUid uid, NtrAccountClientComponent clientComp, ref NtrAccountBalanceUpdatedEvent args)
-    {
-        if (!TryComp<StoreComponent>(uid, out var storeComp))
-            return;
-        var newBalance = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
-        {
-            { "NTLoyaltyPoint", FixedPoint2.New(args.Balance) }
-        };
-        storeComp.Balance = newBalance;
     }
 
     public bool TryGetTaskId(EntityUid uid, NtrTaskPrototype taskProto, [NotNullWhen(true)] out string? taskId)
@@ -104,24 +88,11 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
     private void OnTaskCompleted(EntityUid uid, NtrTaskProviderComponent component, TaskCompletedEvent args)
     {
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var db))
+        if (_station.GetOwningStation(uid) is not { } station || !TryComp<NtrTaskDatabaseComponent>(station, out var db))
             return;
+
         if (!TryGetTaskId(station, args.Task, out var taskData))
             return;
-        if (!TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
-            return;
-
-        ntrAccount.Balance += args.Task.Reward;
-        var query = EntityQueryEnumerator<NtrAccountClientComponent>();
-
-        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-        while (query.MoveNext(out var client, out var comp))
-        {
-            comp.Balance = ntrAccount.Balance;
-            Dirty(client, comp);
-            RaiseLocalEvent(client, ref ev);
-        }
 
         if (!TryRemoveTask(station, taskData, false))
             return;
@@ -150,6 +121,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
         component.NextPrintTime = _timing.CurTime + component.PrintDelay;
         _audio.PlayPvs(component.PrintSound, uid);
     }
+
 
     /// <summary>
     /// При открытии интерфейса получаем станцию через GetOwningStation, из станции вытаскиваем компонент базы данных задач НТР
