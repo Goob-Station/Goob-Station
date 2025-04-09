@@ -26,7 +26,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Contract;
 
-public sealed partial class DevilContractSystem : EntitySystem
+public sealed class DevilContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;

@@ -10,8 +10,8 @@ public sealed class DevilClauseProto : IPrototype
     [IdDataField]
     public string ID { get; private init; } = default!;
 
-    [DataField(required: true)]
-    public int ClauseWeight = default!;
+    [DataField]
+    public int ClauseWeight = 5;
 
     [DataField]
     public ComponentRegistry? AddedComponents { get; set; }
