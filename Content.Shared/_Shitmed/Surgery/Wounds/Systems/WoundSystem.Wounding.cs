@@ -430,13 +430,18 @@ public sealed partial class WoundSystem
         }
 
         var old = wound.WoundSeverityPoint;
-        wound.WoundSeverityPoint = severity > 0
-            ? FixedPoint2.Clamp(old + ApplySeverityModifiers(wound.HoldingWoundable, severity), 0, _cfg.GetCVar(SurgeryCVars.MaxWoundSeverity))
-            : FixedPoint2.Clamp(old + severity, 0, _cfg.GetCVar(SurgeryCVars.MaxWoundSeverity));
+        var rawValue = severity > 0
+            ? old + ApplySeverityModifiers(wound.HoldingWoundable, severity)
+            : old + severity;
 
-        if (wound.WoundSeverityPoint != old)
+        wound.WoundSeverityPoint = FixedPoint2.Clamp(rawValue, 0, _cfg.GetCVar(SurgeryCVars.MaxWoundSeverity));
+
+        if (wound.WoundSeverityPoint != old || rawValue > wound.WoundSeverityPoint)
         {
-            var ev = new WoundSeverityPointChangedEvent(wound, old, wound.WoundSeverityPoint);
+            // We keep track of this overflow variable to allow continuous damage on wounds that have been capped
+            // i.e. slashing nonstop at a dead body to continue inflicting traumas.
+            FixedPoint2? overflow = rawValue > wound.WoundSeverityPoint ? rawValue - wound.WoundSeverityPoint : null;
+            var ev = new WoundSeverityPointChangedEvent(wound, old, wound.WoundSeverityPoint, overflow);
             RaiseLocalEvent(uid, ref ev);
 
             var bodySeverity = (FixedPoint2) 0;
@@ -771,7 +776,7 @@ public sealed partial class WoundSystem
         _throwing.TryThrow(
             woundableEntity,
             _random.NextAngle().ToWorldVec() * _random.NextFloat(0.8f, 5f),
-            _random.NextFloat(1f, 1.5f),
+            _random.NextFloat(0.5f, 1f),
             pushbackRatio: 0.3f
         );
     }

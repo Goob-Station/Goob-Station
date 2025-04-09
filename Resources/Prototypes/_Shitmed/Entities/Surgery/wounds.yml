@@ -62,7 +62,7 @@
     allowArmourDeduction:
     - Dismemberment
     traumasChances:
-      Dismemberment: -0.17
+      Dismemberment: 0.01
       OrganDamage: 0.34
       BoneDamage: 0.14
       VeinsDamage: -0.4 # goes through rather easy.

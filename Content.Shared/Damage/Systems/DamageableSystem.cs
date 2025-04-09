@@ -465,11 +465,9 @@ namespace Content.Shared.Damage
         /// </remarks>
         public void SetAllDamage(EntityUid uid, DamageableComponent component, FixedPoint2 newValue)
         {
+            // invalid value
             if (newValue < 0)
-            {
-                // invalid value
                 return;
-            }
 
             // If entity has a body, set damage on all body parts
             if (_bodyQuery.HasComp(uid))
@@ -479,52 +477,31 @@ namespace Content.Shared.Damage
                     if (!_damageableQuery.TryComp(part, out var partDamageable))
                         continue;
 
-                    // Set all damage types to the specified value
-                    foreach (var type in partDamageable.Damage.DamageDict.Keys)
-                    {
-                        partDamageable.Damage.DamageDict[type] = newValue;
-                    }
-
-                    // Update part's cached values
-                    partDamageable.Damage.GetDamagePerGroup(_prototypeManager, partDamageable.DamagePerGroup);
-                    partDamageable.TotalDamage = partDamageable.Damage.GetTotal();
-                    Dirty(part, partDamageable);
-
-                    // Fire the damage changed event on the part
-                    DamageChanged(part, partDamageable, new DamageSpecifier());
-
-                    // Ensure woundable integrity is updated
-                    if (_woundableQuery.TryComp(part, out var woundable))
-                    {
-                        _wounds.UpdateWoundableIntegrity(part, woundable);
-
-                        // Create wounds if damage was applied
-                        if (newValue > 0 && woundable.AllowWounds)
-                        {
-                            foreach (var (type, value) in partDamageable.Damage.DamageDict)
-                            {
-                                if (!_wounds.TryContinueWound(part, type, value, woundable))
-                                    _wounds.TryCreateWound(part, type, value, GetDamageGroupByType(type), woundable);
-                            }
-                        }
-                    }
+                    // I LOVE RECURSION!!!
+                    SetAllDamage(part, partDamageable, newValue);
                 }
             }
-            else
-            {
-                // For entities without body parts, set damage directly
-                foreach (var type in component.Damage.DamageDict.Keys)
-                {
-                    component.Damage.DamageDict[type] = newValue;
-                }
 
-                // Update cached values
-                component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
-                component.TotalDamage = component.Damage.GetTotal();
-            }
+            foreach (var type in component.Damage.DamageDict.Keys)
+                component.Damage.DamageDict[type] = newValue;
+
+            // Update cached values
+            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.TotalDamage = component.Damage.GetTotal();
 
             // Setting damage does not count as 'dealing' damage
             DamageChanged(uid, component, new DamageSpecifier());
+
+            if (_woundableQuery.TryComp(uid, out var woundable))
+            {
+                _wounds.UpdateWoundableIntegrity(uid, woundable);
+
+                // Create wounds if damage was applied
+                if (newValue > 0 && woundable.AllowWounds)
+                    foreach (var (type, value) in component.Damage.DamageDict)
+                        if (!_wounds.TryContinueWound(uid, type, value, woundable))
+                            _wounds.TryCreateWound(uid, type, value, GetDamageGroupByType(type), woundable);
+            }
         }
 
         public Dictionary<string, FixedPoint2> DamageSpecifierToWoundList(
@@ -620,9 +597,6 @@ namespace Content.Shared.Damage
 
         private void OnRejuvenate(EntityUid uid, DamageableComponent component, RejuvenateEvent args)
         {
-            if (HasComp<BodyComponent>(uid))
-                return;
-
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
             _mobThreshold.SetAllowRevives(uid, true, thresholds); // do this so that the state changes when we set the damage
             SetAllDamage(uid, component, 0);

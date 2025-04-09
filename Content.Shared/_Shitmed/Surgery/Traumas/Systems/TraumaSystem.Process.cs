@@ -72,7 +72,10 @@ public partial class TraumaSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        var delta = args.NewSeverity - args.OldSeverity;
+        // Overflow is only used when we are capping the wound, so we use it over the computed delta
+        // which will be useless in this specific scenario.
+        var delta = args.Overflow ?? args.NewSeverity - args.OldSeverity;
+        Logger.Debug($"Delta: {delta} is lower than the threshold {delta < woundEnt.Comp.SeverityThreshold}");
         if (delta <= 0 || delta < woundEnt.Comp.SeverityThreshold)
             return;
 
@@ -237,7 +240,7 @@ public partial class TraumaSystem
             return traumaList;
 
 
-        if (woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.NerveDamage) &&
+        if (severity > 5 && woundInflicter.Comp.AllowedTraumas.Contains(TraumaType.NerveDamage) &&
             RandomNerveDamageChance((target, woundable), woundInflicter))
             traumaList.Add(TraumaType.NerveDamage);
 
@@ -316,14 +319,14 @@ public partial class TraumaSystem
             switch (traumaType)
             {
                 case TraumaType.BoneDamage:
-                {
-                    var bone = woundableComp.Bone.ContainedEntities.FirstOrNull();
-                    if (bone == null || !TryComp<BoneComponent>(bone, out var boneComp))
-                        break;
+                    {
+                        var bone = woundableComp.Bone.ContainedEntities.FirstOrNull();
+                        if (bone == null || !TryComp<BoneComponent>(bone, out var boneComp))
+                            break;
 
-                    traumasToInduce.Add(TraumaType.BoneDamage);
-                    break;
-                }
+                        traumasToInduce.Add(TraumaType.BoneDamage);
+                        break;
+                    }
             }
         }
 
@@ -356,7 +359,6 @@ public partial class TraumaSystem
             TraumaType.BoneDamage,
             bodyPart.PartType);
 
-        Logger.Debug($"Bone trauma chance deduction: {deduction}");
         // We do complete random to get the chance for trauma to happen,
         // We combine multiple parameters and do some math, to get the chance.
         // Even if we get 0.1 damage there's still a chance for injury to be applied, but with the extremely low chance.
@@ -368,10 +370,7 @@ public partial class TraumaSystem
             0,
             1);
 
-        Logger.Debug($"Bone trauma chance: {chance}");
-        var result = _random.Prob((float) chance);
-        Logger.Debug($"Bone trauma result: {result}");
-        return result;
+        return _random.Prob((float) chance);
     }
 
     public bool RandomNerveDamageChance(
@@ -436,7 +435,7 @@ public partial class TraumaSystem
 
         var chance =
             FixedPoint2.Clamp(
-                target.Comp.IntegrityCap / target.Comp.WoundableIntegrity / totalIntegrity
+                target.Comp.WoundableIntegrity / target.Comp.IntegrityCap / totalIntegrity
                 - deduction + woundInflicter.Comp.TraumasChances[TraumaType.OrganDamage],
                 0,
                 1);
@@ -456,7 +455,9 @@ public partial class TraumaSystem
         if (!parentWoundable.HasValue)
             return false;
 
-        if (bodyPart.PartType == BodyPartType.Groin && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Critical)
+        if (bodyPart.PartType == BodyPartType.Chest
+            || bodyPart.PartType == BodyPartType.Groin
+            && Comp<WoundableComponent>(parentWoundable.Value).WoundableSeverity != WoundableSeverity.Critical)
             return false;
 
         var deduction = GetTraumaChanceDeduction(
@@ -467,7 +468,8 @@ public partial class TraumaSystem
             TraumaType.Dismemberment,
             bodyPart.PartType);
 
-        var bonePenalty = (FixedPoint2) 0.1f;
+        Logger.Debug($"Dismemberment deduction: {deduction}");
+        var bonePenalty = (FixedPoint2) 0f;
 
         // Broken bones increase the chance of your limb getting delimbed
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
@@ -478,17 +480,18 @@ public partial class TraumaSystem
 
             bonePenalty = 1 - boneComp.BoneIntegrity / boneComp.IntegrityCap;
         }
+        Logger.Debug($"Dismemberment bone penalty: {bonePenalty}");
 
-        // random-y but not so random-y like bones. Heavily depends on woundable state and damage
         var chance =
             FixedPoint2.Clamp(
-                1 - (target.Comp.WoundableIntegrity / target.Comp.IntegrityCap * 0.5f * bonePenalty)
+                1 - target.Comp.WoundableIntegrity / target.Comp.IntegrityCap * bonePenalty
                 - deduction + woundInflicter.Comp.TraumasChances[TraumaType.Dismemberment],
                 0,
-                1);
-        // getting hit again increases the chance
-
-        return _random.Prob((float) chance);
+                0.7); // Maximum 70% chance to dismember, because it's a bit too free otherwise
+        Logger.Debug($"Dismemberment chance: {chance}");
+        var result = _random.Prob((float) chance);
+        Logger.Debug($"Dismemberment result: {result}");
+        return result;
     }
 
     public EntityUid AddTrauma(

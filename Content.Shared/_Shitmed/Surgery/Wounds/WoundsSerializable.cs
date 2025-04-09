@@ -85,7 +85,7 @@ public record struct WoundableAttachedEvent(EntityUid ParentWoundableEntity, Wou
 public record struct WoundableDetachedEvent(EntityUid ParentWoundableEntity, WoundableComponent Component);
 
 [ByRefEvent]
-public record struct WoundSeverityPointChangedEvent(WoundComponent Component, FixedPoint2 OldSeverity, FixedPoint2 NewSeverity);
+public record struct WoundSeverityPointChangedEvent(WoundComponent Component, FixedPoint2 OldSeverity, FixedPoint2 NewSeverity, FixedPoint2? Overflow = null);
 
 [ByRefEvent]
 public record struct WoundSeverityPointChangedOnBodyEvent(EntityUid WoundEntity, WoundComponent Component, FixedPoint2 OldSeverity, FixedPoint2 NewSeverity);
