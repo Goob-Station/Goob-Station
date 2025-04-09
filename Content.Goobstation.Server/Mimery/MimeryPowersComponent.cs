@@ -1,4 +1,4 @@
-namespace Content.Server._Shitcode.Mimery;
+namespace Content.Goobstation.Server.Mimery;
 
 [RegisterComponent]
 public sealed partial class MimeryPowersComponent : Component

@@ -751,7 +751,7 @@
       - LoneOpsUplink
 
 - type: listing
-  id: uplinkMimeryBook
+  id: UplinkMimeryBook
   name: Book of Advanced Mimery
   description: Contains a secret method to learn the forbidden mimery techniques.
   productEntity: MimeryBook

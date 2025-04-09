@@ -1,36 +1,21 @@
-
-
-using Content.Server.Mind;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
-using Content.Shared._Shitcode.Mimery;
 using Content.Shared.Actions;
-using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Mind;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Server._Shitcode.Mimery;
+namespace Content.Goobstation.Server.Mimery;
 
 public sealed class FingerGunSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<FingerGunComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<FingerGunComponent, FingerGunEvent>(OnUse);
+        SubscribeLocalEvent<FingerGunComponent, Goobstation.Shared.Mimery.FingerGunEvent>(OnUse);
     }
 
     private void OnInit(Entity<FingerGunComponent> ent, ref ComponentInit args)
@@ -38,7 +23,7 @@ public sealed class FingerGunSystem : EntitySystem
         _actions.AddAction(ent, "ActionFingerGun");
     }
 
-    private void OnUse(Entity<FingerGunComponent> ent, ref FingerGunEvent args)
+    private void OnUse(Entity<FingerGunComponent> ent, ref Goobstation.Shared.Mimery.FingerGunEvent args)
     {
         if (args.Handled)
             return;

@@ -1,9 +1,7 @@
-using Content.Goobstation.Common.MartialArts;
-using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 
-namespace Content.Server._Shitcode.Mimery;
+namespace Content.Goobstation.Server.Mimery;
 
 public sealed class MimeryBookSystem : EntitySystem
 {
@@ -13,7 +11,7 @@ public sealed class MimeryBookSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<MimeryBookComponent, UseInHandEvent>(OnUse);
-        SubscribeLocalEvent<MimeryBookComponent, MimeryBookDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<MimeryBookComponent, Goobstation.Shared.Mimery.MimeryBookDoAfterEvent>(OnDoAfter);
     }
 
 
@@ -21,7 +19,7 @@ public sealed class MimeryBookSystem : EntitySystem
     {
         AttmeptLearn(ent, args);
     }
-    private void OnDoAfter(Entity<MimeryBookComponent> ent, ref MimeryBookDoAfterEvent args)
+    private void OnDoAfter(Entity<MimeryBookComponent> ent, ref Goobstation.Shared.Mimery.MimeryBookDoAfterEvent args)
     {
         if (args.Handled ||  args.Cancelled)
             return;
@@ -35,7 +33,7 @@ public sealed class MimeryBookSystem : EntitySystem
         var DoAfterEventArgs = new DoAfterArgs(EntityManager,
             args.User,
             ent.Comp.LearnTime,
-            new MimeryBookDoAfterEvent(),
+            new Goobstation.Shared.Mimery.MimeryBookDoAfterEvent(),
             ent,
             target: ent)
         {

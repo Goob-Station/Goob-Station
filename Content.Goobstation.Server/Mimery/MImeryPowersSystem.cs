@@ -1,6 +1,6 @@
 using Content.Shared.Actions;
 
-namespace Content.Server._Shitcode.Mimery;
+namespace Content.Goobstation.Server.Mimery;
 
 public sealed class MimeryPowersSystem : EntitySystem
 {

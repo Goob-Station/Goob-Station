@@ -13,7 +13,7 @@
 
 - type: entity
   name: Finger Gun
-  parent: [BaseWeaponBatterySmall, BaseSyndicateContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  parent: [BaseWeaponBatterySmall]
   id: FingerGun
   description: The peak of the Mime powers, only achieved by a secret method.
   components:

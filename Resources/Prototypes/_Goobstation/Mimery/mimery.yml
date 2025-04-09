@@ -2,7 +2,7 @@
   name: Book of Mimery
   parent: BaseItem
   id: MimeryBook
-  description: i hope this works
+  description: The Book of Mimery. Contains the forbidden methods to achieve the ultimate mimery powers.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/mimery.rsi
@@ -10,5 +10,3 @@
   - type: UseDelay
     delay: 1
   - type: MimeryBook
-
-
