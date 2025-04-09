@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
@@ -29,9 +30,21 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     public float CurrentModifier { get; set; } = 1f;
 
     /// <summary>
+    /// Next execution time.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextExecutionTime { get; set; }
+
+    /// <summary>
     /// The Uid of the entity that picked up the item.
     /// </summary>
     [DataField]
-    public EntityUid EntityUid = default!;
+    public EntityUid EntityUid;
+
+    /// <summary>
+    /// What to restrict the item to
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
 
 }

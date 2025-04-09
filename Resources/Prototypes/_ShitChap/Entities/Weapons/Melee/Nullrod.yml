@@ -286,6 +286,9 @@
     tags:
     - ArrythmicKnife
   - type: RandomizeMovementspeed
+    whitelist:
+      components:
+      - BibleUser
   - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
