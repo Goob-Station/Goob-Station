@@ -26,9 +26,9 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 20
+        Slash: 12
         Structural: 20
-    clickPartDamageMultiplier: 2
+    clickPartDamageMultiplier: 2.5
     heavyPartDamageMultiplier: 1.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -61,6 +61,6 @@
         Structural: 1
   - type: TimedDespawn
     lifetime: 60
-  - type: GibThisGuy 
+  - type: GibThisGuy
     ocNames:
     - BombasterDS
