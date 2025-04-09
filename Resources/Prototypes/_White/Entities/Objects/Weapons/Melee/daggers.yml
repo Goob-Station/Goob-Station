@@ -19,10 +19,10 @@
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: 180
-    attackRate: 1.5
+    attackRate: 3
     damage:
       types:
-        Slash: 17.5
+        Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Sharp
@@ -33,7 +33,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 20
+        Slash: 15
   - type: DisarmMalus
     malus: 0.225
   - type: BackStab
