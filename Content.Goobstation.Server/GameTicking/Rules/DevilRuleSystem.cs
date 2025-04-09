@@ -6,6 +6,7 @@
 using System.Text;
 using Content.Goobstation.Server.Devil;
 using Content.Goobstation.Server.Devil.Roles;
+using Content.Goobstation.Shared;
 using Content.Goobstation.Shared.Devil;
 using Content.Server.Antag;
 using Content.Server.Bible.Components;
@@ -51,9 +52,7 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
     private void OnSelectAntag(EntityUid uid, DevilRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
     {
-        // this isn't the best way to do this but idk how to do it better...
-        if (!HasComp<BibleUserComponent>(args.EntityUid))
-            MakeDevil(args.EntityUid, comp);
+        MakeDevil(args.EntityUid, comp);
     }
 
     private bool MakeDevil(EntityUid target, DevilRuleComponent rule)

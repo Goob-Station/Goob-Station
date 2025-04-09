@@ -8,6 +8,7 @@ using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
+using Content.Goobstation.Shared;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Goobstation.Shared.Devil;

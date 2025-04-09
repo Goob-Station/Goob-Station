@@ -27,6 +27,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared;
+using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
@@ -70,11 +72,8 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly GoobBibleSystem _goobBible = default!; // Goobstation
         [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Goobstation
-        [Dependency] private readonly StunSystem _stun = default!; // Goobstation
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // Goobstation
-        [Dependency] private readonly SharedChatSystem _chat = default!; // Goobstation
 
         public override void Initialize()
         {
@@ -144,41 +143,11 @@ namespace Content.Server.Bible
             if (args.Target == null || args.Target == args.User ) // Goobstation - Start
                 return; // STOP WITH USELESS BRACES!!
 
-            // I moved the mob state check below the devil check because the smite needs to work on incapacitated people. - Goobstation/Sol
-            // Fuck this ENTIRE system bro
-
             if (HasComp<WeakToHolyComponent>(args.Target) && HasComp<BibleUserComponent>(args.User))
             {
                 if (!_mobStateSystem.IsIncapacitated(args.Target.Value))
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("devil-component-bible-sizzle", ("target", args.Target.Value)), args.Target.Value, PopupType.LargeCaution);
-                    _audio.PlayPvs(component.SizzleSoundPath, args.Target.Value);
                     _flammable.SetFireStacks(args.Target.Value, 5, ignite:true);
-                    var holyDamage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Holy"), 25);
-                    _damageableSystem.TryChangeDamage(args.Target, holyDamage, true, origin: uid);
-                    _stun.TryParalyze(args.Target.Value, TimeSpan.FromSeconds(8), false);
-                    _delay.TryResetDelay((uid, useDelay));
-                }
-                else if (HasComp<DevilComponent>(args.Target) && HasComp<BibleUserComponent>(args.User))
-                {
-                    var doAfterArgs = new DoAfterArgs(
-                        EntityManager,
-                        args.User,
-                        10f,
-                        new ExorcismDoAfterEvent(),
-                        eventTarget: args.Target.Value,
-                        target: args.Target.Value)
-                    {
-                        BreakOnMove = true,
-                        NeedHand = true,
-                        BlockDuplicate = true,
-                        BreakOnDropItem = true,
-                    };
-
-                    _doAfter.TryStartDoAfter(doAfterArgs);
-                    _popupSystem.PopupEntity(Loc.GetString("devil-banish-begin", ("target", args.Target.Value), ("user", args.User)), args.Target.Value, PopupType.LargeCaution);
-                }
-
+                _goobBible.TryDoSmite(uid, component, args, useDelay);
                 return;
             }
             // Goobstation - End
