@@ -6,19 +6,7 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: SpawnOnDespawn
+    prototype: AdminInstantEffectFlash
   - type: Transform
-    anchored: True
-  - type: Sprite
-    sprite: /Textures/_Goobstation/Effects/bluespace_lifeline.rsi
-    noRot: true
-    layers:
-    - state: bluespace_lifeline
-      shader: unshaded
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
-  - type: PointLight
-    color: SkyBlue
-    radius: 3
-    energy: 1
-    netsync: false
+    anchored: False

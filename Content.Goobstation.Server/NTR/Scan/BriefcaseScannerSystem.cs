@@ -73,8 +73,7 @@ namespace Content.Goobstation.Server.NTR.Scan
                 var points = scannable.Points;
                 if (points <= 0)
                 {
-                    _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-fail"),
-                        InGameICChatType.Speak, true);
+                    _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-fail"), InGameICChatType.Speak, true);
                 }
                 else
                 {
@@ -82,8 +81,7 @@ namespace Content.Goobstation.Server.NTR.Scan
                     {
                         { "NTLoyaltyPoint", FixedPoint2.New(points) }
                     }, uid, store);
-                    _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-success", ("amount", points)),
-                        InGameICChatType.Speak, true);
+                    _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-success", ("amount", points)), InGameICChatType.Speak, true);
 
                     QueueDel(target);
                     Spawn("BluespaceTeleportationEffect", Transform(target).Coordinates);
