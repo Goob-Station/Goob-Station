@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -5,11 +6,12 @@
 name: Update REUSE Headers
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-
-permissions:
-  contents: write
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
 
 jobs:
   update_headers:
@@ -17,9 +19,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Fetch Base Branch History
-        run: git fetch --depth=1 origin ${{ github.event.pull_request.base.ref }}:${{ github.event.pull_request.base.ref }}
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -29,9 +32,6 @@ jobs:
       - name: Get Changed Files and PR Info
         id: changed_files
         run: |
-          echo "Base SHA: ${{ github.event.pull_request.base.sha }}"
-          echo "Head SHA: ${{ github.event.pull_request.head.sha }}"
-
           # Use GitHub API to get the list of files changed in the PR
           PR_FILES=$(curl -s -H "Authorization: token ${{ github.token }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
@@ -67,12 +67,14 @@ jobs:
             --files-added ${{ env.ADDED_FILES_LIST }} \
             --files-modified ${{ env.MODIFIED_FILES_LIST }} \
             --pr-license ${{ env.PR_LICENSE }} \
-            --pr-base-sha "${{ github.event.pull_request.base.sha }}" \
-            --pr-head-sha "${{ github.event.pull_request.head.sha }}"
+            --pr-base-sha ${{ github.event.pull_request.base.sha }} \
+            --pr-head-sha ${{ github.event.pull_request.head.sha }}
         working-directory: ${{ github.workspace }}
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: Automatically update REUSE headers"
-          branch: ${{ github.head_ref || github.ref_name }}
+          commit_user_name: ${{ vars.CHANGELOG_USER }}
+          commit_user_email: ${{ vars.CHANGELOG_EMAIL }}
+          commit_author: ${{ vars.CHANGELOG_USER }} <${{ vars.CHANGELOG_EMAIL }}>
