@@ -14,9 +14,6 @@
   - ModsuitGauntlets
   - ModsuitShell
   - ModsuitPlatingExternal
-  position: -4,-1
-  technologyPrerequisites:
-  - MagnetsTech
 
 - type: technology
   id: BluespaceTheory
@@ -29,6 +26,3 @@
   cost: 5000
   recipeUnlocks:
   - MaterialBSCrystal
-  position: -4,-2
-  technologyPrerequisites:
-  - DeterrenceTechnologies

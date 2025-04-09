@@ -9,7 +9,6 @@
     1: 0
     2: 0.75
     3: 0.75
-  uiName: IND  # Goobstation
 
 - type: techDiscipline
   id: Arsenal
@@ -22,7 +21,6 @@
     1: 0
     2: 0.75
     3: 0.75
-  uiName: SEC  # Goobstation
 
 - type: techDiscipline
   id: Experimental
@@ -35,7 +33,6 @@
     1: 0
     2: 0.75
     3: 0.75
-  uiName: EXP  # Goobstation
 
 - type: techDiscipline
   id: CivilianServices
@@ -48,4 +45,3 @@
     1: 0
     2: 0.75
     3: 0.75
-  uiName: SRV  # Goobstation

@@ -18,9 +18,6 @@
   - EnergyCautery
   - AdvancedRetractor
   - BorgModuleAdvancedSurgery
-  technologyPrerequisites:
-  - AdvancedEntertainment
-  position: -2,4
 
 - type: technology
   id: CyberneticEnhancements
@@ -41,10 +38,6 @@
   - BasicCyberneticEyes
   - SecurityCyberneticEyes
   - MedicalCyberneticEyes
-  position: -2,5
-  technologyPrerequisites:
-  - AdvancedTreatment
-  - BasicRobotics
 
 - type: technology
   id: Autodoc
@@ -57,9 +50,6 @@
   cost: 10000
   recipeUnlocks:
   - AutodocCircuitboard
-  position: -2,6
-  technologyPrerequisites:
-  - CyberneticEnhancements
 
 # Tier 3
 
@@ -74,6 +64,3 @@
   cost: 10000
   recipeUnlocks:
   - OmnimedTool
-  technologyPrerequisites:
-  - Autodoc
-  position: -2,7

@@ -1,4 +1,3 @@
-using Content.Goobstation.Common.Research;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Research.Components
@@ -30,15 +29,9 @@ namespace Content.Shared.Research.Components
     public sealed class ResearchConsoleBoundInterfaceState : BoundUserInterfaceState
     {
         public int Points;
-
-        /// <summary>
-        /// Goobstation field - all researches and their availablities
-        /// </summary>
-        public Dictionary<string, ResearchAvailability> Researches;
-        public ResearchConsoleBoundInterfaceState(int points, Dictionary<string, ResearchAvailability> researches)   // Goobstation R&D console rework = researches field
+        public ResearchConsoleBoundInterfaceState(int points)
         {
             Points = points;
-            Researches = researches;    // Goobstation R&D console rework
         }
     }
 }
