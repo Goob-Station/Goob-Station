@@ -42,3 +42,9 @@
     proto: JensenTimer
   equipment:
     eyes: ClothingEyesGlassesJensen
+
+# Cheap Sunglasses
+- type: loadout
+  id: CheapSunglasses
+  equipment: 
+    eyes: ClothingEyesGlassesCheapSunglasses
