@@ -24,13 +24,19 @@ public sealed class MimePunishmentSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     public override void Initialize()
     {
-        SubscribeLocalEvent<MimePowersComponent, BreakVowAlertEvent>(OnMimePunish);
+        SubscribeLocalEvent<MimePunishmentComponent, BreakVowAlertEvent>(OnMimePunish);
+        SubscribeLocalEvent<MimePowersComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnMimePunish(Entity<MimePowersComponent> ent, ref BreakVowAlertEvent args)
+    private void OnMimePunish(Entity<MimePunishmentComponent> ent, ref BreakVowAlertEvent args)
     {
         if (HasComp<MimeryPowersComponent>(ent) || _rand.Prob(args.PunishChance))
             Punish(ent);
+    }
+
+    private void OnMapInit(Entity<MimePowersComponent> ent, ref MapInitEvent args)
+    {
+        EnsureComp<MimePunishmentComponent>(ent);
     }
 
     private void Punish(EntityUid ent)
