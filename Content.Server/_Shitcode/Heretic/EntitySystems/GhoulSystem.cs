@@ -38,6 +38,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Roles;
+using Content.Goobstation.Shared.Religion;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -64,6 +65,8 @@ public sealed partial class GhoulSystem : EntitySystem
         RemComp<ReproductiveComponent>(ent);
         RemComp<ReproductivePartnerComponent>(ent);
         RemComp<TemperatureComponent>(ent);
+
+        AddComp<WeakToHolyComponent>(ent); //shitchap
 
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind && ent.Comp.BoundHeretic != null)

@@ -32,6 +32,15 @@
     - Shock
 
 - type: damageContainer
+  id: InorganicMetaphysical
+  supportedGroups:
+    - Brute
+    - Metaphysical
+  supportedTypes:
+    - Heat
+    - Shock
+
+- type: damageContainer
   id: StructuralInorganic
   supportedGroups:
   - Brute

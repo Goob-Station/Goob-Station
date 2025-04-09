@@ -38,14 +38,12 @@ public sealed partial class WeakToHolySystem : EntitySystem
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
     {
         if (!_netManager.IsServer
-            || TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == "Biological")
+            && TryComp<DamageableComponent>(ent, out var damageable)
+            && damageable?.DamageContainerID == "Biological")
         {
             _damageableSystem.ChangeDamageContainer(ent, "BiologicalMetaphysical");
         }
-
-
     }
-
 
     // passive healing on runes for aviu
     private void OnCollide(EntityUid uid, HereticRitualRuneComponent component, ref StartCollideEvent args)

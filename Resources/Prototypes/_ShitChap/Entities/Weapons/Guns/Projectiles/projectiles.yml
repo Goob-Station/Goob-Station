@@ -44,5 +44,5 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 8
-        Holy: 12
+        Piercing: 3.5
+        Holy: 7
