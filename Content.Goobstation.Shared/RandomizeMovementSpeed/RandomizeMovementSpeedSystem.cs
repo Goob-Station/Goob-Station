@@ -8,6 +8,7 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Goobstation.Shared.Bible;
+using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
 
@@ -16,8 +17,8 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = null!;
 
-    private TimeSpan _nextExecutionTime = TimeSpan.Zero;
     private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
 
     public override void Initialize()
@@ -35,6 +36,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
         // Get the Uid of the entity who picked up the item.
         GetEntityUid(ent, ref args);
+        ent.Comp.NextExecutionTime = _timing.CurTime;
     }
 
     private void OnGotUnequippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
@@ -72,31 +74,24 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        // Check if it's time to execute again.
-        if (_timing.CurTime < _nextExecutionTime)
-            return;
-
         var query = EntityQueryEnumerator<RandomizeMovementspeedComponent>();
-        while (query.MoveNext(out var comp))
+        while (query.MoveNext(out var uid, out var comp))
         {
-            foreach (var ent in EntityQuery<RandomizeMovementspeedComponent>())
-            {
-                // Check if the user is capable of wielding a nullrod.
-                if (!HasComp<BibleUserComponent>(comp.EntityUid))
-                    return;
+            if (comp.Whitelist == null || !_whitelist.IsValid(comp.Whitelist, comp.EntityUid))
+                return;
 
-                // Generate the new modifier.
-                var modifier = GetMovementSpeedModifiers(comp);
+            if (_timing.CurTime < comp.NextExecutionTime)
+                return;
 
-                // Set the new modifier.
-                comp.CurrentModifier = modifier;
+            var modifier = GetMovementSpeedModifiers(comp);
+            comp.CurrentModifier = modifier;
 
-                // Call the event, and refresh the movement speed modifiers.
-                _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.EntityUid);
-            }
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.EntityUid);
+            Dirty(uid, comp);
+
+            comp.NextExecutionTime = _timing.CurTime + ExecutionInterval;
         }
-        // Set the next execution time.
-        _nextExecutionTime = _timing.CurTime + ExecutionInterval;
+
     }
 
     #endregion
