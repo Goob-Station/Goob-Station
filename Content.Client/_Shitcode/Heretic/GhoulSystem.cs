@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 github-actions <github-actions@github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
