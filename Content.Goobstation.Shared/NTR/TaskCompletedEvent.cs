@@ -1,16 +1,14 @@
 using Content.Goobstation.Shared.NTR;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.NTR.Events;
+namespace Content.Goobstation.Shared.NTR;
 
 public sealed class TaskCompletedEvent : EntityEventArgs
 {
     public NtrTaskPrototype Task;
-    public EntityUid Performer;
 
-    public TaskCompletedEvent(NtrTaskPrototype task, EntityUid performer)
+    public TaskCompletedEvent(NtrTaskPrototype task)
     {
         Task = task;
-        Performer = performer;
     }
 }
