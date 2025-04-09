@@ -7095,7 +7095,7 @@ entities:
     - type: Transform
       pos: 11.327477,4.5964174
       parent: 1
-- proto: DrinkSigmaJuiceBase
+- proto: DrinkPwrGameCan
   entities:
   - uid: 2527
     components:

@@ -7,20 +7,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: reaction
-  id: SigmaJuice
-  reactants:
-    CogChamp:
-      amount: 1
-    Water:
-      amount: 1
-    WeldingFuel:
-      amount: 1
-  products:
-    SigmaJuice: 3
-  sound:
-    path: /Audio/_Goobstation/Animals/skibidi.wav
-
-- type: reaction
   id: TripleCitrus
   reactants:
     JuiceOrange:
