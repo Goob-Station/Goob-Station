@@ -1,0 +1,99 @@
+- type: clause
+  id: SoulOwnership
+  # Note: This one needs special handling as it has custom logic
+  # Would need additional system code for the soul transfer
+
+- type: clause
+  id: Weakness
+  damageModifierSet: DevilDealPositive
+
+- type: clause
+  id: FearOfFire
+  damageModifierSet: HellSpawn
+  removedComponent:
+  - type: Flammable
+
+- type: clause
+  id: FearOfSpace
+  addedComponent:
+  - type: BreathingImmunity
+  - type: PressureImmunity
+
+- type: clause
+  id: FearOfLight
+  addedComponent:
+  - type: FlashImmunity
+
+- type: clause
+  id: FearOfElectricity
+  addedComponent:
+  - type: Insulated
+
+- type: clause
+  id: Shadows
+  addedComponent:
+  - type: Stealth
+  - type: StealthOnMove
+
+- type: clause
+  id: Strength
+  damageModifierSet: DevilDealNegative
+
+- type: clause
+  id: Loneliness
+  addedComponent:
+  - type: TeleportOnStateChange
+    entityTeleportTo: ContractOwner # Would need special handling
+
+- type: clause
+  id: WillToFight
+  addedComponent:
+  - type: Pacified
+
+- type: clause
+  id: Sight
+  addedComponent:
+  - type: PermanentBlindness
+
+- type: clause
+  id: Coherence
+  addedComponent:
+  - type: BackwardsAccent
+  - type: Clumsy
+
+- type: clause
+  id: Voice
+  addedComponent:
+  - type: Muted
+
+- type: clause
+  id: Sanity
+  addedComponent:
+  - type: Insanity
+
+- type: clause
+  id: Legs
+  addedComponent:
+  - type: LegsParalyzed
+
+- type: clause
+  id: Death
+  addedComponent:
+  - type: CheatDeath
+    reviveAmount: 1
+
+- type: clause
+  id: Mortality
+  addedComponent:
+  - type: CheatDeath
+    reviveAmount: -1
+
+- type: clause
+  id: Time
+  removedComponent:
+  - type: CheatDeath
+  addedComponent:
+  - type: DelayedDeath
+    deathTime: 300
+    deathMessageId: devil-deal-time-ran-out
+  - type: Unrevivable

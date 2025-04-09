@@ -51,6 +51,7 @@ public sealed partial class CondemnedSystem : EntitySystem
         SubscribeLocalEvent<CondemnedComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CondemnedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CondemnedComponent, ComponentRemove>(OnRemoved);
+        InitializeOnDeath();
     }
 
     public override void Update(float frameTime)

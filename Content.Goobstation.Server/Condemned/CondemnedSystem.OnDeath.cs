@@ -7,13 +7,12 @@ using Content.Goobstation.Shared.CheatDeath;
 using Content.Shared.Mobs;
 
 namespace Content.Goobstation.Server.Condemned;
-public sealed class CondemnedOnDeathSystem : EntitySystem
+public sealed partial class CondemnedSystem : EntitySystem
 {
     [Dependency] private readonly CondemnedSystem _condemned = default!;
 
-    public override void Initialize()
+    public void InitializeOnDeath()
     {
-        base.Initialize();
         SubscribeLocalEvent<CondemnedComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
