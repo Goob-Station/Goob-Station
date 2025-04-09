@@ -258,7 +258,7 @@
         amount: 2
       - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
         amount: 1
-      - id: MagazineHighCaliberExplosive # Goobstation - Burner Heavy Assault Rifle
+      - id: MagazineHighCaliberHP # Goobstation - Burner Heavy Assault Rifle
 
 
 - type: entity

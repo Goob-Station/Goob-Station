@@ -180,7 +180,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: WeaponRifleBurner
   cost:
-    Telecrystal: 100 # don't kill me piras
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
 
@@ -601,13 +601,13 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkMagazineHighCaliberExplosive
-  name: uplink-high-caliber-explosive-magazine-name
-  description: uplink-high-caliber-explosive-magazine-desc
+  id: UplinkMagazineHighCaliberHP
+  name: uplink-high-caliber-HP-magazine-name
+  description: uplink-high-caliber-HP-magazine-desc
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
-  productEntity: MagazineHighCaliberExplosive
+  productEntity: MagazineHighCaliberHP
   cost:
-    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
+    Telecrystal: 6 # Twice as much compared to regular mags. Idk if it's reasonable
   categories:
   - UplinkAmmo
 

@@ -53,8 +53,8 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
-uplink-weapon-burner-name = Burner Heavy Rifle
-uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
+uplink-weapon-burner-name = Burner Breach Rifle
+uplink-weapon-burner-desc = The Burner Breach Rifle, an excelent breaching tool, not too great at killing.
 
 uplink-WSPR-name = WSPR Bundle
 uplink-WSPR-desc = PPPSSSSHhhhh.
@@ -109,8 +109,8 @@ uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible 
 uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
 uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
 
-uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
-uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
+uplink-high-caliber-HP-magazine-name = Heavy Rifle Magazine (.50 hp)
+uplink-high-caliber-HP-magazine-desc = Rifle magazine with 15 hollow point rounds, not very effecent but usefull in a pinch. Compatible with the Burner.
 
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.

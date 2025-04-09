@@ -55,6 +55,21 @@
     proto: CartridgeHighCaliber
 
 - type: entity
+  id: MagazineHighCaliberHP
+  name: "magazine (.50 hp)"
+  parent: BaseMagazineHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeHighCaliberHP
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
   id: MagazineHighCaliberExplosive
   name: "magazine (.50 high-explosive)"
   parent: BaseMagazineHighCaliber
