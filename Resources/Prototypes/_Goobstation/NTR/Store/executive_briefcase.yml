@@ -37,6 +37,7 @@
         insertSound:
           path: /Audio/Machines/id_insert.ogg
   - type: NtrAccountClient
+  - type: Speech
 
 - type: entity
   id: ExecutiveBriefcaseDebug

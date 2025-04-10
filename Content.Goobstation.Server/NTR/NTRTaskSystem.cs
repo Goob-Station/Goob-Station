@@ -31,7 +31,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-
+// goidacore inside
 namespace Content.Goobstation.Server.NTR;
 
 public sealed partial class NtrTaskSystem : EntitySystem
@@ -109,18 +109,21 @@ public sealed partial class NtrTaskSystem : EntitySystem
             return;
         if (!TryGetTaskId(station, args.Task, out var taskData))
             return;
-        if (!TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
-            return;
-
-        ntrAccount.Balance += args.Task.Reward;
-        var query = EntityQueryEnumerator<NtrAccountClientComponent>();
-
-        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-        while (query.MoveNext(out var client, out var comp))
+        if (args.IsInstant)
         {
-            comp.Balance = ntrAccount.Balance;
-            Dirty(client, comp);
-            RaiseLocalEvent(client, ref ev);
+            if (!TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
+                return;
+
+            ntrAccount.Balance += args.Task.Reward;
+            var query = EntityQueryEnumerator<NtrAccountClientComponent>();
+
+            var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
+            while (query.MoveNext(out var client, out var comp))
+            {
+                comp.Balance = ntrAccount.Balance;
+                Dirty(client, comp);
+                RaiseLocalEvent(client, ref ev);
+            }
         }
 
         if (!TryRemoveTask(station, taskData, false))
@@ -128,7 +131,8 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         FillTasksDatabase(station);
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key, new NtrTaskProviderState(db.Tasks, db.History, untilNextSkip));
+        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key,
+            new NtrTaskProviderState(db.Tasks, db.History, untilNextSkip));
         _audio.PlayPvs(component.SkipSound, uid);
     }
 

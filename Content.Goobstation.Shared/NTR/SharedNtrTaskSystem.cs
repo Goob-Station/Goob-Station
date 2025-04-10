@@ -1,17 +1,13 @@
-using System.Diagnostics;
 using System.Linq;
-using System.Threading;
-using Content.Shared.Access.Systems;
-using Content.Shared.Containers.ItemSlots;
-using Content.Goobstation.Shared.NTR;
-using Content.Goobstation.Shared.NTR.Events;
-using Content.Shared.Paper;
-using Content.Shared.Popups;
-using Content.Shared.Station;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared.Paper;
+using Content.Shared.Popups;
+using Content.Goobstation.Shared.NTR;
+using Content.Goobstation.Shared.NTR.Events;
+using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Goobstation.Shared.NTR;
 
@@ -26,14 +22,13 @@ public sealed class SharedNtrTaskSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<NtrTaskProviderComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
     }
     private void OnInsertAttempt(EntityUid uid,
         NtrTaskProviderComponent component,
         ref ItemSlotInsertAttemptEvent args)
     {
-        if (args.Cancelled || !TryComp<PaperComponent>(args.Item, out var _))
+        if (args.Cancelled || !TryComp<PaperComponent>(args.Item, out _))
             return;
 
         if (!HasValidStamps(args.Item))
@@ -41,7 +36,10 @@ public sealed class SharedNtrTaskSystem : EntitySystem
             args.Cancelled = true;
             if (_net.IsServer)
             {
-                _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), uid);
+                if (args.User != null)
+                {
+                    _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), uid, args.User.Value);
+                }
                 _audio.PlayPvs(component.DenySound, uid);
             }
             return;
@@ -49,16 +47,27 @@ public sealed class SharedNtrTaskSystem : EntitySystem
 
         if (_net.IsServer)
         {
-            _popup.PopupEntity(Loc.GetString("ntr-console-insert-accept"), uid);
+            if (args.User != null)
+            {
+                _popup.PopupEntity(Loc.GetString("ntr-console-insert-accept"), uid, args.User.Value);
+            }
             _audio.PlayPvs(component.SkipSound, uid);
             if (!TryComp<RandomDocumentComponent>(args.Item, out var documentComp))
                 return;
-            foreach (var task in documentComp.Tasks)
+
+            foreach (var taskId in documentComp.Tasks)
             {
-                if (!_prototypeManager.TryIndex(task, out NtrTaskPrototype? taskProto))
-                    return;
-                if (args.User != null)
-                    RaiseLocalEvent(uid, new TaskCompletedEvent(taskProto, args.User.Value));
+                if (!_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto))
+                    continue;
+
+                bool isInstantTask = taskProto.Entries.Any(e => e.InstantCompletion);
+                var user = args.User ?? EntityUid.Invalid;
+                var ev = new TaskCompletedEvent(taskProto, user)
+                {
+                    IsInstant = isInstantTask
+                };
+
+                RaiseLocalEvent(uid, ev);
             }
             _entityManager.QueueDeleteEntity(args.Item);
         }
@@ -80,15 +89,12 @@ public sealed class SharedNtrTaskSystem : EntitySystem
     private HashSet<string> GetRequiredStamps(RandomDocumentComponent documentComp)
     {
         var requiredStamps = new HashSet<string>();
-        foreach (var task in documentComp.Tasks)
+        foreach (var taskId in documentComp.Tasks)
         {
-            if (!_prototypeManager.TryIndex(task, out NtrTaskPrototype? taskProto) || taskProto == null)
-                return new HashSet<string>();
+            if (!_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto) || taskProto == null)
+                continue;
 
-            var entries = taskProto.Entries;
-            if (entries.Count == 0)
-                return new HashSet<string>();
-            foreach (var entry in entries)
+            foreach (var entry in taskProto.Entries)
             {
                 foreach (var stamp in entry.Stamps)
                 {
@@ -104,7 +110,10 @@ public sealed class SharedNtrTaskSystem : EntitySystem
         if (paperComp.StampedBy.Count == 0)
             return false;
 
-        var actualStamps = paperComp.StampedBy.Select(stamp => stamp.StampedName).ToList();
+        var actualStamps = paperComp.StampedBy
+            .Select(stamp => stamp.StampedName)
+            .ToList();
+
         return requiredStamps.All(actualStamps.Contains);
     }
 }

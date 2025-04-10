@@ -10,7 +10,6 @@ using Content.Goobstation.Shared.NTR.Scan;
 using Content.Goobstation.Common.NTR.Scan;
 using Content.Server.Chat.Systems;
 using Content.Server.Chat.Managers;
-using Content.Server.Chat.Systems;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.NTR.Scan

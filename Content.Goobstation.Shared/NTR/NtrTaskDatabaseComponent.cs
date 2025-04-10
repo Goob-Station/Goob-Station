@@ -14,7 +14,7 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     /// Maximum amount of bounties a station can have.
     /// </summary>
     [DataField]
-    public int MaxTasks = 6;
+    public int MaxTasks = 5;
 
     /// <summary>
     /// A list of all the bounties currently active for a station.

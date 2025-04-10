@@ -3,7 +3,7 @@ store-currency-nt-loyalty-point = NT loyalty point
 store-preset-name-ntr = Executive briefcase store
 
 ntr-scan-fail = ERROR: Item rejected by scanning protocol.
-ntr-scan-success = SCAN COMPLETE: Credited {amount} loyalty points to your Nanotrasen account.
+ntr-scan-success = Successfully credited {$amount} loyalty points.
 # listing
 # station
 
@@ -127,3 +127,5 @@ ntr-executive-tier-5-name = Rare machine boards
 ntr-console-insert-deny = Wrong!
 ntr-console-insert-accept = Correct!
 
+ntr-bounty-console-reward-label = Reward: Loyalty points: {$reward}
+ntr-bounty-console-manifest-entry = {amount}x {item}

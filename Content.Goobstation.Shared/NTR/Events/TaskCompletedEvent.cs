@@ -7,6 +7,7 @@ public sealed class TaskCompletedEvent : EntityEventArgs
 {
     public NtrTaskPrototype Task;
     public EntityUid Performer;
+    public bool IsInstant { get; set; }
 
     public TaskCompletedEvent(NtrTaskPrototype task, EntityUid performer)
     {

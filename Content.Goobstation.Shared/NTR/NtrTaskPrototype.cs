@@ -52,7 +52,7 @@ public readonly partial record struct NtrTaskItemEntry()
     /// <summary>
     /// A whitelist for determining what items satisfy the entry.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public EntityWhitelist Whitelist { get; init; } = default!;
 
     /// <summary>
@@ -60,6 +60,8 @@ public readonly partial record struct NtrTaskItemEntry()
     /// </summary>
     [DataField]
     public int Amount { get; init; } = 1;
+    [DataField]
+    public bool InstantCompletion { get; init; } = false;
 
     /// <summary>
     /// A player-facing name for the item.

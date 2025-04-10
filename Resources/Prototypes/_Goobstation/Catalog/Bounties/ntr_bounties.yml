@@ -1,7 +1,7 @@
 - type: ntrTask
   id: TaskStampHos
   proto: SecurityDocument
-  reward: 1
+  reward: 2
   description: Get HOS stamp on this document to complete.
   entries:
   - name: StampHOS
@@ -15,7 +15,7 @@
 - type: ntrTask
   id: TaskStampHop
   proto: ServiceDocument
-  reward: 1
+  reward: 2
   description: Get HOP stamp on this document to complete.
   entries:
   - name: StampHOP
@@ -29,7 +29,7 @@
 - type: ntrTask
   id: TaskStampCe
   proto: EngineeringDocument
-  reward: 1
+  reward: 2
   description: Get CE stamp on this document to complete.
   entries:
   - name: StampCE
@@ -43,7 +43,7 @@
 - type: ntrTask
   id: TaskStampCmo
   proto: MedicalDocument
-  reward: 1
+  reward: 2
   description: Get CMO stamp on this document to complete.
   entries:
   - name: StampCMO
@@ -57,7 +57,7 @@
 - type: ntrTask
   id: TaskStampRd
   proto: ScienceDocument
-  reward: 1
+  reward: 2
   description: Get RD stamp on this document to complete.
   entries:
   - name: StampRD
@@ -71,7 +71,7 @@
 - type: ntrTask
   id: TaskStampQm
   proto: CargoDocument
-  reward: 1
+  reward: 2
   description: Get QM stamp on this document to complete.
   entries:
   - name: StampQM
@@ -81,3 +81,13 @@
     whitelist:
       tags:
       - Document
+
+- type: ntrTask
+  id: TaskPowerCheck
+  proto: NTRgamerulePowergrid
+  reward: 5
+  description: Enforce a powergrid check from CC.
+  entries:
+  - name: Power grid check
+    instantCompletion: true
+    stamps: []

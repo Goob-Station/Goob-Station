@@ -23,12 +23,13 @@ public sealed partial class NtrTaskHistoryEntry : BoxContainer
         var items = new List<string>();
         foreach (var entry in taskPrototype.Entries)
         {
-            items.Add(Loc.GetString("bounty-console-manifest-entry",
+            items.Add(Loc.GetString("ntr-bounty-console-manifest-entry",
+                ("amount", entry.Amount),
                 ("item", Loc.GetString(entry.Name))));
         }
 
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
-        RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", taskPrototype.Reward)));
+        RewardLabel.SetMarkup(Loc.GetString("ntr-bounty-console-reward-label", ("$reward", taskPrototype.Reward)));
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", task.Id)));
 
         TimestampLabel.SetMarkup(task.Timestamp.ToString(@"hh\:mm\:ss"));
