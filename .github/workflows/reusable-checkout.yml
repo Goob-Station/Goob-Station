@@ -4,6 +4,10 @@
 
 name: Checkout & Submodule Init
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   workflow_call:
 
