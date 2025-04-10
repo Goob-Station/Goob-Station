@@ -13,6 +13,9 @@
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Traits.Assorted;
+using Content.Goobstation.Common.CCVar; // Goob
+using Robust.Shared.Timing; // Goob
+using Robust.Shared.Configuration; // Goob
 
 namespace Content.Shared.Drunk;
 
@@ -23,6 +26,8 @@ public abstract class SharedDrunkSystem : EntitySystem
 
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!; // Goob - needed to calculate remaining status time. 
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goob - used to get the CVar setting. 
 
     public void TryApplyDrunkenness(EntityUid uid, float boozePower, bool applySlur = true,
         StatusEffectsComponent? status = null)
@@ -42,10 +47,22 @@ public abstract class SharedDrunkSystem : EntitySystem
         {
             _statusEffectsSystem.TryAddStatusEffect<DrunkComponent>(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), true, status);
         }
-        else
+        // Goob modification starts here
+        else if (_statusEffectsSystem.TryGetTime(uid, DrunkKey, out var time))
         {
-            _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
+            float maxDrunkTime = _cfg.GetCVar(GoobCVars.MaxDrunkTime);
+            var timeLeft = (float) (time.Value.Item2 - _timing.CurTime).TotalSeconds;
+
+            if (timeLeft + boozePower > maxDrunkTime)
+                _statusEffectsSystem.TrySetTime(uid, DrunkKey, TimeSpan.FromSeconds(maxDrunkTime), status);
+            else
+                _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
         }
+        // Goob modification ends
+        // else
+        // {
+        //     _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
+        // }
     }
 
     public void TryRemoveDrunkenness(EntityUid uid)
