@@ -10,7 +10,10 @@
 // SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -93,6 +96,11 @@ public sealed partial class ScrubberControl : BoxContainer
             ScrubberDataCopied?.Invoke(_data);
         };
 
+        // Assmos changes start here
+        CSelectAllButton.OnPressed += _ => SelectAllGases();
+        CDeselectAllButton.OnPressed += _ => DeselectAllGases();
+        // End of Assmos changes
+
         foreach (var value in Enum.GetValues<Gas>())
         {
             var gasButton = new Button
@@ -138,4 +146,27 @@ public sealed partial class ScrubberControl : BoxContainer
             _gasControls[value].Pressed = data.FilterGases.Contains(value);
         }
     }
+
+    // Assmos changes start here
+    private void SelectAllGases()
+    {
+        _data.FilterGases.Clear();
+        foreach (var (gas, button) in _gasControls)
+        {
+            button.Pressed = true;
+            _data.FilterGases.Add(gas);
+        }
+        ScrubberDataChanged?.Invoke(_address, _data);
+    }
+
+    private void DeselectAllGases()
+    {
+        foreach (var (_, button) in _gasControls)
+        {
+            button.Pressed = false;
+        }
+        _data.FilterGases.Clear();
+        ScrubberDataChanged?.Invoke(_address, _data);
+    }
+    // Assmos changes end
 }
