@@ -13,14 +13,18 @@
   - Colonel
   - Commander
   - Lieutenant
+  - Sergeant Major # Goobstation
+  - First Sergeant # Goobstation
   - Major
 
 - type: dataset
   id: NamesFirstMilitary
   values:
   - Corporal
-  - Sergeant
+  - Lance Corporal # Goobstation
+  - Staff Sergeant # Goobstation
   - Specialist
+  - Petty Officer # Goobstation
 
 - type: dataset
   id: NamesLastMilitary

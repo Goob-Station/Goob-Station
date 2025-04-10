@@ -14,3 +14,14 @@
       sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
     - type: Clothing
       sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatTrainer
+  name: NCT's coat
+  description: A robust coat issued to Nanotrasen Career Trainers. Great for teaching newbies.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi

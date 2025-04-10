@@ -13,7 +13,15 @@ job-description-navy-officer = Answer faxes and radio communications directed at
 job-description-diplomat = Represent Central Command, managing relationships with other factions aboard the station. Cleanup the issues the captain has likely caused.
 job-description-navy-special-operations-officer = Send, brief, and direct emergency response teams or other Nanotrasen forces. Release the nuclear codes, or don't.
 
+# Generic Nanotrasen
+
+job-description-nct = Teach the newbies how to perform their company assigned tasks properly, and stay out of trouble.
+
 # Half Life
 
 job-description-gman = Well, well, isn't this just like old times.
 job-description-hecu = Fufill the orders of your supervisor, no matter the morales.
+
+# Misc
+
+job-description-conquest = Stand ready for my arrival, worm.

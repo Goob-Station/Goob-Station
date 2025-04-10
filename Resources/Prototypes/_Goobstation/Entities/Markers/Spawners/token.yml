@@ -1,0 +1,81 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostSpaceNinja
+  id: SpawnPointGhostSpaceNinjaToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-space-ninja-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostDragonToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-space-dragon-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-space-dragon-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointLoneNukeOperative
+  id: SpawnPointLoneNukeOperativeToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-loneop-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-loneop-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointGhostDerelictCyborgSyndicate
+  id: SpawnPointGhostDerelictCyborgSyndicateToken
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-cyborg-syndicate-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-silicon-rules
+
+- type: entity
+  id: SpawnPointGhostBinglePrimeToken
+  parent: SpawnPointGhostBinglePrime
+  suffix: Prime
+  components:
+  - type: GhostRole
+    name: ghost-role-information-bingle-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-freeagent-rules
+
+- type: entity
+  id: SpawnPointGhostBlobRatToken
+  name: Mouse Blob Spawn Point
+  suffix: Blob Ghostrole, Token
+  parent: SpawnPointGhostBlobRat
+  components:
+  - type: GhostRole
+    makeSentient: true
+    name: blob-carrier-role-name-token
+    description: ghost-role-information-description-token-generic
+    rules: blob-carrier-role-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: LoneAbductorSpawner
+  id: LoneAbductorSpawnerToken
+  components:
+  - type: GhostRole
+    name: abductor-lone-ghost-role-name-token
+    description: ghost-role-information-description-token-generic
+    rules: abductors-ghost-role-rules
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: SpawnPointWizard
+  id: SpawnPointWizardToken
+  components:
+  - type: GhostRole
+    name: roles-wizard-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules

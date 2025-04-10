@@ -163,6 +163,7 @@
     - id: PlushieHampter
     - id: PlushieMoth
     - id: PlushieArachind
+    - id: PlushieSamantha # Goobstation
     - id: PlushiePenguin
     - !type:GroupSelector
       children:

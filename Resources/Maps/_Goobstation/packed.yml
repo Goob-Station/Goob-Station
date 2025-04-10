@@ -162,7 +162,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/14/2025 02:01:00
+  time: 03/19/2025 22:12:30
   entityCount: 15099
 maps:
 - 1
@@ -79313,6 +79313,13 @@ entities:
     components:
     - type: Transform
       pos: 20.5,-11.5
+      parent: 2
+- proto: SpawnPointNanotrasenCareerTrainer
+  entities:
+  - uid: 223004
+    components:
+    - type: Transform
+      pos: 27.5,46.5
       parent: 2
 - proto: SpawnPointNanotrasenRepresentative
   entities:

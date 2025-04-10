@@ -14,20 +14,6 @@
       "name": "idhelldiver"
     },
 	{
-      "name": "executive"
-    },
-	{
-      "name": "executive-inhand-right",
-        "directions": 4
-    },
-	{
-      "name": "executive-inhand-left",
-        "directions": 4
-    },
-	{
-      "name": "executive-equipped-NECK"
-    },
-	{
       "name": "idchrono"
     }
   ]

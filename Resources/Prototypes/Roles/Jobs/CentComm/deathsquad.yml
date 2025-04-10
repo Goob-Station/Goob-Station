@@ -36,7 +36,7 @@
     back: ClothingBackpackDeathSquad
     mask: ClothingMaskGasDeathSquad
     eyes: ClothingEyesGlassesDeathsquad # Goobstation
-    neck: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
+    neck: ExecutiveIDCard # Executive Access!
     ears: ClothingHeadsetDeathsquad # Goobstation
     gloves: ClothingHandsGlovesDeathsquadUnremovable # Rip and TEAR
     outerClothing: ClothingOuterHardsuitDeathsquad
@@ -52,9 +52,8 @@
     # - BoxFlashbang - WAY too big
     - ToolDebug # Spanish Army Knife - TODO Replace
     - WelderExperimental
-    - AmnestizineHypospray # SCP Foundation type shit.
     - BlueShieldShieldEvilFilled # Goobstation
-    - HyperFlash # Flash!
+    - DeterrentCaseFilled
   inhand:
   - WeaponPulseRifle
 
