@@ -897,3 +897,6 @@ CargoMailTeleporter: MailTeleporter
 ClothingMaskBlushingMime: ClothingMaskSexyMime
 ClothingMaskBlushingClown: ClothingMaskSexyMime
 ClothingNeckGoldAutismPin: null
+  
+# 2025-03-29
+ClothingBackpackDuffelSyndicateRaidBundle: ClothingBackpackSyndicateRaidBundle

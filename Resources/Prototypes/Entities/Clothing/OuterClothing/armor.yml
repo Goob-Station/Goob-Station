@@ -339,6 +339,8 @@
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.4
+  - type: Item
+    size: Normal
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]
