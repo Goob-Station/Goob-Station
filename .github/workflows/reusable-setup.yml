@@ -4,6 +4,10 @@
 
 name: Setup & Build .NET Environment
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   workflow_call:
     inputs:
@@ -25,7 +29,7 @@ on:
 
 jobs:
   checkout:
-    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
 
   setup_and_build:
     runs-on: ubuntu-latest
