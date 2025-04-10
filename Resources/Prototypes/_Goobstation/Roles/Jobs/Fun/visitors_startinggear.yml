@@ -1,0 +1,10 @@
+- type: startingGear
+  id: VisitorAlien
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    eyes: ClothingEyesGlassesCheapSunglasses
+    shoes: ClothingShoesColorBrown
+    head: ClothingHeadHatStrawHat
+    id: VisitorPDA
+    back: ClothingBackpack
+    ears: ClothingHeadsetGrey

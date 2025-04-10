@@ -1,0 +1,9 @@
+- type: entity
+  id: RandomHumanoidVisitorAlien
+  name: visiting alien ghost role
+  components:
+    - type: Sprite
+      sprite: _Shitmed/Mobs/Species/Abductor/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: VisitorAlien

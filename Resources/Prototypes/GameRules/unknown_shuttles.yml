@@ -36,6 +36,7 @@
     - id: UnknownShuttleMeatZone
     - id: UnknownShuttleMicroshuttle
     - id: UnknownShuttleSpacebus
+    - id: UnknownShuttleAlien # Goobstation
 
 - type: entityTable
   id: UnknownShuttlesFreelanceTable

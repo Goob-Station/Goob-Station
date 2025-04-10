@@ -13,3 +13,15 @@
     weight: 2
   - type: LoadMapRule
     preloadedGrid: FrontierProspector
+
+- type: entity
+  id: UnknownShuttleAlienTourist
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-unknown-shuttle-incoming #!!
+    weight: 4
+    chaos: # Goobstation
+      Friend: -20
+  - type: LoadMapRule
+    preloadedGrid: AlienTourist
