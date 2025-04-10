@@ -123,28 +123,24 @@ public sealed partial class SharedMultishotSystem : EntitySystem
 
     private void OnRefreshModifiers(Entity<MultishotComponent> multishotWeapon, ref GunRefreshModifiersEvent args)
     {
-        var (uid, comp) = multishotWeapon;
-
-        if (!comp.MultishotAffected)
+        if (!multishotWeapon.Comp.MultishotAffected)
             return;
 
-        args.MaxAngle = args.MaxAngle * comp.SpreadMultiplier + Angle.FromDegrees(comp.FlatSpreadAddition);
-        args.MinAngle = args.MinAngle * comp.SpreadMultiplier + Angle.FromDegrees(comp.FlatSpreadAddition);
+        args.MaxAngle = args.MaxAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.FlatSpreadAddition);
+        args.MinAngle = args.MinAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.FlatSpreadAddition);
     }
 
     private void OnEquipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)
     {
         var gunsEnumerator = GetMultishotGuns(args.User);
 
-        if (gunsEnumerator.Count() < 2)
+        if (gunsEnumerator.Count < 2)
             return;
 
         foreach (var gun in gunsEnumerator)
         {
-            var (uid, gunComp, multiComp) = gun;
-
             gun.Item3.MultishotAffected = true;
-            Dirty(uid, multiComp);
+            Dirty(gun.Item1, gun.Item3);
             _gunSystem.RefreshModifiers(gun.Item1);
         }
     }
@@ -157,15 +153,13 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         _gunSystem.RefreshModifiers(multishotWeapon.Owner);
         Dirty(multishotWeapon);
 
-        if (gunsEnumerator.Count() >= 2)
+        if (gunsEnumerator.Count >= 2)
             return;
 
         foreach (var gun in gunsEnumerator)
         {
-            var (uid, gunComp, multiComp) = gun;
-
             gun.Item3.MultishotAffected = false;
-            Dirty(uid, multiComp);
+            Dirty(gun.Item1, gun.Item3);
             _gunSystem.RefreshModifiers(gun.Item1);
         }
     }
@@ -173,17 +167,20 @@ public sealed partial class SharedMultishotSystem : EntitySystem
     /// <summary>
     /// Return list of guns in hands
     /// </summary>
-    private IEnumerable<(EntityUid, GunComponent, MultishotComponent)> GetMultishotGuns(EntityUid entity)
+    private List<(EntityUid, GunComponent, MultishotComponent)> GetMultishotGuns(EntityUid entity)
     {
         var handsItems = _handsSystem.EnumerateHeld(entity);
+        var itemList = new List<(EntityUid, GunComponent, MultishotComponent)>();
 
         if (!handsItems.Any())
-            yield break;
+            return itemList;
 
         foreach (var item in handsItems)
         {
             if (TryComp<GunComponent>(item, out var gunComp) && TryComp<MultishotComponent>(item, out var multishotComp))
-                yield return (item, gunComp, multishotComp);
+                itemList.Add((item, gunComp, multishotComp));
         }
+
+        return itemList;
     }
 }
