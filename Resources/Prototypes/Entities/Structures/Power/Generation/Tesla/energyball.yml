@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2024 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -49,7 +50,7 @@
 - type: entity
   id: TeslaEnergyBall
   parent: BaseEnergyBall
-  name: ball lightning
+  name: tesla orb
   description: A giant ball of pure energy. The space around it is humming and melting.
   components:
   - type: Fixtures
@@ -123,11 +124,6 @@
     interactFailureString: petting-failure-tesla
     interactSuccessSpawn: EffectHearts
   - type: SupermatterImmune # Goobstation
-  - type: MetaData # Goobstation
-  - type: RandomMetadata # Goobstation
-    nameSegments:
-    - goob_generators_names_first
-    - goob_generators_names_tesla_last
   - type: GuideHelp # For the curious among the brave.
     guides:
     - TeslaEngine
@@ -137,7 +133,7 @@
 - type: entity
   id: TeslaMiniEnergyBall
   parent: BaseEnergyBall
-  name: mini ball lightning
+  name: mini tesla orb
   description: The cub of a destructive energy cage. Not as dangerous, but still not worth touching with bare hands.
   components:
   - type: ChasingWalk
