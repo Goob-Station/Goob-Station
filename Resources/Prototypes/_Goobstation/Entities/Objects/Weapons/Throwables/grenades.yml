@@ -1,0 +1,16 @@
+- type: entity
+  name: EMP grenade
+  description: A grenade designed to wreak havoc on electronic systems.
+  parent: [GrenadeBase, BaseSecurityContraband]
+  id: SecEmpGrenade
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+  - type: EmpOnTrigger
+    range: 5.5
+    energyConsumption: 50000
+  - type: DeleteOnTrigger
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg
