@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   checkout:
-    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
 
   yaml-schema-validation:
     name: YAML map schema validator
