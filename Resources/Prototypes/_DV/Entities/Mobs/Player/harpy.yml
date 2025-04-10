@@ -35,3 +35,5 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
+  - type: Loadout
+    prototypes: [ BaseGear ]

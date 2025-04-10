@@ -8,3 +8,6 @@
   name: Urist McRaptor
   parent: BaseMobResomi
   id: MobResomi
+  components:
+    - type: Loadout
+      prototypes: [ BaseGear ]

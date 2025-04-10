@@ -8,3 +8,5 @@
   name: Urist McYow
   parent: BaseMobYowie
   id: MobYowie
+  components:
+    - type: Loadout

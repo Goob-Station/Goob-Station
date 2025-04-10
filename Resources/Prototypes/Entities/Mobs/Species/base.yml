@@ -249,7 +249,6 @@
     - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - map: [ "socks" ] #backmen:underclothing
     - map: [ "underpants" ] #backmen:underclothing
     - map: [ "undershirt" ] #backmen:underclothing
     - map: ["jumpsuit"]
@@ -257,6 +256,7 @@
     - map: ["enum.HumanoidVisualLayers.RFoot"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: [ "socks" ] #backmen:underclothing
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]

@@ -124,7 +124,10 @@
   name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
-  
+  components: # Goobstation - Clothed Urists
+  - type: Loadout # Goobstation - Clothed Urists
+    prototypes: [BaseGear] # Goobstation - Clothed Urists
+
 #Syndie
 - type: entity
   parent: MobHuman
