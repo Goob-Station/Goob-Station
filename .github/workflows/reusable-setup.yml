@@ -39,7 +39,7 @@ jobs:
         run: dotnet restore
       - name: Build Project
         run: >
-          dotnet build
+          dotnet build SpaceStation14.sln
           --configuration ${{ inputs.build-configuration }}
           --no-restore
           /p:WarningsAsErrors=nullable /m
