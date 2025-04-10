@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by EmptyHead (discord - @bugfindernt) - https://discord.com/channels/1202734573247795300/1358682773501513811/1358739447163916389",
+  "states": [
+    {
+      "name": "lonnie",
+      "directions": 4
+    },
+    {
+      "name": "lonnie_dead"
+    },
+    {
+      "name": "lonnie-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "lonnie-inhand-right",
+      "directions": 4
+    }
+  ]
+}

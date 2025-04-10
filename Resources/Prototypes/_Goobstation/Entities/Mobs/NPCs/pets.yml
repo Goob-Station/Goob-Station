@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: Lonnie
+  parent: MobCatRuntime
+  id: MobCatLonnie
+  description: Bumblebirb's cat.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Pets/lonnie.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: lonnie
+  - type: Item
+    size: Ginormous
+    heldPrefix: lonnie
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lonnie
+      Critical:
+        Base: lonnie_dead
+      Dead:
+        Base: lonnie_dead
+
+- type: entity
+  name: Yorick 
+  parent: MobCatLonnie
+  id: MobCatYorick
+  description: Kerpudhat's cat.
+  components:
+  - type: Godmode # can't remove damageable from prototype >:(
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 0
