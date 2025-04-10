@@ -25,7 +25,6 @@
     sprite: Objects/Misc/bureaucracy.rsi
     layers:
     - state: contract-written
-    - state: contract-signed
       map: [ "enum.PaperVisualLayers.Stamp" ]
       visible: false
 
