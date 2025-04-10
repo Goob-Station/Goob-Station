@@ -11758,7 +11758,7 @@ entities:
       pos: 24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -31417.283
+      secondsUntilStateChange: -31443.008
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84931,7 +84931,7 @@ entities:
       pos: -34.5,-14.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -25605.818
+      secondsUntilStateChange: -25631.543
       state: Closing
   - uid: 13393
     components:
@@ -85424,7 +85424,7 @@ entities:
       pos: -4.5,-71.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -17353.55
+      secondsUntilStateChange: -17379.275
       state: Closing
 - proto: Fireplace
   entities:
@@ -144561,6 +144561,13 @@ entities:
     components:
     - type: Transform
       pos: 21.5,2.5
+      parent: 2
+- proto: SpawnPointNanotrasenCareerTrainer
+  entities:
+  - uid: 223004
+    components:
+    - type: Transform
+      pos: -0.5,-7.5
       parent: 2
 - proto: SpawnPointNanotrasenRepresentative
   entities:

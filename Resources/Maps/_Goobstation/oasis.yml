@@ -131,8 +131,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 15:35:10
-  entityCount: 28775
+  time: 03/19/2025 22:10:45
+  entityCount: 28725
 maps:
 - 1
 grids:
@@ -11922,7 +11922,7 @@ entities:
       pos: 39.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8910.355
+      secondsUntilStateChange: -8922.099
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13656,7 +13656,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -445464.66
+      secondsUntilStateChange: -445476.4
       state: Opening
   - uid: 355
     components:
@@ -14086,7 +14086,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -561632.25
+      secondsUntilStateChange: -561644
       state: Opening
   - uid: 422
     components:
@@ -156115,6 +156115,13 @@ entities:
     - type: Transform
       pos: 26.5,17.5
       parent: 2
+- proto: SpawnPointNanotrasenCareerTrainer
+  entities:
+  - uid: 223004
+    components:
+    - type: Transform
+      pos: 27.5,5.5
+      parent: 2
 - proto: SpawnPointNanotrasenRepresentative
   entities:
   - uid: 18519
@@ -181877,7 +181884,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -8904.223
+      secondsUntilStateChange: -8915.966
       state: Opening
     - type: Airlock
       autoClose: False
@@ -183496,7 +183503,7 @@ entities:
       pos: 24.5,2.5
       parent: 22618
     - type: Door
-      secondsUntilStateChange: -339763.9
+      secondsUntilStateChange: -339775.66
       state: Opening
 - proto: WoodenBench
   entities:

@@ -151,8 +151,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 15:33:24
-  entityCount: 17863
+  time: 03/19/2025 22:09:00
+  entityCount: 17836
 maps:
 - 1
 grids:
@@ -7459,7 +7459,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58015.184
+      secondsUntilStateChange: -58033.453
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -44012,7 +44012,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305770.72
+      secondsUntilStateChange: -305789
       state: Opening
   - uid: 6931
     components:
@@ -44020,7 +44020,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305771.44
+      secondsUntilStateChange: -305789.72
       state: Opening
   - uid: 6932
     components:
@@ -44028,7 +44028,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305770
+      secondsUntilStateChange: -305788.28
       state: Opening
   - uid: 6933
     components:
@@ -44036,7 +44036,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305769.38
+      secondsUntilStateChange: -305787.66
       state: Opening
 - proto: CyberPen
   entities:
@@ -93210,6 +93210,13 @@ entities:
     components:
     - type: Transform
       pos: -51.5,66.5
+      parent: 2
+- proto: SpawnPointNanotrasenCareerTrainer
+  entities:
+  - uid: 223004
+    components:
+    - type: Transform
+      pos: -23.5,69.5
       parent: 2
 - proto: SpawnPointObserver
   entities:
