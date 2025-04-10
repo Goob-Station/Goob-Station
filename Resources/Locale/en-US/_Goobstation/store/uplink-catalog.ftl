@@ -110,7 +110,7 @@ uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
 uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
 
 uplink-high-caliber-HP-magazine-name = Heavy Rifle Magazine (.50 hp)
-uplink-high-caliber-HP-magazine-desc = Rifle magazine with 15 hollow point rounds, not very effecent but usefull in a pinch. Compatible with the Burner.
+uplink-high-caliber-HP-magazine-desc = Rifle magazine with 15 hollow point rounds, not very efficient but useful in a pinch. Compatible with the Burner.
 
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
