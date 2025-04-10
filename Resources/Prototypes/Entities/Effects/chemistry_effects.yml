@@ -37,6 +37,9 @@
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -280,3 +283,33 @@
     duration: 0.5
   - type: TimedDespawn
     lifetime: 0.5
+
+
+# Assmos - Extinguisher Nozzle
+- type: entity
+  parent: BaseFoam
+  id: Resin
+  name: resin
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    color: "#ffffffcc"
+    sprite: Effects/foam.rsi
+    layers:
+    - state: resin
+      map: ["enum.FoamVisualLayers.Base"]
+    - map: [ "enum.EdgeLayer.South" ]
+      state: resin-south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: resin-east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: resin-north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: resin-west
+  - type: SmoothEdge
+  - type: IconSmooth
+    mode: NoSprite
+  - type: FoamVisuals
+    animationTime: 0.6
+    animationState: resin-dissolve
+  - type: AtmosResinDespawn

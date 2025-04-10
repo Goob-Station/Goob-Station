@@ -25,7 +25,10 @@
 // SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -33,6 +36,8 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Inventory; // Assmos - Extinguisher Nozzle
+using Content.Shared.Whitelist; // Assmos - Extinguisher Nozzle
 
 namespace Content.Server.Fluids.Components;
 
@@ -41,6 +46,7 @@ namespace Content.Server.Fluids.Components;
 public sealed partial class SprayComponent : Component
 {
     public const string SolutionName = "spray";
+    public const string TankSolutionName = "tank"; // Assmos - Extinguisher Nozzle
 
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public FixedPoint2 TransferAmount = 10;
@@ -69,4 +75,16 @@ public sealed partial class SprayComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField(required: true)]
     [Access(typeof(SpraySystem), Other = AccessPermissions.ReadExecute)] // FIXME Friends
     public SoundSpecifier SpraySound { get; private set; } = default!;
+
+    /// <remarks>
+    /// Assmos - Extinguisher Nozzle
+    /// </remarks>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public SlotFlags TargetSlot;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public EntityWhitelist? ProviderWhitelist;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public bool ExternalContainer = false;
 }
