@@ -30,6 +30,7 @@ jobs:
 
   validate_rsis:
     name: Validate RSIs
+    needs: checkout
     runs-on: ubuntu-latest
     steps:
       - name: Install Python dependencies

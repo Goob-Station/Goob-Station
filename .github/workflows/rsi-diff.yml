@@ -52,6 +52,7 @@ jobs:
 
   diff:
     name: Diff
+    needs: checkout
     runs-on: ubuntu-latest
     steps:
 
