@@ -36,6 +36,7 @@
   id: MedicalVehiclesStatic
   recipes:
   - VehicleWheelchairFolded
+  - Cane
 
 - type: latheRecipePack
   id: MedicalVehiclesAdvanced
