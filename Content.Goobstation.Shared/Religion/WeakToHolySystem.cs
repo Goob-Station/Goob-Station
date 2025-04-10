@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Religion;
 
-public sealed partial class System : EntitySystem
+public sealed partial class WeakToHolySystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -25,6 +25,9 @@ public sealed partial class System : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
+
+    public const string ContainerID = "Biological";
+    public const string TransformedContainerID = "BiologicalMetaphysical";
 
     public override void Initialize()
     {
@@ -38,9 +41,9 @@ public sealed partial class System : EntitySystem
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
     {
         if (TryComp<DamageableComponent>(ent, out var damageable)
-            && damageable?.DamageContainerID == "Biological")
+            && damageable?.DamageContainerID == ContainerID)
         {
-            _damageableSystem.ChangeDamageContainer(ent, "BiologicalMetaphysical");
+            _damageableSystem.ChangeDamageContainer(ent, TransformedContainerID);
         }
     }
 
