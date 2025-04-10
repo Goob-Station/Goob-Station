@@ -14,11 +14,13 @@ on:
     types: [ opened, reopened, synchronize, ready_for_review ]
 
 jobs:
+  checkout:
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
+
   build:
     name: CRLF Check
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.6.0
     - name: Check for CRLF
       run: Tools/check_crlf.py

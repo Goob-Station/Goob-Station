@@ -23,16 +23,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  checkout:
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
   yaml-schema-validation:
     name: YAML RGA schema validator
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.6.0
-    - name: Setup Submodule
-      run: git submodule update --init
-    - name: Pull engine updates
-      uses: space-wizards/submodule-dependency@v0.1.5
     - uses: PaulRitter/yaml-schema-validator@v1
       with:
         schema: RobustToolbox/Schemas/rga.yml

@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+name: Setup & Build .NET Environment
+
+on:
+  workflow_call:
+    inputs:
+      dotnet-version:
+        description: '.NET version to setup'
+        required: false
+        type: string
+        default: '9.0.x'
+      build-configuration:
+        description: 'Build configuration (e.g., Release, DebugOpt).'
+        required: false
+        type: string
+        default: 'Release'
+      build-extra-args:
+        description: 'Optional extra arguments for the dotnet build command'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  checkout:
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
+
+  setup_and_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v3.2.0
+        with:
+          dotnet-version: ${{ inputs.dotnet-version }}
+
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build Project
+        run: >
+          dotnet build
+          --configuration ${{ inputs.build-configuration }}
+          --no-restore
+          /p:WarningsAsErrors=nullable /m
+          ${{ inputs.build-extra-args }}
