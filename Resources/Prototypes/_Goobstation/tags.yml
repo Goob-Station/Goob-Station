@@ -34,6 +34,9 @@
   id: AutoinjectorCartridge
 
 - type: Tag
+  id: ArmorPlate
+
+- type: Tag
   id: BindSoulAction
 
 - type: Tag
