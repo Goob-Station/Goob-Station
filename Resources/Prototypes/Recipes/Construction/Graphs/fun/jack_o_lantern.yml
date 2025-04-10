@@ -1,4 +1,9 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: PumpkinAddLight
   start: start
   graph:
