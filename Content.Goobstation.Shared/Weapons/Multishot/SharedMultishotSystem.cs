@@ -9,12 +9,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Shared.CombatMode;
 using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using System.Linq;
 
 namespace Content.Goobstation.Shared.Weapons.Multishot;
 
@@ -22,6 +24,8 @@ public sealed partial class SharedMultishotSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
 
     public override void Initialize()
     {
@@ -30,104 +34,83 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         SubscribeLocalEvent<MultishotComponent, GotEquippedHandEvent>(OnEquipWeapon);
         SubscribeLocalEvent<MultishotComponent, GotUnequippedHandEvent>(OnUnequipWeapon);
         SubscribeLocalEvent<MultishotComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
-        SubscribeLocalEvent<MultishotComponent, GunShotEvent>(OnShotAttempt);
+        SubscribeAllEvent<RequestShootEvent>(OnRequestShoot);
     }
 
-    private void OnShotAttempt(Entity<MultishotComponent> multishotWeapon, ref GunShotEvent args)
+    private void OnRequestShoot(RequestShootEvent msg, EntitySessionEventArgs args)
     {
-        var comp = multishotWeapon.Comp;
+        var user = args.SenderSession.AttachedEntity;
 
-        if (comp.RelatedWeapon == null)
+        if (user == null ||
+            !_combatSystem.IsInCombatMode(user))
             return;
 
-        // Need to prevent recursive shoot attempting
-        if (_handsSystem.GetActiveItem(args.User) != multishotWeapon)
-            return;
+        var gunsEnumerator = GetMultishotGuns(user.Value);
+        var shootCoords = GetCoordinates(msg.Coordinates);
+        var target = GetEntity(msg.Target);
 
-        if (!TryComp<GunComponent>(comp.RelatedWeapon, out var relatedGun) || !TryComp<GunComponent>(multishotWeapon, out var gun))
-            return;
+        foreach(var gun in gunsEnumerator)
+        {
+            var (gunEnt, gunComp, multiComp) = gun;
 
-        if (gun.ShootCoordinates == null)
-            return;
+            var potentialTarget = target;
+            if (gunComp.Target == null || !gunComp.BurstActivated || !gunComp.LockOnTargetBurst)
+                gunComp.Target = potentialTarget;
 
-        if (TryComp(comp.RelatedWeapon.Value, out GunComponent? otherGun))
-            otherGun.Target = gun.Target;
-
-        _gunSystem.AttemptShoot(args.User, comp.RelatedWeapon.Value, relatedGun, gun.ShootCoordinates.Value);
-
-        // Synchronizing reload timer
-        var reloadDelta = relatedGun.LastFire - gun.LastFire;
-        relatedGun.NextFire -= reloadDelta.Duration();
+            _gunSystem.AttemptShoot(user.Value, gunEnt, gunComp, shootCoords);
+        }
     }
 
     private void OnRefreshModifiers(Entity<MultishotComponent> multishotWeapon, ref GunRefreshModifiersEvent args)
     {
-        var comp = multishotWeapon.Comp;
+        var (uid, comp) = multishotWeapon;
 
-        if (comp.RelatedWeapon == null)
+        var parent = _transformSystem.GetParentUid(uid);
+        var gunsEnumerator = GetMultishotGuns(parent);
+
+        if (gunsEnumerator.Count() < 2)
             return;
 
         args.MaxAngle *= comp.SpreadMultiplier;
         args.MinAngle *= comp.SpreadMultiplier;
-        args.FireRate /= comp.SpreadMultiplier;
-        args.BurstFireRate /= comp.SpreadMultiplier;
-        args.BurstCooldown *= comp.SpreadMultiplier;
     }
 
     private void OnEquipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)
     {
-        var comp = multishotWeapon.Comp;
+        var gunsEnumerator = GetMultishotGuns(args.User);
 
-        if (!TryComp<HandsComponent>(args.User, out var handsComp))
-            return;
-
-        if (handsComp.Count != 2)
-            return;
-
-        // Find first suitable weapon
-        foreach (var held in _handsSystem.EnumerateHeld(args.User, handsComp))
+        foreach (var gun in gunsEnumerator)
         {
-            if (held == multishotWeapon.Owner)
-                continue;
-
-            if (!TryComp<MultishotComponent>(held, out var multishotHeld))
-                continue;
-
-            comp.RelatedWeapon = held;
-            multishotHeld.RelatedWeapon = multishotWeapon;
-
-            Dirty(held, multishotHeld);
-            Dirty(multishotWeapon, comp);
-
-            _gunSystem.RefreshModifiers(multishotWeapon.Owner);
-            _gunSystem.RefreshModifiers(held);
-
-            break;
+            _gunSystem.RefreshModifiers(gun.Item1);
         }
     }
 
     private void OnUnequipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotUnequippedHandEvent args)
     {
-        var comp = multishotWeapon.Comp;
+        var gunsEnumerator = GetMultishotGuns(args.User);
 
-        if (comp.RelatedWeapon == null)
-            return;
+        _gunSystem.RefreshModifiers(args.Unequipped);
 
-        if (!TryComp<MultishotComponent>(comp.RelatedWeapon.Value, out var relatedMultishot))
+        foreach (var gun in gunsEnumerator)
         {
-            comp.RelatedWeapon = null;
-            return;
+            _gunSystem.RefreshModifiers(gun.Item1);
         }
+    }
 
-        var tempRelated = comp.RelatedWeapon.Value;
+    /// <summary>
+    /// Return list of guns in hands
+    /// </summary>
+    private IEnumerable<(EntityUid, GunComponent, MultishotComponent)> GetMultishotGuns(EntityUid entity)
+    {
+        var handsItems = _handsSystem.EnumerateHeld(entity);
 
-        relatedMultishot.RelatedWeapon = null;
-        comp.RelatedWeapon = null;
+        if (!handsItems.Any())
+            yield break;
 
-        _gunSystem.RefreshModifiers(tempRelated);
-        _gunSystem.RefreshModifiers(multishotWeapon.Owner);
-
-        Dirty(tempRelated, relatedMultishot);
-        Dirty(multishotWeapon, comp);
+        foreach (var item in handsItems)
+        {
+            if (TryComp<GunComponent>(item, out var gunComp) && TryComp<MultishotComponent>(item, out var multishotComp))
+                yield return (item, gunComp, multishotComp);
+        }
     }
 }

@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Weapons.Multishot;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -59,7 +60,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             if (held == uid)
                 continue;
 
-            if (HasComp<Multishot.MultishotComponent>(held))
+            if (HasComp<MultishotComponent>(held))
             {
                 if (CheckGun(held,component.Whitelist))
                     continue;
