@@ -22,7 +22,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2025 14:52:10
+  time: 04/10/2025 17:02:28
   entityCount: 276
 maps: []
 grids:
@@ -191,7 +191,7 @@ entities:
       pos: 7.5,0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -903.50494
+      secondsUntilStateChange: -954.6756
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -203,7 +203,7 @@ entities:
       pos: 7.5,1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -901.37164
+      secondsUntilStateChange: -952.5423
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -892,7 +892,6 @@ entities:
       inletTwoConcentration: 0.22000003
       inletOneConcentration: 0.78
       targetPressure: 4500
-      enabled: True
 - proto: GasPassiveVent
   entities:
   - uid: 58
@@ -906,12 +905,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -3.5,2.5
-      parent: 1
-  - uid: 245
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,4.5
       parent: 1
   - uid: 254
     components:
@@ -961,6 +954,14 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-4.5
+      parent: 1
+- proto: GasVentPump
+  entities:
+  - uid: 245
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,4.5
       parent: 1
 - proto: GasVentScrubber
   entities:
