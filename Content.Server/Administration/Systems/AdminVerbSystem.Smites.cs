@@ -1039,7 +1039,6 @@ public sealed partial class AdminVerbSystem
                 EnsureComp<SpanishAccentComponent>(args.Target);
                 EnsureComp<StutteringAccentComponent>(args.Target);
                 EnsureComp<MedievalAccentComponent>(args.Target); // Goobtation
-                EnsureComp<MaoistAccentComponent>(args.Target); // Goobtation
                 EnsureComp<OhioAccentComponent>(args.Target); // Goobtation
                 EnsureComp<PirateAccentComponent>(args.Target); // Goobtation
                 EnsureComp<VulgarAccentComponent>(args.Target); // Goobtation

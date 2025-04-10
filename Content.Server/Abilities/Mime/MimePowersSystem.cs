@@ -297,7 +297,6 @@ namespace Content.Server.Abilities.Mime
                     }
                     break;
                 case 4:
-                    EnsureComp<MaoistAccentComponent>(ent);
                     EnsureComp<OhioAccentComponent>(ent);
                     break;
                 case 5:
@@ -307,15 +306,12 @@ namespace Content.Server.Abilities.Mime
                 case 6:
                     EnsureComp<VulgarAccentComponent>(ent);
                     EnsureComp<BoganAccentComponent>(ent);
-                    EnsureComp<MaoistAccentComponent>(ent);
                     break;
                 case 7:
                     EnsureComp<VulgarAccentComponent>(ent);
                     EnsureComp<RussianAccentComponent>(ent);
                     EnsureComp<BackwardsAccentComponent>(ent);
                     EnsureComp<OhioAccentComponent>(ent);
-                    EnsureComp<DementiaAccentComponent>(ent);
-                    EnsureComp<MaoistAccentComponent>(ent);
                     break;
             }
         }
