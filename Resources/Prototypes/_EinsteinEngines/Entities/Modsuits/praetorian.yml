@@ -28,13 +28,16 @@
     - type: Storage
       maxItemSize: Huge
       grid:
-        - 0,0,7,4
+        - 0,0,6,3
     - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
       damageCoefficient: 0.1
     - type: SealableClothingVisuals
       visualLayers:
         back:
         - state: equipped-BACKPACK-sealed
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -62,7 +65,7 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: PressureProtection
-      highPressureMultiplier: 0.45
+      highPressureMultiplier: 0.05
       lowPressureMultiplier: 1000
     - type: Armor
       modifiers:
@@ -77,20 +80,13 @@
     - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
     - type: PointLight
-      color: "#FFDF00"
+      color: "#4d7ae3"
     - type: SealableClothingVisuals
       visualLayers:
         head:
         - state: equipped-HEAD-sealed
         - state: equipped-HEAD-sealed-unshaded
           shader: unshaded
-    - type: Reflect
-      reflectProb: 0.03
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
@@ -102,35 +98,29 @@
     - type: Sprite
       sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     - type: ClothingSpeedModifier
-      walkModifier: 0.85
-      sprintModifier: 0.85
+      walkModifier: 0.80
+      sprintModifier: 0.80
     - type: Armor
       modifiers:
         coefficients:
-          Blunt: 0.6
+          Blunt: 0.5
           Slash: 0.5
-          Piercing: 0.5
+          Piercing: 0.45
           Radiation: 0.5
-          Heat: 0.5
-          Caustic: 0.6
+          Heat: 0.45
+          Caustic: 0.5
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
-    - type: StaminaDamageResistance
-      coefficient: 0.5 # 50%
+    - type: ModifyDelayedKnockdown
+      delayDelta: 2
+      knockdownTimeDelta: -2
     - type: PressureProtection
-      highPressureMultiplier: 0.45
+      highPressureMultiplier: 0.05
       lowPressureMultiplier: 1000
     - type: ExplosionResistance
-      damageCoefficient: 0.6
+      damageCoefficient: 0.45
 
 - type: entity
   parent: ClothingModsuitBootsStandard
@@ -158,6 +148,9 @@
       visualLayers:
         shoes:
           - state: equipped-FEET-sealed
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
 
 - type: entity
   id: SuitStoragePraetorian
