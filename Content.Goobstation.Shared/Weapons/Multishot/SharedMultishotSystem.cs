@@ -66,9 +66,8 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         {
             var (gunEnt, gunComp, multiComp) = gun;
 
-            var potentialTarget = target;
             if (gunComp.Target == null || !gunComp.BurstActivated || !gunComp.LockOnTargetBurst)
-                gunComp.Target = potentialTarget;
+                gunComp.Target = target;
 
             _gunSystem.AttemptShoot(user.Value, gunEnt, gunComp, shootCoords);
         }
