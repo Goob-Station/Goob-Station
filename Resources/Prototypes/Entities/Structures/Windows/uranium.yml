@@ -72,6 +72,9 @@
     price: 200
   - type: RadiationBlocker
     resistance: 3
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 75
+    damagePenalty: 0.1
 
 - type: entity
   id: UraniumWindowDirectional
@@ -125,6 +128,9 @@
     price: 100
   - type: RadiationBlocker
     resistance: 1.5
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 50
+    damagePenalty: 0.1
 
 - type: entity
   parent: UraniumWindow

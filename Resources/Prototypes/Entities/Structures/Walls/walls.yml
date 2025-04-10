@@ -218,6 +218,10 @@
   - type: RadiationBlocker
     resistance: 2
   - type: BlockWeather
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 50
+    damagePenalty: 0.1
+
 
 - type: entity
   parent: BaseWall
@@ -643,6 +647,9 @@
       base: plastitanium
     - type: RustRequiresPathStage # Goobstation
       pathStage: 11 # Can't rust
+    - type: Penetratable # Goobstation - Better snipers
+      penetrateDamage: 1000
+      damagePenalty: 0.8
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -668,6 +675,9 @@
               acts: [ "Destruction" ]
     - type: RustRequiresPathStage # Goobstation
       pathStage: 10 # Ascension
+    - type: Penetratable # Goobstation - Better snipers
+      penetrateDamage: 200
+      damagePenalty: 0.5
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -714,6 +724,9 @@
         acts: ["Destruction"]
   - type: RustRequiresPathStage # Goobstation
     pathStage: 10 # Ascension
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 200
+    damagePenalty: 0.5
 
 - type: entity
   id: WallPlastitaniumDiagonalIndestructible
@@ -765,6 +778,9 @@
         - WallLayer
   - type: RustRequiresPathStage # Goobstation
     pathStage: 11 # Can't rust
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 1000
+    damagePenalty: 0.8
 
 - type: entity
   parent: BaseWall
@@ -826,6 +842,10 @@
     resistance: 5
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 100
+    damagePenalty: 0.25
+
 
 - type: entity
   parent: WallReinforced
@@ -932,6 +952,9 @@
     price: 150
   - type: RustRequiresPathStage # Goobstation
     pathStage: 10 # Ascension
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 200
+    damagePenalty: 0.5
 
 - type: entity
   parent: BaseWall
@@ -1091,6 +1114,9 @@
     node: diagonalshuttleWall
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 90
+    damagePenalty: 0.3
 
 - type: entity
   parent: BaseWall
@@ -1152,6 +1178,9 @@
           5: { state: shuttle_construct-5, visible: true}
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 90
+    damagePenalty: 0.3
 
 - type: entity
   parent: BaseWall

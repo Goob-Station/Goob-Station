@@ -177,6 +177,8 @@
             True: { visible: True }
             False: { visible: False }
     - type: AnimationPlayer
+    - type: Penetratable # Goobstation - Better snipers
+      penetrateDamage: 10
 
 - type: entity
   id: ClockworkGrille

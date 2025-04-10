@@ -331,3 +331,6 @@
     - type: Carriable
     - type: Targeting
     - type: LayingDown
+    - type: Penetratable # Goobstation - Better snipers
+      penetrateDamage: 50
+      damagePenalty: 0.2

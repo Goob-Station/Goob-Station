@@ -458,6 +458,9 @@
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 50
+    damagePenalty: 0.2
 
 - type: entity
   save: false
