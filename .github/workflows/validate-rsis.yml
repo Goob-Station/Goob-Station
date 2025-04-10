@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   checkout:
-    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
 
   validate_rsis:
     name: Validate RSIs

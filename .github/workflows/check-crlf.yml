@@ -15,7 +15,7 @@ on:
 
 jobs:
   checkout:
-    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
 
   build:
     name: CRLF Check

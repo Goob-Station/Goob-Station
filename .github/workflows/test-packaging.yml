@@ -43,7 +43,7 @@ concurrency:
 
 jobs:
   setup_and_build:
-    uses: ./.github/workflows/reusable-setup.yml@${{ github.sha }}
+    uses: ./.github/workflows/reusable-setup.yml@${{ github.ref }}
 
   package:
     name: Test Packaging
