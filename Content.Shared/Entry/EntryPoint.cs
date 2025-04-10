@@ -21,6 +21,10 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -35,6 +39,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Reflection;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
@@ -47,6 +52,7 @@ namespace Content.Shared.Entry
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly IResourceManager _resMan = default!;
+        [Dependency] private readonly IReflectionManager _reflection = default!;
 
         private readonly ResPath _ignoreFileDirectory = new("/IgnoredPrototypes/");
 
@@ -54,6 +60,8 @@ namespace Content.Shared.Entry
         {
             IoCManager.InjectDependencies(this);
             SharedContentIoC.Register();
+
+            VerifyGoobmod();
         }
 
         public override void Shutdown()
@@ -170,6 +178,23 @@ namespace Content.Shared.Entry
                 sequence.Add((SequenceDataNode) documents.Root);
             }
             return true;
+        }
+
+        private HashSet<string> _goobmods =
+        [
+            "Content.Goobstation.Common", "Content.Goobstation.Shared",
+            "Content.Goobstation.Server", "Content.Goobstation.Client",
+        ];
+        private void VerifyGoobmod()
+        {
+            var asm = _reflection.Assemblies;
+            var count = asm.Select(ass => ass.GetName().Name!).Count(assemblyName => _goobmods.Contains(assemblyName));
+
+            // Client or Server not being found is fine - both is bad.
+            if (0 < count < _goobmods.Count-1)
+            {
+                throw new InvalidOperationException("Missing goobmods in appdomain! Try deleting your bin folder, running dotnet clean, and building the solution again.");
+            }
         }
     }
 }
