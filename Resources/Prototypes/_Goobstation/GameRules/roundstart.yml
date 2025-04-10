@@ -23,7 +23,7 @@
     minPlayers: 15
   - type: AntagObjectives
     objectives:
-    - ChangelingStealDNAObjective
+    - ChangelingAbsorbObjective
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection

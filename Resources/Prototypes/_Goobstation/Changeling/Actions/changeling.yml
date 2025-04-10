@@ -44,7 +44,6 @@
       state: evolution_menu
     event: !type:OpenEvolutionMenuEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true
 
@@ -68,7 +67,6 @@
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -107,7 +105,6 @@
       state: transform_cycle
     event: !type:ChangelingTransformCycleEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -143,7 +140,6 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    biomassCost: 1
     useInLesserForm: true
     useInLastResort: true
 
@@ -703,6 +699,5 @@
     event: !type:AbsorbBiomatterEvent {}
   - type: ChangelingAction
     chemicalCost: 0
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true
