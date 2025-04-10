@@ -12,6 +12,11 @@ on:
         required: false
         type: string
         default: '9.0.x'
+      build-target:
+        description: 'Optional: Project or solution file to build (e.g., MyProject.csproj or MySolution.sln)'
+        required: false
+        type: string
+        default: ''
       build-configuration:
         description: 'Build configuration (e.g., Release, DebugOpt).'
         required: false
@@ -37,10 +42,11 @@ jobs:
           dotnet-version: ${{ inputs.dotnet-version }}
 
       - name: Install dependencies
-        run: dotnet restore SpaceStation14.sln
+        run: dotnet restore
+        
       - name: Build Project
         run: >
-          dotnet build SpaceStation14.sln
+          dotnet build ${{ inputs.build-target }}
           --configuration ${{ inputs.build-configuration }}
           --no-restore
           /p:WarningsAsErrors=nullable /m
