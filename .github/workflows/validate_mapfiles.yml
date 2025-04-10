@@ -27,6 +27,7 @@ jobs:
 
   yaml-schema-validation:
     name: YAML map schema validator
+    needs: checkout
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
