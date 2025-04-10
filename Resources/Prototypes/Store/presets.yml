@@ -15,6 +15,9 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -66,3 +69,42 @@
     - SpellbookBundles      #Goobstation
     currencyWhitelist:
     - WizCoin
+
+- type: entity
+  id: GhostAntagSpellPreset
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-spellbook-ghost
+    categories:
+    - SpellbookOffensive   #Fireball, Rod Form
+    - SpellbookDefensive    #Magic Missile, Wall of Force
+    - SpellbookUtility      #Body Swap, Lich, Teleport, Knock, Polymorph
+    - SpellbookEquipment    #Battlemage Robes, Staff of Locker
+    - SpellbookSummons      #Goobstation
+    - SpellbookBundles      #Goobstation
+    currencyWhitelist:
+    - WizCoin
+
+- type: entity
+  id: AntagPlanetContravendPreset
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-uplink-ghost
+    categories:
+    - UplinkWeaponry
+    - UplinkAmmo
+    - UplinkExplosives
+    - UplinkChemicals
+    - UplinkDeception
+    - UplinkDisruption
+    - UplinkImplants
+    - UplinkAllies
+    - UplinkWearables
+    - UplinkJob
+    - UplinkPointless
+    currencyWhitelist:
+    - Telecrystal
+    balance:
+      Telecrystal: 0
