@@ -8,7 +8,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Overlays;
+namespace Content.Goobstation.Shared.Religion.Nullrod;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HonkmotherBaptismComponent : Component
