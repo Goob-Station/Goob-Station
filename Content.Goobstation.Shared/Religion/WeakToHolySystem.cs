@@ -45,7 +45,7 @@ public sealed partial class System : EntitySystem
     }
 
     // passive healing on runes for aviu
-    private void OnCollide(EntityUid uid, HereticRitualRuneComponent component, ref StartCollideEvent args)
+    private void OnCollide(Entity<HereticRitualRuneComponent> uid, ref StartCollideEvent args)
     {
         var heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
 
@@ -64,7 +64,7 @@ public sealed partial class System : EntitySystem
 
     }
 
-    private void OnCollideEnd(EntityUid uid, HereticRitualRuneComponent component, ref EndCollideEvent args)
+    private void OnCollideEnd(Entity<HereticRitualRuneComponent> uid, ref EndCollideEvent args)
     {
         if (!TryComp<PassiveDamageComponent>(args.OtherEntity, out var heretic))
             {

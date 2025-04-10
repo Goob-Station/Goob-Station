@@ -12,8 +12,6 @@ namespace Content.Goobstation.Shared.Religion.Nullrod;
 public sealed partial class HonkmotherBaptismSystem : EntitySystem
 {
 
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-
     public override void Initialize()
     {
         base.Initialize();
