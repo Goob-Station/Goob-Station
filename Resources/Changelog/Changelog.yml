@@ -210,13 +210,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 Entries:
-- author: MilenVolf
-  changes:
-  - message: Expeditions can now be completed prematurely again by making an FTL jump.
-    type: Fix
-  id: 7648
-  time: '2024-11-24T08:11:47.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/33507
 - author: deltanedas
   changes:
   - message: Fixed expeditions on cave planets not having any ore.
@@ -4102,3 +4095,10 @@ Entries:
   id: 8147
   time: '2025-04-10T14:18:36.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/36341
+- author: JuneSzalkowska
+  changes:
+  - message: Added cooked dragon steak and dragon cutlets.
+    type: Add
+  id: 8148
+  time: '2025-04-10T15:59:18.0000000+00:00'
+  url: https://github.com/space-wizards/space-station-14/pull/36273
