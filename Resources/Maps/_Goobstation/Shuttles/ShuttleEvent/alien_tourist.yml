@@ -893,6 +893,7 @@ entities:
       inletTwoConcentration: 0.22000003
       inletOneConcentration: 0.78
       targetPressure: 4500
+      enabled: True
 - proto: GasPassiveVent
   entities:
   - uid: 58
