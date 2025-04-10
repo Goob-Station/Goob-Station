@@ -9,5 +9,7 @@ namespace Content.Server.Abilities.Oni
     public sealed partial class HeldByOniComponent : Component
     {
         public EntityUid Holder = default!;
+
+        public bool WasOneHanded;
     }
 }

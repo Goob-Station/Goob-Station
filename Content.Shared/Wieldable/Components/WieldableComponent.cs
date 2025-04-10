@@ -38,7 +38,7 @@ namespace Content.Shared.Wieldable.Components;
 /// <summary>
 ///     Used for objects that can be wielded in two or more hands,
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedWieldableSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation edit
 public sealed partial class WieldableComponent : Component
 {
     [DataField("wieldSound")]
@@ -61,7 +61,7 @@ public sealed partial class WieldableComponent : Component
     ///     Whether using the item inhand while wielding causes the item to unwield.
     ///     Unwielding can conflict with other inhand actions.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] // Goobstation edit
     public bool UnwieldOnUse = true;
 
     /// <summary>
@@ -70,7 +70,7 @@ public sealed partial class WieldableComponent : Component
     [DataField]
     public bool UseDelayOnWield = true;
 
-    [DataField("wieldedInhandPrefix")]
+    [DataField("wieldedInhandPrefix"), AutoNetworkedField] // Goobstation edit
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;
