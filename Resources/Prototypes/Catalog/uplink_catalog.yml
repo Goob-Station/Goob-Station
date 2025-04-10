@@ -294,7 +294,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
-    Telecrystal: 60 # goob
+    Telecrystal: 75 # goob
   categories:
   - UplinkWeaponry
 
@@ -634,7 +634,7 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 8 # goob
+    Telecrystal: 10 # goob
   categories:
   - UplinkAmmo
 

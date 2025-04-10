@@ -120,6 +120,9 @@
   - type: AnimatedEmotes
   - type: Fart
   - type: CollectiveMind # Goobstation - Starlight collective mind port
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 15 # Kill million mices
+    damagePenalty: 0.05 
 
 - type: entity
   save: false
