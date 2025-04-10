@@ -47,12 +47,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  checkout:
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
+
   diff:
     name: Diff
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.6.0
 
       - name: Get changed files
         id: files
