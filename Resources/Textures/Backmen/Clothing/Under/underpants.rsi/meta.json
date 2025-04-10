@@ -1,0 +1,207 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGStation at commit https://github.com/tgstation/tgstation/commit/343ec403eb9941c4b4fc298bd0c686f2350d6917",
+    "states": [
+        {
+            "name": "bee_shorts-ICON"
+        },
+        {
+            "name": "bee_shorts",
+            "directions": 4
+        },
+        {
+            "name": "boxer_briefs-ICON"
+        },
+        {
+            "name": "boxer_briefs",
+            "directions": 4
+        },
+        {
+            "name": "boxers_assblastusa-ICON"
+        },
+        {
+            "name": "boxers_assblastusa",
+            "directions": 4
+        },
+        {
+            "name": "boxers_commie-ICON"
+        },
+        {
+            "name": "boxers_commie",
+            "directions": 4
+        },
+        {
+            "name": "boxers_heart-ICON"
+        },
+        {
+            "name": "boxers_heart",
+            "directions": 4
+        },
+        {
+            "name": "boxers_striped-ICON"
+        },
+        {
+            "name": "boxers_striped",
+            "directions": 4
+        },
+        {
+            "name": "boxers_uk-ICON"
+        },
+        {
+            "name": "boxers_uk",
+            "directions": 4
+        },
+        {
+            "name": "boxers-ICON"
+        },
+        {
+            "name": "boxers",
+            "directions": 4
+        },
+        {
+            "name": "briefs-ICON"
+        },
+        {
+            "name": "briefs",
+            "directions": 4
+        },
+        {
+            "name": "fishnet_lower-ICON"
+        },
+        {
+            "name": "fishnet_lower",
+            "directions": 4
+        },
+        {
+            "name": "jockstrap-ICON"
+        },
+        {
+            "name": "jockstrap",
+            "directions": 4
+        },
+        {
+            "name": "ljonb-ICON"
+        },
+        {
+            "name": "ljonb",
+            "directions": 4
+        },
+        {
+            "name": "panties_alt-ICON"
+        },
+        {
+            "name": "panties_alt",
+            "directions": 4
+        },
+        {
+            "name": "panties_assblastusa-ICON"
+        },
+        {
+            "name": "panties_assblastusa",
+            "directions": 4
+        },
+        {
+            "name": "panties_bee-kini-ICON"
+        },
+        {
+            "name": "panties_bee-kini",
+            "directions": 4
+        },
+        {
+            "name": "panties_commie-ICON"
+        },
+        {
+            "name": "panties_commie",
+            "directions": 4
+        },
+        {
+            "name": "panties_kinky-ICON"
+        },
+        {
+            "name": "panties_kinky",
+            "directions": 4
+        },
+        {
+            "name": "panties_neko-ICON"
+        },
+        {
+            "name": "panties_neko",
+            "directions": 4
+        },
+        {
+            "name": "panties_slim-ICON"
+        },
+        {
+            "name": "panties_slim",
+            "directions": 4
+        },
+        {
+            "name": "panties_swimming-ICON"
+        },
+        {
+            "name": "panties_swimming",
+            "directions": 4
+        },
+        {
+            "name": "panties_thin-ICON"
+        },
+        {
+            "name": "panties_thin",
+            "directions": 4
+        },
+        {
+            "name": "panties_uk-ICON"
+        },
+        {
+            "name": "panties_uk",
+            "directions": 4
+        },
+        {
+            "name": "panties-ICON"
+        },
+        {
+            "name": "panties",
+            "directions": 4
+        },
+        {
+            "name": "pantyhose_ripped-ICON"
+        },
+        {
+            "name": "pantyhose_ripped",
+            "directions": 4
+        },
+        {
+            "name": "pantyhose-ICON"
+        },
+        {
+            "name": "pantyhose",
+            "directions": 4
+        },
+        {
+            "name": "striped_panties-ICON"
+        },
+        {
+            "name": "striped_panties",
+            "directions": 4
+        },
+        {
+            "name": "thong_babydoll-ICON"
+        },
+        {
+            "name": "thong_babydoll",
+            "directions": 4
+        },
+        {
+            "name": "thong-ICON"
+        },
+        {
+            "name": "thong",
+            "directions": 4
+        }
+    ]
+}

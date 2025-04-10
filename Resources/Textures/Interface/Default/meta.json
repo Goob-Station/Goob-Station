@@ -84,6 +84,15 @@
       },
       {
         "name": "web"
+      },
+      {
+          "name": "socks"
+      },
+      {
+          "name": "undershirt"
+      },
+      {
+          "name": "underpants"
       }
    ]
 }

@@ -22,6 +22,7 @@
 # SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kayzel <43700376+KayzelW@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
@@ -44,6 +45,7 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -64,6 +66,29 @@
       uiWindowPos: 0,1
       strippingWindowPos: 0,2
       displayName: Jumpsuit
+    #backmen:underclothing-start
+    - name: undershirt
+      slotTexture: undershirt
+      slotFlags: UNDERSHIRT
+      stripTime: 8
+      uiWindowPos: 4,1
+      strippingWindowPos: 3,1
+      displayName: Undershirt
+    - name: underpants
+      slotTexture: underpants
+      slotFlags: UNDERPANTS
+      stripTime: 12
+      uiWindowPos: 4,0
+      strippingWindowPos: 3,2
+      displayName: Underpants
+    - name: socks
+      slotTexture: socks
+      slotFlags: SOCKS
+      stripTime: 8
+      uiWindowPos: 4,2
+      strippingWindowPos: 3,3
+      displayName: Socks
+    #backmen:underclothing-end
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES

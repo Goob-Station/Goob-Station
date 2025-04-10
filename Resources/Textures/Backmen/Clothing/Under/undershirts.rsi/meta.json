@@ -1,0 +1,571 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGStation at commit https://github.com/tgstation/tgstation/commit/343ec403eb9941c4b4fc298bd0c686f2350d6917",
+    "states": [
+        {
+            "name": "babydoll-ICON"
+        },
+        {
+            "name": "babydoll",
+            "directions": 4
+        },
+        {
+            "name": "band-ICON"
+        },
+        {
+            "name": "band",
+            "directions": 4
+        },
+        {
+            "name": "bee_shirt-ICON"
+        },
+        {
+            "name": "bee_shirt",
+            "directions": 4
+        },
+        {
+            "name": "blueshirtsport-ICON"
+        },
+        {
+            "name": "blueshirtsport",
+            "directions": 4
+        },
+        {
+            "name": "bowling-ICON"
+        },
+        {
+            "name": "bowling",
+            "directions": 4
+        },
+        {
+            "name": "bowlinga-ICON"
+        },
+        {
+            "name": "bowlinga",
+            "directions": 4
+        },
+        {
+            "name": "bowlingp-ICON"
+        },
+        {
+            "name": "bowlingp",
+            "directions": 4
+        },
+        {
+            "name": "bowlingw-ICON"
+        },
+        {
+            "name": "bowlingw",
+            "directions": 4
+        },
+        {
+            "name": "bra_alt-ICON"
+        },
+        {
+            "name": "bra_alt",
+            "directions": 4
+        },
+        {
+            "name": "bra_assblastusa-ICON"
+        },
+        {
+            "name": "bra_assblastusa",
+            "directions": 4
+        },
+        {
+            "name": "bra_bee-kini-ICON"
+        },
+        {
+            "name": "bra_bee-kini",
+            "directions": 4
+        },
+        {
+            "name": "bra_binder_strapless-ICON"
+        },
+        {
+            "name": "bra_binder_strapless",
+            "directions": 4
+        },
+        {
+            "name": "bra_binder-ICON"
+        },
+        {
+            "name": "bra_binder",
+            "directions": 4
+        },
+        {
+            "name": "bra_commie-ICON"
+        },
+        {
+            "name": "bra_commie",
+            "directions": 4
+        },
+        {
+            "name": "bra_kinky-ICON"
+        },
+        {
+            "name": "bra_kinky",
+            "directions": 4
+        },
+        {
+            "name": "bra_neko-ICON"
+        },
+        {
+            "name": "bra_neko",
+            "directions": 4
+        },
+        {
+            "name": "bra_strapless_alt-ICON"
+        },
+        {
+            "name": "bra_strapless_alt",
+            "directions": 4
+        },
+        {
+            "name": "bra_strapless-ICON"
+        },
+        {
+            "name": "bra_strapless",
+            "directions": 4
+        },
+        {
+            "name": "bra_swimming_alt-ICON"
+        },
+        {
+            "name": "bra_swimming_alt",
+            "directions": 4
+        },
+        {
+            "name": "bra_swimming-ICON"
+        },
+        {
+            "name": "bra_swimming",
+            "directions": 4
+        },
+        {
+            "name": "bra_thin-ICON"
+        },
+        {
+            "name": "bra_thin",
+            "directions": 4
+        },
+        {
+            "name": "bra_uk-ICON"
+        },
+        {
+            "name": "bra_uk",
+            "directions": 4
+        },
+        {
+            "name": "bra-ICON"
+        },
+        {
+            "name": "bra",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt_navy-ICON"
+        },
+        {
+            "name": "cowboyshirt_navy",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt_navys-ICON"
+        },
+        {
+            "name": "cowboyshirt_navys",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt_red-ICON"
+        },
+        {
+            "name": "cowboyshirt_red",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt_reds-ICON"
+        },
+        {
+            "name": "cowboyshirt_reds",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt_s-ICON"
+        },
+        {
+            "name": "cowboyshirt_s",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt_white-ICON"
+        },
+        {
+            "name": "cowboyshirt_white",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt_whites-ICON"
+        },
+        {
+            "name": "cowboyshirt_whites",
+            "directions": 4
+        },
+        {
+            "name": "cowboyshirt-ICON"
+        },
+        {
+            "name": "cowboyshirt",
+            "directions": 4
+        },
+        {
+            "name": "fishnet_body-ICON"
+        },
+        {
+            "name": "fishnet_body",
+            "directions": 4
+        },
+        {
+            "name": "fishnet_gloves-ICON"
+        },
+        {
+            "name": "fishnet_gloves",
+            "directions": 4
+        },
+        {
+            "name": "fishnet_sleeves-ICON"
+        },
+        {
+            "name": "fishnet_sleeves",
+            "directions": 4
+        },
+        {
+            "name": "greenshirtsport-ICON"
+        },
+        {
+            "name": "greenshirtsport",
+            "directions": 4
+        },
+        {
+            "name": "halterneck_bra-ICON"
+        },
+        {
+            "name": "halterneck_bra",
+            "directions": 4
+        },
+        {
+            "name": "ian-ICON"
+        },
+        {
+            "name": "ian",
+            "directions": 4
+        },
+        {
+            "name": "ilovent-ICON"
+        },
+        {
+            "name": "ilovent",
+            "directions": 4
+        },
+        {
+            "name": "ljont-ICON"
+        },
+        {
+            "name": "ljont",
+            "directions": 4
+        },
+        {
+            "name": "longstripe_blue-ICON"
+        },
+        {
+            "name": "longstripe_blue",
+            "directions": 4
+        },
+        {
+            "name": "longstripe-ICON"
+        },
+        {
+            "name": "longstripe",
+            "directions": 4
+        },
+        {
+            "name": "lover-ICON"
+        },
+        {
+            "name": "lover",
+            "directions": 4
+        },
+        {
+            "name": "matroska-ICON"
+        },
+        {
+            "name": "matroska",
+            "directions": 4
+        },
+        {
+            "name": "peace-ICON"
+        },
+        {
+            "name": "peace",
+            "directions": 4
+        },
+        {
+            "name": "pogoman-ICON"
+        },
+        {
+            "name": "pogoman",
+            "directions": 4
+        },
+        {
+            "name": "polo-ICON"
+        },
+        {
+            "name": "polo",
+            "directions": 4
+        },
+        {
+            "name": "redshirtsport-ICON"
+        },
+        {
+            "name": "redshirtsport",
+            "directions": 4
+        },
+        {
+            "name": "shibari_sleeves-ICON"
+        },
+        {
+            "name": "shibari_sleeves",
+            "directions": 4
+        },
+        {
+            "name": "shibari-ICON"
+        },
+        {
+            "name": "shibari",
+            "directions": 4
+        },
+        {
+            "name": "shirt_alien-ICON"
+        },
+        {
+            "name": "shirt_alien",
+            "directions": 4
+        },
+        {
+            "name": "shirt_assblastusa-ICON"
+        },
+        {
+            "name": "shirt_assblastusa",
+            "directions": 4
+        },
+        {
+            "name": "shirt_bluejersey-ICON"
+        },
+        {
+            "name": "shirt_bluejersey",
+            "directions": 4
+        },
+        {
+            "name": "shirt_clown-ICON"
+        },
+        {
+            "name": "shirt_clown",
+            "directions": 4
+        },
+        {
+            "name": "shirt_commie-ICON"
+        },
+        {
+            "name": "shirt_commie",
+            "directions": 4
+        },
+        {
+            "name": "shirt_meat-ICON"
+        },
+        {
+            "name": "shirt_meat",
+            "directions": 4
+        },
+        {
+            "name": "shirt_nano-ICON"
+        },
+        {
+            "name": "shirt_nano",
+            "directions": 4
+        },
+        {
+            "name": "shirt_question-ICON"
+        },
+        {
+            "name": "shirt_question",
+            "directions": 4
+        },
+        {
+            "name": "shirt_redjersey-ICON"
+        },
+        {
+            "name": "shirt_redjersey",
+            "directions": 4
+        },
+        {
+            "name": "shirt_skull-ICON"
+        },
+        {
+            "name": "shirt_skull",
+            "directions": 4
+        },
+        {
+            "name": "shirt_ss13-ICON"
+        },
+        {
+            "name": "shirt_ss13",
+            "directions": 4
+        },
+        {
+            "name": "shirt_stripes-ICON"
+        },
+        {
+            "name": "shirt_stripes",
+            "directions": 4
+        },
+        {
+            "name": "shirt_tiedye-ICON"
+        },
+        {
+            "name": "shirt_tiedye",
+            "directions": 4
+        },
+        {
+            "name": "shortsleeve-ICON"
+        },
+        {
+            "name": "shortsleeve",
+            "directions": 4
+        },
+        {
+            "name": "sports_bra_alt-ICON"
+        },
+        {
+            "name": "sports_bra_alt",
+            "directions": 4
+        },
+        {
+            "name": "sports_bra-ICON"
+        },
+        {
+            "name": "sports_bra",
+            "directions": 4
+        },
+        {
+            "name": "striped_bra-ICON"
+        },
+        {
+            "name": "striped_bra",
+            "directions": 4
+        },
+        {
+            "name": "swimming_black-ICON"
+        },
+        {
+            "name": "swimming_black",
+            "directions": 4
+        },
+        {
+            "name": "swimming_blue-ICON"
+        },
+        {
+            "name": "swimming_blue",
+            "directions": 4
+        },
+        {
+            "name": "swimming_red-ICON"
+        },
+        {
+            "name": "swimming_red",
+            "directions": 4
+        },
+        {
+            "name": "tank_fire-ICON"
+        },
+        {
+            "name": "tank_fire",
+            "directions": 4
+        },
+        {
+            "name": "tank_midriff_alt-ICON"
+        },
+        {
+            "name": "tank_midriff_alt",
+            "directions": 4
+        },
+        {
+            "name": "tank_midriff-ICON"
+        },
+        {
+            "name": "tank_midriff",
+            "directions": 4
+        },
+        {
+            "name": "tank_rainbow-ICON"
+        },
+        {
+            "name": "tank_rainbow",
+            "directions": 4
+        },
+        {
+            "name": "tank_stripes-ICON"
+        },
+        {
+            "name": "tank_stripes",
+            "directions": 4
+        },
+        {
+            "name": "tank_sun-ICON"
+        },
+        {
+            "name": "tank_sun",
+            "directions": 4
+        },
+        {
+            "name": "tanktop_alt-ICON"
+        },
+        {
+            "name": "tanktop_alt",
+            "directions": 4
+        },
+        {
+            "name": "tanktop-ICON"
+        },
+        {
+            "name": "tanktop",
+            "directions": 4
+        },
+        {
+            "name": "tubetop-ICON"
+        },
+        {
+            "name": "tubetop",
+            "directions": 4
+        },
+        {
+            "name": "uk-ICON"
+        },
+        {
+            "name": "uk",
+            "directions": 4
+        },
+        {
+            "name": "undershirt-ICON"
+        },
+        {
+            "name": "undershirt",
+            "directions": 4
+        }
+    ]
+}

@@ -18,12 +18,14 @@
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
+// SPDX-FileCopyrightText: 2024 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 charlie <charlie.sc.wong@veiwsonic.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -73,6 +75,9 @@ public sealed class ClientClothingSystem : ClothingSystem
         {"pocket1", "POCKET1"},
         {"pocket2", "POCKET2"},
         {"suitstorage", "SUITSTORAGE"},
+        {"underpants", "UNDERPANTS"}, //backmen:underclothing
+        {"undershirt", "UNDERSHIRT"}, //backmen:underclothing
+        {"socks", "SOCKS"}, //backmen:underclothing
     };
 
     [Dependency] private readonly IResourceCache _cache = default!;
