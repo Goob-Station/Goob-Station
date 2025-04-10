@@ -3,29 +3,24 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Goobstation.Server.Contract;
+using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
-using Content.Server.Bible.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
-using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Zombies;

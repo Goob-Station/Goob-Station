@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Contract;
-using Content.Goobstation.Server.Contract.Revival;
+using Content.Goobstation.Server.Devil.Contract;
+using Content.Goobstation.Server.Devil.Contract.Revival;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 
