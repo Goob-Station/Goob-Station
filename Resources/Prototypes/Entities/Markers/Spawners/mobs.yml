@@ -140,6 +140,7 @@
       - MobCorgiIanOld
       - MobCorgiLisa
       - MobCorgiIanPup
+      - MobCorgiIanClown
 
 - type: entity
   name: Dev Mouse Spawner
