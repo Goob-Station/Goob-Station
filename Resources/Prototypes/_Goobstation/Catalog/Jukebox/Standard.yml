@@ -238,6 +238,12 @@
     path: /Audio/Lobby/title2.ogg
 
 - type: jukebox
+  id: _robocop
+  name: 【_ｒｏｂｏｃｏｐ】
+  path:
+    path: /Audio/Lobby/robocop.ogg
+
+- type: jukebox
   id: spac_stac
   name: Hayabusa - Spac Stac
   path:
