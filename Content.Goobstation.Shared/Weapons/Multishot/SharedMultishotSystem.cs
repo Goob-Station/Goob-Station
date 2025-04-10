@@ -101,7 +101,12 @@ public sealed partial class SharedMultishotSystem : EntitySystem
             return;
 
         // I didn't found better way to get hand
-        var bodySymmetry = BodyPartSymmetry.None;
+        var bodySymmetry = hand.Location switch
+        {
+            HandLocation.Left => BodyPartSymmetry.Left,
+            HandLocation.Right => BodyPartSymmetry.Right,
+            _ => BodyPartSymmetry.None,
+        };
         if (hand.Location == HandLocation.Left)
             bodySymmetry = BodyPartSymmetry.Left;
         else if (hand.Location == HandLocation.Right)
