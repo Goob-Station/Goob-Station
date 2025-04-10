@@ -6,14 +6,15 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: ClothingBackpackSatchel
-  id: ClothingBackpackSatchelNanorep
-  name: Nanotrasen Representative Satchel
-  description: An expensive dark green backpack. Smells like fax machines.
+  parent: [ BaseCentcommContraband , ClothingBackpackSatchel ]
+  id: ClothingBackpackSatchelCentcomm
+  name: centcomm satchel
+  description: An expensive dark green satchel. Smells like fax machines.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Satchels/nanorep.rsi
