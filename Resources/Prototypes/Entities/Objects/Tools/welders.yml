@@ -224,6 +224,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - Welder # Goobstation-WelderSword
 
 - type: entity
   name: industrial welding tool
@@ -242,6 +243,9 @@
         - ReagentId: WeldingFuel
           Quantity: 250
         maxVol: 250
+  - type: Tag # Goobstation-WelderSword
+    tags:
+    - WelderIndustrial
 
 - type: entity
   name: advanced industrial welding tool
@@ -298,6 +302,9 @@
       Plasma: 50
   - type: StaticPrice #Goobstation - Recycle update
     price: 50
+  - type: Tag # Goobstation-WelderSword
+    tags:
+    - WelderExperimental
 
 - type: entity
   name: emergency welding tool
