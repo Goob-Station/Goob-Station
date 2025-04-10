@@ -40,7 +40,10 @@ jobs:
         uses: actions/setup-dotnet@v3.2.0
         with:
           dotnet-version: ${{ inputs.dotnet-version }}
-
+          
+      - name: List Files
+        run: ls -R
+        
       - name: Install dependencies
         run: dotnet restore
         
