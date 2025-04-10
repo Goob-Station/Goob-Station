@@ -10,12 +10,19 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.Weapons.Multishot;
@@ -24,8 +31,10 @@ public sealed partial class SharedMultishotSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -34,6 +43,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         SubscribeLocalEvent<MultishotComponent, GotEquippedHandEvent>(OnEquipWeapon);
         SubscribeLocalEvent<MultishotComponent, GotUnequippedHandEvent>(OnUnequipWeapon);
         SubscribeLocalEvent<MultishotComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
+        SubscribeLocalEvent<MultishotComponent, GunShotEvent>(OnGunShot);
         SubscribeAllEvent<RequestShootEvent>(OnRequestShoot);
     }
 
@@ -61,26 +71,72 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         }
     }
 
+    private void OnGunShot(Entity<MultishotComponent> multishotWeapon, ref GunShotEvent args)
+    {
+        var (uid, comp) = multishotWeapon;
+
+        if (!comp.MultishotAffected)
+            return;
+
+        DamageHands(uid, comp, args.User);
+        DealStaminaDamage(uid, comp, args.User);
+    }
+
+    private void DealStaminaDamage(EntityUid weapon, MultishotComponent component, EntityUid target)
+    {
+        if (component.StaminaDamage == 0)
+            return;
+
+        _staminaSystem.TakeStaminaDamage(target, component.StaminaDamage, source: target, with: weapon, visual: false);
+    }
+
+    private void DamageHands(EntityUid weapon, MultishotComponent component, EntityUid target)
+    {
+        if (component.HandDamage == 0)
+            return;
+
+        if (!_handsSystem.IsHolding(target, weapon, out var hand))
+            return;
+
+        // I didn't found better way to get hand
+        var bodySymmetry = BodyPartSymmetry.None;
+        if (hand.Location == HandLocation.Left)
+            bodySymmetry = BodyPartSymmetry.Left;
+        else if (hand.Location == HandLocation.Right)
+            bodySymmetry = BodyPartSymmetry.Right;
+
+        var bodyPart = _bodySystem.GetTargetBodyPart(BodyPartType.Hand, bodySymmetry);
+
+        var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.HandDamage);
+        var handsDamageEv = new TryChangePartDamageEvent(damage, target, bodyPart, true, true, false, 1);
+
+        RaiseLocalEvent(target, ref handsDamageEv);
+    }
+
     private void OnRefreshModifiers(Entity<MultishotComponent> multishotWeapon, ref GunRefreshModifiersEvent args)
     {
         var (uid, comp) = multishotWeapon;
 
-        var parent = _transformSystem.GetParentUid(uid);
-        var gunsEnumerator = GetMultishotGuns(parent);
-
-        if (gunsEnumerator.Count() < 2)
+        if (!comp.MultishotAffected)
             return;
 
-        args.MaxAngle *= comp.SpreadMultiplier;
-        args.MinAngle *= comp.SpreadMultiplier;
+        args.MaxAngle = args.MaxAngle * comp.SpreadMultiplier + Angle.FromDegrees(comp.FlatSpreadAddition);
+        args.MinAngle = args.MinAngle * comp.SpreadMultiplier + Angle.FromDegrees(comp.FlatSpreadAddition);
     }
 
     private void OnEquipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)
     {
         var gunsEnumerator = GetMultishotGuns(args.User);
 
+        if (gunsEnumerator.Count() < 2)
+            return;
+
         foreach (var gun in gunsEnumerator)
         {
+            var (uid, gunComp, multiComp) = gun;
+
+            gun.Item3.MultishotAffected = true;
+            Dirty(uid, multiComp);
             _gunSystem.RefreshModifiers(gun.Item1);
         }
     }
@@ -89,10 +145,19 @@ public sealed partial class SharedMultishotSystem : EntitySystem
     {
         var gunsEnumerator = GetMultishotGuns(args.User);
 
-        _gunSystem.RefreshModifiers(args.Unequipped);
+        multishotWeapon.Comp.MultishotAffected = false;
+        _gunSystem.RefreshModifiers(multishotWeapon.Owner);
+        Dirty(multishotWeapon);
+
+        if (gunsEnumerator.Count() >= 2)
+            return;
 
         foreach (var gun in gunsEnumerator)
         {
+            var (uid, gunComp, multiComp) = gun;
+
+            gun.Item3.MultishotAffected = false;
+            Dirty(uid, multiComp);
             _gunSystem.RefreshModifiers(gun.Item1);
         }
     }
