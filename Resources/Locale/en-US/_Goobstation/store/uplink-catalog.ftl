@@ -86,7 +86,7 @@ uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
 
 uplink-WSPR-name = WSPR Bundle
-uplink-WSPR-desc = PPPSSSSHhhhh.
+uplink-WSPR-desc = A silenced burst rifle, does not match the damage output of other options but gets the job done quietly.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
