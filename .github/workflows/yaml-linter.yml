@@ -29,7 +29,7 @@ concurrency:
 jobs:
   setup_and_build:
     # This job calls the reusable workflow to handle setup and build the solution
-    uses: ./.github/workflows/reusable-setup.yml@${{ github.ref }}
+    uses: Goob-Station/Goob-Station/.github/workflows/reusable-setup.yml@master
     with:
       build-configuration: Release
       # Override default build args to match original linter build step

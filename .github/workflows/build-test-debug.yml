@@ -35,7 +35,7 @@ on:
 
 jobs:
   setup_and_build:
-    uses: ./.github/workflows/reusable-setup.yml@${{ github.ref }}
+    uses: Goob-Station/Goob-Station/.github/workflows/reusable-setup.yml@master
     with:
       build-configuration: DebugOpt
 

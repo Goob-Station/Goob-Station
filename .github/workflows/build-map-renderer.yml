@@ -29,7 +29,7 @@ concurrency:
 
 jobs:
   setup_and_build:
-    uses: ./.github/workflows/reusable-setup.yml@${{ github.ref }}
+    uses: Goob-Station/Goob-Station/.github/workflows/reusable-setup.yml@master
 
   run_renderer:
     needs: setup_and_build

@@ -48,7 +48,7 @@ concurrency:
 
 jobs:
   checkout:
-    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
+    uses: Goob-Station/Goob-Station/.github/workflows/reusable-checkout.yml@master
 
   diff:
     name: Diff
