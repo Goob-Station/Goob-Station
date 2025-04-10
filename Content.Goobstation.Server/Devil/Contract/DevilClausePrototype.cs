@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
-[Prototype("devilClause")]
+[Prototype("clause")]
 public sealed class DevilClausePrototype : IPrototype
 {
     [IdDataField]
@@ -18,12 +18,16 @@ public sealed class DevilClausePrototype : IPrototype
     [DataField]
     public int ClauseWeight = 5;
 
+    [DataField]
     public ComponentRegistry? AddedComponents { get; set; }
 
+    [DataField]
     public ComponentRegistry? RemovedComponents { get; set; }
 
+    [DataField]
     public string? DamageModifierSet { get; set; }
 
+    [DataField]
     public List<string>? SpecialActions { get; set; }
 
 }

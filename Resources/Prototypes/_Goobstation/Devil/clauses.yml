@@ -2,129 +2,129 @@
 # Any spaces on the written portion will be removed, so keep it all lowercase and one word.
 # Special actions can be defined in DevilContractSystem.cs
 
-- type: devilClause
+- type: clause
   id: soulownership
   clauseWeight: 25
   specialActions:
   - SoulOwnership
 
-- type: devilClause
+- type: clause
   id: weakness
   clauseWeight: -35
   damageModifierSet: DevilDealPositive
 
-- type: devilClause
+- type: clause
   id: fearoffire
   clauseWeight: -20
   damageModifierSet: HellSpawn
 
-- type: devilClause
+- type: clause
   id: fearofspace
   clauseWeight: -25
   addedComponents:
   - type: BreathingImmunity
   - type: PressureImmunity
 
-- type: devilClause
+- type: clause
   id: fearoflight
   clauseWeight: -15
   addedComponents:
   - type: FlashImmunity
 
-- type: devilClause
+- type: clause
   id: fearofelectricity
   clauseWeight: -15
   addedComponents:
   - type: Insulated
 
-- type: devilClause
+- type: clause
   id: shadows
   clauseWeight: -25
   addedComponents:
   - type: Stealth
   - type: StealthOnMove
 
-- type: devilClause
+- type: clause
   id: strength
   clauseWeight: 30
   damageModifierSet: DevilDealNegative
 
-- type: devilClause
+- type: clause
   id: willtofight
   clauseWeight: 60
   addedComponents:
   - type: Pacified
 
-- type: devilClause
+- type: clause
   id: sight
   clauseWeight: 60
   addedComponents:
   - type: PermanentBlindness
 
-- type: devilClause
+- type: clause
   id: coherence
   clauseWeight: 30
   addedComponents:
   - type: BackwardsAccent
   - type: Clumsy
 
-- type: devilClause
+- type: clause
   id: voice
   clauseWeight: 25
   addedComponents:
   - type: Muted
 
-- type: devilClause
+- type: clause
   id: aleg
   clauseWeight: 30
   specialActions:
   - RemoveLeg
 
-- type: devilClause
+- type: clause
   id: ahand
   clauseWeight: 30
   specialActions:
   - RemoveHand
 
-- type: devilClause
+- type: clause
   id: sanity
   clauseWeight: 35
   addedComponents:
   - type: Insanity
 
-- type: devilClause
+- type: clause
   id: anorgan
   clauseWeight: 45
   specialActions:
   - RemoveOrgan
 
-- type: devilClause
+- type: clause
   id: legs
   clauseWeight: 40
   addedComponents:
   - type: LegsParalyzed
 
-- type: devilClause
+- type: clause
   id: innerpeace
   clauseWeight: 5
   addedComponents:
   - type: TileMovement
 
-- type: devilClause
+- type: clause
   id: death
   clauseWeight: -25
   addedComponents:
   - type: CheatDeath
     reviveAmount: 1
 
-- type: devilClause
+- type: clause
   id: mortality
   clauseWeight: -100
   addedComponents:
   - type: CheatDeath
     reviveAmount: -1
 
-- type: devilClause
+- type: clause
   id: time
   clauseWeight: 150
   removedComponents:

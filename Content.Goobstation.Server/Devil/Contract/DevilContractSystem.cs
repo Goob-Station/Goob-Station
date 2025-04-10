@@ -6,6 +6,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
+using Content.Goobstation.Server.Devil.Condemned;
 using Content.Goobstation.Shared.Devil;
 using Content.Server.Body.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -147,7 +148,7 @@ public sealed class DevilContractSystem : EntitySystem
             return;
 
         // You can't sell your soul if you already sold it.
-        if (HasComp<Devil.Condemned.CondemnedComponent>(args.Signer))
+        if (HasComp<CondemnedComponent>(args.Signer))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("devil-contract-no-soul-sign-failed"),
@@ -225,7 +226,7 @@ public sealed class DevilContractSystem : EntitySystem
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
         // Can't sell what doesn't exist.
-        if (HasComp<Devil.Condemned.CondemnedComponent>(contractee))
+        if (HasComp<CondemnedComponent>(contractee))
             return false;
 
         // Can't sell yer soul to yourself
@@ -235,7 +236,7 @@ public sealed class DevilContractSystem : EntitySystem
         var ev = new SoulAmountChangedEvent(devil, contractee, added);
         RaiseLocalEvent(devil, ref ev);
 
-        var condemned = EnsureComp<Devil.Condemned.CondemnedComponent>(contractee);
+        var condemned = EnsureComp<CondemnedComponent>(contractee);
         condemned.SoulOwner = devil;
         condemned.CondemnOnDeath = true;
 
@@ -258,7 +259,10 @@ public sealed class DevilContractSystem : EntitySystem
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
             if (_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto))
+            {
                 newWeight += clauseProto.ClauseWeight;
+                contract.CurrentClauses.Add(clauseProto);
+            }
             else
                 _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
         }

@@ -21,10 +21,10 @@ public sealed partial class DevilContractComponent : Component
     public EntityUid? ContractOwner;
 
     /// <summary>
-    /// All entities being affected.
+    /// All current clauses.
     /// </summary>
     [DataField]
-    public List<EntityUid>? AffectedEntities = new();
+    public List<DevilClausePrototype> CurrentClauses = new();
 
     /// <summary>
     /// Has the contract been signed by the signer?
