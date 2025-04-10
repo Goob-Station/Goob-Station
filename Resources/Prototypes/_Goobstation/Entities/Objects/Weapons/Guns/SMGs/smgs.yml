@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: M7S submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunM7S
+  description: You may or may not be green, but you are still very very mean. Takes proprietary side-loading .25 rifle magazines.
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineCaselessRifleM7S
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineCaselessM7S
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeCaselessRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeCaselessRifle
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -29
+    maxAngle: -26
+  - type: Gun
+    projectileSpeed: 20 # half regular bullet speed
+    minAngle: 31
+    maxAngle: 42
+    shotsPerBurst: 5
+    availableModes:
+    - Burst
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/suppressed_smg.ogg
+      params:
+        volume: -14
+  - type: ChamberMagazineAmmoProvider
+    autoEject: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

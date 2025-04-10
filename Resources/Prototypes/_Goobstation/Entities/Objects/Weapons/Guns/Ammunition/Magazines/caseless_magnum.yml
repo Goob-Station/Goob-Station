@@ -1,0 +1,109 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: MagazinePistolCaselessMagnum
+  name: "pistol magazine (9.5mm caseless magnum)"
+  parent: BaseMagazinePistolCaselessRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineCaselessMagnum95Pistol
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95
+    capacity: 12
+  - type: Sprite
+    slayers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazinePistolCaselessMagnumMinusP
+  name: "pistol magazine (9.5mm caseless magnum -P)"
+  parent: BaseMagazinePistolCaselessRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineCaselessMagnum95Pistol
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95MinusP
+    capacity: 12
+  - type: Sprite
+    slayers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazinePistolCaselessMagnumSAPHE
+  name: "pistol magazine (9.5mm caseless magnum SAP-HE)"
+  parent: BaseMagazinePistolCaselessRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineCaselessMagnum95Pistol
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95SAPHE
+    capacity: 12
+  - type: Sprite
+    slayers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineCaselessMagnum
+  name: "magazine (9.5mm caseless magnum)"
+  parent: BaseMagazineCaselessRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineCaselessMagnum95
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCaselessMagnum95
+    proto: CartridgeCaselessMagnum95
+    capacity: 30
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi
+    slayers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
