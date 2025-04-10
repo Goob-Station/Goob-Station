@@ -134,4 +134,38 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector
+<<<<<<< HEAD
         tableId: BeltAssaultBSOEntityTable
+
+- type: entity
+  parent: ChemBag
+  id: ChemBagFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Jug
+    - id: LargeBeaker
+    - id: Beaker
+    - id: BaseChemistryEmptyVial
+    - id: Syringe
+
+- type: entity
+  parent: ClothingBeltChemBagSyndi
+  id: ClothingBeltChemBagSyndiFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Jug
+    - id: LargeBeaker
+    - id: OmnimedToolSyndie
+    - id: DartGun
+    - id: EpinephrineChemistryBottle
+      amount: 2
+    - id: EphedrineChemistryBottle
+      amount: 2
+    - id: OmnizineChemistryBottle
+=======
+        tableId: BeltAssaultBSOEntityTable
+>>>>>>> master
