@@ -74,16 +74,6 @@
     - id: TelecomServerCircuitboard
 
 - type: entity
-  id: NTRBoardSilo
-  parent: CrateCommandSecure
-  name: Silo machine board crate
-  description: Crate, with one silo machine board.
-  components:
-  - type: StorageFill
-    contents:
-    - id: MaterialSiloCircuitboard
-
-- type: entity
   id: NTRBoardHolopad
   parent: CrateCommandSecure
   name: Holopad crate

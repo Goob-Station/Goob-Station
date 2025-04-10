@@ -51,8 +51,8 @@ ntr-executive-glasses-desc = For when you need to look more important than you a
 ntr-executive-savaliniaharunianisimious-name = Svalinn laser pistol
 ntr-executive-savaliniaharunianisimious-desc = A standard Svalinn laser pistol, commonly used in NanoTrasen self-defense training programs.
 
-ntr-executive-1984-name = NT-1984
-ntr-executive-1984-desc = A standard NT-1984 sidearm for personal defense.
+ntr-executive-1984-name = Deckard revolver
+ntr-executive-1984-desc = A standard Deckard sidearm for personal defense.
 
 ntr-executive-combatmed-name = Combat medkit
 ntr-executive-combatmed-desc = For when you need more than just basic first aid supplies.
