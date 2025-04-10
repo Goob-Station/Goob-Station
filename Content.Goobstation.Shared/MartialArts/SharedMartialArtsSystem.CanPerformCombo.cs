@@ -1,7 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Johnly <Jonhlybr@gmail.com>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Super7522 <Jonhlybr@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -78,6 +80,9 @@ public partial class SharedMartialArtsSystem
             var ev = proto.ResultEvent;
             RaiseLocalEvent(uid, beingPerformedEv);
             RaiseLocalEvent(uid, ev);
+            if(proto.FollowupCombos == true && comp.LastAttacks.Count <= 8)
+                // Clears previous moves if a combo is longer than 16 moves, really is only called after a sucessful move.)
+                continue;
             comp.LastAttacks.Clear();
         }
     }

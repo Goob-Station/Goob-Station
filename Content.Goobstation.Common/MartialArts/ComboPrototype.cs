@@ -1,7 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Johnly <Jonhlybr@gmail.com>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Super7522 <Jonhlybr@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -66,6 +68,12 @@ public sealed partial class ComboPrototype : IPrototype
     /// </summary>
     [DataField(required: true)]
     public string Name = string.Empty;
+
+    /// <summary>
+    /// Whether the combo should not clear, meaning you can follow it up with additional moves.
+    /// </summary>
+    [DataField]
+    public bool FollowupCombos = false;
 
 }
 
