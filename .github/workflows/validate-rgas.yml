@@ -25,8 +25,10 @@ concurrency:
 jobs:
   checkout:
     uses: Goob-Station/Goob-Station/.github/workflows/reusable-checkout.yml@master
+    
   yaml-schema-validation:
     name: YAML RGA schema validator
+    needs: checkout
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
