@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Religion;
 
-public sealed partial class WeakToHolySystem : EntitySystem
+public sealed partial class System : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -47,37 +47,38 @@ public sealed partial class WeakToHolySystem : EntitySystem
     // passive healing on runes for aviu
     private void OnCollide(EntityUid uid, HereticRitualRuneComponent component, ref StartCollideEvent args)
     {
-        var _heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
+        var heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
 
-        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && _heretic.Damage.DamageDict.TryGetValue("Holy", out var holy)) {
+        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && heretic.Damage.DamageDict.TryGetValue("Holy", out _))
             return;
-        }
 
             // Store the original DamageCap if it hasn't already been stored
         if (!_originalDamageCaps.ContainsKey(args.OtherEntity))
         {
-        _originalDamageCaps[args.OtherEntity] = _heretic.DamageCap;
+        _originalDamageCaps[args.OtherEntity] = heretic.DamageCap;
         }
 
-        _heretic.Damage.DamageDict.TryAdd("Holy", -10);
-        _heretic.DamageCap = FixedPoint2.New(0);
+        heretic.Damage.DamageDict.TryAdd("Holy", -10);
+        heretic.DamageCap = FixedPoint2.New(0);
         DirtyEntity(args.OtherEntity);
 
     }
 
     private void OnCollideEnd(EntityUid uid, HereticRitualRuneComponent component, ref EndCollideEvent args)
     {
-        if (TryComp<PassiveDamageComponent>(args.OtherEntity, out var _heretic))
-        {
-            // Restore the original DamageCap if it was stored
-            if (_originalDamageCaps.TryGetValue(args.OtherEntity, out var originalCap))
+        if (!TryComp<PassiveDamageComponent>(args.OtherEntity, out var heretic))
             {
-                _heretic.DamageCap = originalCap;
+                return;
+            }
+
+        // Restore the original DamageCap if it was stored
+        if (_originalDamageCaps.TryGetValue(args.OtherEntity, out var originalCap))
+            {
+                heretic.DamageCap = originalCap;
                 _originalDamageCaps.Remove(args.OtherEntity); // Clean up after restoring
             }
 
-        _heretic.Damage.DamageDict.Remove("Holy");
+        heretic.Damage.DamageDict.Remove("Holy");
         DirtyEntity(args.OtherEntity);
-        }
     }
 }

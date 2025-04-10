@@ -7,7 +7,7 @@ using Content.Goobstation.Shared.Bible;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Overlays;
+namespace Content.Goobstation.Shared.Religion.Nullrod;
 
 public sealed partial class HonkmotherBaptismSystem : EntitySystem
 {
