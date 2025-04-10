@@ -36,7 +36,7 @@ public sealed class SharedNtrTaskSystem : EntitySystem
             args.Cancelled = true;
             if (_net.IsServer)
             {
-                if (args.User.HasValue)
+                if (args.User != null)
                 {
                     _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), uid, args.User.Value);
                 }
@@ -47,7 +47,7 @@ public sealed class SharedNtrTaskSystem : EntitySystem
 
         if (_net.IsServer)
         {
-            if (args.User.HasValue)
+            if (args.User != null)
             {
                 _popup.PopupEntity(Loc.GetString("ntr-console-insert-accept"), uid, args.User.Value);
             }
@@ -60,9 +60,7 @@ public sealed class SharedNtrTaskSystem : EntitySystem
                 if (!_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto))
                     continue;
 
-                bool isInstantTask = taskProto.Entries.Any(e => e.InstantCompletion);
-                var user = args.User ?? EntityUid.Invalid;
-                var ev = new TaskCompletedEvent(taskProto, user, isInstantTask);
+                var ev = new TaskCompletedEvent(taskProto);
                 RaiseLocalEvent(uid, ev);
             }
             _entityManager.QueueDeleteEntity(args.Item);
