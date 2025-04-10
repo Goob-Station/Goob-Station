@@ -29,7 +29,7 @@ concurrency:
 
 jobs:
   setup_and_build:
-    uses: ./.github/workflows/reusable-setup.yml@${{ github.ref }}
+    uses: ./.github/workflows/reusable-setup.yml@${{ github.sha }}
 
   run_renderer:
     needs: setup_and_build

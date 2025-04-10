@@ -48,7 +48,7 @@ concurrency:
 
 jobs:
   checkout:
-    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.sha }}
 
   diff:
     name: Diff

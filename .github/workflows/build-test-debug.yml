@@ -35,7 +35,7 @@ on:
 
 jobs:
   setup_and_build:
-    uses: ./.github/workflows/reusable-setup.yml@${{ github.ref }}
+    uses: ./.github/workflows/reusable-setup.yml@${{ github.sha }}
     with:
       build-configuration: DebugOpt
 
