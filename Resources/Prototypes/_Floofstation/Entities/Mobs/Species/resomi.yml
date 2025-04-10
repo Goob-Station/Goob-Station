@@ -120,6 +120,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
+      undershirt:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: undershirt
     femaleDisplacements: # Goobstation - splitting up the genders broke displacements, apparently it won't just apply the same displacement to both genders :|
       jumpsuit:
         sizeMaps:
@@ -176,6 +181,11 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
+      undershirt:
+        sizeMaps:
+          32:
+            sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
+            state: undershirt
   - type: FootPrints # Goobstation - resomi footprints
     leftBarePrint: "footprint-left-bare-lizard"
     rightBarePrint: "footprint-right-bare-lizard"
