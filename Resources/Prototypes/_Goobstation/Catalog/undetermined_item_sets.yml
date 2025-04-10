@@ -88,3 +88,13 @@
     state: icon
   content:
   - ClothingOuterHardsuitBlueshieldHeavy
+
+- type: thiefBackpackSet
+  id: ModsuitSet
+  name: blueshield-box-category-modsuitset-name
+  description: blueshield-box-category-modsuitset-description
+  sprite:
+    sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    state: control
+  content:
+  - ClothingModsuitResponsory

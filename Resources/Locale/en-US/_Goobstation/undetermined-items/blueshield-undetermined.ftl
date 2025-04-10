@@ -33,3 +33,7 @@ blueshield-box-category-lightset-description =
 blueshield-box-category-heavyset-name = heavy hardsuit
 blueshield-box-category-heavyset-description =
     A heavier hardsuit, allowing for more armor at the cost of speed.
+
+blueshield-box-category-modsuitset-name = modsuit
+blueshield-box-category-modsuitset-description =
+    A Praetorian modsuit, allowing for more features at the cost of power.

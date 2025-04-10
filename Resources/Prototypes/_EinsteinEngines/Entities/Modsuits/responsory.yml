@@ -1,0 +1,167 @@
+# The Modsuit Itself, This is just a ERT modsuit
+- type: entity
+  parent: ClothingModsuitStandard
+  id: ClothingModsuitResponsory
+  name: Responsory modsuit control
+  description: The main controller for a Responsory modsuit.
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetResponsory
+        gloves: ClothingModsuitGauntletsResponsory
+        outerClothing: ClothingModsuitChestplateResponsory
+        shoes: ClothingModsuitBootsResponsory
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellMicroreactor # Since this is used by ERT they shouldnt need to stop to recharge.
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+        - 0,0,10,3
+    - type: ExplosionResistance #Dont want chain explosions in the modsuits storage
+      damageCoefficient: 0.1
+    - type: SealableClothingVisuals
+      visualLayers:
+        back:
+        - state: equipped-BACKPACK-sealed
+
+- type: entity
+  parent: ClothingModsuitGauntletsStandard
+  id: ClothingModsuitGauntletsResponsory
+  name: Responsory modsuit gauntlets
+  description: A pair of gauntlets made for the Responsory modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+        - state: equipped-HAND-sealed
+        - state: equipped-HAND-sealed-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
+  id: ClothingModsuitHelmetResponsory
+  name: Responsory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Responsory modsuit. It includes a built-in HUD.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.9
+          Piercing: 0.9
+          Heat: 0.9
+    - type: FlashImmunity # Goobstation
+    - type: FlashSoundSuppression # Goobstation
+      protectionRange: 0
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+    - type: PointLight
+      color: "#FFDF00"
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-unshaded
+            shader: unshaded
+    - type: Reflect
+      reflectProb: 0.03
+      spread: 270
+      innate: true
+      reflects:
+        - Energy
+        - NonEnergy
+
+- type: entity
+  parent: ClothingModsuitChestplateStandard
+  id: ClothingModsuitChestplateResponsory
+  name: Responsory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Responsory Modsuit. It incorporates powered servos to reduce the equipment load.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.4
+          Slash: 0.4
+          Piercing: 0.3
+          Heat: 0.5
+          Radiation: 0.25
+          Caustic: 0.4
+    - type: SealableClothingVisuals
+      visualLayers:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+    - type: Reflect
+      reflectProb: 0.05
+      spread: 270
+      innate: true
+      reflects:
+        - Energy
+        - NonEnergy
+    - type: StaminaDamageResistance
+      coefficient: 0.5 # 50%
+    - type: TemperatureProtection
+      coefficient: 0.001
+    - type: FireProtection
+      reduction: 1
+
+- type: entity
+  parent: ClothingModsuitBootsStandard
+  id: ClothingModsuitBootsResponsory
+  name: Responsory modsuit boots
+  description: A state-of-the-art pair of magboots for the Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Appearance
+    - type: Sprite
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: ToggleClothing
+      action: ActionToggleMagboots
+    - type: ComponentToggler
+      components:
+        - type: NoSlip
+    - type: Magboots
+    - type: SealableClothingVisuals
+      visualLayers:
+        shoes:
+          - state: equipped-FEET-sealed
+
+- type: entity
+  id: SuitStorageResponsory
+  parent: SuitStorageBase
+  suffix: Responsory Modsuit
+  components:
+    - type: StorageFill
+      contents:
+        - id: OxygenTankFilled
+        - id: ClothingModsuitResponsory
+        - id: ClothingMaskBreath

@@ -42,6 +42,7 @@
     possibleSets:
     - LightSet
     - HeavySet
+    - ModsuitSet
     maxSelectedSets: 1
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
