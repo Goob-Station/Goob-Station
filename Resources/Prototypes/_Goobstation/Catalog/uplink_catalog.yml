@@ -1,4 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
@@ -19,8 +18,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
@@ -180,7 +181,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: WeaponRifleBurner
   cost:
-    Telecrystal: 100 # don't kill me piras
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
 
@@ -601,13 +602,13 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkMagazineHighCaliberExplosive
-  name: uplink-high-caliber-explosive-magazine-name
-  description: uplink-high-caliber-explosive-magazine-desc
+  id: UplinkMagazineHighCaliberHP
+  name: uplink-high-caliber-HP-magazine-name
+  description: uplink-high-caliber-HP-magazine-desc
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
-  productEntity: MagazineHighCaliberExplosive
+  productEntity: MagazineHighCaliberHP
   cost:
-    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
+    Telecrystal: 6 # Twice as much compared to regular mags. Idk if it's reasonable
   categories:
   - UplinkAmmo
 
