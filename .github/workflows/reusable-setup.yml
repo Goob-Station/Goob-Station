@@ -37,7 +37,7 @@ jobs:
           dotnet-version: ${{ inputs.dotnet-version }}
 
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore SpaceStation14.sln
       - name: Build Project
         run: >
           dotnet build SpaceStation14.sln
