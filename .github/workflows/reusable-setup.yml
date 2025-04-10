@@ -4,6 +4,10 @@
 
 name: Setup & Build .NET Environment
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   workflow_call:
     inputs:
