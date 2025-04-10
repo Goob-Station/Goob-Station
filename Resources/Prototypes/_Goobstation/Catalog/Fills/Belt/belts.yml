@@ -57,11 +57,14 @@
   parent: ClothingBeltHolster
   suffix: Filled, N1984
   components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolN1984
   - type: StorageFill
     contents:
     - id: MagazineMagnum
     - id: MagazineMagnum
-    - id: WeaponPistolN1984
 
 - type: entity
   id: ClothingBeltSecurityWebbingFilledMedical
@@ -135,3 +138,19 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltAssaultBSOEntityTable
+
+- type: entity
+  id: ClothingBeltHolsterFilledBlueshield
+  parent: ClothingBeltHolster
+  suffix: Filled, EG-4
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponEnergyRevolver
+  - type: StorageFill
+    contents:
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderDisabler
+    - id: EnergySpeedloaderDisabler

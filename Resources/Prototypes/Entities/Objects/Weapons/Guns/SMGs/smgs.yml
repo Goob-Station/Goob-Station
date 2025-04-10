@@ -52,6 +52,7 @@
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -139,6 +140,9 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1
 
 - type: entity
   name: C-20r submachine gun
@@ -177,6 +181,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1
 
 - type: entity
   name: Drozd
@@ -297,3 +304,6 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1

@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -108,9 +109,6 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
-  - type: Item
-    shape:
-    - 0,0,4,2
 
 - type: entity
   name: Annie
@@ -169,9 +167,6 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Item
-    shape:
-    - 0,0,4,2
 
 - type: entity
   name: WSPR
@@ -222,6 +217,3 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Item
-    shape:
-    - 0,0,4,2
