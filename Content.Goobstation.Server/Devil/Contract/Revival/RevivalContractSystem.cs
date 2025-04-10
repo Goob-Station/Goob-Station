@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Server.Contract;
 using Content.Goobstation.Shared.Devil;
 using Content.Server.Administration.Systems;
 using Content.Shared.Interaction;
@@ -10,10 +11,11 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Contract.Revival;
+namespace Content.Goobstation.Server.Devil.Contract.Revival;
 public sealed partial class PendingRevivalContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -31,11 +33,11 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     private void AfterInteract(EntityUid uid, RevivalContractComponent comp, AfterInteractEvent args)
     {
-        // Block of shitcode.
-        if (!TryComp<MobStateComponent>(args.Target, out var mobState) ||
-            mobState.CurrentState != MobState.Dead ||
-            !HasComp<RevivalContractComponent>(args.Used)
-            || args.Target == null || args.Handled) // Todo: Give this an actor comp check when done testing.
+        // Seperated into two checks for readabilities sake.
+        if (!TryComp<MobStateComponent>(args.Target, out var mobState) || mobState.CurrentState != MobState.Dead)
+            return;
+
+        if (args.Target == null || args.Handled || !HasComp<ActorComponent>(args.Target))
             return;
 
         // Non-devils can't offer deals silly.
@@ -46,7 +48,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         }
 
         // You can't offer two deals at once.
-        if (HasComp<PendingRevivalContractComponent>((EntityUid)args.Target))
+        if (HasComp<PendingRevivalContractComponent>(args.Target))
         {
             var failedPopup = Loc.GetString("revival-contract-use-failed");
             _popupSystem.PopupEntity(failedPopup, uid);
@@ -66,7 +68,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
         // Show instructions
         var prompt = Loc.GetString("revival-contract-prompt", ("offerer", args.User));
-        _popupSystem.PopupEntity(prompt, (EntityUid)args.Target, (EntityUid)args.Target);
+        _popupSystem.PopupEntity(prompt, (EntityUid)args.Target, (EntityUid)args.Target); // Rider bitches and moans unless I cast this to EntityUid.
         args.Handled = true;
 
     }
@@ -96,21 +98,15 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         if (!TryComp<PendingRevivalContractComponent>(target, out var pending))
             return;
 
-        if (accepted)
+        if (accepted && TryComp<RevivalContractComponent>(pending.Contractee, out var contract))
         {
-            if (TryComp<RevivalContractComponent>(pending.Contractee, out var contract))
-            {
-                contract.Signer = target;
-                _rejuvenate.PerformRejuvenate(target);
-                _popupSystem.PopupEntity(Loc.GetString("revival-contract-accepted"), target);
-
-               _contract.TryTransferSouls(contract.ContractOwner, contract.Signer, 1);
-            }
+            contract.Signer = target;
+            _rejuvenate.PerformRejuvenate(target);
+            _popupSystem.PopupEntity(Loc.GetString("revival-contract-accepted"), target);
+            _contract.TryTransferSouls(contract.ContractOwner, contract.Signer, 1);
         }
-        else
-        {
+        if (!accepted)
             _popupSystem.PopupEntity(Loc.GetString("revival-contract-rejected"), target);
-        }
 
         RemComp<PendingRevivalContractComponent>(target);
     }
@@ -124,6 +120,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         {
             if (_timing.CurTime <= pending.ExpiryTime)
                 continue;
+
             _popupSystem.PopupEntity(Loc.GetString("revival-contract-expired"), uid);
             RemComp<PendingRevivalContractComponent>(uid);
 

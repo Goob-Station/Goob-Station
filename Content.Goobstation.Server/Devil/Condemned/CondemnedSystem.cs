@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
@@ -12,17 +11,14 @@ using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
-namespace Content.Goobstation.Server.Condemned;
+namespace Content.Goobstation.Server.Devil.Condemned;
 
 public sealed partial class CondemnedSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
@@ -156,12 +152,12 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     private void TryDoCondemnedBehavior(EntityUid uid, CondemnedComponent comp)
     {
-        switch (comp.CondemnedBehavior)
+        switch (comp)
         {
-            case CondemnedBehavior.Delete:
+            case { CondemnedBehavior: CondemnedBehavior.Delete }:
                 QueueDel(uid);
                 break;
-            case CondemnedBehavior.Banish:
+            case { CondemnedBehavior: CondemnedBehavior.Banish }:
                 _poly.PolymorphEntity(uid, _banishProto);
                 break;
         }

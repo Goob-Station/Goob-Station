@@ -6,11 +6,9 @@
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Shared.Mobs;
 
-namespace Content.Goobstation.Server.Condemned;
-public sealed partial class CondemnedSystem : EntitySystem
+namespace Content.Goobstation.Server.Devil.Condemned;
+public sealed partial class CondemnedSystem
 {
-    [Dependency] private readonly CondemnedSystem _condemned = default!;
-
     public void InitializeOnDeath()
     {
         SubscribeLocalEvent<CondemnedComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -24,6 +22,6 @@ public sealed partial class CondemnedSystem : EntitySystem
         if (TryComp<CheatDeathComponent>(uid, out var cheatDeath) && cheatDeath.ReviveAmount > 0)
             return;
 
-        _condemned.StartCondemnation(uid, comp, behavior: CondemnedBehavior.Delete);
+        StartCondemnation(uid, comp, behavior: CondemnedBehavior.Delete);
     }
 }

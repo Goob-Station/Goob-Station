@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Condemned;
+namespace Content.Goobstation.Server.Devil.Condemned;
 
 public sealed class CondemnedCompleteEvent : EntityEventArgs
 {

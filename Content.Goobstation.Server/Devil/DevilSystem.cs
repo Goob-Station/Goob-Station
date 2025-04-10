@@ -4,7 +4,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Server.Condemned;
 using Content.Goobstation.Server.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
@@ -72,7 +71,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PossessionSystem _possession = default!;
-    [Dependency] private readonly CondemnedSystem _condemned = default!;
+    [Dependency] private readonly Condemned.CondemnedSystem _condemned = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
 
 
@@ -109,7 +108,7 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<ThirstComponent>(uid);
         RemComp<TemperatureComponent>(uid);
         RemComp<TemperatureSpeedComponent>(uid);
-        RemComp<CondemnedComponent>(uid);
+        RemComp<Condemned.CondemnedComponent>(uid);
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(uid);
@@ -210,7 +209,7 @@ public sealed partial class DevilSystem : EntitySystem
     private void OnListen(EntityUid uid, DevilComponent comp, ListenEvent args)
     {
         // Other Devils and entities without souls have no authority over you.
-        if (HasComp<DevilComponent>(args.Source) || HasComp<CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source))
+        if (HasComp<DevilComponent>(args.Source) || HasComp<Condemned.CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source))
             return;
 
         var message = args.Message.ToLowerInvariant();
@@ -249,7 +248,7 @@ public sealed partial class DevilSystem : EntitySystem
             return;
 
         _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", devil.Comp.TrueName)), devil, PopupType.LargeCaution);
-        _condemned.StartCondemnation(args.Target.Value, behavior: CondemnedSystem.CondemnedBehavior.Banish);
+        _condemned.StartCondemnation(args.Target.Value, behavior: Condemned.CondemnedSystem.CondemnedBehavior.Banish);
     }
 
     #endregion

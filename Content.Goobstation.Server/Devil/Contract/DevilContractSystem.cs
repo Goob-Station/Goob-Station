@@ -6,8 +6,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
-using Content.Goobstation.Server.Condemned;
-using Content.Goobstation.Server.Devil;
 using Content.Goobstation.Shared.Devil;
 using Content.Server.Body.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -24,7 +22,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Contract;
+namespace Content.Goobstation.Server.Devil.Contract;
 
 public sealed class DevilContractSystem : EntitySystem
 {
@@ -149,7 +147,7 @@ public sealed class DevilContractSystem : EntitySystem
             return;
 
         // You can't sell your soul if you already sold it.
-        if (HasComp<CondemnedComponent>(args.Signer))
+        if (HasComp<Devil.Condemned.CondemnedComponent>(args.Signer))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("devil-contract-no-soul-sign-failed"),
@@ -227,7 +225,7 @@ public sealed class DevilContractSystem : EntitySystem
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
         // Can't sell what doesn't exist.
-        if (HasComp<CondemnedComponent>(contractee))
+        if (HasComp<Devil.Condemned.CondemnedComponent>(contractee))
             return false;
 
         // Can't sell yer soul to yourself
@@ -237,7 +235,7 @@ public sealed class DevilContractSystem : EntitySystem
         var ev = new SoulAmountChangedEvent(devil, contractee, added);
         RaiseLocalEvent(devil, ref ev);
 
-        var condemned = EnsureComp<CondemnedComponent>(contractee);
+        var condemned = EnsureComp<Devil.Condemned.CondemnedComponent>(contractee);
         condemned.SoulOwner = devil;
         condemned.CondemnOnDeath = true;
 
@@ -259,7 +257,7 @@ public sealed class DevilContractSystem : EntitySystem
 
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
-            if (_prototypeManager.TryIndex(clauseKey, out DevilClauseProto? clauseProto))
+            if (_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto))
                 newWeight += clauseProto.ClauseWeight;
             else
                 _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
@@ -292,7 +290,7 @@ public sealed class DevilContractSystem : EntitySystem
                 continue;
             }
 
-            if (!_prototypeManager.TryIndex(clauseKey, out DevilClauseProto? clause))
+            if (!_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clause))
             {
                 _sawmill.Warning($"Unknown contract clause: {clauseKey}");
                 continue;
@@ -302,7 +300,7 @@ public sealed class DevilContractSystem : EntitySystem
         }
     }
 
-    private void ApplyEffectToTarget(EntityUid target, DevilContractComponent contract, DevilClauseProto clause)
+    private void ApplyEffectToTarget(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
     {
         if (clause.AddedComponents != null)
         {
@@ -332,21 +330,21 @@ public sealed class DevilContractSystem : EntitySystem
 
                 case "RemoveHand":
                     TryComp<BodyComponent>(target, out var body);
-                    var hand = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).FirstOrDefault();
+                    var hand = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ElementAtOrDefault(0);
                     if (hand.Id.Valid)
                         _transform.AttachToGridOrMap(hand.Id);
                     break;
 
                 case "RemoveLeg":
                     TryComp<BodyComponent>(target, out var bodyLeg);
-                    var leg = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).FirstOrDefault();
+                    var leg = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).ElementAtOrDefault(0);
                     if (leg.Id.Valid)
                         _transform.AttachToGridOrMap(leg.Id);
                     break;
 
                 case "RemoveOrgan":
                     TryComp<BodyComponent>(target, out var bodyOrgan);
-                    var organ = _bodySystem.GetBodyOrgans(target).FirstOrDefault();
+                    var organ = _bodySystem.GetBodyOrgans(target).ElementAtOrDefault(0);
                     if (organ.Id.Valid)
                         _transform.AttachToGridOrMap(organ.Id);
                     break;
