@@ -140,6 +140,7 @@
     size: Ginormous
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_hammer-inhands.rsi
   - type: MeleeThrowOnHit
+    distance: 3
     speed: 5
   - type: FlipOnHit
   - type: GunRequiresWield

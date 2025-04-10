@@ -49,6 +49,7 @@
     delay: 5 # Goobstation
   - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
+    distance: 10 # Goobstation
     stunTime: 3
     activateOnThrown: true
   - type: MeleeWeapon
