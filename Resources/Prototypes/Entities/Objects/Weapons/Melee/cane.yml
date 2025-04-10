@@ -20,7 +20,7 @@
   parent: BaseItem
   id: Cane
   name: cane
-  description: A wooden cane.
+  description: A standard wooden cane. Can help disabled people move easier. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane.rsi
@@ -44,6 +44,7 @@
         Blunt: 3
   - type: UseDelay
     delay: 1
+  - type: MovementImpairedCorrection # Goobstation
 
 - type: entity
   name: cane blade
@@ -109,6 +110,7 @@
           tags:
           - CaneBlade
   - type: HideContrabandContent #Goobstation-Contraband detector
+  - type: MovementImpairedCorrection # Goobstation
 
 - type: entity
   id: CaneSheathFilled
