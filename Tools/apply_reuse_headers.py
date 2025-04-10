@@ -26,7 +26,7 @@ FILE_PATTERNS = ["*.cs", "*.js", "*.ts", "*.jsx", "*.tsx", "*.c", "*.cpp", "*.cc
                 "*.ini", "*.cfg", "*.bat", "*.cmd", "*.vb", "*.vbs", "*.bas", "*.asm", "*.s", "*.lisp",
                 "*.clj", "*.f", "*.f90", "*.m", "*.sql", "*.ada", "*.adb", "*.ads", "*.hs", "*.lhs",
                 "*.lua", "*.xaml", "*.xml", "*.html", "*.htm", "*.svg", "*.css", "*.scss", "*.sass",
-                "*.less", "*.md", "*.markdown"]
+                "*.less", "*.md", "*.markdown", "*.csproj", "*.DotSettings"]
 REPO_PATH = "."
 MAX_WORKERS = os.cpu_count() or 4
 
@@ -113,6 +113,8 @@ COMMENT_STYLES = {
     ".less": ("/*", "*/"),
     ".md": ("<!--", "-->"),
     ".markdown": ("<!--", "-->"),
+    ".csproj": ("<!--", "-->"),
+    ".DotSettings": ("<!--", "-->"),
 }
 
 # --- Shared State and Lock ---
