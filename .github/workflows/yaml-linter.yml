@@ -27,27 +27,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  setup_and_build:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-setup.yml@master
-    with:
-      build-configuration: Release
-      build-extra-args: '/p:WarningsAsErrors='
-
-  run_linter:
+  build:
     name: YAML Linter
-    needs: setup_and_build
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3.6.0
-        with:
-          submodules: 'recursive'
-
+      - uses: actions/checkout@v3.6.0
+      - name: Setup submodule
+        run: |
+          git submodule update --init --recursive
+      - name: Pull engine updates
+        uses: space-wizards/submodule-dependency@v0.1.5
+      - name: Update Engine Submodules
+        run: |
+          cd RobustToolbox/
+          git submodule update --init --recursive
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3.2.0
         with:
           dotnet-version: 9.0.x
-
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore /p:WarningsAsErrors= /m
       - name: Run Linter
-        run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --configuration Release --no-build
+        run: dotnet run --project Content.YAMLLinter/Content.YAMLLinter.csproj --no-build

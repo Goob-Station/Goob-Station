@@ -42,27 +42,40 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  setup_and_build:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-setup.yml@master
-
-  package:
+  build:
     name: Test Packaging
-    needs: setup_and_build
-    if: github.event.pull_request.draft == false
+    if: github.actor != 'PJBot' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
+      - name: Checkout Master
         uses: actions/checkout@v3.6.0
-        with:
-          submodules: 'recursive'
+
+      - name: Setup Submodule
+        run: |
+          git submodule update --init --recursive
+
+      - name: Pull engine updates
+        uses: space-wizards/submodule-dependency@v0.1.5
+
+      - name: Update Engine Submodules
+        run: |
+          cd RobustToolbox/
+          git submodule update --init --recursive
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3.2.0
         with:
           dotnet-version: 9.0.x
 
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build Packaging
+        run: dotnet build Content.Packaging --configuration Release --no-restore /m
+
       - name: Package server
-        run: dotnet run --project Content.Packaging server --configuration Release --no-build --platform win-x64 --platform linux-x64 --platform osx-x64 --platform linux-arm64
+        run: dotnet run --project Content.Packaging server --platform win-x64 --platform linux-x64 --platform osx-x64 --platform linux-arm64
 
       - name: Package client
-        run: dotnet run --project Content.Packaging client --configuration Release --no-build --no-wipe-release
+        run: dotnet run --project Content.Packaging client --no-wipe-release
