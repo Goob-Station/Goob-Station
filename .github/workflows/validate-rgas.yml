@@ -24,7 +24,7 @@ concurrency:
 
 jobs:
   checkout:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-checkout.yml@master
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
   yaml-schema-validation:
     name: YAML RGA schema validator
     if: github.event.pull_request.draft == false

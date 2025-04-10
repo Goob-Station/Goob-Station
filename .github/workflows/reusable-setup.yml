@@ -29,7 +29,7 @@ on:
 
 jobs:
   checkout:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-checkout.yml@master
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
 
   setup_and_build:
     runs-on: ubuntu-latest

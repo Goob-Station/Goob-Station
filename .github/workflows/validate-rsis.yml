@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   checkout:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-checkout.yml@master
+    uses: ./.github/workflows/reusable-checkout.yml@${{ github.ref }}
 
   validate_rsis:
     name: Validate RSIs

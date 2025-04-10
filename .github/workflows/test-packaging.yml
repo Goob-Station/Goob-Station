@@ -43,7 +43,7 @@ concurrency:
 
 jobs:
   setup_and_build:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-setup.yml@master
+    uses: ./.github/workflows/reusable-setup.yml@${{ github.ref }}
 
   package:
     name: Test Packaging
