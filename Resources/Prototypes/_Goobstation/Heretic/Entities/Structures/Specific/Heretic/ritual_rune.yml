@@ -6,6 +6,8 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -20,7 +22,10 @@
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/ritual_rune.rsi
-    state: icon
+    layers:
+    - state: overlay # Required so that you don't miss the rune when clicking on it
+      color: "#FFFFFF01"
+    - state: icon
   - type: Clickable
   - type: UserInterface
     interfaces:
