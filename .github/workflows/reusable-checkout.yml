@@ -24,6 +24,3 @@ jobs:
         run: |
           cd RobustToolbox/
           git submodule update --init --recursive
-
-      - name: List Files
-        run: ls -R
