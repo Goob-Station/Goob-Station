@@ -14,14 +14,11 @@ on:
     types: [ opened, reopened, synchronize, ready_for_review ]
 
 jobs:
-  checkout:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-checkout.yml@master
-
   build:
     name: CRLF Check
-    needs: checkout
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3.6.0
     - name: Check for CRLF
       run: Tools/check_crlf.py
