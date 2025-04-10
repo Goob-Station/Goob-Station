@@ -438,7 +438,14 @@
   description: A stuffed toy that resembles a syndicate nuclear operative. The tag claims operatives to be purely fictitious.
   components:
   - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi # goob edit
     state: plushie_nuke
+  - type: item #Goobstation
+    inhandVisuals:
+      left:
+      - state: plushienukie-inhand-left
+      right:
+      - state: plushienukie-inhand-right
 
 - type: entity
   parent: BasePlushie
