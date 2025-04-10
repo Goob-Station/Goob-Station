@@ -4,8 +4,10 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
@@ -30,6 +32,7 @@
         Structural: 20
     clickPartDamageMultiplier: 2
     heavyPartDamageMultiplier: 1.5
+    armorPenetration: 0.2
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -61,6 +64,6 @@
         Structural: 1
   - type: TimedDespawn
     lifetime: 60
-  - type: GibThisGuy 
+  - type: GibThisGuy
     ocNames:
     - BombasterDS
