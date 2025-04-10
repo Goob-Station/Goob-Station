@@ -8,7 +8,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Weapons.Multishot;
+namespace Content.Goobstation.Common.Weapons.Multishot;
 
 /// <summary>
 /// Component that allows guns to be shooted with another weapon by holding it in second hand
@@ -18,14 +18,33 @@ namespace Content.Goobstation.Shared.Weapons.Multishot;
 public sealed partial class MultishotComponent : Component
 {
     /// <summary>
-    /// Increasing spread when shooting with multiple hands
+    /// Increasing spread when shooting with multiple hands.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float SpreadMultiplier = 1.5f;
 
     /// <summary>
-    /// Uid of related weapon
+    /// Shows that this entity is affected with multishot debuffs.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? RelatedWeapon = default!;
+    public bool MultishotAffected = false;
+
+    /// <summary>
+    /// Makes damage to hand without damaging entity.
+    /// Cry: Can't use DamageSpecifier because this component in Common.
+    /// </summary>
+    [DataField]
+    public float HandDamage = 0f;
+
+    /// <summary>
+    /// Flat spread increase.
+    /// </summary>
+    [DataField]
+    public float FlatSpreadAddition = 5f;
+
+    /// <summary>
+    /// Deal stamina damage on dual welding.
+    /// </summary>
+    [DataField]
+    public float StaminaDamage = 0f;
 }
