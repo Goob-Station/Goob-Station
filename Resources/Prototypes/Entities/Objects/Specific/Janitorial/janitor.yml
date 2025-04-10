@@ -162,6 +162,10 @@
     damage:
       types:
         Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
   - type: Item
     size: Large
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -217,6 +221,10 @@
       damage:
         types:
           Blunt: 5
+    - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
     - type: Item
       size: Large
       sprite: Objects/Specific/Janitorial/advmop.rsi

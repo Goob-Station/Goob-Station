@@ -46,7 +46,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 2
+        Slash: 5
   - type: Tag
     tags:
     - Trash
