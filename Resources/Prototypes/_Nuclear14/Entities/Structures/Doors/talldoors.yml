@@ -1,0 +1,366 @@
+- type: entity
+  parent: BaseStructure
+  id: N14DoorMetalBlueTall
+  name: metal Door
+  suffix: tall
+  description: An old blue metal door.
+  components:
+  - type: InteractionOutline
+  - type: AnimationPlayer
+  - type: Appearance
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Nuclear14/Structures/Doors/TallDoors/metalblue.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0
+    closeTimeTwo: 0
+    openTimeOne: 0
+    openTimeTwo: 0
+    closedDrawDepth: Mobs
+    openDrawDepth: Mobs
+    openSound:
+      path: /Audio/Effects/door_open.ogg
+    closeSound:
+      path: /Audio/Effects/door_close.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: NavMapDoor
+  - type: Occluder
+  - type: BlockWeather
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  # - type: Lock
+    # locked: true
+    # lockSlotId: lock_slot
+  # - type: ItemSlots
+    # slots:
+      # lock_slot:
+        # name: cp-lock-slot-component-slot-name-default
+        # disableEject: true
+        # insertOnInteract: false
+        # ejectOnBreak: true
+        # whitelist:
+          # components:
+          # - CPLock
+  # - type: ContainerContainer
+    # containers:
+      # lock_slot: !type:ContainerSlot
+
+# - type: entity
+  # parent: CP14BaseWoodDoor
+  # id: CP14WoodDoorOpened
+  # suffix: Opened
+  # components:
+  # - type: Lock
+    # locked: false
+
+# - type: entity
+  # parent: CP14BaseWoodDoor
+  # id: CP14WoodDoorTavern
+  # suffix: Tavern
+  # components:
+  # - type: ItemSlots
+    # slots:
+      # lock_slot:
+        # name: cp-lock-slot-component-slot-name-default
+        # startingItem: CP14LockTavern
+        # disableEject: true
+        # insertOnInteract: false
+        # ejectOnBreak: true
+        # whitelist:
+          # components:
+          # - CPLock
+
+- type: entity
+  parent: N14DoorMetalBlueTall
+  id: N14DoorMetalRedTall
+  name: metal Door
+  suffix: tall
+  description: An old red metal door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/metalred.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorMetalBlueTall
+  id: N14DoorMetalBlueAltTall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/metalbluealt.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorMetalBlueTall
+  id: N14DoorMetalBlueWindowTall
+  name: metal Door
+  suffix: tall, windowed
+  description: An old blue metal door with a window.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/metalbluewindow.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    occludes: false
+  - type: Occluder
+    enabled: false
+
+- type: entity
+  parent: N14DoorMetalBlueWindowTall
+  id: N14DoorMetalGrateTall
+  suffix: tall, grate
+  description: A metal mesh door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/metal_grate.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorMetalBlueWindowTall
+  id: N14DoorMetalBarTall
+  suffix: tall, bar
+  description: A metal bar door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/metal_bar.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorMetalBlueWindowTall
+  id: N14DoorMetalFenceTall
+  suffix: tall, fence
+  description: A metal fence gate.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/fence.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorMetalBlueWindowTall
+  id: N14DoorMetalFenceBarbedTall
+  suffix: tall, fence barbed
+  description: A metal barbed fence gate.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/fence_barbed.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+# Wooden
+- type: entity
+  parent: N14DoorMetalBlueTall
+  id: N14DoorWoodTall
+  name: wooden door
+  suffix: tall
+  description: A wooden door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/wood.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: N14DoorWoodTall
+  id: N14DoorWoodBlueTall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/woodblue.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorWoodTall
+  id: N14DoorWoodGreenTall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/woodgreen.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorWoodTall
+  id: N14DoorWoodRedTall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/woodred.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorWoodTall
+  id: N14DoorWoodWhiteTall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/woodwhite.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+# Cell Doors
+- type: entity
+  parent: N14DoorMetalBlueTall
+  id: N14DoorCell
+  name: cell door
+  description: A door to be in cell.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/cell.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    occludes: false
+  - type: Occluder
+    enabled: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.6,0.5,-0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+        density: 1000
+
+
+- type: entity
+  parent: N14DoorCell
+  id: N14DoorCellRust
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/TallDoors/cellrust.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorMetalBlueTall
+  id: N14DoorAirlockTall
+  name: airlock
+  suffix: tall
+  description: An old bunker airlock.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Nuclear14/Structures/Doors/TallDoors/airlock.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+      shader: unshaded
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Door
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0.6
+    closeTimeTwo: 0.8
+    openTimeOne: 1
+    openTimeTwo: 0.4
+    openingAnimationTime: 1.4
+    closingAnimationTime: 1.4
+    closedDrawDepth: Mobs
+    openDrawDepth: Mobs
+    openSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Open_01.ogg
+    closeSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Close_01.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: AnimationPlayer
+  - type: Appearance
+  - type: BlockWeather
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: RadiationBlocker
+    resistance: 10
+  - type: SpriteFade
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallic
+  - type: ApcPowerReceiver
+    powerLoad: 10
+  - type: ExtensionCableReceiver
+  - type: Airlock
+  - type: DoorBolt
+  - type: LayerChangeOnWeld
+    unWeldedLayer: AirlockLayer
+    weldedLayer: WallLayer
+  - type: Weldable
+    time: 8

@@ -1,0 +1,96 @@
+﻿- type: entity
+  abstract: true
+  id: N14GasPipeBase
+  parent: GasPipeBase
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Piping/atmospherics.rsi
+    drawdepth: ThinPipe
+    netsync: false
+    visible: false
+
+#Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
+
+- type: entity
+  parent: N14GasPipeBase
+  id: N14GasPipeEnd
+  suffix: End
+  components:
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: South
+  - type: Sprite
+    layers:
+      - state: pipeEnd
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+
+- type: entity
+  parent: N14GasPipeBase
+  id: N14GasPipeStraight
+  suffix: Straight
+  components:
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: Longitudinal
+  - type: Sprite
+    layers:
+      - state: pipeStraight
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+
+- type: entity
+  parent: N14GasPipeBase
+  id: N14GasPipeBend
+  suffix: Bend
+  components:
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: SWBend
+  - type: Sprite
+    layers:
+      - state: pipeBend
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+
+- type: entity
+  parent: N14GasPipeBase
+  id: N14GasPipeTJunction
+  suffix: TJunction
+  components:
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: TSouth
+  - type: Sprite
+    layers:
+      - state: pipeTJunction
+        map: [ "enum.PipeVisualLayers.Pipe" ]
+
+- type: entity
+  parent: N14GasPipeBase
+  id: N14GasPipeFourway
+  suffix: Fourway
+  components:
+  - type: Transform
+    noRot: true
+  - type: NodeContainer
+    nodes:
+      pipe:
+        !type:PipeNode
+        nodeGroupID: Pipe
+        pipeDirection: Fourway
+  - type: Sprite
+    layers:
+      - state: pipeFourway
+        map: [ "enum.PipeVisualLayers.Pipe" ]

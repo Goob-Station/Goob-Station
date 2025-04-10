@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Created by INFRARED_BARON for MS13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bathhub"
+    },
+    {
+      "name": "bathhub_soil"
+    },
+    {
+      "name": "skullshrooms"
+    },
+    {
+      "name": "crateshrooms"
+    },
+    {
+      "name": "bananayukka"
+    },
+    {
+      "name": "bananayukka_ripe"
+    },
+    {
+      "name": "bananayukka_planter"
+    },
+    {
+      "name": "brocflower"
+    },
+    {
+      "name": "brocflower_ripe"
+    },
+    {
+      "name": "brocflower_planter"
+    },
+    {
+      "name": "xanderroot"
+    },
+    {
+      "name": "xanderroot1"
+    },
+    {
+      "name": "xanderroot_planter"
+    },
+    {
+      "name": "cavemushrooms"
+    },
+    {
+      "name": "chantarelles"
+    },
+    {
+      "name": "pennybuns"
+    },
+    {
+      "name": "flyamonita"
+    },
+    {
+      "name": "flyamonita1"
+    },
+    {
+      "name": "flyamonita2"
+    },
+    {
+      "name": "radmushrooms"
+    },
+    {
+      "name": "radmushrooms1"
+    },
+    {
+      "name": "radmushrooms2"
+    }
+  ]
+}
