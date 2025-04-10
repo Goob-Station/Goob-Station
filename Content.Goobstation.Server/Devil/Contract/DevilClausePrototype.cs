@@ -1,0 +1,33 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.ComponentModel.DataAnnotations;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Server.Devil.Contract;
+
+[Prototype("clause")]
+public sealed class DevilClausePrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private init; } = default!;
+
+    [DataField]
+    public int ClauseWeight = 5;
+
+    [DataField]
+    public ComponentRegistry? AddedComponents { get; set; }
+
+    [DataField]
+    public ComponentRegistry? RemovedComponents { get; set; }
+
+    [DataField]
+    public string? DamageModifierSet { get; set; }
+
+    [DataField]
+    public List<string>? SpecialActions { get; set; }
+
+}
