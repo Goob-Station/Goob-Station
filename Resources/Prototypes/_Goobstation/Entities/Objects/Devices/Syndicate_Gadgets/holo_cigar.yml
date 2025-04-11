@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseItem
+  id: HoloCigar
+  name: holo-cigar
+  description: A sleek electronic cigar imported straight from Sol. You feel badass merely glimpsing it...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/holocigar.rsi
+    state: icon
+  - type: Clothing
+    sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: Objects/Consumable/Smokeables/Cigars/cigar.rsi
+    heldPrefix: unlit
+  - type: Appearance
+  - type: BurnStateVisuals
+  - type: HoloCigar
+  - type: ClothingGrantComponent
+    component:
+    - type: HoloCigarUser
