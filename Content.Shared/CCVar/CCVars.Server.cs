@@ -61,7 +61,7 @@ public sealed partial class CCVars
     ///     The width of the right side (chat) panel in the lobby
     /// </summary>
     public static readonly CVarDef<int> ServerLobbyRightPanelWidth =
-        CVarDef.Create("server.lobby_right_panel_width", 650, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("server.lobby_right_panel_width", 500, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     Forces clients to display version watermark, as if HudVersionWatermark was true
