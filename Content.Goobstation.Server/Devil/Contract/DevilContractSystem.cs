@@ -137,11 +137,10 @@ public sealed class DevilContractSystem : EntitySystem
         // Make sure that weight is set properly!
         TryUpdateContractWeight(uid, comp);
         // Don't allow mortals to sign contracts for other people.
-        // Also don't let silicons sell their souls, they don't have one.
-        // It won't work, but you still shouldn't be able to.
-        if (comp.IsVictimSigned && args.Signer != comp.ContractOwner && HasComp<SiliconComponent>(args.Signer))
+        if (comp.IsVictimSigned && args.Signer != comp.ContractOwner)
         {
             _popupSystem.PopupEntity(Loc.GetString("devil-sign-invalid-user"), uid);
+            args.Cancelled = true;
             return;
         }
 
@@ -149,8 +148,8 @@ public sealed class DevilContractSystem : EntitySystem
         if (comp.IsVictimSigned || comp.IsDevilSigned)
             return;
 
-        // You can't sell your soul if you already sold it.
-        if (HasComp<CondemnedComponent>(args.Signer))
+        // You can't sell your soul if you already sold it. (also no robits)
+        if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(uid))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("devil-contract-no-soul-sign-failed"),
@@ -337,21 +336,21 @@ public sealed class DevilContractSystem : EntitySystem
 
                 case "RemoveHand":
                     TryComp<BodyComponent>(target, out var body);
-                    var hand = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ElementAtOrDefault(0);
+                    var hand = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ElementAt(0);
                     if (hand.Id.Valid)
                         _transform.AttachToGridOrMap(hand.Id);
                     break;
 
                 case "RemoveLeg":
                     TryComp<BodyComponent>(target, out var bodyLeg);
-                    var leg = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).ElementAtOrDefault(0);
+                    var leg = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).ElementAt(0);
                     if (leg.Id.Valid)
                         _transform.AttachToGridOrMap(leg.Id);
                     break;
 
                 case "RemoveOrgan":
                     TryComp<BodyComponent>(target, out var bodyOrgan);
-                    var organ = _bodySystem.GetBodyOrgans(target).ElementAtOrDefault(0);
+                    var organ = _bodySystem.GetBodyOrgans(target).ElementAt(0);
                     if (organ.Id.Valid)
                         _transform.AttachToGridOrMap(organ.Id);
                     break;
