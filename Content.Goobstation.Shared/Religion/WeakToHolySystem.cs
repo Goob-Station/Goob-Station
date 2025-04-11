@@ -48,6 +48,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
     private void OnCollide(Entity<HereticRitualRuneComponent> ent, ref StartCollideEvent args)
     {
         var heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
+        var runeComp = EnsureComp<HereticRitualRuneComponent>(ent);
 
         if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && heretic.Damage.DamageDict.TryGetValue(PassiveDamageType, out _))
             return;
@@ -58,7 +59,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
         _originalDamageCaps[args.OtherEntity] = heretic.DamageCap;
         }
 
-        heretic.Damage.DamageDict.TryAdd(PassiveDamageType, ent.runeHealing);
+        heretic.Damage.DamageDict.TryAdd(PassiveDamageType, runeComp.runeHealing);
         heretic.DamageCap = FixedPoint2.New(0);
         DirtyEntity(args.OtherEntity);
 
