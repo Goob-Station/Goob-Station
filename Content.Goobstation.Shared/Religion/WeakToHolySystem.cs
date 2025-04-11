@@ -18,9 +18,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
 
