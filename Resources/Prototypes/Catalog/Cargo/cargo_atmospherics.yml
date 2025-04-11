@@ -95,9 +95,7 @@
 
 # Goobstation
 - type: cargoProduct
-  name: "water vapor canister"
   id: AtmosphericsWaterVapor
-  description: "Water vapor canister"
   icon:
     sprite: Structures/Storage/canister.rsi
     state: water_vapor
@@ -117,9 +115,7 @@
   group: market
 
 #- type: cargoProduct
-#  name: "tritium canister"
 #  id: AtmosphericsTritium
-#  description: "Tritium canister"
 #  icon:
 #    sprite: Structures/Storage/canister.rsi
 #    state: green
