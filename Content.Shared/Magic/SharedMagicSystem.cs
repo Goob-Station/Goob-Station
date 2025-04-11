@@ -905,40 +905,24 @@ public abstract class SharedMagicSystem : EntitySystem
         if (args is ISpeakSpell speak && !string.IsNullOrWhiteSpace(speak.Speech))
             speech = speak.Speech;
 
-        if (TryComp(args.Action, out MagicComponent? magic)) // layering events??
+        if (TryComp(args.Action, out MagicComponent? magic))
         {
-            var invocationEv = new GetSpellInvocationEvent(magic.School, args.Performer);
+            var intTest = (int) magic.School;
+            Log.Info(intTest.ToString());
+            var invocationEv = new HandleSpellInvocationEvent((int) magic.School, args.Performer);
             RaiseLocalEvent(args.Performer, invocationEv);
-            if (invocationEv.Invocation.HasValue)
-                speech = invocationEv.Invocation;
-            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+            if (invocationEv.Invocation != null)
             {
-                _damageable.TryChangeDamage(args.Performer,
-                    -invocationEv.ToHeal,
-                    true,
-                    false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
+                speech = invocationEv.Invocation;
             }
         }
 
         if (string.IsNullOrEmpty(speech))
             return;
 
+        Log.Info(speech);
         var ev = new SpeakSpellEvent(args.Performer, speech);
         // Goob edit end
         RaiseLocalEvent(ref ev);
     }
-}
-public sealed class GetSpellInvocationEvent(MagicSchool school, EntityUid performer) : EntityEventArgs, IInventoryRelayEvent
-{
-    public SlotFlags TargetSlots => SlotFlags.EYES;
-
-    public MagicSchool School = school;
-
-    public EntityUid Performer = performer;
-
-    public DamageSpecifier ToHeal = new();
-
-    public LocId? Invocation;
 }

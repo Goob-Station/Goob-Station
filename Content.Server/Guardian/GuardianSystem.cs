@@ -34,6 +34,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.Guardian;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Shared.Actions;
@@ -99,7 +100,7 @@ namespace Content.Server.Guardian
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
         {
             if (!TerminatingOrDeleted(uid)) // Goobstation
-                RemCompDeferred<Goobstation.Shared.Wizard.Guardian.GuardianSharedComponent>(uid);
+                RemCompDeferred<GuardianSharedComponent>(uid);
 
             var host = component.Host;
             component.Host = null;
@@ -257,7 +258,7 @@ namespace Content.Server.Guardian
 
             // Goobstation start
             _faction.IgnoreEntity(guardian, args.Args.Target.Value);
-            var sharedComp = EnsureComp<Goobstation.Shared.Wizard.Guardian.GuardianSharedComponent>(guardian);
+            var sharedComp = EnsureComp<GuardianSharedComponent>(guardian);
             sharedComp.Host = args.Args.Target.Value;
             Dirty(guardian, sharedComp);
             // Goobstation end

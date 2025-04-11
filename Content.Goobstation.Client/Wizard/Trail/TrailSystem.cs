@@ -8,6 +8,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Shared.Wizard.Projectiles;
+using Content.Goobstation.Shared.Wizard.TimeStop;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Animations;
@@ -29,7 +30,7 @@ public sealed class TrailSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
-    private EntityQuery<Goobstation.Shared.Wizard.TimeStop.FrozenComponent> _frozenQuery;
+    private EntityQuery<FrozenComponent> _frozenQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public override void Initialize()
@@ -41,7 +42,7 @@ public sealed class TrailSystem : EntitySystem
         SubscribeLocalEvent<TrailComponent, ComponentStartup>(OnStartup);
 
         _xformQuery = GetEntityQuery<TransformComponent>();
-        _frozenQuery = GetEntityQuery<Goobstation.Shared.Wizard.TimeStop.FrozenComponent>();
+        _frozenQuery = GetEntityQuery<FrozenComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         UpdatesOutsidePrediction = true;

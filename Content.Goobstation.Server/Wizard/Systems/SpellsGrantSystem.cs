@@ -10,6 +10,7 @@ using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Common.Wizard.Store;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Goobstation.Server.Wizard.Store;
+using Content.Goobstation.Shared.Wizard;
 using Content.Server.Antag;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
@@ -44,10 +45,10 @@ public sealed class SpellsGrantSystem : EntitySystem
         SubscribeLocalEvent<GrantTargetObjectiveOnGhostTakeoverComponent, ItemPurchasedEvent>(OnPurchased);
         SubscribeLocalEvent<GrantTargetObjectiveOnGhostTakeoverComponent, TakeGhostRoleEvent>(OnTakeGhostRole,
             after: new[] { typeof(GhostRoleSystem) });
-        SubscribeLocalEvent<MindContainerComponent, Goobstation.Shared.Wizard.RandomizeSpellsEvent>(OnRandomizeSpells);
+        SubscribeLocalEvent<MindContainerComponent, RandomizeSpellsEvent>(OnRandomizeSpells);
     }
 
-    private void OnRandomizeSpells(Entity<MindContainerComponent> ent, ref Goobstation.Shared.Wizard.RandomizeSpellsEvent args)
+    private void OnRandomizeSpells(Entity<MindContainerComponent> ent, ref RandomizeSpellsEvent args)
     {
         var comp = ent.Comp;
         if (comp.Mind == null)

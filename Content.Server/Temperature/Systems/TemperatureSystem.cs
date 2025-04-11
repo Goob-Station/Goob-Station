@@ -357,7 +357,7 @@ public sealed class TemperatureSystem : EntitySystem
         var heatDamageThreshold = temperature.ParentHeatDamageThreshold ?? temperature.HeatDamageThreshold;
         var coldDamageThreshold = temperature.ParentColdDamageThreshold ?? temperature.ColdDamageThreshold;
 
-        if (temperature.CurrentTemperature >= heatDamageThreshold && !_spellblade.IsHoldingItemWithComponent<Goobstation.Shared.Wizard.Spellblade.FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
+        if (temperature.CurrentTemperature >= heatDamageThreshold && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
         {
             if (!temperature.TakingDamage)
             {

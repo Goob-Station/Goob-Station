@@ -9,11 +9,14 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Wizard;
+using Content.Goobstation.Common.Wizard.Chuuni;
 using Content.Goobstation.Common.Wizard.Components;
 using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Goobstation.Shared.Wizard;
+using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Goobstation.Shared.Wizard.Chuuni;
+using Content.Goobstation.Shared.Wizard.SpellCards;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
 using Content.Server.Body.Components;
@@ -307,8 +310,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
         EnsureComp<WizardComponent>(newEntity);
         if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
             Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
-        EnsureComp<Goobstation.Shared.Wizard.BindSoul.PhylacteryComponent>(item);
-        var soulBound = EntityManager.ComponentFactory.GetComponent<Goobstation.Shared.Wizard.BindSoul.SoulBoundComponent>();
+        EnsureComp<PhylacteryComponent>(item);
+        var soulBound = EntityManager.ComponentFactory.GetComponent<SoulBoundComponent>();
         soulBound.Name = name;
         soulBound.Item = item;
         soulBound.MapId = mapId;
@@ -350,8 +353,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
         {
             if (HasComp<WizardComponent>(ev.Performer))
                 EnsureComp<WizardComponent>(newEnt.Value);
-            if (HasComp<Common.Wizard.ApprenticeComponent>(ev.Performer))
-                EnsureComp<Common.Wizard.ApprenticeComponent>(newEnt.Value);
+            if (HasComp<ApprenticeComponent>(ev.Performer))
+                EnsureComp<ApprenticeComponent>(newEnt.Value);
         }
 
         Audio.PlayPvs(ev.Sound, newEnt.Value);
@@ -421,7 +424,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 body: physics);
             Physics.SetLinearDamping(newUid, physics, linearDamping, false);
 
-            var spellCard = EnsureComp<Goobstation.Shared.Wizard.SpellCards.SpellCardComponent>(newUid);
+            var spellCard = EnsureComp<SpellCardComponent>(newUid);
             if (!setHoming)
             {
                 Dirty(newUid, physics);
@@ -430,7 +433,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
             spellCard.Target = ev.Entity;
             _gun.SetTarget(newUid, ev.Entity, out var targeted, false);
-            Entity<Goobstation.Shared.Wizard.SpellCards.SpellCardComponent, PhysicsComponent, TargetedProjectileComponent> ent = (newUid, spellCard, physics,
+            Entity<SpellCardComponent, PhysicsComponent, TargetedProjectileComponent> ent = (newUid, spellCard, physics,
                 targeted);
             Dirty(ent);
         }
@@ -563,30 +566,9 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         var postfix = string.Empty;
 
-        var invocationEv = new GetSpellInvocationEvent(school, casterUid);
-        RaiseLocalEvent(casterUid, invocationEv);
-        if (invocationEv.Invocation != null)
-            speech = Loc.GetString(invocationEv.Invocation);
-        if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
-        {
-            // Heal both caster and speaker
-            Damageable.TryChangeDamage(casterUid,
-                -invocationEv.ToHeal,
-                true,
-                false,
-                canSever: false,
-                targetPart: TargetBodyPart.All);
-
-            if (speakerUid != casterUid)
-            {
-                Damageable.TryChangeDamage(speakerUid,
-                    -invocationEv.ToHeal,
-                    true,
-                    false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
-            }
-        }
+        var invocation = HandleSpellInvocation(school, casterUid);
+        if (invocation != null)
+            speech = invocation;
 
         if (speakerUid != casterUid)
         {
@@ -596,7 +578,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         }
 
         _chat.TrySendInGameICMessage(speakerUid,
-            speech,
+            Loc.GetString(speech),
             InGameICChatType.Speak,
             false,
             wrappedMessagePostfix: postfix);

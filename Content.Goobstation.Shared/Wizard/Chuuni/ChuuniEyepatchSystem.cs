@@ -75,6 +75,7 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
         ref InventoryRelayedEvent<GetSpellInvocationEvent> args)
     {
         args.Args.Invocation = ent.Comp.Invocations[args.Args.School];
+        Log.Info(args.Args.Invocation);
 
         var performer = args.Args.Performer;
         if (!TryComp(performer, out DamageableComponent? damageable))

@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.CurseOfByond;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -17,31 +18,31 @@ public sealed class CurseOfByondSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent, LocalPlayerAttachedEvent>(OnAttached);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent, LocalPlayerDetachedEvent>(OnDetached);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<CurseOfByondComponent, LocalPlayerAttachedEvent>(OnAttached);
+        SubscribeLocalEvent<CurseOfByondComponent, LocalPlayerDetachedEvent>(OnDetached);
+        SubscribeLocalEvent<CurseOfByondComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CurseOfByondComponent, ComponentShutdown>(OnShutdown);
         InitPredict = _cfg.GetCVar(CVars.NetPredict);
     }
 
-    private void OnStartup(EntityUid uid, Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent component, ComponentStartup args)
+    private void OnStartup(EntityUid uid, CurseOfByondComponent component, ComponentStartup args)
     {
         if (uid == _player.LocalEntity)
             _cfg.SetCVar(CVars.NetPredict, false);
     }
 
-    private void OnShutdown(EntityUid uid, Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent component, ComponentShutdown args)
+    private void OnShutdown(EntityUid uid, CurseOfByondComponent component, ComponentShutdown args)
     {
         if (uid == _player.LocalEntity)
             _cfg.SetCVar(CVars.NetPredict, InitPredict);
     }
 
-    private void OnDetached(EntityUid uid, Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent component, LocalPlayerDetachedEvent args)
+    private void OnDetached(EntityUid uid, CurseOfByondComponent component, LocalPlayerDetachedEvent args)
     {
         _cfg.SetCVar(CVars.NetPredict, InitPredict);
     }
 
-    private void OnAttached(EntityUid uid, Goobstation.Shared.Wizard.CurseOfByond.CurseOfByondComponent component, LocalPlayerAttachedEvent args)
+    private void OnAttached(EntityUid uid, CurseOfByondComponent component, LocalPlayerAttachedEvent args)
     {
         _cfg.SetCVar(CVars.NetPredict, false);
     }

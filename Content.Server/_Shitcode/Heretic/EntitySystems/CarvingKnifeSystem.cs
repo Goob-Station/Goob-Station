@@ -198,7 +198,7 @@ public sealed class CarvingKnifeSystem : EntitySystem
         RaiseLocalEvent(rune, ref ev);
         ent.Comp.DrawnRunes.Add(rune);
 
-        if (!TryComp(rune, out Goobstation.Shared.Wizard.Traps.WizardTrapComponent? trap) || !_mind.TryGetMind(args.User, out var mind, out _))
+        if (!TryComp(rune, out WizardTrapComponent? trap) || !_mind.TryGetMind(args.User, out var mind, out _))
             return;
 
         trap.IgnoredMinds.Add(mind);

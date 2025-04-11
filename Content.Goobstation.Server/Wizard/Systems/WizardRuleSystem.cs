@@ -11,6 +11,8 @@
 using System.Linq;
 using Content.Goobstation.Common.Wizard;
 using Content.Goobstation.Server.Wizard.Components;
+using Content.Goobstation.Shared.Wizard;
+using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Atmos.EntitySystems;
@@ -74,10 +76,10 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         SubscribeLocalEvent<ApprenticeComponent, MobStateChangedEvent>(OnStateChanged);
         SubscribeLocalEvent<ApprenticeComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<ApprenticeComponent, CloningEvent>(OnApprenticeClone);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.BindSoul.PhylacteryComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<PhylacteryComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EntParentChangedMessage>(OnParentChanged);
 
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.DimensionShiftEvent>(OnDimensionShift);
+        SubscribeLocalEvent<DimensionShiftEvent>(OnDimensionShift);
     }
 
     private void OnApprenticeClone(Entity<ApprenticeComponent> ent, ref CloningEvent args)
@@ -123,7 +125,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         return grid == null ? null : Transform(grid.Value).MapUid;
     }
 
-    private void OnDimensionShift(Goobstation.Shared.Wizard.DimensionShiftEvent ev)
+    private void OnDimensionShift(DimensionShiftEvent ev)
     {
         var map = GetTargetMap();
         if (map == null)
@@ -163,7 +165,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private bool RecursivePhylacteryCheck(EntityUid entity, TransformComponent? xform = null)
     {
-        if (HasComp<Goobstation.Shared.Wizard.BindSoul.PhylacteryComponent>(entity))
+        if (HasComp<PhylacteryComponent>(entity))
             return true;
 
         if (!Resolve(entity, ref xform, false))
@@ -210,8 +212,8 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
                 mobState.CurrentState != MobState.Dead)
                 return;
 
-            if (TryComp(mind, out Goobstation.Shared.Wizard.BindSoul.SoulBoundComponent? soulBound) && Exists(soulBound.Item) &&
-                HasComp<Goobstation.Shared.Wizard.BindSoul.PhylacteryComponent>(soulBound.Item.Value) &&
+            if (TryComp(mind, out SoulBoundComponent? soulBound) && Exists(soulBound.Item) &&
+                HasComp<PhylacteryComponent>(soulBound.Item.Value) &&
                 TryComp(soulBound.Item.Value, out TransformComponent? xform) && xform.MapUid != null &&
                 xform.MapUid == soulBound.MapId)
                 return;

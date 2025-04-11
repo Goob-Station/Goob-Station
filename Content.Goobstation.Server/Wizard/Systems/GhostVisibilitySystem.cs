@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard;
 using Content.Goobstation.Shared.Wizard.EventSpells;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
@@ -35,7 +36,7 @@ public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.SummonGhostsEvent>(OnSummonGhosts);
+        SubscribeLocalEvent<SummonGhostsEvent>(OnSummonGhosts);
         SubscribeLocalEvent<GhostsVisibleRuleComponent, GameRuleStartedEvent>(OnRuleStarted);
     }
 
@@ -56,7 +57,7 @@ public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
         }
     }
 
-    private void OnSummonGhosts(Goobstation.Shared.Wizard.SummonGhostsEvent ev)
+    private void OnSummonGhosts(SummonGhostsEvent ev)
     {
         if (GhostsVisible())
             return;

@@ -49,7 +49,7 @@ public sealed partial class MagicComponent : Component
     public MagicSchool School = MagicSchool.Unset;
 }
 
-public enum MagicSchool : byte // Goobstation
+public enum MagicSchool // Goobstation
 {
     Unset,
     Holy,

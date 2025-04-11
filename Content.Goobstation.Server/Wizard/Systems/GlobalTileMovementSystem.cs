@@ -5,6 +5,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard;
+using Content.Goobstation.Shared.Wizard.EventSpells;
 using Content.Shared._Lavaland.Mobs.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
@@ -36,14 +38,14 @@ public sealed class GlobalTileMovementSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.GlobalTileToggleEvent>(OnGlobalTileToggle);
-        SubscribeLocalEvent<Goobstation.Shared.Wizard.EventSpells.GlobalTileMovementRuleComponent, GameRuleStartedEvent>(OnRuleStarted);
+        SubscribeLocalEvent<GlobalTileToggleEvent>(OnGlobalTileToggle);
+        SubscribeLocalEvent<GlobalTileMovementRuleComponent, GameRuleStartedEvent>(OnRuleStarted);
         SubscribeLocalEvent<GhostRoleSpawnerUsedEvent>(OnGhostRoleSpawnerUsed);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
     }
     public bool GlobalTileMovementIsActive()
     {
-        var query = EntityQueryEnumerator<Goobstation.Shared.Wizard.EventSpells.GlobalTileMovementRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
+        var query = EntityQueryEnumerator<GlobalTileMovementRuleComponent, ActiveGameRuleComponent, GameRuleComponent>();
         while (query.MoveNext(out _, out _, out _, out _))
         {
             return true;
@@ -52,7 +54,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         return false;
     }
 
-    private void OnGlobalTileToggle(Goobstation.Shared.Wizard.GlobalTileToggleEvent ev)
+    private void OnGlobalTileToggle(GlobalTileToggleEvent ev)
     {
         if (GlobalTileMovementIsActive())
             return;
@@ -66,7 +68,7 @@ public sealed class GlobalTileMovementSystem : EntitySystem
         _log.Add(LogType.EventRan, LogImpact.Extreme, $"Tile movement has been globally toggled via wizard spellbook.");
     }
 
-    private void OnRuleStarted(Entity<Goobstation.Shared.Wizard.EventSpells.GlobalTileMovementRuleComponent> ent, ref GameRuleStartedEvent args)
+    private void OnRuleStarted(Entity<GlobalTileMovementRuleComponent> ent, ref GameRuleStartedEvent args)
     {
         var map = _wizardRuleSystem.GetTargetMap();
 

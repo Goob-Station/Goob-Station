@@ -12,7 +12,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
+using Content.Goobstation.Common.Wizard.Chuuni;
 using Content.Goobstation.Shared.Wizard.BindSoul;
+using Content.Goobstation.Shared.Wizard.Chuuni;
 using Content.Goobstation.Shared.Wizard.Projectiles;
 using Content.Goobstation.Shared.Wizard.Teleport;
 using Content.Goobstation.Shared.Wizard.TeslaBlast;
@@ -89,7 +91,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 {
     #region Dependencies
 
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly IGameTiming Timing   = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
@@ -172,6 +174,33 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
         SubscribeNetworkEvent<StopTargetingEvent>(OnStopTargeting);
+        SubscribeLocalEvent<HandleSpellInvocationEvent>(OnHandleSpellInvocation);
+    }
+
+    private void OnHandleSpellInvocation(HandleSpellInvocationEvent args)
+    {
+        Log.Info("HandleSpellInvocation");
+        var invocation = HandleSpellInvocation((MagicSchool) args.MagicSchool, args.Performer);
+        if(invocation != null)
+            Log.Info(invocation);
+        args.Invocation = invocation;
+    }
+
+    protected LocId? HandleSpellInvocation(MagicSchool magicSchool, EntityUid user)
+    {
+        var invocationEv = new GetSpellInvocationEvent(magicSchool, user);
+        RaiseLocalEvent(user, invocationEv);
+        if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+        {
+            Damageable.TryChangeDamage(user,
+                -invocationEv.ToHeal,
+                true,
+                false,
+                canSever: false,
+                targetPart: TargetBodyPart.All);
+        }
+
+        return invocationEv.Invocation;
     }
 
     private void OnStopTargeting(StopTargetingEvent msg, EntitySessionEventArgs args)

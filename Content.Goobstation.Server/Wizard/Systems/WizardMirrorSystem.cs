@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Goobstation.Shared.Wizard.MagicMirror;
 using Content.Server.Guardian;
 using Content.Server.Humanoid;
@@ -168,7 +169,7 @@ public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
 
         humanoid.Age = age;
 
-        if (_mind.TryGetMind(target, out var mind, out _) && TryComp(mind, out Goobstation.Shared.Wizard.BindSoul.SoulBoundComponent? soulBound))
+        if (_mind.TryGetMind(target, out var mind, out _) && TryComp(mind, out SoulBoundComponent? soulBound))
         {
             soulBound.Name = profile.Name;
             soulBound.Age = age;
