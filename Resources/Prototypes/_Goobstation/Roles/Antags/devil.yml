@@ -10,4 +10,4 @@
     time: 72000 #20 hrs
   - !type:RoleTimeRequirement
     role: JobLawyer
-    time: 36000 #10 hrs
+    time: 18000 #5 hrs
