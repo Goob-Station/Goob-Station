@@ -78,3 +78,43 @@
     inventory: Drop
     revertOnDeath: false
     revertOnCrit: false
+
+- type: polymorph
+  id: ShadowJaunt
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 8
+    attachToGridOrMap: true
+
+- type: polymorph
+  id: ShadowJaunt30
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 30
+    attachToGridOrMap: true
+
+- type: polymorph
+  id: ShadowJaunt60
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 60
+    attachToGridOrMap: true
+
+- type: polymorph
+  id: ShadowJaunt90
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 90
+    attachToGridOrMap: true
+
+- type: polymorph
+  id: ShadowJaunt180
+  configuration:
+    entity: PolymorphShadowJaunt
+    forced: true
+    duration: 180
+    attachToGridOrMap: true

@@ -13,7 +13,7 @@ using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Bible.Components
+namespace Content.Goobstation.Shared.Bible // Death to serverside components. Glory to Goobistan
 {
     [RegisterComponent]
     public sealed partial class BibleComponent : Component

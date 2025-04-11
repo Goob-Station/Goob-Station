@@ -1,0 +1,22 @@
+- type: entity
+  id: FireEffect
+  name: fire
+  parent: Acidifier
+  description: A burst of flames!
+  components:
+  - type: Sprite
+    sprite: /Textures/Effects/fire.rsi
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - state: fire
+      shader: unshaded
+  - type: Transform
+    anchored: False
+  - type: TimedDespawn
+    lifetime: 0.2 # purposefully low so it doesnt lag behind you too hard
+  - type: PointLight
+    color: Orange
+    radius: 3
+    energy: 2
+    netsync: false
