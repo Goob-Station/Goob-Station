@@ -46,7 +46,6 @@
     state: vulp
   - type: Clothing
     sprite: _DV/Mobs/Customization/Vulpkanin/ear_markings.rsi
-    state: vulp
     equippedState: vulp
   - type: AddAccentClothing
     accent: OwOAccent
