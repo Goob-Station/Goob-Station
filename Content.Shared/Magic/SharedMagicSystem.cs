@@ -84,10 +84,10 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Changeling;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Goobstation.Common.Wizard;
+using Content.Goobstation.Common.Wizard.BindSoul;
+using Content.Goobstation.Common.Wizard.Chuuni;
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -266,16 +266,17 @@ public abstract class SharedMagicSystem : EntitySystem
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;
-        if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
-            HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
+
+        if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch))
         {
-            requiresSpeech = true;
-            flags = SlotFlags.OUTERCLOTHING;
-            requiredSlots = 1;
+            var chuuniEv = new CheckChuuniEyePatchEvent();
+            RaiseLocalEvent(eyepatch.Value,chuuniEv);
+            requiresSpeech = chuuniEv.RequiresSpeech;
+            flags = (SlotFlags) chuuniEv.Flags;
+            requiredSlots = chuuniEv.RequiredSlots;
         }
 
         var slots = 0;
-        // Goobstation end
 
         if (comp.RequiresClothes)
         {
@@ -746,8 +747,8 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var tarHasMind = _mind.TryGetMind(ev.Target, out var tarMind, out var tarMindComp);
 
-        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Performer, ISharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Target, ISharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
         _mind.TransferTo(perMind, ev.Target);
 
@@ -777,15 +778,11 @@ public abstract class SharedMagicSystem : EntitySystem
             _audio.PlayEntity(ev.Sound, ev.Target, ev.Target);
             _audio.PlayEntity(ev.Sound, ev.Performer, ev.Performer);
         }
-        // Goobstation end
+        _tag.RemoveTag(ev.Performer, ISharedBindSoulSystem.IgnoreBindSoulTag);
+        _tag.RemoveTag(ev.Target, ISharedBindSoulSystem.IgnoreBindSoulTag);
 
-        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-
-        _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goob edit
-        _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
-
-        // Goobstation start
+        _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true);
+        _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true);
         return;
 
         void TransferFactions()
@@ -910,24 +907,20 @@ public abstract class SharedMagicSystem : EntitySystem
 
         if (TryComp(args.Action, out MagicComponent? magic))
         {
-            var invocationEv = new GetSpellInvocationEvent(magic.School, args.Performer);
+            var intTest = (int) magic.School;
+            Log.Info(intTest.ToString());
+            var invocationEv = new HandleSpellInvocationEvent((int) magic.School, args.Performer);
             RaiseLocalEvent(args.Performer, invocationEv);
-            if (invocationEv.Invocation.HasValue)
-                speech = invocationEv.Invocation;
-            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+            if (invocationEv.Invocation != null)
             {
-                _damageable.TryChangeDamage(args.Performer,
-                    -invocationEv.ToHeal,
-                    true,
-                    false,
-                    canSever: false,
-                    targetPart: TargetBodyPart.All);
+                speech = invocationEv.Invocation;
             }
         }
 
         if (string.IsNullOrEmpty(speech))
             return;
 
+        Log.Info(speech);
         var ev = new SpeakSpellEvent(args.Performer, speech);
         // Goob edit end
         RaiseLocalEvent(ref ev);

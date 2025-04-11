@@ -9,6 +9,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
+using Content.Goobstation.Shared.Wizard;
 using Content.Server.Body.Components;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
@@ -16,7 +17,6 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components.SolutionManager;

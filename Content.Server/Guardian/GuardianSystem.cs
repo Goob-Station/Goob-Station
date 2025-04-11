@@ -34,9 +34,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Wizard.Guardian;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Wizard.Guardian;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
