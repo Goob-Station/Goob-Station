@@ -44,7 +44,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         // Refresh the movement speed modifiers.
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
         // Reset the user Uid.
-        ent.Comp.EntityUid = default!;
+        ent.Comp.EntityUid = null;
     }
 
     private void GetEntityUid(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
@@ -86,7 +86,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             var modifier = GetMovementSpeedModifiers(comp);
             comp.CurrentModifier = modifier;
 
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.EntityUid);
+            _movementSpeedModifier.RefreshMovementSpeedModifiers((EntityUid)comp.EntityUid);
             Dirty(uid, comp);
 
             comp.NextExecutionTime = _timing.CurTime + ExecutionInterval;
