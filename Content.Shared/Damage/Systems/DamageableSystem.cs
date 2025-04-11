@@ -413,11 +413,13 @@ namespace Content.Shared.Damage
                 component.Damage.DamageDict.TryAdd(type, FixedPoint2.Zero);
 
             foreach (var groupId in damageContainerPrototype.SupportedGroups)
-                var group = _prototypeManager.Index<DamageGroupPrototype>(groupId);
-                foreach (var type in group.DamageTypes)
-                {
-                component.Damage.DamageDict.TryAdd(type, FixedPoint2.Zero);
-                }
+             {
+                 var group = _prototypeManager.Index<DamageGroupPrototype>(groupId);
+                 foreach (var type in group.DamageTypes)
+                 {
+                 component.Damage.DamageDict.TryAdd(type, FixedPoint2.Zero);
+                 }
+             }
 
             component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
             component.TotalDamage = component.Damage.GetTotal();
