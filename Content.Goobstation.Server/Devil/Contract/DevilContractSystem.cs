@@ -250,7 +250,7 @@ public sealed class DevilContractSystem : EntitySystem
         if (!TryComp<PaperComponent>(uid, out var paper))
             return;
 
-+       contract.CurrentClauses.Clear();
+        contract.CurrentClauses.Clear();
         var matches = _clauseRegex.Matches(paper.Content);
         var newWeight = 0;
 

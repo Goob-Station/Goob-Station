@@ -15,19 +15,19 @@ public sealed class DevilClausePrototype : IPrototype
     [IdDataField]
     public string ID { get; private init; } = default!;
 
-    [DataField]
-    public int ClauseWeight = 5;
+    [DataField(required: true)]
+    public int ClauseWeight;
 
     [DataField]
-    public ComponentRegistry? AddedComponents { get; set; }
+    public ComponentRegistry? AddedComponents;
 
     [DataField]
-    public ComponentRegistry? RemovedComponents { get; set; }
+    public ComponentRegistry? RemovedComponents;
 
     [DataField]
-    public string? DamageModifierSet { get; set; }
+    public string? DamageModifierSet;
 
     [DataField]
-    public List<string>? SpecialActions { get; set; }
+    public List<string>? SpecialActions;
 
 }

@@ -68,7 +68,7 @@ public sealed partial class PossessionSystem : EntitySystem
                 EnsureComp<PacifiedComponent>(uid);
             }
 
-            comp.PossessionTimeRemaining = _timing.CurTime - comp.PossessionEndTime;
+            comp.PossessionTimeRemaining = comp.PossessionEndTime - _timing.CurTime;
         }
     }
 
@@ -113,8 +113,8 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!args.IsInDetailsRange || _net.IsClient || comp.PossessorMindId == args.Examiner)
             return;
 
-        var timeremaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds) * -1;
-        args.PushMarkup(Loc.GetString("possessed-component-examined", ("timeremaining", timeremaining)));
+        var timeRemaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds);
+        args.PushMarkup(Loc.GetString("possessed-component-examined", ("timeremaining", timeRemaining)));
     }
 
     /// <summary>
