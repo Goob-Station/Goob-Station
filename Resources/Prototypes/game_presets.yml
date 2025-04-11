@@ -103,6 +103,7 @@
     - BlobGameMode
     - LoneAbductorSpawn
     # - KesslerSyndromeScheduler Goobstation - nuh uh
+    - Wizard
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -128,6 +129,7 @@
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
+    - Wizard
     - BasicStationEventScheduler
 #    - KesslerSyndromeScheduler
 #    - MeteorSwarmMildScheduler # Goob Edit
