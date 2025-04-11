@@ -23,6 +23,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil.Contract;
@@ -36,6 +37,7 @@ public sealed class DevilContractSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
     [Dependency] private readonly BodySystem _bodySystem = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
 
     private ISawmill _sawmill = null!;
     private readonly EntProtoId _fireEffectProto = "FireEffect";
@@ -60,8 +62,6 @@ public sealed class DevilContractSystem : EntitySystem
         ["devil-contract-contractee"] = comp => comp.Signer,
         // The contractor is the entity offering the deal.
         ["devil-contract-contractor"] = comp => comp.ContractOwner,
-        // Both is the entity offering, and the entity making the deal.
-        ["devil-contract-both"] = comp => null
     };
 
     private Regex _clauseRegex = null!;
@@ -302,7 +302,11 @@ public sealed class DevilContractSystem : EntitySystem
                 continue;
             }
 
-            ApplyEffectToTarget((EntityUid)resolver(comp)!, comp, clause);
+            var targetEntity = resolver(comp);
+            if (targetEntity != null && !TerminatingOrDeleted(targetEntity.Value))
+                ApplyEffectToTarget(targetEntity.Value, comp, clause);
+            else
+                _sawmill.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {uid}");
         }
     }
 
@@ -331,28 +335,38 @@ public sealed class DevilContractSystem : EntitySystem
             switch (specialAction)
             {
                 case "SoulOwnership":
-                    TryTransferSouls(contract.ContractOwner!.Value, target, 1);
+                    if (contract.ContractOwner != null)
+                        TryTransferSouls(contract.ContractOwner.Value, target, 1);
                     break;
 
                 case "RemoveHand":
                     TryComp<BodyComponent>(target, out var body);
-                    var hand = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ElementAt(0);
-                    if (hand.Id.Valid)
-                        _transform.AttachToGridOrMap(hand.Id);
+                    var hands = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ToList();
+                    if (hands.Count > 0)
+                    {
+                        var pick = _random.Pick(hands);
+                        _transform.AttachToGridOrMap(pick.Id);
+                    }
                     break;
 
                 case "RemoveLeg":
                     TryComp<BodyComponent>(target, out var bodyLeg);
-                    var leg = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).ElementAt(0);
-                    if (leg.Id.Valid)
-                        _transform.AttachToGridOrMap(leg.Id);
+                    var legs = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).ToList();
+                    if (legs.Count > 0)
+                    {
+                        var pick = _random.Pick(legs);
+                        _transform.AttachToGridOrMap(pick.Id);
+                    }
                     break;
 
                 case "RemoveOrgan":
                     TryComp<BodyComponent>(target, out var bodyOrgan);
-                    var organ = _bodySystem.GetBodyOrgans(target).ElementAt(0);
-                    if (organ.Id.Valid)
-                        _transform.AttachToGridOrMap(organ.Id);
+                    var organs = _bodySystem.GetBodyOrgans(target).ToList();
+                    if (organs.Count > 0)
+                    {
+                        var pick = _random.Pick(organs);
+                        _transform.AttachToGridOrMap(pick.Id);
+                    }
                     break;
             }
         }
