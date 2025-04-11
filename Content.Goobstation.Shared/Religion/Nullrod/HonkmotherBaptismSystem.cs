@@ -19,7 +19,6 @@ public sealed partial class HonkmotherBaptismSystem : EntitySystem
         SubscribeLocalEvent<HonkmotherBaptismComponent, GetItemActionsEvent>(OnGetItemActions);
     }
 
-
     private void OnGetItemActions(Entity<HonkmotherBaptismComponent> ent, ref GetItemActionsEvent args)
     {
         if (!args.InHands)
