@@ -135,6 +135,9 @@
       groups:
         Brute: -25
         Burn: -25
+    damageOnFail:
+      groups:
+        Brute: 0
     damageOnUntrainedUse: # What a non-chaplain takes when attempting to heal someone
       types:
         Heat: 20
