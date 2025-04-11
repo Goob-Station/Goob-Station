@@ -89,17 +89,20 @@
 // SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
+using Content.Goobstation.Common.Administration.Components; // Goobstation Change
 using Content.Goobstation.Common.Speech;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
@@ -1053,5 +1056,32 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", omniaccentName, Loc.GetString("admin-smite-omni-accent-description"))
         };
         args.Verbs.Add(omniaccent);
+
+        // Goobstation Change
+        var baldSignName = Loc.GetString("admin-smite-bald-sign-name").ToLowerInvariant();
+        Verb baldSign = new()
+        {
+            Text = baldSignName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Objects/Misc/baldsign.rsi"), "icon"),
+            Act = () =>
+            {
+                if (!HasComp<KillSignComponent>(args.Target))
+                {
+                    var killSign = new KillSignComponent
+                    {
+                        SignSprite = "_Goobstation/Objects/Misc/baldsign.rsi"
+                    };
+
+                    AddComp(args.Target, killSign);
+                    Dirty(args.Target, killSign);
+                }
+
+                EnsureComp<BaldifyComponent>(args.Target);
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", baldSignName, Loc.GetString("admin-smite-bald-sign-description"))
+        };
+        args.Verbs.Add(baldSign);
     }
 }
