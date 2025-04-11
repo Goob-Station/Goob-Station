@@ -477,6 +477,11 @@ namespace Content.Shared.Preferences
                 ("gender", Gender.ToString().ToLowerInvariant()),
                 ("age", Age)
             );
+        public string SummaryBorg =>
+            Loc.GetString(
+                "borg-character-profile-summary",
+                ("name", BorgName)
+            );
 
         public bool MemberwiseEquals(ICharacterProfile maybeOther)
         {
