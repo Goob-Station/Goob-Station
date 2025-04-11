@@ -1,4 +1,12 @@
-﻿# Window headers
+# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Window headers
 holopad-window-title = {CAPITALIZE($title)}
 holopad-window-subtitle = [color=white][bold]Holographic communication system[/bold][/color]
 holopad-window-options = [color=darkgray][font size=10][italic]Please select an option from the list below[/italic][/font][/color]
