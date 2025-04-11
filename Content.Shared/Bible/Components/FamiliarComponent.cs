@@ -3,8 +3,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
-
-namespace Content.Server.Bible.Components
+namespace Content.Shared.Bible.Components
 {
     /// <summary>
     /// This component is for the chaplain's familiars, and mostly

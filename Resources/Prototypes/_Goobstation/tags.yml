@@ -30,6 +30,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Alphabetical order people!
+
+- type: Tag
+  id: ArrythmicKnife
+
+- type: Tag
+  id: AthiestsFedora
+
 - type: Tag
   id: AutoinjectorCartridge
 
@@ -172,6 +179,9 @@
   id: GasMask
 
 - type: Tag
+  id: GodHand
+
+- type: Tag
   id: GorillaFormAction
 
 - type: Tag
@@ -221,6 +231,12 @@
 
 - type: Tag
   id: HEVSuit
+
+- type: Tag
+  id: HolyClaymore
+
+- type: Tag
+  id: HonkmotherMaw
 
 - type: Tag
   id: IgnoreBindSoul
@@ -289,6 +305,9 @@
   id: ModsuitShell
 
 - type: Tag
+  id: MonkStaff
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag
@@ -296,6 +315,9 @@
 
 - type: Tag
   id: NukeOpsReinforcementUplink
+
+- type: Tag
+  id: Nullrod
 
 - type: Tag
   id: Organ
@@ -308,6 +330,9 @@
 
 - type: Tag
   id: RipleyMkII
+
+- type: Tag
+  id: Rosary
 
 - type: Tag
   id: SecurityBreathMask
@@ -380,6 +405,12 @@
 
 - type: Tag
   id: WeaponPistolDualetta
+
+- type: Tag
+  id: WeaponPistolCasul
+
+- type: Tag
+  id: WeaponPistolJackal
 
 - type: Tag
   id: WinterCoat
