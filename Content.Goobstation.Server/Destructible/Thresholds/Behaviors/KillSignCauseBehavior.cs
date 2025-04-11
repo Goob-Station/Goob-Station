@@ -5,9 +5,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Administration.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds.Behaviors;
+using Content.Shared.Administration.Components;
 using Content.Shared.Database;
 
 namespace Content.Goobstation.Server.Destructible.Thresholds.Behaviors

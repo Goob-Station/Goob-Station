@@ -1,0 +1,48 @@
+- type: entity
+  parent: [ClothingHeadHatCatEars, BaseToggleClothing]
+  id: ClothingHeadHatCatEarsBald
+  suffix: BALD, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: ToggleClothing
+    action: ActionBecomeValid
+    disableOnUnequip: true
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: KillSign
+      signSprite: _Goobstation/Objects/Misc/baldsign.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: Sprite
+    sprite: Clothing/Head/Hats/catears.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/catears.rsi
+  - type: AddAccentClothing
+    accent: OwOAccent
+
+- type: entity
+  parent: [ClothingHeadHatCatEars, BaseToggleClothing]
+  id: ClothingHeadHatVulpEarsBald
+  suffix: BALD, DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+  - type: ToggleClothing
+    action: ActionBecomeValid
+    disableOnUnequip: true
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: KillSign
+      signSprite: _Goobstation/Objects/Misc/baldsign.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: Sprite
+    sprite: _DV/Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: vulp
+  - type: Clothing
+    sprite: _DV/Mobs/Customization/Vulpkanin/ear_markings.rsi
+    state: vulp
+    equippedState: vulp
+  - type: AddAccentClothing
+    accent: OwOAccent

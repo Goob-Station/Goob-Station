@@ -100,6 +100,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
+using Content.Goobstation.Common.Administration.Components; // Goobstation Change
 using Content.Goobstation.Common.Speech;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
@@ -1053,5 +1054,32 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", omniaccentName, Loc.GetString("admin-smite-omni-accent-description"))
         };
         args.Verbs.Add(omniaccent);
+
+        // Goobstation Change
+        var baldSignName = Loc.GetString("admin-smite-bald-sign-name").ToLowerInvariant();
+        Verb baldSign = new()
+        {
+            Text = baldSignName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Objects/Misc/baldsign.rsi"), "icon"),
+            Act = () =>
+            {
+                if (!HasComp<KillSignComponent>(args.Target))
+                {
+                    var killSign = new KillSignComponent
+                    {
+                        SignSprite = "_Goobstation/Objects/Misc/baldsign.rsi"
+                    };
+
+                    AddComp(args.Target, killSign);
+                    Dirty(args.Target, killSign);
+                }
+
+                EnsureComp<BaldifyComponent>(args.Target);
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", baldSignName, Loc.GetString("admin-smite-bald-sign-description"))
+        };
+        args.Verbs.Add(baldSign);
     }
 }
