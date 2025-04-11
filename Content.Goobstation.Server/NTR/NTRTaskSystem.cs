@@ -109,21 +109,17 @@ public sealed partial class NtrTaskSystem : EntitySystem
             return;
         if (!TryGetTaskId(station, args.Task, out var taskData))
             return;
-        if (args.IsInstant)
+        if (!TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
+            return;
+
+        ntrAccount.Balance += args.Task.Reward;
+        var query = EntityQueryEnumerator<NtrAccountClientComponent>();
+        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
+        while (query.MoveNext(out var client, out var comp))
         {
-            if (!TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
-                return;
-
-            ntrAccount.Balance += args.Task.Reward;
-            var query = EntityQueryEnumerator<NtrAccountClientComponent>();
-
-            var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-            while (query.MoveNext(out var client, out var comp))
-            {
-                comp.Balance = ntrAccount.Balance;
-                Dirty(client, comp);
-                RaiseLocalEvent(client, ref ev);
-            }
+            comp.Balance = ntrAccount.Balance;
+            Dirty(client, comp);
+            RaiseLocalEvent(client, ref ev);
         }
 
         if (!TryRemoveTask(station, taskData, false))
@@ -150,10 +146,20 @@ public sealed partial class NtrTaskSystem : EntitySystem
         if (!_protoMan.TryIndex(task.Value.Task, out var ntrPrototype))
             return;
 
+        if (ntrPrototype.Entries.Any(e => e.IsEvent))
+        {
+            var ev = new TaskCompletedEvent(ntrPrototype);
+            RaiseLocalEvent(uid, ev);
+
+            component.NextPrintTime = _timing.CurTime + component.PrintDelay;
+            _audio.PlayPvs(component.SkipSound, uid);
+            return;
+        }
         Spawn(ntrPrototype.Proto, Transform(uid).Coordinates);
         component.NextPrintTime = _timing.CurTime + component.PrintDelay;
         _audio.PlayPvs(component.PrintSound, uid);
     }
+
 
     /// <summary>
     /// При открытии интерфейса получаем станцию через GetOwningStation, из станции вытаскиваем компонент базы данных задач НТР

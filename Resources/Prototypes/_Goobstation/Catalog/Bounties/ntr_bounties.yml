@@ -10,7 +10,7 @@
     - stamp-component-stamped-name-hos
     whitelist:
       tags:
-      - Document
+        - Document
 
 - type: ntrTask
   id: TaskStampHop
@@ -24,7 +24,7 @@
     - stamp-component-stamped-name-hop
     whitelist:
       tags:
-      - Document
+        - Document
 
 - type: ntrTask
   id: TaskStampCe
@@ -38,7 +38,7 @@
     - stamp-component-stamped-name-ce
     whitelist:
       tags:
-      - Document
+        - Document
 
 - type: ntrTask
   id: TaskStampCmo
@@ -52,7 +52,7 @@
     - stamp-component-stamped-name-cmo
     whitelist:
       tags:
-      - Document
+        - Document
 
 - type: ntrTask
   id: TaskStampRd
@@ -66,7 +66,7 @@
     - stamp-component-stamped-name-rd
     whitelist:
       tags:
-      - Document
+        - Document
 
 - type: ntrTask
   id: TaskStampQm
@@ -80,7 +80,7 @@
     - stamp-component-stamped-name-qm
     whitelist:
       tags:
-      - Document
+        - Document
 
 - type: ntrTask
   id: TaskPowerCheck
@@ -89,5 +89,5 @@
   description: Enforce a powergrid check from CC.
   entries:
   - name: Power grid check
-    instantCompletion: true
+    isEvent: true
     stamps: []
