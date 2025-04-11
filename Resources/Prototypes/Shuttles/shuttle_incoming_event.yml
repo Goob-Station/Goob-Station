@@ -76,7 +76,7 @@
 
 - type: preloadedGrid
   id: Instigator
-  path: /Maps/Shuttles/ShuttleEvent/instigator.yml
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/instigator.yml
   copies: 1
 
 - type: preloadedGrid
