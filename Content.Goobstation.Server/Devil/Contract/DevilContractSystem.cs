@@ -346,6 +346,7 @@ public sealed class DevilContractSystem : EntitySystem
                     {
                         var pick = _random.Pick(hands);
                         _transform.AttachToGridOrMap(pick.Id);
+                        QueueDel(pick.Id);
                     }
                     break;
 
@@ -356,16 +357,17 @@ public sealed class DevilContractSystem : EntitySystem
                     {
                         var pick = _random.Pick(legs);
                         _transform.AttachToGridOrMap(pick.Id);
+                        QueueDel(pick.Id);
                     }
                     break;
 
                 case "RemoveOrgan":
-                    TryComp<BodyComponent>(target, out var bodyOrgan);
                     var organs = _bodySystem.GetBodyOrgans(target).ToList();
                     if (organs.Count > 0)
                     {
                         var pick = _random.Pick(organs);
                         _transform.AttachToGridOrMap(pick.Id);
+                        QueueDel(pick.Id);
                     }
                     break;
             }
