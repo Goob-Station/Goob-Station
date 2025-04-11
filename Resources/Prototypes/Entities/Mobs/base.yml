@@ -135,7 +135,7 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: Biological # Shitchap
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:

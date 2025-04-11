@@ -8,8 +8,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
-using Content.Shared.Popups;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
@@ -20,11 +18,13 @@ public sealed partial class WeakToHolySystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
+
+    public const string ContainerID = "Biological";
+    public const string TransformedContainerID = "BiologicalMetaphysical";
+    public const string PassiveDamageType = "Holy";
 
     public override void Initialize()
     {
@@ -38,46 +38,47 @@ public sealed partial class WeakToHolySystem : EntitySystem
     private void OnCompInit(Entity<WeakToHolyComponent> ent, ref ComponentInit args)
     {
         if (TryComp<DamageableComponent>(ent, out var damageable)
-            && damageable?.DamageContainerID == "Biological")
+            && damageable?.DamageContainerID == ContainerID)
         {
-            _damageableSystem.ChangeDamageContainer(ent, "BiologicalMetaphysical");
+            _damageableSystem.ChangeDamageContainer(ent, TransformedContainerID);
         }
     }
 
     // passive healing on runes for aviu
-    private void OnCollide(EntityUid uid, HereticRitualRuneComponent component, ref StartCollideEvent args)
+    private void OnCollide(Entity<HereticRitualRuneComponent> ent, ref StartCollideEvent args)
     {
-        var _heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
+        var heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
 
-        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && _heretic.Damage.DamageDict.TryGetValue("Holy", out var holy)) {
+        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && heretic.Damage.DamageDict.TryGetValue(PassiveDamageType, out _))
             return;
-        }
 
             // Store the original DamageCap if it hasn't already been stored
         if (!_originalDamageCaps.ContainsKey(args.OtherEntity))
         {
-        _originalDamageCaps[args.OtherEntity] = _heretic.DamageCap;
+        _originalDamageCaps[args.OtherEntity] = heretic.DamageCap;
         }
 
-        _heretic.Damage.DamageDict.TryAdd("Holy", -10);
-        _heretic.DamageCap = FixedPoint2.New(0);
+        heretic.Damage.DamageDict.TryAdd(PassiveDamageType, ent.Comp.RuneHealing);
+        heretic.DamageCap = FixedPoint2.New(0);
         DirtyEntity(args.OtherEntity);
 
     }
 
-    private void OnCollideEnd(EntityUid uid, HereticRitualRuneComponent component, ref EndCollideEvent args)
+    private void OnCollideEnd(Entity<HereticRitualRuneComponent> ent, ref EndCollideEvent args)
     {
-        if (TryComp<PassiveDamageComponent>(args.OtherEntity, out var _heretic))
-        {
-            // Restore the original DamageCap if it was stored
-            if (_originalDamageCaps.TryGetValue(args.OtherEntity, out var originalCap))
+        if (!TryComp<PassiveDamageComponent>(args.OtherEntity, out var heretic))
             {
-                _heretic.DamageCap = originalCap;
+                return;
+            }
+
+        // Restore the original DamageCap if it was stored
+        if (_originalDamageCaps.TryGetValue(args.OtherEntity, out var originalCap))
+            {
+                heretic.DamageCap = originalCap;
                 _originalDamageCaps.Remove(args.OtherEntity); // Clean up after restoring
             }
 
-        _heretic.Damage.DamageDict.Remove("Holy");
+        heretic.Damage.DamageDict.Remove("Holy");
         DirtyEntity(args.OtherEntity);
-        }
     }
 }

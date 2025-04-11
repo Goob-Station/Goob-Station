@@ -7,8 +7,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Religion.Nullrod
-{
+namespace Content.Goobstation.Shared.Religion.Nullrod;
+
     [RegisterComponent]
     public sealed partial class AltarSourceComponent : Component
     {
@@ -16,23 +16,19 @@ namespace Content.Goobstation.Shared.Religion.Nullrod
         /// <summary>
         /// Which prototype to create.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("rodProto")]
+        [DataField]
         public EntProtoId RodProto = "Nullrod";
 
         /// <summary>
         /// Which effect to display.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("effectProto")]
+        [DataField]
         public EntProtoId EffectProto = "EffectSpark";
 
         /// <summary>
         /// Which sound effect to play.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("soundPath")]
+        [DataField]
         public SoundSpecifier? SoundPath;
 
     }
-}

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,25 +16,25 @@ public sealed partial class RandomizeMovementspeedComponent : Component
     /// The minimum limit of the modifier.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Min { get; set; } = 0.6f;
+    public float Min = 0.6f;
 
     /// <summary>
     /// The max limit of the modifier.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Max { get; set; } = 1.6f;
+    public float Max = 1.6f;
 
     /// <summary>
     /// The current modifier.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float CurrentModifier { get; set; } = 1f;
+    public float CurrentModifier = 1f;
 
     /// <summary>
     /// Next execution time.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan NextExecutionTime { get; set; }
+    public TimeSpan NextExecutionTime;
 
     /// <summary>
     /// The Uid of the entity that picked up the item.

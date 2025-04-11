@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -14,10 +15,10 @@ namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
 
 public sealed class RandomizeMovementSpeedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
-    [Dependency] private readonly IRobustRandom _random = null!;
-    [Dependency] private readonly IGameTiming _timing = null!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = null!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
 
@@ -35,7 +36,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         // Refresh the movement speed modifiers.
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
         // Get the Uid of the entity who picked up the item.
-        GetEntityUid(ent, ref args);
+        ent.Comp.EntityUid = args.User;
         ent.Comp.NextExecutionTime = _timing.CurTime;
     }
 
@@ -45,12 +46,6 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
         // Reset the user Uid.
         ent.Comp.EntityUid = null;
-    }
-
-    private void GetEntityUid(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
-    {
-        // Set the entity Uid field of the Component equal to the entity who picked up the item.
-        ent.Comp.EntityUid = args.User;
     }
 
     private float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)

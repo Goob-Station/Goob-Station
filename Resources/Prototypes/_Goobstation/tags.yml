@@ -236,6 +236,9 @@
   id: HolyClaymore
 
 - type: Tag
+  id: HonkmotherMaw
+
+- type: Tag
   id: IgnoreBindSoul
 
 - type: Tag
