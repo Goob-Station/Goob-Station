@@ -166,6 +166,7 @@
   minPlayers: 5
   rules:
     - CalmDynamic
+    - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
@@ -179,4 +180,5 @@
   minPlayers: 25
   rules:
     - CombatDynamic
+    - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
