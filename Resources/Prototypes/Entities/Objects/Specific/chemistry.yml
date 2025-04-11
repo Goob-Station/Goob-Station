@@ -436,6 +436,23 @@
     fillBaseName: syringe
     inHandsMaxFillLevels: 3
     inHandsFillBaseName: -fill-
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior
+        solution: injector
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Tag
     tags:
     - Syringe
