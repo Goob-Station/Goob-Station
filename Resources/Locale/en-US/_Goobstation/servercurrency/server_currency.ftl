@@ -5,8 +5,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-server-currency-name-singular = Goob Coin
-server-currency-name-plural = Goob Coins
+server-currency-name-singular = Event Coin
+server-currency-name-plural = Event Coins
 
 ## Commands
 
@@ -59,16 +59,16 @@ gs-balanceui-gift-value-tooltip = Amount of money to transfer
 gs-balanceui-shop-label = Tokens Store
 gs-balanceui-shop-empty = Out of stock!
 gs-balanceui-shop-buy = Buy
-gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per day.
+gs-balanceui-shop-footer = ⚠ Ahelp to use your token. Only 1 use per round.
 
 gs-balanceui-shop-token-label = Tokens
 gs-balanceui-shop-tittle-label = Titles
 
-gs-balanceui-shop-buy-token-hightier-antag = Buy high tier antag token - {$price} Goob Coins
-gs-balanceui-shop-buy-token-midtier-antag = Buy mid tier antag token - {$price} Goob Coins
-gs-balanceui-shop-buy-token-lowtier-antag = Buy low tier antag token - {$price} Goob Coins
-gs-balanceui-shop-buy-token-ghost = Buy ghost role token - {$price} Goob Coins
-gs-balanceui-shop-buy-token-admin-abuse = Buy admin abuse token - {$price} Goob Coins
+gs-balanceui-shop-buy-token-hightier-antag = Buy high tier antag token - {$price} Event Coins
+gs-balanceui-shop-buy-token-midtier-antag = Buy mid tier antag token - {$price} Event Coins
+gs-balanceui-shop-buy-token-lowtier-antag = Buy low tier antag token - {$price} Event Coins
+gs-balanceui-shop-buy-token-ghost = Buy ghost role token - {$price} Event Coins
+gs-balanceui-shop-buy-token-admin-abuse = Buy admin abuse token - {$price} Event Coins
 
 gs-balanceui-shop-token-hightier-antag = High tier antag token
 gs-balanceui-shop-token-midtier-antag = Mid tier antag token
