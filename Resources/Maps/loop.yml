@@ -4,7 +4,7 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/10/2025 08:28:05
+  time: 04/11/2025 22:57:16
   entityCount: 18135
 maps:
 - 1
@@ -7268,7 +7268,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -1.5,61.5
       parent: 2
-- proto: AirlockCentralCommand
+- proto: AirlockCentralCommandLocked
   entities:
   - uid: 5382
     components:
@@ -7399,7 +7399,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -62742.926
+      secondsUntilStateChange: -62882.71
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11174,6 +11174,11 @@ entities:
     components:
     - type: Transform
       pos: 10.5,38.5
+      parent: 2
+  - uid: 5533
+    components:
+    - type: Transform
+      pos: -44.5,15.5
       parent: 2
   - uid: 16375
     components:
@@ -41040,12 +41045,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -51.49595,59.782562
       parent: 2
-  - uid: 13309
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -67.508095,65.71284
-      parent: 2
   - uid: 13315
     components:
     - type: Transform
@@ -42362,8 +42361,11 @@ entities:
   - uid: 5524
     components:
     - type: Transform
-      pos: -44.445335,15.615026
+      pos: -44.63369,16.495342
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 5809
     components:
     - type: Transform
@@ -45179,7 +45181,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310498.47
+      secondsUntilStateChange: -310638.25
       state: Opening
   - uid: 6747
     components:
@@ -45187,7 +45189,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310499.2
+      secondsUntilStateChange: -310638.97
       state: Opening
   - uid: 6749
     components:
@@ -45195,7 +45197,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310497.75
+      secondsUntilStateChange: -310637.53
       state: Opening
   - uid: 6750
     components:
@@ -45203,7 +45205,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310497.12
+      secondsUntilStateChange: -310636.9
       state: Opening
 - proto: Cutlass
   entities:
@@ -54098,11 +54100,6 @@ entities:
       parent: 2
 - proto: FlashlightLantern
   entities:
-  - uid: 5533
-    components:
-    - type: Transform
-      pos: -44.52346,17.740026
-      parent: 2
   - uid: 6713
     components:
     - type: Transform
@@ -54349,6 +54346,11 @@ entities:
     components:
     - type: Transform
       pos: 0.29068708,11.49038
+      parent: 2
+  - uid: 13309
+    components:
+    - type: Transform
+      pos: -67.33749,66.65541
       parent: 2
 - proto: FoodBurgerMothRoach
   entities:
@@ -81672,6 +81674,11 @@ entities:
     - type: Transform
       pos: -71.5,39.5
       parent: 2
+  - uid: 5521
+    components:
+    - type: Transform
+      pos: -67.5,65.5
+      parent: 2
   - uid: 5574
     components:
     - type: Transform
@@ -97179,11 +97186,6 @@ entities:
     - type: Transform
       pos: -44.5,17.5
       parent: 2
-  - uid: 5521
-    components:
-    - type: Transform
-      pos: -44.5,15.5
-      parent: 2
   - uid: 5522
     components:
     - type: Transform
@@ -99373,8 +99375,11 @@ entities:
   - uid: 5525
     components:
     - type: Transform
-      pos: -44.49221,16.099401
+      pos: -44.618065,16.964092
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 14179
     components:
     - type: Transform
@@ -99402,8 +99407,11 @@ entities:
   - uid: 5526
     components:
     - type: Transform
-      pos: -44.476585,16.521276
+      pos: -44.555565,17.229717
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 15598
     components:
     - type: Transform
@@ -99419,8 +99427,11 @@ entities:
   - uid: 5527
     components:
     - type: Transform
-      pos: -44.46096,16.990026
+      pos: -44.555565,17.542217
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ToolboxGoldFilled
   entities:
   - uid: 6135
@@ -99450,8 +99461,11 @@ entities:
   - uid: 5528
     components:
     - type: Transform
-      pos: -44.46096,17.443151
+      pos: -44.493065,17.745344
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 6682
     components:
     - type: Transform
@@ -99581,8 +99595,11 @@ entities:
   - uid: 5807
     components:
     - type: Transform
-      pos: -44.707573,15.612088
+      pos: -44.305565,16.557842
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: ToyFigurineHeadOfPersonnel
   entities:
   - uid: 6646
