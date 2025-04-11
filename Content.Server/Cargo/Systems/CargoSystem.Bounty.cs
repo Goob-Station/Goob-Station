@@ -82,7 +82,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
-using Content.Server.Labels;
 using Content.Server.NameIdentifier;
 using Content.Shared.Access.Components;
 using Content.Shared.Cargo;
@@ -90,6 +89,7 @@ using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Paper;
 using Content.Shared.Stacks;
