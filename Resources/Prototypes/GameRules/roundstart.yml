@@ -179,7 +179,7 @@
   id: Traitor
   components:
   - type: GameRule
-    minPlayers: 5
+    minPlayers: 1
   - type: AntagSelection
     selectionTime: BeforeJobs # Goobstation
     definitions:
@@ -214,7 +214,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 1
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: BeforeJobs # Goobstation
@@ -250,7 +250,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 1
     delay:
       min: 600
       max: 900

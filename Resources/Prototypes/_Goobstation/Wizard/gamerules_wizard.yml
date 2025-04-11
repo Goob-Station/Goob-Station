@@ -5,7 +5,7 @@
   components:
   - type: WizardRule
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 1
   - type: AntagObjectives
     objectives:
     - WizardSurviveObjective
@@ -56,7 +56,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 20
+    minimumPlayers: 1
     duration: 1
     chaos: # Goobstation
       Hostile: 200

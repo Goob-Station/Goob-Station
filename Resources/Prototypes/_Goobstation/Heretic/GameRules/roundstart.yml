@@ -4,7 +4,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 1
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
@@ -30,7 +30,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 1
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective

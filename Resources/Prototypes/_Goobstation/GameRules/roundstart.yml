@@ -4,7 +4,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 1
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
@@ -29,7 +29,7 @@
   id: CalmTraitor # For Dual Antag Gamemodes
   components:
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 1
   - type: AntagSelection
     selectionTime: BeforeJobs
     definitions:
@@ -52,7 +52,7 @@
   id: CalmLing # For Dual Antag Gamemodes
   components:
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 1
   - type: AntagSelection
     selectionTime: BeforeJobs
     agentName: changeling-roundend-name
@@ -72,7 +72,7 @@
   id: Calmops # For Dual Antag Gamemodes
   components:
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 1
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -139,7 +139,7 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 30
+    minPlayers: 1
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: BeforeJobs
@@ -175,7 +175,7 @@
   components:
   - type: BlobRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 1
   - type: AntagSelection
     selectionTime: BeforeJobs
     definitions:
@@ -200,7 +200,7 @@
     weight: 15
     duration: 1
     earliestStart: 50
-    minimumPlayers: 20
+    minimumPlayers: 1
     maxOccurrences: 2
     chaos:
       Hostile: 200

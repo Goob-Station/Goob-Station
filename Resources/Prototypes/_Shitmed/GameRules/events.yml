@@ -6,7 +6,7 @@
     earliestStart: 15
     reoccurrenceDelay: 45
     weight: 7.5
-    minimumPlayers: 10
+    minimumPlayers: 1
     duration: 1
     chaos: # Goobstation
       Hostile: 75

@@ -163,7 +163,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 10
+    minimumPlayers: 15
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -273,7 +273,7 @@
   - type: StationEvent
     weight: 3.5
     duration: 1
-    earliestStart: 1
+    earliestStart: 45
     minimumPlayers: 1
     chaos: # Goobstation
       Hostile: 20
@@ -359,7 +359,6 @@
     affectedChannels:
     - Common
     extraChannels:
-    - Command
     - Engineering
     - Medical
     - Science
@@ -470,7 +469,7 @@
       Hostile: 20
       Medical: 50
   - type: VentCrittersRule
-    playerRatio: 35 # DeltaV: Clown spiders are very robust
+    playerRatio: 25 # DeltaV: Clown spiders are very robust
     entries:
     - id: MobClownSpider
       prob: 0.05

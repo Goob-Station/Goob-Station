@@ -399,3 +399,11 @@
   sprite:
     sprite: Mobs/Animals/crab.rsi
     state: crab
+
+# RA
+- type: stealTargetGroup
+  id: RedsPhotoAlbum
+  name: steal-target-groups-reds-photo-album
+  sprite:
+    sprite: _RA/Objects/Misc/photo_album.rsi
+    state: reimoldphotoalbum
