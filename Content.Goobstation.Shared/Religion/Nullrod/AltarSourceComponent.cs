@@ -7,8 +7,8 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Religion.Nullrod
-{
+namespace Content.Goobstation.Shared.Religion.Nullrod;
+
     [RegisterComponent]
     public sealed partial class AltarSourceComponent : Component
     {
@@ -32,4 +32,3 @@ namespace Content.Goobstation.Shared.Religion.Nullrod
         public SoundSpecifier? SoundPath;
 
     }
-}
