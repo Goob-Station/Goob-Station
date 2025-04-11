@@ -176,6 +176,9 @@ binds:
 - function: ToggleStanding
   type: State
   key: R
+- function: ResistGrab
+  type: State
+  key: B
 # Shuttle
 - function: ShuttleStrafeUp
   type: State

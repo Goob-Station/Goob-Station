@@ -124,7 +124,7 @@ public partial class SharedMartialArtsSystem
                 break;
             case true:
                 _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
-                _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+                //_stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
                 break;
         }
 

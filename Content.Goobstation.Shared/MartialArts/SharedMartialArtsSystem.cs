@@ -228,7 +228,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
-        pullerComponent.StageChangeCooldown /= 2;
 
         if (meleeWeaponComponent.Damage.DamageDict.Count != 0)
         {
