@@ -186,12 +186,6 @@
   artist: Diebeck
 
 - type: lobbyBackground
-  id: grandtheftgoob
-  background: /Textures/LobbyScreens/grandtheftgoob.webp
-  name: Grand Theft Goob
-  artist: Piras314
-
-- type: lobbyBackground
   id: greytideworldwide
   background: /Textures/LobbyScreens/greytideworldwide.webp
   name: Greytide Worldwide
@@ -240,12 +234,6 @@
   artist: Cattom
 
 - type: lobbyBackground
-  id: stargoob
-  background: /Textures/LobbyScreens/StarGoob.webp
-  name: GoobWars
-  artist: Jvne
-
-- type: lobbyBackground
   id: enlist-lavaland
   background: /Textures/LobbyScreens/enlist.webp
   name: Nanotrasen wants YOU.
@@ -262,3 +250,63 @@
   background: /Textures/LobbyScreens/RatLobbyart.webp
   name: Just some Rat
   artist: NeptuneZvezda
+
+- type: lobbyBackground
+  id: allaccess
+  background: /Textures/LobbyScreens/allaccess.webp
+  name: No All Access
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: wackidc
+  background: /Textures/LobbyScreens/wackidc.webp
+  name: This shit's wack.
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: brucekelp
+  background: /Textures/LobbyScreens/brucekelp.webp
+  name: Bruce Kelp Insanity
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: crucified
+  background: /Textures/LobbyScreens/crucified.webp
+  name: Crucified
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: clownrobotics
+  background: /Textures/LobbyScreens/clownrobotics.webp
+  name: Clown Robotics
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: stealarmoury
+  background: /Textures/LobbyScreens/stealarmoury.webp
+  name: Stolen Armoury
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: piecannon
+  background: /Textures/LobbyScreens/piecannon.webp
+  name: The Almighty Pie Cannon
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: clowntidercapcc
+  background: /Textures/LobbyScreens/clowntidercapcc.webp
+  name: Clown, Tider, Captain and CentCom
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: clowntidercapcc
+  background: /Textures/LobbyScreens/clowntidercapcc.webp
+  name: Clown, Tider, Captain and CentCom
+  artist: Gugelc1988
+
+- type: lobbyBackground
+  id: feastops
+  background: /Textures/LobbyScreens/Feastops.webp
+  name: Feastops
+  artist: Gugelc1988 
