@@ -24,6 +24,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
 
     public const string ContainerID = "Biological";
     public const string TransformedContainerID = "BiologicalMetaphysical";
+    public const string PassiveDamageType = "Holy";
 
     public override void Initialize()
     {
@@ -48,7 +49,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
     {
         var heretic = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
 
-        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && heretic.Damage.DamageDict.TryGetValue("Holy", out _))
+        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && heretic.Damage.DamageDict.TryGetValue(PassiveDamageType, out _))
             return;
 
             // Store the original DamageCap if it hasn't already been stored
@@ -57,7 +58,7 @@ public sealed partial class WeakToHolySystem : EntitySystem
         _originalDamageCaps[args.OtherEntity] = heretic.DamageCap;
         }
 
-        heretic.Damage.DamageDict.TryAdd("Holy", -10);
+        heretic.Damage.DamageDict.TryAdd(PassiveDamageType, ent.runeHealing);
         heretic.DamageCap = FixedPoint2.New(0);
         DirtyEntity(args.OtherEntity);
 
