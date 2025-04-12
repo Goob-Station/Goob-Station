@@ -126,7 +126,7 @@
   artist: NeptuneZvezda
 
 - type: lobbyBackground
-  id: bowsette
+  id: ratart
   background: /Textures/LobbyScreens/RatLobbyart.webp
   name: Just some Rat
   artist: NeptuneZvezda
@@ -171,12 +171,6 @@
   id: piecannon
   background: /Textures/LobbyScreens/piecannon.webp
   name: The Almighty Pie Cannon
-  artist: Gugelc1988
-
-- type: lobbyBackground
-  id: clowntidercapcc
-  background: /Textures/LobbyScreens/clowntidercapcc.webp
-  name: Clown, Tider, Captain and CentCom
   artist: Gugelc1988
 
 - type: lobbyBackground
