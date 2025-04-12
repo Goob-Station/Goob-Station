@@ -8,6 +8,3 @@ humanoid-character-profile-summary =
     [epicene] They are
     *[other] It is
 } {$age} years old.
-
-borg-character-profile-summary =
-    This is {$name}.
