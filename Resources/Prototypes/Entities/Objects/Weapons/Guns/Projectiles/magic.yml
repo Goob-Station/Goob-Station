@@ -91,7 +91,7 @@
   id: ProjectileFireball
   name: fireball
   description: You better GITTAH WEIGH.
-  parent: BulletRocket
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -107,6 +107,7 @@
     layers:
     - state: fireball
       shader: unshaded
+  - type: TriggerOnProjectileHit
   - type: Explosive
     explosionType: Default
     maxIntensity: 3.5 # Goob edit

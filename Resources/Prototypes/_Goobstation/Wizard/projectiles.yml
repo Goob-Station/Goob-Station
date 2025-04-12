@@ -263,6 +263,8 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: Projectile
     damage:
       types:

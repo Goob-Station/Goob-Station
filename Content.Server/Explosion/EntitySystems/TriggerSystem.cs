@@ -90,6 +90,7 @@ using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Trigger;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Projectiles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -180,6 +181,7 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<SpawnOnTriggerComponent, TriggerEvent>(OnSpawnTrigger);
             SubscribeLocalEvent<DeleteOnTriggerComponent, TriggerEvent>(HandleDeleteTrigger);
             SubscribeLocalEvent<ExplodeOnTriggerComponent, TriggerEvent>(HandleExplodeTrigger);
+            SubscribeLocalEvent<TriggerOnProjectileHitComponent, ProjectileHitEvent>(TriggerOnProjectileHit);
             SubscribeLocalEvent<FlashOnTriggerComponent, TriggerEvent>(HandleFlashTrigger);
             SubscribeLocalEvent<GibOnTriggerComponent, TriggerEvent>(HandleGibTrigger);
 
@@ -310,6 +312,13 @@ namespace Content.Server.Explosion.EntitySystems
         {
             if (args.OurFixtureId == component.FixtureID && (!component.IgnoreOtherNonHard || args.OtherFixture.Hard))
                 Trigger(uid, args.OtherEntity);
+        }
+
+        //ShitChap - Spell Reflection Functionality
+        private void TriggerOnProjectileHit(EntityUid uid, TriggerOnProjectileHitComponent component, ref ProjectileHitEvent args)
+        {
+            Trigger(uid);
+            _explosions.TriggerExplosive(uid);
         }
 
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)

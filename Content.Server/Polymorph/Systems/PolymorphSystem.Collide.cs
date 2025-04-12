@@ -30,7 +30,7 @@ public partial class PolymorphSystem
 
     private void InitializeCollide()
     {
-        SubscribeLocalEvent<PolymorphOnCollideComponent, StartCollideEvent>(OnPolymorphCollide);
+        SubscribeLocalEvent<PolymorphOnCollideComponent, ProjectileHitEvent>(OnPolymorphCollide);
     }
 
     public void UpdateCollide()
@@ -46,12 +46,9 @@ public partial class PolymorphSystem
         }
     }
 
-    private void OnPolymorphCollide(EntityUid uid, PolymorphOnCollideComponent component, ref StartCollideEvent args)
+    private void OnPolymorphCollide(EntityUid uid, PolymorphOnCollideComponent component, ref ProjectileHitEvent args)
     {
-        if (args.OurFixtureId != SharedProjectileSystem.ProjectileFixture)
-            return;
-
-        var other = args.OtherEntity;
+        var other = args.Target;
         if (_whitelistSystem.IsWhitelistFail(component.Whitelist, other) ||
             _whitelistSystem.IsBlacklistPass(component.Blacklist, other))
             return;
