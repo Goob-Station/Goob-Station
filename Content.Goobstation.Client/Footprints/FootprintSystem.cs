@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.Footprints;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
