@@ -214,8 +214,8 @@
     sprintModifier: 0.25
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 10 # Goobstation - Sniper rifles buff
-    pvsIncrease: 1.0 # Goobstation - Sniper rifles buff
+    maxOffset: 8 # Goobstation - Sniper rifles buff
+    pvsIncrease: 0.8 # Goobstation - Sniper rifles buff
 
 - type: entity
   name: musket
