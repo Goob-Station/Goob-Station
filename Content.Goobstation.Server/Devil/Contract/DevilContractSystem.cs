@@ -149,7 +149,7 @@ public sealed class DevilContractSystem : EntitySystem
             return;
 
         // You can't sell your soul if you already sold it. (also no robits)
-        if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(uid))
+        if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(args.Signer))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("devil-contract-no-soul-sign-failed"),

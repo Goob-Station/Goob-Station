@@ -29,9 +29,8 @@
   A [bold]Clause[/bold] is a concept or thing that one of the parties is giving up, either to the other party or destroying it entirely.
 
   Example:
-  <Box>
-    Contractee: Weakness Contractee: Soul
-  </Box>
+    Contractee: Weakness
+    Contractee: Soul
 
   In the above contract, the contractee is giving up their weakness and the rights to their soul.
   Giving up your weakness will grant you massive resistance to all damage types, but giving up your soul could have unforeseen consequences.
@@ -93,7 +92,7 @@
 
   [bold]When a chaplain speaks a devils true name along with the correct word, it will harm them [color=red]significantly![/bold][/color]
 
-  ## True name, or fake name?
+  ## True or fake name?
 
   When a devil arrives at a station they take the form of a random crew member.
   Whether they are possessed, shape-shifted, or perhaps just a coincidental twin, they'll replace someone on station.
