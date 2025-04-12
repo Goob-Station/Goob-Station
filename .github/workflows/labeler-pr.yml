@@ -16,7 +16,6 @@ concurrency:
 
 jobs:
   labeler:
-    if: github.actor != 'GoobBot'
     permissions:
       contents: read
       pull-requests: write
