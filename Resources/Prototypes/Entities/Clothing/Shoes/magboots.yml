@@ -146,20 +146,53 @@
   - type: Clothing
     sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.9
+    walkModifier: 0
+    sprintModifier: 0
   - type: GasTank
-    outputPressure: 42.6
+    outputPressure: 1
     air:
       # 2 minutes of thrust
-      volume: 0.75
-      temperature: 293.15
+      volume: 1000
+      temperature: 1
       moles:
-      - 0.153853429 # oxygen
-      - 0.153853429 # nitrogen
+      - 10000 # oxygen
+      - 10000 # nitrogen
   - type: Item
     sprite: null
     size: Normal
+
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseSyndicateContraband]
+  id: ClothingOmniBoots
+  name: Omni-Man boots
+  description: wait, WHAT????
+  prefix: ADMEME
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: GasTank
+    outputPressure: 1
+    air:
+      volume: 1000
+      temperature: 1
+      moles:
+      - 10000 # oxygen
+      - 10000 # nitrogen
+  - type: Item
+  - type: Jetpack
+    moleUsage: 0.00002
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 2.5
+    sprite: null
+    size: Small
 
 - type: entity
   id: ActionToggleMagboots

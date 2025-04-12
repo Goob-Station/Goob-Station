@@ -1154,6 +1154,24 @@
   id: LoneOpsUplink
 
 - type: Tag
+  id: OmniMan #TODO: Omni-man admeme antag role
+
+- type: Tag
+  id: OmniCloak
+
+- type: Tag
+  id: OmniManManual
+
+- type: Tag
+  id: ClothingOmniBoots
+
+- type: Tag
+  id: ClothingOuterHardsuitOmniMan
+
+- type: Tag
+  id: OmniHardsuit
+
+- type: Tag
   id: Ointment
 
 - type: Tag

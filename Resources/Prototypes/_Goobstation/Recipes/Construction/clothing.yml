@@ -77,3 +77,15 @@
   description: A heads-up display combining both medical and diagnostic information.
   icon: { sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: Omni-Man cloak
+  id: OmniCloak
+  prefix: ADMEME
+  graph: GoliathCloak
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  description: You dont really know where it was made.
+  icon: { sprite: Clothing/Neck/Cloaks/goliathcloak.rsi, state: icon }
+  objectType: Item

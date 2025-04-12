@@ -1000,6 +1000,18 @@
       mode: SensorOff
 
 - type: entity
+  parent: [UnsensoredClothingUniformBase, BaseSyndicateContraband]
+  id: OmniManSuit
+  name: Omni-man suit
+  prefix: ADMEME
+  description: You fell just like a superhero!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatered.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatered.rsi
+
+- type: entity
   parent: [ ClothingUniformBase ]
   id: ClothingUniformJumpsuitMercenary
   name: mercenary jumpsuit

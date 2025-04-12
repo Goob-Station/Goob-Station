@@ -744,6 +744,45 @@
     delayDelta: 2
     knockdownTimeDelta: -2
 
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitOmniMan
+  name: Omni-man hardsuit
+  description: Make you a superhero!
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.2 #goob
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1
+        Slash: 0.05
+        Piercing: 0.01
+        Heat: 0
+        Radiation: 0
+        Caustic: 0
+  - type: Tag
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+    - OmniHardsuit
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 2
+    knockdownTimeDelta: -2
+
 # Syndicate Medic Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitSyndie, BaseSyndicateContraband]

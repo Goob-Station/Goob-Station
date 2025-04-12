@@ -344,3 +344,29 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/pan.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: OmniCloak
+  name: Omni-man cloak
+  prefix: ADMEME
+  description: You fell strenght when you wearing this.  #Goobstation
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      neck: ClothingHeadHatHoodGoliathCloak
+  - type: Construction
+    graph: GoliathCloak
+    node: cloak
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: ContainerContainer
+  - type: ClothingSpeedModifier
+    walkModifier: 1.2
+    sprintModifier: 2
+    containers:
+      toggleable-clothing: !type:Container {}

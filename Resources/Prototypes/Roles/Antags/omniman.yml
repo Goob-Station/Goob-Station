@@ -1,0 +1,30 @@
+#Omni-man gear
+- type: startingGear
+  id: OmniManGearFull
+  equipment:
+    outerClothing: ClothingOuterHardsuitOmniMan 
+    shoes: ClothingOmniBoots
+    id: AgentIDCard
+    pocket2: PinpointerStation
+    neck: OmniCloak
+    pocket1: OmniManManual
+    jumpsuit: OmniManSuit
+    ears: ClothingHeadsetGrey
+    eyes: ClothingEyesThermalVisionGogglesSyndie
+    hands: ClothingHandsGlovesCombat
+    back: ClothingSatchelSmuggler
+    storage:
+      back: #admins can spawn it by themselfes
+      - BluespaceLifelineImplanter 
+      - CentcommFreedomImplanter 
+      - BlinkImplanter
+
+#Omni-man antag
+- type: antag
+  id: OmniMan
+  name: roles-antag-omniman-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-omniman-objective
+  
+  #TODO: Omni-man in antag ctrl, omni-man objectives, Omni-man ID, Omni-man antag icon.

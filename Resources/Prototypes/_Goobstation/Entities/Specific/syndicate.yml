@@ -39,3 +39,19 @@
   - type: StaticPrice
     price: 3000
   - type: GrantSleepingCarp
+
+- type: entity
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: OmniManManual
+  name: viltrumite manual
+  description: Manual for a starter viltrumites
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: StaticPrice
+    price: 3000
+  - type: GrantSleepingCarp

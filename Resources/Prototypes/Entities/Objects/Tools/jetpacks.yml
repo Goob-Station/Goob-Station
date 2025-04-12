@@ -174,6 +174,32 @@
         - 1.025689525 # oxygen
         - 1.025689525 # nitrogen
 
+
+- type: entity
+  id: ClothingOmniBoots
+  parent: [ClothingShoesBootsMagSyndie, BaseMagicContraband]
+  name: Omni-Man boots
+  description: wait, WHAT????
+  prefix: ADMEME
+  components:
+  - type: GasTank
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+    outputPressure: 1
+    air:
+      volume: 1000
+      temperature: 1
+      moles:
+        - 10000 # oxygen
+        - 10000 # nitrogen
+  - type: Jetpack
+    moleUsage: 0.00002
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 2.5
+
 #Empty captain
 - type: entity
   id: JetpackCaptain
