@@ -186,12 +186,6 @@
   artist: Gugelc1988
 
 - type: lobbyBackground
-  id: feastops
-  background: /Textures/LobbyScreens/Feastops.webp
-  name: Feastops
-  artist: Gugelc1988 
-
-- type: lobbyBackground
   id: tiderkitchen
   background: /Textures/LobbyScreens/tiderkitchen.webp
   name: Tider broke into kitchen
