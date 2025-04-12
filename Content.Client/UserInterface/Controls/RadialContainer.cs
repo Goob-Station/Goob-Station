@@ -1,9 +1,10 @@
 // SPDX-FileCopyrightText: 2024 Rinary <72972221+Rinary1@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Eoin Mcloughlin <helloworld@eoinrul.es>
 // SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-// SPDX-FileCopyrightText: 2025 Eoin Mcloughlin <helloworld@eoinrul.es>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
