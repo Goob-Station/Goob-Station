@@ -332,7 +332,9 @@ namespace Content.Shared.Damage
         // Goobstation - partial AP. Returns new armor modifier set.
         public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet, float penetration)
         {
-            if (penetration == 0f)
+            if (penetration == 0f ||
+                penetration > 0f && (modifierSet.IgnoreArmorPierceFlags & (int) PartialArmorPierceFlags.Positive) != 0 ||
+                penetration < 0f && (modifierSet.IgnoreArmorPierceFlags & (int) PartialArmorPierceFlags.Negative) != 0)
                 return modifierSet;
 
             var result = new DamageModifierSet();

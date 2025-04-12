@@ -58,7 +58,6 @@
       - ArrowExplosive
       - ArrowXray
       - ArrowBee
-      - ArrowSlash
   - type: FoldingWeapon
   - type: UserInterface
     interfaces:

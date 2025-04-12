@@ -12,9 +12,12 @@
     Blunt: 0.85
     Slash: 0.85
     Piercing: 0.85
+  ignoreArmorPierceFlags: All # Goobstation
+
 - type: damageModifierSet
   id: Felinid
   coefficients:
     Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
+  ignoreArmorPierceFlags: All # Goobstation
