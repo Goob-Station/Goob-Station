@@ -45,20 +45,29 @@ public sealed partial class NtrTaskProviderComponent : Component
     /// </summary>
     [DataField("printSound")]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");
+
+    [DataField]
+    public HashSet<string> ActiveTaskIds = new();
 }
 
 [NetSerializable, Serializable]
 public sealed class NtrTaskProviderState : BoundUserInterfaceState
 {
-    public List<NtrTaskData> Tasks;
-    public List<NtrTaskHistoryData> History;
-    public TimeSpan UntilNextSkip;
+    public List<NtrTaskData> AvailableTasks { get; }
+    public List<NtrTaskHistoryData> History { get; }
+    public TimeSpan UntilNextSkip { get; }
+    public HashSet<string> LockedTasks { get; }
 
-    public NtrTaskProviderState(List<NtrTaskData> tasks, List<NtrTaskHistoryData> history, TimeSpan untilNextSkip)
+    public NtrTaskProviderState(
+        List<NtrTaskData> available,
+        List<NtrTaskHistoryData> history,
+        TimeSpan skipTime,
+        HashSet<string>? locked = null)
     {
-        Tasks = tasks;
+        AvailableTasks = available;
         History = history;
-        UntilNextSkip = untilNextSkip;
+        UntilNextSkip = skipTime;
+        LockedTasks = locked ?? new HashSet<string>();
     }
 }
 

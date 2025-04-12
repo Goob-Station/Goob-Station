@@ -1,13 +1,13 @@
-using System.Linq;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
-using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
-using Content.Shared.Paper;
-using Content.Shared.Popups;
+using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Shared.NTR.Documents;
 using Content.Goobstation.Shared.NTR.Events;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Paper;
+using Content.Shared.Popups;
+using Robust.Shared.Containers;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.NTR;
 
@@ -16,7 +16,6 @@ public sealed class SharedNtrTaskSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
@@ -24,6 +23,7 @@ public sealed class SharedNtrTaskSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<NtrTaskProviderComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
     }
+
     private void OnInsertAttempt(EntityUid uid,
         NtrTaskProviderComponent component,
         ref ItemSlotInsertAttemptEvent args)
@@ -35,10 +35,7 @@ public sealed class SharedNtrTaskSystem : EntitySystem
         {
             args.Cancelled = true;
             if (_net.IsServer && args.User != null)
-            {
-                var ev = new TaskFailedEvent(args.User.Value);
-                RaiseLocalEvent(uid, ev);
-            }
+                RaiseLocalEvent(uid, new TaskFailedEvent(args.User.Value));
             return;
         }
         if (!HasValidStamps(args.Item))
@@ -47,33 +44,30 @@ public sealed class SharedNtrTaskSystem : EntitySystem
             if (_net.IsServer)
             {
                 if (args.User != null)
-                {
                     _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), uid, args.User.Value);
-                }
                 _audio.PlayPvs(component.DenySound, uid);
             }
             return;
         }
+        else
+        {
+            if (TryComp<RandomDocumentComponent>(args.Item, out var documentComp))
+            {
+                foreach (var taskId in documentComp.Tasks)
+                {
+                    if (_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto))
+                    {
+                        var completeEv = new TaskCompletedEvent(taskProto);
+                        RaiseLocalEvent(uid, completeEv);
+                    }
+                }
+            }
+        }
 
         if (_net.IsServer)
         {
-            if (args.User != null)
-            {
-                _popup.PopupEntity(Loc.GetString("ntr-console-insert-accept"), uid, args.User.Value);
-            }
-            _audio.PlayPvs(component.SkipSound, uid);
-            if (!TryComp<RandomDocumentComponent>(args.Item, out var documentComp))
-                return;
-
-            foreach (var taskId in documentComp.Tasks)
-            {
-                if (!_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto))
-                    continue;
-
-                var ev = new TaskCompletedEvent(taskProto);
-                RaiseLocalEvent(uid, ev);
-            }
-            _entityManager.QueueDeleteEntity(args.Item);
+            var ev = new DocumentInsertedEvent(args.Item, uid, args.User);
+            RaiseLocalEvent(ev);
         }
     }
 
@@ -84,10 +78,7 @@ public sealed class SharedNtrTaskSystem : EntitySystem
             return false;
 
         var requiredStamps = GetRequiredStamps(documentComp);
-        if (requiredStamps.Count == 0)
-            return false;
-
-        return AreStampsCorrect(paperComp, requiredStamps);
+        return requiredStamps.Count != 0 && AreStampsCorrect(paperComp, requiredStamps);
     }
 
     private HashSet<string> GetRequiredStamps(RandomDocumentComponent documentComp)
@@ -95,29 +86,47 @@ public sealed class SharedNtrTaskSystem : EntitySystem
         var requiredStamps = new HashSet<string>();
         foreach (var taskId in documentComp.Tasks)
         {
-            if (!_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto) || taskProto == null)
+            if (!_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto))
                 continue;
 
             foreach (var entry in taskProto.Entries)
-            {
-                foreach (var stamp in entry.Stamps)
-                {
-                    requiredStamps.Add(stamp);
-                }
-            }
+                requiredStamps.UnionWith(entry.Stamps);
         }
         return requiredStamps;
     }
 
     private bool AreStampsCorrect(PaperComponent paperComp, HashSet<string> requiredStamps)
     {
-        if (paperComp.StampedBy.Count == 0)
+        if (paperComp.StampedBy.Count == 0 || requiredStamps.Count == 0)
             return false;
 
-        var actualStamps = paperComp.StampedBy
-            .Select(stamp => stamp.StampedName)
-            .ToList();
+        foreach (var requiredStamp in requiredStamps)
+        {
+            bool found = false;
+            foreach (var stamp in paperComp.StampedBy)
+            {
+                if (stamp.StampedName == requiredStamp)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                return false;
+        }
+        return true;
+    }
+}
+public sealed class DocumentInsertedEvent : EntityEventArgs
+{
+    public EntityUid Document;
+    public EntityUid Console;
+    public EntityUid? User;
 
-        return requiredStamps.All(actualStamps.Contains);
+    public DocumentInsertedEvent(EntityUid document, EntityUid console, EntityUid? user)
+    {
+        Document = document;
+        Console = console;
+        User = user;
     }
 }

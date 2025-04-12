@@ -50,6 +50,6 @@ public sealed class NtrTaskBoundUserInterface : BoundUserInterface
         if (message is not NtrTaskProviderState state)
             return;
 
-        _menu?.UpdateEntries(state.Tasks, state.History, state.UntilNextSkip);
+        _menu?.UpdateEntries(state.AvailableTasks, state.History, state.UntilNextSkip);
     }
 }

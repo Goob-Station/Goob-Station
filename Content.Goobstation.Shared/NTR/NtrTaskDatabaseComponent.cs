@@ -1,5 +1,5 @@
 using Content.Goobstation.Shared.NTR;
-using Content.Shared.Cargo;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.NTR;
@@ -52,7 +52,7 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     /// The time between skipping bounties.
     /// </summary>
     [DataField]
-    public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);
+    public TimeSpan SkipDelay = TimeSpan.FromMinutes(5);
 
     /// <summary>
     /// Time between automatic task generation
@@ -83,4 +83,7 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextPowerGridTime = TimeSpan.Zero;
+
+    [DataField("maxActiveTime")] // if u cant complete a task in 20 mins, skill issue.
+    public TimeSpan MaxActiveTime = TimeSpan.FromMinutes(20); // 20 min to complete a task
 }
