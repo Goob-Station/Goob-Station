@@ -208,6 +208,9 @@
   id: GunCanAimShooter
 
 - type: Tag
+  id: Hammer
+
+- type: Tag
   id: HandheldCrewMonitor
 
 - type: Tag
@@ -215,6 +218,9 @@
 
 - type: Tag
   id: Heart
+
+- type: Tag
+  id: HereticBladeBlade
 
 - type: Tag
   id: HereticItem

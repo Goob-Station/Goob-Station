@@ -29,7 +29,7 @@
     wideAnimationRotation: -125
     damage:
       types:
-        Slash: 17.5
+        Slash: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -65,7 +65,7 @@
     damage:
       types:
         Heat: 10
-        Slash: 7.5
+        Slash: 10
 
 - type: entity
   parent: HereticBladeBase
@@ -81,6 +81,19 @@
     state: icon
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
+  - type: Tag
+    tags:
+    - HereticItem
+    - HereticBladeBlade
+  - type: Multihit
+    damageMultiplier: 0.75
+    multihitWhitelist:
+      tags:
+      - HereticBladeBlade
+    conditions:
+    - !type:MultihitUserHereticEvent
+      requiredPath: Blade
+      minPathStage: 7
 
 - type: entity
   parent: HereticBladeBase
@@ -145,4 +158,4 @@
     damage:
       types:
         Cold: 10
-        Slash: 7.5
+        Slash: 10

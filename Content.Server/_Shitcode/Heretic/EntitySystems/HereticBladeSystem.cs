@@ -160,7 +160,7 @@ public sealed class HereticBladeSystem : EntitySystem
             {
                 DamageDict =
                 {
-                    { "Poison", 7.5f },
+                    { "Poison", 5f },
                 },
             };
         }

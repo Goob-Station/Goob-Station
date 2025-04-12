@@ -1,0 +1,23 @@
+using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
+
+namespace Content.Goobstation.Shared.Weapons.Multihit;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class MultihitComponent : Component
+{
+    [DataField]
+    public float DamageMultiplier = 0.67f;
+
+    [DataField]
+    public TimeSpan MultihitDelay = TimeSpan.FromSeconds(0.25);
+
+    [DataField]
+    public EntityWhitelist? MultihitWhitelist;
+
+    [DataField]
+    public List<BaseMultihitUserConditionEvent> Conditions = new();
+
+    [DataField]
+    public bool RequireAllConditions;
+}

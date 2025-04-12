@@ -442,6 +442,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return AttemptAttack(user, weaponUid, weapon, new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(targetXform.Coordinates)), null);
     }
 
+    // Goobstation
+    public bool AttemptHeavyAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, List<EntityUid> targets, EntityCoordinates coordinates)
+    {
+        return AttemptAttack(user,
+            weaponUid,
+            weapon,
+            new HeavyAttackEvent(GetNetEntity(weaponUid), GetNetEntityList(targets), GetNetCoordinates(coordinates)),
+            null);
+    }
+
     public bool AttemptDisarmAttack(EntityUid user, EntityUid weaponUid, MeleeWeaponComponent weapon, EntityUid target)
     {
         if (!TryComp(target, out TransformComponent? targetXform))
@@ -842,7 +852,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return true;
     }
 
-    protected HashSet<EntityUid> ArcRayCast(Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId, EntityUid ignore)
+    public HashSet<EntityUid> ArcRayCast(Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId, EntityUid ignore) // Goob edit
     {
         // TODO: This is pretty sucky.
         var widthRad = arcWidth;
