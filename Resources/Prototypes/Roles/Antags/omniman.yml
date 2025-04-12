@@ -22,7 +22,7 @@
       - BluespaceLifelineImplanter 
       - CentcommFreedomImplanter 
       - BlinkImplanter
-
+      - ClothingHeadHelmetSyndicate # to fly in space
 #Omni-man antag
 - type: antag
   id: OmniMan
