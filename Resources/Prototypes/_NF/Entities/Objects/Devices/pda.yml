@@ -7,6 +7,11 @@
   - type: Pda
     id: MercenaryIDCard
     state: pda-mercenary
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-mercenary
   - type: PdaBorderColor
     borderColor: "#717059"
     accentVColor: "#00cc35"

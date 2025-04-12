@@ -964,6 +964,9 @@
   id: PetWearable
 
 - type: Tag
+  id: PhotoAlbum
+
+- type: Tag
   id: Pickaxe
 
 - type: Tag
