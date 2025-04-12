@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server.Heretic.Ritual;
@@ -11,6 +17,8 @@ namespace Content.IntegrationTests.Tests._Goobstation.Heretic;
 [TestFixture, TestOf(typeof(RitualKnowledgeBehavior))]
 public sealed class RitualKnowledgeTests
 {
+    private static readonly ProtoId<DatasetPrototype> KnowledgeDataset = "EligibleTags";
+
     [Test]
     public async Task ValidateEligibleTags()
     {
@@ -27,7 +35,7 @@ public sealed class RitualKnowledgeTests
         await server.WaitAssertion(() =>
         {
             // Get the eligible tags prototype
-            var dataset = protoMan.Index<DatasetPrototype>(RitualKnowledgeBehavior.EligibleTagsDataset);
+            var dataset = protoMan.Index(KnowledgeDataset);
 
             // Validate that every value is a valid tag
             Assert.Multiple(() =>
@@ -55,7 +63,7 @@ public sealed class RitualKnowledgeTests
         await server.WaitAssertion(() =>
         {
             // Get the eligible tags prototype
-            var dataset = protoMan.Index<DatasetPrototype>(RitualKnowledgeBehavior.EligibleTagsDataset).Values.ToHashSet();
+            var dataset = protoMan.Index(KnowledgeDataset).Values.ToHashSet();
 
             // Loop through every entity prototype and assemble a used tags set
             var usedTags = new HashSet<string>();
