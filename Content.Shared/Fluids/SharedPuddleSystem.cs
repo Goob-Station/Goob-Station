@@ -85,6 +85,11 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
     private void OnGetFootstepSound(Entity<PuddleComponent> entity, ref GetFootstepSoundEvent args)
     {
+        // Corvax-Next-Footprints
+        if (!entity.Comp.AffectsSound)
+            return;
+        // Corvax-Next-Footprints
+
         if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution,
                 out var solution))
             return;
