@@ -41,6 +41,7 @@
   - type: Paper # Not localized because FTL doesn't support formatting. Or at least I don't know how.
     content: |2
 
+       [color=red]
                     [head=2]--- Contract from below ---[/head]
       This binding contract made this day between:
       - The Infernal Party (Hereinafter "Contractor")
