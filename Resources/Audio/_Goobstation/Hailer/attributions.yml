@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Nikita Rαmses Abdoelrahman <ramses@starwolves.io>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - files: ["asshole.ogg","bash.ogg","bobby.ogg","compliance.ogg","dontmove.ogg","dredd.ogg","floor.ogg","freeze.ogg","halt.ogg","imperial.ogg","justice.ogg","robocop.ogg","running.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by TGStation"

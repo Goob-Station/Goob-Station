@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2023 iller_saver <55444968+illersaver@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 vape-component-vape-success = You puffed on the vape.
 vape-component-vape-success-forced = {CAPITALIZE(THE($user))} forced you to puffon the vape.
 vape-component-vape-success-user-forced = You successfully forced to puff {THE($target)}.

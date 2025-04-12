@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 #This has to be split up like this because tiles remove the decal under them, and the derelict sign is bigger then 32x32 when combined.
 
 #Bottom
