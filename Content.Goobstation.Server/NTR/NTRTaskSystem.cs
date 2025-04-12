@@ -71,7 +71,25 @@ public sealed partial class NtrTaskSystem : EntitySystem
         SubscribeLocalEvent<NtrTaskProviderComponent, TaskSkipMessage>(OnTaskSkipMessage);
         SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnMapInit);
 
+        SubscribeLocalEvent<NtrTaskProviderComponent, TaskFailedEvent>(OnTaskFailed);
         SubscribeLocalEvent<NtrTaskProviderComponent, TaskCompletedEvent>(OnTaskCompleted);
+    }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<NtrTaskDatabaseComponent>();
+        while (query.MoveNext(out var uid, out var db))
+        {// Generate new tasks when below max and timer expired
+            if (_timing.CurTime >= db.NextTaskGenerationTime && db.Tasks.Count < db.MaxTasks)
+            {
+                if (TryAddTask(uid, db))
+                {
+                    db.NextTaskGenerationTime = _timing.CurTime + db.TaskGenerationDelay;
+                    UpdateTaskConsoles();
+                }
+            }
+        }
     }
     private void OnBalanceUpdated(EntityUid uid, NtrAccountClientComponent clientComp, ref NtrAccountBalanceUpdatedEvent args)
     {
@@ -111,21 +129,21 @@ public sealed partial class NtrTaskSystem : EntitySystem
             return;
         if (!TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
             return;
-
         ntrAccount.Balance += args.Task.Reward;
         var query = EntityQueryEnumerator<NtrAccountClientComponent>();
-        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
+        var balanceEv = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
         while (query.MoveNext(out var client, out var comp))
         {
             comp.Balance = ntrAccount.Balance;
             Dirty(client, comp);
-            RaiseLocalEvent(client, ref ev);
+            RaiseLocalEvent(client, ref balanceEv);
         }
 
-        if (!TryRemoveTask(station, taskData, false))
-            return;
-
-        FillTasksDatabase(station);
+        if (TryGetTaskId(station, args.Task, out var taskId))
+        {
+            TryRemoveTask(station, taskId, false);
+        }
+        UpdateTaskConsoles();
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
         _uiSystem.SetUiState(uid, NtrTaskUiKey.Key,
             new NtrTaskProviderState(db.Tasks, db.History, untilNextSkip));
@@ -137,7 +155,8 @@ public sealed partial class NtrTaskSystem : EntitySystem
         if (_timing.CurTime < component.NextPrintTime)
             return;
 
-        if (_station.GetOwningStation(uid) is not { } station)
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<NtrTaskDatabaseComponent>(station, out var db))
             return;
 
         if (!TryGetTaskFromId(station, args.TaskId, out var task))
@@ -150,14 +169,14 @@ public sealed partial class NtrTaskSystem : EntitySystem
         {
             var ev = new TaskCompletedEvent(ntrPrototype);
             RaiseLocalEvent(uid, ev);
-
-            component.NextPrintTime = _timing.CurTime + component.PrintDelay;
-            _audio.PlayPvs(component.SkipSound, uid);
-            return;
         }
+
+        TryRemoveTask(station, task.Value, false);
         Spawn(ntrPrototype.Proto, Transform(uid).Coordinates);
+
         component.NextPrintTime = _timing.CurTime + component.PrintDelay;
         _audio.PlayPvs(component.PrintSound, uid);
+        UpdateTaskConsoles();
     }
 
 
@@ -225,9 +244,15 @@ public sealed partial class NtrTaskSystem : EntitySystem
     /// <param name="args"></param>
     private void OnMapInit(EntityUid uid, NtrTaskDatabaseComponent component, MapInitEvent args)
     {
-        FillTasksDatabase(uid, component);
-    }
+        //create all max tasks on init
+        while (component.Tasks.Count < component.MaxTasks && TryAddTask(uid, component))
+        {
+            // this supposed to loop this until its the max ammount of tasks
+        }
 
+        //set initial generation timer
+        component.NextTaskGenerationTime = _timing.CurTime + component.TaskGenerationDelay;
+    }
     /// <summary>
     /// Заполняет БД задачами.
     /// </summary>
@@ -269,9 +294,12 @@ public sealed partial class NtrTaskSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return false;
+        // powergridcheck task should not be super common
+        var allTasks = _protoMan.EnumeratePrototypes<NtrTaskPrototype>()
+            .Where(proto => proto.ID != "PowerGridCheck" ||
+                (_timing.CurTime >= component.NextPowerGridTime))
+            .ToList();
 
-        // todo: consider making the cargo bounties weighted.
-        var allTasks = _protoMan.EnumeratePrototypes<NtrTaskPrototype>().ToList();
         var filteredTasks = new List<NtrTaskPrototype>();
         foreach (var proto in allTasks)
         {
@@ -281,26 +309,59 @@ public sealed partial class NtrTaskSystem : EntitySystem
         }
 
         var pool = filteredTasks.Count == 0 ? allTasks : filteredTasks;
-        var task = _random.Pick(pool);
-        return TryAddTask(uid, task, component);
-    }
-
-    /// <summary>
-    /// ХЗ для чего дополнительные такие методы, увынск
-    /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="taskId"></param>
-    /// <param name="component"></param>
-    /// <returns></returns>
-    [PublicAPI]
-    public bool TryAddTask(EntityUid uid, string taskId, NtrTaskDatabaseComponent? component = null)
-    {
-        if (!_protoMan.TryIndex<NtrTaskPrototype>(taskId, out var task))
-        {
+        var availableTasks = GetAvailableTasks(uid, component);
+        if (availableTasks.Count == 0)
             return false;
+        var task = PickWeightedTask(availableTasks);
+            if (task == null) // i hate this shitlogic so much
+                return false;
+
+        if (task.ID == "PowerGridCheck")
+        {
+            component.NextPowerGridTime = _timing.CurTime + component.PowerGridCooldown;
         }
 
         return TryAddTask(uid, task, component);
+    }
+    private List<NtrTaskPrototype> GetAvailableTasks(EntityUid uid, NtrTaskDatabaseComponent component)
+    {
+        var allTasks = _protoMan.EnumeratePrototypes<NtrTaskPrototype>().ToList();
+        var availableTasks = new List<NtrTaskPrototype>();
+
+        foreach (var proto in allTasks)
+        {
+            if (component.Tasks.Any(b => b.Task == proto.ID) ||
+                (proto.ID == "PowerGridCheck" && _timing.CurTime < component.NextPowerGridTime))
+            {
+                continue;
+            }
+
+            availableTasks.Add(proto);
+        }
+
+        return availableTasks;
+    }
+    // weight pick for future tasks
+    private NtrTaskPrototype? PickWeightedTask(List<NtrTaskPrototype> tasks)
+    {
+        if (tasks.Count == 0)
+            return null;
+
+        float totalWeight = tasks.Sum(t => t.Weight);
+        if (totalWeight <= 0)
+            return _random.Pick(tasks);
+
+        float randomValue = _random.NextFloat() * totalWeight;
+        float currentSum = 0;
+
+        foreach (var task in tasks)
+        {
+            currentSum += task.Weight;
+            if (randomValue <= currentSum)
+                return task;
+        }
+
+        return _random.Pick(tasks);
     }
 
     /// <summary>
@@ -439,5 +500,28 @@ public sealed partial class NtrTaskSystem : EntitySystem
             var untilNextSkip = db.NextSkipTime - _timing.CurTime;
             _uiSystem.SetUiState((uid, ui), NtrTaskUiKey.Key, new NtrTaskProviderState(db.Tasks, db.History, untilNextSkip));
         }
+    }
+    private void OnTaskFailed(EntityUid uid, NtrTaskProviderComponent component, TaskFailedEvent args)
+    {
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
+            return;
+        // apply penalty
+        ntrAccount.Balance = Math.Max(0, ntrAccount.Balance - args.Penalty);
+
+        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
+        var query = EntityQueryEnumerator<NtrAccountClientComponent>();
+        while (query.MoveNext(out var client, out var comp))
+        {
+            comp.Balance = ntrAccount.Balance;
+            Dirty(client, comp);
+            RaiseLocalEvent(client, ref ev);
+        }
+        // del the spam document
+        if (Exists(args.User))
+        {
+            _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), uid, args.User);
+        }
+        _audio.PlayPvs(component.DenySound, uid);
     }
 }

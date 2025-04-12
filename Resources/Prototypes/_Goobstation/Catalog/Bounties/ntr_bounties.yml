@@ -2,7 +2,7 @@
   id: TaskStampHos
   proto: SecurityDocument
   reward: 2
-  description: Get HOS stamp on this document to complete.
+  description: Get HOS & NanoRep stamp on this document to complete.
   entries:
   - name: StampHOS
     stamps:
@@ -16,7 +16,7 @@
   id: TaskStampHop
   proto: ServiceDocument
   reward: 2
-  description: Get HOP stamp on this document to complete.
+  description: Get HOP & NanoRep stamp on this document to complete.
   entries:
   - name: StampHOP
     stamps:
@@ -30,7 +30,7 @@
   id: TaskStampCe
   proto: EngineeringDocument
   reward: 2
-  description: Get CE stamp on this document to complete.
+  description: Get CE & NanoRep stamp on this document to complete.
   entries:
   - name: StampCE
     stamps:
@@ -44,7 +44,7 @@
   id: TaskStampCmo
   proto: MedicalDocument
   reward: 2
-  description: Get CMO stamp on this document to complete.
+  description: Get CMO & NanoRep stamp on this document to complete.
   entries:
   - name: StampCMO
     stamps:
@@ -58,7 +58,7 @@
   id: TaskStampRd
   proto: ScienceDocument
   reward: 2
-  description: Get RD stamp on this document to complete.
+  description: Get RD & NanoRep stamp on this document to complete.
   entries:
   - name: StampRD
     stamps:
@@ -72,7 +72,7 @@
   id: TaskStampQm
   proto: CargoDocument
   reward: 2
-  description: Get QM stamp on this document to complete.
+  description: Get QM & NanoRep stamp on this document to complete.
   entries:
   - name: StampQM
     stamps:
@@ -86,6 +86,7 @@
   id: TaskPowerCheck
   proto: NTRgamerulePowergrid
   reward: 5
+  weight: 0.3 # 3 times rarer than the stamps one
   description: Enforce a powergrid check from CC.
   entries:
   - name: Power grid check

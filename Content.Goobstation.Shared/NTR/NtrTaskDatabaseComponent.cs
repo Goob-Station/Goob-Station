@@ -53,4 +53,34 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);
+
+    /// <summary>
+    /// Time between automatic task generation
+    /// </summary>
+    [DataField]
+    public TimeSpan TaskGenerationDelay = TimeSpan.FromMinutes(1);
+
+    /// <summary>
+    /// Time when next task will be generated
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextTaskGenerationTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// Tracks which task prototypes have been printed
+    /// </summary>
+    [DataField]
+    public HashSet<string> PrintedPrototypes = new();
+
+    /// <summary>
+    /// Cooldown for PowerGridCheck task
+    /// </summary>
+    [DataField]
+    public TimeSpan PowerGridCooldown = TimeSpan.FromMinutes(10);
+
+    /// <summary>
+    /// When next PowerGridCheck can appear
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextPowerGridTime = TimeSpan.Zero;
 }

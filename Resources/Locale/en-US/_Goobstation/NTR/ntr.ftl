@@ -129,3 +129,5 @@ ntr-console-insert-accept = Correct!
 
 ntr-bounty-console-reward-label = Reward: Loyalty points: {$reward}
 ntr-bounty-console-manifest-entry = {amount}x {item}
+
+ntr-console-spam-penalty = Penalty applied: -4 NT points for submitting spam!

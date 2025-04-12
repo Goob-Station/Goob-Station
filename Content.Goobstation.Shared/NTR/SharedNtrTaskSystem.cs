@@ -5,7 +5,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
-using Content.Goobstation.Shared.NTR;
+using Content.Goobstation.Shared.NTR.Documents;
 using Content.Goobstation.Shared.NTR.Events;
 using Content.Shared.Containers.ItemSlots;
 
@@ -31,6 +31,16 @@ public sealed class SharedNtrTaskSystem : EntitySystem
         if (args.Cancelled || !TryComp<PaperComponent>(args.Item, out _))
             return;
 
+        if (HasComp<SpamDocumentComponent>(args.Item))
+        {
+            args.Cancelled = true;
+            if (_net.IsServer && args.User != null)
+            {
+                var ev = new TaskFailedEvent(args.User.Value);
+                RaiseLocalEvent(uid, ev);
+            }
+            return;
+        }
         if (!HasValidStamps(args.Item))
         {
             args.Cancelled = true;

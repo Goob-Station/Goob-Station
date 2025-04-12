@@ -41,6 +41,12 @@ public sealed class NtrTaskPrototype : IPrototype
     /// </summary>
     [DataField]
     public string IdPrefix = "CC";
+
+    /// <summary>
+    /// Weight for random selection (higher = more frequent)
+    /// </summary>
+    [DataField]
+    public float Weight = 1.0f;
 }
 
 [DataDefinition, Serializable, NetSerializable]
