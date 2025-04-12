@@ -1,4 +1,15 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 ike709 <ike709@github.com>
+// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.Piping.Trinary.Components
 {

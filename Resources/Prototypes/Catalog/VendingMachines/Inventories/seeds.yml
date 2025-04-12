@@ -1,3 +1,36 @@
+# SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Stealthbomber16 <100171035+Stealthbomber16@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DoubleRiceEddiedd <149714181+DoubleRiceEddiedd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2023 Vladislav Kadira <130583174+FillerVK@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 jellygato <aly.jellygato@gmail.com>
+# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: vendingMachineInventory
   id: MegaSeedServitorInventory
   startingInventory:
