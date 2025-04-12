@@ -8,12 +8,13 @@ using Content.Shared.Inventory;
 using Content.Shared.Whitelist;
 using Content.Goobstation.Shared.Atmos.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Goobstation.Shared.Atmos.Systems;
 
-public sealed class FirefightingNozzleSystem : EntitySystem
+public sealed class FirefighterTankRefillableSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -21,16 +22,17 @@ public sealed class FirefightingNozzleSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<FirefightingNozzleComponent, AfterInteractEvent>(OnFirefightingNozzleAfterInteract);
+        SubscribeLocalEvent<FirefighterTankRefillableComponent, AfterInteractEvent>(OnFirefightingNozzleAfterInteract);
     }
 
-    private void OnFirefightingNozzleAfterInteract(Entity<FirefightingNozzleComponent> entity, ref AfterInteractEvent args)
+    private void OnFirefightingNozzleAfterInteract(Entity<FirefighterTankRefillableComponent> entity, ref AfterInteractEvent args)
     {
         var sprayOwner = entity.Owner;
-        var solutionName = FirefightingNozzleComponent.SolutionName;
+        var solutionName = FirefighterTankRefillableComponent.SolutionName;
 
         if (args.Handled)
             return;
@@ -41,15 +43,40 @@ public sealed class FirefightingNozzleSystem : EntitySystem
         if (TryComp(target, out ReagentTankComponent? tank) && tank.TankType == ReagentTankType.Fuel)
             return;
 
-        if (entity.Comp.ExternalContainer == true)
+        if (entity.Comp.ExternalContainer)
         {
-            if (!_inventory.TryGetContainerSlotEnumerator(args.User, out var enumerator, entity.Comp.TargetSlot))
-                return;
-            while (enumerator.NextItem(out var item))
+            bool foundContainer = false;
+
+            // Check held items (exclude nozzle itself)
+            foreach (var item in _handsSystem.EnumerateHeld(args.User))
             {
-                if (_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item)) continue;
-                sprayOwner = item;
-                solutionName = FirefightingNozzleComponent.SolutionName;
+                if (item == entity.Owner)
+                    continue;
+
+                if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                    _solutionContainerSystem.TryGetSolution(item, FirefighterTankRefillableComponent.SolutionName, out _, out _))
+                {
+                    sprayOwner = item;
+                    solutionName = FirefighterTankRefillableComponent.SolutionName;
+                    foundContainer = true;
+                    break;
+                }
+            }
+
+            // Fall back to target slot
+            if (!foundContainer && _inventory.TryGetContainerSlotEnumerator(args.User, out var enumerator, entity.Comp.TargetSlot))
+            {
+                while (enumerator.NextItem(out var item))
+                {
+                    if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                        _solutionContainerSystem.TryGetSolution(item, FirefighterTankRefillableComponent.SolutionName, out _, out _))
+                    {
+                        sprayOwner = item;
+                        solutionName = FirefighterTankRefillableComponent.SolutionName;
+                        foundContainer = true;
+                        break;
+                    }
+                }
             }
         }
 

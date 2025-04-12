@@ -917,6 +917,9 @@
 
 - type: Tag
   id: NozzleBackTank
+  
+- type: Tag
+  id: Nozzle # Assmos - Extinguisher Nozzle
 
 - type: Tag
   id: AtmosBackTank # Assmos - Extinguisher Nozzle

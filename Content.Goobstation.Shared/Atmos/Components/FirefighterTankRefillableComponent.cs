@@ -10,7 +10,7 @@ using Content.Shared.Whitelist;
 namespace Content.Goobstation.Shared.Atmos.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-public sealed partial class FirefightingNozzleComponent : Component
+public sealed partial class FirefighterTankRefillableComponent : Component
 {
     [DataField, AutoNetworkedField]
     public bool Enabled;

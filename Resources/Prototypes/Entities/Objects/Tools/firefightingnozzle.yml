@@ -11,7 +11,7 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
     size: Normal
-  - type: FirefightingNozzle
+  - type: FirefighterTankRefillable
     externalContainer: true
     targetSlot: BACK
     providerWhitelist:
@@ -19,7 +19,7 @@
       - AtmosBackTank
   - type: Tag
     tags:
-    - AtmosBackTank
+    - Nozzle
     
   - type: Spray
     transferAmount: 15
@@ -67,7 +67,7 @@
     sprite: Objects/Weapons/Grenades/frozen-smoke-capsule.rsi
     state: icon
   - type: SmokeOnTrigger
-    duration: 6
+    duration: 8
     spreadAmount: 200
     smokePrototype: Resin
   - type: ActiveTimerTrigger

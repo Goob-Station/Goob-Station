@@ -2,12 +2,14 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Inventory;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public partial class SharedGunSystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     private void InitializeClothing()
     {
@@ -36,6 +38,23 @@ public partial class SharedGunSystem
         if (!Containers.TryGetContainingContainer((uid, null, null), out var container))
             return false;
         var user = container.Owner;
+
+        // Assmos extinguisher nozzle changes start here
+        if (component.CheckHands)
+        {
+            foreach (var item in _handsSystem.EnumerateHeld(user))
+            {
+                if (item == uid)
+                    continue;
+
+                if (!_whitelistSystem.IsWhitelistFailOrNull(component.ProviderWhitelist, item))
+                {
+                    slotEntity = item;
+                    return true;
+                }
+            }
+        }
+        // Assmos changes end
 
         if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, component.TargetSlot))
             return false;
