@@ -1487,7 +1487,7 @@
   id: MercenaryBelt
   name: loadout-group-mercenary-belt
   minLimit: 0
-  MaxLimit: 1
+  maxLimit: 1
   loadouts:
   - MercenaryRig
   - MercenaryHolster
