@@ -336,11 +336,6 @@
   - type: BadFood
   - type: FlavorProfile
     ignoreReagents: [ ]
-  - type: Pill
-  - type: Tag
-    tags:
-    - Pill
-    - AutoinjectorCartridge
 
 # Medipens
 
