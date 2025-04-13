@@ -128,6 +128,7 @@ using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio; // Goobstation
 using Robust.Shared.Audio.Systems; // Goobstation
 using Robust.Shared.Containers;
@@ -871,12 +872,12 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
-    public void StopAllPulls(EntityUid uid) // Goobstation
+    public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goobstation
     {
-        if (TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
+        if (stopPullable && TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
             TryStopPull(uid, pullable);
 
-        if (TryComp<PullerComponent>(uid, out var puller) &&
+        if (stopPuller && TryComp<PullerComponent>(uid, out var puller) &&
             TryComp(puller.Pulling, out PullableComponent? pullableEnt))
             TryStopPull(puller.Pulling.Value, pullableEnt);
     }
@@ -926,6 +927,11 @@ public sealed class PullingSystem : EntitySystem
         if (!ignoreCombatMode)
             if (!_combatMode.IsInCombatMode(puller))
                 return false;
+
+        var beforeEvent = new BeforeHarmfulActionEvent(puller, HarmfulActionType.Grab);
+        RaiseLocalEvent(pullable, beforeEvent);
+        if (beforeEvent.Cancelled)
+            return false;
 
         // It's blocking stage update, maybe better UX?
         if (puller.Comp.GrabStage == GrabStage.Suffocate)

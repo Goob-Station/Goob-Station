@@ -51,13 +51,15 @@ using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Hands.Components;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Standing;
 using Content.Shared.Tag;
 
 namespace Content.Server.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 {
     // keeping track of all systems in a single file
     [Dependency] private readonly StoreSystem _store = default!;
@@ -97,7 +99,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly RespiratorSystem _respirator = default!;
-    [Dependency] private readonly RustbringerSystem _rustbringer = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -135,9 +138,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeAsh();
         SubscribeFlesh();
         SubscribeVoid();
-        SubscribeBlade();
         SubscribeLock();
-        SubscribeRust();
         SubscribeSide();
     }
 

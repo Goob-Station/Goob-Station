@@ -112,6 +112,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
@@ -255,14 +256,17 @@ public sealed class BloodstreamSystem : EntitySystem
             // deal bloodloss damage if their blood level is below a threshold.
             var bloodPercentage = GetBloodLevelPercentage(uid, bloodstream);
             if (bloodPercentage >= bloodstream.BloodlossThreshold) // Goobstation
-                RemCompDeferred<BloodlossDamageMultiplierComponent>(uid);
+                RaiseLocalEvent(uid, new StoppedTakingBloodlossDamageEvent());
             if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
             {
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
 
-                if (TryComp(uid, out BloodlossDamageMultiplierComponent? multiplier)) // Goobstation
-                    amt *= multiplier.Multiplier;
+                // Goobstation start
+                var multiplierEv = new GetBloodlossDamageMultiplierEvent();
+                RaiseLocalEvent(uid, multiplierEv);
+                amt *= multiplierEv.Multiplier;
+                // Goobstation end
 
                 _damageableSystem.TryChangeDamage(uid, amt,
                     ignoreResistances: false, interruptsDoAfters: false);

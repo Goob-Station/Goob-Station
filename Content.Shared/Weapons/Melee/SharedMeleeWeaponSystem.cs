@@ -501,6 +501,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 if (!Blocker.CanAttack(user, target, (weaponUid, weapon), true))
                     return false;
+
+                if (weaponUid == target) // Goobstatiom
+                    return false;
                 break;
             default:
                 if (!Blocker.CanAttack(user, weapon: (weaponUid, weapon)))
@@ -550,8 +553,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     DoLightAttack(user, light, weaponUid, weapon, session);
                     break;
                 case DisarmAttackEvent disarm:
-                    if (!DoDisarm(user, disarm, weaponUid, weapon, session))
-                        return false;
+                    DoDisarm(user, disarm, weaponUid, weapon, session); // Goob edit
 
                     animation = weapon.DisarmAnimation; // WWDP
                     DoLungeAnimation(user, weaponUid, weapon.Angle, TransformSystem.ToMapCoordinates(GetCoordinates(attack.Coordinates)), weapon.Range, animation, spriteRotation, weapon.FlipAnimation); // Goobstation - Edit
@@ -617,6 +619,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             DoLungeAnimation(user, weapon, component.Angle, TransformSystem.ToMapCoordinates(ev.Coordinates), component.Range, component.MissAnimation, component.AnimationRotation, component.FlipAnimation); // Goobstation - Edit
             return;
         }
+
+        // Goobstation start
+        var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.Harm);
+        RaiseLocalEvent(target.Value, beforeEvent);
+        if (beforeEvent.Cancelled)
+            return;
+        // Goobstation end
 
         // Sawmill.Debug($"Melee damage is {damage.Total} out of {component.Damage.Total}");
 
@@ -757,6 +766,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             if (entity == user ||
                 !damageQuery.HasComponent(entity))
                 continue;
+
+            // Goobstation start
+            var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.Harm);
+            RaiseLocalEvent(entity, beforeEvent);
+            if (beforeEvent.Cancelled)
+                continue;
+            // Goobstation end
 
             targets.Add(entity);
         }
@@ -937,9 +953,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboEv);
-
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
             combatMode.CanDisarm == false) // WWDP
         {
@@ -953,6 +966,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // Play a sound to give instant feedback; same with playing the animations
         _meleeSound.PlaySwingSound(user, meleeUid, component);
+
+        // Goobstation start
+        var beforeEvent = new BeforeHarmfulActionEvent(user, HarmfulActionType.Disarm);
+        RaiseLocalEvent(target.Value, beforeEvent);
+        if (beforeEvent.Cancelled)
+            return false;
+        // Goobstation end
+
         return true;
     }
 

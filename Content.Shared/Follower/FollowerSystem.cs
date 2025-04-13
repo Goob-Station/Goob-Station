@@ -186,6 +186,8 @@ public sealed class FollowerSystem : EntitySystem
     {
         foreach (var follower in entity.Comp.Following)
         {
+            if (_tagSystem.HasTag(follower, "FollowerStayOnPolymorph"))
+                continue;
             // Stop following the target's old entity and start following the new one
             StartFollowingEntity(follower, args.NewEntity);
         }

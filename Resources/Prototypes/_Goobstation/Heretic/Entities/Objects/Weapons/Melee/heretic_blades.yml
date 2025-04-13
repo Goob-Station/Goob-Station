@@ -46,6 +46,7 @@
   - type: Tag
     tags:
     - HereticItem
+    - HereticBlade
 
 - type: entity
   parent: HereticBladeBase
@@ -78,12 +79,15 @@
     path: Blade
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
-    state: icon
+    layers:
+    - state: icon
+      map: [ "base" ]
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
   - type: Tag
     tags:
     - HereticItem
+    - HereticBlade
     - HereticBladeBlade
   - type: Multihit
     damageMultiplier: 0.75
@@ -94,6 +98,13 @@
     - !type:MultihitUserHereticEvent
       requiredPath: Blade
       minPathStage: 7
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.InfusedBladeVisuals.Infused:
+        base:
+          False: { state: icon }
+          True: { state: infused }
 
 - type: entity
   parent: HereticBladeBase

@@ -7,11 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Heretic.Components.PathSpecific;
+using Content.Shared._Goobstation.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
-public sealed partial class SilverMaelstromSystem : EntitySystem
+public sealed class SilverMaelstromSystem : EntitySystem
 {
     [Dependency] private readonly ProtectiveBladeSystem _pblade = default!;
 

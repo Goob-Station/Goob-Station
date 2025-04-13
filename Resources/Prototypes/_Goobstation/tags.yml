@@ -166,6 +166,9 @@
   id: FlashIgnoreResistances
 
 - type: Tag
+  id: FollowerStayOnPolymorph
+
+- type: Tag
   id: FrozenIgnoreMindAction
 
 - type: Tag
@@ -218,6 +221,9 @@
 
 - type: Tag
   id: Heart
+
+- type: Tag
+  id: HereticBlade
 
 - type: Tag
   id: HereticBladeBlade

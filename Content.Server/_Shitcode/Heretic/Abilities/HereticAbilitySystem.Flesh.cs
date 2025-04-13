@@ -21,7 +21,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
     private void SubscribeFlesh()
     {

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.CombatMode;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Weapons.Melee;
@@ -16,6 +17,7 @@ public sealed class MultihitSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -48,8 +50,19 @@ public sealed class MultihitSystem : EntitySystem
         if (_net.IsClient && _player.LocalEntity != args.User)
             return;
 
-        if (!_timing.IsFirstTimePredicted || !args.IsHit || args.HitEntities.Count == 0 && args.Direction == null ||
-            HasComp<ActiveMultihitComponent>(uid))
+        if (!_timing.IsFirstTimePredicted || !args.IsHit || args.Weapon == args.User)
+            return;
+
+        if (args.Direction == null)
+        {
+            if (args.HitEntities.Count == 0)
+                return;
+
+            if (args.HitEntities[0] == args.User)
+                return;
+        }
+
+        if (HasComp<ActiveMultihitComponent>(uid))
             return;
 
         if (!CheckConditions())
@@ -118,9 +131,15 @@ public sealed class MultihitSystem : EntitySystem
                             return;
                         }
 
+                        var inCombat = _combatMode.IsInCombatMode(args.User);
+                        if (!inCombat)
+                            _combatMode.SetInCombatMode(args.User, true);
                         _melee.AttemptLightAttack(args.User, weapon, melee, target);
+                        if (!inCombat)
+                            _combatMode.SetInCombatMode(args.User, false);
 
-                        RemComp(weapon, activeMultihit);
+                        if (Resolve(weapon, ref activeMultihit, false))
+                            RemComp(weapon, activeMultihit);
                     });
             }
             else
@@ -151,13 +170,19 @@ public sealed class MultihitSystem : EntitySystem
                                 args.User)
                             .ToList();
 
+                        var inCombat = _combatMode.IsInCombatMode(args.User);
+                        if (!inCombat)
+                            _combatMode.SetInCombatMode(args.User, true);
                         _melee.AttemptHeavyAttack(args.User,
                             weapon,
                             melee,
                             entities,
                             _transform.ToCoordinates(userCoords.Offset(args.Direction.Value)));
+                        if (!inCombat)
+                            _combatMode.SetInCombatMode(args.User, false);
 
-                        RemComp(weapon, activeMultihit);
+                        if (Resolve(weapon, ref activeMultihit, false))
+                            RemComp(weapon, activeMultihit);
                     });
             }
 
