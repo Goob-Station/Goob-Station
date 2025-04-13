@@ -98,6 +98,9 @@ public sealed partial class PossessionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
 
         // Teleport to the entity, kinda like you're popping out of their head!
+        if (TerminatingOrDeleted(comp.OriginalEntity))
+            return;
+
         var coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
 
         if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
