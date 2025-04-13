@@ -1,0 +1,93 @@
+# Generic subtypes
+- type: borgSprite
+  parentBorgType: generic
+  id: default_generic
+  spritePath: Mobs/Silicon/chassis.rsi
+
+  dummyPrototype: BorgChassisGeneric
+
+# Mining subtypes
+- type: borgSprite
+  parentBorgType: mining
+  id: default_mining
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisMining
+
+# Engineering subtypes
+- type: borgSprite
+  parentBorgType: engineering
+  id: default_engineering
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisEngineer
+
+# Janitorial subtypes
+- type: borgSprite
+  parentBorgType: janitor
+  id: default_janitor
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisJanitor
+
+# Medical subtypes
+- type: borgSprite
+  parentBorgType: medical
+  id: default_medical
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisMedical
+
+- type: borgSprite
+  parentBorgType: medical
+  id: standart_medical
+  spritePath: _Goobstation/Mobs/Silicon/Medical/chassis.rsi
+  dummyPrototype: StandartDoctorChassis
+
+# Service subtypes
+- type: borgSprite
+  parentBorgType: service
+  id: default_service
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisService
+
+- type: borgSprite
+  parentBorgType: service
+  id: standart_service
+  spritePath: _Goobstation/Mobs/Silicon/Service/standart.rsi
+  dummyPrototype: StandartServiceChassis
+
+###
+- type: entity
+  parent: BorgChassisMedical
+  id: StandartDoctorChassis
+  name: Standart Doctor Chassis
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/Medical/standart.rsi
+    layers:
+    - state: medical.png
+      map: [ "enum.BorgVisualLayers.Body", "movement" ]
+    - state: medical_e_r
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+    - state: medical_l
+      shader: unshaded
+      map: [ "light","enum.BorgVisualLayers.LightStatus" ]
+      visible: false
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+
+- type: entity
+  parent: BorgChassisService
+  id: StandartServiceChassis
+  name: Standart Doctor Chassis
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Silicon/Service/standart.rsi
+    layers:
+    - state: service.png
+      map: [ "enum.BorgVisualLayers.Body", "movement" ]
+    - state: service_e_r
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+  - type: BorgSwitchableType
+    selectedBorgType: service
