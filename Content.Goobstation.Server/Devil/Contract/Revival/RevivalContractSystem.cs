@@ -74,6 +74,9 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     private void AddRevivalVerbs(EntityUid target, PendingRevivalContractComponent comp, GetVerbsEvent<InnateVerb> args)
     {
+        if (args.Target != args.User)
+            return;
+
         // Add verbs
         InnateVerb acceptVerb = new()
         {
