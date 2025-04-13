@@ -99,7 +99,9 @@ public sealed partial class PossessionSystem : EntitySystem
 
         // Teleport to the entity, kinda like you're popping out of their head!
         var coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
-        _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates);
+
+        if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
+            _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates);
     }
 
     private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)
