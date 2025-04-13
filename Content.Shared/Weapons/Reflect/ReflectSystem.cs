@@ -179,10 +179,10 @@ public sealed class ReflectSystem : EntitySystem
     public bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null) // Goob edit
     {
         if (!Resolve(reflector, ref reflect, false) ||
-            !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflect.Reflects & reflective.Reflective) == 0x0 ||
+            !_toggle.IsActivated(reflector) ||
             !_random.Prob(reflect.ReflectProb) ||
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
@@ -237,7 +237,7 @@ public sealed class ReflectSystem : EntitySystem
 
     private void OnReflectHitscan(EntityUid uid, ReflectComponent component, ref HitScanReflectAttemptEvent args)
     {
-        if (args.Reflected) // Goob edit
+        if (args.Reflected)
         {
             return;
         }
@@ -255,15 +255,16 @@ public sealed class ReflectSystem : EntitySystem
         EntityUid? shooter,
         EntityUid shotSource,
         Vector2 direction,
-        ReflectType reflective, // Goobstation
+        ReflectType reflhitscanReflectTypeective,
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
+            (reflect.Reflects & hitscanReflectType) == 0x0 ||
             !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
             // Goob edit start
-            !((reflect.Reflects & reflective) != 0x0 && _random.Prob(reflect.ReflectProb)))
+            !((reflect.Reflects & reflhitscanReflectTypeective) != 0x0 && _random.Prob(reflect.ReflectProb)))
             // Goob edit end
         {
             newDirection = null;
