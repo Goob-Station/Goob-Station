@@ -97,12 +97,12 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         if (!TryComp<PendingRevivalContractComponent>(target, out var pending))
             return;
 
-        if (accepted && TryComp<RevivalContractComponent>(pending.Contractee, out var contract))
+        if (accepted && TryComp<RevivalContractComponent>(pending.Contractee, out var contract) && contract.ContractOwner != null)
         {
             contract.Signer = target;
             _rejuvenate.PerformRejuvenate(target);
             _popupSystem.PopupEntity(Loc.GetString("revival-contract-accepted"), target);
-            _contract.TryTransferSouls(contract.ContractOwner, contract.Signer, 1);
+            _contract.TryTransferSouls((EntityUid)contract.ContractOwner, (EntityUid)contract.Signer, 1);
         }
         if (!accepted)
             _popupSystem.PopupEntity(Loc.GetString("revival-contract-rejected"), target);
