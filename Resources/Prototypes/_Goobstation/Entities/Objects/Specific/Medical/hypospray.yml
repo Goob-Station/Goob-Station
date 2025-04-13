@@ -80,9 +80,9 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
 
-- type: entity
+- type: entity # This ones weird.
   name: amnestic spray
-  parent: [BaseCartridgeAutoinjector, BaseCentcommContraband]
+  parent: [BaseItem, BaseCentcommContraband]
   id: AmnestizineHypospray
   suffix: DO NOT MAP
   description: A specialized cartridge injector intended for Central Command personnel. Primarily used to inject amnestics.
@@ -94,6 +94,29 @@
     sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
   - type: UseDelay
     delay: 3
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: HyposprayBlockNonMobInjection
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      item:
+        name: Cartridge
+        whitelist:
+          tags:
+          - AutoinjectorCartridge
 
 # Autoinjector Cartridges
 
