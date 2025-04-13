@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
+using System.Text.RegularExpressions;
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
@@ -208,18 +210,16 @@ public sealed partial class DevilSystem : EntitySystem
         if (HasComp<DevilComponent>(args.Source) || HasComp<Condemned.CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source))
             return;
 
-        var message = args.Message.ToLowerInvariant();
+        var message = Regex.Replace(args.Message.ToLowerInvariant(), @"[\s\W]+", "");
+        var trueName = Regex.Replace(comp.TrueName.ToLowerInvariant(), @"[\s\W]+", "");
 
-        var trueNameMatch = message.Contains(comp.TrueName, StringComparison.InvariantCultureIgnoreCase);
-
-        if (!trueNameMatch)
+        if (!message.Contains(trueName))
             return;
 
-        var curTime = _timing.CurTime;
-        if (curTime < comp.LastTriggeredTime + comp.CooldownDuration)
+        if (_timing.CurTime < comp.LastTriggeredTime + comp.CooldownDuration)
             return;
 
-        comp.LastTriggeredTime = curTime;
+        comp.LastTriggeredTime = _timing.CurTime;
 
         if (HasComp<BibleUserComponent>(args.Source))
         {
