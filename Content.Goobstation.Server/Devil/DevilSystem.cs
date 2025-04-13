@@ -119,7 +119,8 @@ public sealed partial class DevilSystem : EntitySystem
         revival.CanCheatStanding = true;
 
         // Change damage modifier
-        _damageable.SetDamageModifierSetId(uid, "DevilDealPositive");
+        TryComp<DamageableComponent>(uid, out var damageableComp);
+        _damageable.SetDamageModifierSetId(uid, "DevilDealPositive", damageableComp);
 
         // Add base actions
         foreach (var actionId in comp.BaseDevilActions)
