@@ -3,7 +3,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.DelayedDeath;
 using Content.Goobstation.Shared.CheatDeath;
+using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Shared.Examine;
@@ -29,46 +31,55 @@ public sealed partial class CheatDeathSystem : EntitySystem
         SubscribeLocalEvent<CheatDeathComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CheatDeathComponent, CheatDeathEvent>(OnDeathCheatAttempt);
         SubscribeLocalEvent<CheatDeathComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<CheatDeathComponent, DelayedDeathEvent>(OnDelayedDeath);
     }
 
-    private void OnStartup(EntityUid uid, CheatDeathComponent comp, ComponentStartup args)
+    private void OnStartup(Entity<CheatDeathComponent> ent, ref ComponentStartup args)
     {
-        _actionsSystem.AddAction(uid, "ActionCheatDeath");
+        _actionsSystem.AddAction(ent, "ActionCheatDeath");
     }
 
-    private void OnExamined(Entity<CheatDeathComponent> comp, ref ExaminedEvent args)
+    private void OnExamined(Entity<CheatDeathComponent> ent, ref ExaminedEvent args)
     {
         if (args.Examined == args.Examiner && !_net.IsClient)
-            args.PushMarkup(Loc.GetString("cheat-death-component-remaining-revives", ("amount", comp.Comp.ReviveAmount)));
+            args.PushMarkup(Loc.GetString("cheat-death-component-remaining-revives", ("amount", ent.Comp.ReviveAmount)));
     }
 
-    private void OnDeathCheatAttempt(EntityUid uid, CheatDeathComponent comp, CheatDeathEvent args)
+    private void OnDelayedDeath(Entity<CheatDeathComponent> ent, ref DelayedDeathEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        RemComp<CheatDeathComponent>(ent);
+    }
+
+    private void OnDeathCheatAttempt(Entity<CheatDeathComponent> ent, ref CheatDeathEvent args)
     {
         if (args.Handled)
             return;
 
-        if (!_mobStateSystem.IsDead(uid) && !comp.CanCheatStanding)
+        if (!_mobStateSystem.IsDead(ent) && !ent.Comp.CanCheatStanding)
             return;
 
         // If the entity is out of revives, or if they are unrevivable, return.
-        if (comp.ReviveAmount == 0 || HasComp<UnrevivableComponent>(args.Performer))
+        if (ent.Comp.ReviveAmount == 0 || HasComp<UnrevivableComponent>(args.Performer))
         {
             var failPopup = Loc.GetString("action-cheat-death-fail");
-            _popupSystem.PopupEntity(failPopup, uid, PopupType.LargeCaution);
+            _popupSystem.PopupEntity(failPopup, ent, PopupType.LargeCaution);
 
             return;
         }
 
         // Revive entity
-        _rejuvenateSystem.PerformRejuvenate(uid);
+        _rejuvenateSystem.PerformRejuvenate(ent);
 
         // Show popup
-        var popup = Loc.GetString("action-cheated-death", ("name", Name(uid)));
-        _popupSystem.PopupEntity(popup, uid, PopupType.LargeCaution);
+        var popup = Loc.GetString("action-cheated-death", ("name", Name(ent)));
+        _popupSystem.PopupEntity(popup, ent, PopupType.LargeCaution);
 
         // Decrement remaining revives.
-        if (comp.ReviveAmount != -1)
-            comp.ReviveAmount--;
+        if (ent.Comp.ReviveAmount != -1)
+            ent.Comp.ReviveAmount--;
         args.Handled = true;
 
     }

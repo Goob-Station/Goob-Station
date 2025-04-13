@@ -1,5 +1,34 @@
 - type: dataset
-  id: names_devil
+  id: names_devil_first
+  values:
+  - Malakar
+  - Vexaron
+  - Kaelthos
+  - Nyxara
+  - Vorgath
+  - Xalvador
+  - Mephistra
+  - Zynkor
+  - Drakoth
+  - Vrothmog
+  - Karnak
+  - Zarthax
+  - Vermos
+  - Zulrak
+  - Xaphan
+  - Mordek
+  - Zerakel
+  - Valkaroth
+  - Naberius
+  - Belial
+  - Sargatan
+  - Raziel
+  - Molochar
+  - Thalzaron
+  - Xyrath
+
+- type: dataset
+  id: names_devil_last
   values:
   - Aamon
   - Abaddon

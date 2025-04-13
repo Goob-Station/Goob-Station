@@ -17,22 +17,11 @@ public sealed partial class TeleportOnStateChangeSystem : EntitySystem
         if (args.NewMobState != comp.MobStateTrigger)
             return;
 
-        if (comp.MapCoordinatesTeleportTo is { } mapCoords)
-        {
-            _transformSystem.SetMapCoordinates(uid, mapCoords);
-            return;
-        }
-
-        if (comp.EntityTeleportTo is not { } entityTeleportTo)
+        if (comp.Coordinates == null)
             return;
 
-        if (!_transformSystem.TryGetMapOrGridCoordinates(entityTeleportTo, out var entityCoordinates))
-            return;
-
-        var targetCoords = comp.CoordinatesTeleportTo ?? entityCoordinates;
-
-        if (targetCoords != null)
-            _transformSystem.SetCoordinates(uid, (EntityCoordinates) targetCoords);
+        var mapCoordinates = _transformSystem.ToMapCoordinates((EntityCoordinates)comp.Coordinates);
+        _transformSystem.SetMapCoordinates(uid, mapCoordinates);
 
         if (comp.RemoveOnTrigger)
             RemComp<TeleportOnStateChangeComponent>(uid);

@@ -70,7 +70,7 @@
 
 - type: clause
   id: voice
-  clauseWeight: 25
+  clauseWeight: 20
   addedComponents:
   - type: Muted
 
@@ -127,11 +127,8 @@
 - type: clause
   id: time
   clauseWeight: 150
-  removedComponents:
-  - type: CheatDeath
   addedComponents:
   - type: DelayedDeath
     deathTime: 300
     deathMessageId: devil-deal-time-ran-out
-  - type: Unrevivable
   - type: Condemned

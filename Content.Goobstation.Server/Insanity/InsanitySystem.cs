@@ -34,9 +34,9 @@ public sealed partial class InsanitySystem : EntitySystem
             if (_timing.CurTime < comp.NextInsanityTick )
                 continue;
 
-            var seed = _random.Next(0, 6);
+
             ClearPreviousEffect(comp, uid);
-            TryInsanityEffect(seed, uid, comp);
+            TryInsanityEffect(uid, comp);
 
 
             comp.NextInsanityTick = _timing.CurTime + comp.ExecutionInterval;
@@ -59,8 +59,10 @@ public sealed partial class InsanitySystem : EntitySystem
 
     }
 
-    private void TryInsanityEffect(int seed, EntityUid uid, InsanityComponent comp)
+    private void TryInsanityEffect(EntityUid uid, InsanityComponent comp)
     {
+        var seed = _random.Next(0, 6);
+
         switch (seed)
         {
             case 0:

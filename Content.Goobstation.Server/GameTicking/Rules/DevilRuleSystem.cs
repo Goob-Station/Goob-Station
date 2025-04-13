@@ -76,8 +76,6 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
         _npcFaction.RemoveFaction(target, NanotrasenFaction);
         _npcFaction.AddFaction(target, DevilFaction);
 
-        rule.DevilMinds.Add(mindId);
-
         return true;
     }
 

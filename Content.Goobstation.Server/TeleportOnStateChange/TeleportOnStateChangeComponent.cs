@@ -11,30 +11,15 @@ namespace Content.Goobstation.Server.TeleportOnStateChange;
 /// <summary>
 /// Teleports the entity to the given coordinates when changed to the specified state.
 /// </summary>
-/// <remarks>
-/// Chooose **ONE** coordinate type to teleport to.
-/// You don't need all of them.
-/// </remarks>
 [RegisterComponent]
 public sealed partial class TeleportOnStateChangeComponent : Component
 {
-    /// <summary>
-    /// The entity UID to teleport to.
-    /// </summary>
-    [DataField]
-    public EntityUid? EntityTeleportTo;
 
     /// <summary>
     /// The co-ordinates to teleport to.
     /// </summary>
     [DataField]
-    public EntityCoordinates? CoordinatesTeleportTo;
-
-    /// <summary>
-    /// The map co-ordinates to teleport to.
-    /// </summary>
-    [DataField]
-    public MapCoordinates? MapCoordinatesTeleportTo;
+    public EntityCoordinates? Coordinates;
 
     /// <summary>
     /// What mob-state should trigger the teleportation?

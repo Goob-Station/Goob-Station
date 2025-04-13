@@ -7,6 +7,7 @@ using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared;
+using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Goobstation.Shared.Devil;
@@ -126,9 +127,8 @@ public sealed partial class DevilSystem : EntitySystem
         foreach (var actionId in comp.BaseDevilActions)
             _actions.AddAction(uid, actionId);
 
-        // Generate true name.
-        var nameOptions = _prototype.Index<DatasetPrototype>("names_devil");
-        comp.TrueName = _random.Pick(nameOptions.Values);
+        // Self Explanatory
+        GenerateTrueName(comp);
 
         // Equip suit
         _inventory.TryGetSlotEntity(uid, "jumpsuit", out var jumpsuit);
@@ -301,6 +301,15 @@ public sealed partial class DevilSystem : EntitySystem
             3 => "ShadowJaunt90",
             _ => "ShadowJaunt30",
         };
+    }
+
+    private void GenerateTrueName(DevilComponent comp)
+    {
+        // Generate true name.
+        var firstNameOptions = _prototype.Index(comp.FirstNameTrue);
+        var lastNameOptions = _prototype.Index(comp.LastNameTrue);
+
+        comp.TrueName = string.Concat(_random.Pick(firstNameOptions.Values), " ", _random.Pick(lastNameOptions.Values));
     }
 
     #endregion

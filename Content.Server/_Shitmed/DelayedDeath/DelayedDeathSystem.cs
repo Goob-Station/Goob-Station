@@ -6,6 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.DelayedDeath;
 using Content.Server.Chat.Systems;
 using Content.Shared.Medical;
 using Content.Shared.Mobs;
@@ -42,6 +43,16 @@ public partial class DelayedDeathSystem : EntitySystem
                 // go crit then dead so deathgasp can happen
                 _mobState.ChangeMobState(ent, MobState.Critical, mob);
                 _mobState.ChangeMobState(ent, MobState.Dead, mob);
+
+                // goob code
+                var ev = new DelayedDeathEvent(ent);
+                RaiseLocalEvent(ent, ref ev);
+
+                if (ev.Cancelled)
+                {
+                    RemComp<DelayedDeathComponent>(ent);
+                    continue;
+                }
 
                 if (!string.IsNullOrWhiteSpace(comp.DeathMessageId)) // Goobstation
                     _popupSystem.PopupEntity(comp.DeathMessageId, ent, PopupType.LargeCaution);

@@ -12,5 +12,4 @@ namespace Content.Goobstation.Server.GameTicking.Rules;
 [RegisterComponent, Access(typeof(DevilRuleSystem))]
 public sealed partial class DevilRuleComponent : Component
 {
-    public readonly List<EntityUid> DevilMinds = new();
 }

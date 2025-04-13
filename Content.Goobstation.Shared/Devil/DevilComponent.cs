@@ -1,3 +1,4 @@
+using Content.Shared.Dataset;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -57,6 +58,12 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30);
+
+    [DataField]
+    public ProtoId<DatasetPrototype> FirstNameTrue = new("names_devil_first");
+
+    [DataField]
+    public ProtoId<DatasetPrototype> LastNameTrue = new("names_devil_last");
 
 
 }
