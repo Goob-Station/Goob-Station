@@ -107,6 +107,9 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
     private void OnUnimplanted(Entity<StypticStimulatorImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
+        if (TerminatingOrDeleted(args.Container.Owner))
+            return;
+
         var implanted = args.Container.Owner;
         if (TryComp<PassiveDamageComponent>(implanted, out var damageComp))
         {

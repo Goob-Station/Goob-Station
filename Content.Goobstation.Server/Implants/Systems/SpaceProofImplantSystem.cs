@@ -37,7 +37,9 @@ public sealed class SpaceProofImplantSystem : EntitySystem
     {
         var user = args.Container.Owner;
 
-        RemCompDeferred<BreathingImmunityComponent>(user);
-        RemCompDeferred<PressureImmunityComponent>(user);
+        if (!TerminatingOrDeleted(user))
+            RemCompDeferred<BreathingImmunityComponent>(user);
+        if (!TerminatingOrDeleted(user))
+            RemCompDeferred<PressureImmunityComponent>(user);
     }
 }

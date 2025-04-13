@@ -47,9 +47,9 @@ public sealed class NutrimentPumpImplantSystem : EntitySystem
         var user = args.Container.Owner;
         var comp = ent.Comp;
 
-        if (comp.HadHunger)
+        if (comp.HadHunger && !TerminatingOrDeleted(user))
             EnsureComp<HungerComponent>(user);
-        if (comp.HadThirst)
+        if (comp.HadThirst && !TerminatingOrDeleted(user))
             EnsureComp<ThirstComponent>(user);
     }
 }
