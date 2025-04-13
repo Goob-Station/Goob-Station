@@ -4,8 +4,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/13/2025 04:42:50
-  entityCount: 15508
+  time: 04/13/2025 13:34:57
+  entityCount: 15507
 maps:
 - 1
 grids:
@@ -73028,17 +73028,17 @@ entities:
     - type: Transform
       pos: -19.5,-19.5
       parent: 2
-- proto: JawsOfLife
+- proto: JawsOfLifeSec
   entities:
+  - uid: 3099
+    components:
+    - type: Transform
+      pos: -23.528248,18.347256
+      parent: 2
   - uid: 3231
     components:
     - type: Transform
-      pos: -23.538055,18.350807
-      parent: 2
-  - uid: 3232
-    components:
-    - type: Transform
-      pos: -23.538055,18.678932
+      pos: -23.54908,18.628506
       parent: 2
 - proto: JermovCircuitBoard
   entities:
@@ -97140,13 +97140,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -26.135002,-21.800573
-      parent: 2
-- proto: WeaponTaser
-  entities:
-  - uid: 3099
-    components:
-    - type: Transform
-      pos: -23.504135,14.83641
       parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:
