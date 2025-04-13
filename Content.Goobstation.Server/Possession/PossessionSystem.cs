@@ -79,7 +79,7 @@ public sealed partial class PossessionSystem : EntitySystem
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
     {
         // Remove associated components.
-        if (!comp.WasPacified)
+        if (comp.WasPacified)
             RemComp<PacifiedComponent>(comp.OriginalEntity);
         RemComp<WeakToHolyComponent>(comp.OriginalEntity);
 
