@@ -97,6 +97,34 @@
       department: Command
       time: 3600 # 1 hour
 
+- type: loadoutEffectGroup
+  id: PersonalAI
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 36000 # 10 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBorg
+      time: 36000 # 10 hrs
+
+- type: loadoutEffectGroup
+  id: PersonalAI
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 36000 # 10 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBorg
+      time: 36000 # 10 hrs
+
 # Flowers
 - type: loadout
   id: FlowerWreath
@@ -525,3 +553,12 @@
   storage:
     back:
     - TowelColorMime
+
+- type: loadout
+  id: PersonalAI
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PersonalAI
+  storage:
+    back:
+    - PersonalAI
