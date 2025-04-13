@@ -10,5 +10,3 @@ public sealed partial class NtrAccountClientComponent : Component
     public int Balance;
 }
 
-[ByRefEvent]
-public record struct NtrAccountBalanceUpdatedEvent(EntityUid station, int Balance);

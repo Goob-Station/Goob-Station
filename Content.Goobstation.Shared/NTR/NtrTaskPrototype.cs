@@ -66,6 +66,7 @@ public readonly partial record struct NtrTaskItemEntry()
     /// </summary>
     [DataField]
     public int Amount { get; init; } = 1;
+
     [DataField]
     public bool InstantCompletion { get; init; } = false;
 

@@ -17,7 +17,6 @@ public sealed class SharedNtrTaskSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -31,39 +30,24 @@ public sealed class SharedNtrTaskSystem : EntitySystem
         if (args.Cancelled || !TryComp<PaperComponent>(args.Item, out _))
             return;
 
-        if (HasComp<SpamDocumentComponent>(args.Item))
+        if (HasComp<SpamDocumentComponent>(args.Item) || !HasValidStamps(args.Item))
         {
             args.Cancelled = true;
             if (_net.IsServer && args.User != null)
                 RaiseLocalEvent(uid, new TaskFailedEvent(args.User.Value));
             return;
         }
-        if (!HasValidStamps(args.Item))
+        if (TryComp<RandomDocumentComponent>(args.Item, out var documentComp))
         {
-            args.Cancelled = true;
-            if (_net.IsServer)
+            foreach (var taskId in documentComp.Tasks)
             {
-                if (args.User != null)
-                    _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), uid, args.User.Value);
-                _audio.PlayPvs(component.DenySound, uid);
-            }
-            return;
-        }
-        else
-        {
-            if (TryComp<RandomDocumentComponent>(args.Item, out var documentComp))
-            {
-                foreach (var taskId in documentComp.Tasks)
+                if (_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto))
                 {
-                    if (_prototypeManager.TryIndex(taskId, out NtrTaskPrototype? taskProto))
-                    {
-                        var completeEv = new TaskCompletedEvent(taskProto);
-                        RaiseLocalEvent(uid, completeEv);
-                    }
+                    var completeEv = new TaskCompletedEvent(taskProto);
+                    RaiseLocalEvent(uid, completeEv);
                 }
             }
         }
-
         if (_net.IsServer)
         {
             var ev = new DocumentInsertedEvent(args.Item, uid, args.User);
@@ -83,6 +67,7 @@ public sealed class SharedNtrTaskSystem : EntitySystem
 
     private HashSet<string> GetRequiredStamps(RandomDocumentComponent documentComp)
     {
+        // TODO: if has not required stamps, make task failed
         var requiredStamps = new HashSet<string>();
         foreach (var taskId in documentComp.Tasks)
         {

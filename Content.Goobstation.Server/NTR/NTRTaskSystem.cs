@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Goobstation.Common.NTR;
 using Content.Goobstation.Shared.NTR;
 using Content.Goobstation.Shared.NTR.Documents;
 using Content.Goobstation.Shared.NTR.Events;
@@ -63,6 +64,8 @@ public sealed partial class NtrTaskSystem : EntitySystem
     [Dependency] private readonly RadioSystem _radio = default!;
 
     private readonly ProtoId<NameIdentifierGroupPrototype> _nameIdentifierGroup = "Task";
+
+    // TODO: Make calculating & balance update in new methods for less code duplication
 
     public override void Initialize()
     {
