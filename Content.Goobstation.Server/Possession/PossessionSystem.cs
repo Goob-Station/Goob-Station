@@ -93,12 +93,6 @@ public sealed partial class PossessionSystem : EntitySystem
         if (TryComp<ActorComponent>(comp.PossessorOriginalEntity, out var possessorActorComponent))
             _mind.SetUserId(comp.PossessorMindId, possessorActorComponent.PlayerSession.UserId);
 
-        if (TryComp<ActorComponent>(comp.OriginalEntity, out var originalActorComponent))
-            _mind.SetUserId(comp.OriginalMindId, originalActorComponent.PlayerSession.UserId);
-        else
-            _mind.SetUserId(comp.OriginalMindId, null);
-
-
         // Paralyze, so you can't just magdump them.
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(10), false);
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
