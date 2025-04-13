@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 station-event-deathsquad-enroute = All contracts with crew have been terminated. Security is to lay down arms, and former crew are required to surrender to Nanotrasen. Failure to do so will result in capital punishment. Command is to peacefully surrender first, to set an example for the former crew.
 station-event-emergencyresponseteam-generic-enroute = Emergency Response Team enroute. Glory to Nanotrasen.
 station-event-cburn-enroute = A biological threat or virus has deemed it necessary to deploy a CBURN ERT. Crew is heavily advised to quarantine themselves and others, the medical department is suggested to bolt their doors unless told otherwise by Command staff or members of the ERT. Crewmembers and Janitors are advised to wear bio-suits, protective masks, and gloves to prevent the risk of viruses spreading
