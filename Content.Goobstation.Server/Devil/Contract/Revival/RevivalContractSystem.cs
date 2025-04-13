@@ -32,7 +32,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     private void AfterInteract(EntityUid uid, RevivalContractComponent comp, AfterInteractEvent args)
     {
-        // Seperated into two checks for readabilities sake.
+        // Seperated into two checks for readabilities’ sake.
         if (!TryComp<MobStateComponent>(args.Target, out var mobState) || mobState.CurrentState != MobState.Dead)
             return;
 

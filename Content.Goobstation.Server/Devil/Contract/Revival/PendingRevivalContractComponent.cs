@@ -12,13 +12,13 @@ public sealed partial class PendingRevivalContractComponent : Component
     /// The entity being revived.
     /// </summary>
     [DataField]
-    public EntityUid Contractee;
+    public EntityUid? Contractee;
 
     /// <summary>
     /// The entity offering revival
     /// </summary>
     [DataField]
-    public EntityUid Offerer;
+    public EntityUid? Offerer;
 
     /// <summary>
     /// How long until the deal expires?
