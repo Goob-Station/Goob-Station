@@ -72,7 +72,7 @@
   components:
   - type: RevivalContract
   - type: Paper
-    EditingDisabled: true
+    editingDisabled: true
     content: |2
 
                     [head=2]--- Contract from below ---[/head]
