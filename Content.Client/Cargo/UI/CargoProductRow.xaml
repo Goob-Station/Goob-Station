@@ -14,7 +14,8 @@ SPDX-License-Identifier: MIT
             ToolTip=""
             Access="Public"
             HorizontalExpand="True"
-            VerticalExpand="True" />
+            VerticalExpand="True"
+            StyleClasses="OpenBoth"/>
     <BoxContainer Orientation="Horizontal"
                   HorizontalExpand="True">
         <TextureRect Name="Icon"
@@ -28,7 +29,8 @@ SPDX-License-Identifier: MIT
             <Label Name="PointCost"
                    Access="Public"
                    MinSize="52 32"
-                   Align="Right" />
+                   Align="Right"
+                   Margin="0 0 5 0"/>
         </PanelContainer>
     </BoxContainer>
 </PanelContainer>

@@ -16,7 +16,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Access.Systems;
-using Content.Server.Cargo.Components;
+using Content.Shared.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
@@ -132,7 +132,7 @@ namespace Content.Server.Mail
         {
             if (args.SpawnResult == null ||
                 args.Job == null ||
-                args.Station is not {} station)
+                args.Station is not { } station)
             {
                 return;
             }
@@ -207,7 +207,7 @@ namespace Content.Server.Mail
             {
                 _idCardSystem.TryGetIdCard(args.Used, out var pdaID);
                 idCard = pdaID;
-            }   
+            }
 
             if (HasComp<IdCardComponent>(args.Used)) /// Or are they using an id card directly?
                 idCard = Comp<IdCardComponent>(args.Used);
@@ -255,7 +255,7 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), component.Bounty);
+                _cargoSystem.UpdateBankAccount((station, account), component.Bounty, _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account));
             }
         }
 
@@ -313,7 +313,7 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(uid) != station)
                     continue;
 
-                _cargoSystem.UpdateBankAccount((station, account), component.Penalty);
+                _cargoSystem.UpdateBankAccount((station, account), component.Penalty, _cargoSystem.CreateAccountDistribution(account.PrimaryAccount, account));
                 return;
             }
         }
@@ -560,7 +560,7 @@ namespace Content.Server.Mail
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
             foreach (var access in recipient.AccessTags)
             {
-                accessReader.AccessLists.Add(new HashSet<ProtoId<AccessLevelPrototype>>{access});
+                accessReader.AccessLists.Add(new HashSet<ProtoId<AccessLevelPrototype>> { access });
             }
         }
 

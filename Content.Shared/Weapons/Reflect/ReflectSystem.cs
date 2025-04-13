@@ -255,7 +255,7 @@ public sealed class ReflectSystem : EntitySystem
         EntityUid? shooter,
         EntityUid shotSource,
         Vector2 direction,
-        ReflectType reflhitscanReflectTypeective,
+        ReflectType hitscanReflectType,
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
@@ -264,7 +264,7 @@ public sealed class ReflectSystem : EntitySystem
             !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
             // Goob edit start
-            !((reflect.Reflects & reflhitscanReflectTypeective) != 0x0 && _random.Prob(reflect.ReflectProb)))
+            !((reflect.Reflects & hitscanReflectType) != 0x0 && _random.Prob(reflect.ReflectProb)))
             // Goob edit end
         {
             newDirection = null;
