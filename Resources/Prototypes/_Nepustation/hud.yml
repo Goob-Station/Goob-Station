@@ -1,0 +1,5 @@
+- type: hudTheme
+  id: SS14NeptuniaTheme
+  name: ui-options-hud-theme-neptunia
+  path: /Textures/_White/Interface/Neptunia/
+  order: 8
