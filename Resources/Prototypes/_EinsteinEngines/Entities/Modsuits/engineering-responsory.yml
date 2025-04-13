@@ -1,23 +1,18 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 # The Modsuit Itself, This is just a ERT modsuit
 - type: entity
   parent: ClothingModsuitStandard
-  id: ClothingModsuitResponsory
-  name: Responsory modsuit control
-  description: The main controller for a Responsory modsuit.
+  id: ClothingModsuitResponsoryEngineering
+  name: Engineering Responsory modsuit control
+  description: The main controller for a Engineering Responsory modsuit.
   components:
     - type: Sprite
-      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
     - type: ToggleableClothing
       clothingPrototypes:
-        head: ClothingModsuitHelmetResponsory
-        gloves: ClothingModsuitGauntletsResponsory
-        outerClothing: ClothingModsuitChestplateResponsory
-        shoes: ClothingModsuitBootsResponsory
+        head: ClothingModsuitHelmetResponsoryEngineering
+        gloves: ClothingModsuitGauntletsResponsoryEngineering
+        outerClothing: ClothingModsuitChestplateResponsoryEngineering
+        shoes: ClothingModsuitBootsResponsoryEngineering
     - type: ItemSlots
       slots:
         cell_slot:
@@ -39,13 +34,13 @@
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
-  id: ClothingModsuitGauntletsResponsory
-  name: Responsory modsuit gauntlets
-  description: A pair of gauntlets made for the Responsory modsuit.
+  id: ClothingModsuitGauntletsResponsoryEngineering
+  name: Engineering Responsory modsuit gauntlets
+  description: A pair of gauntlets made for the Engineering Responsory modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
     - type: SealableClothingVisuals
       visualLayers:
         gloves:
@@ -55,13 +50,13 @@
 
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
-  id: ClothingModsuitHelmetResponsory
-  name: Responsory modsuit helmet
-  description: A state-of-the-art helmet designed by NanoTrasen for the Responsory modsuit. It includes a built-in HUD.
+  id: ClothingModsuitHelmetResponsoryEngineering
+  name: Engineering Responsory modsuit helmet
+  description: A state-of-the-art helmet designed by NanoTrasen for the Engineering Responsory modsuit. It includes a built-in HUD.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
     - type: PressureProtection
       highPressureMultiplier: 0.08
       lowPressureMultiplier: 1000
@@ -75,9 +70,12 @@
     - type: FlashImmunity # Goobstation
     - type: FlashSoundSuppression # Goobstation
       protectionRange: 0
+    - type: EyeProtection
     - type: ShowHealthBars
       damageContainers:
         - Biological
+        - Inorganic
+        - Silicon
     - type: PointLight
       color: "#FFDF00"
     - type: SealableClothingVisuals
@@ -86,23 +84,16 @@
           - state: equipped-HEAD-sealed
           - state: equipped-HEAD-sealed-unshaded
             shader: unshaded
-    - type: Reflect
-      reflectProb: 0.03
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
-  id: ClothingModsuitChestplateResponsory
-  name: Responsory modsuit chestplate
-  description: A state of the art chestplate designed by NanoTrasen for the Responsory Modsuit. It incorporates powered servos to reduce the equipment load.
+  id: ClothingModsuitChestplateResponsoryEngineering
+  name: Engineering Responsory modsuit chestplate
+  description: A state of the art chestplate designed by NanoTrasen for the Engineering Responsory Modsuit. It incorporates powered servos to reduce the equipment load.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
     - type: ClothingSpeedModifier
       walkModifier: 1
       sprintModifier: 1
@@ -119,30 +110,25 @@
       visualLayers:
         outerClothing:
         - state: equipped-OUTERCLOTHING-sealed
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
     - type: StaminaDamageResistance
       coefficient: 0.5 # 50%
     - type: TemperatureProtection
       coefficient: 0.001
     - type: FireProtection
       reduction: 1
-
+    - type: ClothingGrantComponent
+      component:
+      - type: SupermatterImmune
 - type: entity
   parent: ClothingModsuitBootsStandard
-  id: ClothingModsuitBootsResponsory
-  name: Responsory modsuit boots
-  description: A state-of-the-art pair of magboots for the Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
+  id: ClothingModsuitBootsResponsoryEngineering
+  name: Engineering Responsory modsuit boots
+  description: A state-of-the-art pair of magboots for the Engineering Responsory modsuit. So long as the suit is powered, these will not slow the wearer down.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
     - type: Sprite
-      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/responsory.rsi
+      sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/engineering-responsory.rsi
     - type: Tag
       tags:
         - WhitelistChameleon
@@ -161,12 +147,12 @@
           - state: equipped-FEET-sealed
 
 - type: entity
-  id: SuitStorageResponsory
+  id: SuitStorageResponsoryEngineering
   parent: SuitStorageBase
-  suffix: Responsory Modsuit
+  suffix: Engineering Responsory Modsuit
   components:
     - type: StorageFill
       contents:
         - id: OxygenTankFilled
-        - id: ClothingModsuitResponsory
+        - id: ClothingModsuitResponsoryEngineering
         - id: ClothingMaskBreath
