@@ -30,7 +30,7 @@
     - type: SealableClothingVisuals
       visualLayers:
         back:
-        - state: equipped-BACKPACK-sealed
+          - state: equipped-BACKPACK-sealed
 
 - type: entity
   parent: ClothingModsuitGauntletsStandard
@@ -44,9 +44,9 @@
     - type: SealableClothingVisuals
       visualLayers:
         gloves:
-        - state: equipped-HAND-sealed
-        - state: equipped-HAND-sealed-unshaded
-          shader: unshaded
+          - state: equipped-HAND-sealed
+          - state: equipped-HAND-sealed-unshaded
+            shader: unshaded
 
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons]
@@ -109,7 +109,7 @@
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
-        - state: equipped-OUTERCLOTHING-sealed
+          - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
       coefficient: 0.5 # 50%
     - type: TemperatureProtection

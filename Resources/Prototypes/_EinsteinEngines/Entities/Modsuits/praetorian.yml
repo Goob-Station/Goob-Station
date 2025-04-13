@@ -36,7 +36,7 @@
     - type: SealableClothingVisuals
       visualLayers:
         back:
-        - state: equipped-BACKPACK-sealed
+          - state: equipped-BACKPACK-sealed
     - type: ClothingSpeedModifier
       walkModifier: 0.9
       sprintModifier: 0.9
@@ -53,9 +53,9 @@
     - type: SealableClothingVisuals
       visualLayers:
         gloves:
-        - state: equipped-HAND-sealed
-        - state: equipped-HAND-sealed-unshaded
-          shader: unshaded
+          - state: equipped-HAND-sealed
+          - state: equipped-HAND-sealed-unshaded
+            shader: unshaded
 
 - type: entity
   parent: ClothingModsuitHelmetStandard
@@ -86,9 +86,9 @@
     - type: SealableClothingVisuals
       visualLayers:
         head:
-        - state: equipped-HEAD-sealed
-        - state: equipped-HEAD-sealed-unshaded
-          shader: unshaded
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-unshaded
+            shader: unshaded
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
