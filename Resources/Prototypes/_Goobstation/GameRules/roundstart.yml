@@ -316,6 +316,7 @@
       playerRatio: 12
       mindRoles:
       - DevilMindRole
+      startingGear: DevilStartingGear
   - type: Tag
     tags:
     - RoundstartAntag

@@ -11,3 +11,11 @@
   - !type:RoleTimeRequirement
     role: JobLawyer
     time: 18000 #5 hrs
+
+- type: startingGear
+  id: DevilStartingGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDevil
+    back:
+    - GuidebookCodexUmbra
+    - PenDevil

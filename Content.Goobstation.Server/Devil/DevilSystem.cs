@@ -76,9 +76,6 @@ public sealed partial class DevilSystem : EntitySystem
     // Ten. Thousand. EntProtoIds.
     private readonly EntProtoId _contractPrototype = "PaperDevilContract";
     private readonly EntProtoId _revivalContractPrototype = "PaperDevilContractRevival";
-    private readonly EntProtoId _suitProto = "ClothingUniformJumpsuitDevil";
-    private readonly EntProtoId _bookProto = "GuidebookCodexUmbra";
-    private readonly EntProtoId _penProto = "PenDevil";
     private readonly EntProtoId _pentagramEffectProto = "Pentagram";
 
     public override void Initialize()
@@ -131,17 +128,6 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Self Explanatory
         GenerateTrueName(comp);
-
-        // Equip suit
-        _inventory.TryGetSlotEntity(uid, "jumpsuit", out var jumpsuit);
-        Del(jumpsuit);
-        var newSuit = SpawnNextToOrDrop(_suitProto, uid);
-        _inventory.TryEquip(uid, newSuit, "jumpsuit", true, true, true);
-
-        // Spawn codex & pen
-        _inventory.SpawnItemOnEntity(uid, _bookProto);
-        _inventory.SpawnItemOnEntity(uid, _penProto);
-
     }
 
     #endregion
