@@ -21,7 +21,7 @@ public sealed partial class StypticStimulatorImplantComponent : Component
     /// How much to reduce the bleeding by every second.
     /// </summary>
     [DataField]
-    public float BleedingModifier = -25f;
+    public float BleedingModifier = -100f;
 
     [DataField]
     public List<MobState> OriginalAllowedMobStates = new();

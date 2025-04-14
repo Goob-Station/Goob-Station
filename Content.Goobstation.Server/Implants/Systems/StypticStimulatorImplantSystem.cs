@@ -17,8 +17,7 @@ using Robust.Shared.Utility;
 namespace Content.Goobstation.Server.Implants.Systems;
 
 /// <summary>
-/// Takes the entities current healing per second, uncaps it, and multiplies it by four.
-/// also uh... multiplies the speed by five...
+/// Takes the entities current healing per second, uncaps it, and multiplies it a whole ton.
 /// Deathsquad just got a WHOLE lot scarier.
 /// </summary>
 public sealed class StypticStimulatorImplantSystem : EntitySystem
@@ -70,7 +69,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         var newSpecifiers = new Dictionary<string, FixedPoint2>();
 
         foreach (var damageType in damageDict)
-            newSpecifiers[damageType.Key] = damageType.Value * 4;
+            newSpecifiers[damageType.Key] = damageType.Value * 6;
 
         damageDict.Clear();
 
