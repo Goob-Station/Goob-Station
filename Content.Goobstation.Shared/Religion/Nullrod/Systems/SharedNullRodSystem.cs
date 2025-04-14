@@ -45,10 +45,9 @@ public sealed partial class SharedNullRodSystem : EntitySystem
         if (HasComp<BibleUserComponent>(args.User))
             return;
 
-        UntrainedDamageAndPopup(ent, args.User);
         args.Cancel();
+        UntrainedDamageAndPopup(ent, args.User);
     }
-
     #endregion
 
     #region Helper Methods
