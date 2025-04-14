@@ -94,10 +94,10 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.NextExecutionTime > _gameTiming.CurTime)
-                return;
+                continue;
 
             if (!TryComp<BloodstreamComponent>(uid, out var bloodstreamComponent))
-                return;
+                continue;
 
             _bloodstreamSystem.TryModifyBleedAmount(uid, comp.BleedingModifier, bloodstreamComponent);
             comp.NextExecutionTime = _gameTiming.CurTime + ExecutionInterval;
