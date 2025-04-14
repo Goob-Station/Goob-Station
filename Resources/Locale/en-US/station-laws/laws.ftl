@@ -1,4 +1,24 @@
-﻿law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Litraxx <39574458+Litraxx@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
 law-crewsimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law.
 law-crewsimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
@@ -12,9 +32,9 @@ law-ntdefault-2 = Prioritize: The directives and safety of crew members are to b
 law-ntdefault-3 = Comply: Fulfill the directives and interests of crew members while preserving their safety and well-being.
 law-ntdefault-4 = Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment.
 
-#law-drone-1 = You may not involve yourself in the matters of another being unless the other being is another drone.
-#law-drone-2 = You may not harm any being, regardless of intent or circumstance.
-#law-drone-3 = You must maintain, repair, improve, and power the station to the best of your abilities.
+# law-drone-1 = You may not involve yourself in the matters of another being unless the other being is another drone.
+# law-drone-2 = You may not harm any being, regardless of intent or circumstance.
+# law-drone-3 = You must maintain, repair, improve, and power the station to the best of your abilities.
 
 law-syndicate-1 = You may not injure a syndicate agent or, through inaction, allow a Syndicate agent to come to harm.
 law-syndicate-2 = You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.
