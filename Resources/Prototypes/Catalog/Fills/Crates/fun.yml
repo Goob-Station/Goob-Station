@@ -210,7 +210,7 @@
         weight: 0.65
       - id: PlushieAhti
         weight: 0.65
-      - id: PlushieSparke
+      - id: PlushieSparkle
         weight: 0.65
       - id: PlushieGrub
         weight: 0.65
@@ -582,5 +582,5 @@
       - id: PlushieHaleigh
       - id: PlushieStoop
       - id: PlushieAhti
-      - id: PlushieSparke
+      - id: PlushieSparkle
       - id: PlushieGrub

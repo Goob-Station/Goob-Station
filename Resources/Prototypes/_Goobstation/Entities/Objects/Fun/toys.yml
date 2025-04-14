@@ -492,13 +492,13 @@
 
 - type: entity
   parent: PlushieMoth
-  id: PlushieSparke
-  name: Sparke plushie
-  description: A cute stuffed toy that resembles a purple moth.
+  id: PlushieSparkle
+  name: sparkling moth plushie
+  description: A cute stuffed toy that resembles a sparkly purple moth. Has a sweet floral scent, like it’s been frolicking in a meadow.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
-    state: plushie_sparke
+    state: plushie_sparkle
 
 - type: entity
   parent: PlushieVox
