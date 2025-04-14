@@ -127,7 +127,7 @@
   parent: [ClothingHandsGlovesCombat, BaseCentcommContraband]
   id: ClothingHandsGlovesDeathsquad
   suffix: DO NOT MAP # Just don't...
-  name: deathsquad power claws
+  name: mk-3 "redactor" power gloves
   description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin.
   components:
   - type: Sprite
