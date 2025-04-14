@@ -42,7 +42,7 @@
   id: Nullrod
   description: The old classic. Does nothing special, really.
   components:
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+  - type: Nullrod
     DamageOnUntrainedUse:
       types:
         Heat: 20
@@ -57,7 +57,7 @@
   id: HolyClaymore
   description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
   components:
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+  - type: Nullrod
     DamageOnUntrainedUse:
       types:
         Slash: 20
@@ -203,7 +203,7 @@
       - Prying
   - type: Unremoveable
   - type: GrabbingItem
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+  - type: Nullrod
     DamageOnUntrainedUse:
       types:
         Burn: 40
@@ -215,12 +215,12 @@
     - GodHand
 
 - type: entity
-  parent: BaseNullrod # Todo: The actual functionality to speed up and slow down isn't done yet buut yknow.
+  parent: BaseNullrod
   id: ArrythmicKnife
   name: arrythmic knife
   description: They say fear is the true mind killer, but stabbing them in the head works too. Slows you down and speeds you up randomly.
   components:
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+  - type: Nullrod
     DamageOnUntrainedUse:
       types:
         Slash: 20
@@ -239,7 +239,7 @@
         Holy: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: RandomizeMovementspeed
+  - type: ItemRandomizeMovementspeed
     whitelist:
       components:
       - BibleUser
@@ -260,7 +260,7 @@
   name: monk's staff
   description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #Can parry blows - cqc update
   components:
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+  - type: Nullrod
     DamageOnUntrainedUse:
       types:
         Blunt: 20

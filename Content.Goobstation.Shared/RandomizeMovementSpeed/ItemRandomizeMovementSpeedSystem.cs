@@ -8,12 +8,11 @@ using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Goobstation.Shared.Bible;
 using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
 
-public sealed class RandomizeMovementSpeedSystem : EntitySystem
+public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
 {
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -25,38 +24,35 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
-        SubscribeLocalEvent<RandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
+        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
+        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
     #region Helper Functions
-    private void OnGotEquippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
+    private void OnGotEquippedHand(Entity<ItemRandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
     {
         // Refresh the movement speed modifiers.
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
-        // Get the Uid of the entity who picked up the item.
+
+        // Track the UID of the entity who is holding the item so we can properly remove the effects.
         ent.Comp.EntityUid = args.User;
         ent.Comp.NextExecutionTime = _timing.CurTime;
     }
 
-    private void OnGotUnequippedHand(Entity<RandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
+    private void OnGotUnequippedHand(Entity<ItemRandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
     {
-        // Refresh the movement speed modifiers.
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
-        // Reset the user Uid.
-        ent.Comp.EntityUid = default!;
+        ent.Comp.EntityUid = null;
     }
 
-    private float GetMovementSpeedModifiers(RandomizeMovementspeedComponent comp)
+    private float GetMovementSpeedModifiers(ItemRandomizeMovementspeedComponent comp)
     {
-        // Generate a modifier, which is a float between the minimum and maxiumum defined by the component.
         var modifier = _random.NextFloat(comp.Min, comp.Max);
-        // Return that modifier.
         return modifier;
 
     }
-    private void OnRefreshMovementSpeedModifiers(EntityUid uid, RandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
+    private void OnRefreshMovementSpeedModifiers(EntityUid uid, ItemRandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         args.Args.ModifySpeed(comp.CurrentModifier);
         Dirty(uid, comp);
@@ -69,7 +65,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<RandomizeMovementspeedComponent>();
+        var query = EntityQueryEnumerator<ItemRandomizeMovementspeedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.Whitelist == null || !_whitelist.IsValid(comp.Whitelist, comp.EntityUid))
@@ -81,7 +77,7 @@ public sealed class RandomizeMovementSpeedSystem : EntitySystem
             var modifier = GetMovementSpeedModifiers(comp);
             comp.CurrentModifier = modifier;
 
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(comp.EntityUid);
+            _movementSpeedModifier.RefreshMovementSpeedModifiers((EntityUid)comp.EntityUid);
             Dirty(uid, comp);
 
             comp.NextExecutionTime = _timing.CurTime + ExecutionInterval;
