@@ -50,6 +50,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         var damageComp = EnsureComp<PassiveDamageComponent>(user);
 
         // Store original allowed states.
+        ent.Comp.OriginalAllowedMobStates?.Clear();
         foreach (var state in damageComp.AllowedStates)
             ent.Comp.OriginalAllowedMobStates?.Add(state);
 
