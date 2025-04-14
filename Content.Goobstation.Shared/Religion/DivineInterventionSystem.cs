@@ -5,16 +5,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
-using Content.Shared._Goobstation.Wizard;
+using Robust.Shared.GameStates;
+using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Reflection;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
+using Content.Goobstation.Shared.Bible;
+using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Religion;
+namespace Content.Goobstation.Shared.Religion
+{
 
     public sealed partial class DivineInterventionSystem : EntitySystem
     {
+
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly IReflectionManager _reflectionManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
 
@@ -23,15 +29,12 @@ namespace Content.Goobstation.Shared.Religion;
             base.Initialize();
 
             SubscribeLocalEvent<DivineInterventionComponent, EntityTargetActionEvent>(OnEntityTargetAction);
-
         }
 
         private void OnEntityTargetAction(EntityUid uid, DivineInterventionComponent component, EntityTargetActionEvent args)
         {
-            if (!args.Target.IsValid())
-            {
+            if (args.Target == null)
                 return;
-            }
 
             var targetEntity = args.Target;
 
@@ -40,6 +43,7 @@ namespace Content.Goobstation.Shared.Religion;
 
             if (type == null)
             {
+                Log.Error($"Invalid component type specified in DivineInterventionComponent: {component.BlockedComponent}");
                 return;
             }
 
@@ -47,5 +51,7 @@ namespace Content.Goobstation.Shared.Religion;
             {
                 args.Handled = true; //Marked as handled so other systems don't process it.
             }
+
         }
     }
+}

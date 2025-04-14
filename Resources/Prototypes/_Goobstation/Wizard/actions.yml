@@ -93,6 +93,8 @@
     requiresClothes: true
     requiresSpeech: true
     school: Transmutation
+  - type: DivineIntervention
+    blockedComponent: BibleUserComponent
   - type: ActionUpgrade
     effectedLevels:
       2: ActionBananaTouchII
