@@ -41,6 +41,82 @@
         {
             "name": "bingle_pony",
             "directions": 4
+        },
+        {
+            "name": "plushie_benny",
+            "directions": 4
+        },
+        {
+            "name": "plushie_byrrne",
+            "directions": 4
+        },
+        {
+            "name": "plushie_byrrne_gibbed",
+            "directions": 4
+        },
+        {
+            "name": "plushie_cairo",
+            "directions": 4
+        },
+        {
+            "name": "plushie_command_human",
+            "directions": 4
+        },
+        {
+            "name": "plushie_delta",
+            "directions": 4
+        },
+        {
+            "name": "plushie_knott",
+            "directions": 4
+        },
+        {
+            "name": "plushie_kury",
+            "directions": 4
+        },
+        {
+            "name": "plushie_pash",
+            "directions": 4
+        },
+        {
+            "name": "plushie_raki",
+            "directions": 4
+        },
+        {
+            "name": "plushie_ranork",
+            "directions": 4
+        },
+        {
+            "name": "plushie_sparke",
+            "directions": 4
+        },
+        {
+            "name": "plushie_stoop",
+            "directions": 4
+        },
+        {
+            "name": "plushie_tider_moth",
+            "directions": 4
+        },
+        {
+            "name": "plushie_tina",
+            "directions": 4
+        },
+        {
+            "name": "plushie_weh_winter",
+            "directions": 4
+        },
+        {
+            "name": "plushie_zlorb",
+            "directions": 4
+        },
+        {
+            "name": "plushie_violet_slime",
+            "directions": 4
+        },
+        {
+            "name": "plushie_ahti",
+            "directions": 4
         }
     ]
 }
