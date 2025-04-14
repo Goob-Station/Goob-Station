@@ -107,6 +107,19 @@
     - SpellbookSemiRandom
 
 - type: listing
+  id: SpellbookKnock
+  name: spellbook-knock-name
+  description: spellbook-knock-desc
+  productAction: ActionKnock
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookCharge
   productUpgradeId: SpellbookChargeUpgrade # Goobstation
   name: spellbook-charge-name

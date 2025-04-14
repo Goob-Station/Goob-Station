@@ -18,6 +18,9 @@ spellbook-blink-desc =
     This spell randomly teleports you a short distance.
     Requires wizard's robe and hat to cast.
 
+spellbook-knock-name = Knock
+spellbook-knock-desc = Opens all airlocks, crates and lockers nearby.
+
 spellbook-force-wall-name = Force Wall
 spellbook-force-wall-desc =
     Make three walls of pure force that you can pass through, but others can't.
