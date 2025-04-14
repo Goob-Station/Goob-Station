@@ -23,7 +23,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.UserInterface.Systems.Chat.Controls;
-using Content.Shared._White;
+using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -78,9 +78,9 @@ public partial class ChatBox : UIWidget
         _controller.RegisterChat(this);
 
         // WD EDIT START
-        _cfg = IoCManager.Resolve<IConfigurationManager>(); 
-        _coalescence = _cfg.GetCVar(WhiteCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
-        _cfg.OnValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        _cfg = IoCManager.Resolve<IConfigurationManager>();
+        _coalescence = _cfg.GetCVar(GoobCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
+        _cfg.OnValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
         // WD EDIT END
     }
 
@@ -118,7 +118,7 @@ public partial class ChatBox : UIWidget
         {
             _lastLineRepeatCount++;
             AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
-            Contents.RemoveEntry(^2); 
+            Contents.RemoveEntry(^2);
         }
         else
         {
@@ -165,7 +165,7 @@ public partial class ChatBox : UIWidget
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
         if(repeat != 0) // WD EDIT START
-        {   
+        {
             int displayRepeat = repeat + 1;
             int sizeIncrease = Math.Min(displayRepeat / 6, 5);
             formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
@@ -256,7 +256,7 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(WhiteCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        _cfg.UnsubValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
     }
     // Goobstation - start
     private void OnHighlightsUpdated(string highlights)

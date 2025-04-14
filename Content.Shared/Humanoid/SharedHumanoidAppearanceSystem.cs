@@ -137,8 +137,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         args.PushText(Loc.GetString(locale, ("user", identity), ("age", age), ("species", species)), 100); // priority for examine
         // WWDP EDIT END
-        if (component.DisplayPronouns != null)
-            args.PushText(Loc.GetString("humanoid-appearance-component-examine-pronouns", ("user", identity), ("pronouns", component.DisplayPronouns)));
     }
 
     /// <summary>

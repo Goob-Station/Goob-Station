@@ -264,6 +264,7 @@
         Female: UnisexIPC
         Unsexed: UnisexIPC
     - type: MeleeWeapon
+      canDisarm: true
       hidden: true
       soundHit:
         collection: Punch

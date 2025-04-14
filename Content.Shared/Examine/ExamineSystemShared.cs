@@ -105,6 +105,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Examine; // Goobstation Change
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -387,6 +388,9 @@ namespace Content.Shared.Examine
 
             var newMessage = examinedEvent.GetTotalMessage();
 
+            // Goobstation Change: I dont seem to have a way to get the event of examination to happen after EVERYTHING else, so fuck it.
+            var examineCompletedEvent = new ExamineCompletedEvent(newMessage, entity, examiner.Value);
+            RaiseLocalEvent(entity, examineCompletedEvent);
             // pop color tag
             newMessage.Pop();
 

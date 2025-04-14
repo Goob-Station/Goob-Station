@@ -1,14 +1,14 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.IdentityManagement;
-using Content.Shared._White;
-using Content.Shared.CCVar;
+using Content.Goobstation.Common.Examine; // Goobstation Change
+using Content.Goobstation.Common.CCVar; // Goobstation Change
+using Content.Shared._Goobstation.Heretic.Components; // Goobstation Change
 using Content.Shared.Chat;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-
+using System.Globalization;
 
 namespace Content.Server._White.Examine
 {
@@ -23,11 +23,18 @@ namespace Content.Server._White.Examine
         public override void Initialize()
         {
             SubscribeLocalEvent<ExaminableCharacterComponent, ExaminedEvent>(HandleExamine);
+            SubscribeLocalEvent<MetaDataComponent, ExamineCompletedEvent>(HandleExamine);
         }
 
         private void HandleExamine(EntityUid uid, ExaminableCharacterComponent comp, ExaminedEvent args)
         {
-            var selfaware = (args.Examiner == args.Examined);
+            if (!TryComp<ActorComponent>(args.Examiner, out var actorComponent)
+                || !args.IsInDetailsRange)
+                return;
+
+            var showExamine = _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine);
+
+            var selfaware = args.Examiner == args.Examined;
             var logLines = new List<string>();
 
             string canseeloc = "examine-can-see";
@@ -78,10 +85,12 @@ namespace Content.Server._White.Examine
                 if (!_inventorySystem.TryGetSlotEntity(uid, slotName, out var slotEntity))
                     continue;
 
-                if (_entityManager.TryGetComponent<MetaDataComponent>(slotEntity, out var metaData))
+                if (_entityManager.TryGetComponent<MetaDataComponent>(slotEntity, out var metaData)
+                    && !HasComp<StripMenuInvisibleComponent>(slotEntity))
                 {
                     var item = Loc.GetString(slotLabel, ("item", metaData.EntityName), ("ent", uid));
-                    args.PushMarkup($"[font size=10]{item}[/font]", priority);
+                    if (showExamine)
+                        args.PushMarkup($"[font size=10]{item}[/font]", priority);
                     logLines.Add($"[color=DarkGray][font size=10]{item}[/font][/color]");
                     priority--;
                 }
@@ -89,7 +98,8 @@ namespace Content.Server._White.Examine
 
             if (priority < 13) // If nothing is worn dont show
             {
-                args.PushMarkup($"[font size=10]{cansee}[/font]", 14);
+                if (showExamine)
+                    args.PushMarkup($"[font size=10]{cansee}[/font]", 14);
             }
             else
             {
@@ -104,10 +114,31 @@ namespace Content.Server._White.Examine
 
             var combinedLog = string.Join("\n", logLines);
 
-            if (TryComp<ActorComponent>(args.Examiner, out var actorComponent))
+            if (showExamine && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.LogInChat))
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes, combinedLog, combinedLog, EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false);
+        }
+
+        private void HandleExamine(EntityUid uid, MetaDataComponent metaData, ExamineCompletedEvent args)
+        {
+            if (HasComp<ExaminableCharacterComponent>(args.Examined)
+                && !args.IsSecondaryInfo)
+                return;
+
+            if (TryComp<ActorComponent>(args.Examiner, out var actorComponent)
+                && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine)
+                && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.LogInChat))
             {
-                if (_netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, WhiteCVars.LogInChat))
-                    _chatManager.ChatMessageToOne(ChatChannel.Emotes, combinedLog, combinedLog, EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false);
+                var logLines = new List<string>();
+
+                if (!args.IsSecondaryInfo)
+                {
+                    TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+                    logLines.Add($"[color=DarkGray][font size=11]{textInfo.ToTitleCase(metaData.EntityName)}[/font][/color]");
+                }
+
+                logLines.Add($"[color=DarkGray][font size=10]{args.Message}[/font][/color]");
+                var combinedLog = string.Join("\n", logLines);
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes, combinedLog, combinedLog, EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false);
             }
         }
     }

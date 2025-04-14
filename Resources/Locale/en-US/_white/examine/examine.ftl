@@ -1,6 +1,7 @@
 ﻿# Poggers examine system
 
 examine-name = It's [bold]{$name}[/bold]!
+examine-name-selfaware = It's you!
 examine-can-see = Looking at {OBJECT($ent)}, you can see:
 examine-can-see-nothing = {CAPITALIZE(GENDER($ent))} is completely naked!
 

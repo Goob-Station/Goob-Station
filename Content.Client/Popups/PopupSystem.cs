@@ -30,7 +30,7 @@
 using System.Linq;
 using Content.Shared.Containers;
 using Content.Client.UserInterface.Systems.Chat;
-using Content.Shared._White;
+using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
@@ -104,8 +104,8 @@ namespace Content.Client.Popups
                     this));
 
             // WD EDIT START
-            _shouldLogInChat = _configManager.GetCVar(WhiteCVars.LogInChat);
-            _configManager.OnValueChanged(WhiteCVars.LogInChat, log => { _shouldLogInChat = log; });
+            _shouldLogInChat = _configManager.GetCVar(GoobCVars.LogInChat);
+            _configManager.OnValueChanged(GoobCVars.LogInChat, log => { _shouldLogInChat = log; });
             // WD EDIT END
         }
 
@@ -168,22 +168,6 @@ namespace Content.Client.Popups
                 _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
             }
             // WD EDIT END
-
-            var popupData = new WorldPopupData(message, type, coordinates, entity);
-            if (_aliveWorldLabels.TryGetValue(popupData, out var existingLabel))
-            {
-                WrapAndRepeatPopup(existingLabel, popupData.Message);
-                return;
-            }
-
-            var label = new WorldPopupLabel(coordinates)
-            {
-                Text = message,
-                Type = type,
-            };
-
-            _aliveWorldLabels.Add(popupData, label);
-
         }
 
         #region Abstract Method Implementations
