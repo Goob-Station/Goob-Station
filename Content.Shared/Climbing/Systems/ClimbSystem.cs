@@ -113,6 +113,7 @@ public sealed partial class ClimbSystem : VirtualController
         SubscribeLocalEvent<ClimbingComponent, ClimbDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ClimbingComponent, EndCollideEvent>(OnClimbEndCollide);
         SubscribeLocalEvent<ClimbingComponent, BuckledEvent>(OnBuckled);
+        SubscribeLocalEvent<ClimbingComponent, EntGotInsertedIntoContainerMessage>(OnStored);
 
         SubscribeLocalEvent<ClimbableComponent, CanDropTargetEvent>(OnCanDragDropOn);
         SubscribeLocalEvent<ClimbableComponent, GetVerbsEvent<AlternativeVerb>>(AddClimbableVerb);
@@ -285,13 +286,27 @@ public sealed partial class ClimbSystem : VirtualController
         };
 
         _audio.PlayPredicted(comp.StartClimbSound, climbable, user);
-        return _doAfterSystem.TryStartDoAfter(args, out id);
+        var success = _doAfterSystem.TryStartDoAfter(args, out id);
+
+        if (success)
+            climbing.DoAfter = id;
+
+        return success;
+
     }
 
     private void OnDoAfter(EntityUid uid, ClimbingComponent component, ClimbDoAfterEvent args)
     {
+        component.DoAfter = null;
+
         if (args.Handled || args.Cancelled || args.Args.Target == null || args.Args.Used == null)
             return;
+
+        if (_containers.IsEntityInContainer(uid))
+        {
+            args.Handled = true;
+            return;
+        }
 
         Climb(uid, args.Args.User, args.Args.Target.Value, climbing: component);
         args.Handled = true;
@@ -571,7 +586,27 @@ public sealed partial class ClimbSystem : VirtualController
 
     private void OnBuckled(EntityUid uid, ClimbingComponent component, ref BuckledEvent args)
     {
-        StopClimb(uid, component);
+        StopOrCancelClimb(uid, component);
+    }
+
+    private void OnStored(EntityUid uid, ClimbingComponent component, ref EntGotInsertedIntoContainerMessage args)
+    {
+        StopOrCancelClimb(uid, component);
+    }
+
+    private void StopOrCancelClimb(EntityUid uid, ClimbingComponent component)
+    {
+        if (component.IsClimbing)
+        {
+            StopClimb(uid, component);
+            return;
+        }
+
+        if (component.DoAfter != null)
+        {
+            _doAfterSystem.Cancel(component.DoAfter);
+            component.DoAfter = null;
+        }
     }
 
     private void OnGlassClimbed(EntityUid uid, GlassTableComponent component, ref ClimbedOnEvent args)
