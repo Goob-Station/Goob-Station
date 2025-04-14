@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 traitor-arc-intro = You are the ARC terrorist.
 traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Nanotrasen, and you are their only hope!
 traitor-arc-allies = You may cooperate with other syndicate agents if you support our cause. Maybe you can convince the Bee Liberation Front agents to cooperate for once?
