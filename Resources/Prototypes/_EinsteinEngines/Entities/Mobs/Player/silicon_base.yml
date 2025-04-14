@@ -331,3 +331,5 @@
     - type: Carriable
     - type: Targeting
     - type: LayingDown
+    - type: CombatMode
+      canDisarm: true
