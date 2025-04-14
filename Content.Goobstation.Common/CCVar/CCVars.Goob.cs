@@ -173,7 +173,7 @@ public sealed partial class GoobCVars
     /// Ban user after having playing this amount of hours in a given time. Default is 150
     /// </summary>
     public static readonly CVarDef<int> GrassThreshold =
-        CVarDef.Create("grass.threshold", 200, CVar.SERVER, "Do an action after this amount of hours played");
+        CVarDef.Create("grass.threshold", 150, CVar.SERVER, "Do an action after this amount of hours played");
 
     /// <summary>
     /// Reset tracked time after this amount of days. Default is 30.
