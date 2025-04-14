@@ -1,3 +1,4 @@
+      
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
 #
@@ -31,29 +32,56 @@ jobs:
 
       - name: Get Changed Files and PR Info
         id: changed_files
+        env:
+           PR_BODY: ${{ github.event.pull_request.body }}
+           GH_TOKEN: ${{ github.token }}
+           GH_REPO: ${{ github.repository }}
+           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          # Use GitHub API to get the list of files changed in the PR
-          PR_FILES=$(curl -s -H "Authorization: token ${{ github.token }}" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
-            | jq -r '.[] | "\(.status) \(.filename)"')
+          set -e # Exit script on first error
 
-          # Filter and separate added and modified files
-          ADDED_FILES=$(echo "$PR_FILES" | grep "^added" | grep -E '\.(cs|ya?ml)$' | sed 's/^added //' | xargs)
-          MODIFIED_FILES=$(echo "$PR_FILES" | grep "^modified" | grep -E '\.(cs|ya?ml)$' | sed 's/^modified //' | xargs)
+          echo "Fetching files for PR #${PR_NUMBER} in repo ${GH_REPO}"
+
+          PR_FILES_JSON=$(curl -s -f -H "Authorization: token ${GH_TOKEN}" \
+            "https://api.github.com/repos/${GH_REPO}/pulls/${PR_NUMBER}/files")
+
+          if [ $? -ne 0 ]; then
+            echo "Error fetching PR files from GitHub API."
+            exit 1
+          fi
+          
+          if ! echo "$PR_FILES_JSON" | jq -e . > /dev/null; then
+             echo "Warning: Received empty or invalid JSON from GitHub API for PR files."
+             PR_FILES="" # Set PR_FILES to empty to avoid errors below
+          else
+             PR_FILES=$(echo "$PR_FILES_JSON" | jq -r '.[] | select(.filename != null) | "\(.status) \(.filename)"')
+          fi
+
+          if [ -z "$PR_FILES" ]; then
+            echo "No files found in PR."
+            ADDED_FILES=""
+            MODIFIED_FILES=""
+          else
+            ADDED_FILES=$(echo "$PR_FILES" | grep "^added" | grep -E '\.(cs|ya?ml)$' | sed 's/^added //' | xargs) || true
+            MODIFIED_FILES=$(echo "$PR_FILES" | grep "^modified" | grep -E '\.(cs|ya?ml)$' | sed 's/^modified //' | xargs) || true
+          fi
 
           echo "Added Files: $ADDED_FILES"
           echo "Modified Files: $MODIFIED_FILES"
 
-          # Store lists as environment variables for the next step
-          echo "ADDED_FILES_LIST=$ADDED_FILES" >> $GITHUB_ENV
-          echo "MODIFIED_FILES_LIST=$MODIFIED_FILES" >> $GITHUB_ENV
+          echo "ADDED_FILES_LIST<<EOF" >> $GITHUB_ENV
+          echo "$ADDED_FILES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
-          # Extract license from PR description if specified (format: LICENSE: MIT or LICENSE: AGPL)
-          PR_BODY="${{ github.event.pull_request.body }}"
-          if echo "$PR_BODY" | grep -q "LICENSE: MIT"; then
+          echo "MODIFIED_FILES_LIST<<EOF" >> $GITHUB_ENV
+          echo "$MODIFIED_FILES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+          echo "Checking PR body for license..."
+          if grep -q "LICENSE: MIT" <<< "$PR_BODY"; then
             echo "PR_LICENSE=mit" >> $GITHUB_ENV
             echo "License specified in PR: MIT"
-          elif echo "$PR_BODY" | grep -q "LICENSE: AGPL"; then
+          elif grep -q "LICENSE: AGPL" <<< "$PR_BODY"; then
             echo "PR_LICENSE=agpl" >> $GITHUB_ENV
             echo "License specified in PR: AGPL"
           else
@@ -78,3 +106,7 @@ jobs:
           commit_user_name: ${{ vars.CHANGELOG_USER }}
           commit_user_email: ${{ vars.CHANGELOG_EMAIL }}
           commit_author: ${{ vars.CHANGELOG_USER }} <${{ vars.CHANGELOG_EMAIL }}>
+          skip_dirty_check: false
+          skip_fetch: true
+
+    
