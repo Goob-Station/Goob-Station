@@ -90,8 +90,12 @@ public sealed class DamageExamineSystem : EntitySystem
         }
 
         // Goobstation Change
-        msg.PushNewline();
-        msg.AddMarkupOrThrow(Loc.GetString("damage-hits-to-kill", ("count", (100f / (float) GetTotalMeaningfulDamage(damageSpecifier)).ToString("F1"))));
+        var meaningfulDamage = GetTotalMeaningfulDamage(damageSpecifier);
+        if (meaningfulDamage > 0)
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Loc.GetString("damage-hits-to-kill", ("count", (100f / (float) meaningfulDamage).ToString("F1"))));
+        }
 
         return msg;
     }
