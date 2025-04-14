@@ -26,7 +26,6 @@ public sealed partial class GoobBibleSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
@@ -41,9 +40,9 @@ public sealed partial class GoobBibleSystem : EntitySystem
                 args.Target.Value,
                 PopupType.LargeCaution);
             _audio.PlayPvs(component.SizzleSoundPath, args.Target.Value);
-            var holyDamage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Holy"), 25);
-            _damageableSystem.TryChangeDamage(args.Target, holyDamage, true, origin: uid);
-            _stun.TryParalyze(args.Target.Value, TimeSpan.FromSeconds(8), false);
+
+            _damageableSystem.TryChangeDamage(args.Target, component.SmiteDamage, true, origin: uid);
+            _stun.TryParalyze(args.Target.Value, component.SmiteStunDuration, false);
             _delay.TryResetDelay((uid, useDelay));
         }
         else if (HasComp<DevilComponent>(args.Target) && HasComp<BibleUserComponent>(args.User))

@@ -55,7 +55,7 @@ public partial class DelayedDeathSystem : EntitySystem
                 }
 
                 if (!string.IsNullOrWhiteSpace(comp.DeathMessageId)) // Goobstation
-                    _popupSystem.PopupEntity(comp.DeathMessageId, ent, PopupType.LargeCaution);
+                    _popupSystem.PopupEntity(Loc.GetString(comp.DeathMessageId), ent, PopupType.LargeCaution);
             }
         }
     }

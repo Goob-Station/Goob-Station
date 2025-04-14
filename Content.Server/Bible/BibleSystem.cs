@@ -27,23 +27,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared;
 using Content.Goobstation.Shared.Bible;
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
-using Content.Server.Stunnable;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Bible;
-using Content.Shared.Chat;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.DoAfter;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -55,7 +48,6 @@ using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Bible
