@@ -27,6 +27,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
     private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
     private readonly Dictionary<EntityUid, Dictionary<string, FixedPoint2>> _originalDamageSpecifiers = new();
+    private readonly Dictionary<EntityUid, List<MobState>> _originalAllowedStates = new();
 
     private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(1f);
     public override void Initialize()
@@ -49,7 +50,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
         // Store original allowed states.
         foreach (var state in damageComp.AllowedStates)
-            ent.Comp.OriginalAllowedStates.Add(state);
+            _originalAllowedStates[user].Add(state);
 
         // Store original damage cap if not already stored
         if (!_originalDamageCaps.ContainsKey(user))
@@ -129,7 +130,7 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
 
             // Restore original allowed states.
             damageComp.AllowedStates.Clear();
-            damageComp.AllowedStates = ent.Comp.OriginalAllowedStates;
+            damageComp.AllowedStates = _originalAllowedStates[implanted];
         }
     }
 }

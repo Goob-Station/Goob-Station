@@ -11,9 +11,9 @@ namespace Content.Goobstation.Server.Implants.Components;
 [RegisterComponent]
 public sealed partial class StypticStimulatorImplantComponent : Component
 {
-    [DataField]
-    public List<MobState> OriginalAllowedStates;
-
+    /// <summary>
+    /// Next execution time. (Explanatory, I know.)
+    /// </summary>
     [DataField]
     public TimeSpan NextExecutionTime = TimeSpan.Zero;
 
