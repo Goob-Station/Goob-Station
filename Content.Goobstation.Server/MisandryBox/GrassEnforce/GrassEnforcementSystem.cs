@@ -1,4 +1,8 @@
-﻿using Content.Server.Afk;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Afk;
 using Content.Server.GameTicking.Events;
 using Content.Shared.GameTicking;
 
