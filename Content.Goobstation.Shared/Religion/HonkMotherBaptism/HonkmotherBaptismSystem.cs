@@ -5,14 +5,11 @@
 
 using Content.Shared.Actions;
 using Content.Goobstation.Shared.Bible;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Religion.Nullrod;
+namespace Content.Goobstation.Shared.Religion.HonkMotherBaptism;
 
 public sealed partial class HonkmotherBaptismSystem : EntitySystem
 {
-
     public override void Initialize()
     {
         base.Initialize();

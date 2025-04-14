@@ -1638,6 +1638,7 @@
         components:
         - Wizard
         - Apprentice
+        - BibleUser
     # Goobstation end
 
 - type: entity

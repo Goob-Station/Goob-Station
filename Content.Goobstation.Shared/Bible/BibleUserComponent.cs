@@ -5,8 +5,10 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Robust.Shared.GameStates; // Goobstation
+
 namespace Content.Goobstation.Shared.Bible
 {
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent] // Goobstation - Network that bitch!
     public sealed partial class BibleUserComponent : Component {}
 }

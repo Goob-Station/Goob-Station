@@ -5,53 +5,67 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Damage;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Religion.Nullrod;
+namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
 
-public sealed partial class NullRodSystem : EntitySystem
+public sealed partial class SharedNullRodSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NullrodComponent, MeleeHitEvent>(OnMeleeHitEvent);
-        SubscribeLocalEvent<NullrodComponent, AttemptShootEvent>(OnShootAttempt);
+
+        SubscribeLocalEvent<NullrodComponent, AttackAttemptEvent>(OnAttackAttempt);
+        SubscribeLocalEvent<NullrodComponent, ShotAttemptedEvent>(OnShootAttempt);
     }
 
-    private void OnMeleeHitEvent(Entity<NullrodComponent> ent, ref MeleeHitEvent args)
+    #region Attack Attempts
+    private void OnAttackAttempt(Entity<NullrodComponent> ent, ref AttackAttemptEvent args)
+    {
+        if (HasComp<BibleUserComponent>(args.Uid))
+            return;
+
+        args.Cancel();
+        UntrainedDamageAndPopup(ent, args.Uid);
+    }
+
+    private void OnShootAttempt(Entity<NullrodComponent> ent, ref ShotAttemptedEvent args)
     {
         if (HasComp<BibleUserComponent>(args.User))
             return;
 
         UntrainedDamageAndPopup(ent, args.User);
-
-        args.Handled = true;
+        args.Cancel();
     }
 
-    private void OnShootAttempt(Entity<NullrodComponent> ent, ref AttemptShootEvent args)
-    {
-        if (HasComp<BibleUserComponent>(args.User))
-            return;
+    #endregion
 
-        UntrainedDamageAndPopup(ent, args.User);
-        args.Cancelled = true;
-    }
-
+    #region Helper Methods
     private void UntrainedDamageAndPopup(Entity<NullrodComponent> ent, EntityUid user)
     {
+        // WHY IS EVERY ATTACK ATTEMPT EVENT SO FUCKING SCUFFED AAARGGGHHHH
+        if (_timing.CurTime < ent.Comp.NextPopupTime)
+            return;
+
         if (_damageableSystem.TryChangeDamage(user, ent.Comp.DamageOnUntrainedUse, origin: ent) is null)
             return;
 
         _popupSystem.PopupEntity(Loc.GetString(ent.Comp.UntrainedUseString), user, user, PopupType.MediumCaution);
         _audio.PlayPvs(ent.Comp.UntrainedUseSound, user);
+
+        ent.Comp.NextPopupTime = _timing.CurTime + ent.Comp.PopupCooldown;
     }
+    #endregion
 
 }
