@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2024 Milon <milonpl.git@proton.me>
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Tobias Berger <toby@tobot.dev>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._DV.CartridgeLoader.Cartridges;
 using Content.Shared.Examine;
 using Robust.Shared.Timing;
@@ -54,6 +66,17 @@ public abstract class SharedNanoChatSystem : EntitySystem
 
         card.Comp.Number = number;
         Dirty(card);
+    }
+
+    /// <summary>
+    ///     Sets IsClosed for a card.
+    /// </summary>
+    public void SetClosed(Entity<NanoChatCardComponent?> card, bool closed)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        card.Comp.IsClosed = closed;
     }
 
     /// <summary>
@@ -174,6 +197,29 @@ public abstract class SharedNanoChatSystem : EntitySystem
             return;
 
         card.Comp.NotificationsMuted = muted;
+        Dirty(card);
+    }
+
+    /// <summary>
+    ///     Gets whether NanoChat number is listed.
+    /// </summary>
+    public bool GetListNumber(Entity<NanoChatCardComponent?> card)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        return card.Comp.ListNumber;
+    }
+
+    /// <summary>
+    ///     Sets whether NanoChat number is listed.
+    /// </summary>
+    public void SetListNumber(Entity<NanoChatCardComponent?> card, bool listNumber)
+    {
+        if (!Resolve(card, ref card.Comp) || card.Comp.ListNumber == listNumber)
+            return;
+
+        card.Comp.ListNumber = listNumber;
         Dirty(card);
     }
 

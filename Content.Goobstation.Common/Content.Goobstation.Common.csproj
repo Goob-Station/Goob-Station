@@ -1,0 +1,27 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>$(TargetFramework)</TargetFramework>
+        <LangVersion>12</LangVersion>
+        <IsPackable>false</IsPackable>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <WarningsAsErrors>nullable</WarningsAsErrors>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+    <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
+
+</Project>

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Offensive
 - type: listing
   id: SpellbookMimeMalaise
@@ -575,6 +584,42 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
+- type: listing
+  id: SpellbookTileToggle
+  name: spellbook-tile-toggle-name
+  description: spellbook-tile-toggle-description
+  productAction: ActionTileToggle
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
+- type: listing
+  id: SpellbookCurseOfByond
+  name: spellbook-curse-of-byond-name
+  description: spellbook-curse-of-byond-description
+  productAction: ActionCurseOfByond
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+      - SpellbookTileToggle
+    blacklist:
+    - SpellbookFullRandom
+    - SpellbookSemiRandom
+
 # Equipment
 - type: listing
   id: SpellbookScryingOrb
@@ -776,6 +821,26 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventGlobalTileToggle
+  name: spellbook-event-global-tile-toggle-name
+  description: spellbook-event-global-tile-toggle-description
+  productEvent: !type:GlobalTileToggleEvent
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: tileglobal
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+      - SpellbookTileToggle
   disableRefund: true
 
 # Special

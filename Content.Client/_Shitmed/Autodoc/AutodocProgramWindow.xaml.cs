@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Shitmed.Autodoc;
 using Content.Shared._Shitmed.Autodoc.Components;
@@ -16,6 +24,8 @@ public sealed partial class AutodocProgramWindow : FancyWindow
 {
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IFileDialogManager _dialogManager = default!;
+    [Dependency] private readonly ILogManager _logMan = default!;
+    [Dependency] private readonly ISerializationManager _serMan = default!;
     private SharedAutodocSystem _autodoc = default!;
 
     public event Action? OnToggleSafety;
@@ -24,11 +34,11 @@ public sealed partial class AutodocProgramWindow : FancyWindow
     public event Action<int>? OnRemoveStep;
     public event Action? OnStart;
 
-
     private EntityUid _owner;
     private AutodocProgram _program;
     private int _steps;
     private bool _safety = true;
+    private ISawmill _sawmill;
 
     private int? _selected;
     private AddStepWindow? _addStep;
@@ -42,6 +52,7 @@ public sealed partial class AutodocProgramWindow : FancyWindow
 
         _owner = owner;
         _program = program;
+        _sawmill = _logMan.GetSawmill("autodoc-ui");
 
         OnClose += () => _addStep?.Close();
 
@@ -125,27 +136,22 @@ public sealed partial class AutodocProgramWindow : FancyWindow
 
     private async void ExportProgram()
     {
-        var file = await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
-
-        if (file == null)
+        if (await _dialogManager.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml"))) is not {} file)
             return;
 
         try
         {
-            var serializationManager = IoCManager.Resolve<ISerializationManager>();
-            var node = serializationManager.WriteValue(_program.GetType(), _program);
-            await using var writer = new StreamWriter(file.Value.fileStream);
+            var node = _serMan.WriteValue(_program.GetType(), _program);
+            await using var writer = new StreamWriter(file.fileStream);
             node.Write(writer);
         }
-        catch (Exception exc)
+        catch (Exception e)
         {
-            ILogManager logManager = IoCManager.Resolve<ILogManager>(); // Using automatic dependancy doesn't work here
-            ISawmill sawmill = logManager.GetSawmill("autodoc-ui");
-            sawmill.Error($"Error when exporting program\n{exc.StackTrace}");
+            _sawmill.Error($"Error when exporting program: {e}");
         }
         finally
         {
-            await file.Value.fileStream.DisposeAsync();
+            await file.fileStream.DisposeAsync();
         }
     }
 

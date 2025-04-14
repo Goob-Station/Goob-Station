@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Imp special. This file covers all of the stuff needed for repair drones to spawn with their tools.
 
 # Unremovable versions of their items. I am aware that unremoveable is spelled wrong.
@@ -28,6 +34,14 @@
   parent: WelderExperimental
   id: WelderExperimentalUnremoveable
   suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+# Goobstation
+- type: entity
+  parent: RCDRecharging
+  id: RCDRechargingUnremoveable
+  suffix: Unremovable
   components:
   - type: Unremoveable
 
@@ -79,3 +93,4 @@
   inhand:
   - OmnitoolUnremoveable
   - WelderExperimentalUnremoveable
+  - RCDRechargingUnremoveable
