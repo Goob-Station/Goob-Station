@@ -6,6 +6,7 @@
 
 using Robust.Shared.GameStates;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Religion;
 

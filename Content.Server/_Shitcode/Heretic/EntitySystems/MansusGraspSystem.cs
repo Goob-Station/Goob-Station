@@ -216,7 +216,7 @@ public sealed class MansusGraspSystem : EntitySystem
 
         var target = args.Target.Value;
 
-        if (TryComp<BibleUserComponent>(args.Target, out _) && TryComp(args.User, out StatusEffectsComponent? hereticstatus))
+        if (HasComp<BibleUserComponent>(args.Target, out _) && TryComp(args.User, out StatusEffectsComponent? hereticstatus))
         {
             _stun.KnockdownOrStun(args.User, comp.KnockdownTime, true, hereticstatus);
             _stamina.TakeStaminaDamage(args.User, comp.StaminaDamage);

@@ -8,10 +8,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
+using Content.Goobstation.Shared.Bible;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -90,6 +92,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -200,6 +203,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnCluwneCurse(CluwneCurseEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
@@ -217,6 +224,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnBananaTouch(BananaTouchEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
@@ -240,6 +251,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnMimeMalaise(MimeMalaiseEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
@@ -417,6 +432,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnBlind(BlindSpellEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
@@ -576,6 +595,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnLightningBolt(LightningBoltEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
@@ -679,6 +702,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnBarnyardCurse(BarnyardCurseEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
@@ -725,6 +752,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnScreamForMe(ScreamForMeEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
@@ -1186,6 +1217,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnTileToggle(TileToggleSpellEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled
             || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
             || TerminatingOrDeleted(ev.Target))
@@ -1202,6 +1237,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnPredictionToggle(PredictionToggleSpellEvent ev)
     {
+        if (HasComp<BibleUserComponent>(args.Target, out _))
+            _magic.Speak(ev);
+            return;
+
         if (ev.Handled
             || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
             || TerminatingOrDeleted(ev.Target))
