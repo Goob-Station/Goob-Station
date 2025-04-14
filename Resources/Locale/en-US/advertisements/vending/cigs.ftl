@@ -1,4 +1,12 @@
-﻿advertisement-cigs-1 = Space cigs taste good like a cigarette should.
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+advertisement-cigs-1 = Space cigs taste good like a cigarette should.
 advertisement-cigs-2 = I'd rather toolbox than switch.
 advertisement-cigs-3 = Smoke!
 advertisement-cigs-4 = Don't believe the reports - smoke today!
