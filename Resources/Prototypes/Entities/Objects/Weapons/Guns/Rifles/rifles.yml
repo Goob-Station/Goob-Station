@@ -130,7 +130,6 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-    missChance: 0.25
 
 - type: entity
   name: AKM
