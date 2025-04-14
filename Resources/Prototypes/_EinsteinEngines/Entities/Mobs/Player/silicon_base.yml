@@ -332,5 +332,3 @@
     - type: Targeting
     - type: LayingDown
     - type: ExaminableCharacter # WWDP
-    - type: CombatMode
-      canDisarm: true
