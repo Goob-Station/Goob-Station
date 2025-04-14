@@ -14,8 +14,8 @@
 
 - type: startingGear
   id: DevilStartingGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitDevil
+  storage:
     back:
     - GuidebookCodexUmbra
     - PenDevil
+    - ClothingUniformJumpsuitDevil
