@@ -11,6 +11,7 @@
   description: Water-born creature from the infinite sea... Or toilet.
   components:
   - type: Fish
+    difficulty: 0.029
   - type: StaticPrice
     price: 250
 
@@ -21,6 +22,8 @@
   name: rare fish
   description: Water-born creature from the infinite sea... Or toilet.
   components:
+  - type: Fish
+    difficulty: 0.038
   - type: StaticPrice
     price: 750
 

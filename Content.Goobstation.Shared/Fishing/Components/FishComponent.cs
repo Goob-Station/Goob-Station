@@ -11,8 +11,8 @@ namespace Content.Goobstation.Shared.Fishing.Components;
 [RegisterComponent]
 public sealed partial class FishComponent : Component
 {
-    public const float DefaultDifficulty = 0.02f;
+    public const float DefaultDifficulty = 0.021f;
 
-    [DataField]
+    [DataField("difficulty")]
     public float FishDifficulty = DefaultDifficulty;
 }
