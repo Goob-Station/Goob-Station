@@ -10,7 +10,7 @@
     size: Small
   - type: MeleeWeapon
     heavyStaminaCost: 2.5
-    attackRate: 1.5
+    attackRate: 1.4
     damage:
       types:
         Blunt: 12
@@ -148,8 +148,6 @@
       types:
         Holy: 15
         Blunt: 3
-  - type: Prayable
-    bibleUserOnly: true
   - type: Wieldable
   - type: SpeedModifiedOnWield # HOLY.. AURA!
     walkModifier: 1.15
@@ -160,7 +158,8 @@
   - type: Clothing
     slots:
     - Belt
-  - type: Nullrod # Note - These are damages, not damage types. Specify blunt or something not brute.
+  - type: Nullrod
+    repeatPrayer: true
     DamageOnUntrainedUse:
       types:
         Blunt: 20
@@ -429,10 +428,6 @@
       proto: BulletPistolSilver
       capacity: 6
       count: 6
-    - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 12
-      rechargeSound:
-        path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg
     - type: AmmoCounter
     - type: ContainerContainer
       containers:
@@ -447,6 +442,7 @@
       whitelist:
         tags:
           - WeaponPistolJackal
+    - type: ReloadOnPray
 
 - type: entity
   name: jackal

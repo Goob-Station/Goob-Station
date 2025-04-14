@@ -30,5 +30,17 @@ namespace Content.Goobstation.Server.Religion.Nullrod
         [DataField]
         public SoundSpecifier UntrainedUseSound = new SoundPathSpecifier("/Audio/Effects/hallelujah.ogg");
 
+        /// <summary>
+        /// How long does the praying do-after take to complete?
+        /// </summary>
+        [DataField]
+        public TimeSpan PrayDoAfterDuration = TimeSpan.FromSeconds(5);
+
+        /// <summary>
+        /// Should the prayer be repeated endlessly until cancelled?
+        /// </summary>
+        [DataField]
+        public bool RepeatPrayer;
+
     }
 }
