@@ -352,7 +352,7 @@
 - type: entity
   parent: BasePlushie
   id: BennyPlushie
-  name: benny plushie
+  name: Benny plushie
   description: A cute stuffed toy that resembles a yowie. Smells like meth and unethical surgery.
   components:
   - type: Sprite
@@ -362,7 +362,7 @@
 - type: entity
   parent: PlushieLizard
   id: CairoPlushie
-  name: cairo plushie
+  name: Cairo plushie
   description: A cute stuffed toy that resembles a white lizard.
   components:
   - type: Sprite
@@ -382,7 +382,7 @@
 - type: entity
   parent: BasePlushie
   id: DeltaPlushie
-  name: delta plushie
+  name: Delta plushie
   description: A cute stuffed toy that resembles a purple resomi.
   components:
   - type: Sprite
@@ -392,7 +392,7 @@
 - type: entity
   parent: ToyMouse
   id: RakiPlushie
-  name: raki plushie
+  name: Raki plushie
   description: A cute stuffed toy that resembles a specific rat. Reeks with the smell of dirty water.
   components:
   - type: Sprite
@@ -412,7 +412,7 @@
 - type: entity
   parent: PlushieMoth
   id: KnottPlushie
-  name: knott plushie
+  name: Knott plushie
   description: A cute stuffed toy that resembles a blue moth.
   components:
   - type: Sprite
@@ -422,7 +422,7 @@
 - type: entity
   parent: BasePlushie
   id: KuryPlushie
-  name: kury plushie
+  name: Kury plushie
   description: A cute stuffed toy that resembles a specific vulpkanin.
   components:
   - type: Sprite
@@ -432,7 +432,7 @@
 - type: entity
   parent: PlushieSlime
   id: ZlorbPlushie
-  name: zlorb plushie
+  name: Zlorb plushie
   description: A cute stuffed toy that resembles a slime wearing fancy clothes.
   components:
   - type: Sprite
@@ -493,7 +493,7 @@
 - type: entity
   parent: PlushieMoth
   id: SparkePlushie
-  name: sparke plushie
+  name: Sparke plushie
   description: A cute stuffed toy that resembles a purple moth.
   components:
   - type: Sprite
@@ -513,7 +513,7 @@
 - type: entity
   parent: PlushieLizard
   id: StoopPlushie
-  name: stoop plushie
+  name: Stoop plushie
   description: A cute stuffed toy that resembles a blue lizard. Somehow keeps getting promoted.
   components:
   - type: Sprite
@@ -523,7 +523,7 @@
 - type: entity
   parent: PlushieLizard
   id: WehWinterPlushie
-  name: weh-of-Winter plushie
+  name: Weh-of-Winter plushie
   description: A cute stuffed toy that resembles a funky lizard. She looks better with glasses.
   components:
   - type: Sprite
@@ -533,7 +533,7 @@
 - type: entity
   parent: BasePlushie
   id: ByrrnePlushie
-  name: byrrne plushie
+  name: Byrrne plushie
   description: Depending on who you ask, Byrrne is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
   components:
   - type: Sprite
@@ -551,7 +551,7 @@
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Items/bow_pull.ogg
+          path: /Audio/Effects/gib1.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
           GibbedByrrnePlushie:
