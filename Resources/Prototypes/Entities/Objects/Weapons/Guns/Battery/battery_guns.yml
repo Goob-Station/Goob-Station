@@ -268,6 +268,7 @@
     steps: 5
     zeroVisible: true
   - type: Multishot # Goobstation
+    spreadAddition: 10
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 500
@@ -296,6 +297,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: makeshift laser pistol
@@ -325,6 +327,7 @@
     maxCharge: 500
     startingCharge: 500
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: tesla gun
@@ -437,6 +440,7 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: Multishot # Goobstation
+    spreadAddition: 10
   - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
     autoRecharge: true
     autoRechargeRate: 40
@@ -810,6 +814,7 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: advanced laser pistol
@@ -846,6 +851,7 @@
   - type: StaticPrice
     price: 63
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: C.H.I.M.P. handcannon

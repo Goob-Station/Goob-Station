@@ -24,8 +24,8 @@ public sealed partial class MultishotComponent : Component
     public bool MultishotAffected = false;
 
     /// <summary>
-    /// The chance of bullet fired of the gun while dual-wielding getting its BullerImpassable fixture layer removed.
-    /// This effectively means that the bullet won't collide with people.
+    /// The chance of bullet fired of the gun while dual-wielding getting its BulletImpassable fixture layer removed.
+    /// This effectively means that the bullet won't collide with people, but has no effect on hitscans (like lasers).
     /// </summary>
     [DataField]
     public float MissChance = 0.2f;
