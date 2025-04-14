@@ -22,15 +22,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  checkout:
-    uses: Goob-Station/Goob-Station/.github/workflows/reusable-checkout.yml@master
-
   yaml-schema-validation:
     name: YAML map schema validator
-    needs: checkout
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3.6.0
+    - name: Setup Submodule
+      run: git submodule update --init
+    - name: Pull engine updates
+      uses: space-wizards/submodule-dependency@v0.1.5
     - uses: PaulRitter/yaml-schema-validator@v1
       with:
         schema: RobustToolbox/Schemas/mapfile.yml
