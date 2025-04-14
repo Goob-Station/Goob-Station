@@ -174,6 +174,45 @@
         weight: 0.25
       - id: PlushieDesislavaBlackburn
         weight: 0.15
+    - !type:GroupSelector
+      children:
+      - id: PlushieBenny
+        weight: 0.15
+      - id: PlushieCairo
+        weight: 0.15
+      - id: PlushiePash
+        weight: 0.15
+      - id: PlushieDelta
+        weight: 0.15
+      - id: PlushieRaki
+        weight: 0.15
+      - id: PlushieTina
+        weight: 0.15
+      - id: PlushieKnott
+        weight: 0.15
+      - id: PlushieKury
+        weight: 0.15
+      - id: PlushieZlorb
+        weight: 0.15
+      - id: PlushieTiderMoth
+        weight: 0.15
+      - id: PlushieCommandHuman
+        weight: 0.15
+      - id: PlushieRanork
+        weight: 0.15
+      - id: PlushieByrrne
+        weight: 0.15
+      - id: PlushieWehWinter
+        weight: 0.15
+      - id: PlushieHaleigh
+        weight: 0.15
+      - id: PlushieStoop
+        weight: 0.15
+      - id: PlushieAhti
+        weight: 0.15
+      - id: PlushieSparke
+        weight: 0.15
+
 
 - type: entity
   id: CrateFunPlushie
@@ -515,3 +554,30 @@
       - id: BoxDarts
         amount: 1
         prob: 0.05
+
+- type: entity
+  id: CrateFunSelfInsertPlushie
+  parent: CrateGenericSteel
+  name: crew plushie crate
+  description: A box full of cute plushies of beloved crewmembers.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PlushieBenny
+      - id: PlushieCairo
+      - id: PlushiePash
+      - id: PlushieDelta
+      - id: PlushieRaki
+      - id: PlushieTina
+      - id: PlushieKnott
+      - id: PlushieKury
+      - id: PlushieZlorb
+      - id: PlushieTiderMoth
+      - id: PlushieCommandHuman
+      - id: PlushieRanork
+      - id: PlushieByrrne
+      - id: PlushieWehWinter
+      - id: PlushieHaleigh
+      - id: PlushieStoop
+      - id: PlushieAhti
+      - id: PlushieSparke

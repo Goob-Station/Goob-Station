@@ -351,7 +351,7 @@
       
 - type: entity
   parent: BasePlushie
-  id: BennyPlushie
+  id: PlushieBenny
   name: Benny plushie
   description: A cute stuffed toy that resembles a yowie. Smells like meth and unethical surgery.
   components:
@@ -361,7 +361,7 @@
 
 - type: entity
   parent: PlushieLizard
-  id: CairoPlushie
+  id: PlushieCairo
   name: Cairo plushie
   description: A cute stuffed toy that resembles a white lizard.
   components:
@@ -371,7 +371,7 @@
 
 - type: entity
   parent: PlushieVox
-  id: PashPlushie
+  id: PlushiePash
   name: tired vox plushie
   description: A cute stuffed toy that resembles an overworked vox. Smells strongly of alcohol.
   components:
@@ -381,7 +381,7 @@
 
 - type: entity
   parent: BasePlushie
-  id: DeltaPlushie
+  id: PlushieDelta
   name: Delta plushie
   description: A cute stuffed toy that resembles a purple resomi.
   components:
@@ -391,7 +391,7 @@
 
 - type: entity
   parent: ToyMouse
-  id: RakiPlushie
+  id: PlushieRaki
   name: Raki plushie
   description: A cute stuffed toy that resembles a specific rat. Reeks with the smell of dirty water.
   components:
@@ -401,7 +401,7 @@
 
 - type: entity
   parent: PlushieLizard
-  id: TinaPlushie
+  id: PlushieTina
   name: Tina-Le-Plush
   description: A cute stuffed toy that resembles a white lizard. Who the fuck put this on station?!?! Violet, red, hit all the alerts!
   components:
@@ -411,7 +411,7 @@
 
 - type: entity
   parent: PlushieMoth
-  id: KnottPlushie
+  id: PlushieKnott
   name: Knott plushie
   description: A cute stuffed toy that resembles a blue moth.
   components:
@@ -421,7 +421,7 @@
 
 - type: entity
   parent: BasePlushie
-  id: KuryPlushie
+  id: PlushieKury
   name: Kury plushie
   description: A cute stuffed toy that resembles a specific vulpkanin.
   components:
@@ -431,7 +431,7 @@
 
 - type: entity
   parent: PlushieSlime
-  id: ZlorbPlushie
+  id: PlushieZlorb
   name: Zlorb plushie
   description: A cute stuffed toy that resembles a slime wearing fancy clothes.
   components:
@@ -441,7 +441,7 @@
 
 - type: entity
   parent: PlushieMoth
-  id: TiderMothPlushie
+  id: PlushieTiderMoth
   name: tider moth plushie
   description: A cute stuffed toy that resembles a moth wearing grey clothes. Bagel maints survivor.
   components:
@@ -451,7 +451,7 @@
 
 - type: entity
   parent: PlushieHuman # Change to baseplushie if too annoying
-  id: CommandHumanPlushie
+  id: PlushieCommandHuman
   name: command human plushie
   description: A cute stuffed toy that resembles a human wearing blue cowboy clothes.
   components:
@@ -461,7 +461,7 @@
 
 - type: entity
   parent: BasePlushie
-  id: RanorkPlushie
+  id: PlushieRanork
   name: maroon lizard plushie
   description: A cute stuffed toy that resembles a maroon lizard. Smells like the fresh ores of off lavaland and a hint of ash.
   components:
@@ -492,7 +492,7 @@
 
 - type: entity
   parent: PlushieMoth
-  id: SparkePlushie
+  id: PlushieSparke
   name: Sparke plushie
   description: A cute stuffed toy that resembles a purple moth.
   components:
@@ -502,7 +502,7 @@
 
 - type: entity
   parent: PlushieVox
-  id: AhtiPlushie
+  id: PlushieAhti
   name: stinky vox plushie
   description: A cute stuffed toy that resembles a visibly dirty vox. Something smells pungent..
   components:
@@ -512,7 +512,7 @@
 
 - type: entity
   parent: PlushieLizard
-  id: StoopPlushie
+  id: PlushieStoop
   name: Stoop plushie
   description: A cute stuffed toy that resembles a blue lizard. Somehow keeps getting promoted.
   components:
@@ -522,7 +522,7 @@
 
 - type: entity
   parent: PlushieLizard
-  id: WehWinterPlushie
+  id: PlushieWehWinter
   name: Weh-of-Winter plushie
   description: A cute stuffed toy that resembles a funky lizard. She looks better with glasses.
   components:
@@ -532,7 +532,7 @@
 
 - type: entity
   parent: BasePlushie
-  id: ByrrnePlushie
+  id: PlushieByrrne
   name: Byrrne plushie
   description: Depending on who you ask, Byrrne is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
   components:
@@ -554,13 +554,13 @@
           path: /Audio/Effects/gib1.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
-          GibbedByrrnePlushie:
+          PlushieByrrneGibbed:
             min: 1
             max: 1
 
 - type: entity 
   parent: BasePlushie
-  id: GibbedByrrnePlushie # special gib mechanic
+  id: PlushieByrrneGibbed # special gib mechanic
   name: gibbed Byrrne plushie
   suffix: gibbed
   description: No... it can't be... IT SHOULD'VE BEEN ME THAT DID IT.. But was it worth it..? Deep inside, you feel like it cared about your coins... your goob coins.. even.
@@ -571,9 +571,9 @@
 
 - type: entity
   parent: BasePlushie
-  id: HaleighPlushie
+  id: PlushieHaleigh
   name: violet slime plushie
-  description: A unique slime plushie. You feel an unwanted rage to hit Haleigh pryocraft with an baguette by looking at it.
+  description: A unique slime plushie. You feel an unwanted rage to hit Haleigh Pryocraft with an baguette by looking at it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
