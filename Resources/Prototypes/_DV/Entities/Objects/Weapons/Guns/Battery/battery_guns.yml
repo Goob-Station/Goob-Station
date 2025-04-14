@@ -79,4 +79,3 @@
   - type: StaticPrice
     price: 750
   - type: Multishot
-    spreadMultiplier: 1

@@ -115,7 +115,6 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-    spreadMultiplier: 1.4
 
 - type: entity
   name: Atreides
@@ -297,3 +296,5 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Multishot # Goobstation
+    missChance: 0.3

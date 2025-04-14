@@ -11,18 +11,12 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Common.Weapons.Multishot;
 
 /// <summary>
-/// Component that allows guns to be shooted with another weapon by holding it in second hand
+/// This component allows guns to be shot with another such gun at the same time by holding them in both hands.
 /// </summary>
 [RegisterComponent]
 [NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MultishotComponent : Component
 {
-    /// <summary>
-    /// Increasing spread when shooting with multiple hands.
-    /// </summary>
-    [DataField]
-    public float SpreadMultiplier = 1.5f;
-
     /// <summary>
     /// Shows that this entity is affected with multishot debuffs.
     /// </summary>
@@ -30,20 +24,33 @@ public sealed partial class MultishotComponent : Component
     public bool MultishotAffected = false;
 
     /// <summary>
-    /// Makes damage to hand without damaging entity.
-    /// Cry: Can't use DamageSpecifier because this component in Common.
+    /// The chance of bullet fired of the gun while dual-wielding getting its BullerImpassable fixture layer removed.
+    /// This effectively means that the bullet won't collide with people.
+    /// </summary>
+    [DataField]
+    public float MissChance = 0.2f;
+
+    /// <summary>
+    /// Spread multiplier of the gun while dual-wielding.
+    /// </summary>
+    [DataField]
+    public float SpreadMultiplier = 1.5f;
+
+    /// <summary>
+    /// Flat spread increase of the gun while dual-wielding.
+    /// </summary>
+    [DataField]
+    public float SpreadAddition = 5f;
+
+    /// <summary>
+    /// Blunt damage applied to hands when firing this gun with another one. Doesn't damage the firing entity itself.
+    /// Cry: Can't use DamageSpecifier because this component is in Common.
     /// </summary>
     [DataField]
     public float HandDamage = 0f;
 
     /// <summary>
-    /// Flat spread increase.
-    /// </summary>
-    [DataField]
-    public float FlatSpreadAddition = 5f;
-
-    /// <summary>
-    /// Deal stamina damage on dual welding.
+    ///  Stamina damage applied to the entity when firing this gun with another one.
     /// </summary>
     [DataField]
     public float StaminaDamage = 0f;

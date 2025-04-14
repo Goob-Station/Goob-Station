@@ -27,6 +27,9 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Weapons.Multishot;
 
@@ -38,6 +41,8 @@ public sealed partial class SharedMultishotSystem : EntitySystem
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -80,8 +85,28 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         if (!comp.MultishotAffected)
             return;
 
+        foreach (var (ammo, _) in args.Ammo)
+        {
+            if (!TryComp<FixturesComponent>(ammo, out var fixtures)
+            || !_random.Prob(multishotWeapon.Comp.MissChance))
+                continue;
+
+            ApplyMissChance(ammo, fixtures);
+        }
+
         DamageHands(uid, comp, args.User);
         DealStaminaDamage(uid, comp, args.User);
+    }
+
+    private void ApplyMissChance(EntityUid? uid, FixturesComponent? comp)
+    {
+        if (uid == null || comp == null)
+            return;
+
+        foreach (var (key, fixture) in comp.Fixtures)
+        {
+            _physics.RemoveCollisionMask(uid.Value, key, fixture, 64, manager: comp); // 64 is BulletImpassable
+        }
     }
 
     private void DealStaminaDamage(EntityUid weapon, MultishotComponent component, EntityUid target)
@@ -125,8 +150,8 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         if (!multishotWeapon.Comp.MultishotAffected)
             return;
 
-        args.MaxAngle = args.MaxAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.FlatSpreadAddition);
-        args.MinAngle = args.MinAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.FlatSpreadAddition);
+        args.MaxAngle = args.MaxAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.SpreadAddition);
+        args.MinAngle = args.MinAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.SpreadAddition);
     }
 
     private void OnEquipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)

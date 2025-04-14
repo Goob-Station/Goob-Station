@@ -60,7 +60,9 @@
     tags:
     - WeaponPistolDualetta
   - type: Multishot
+    missChance: 0
     spreadMultiplier: 1
+    spreadAddition: 0
   - type: RequiresDualWield
     whitelist:
       tags:
@@ -110,6 +112,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Multishot
+    missChance: 0.3
 
 - type: entity
   name: contract terminator
