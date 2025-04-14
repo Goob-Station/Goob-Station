@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -45,10 +47,9 @@ public sealed partial class SharedNullRodSystem : EntitySystem
         if (HasComp<BibleUserComponent>(args.User))
             return;
 
-        UntrainedDamageAndPopup(ent, args.User);
         args.Cancel();
+        UntrainedDamageAndPopup(ent, args.User);
     }
-
     #endregion
 
     #region Helper Methods
