@@ -663,6 +663,10 @@ namespace Content.Server.Database
         public List<ServerRoleBan> AdminServerRoleBansLastEdited { get; set; } = null!;
         public List<RoleWhitelist> JobWhitelists { get; set; } = null!;
 
+        // MisandryBox - Grass enforcement
+        public int Minutes { get; set; } // Minutes played in X days
+        public DateTime? ResetAfter { get; set; } // Reset hours after this date
+
         // RMC14
         public RMCLinkedAccount? LinkedAccount { get; set; }
         public RMCPatron? Patron { get; set; }

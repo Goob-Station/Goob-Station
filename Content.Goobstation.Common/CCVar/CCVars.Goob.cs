@@ -78,7 +78,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> SiloEnabled =
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
-    #region Player Listener
+    #region MisandryBox
 
     /// <summary>
     ///     Enable Dorm Notifier
@@ -126,7 +126,39 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
         CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
-    #endregion PlayerListener
+    /// <summary>
+    /// Enable grass enforcement - applying bans on an excessive amount of playtime
+    /// </summary>
+    public static readonly CVarDef<bool> GrassEnforce =
+        CVarDef.Create("grass.enforce", true, CVar.SERVER);
+
+    /// <summary>
+    /// Ban user after having playing this amount of hours in a given time. Default is 150
+    /// </summary>
+    public static readonly CVarDef<int> GrassThreshold =
+        CVarDef.Create("grass.threshold", 200, CVar.SERVER, "Do an action after this amount of hours played");
+
+    /// <summary>
+    /// Reset tracked time after this amount of days. Default is 30.
+    /// </summary>
+    public static readonly CVarDef<int> GrassDayReset =
+        CVarDef.Create("grass.day_reset", 30, CVar.SERVER);
+
+    /// <summary>
+    /// Grass ban a user for this amount of days
+    /// </summary>
+    public static readonly CVarDef<int> GrassBanDays =
+        CVarDef.Create("grass.ban_days", 14, CVar.SERVER, "Days to grass ban a client for. 0 for indef.");
+
+    // Burnout is very much a real thing you know
+    public static readonly CVarDef<bool> GrassAffectAdmins =
+        CVarDef.Create("grass.admins", true, CVar.SERVER, "Grass enforcement applies to admins too");
+
+    public static readonly CVarDef<string> GrassBanReason =
+        CVarDef.Create("grass.reason",
+            "You are grass banned. Wait until the ban expires or provide the admins with proof of you touching grass to get unbanned.");
+
+    #endregion MisandryBox
 
     #region Surgery
 

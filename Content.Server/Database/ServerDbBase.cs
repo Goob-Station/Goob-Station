@@ -707,6 +707,77 @@ namespace Content.Server.Database
             return dbPlayer.ServerCurrency;
         }
 
+        private async Task<Player?> GetPlayerByUserId(DbGuard db, NetUserId userId)
+        {
+            return await db.DbContext.Player
+                .SingleOrDefaultAsync(player => player.UserId == userId);
+        }
+
+        public async Task<int> GetPlayedGrassMinutes(NetUserId userId)
+        {
+            await using var db = await GetDb();
+
+            var player = await GetPlayerByUserId(db, userId);
+            return player?.Minutes ?? 0;
+        }
+
+        public async Task<int> AddPlayedGrassMinutes(NetUserId userId, int minutes)
+        {
+            await using var db = await GetDb();
+
+            var player = await GetPlayerByUserId(db, userId);
+            if (player == null)
+                return minutes;
+
+            player.Minutes += minutes;
+            await db.DbContext.SaveChangesAsync();
+            return player.Minutes;
+        }
+
+        public async Task<int> ResetPlayedGrassMinutes(NetUserId userId)
+        {
+            await using var db = await GetDb();
+
+            var player = await GetPlayerByUserId(db, userId);
+            if (player == null)
+                return 0;
+
+            player.Minutes = 0;
+            await db.DbContext.SaveChangesAsync();
+            return player.Minutes;
+        }
+
+        public async Task<DateTime> GetGrassResetAfter(NetUserId userId)
+        {
+            await using var db = await GetDb();
+
+            var player = await db.DbContext.Player
+                .SingleOrDefaultAsync(player => player.UserId == userId);
+
+            return player?.ResetAfter ?? DateTime.MinValue;
+        }
+
+        public async Task<DateTime> ResetGrassResetAfter(NetUserId userId, TimeSpan? offset = null)
+        {
+            await using var db = await GetDb();
+
+            var player = await db.DbContext.Player
+                .SingleOrDefaultAsync(player => player.UserId == userId);
+
+            if (player == null)
+                return DateTime.MinValue;
+
+            // Use provided offset or default to 30 days
+            var actualOffset = offset ?? TimeSpan.FromDays(30);
+
+            var newResetTime = DateTime.UtcNow + actualOffset;
+            player.ResetAfter = newResetTime;
+            await db.DbContext.SaveChangesAsync();
+
+            return newResetTime;
+        }
+
+
         #endregion
 
         #region Connection Logs

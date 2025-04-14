@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Goobstation.Shared.MisandryBox.Grass;
 using Content.Server.Database;
 using Content.Shared.CCVar;
 using Content.Shared.Players.PlayTimeTracking;
@@ -80,6 +81,8 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
     private readonly Dictionary<ICommonSession, PlayTimeData> _playTimeData = new();
 
     public event CalcPlayTimeTrackersCallback? CalcTrackers;
+
+    public event AddedPlaytimeMinutesCallback? AddedMinutes;
 
     public event Action<ICommonSession>? SessionPlayTimeUpdated;
 
@@ -173,8 +176,9 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
     {
         var time = _timing.RealTime;
 
-        foreach (var data in _playTimeData.Values)
+        foreach (var (key, data) in _playTimeData)
         {
+            TrackMinutes(data, time, key);
             FlushSingleTracker(data, time);
         }
     }
@@ -432,6 +436,27 @@ public sealed class PlayTimeTrackingManager : ISharedPlaytimeManager, IPostInjec
         }
 
         return data;
+    }
+
+    private void TrackMinutes(PlayTimeData data, TimeSpan time, ICommonSession key)
+    {
+        var delta = time - data.LastUpdate;
+
+        foreach (var tracker in data.ActiveTrackers)
+        {
+            if (tracker == PlayTimeTrackingShared.TrackerOverall && !IsFromCommand())
+                AddedMinutes?.Invoke(key, delta.Minutes);
+        }
+    }
+
+    // Despite being an extremely comical method of going about it
+    // this is the cleanest and least intrusive of method of checking if the playtime addition came from a command.
+    private bool IsFromCommand()
+    {
+        var stackTrace = Environment.StackTrace;
+        return stackTrace.Contains("PlayTimeCommands") ||
+               stackTrace.Contains("PlayTimeAddOverallCommand") ||
+               stackTrace.Contains("PlayTimeAddRoleCommand");
     }
 
     /// <summary>

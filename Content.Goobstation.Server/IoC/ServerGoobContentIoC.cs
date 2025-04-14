@@ -1,4 +1,5 @@
-﻿using Content.Goobstation.Server.Redial;
+﻿using Content.Goobstation.Server.MisandryBox.GrassEnforce;
+using Content.Goobstation.Server.Redial;
 using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Server.IoC;
@@ -10,5 +11,6 @@ internal static class ServerGoobContentIoC
         var instance = IoCManager.Instance!;
 
         instance.Register<RedialManager>();
+        instance.Register<IGrassEnforcementManager, GrassEnforcementManager>();
     }
 }

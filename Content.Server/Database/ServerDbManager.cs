@@ -179,6 +179,17 @@ namespace Content.Server.Database
         /// <param name="updates">The list of all updates to apply to the database.</param>
         Task UpdatePlayTimes(IReadOnlyCollection<PlayTimeUpdate> updates);
 
+        Task<int> GetPlayedGrassMinutes(NetUserId userId);
+
+        Task<int> ModifyPlayedGrassMinutes(NetUserId userId, int minutes);
+
+        Task<int> ResetPlayedGrassMinutes(NetUserId userId);
+
+        Task<DateTime> GetGrassResetAfter(NetUserId userId);
+
+        Task<DateTime> ResetGrassResetAfter(NetUserId userId, TimeSpan offset);
+
+
         #endregion
 
         #region Player Records
@@ -679,6 +690,36 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.ModifyServerCurrency(userId, currencyDelta));
+        }
+
+        public Task<int> GetPlayedGrassMinutes(NetUserId userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayedGrassMinutes(userId));
+        }
+
+        public Task<int> ModifyPlayedGrassMinutes(NetUserId userId, int minutes) // MisandryBox
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddPlayedGrassMinutes(userId, minutes));
+        }
+
+        public Task<int> ResetPlayedGrassMinutes(NetUserId userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.ResetPlayedGrassMinutes(userId));
+        }
+
+        public Task<DateTime> GetGrassResetAfter(NetUserId userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetGrassResetAfter(userId));
+        }
+
+        public Task<DateTime> ResetGrassResetAfter(NetUserId userId, TimeSpan offset)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.ResetGrassResetAfter(userId, offset));
         }
 
         public Task<int> AddConnectionLogAsync(
