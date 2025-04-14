@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: techDiscipline
   id: Industrial
   name: research-discipline-industrial
@@ -9,6 +22,7 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: IND  # Goobstation
 
 - type: techDiscipline
   id: Arsenal
@@ -21,6 +35,7 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: SEC  # Goobstation
 
 - type: techDiscipline
   id: Experimental
@@ -33,6 +48,7 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: EXP  # Goobstation
 
 - type: techDiscipline
   id: CivilianServices
@@ -45,3 +61,4 @@
     1: 0
     2: 0.75
     3: 0.75
+  uiName: SRV  # Goobstation
