@@ -529,9 +529,12 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_weh_winter
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
 
 - type: entity
-  parent: BasePlushie
+  parent: [BasePlushie, BaseMajorContraband]
   id: PlushieByrrne
   name: Byrrne plushie
   description: Depending on who you ask, Byrrne is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
@@ -599,3 +602,17 @@
     soundHit:
       path: /Audio/Voice/Slime/slime_scream_m1.ogg
     #SPECIAL SLIME SOUNDS
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGrub
+  name: grub plushie
+  description: An ugly stuffed toy that resembles a green goblin.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_grub
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: Resources/Audio/Effects/pop_high.ogg

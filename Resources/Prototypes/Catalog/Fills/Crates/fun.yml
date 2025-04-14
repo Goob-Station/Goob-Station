@@ -212,6 +212,8 @@
         weight: 0.25
       - id: PlushieSparke
         weight: 0.25
+      - id: PlushieGrub
+        weight: 0.25
 
 
 - type: entity
@@ -581,3 +583,4 @@
       - id: PlushieStoop
       - id: PlushieAhti
       - id: PlushieSparke
+      - id: PlushieGrub

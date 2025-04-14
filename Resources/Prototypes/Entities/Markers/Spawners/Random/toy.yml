@@ -59,6 +59,7 @@
         - PlushieStoop
         - PlushieAhti
         - PlushieSparke
+        - PlushieGrub
       rareChance: 0.03
       prototypes:
         - PlushieBee
