@@ -11,10 +11,6 @@ on:
   pull_request_review:
     types: [submitted]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   add_label:
     # Change the repository name after you've made sure the team name is correct for your fork!
