@@ -390,10 +390,8 @@
   - type: GibThisGuy # Death to myself. It'd be funny.
     requireBoth: false
     icNames:
-    - Audrey White
-    - Aubrey White
+    - Samantha Withers
     ocNames:
-    - rosef
     - SolsticeOfTheWinter
   - type: Extractable
     juiceSolution:
