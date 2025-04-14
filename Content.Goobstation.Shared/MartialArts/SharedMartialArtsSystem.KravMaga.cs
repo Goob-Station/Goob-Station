@@ -58,14 +58,14 @@ public abstract partial class SharedMartialArtsSystem
                 if(_netManager.IsClient)
                     return;
                 _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
-                _stamina.TryTakeStamina(hitEntity, 25f);
+                _stamina.TakeStaminaDamage(hitEntity, 25f, applyResistances: true);
                 break;
             case KravMagaMoves.NeckChop:
                 var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);
                 comp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
             case KravMagaMoves.LungPunch:
-                _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage);
+                _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
                 var blockedBreathingComponent = EnsureComp<KravMagaBlockedBreathingComponent>(hitEntity);
                 blockedBreathingComponent.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;

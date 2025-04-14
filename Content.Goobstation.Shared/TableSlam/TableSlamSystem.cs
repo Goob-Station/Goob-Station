@@ -139,7 +139,7 @@ public sealed class TableSlamSystem : EntitySystem
                 });
         }
 
-        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage);
+        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage, applyResistances: true);
         _stunSystem.TryKnockdown(ent, TimeSpan.FromSeconds(3 * modifierOnGlassBreak), false);
         var postTabledComponent = EnsureComp<PostTabledComponent>(ent);
         postTabledComponent.PostTabledShovableTime = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3));
