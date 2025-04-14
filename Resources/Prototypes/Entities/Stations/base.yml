@@ -88,7 +88,7 @@
   abstract: true
   components:
   - type: NtrTaskDatabase
-  - type: StationNtrAccount
+  - type: NtrBankAccount
 
 - type: entity
   id: BaseStationRecords

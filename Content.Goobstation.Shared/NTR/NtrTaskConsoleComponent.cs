@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Goobstation.Shared.NTR;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class NtrTaskProviderComponent : Component
+public sealed partial class NtrTaskConsoleComponent : Component
 {
     /// <summary>
     /// The sound made when the bounty is skipped.
@@ -51,14 +51,14 @@ public sealed partial class NtrTaskProviderComponent : Component
 }
 
 [NetSerializable, Serializable]
-public sealed class NtrTaskProviderState : BoundUserInterfaceState
+public sealed class NtrTaskConsoleState : BoundUserInterfaceState
 {
     public List<NtrTaskData> AvailableTasks { get; }
     public List<NtrTaskHistoryData> History { get; }
     public TimeSpan UntilNextSkip { get; }
     public HashSet<string> LockedTasks { get; }
 
-    public NtrTaskProviderState(
+    public NtrTaskConsoleState(
         List<NtrTaskData> available,
         List<NtrTaskHistoryData> history,
         TimeSpan skipTime,

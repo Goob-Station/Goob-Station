@@ -20,11 +20,11 @@ public sealed class SharedNtrTaskSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NtrTaskProviderComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
     }
 
     private void OnInsertAttempt(EntityUid uid,
-        NtrTaskProviderComponent component,
+        NtrTaskConsoleComponent component,
         ref ItemSlotInsertAttemptEvent args)
     {
         if (args.Cancelled || !TryComp<PaperComponent>(args.Item, out _))

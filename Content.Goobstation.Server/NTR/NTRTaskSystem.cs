@@ -70,16 +70,25 @@ public sealed partial class NtrTaskSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<NtrAccountClientComponent, NtrAccountBalanceUpdatedEvent>(OnBalanceUpdated);
-        SubscribeLocalEvent<NtrTaskProviderComponent, BoundUIOpenedEvent>(OnOpened);
-        SubscribeLocalEvent<NtrTaskProviderComponent, TaskPrintLabelMessage>(OnPrintLabelMessage);
-        SubscribeLocalEvent<NtrTaskProviderComponent, TaskSkipMessage>(OnTaskSkipMessage);
+        SubscribeLocalEvent<NtrClientAccountComponent, NtrAccountBalanceUpdatedEvent>(OnBalanceUpdated);
+        SubscribeLocalEvent<NtrClientAccountComponent, NtrListingPurchaseEvent>(OnPurchase);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, BoundUIOpenedEvent>(OnOpened);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskPrintLabelMessage>(OnPrintLabelMessage);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskSkipMessage>(OnTaskSkipMessage);
         SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<NtrTaskProviderComponent, TaskFailedEvent>(OnTaskFailed);
-        SubscribeLocalEvent<NtrTaskProviderComponent, TaskCompletedEvent>(OnTaskCompleted);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskFailedEvent>(OnTaskFailed);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskCompletedEvent>(OnTaskCompleted);
 
-        SubscribeLocalEvent<DocumentInsertedEvent>(OnDocumentInserted);
+        // SubscribeLocalEvent<DocumentInsertedEvent>(OnDocumentInserted);
+    }
+
+    private void OnPurchase(EntityUid uid, NtrClientAccountComponent component, NtrListingPurchaseEvent args)
+    {
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
+            return;
+        ntrAccount.Balance -= args.Cost.Int();
     }
     public override void Update(float frameTime)
     {
@@ -106,15 +115,15 @@ public sealed partial class NtrTaskSystem : EntitySystem
             }
         }
     }
-    private void OnBalanceUpdated(EntityUid uid, NtrAccountClientComponent clientComp, ref NtrAccountBalanceUpdatedEvent args)
+    private void OnBalanceUpdated(EntityUid uid, NtrClientAccountComponent clientComp, NtrAccountBalanceUpdatedEvent args)
     {
         if (!TryComp<StoreComponent>(uid, out var storeComp))
             return;
-        var newBalance = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>
-        {
-            { "NTLoyaltyPoint", FixedPoint2.New(args.Balance) }
-        };
-        storeComp.Balance = newBalance;
+        Log.Debug($"Old storeComp.Balance = {storeComp.Balance.First().Value.Value}; args.Balance = {args.Balance}");
+        storeComp.Balance["NTLoyaltyPoint"] = FixedPoint2.New(args.Balance);
+        Log.Debug($"New storeComp.Balance = {storeComp.Balance.First().Value.Value}");
+        Dirty(uid, storeComp);
+        Log.Debug($"Check {storeComp.Balance.First().Value.Value}");
     }
 
     public bool TryGetTaskId(EntityUid uid, NtrTaskPrototype taskProto, [NotNullWhen(true)] out string? taskId)
@@ -135,23 +144,21 @@ public sealed partial class NtrTaskSystem : EntitySystem
         return false;
     }
 
-    private void OnTaskCompleted(EntityUid uid, NtrTaskProviderComponent component, TaskCompletedEvent args)
+    private void OnTaskCompleted(EntityUid uid, NtrTaskConsoleComponent component, TaskCompletedEvent args)
     {
         if (_station.GetOwningStation(uid) is not { } station ||
             !TryComp<NtrTaskDatabaseComponent>(station, out var db))
             return;
         if (!TryGetTaskId(station, args.Task, out var taskData))
             return;
-        if (!TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
+        if (!TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
             return;
         ntrAccount.Balance += args.Task.Reward;
-        var query = EntityQueryEnumerator<NtrAccountClientComponent>();
-        var balanceEv = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-        while (query.MoveNext(out var client, out var comp))
+        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
+        while (query.MoveNext(out var client, out _))
         {
-            comp.Balance = ntrAccount.Balance;
-            Dirty(client, comp);
-            RaiseLocalEvent(client, ref balanceEv);
+            var balanceEv = new NtrAccountBalanceUpdatedEvent(client, ntrAccount.Balance);
+            RaiseLocalEvent(client, balanceEv);
         }
 
         if (TryGetTaskId(station, args.Task, out var taskId))
@@ -161,18 +168,12 @@ public sealed partial class NtrTaskSystem : EntitySystem
         }
         UpdateTaskConsoles();
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        var state = new NtrTaskProviderState(
-            db.Tasks,
-            db.History,
-            untilNextSkip,
-            component.ActiveTaskIds
-        );
         _uiSystem.SetUiState(uid, NtrTaskUiKey.Key,
-            new NtrTaskProviderState(db.Tasks, db.History, untilNextSkip));
+            new NtrTaskConsoleState(db.Tasks, db.History, untilNextSkip));
         _audio.PlayPvs(component.SkipSound, uid);
     }
 
-    private void OnPrintLabelMessage(EntityUid uid, NtrTaskProviderComponent component, TaskPrintLabelMessage args)
+    private void OnPrintLabelMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskPrintLabelMessage args)
     {
         if (_timing.CurTime < component.NextPrintTime)
             return;
@@ -223,14 +224,14 @@ public sealed partial class NtrTaskSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <param name="args"></param>
-    private void OnOpened(EntityUid uid, NtrTaskProviderComponent component, BoundUIOpenedEvent args)
+    private void OnOpened(EntityUid uid, NtrTaskConsoleComponent component, BoundUIOpenedEvent args)
     {
         if (_station.GetOwningStation(uid) is not { } station ||
             !TryComp<NtrTaskDatabaseComponent>(station, out var taskDb))
             return;
 
         var untilNextSkip = taskDb.NextSkipTime - _timing.CurTime;
-        var state = new NtrTaskProviderState(
+        var state = new NtrTaskConsoleState(
             taskDb.Tasks,
             taskDb.History,
             untilNextSkip,
@@ -247,7 +248,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <param name="args"></param>
-    private void OnTaskSkipMessage(EntityUid uid, NtrTaskProviderComponent component, TaskSkipMessage args)
+    private void OnTaskSkipMessage(EntityUid uid, NtrTaskConsoleComponent component, TaskSkipMessage args)
     {
         if (_station.GetOwningStation(uid) is not { } station || !TryComp<NtrTaskDatabaseComponent>(station, out var db))
             return;
@@ -274,13 +275,13 @@ public sealed partial class NtrTaskSystem : EntitySystem
         FillTasksDatabase(station);
         db.NextSkipTime = _timing.CurTime + db.SkipDelay;
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        var state = new NtrTaskProviderState(
+        var state = new NtrTaskConsoleState(
             db.Tasks,
             db.History,
             untilNextSkip,
             component.ActiveTaskIds
         );
-        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key, new NtrTaskProviderState(db.Tasks, db.History, untilNextSkip));
+        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key, new NtrTaskConsoleState(db.Tasks, db.History, untilNextSkip));
         _audio.PlayPvs(component.SkipSound, uid);
     }
 
@@ -528,7 +529,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
     /// </summary>
     private void UpdateTaskConsoles()
     { // refactored this whole thing because i hate myself
-        var query = EntityQueryEnumerator<NtrTaskProviderComponent, UserInterfaceComponent>();
+        var query = EntityQueryEnumerator<NtrTaskConsoleComponent, UserInterfaceComponent>();
         while (query.MoveNext(out var uid, out var provider, out var ui))
         {
             if (_station.GetOwningStation(uid) is not { } station ||
@@ -540,7 +541,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
                 .ToList();
 
             var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-            var state = new NtrTaskProviderState(
+            var state = new NtrTaskConsoleState(
                 db.Tasks,
                 db.History,
                 untilNextSkip,
@@ -549,21 +550,19 @@ public sealed partial class NtrTaskSystem : EntitySystem
             _uiSystem.SetUiState((uid, ui), NtrTaskUiKey.Key, state);
         }
     }
-    private void OnTaskFailed(EntityUid uid, NtrTaskProviderComponent component, TaskFailedEvent args)
+    private void OnTaskFailed(EntityUid uid, NtrTaskConsoleComponent component, TaskFailedEvent args)
     {
         if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<StationNtrAccountComponent>(station, out var ntrAccount))
+            !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
             return;
         // apply penalty
         ntrAccount.Balance = Math.Max(0, ntrAccount.Balance - args.Penalty);
 
         var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-        var query = EntityQueryEnumerator<NtrAccountClientComponent>();
+        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
         while (query.MoveNext(out var client, out var comp))
         {
-            comp.Balance = ntrAccount.Balance;
-            Dirty(client, comp);
-            RaiseLocalEvent(client, ref ev);
+            RaiseLocalEvent(client, ev);
         }
         // del the spam document
         if (Exists(args.User))
@@ -572,38 +571,38 @@ public sealed partial class NtrTaskSystem : EntitySystem
         }
         _audio.PlayPvs(component.DenySound, uid);
     }
-    private void OnDocumentInserted(DocumentInsertedEvent args)
-    {
-        if (!Exists(args.Document))
-            return;
-
-        if (!TryComp<RandomDocumentComponent>(args.Document, out var documentComp) ||
-            !TryComp<NtrTaskProviderComponent>(args.Console, out var consoleComp))
-        {
-            return;
-        }
-
-        if (_station.GetOwningStation(args.Console) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var db))
-            return;
-
-        foreach (var taskId in documentComp.Tasks)
-        {
-            if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
-                continue;
-
-            if (!TryGetActiveTask(station, taskProto, out var taskData))
-                continue;
-
-            if (TryComp<StationNtrAccountComponent>(station, out var account))
-                account.Balance += taskProto.Reward;
-
-            TryRemoveTask(station, taskData.Value.Id, false);
-        }
-
-        QueueDel(args.Document);
-        UpdateTaskConsoles();
-    }
+    // private void OnDocumentInserted(DocumentInsertedEvent args)
+    // {
+    //     if (!Exists(args.Document))
+    //         return;
+    //
+    //     if (!TryComp<RandomDocumentComponent>(args.Document, out var documentComp) ||
+    //         !TryComp<NtrTaskConsoleComponent>(args.Console, out var consoleComp))
+    //     {
+    //         return;
+    //     }
+    //
+    //     if (_station.GetOwningStation(args.Console) is not { } station ||
+    //         !TryComp<NtrTaskDatabaseComponent>(station, out var db))
+    //         return;
+    //
+    //     foreach (var taskId in documentComp.Tasks)
+    //     {
+    //         if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
+    //             continue;
+    //
+    //         if (!TryGetActiveTask(station, taskProto, out var taskData))
+    //             continue;
+    //
+    //         if (TryComp<NtrBankAccountComponent>(station, out var account))
+    //             account.Balance += taskProto.Reward;
+    //
+    //         TryRemoveTask(station, taskData.Value.Id, false);
+    //     }
+    //
+    //     QueueDel(args.Document);
+    //     UpdateTaskConsoles();
+    // }
     private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
     {
         task = null;
