@@ -103,7 +103,7 @@ public sealed class GrassEnforcementManager : IGrassEnforcementManager, IPostInj
             return;
         }
 
-        if (minutes / 60 >= _hours)
+        if (minutes >= _hours * 60)
         {
             await Grass(player);
         }
@@ -131,6 +131,8 @@ public sealed class GrassEnforcementManager : IGrassEnforcementManager, IPostInj
             (uint)_banDayDuration*24*60,
             NoteSeverity.None,
             _cfg.GetCVar(GoobCVars.GrassBanReason));
+
+        await Reset(player.UserId);
     }
 
     public async Task RoundEnd()
