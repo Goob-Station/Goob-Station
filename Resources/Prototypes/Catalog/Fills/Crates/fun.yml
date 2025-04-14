@@ -174,7 +174,7 @@
         weight: 0.25
       - id: PlushieDesislavaBlackburn
         weight: 0.15
-    - !type:GroupSelector
+    - !type:GroupSelector # Self insert crew :-)
       children:
       - id: PlushieBenny
         weight: 0.15
@@ -556,7 +556,7 @@
         prob: 0.05
 
 - type: entity
-  id: CrateFunSelfInsertPlushie
+  id: CrateFunSelfInsertPlushie # Self insert crate :-)
   parent: CrateGenericSteel
   name: crew plushie crate
   description: A box full of cute plushies of beloved crewmembers.
