@@ -10,7 +10,7 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class RandomizeMovementspeedComponent : Component
+public sealed partial class ItemRandomizeMovementspeedComponent : Component
 {
     /// <summary>
     /// The minimum limit of the modifier.
