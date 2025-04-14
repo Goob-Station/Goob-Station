@@ -24,33 +24,43 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
-    #region Helper Functions
-    private void OnGotEquippedHand(Entity<ItemRandomizeMovementspeedComponent> ent, ref GotEquippedHandEvent args)
+    #region Main Functions
+
+    private void OnStartup(EntityUid uid, ItemRandomizeMovementspeedComponent comp, ComponentStartup args)
+    {
+        if (comp.Min < comp.Max)
+            return;
+
+        // if the minimum is bigger than the max, flip em.
+        comp.Min = comp.Max;
+        comp.Max = comp.Min;
+
+    }
+    private void OnGotEquippedHand(EntityUid uid, ItemRandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
         // Refresh the movement speed modifiers.
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
 
         // Track the UID of the entity who is holding the item so we can properly remove the effects.
-        ent.Comp.EntityUid = args.User;
-        ent.Comp.NextExecutionTime = _timing.CurTime;
+        comp.EntityUid = args.User;
+        comp.NextExecutionTime = _timing.CurTime;
     }
 
-    private void OnGotUnequippedHand(Entity<ItemRandomizeMovementspeedComponent> ent, ref GotUnequippedHandEvent args)
+    private void OnGotUnequippedHand(EntityUid uid, ItemRandomizeMovementspeedComponent comp, GotUnequippedHandEvent args)
     {
         _movementSpeedModifier.RefreshMovementSpeedModifiers(args.User);
-        ent.Comp.EntityUid = null;
+        comp.EntityUid = null;
     }
 
     private float GetMovementSpeedModifiers(ItemRandomizeMovementspeedComponent comp)
     {
-        var modifier = _random.NextFloat(comp.Min, comp.Max);
-        return modifier;
-
+        return _random.NextFloat(comp.Min, comp.Max);
     }
     private void OnRefreshMovementSpeedModifiers(EntityUid uid, ItemRandomizeMovementspeedComponent  comp, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
@@ -68,7 +78,7 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
         var query = EntityQueryEnumerator<ItemRandomizeMovementspeedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.Whitelist == null || !_whitelist.IsValid(comp.Whitelist, comp.EntityUid))
+            if (comp.Whitelist == null || TerminatingOrDeleted(comp.EntityUid) || !_whitelist.IsValid(comp.Whitelist, comp.EntityUid))
                 continue;
 
             if (_timing.CurTime < comp.NextExecutionTime)
