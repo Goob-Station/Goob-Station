@@ -27,6 +27,12 @@ public sealed partial class FishingRodComponent : Component
     public float StartingProgress = 0.33f;
 
     /// <summary>
+    /// How many seconds we wait until fish starts to fight with us
+    /// </summary>
+    [DataField]
+    public float StartingStruggleTime = 0.3f;
+
+    /// <summary>
     /// If lure moves bigger than this distance away from the rod,
     /// it will force it to reel instantly.
     /// </summary>

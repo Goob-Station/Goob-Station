@@ -109,11 +109,10 @@ public sealed class FishingSystem : SharedFishingSystem
 
     protected override void StopFishing(
         Entity<FishingRodComponent> fishingRod,
-        EntityUid? fisher,
-        EntityUid? attachedEnt)
+        EntityUid? fisher)
     {
         QueueDel(fishingRod.Comp.FishingLure);
-        base.StopFishing(fishingRod, fisher, attachedEnt);
+        base.StopFishing(fishingRod, fisher);
     }
 
     protected override void SetupFishingFloat(Entity<FishingRodComponent> fishingRod, EntityUid player, EntityCoordinates target)

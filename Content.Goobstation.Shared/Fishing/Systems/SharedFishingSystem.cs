@@ -50,6 +50,7 @@ public abstract class SharedFishingSystem : EntitySystem
         SubscribeLocalEvent<FishingRodComponent, GetItemActionsEvent>(OnGetActions);
         SubscribeLocalEvent<FishingRodComponent, ThrowFishingLureActionEvent>(OnThrowFloat);
         SubscribeLocalEvent<FishingRodComponent, PullFishingLureActionEvent>(OnPullFloat);
+        SubscribeLocalEvent<FishingRodComponent, EntParentChangedMessage>(OnRodParentChanged);
 
         SubscribeLocalEvent<FishingRodComponent, EntityTerminatingEvent>(OnRodTerminating);
         SubscribeLocalEvent<FishingLureComponent, EntityTerminatingEvent>(OnLureTerminating);
@@ -80,36 +81,29 @@ public abstract class SharedFishingSystem : EntitySystem
             var fishRod = fisherComp.FishingRod;
             var fishSpot = fishingFloatComp.AttachedEntity.Value;
 
-            if (!_hands.IsHolding(fisher, fishRod))
-            {
-                _popup.PopupEntity(Loc.GetString("fishing-progress-lost-rod", ("ent", Name(fishRod))), fisher, fisher);
-                StopFishing((fishRod, fishingRodComp), fisher, fishSpot);
-                continue;
-            }
-
-            fisherComp.TotalProgress ??= 0.5f;
-            fisherComp.NextStruggle ??= Timing.CurTime + TimeSpan.FromSeconds(0.5f);
+            fisherComp.TotalProgress ??= fishingRodComp.StartingProgress;
+            fisherComp.NextStruggle ??= Timing.CurTime + TimeSpan.FromSeconds(fishingRodComp.StartingStruggleTime);
 
             // Fish fighting logic
             CalculateFightingTimings((fisher ,fisherComp), activeSpotComp);
 
-            if (fisherComp.TotalProgress < 0f)
+            switch (fisherComp.TotalProgress)
             {
-                // It's over
-                _popup.PopupEntity(Loc.GetString("fishing-progress-fail"), fisher, fisher);
-                StopFishing((fishRod, fishingRodComp), fisher, fishSpot);
-                continue;
-            }
+                case < 0f:
+                    // It's over
+                    _popup.PopupEntity(Loc.GetString("fishing-progress-fail"), fisher, fisher);
+                    StopFishing((fishRod, fishingRodComp), fisher);
+                    continue;
 
-            if (fisherComp.TotalProgress >= 1.0f)
-            {
-                if (activeSpotComp.Fish != null)
-                {
-                    ThrowFishReward(activeSpotComp.Fish.Value, fishSpot, fisher);
-                    _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
-                }
+                case >= 1f:
+                    if (activeSpotComp.Fish != null)
+                    {
+                        ThrowFishReward(activeSpotComp.Fish.Value, fishSpot, fisher);
+                        _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
+                    }
 
-                StopFishing((fishRod, fishingRodComp), fisher, fishSpot);
+                    StopFishing((fishRod, fishingRodComp), fisher);
+                    break;
             }
         }
 
@@ -131,15 +125,11 @@ public abstract class SharedFishingSystem : EntitySystem
             var fishRod = fishingFloatComp.FishingRod;
             var fisher = Transform(fishingFloatComp.FishingRod).ParentUid;
 
-            if (!_hands.IsHolding(fisher, fishRod) ||
-                !HasComp<ActorComponent>(fisher))
-                continue;
-
             var activeFisher = EnsureComp<ActiveFisherComponent>(fisher);
             activeFisher.FishingRod = fishRod;
             activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
             activeFisher.TotalProgress = fishRodComp.StartingProgress;
-            activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(0.3f); // Compensate ping for 0.3 seconds
+            activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(fishRodComp.StartingStruggleTime); // Compensate ping for 0.3 seconds
 
             // Predicted because it works like 99.9% of the time anyway.
             _popup.PopupPredicted(Loc.GetString("fishing-progress-start"), fisher, fisher);
@@ -168,7 +158,7 @@ public abstract class SharedFishingSystem : EntitySystem
                 !HasComp<ActorComponent>(fisher))
             {
                 var rod = (lureComp.FishingRod, fishingRodComp);
-                StopFishing(rod, fisher, lureComp.AttachedEntity);
+                StopFishing(rod, fisher);
                 ToggleFishingActions(rod, fisher, false);
             }
         }
@@ -210,8 +200,7 @@ public abstract class SharedFishingSystem : EntitySystem
     /// </summary>
     protected virtual void StopFishing(
         Entity<FishingRodComponent> fishingRod,
-        EntityUid? fisher,
-        EntityUid? attachedEnt)
+        EntityUid? fisher)
     {
         if (fishingRod.Comp.FishingLure == null)
             return;
@@ -220,8 +209,8 @@ public abstract class SharedFishingSystem : EntitySystem
         ActiveFishSpotQuery.TryComp(lureComp.AttachedEntity, out var activeSpotComp);
         FisherQuery.TryComp(fisher, out var fisherComp);
 
-        if (attachedEnt != null && activeSpotComp != null)
-            RemCompDeferred(attachedEnt.Value, activeSpotComp);
+        if (lureComp.AttachedEntity != null && activeSpotComp != null)
+            RemCompDeferred(lureComp.AttachedEntity.Value, activeSpotComp);
 
         if (fisher != null)
         {
@@ -256,18 +245,16 @@ public abstract class SharedFishingSystem : EntitySystem
     #region Deletion Helpers
 
     /// <summary>
-    /// Stops fishing by using only the Fishing rod.
+    /// Stops fishing by taking only the Fishing rod as an argument.
     /// </summary>
     private void TryStopFishing(Entity<FishingRodComponent> rod)
     {
         var player = Transform(rod).ParentUid;
-        FishLureQuery.TryComp(rod.Comp.FishingLure, out var lureComp);
-
-        StopFishing(rod, player, lureComp?.AttachedEntity);
+        StopFishing(rod, player);
     }
 
     /// <summary>
-    /// Stops fishing by using only the Fishing lure.
+    /// Stops fishing by taking only the Fishing lure as an argument.
     /// </summary>
     private void TryStopFishing(Entity<FishingLureComponent> lure)
     {
@@ -278,7 +265,7 @@ public abstract class SharedFishingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Stops fishing by using only the Active spot.
+    /// Stops fishing by taking only the Active spot as an argument.
     /// </summary>
     private void TryStopFishing(Entity<ActiveFishingSpotComponent> spot)
     {
@@ -350,7 +337,7 @@ public abstract class SharedFishingSystem : EntitySystem
             Throwing.TryThrow(attachedEnt, direction, 4f, player);
         }
 
-        StopFishing(ent, player, lureComp.AttachedEntity);
+        StopFishing(ent, player);
         ToggleFishingActions(ent, player, false);
         args.Handled = true;
     }
@@ -358,6 +345,15 @@ public abstract class SharedFishingSystem : EntitySystem
     private void OnFishingRodInit(Entity<FishingRodComponent> ent, ref MapInitEvent args)
     {
         _actions.AddAction(ent, ref ent.Comp.ThrowLureActionEntity, ent.Comp.ThrowLureActionId);
+    }
+
+    private void OnRodParentChanged(Entity<FishingRodComponent> ent, ref EntParentChangedMessage args)
+    {
+        // Anything that is an active fisher should be fine.
+        if (!FisherQuery.HasComp(args.Transform.ParentUid))
+        {
+            StopFishing(ent, args.OldParent);
+        }
     }
 
     private void OnGetActions(Entity<FishingRodComponent> ent, ref GetItemActionsEvent args)
