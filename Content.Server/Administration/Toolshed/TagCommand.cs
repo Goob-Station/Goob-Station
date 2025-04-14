@@ -38,10 +38,10 @@ public sealed class TagCommand : ToolshedCommand
     public IEnumerable<EntityUid> With(
         [CommandInvocationContext] IInvocationContext ctx,
         [PipedArgument] IEnumerable<EntityUid> entities,
-        [CommandArgument] ValueRef<string, Prototype<TagPrototype>> tag)
+        [CommandArgument] ProtoId<TagPrototype> tag)
     {
         _tag ??= GetSys<TagSystem>();
-        return entities.Where(e => _tag.HasTag(e, tag.Evaluate(ctx)!));
+        return entities.Where(e => _tag.HasTag(e, tag!));
     }
 
     [CommandImplementation("add")]
