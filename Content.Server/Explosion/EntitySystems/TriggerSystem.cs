@@ -121,9 +121,20 @@ namespace Content.Server.Explosion.EntitySystems
 
     /// <summary>
     /// Raised before a trigger is activated.
+    /// Goobstation: cancellableEEA instead of w/e abomination was there
     /// </summary>
     [ByRefEvent]
-    public record struct BeforeTriggerEvent(EntityUid Triggered, EntityUid? User, bool Cancelled = false);
+    public sealed class BeforeTriggerEvent : CancellableEntityEventArgs
+    {
+        public EntityUid Triggered { get; }
+        public EntityUid? User { get; }
+
+        public BeforeTriggerEvent(EntityUid triggered, EntityUid? user = null)
+        {
+            Triggered = triggered;
+            User = user;
+        }
+    }
 
     /// <summary>
     /// Raised when timer trigger becomes active.
@@ -189,7 +200,9 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleWhitelist(Entity<TriggerWhitelistComponent> ent, ref BeforeTriggerEvent args)
         {
-            args.Cancelled = !_whitelist.CheckBoth(args.User, ent.Comp.Blacklist, ent.Comp.Whitelist);
+            // Goobedit
+            if (!_whitelist.CheckBoth(args.User, ent.Comp.Blacklist, ent.Comp.Whitelist))
+                args.Cancel();
         }
 
         private void OnSoundTrigger(EntityUid uid, SoundOnTriggerComponent component, TriggerEvent args)

@@ -20,6 +20,7 @@
 
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
+using Content.Shared.Mind;
 
 namespace Content.Shared.Administration;
 
