@@ -383,7 +383,7 @@
   parent: BasePlushie
   id: PlushieDelta
   name: Delta plushie
-  description: A cute stuffed toy that resembles a purple resomi.
+  description: A cute stuffed toy that resembles a purple resomi. You may not know it, but the Deltas are free, and you can take them home.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi

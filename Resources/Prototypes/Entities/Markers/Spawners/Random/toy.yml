@@ -41,6 +41,24 @@
       rarePrototypes:
         - FoamBlade
         - PlushieGhost
+        - PlushieBenny
+        - PlushieCairo
+        - PlushiePash
+        - PlushieDelta
+        - PlushieRaki
+        - PlushieTina
+        - PlushieKnott
+        - PlushieKury
+        - PlushieZlorb
+        - PlushieTiderMoth
+        - PlushieCommandHuman
+        - PlushieRanork
+        - PlushieByrrne
+        - PlushieWehWinter
+        - PlushieHaleigh
+        - PlushieStoop
+        - PlushieAhti
+        - PlushieSparke
       rareChance: 0.03
       prototypes:
         - PlushieBee
