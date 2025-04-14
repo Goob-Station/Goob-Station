@@ -43,7 +43,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.5
 
 - type: entity
@@ -79,7 +79,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.7
   - type: HideContrabandContent #Goobstation Contraband detector
   - type: UndetectableContraband #Goobstation Contraband detector

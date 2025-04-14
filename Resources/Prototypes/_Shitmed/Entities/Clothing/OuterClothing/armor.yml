@@ -62,7 +62,7 @@
               Piercing: 0.5
               Radiation: 0.5
               Caustic: 0.1
-        - type: StaminaDamageResistance
+        - type: StaminaResistance
           coefficient: 0.25
         - type: ExplosionResistance
           damageCoefficient: 0.5

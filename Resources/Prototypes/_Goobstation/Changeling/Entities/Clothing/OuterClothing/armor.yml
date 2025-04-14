@@ -45,5 +45,5 @@
   - type: Unremoveable
   - type: ModifyDelayedKnockdown
     cancel: true
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.4

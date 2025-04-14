@@ -81,7 +81,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.5
 
 # Black

@@ -56,7 +56,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.6
 
 #Elite web vest
@@ -89,7 +89,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.4
 
 #Mercenary web vest
@@ -115,7 +115,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.25
     knockdownTimeDelta: -2.25
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.65
 
 #Detective's vest

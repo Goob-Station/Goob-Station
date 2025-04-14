@@ -206,7 +206,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.7
 
 - type: entity
@@ -227,7 +227,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.7
 
 - type: entity
@@ -522,7 +522,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.7
 
 - type: entity
@@ -579,7 +579,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.7
 
 - type: entity

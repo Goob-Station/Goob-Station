@@ -420,7 +420,7 @@
   - type: ModifyDelayedKnockdown # how tf does this work
     delayDelta: -1.0
     knockdownTimeDelta: 1.5
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 1.2 # counter to the tide armor: stuns.
   - type: Construction
     graph: MakeshiftLightVestGraph
@@ -448,7 +448,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: -1.25
     knockdownTimeDelta: 1.25
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 1.2
   - type: Construction
     graph: MakeshiftHeavyVestGraph

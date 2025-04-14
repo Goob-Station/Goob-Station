@@ -42,7 +42,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.7
 
 # Durathread plated vest
@@ -68,7 +68,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaResistance # Goobstation
     coefficient: 0.7
 
 # Helldiver
@@ -161,7 +161,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.5
   - type: StripMenuInvisible # No peeking!
   - type: TemperatureProtection
@@ -238,7 +238,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.55
   - type: PressureProtection
     lowPressureMultiplier: 1000
@@ -257,7 +257,7 @@
   - type: ModifyDelayedKnockdown # Nerfed
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.5
   - type: TemperatureProtection # No
     heatingCoefficient: 1

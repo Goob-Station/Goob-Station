@@ -55,7 +55,7 @@
       head: ClothingHeadHelmetHardsuitChronolegioneer
   - type: ModifyDelayedKnockdown
     cancel: true
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0
 
 - type: entity
@@ -101,7 +101,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.6
 
 - type: entity
@@ -138,7 +138,7 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.5
 
 # Cybersun Stealth
@@ -190,7 +190,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0.5
 
 # cybersun dreadnought suit
@@ -244,7 +244,7 @@
           Slash: 0.3
       interval: 1.0
       ignoreResistances: true
-  - type: StaminaDamageResistance
+  - type: StaminaResistance
     coefficient: 0
   - type: ModifyDelayedKnockdown
     cancel: true
