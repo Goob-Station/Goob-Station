@@ -4,13 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Actions;
-using Content.Goobstation.Shared.Bible;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Religion.Nullrod;
+namespace Content.Goobstation.Shared.Religion.HonkMotherBaptism;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HonkmotherBaptismComponent : Component

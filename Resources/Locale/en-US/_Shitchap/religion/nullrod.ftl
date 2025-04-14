@@ -6,7 +6,7 @@ nullrod-arrythmicknife-untrained-usage-popup = The blade jerks out of control, i
 nullrod-monkstaff-untrained-usage-popup = The staff slips from your grasp and hits you in the shoulder.
 nullrod-atheistfedora-untrained-usage-popup = The hat's razor sharp brim begins to hum.
 nullrod-pistol-untrained-usage-popup = The silver grips heat painfully in your hands.
-nullrod-honkmother-untrained-usage-popup = You think you're funny huh?
+nullrod-honkmother-untrained-usage-popup = You think you're funny, huh?
 
 nullrod-pray-prompt = Pray to Nullrod
-nullrod-pray-start = {$user} whispers to the {$nullrod}...
+nullrod-pray-start = {$user} begins to whisper to the {$nullrod}...

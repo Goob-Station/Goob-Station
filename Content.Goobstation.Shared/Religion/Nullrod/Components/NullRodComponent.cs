@@ -6,10 +6,11 @@
 
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Server.Religion.Nullrod
-{
-    [RegisterComponent]
+namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
+
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class NullrodComponent : Component
     {
         /// <summary>
@@ -42,5 +43,20 @@ namespace Content.Goobstation.Server.Religion.Nullrod
         [DataField]
         public bool RepeatPrayer;
 
+        /// <summary>
+        ///     When attempting attack against the same entity multiple times,
+        ///     don't spam popups every frame and instead have a cooldown.
+        /// </summary>
+        [DataField]
+        public TimeSpan PopupCooldown = TimeSpan.FromSeconds(3.0);
+
+        [DataField, AutoNetworkedField]
+        public TimeSpan? NextPopupTime;
+
+        /// <summary>
+        ///     The last entity attacked, used for popup purposes (avoid spam)
+        /// </summary>
+        [DataField]
+        public EntityUid? LastAttackedEntity;
+
     }
-}

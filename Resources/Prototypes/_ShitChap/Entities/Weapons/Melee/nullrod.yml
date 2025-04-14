@@ -129,18 +129,6 @@
     state: icon
   - type: UseDelay
     delay: 5.0
-  - type: Bible
-    failChance: 0
-    damage:
-      groups:
-        Brute: -25
-        Burn: -25
-    damageOnFail:
-      groups:
-        Brute: 0
-    damageOnUntrainedUse: # What a non-chaplain takes when attempting to heal someone
-      types:
-        Heat: 20
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/weak_hit1.ogg
@@ -164,6 +152,13 @@
       types:
         Blunt: 20
     UntrainedUseString: nullrod-rosary-untrained-usage-popup
+  - type: HealNearOnPray
+    damage:
+      groups:
+        Brute: -6.0
+        Burn: -6.0
+        Toxin: -1.0
+        Airloss: -3.0
   - type: Tag
     tags:
     - Rosary
