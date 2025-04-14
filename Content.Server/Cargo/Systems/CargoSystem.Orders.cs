@@ -180,7 +180,7 @@ namespace Content.Server.Cargo.Systems
             var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>();
             while (stationQuery.MoveNext(out var uid, out var bank))
             {
-                if (_timing.CurTime < bank.NextIncomeTime)
+                if (Timing.CurTime < bank.NextIncomeTime)
                     continue;
                 bank.NextIncomeTime += bank.IncomeDelay;
 
