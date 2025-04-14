@@ -91,7 +91,7 @@
   id: ProjectileFireball
   name: fireball
   description: You better GITTAH WEIGH.
-  parent: BulletRocket
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
@@ -107,6 +107,7 @@
     layers:
     - state: fireball
       shader: unshaded
+  - type: TriggerOnProjectileHit
   - type: Explosive
     explosionType: Default
     maxIntensity: 3.5 # Goob edit
@@ -308,7 +309,7 @@
   components:
   - type: Reflective
     reflective: Magic
-  - type: PolymorphOnCollide
+  - type: OnPolymorphProjectileHit
     polymorph: WizardForcedCarp
     whitelist:
       components:
@@ -323,7 +324,7 @@
   components:
   - type: Reflective
     reflective: Magic
-  - type: PolymorphOnCollide
+  - type: OnPolymorphProjectileHit
     polymorph: WizardForcedMonkey
     whitelist:
       components:
@@ -343,7 +344,7 @@
       color: brown
   - type: Reflective
     reflective: Magic
-  - type: PolymorphOnCollide
+  - type: OnPolymorphProjectileHit
     polymorph: WizardWallDoor
     whitelist:
       components:
@@ -415,7 +416,7 @@
   components:
   - type: Reflective
     reflective: Magic
-  - type: PolymorphOnCollide
+  - type: OnPolymorphProjectileHit
     polymorph: WizardForcedCluwne
     whitelist:
       components:
@@ -448,7 +449,7 @@
   components:
   - type: Reflective
     reflective: Magic
-  - type: PolymorphOnCollide
+  - type: OnPolymorphProjectileHit
     polymorph: BreadMorph
     whitelist:
       components:

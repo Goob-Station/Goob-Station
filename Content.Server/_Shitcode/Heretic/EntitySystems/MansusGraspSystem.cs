@@ -5,10 +5,13 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 github-actions <github-actions@github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -52,6 +55,7 @@ using Content.Shared.Tag;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
+using Content.Goobstation.Shared.Bible;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -211,6 +215,26 @@ public sealed class MansusGraspSystem : EntitySystem
         }
 
         var target = args.Target.Value;
+
+        if (TryComp<BibleUserComponent>(args.Target, out _) && TryComp(args.User, out StatusEffectsComponent? hereticstatus))
+        {
+            _stun.KnockdownOrStun(args.User, comp.KnockdownTime, true, hereticstatus);
+            _stamina.TakeStaminaDamage(args.User, comp.StaminaDamage);
+            _language.DoRatvarian(args.User, comp.SpeechTime, true, hereticstatus);
+            _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(args.User,
+                "MansusGraspAffected",
+                ent.Comp.AffectedTime,
+                true,
+                hereticstatus);
+
+            _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+            hereticComp.MansusGrasp = EntityUid.Invalid;
+            InvokeGrasp(args.User, ent);
+            QueueDel(ent);
+            args.Handled = true;
+
+            return;
+        }
 
         if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;

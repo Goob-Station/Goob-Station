@@ -263,6 +263,8 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: Projectile
     damage:
       types:
@@ -294,7 +296,7 @@
     damage:
       types:
         Heat: 0
-  - type: PolymorphOnCollide
+  - type: OnPolymorphProjectileHit
     polymorph: WizardWabbajack
     whitelist:
       components:

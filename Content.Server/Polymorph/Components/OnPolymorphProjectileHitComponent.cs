@@ -17,7 +17,7 @@ namespace Content.Server.Polymorph.Components;
 
 [RegisterComponent]
 [Access(typeof(PolymorphSystem))]
-public sealed partial class PolymorphOnCollideComponent : Component
+public sealed partial class OnPolymorphProjectileHitComponent : Component
 {
     [DataField(required: true)]
     public ProtoId<PolymorphPrototype> Polymorph;

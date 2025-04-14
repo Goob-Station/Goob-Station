@@ -5,6 +5,9 @@
 // SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -30,7 +33,7 @@ public partial class PolymorphSystem
 
     private void InitializeCollide()
     {
-        SubscribeLocalEvent<PolymorphOnCollideComponent, StartCollideEvent>(OnPolymorphCollide);
+        SubscribeLocalEvent<OnPolymorphProjectileHitComponent, ProjectileHitEvent>(OnPolymorphProjectileHit);
     }
 
     public void UpdateCollide()
@@ -46,12 +49,9 @@ public partial class PolymorphSystem
         }
     }
 
-    private void OnPolymorphCollide(EntityUid uid, PolymorphOnCollideComponent component, ref StartCollideEvent args)
+    private void OnPolymorphProjectileHit(EntityUid uid, OnPolymorphProjectileHitComponent component, ref ProjectileHitEvent args)
     {
-        if (args.OurFixtureId != SharedProjectileSystem.ProjectileFixture)
-            return;
-
-        var other = args.OtherEntity;
+        var other = args.Target;
         if (_whitelistSystem.IsWhitelistFail(component.Whitelist, other) ||
             _whitelistSystem.IsBlacklistPass(component.Blacklist, other))
             return;
