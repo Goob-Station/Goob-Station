@@ -1,7 +1,7 @@
 ﻿<controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
-                      xmlns:borgs="clr-namespace:Content.Client.Silicons.Borgs"
+                      xmlns:subtype="clr-namespace:Content.Client.Silicons.Borgs.Subtype"
                       Title="{Loc 'borg-select-type-menu-title'}"
                       SetSize="600 480">
     <BoxContainer Orientation="Vertical">
@@ -31,7 +31,7 @@
                     </BoxContainer>
                 </Control>
 
-                <borgs:ChassisSpriteSelection Name="ChassisSpriteSelection"/>
+                <subtype:ChassisSpriteSelection Name="ChassisSpriteSelection"/>
 
                 <controls:ConfirmButton Name="ConfirmTypeButton" Text="{Loc 'borg-select-type-menu-confirm'}"
                                         Disabled="True" HorizontalAlignment="Right"

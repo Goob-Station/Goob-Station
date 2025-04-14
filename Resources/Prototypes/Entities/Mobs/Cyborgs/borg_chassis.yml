@@ -31,6 +31,7 @@
     inherentRadioChannels:
     - Common
     - Binary
+  - type: BorgSwitchableSubtype
 
 - type: entity
   id: BorgChassisGeneric
@@ -40,6 +41,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: generic
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_generic
 
 - type: entity
   id: BorgChassisMining
@@ -48,6 +51,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_mining
 
 - type: entity
   id: BorgChassisEngineer
@@ -56,6 +61,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_engineering
 
 - type: entity
   id: BorgChassisJanitor
@@ -64,6 +71,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_janitor
 
 - type: entity
   id: BorgChassisMedical
@@ -72,6 +81,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_medical
 
 - type: entity
   id: BorgChassisService
@@ -80,6 +91,8 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: default_service
 
 - type: entity
   id: BorgChassisSyndicateAssault

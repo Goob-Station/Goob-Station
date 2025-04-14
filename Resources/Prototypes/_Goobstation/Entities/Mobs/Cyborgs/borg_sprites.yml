@@ -1,5 +1,5 @@
 # Generic subtypes
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: generic
   id: default_generic
   spritePath: Mobs/Silicon/chassis.rsi
@@ -7,87 +7,79 @@
   dummyPrototype: BorgChassisGeneric
 
 # Mining subtypes
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: mining
   id: default_mining
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisMining
 
 # Engineering subtypes
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: engineering
   id: default_engineering
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisEngineer
 
 # Janitorial subtypes
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: janitor
   id: default_janitor
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisJanitor
 
 # Medical subtypes
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: medical
   id: default_medical
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisMedical
 
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: medical
-  id: standart_medical
-  spritePath: _Goobstation/Mobs/Silicon/Medical/chassis.rsi
-  dummyPrototype: StandartDoctorChassis
+  id: medical_standart
+  spritePath: _Goobstation/Mobs/Silicon/Medical/standart.rsi
+  dummyPrototype: BorgChassisMedicalStandart
+
 
 # Service subtypes
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: service
   id: default_service
   spritePath: Mobs/Silicon/chassis.rsi
   dummyPrototype: BorgChassisService
 
-- type: borgSprite
+- type: borgSubtype
   parentBorgType: service
-  id: standart_service
+  id: service_standart
   spritePath: _Goobstation/Mobs/Silicon/Service/standart.rsi
-  dummyPrototype: StandartServiceChassis
+  dummyPrototype: BorgChassisServiceStandart
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_standart
+  spritePath: _Goobstation/Mobs/Silicon/Service/standart.rsi
+  dummyPrototype: BorgChassisServiceStandart
 
 ###
+# Medical
 - type: entity
+  id: BorgChassisMedicalStandart
   parent: BorgChassisMedical
-  id: StandartDoctorChassis
-  name: Standart Doctor Chassis
+  name: medical cyborg
   components:
-  - type: Sprite
-    sprite: _Goobstation/Mobs/Silicon/Medical/standart.rsi
-    layers:
-    - state: medical.png
-      map: [ "enum.BorgVisualLayers.Body", "movement" ]
-    - state: medical_e_r
-      map: [ "enum.BorgVisualLayers.Light" ]
-      shader: unshaded
-      visible: false
-    - state: medical_l
-      shader: unshaded
-      map: [ "light","enum.BorgVisualLayers.LightStatus" ]
-      visible: false
   - type: BorgSwitchableType
     selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_standart
 
+# Service
 - type: entity
+  id: BorgChassisServiceStandart
   parent: BorgChassisService
-  id: StandartServiceChassis
-  name: Standart Doctor Chassis
+  name: service cyborg
   components:
-  - type: Sprite
-    sprite: _Goobstation/Mobs/Silicon/Service/standart.rsi
-    layers:
-    - state: service.png
-      map: [ "enum.BorgVisualLayers.Body", "movement" ]
-    - state: service_e_r
-      map: [ "enum.BorgVisualLayers.Light" ]
-      shader: unshaded
-      visible: false
   - type: BorgSwitchableType
     selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_standart
+###

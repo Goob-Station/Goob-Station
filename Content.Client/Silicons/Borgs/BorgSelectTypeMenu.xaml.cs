@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Numerics;
+using Content.Client.Silicons.Borgs.Subtype;
 using Content.Client.UserInterface.Controls;
-using Content.Goobstation.Shared.Silicon;
 using Content.Shared.Guidebook;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
@@ -27,7 +27,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
     private BorgTypePrototype? _selectedBorgType;
 
     public event Action<ProtoId<BorgTypePrototype>>? ConfirmedBorgType;
-    public event Action<ProtoId<BorgSpritePrototype>>? ConfirmedBorgSubtype;
+    public event Action<ProtoId<BorgSubtypePrototype>>? ConfirmedBorgSubtype;
 
     [ValidatePrototypeId<GuideEntryPrototype>]
     private static readonly List<ProtoId<GuideEntryPrototype>> GuidebookEntries = new() { "Cyborgs", "Robotics" };
@@ -85,7 +85,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         ConfirmedBorgType?.Invoke(_selectedBorgType);
 
-        if(ChassisSpriteSelection.SelectedBorgSubtype == null)
+        if (ChassisSpriteSelection.SelectedBorgSubtype == null)
             return;
 
         ConfirmedBorgSubtype?.Invoke(ChassisSpriteSelection.SelectedBorgSubtype);
