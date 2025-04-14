@@ -604,7 +604,7 @@
     #SPECIAL SLIME SOUNDS
 
 - type: entity
-  parent: BasePlushie
+  parent: PlushieSlime
   id: PlushieGrub
   name: grub plushie
   description: An ugly stuffed toy that resembles a green goblin.
@@ -615,4 +615,4 @@
   - type: Food
     requiresSpecialDigestion: true
     useSound:
-      path: Resources/Audio/Effects/pop_high.ogg
+      path: /Audio/Effects/pop_high.ogg
