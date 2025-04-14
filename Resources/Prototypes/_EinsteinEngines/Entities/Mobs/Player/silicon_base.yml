@@ -264,7 +264,6 @@
         Female: UnisexIPC
         Unsexed: UnisexIPC
     - type: MeleeWeapon
-      canDisarm: true
       hidden: true
       soundHit:
         collection: Punch
@@ -333,3 +332,5 @@
     - type: Targeting
     - type: LayingDown
     - type: ExaminableCharacter # WWDP
+    - type: CombatMode
+      canDisarm: true
