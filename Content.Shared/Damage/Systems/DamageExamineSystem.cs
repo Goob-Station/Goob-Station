@@ -4,6 +4,8 @@
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,6 +17,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using System.Linq; // Goobstation Change
 
 namespace Content.Shared.Damage.Systems;
 
@@ -88,6 +91,29 @@ public sealed class DamageExamineSystem : EntitySystem
             }
         }
 
+        // Goobstation Change
+        var meaningfulDamage = GetTotalMeaningfulDamage(damageSpecifier);
+        if (meaningfulDamage > 0)
+        {
+            msg.PushNewline();
+            msg.AddMarkupOrThrow(Loc.GetString("damage-hits-to-kill", ("count", (100f / (float) meaningfulDamage).ToString("F1"))));
+        }
+
         return msg;
+    }
+
+    // Goobstation Change - Fetches all of the damage that could kill a normal player entity, ignoring helper types.
+    private FixedPoint2 GetTotalMeaningfulDamage(DamageSpecifier damageSpecifier)
+    {
+        var ignoredKeys = new[] { "Structural", "Asphyxiation", "Bloodloss" };
+        var total = FixedPoint2.Zero;
+        foreach (var (key, value) in damageSpecifier.DamageDict)
+        {
+            if (ignoredKeys.Contains(key))
+                continue;
+
+            total += value;
+        }
+        return total;
     }
 }
