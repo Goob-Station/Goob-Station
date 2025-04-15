@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Armor; // Goobstation - Armor resisting syringe gun
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -63,25 +77,26 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         DoInjection((entity.Owner, entity.Comp), args.EmbeddedIntoUid);
     }
 
-    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args)
-    {
-        ResetState(entity.Comp);
-    }
-
-    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args)
-    {
-        ResetState(entity.Comp);
-    }
-
-    private void ResetState(BaseSolutionInjectOnEventComponent comp)
-    {
-        comp.PierceArmorOverride = null;
-        comp.AmountMultiplier = 1f;
-    }
-
     private void DoInjection(Entity<BaseSolutionInjectOnEventComponent> injectorEntity, EntityUid target, EntityUid? source = null)
     {
         TryInjectTargets(injectorEntity, [target], source);
+    }
+
+    private void ResetState(BaseSolutionInjectOnEventComponent comp) // Goobstation
+    {
+        comp.PierceArmorOverride = null;
+        comp.SpeedMultiplier = 1f;
+    }
+
+    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args) // Goobstation
+    {
+        ResetState(entity.Comp);
+    }
+
+    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args) // Goobstation
+    {
+        entity.Comp.UpdateInterval *= entity.Comp.SpeedMultiplier;
+        ResetState(entity.Comp);
     }
 
     /// <summary>
@@ -115,7 +130,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
                 continue;
 
             // Goobstation - Armor resisting syringe gun
-            var mult = injector.Comp.AmountMultiplier; // multiplier of how much to actually inject
+            var mult = 1f; // multiplier of how much to actually inject
             var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
             if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // attempt to apply armor injection speed multiplier or block the syringe
             {

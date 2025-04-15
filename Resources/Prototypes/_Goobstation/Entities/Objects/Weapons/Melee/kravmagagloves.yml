@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesKravMaga
@@ -14,28 +23,3 @@
   - type: ClothingGrantComponent
     component:
     - type: KravMaga
-
-- type: entity
-  parent: ClothingHandsGlovesKravMaga
-  id: ClothingHandsGlovesKravMagaStealthy
-  name: black gloves
-  description: Regular black gloves that do not keep you from frying.
-  components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/black.rsi
-  - type: Fiber
-    fiberColor: fibers-black
-
-- type: entity
-  parent: [ ClothingHandsGlovesKravMaga , BaseSyndicateContraband ]
-  id: ClothingHandsGlovesGuerrilla
-  name: guerrilla gloves
-  description: These combat gloves come with the extra ability to perform Krav Maga martial art attacks.
-  components:
-  - type: Sprite
-    sprite: Clothing/Hands/Gloves/combat.rsi
-  - type: Clothing
-    sprite: Clothing/Hands/Gloves/combat.rsi
-  - type: Fiber
-    fiberMaterial: fibers-insulative
-    fiberColor: fibers-black

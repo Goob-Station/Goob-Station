@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BorgModuleSyndicateWeaponAdvanced
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
@@ -16,36 +27,15 @@
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-weapon-module }
 
 - type: entity
-  id: BorgModuleOperativeUniversal
-  parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: operative cyborg module
-  description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
-  suffix: Universal Pinpointer
-  components:
-  - type: Sprite
-    layers:
-    - state: syndicate
-    - state: icon-syndicate
-  - type: ItemBorgModule
-    moduleId: OperativeUniversal
-    items:
-    - Crowbar
-    - Emag
-    - AccessBreaker
-    - PinpointerSyndicateNuclearUniversal
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
-
-- type: entity
   id: BorgModuleLollipop
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: lollipop cyborg module
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: generic
     - state: icon-lollypop
+      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     moduleId: Lollipop
     items:
@@ -58,13 +48,13 @@
 - type: entity
   id: BorgModulePKA
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: proto kinetic accelerator cyborg module
+  name: proto-kinetic cyborg module
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
     layers:
     - state: cargo
     - state: icon-pka
+      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
   - type: DroppableBorgModule
     moduleId: PKA
     items:

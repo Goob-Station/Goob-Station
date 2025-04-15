@@ -1,4 +1,32 @@
+// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 jicksaw <jicksaw@pm.me>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
+// SPDX-FileCopyrightText: 2024 Nikolai Korolev <CrafterKolyan@mail.ru>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 RedFoxIV <38788538+RedFoxIV@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.UserInterface.Systems.Chat.Controls;
+using Content.Goobstation.Common.CCVar; // Goobstation Change
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -7,6 +35,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -21,14 +50,22 @@ public partial class ChatBox : UIWidget
 {
     private readonly ChatUIController _controller;
     private readonly IEntityManager _entManager;
+    private readonly IConfigurationManager _cfg; // WD EDIT
+    private readonly ILocalizationManager _loc; // WD EDIT
 
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
+    // WD EDIT START
+    private bool _coalescence = false; // op ult btw
+    private (string, Color)? _lastLine;
+    private int _lastLineRepeatCount = 0;
+    // WD EDIT END
 
     public ChatBox()
     {
         RobustXamlLoader.Load(this);
+        _loc = IoCManager.Resolve<ILocalizationManager>();
         _entManager = IoCManager.Resolve<IEntityManager>();
 
         ChatInput.Input.OnTextEntered += OnTextEntered;
@@ -42,7 +79,15 @@ public partial class ChatBox : UIWidget
         _controller.MessageAdded += OnMessageAdded;
         _controller.HighlightsUpdated += OnHighlightsUpdated; // Goob
         _controller.RegisterChat(this);
+
+        // WD EDIT START
+        _cfg = IoCManager.Resolve<IConfigurationManager>();
+        _coalescence = _cfg.GetCVar(GoobCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
+        _cfg.OnValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        // WD EDIT END
     }
+
+    private void UpdateCoalescence(bool value) { _coalescence = value; Repopulate(); } // WD EDIT
 
     private void OnTextEntered(LineEditEventArgs args)
     {
@@ -64,7 +109,26 @@ public partial class ChatBox : UIWidget
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        AddLine(msg.WrappedMessage, color);
+        // WD EDIT START
+        (string, Color) tup = (msg.WrappedMessage, color);
+
+        // Removing and then adding insantly nudges the chat window up before slowly dragging it back down, which makes the whole chat log shake
+        // and make it borderline unreadable with frequent enough spam.
+        // Adding first and then removing does not produce any visual effects.
+        // The other option is to copypaste into Content all of OutputPanel and everything it uses but is intertanl to Robust namespace.
+        // Thanks robustengine, very cool.
+        if (_coalescence && _lastLine == tup)
+        {
+            _lastLineRepeatCount++;
+            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+            Contents.RemoveEntry(^2);
+        }
+        else
+        {
+            _lastLineRepeatCount = 0;
+            _lastLine = (msg.WrappedMessage, color);
+            AddLine(msg.WrappedMessage, color, _lastLineRepeatCount);
+        } // WD EDIT END
     }
 
     private void OnChannelSelect(ChatSelectChannel channel)
@@ -97,12 +161,21 @@ public partial class ChatBox : UIWidget
         }
     }
 
-    public void AddLine(string message, Color color)
+    public void AddLine(string message, Color color, int repeat = 0) // WD EDIT
     {
-        var formatted = new FormattedMessage(3);
+        var formatted = new FormattedMessage(4); // WD EDIT // specifying size beforehand smells like a useless microoptimisation, but i'll give them the benefit of doubt
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
+        if(repeat != 0) // WD EDIT START
+        {
+            int displayRepeat = repeat + 1;
+            int sizeIncrease = Math.Min(displayRepeat / 6, 5);
+            formatted.AddMarkup(_loc.GetString("chat-system-repeated-message-counter",
+                                ("count", displayRepeat),
+                                ("size", 8+sizeIncrease)
+                                ));
+        } // WD EDIT END
         Contents.AddMessage(formatted);
     }
 
@@ -186,6 +259,7 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
+        _cfg.UnsubValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
     }
     // Goobstation - start
     private void OnHighlightsUpdated(string highlights)
