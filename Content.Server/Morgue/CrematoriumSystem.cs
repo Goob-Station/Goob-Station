@@ -46,6 +46,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.CrematorImmune;
 using Content.Server.Ghost;
 using Content.Server.Morgue.Components;
 using Content.Server.Storage.Components;
@@ -181,6 +182,9 @@ public sealed class CrematoriumSystem : EntitySystem
             for (var i = storage.Contents.ContainedEntities.Count - 1; i >= 0; i--)
             {
                 var item = storage.Contents.ContainedEntities[i];
+                if (HasComp<CrematoriumImmuneComponent>(item)) // GOOBCODE ALERT //
+                    continue;
+
                 _containers.Remove(item, storage.Contents);
                 EntityManager.DeleteEntity(item);
             }
