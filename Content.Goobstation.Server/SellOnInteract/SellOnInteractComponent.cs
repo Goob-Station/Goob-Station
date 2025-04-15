@@ -7,10 +7,10 @@ namespace Content.Goobstation.Server.SellOnInteract;
 public sealed partial class SellOnInteractComponent : Component
 {
     /// <summary>
-    /// Can this item sell structures?
+    /// Can this item sell ANYTHING (ignore all blacklists)
     /// </summary>
     [DataField]
-    public bool CanSellStructures;
+    public bool CanSellAnything;
 
     [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<StackPrototype>))]
     public string CashType = "Credit";

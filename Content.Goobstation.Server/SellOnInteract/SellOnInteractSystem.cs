@@ -1,5 +1,7 @@
 using Content.Goobstation.Shared.SellOnInteract;
+using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
+using Content.Server.Construction.Conditions;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Stack;
@@ -39,7 +41,7 @@ public sealed partial class SellOnInteractSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || args.Target == args.Using)
             return;
 
-        if (!HasComp<ItemComponent>(args.Target) && !component.CanSellStructures)
+        if (!HasComp<ItemComponent>(args.Target) || HasComp<CargoSellBlacklistComponent>(args.Target) && !component.CanSellAnything)
             return;
 
         var performer = args.User;
