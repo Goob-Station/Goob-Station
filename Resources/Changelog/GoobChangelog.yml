@@ -7125,3 +7125,13 @@ Entries:
       message: Added the Devil.
   id: 828
   time: '2025-04-15T22:09:34.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Stun baton delayed knockdown is back.
+    - type: Add
+      message: Stamresists on armor.
+    - type: Tweak
+      message: Beanbags and hardlight bow disabler arrows buffed.
+  id: 829
+  time: '2025-04-15T22:11:27.0000000+00:00'
