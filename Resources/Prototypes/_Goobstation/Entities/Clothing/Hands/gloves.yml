@@ -72,8 +72,10 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -246,3 +248,118 @@
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-white
+
+# Knuckle Dusters
+
+- type: entity
+  parent: BaseItem
+  id: ClothingHandsKnuckleDustersBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
+    state: knuckleduster
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
+    slots: [ gloves ]
+  - type: Appearance
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: MeleeWeapon
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 12
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+    canWideSwing: false
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHandsKnuckleDustersBase, BaseMinorContraband]
+  id: ClothingHandsKnuckleDusters
+  name: knuckle dusters
+  description: Sturdy plasteel knuckle-dusters. Adds a whole lot more weight to your punches.
+
+- type: entity
+  parent: [ClothingHandsKnuckleDustersBase, BaseMinorContraband] # Craftable Version
+  id: ClothingHandsKnuckleDustersBrass
+  name: brass knuckle dusters
+  description: Brass knuckle dusters. Just like how they used to make em, and still hit just as hard.
+  components:
+  - type: Sprite
+    state: brassknuckleduster
+  - type: Construction
+    graph: ClothingHandsKnuckleDustersBrass
+    node: icon
+
+- type: entity
+  parent: [ClothingHandsKnuckleDustersBase, BaseSyndicateContraband]
+  id: ClothingHandsKnuckleDustersSyndicate
+  name: syndicate knuckle dusters
+  description: Plastitanium knuckle dusters branded with the syndicate logo. A real man beats someone to death with these.
+  components:
+  - type: Sprite
+    state: syndicateknuckleduster
+  - type: MeleeWeapon
+    attackRate: 1.5
+    damage:
+      types:
+        Blunt: 16
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
+
+- type: entity
+  parent: [ClothingHandsKnuckleDustersBase, BaseCommandContraband]
+  id: ClothingHandsKnucklesQuartermaster
+  suffix: DO NOT MAP
+  name: quartermaster's engraved knuckleduster
+  description: Forged by the finest craftsmen at the Quartermaster's request, this hard and dense knuckle-duster is designed to deliver bone-crushing blows and damage the internal organs of the unfortunate victim.
+  components:
+  - type: Sprite
+    state: goldenknuckleduster
+  - type: MeleeWeapon
+    attackRate: 1.4
+    damage:
+      types:
+        Blunt: 13
+    mustBeEquippedToUse: true
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 500
+  - type: StaticPrice
+    price: 1500
+  - type: StaminaDamageOnHit
+    damage: 12
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: ClothingHandsKnuckleDustersQM
+
+- type: entity
+  parent: [ClothingHandsKnuckleDustersBase, BaseCentcommContraband]
+  id: ClothingHandsKnuckleBoneCrushers
+  name: bone crushers
+  description: "Blessed by the Gods to break all those who don't obey."
+  components:
+  - type: Sprite
+    state: goldenknuckleduster
+  - type: MeleeWeapon
+    attackRate: 2
+    damage:
+      types:
+        Blunt: 35
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
