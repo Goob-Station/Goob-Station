@@ -130,7 +130,7 @@ public sealed class EnchantingSystem : EntitySystem
             return true;
 
         // can't have incompatible enchants
-        var comp = item.Comp;
+        var comp = item.Comp.Value;
         foreach (var incompatible in data.Incompatible)
         {
             if (FindEnchant(comp, incompatible) != null)
@@ -142,7 +142,7 @@ public sealed class EnchantingSystem : EntitySystem
             return !enchant.Comp.IsMaxed;
 
         // item can't be enchanted further
-        return comp.Tier > item.Comp.Enchants.Count;
+        return comp.Tier > comp.Enchants.Count;
     }
 
     /// <summary>
@@ -264,7 +264,7 @@ public sealed class EnchantingSystem : EntitySystem
     /// Find all enchanted items near a table.
     /// The returned hashset is reused between calls and must not be modified.
     /// </summary>
-    public HashSet<Entity<EnchantedComponent>>? FindEnchantedItems(EntityUid table)
+    public HashSet<Entity<EnchantedComponent>> FindEnchantedItems(EntityUid table)
     {
         var coords = Transform(table).Coordinates;
         _enchantedItems.Clear();
