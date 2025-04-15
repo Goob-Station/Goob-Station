@@ -7227,3 +7227,23 @@ Entries:
       message: Fixed wonderprod's fun
   id: 842
   time: '2025-04-15T23:11:21.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix void cloak being visible sometimes when it shouldn't be.
+    - type: Fix
+      message: Eldritch water doesn't deal radiation anymore.
+    - type: Fix
+      message: >-
+        You can now interact with transmutation rune as rust heretic without
+        rusting tiles underneath.
+    - type: Fix
+      message: It is not easier to interact with transmutation rune.
+    - type: Fix
+      message: Rustwalkers cannot be killed by rust mansus grasp anymore.
+    - type: Add
+      message: Mansus grasp now has more surgery qualities but at lower speed.
+    - type: Remove
+      message: Likely removed rust ascension lag.
+  id: 843
+  time: '2025-04-15T23:34:21.0000000+00:00'
