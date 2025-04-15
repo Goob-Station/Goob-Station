@@ -246,3 +246,37 @@
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-white
+
+- type: entity
+  parent: [BaseItem, BaseCommandContraband]
+  id: ClothingHandsKnucklesQuartermaster
+  suffix: DO NOT MAP
+  name: quartermaster's engraved knuckleduster
+  description: Forged by the finest craftsmen at the Quartermaster's request, this hard and dense knuckle-duster is designed to deliver bone-crushing blows and damage the internal organs of the unfortunate victim.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 13
+    mustBeEquippedToUse: true
+    canWideSwing: false
+  - type: StaminaDamageOnHit
+    damage: 15
+  - type: Appearance
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: Clothing
+    slots: [gloves]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 500 # 5 bars
+  - type: StaticPrice
+    price: 1500
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
