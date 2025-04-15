@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Random;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Server.Power.Components;
@@ -12,13 +20,13 @@ using Content.Shared.Movement.Systems;
 using Content.Server.Body.Components;
 using Content.Shared.Mind.Components;
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Common.CCVar;
 using Content.Server.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Alert;
-using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
 

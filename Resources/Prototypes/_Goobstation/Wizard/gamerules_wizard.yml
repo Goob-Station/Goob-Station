@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   abstract: true
   parent: BaseGameRule
@@ -51,16 +62,6 @@
 
 - type: entity
   parent: BaseWizardRule
-  id: WizardDynamic
-  components:
-  - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-wizard-title
-    weight: 3
-    cost: 20
-    highImpact: true
-
-- type: entity
-  parent: BaseWizardRule
   id: WizardMidround
   components:
   - type: StationEvent
@@ -100,10 +101,6 @@
   - type: Tag
     tags:
       - MidroundAntag
-
-- type: entity
-  parent: [ WizardDynamic, WizardMidround]
-  id: WizardDynamicMidround
 
 - type: entity
   parent: BaseGameRule
@@ -158,6 +155,12 @@
   id: GhostsVisible
   components:
   - type: GhostsVisibleRule
+
+- type: entity
+  parent: BaseGameRule
+  id: GlobalTileMovement
+  components:
+  - type: GlobalTileMovementRule
 
 - type: gamePreset
   id: Wizard
