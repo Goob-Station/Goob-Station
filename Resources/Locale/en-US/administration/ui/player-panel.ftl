@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 IgorAnt028 <118114530+IgorAnt028@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 player-panel-title = information for {$player}
 player-panel-username = Username: {$player}
 player-panel-whitelisted = Whitelisted:

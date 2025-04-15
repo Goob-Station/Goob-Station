@@ -1,4 +1,13 @@
-﻿using System.Diagnostics;
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics;
 using System.IO.Compression;
 using Robust.Packaging;
 using Robust.Packaging.AssetProcessing;
@@ -12,28 +21,34 @@ public static class ClientPackaging
 {
     /// <summary>
     /// Be advised this can be called from server packaging during a HybridACZ build.
+    /// Be also advised this goes against god and nature
     /// </summary>
-    public static async Task PackageClient(bool skipBuild, string configuration, IPackageLogger logger)
+    public static async Task PackageClient(bool skipBuild, string configuration, IPackageLogger logger, string path = ".")
     {
         logger.Info("Building client...");
 
         if (!skipBuild)
         {
-            await ProcessHelpers.RunCheck(new ProcessStartInfo
+            var clientProjects = GetClientModules(path);
+
+            foreach (var project in clientProjects)
             {
-                FileName = "dotnet",
-                ArgumentList =
+                await ProcessHelpers.RunCheck(new ProcessStartInfo
                 {
-                    "build",
-                    Path.Combine("Content.Client", "Content.Client.csproj"),
-                    "-c", configuration,
-                    "--nologo",
-                    "/v:m",
-                    "/t:Rebuild",
-                    "/p:FullRelease=true",
-                    "/m"
-                }
-            });
+                    FileName = "dotnet",
+                    ArgumentList =
+                    {
+                        "build",
+                        project,
+                        "-c", configuration,
+                        "--nologo",
+                        "/v:m",
+                        "/t:Rebuild",
+                        "/p:FullRelease=true",
+                        "/m"
+                    }
+                });
+            }
         }
 
         logger.Info("Packaging client...");
@@ -50,6 +65,57 @@ public static class ClientPackaging
         }
 
         logger.Info($"Finished packaging client in {sw.Elapsed}");
+    }
+
+    private static List<string> GetClientModules(string path)
+    {
+        var clientProjects = new List<string> { Path.Combine("Content.Client", "Content.Client.csproj") };
+
+        var directories = Directory.GetDirectories(path, "Content.*");
+
+        foreach (var dir in directories)
+        {
+            var dirName = Path.GetFileName(dir);
+
+            if (dirName != "Content.Client" && dirName.EndsWith(".Client"))
+            {
+                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
+                if (File.Exists(projectPath))
+                {
+                    clientProjects.Add(projectPath);
+                }
+            }
+        }
+
+        return clientProjects;
+    }
+
+    private static List<string> FindAllModules(string path = ".")
+    {
+        // Correct pathing to be in local folder if contentDir is empty.
+        if (string.IsNullOrEmpty(path))
+            path = ".";
+
+        var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database" };
+
+        var directories = Directory.GetDirectories(path, "Content.*");
+        foreach (var dir in directories)
+        {
+            var dirName = Path.GetFileName(dir);
+
+            // Throw in anything that ends with ".Client", ".Shared" or ".Common"
+            if ((dirName.EndsWith(".Client") || dirName.EndsWith(".Shared") || dir.EndsWith(".Common")) &&
+                !modules.Contains(dirName))
+            {
+                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
+                if (File.Exists(projectPath))
+                {
+                    modules.Add(dirName);
+                }
+            }
+        }
+
+        return modules;
     }
 
     public static async Task WriteResources(
@@ -71,11 +137,13 @@ public static class ClientPackaging
 
         var inputPass = graph.Input;
 
+        var modules = FindAllModules(contentDir);
+
         await RobustSharedPackaging.WriteContentAssemblies(
             inputPass,
             contentDir,
             "Content.Client",
-            new[] { "Content.Client", "Content.Shared", "Content.Shared.Database" },
+            modules.ToArray(),
             cancel: cancel);
 
         await RobustClientPackaging.WriteClientResources(contentDir, inputPass, cancel);

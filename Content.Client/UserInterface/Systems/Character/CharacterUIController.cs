@@ -1,3 +1,29 @@
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <jmaster9999@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
+// SPDX-FileCopyrightText: 2023 Justin Trotter <trotter.justin@gmail.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
@@ -7,6 +33,9 @@ using Content.Client.UserInterface.Systems.Character.Controls;
 using Content.Client.UserInterface.Systems.Character.Windows;
 using Content.Client.UserInterface.Systems.Objectives.Controls;
 using Content.Shared.Input;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
@@ -14,6 +43,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using static Robust.Client.UserInterface.Controls.BaseButton;
@@ -23,9 +53,24 @@ namespace Content.Client.UserInterface.Systems.Character;
 [UsedImplicitly]
 public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
 {
+    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly ILogManager _logMan = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;
+
+    private ISawmill _sawmill = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _sawmill = _logMan.GetSawmill("character");
+
+        SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnRoleTypeChanged);
+    }
 
     private CharacterWindow? _window;
     private MenuButton? CharacterButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CharacterButton;
@@ -119,6 +164,9 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         var (entity, job, objectives, briefing, entityName) = data;
 
         _window.SpriteView.SetEntity(entity);
+
+        UpdateRoleType();
+
         _window.NameLabel.Text = entityName;
         _window.SubText.Text = job;
         _window.Objectives.RemoveAllChildren();
@@ -180,6 +228,37 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         }
 
         _window.RolePlaceholder.Visible = briefing == null && !controls.Any() && !objectives.Any();
+    }
+
+    private void OnRoleTypeChanged(MindRoleTypeChangedEvent ev, EntitySessionEventArgs _)
+    {
+        UpdateRoleType();
+    }
+
+    private void UpdateRoleType()
+    {
+        if (_window == null || !_window.IsOpen)
+            return;
+
+        if (!_ent.TryGetComponent<MindContainerComponent>(_player.LocalEntity, out var container)
+            || container.Mind is null)
+            return;
+
+        if (!_ent.TryGetComponent<MindComponent>(container.Mind.Value, out var mind))
+            return;
+
+        var roleText = Loc.GetString("role-type-crew-aligned-name");
+        var color = Color.White;
+        if (_prototypeManager.TryIndex(mind.RoleType, out var proto))
+        {
+            roleText = Loc.GetString(proto.Name);
+            color = proto.Color;
+        }
+        else
+            _sawmill.Error($"{_player.LocalEntity} has invalid Role Type '{mind.RoleType}'. Displaying '{roleText}' instead");
+
+        _window.RoleType.Text = roleText;
+        _window.RoleType.FontColorOverride = color;
     }
 
     private void CharacterDetached(EntityUid uid)
