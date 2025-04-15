@@ -8,7 +8,16 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "knuckleduster"
+    },
+	{
+      "name": "goldenknuckleduster"
+    },
+	{
+      "name": "brassknuckleduster"
+    },
+	{
+      "name": "syndicateknuckleduster"
     },
 	{
       "name": "equipped-HAND",
