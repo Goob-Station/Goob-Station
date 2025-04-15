@@ -7135,3 +7135,11 @@ Entries:
       message: Beanbags and hardlight bow disabler arrows buffed.
   id: 829
   time: '2025-04-15T22:11:27.0000000+00:00'
+- author: PunishedJoe
+  changes:
+    - type: Add
+      message: >-
+        Adds MODsuit variations of existing crew voidsuits, not currently
+        obtainable (trvst thv plvn)
+  id: 830
+  time: '2025-04-15T22:11:44.0000000+00:00'
