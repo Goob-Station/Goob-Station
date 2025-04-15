@@ -279,6 +279,8 @@
     damage:
       types:
         Poison: 0 # Goob edit
+  - type: TriggerOnCollide
+    fixtureID: projectile
   - type: Reflective # Goobstation
     reflective: None
   - type: Ammo # Goobstation
@@ -300,8 +302,9 @@
   description: Nooo, I don't wanna be fish!
   categories: [ HideSpawnMenu ]
   components:
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: WizardForcedCarp
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Body
@@ -313,8 +316,9 @@
   description: Nooo, I don't wanna be monkey!
   categories: [ HideSpawnMenu ]
   components:
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: WizardForcedMonkey
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Body
@@ -331,8 +335,9 @@
     layers:
     - state: spell
       color: brown
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: WizardWallDoor
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Airlock
@@ -399,8 +404,9 @@
   description: KnoH KnoH!
   categories: [ HideSpawnMenu ]
   components:
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: WizardForcedCluwne
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Body
@@ -428,8 +434,9 @@
   description: Nooo, I don't wanna be bread!
   categories: [ HideSpawnMenu ]
   components:
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: BreadMorph
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Body
