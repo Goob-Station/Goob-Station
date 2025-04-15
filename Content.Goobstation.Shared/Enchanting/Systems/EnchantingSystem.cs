@@ -130,7 +130,7 @@ public sealed class EnchantingSystem : EntitySystem
             return true;
 
         // can't have incompatible enchants
-        var comp = item.Comp.Value;
+        var comp = item.Comp;
         foreach (var incompatible in data.Incompatible)
         {
             if (FindEnchant(comp, incompatible) != null)
