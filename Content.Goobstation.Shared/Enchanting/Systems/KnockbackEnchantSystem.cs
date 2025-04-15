@@ -9,7 +9,7 @@ using Content.Shared.Weapons.Melee.Components;
 namespace Content.Goobstation.Shared.Enchanting.Systems;
 
 /// <summary>
-/// Controls <see cref="MeleeHitOnThrowComponent"/> values with the enchant level.
+/// Controls <see cref="MeleeThrowOnHitComponent"/> values with the enchant level.
 /// </summary>
 public sealed class KnockbackEnchantSystem : EntitySystem
 {
