@@ -166,7 +166,7 @@
 - type: entity
   parent: BaseNullrod
   id: GodHand
-  name: the god hand
+  name: Hand of God
   description: A holy, fiery gift from the gods. You won't drop this one.
   suffix: Unremoveable
   components:
@@ -196,7 +196,6 @@
     qualities:
       - Prying
   - type: Unremoveable
-  - type: GrabbingItem
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -381,6 +380,91 @@
   - type: Tag
     tags:
     - HonkmotherMaw
+
+- type: entity
+  parent: BaseNullrod
+  id: UristHand
+  name: Hand of Urist
+  description: The tide beckons.
+  suffix: Unremoveable
+  components:
+  - type: Item
+    size: Ginormous
+    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+    state: icon
+  - type: UseDelay
+    delay: 0
+  - type: Tool
+    qualities:
+    - Screwing
+    speedModifier: 1.2
+  - type: ToolTileCompatible
+  - type: Prying
+    enabled: false
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+    - behavior: Screwing
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/drill_use.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Prying
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/jaws_pry.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Anchoring
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/ratchet.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Cutting
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        state: icon
+      useSound:
+        path: /Audio/Items/jaws_cut.ogg
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+    - behavior: Pulsing
+      sprite:
+        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        state: icon
+      changeSound:
+        path: /Audio/Items/change_drill.ogg
+  - type: MeleeWeapon
+    canWideSwing: false
+    attackRate: 0.9
+    damage:
+      types:
+        Blunt: 12
+        Holy: 25
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: Unremoveable
+  - type: GrabbingItem
+  - type: Insulated
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Blunt: 50
+    UntrainedUseString: nullrod-uristhand-untrained-usage-popup
+  - type: Tag
+    tags:
+      - UristHand
+      - Multitool
 
 # Casul & Jackal
 - type: entity

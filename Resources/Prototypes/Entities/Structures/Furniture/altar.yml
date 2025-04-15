@@ -272,6 +272,12 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: AltarSource
+    rodProto: UristHand # Shitchap
+    effectProto: EffectSpark
+  - type: Construction
+    graph: AltarsGraph
+    node: MaintsAltarNode
 
 - type: entity
   id: AltarConvertBlue
@@ -485,7 +491,7 @@
     state: full
   - type: Construction
     graph: AltarsGraph
-    node: AltarBananium
+    node: BananiumAltarNode
   - type: AltarSource
     rodProto: HonkmotherMaw # Shitchap
     effectProto: EffectSpark

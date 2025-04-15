@@ -75,6 +75,13 @@
         steps:
         - tag: TemplarHelmet
           doAfter: 3
+      - to: MaintsAltarNode
+        completed:
+        - !type:SnapToGrid
+          southRotation: true
+        steps:
+        - tag: BudgetInsuls
+          doAfter: 3
       - to: NanotrasenAltarNode
         completed:
         - !type:SnapToGrid
@@ -154,6 +161,18 @@
       completed:
       - !type:SpawnPrototype
         prototype: ClothingHeadHelmetTemplar
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
+
+  - node: MaintsAltarNode
+    entity: AltarConvertMaint
+    edges:
+    - to: AltarConvertNode
+      completed:
+      - !type:SpawnPrototype
+        prototype: ClothingHandsGlovesColorYellowBudget
         amount: 1
       steps:
       - tool: Prying

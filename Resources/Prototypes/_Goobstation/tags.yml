@@ -59,6 +59,9 @@
   id: BolaEnergy
 
 - type: Tag
+  id: BudgetInsuls
+
+- type: Tag
   id: BreadEmergency
 
 - type: Tag
@@ -399,6 +402,9 @@
 
 - type: Tag
   id: Undead
+
+- type: Tag
+  id: UristHand
 
 - type: Tag
   id: VehicleKey
