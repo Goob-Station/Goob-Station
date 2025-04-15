@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -88,7 +89,7 @@ public sealed partial class SellOnInteractSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, SellOnInteractComponent comp, ref SellOnInteractDoAfter args)
     {
-        if (args.Handled || args.Target == null || args.Cancelled)
+        if (args.Handled || args.Target == null || args.Cancelled || TerminatingOrDeleted(args.target))
             return;
 
         var target = (EntityUid)args.Target;
