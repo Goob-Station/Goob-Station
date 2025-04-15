@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   save: false
   name: Urist McRaptor
@@ -170,9 +176,6 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
-  - type: FootPrints # Goobstation - resomi footprints
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
   - type: Bloodstream # Goobstation - lore stuff
     bloodReagent: AmmoniaBlood
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
