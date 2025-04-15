@@ -308,7 +308,7 @@
     objectives:
     - DevilContractObjective
   - type: AntagSelection
-    selectionTime: BeforeJobs
+    selectionTime: IntraPlayerSpawn
     agentName: devil-roundend-name
     definitions:
     - prefRoles: [ Devil ]
