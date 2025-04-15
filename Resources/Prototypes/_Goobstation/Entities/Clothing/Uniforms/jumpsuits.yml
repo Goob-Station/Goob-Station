@@ -193,21 +193,3 @@
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
   - type: Clothing
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
-
-- type: entity
-  parent: [ClothingUniformJumpsuitLawyerBlack, BaseMagicContraband]
-  id: ClothingUniformJumpsuitDevil
-  name: devilish suit
-  description: A stylish black suit made of materials not from this dimension. Warm to the touch.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.75

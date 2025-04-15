@@ -330,7 +330,6 @@
       priority: 2 # Goobstation
       lightningExplode: false
     - type: ComplexInteraction
-    - type: FootPrints
     - type: Carriable
     - type: Targeting
     - type: LayingDown

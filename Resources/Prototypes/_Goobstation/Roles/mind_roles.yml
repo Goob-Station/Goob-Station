@@ -1,9 +1,0 @@
-- type: entity
-  parent: BaseMindRoleAntag
-  id: DevilMindRole
-  name: Devil Role
-  components:
-  - type: MindRole
-    antagPrototype: Devil
-    exclusiveAntag: true
-  - type: DevilRole
