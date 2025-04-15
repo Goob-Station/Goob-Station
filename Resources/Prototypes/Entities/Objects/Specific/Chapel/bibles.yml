@@ -138,9 +138,10 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+  - type: Material
   - type: Tag
     tags:
-    - Book
+    - Bible
   - type: StealTarget
     stealGroup: Bible
 

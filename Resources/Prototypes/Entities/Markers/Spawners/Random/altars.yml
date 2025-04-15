@@ -23,6 +23,11 @@
         - AltarSpaceChristian
         - AltarSatana
         - AltarTechnology
+        - AltarConvert
+        - AltarHeaven
+        - AltarFangs
+        - AltarBananium
+        - AltarConvertMaint
       offset: 0.0
 
 - type: entity

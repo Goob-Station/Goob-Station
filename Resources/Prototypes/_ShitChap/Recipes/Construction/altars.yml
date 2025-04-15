@@ -1,0 +1,17 @@
+- type: construction
+  name: altar
+  id: AltarConvert
+  graph: AltarsGraph
+  startNode: start
+  targetNode: AltarConvertNode
+  category: construction-category-structures
+  description: An altar of the Gods, maybe you should place an offering?
+  icon:
+    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    state: convertaltar
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

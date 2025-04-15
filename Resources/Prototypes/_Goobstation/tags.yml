@@ -44,6 +44,9 @@
   id: BindSoulAction
 
 - type: Tag
+  id: Bible
+
+- type: Tag
   id: Blobbernaut
 
 - type: Tag
@@ -54,6 +57,9 @@
 
 - type: Tag
   id: BolaEnergy
+
+- type: Tag
+  id: BudgetInsuls
 
 - type: Tag
   id: BreadEmergency
@@ -380,6 +386,9 @@
   id: Table
 
 - type: Tag
+  id: TemplarHelmet
+
+- type: Tag
   id: Tongue
 
 - type: Tag
@@ -393,6 +402,9 @@
 
 - type: Tag
   id: Undead
+
+- type: Tag
+  id: UristHand
 
 - type: Tag
   id: VehicleKey
