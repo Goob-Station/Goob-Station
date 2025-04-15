@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Damage;
+using Content.Shared.Inventory; // Goobstation
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
@@ -28,8 +29,9 @@ namespace Content.Shared.Weapons.Melee.Events
     /// <summary>
     ///     Event raised on entities that have been attacked.
     /// </summary>
-    public sealed class AttackedEvent : EntityEventArgs
+    public sealed class AttackedEvent : EntityEventArgs, IInventoryRelayEvent // Goobstation
     {
+        SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET; // Goobstation
         /// <summary>
         ///     Entity used to attack, for broadcast purposes.
         /// </summary>

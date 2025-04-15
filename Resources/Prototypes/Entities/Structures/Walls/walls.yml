@@ -222,7 +222,7 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.1
-
+  - type: SunShadowCast
 
 - type: entity
   parent: BaseWall
@@ -252,7 +252,7 @@
         acts: [ "Destruction" ]
 
   - type: IconSmooth
-    key: bricks
+    key: walls
     base: brick
   - type: RustRequiresPathStage # Goobstation
     pathStage: 4 # Mark of rust
