@@ -76,8 +76,6 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
-    - type: Condemned
-      soulOwnedNotDevil: true # This just means they won't suffer the effects of being condemned, while still not being able to sell their soul. - Goobstation
 
 - type: startingGear
   id: ChaplainGear
