@@ -10,7 +10,7 @@ using Robust.Shared.Random;
 namespace Content.Goobstation.Shared.Enchanting.Systems;
 
 /// <summary>
-/// Controls <see cref="BudgetInsulatedComponent"/> values with the enchant level.
+/// Controls <see cref="BudgetInsulatedEnchantComponent"/> values with the enchant level.
 /// </summary>
 public sealed class BudgetInsulatedEnchantSystem : EntitySystem
 {

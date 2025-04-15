@@ -39,7 +39,7 @@ public sealed partial class EnchantedComponent : Component
     /// The container that stores enchant entities.
     /// </summary>
     [ViewVariables]
-    public Container Container;
+    public Container Container = default!;
 
     /// <summary>
     /// The enchants this item has.
