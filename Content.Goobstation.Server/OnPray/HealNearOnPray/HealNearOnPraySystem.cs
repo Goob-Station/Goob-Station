@@ -7,17 +7,12 @@ using System.Linq;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 
 namespace Content.Goobstation.Server.OnPray.HealNearOnPray;
 
 public sealed partial class HealNearOnPraySystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
