@@ -1,5 +1,32 @@
-using Content.Server.Atmos.Components;
-using Content.Server.Atmos.EntitySystems;
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Tomás Alves <tomasalves35@gmail.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Dae <60460608+ZeroDayDaemon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 double_b <40827162+benjamin-burges@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -15,9 +42,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
-using Content.Shared._Goobstation.Religion;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -36,7 +61,6 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly FlammableSystem _flammableSystem = default!;
 
         public override void Initialize()
         {
@@ -119,35 +143,6 @@ namespace Content.Server.Bible
                 return;
             }
 
-            //Goobstation Edit Begin - Religion
-            //Public Domain Code Begins
-            if (EntityManager.TryGetComponent(args.Target, out ReligionComponent? targetReligion))
-            {
-                EntityManager.TryGetComponent(args.User, out ReligionComponent? userReligion);
-                switch (targetReligion.Type)
-                {
-                    //Atheist Chaplains set non atheists on fire and heal atheists
-                    case Religion.Atheist:
-                        if (userReligion != null && userReligion.Type != targetReligion.Type)
-                        {
-                            DoBibleSmite(uid, useDelay, args);
-                            return;
-                        }
-                        break;
-
-                    //Non-Atheist Chaplains set atheists on fire and heal non-atheists
-                    default:
-                        if (userReligion != null && userReligion.Type == Religion.Atheist)
-                        {
-                            DoBibleSmite(uid, useDelay, args);
-                            return;
-                        }
-                        break;
-                }
-            }
-            //Public Domain Code Ends
-            //Goobstation Edit End - Religion
-
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
             if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out var _) && !HasComp<FamiliarComponent>(args.Target.Value))
             {
@@ -187,26 +182,6 @@ namespace Content.Server.Bible
                 _delay.TryResetDelay((uid, useDelay));
             }
         }
-
-        //Goobstation Edit Begin - Religion
-        //Public Domain Code begin
-        private void DoBibleSmite(EntityUid uid, UseDelayComponent useDelay, AfterInteractEvent args)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
-                args.User,
-                args.User,
-                PopupType.MediumCaution);
-            if (EntityManager.TryGetComponent(args.Target, out FlammableComponent? flammable))
-            {
-                _flammableSystem.SetFireStacks(args.Target.Value, 1);
-                _flammableSystem.Ignite(args.Target.Value, args.User);
-                _delay.TryResetDelay((uid, useDelay));
-                return;
-            }
-            return;
-        }
-        //Public Domain Code end
-        //Goobstation Edit End - Religion
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {

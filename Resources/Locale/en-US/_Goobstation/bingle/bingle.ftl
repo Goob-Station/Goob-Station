@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 
 bingle-accent-1 = Bingle
 bingle-accent-2 = Bing
@@ -18,5 +24,4 @@ ghost-role-information-bingle-description = The Pit is love. The Pit is life. Th
 
 bingle-upgrade-success = You feel stronger
 bingle-pit-grow =  The pit grows larger
-
-bingle-pit-end-of-round = The Binglepit near {$location} grew to level {$level} and collected {$points} Bingle points
+bingle-pit-end-of-round = The Binglepit near {$location} grew to level [color=teal]{$level}[/color] and collected [color=teal]{$points}[/color] Bingle points
