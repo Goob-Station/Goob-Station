@@ -304,6 +304,9 @@
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
     - id: EngineeringTechFabCircuitboard # Goobstation - Engineering Techfab
+    - id: CartridgeRocketSingularityBuster
+    - id: CartridgeRocketSingularityBuster
+    - id: WeaponLauncherSingularityBuster
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
