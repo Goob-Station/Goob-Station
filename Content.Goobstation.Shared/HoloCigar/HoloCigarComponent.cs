@@ -1,5 +1,6 @@
 using Robust.Shared.GameStates;
 using System;
+using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.HoloCigar;
@@ -12,6 +13,13 @@ public sealed partial class HoloCigarComponent : Component
 {
     [ViewVariables]
     public bool Lit;
+
+    [ViewVariables]
+    public SoundSpecifier Music = new SoundPathSpecifier("/Audio/_Goobstation/Items/TheManWhoSoldTheWorld/invisible.ogg");
+
+    [ViewVariables]
+    public EntityUid? MusicEntity;
+
 }
 
 [Serializable, NetSerializable]
