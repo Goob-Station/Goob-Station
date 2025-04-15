@@ -16,7 +16,10 @@
 // SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -129,7 +132,14 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var species = GetSpeciesRepresentation(component.Species).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
 
-        args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
+        // WWDP EDIT
+        string locale = "humanoid-appearance-component-examine";
+
+        if (args.Examiner == args.Examined) // Use the selfaware locale when examining yourself
+            locale += "-selfaware";
+
+        args.PushText(Loc.GetString(locale, ("user", identity), ("age", age), ("species", species)), 100); // priority for examine
+        // WWDP EDIT END
     }
 
     /// <summary>

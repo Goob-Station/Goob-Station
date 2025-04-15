@@ -439,7 +439,7 @@
   components:
   - type: RandomMetadata
     nameSegments:
-      - names_borg
+    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
@@ -449,6 +449,8 @@
     enabled: false
     groups:
     - AllAccess
+    tags:
+    - Borg
   - type: AccessReader
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
@@ -475,6 +477,7 @@
     access: [["SyndicateAgent"], ["NuclearOperative"]]
   - type: SiliconLawProvider
     laws: SyndicateStatic
+    subverted: true
   - type: IntrinsicRadioTransmitter
     channels:
     - Binary
