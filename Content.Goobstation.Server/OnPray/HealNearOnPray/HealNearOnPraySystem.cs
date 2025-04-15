@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
@@ -17,6 +18,8 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -25,21 +28,9 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
 
     private void OnPray(EntityUid uid, HealNearOnPrayComponent comp, ref NullrodPrayEvent args)
     {
-        var userMapCoordinates = _transform.GetMapCoordinates(uid);
-        var userCoordinates = _transform.ToCoordinates(userMapCoordinates);
+        var lookup = _lookup.GetEntitiesInRange(args.User, comp.Range);
 
-        var query = EntityQueryEnumerator<DamageableComponent>();
-        while (query.MoveNext(out var other, out var damageable))
-        {
-            if (HasComp<WeakToHolyComponent>(other))
-                continue;
-
-            var otherMapCoordinates = _transform.GetMapCoordinates(other);
-            var otherCoordinates = _transform.ToCoordinates(otherMapCoordinates);
-
-            if (_transform.InRange(userCoordinates, otherCoordinates, comp.Range))
-                _damageable.TryChangeDamage(other, comp.Damage);
-        }
+        foreach (var entity in lookup.Where(entity => !HasComp<WeakToHolyComponent>(entity))) // im linqing it
+            _damageable.TryChangeDamage(entity, comp.Damage);
     }
-
 }
