@@ -1,0 +1,256 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseFish
+  parent: BaseItem
+  abstract: true
+  name: fish
+  description: Water-born creature from the infinite sea... Or toilet.
+  components:
+  - type: Fish
+    difficulty: 0.029
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  id: BaseFishRare
+  parent: BaseFish
+  abstract: true
+  name: rare fish
+  description: Water-born creature from the infinite sea... Or toilet.
+  components:
+  - type: Fish
+    difficulty: 0.038
+  - type: StaticPrice
+    price: 750
+
+- type: entity
+  id: FishAlien
+  parent: BaseFishRare
+  name: alien fish
+  description: Looks pretty... Abductory.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: alien
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishAngler
+  parent: BaseFish
+  name: angler fish
+  description: Scariest thing in existence, after bingles.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: angler
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishBass
+  parent: BaseFish
+  name: bass fish
+  description: Probably the most normal fish in existence. Unless you use it as bass guitar.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: bass
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishBingle
+  parent: BaseFishRare
+  name: bingle fish
+  description: bingle
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: bingle
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishBlob
+  parent: BaseFish
+  name: blob fish
+  description: Unfortuantly, this is not a 5th level bio-hazard threat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: blob
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishBlueFintuna
+  parent: BaseFish
+  name: blue fintuna
+  description: It's looking straight to you...
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: blue_fintuna
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishBoyFisher
+  parent: BaseFishRare
+  name: boy fisher
+  description: You like kissing fish, don't you?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: boy_fisher
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishCat
+  parent: BaseFish
+  name: cat fish
+  description: Ironically this looks nothing like a cat. And it doesn't meow.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: catfish
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishTropicalClown
+  parent: BaseFish
+  name: clown clown fish
+  description: That is almost certanly some kind of joke.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: clown
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishNukeDisk
+  parent: BaseFishRare
+  name: nuke disk fish
+  description: Erm, Actually, it's a bad idea trying to fit a fish inside a nuclear explosion device.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: disk
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishGib
+  parent: BaseFishRare
+  name: gib stick fish
+  description: "My face when i open a present and get gibstick:"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: gib
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishMutant
+  parent: BaseFishRare
+  name: mutant fish
+  description: Anomalous fish that looks like it ate some nuclear waste.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: mutant
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishNuker
+  parent: BaseFishRare
+  name: nuclear operative fish
+  description: Predator of the nuke disk fish.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: nuker
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishPuffer
+  parent: BaseFish
+  name: puffer fish
+  description: It is poisonous... in many ways.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: pufferfish
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishSilver
+  parent: BaseFish
+  name: silver fish
+  description: Actually contains silver.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: silverfish
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishTropicalSun
+  parent: BaseFish
+  name: tropical sun fish
+  description: It probably looked at the sun for too long...?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: sun_tropical
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishToxic
+  parent: BaseFishRare
+  name: toxic waste fish
+  description: "Looking at this fish, you understand how much it was a bad idea to allow nuclear waste to be dumped into rivers."
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: toxic
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishTropical
+  parent: BaseFish
+  name: clown fish
+  description: This fish is always searching for something... Or maybe someone?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: tropical
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+
+- type: entity
+  id: FishIan
+  parent: BaseFishRare
+  name: ian fish
+  description: Water-born ian from the sea.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
+    state: ian
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
