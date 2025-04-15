@@ -7165,3 +7165,11 @@ Entries:
       message: Fixed Salvage dock becoming permanently spaced on Saltern
   id: 833
   time: '2025-04-15T22:16:25.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Add
+      message: Added the Lavaland Shuttle to Cluster
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Cluster
+  id: 834
+  time: '2025-04-15T22:17:14.0000000+00:00'
