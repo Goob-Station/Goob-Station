@@ -265,7 +265,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GrantCqc
     isBlocked: false
@@ -305,7 +305,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GrantCqc
     isBlocked: false
@@ -345,7 +345,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StorageImplant ]
   - type: GrantCqc
     isBlocked: false
@@ -385,7 +385,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GrantCqc
     isBlocked: false
@@ -425,7 +425,7 @@
   parent: EventHumanoidMindShielded
   randomizeName: false
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
   - type: GhostRole
     name: ghost-role-information-diplomat-name
