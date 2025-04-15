@@ -17,9 +17,9 @@
       "name": "pen_devil-inhand-left",
       "directions": 4
     },
-    {
-      "name": "pen_devil-inhand-right",
-      "directions": 4
-    }
+        {
+            "name": "pen_devil-inhand-right",
+            "directions": 4
+        }
     ]
 }
