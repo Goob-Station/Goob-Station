@@ -7185,3 +7185,9 @@ Entries:
       message: Footprints and bodyprints will not disappear without mopping them.
   id: 836
   time: '2025-04-15T22:19:04.0000000+00:00'
+- author: SolsticeOfTheWinter, Spessman
+  changes:
+    - type: Add
+      message: Added the Chief Engineers Singularity Buster Rocket Launcher. Have fun.
+  id: 837
+  time: '2025-04-15T22:42:28.0000000+00:00'
