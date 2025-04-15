@@ -76,7 +76,7 @@ public sealed partial class SellOnInteractSystem : EntitySystem
             performer,
             comp.DoAfterDuration,
             new SellOnInteractDoAfter(),
-            comp.Owner)
+            comp.Owner, target)
         {
             BlockDuplicate = true,
             BreakOnMove = true,
@@ -89,7 +89,7 @@ public sealed partial class SellOnInteractSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, SellOnInteractComponent comp, ref SellOnInteractDoAfter args)
     {
-        if (args.Handled || args.Target == null || args.Cancelled || TerminatingOrDeleted(args.target))
+        if (args.Handled || args.Target == null || args.Cancelled || TerminatingOrDeleted(args.Target))
             return;
 
         var target = (EntityUid)args.Target;
