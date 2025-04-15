@@ -149,7 +149,6 @@
   - type: Inventory
     templateId: arachnid
 
-
 - type: entity
   parent: BaseSpeciesDummy
   id: MobArachnidDummy
@@ -157,6 +156,8 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
+  - type: Inventory
+    speciesId: arachnid 
 
 
 #>88w88<
