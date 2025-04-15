@@ -1,3 +1,20 @@
+<!--
+SPDX-FileCopyrightText: 2022 Eoin Mcloughlin <helloworld@eoinrul.es>
+SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
+SPDX-FileCopyrightText: 2023 Thom <119594676+ItsMeThom@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <DefaultWindow
     xmlns="https://spacestation14.io"
     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
@@ -59,6 +76,7 @@
                         PlaceHolder="0"
                         Text="1"
                         HorizontalExpand="True" />
+                    <Label Name="RecipeCount" Margin="8 0 8 0" MinWidth="90" Align="Right" />
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>
