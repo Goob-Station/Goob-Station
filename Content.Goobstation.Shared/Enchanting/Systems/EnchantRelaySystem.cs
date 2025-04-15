@@ -51,7 +51,7 @@ public sealed class EnchantRelaySystem : EntitySystem
         }
     }
 
-    private void RelayInventoryEvent<T>(Entity<EnchantedComponent> ent, ref InventoryRelayedEvent<T> args) where T: IInventoryRelayEvent, notnull
+    private void RelayInventoryEvent<T>(Entity<EnchantedComponent> ent, ref InventoryRelayedEvent<T> args) where T: IInventoryRelayEvent
     {
         RelayEvent(ent, ref args.Args);
     }
