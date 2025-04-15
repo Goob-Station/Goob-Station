@@ -39,7 +39,7 @@ public sealed class EnchantSacraficeSystem : EntitySystem
 
         // only care about player-controlled mobs, even if they're mice and shit
         var mob = args.Target;
-        if (_mind.GetMind(mob) is not {} mind)
+        if (!_mind.TryGetMind(mob, out var mind, out _))
             return;
 
         // don't double dip by killing and reviving someone
