@@ -7205,3 +7205,9 @@ Entries:
         buy their own. You can also get them in maintenance.
   id: 839
   time: '2025-04-15T22:45:54.0000000+00:00'
+- author: terminatorbo
+  changes:
+    - type: Add
+      message: Nukies now can buy surplus and super surplus bundles!
+  id: 840
+  time: '2025-04-15T22:55:47.0000000+00:00'
