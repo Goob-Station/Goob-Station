@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
@@ -126,7 +127,7 @@ public partial class SharedMartialArtsSystem
                 break;
             case true:
                 _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-                _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+                //_stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
                 break;
         }
 
