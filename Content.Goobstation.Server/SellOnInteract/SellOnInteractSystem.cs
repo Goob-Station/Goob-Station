@@ -89,7 +89,7 @@ public sealed partial class SellOnInteractSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, SellOnInteractComponent comp, ref SellOnInteractDoAfter args)
     {
-        if (args.Handled || args.Target == null || args.Cancelled)
+        if (args.Handled || args.Target == null || args.Cancelled || TerminatingOrDeleted(args.target))
             return;
 
         var target = (EntityUid)args.Target;
