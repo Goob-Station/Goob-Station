@@ -12,7 +12,7 @@
         type: StorageBoundUserInterface
   - type: ActivatableUI
     key: enum.NtrTaskUiKey.Key
-  - type: NtrTaskProvider
+  - type: NtrTaskConsole
   - type: ItemSlots
     slots:
       item:

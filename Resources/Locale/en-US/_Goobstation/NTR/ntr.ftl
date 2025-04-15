@@ -127,7 +127,13 @@ ntr-executive-tier-5-name = Rare machine boards
 ntr-console-insert-deny = Wrong!
 ntr-console-insert-accept = Correct!
 
-ntr-bounty-console-reward-label = Reward: Loyalty points: {$reward}
-ntr-bounty-console-manifest-entry = {amount}x {item}
+ntr-bounty-console-reward-label = Reward: [color=limegreen]{$reward} loyalty points[/color]
+ntr-bounty-console-manifest-entry =
+    { $amount ->
+        [1] {$item}
+        *[other] {$item} x{$amount}
+    }
+
+ntr-bounty-console-flavor-left = Bounties approved by Central Command. Bribes not included. Probably.
 
 ntr-console-spam-penalty = Penalty applied: -4 NT points for submitting spam!

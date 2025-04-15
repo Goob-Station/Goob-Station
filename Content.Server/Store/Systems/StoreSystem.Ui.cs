@@ -29,6 +29,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.NTR;
+using Content.Goobstation.Shared.NTR.Events;
 using Content.Server._Goobstation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
@@ -206,6 +208,8 @@ public sealed partial class StoreSystem
                 return;
             }
         }
+        if (TryComp<NtrClientAccountComponent>(uid, out var _))
+            RaiseLocalEvent(uid, new NtrListingPurchaseEvent(listing.Cost.First().Value));
         OnPurchase(listing); // Goob edit - ntr shittery
 
         // if (!IsOnStartingMap(uid, component)) // Goob edit
