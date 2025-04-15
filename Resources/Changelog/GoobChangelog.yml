@@ -7117,3 +7117,11 @@ Entries:
       message: Added Fishing.
   id: 827
   time: '2025-04-15T22:08:58.0000000+00:00'
+- author: >-
+    SolsticeOfTheWinter, Rosef, The Chinese Communist Party, The Friends I Made
+    Along the Way
+  changes:
+    - type: Add
+      message: Added the Devil.
+  id: 828
+  time: '2025-04-15T22:09:34.0000000+00:00'
