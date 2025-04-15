@@ -1,0 +1,21 @@
+- type: entity
+  name: reimold's photo album
+  parent: [BaseItem, BaseGrandTheftContraband]
+  id: RedsPhotoAlbum
+  description: A well-loved scrapbook with pictures from various points in Red's life. 
+  components:
+  - type: Sprite
+    sprite: _RA/Objects/Misc/photo_album.rsi
+    layers:
+    - state: reimoldphotoalbum
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Tag
+    tags:
+    - PhotoAlbum
+  - type: StealTarget
+    stealGroup: RedsPhotoAlbum

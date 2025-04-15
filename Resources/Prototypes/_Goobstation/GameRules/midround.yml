@@ -3,9 +3,9 @@
   id: TraitorMidround
   components:
   - type: StationEvent
-    earliestStart: 30
+    earliestStart: 45
     weight: 10
-    minimumPlayers: 15
+    minimumPlayers: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -40,7 +40,7 @@
   - type: StationEvent
     earliestStart: 20
     weight: 3
-    minimumPlayers: 15
+    minimumPlayers: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -75,7 +75,7 @@
   - type: StationEvent
     earliestStart: 20
     weight: 3
-    minimumPlayers: 30
+    minimumPlayers: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -110,7 +110,7 @@
   - type: StationEvent
     earliestStart: 20
     weight: 3
-    minimumPlayers: 30
+    minimumPlayers: 1
     maxOccurrences: 1
     duration: null
     occursDuringRoundEnd: false
@@ -167,7 +167,7 @@
   - type: StationEvent
     weight: 2
     earliestStart: 75
-    minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
+    minimumPlayers: 1 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2
     chaos:

@@ -1,6 +1,6 @@
 - type: entity
   name: westbrook's knife
-  parent: [BaseKnife, BaseRestrictedContraband]
+  parent: [BaseKnife, BaseSecurityContraband]
   id: WestbrookKnife
   description: A deadly Kabar knife intended for melee confrontations. On the blade there is an engraving reading "Future HoS Westbrook"
   components:

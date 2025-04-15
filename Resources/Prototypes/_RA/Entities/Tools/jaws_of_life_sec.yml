@@ -1,0 +1,51 @@
+- type: entity
+  name: security jaws of life
+  parent: [BaseWeaponBattery, BaseSecurityContraband]
+  id: JawsOfLifeSec # Goobstation - Recycler Update
+  description: A set of jaws of life designed for security work. It's been outfitted with a powerful, but limited stun charge.
+  components:
+  - type: Tag
+    tags:
+    - Taser
+    - JawsOfLife
+  - type: Sprite
+    sprite: _RA/Objects/Tools/jaws_of_life_sec.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-1
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: _RA/Objects/Tools/jaws_of_life_sec.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: ToolTileCompatible
+    delay: 0.5
+  - type: Tool
+    qualities:
+      - Prying
+    useSound: /Audio/Items/jaws_pry.ogg
+  - type: Prying
+    speedModifier: 3
+    pryPowered: true
+    useSound: /Audio/Items/jaws_pry.ogg
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTaserJaws
+    fireCost: 1000
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: Appearance
+  - type: PacifismAllowedGun

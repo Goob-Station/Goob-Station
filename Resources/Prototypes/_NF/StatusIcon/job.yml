@@ -3,5 +3,5 @@
   id: JobIconMercenary
   icon:
     sprite: /Textures/_NF/Interface/Misc/job_icons.rsi
-    state: mercenary
+    state: Mercenary
   jobName: job-name-mercenary

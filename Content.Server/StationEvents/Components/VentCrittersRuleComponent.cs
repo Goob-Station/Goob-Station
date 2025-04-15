@@ -1,4 +1,4 @@
-﻿using Content.Server.StationEvents.Events;
+using Content.Server.StationEvents.Events;
 using Content.Shared.Storage;
 using Robust.Shared.Map; // DeltaV
 
@@ -38,5 +38,5 @@ public sealed partial class VentCrittersRuleComponent : Component
     /// DeltaV: Min and max get multiplied by the player count then divided by this.
     /// </summary>
     [DataField]
-    public int PlayerRatio = 25;
+    public int PlayerRatio = 15;
 }

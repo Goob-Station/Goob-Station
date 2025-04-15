@@ -1957,6 +1957,55 @@
       - state: equipped-decor-epaulets
         color: "#ffce5b"
 
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckMercenarySergeant
+  name: mercenary sergeant uniform
+  suffix: Military
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#3e3e48"
+    - state: icon-base-top-turtleneck
+      color: "#b5b56e"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+      color: "#ffce5b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#3e3e48"
+      - state: inhand-left-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+        color: "#ffce5b"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#3e3e48"
+      - state: inhand-right-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+        color: "#ffce5b"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#3e3e48"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#b5b56e"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+        color: "#ffce5b"
 # goob - some jumpsuits are deleted
 # goob - this is because frontier does stupid shit i am too lazy to fix
 # goob - deleted jumpsuits are the mailcarrier one and pilot one because we dont have the base jumpsuit for either
