@@ -676,7 +676,7 @@
   id: BoxFolderQmClipboard
   parent: [BoxFolderClipboard, BaseGrandTheftContraband]
   name: requisition digi-board
-  description: A bulky electric clipboard, filled with shipping orders and financing details. With so many compromising documents, you ought to keep this safe.
+  description: A bulky electric clipboard, filled with shipping orders and financing details. Is capable of selling small objects via bluespace technology. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Misc/qm_clipboard.rsi
