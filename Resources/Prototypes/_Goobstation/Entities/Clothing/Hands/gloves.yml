@@ -336,6 +336,8 @@
       Gold: 500
   - type: StaticPrice
     price: 1500
+  - type: StaminaDamageOnHit
+    damage: 12
   - type: Tag
     tags:
     - WhitelistChameleon
