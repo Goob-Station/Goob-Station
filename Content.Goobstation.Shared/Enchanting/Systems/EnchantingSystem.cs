@@ -133,12 +133,12 @@ public sealed class EnchantingSystem : EntitySystem
         var comp = item.Comp;
         foreach (var incompatible in data.Incompatible)
         {
-            if (FindEnchant(comp, incompatible) != null)
+            if (FindEnchant(comp.Value, incompatible) != null)
                 return false;
         }
 
         // enchant is at max level
-        if (FindEnchant(comp, id) is {} enchant)
+        if (FindEnchant(comp.Value, id) is {} enchant)
             return !enchant.Comp.IsMaxed;
 
         // item can't be enchanted further
