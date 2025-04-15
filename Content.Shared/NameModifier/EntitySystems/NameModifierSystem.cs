@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.Inventory;
 using Content.Shared.NameModifier.Components;
@@ -30,6 +36,18 @@ public sealed class NameModifierSystem : EntitySystem
         // Set the base name to the new name
         entity.Comp.BaseName = name;
         Dirty(entity);
+    }
+
+    /// <summary>
+    /// Returns the base name of the entity, without any modifiers applied.
+    /// If the entity doesn't have a <see cref="NameModifierComponent"/>,
+    /// this returns the entity's metadata name.
+    /// </summary>
+    public string GetBaseName(Entity<NameModifierComponent?> entity)
+    {
+        if (Resolve(entity, ref entity.Comp, logMissing: false))
+            return entity.Comp.BaseName;
+        return Name(entity);
     }
 
     /// <summary>

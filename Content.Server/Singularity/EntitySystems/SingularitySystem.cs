@@ -1,3 +1,38 @@
+// SPDX-FileCopyrightText: 2020 L.E.D <10257081+unusualcrow@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2020 Remie Richards <remierichards@gmail.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2020 unusualcrow <unusualcrow@protonmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 GraniteSidewalk <32942106+GraniteSidewalk@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2022 ScalyChimp <72841710+ScalyChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 keronshb <keronshb@live.com>
+// SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 liltenhead <liltenhead@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Physics.Components;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.Events;
@@ -254,7 +289,12 @@ public sealed class SingularitySystem : SharedSingularitySystem
     public void OnConsumed(EntityUid uid, SinguloFoodComponent comp, ref EventHorizonConsumedEntityEvent args)
     {
         if (EntityManager.TryGetComponent<SingularityComponent>(args.EventHorizonUid, out var singulo))
-            AdjustEnergy(args.EventHorizonUid, comp.Energy, singularity: singulo);
+        {
+            // Calculate the percentage change (positive or negative)
+            var percentageChange = singulo.Energy * (comp.EnergyFactor - 1f);
+            // Apply both the flat and percentage changes
+            AdjustEnergy(args.EventHorizonUid, comp.Energy + percentageChange, singularity: singulo);
+        }
     }
 
     /// <summary>

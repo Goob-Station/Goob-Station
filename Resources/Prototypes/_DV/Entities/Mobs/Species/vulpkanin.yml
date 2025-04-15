@@ -1,3 +1,32 @@
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Simon <63975668+Simyon264@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   save: false
   name: Urist McVulp
@@ -104,7 +133,6 @@
     - FootstepSound
     - DoorBumpOpener
     - VulpEmotes
-  - type: FootPrints # WD EDIT
 
 - type: entity
   save: false

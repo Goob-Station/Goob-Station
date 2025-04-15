@@ -1,7 +1,17 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goobstation.Shared.StationEvents;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
@@ -96,7 +106,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // This deletes all existing metrics and sets them up again.
-        TrySpawnRoundstartAntags(scheduler, GetTotalPlayerCount(_playerManager.Sessions)); // Roundstart antags need to be selected in the lobby
+        TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
         {
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);
@@ -218,7 +228,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     /// <summary>
     /// Tries to spawn roundstart antags at the beginning of the round.
     /// </summary>
-    private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler, int count)
+    private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler)
     {
         if (scheduler.NoRoundstartAntags)
             return;
@@ -226,24 +236,33 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // Spawn antags based on GameDirectorComponent
         var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
+#if DEBUG
+        var count = _configManager.GetCVar(GoobCVars.GameDirectorDebugPlayerCount);
+#else
+        var count = GetTotalPlayerCount(_playerManager.Sessions);
+#endif
+        LogMessage($"Total player count: {count}", false);
+
         if (!scheduler.DualAntags)
         {
             var pick = weightList.Pick(_random);
-            var pickProto = _prototypeManager.Index(pick);
-            if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
-               pickGameRule.MinPlayers > count)
-            {
-                LogMessage("Not enough players for roundstart antags selected...");
-                return;
-            }
-            LogMessage("Choosing roundstart antag");
-            LogMessage($"Roundstart antag chosen: {pick}");
-            GameTicker.AddGameRule(pick);
+            IndexAndStartGameMode(pick);
         }
         else
         {
             var pick = weightList.Pick(_random);
-            var pick2 = weightList.Pick(_random);
+            var weights = weightList.Weights;
+
+            if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
+                weights = weights.Where(w => !incompModes.Modes.Contains(w.Key)).ToDictionary();
+
+            if (weights.Count == 0)
+            {
+                IndexAndStartGameMode(pick);
+                return;
+            }
+
+            var pick2 = _random.Pick(weights);
             var pick1Proto = _prototypeManager.Index(pick);
             var pick2Proto = _prototypeManager.Index(pick2);
             if (!pick2Proto.TryGetComponent<GameRuleComponent>(out var pick2GameRule, _factory) ||
@@ -259,6 +278,22 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
             GameTicker.AddGameRule(pick);
             GameTicker.AddGameRule(pick2);
+        }
+
+        return;
+
+        void IndexAndStartGameMode(string pick)
+        {
+            var pickProto = _prototypeManager.Index(pick);
+            if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
+               pickGameRule.MinPlayers > count)
+            {
+                LogMessage("Not enough players for roundstart antags selected...");
+                return;
+            }
+            LogMessage("Choosing roundstart antag");
+            LogMessage($"Roundstart antag chosen: {pick}");
+            GameTicker.AddGameRule(pick);
         }
     }
 

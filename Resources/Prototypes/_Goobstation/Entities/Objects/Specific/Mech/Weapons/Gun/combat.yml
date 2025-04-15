@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: WeaponMechCombatPulseRifle
   name: eZ-14 mk2 Heavy pulse rifle
@@ -165,7 +173,7 @@
 - type: entity
   id: WeaponMechCombatShotgun
   name: LBX AC 10 "Scattershot"
-  description: A mounted non-lethal taser that allows you to stun intruders.
+  description: A mounted shotgun for use against enemy manpower.
   suffix: Mech Weapon, Gun, Combat, Shotgun
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -188,7 +196,7 @@
 - type: entity
   id: WeaponMechCombatShotgunIncendiary
   name: FNX-99 "Hades" Carbine
-  description: Mounted carbine, firing incendiary cartridges.
+  description: A mounted shotgun with incendiary ammo.
   suffix: Mech Weapon, Gun, Combat, Shotgun, Incendiary
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -211,7 +219,7 @@
 - type: entity
   id: WeaponMechCombatUltraRifle
   name: Ultra AC-2
-  description: Mounted carbine, firing incendiary cartridges.
+  description: A mounted rifle for use against enemy manpower.
   suffix: Mech Weapon, Gun, Combat, Rifle
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:
@@ -283,7 +291,7 @@
 - type: entity
   id: WeaponMechCombatFlashbangLauncher
   name: SGL-6 Flashbang Launcher
-  description: Launches low-explosive breaching missiles designed to explode only when striking a sturdy target.
+  description: A mounter launcher that fires flash grenades to deal with riots.
   suffix: Mech Weapon, Gun, Combat, Flashbang
   parent: [ BaseMechWeaponRange, CombatMechEquipment ]
   components:

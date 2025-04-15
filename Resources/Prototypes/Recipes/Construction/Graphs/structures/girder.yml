@@ -1,4 +1,32 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 ChilbroBaggins <107660393+ChilbroBaggins@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
+# SPDX-FileCopyrightText: 2022 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Mr0maks <mr.maks0443@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JustinWinningham <justinmwinningham@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
   id: Girder
   start: start
   graph:

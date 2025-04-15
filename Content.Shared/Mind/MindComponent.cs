@@ -1,8 +1,59 @@
+// SPDX-FileCopyrightText: 2018 PJB3005 <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2018 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
+// SPDX-FileCopyrightText: 2020 ComicIronic <comicironic@gmail.com>
+// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+// SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2020 Paul <ritter.paul1+git@googlemail.com>
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Matt <matt@isnor.io>
+// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
+// SPDX-FileCopyrightText: 2023 Титов Вячеслав Витальевич <rincew1nd@yandex.ru>
+// SPDX-FileCopyrightText: 2024 Vasilis <vascreeper@yahoo.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.GameTicking;
 using Content.Shared.Mind.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mind;
 
@@ -100,6 +151,12 @@ public sealed partial class MindComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<EntityUid> MindRoles = new List<EntityUid>();
+
+    /// <summary>
+    ///     The mind's current antagonist/special role, or lack thereof;
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<RoleTypePrototype> RoleType = "Neutral";
 
     /// <summary>
     ///     The session of the player owning this mind.

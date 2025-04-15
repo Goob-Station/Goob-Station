@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@gmail.com>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Bakke <luringens@protonmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -129,6 +150,18 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField]
     public SoundSpecifier? ExitPolymorphSound;
+
+    /// <summary>
+    ///     If not null, this popup will be displayed when being polymorphed into something.
+    /// </summary>
+    [DataField]
+    public LocId? PolymorphPopup = "polymorph-popup-generic";
+
+    /// <summary>
+    ///     If not null, this popup will be displayed when when being reverted from a polymorph.
+    /// </summary>
+    [DataField]
+    public LocId? ExitPolymorphPopup = "polymorph-revert-popup-generic";
 
     /// <summary>
     /// Goobstation.
