@@ -449,7 +449,6 @@
     tags:
       - CannotSuicide
       - FootstepSound
-      - Trash
   - type: NoSlip
   - type: MobPrice
     price: 500 # rat wealth
