@@ -7259,3 +7259,35 @@ Entries:
       message: ᔑ⟍̅⟍̅ᒷ⟍̅ ᒷリᓵ⍑ᔑリℸ ̣¦リ˧ ⚍ᓭᒷ ᔑ ʖ¦ʖꖎᒷ ∴¦ℸ ̣⍑ ᔑリ ¦ℸ ̣ᒷᒲ 𝙹リ ᔑリ ᔑꖎℸ ̣ᔑ∷.
   id: 845
   time: '2025-04-15T23:39:13.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked the cobra pistol, it now uses 9.5 mm caseless magnum rounds and
+        has a higher muzzle velocity
+    - type: Add
+      message: >-
+        Added 9.5 caseless magnum ammo, -P is available to traitors, 12 round
+        mags of 20 damage bullets. Semi Armor Piercing High Explosive (SAP-HE),
+        which splits its damage between 13 direct damage and 10 explosive damage
+        (one tile explosive)
+    - type: Tweak
+      message: The WSPR now take 9.5mm rounds (19 damage > 25 damage)
+    - type: Tweak
+      message: WSPR mags are now 1TC more expensive due to increased damage (6 > 7)
+    - type: Tweak
+      message: The WSPR is actually quiet now
+    - type: Tweak
+      message: Reduced hristov wield slowdown to 10%
+    - type: Tweak
+      message: .50 shotgun shell > 12 Gauge
+    - type: Tweak
+      message: .75 shell > 8 Gauge
+    - type: Add
+      message: you can now bash people with rifle stocks
+    - type: Fix
+      message: >-
+        Fixed my autism again, the AKM now acts like an AK, AKA it doesn't have
+        a bolt hold open
+  id: 846
+  time: '2025-04-15T23:41:01.0000000+00:00'
