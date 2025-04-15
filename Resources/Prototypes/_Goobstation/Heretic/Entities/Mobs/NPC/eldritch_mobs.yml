@@ -70,6 +70,8 @@
     name: ghostrole-ghoul-name
     description: ghostrole-ghoul-desc
     rules: ghostrole-ghoul-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: short
   - type: Tag
@@ -92,6 +94,8 @@
   - type: GhostRole
     name: ghostrole-stalker-name
     description: ghostrole-stalker-desc
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
@@ -127,6 +131,8 @@
   - type: GhostRole
     name: ghostrole-prophet-name
     description: ghostrole-prophet-desc
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
