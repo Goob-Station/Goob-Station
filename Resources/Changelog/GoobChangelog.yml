@@ -7297,3 +7297,9 @@ Entries:
       message: Cowboy accent no longer replaces wow with by gum.
   id: 847
   time: '2025-04-15T23:44:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed abductor agent not getting glorpmind.
+  id: 848
+  time: '2025-04-15T23:55:38.0000000+00:00'
