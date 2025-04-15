@@ -24,7 +24,7 @@ concurrency:
 jobs:
   yaml-schema-validation:
     name: YAML map schema validator
-    if: github.actor != 'GoobBot' && github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3.6.0
