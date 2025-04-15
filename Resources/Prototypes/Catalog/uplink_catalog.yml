@@ -157,6 +157,8 @@
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
@@ -179,6 +181,16 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster } # Goobstation
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost:
+    Telecrystal: 15 # Goobstation
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkRevolverPython
@@ -1117,7 +1129,6 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
-      - NukeOpsUplink
       - ContravendUplink
   - !type:BuyerWhitelistCondition
     blacklist:
@@ -1137,12 +1148,11 @@
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
-      - NukeOpsUplink
+      - ContravendUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
       - SurplusBundle
-      - ContravendUplink
 
 - type: listing
   id: UplinkSingarityBeacon
