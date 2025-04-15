@@ -7153,3 +7153,35 @@ Entries:
       message: Grabbing release attempts should be smoother now.
   id: 831
   time: '2025-04-15T22:12:51.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Nanotrasen Representative's room spacing on Omega
+  id: 832
+  time: '2025-04-15T22:15:56.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Saltern
+  id: 833
+  time: '2025-04-15T22:16:25.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Add
+      message: Added the Lavaland Shuttle to Cluster
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Cluster
+  id: 834
+  time: '2025-04-15T22:17:14.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Bluespace shelter capsules now load correctly
+  id: 835
+  time: '2025-04-15T22:17:55.0000000+00:00'
+- author: FireNameFN
+  changes:
+    - type: Tweak
+      message: Footprints and bodyprints will not disappear without mopping them.
+  id: 836
+  time: '2025-04-15T22:19:04.0000000+00:00'
