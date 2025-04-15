@@ -15,5 +15,6 @@
 
 - type: startingGear
   id: SyndicateOperativeReinforcementGear
+  parent: SyndicateOperativeGearFullNoUplink
   equipment:
     pocket2: BaseUplinkRadio50TCNukeOps
