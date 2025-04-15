@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Oni
   name: species-name-oni
@@ -7,9 +12,9 @@
   markingLimits: MobOniMarkingLimits
   sprites: MobHumanSprites
   skinColoration: Hues
-  maleFirstNames: names_oni_male
-  femaleFirstNames: names_oni_female
-  lastNames: names_oni_location
+  maleFirstNames: NamesOniFirstMale
+  femaleFirstNames: NamesOniFirstFemale
+  lastNames: NamesOniLast
   naming: LastNoFirst
 
 - type: markingPoints

@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hmeister <nathan.springfredfoxbon4@gmail.com>
+# SPDX-FileCopyrightText: 2024 I.K <45953835+notquitehadouken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   abstract: true
   parent: BaseItem
@@ -75,6 +90,22 @@
 
 - type: entity
   parent: ShardCrystalBase
+  name: yellow crystal shard
+  id: ShardCrystalYellow
+  components:
+  - type: Sprite
+    color: "#ffde46"
+  - type: PointLight
+    radius: 2
+    energy: 2.5
+    color: "#ffde46"
+  - type: Tag
+    tags:
+      - Trash
+      - CrystalYellow
+
+- type: entity
+  parent: ShardCrystalBase
   id: ShardCrystalOrange
   name: orange crystal shard
   components:
@@ -88,6 +119,22 @@
     tags:
       - Trash
       - CrystalOrange
+
+- type: entity
+  parent: ShardCrystalBase
+  name: black crystal shard
+  id: ShardCrystalBlack
+  components:
+  - type: Sprite
+    color: "#363636"
+  - type: PointLight
+    radius: 2
+    energy: 2.5
+    color: "#363636"
+  - type: Tag
+    tags:
+      - Trash
+      - CrystalBlack
 
 - type: entity
   parent: ShardCrystalBase

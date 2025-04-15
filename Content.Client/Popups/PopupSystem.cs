@@ -1,4 +1,41 @@
+// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 RedFoxIV <38788538+RedFoxIV@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Cooper Wallace <6856074+CooperWallace@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Cooper Wallace <CooperWallace@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
+using Content.Shared.Containers;
+using Content.Client.UserInterface.Systems.Chat;
+using Content.Goobstation.Common.CCVar; // Goobstation Change
+using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
@@ -40,6 +77,18 @@ namespace Content.Client.Popups
         public const float MaximumPopupLifetime = 5f;
         public const float PopupLifetimePerCharacter = 0.04f;
 
+        // WD EDIT START
+        private static readonly Dictionary<PopupType, string> FontSizeDict = new()
+        {
+            { PopupType.Medium, "12" },
+            { PopupType.MediumCaution, "12" },
+            { PopupType.Large, "15" },
+            { PopupType.LargeCaution, "15" }
+        };
+
+        private bool _shouldLogInChat;
+        // WD EDIT END
+
         public override void Initialize()
         {
             SubscribeNetworkEvent<PopupCursorEvent>(OnPopupCursorEvent);
@@ -57,6 +106,11 @@ namespace Content.Client.Popups
                     _examine,
                     _transform,
                     this));
+
+            // WD EDIT START
+            _shouldLogInChat = _configManager.GetCVar(GoobCVars.LogInChat);
+            _configManager.OnValueChanged(GoobCVars.LogInChat, log => { _shouldLogInChat = log; });
+            // WD EDIT END
         }
 
         public override void Shutdown()
@@ -88,6 +142,7 @@ namespace Content.Client.Popups
                     _replayRecording.RecordClientMessage(new PopupCoordinatesEvent(message, type, GetNetCoordinates(coordinates)));
             }
 
+            // WD EDIT START
             var popupData = new WorldPopupData(message, type, coordinates, entity);
             if (_aliveWorldLabels.TryGetValue(popupData, out var existingLabel))
             {
@@ -102,6 +157,21 @@ namespace Content.Client.Popups
             };
 
             _aliveWorldLabels.Add(popupData, label);
+
+            if (_shouldLogInChat &&
+                _playerManager.LocalEntity != null &&
+                _examine.InRangeUnOccluded(_playerManager.LocalEntity.Value, coordinates, 10))
+            {
+                var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
+                var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
+                    ? "#C62828"
+                    : "#AEABC4";
+
+                var wrappedMessage = $"[font size={fontsize}][color={fontcolor}]{message}[/color][/font]";
+                var chatMsg = new ChatMessage(ChatChannel.Emotes, message, wrappedMessage, GetNetEntity(EntityUid.Invalid), null);
+                _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
+            }
+            // WD EDIT END
         }
 
         #region Abstract Method Implementations

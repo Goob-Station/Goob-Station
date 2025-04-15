@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -132,13 +143,13 @@ public partial class SharedMartialArtsSystem
         if (!downed)
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds((long)proto.ParalyzeTime), true);
         }
         else
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage / 2, out _);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage - 20, applyResistances: true);
             _hands.TryDrop(target);
         }
         if (TryComp<PullableComponent>(target, out var pullable))
