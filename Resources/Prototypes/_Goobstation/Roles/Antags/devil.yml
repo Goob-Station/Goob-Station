@@ -1,0 +1,21 @@
+- type: antag
+  id: Devil
+  name: roles-antag-devil-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-devil-description
+  guides: [ Devil ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 72000 #20 hrs
+  - !type:RoleTimeRequirement
+    role: JobLawyer
+    time: 18000 #5 hrs
+
+- type: startingGear
+  id: DevilStartingGear
+  storage:
+    back:
+    - GuidebookCodexUmbra
+    - PenDevil
+    - ClothingUniformJumpsuitDevil

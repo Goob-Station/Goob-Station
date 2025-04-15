@@ -1,0 +1,85 @@
+# Devil Specific
+
+- type: entity
+  id: ActionCreateContract
+  name: Summon infernal contract
+  description: Creates an infernal contract in the Devil's hand.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: summon-contract
+    event: !type:CreateContractEvent {}
+  - type: DevilAction
+
+- type: entity
+  id: ActionCreateRevivalContract
+  name: Summon revival contract
+  description: Creates a revival contract in the Devil's hand.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: summon-contract-revival
+    event: !type:CreateRevivalContractEvent {}
+  - type: DevilAction
+
+- type: entity
+  id: ActionShadowJaunt
+  name: Shadow jaunt
+  description: Melt into the shadows.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: shadow-jaunt
+    event: !type:ShadowJauntEvent {}
+  - type: DevilAction
+
+- type: entity
+  id: ActionDevilPossess
+  name: Possess target
+  description: Temporarily possess a target.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 45
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: possess
+    event: !type:DevilPossessionEvent {}
+  - type: DevilAction
+    soulsRequired: 2
+
+# Deals
+
+- type: entity
+  id: ActionCheatDeath
+  name: Cheat Death
+  description: Laugh in the Grim Reapers face. You've still got time.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    useDelay: 180
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: cheat-death
+    event: !type:CheatDeathEvent {}

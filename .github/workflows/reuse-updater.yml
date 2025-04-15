@@ -85,6 +85,9 @@ jobs:
           elif grep -q "LICENSE: AGPL" <<< "$PR_BODY"; then
             echo "PR_LICENSE=agpl" >> $GITHUB_ENV
             echo "License specified in PR: AGPL"
+          elif grep -q "LICENSE: MPL" <<< "$PR_BODY"; then
+            echo "PR_LICENSE=mpl" >> $GITHUB_ENV
+            echo "License specified in PR: MPL"
           else
             echo "PR_LICENSE=agpl" >> $GITHUB_ENV
             echo "No license specified in PR, using default: AGPL"
