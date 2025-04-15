@@ -120,7 +120,9 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -411,6 +413,43 @@
             True: { state: base-unshaded }
             False: { state: base-unshaded-off }
     - type: PacifismAllowedGun
+
+- type: entity
+  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseGrandTheftContraband]
+  id: WeaponLauncherSingularityBuster
+  name: singularity buster rocket launcher
+  description: An experimental rocket launcher designed to fire rockets capable of decomposing a singularity or tesla.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeRocket
+    proto: CartridgeRocketSingularityBuster
+    capacity: 1
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: StealTarget
+    stealGroup: WeaponLauncherSingularityBuster
+  - type: Appearance
+  - type: StaticPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - HighRiskItem
 
 # Admeme
 - type: entity
