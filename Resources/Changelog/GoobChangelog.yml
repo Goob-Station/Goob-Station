@@ -7247,3 +7247,9 @@ Entries:
       message: Likely removed rust ascension lag.
   id: 843
   time: '2025-04-15T23:34:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot purchase anaconda
+  id: 844
+  time: '2025-04-15T23:35:59.0000000+00:00'
