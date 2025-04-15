@@ -7173,3 +7173,9 @@ Entries:
       message: Fixed Salvage dock becoming permanently spaced on Cluster
   id: 834
   time: '2025-04-15T22:17:14.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Bluespace shelter capsules now load correctly
+  id: 835
+  time: '2025-04-15T22:17:55.0000000+00:00'
