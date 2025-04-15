@@ -43,7 +43,7 @@ public sealed class EnchantRelaySystem : EntitySystem
             SubscribeLocalEvent<InventoryComponent, T>(_inventory.RelayEvent);
     }
 
-    private void RelayEvent<T>(Entity<EnchantedComponent> ent, ref T args)
+    private void RelayEvent<T>(Entity<EnchantedComponent> ent, ref T args) where T : notnull
     {
         foreach (var enchant in ent.Comp.Enchants)
         {
@@ -51,7 +51,7 @@ public sealed class EnchantRelaySystem : EntitySystem
         }
     }
 
-    private void RelayInventoryEvent<T>(Entity<EnchantedComponent> ent, ref InventoryRelayedEvent<T> args) where T: IInventoryRelayEvent
+    private void RelayInventoryEvent<T>(Entity<EnchantedComponent> ent, ref InventoryRelayedEvent<T> args) where T: IInventoryRelayEvent, notnull
     {
         RelayEvent(ent, ref args.Args);
     }

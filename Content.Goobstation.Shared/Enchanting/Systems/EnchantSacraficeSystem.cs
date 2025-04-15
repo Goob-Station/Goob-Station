@@ -52,18 +52,18 @@ public sealed class EnchantSacraficeSystem : EntitySystem
 
         var items = _enchanting.FindEnchantedItems(table);
         var upgraded = 0;
-        EntityUid? any = null;
+        EntityUid? anyItem = null;
         foreach (var item in items)
         {
             if (_enchanting.TryUpgradeTier(item))
             {
                 upgraded++;
-                any = item;
+                anyItem = item;
             }
         }
 
         // nothing was upgraded L
-        if (upgraded == 0)
+        if (upgraded == 0 || anyItem is not {} any)
             return;
 
         // no double dipping
