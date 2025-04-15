@@ -185,7 +185,7 @@
   icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster } # Goobstation
   productEntity: ClothingHandsKnuckleDustersSyndicate
   cost:
-    Telecrystal: 8 # Goobstation
+    Telecrystal: 15 # Goobstation
   categories:
   - UplinkWeaponry
 
