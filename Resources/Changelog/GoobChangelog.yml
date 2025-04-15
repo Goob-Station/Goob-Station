@@ -7105,3 +7105,9 @@ Entries:
         in chat, such as Urist Mchands says: Loser x28
   id: 825
   time: '2025-04-15T03:22:04.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Remove
+      message: 1984d curse of byond spell, admins can still use though
+  id: 826
+  time: '2025-04-15T22:07:21.0000000+00:00'
