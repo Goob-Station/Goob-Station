@@ -4,3 +4,6 @@ enchanting-tool-examine = [color=lightblue]This can enchant items with a source 
 enchanter-cant-enchant = You can't enchant that using this item!
 enchanter-enchanted = A magical aura shimmers across {THE($item)}!
 enchanting-tool-no-enchanter = You need to put an enchanting source with the target item.
+
+enchanting-sacrafice-single = The soul of {$target} empowers {THE($item)}!
+enchanting-sacrafice-multiple = The soul of {$target} empowers nearby items!

@@ -31,6 +31,7 @@ public sealed class EnchantingSystem : EntitySystem
     private Dictionary<EntProtoId<EnchantComponent>, EnchantComponent> _enchants = new();
     private HashSet<Entity<EnchantingTableComponent>> _tables = new();
     private HashSet<Entity<EnchanterComponent>> _enchanters = new();
+    private HashSet<Entity<EnchantedComponent>> _enchantedItems = new();
 
     public override void Initialize()
     {
@@ -173,8 +174,25 @@ public sealed class EnchantingSystem : EntitySystem
     public void SetTier(EntityUid item, int tier)
     {
         var comp = EnsureComp<EnchantedComponent>(item);
+        if (comp.Tier == tier)
+            return;
+
         comp.Tier = tier;
         Dirty(item, comp);
+    }
+
+    /// <summary>
+    /// Increases an item's enchant tier if it isn't at max already.
+    /// Does nothing if it isn't enchanted already.
+    /// </summary>
+    public bool TryUpgradeTier(Entity<EnchantedComponent> item)
+    {
+        if (item.Comp.Tier >= item.Comp.MaxTier)
+            return false;
+
+        item.Comp.Tier++;
+        Dirty(item);
+        return true;
     }
 
     /// <summary>
@@ -225,7 +243,7 @@ public sealed class EnchantingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Find an enchanter table near an item.
+    /// Find an enchanter near an item.
     /// This won't return itself.
     /// </summary>
     public Entity<EnchanterComponent>? FindEnchanter(EntityUid item)
@@ -240,6 +258,18 @@ public sealed class EnchantingSystem : EntitySystem
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Find all enchanted items near a table.
+    /// The returned hashset is reused between calls and must not be modified.
+    /// </summary>
+    public HashSet<Entity<EnchantedComponent>>? FindEnchantedItems(EntityUid table)
+    {
+        var coords = Transform(table).Coordinates;
+        _enchantedItems.Clear();
+        _lookup.GetEntitiesInRange<EnchantedComponent>(coords, range: 0.5f, _enchantedItems);
+        return _enchantedItems;
     }
 
     /// <summary>
