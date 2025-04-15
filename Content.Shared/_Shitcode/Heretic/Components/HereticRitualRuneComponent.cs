@@ -14,5 +14,6 @@ namespace Content.Shared.Heretic;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HereticRitualRuneComponent : Component
 {
-
+    [DataField]
+    public float RuneHealing = -10;
 }

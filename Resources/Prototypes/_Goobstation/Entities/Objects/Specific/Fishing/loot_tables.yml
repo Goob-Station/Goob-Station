@@ -1,0 +1,109 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# This should be on every other fishing table
+- type: entityTable
+  id: BasicFishingLootTable
+  table: !type:GroupSelector
+    children:
+    # 75% chance of scrap of some kind
+    - !type:GroupSelector
+      weight: 75
+      children:
+      - !type:NestedSelector
+        tableId: SalvageScrapLowValue
+        weight: 65
+      - !type:NestedSelector
+        tableId: SalvageScrapHighValue
+        weight: 35
+    # 15% chance of some trash
+    - !type:NestedSelector
+      tableId: GenericTrashItems
+      weight: 15
+    # 10% chance of low-value treasure or maintenance tools
+    - !type:GroupSelector
+      weight: 10
+      children:
+      - !type:NestedSelector
+        tableId: SalvageTreasureCommon
+      - !type:NestedSelector
+        tableId: MaintToolsTable
+
+# All types of the rare and unique fishes
+- type: entityTable
+  id: RareFishTable
+  table: !type:GroupSelector
+    children:
+    - id: FishAlien
+    - id: FishBingle
+    - id: FishBoyFisher
+    - id: FishNukeDisk
+    - id: FishGib
+    - id: FishMutant
+    - id: FishNuker
+    - id: FishToxic
+    - id: FishIan
+
+# Fish from water
+- type: entityTable
+  id: WaterFishTable
+  table: !type:GroupSelector
+    children:
+    - id: FishAngler
+    - id: FishBass
+    - id: FishBlob
+    - id: FishBlueFintuna
+    - id: FishCat
+    - id: FishTropicalClown
+    - id: FishPuffer
+    - id: FishSilver
+    - id: FishTropicalSun
+    - id: FishTropical
+
+# Items from Water
+- type: entityTable
+  id: WaterFishingLootTable
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+        weight: 70
+      - !type:NestedSelector
+        tableId: WaterFishTable
+        weight: 20
+      - !type:NestedSelector
+        tableId: RareFishTable
+        weight: 10
+
+# Items from Lava
+- type: entityTable
+  id: LavaFishingLootTable
+  table: !type:GroupSelector
+    children:
+      # TODO: lava/plasma fish
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+
+# Items from Plasma
+- type: entityTable
+  id: PlasmaFishingLootTable
+  table: !type:GroupSelector
+    children:
+    # TODO: lava/plasma fish
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+
+# Items from Toilets
+- type: entityTable
+  id: ToiletFishingLootTable
+  table: !type:GroupSelector
+    children:
+      # like water but no rare fishes
+      - !type:NestedSelector
+        tableId: BasicFishingLootTable
+        weight: 80
+      - !type:NestedSelector
+        tableId: WaterFishTable
+        weight: 20
