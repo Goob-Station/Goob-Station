@@ -1,4 +1,9 @@
-﻿using Content.Shared.Atmos;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Atmos;
 using NUnit.Framework;
 
 namespace Content.Tests.Shared.Atmos;
