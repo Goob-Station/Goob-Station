@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 # There are limitations to this ATM. The pathfinder is too slow to check accessibility well
 # and reachable only takes in an entity so sometimes the follow idle spot is outside of the follow range
 

@@ -1,0 +1,134 @@
+# The ID is what is searched for on the paper, coming after the target identifier.
+# Any spaces on the written portion will be removed, so keep it all lowercase and one word.
+# Special actions can be defined in DevilContractSystem.cs
+
+- type: clause
+  id: soulownership
+  clauseWeight: 25
+  specialActions:
+  - SoulOwnership
+
+- type: clause
+  id: weakness
+  clauseWeight: -35
+  damageModifierSet: DevilDealPositive
+
+- type: clause
+  id: fearoffire
+  clauseWeight: -20
+  damageModifierSet: HellSpawn
+
+- type: clause
+  id: fearofspace
+  clauseWeight: -25
+  addedComponents:
+  - type: BreathingImmunity
+  - type: PressureImmunity
+
+- type: clause
+  id: fearoflight
+  clauseWeight: -15
+  addedComponents:
+  - type: FlashImmunity
+
+- type: clause
+  id: fearofelectricity
+  clauseWeight: -15
+  addedComponents:
+  - type: Insulated
+
+- type: clause
+  id: shadows
+  clauseWeight: -25
+  addedComponents:
+  - type: Stealth
+  - type: StealthOnMove
+
+- type: clause
+  id: strength
+  clauseWeight: 30
+  damageModifierSet: DevilDealNegative
+
+- type: clause
+  id: willtofight
+  clauseWeight: 60
+  addedComponents:
+  - type: Pacified
+
+- type: clause
+  id: sight
+  clauseWeight: 60
+  addedComponents:
+  - type: PermanentBlindness
+
+- type: clause
+  id: coherence
+  clauseWeight: 30
+  addedComponents:
+  - type: BackwardsAccent
+  - type: Clumsy
+
+- type: clause
+  id: voice
+  clauseWeight: 20
+  addedComponents:
+  - type: Muted
+
+- type: clause
+  id: aleg
+  clauseWeight: 30
+  specialActions:
+  - RemoveLeg
+
+- type: clause
+  id: ahand
+  clauseWeight: 30
+  specialActions:
+  - RemoveHand
+
+- type: clause
+  id: sanity
+  clauseWeight: 35
+  addedComponents:
+  - type: Insanity
+
+- type: clause
+  id: anorgan
+  clauseWeight: 45
+  specialActions:
+  - RemoveOrgan
+
+- type: clause
+  id: legs
+  clauseWeight: 40
+  addedComponents:
+  - type: LegsParalyzed
+
+- type: clause
+  id: innerpeace
+  clauseWeight: 5
+  addedComponents:
+  - type: TileMovement
+
+- type: clause
+  id: death
+  clauseWeight: -25
+  addedComponents:
+  - type: CheatDeath
+    reviveAmount: 1
+
+- type: clause
+  id: mortality
+  clauseWeight: -100
+  addedComponents:
+  - type: CheatDeath
+    reviveAmount: -1
+
+- type: clause
+  id: time
+  clauseWeight: 150
+  addedComponents:
+  - type: DelayedDeath
+    deathTime: 300
+    deathMessageId: devil-deal-time-ran-out
+  - type: Condemned

@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: accessLevel
   id: Command
   name: id-card-access-level-command
@@ -13,14 +25,20 @@
 - type: accessGroup
   id: Command
   tags:
-  - Command
   - Captain
-  - HeadOfPersonnel
+  - Command
+  - ChiefEngineer
+  - ChiefMedicalOfficer
   - Cryogenics
-
+  - HeadOfPersonnel
+  - HeadOfSecurity
+  - Quartermaster
+  - ResearchDirector
+  
 - type: accessLevel
   id: EmergencyShuttleRepealAll
   name: id-card-access-level-emergency-shuttle-repeal
+  canAddToIdCard: false
 
 - type: accessLevel
   id: Cryogenics

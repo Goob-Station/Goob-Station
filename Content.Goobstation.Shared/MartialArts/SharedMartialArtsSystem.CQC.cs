@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -83,7 +93,7 @@ public partial class SharedMartialArtsSystem
         switch (args.Type)
         {
             case ComboAttackType.Disarm:
-                _stamina.TakeStaminaDamage(args.Target, 25f);
+                _stamina.TakeStaminaDamage(args.Target, 25f, applyResistances: true);
                 break;
             case ComboAttackType.Harm:
                 if (!TryComp<RequireProjectileTargetComponent>(ent, out var standing)
@@ -132,11 +142,11 @@ public partial class SharedMartialArtsSystem
             if (TryComp<StaminaComponent>(target, out var stamina) && stamina.Critical)
                 _status.TryAddStatusEffect<ForcedSleepingComponent>(target, "ForcedSleep", TimeSpan.FromSeconds(10), true);
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Head);
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage * 2 + 5, source: ent, applyResistances: true);
         }
         else
         {
-            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         }
 
         if (TryComp<PullableComponent>(target, out var pullable))
@@ -153,7 +163,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         ComboPopup(ent, target, proto.Name);
     }
 
@@ -163,7 +173,7 @@ public partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
             return;
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
         if(!_hands.TryDrop(target, activeItem.Value))
@@ -183,7 +193,7 @@ public partial class SharedMartialArtsSystem
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"), target);
         ComboPopup(ent, target, proto.Name);
     }
