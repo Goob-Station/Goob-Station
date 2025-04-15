@@ -85,6 +85,7 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -97,6 +98,7 @@ using Content.Shared.Fluids.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Linq;
+using Content.Goobstation.Common.Footprints;
 
 namespace Content.Server.Chemistry.TileReactions;
 
@@ -146,6 +148,11 @@ public sealed partial class CleanTileReaction : ITileReaction
             purgeAmount -= purgeable.Volume;
 
             solutionContainerSystem.TryAddSolution(puddleSolution.Value, new Solution(ReplacementReagent, purgeable.Volume));
+
+            // Corvax-Next-Footprints-Start
+            if (entityManager.HasComponent<FootprintComponent>(entity))
+                entityManager.EventBus.RaiseLocalEvent(entity, new FootprintCleanEvent());
+            // Corvax-Next-Footprints-End
 
             if (purgeable.Volume <= FixedPoint2.Zero)
                 break;
