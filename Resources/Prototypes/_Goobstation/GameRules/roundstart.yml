@@ -296,3 +296,27 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+
+- type: entity
+  parent: BaseGameRule
+  id: Devil
+  components:
+  - type: DevilRule
+  - type: GameRule
+    minPlayers: 15
+  - type: AntagObjectives
+    objectives:
+    - DevilContractObjective
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: devil-roundend-name
+    definitions:
+    - prefRoles: [ Devil ]
+      max: 2
+      playerRatio: 12
+      mindRoles:
+      - DevilMindRole
+      startingGear: DevilStartingGear
+  - type: Tag
+    tags:
+    - RoundstartAntag
