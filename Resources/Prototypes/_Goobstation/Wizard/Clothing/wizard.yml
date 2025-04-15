@@ -389,6 +389,7 @@
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
   id: ClothingHeadHatCentCommwizardReal
   name: CentComm wizard hat
+  suffix: ADMIN
   description: A pristine green and gold wizard hat, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
   components:
   - type: Sprite
@@ -400,6 +401,7 @@
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardCentCommReal
   name: CentComm wizard robes
+  suffix: ADMIN
   description: A pristine green and gold gem-lined robe, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
   components:
   - type: Sprite
