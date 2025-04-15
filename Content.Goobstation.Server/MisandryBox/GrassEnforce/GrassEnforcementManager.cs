@@ -125,6 +125,8 @@ public sealed class GrassEnforcementManager : IGrassEnforcementManager, IPostInj
         if (_admin.IsAdmin(player, true) && !_affectAdmins)
         {
             _saw.Debug($"Bounced - Attempted to grass an admin ({player.Name})!");
+
+            await Reset(player.UserId);
             return;
         }
 
