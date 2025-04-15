@@ -5,8 +5,8 @@
 "Changes: Map":
 - changed-files:
   - any-glob-to-any-file:
-    - 'Resources/Maps/**/*.yml'
-    - 'Resources/Prototypes/Maps/**/*.yml'
+    - 'Resources/Maps/_Goobstation/nebula.yml'
+    - 'Resources/Prototypes/_Goobstation/Maps/nebula.yml'
 
 "Changes: UI":
 - changed-files:
