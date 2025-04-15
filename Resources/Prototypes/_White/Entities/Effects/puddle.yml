@@ -1,41 +1,56 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  name: footstep
-  id: Footstep
+  name: footprint
+  id: Footprint
   save: false
-  description: Trace of liquid
+  description: Trace of liquid.
+  placement:
+    mode: SnapgridCenter
   components:
-    - type: Clickable
-    - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepWater
-        params:
-          volume: 3
-    - type: Transform
-      noRot: false
-    - type: Sprite
-      drawdepth: FloorObjects
-      color: "#FFFFFF80"
-    - type: Physics
-      bodyType: Static
-    - type: Fixtures
-      fixtures:
-        slipFixture:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.4,-0.4,0.4,0.4"
-          mask:
-            - ItemMask
-          layer:
-            - SlipLayer
-          hard: false
-    - type: SolutionContainerManager
-      solutions:
-        step: { maxVol: 2 }
-    - type: FootPrint
-    - type: Puddle
-      solution: step
-    - type: Appearance
-    - type: SpawnOnDespawn
-      prototype: PuddleSparkle
-    - type: TimedDespawn
-      lifetime: 60
+  - type: Clickable
+  - type: Transform
+    noRot: false
+    anchored: true
+  - type: Sprite
+    drawdepth: FloorObjects
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: SolutionContainerManager
+  - type: Footprint
+  - type: Puddle
+    solution: print
+    affectsMovement: false
+    affectsSound: false
+  - type: ExaminableSolution
+    solution: print
+  - type: MixableSolution
+    solution: print
+  - type: DrawableSolution
+    solution: print
+  - type: BadDrink
+  - type: IgnoresFingerprints
+  - type: Drink
+    delay: 3
+    transferAmount: 0.5
+    solution: print
+    examinable: false
+  - type: Tag
+    tags:
+    - DNASolutionScannable

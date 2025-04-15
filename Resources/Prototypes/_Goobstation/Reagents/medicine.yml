@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: reagent
   id: Stasizium
   name: reagent-name-stasizium
@@ -1191,8 +1204,8 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        walkSpeedModifier: 0.7
-        sprintSpeedModifier: 0.7
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -1202,17 +1215,10 @@
         - !type:OrganType
           type: Yowie
           shouldHave: false
-        probability: 0.1
-        paralyzeTime: 2
-      - !type:Paralyze # more severe effect when overdosing
-        conditions:
-        - !type:OrganType
-          type: Yowie
-          shouldHave: false
         - !type:ReagentThreshold
           min: 35
-        probability: 0.2
-        paralyzeTime: 4
+        probability: 0.1
+        paralyzeTime: 2
       - !type:Drunk
         boozePower: 5
       - !type:HealthChange
