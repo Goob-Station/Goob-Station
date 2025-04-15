@@ -1,0 +1,23 @@
+# like HolosignWetFloor but no sprite or crucially, TimedDespawn
+# this is so holofans can never run out
+- type: entity
+  abstract: true
+  id: BaseHolosign
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 30
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]

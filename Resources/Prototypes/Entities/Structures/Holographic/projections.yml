@@ -47,7 +47,7 @@
 
 - type: entity
   id: HoloFan
-  parent: HolosignWetFloor
+  parent: BaseHolosign # DeltaV - don't include TimedDespawn
   name: holofan
   description: A barrier of hard light that blocks air, but nothing else.
   components:
@@ -60,10 +60,13 @@
         shape:
           !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
-  - type: TimedDespawn
-    lifetime: 180
+  #- type: TimedDespawn # DeltaV - no despawning for holofans
+  #  lifetime: 180
+  - type: Transform # DeltaV
+    noRot: true
   - type: Airtight
     noAirWhenFullyAirBlocked: false
+  - type: Holofan # DeltaV - for whitelisting
 
 - type: entity
   id: HolosignSecurity

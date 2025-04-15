@@ -79,17 +79,28 @@
         swap: false
 
 - type: entity
-  parent: Holoprojector
+  parent: BaseItem # DeltaV - remove powercell requirement
   id: HolofanProjector
   name: holofan projector
   description: Stop suicidal passengers from killing everyone during atmos emergencies.
   components:
-  - type: HolosignProjector
+  - type: ChargeHolosignProjector # DeltaV - different implementation using charges
     signProto: HoloFan
-    chargeUse: 120
+    signComponentName: Holofan # DeltaV
+    #chargeUse: 120 # DeltaV
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/atmos.rsi
     state: icon
+  # Begin DeltaV Additions
+  - type: Item
+    storedRotation: -90
+  - type: LimitedCharges
+    maxCharges: 6 # same as it was on a medium cell
+    charges: 6
+  - type: ContainerContainer
+    containers:
+      signs: !type:Container
+  # End DeltaV Additions
   - type: Tag
     tags:
       - HolofanProjector
@@ -109,12 +120,13 @@
 - type: entity
   parent: HolofanProjector
   id: HolofanProjectorEmpty
+  categories: [ HideSpawnMenu ] # DeltaV - this is identical to the normal one
   suffix: Empty
-  components:
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+  #components: # DeltaV - no cell slot for empty one
+  #- type: ItemSlots
+  #  slots:
+  #    cell_slot:
+  #      name: power-cell-slot-component-slot-name-default
 
 - type: entity
   parent: HolofanProjector
