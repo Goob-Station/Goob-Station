@@ -11,6 +11,9 @@
             "name": "icon"
         },
         {
+            "name": "overlay"
+        },
+        {
             "name": "icon_drawanim",
             "delays": [
                 [

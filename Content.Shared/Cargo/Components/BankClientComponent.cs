@@ -30,4 +30,4 @@ public sealed partial class BankClientComponent : Component
 /// Raised on an entity with <see cref="BankClientComponent"/> when the bank's balance is updated.
 /// </summary>
 [ByRefEvent]
-public record struct BankBalanceUpdatedEvent(EntityUid Station, int Balance);
+public readonly record struct BankBalanceUpdatedEvent(EntityUid Station, int Balance);
