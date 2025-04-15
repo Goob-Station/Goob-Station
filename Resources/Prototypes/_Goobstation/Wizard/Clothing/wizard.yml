@@ -379,6 +379,18 @@
   id: ClothingHeadHatShrineMaidenWigReal
   name: shrine maiden's wig
 
+# Centcom
+- type: entity
+  parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
+  id: ClothingHeadHatCentcomwizardReal
+  name: centcom wizard hat
+  description: Strange-looking green hat-wear that most certainly belongs to a powerful magic user.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing\/Head/comwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing\/Head/comwizard.rsi
+
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden]
   id: ClothingOuterSuitShrineMaidenReal
