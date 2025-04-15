@@ -260,18 +260,17 @@
   name: maint altar
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    sprite: _ShitChap/Structures/convertaltar.rsi
     layers:
     - state: maint
-    - state: lightning
       shader: unshaded
   - type: Icon
-    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    sprite: _ShitChap/Structures/convertaltar.rsi
     state: maint
   - type: PointLight
     radius: 1.5
     energy: 1
-    color: "#fbceb1"
+    color: "#ff6347"
   - type: AltarSource
     rodProto: UristHand # Shitchap
     effectProto: EffectSpark

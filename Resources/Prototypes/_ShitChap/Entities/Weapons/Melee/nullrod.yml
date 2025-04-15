@@ -390,9 +390,9 @@
   components:
   - type: Item
     size: Ginormous
-    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
   - type: Sprite
-    sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+    sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
     state: icon
   - type: UseDelay
     delay: 0
@@ -408,7 +408,7 @@
     entries:
     - behavior: Screwing
       sprite:
-        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
         path: /Audio/Items/drill_use.ogg
@@ -416,7 +416,7 @@
         path: /Audio/Items/change_drill.ogg
     - behavior: Prying
       sprite:
-        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
         path: /Audio/Items/jaws_pry.ogg
@@ -424,7 +424,7 @@
         path: /Audio/Items/change_drill.ogg
     - behavior: Anchoring
       sprite:
-        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
         path: /Audio/Items/ratchet.ogg
@@ -432,7 +432,7 @@
         path: /Audio/Items/change_drill.ogg
     - behavior: Cutting
       sprite:
-        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       useSound:
         path: /Audio/Items/jaws_cut.ogg
@@ -440,7 +440,7 @@
         path: /Audio/Items/change_drill.ogg
     - behavior: Pulsing
       sprite:
-        sprite: _ShitChap/Objects/Weapons/Nullrod/godhand.rsi
+        sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
         state: icon
       changeSound:
         path: /Audio/Items/change_drill.ogg
