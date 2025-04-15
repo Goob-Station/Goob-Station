@@ -177,6 +177,7 @@ public sealed class StepTriggerSystem : EntitySystem
         var msg = new StepTriggerAttemptEvent { Source = uid, Tripper = otherUid };
 
         RaiseLocalEvent(uid, ref msg);
+        RaiseLocalEvent(otherUid, ref msg); // Goobstation - let enchants handle it too
 
         return msg.Continue && !msg.Cancelled;
     }
