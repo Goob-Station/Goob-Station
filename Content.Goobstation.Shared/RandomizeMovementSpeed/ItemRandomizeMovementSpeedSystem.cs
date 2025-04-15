@@ -24,7 +24,7 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
@@ -32,15 +32,12 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
 
     #region Main Functions
 
-    private void OnStartup(EntityUid uid, ItemRandomizeMovementspeedComponent comp, ComponentStartup args)
+    private void OnStartup(EntityUid uid, ItemRandomizeMovementspeedComponent comp, MapInitEvent args)
     {
         if (comp.Min < comp.Max)
             return;
 
-        // if the minimum is bigger than the max, flip em.
-        comp.Min = comp.Max;
-        comp.Max = comp.Min;
-
+        (comp.Max, comp.Min) = (comp.Min, comp.Max);
     }
     private void OnGotEquippedHand(EntityUid uid, ItemRandomizeMovementspeedComponent comp, GotEquippedHandEvent args)
     {
