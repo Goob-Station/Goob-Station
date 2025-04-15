@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Paradise Station",
+  "copyright": "Taken from Paradise Station, equipped-HAND by SolsticeOfTheWinter",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,10 @@
   "states": [
     {
       "name": "icon"
-    }
+    },
+	{
+      "name": "equipped-HAND",
+      "directions": 4
+    },
   ]
 }
