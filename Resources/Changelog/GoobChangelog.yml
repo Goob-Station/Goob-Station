@@ -7159,3 +7159,9 @@ Entries:
       message: Fixed Nanotrasen Representative's room spacing on Omega
   id: 832
   time: '2025-04-15T22:15:56.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Saltern
+  id: 833
+  time: '2025-04-15T22:16:25.0000000+00:00'
