@@ -279,7 +279,7 @@ namespace Content.Shared.Damage
                     damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
                 }
 
-                var ev = new DamageModifyEvent(damage, origin, targetPart); // Shitmed Change
+                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart); // Shitmed + Goobstation Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -493,13 +493,15 @@ namespace Content.Shared.Damage
         // Whenever locational damage is a thing, this should just check only that bit of armour.
         public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
 
+        public readonly EntityUid Target; // Goobstation
         public readonly DamageSpecifier OriginalDamage;
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
 
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed Change
+        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed + Goobstation Change
         {
+            Target = target; // Goobstation
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
