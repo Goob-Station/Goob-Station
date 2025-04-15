@@ -601,24 +601,24 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
-- type: listing
-  id: SpellbookCurseOfByond
-  name: spellbook-curse-of-byond-name
-  description: spellbook-curse-of-byond-description
-  productAction: ActionCurseOfByond
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    whitelist:
-      - SpellbookTileToggle
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#- type: listing
+#  id: SpellbookCurseOfByond
+#  name: spellbook-curse-of-byond-name
+#  description: spellbook-curse-of-byond-description
+#  productAction: ActionCurseOfByond
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#      - SpellbookTileToggle
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
 
 # Equipment
 - type: listing
