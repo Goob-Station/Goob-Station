@@ -15,6 +15,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
+using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -47,8 +48,9 @@ public sealed partial class SellOnInteractSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || args.Target == args.Using)
             return;
 
-        if (!component.CanSellAnything && !HasComp<ItemComponent>(args.Target))
-            return;
+        if (!component.CanSellAnything)
+            if (!HasComp<ItemComponent>(args.Target) || HasComp<StorageComponent>(args.Target))
+                return;
 
         var performer = args.User;
         var target = args.Target;
