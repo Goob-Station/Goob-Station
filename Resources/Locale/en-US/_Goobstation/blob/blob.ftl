@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2024 lanse12 <cloudability.ez@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ent-SpawnPointGhostBlob = Blob spawner
     .suffix = DEBUG, Ghost Role Spawner
     .desc = { ent-MarkerBase.desc }
@@ -123,7 +135,7 @@ blob-downgrade-action-desc = Turns the selected tile back into a normal blob to 
 # Ghost role
 blob-carrier-role-name = Blob carrier
 blob-carrier-role-desc =  A blob-infected creature.
-blob-carrier-role-rules = You are an antagonist. You have 4 minutes before you transform into a blob.
+blob-carrier-role-rules = You are an antagonist. You have 10 minutes before you transform into a blob.
                         Use this time to find a safe spot on the station. Keep in mind that you will be very weak right after the transformation.
 blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the station and transform into a Blob. Turn the station into a mass and its inhabitants into your servants. We are all Blobs.
 

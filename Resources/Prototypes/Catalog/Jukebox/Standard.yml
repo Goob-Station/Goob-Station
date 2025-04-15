@@ -1,1 +1,59 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spanky <scott@wearejacob.com>
+# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 iNVERTED <alextjorgensen@gmail.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
+- type: jukebox
+  id: FlipFlap
+  name: X-CEED - Flip Flap
+  path:
+    path: /Audio/Lobby/mod.flip-flap.ogg # Goobstation
+
+- type: jukebox
+  id: Tintin
+  name: Jeroen Tel - Tintin on the Moon
+  path:
+    path: /Audio/Lobby/title3.ogg # Goobstation
+
+- type: jukebox
+  id: Thunderdome
+  name: MashedByMachines - Sector 11 / Thunderdome # Goobstation
+  path:
+    path: /Audio/Lobby/thunderdome.ogg # Goobstation
+
+- type: jukebox
+  id: Constellations
+  name: Qwertyquerty - Constellations
+  path:
+    path: /Audio/Ambience/constellations.ogg # Goobstation
+
+- type: jukebox
+  id: Drifting
+  name: Qwertyquerty - Drifting
+  path:
+    path: /Audio/Ambience/drifting.ogg # Goobstation
+
+- type: jukebox
+  id: starlight
+  name: Qwertyquerty - Starlight
+  path:
+    path: /Audio/Ambience/starlight.ogg # Goobstation
+
+- type: jukebox
+  id: sunset
+  name: PigeonBeans - Sunset
+  path:
+    path: /Audio/Jukebox/sunset.ogg

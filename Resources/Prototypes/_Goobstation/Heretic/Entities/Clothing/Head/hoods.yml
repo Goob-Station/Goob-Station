@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ ClothingHeadBase, BaseMagicContraband ]
   id: ClothingHeadHatHoodHeretic
@@ -16,3 +25,19 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodVoidCloakHeretic
+  name: void hood
+  description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/void_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/void_hood.rsi
+  - type: Tag
+    tags: []
+  - type: StripMenuInvisible
+  - type: VoidCloakHood

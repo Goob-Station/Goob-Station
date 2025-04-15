@@ -1,3 +1,26 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
@@ -12,18 +35,23 @@ using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
+using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Lavaland.Procedural.Systems;
@@ -52,6 +80,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly ISerializationManager _serManager = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -62,6 +93,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        SubscribeLocalEvent<MobStateComponent, EntParentChangedMessage>(OnPlayerParentChange);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -98,6 +130,21 @@ public sealed class LavalandPlanetSystem : EntitySystem
         EnsureComp<LavalandPreloaderComponent>(mapUid);
         _metaData.SetEntityName(mapUid, "Lavaland Preloader Map");
         _map.SetPaused(mapId, true);
+    }
+
+    /// <summary>
+    /// Raised when an entity exits or enters a grid.
+    /// </summary>
+    private void OnPlayerParentChange(Entity<MobStateComponent> ent, ref EntParentChangedMessage args)
+    {
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
+        if (args.OldParent != null
+            && TryComp<LavalandGridGrantComponent>(args.OldParent.Value, out var toRemove))
+            EntityManager.RemoveComponents(ent.Owner, toRemove.ComponentsToGrant);
+        else if (TryComp<LavalandGridGrantComponent>(Transform(ent.Owner).GridUid, out var toGrant))
+            EntityManager.AddComponents(ent.Owner, toGrant.ComponentsToGrant);
     }
 
     public Entity<LavalandPreloaderComponent>? GetPreloaderEntity()
@@ -188,11 +235,11 @@ public sealed class LavalandPlanetSystem : EntitySystem
         // Hide all grids from the mass scanner.
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
-            var flag = IFFFlags.Hide;
+            var flag = IFFFlags.HideLabel;
 
-            #if DEBUG || TOOLS
+            /*#if DEBUG || TOOLS Uncomment me when GPS is done.
             flag = IFFFlags.HideLabel;
-            #endif
+            #endif*/
 
             _shuttle.AddIFFFlag(grid, flag);
         }
@@ -481,6 +528,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
         _metaData.SetEntityName(spawned.Value, Loc.GetString(ruin.Name));
         _transform.SetParent(spawned.Value, spawnedXForm, lavaland);
         _transform.SetCoordinates(spawned.Value, new EntityCoordinates(lavaland, spawnedXForm.Coordinates.Position.Rounded()));
+        var componentsToGrant = EnsureComp<LavalandGridGrantComponent>(spawned.Value);
+        foreach (var (key, comp) in ruin.ComponentsToGrant)
+            componentsToGrant.ComponentsToGrant[key] = comp;
 
         // yaaaaaaaaaaaaaaaay
         usedSpace.Add(ruinBox);
