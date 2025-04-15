@@ -450,6 +450,7 @@
     damage:
       types:
         Blunt: 12
+        Structural: 15
         Holy: 25
     soundHit:
       path: /Audio/Weapons/smash.ogg
