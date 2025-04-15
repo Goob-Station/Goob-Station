@@ -7143,3 +7143,13 @@ Entries:
         obtainable (trvst thv plvn)
   id: 830
   time: '2025-04-15T22:11:44.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Added proper cooldowns to Grabbing.
+    - type: Add
+      message: Grabbing release attempts can now be attempted by hitting the B key.
+    - type: Add
+      message: Grabbing release attempts should be smoother now.
+  id: 831
+  time: '2025-04-15T22:12:51.0000000+00:00'
