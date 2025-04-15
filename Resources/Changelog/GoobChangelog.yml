@@ -7179,3 +7179,9 @@ Entries:
       message: Bluespace shelter capsules now load correctly
   id: 835
   time: '2025-04-15T22:17:55.0000000+00:00'
+- author: FireNameFN
+  changes:
+    - type: Tweak
+      message: Footprints and bodyprints will not disappear without mopping them.
+  id: 836
+  time: '2025-04-15T22:19:04.0000000+00:00'
