@@ -137,3 +137,4 @@ ntr-bounty-console-manifest-entry =
 ntr-bounty-console-flavor-left = Bounties approved by Central Command. Bribes not included. Probably.
 
 ntr-console-spam-penalty = Penalty applied: -4 NT points for submitting spam!
+ntr-console-reagent-fail = Not enough reagents to complete the task!

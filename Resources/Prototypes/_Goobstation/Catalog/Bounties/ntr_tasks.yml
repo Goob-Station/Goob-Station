@@ -92,3 +92,17 @@
   - name: Power grid check
     isEvent: true
     stamps: []
+
+- type: ntrTask
+  id: BloodChangelingTask
+  name: Blood Changeling Sample
+  description: Provide a vial with 30u of BloodChangeling.
+  reward: 15
+  proto: TaskVial
+  weight: 0.3 # the same as the powergrid one because its rare and shift specific
+  entries:
+    - name: Send Changelings blood to CentComm
+      stamps: []
+  reagentEntries:
+    - reagent: BloodChangeling
+      amount: 30

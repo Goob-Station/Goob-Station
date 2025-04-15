@@ -1,0 +1,8 @@
+- type: entity
+  id: TaskVial
+  parent: BaseChemistryEmptyVial
+  description: A special vial, that could be inserted inside a NTRs task console.
+  components:
+  - type: Tag
+    tags:
+    - Vial

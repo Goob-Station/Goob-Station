@@ -33,8 +33,13 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 
-// goidacore inside
+// goidacore & PURE SHITCODE inside
 namespace Content.Goobstation.Server.NTR;
 
 public sealed partial class NtrTaskSystem : EntitySystem
@@ -45,7 +50,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // the fuck?
+    [Dependency] private readonly IGameTiming _timing = default!; // how did this even happen
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -62,6 +67,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
     private readonly ProtoId<NameIdentifierGroupPrototype> _nameIdentifierGroup = "Task";
 
@@ -77,8 +83,10 @@ public sealed partial class NtrTaskSystem : EntitySystem
         SubscribeLocalEvent<NtrTaskConsoleComponent, TaskSkipMessage>(OnTaskSkipMessage);
         SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskFailedEvent>(OnTaskFailed);
+        // SubscribeLocalEvent<NtrTaskConsoleComponent, TaskFailedEvent>(OnTaskFailed);
         SubscribeLocalEvent<NtrTaskConsoleComponent, TaskCompletedEvent>(OnTaskCompleted);
+
+        SubscribeLocalEvent<NtrTaskConsoleComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
 
         // SubscribeLocalEvent<DocumentInsertedEvent>(OnDocumentInserted);
     }
@@ -115,7 +123,158 @@ public sealed partial class NtrTaskSystem : EntitySystem
             }
         }
     }
-    private void OnBalanceUpdated(EntityUid uid, NtrClientAccountComponent clientComp, NtrAccountBalanceUpdatedEvent args)
+    private void OnInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ItemSlotInsertAttemptEvent args)
+    {
+        if (args.Slot.Name != "documentSlot" || !args.Item.Valid)
+            return;
+
+        var item = args.Item;
+
+        if (HasComp<SpamDocumentComponent>(item))
+        {
+            args.Cancelled = true;
+            _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), uid);
+            return;
+        }
+
+        if (!TryComp<RandomDocumentComponent>(item, out var documentComp))
+        {
+            args.Cancelled = true;
+            return;
+        }
+        if (!HasValidStamps(item))
+        {
+            args.Cancelled = true;
+            _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), uid);
+            _audio.PlayPvs(component.DenySound, uid);
+            return;
+        }
+        // Corrected: Pass the item EntityUid to CheckReagentRequirements
+        foreach (var taskId in documentComp.Tasks)
+        {
+            if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
+                continue;
+
+            if (!CheckReagentRequirements(item, taskProto))
+            {
+                args.Cancelled = true;
+                _popup.PopupEntity(Loc.GetString("ntr-console-reagent-fail"), uid);
+                return;
+            }
+        }
+    }
+    public void OnItemInserted(EntityUid uid, NtrTaskConsoleComponent component, ref ItemSlotInsertAttemptEvent args)
+    {
+        if (args.Slot.Name != "documentSlot" || args.Cancelled)
+            return;
+
+        if (!args.Item.Valid)
+            return;
+
+        EntityUid item = args.Item;
+
+        if (!TryComp<RandomDocumentComponent>(item, out var documentComp))
+            return;
+
+        if (_station.GetOwningStation(uid) is { } station &&
+            TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
+            TryComp<NtrBankAccountComponent>(station, out var account))
+        {
+            foreach (var taskId in documentComp.Tasks)
+            {
+                if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto) ||
+                    !TryGetActiveTask(station, taskProto, out var taskData))
+                    continue;
+
+                account.Balance += taskProto.Reward;
+
+                TryRemoveTask(station, taskData.Value.Id, false);
+            }
+
+            var query = EntityQueryEnumerator<NtrClientAccountComponent>();
+            while (query.MoveNext(out var client, out _))
+            {
+                var balanceEv = new NtrAccountBalanceUpdatedEvent(client, account.Balance);
+                RaiseLocalEvent(client, balanceEv);
+            }
+
+            UpdateTaskConsoles();
+        }
+
+        _slots.TryEject(uid, args.Slot.Name, null, out _);
+        QueueDel(item);
+        _audio.PlayPvs(component.PrintSound, uid);
+    }
+    private bool CheckReagentRequirements(EntityUid vial, NtrTaskPrototype taskProto)
+    {
+        if (!TryComp<SolutionContainerManagerComponent>(vial, out var solutionManager))
+            return false;
+
+        if (!_solutionContainer.TryGetSolution((vial, solutionManager), "beaker", out var solution, out _))
+            return false;
+
+        foreach (var reagentEntry in taskProto.ReagentEntries)
+        {
+            var quantity = _solutionContainer.GetTotalPrototypeQuantity(solution.Value, reagentEntry.Reagent);
+            if (quantity < reagentEntry.Amount)
+                return false;
+        }
+
+        return true;
+    }
+    private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
+    {
+        task = null;
+        return TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
+            (task = db.Tasks.FirstOrDefault(t =>
+                t.Task == proto.ID && t.IsActive)) != null;
+    }
+    private bool HasValidStamps(EntityUid paper)
+    {
+        if (!TryComp<PaperComponent>(paper, out var paperComp) ||
+            !TryComp<RandomDocumentComponent>(paper, out var documentComp))
+            return false;
+
+        var requiredStamps = GetRequiredStamps(documentComp);
+        return requiredStamps.Count != 0 && AreStampsCorrect(paperComp, requiredStamps);
+    }
+
+    private HashSet<string> GetRequiredStamps(RandomDocumentComponent documentComp)
+    {
+        var requiredStamps = new HashSet<string>();
+        foreach (var taskId in documentComp.Tasks)
+        {
+            if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
+                continue;
+
+            foreach (var entry in taskProto.Entries)
+                requiredStamps.UnionWith(entry.Stamps);
+        }
+        return requiredStamps;
+    }
+    private bool AreStampsCorrect(PaperComponent paperComp, HashSet<string> requiredStamps)
+    {
+        if (paperComp.StampedBy.Count == 0 || requiredStamps.Count == 0)
+            return false;
+
+        foreach (var requiredStamp in requiredStamps)
+        {
+            bool found = false;
+            foreach (var stamp in paperComp.StampedBy)
+            {
+                if (stamp.StampedName == requiredStamp)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+                return false;
+        }
+        return true;
+    }
+    private void OnBalanceUpdated(EntityUid uid, NtrClientAccountComponent clientComp, ref NtrAccountBalanceUpdatedEvent args)
+
     {
         if (!TryComp<StoreComponent>(uid, out var storeComp))
             return;
@@ -207,9 +366,18 @@ public sealed partial class NtrTaskSystem : EntitySystem
             var ev = new TaskCompletedEvent(ntrPrototype);
             RaiseLocalEvent(uid, ev);
         }
+        var vial = Spawn(ntrPrototype.Proto, Transform(uid).Coordinates);
+
+        if (TryComp<SolutionContainerManagerComponent>(vial, out var solutions))
+        {
+            if (_solutionContainer.EnsureSolution(vial, "beaker", out var beakerSolution, FixedPoint2.New(30)))
+            {
+                beakerSolution.RemoveAllSolution();
+                component.ActiveTaskIds.Add(args.TaskId);
+            }
+        }
 
         // TryRemoveTask(station, task.Value, false);
-        Spawn(ntrPrototype.Proto, Transform(uid).Coordinates);
         component.ActiveTaskIds.Add(args.TaskId);
         component.NextPrintTime = _timing.CurTime + component.PrintDelay;
         _audio.PlayPvs(component.PrintSound, uid);
@@ -550,27 +718,26 @@ public sealed partial class NtrTaskSystem : EntitySystem
             _uiSystem.SetUiState((uid, ui), NtrTaskUiKey.Key, state);
         }
     }
-    private void OnTaskFailed(EntityUid uid, NtrTaskConsoleComponent component, TaskFailedEvent args)
-    {
-        if (_station.GetOwningStation(uid) is not { } station ||
-            !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
-            return;
-        // apply penalty
-        ntrAccount.Balance = Math.Max(0, ntrAccount.Balance - args.Penalty);
+    // private void OnTaskFailed(EntityUid uid, NtrTaskConsoleComponent component, TaskFailedEvent args)
+    // {
+    //     if (_station.GetOwningStation(uid) is not { } station ||
+    //         !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
+    //         return;
+    //     // apply penalty
+    //     ntrAccount.Balance = Math.Max(0, ntrAccount.Balance - args.Penalty);
 
-        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
-        while (query.MoveNext(out var client, out var comp))
-        {
-            RaiseLocalEvent(client, ev);
-        }
-        // del the spam document
-        if (Exists(args.User))
-        {
-            _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), uid, args.User);
-        }
-        _audio.PlayPvs(component.DenySound, uid);
-    }
+    //     var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
+    //     var query = EntityQueryEnumerator<NtrClientAccountComponent>();
+    //     while (query.MoveNext(out var client, out var comp))
+    //     {
+    //         RaiseLocalEvent(client, ev);
+    //     }
+    //     // del the spam document
+    //     if (Exists(args.User))
+    //         _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), uid, args.User);
+
+    //     _audio.PlayPvs(component.DenySound, uid);
+    // }
     // private void OnDocumentInserted(DocumentInsertedEvent args)
     // {
     //     if (!Exists(args.Document))
@@ -603,11 +770,11 @@ public sealed partial class NtrTaskSystem : EntitySystem
     //     QueueDel(args.Document);
     //     UpdateTaskConsoles();
     // }
-    private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
-    {
-        task = null;
-        return TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
-            (task = db.Tasks.FirstOrDefault(t =>
-                t.Task == proto.ID && t.IsActive)) != null;
-    }
+//     private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
+//     {
+//         task = null;
+//         return TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
+//             (task = db.Tasks.FirstOrDefault(t =>
+//                 t.Task == proto.ID && t.IsActive)) != null;
+//     }
 }

@@ -47,6 +47,12 @@ public sealed class NtrTaskPrototype : IPrototype
     /// </summary>
     [DataField]
     public float Weight = 1.0f;
+
+    /// <summary>
+    /// Handles the reagents if needed to complete the task.
+    /// </summary>
+    [DataField]
+    public List<NtrTaskReagentEntry> ReagentEntries = new();
 }
 
 [DataDefinition, Serializable, NetSerializable]
@@ -78,4 +84,14 @@ public readonly partial record struct NtrTaskItemEntry()
     /// </summary>
     [DataField]
     public LocId Name { get; init; } = string.Empty;
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class NtrTaskReagentEntry
+{
+    [DataField("reagent")]
+    public string Reagent = string.Empty;
+
+    [DataField("amount")]
+    public int Amount;
 }
