@@ -379,12 +379,17 @@
   id: ClothingHeadHatShrineMaidenWigReal
   name: shrine maiden's wig
 
-# Centcom
+- type: entity
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden]
+  id: ClothingOuterSuitShrineMaidenReal
+  name: shrine maiden outfit
+
+# Centcomm
 - type: entity
   parent: [ClothingHeadHatWizardBase, ClothingHeadHatWizardBaseArmor]
-  id: ClothingHeadHatCentcomwizardReal
-  name: centcom wizard hat
-  description: Strange-looking green hat-wear that most certainly belongs to a powerful magic user.
+  id: ClothingHeadHatCentCommwizardReal
+  name: CentComm wizard hat
+  description: A pristine green and gold wizard hat, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Head/comwizard.rsi
@@ -392,9 +397,15 @@
     sprite: _Goobstation/Wizard/Clothing/Head/comwizard.rsi
 
 - type: entity
-  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor, ClothingOuterSuitShrineMaiden]
-  id: ClothingOuterSuitShrineMaidenReal
-  name: shrine maiden outfit
+  parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
+  id: ClothingOuterWizardCentCommReal
+  name: CentComm wizard robes
+  description: A pristine green and gold gem-lined robe, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/comwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/comwizard.rsi
 
 # Gloves
 - type: entity
