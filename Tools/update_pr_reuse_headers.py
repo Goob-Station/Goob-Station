@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 #!/usr/bin/env python3
 
 import subprocess
@@ -13,18 +17,94 @@ from collections import defaultdict
 LICENSE_CONFIG = {
     "mit": {"id": "MIT", "path": "LICENSES/MIT.txt"},
     "agpl": {"id": "AGPL-3.0-or-later", "path": "LICENSES/AGPLv3.txt"},
+    "mpl": {"id": "MPL-2.0", "path": "LICENSES/MPL-2.0.txt"},
 }
+
 DEFAULT_LICENSE_LABEL = "agpl"
 
 # Dictionary mapping file extensions to comment styles
 # Format: {extension: (prefix, suffix)}
 # If suffix is None, it's a single-line comment style
 COMMENT_STYLES = {
+    # C-style single-line comments
     ".cs": ("//", None),
+    ".js": ("//", None),
+    ".ts": ("//", None),
+    ".jsx": ("//", None),
+    ".tsx": ("//", None),
+    ".c": ("//", None),
+    ".cpp": ("//", None),
+    ".cc": ("//", None),
+    ".h": ("//", None),
+    ".hpp": ("//", None),
+    ".java": ("//", None),
+    ".scala": ("//", None),
+    ".kt": ("//", None),
+    ".swift": ("//", None),
+    ".go": ("//", None),
+    ".rs": ("//", None),
+    ".dart": ("//", None),
+    ".groovy": ("//", None),
+    ".php": ("//", None),
+
+    # Hash-style single-line comments
     ".yaml": ("#", None),
     ".yml": ("#", None),
+    ".ftl": ("#", None),
+    ".py": ("#", None),
+    ".rb": ("#", None),
+    ".pl": ("#", None),
+    ".pm": ("#", None),
+    ".sh": ("#", None),
+    ".bash": ("#", None),
+    ".zsh": ("#", None),
+    ".fish": ("#", None),
+    ".ps1": ("#", None),
+    ".r": ("#", None),
+    ".rmd": ("#", None),
+    ".jl": ("#", None),  # Julia
+    ".tcl": ("#", None),
+    ".perl": ("#", None),
+    ".conf": ("#", None),
+    ".toml": ("#", None),
+    ".ini": ("#", None),
+    ".cfg": ("#", None),
+    ".gitignore": ("#", None),
+    ".dockerignore": ("#", None),
+
+    # Other single-line comment styles
+    ".bat": ("REM", None),
+    ".cmd": ("REM", None),
+    ".vb": ("'", None),
+    ".vbs": ("'", None),
+    ".bas": ("'", None),
+    ".asm": (";", None),
+    ".s": (";", None),  # Assembly
+    ".lisp": (";", None),
+    ".clj": (";", None),  # Clojure
+    ".f": ("!", None),   # Fortran
+    ".f90": ("!", None), # Fortran
+    ".m": ("%", None),   # MATLAB/Octave
+    ".sql": ("--", None),
+    ".ada": ("--", None),
+    ".adb": ("--", None),
+    ".ads": ("--", None),
+    ".hs": ("--", None), # Haskell
+    ".lhs": ("--", None),
+    ".lua": ("--", None),
+
+    # Multi-line comment styles
     ".xaml": ("<!--", "-->"),
     ".xml": ("<!--", "-->"),
+    ".html": ("<!--", "-->"),
+    ".htm": ("<!--", "-->"),
+    ".svg": ("<!--", "-->"),
+    ".css": ("/*", "*/"),
+    ".scss": ("/*", "*/"),
+    ".sass": ("/*", "*/"),
+    ".less": ("/*", "*/"),
+    ".md": ("<!--", "-->"),
+    ".markdown": ("<!--", "-->"),
 }
 REPO_PATH = "."
 
