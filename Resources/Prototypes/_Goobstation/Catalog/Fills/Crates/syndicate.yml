@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: CrateCybersunDarkGygaxBundle
@@ -58,3 +66,36 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+
+- type: entity
+  id: CratePizzaParty
+  parent: CratePlastic
+  name: disaster pizza delivery
+  description: In the ultimate event that all else has failed, Find comfort in that more pizza solves everything. Includes 16 pizzas.
+  components:
+  - type: StorageFill
+    contents:     #to avoid them from being easily identifiable (8 pizza bomb + 8 regular pizzas)
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: FoodBoxPizzaBomb
+      amount: 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 1
+    - id: FoodBoxPizzaCotton
+      amount : 1
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 2
+    - id: FoodBoxPizzaBomb
+      amount : 2
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: FoodBoxPizzaBomb
+      amount: 1
+    - id: FoodBoxPizzaFilled
+      amount: 1
+    - id: LidSalami
+      prob: 0.01

@@ -1,4 +1,25 @@
-﻿using Content.Server.Actions;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.Actions;
 using Content.Server.Hands.Systems;
 using Content.Shared._Lavaland.Damage;
 using Content.Shared.Actions;
@@ -8,6 +29,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
+using Content.Shared._Lavaland.Mobs.Components;
+using Content.Server.Chat.Systems;
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
@@ -20,9 +43,10 @@ public sealed class HierophandClubItemSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly HierophantSystem _hierophant = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
+    [Dependency] private readonly ChatSystem _chat = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -33,6 +57,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
         SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubActivateCrossEvent>(OnCreateCross);
         SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubPlaceMarkerEvent>(OnPlaceMarker);
         SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubTeleportToMarkerEvent>(OnTeleport);
+        SubscribeLocalEvent<HierophantClubItemComponent, HierophantClubToggleTileMovementEvent>(OnToggleTileMovement);
     }
 
     private void OnClubInit(Entity<HierophantClubItemComponent> ent, ref MapInitEvent args)
@@ -40,6 +65,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
         _actions.AddAction(ent, ref ent.Comp.CreateCrossActionEntity, ent.Comp.CreateCrossActionId);
         _actions.AddAction(ent, ref ent.Comp.PlaceMarkerActionEntity, ent.Comp.PlaceMarkerActionId);
         _actions.AddAction(ent, ref ent.Comp.TeleportToMarkerActionEntity, ent.Comp.TeleportToMarkerActionId);
+        _actions.AddAction(ent, ref ent.Comp.ToggleTileMovementActionEntity, ent.Comp.ToggleTileMovementActionId);
     }
 
     private void OnGetActions(Entity<HierophantClubItemComponent> ent, ref GetItemActionsEvent args)
@@ -47,6 +73,7 @@ public sealed class HierophandClubItemSystem : EntitySystem
         args.AddAction(ref ent.Comp.CreateCrossActionEntity, ent.Comp.CreateCrossActionId);
         args.AddAction(ref ent.Comp.PlaceMarkerActionEntity, ent.Comp.PlaceMarkerActionId);
         args.AddAction(ref ent.Comp.TeleportToMarkerActionEntity, ent.Comp.TeleportToMarkerActionId);
+        args.AddAction(ref ent.Comp.ToggleTileMovementActionEntity, ent.Comp.ToggleTileMovementActionId);
     }
 
     private void OnCreateCross(Entity<HierophantClubItemComponent> ent, ref HierophantClubActivateCrossEvent args)
@@ -82,9 +109,9 @@ public sealed class HierophandClubItemSystem : EntitySystem
         var position = Transform(args.Performer)
             .Coordinates
             .AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapMan);
-        var dummy = Spawn(null, position);
+        var marker = Spawn(ent.Comp.TeleportMarkerPrototype, position);
 
-        ent.Comp.TeleportMarker = dummy;
+        ent.Comp.TeleportMarker = marker;
 
         _popup.PopupEntity("Teleportation point set.", user);
 
@@ -108,8 +135,22 @@ public sealed class HierophandClubItemSystem : EntitySystem
         var user = args.Performer;
 
         AddImmunity(user);
+        _xform.SetCoordinates(user, Transform(ent.Comp.TeleportMarker.Value).Coordinates); // CROSS MAP TP!!!
         _hierophant.Blink(user, ent.Comp.TeleportMarker);
+        args.Handled = true;
+    }
 
+    private void OnToggleTileMovement(Entity<HierophantClubItemComponent> ent, ref HierophantClubToggleTileMovementEvent args)
+    {
+        if (args.Handled && !TerminatingOrDeleted(args.Target))
+            return;
+
+        if (HasComp<HierophantBeatComponent>(args.Target))
+            RemComp<HierophantBeatComponent>(args.Target);
+        else
+            EnsureComp<HierophantBeatComponent>(args.Target);
+
+        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString("action-hierophant-tile-movement-cast"), InGameICChatType.Speak, false);
         args.Handled = true;
     }
 

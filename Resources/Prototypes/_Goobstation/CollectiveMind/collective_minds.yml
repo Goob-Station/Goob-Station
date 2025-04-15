@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: collectiveMind
   id: Dragonmind
   name: collective-mind-dragon
@@ -55,3 +61,19 @@
   color: "#5ed7aa"
   requiredTags:
   - BinaryMind
+
+- type: collectiveMind
+  id: Dronemind
+  name: collective-mind-dronemind
+  keycode: 'd'
+  color: "#6e979a" # like binary but more gray
+  requiredTags:
+  - DroneMind
+
+- type: collectiveMind
+  id: Mousemind
+  name: collective-mind-mousemind
+  keycode: 'p'
+  color: "#c18851"
+  requiredTags:
+  - MouseMind
