@@ -7153,3 +7153,9 @@ Entries:
       message: Grabbing release attempts should be smoother now.
   id: 831
   time: '2025-04-15T22:12:51.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Nanotrasen Representative's room spacing on Omega
+  id: 832
+  time: '2025-04-15T22:15:56.0000000+00:00'
