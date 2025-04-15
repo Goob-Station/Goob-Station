@@ -234,22 +234,15 @@
     {
       "name": "syndicate_card"
     },
-	{
-      "name": "nanotrasen_card",
-	  "_comment": "Goobstation - This is here, because otherwise I have to copy ALL of this to another folder. Fuck that."
-    },
     {
       "name": "paper_stamp-psychologist"
     },
     {
       "name": "paper_stamp-signature"
     },
-	{
-      "name": "contract-written"
-	{
+    {
       "name": "nanotrasen_card",
 	  "_comment": "Goobstation - This is here, because otherwise I have to copy ALL of this to another folder. Fuck that."
-    },
     },
 	{
       "name": "contract-written"
