@@ -1,7 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,17 +7,14 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
-using Content.Goobstation.Server.GameTicking.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
-using Content.Server.Antag.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Administration.Systems;
@@ -34,7 +29,7 @@ public sealed partial class GoobAdminVerbSystem
         if (!AntagVerbAllowed(args, out var targetPlayer))
             return;
 
-        // Changelings
+        // Goobstation - changelings
         Verb ling = new()
         {
             Text = Loc.GetString("admin-verb-text-make-changeling"),
@@ -51,7 +46,7 @@ public sealed partial class GoobAdminVerbSystem
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(ling);
 
-        // Blob
+        // Goobstation - Blob
         Verb blobAntag = new()
         {
             Text = Loc.GetString("admin-verb-text-make-blob"),
@@ -66,21 +61,6 @@ public sealed partial class GoobAdminVerbSystem
         };
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(blobAntag);
-
-        // Devil
-        Verb devilAntag = new()
-        {
-            Text = Loc.GetString("admin-verb-text-make-devil"),
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<DevilRuleComponent>(targetPlayer, "Devil");
-            },
-            Impact = LogImpact.High,
-            Message = Loc.GetString("admin-verb-make-devil"),
-        };
-        args.Verbs.Add(devilAntag);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)
