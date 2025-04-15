@@ -720,7 +720,7 @@
   cost:
     Telecrystal: 60
   categories:
-  - UplinkDeception
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -789,3 +789,17 @@
     whitelist:
       tags:
       - LoneOpsUplink
+
+- type: listing
+  id: UplinkHoloCigar
+  name: uplink-holo-cigar-name
+  description: uplink-holo-cigar-desc
+  productEntity: HoloCigar
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Human

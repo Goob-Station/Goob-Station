@@ -1,16 +1,10 @@
 using Content.Goobstation.Shared.Weapons.Multishot;
-using Content.Goobstation.Shared.Weapons.RequiresDualWield;
 using Content.Shared._Goobstation.Weapons.Ranged;
-using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Smoking;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
@@ -39,38 +33,44 @@ public sealed class HoloCigarSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     private const string YowieProtoId = "Yowie";
+    private const string LitPrefix = "lit";
+    private const string UnlitPrefix = "unlit";
+
     /// <inheritdoc/>o
     public override void Initialize()
     {
-        SubscribeLocalEvent<HoloCigarComponent, GetVerbsEvent<InteractionVerb>>(OnAddInteractVerb);
+        SubscribeLocalEvent<HoloCigarComponent, GetVerbsEvent<AlternativeVerb>>(OnAddInteractVerb);
         SubscribeLocalEvent<HoloCigarComponent, ComponentHandleState>(OnComponentHandleState);
+
         SubscribeLocalEvent<HoloCigarAffectedGunComponent, DroppedEvent>(OnDroppedEvent);
+
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
-    private void OnAddInteractVerb(Entity<HoloCigarComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
+    private void OnAddInteractVerb(Entity<HoloCigarComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract || args.Hands is null)
             return;
 
-        InteractionVerb verb = new()
+        AlternativeVerb verb = new()
         {
             Act = () =>
             {
                 HandleToggle(ent);
-
                 ent.Comp.Lit = !ent.Comp.Lit;
                 Dirty(ent);
             },
-            Message = Loc.GetString("action-description-internals-toggle"),
+            Message = Loc.GetString("holo-cigar-verb-desc"),
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/clock.svg.192dpi.png")),
-            Text = Loc.GetString("solution-container-mixer-activate"), // dont ask bruh
+            Text = Loc.GetString("holo-cigar-verb-text"),
         };
 
         args.Verbs.Add(verb);
     }
+
+    #region Event Methods
 
     private void OnComponentShutdown(Entity<TheManWhoSoldTheWorldComponent> ent, ref ComponentShutdown args)
     {
@@ -84,29 +84,14 @@ public sealed class HoloCigarSystem : EntitySystem
 
     private void ShutDownEnumerateRemoval(Entity<TheManWhoSoldTheWorldComponent> ent)
     {
-        var query = EntityQueryEnumerator<HoloCigarAffectedGunComponent, MultishotComponent>();
-        while (query.MoveNext(out var gun, out var comp, out var multiShotComp)) // i hate enumerators so much its so ugly can we extend them to have a .ToList() fucking hell
+        var query = EntityQueryEnumerator<HoloCigarAffectedGunComponent>();
+        while
+            (query.MoveNext(out var gun, out var comp))
         {
             if (comp.GunOwner != ent.Owner)
                 continue;
 
-            switch (comp.WasOriginallyMultishot)
-            {
-                case false:
-                    RemComp<MultishotComponent>(gun);
-                    break;
-                case true:
-                {
-                    multiShotComp.SpreadMultiplier = comp.OriginalSpreadModifier;
-                    break;
-                }
-            }// shit code galoreski
-
-            if (comp.GunRequieredWield)
-                EnsureComp<GunRequiresWieldComponent>(gun);
-
-            RemComp<HoloCigarAffectedGunComponent>(gun);
-            _gun.RefreshModifiers(gun);
+            RestoreGun(gun);
         }
     }
 
@@ -117,28 +102,7 @@ public sealed class HoloCigarSystem : EntitySystem
 
     private void OnDroppedEvent(Entity<HoloCigarAffectedGunComponent> ent, ref DroppedEvent args)
     {
-        if (!TryComp<MultishotComponent>(ent, out var multishotComponent))
-            return;
-
-        switch (ent.Comp.WasOriginallyMultishot)
-        {
-            case false:
-                RemComp<MultishotComponent>(ent);
-                break;
-            case true:
-            {
-                multishotComponent.SpreadMultiplier = ent.Comp.OriginalSpreadModifier;
-                break;
-            }
-        }
-
-        if (ent.Comp.GunWasWieldable)
-            EnsureComp<WieldableComponent>(ent);
-        if (ent.Comp.GunRequieredWield)
-            EnsureComp<GunRequiresWieldComponent>(ent);
-
-        RemComp<HoloCigarAffectedGunComponent>(ent);
-        _gun.RefreshModifiers(ent.Owner);
+        RestoreGun(ent);
     }
 
     private void OnPickupAttempt(Entity<TheManWhoSoldTheWorldComponent> ent, ref PickupAttemptEvent args)
@@ -167,24 +131,30 @@ public sealed class HoloCigarSystem : EntitySystem
         _gun.RefreshModifiers(args.Item);
     }
 
-    private void HandleToggle(Entity<HoloCigarComponent> ent, AppearanceComponent? appearance = null, ClothingComponent? clothing = null)
+    private void HandleToggle(Entity<HoloCigarComponent> ent,
+        AppearanceComponent? appearance = null,
+        ClothingComponent? clothing = null)
     {
-        if (!Resolve(ent, ref appearance, ref clothing) || !_gameTiming.IsFirstTimePredicted) // fuck predicting this shit
+        if (!Resolve(ent, ref appearance, ref clothing) ||
+            !_gameTiming.IsFirstTimePredicted) // fuck predicting this shit
             return;
 
         var state = ent.Comp.Lit ? SmokableState.Unlit : SmokableState.Lit;
-        var prefix = ent.Comp.Lit ? "unlit" : "lit";
+        var prefix = ent.Comp.Lit ? UnlitPrefix : LitPrefix;
 
         _appearance.SetData(ent, SmokingVisuals.Smoking, state, appearance);
         _clothing.SetEquippedPrefix(ent, prefix, clothing);
         _items.SetHeldPrefix(ent, prefix);
 
-        if(!_net.IsServer) // mary copium right here
+        if (!_net.IsServer) // mary copium right here
             return;
 
         if (ent.Comp.Lit == false)
         {
-            var audio = _audio.PlayPvs(ent.Comp.Music, ent, AudioParams.Default.WithLoop(true).WithVolume(2f));
+            var audio = _audio.PlayPvs(ent.Comp.Music,
+                ent,
+                AudioParams.Default.WithLoop(true).WithVolume(3f)); // must be louder than everything else on jehovah
+
             if (audio is null)
                 return;
             ent.Comp.MusicEntity = audio.Value.Entity;
@@ -205,4 +175,38 @@ public sealed class HoloCigarSystem : EntitySystem
         ent.Comp.Lit = state.Lit;
         HandleToggle(ent);
     }
+
+    #endregion
+
+    #region Helper Methods
+
+    private void RestoreGun(EntityUid gun,
+        HoloCigarAffectedGunComponent? cigarAffectedGunComponent = null,
+        MultishotComponent? multiShotComp = null)
+    {
+        if (!Resolve(gun, ref cigarAffectedGunComponent, ref multiShotComp))
+            return;
+
+        switch (cigarAffectedGunComponent.WasOriginallyMultishot)
+        {
+            case false:
+                RemComp<MultishotComponent>(gun);
+                break;
+            case true:
+            {
+                multiShotComp.SpreadMultiplier = cigarAffectedGunComponent.OriginalSpreadModifier;
+                break;
+            }
+        }
+
+        if (cigarAffectedGunComponent.GunWasWieldable)
+            EnsureComp<WieldableComponent>(gun);
+        if (cigarAffectedGunComponent.GunRequieredWield)
+            EnsureComp<GunRequiresWieldComponent>(gun);
+
+        RemComp<HoloCigarAffectedGunComponent>(gun);
+        _gun.RefreshModifiers(gun);
+    }
+
+    #endregion
 }
