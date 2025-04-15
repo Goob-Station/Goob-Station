@@ -24,7 +24,7 @@ public sealed partial class EnchantedComponent : Component
     public int Tier = 1;
 
     /// <summary>
-    /// Players can be sacraficed up to this tier.
+    /// Players can be sacrificed up to this tier.
     /// </summary>
     [DataField]
     public int MaxTier = 3;

@@ -11,7 +11,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Shared.Enchanting.Components;
 
 /// <summary>
-/// An item that can be sacraficed to add random enchant(s) to a target item.
+/// An item that can be sacrificed to add random enchant(s) to a target item.
 /// Requires an altar with this and the target item placed on it, then click on the target with a bible.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(EnchanterSystem))]

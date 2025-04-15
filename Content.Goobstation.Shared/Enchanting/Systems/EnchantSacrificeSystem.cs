@@ -12,9 +12,9 @@ using Content.Shared.Popups;
 namespace Content.Goobstation.Shared.Enchanting.Systems;
 
 /// <summary>
-/// Handles upgrading enchanted item tier when a player-controlled mob is sacraficed on top of an altar with it.
+/// Handles upgrading enchanted item tier when a player-controlled mob is sacrificed on top of an altar with it.
 /// </summary>
-public sealed class EnchantSacraficeSystem : EntitySystem
+public sealed class EnchantSacrificeSystem : EntitySystem
 {
     [Dependency] private readonly EnchantingSystem _enchanting = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -72,8 +72,8 @@ public sealed class EnchantSacraficeSystem : EntitySystem
 
         var identity = Identity.Name(mob, EntityManager);
         var msg = upgraded == 1
-            ? Loc.GetString("enchanting-sacrafice-single", ("target", identity), ("item", any))
-            : Loc.GetString("enchanting-sacrafice-multiple", ("target", identity));
+            ? Loc.GetString("enchanting-sacrifice-single", ("target", identity), ("item", any))
+            : Loc.GetString("enchanting-sacrifice-multiple", ("target", identity));
 
         _popup.PopupPredicted(msg, mob, null, PopupType.LargeCaution);
     }
