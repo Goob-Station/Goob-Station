@@ -257,6 +257,8 @@
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
     state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
   - type: MeleeWeapon
     damage:
       types:
