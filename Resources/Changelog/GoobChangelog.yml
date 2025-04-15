@@ -7197,3 +7197,11 @@ Entries:
       message: Voiceless dead ritual now requires a muzzle instead of a poppy.
   id: 838
   time: '2025-04-15T22:42:53.0000000+00:00'
+- author: SolsticeOfTheWinter, Unkn0wn_Gh0st
+  changes:
+    - type: Add
+      message: >-
+        Added Knuckledusters to the game. The QM has his own, and syndicates can
+        buy their own. You can also get them in maintenance.
+  id: 839
+  time: '2025-04-15T22:45:54.0000000+00:00'
