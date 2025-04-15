@@ -151,6 +151,8 @@
     allowMovement: true
     description: ghost-role-information-SyndiRoach-description
     rules: ghost-role-information-SyndiRoach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -225,6 +227,8 @@
     name: ghost-role-information-lootbug-name
     description: ghost-role-information-lootbug-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
