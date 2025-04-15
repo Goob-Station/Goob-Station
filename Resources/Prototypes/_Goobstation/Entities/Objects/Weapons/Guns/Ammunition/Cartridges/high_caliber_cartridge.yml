@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -15,6 +17,27 @@
     - CartridgeHighCaliber
   - type: CartridgeAmmo
     proto: BulletHighCaliber
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeHighCaliberHP
+  name: cartridge (.50 hp)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeHighCaliber
+  - type: CartridgeAmmo
+    proto: BulletHighCaliberHP
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
     layers:

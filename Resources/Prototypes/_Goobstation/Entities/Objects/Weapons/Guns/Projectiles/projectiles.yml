@@ -1,4 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
@@ -7,6 +6,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -103,15 +104,25 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: BulletHighCaliberHP
+  name: bullet (.50 hp)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20 #Gun is for breaking walls not people
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
   id: BulletHighCaliber
   name: bullet (.50 anti-materiel)
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 35
-        Structural: 130 # if you were a wall would you like having a .50 cal anti materiel round go through you? (this breaks a normal wall in 3 shots, one mag goes through four normal walls, 10 rounds to take down a reinforced wall)
-
+        Piercing: 10 #Gun is for breaking walls not people
+        Structural: 160 # if you were a wall would you like having a .50 cal anti materiel round go through you? (this breaks a normal wall in 3 shots, one mag goes through four normal walls, 10 rounds to take down a reinforced wall)
 
 - type: entity
   categories: [ HideSpawnMenu ]
