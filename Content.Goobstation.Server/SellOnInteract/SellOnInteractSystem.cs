@@ -46,7 +46,7 @@ public sealed partial class SellOnInteractSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || args.Target == args.Using)
             return;
 
-        if (!HasComp<ItemComponent>(args.Target) || HasComp<CargoSellBlacklistComponent>(args.Target) && !component.CanSellAnything)
+        if (!component.CanSellAnything && !HasComp<ItemComponent>(args.Target))
             return;
 
         var performer = args.User;
@@ -75,8 +75,7 @@ public sealed partial class SellOnInteractSystem : EntitySystem
             performer,
             comp.DoAfterDuration,
             new SellOnInteractDoAfter(),
-            comp.Owner,
-            target)
+            comp.Owner)
         {
             BlockDuplicate = true,
             BreakOnMove = true,
