@@ -442,7 +442,7 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi # goob edit
     state: plushie_nuke
-  - type: item #Goobstation
+  - type: Item #Goobstation
     inhandVisuals:
       left:
       - state: plushienukie-inhand-left
