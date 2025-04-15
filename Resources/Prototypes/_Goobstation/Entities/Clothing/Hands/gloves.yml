@@ -260,6 +260,7 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
+    slots: [gloves]
   - type: MeleeWeapon
     damage:
       types:
@@ -272,8 +273,6 @@
   - type: Item
     size: Small
     storedRotation: -90
-  - type: Clothing
-    slots: [gloves]
   - type: PhysicalComposition
     materialComposition:
       Gold: 500 # 5 bars
