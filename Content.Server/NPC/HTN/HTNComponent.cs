@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Threading;
 using Content.Server.NPC.Components;
 
@@ -10,7 +17,7 @@ public sealed partial class HTNComponent : NPCComponent
     /// The base task to use for planning
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite),
-     DataField("rootTask", required: true)]
+    DataField("rootTask", required: true)]
     public HTNCompoundTask RootTask = default!;
 
     /// <summary>
@@ -47,4 +54,10 @@ public sealed partial class HTNComponent : NPCComponent
     /// Is this NPC currently planning?
     /// </summary>
     [ViewVariables] public bool Planning => PlanningJob != null;
+
+    /// <summary>
+    /// Determines whether plans should be made / updated for this entity
+    /// </summary>
+    [DataField]
+    public bool Enabled = true;
 }

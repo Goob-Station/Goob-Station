@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: jaunt
   parent: [Incorporeal, BaseMob]
@@ -18,6 +27,8 @@
   - type: Visibility
     layer: 2
   - type: Spectral
+  - type: IsDeadIC # Goobstation
+    dead: false
 
 # Should be slow, for balance
 - type: entity
@@ -37,8 +48,6 @@
   #  overrideContainerOcclusion: true
   #  drawdepth: Ghosts
   - type: MovementSpeedModifier
-    baseSprintSpeed: 4 # Goob edit
-    baseWalkSpeed: 4 # Goob edit
+    baseSprintSpeed: 3 # Goob edit
+    baseWalkSpeed: 3 # Goob edit
   - type: WizardJaunt # Goobstation
-  - type: IsDeadIC # Goobstation
-    dead: false
