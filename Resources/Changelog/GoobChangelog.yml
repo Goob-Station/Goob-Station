@@ -7191,3 +7191,9 @@ Entries:
       message: Added the Chief Engineers Singularity Buster Rocket Launcher. Have fun.
   id: 837
   time: '2025-04-15T22:42:28.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Voiceless dead ritual now requires a muzzle instead of a poppy.
+  id: 838
+  time: '2025-04-15T22:42:53.0000000+00:00'
