@@ -7042,3 +7042,172 @@ Entries:
       message: Proximity airlock opening.
   id: 818
   time: '2025-04-03T08:14:59.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Captain no longer gets N1984.
+  id: 819
+  time: '2025-04-04T18:23:30.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Multiple storage behavior was reverted.
+  id: 820
+  time: '2025-04-04T22:54:28.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Shoving now moves objects and mobs, deals very small stamina damage.
+    - type: Add
+      message: Melee weapon regular swings now show the weapon.
+    - type: Fix
+      message: Grab Throw cooldown actually works.
+  id: 821
+  time: '2025-04-05T09:45:43.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Cartridges can now be ejected from cartridge autoinjectors.
+    - type: Tweak
+      message: >-
+        Security no longer spawns with cartridge autoinjectors, but they can be
+        found in SecTech.
+    - type: Tweak
+      message: You can now make tirizene from haloperidol, phenol and plasma.
+    - type: Tweak
+      message: Changeling lethargic sting now actually makes people sleepy.
+    - type: Tweak
+      message: Atropine no longer paralyzes without OD.
+  id: 822
+  time: '2025-04-05T11:57:11.0000000+00:00'
+- author: _kote, Mocho, Durk
+  changes:
+    - type: Add
+      message: R&D console got fully reworked!
+  id: 823
+  time: '2025-04-07T08:05:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Group retaliation to monkeys and mice.
+  id: 824
+  time: '2025-04-07T18:48:11.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: >-
+        Added tracking for actions (popups) and examines within the chat window.
+        You can toggle this on and off via a couple of client CVARs in your
+        settings.
+    - type: Tweak
+      message: >-
+        If the same message is sent consecutively multiple times, it'll wrap up
+        in chat, such as Urist Mchands says: Loser x28
+  id: 825
+  time: '2025-04-15T03:22:04.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Remove
+      message: 1984d curse of byond spell, admins can still use though
+  id: 826
+  time: '2025-04-15T22:07:21.0000000+00:00'
+- author: Rouden, Aidenkrz
+  changes:
+    - type: Add
+      message: Added Fishing.
+  id: 827
+  time: '2025-04-15T22:08:58.0000000+00:00'
+- author: >-
+    SolsticeOfTheWinter, Rosef, The Chinese Communist Party, The Friends I Made
+    Along the Way
+  changes:
+    - type: Add
+      message: Added the Devil.
+  id: 828
+  time: '2025-04-15T22:09:34.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Stun baton delayed knockdown is back.
+    - type: Add
+      message: Stamresists on armor.
+    - type: Tweak
+      message: Beanbags and hardlight bow disabler arrows buffed.
+  id: 829
+  time: '2025-04-15T22:11:27.0000000+00:00'
+- author: PunishedJoe
+  changes:
+    - type: Add
+      message: >-
+        Adds MODsuit variations of existing crew voidsuits, not currently
+        obtainable (trvst thv plvn)
+  id: 830
+  time: '2025-04-15T22:11:44.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Added proper cooldowns to Grabbing.
+    - type: Add
+      message: Grabbing release attempts can now be attempted by hitting the B key.
+    - type: Add
+      message: Grabbing release attempts should be smoother now.
+  id: 831
+  time: '2025-04-15T22:12:51.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Nanotrasen Representative's room spacing on Omega
+  id: 832
+  time: '2025-04-15T22:15:56.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Saltern
+  id: 833
+  time: '2025-04-15T22:16:25.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Add
+      message: Added the Lavaland Shuttle to Cluster
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Cluster
+  id: 834
+  time: '2025-04-15T22:17:14.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Bluespace shelter capsules now load correctly
+  id: 835
+  time: '2025-04-15T22:17:55.0000000+00:00'
+- author: FireNameFN
+  changes:
+    - type: Tweak
+      message: Footprints and bodyprints will not disappear without mopping them.
+  id: 836
+  time: '2025-04-15T22:19:04.0000000+00:00'
+- author: SolsticeOfTheWinter, Spessman
+  changes:
+    - type: Add
+      message: Added the Chief Engineers Singularity Buster Rocket Launcher. Have fun.
+  id: 837
+  time: '2025-04-15T22:42:28.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Voiceless dead ritual now requires a muzzle instead of a poppy.
+  id: 838
+  time: '2025-04-15T22:42:53.0000000+00:00'
+- author: SolsticeOfTheWinter, Unkn0wn_Gh0st
+  changes:
+    - type: Add
+      message: >-
+        Added Knuckledusters to the game. The QM has his own, and syndicates can
+        buy their own. You can also get them in maintenance.
+  id: 839
+  time: '2025-04-15T22:45:54.0000000+00:00'
+- author: terminatorbo
+  changes:
+    - type: Add
+      message: Nukies now can buy surplus and super surplus bundles!
+  id: 840
+  time: '2025-04-15T22:55:47.0000000+00:00'

@@ -1,4 +1,9 @@
-﻿- files: ["cat_hiss1.ogg", "cat_hiss2.ogg"]
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["cat_hiss1.ogg", "cat_hiss2.ogg"]
   license: "CC-BY-4.0"
   copyright: "Original sound by https://freesound.org/people/secondbody/ - cut out two clips of cat hissing, cleaned up, and converted to ogg."
   source: "https://freesound.org/people/secondbody/sounds/50357/"
