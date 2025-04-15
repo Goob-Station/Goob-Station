@@ -296,7 +296,7 @@
     sound:
       collection: ToySqueak
   - type: Food
-    requiresSpecialDigestion: false
+    requiresSpecialDigestion: true
     useSound:
       path: /Audio/_Shitmed/Misc/abductor.ogg
   - type: MeleeWeapon

@@ -639,6 +639,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,4.5
       parent: 1
+- proto: PlushieAbductor
+  entities:
+  - uid: 253
+    components:
+    - type: Transform
+      pos: 1.15,5.25
+      parent: 1
 - proto: ClockworkGrille
   entities:
   - uid: 45
