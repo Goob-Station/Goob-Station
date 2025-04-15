@@ -493,6 +493,9 @@
   - type: Construction
     graph: Muzzle
     node: muzzle
+  - type: Tag # Goobstation
+    tags:
+    - Muzzle
 
 - type: entity
   parent: ClothingMaskPullableBase

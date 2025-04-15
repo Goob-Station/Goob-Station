@@ -289,6 +289,9 @@
   id: ModsuitShell
 
 - type: Tag
+  id: Muzzle
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag

@@ -158,7 +158,7 @@
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
   requiredTags:
-    Poppy: 1
+    Muzzle: 1
 
 - type: hereticRitual
   id: RawRitual
