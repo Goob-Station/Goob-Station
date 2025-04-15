@@ -27,6 +27,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Bible;
+using Content.Goobstation.Shared.Religion;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -61,6 +64,8 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly GoobBibleSystem _goobBible = default!; // Goobstation
+        [Dependency] private readonly FlammableSystem _flammable = default!; // Goobstation
 
         public override void Initialize()
         {
@@ -127,10 +132,20 @@ namespace Content.Server.Bible
             if (!TryComp(uid, out UseDelayComponent? useDelay) || _delay.IsDelayed((uid, useDelay)))
                 return;
 
-            if (args.Target == null || args.Target == args.User || !_mobStateSystem.IsAlive(args.Target.Value))
+            if (args.Target == null || args.Target == args.User ) // Goobstation - Start
+                return; // STOP WITH USELESS BRACES!!
+
+            if (HasComp<WeakToHolyComponent>(args.Target) && HasComp<BibleUserComponent>(args.User))
             {
+                if (!_mobStateSystem.IsIncapacitated(args.Target.Value))
+                    _flammable.SetFireStacks(args.Target.Value, 5, ignite:true);
+                _goobBible.TryDoSmite(uid, component, args, useDelay);
                 return;
             }
+            // Goobstation - End
+
+            if (!_mobStateSystem.IsAlive(args.Target.Value)) // Goobstation
+                return;
 
             if (!HasComp<BibleUserComponent>(args.User))
             {
@@ -275,5 +290,7 @@ namespace Content.Server.Bible
             component.AlreadySummoned = true;
             _actionsSystem.RemoveAction(user, component.SummonActionEntity);
         }
+
+
     }
 }

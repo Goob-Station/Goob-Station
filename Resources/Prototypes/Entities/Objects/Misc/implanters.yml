@@ -82,6 +82,8 @@
       - DeathAcidifierImplant
       - DeathRattleImplant
       - MindShieldImplant
+      - FakeMindShieldImplant
+      - RadioImplant
       # Goob implants
       - MindcontrolImplant
       - KravMagaImplant

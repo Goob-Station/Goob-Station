@@ -80,6 +80,8 @@
       name: ghost-role-information-skibidi-toilet-name
       description: ghost-role-information-skibidi-toilet-description
       rules: ghost-role-information-skibidi-toilet-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
     - type: GhostTakeoverAvailable

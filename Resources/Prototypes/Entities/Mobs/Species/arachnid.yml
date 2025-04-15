@@ -147,6 +147,7 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
   - type: FootPrints # WD EDIT
     leftBarePrint: "footprint-left-bare-spider"
     rightBarePrint: "footprint-right-bare-spider"
@@ -158,6 +159,8 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
+  - type: Inventory
+    speciesId: arachnid 
 
 
 #>88w88<
