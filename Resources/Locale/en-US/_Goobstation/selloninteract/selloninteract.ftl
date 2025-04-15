@@ -1,2 +1,2 @@
-sell-object-verb = Sell Object.
-sell-object-popup = {$user} begins to scan the {$target}
+sell-object-verb = Sell Object
+sell-object-popup = The {$target} begins to shimmer as {$user} scans it.
