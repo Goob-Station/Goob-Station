@@ -7221,3 +7221,9 @@ Entries:
       message: 'RPD crates can now be ordered through cargo. '
   id: 841
   time: '2025-04-15T23:11:03.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Fixed wonderprod's fun
+  id: 842
+  time: '2025-04-15T23:11:21.0000000+00:00'
