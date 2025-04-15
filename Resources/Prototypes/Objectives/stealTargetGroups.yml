@@ -25,6 +25,8 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -64,6 +66,13 @@
   sprite:
     sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: WeaponLauncherSingularityBuster
+  name: steal-target-groups-weapon-launcher-singularity-buster
+  sprite:
+    sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
+    state: base
 
 - type: stealTargetGroup
   id: BoxFolderQmClipboard
