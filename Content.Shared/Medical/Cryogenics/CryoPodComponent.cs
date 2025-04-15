@@ -29,7 +29,7 @@ public sealed partial class CryoPodComponent : Component
     public string PortName { get; set; } = "port";
 
     /// <summary>
-    /// Specifies the name of the atmospherics port to draw gas from.
+    /// Specifies the name of the slot that holds beaker with medicine.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("solutionContainerName")]
