@@ -100,11 +100,14 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Examine; // Goobstation Change
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -387,6 +390,9 @@ namespace Content.Shared.Examine
 
             var newMessage = examinedEvent.GetTotalMessage();
 
+            // Goobstation Change: I dont seem to have a way to get the event of examination to happen after EVERYTHING else, so fuck it.
+            var examineCompletedEvent = new ExamineCompletedEvent(newMessage, entity, examiner.Value);
+            RaiseLocalEvent(entity, examineCompletedEvent);
             // pop color tag
             newMessage.Pop();
 
