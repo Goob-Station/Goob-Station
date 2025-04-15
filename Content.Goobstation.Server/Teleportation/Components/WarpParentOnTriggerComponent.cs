@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 namespace Content.Goobstation.Server.Teleportation.Components;
 
 [RegisterComponent]

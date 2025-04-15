@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Server.Teleportation.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Mind;
