@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BinglePit
   name: binglepit
@@ -9,9 +18,6 @@
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
-    blacklist:
-      tags:
-      - Catwalk
     triggerGroups:
       types:
       - Chasm
@@ -39,13 +45,13 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 256
+        damage: 600
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -57,6 +63,17 @@
     solutions:
       drainBuffer:
         maxVol: 1000
-  - type: Drain
+  - type: Drain # remove liquids around pit
     unitsPerSecond: 10
     unitsDestroyedPerSecond: 10
+  - type: PassiveDamage #passive Healing
+    damage:
+      types:
+        Heat: -1
+        Shock: -1
+        Structural: -1
+      groups:
+        Brute: -1
+  - type: AntiRottingContainer
+  - type: SpawnOnDespawn
+    prototype: CrateFunBingleLoot

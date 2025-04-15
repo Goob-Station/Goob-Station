@@ -1,17 +1,30 @@
-using Content.Shared.Whitelist;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._NF.Interaction.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._NF.Interaction.Components;
 
-[RegisterComponent]
-[NetworkedComponent]
-// When an entity with this is removed from a hand, it is replaced with a placeholder entity that blocks the hand's use until re-equipped with the same prototype.
+/// <summary>
+/// When an entity with this is removed from a hand, it is replaced with an existing placeholder entity.
+/// </summary>
+[RegisterComponent, NetworkedComponent, Access(typeof(HandPlaceholderSystem))]
+[AutoGenerateComponentState]
 public sealed partial class HandPlaceholderRemoveableComponent : Component
 {
-    [DataField]
-    public EntityWhitelist? Whitelist;
+    [DataField, AutoNetworkedField]
+    public EntityUid Placeholder;
 
-    [DataField]
-    public EntProtoId? Prototype;
+    /// <summary>
+    /// Used to prevent it incorrectly replacing with the placeholder,
+    /// when selecting and deselecting a module.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Enabled;
 }

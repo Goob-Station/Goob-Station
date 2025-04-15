@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: ClothingBeltMilitaryWebbingCMO
   suffix: Filled, DO NOT MAP
@@ -99,3 +112,26 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltSecurityNoBatonEntityTable
+
+- type: entityTable
+  id: BeltAssaultBSOEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Stunbaton
+    - id: HandheldCrewMonitor
+    - id: HoloprojectorSecurity
+    - id: GrenadeFlashBang
+    - id: WeaponDisabler
+    - id: Zipties
+    - id: Zipties
+    - id: Zipties
+
+- type: entity
+  id: ClothingBeltAssaultFilled
+  parent: ClothingBeltAssault
+  suffix: Filled, BSO
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltAssaultBSOEntityTable

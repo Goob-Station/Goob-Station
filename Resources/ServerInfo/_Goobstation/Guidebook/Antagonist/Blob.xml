@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
 # Blob
 
@@ -50,9 +60,11 @@ When a node is destroyed, all bound special tiles are destroyed with the return 
 	<GuideEntityEmbed Entity="MobBlobPod" Caption="Blob Pod"/>
   </Box>
 
-Blob factories can produce Blob pods and Blobburnouts.
+Blob factories can produce Blob pods and Blobbernauts.
 - Blob pods have the ability to turn dead humanoids into zombie blobs, which will force them to fight on your side against the rest of the crew.
-- Blobburnouts have a lot of damage, which will come in handy for attacking.
+- Blobbernauts have a lot of damage, which will come in handy for attacking.
+
+You and your minions may use + or +e in chat (just like radio, but with + instead of :) to talk in the Blobbermind.
 
 ## Management
 

@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Administration;
 using Content.Shared._Shitmed.Autodoc;
@@ -8,19 +16,29 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Timing;
+using Robust.Client.UserInterface;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Utility;
+using System.IO;
+using YamlDotNet.RepresentationModel;
+using Robust.Shared.Serialization.Markdown;
 
 namespace Content.Client._Shitmed.Autodoc;
 
 [GenerateTypedNameReferences]
 public sealed partial class AutodocWindow : FancyWindow
 {
-    private IEntityManager _entMan;
-    private IPlayerManager _player;
+    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly IFileDialogManager _dialogMan = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly ISerializationManager _serMan = default!;
+    [Dependency] private readonly ILogManager _logMan = default!;
     private SharedAutodocSystem _autodoc;
 
     private EntityUid _owner;
     private bool _active;
     private int _programCount = 0;
+    private ISawmill _sawmill;
 
     public event Action<string>? OnCreateProgram;
     public event Action<int>? OnToggleProgramSafety;
@@ -29,6 +47,7 @@ public sealed partial class AutodocWindow : FancyWindow
     public event Action<int, int>? OnRemoveStep;
     public event Action<int>? OnStart;
     public event Action? OnStop;
+    public event Action<AutodocProgram>? OnImportProgram;
 
     private DialogWindow? _dialog;
     private AutodocProgramWindow? _currentProgram;
@@ -36,10 +55,12 @@ public sealed partial class AutodocWindow : FancyWindow
     public AutodocWindow(EntityUid owner, IEntityManager entMan, IPlayerManager player)
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
 
         _entMan = entMan;
         _player = player;
         _autodoc = entMan.System<SharedAutodocSystem>();
+        _sawmill = _logMan.GetSawmill("autodoc-ui");
 
         _owner = owner;
 
@@ -47,6 +68,11 @@ public sealed partial class AutodocWindow : FancyWindow
         {
             _dialog?.Close();
             _currentProgram?.Close();
+        };
+
+        ImportProgramButton.OnPressed += _ =>
+        {
+            ImportProgram();
         };
 
         CreateProgramButton.OnPressed += _ =>
@@ -138,6 +164,27 @@ public sealed partial class AutodocWindow : FancyWindow
             button.Disabled = _active;
             Programs.AddChild(button);
         }
+    }
+
+    private async void ImportProgram()
+    {
+        if (await _dialogMan.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml"))) is not {} file)
+            return;
+
+        try
+        {
+            using var reader = new StreamReader(file, EncodingHelpers.UTF8);
+            var yamlStream = new YamlStream();
+            yamlStream.Load(reader);
+            var root = yamlStream.Documents[0].RootNode;
+            var program = _serMan.Read<AutodocProgram>(root.ToDataNode(), notNullableOverride: true);
+            OnImportProgram?.Invoke(program);
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Error when importing program: {e}");
+        }
+
     }
 
     private void OpenProgram(int index)

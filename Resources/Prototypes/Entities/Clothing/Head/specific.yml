@@ -1,4 +1,12 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatChameleon
   name: beret
@@ -18,3 +26,34 @@
       interfaces:
         enum.ChameleonUiKey.Key:
           type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingHeadHatFedoraBrown
+  id: ClothingHeadHatDetGadget
+  name: go go hat
+  description: A novel hat with a built in toolkit. Automatically stores and retrieves items at the say of a phrase!
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: TriggerOnVoice
+    keyPhrase: "go go gadget"
+    listenRange: 0
+  - type: ActiveListener
+    range: 0
+  - type: StorageVoiceControl
+    allowedSlots:
+    - HEAD
+  - type: Storage
+    showVerb: false
+    grid:
+    - 0,0,6,3
+    maxItemSize: Small
+    blacklist:
+      tags:
+      - HighRiskItem # no hiding objectives or trolling nukies
+      - FakeNukeDisk # no disk checking
+      - QuantumSpinInverter # avoid the morbillionth QSI bug
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]

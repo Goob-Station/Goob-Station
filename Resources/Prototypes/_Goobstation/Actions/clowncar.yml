@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: ActionThankDriver
+  name: Thank Driver
+  description: show the driver you enjoy being a passenger
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+      state: clowncar
+    event: !type:ThankRiderActionEvent
+    useDelay: 60 # 60 sec delay
+    checkCanInteract: false
+
+- type: entity
+  id: ActionQuietBackThere
+  name: Quiet back there
+  description: tell the passengers to be quiet
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+      state: clowncar
+    event: !type:QuietBackThereActionEvent
+    useDelay: 30 # 30 sec delay

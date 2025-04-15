@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: ActionSwapImplant
   name: Swap
@@ -7,15 +13,14 @@
     checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 5
+    useDelay: 60
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
       components:
       - Transform
       - MobState
-    canTargetSelf: true
-    interactOnMiss: false
+    canTargetSelf: false
     range: 15
     icon:
       sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
@@ -23,4 +28,6 @@
     event: !type:SwapSpellEvent
       sound:
         path: /Audio/Effects/Lightning/lightningbolt.ogg
+      throughWalls: false
   - type: SwapSpell
+    allowSecondaryTarget: false

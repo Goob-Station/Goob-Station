@@ -1,4 +1,14 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
   # Roleplay Rule 4 - Do not metagame, obey the Metashield
   Something that is "shielded" cannot be known by your character during a round until the "revealing condition" happens. This also means that your character cannot do things based on "shielded" information. Knowing or acting on something that is shielded before the revealing condition is met is referred to as metagaming.
 
@@ -45,6 +55,18 @@
   - witnessing someone changing their appearance
   - being a changeling
 
+  ## Heretics
+
+  To normal people, heretics are generally unknown. Security and Command may be aware that a group of people following a rogue god exists, but it's an absurd reality.
+  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them. 
+
+  Knowledge about the ability of heretics is not shielded.
+
+  The revealing condition for this shield is any of the following:
+  - witnessing a crewmember drawing a rune  
+  - witnessing a crewmember harvesting a reality fracture 
+  - witnessing a crewmember using their powers
+   
   ## Implanted Implants
 
   Implanted implants are shielded.
@@ -110,4 +132,5 @@
   - The fact that the Syndicate are enemies of Nanotrasen, and that they regularly attempt to send covert agents to spy on, sabotage, or attack Nanotrasen.
   - A character's typical appearance. Though you should keep in mind that multiple characters can share the same name.
   - The fact that the Syndicate have covert items capable of getting items to them, and that these items are known as uplinks.
+  - Wizards are not metashielded as the wizards federation is well rumoured about.
 </Document>

@@ -1,4 +1,15 @@
-﻿# non-projectile / "gun" staves
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# non-projectile / "gun" staves
 
 # wand that gives lights an RGB effect.
 - type: entity
@@ -31,6 +42,30 @@
   - type: PointLight
     enabled: true
     radius: 2
+
+- type: entity
+  id: AnimationStaff
+  parent: BaseItem
+  name: staff of animation
+  description: Brings inanimate objects to life!
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/staves.rsi
+    layers:
+    - state: animation
+  - type: ActionOnInteract
+    actions:
+    - ActionAnimateSpell
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: animation-inhand-left
+      right:
+      - state: animation-inhand-right
+  - type: Tag
+    tags:
+    - WizardWand
 
 - type: entity
   id: ActionRgbLight

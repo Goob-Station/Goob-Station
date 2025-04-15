@@ -1,3 +1,12 @@
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <controls:FancyWindow
         xmlns="https://spacestation14.io"
         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
@@ -8,7 +17,8 @@
         </ScrollContainer>
         <BoxContainer Orientation="Horizontal" Margin="5 5 5 5" Align="Center">
             <Button Name="CreateProgramButton" StyleClasses="OpenRight" Text="{Loc 'autodoc-create-program'}"/>
-            <Button Name="AbortButton" StyleClasses="OpenLeft" Text="{Loc 'autodoc-abort-program'}" Disabled="True"/>
+            <Button Name="ImportProgramButton" StyleClasses="OpenLeft" Text="{Loc 'autodoc-import-program'}"/>
         </BoxContainer>
+        <Button Name="AbortButton" MaxWidth="350" Text="{Loc 'autodoc-abort-program'}" Disabled="True"/>
     </BoxContainer>
 </controls:FancyWindow>

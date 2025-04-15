@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: MailTeleporterMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: mail teleporter machine board
+  components:
+    - type: Sprite
+      state: supply
+    - type: MachineBoard
+      prototype: MailTeleporter
+      stackRequirements:
+        Capacitor: 1
+        MatterBin: 1
+        Steel: 4
+        Cable: 4

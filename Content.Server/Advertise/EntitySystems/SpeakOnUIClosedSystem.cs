@@ -1,12 +1,21 @@
-using Content.Server.Advertise.Components;
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Chat.Systems;
+using Content.Shared.Advertise.Components;
+using Content.Shared.Advertise.Systems;
+using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using ActivatableUIComponent = Content.Shared.UserInterface.ActivatableUIComponent;
 
-namespace Content.Server.Advertise;
+namespace Content.Server.Advertise.EntitySystems;
 
-public sealed partial class SpeakOnUIClosedSystem : EntitySystem
+public sealed partial class SpeakOnUIClosedSystem : SharedSpeakOnUIClosedSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -43,15 +52,6 @@ public sealed partial class SpeakOnUIClosedSystem : EntitySystem
         var message = Loc.GetString(_random.Pick(messagePack.Values), ("name", Name(entity)));
         _chat.TrySendInGameICMessage(entity, message, InGameICChatType.Speak, true);
         entity.Comp.Flag = false;
-        return true;
-    }
-
-    public bool TrySetFlag(Entity<SpeakOnUIClosedComponent?> entity, bool value = true)
-    {
-        if (!Resolve(entity, ref entity.Comp))
-            return false;
-
-        entity.Comp.Flag = value;
         return true;
     }
 }

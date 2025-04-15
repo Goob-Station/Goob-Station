@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 spellbook-scrying-orb-name = Scrying Orb
 spellbook-scrying-orb-desc =
     An incandescent orb of crackling energy, using it will allow you to ghost while alive, allowing you to spy upon the station with ease. In addition, holding it in your hand or in your pocket will grant you x-ray vision.
@@ -72,3 +79,15 @@ spellbook-wand-desc =
     Only wizards and their apprentices can change wand firing mode.
     Can be used on yourself.
     Wand is more compact compared to staves but doesn't recharge automatically.
+
+spellbook-staff-animate-name = Staff of Animation
+spellbook-staff-animate-desc =
+    An arcane staff capable of infusing eldritch energy on contact which cause inanimate objects to come to life.
+    This magic doesn't affect machines.
+    Objects brought to life using this staff will have silly googly eyes but make no mistake, they are quite dangerous!
+
+spellbook-hammer-mjollnir-name = Mjollnir
+spellbook-hammer-mjollnir-description = Wield the power of THUNDER in your hands. Send foes flying with a mighty swing or by throwing it right at em!
+
+spellbook-hammer-singularity-name = Singularity Hammer
+spellbook-hammer-singularity-description = Ever wonder what it'd be like to be the singularity? Swing this hammer to draw in your surroundings, even works if you miss!

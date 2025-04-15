@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGateway
+  id: GatewayLavaland
+  name: Lavaland gateway
+  description: To hell you go.
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+    tagRestriction: LavalandStationGateway
+  - type: Tag
+    tags:
+    - Structure
+    - LavalandGateway
+
+- type: entity
+  parent: BaseGateway
+  id: GatewayLavalandStation
+  name: Lavaland gateway
+  description: To hell you go.
+  suffix: Station
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+    tagRestriction: LavalandGateway
+  - type: Tag
+    tags:
+    - Structure
+    - LavalandStationGateway
+  - type: Anchorable

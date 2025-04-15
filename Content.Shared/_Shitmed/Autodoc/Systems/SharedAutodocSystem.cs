@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
@@ -49,6 +57,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             s.Event<AutodocRemoveStepMessage>(OnRemoveStep);
             s.Event<AutodocStartMessage>(OnStart);
             s.Event<AutodocStopMessage>(OnStop);
+            s.Event<AutodocImportProgramMessage>(OnImportProgram);
         });
 
         SubscribeLocalEvent<ActiveAutodocComponent, SurgeryStepEvent>(OnSurgeryStep);
@@ -126,6 +135,11 @@ public abstract class SharedAutodocSystem : EntitySystem
     private void OnStop(Entity<AutodocComponent> ent, ref AutodocStopMessage args)
     {
         RemComp<ActiveAutodocComponent>(ent);
+    }
+
+    private void OnImportProgram(Entity<AutodocComponent> ent, ref AutodocImportProgramMessage args)
+    {
+        ImportProgram(ent, args.Program, args.Actor);
     }
 
     #endregion
@@ -316,6 +330,29 @@ public abstract class SharedAutodocSystem : EntitySystem
     public bool IsAwake(EntityUid uid)
     {
         return _mobState.IsAlive(uid) && !HasComp<SleepingComponent>(uid);
+    }
+
+    /// <summary>
+    /// Creates a new program and populates it using another AutodocProgram.
+    /// Will return false on fail. True on success.
+    /// </summary>
+    public bool ImportProgram(Entity<AutodocComponent> ent, AutodocProgram program, EntityUid user)
+    {
+        var idx = CreateProgram(ent, program.Title);
+
+        if (!idx.HasValue)
+            return false;
+
+        for (int key = 0; key < program.Steps.Count; ++key)
+        {
+            if (!program.Steps[key].Validate(ent, this))
+            {
+                Log.Warning($"User {ToPrettyString(user)} tried to add an invalid autodoc step!");
+                return false;
+            }
+            AddStep(ent, idx.Value, program.Steps[key], key, user);
+        }
+        return true;
     }
 
     /// <summary>

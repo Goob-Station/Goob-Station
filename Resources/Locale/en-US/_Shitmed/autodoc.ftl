@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 autodoc-program-step-surgery = perform surgery on {$part}: {$name}
 autodoc-program-step-grab-item = grab item: '{$name}'
 autodoc-program-step-grab-any = grab any: {$name}
@@ -48,6 +57,10 @@ autodoc-add-step = ADD STEP 添加一步
 autodoc-remove-step = REMOVE STEP 删除一步
 # Chinese text translates approximately to "Launch the Glorious People's Project" (as with all these long sentences, im not super sure on the translation making sense)
 autodoc-start-program = START PROGRAM 发起光荣人民计划
+# Chinese text translates approximately to "import program")
+autodoc-import-program = IMPORT PROGRAM 进口计划
+# Chinese text translates approximately to "import program")
+autodoc-export-program = EXPORT PROGRAM 出口计划
 
 # Chinese text translates approximately to "Start Surgical Operation"
 autodoc-add-step-surgery = PERFORM SURGERY 开始手术
