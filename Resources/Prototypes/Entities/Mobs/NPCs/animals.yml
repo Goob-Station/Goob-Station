@@ -2121,6 +2121,7 @@
   - type: GibThisGuy
     ocNames:
     - Gallagin
+    - Lityzxmq #NO ANTAG ROLLING, NO ANTAG ROLLING AT ALL
   - type: DodgeWideswing
     staminaRatio: 1 # mice are small so can probably evade without much stamina drain
   - type: Stamina
