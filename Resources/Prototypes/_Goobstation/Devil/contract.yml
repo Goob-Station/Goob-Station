@@ -1,0 +1,115 @@
+- type: entity
+  id: BaseDevilContract
+  parent: [BaseItem, BaseMagicContraband]
+  abstract: true
+  name: contract from below
+  description: A devilish piece of black parchment detailing a contract. All ink that touches the page seems to turn to blood.
+  components:
+  - type: PaperLabelType
+  - type: Paper
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_Goobstation/Interface/Paper/paper_background_grey.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 16.0, 16.0, 16.0, 16.0
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Item
+    sprite: _Goobstation/Objects/Misc/devil_contract.rsi
+    size: Normal
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: contract-written
+  - type: Food
+    solution: food
+    delay: 10
+    forceFeedDelay: 10
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+        - ReagentId: SulfuricAcid # Sulphur and brimstone.... get it?
+          Quantity: 9
+  - type: FaxableObject
+  - type: Tag
+    tags:
+    - Document
+    - Paper
+
+- type: entity
+  id: PaperDevilContractBlank
+  suffix: Blank
+  parent: BaseDevilContract
+  components:
+  - type: DevilContract
+
+- type: entity
+  id: PaperDevilContract
+  suffix: "Devil Contract"
+  parent: BaseDevilContract
+  components:
+  - type: DevilContract
+  - type: Paper # Not localized because FTL doesn't support formatting. Or at least I don't know how.
+    content: |2
+
+       [color=red]
+                    [head=2]--- Contract from below ---[/head]
+      This binding contract made this day between:
+      - The Infernal Party (Hereinafter "Contractor")
+      - The Mortal Party (Hereinafter "Contractee")
+
+      [bold]Clauses of Binding:[/bold]
+
+      [italic] The following parties give up the following possessions [/italic]
+
+      Article I: Soul
+      Contractee: Soul Ownership
+
+      Article II: Mortality
+      Contractee: Death
+
+
+      [italic]All clauses come into effect upon signing of this paper by both parties.[/italic]
+      [italic][color=#ac3a0d]Clauses may not be broken. Ever.[/italic][/color]
+
+      Sign Below:
+
+- type: entity
+  id: PaperDevilContractRevival
+  suffix: "Devil Contract, Revival"
+  parent: BaseDevilContract
+  name: contract from the depths
+  description: A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
+  components:
+  - type: RevivalContract
+  - type: Paper
+    editingDisabled: true
+    content: |2
+
+                    [head=2]--- Contract from below ---[/head]
+      This binding contract made this day between:
+      - The Infernal Party (Hereinafter "Contractor")
+      - The Mortal Party (Hereinafter "Contractee")
+
+      [bold]Clauses of Binding:[/bold]
+
+      [italic] The following parties give up the following possessions [/italic]
+
+      Article I: Soul Transfership
+      Contractee: Soul Ownership
+
+      Article II: Mortality
+      Contractee: Death
+
+      [italic]The Contractee agrees to give up possession of their soul to the Contractor in
+      exchange for being revived. [/italic]
+
+
