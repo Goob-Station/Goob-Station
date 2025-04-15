@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: body
   id: Drone
   name: "drone"
@@ -8,6 +15,7 @@
       connections:
       - right arm
       - right arm 2
+      - right arm 3 # Goobstation
       - left arm
       - left arm 2
     right arm:
@@ -18,6 +26,10 @@
       part: RightArmBorg
       connections:
       - right hand 2
+    right arm 3: # Goobstation
+      part: RightArmBorg
+      connections:
+      - right hand 3
     left arm:
       part: LeftArmBorg
       connections:
@@ -29,6 +41,8 @@
     right hand:
       part: RightHandHuman # shitmed moment
     right hand 2:
+      part: RightHandHuman
+    right hand 3: # Goobstation
       part: RightHandHuman
     left hand:
       part: LeftHandHuman

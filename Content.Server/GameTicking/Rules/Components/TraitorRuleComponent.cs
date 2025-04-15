@@ -1,3 +1,27 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Титов Вячеслав Витальевич <rincew1nd@yandex.ru>
+// SPDX-FileCopyrightText: 2024 AJCM <AJCM@tutanota.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Rainfall <rainfey0+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Dataset;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
@@ -22,13 +46,13 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
 
     [DataField]
-    public ProtoId<DatasetPrototype> CodewordAdjectives = "adjectives";
+    public ProtoId<LocalizedDatasetPrototype> CodewordAdjectives = "Adjectives";
 
     [DataField]
-    public ProtoId<DatasetPrototype> CodewordVerbs = "verbs";
+    public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
 
     [DataField]
-    public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // goob edit
+    public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
 
     /// <summary>
     /// Give this traitor an Uplink on spawn.

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 heretic-roundend-name = heretic
 
 roundend-prepend-heretic-ascension-success = {$name}, [color=green] has Ascended![/color]
@@ -34,7 +43,9 @@ heretic-ghoul-greeting-noname =
 ghostrole-ghoul-name = Ghoul
 ghostrole-prophet-name = Raw Prophet
 ghostrole-stalker-name = Flesh Stalker
+ghostrole-rustwalker-name = Rust Walker
 ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
 ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link.
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
+ghostrole-rustwalker-desc = Aid your summoner in achieving ascension. Spread rust everywhere.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
