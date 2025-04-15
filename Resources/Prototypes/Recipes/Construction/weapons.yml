@@ -238,5 +238,5 @@
   targetNode: icon
   category: construction-category-weapons
   description: Brass knuckle dusters; a classic in the field of beating people to death.
-  icon: { sprite: Clothing/Hands/Gloves/knuckleduster.rsi, state: brassknuckleduster }
+  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: brassknuckleduster } # Goobstation
   objectType: Item

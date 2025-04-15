@@ -76,7 +76,7 @@
   id: ClothingHandsKnuckleDustersQM
   name: steal-target-groups-clothing-hands-knuckledusters-qm
   sprite:
-    sprite: Clothing/Hands/Gloves/knuckleduster.rsi
+    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi # Goobstation
     state: goldenknuckleduster
 
 - type: stealTargetGroup

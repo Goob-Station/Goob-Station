@@ -180,7 +180,7 @@
   id: UplinkGlovesKnuckleDusters
   name: uplink-gloves-knuckleduster-name
   description: uplink-gloves-knuckleduster-desc
-  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster } # Goobstation
   productEntity: ClothingHandsKnuckleDustersSyndicate
   cost:
     Telecrystal: 8 # Goobstation
