@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -70,6 +72,8 @@
     name: ghostrole-ghoul-name
     description: ghostrole-ghoul-desc
     rules: ghostrole-ghoul-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: short
   - type: Tag
@@ -92,6 +96,8 @@
   - type: GhostRole
     name: ghostrole-stalker-name
     description: ghostrole-stalker-desc
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
@@ -127,6 +133,8 @@
   - type: GhostRole
     name: ghostrole-prophet-name
     description: ghostrole-prophet-desc
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
@@ -206,7 +214,6 @@
   - type: Tag
     tags:
     - MansusLinkMind
-    - Bot
   - type: CollectiveMind
     defaultChannel: MansusLink
   - type: FactionException

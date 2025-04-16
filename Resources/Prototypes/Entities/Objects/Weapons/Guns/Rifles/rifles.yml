@@ -131,6 +131,16 @@
     price: 500
   - type: Multishot # Goobstation
     spreadMultiplier: 1.6
+  - type: AltFireMelee # Goobstation V
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Blunt: 12
+    angle: 0
+    wideAnimationRotation: 90 # when/if bayonets get added (to rifles) set this to -90
+    soundHit:
+      collection: MetalThud # Goobstation ^ 
 
 - type: entity
   name: AKM
@@ -150,6 +160,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
+    boltClosed: null # Goobstation
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots
