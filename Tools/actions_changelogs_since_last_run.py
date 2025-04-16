@@ -120,7 +120,7 @@ def get_last_changelog_by_sha(
     Use GitHub API to get the previous version of the changelog YAML (Actions builds are fetched with a shallow clone)
     """
     params = {
-        "ref": sha,
+        "ref": "1408cbf6c96d14c4e6902e46a57f3402989064ce",
     }
     headers = {"Accept": "application/vnd.github.raw"}
 
