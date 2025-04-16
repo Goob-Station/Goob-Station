@@ -39,6 +39,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.TheManWhoSoldTheWorld;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -142,6 +143,9 @@ public abstract class SharedWieldableSystem : EntitySystem
         if (TryComp<NoWieldNeededComponent>(args.User, out var noWieldNeeded) && noWieldNeeded.GetBonus) { // GoobStation change - check for NoWieldNeeded
             _gun.RefreshModifiers(uid, args.User);
         }
+
+        if(HasComp<TheManWhoSoldTheWorldComponent>(args.User))
+            return;
 
         if (TryComp<WieldableComponent>(uid, out var wieldable) &&
             !wieldable.Wielded &&

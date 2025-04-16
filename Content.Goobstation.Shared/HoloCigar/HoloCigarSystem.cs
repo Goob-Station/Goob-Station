@@ -2,18 +2,21 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.TheManWhoSoldTheWorld;
 using Content.Goobstation.Shared.Weapons.Multishot;
 using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Inventory;
 using Content.Shared.Item;
+using Content.Shared.Mobs;
 using Content.Shared.Smoking;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Wieldable.Components;
+using Content.Shared.Wieldable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -35,10 +38,12 @@ public sealed class HoloCigarSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     private const string YowieProtoId = "Yowie";
     private const string LitPrefix = "lit";
     private const string UnlitPrefix = "unlit";
+    private const string MaskSlot = "mask";
 
     /// <inheritdoc/>o
     public override void Initialize()
@@ -47,10 +52,12 @@ public sealed class HoloCigarSystem : EntitySystem
         SubscribeLocalEvent<HoloCigarComponent, ComponentHandleState>(OnComponentHandleState);
 
         SubscribeLocalEvent<HoloCigarAffectedGunComponent, DroppedEvent>(OnDroppedEvent);
+        SubscribeLocalEvent<HoloCigarAffectedGunComponent, WieldAttemptEvent>(OnWieldAttemptEvent);
 
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
     }
 
     private void OnAddInteractVerb(Entity<HoloCigarComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -76,14 +83,36 @@ public sealed class HoloCigarSystem : EntitySystem
 
     #region Event Methods
 
+    private void OnWieldAttemptEvent(Entity<HoloCigarAffectedGunComponent> ent, ref WieldAttemptEvent args)
+    {
+        args.Cancel(); // cancel any attempts to wield holocigar weapons
+    }
+
+    private void OnMobStateChangedEvent(Entity<TheManWhoSoldTheWorldComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
+            return;
+
+        if (args.NewMobState == MobState.Dead)
+            _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
+
+        if (_net.IsServer)
+            _audio.PlayPvs(ent.Comp.DeathAudio, ent, AudioParams.Default.WithVolume(3f));
+    }
+
     private void OnComponentShutdown(Entity<TheManWhoSoldTheWorldComponent> ent, ref ComponentShutdown args)
     {
+        if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
+            return;
+
+        _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
         ShutDownEnumerateRemoval(ent);
 
         if (!TryComp<HumanoidAppearanceComponent>(ent, out var appearance) || appearance.Species == YowieProtoId)
             return;
 
         RemComp<NoWieldNeededComponent>(ent);
+        ent.Comp.HoloCigarEntity = null;
     }
 
     private void ShutDownEnumerateRemoval(Entity<TheManWhoSoldTheWorldComponent> ent)
@@ -102,6 +131,10 @@ public sealed class HoloCigarSystem : EntitySystem
     private void OnMapInitEvent(Entity<TheManWhoSoldTheWorldComponent> ent, ref MapInitEvent args)
     {
         EnsureComp<NoWieldNeededComponent>(ent);
+        if (!_inventory.TryGetSlotEntity(ent, MaskSlot, out var cigarEntity) ||
+            !HasComp<HoloCigarComponent>(cigarEntity))
+            return;
+        ent.Comp.HoloCigarEntity = cigarEntity;
     }
 
     private void OnDroppedEvent(Entity<HoloCigarAffectedGunComponent> ent, ref DroppedEvent args)
@@ -122,14 +155,6 @@ public sealed class HoloCigarSystem : EntitySystem
         var multi = EnsureComp<MultishotComponent>(args.Item);
 
         affected.GunOwner = ent.Owner;
-
-        if (HasComp<GunRequiresWieldComponent>(args.Item))
-            affected.GunRequieredWield = true;
-        if (HasComp<WieldableComponent>(args.Item))
-            affected.GunWasWieldable = true;
-
-        RemComp<GunRequiresWieldComponent>(args.Item);
-        RemComp<WieldableComponent>(args.Item);
         affected.OriginalSpreadModifier = multi.SpreadMultiplier;
         multi.SpreadMultiplier = 1f; // no extra spread chuds
         _gun.RefreshModifiers(args.Item);
@@ -202,11 +227,6 @@ public sealed class HoloCigarSystem : EntitySystem
                 break;
             }
         }
-
-        if (cigarAffectedGunComponent.GunWasWieldable)
-            EnsureComp<WieldableComponent>(gun);
-        if (cigarAffectedGunComponent.GunRequieredWield)
-            EnsureComp<GunRequiresWieldComponent>(gun);
 
         RemComp<HoloCigarAffectedGunComponent>(gun);
         _gun.RefreshModifiers(gun);
