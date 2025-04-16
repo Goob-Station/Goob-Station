@@ -19,6 +19,7 @@
   - Syringe
   - PillCanister
   - HandLabeler
+  - ChemicalPayload
 
 - type: latheRecipePack
   parent: BasicChemistryStatic
@@ -91,7 +92,6 @@
 - type: latheRecipePack
   id: Chemistry
   recipes:
-  - ChemicalPayload
   - CryostasisBeaker
   - SyringeCryostasis
   - BluespaceBeaker
