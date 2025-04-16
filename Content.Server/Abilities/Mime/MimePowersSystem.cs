@@ -99,7 +99,9 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
@@ -297,7 +299,6 @@ namespace Content.Server.Abilities.Mime
                     }
                     break;
                 case 4:
-                    EnsureComp<MaoistAccentComponent>(ent);
                     EnsureComp<OhioAccentComponent>(ent);
                     break;
                 case 5:
@@ -307,15 +308,12 @@ namespace Content.Server.Abilities.Mime
                 case 6:
                     EnsureComp<VulgarAccentComponent>(ent);
                     EnsureComp<BoganAccentComponent>(ent);
-                    EnsureComp<MaoistAccentComponent>(ent);
                     break;
                 case 7:
                     EnsureComp<VulgarAccentComponent>(ent);
                     EnsureComp<RussianAccentComponent>(ent);
                     EnsureComp<BackwardsAccentComponent>(ent);
                     EnsureComp<OhioAccentComponent>(ent);
-                    EnsureComp<DementiaAccentComponent>(ent);
-                    EnsureComp<MaoistAccentComponent>(ent);
                     break;
             }
         }
