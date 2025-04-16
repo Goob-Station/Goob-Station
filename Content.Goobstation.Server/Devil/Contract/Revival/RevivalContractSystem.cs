@@ -75,10 +75,10 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     }
 
-    public void TryReviveAndTransferSoul(EntityUid? target)
+    public bool TryReviveAndTransferSoul(EntityUid? target)
     {
-        if (!TryComp<PendingRevivalContractComponent>(target, out var pending))
-            return;
+        if (!TryComp<PendingRevivalContractComponent>(target, out var pending) || TerminatingOrDeleted(target))
+            return false;
 
         if (TryComp<RevivalContractComponent>(pending.Contractee, out var contract) && contract.ContractOwner != null)
         {
@@ -89,6 +89,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         }
 
         RemComp<PendingRevivalContractComponent>((EntityUid)target);
+        return true;
     }
 
 }

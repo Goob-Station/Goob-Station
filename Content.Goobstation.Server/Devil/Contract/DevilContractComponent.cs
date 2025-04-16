@@ -42,6 +42,15 @@ public sealed partial class DevilContractComponent : Component
     public bool IsDevilSigned = false;
 
     /// <summary>
+    /// Has the contract been signed by both the devil and the victim?
+    /// </summary>
+    public bool IsContractFullySigned => IsVictimSigned && IsDevilSigned;
+
+    public bool IsContractSignable => ContractWeight >= 0;
+
+    public bool CanApplyEffects => IsContractFullySigned && IsContractSignable && Signer != null && ContractOwner != null;
+
+    /// <summary>
     /// Does the contract weigh positively or negatively?
     /// </summary>
     /// <remarks>

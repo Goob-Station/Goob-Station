@@ -109,7 +109,7 @@ public sealed class DevilContractSystem : EntitySystem
         if (contractComponent.ContractOwner == null)
             return;
 
-        if (contractComponent is { IsDevilSigned: true, IsVictimSigned: true } or { IsDevilSigned: false, IsVictimSigned: false })
+        if (contractComponent is { IsContractFullySigned: true } or { IsDevilSigned: false, IsVictimSigned: false })
         {
             Spawn(_fireEffectProto, coordinates);
             _audio.PlayPvs(devilComp.FwooshPath, coordinates, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
@@ -117,18 +117,16 @@ public sealed class DevilContractSystem : EntitySystem
             QueueDel(contract);
         }
         else
-        {
             _popupSystem.PopupCoordinates(Loc.GetString("burn-contract-popup-fail"), coordinates, (EntityUid)contractComponent.ContractOwner, PopupType.MediumCaution);
-        }
     }
 
     private void OnExamined(EntityUid uid, DevilContractComponent comp, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient)
-        {
-            TryUpdateContractWeight(uid, comp);
-            args.PushMarkup(Loc.GetString("devil-contract-examined", ("weight", comp.ContractWeight)));
-        }
+        if (!args.IsInDetailsRange)
+            return;
+
+        TryUpdateContractWeight(uid, comp);
+        args.PushMarkup(Loc.GetString("devil-contract-examined", ("weight", comp.ContractWeight)));
     }
 
     #region Signing Steps
@@ -161,7 +159,7 @@ public sealed class DevilContractSystem : EntitySystem
         }
 
         // Check if the weight is too low
-        if (comp.ContractWeight < 0)
+        if (!comp.IsContractSignable)
         {
             var difference = Math.Abs(comp.ContractWeight);
             _popupSystem.PopupEntity(Loc.GetString("contract-uneven-odds", ("number", difference)),
@@ -191,7 +189,7 @@ public sealed class DevilContractSystem : EntitySystem
             HandleDevilSign(uid, comp, args);
 
         // Final activation check
-        if (comp is { IsDevilSigned: true, IsVictimSigned: true })
+        if (comp.IsContractFullySigned)
             HandleBothPartiesSigned(uid, comp);
     }
 
@@ -216,7 +214,9 @@ public sealed class DevilContractSystem : EntitySystem
 
     private void HandleBothPartiesSigned(EntityUid uid, DevilContractComponent comp)
     {
-        // Common final activation logic
+        if (!comp.CanApplyEffects)
+            return;
+
         TryUpdateContractWeight(uid, comp);
         TryContractEffects(uid, comp);
     }
@@ -276,7 +276,7 @@ public sealed class DevilContractSystem : EntitySystem
 
     private void TryContractEffects(EntityUid uid, DevilContractComponent comp)
     {
-        if (!TryComp<PaperComponent>(uid, out var paper))
+        if (!TryComp<PaperComponent>(uid, out var paper) || !comp.CanApplyEffects)
             return;
 
         var matches = _clauseRegex.Matches(paper.Content);

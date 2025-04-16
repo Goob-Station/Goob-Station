@@ -1,4 +1,6 @@
+using Content.Shared.Damage;
 using Content.Shared.Dataset;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -64,6 +66,19 @@ public sealed partial class DevilComponent : Component
 
     [DataField]
     public ProtoId<DatasetPrototype> LastNameTrue = new("names_devil_last");
+
+    /// <summary>
+    /// How much damage taken when a true name is spoken. Doubled if spoken by the chaplain.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier DamageOnTrueName = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 15 }}};
+
+    /// <summary>
+    /// How long the Devil is stunned when their true name is spoken. Doubled if spoken by the chaplain.
+    /// </summary>
+    [DataField]
+    public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
+
 
 
 }

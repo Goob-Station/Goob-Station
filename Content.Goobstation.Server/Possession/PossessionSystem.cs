@@ -141,6 +141,12 @@ public sealed partial class PossessionSystem : EntitySystem
             return false;
         }
 
+        if (HasComp<PossessedComponent>(possessed))
+        {
+            _popup.PopupClient(Loc.GetString("possession-fail-target-already-possessed"), possessor, possessor);
+            return false;
+        }
+
         List<(Type, string)> blockers =
         [
             (typeof(ChangelingComponent), "changeling"),

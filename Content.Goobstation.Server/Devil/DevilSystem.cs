@@ -195,7 +195,7 @@ public sealed partial class DevilSystem : EntitySystem
     private void OnListen(EntityUid uid, DevilComponent comp, ListenEvent args)
     {
         // Other Devils and entities without souls have no authority over you.
-        if (HasComp<DevilComponent>(args.Source) || HasComp<CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source))
+        if (HasComp<DevilComponent>(args.Source) || HasComp<CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source) || args.Source == uid)
             return;
 
         var message = Regex.Replace(args.Message.ToLowerInvariant(), @"[\s\W]+", "");
@@ -211,16 +211,17 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (HasComp<BibleUserComponent>(args.Source))
         {
-            var holyDamage = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Holy"), 25);
-            _damageable.TryChangeDamage(uid, holyDamage, true);
-            _stun.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
+            _damageable.TryChangeDamage(uid, comp.DamageOnTrueName * 2, true);
+            _stun.TryParalyze(uid, comp.ParalyzeDurationOnTrueName * 2, false);
 
             var popupHoly = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", uid));
             _popup.PopupEntity(popupHoly, uid, PopupType.LargeCaution);
         }
         else
         {
-            _stun.TryParalyze(uid, TimeSpan.FromSeconds(4), false);
+            _stun.TryParalyze(uid, comp.ParalyzeDurationOnTrueName, false);
+            _damageable.TryChangeDamage(uid, comp.DamageOnTrueName, true);
+
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", uid));
             _popup.PopupEntity(popup, uid, PopupType.LargeCaution);
         }

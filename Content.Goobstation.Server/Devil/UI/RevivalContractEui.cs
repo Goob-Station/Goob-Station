@@ -24,7 +24,9 @@ public sealed class RevivalContractEui(MindComponent mind, SharedMindSystem mind
         }
 
         mindSystem.UnVisit(mind.Session);
-        revivalContract.TryReviveAndTransferSoul(mind.Session?.AttachedEntity);
+
+        if (revivalContract.TryReviveAndTransferSoul(mind.Session?.AttachedEntity))
+            return;
 
         Close();
     }
