@@ -238,3 +238,19 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 6
     knockdownTimeDelta: -4
+
+# BSO maid hardsuit
+
+- type: entity
+  parent: ClothingOuterHardsuitBlueshieldLight
+  id: ClothingOuterHardsuitBlueshieldLightMaid
+  name: OW-0 "River" Tactical Maidsuit
+  description: A hawdsuit designed for an elite bodyguawd. This PAWticular one is made of a lightew metal, allowing for more maneuvewability for cleaning.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso_maid.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso_maid.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitBlueshieldMaid

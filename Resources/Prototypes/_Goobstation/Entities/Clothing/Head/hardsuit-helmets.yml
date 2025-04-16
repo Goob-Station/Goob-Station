@@ -141,3 +141,19 @@
   - type: FlashSoundSuppression
   - type: SpeechSoundsReplacer
     speechSounds: Chrono # why? its badass.
+
+# BSO maid helmet
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBlueshield
+  id: ClothingHeadHelmetHardsuitBlueshieldMaid
+  name: pawsome blueshield helmet
+  description: The helmet of the captain's bodyguard's hawdsuit.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bso_maid.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bso_maid.rsi
+  - type: AddAccentClothing
+    accent: OwOAccent

@@ -54,6 +54,7 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: BoxTracker
     - id: BlueshieldUndeterminedWeapon
+    - id: ClothingOuterHardsuitBlueshieldLightMaid
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
