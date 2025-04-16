@@ -1,3 +1,4 @@
+using Content.Goobstation.Shared.Factory.Filters;
 using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Goobstation.Shared.Factory.Slots;
@@ -7,22 +8,47 @@ namespace Content.Goobstation.Shared.Factory.Slots;
 /// </summary>
 public sealed partial class AutomatedItemSlot : AutomationSlot
 {
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-
     /// <summary>
     /// The name of the slot to automate.
     /// </summary>
     [DataField(required: true)]
-    public string Slot = string.Empty;
+    public string SlotId = string.Empty;
 
-    public override bool Insert(EntityUid uid, EntityUid item, EntityUid user)
+    private ItemSlotsSystem? _slots;
+
+    // Dependency doesnt work for whatever reason
+    public ItemSlotsSystem Slots
     {
-        // don't pass user since no reason to admin log a robotic arm
-        return _slots.TryInsert(uid, Slot, item, user: null);
+        get
+        {
+            _slots ??= EntMan.System<ItemSlotsSystem>();
+            return _slots;
+        }
     }
 
-    public override EntityUid? GetItem(EntityUid uid, EntityUid user)
+    private ItemSlot? _slot;
+
+    [ViewVariables]
+    public ItemSlot? GetSlot(EntityUid uid)
     {
-        return _slots.GetItemOrNull(uid, Slot);
+        if (_slot == null)
+            Slots.TryGetSlot(uid, SlotId, out _slot);
+        return _slot;
+    }
+
+    public override bool Insert(EntityUid uid, EntityUid item)
+    {
+        if (GetSlot(uid) is not {} slot)
+            return false;
+
+        return Slots.TryInsert(uid, slot, item, user: null);
+    }
+
+    public override EntityUid? GetItem(EntityUid uid, AutomationFilter? filter)
+    {
+        if (GetSlot(uid)?.Item is not {} item || (filter?.IsDenied(item) ?? false))
+            return null;
+
+        return item;
     }
 }

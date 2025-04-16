@@ -51,6 +51,7 @@ public sealed class RoboticArmSystem : EntitySystem
         // linking
         SubscribeLocalEvent<RoboticArmComponent, LinkAttemptEvent>(OnLinkAttempt);
         SubscribeLocalEvent<RoboticArmComponent, NewLinkEvent>(OnNewLink);
+        SubscribeLocalEvent<RoboticArmComponent, PortDisconnectedEvent>(OnPortDisconnected);
     }
 
     public override void Update(float frameTime)
@@ -207,7 +208,29 @@ public sealed class RoboticArmSystem : EntitySystem
         {
             ent.Comp.OutputMachine = GetNetEntity(args.Sink);
             ent.Comp.OutputMachinePort = args.SinkPort;
-            ent.Comp.OutputSlot = _automation.GetSlot(args.Source, args.SourcePort, input: true);
+            ent.Comp.OutputSlot = _automation.GetSlot(args.Sink, args.SinkPort, input: true);
+            DirtyField(ent, nameof(RoboticArmComponent.OutputMachine));
+            DirtyField(ent, nameof(RoboticArmComponent.OutputMachinePort));
+        }
+    }
+
+    private void OnPortDisconnected(Entity<RoboticArmComponent> ent, ref PortDisconnectedEvent args)
+    {
+        // this event is shit and doesnt have source/sink entity and port just 1 string
+        // absolute supercode
+        if (args.Port == ent.Comp.InputPort)
+        {
+            ent.Comp.InputMachine = null;
+            ent.Comp.InputMachinePort = null;
+            ent.Comp.InputSlot = null;
+            DirtyField(ent, nameof(RoboticArmComponent.InputMachine));
+            DirtyField(ent, nameof(RoboticArmComponent.InputMachinePort));
+        }
+        else if (args.Port == ent.Comp.OutputPort)
+        {
+            ent.Comp.OutputMachine = null;
+            ent.Comp.OutputMachinePort = null;
+            ent.Comp.OutputSlot = null;
             DirtyField(ent, nameof(RoboticArmComponent.OutputMachine));
             DirtyField(ent, nameof(RoboticArmComponent.OutputMachinePort));
         }
@@ -242,7 +265,7 @@ public sealed class RoboticArmSystem : EntitySystem
         if (!_transform.InRange(Transform(machine).Coordinates, coords, 0.25f))
             return false;
 
-        return slot.Insert(machine, item, ent);
+        return slot.Insert(machine, item);
     }
 
     public bool TryPickupAny(Entity<RoboticArmComponent> ent)
@@ -255,6 +278,8 @@ public sealed class RoboticArmSystem : EntitySystem
         var count = ent.Comp.InputItems.Count;
         if (count == 0)
             return false;
+
+        // TODO: find last item that is allowed by the filter
 
         // pop the last item from the list
         var i = count - 1;
@@ -276,7 +301,8 @@ public sealed class RoboticArmSystem : EntitySystem
         if (!_transform.InRange(Transform(machine).Coordinates, coords, 0.25f))
             return false;
 
-        if (slot.GetItem(machine, ent) is not {} item)
+        // TODO: filters
+        if (slot.GetItem(machine, null) is not {} item)
             return false;
 
         return _slots.TryInsert(ent, ent.Comp.ItemSlot, item, user: null);

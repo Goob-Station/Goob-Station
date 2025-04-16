@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Factory.Slots;
 using Content.Shared.DeviceLinking;
+using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Goobstation.Shared.Factory;
@@ -8,51 +9,75 @@ public sealed class AutomationSystem : EntitySystem
 {
     [Dependency] private readonly SharedDeviceLinkSystem _device = default!;
 
-    private EntityQuery<AutomationSlotsComponent> _query;
+    private EntityQuery<AutomationSlotsComponent> _slotsQuery;
+    private EntityQuery<AutomatedComponent> _automatedQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _query = GetEntityQuery<AutomationSlotsComponent>();
+        _slotsQuery = GetEntityQuery<AutomationSlotsComponent>();
+        _automatedQuery = GetEntityQuery<AutomatedComponent>();
 
         SubscribeLocalEvent<AutomationSlotsComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<AutomationSlotsComponent, MapInitEvent>(OnMapInit);
+
+        SubscribeLocalEvent<AutomatedComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<AutomatedComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnInit(Entity<AutomationSlotsComponent> ent, ref ComponentInit args)
     {
-        foreach (var slot in ent.Comp.Inputs.Values)
-        {
-            slot.Initialize();
-        }
-
-        foreach (var slot in ent.Comp.Outputs.Values)
+        foreach (var slot in ent.Comp.Slots)
         {
             slot.Initialize();
         }
     }
 
-    private void OnMapInit(Entity<AutomationSlotsComponent> ent, ref MapInitEvent args)
+    private void OnMapInit(Entity<AutomatedComponent> ent, ref MapInitEvent args)
     {
-        _device.EnsureSinkPorts(ent, ent.Comp.Inputs.Keys.ToArray());
-        _device.EnsureSourcePorts(ent, ent.Comp.Outputs.Keys.ToArray());
+        if (!TryComp<AutomationSlotsComponent>(ent, out var comp))
+            return;
+
+        _device.EnsureSinkPorts(ent, comp.Slots.Select(slot => slot.Input)
+            .OfType<ProtoId<SinkPortPrototype>>().ToArray());
+        _device.EnsureSourcePorts(ent, comp.Slots.Select(slot => slot.Output)
+            .OfType<ProtoId<SourcePortPrototype>>().ToArray());
+    }
+
+    private void OnShutdown(Entity<AutomatedComponent> ent, ref ComponentShutdown args)
+    {
+        if (!TryComp<AutomationSlotsComponent>(ent, out var comp))
+            return;
+
+        foreach (var slot in comp.Slots)
+        {
+            if (slot.Input is {} input)
+                _device.RemoveSinkPort(ent, input);
+            if (slot.Output is {} output)
+                _device.RemoveSourcePort(ent, output);
+        }
     }
 
     #region Public API
 
     public AutomationSlot? GetSlot(Entity<AutomationSlotsComponent?> ent, string port, bool input)
     {
-        if (!_query.Resolve(ref ent, false))
+        // entity has no automation slots to begin with
+        if (!_slotsQuery.Resolve(ref ent, false))
             return null;
 
-        AutomationSlot? slot = null;
-        if (input)
-            ent.Comp.Inputs.TryGetValue(port, out slot);
-        else
-            ent.Comp.Outputs.TryGetValue(port, out slot);
+        // automation isn't enabled
+        if (!_automatedQuery.HasComp(ent))
+            return null;
 
-        return slot;
+        foreach (var slot in ent.Comp.Slots)
+        {
+            string id = input ? slot.Input : slot.Output;
+            if (id == port)
+                return slot;
+        }
+
+        return null;
     }
 
     public bool HasSlot(Entity<AutomationSlotsComponent?> ent, string port, bool input)

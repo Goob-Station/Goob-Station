@@ -79,6 +79,16 @@
         whitelist:
           components:
           - FitsInDispenser
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotBeaker
+      output: AutomationSlotBeaker
+      slotId: beakerSlot
+    - !type:AutomatedContainer
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+      containerId: inputContainer
   - type: Machine
     board: ReagentGrinderMachineCircuitboard
   - type: ContainerContainer

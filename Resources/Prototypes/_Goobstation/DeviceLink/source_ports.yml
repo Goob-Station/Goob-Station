@@ -27,3 +27,13 @@
   id: RoboticArmMoved
   name: signal-port-name-item-moved
   description: signal-port-description-item-moved
+
+- type: sourcePort
+  id: AutomationSlotBeaker
+  name: signal-port-name-automation-slot-beaker
+  description: signal-port-description-automation-slot-beaker
+
+- type: sourcePort
+  id: AutomationSlotInput
+  name: signal-port-name-automation-slot-input
+  description: signal-port-description-automation-slot-input

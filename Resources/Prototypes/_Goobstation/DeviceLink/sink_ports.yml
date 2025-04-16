@@ -13,3 +13,13 @@
   id: RoboticArmInput
   name: signal-port-name-input-machine
   description: signal-port-description-input-machine
+
+- type: sinkPort
+  id: AutomationSlotBeaker
+  name: signal-port-name-automation-slot-beaker
+  description: signal-port-description-automation-slot-beaker
+
+- type: sinkPort
+  id: AutomationSlotInput
+  name: signal-port-name-automation-slot-input
+  description: signal-port-description-automation-slot-input

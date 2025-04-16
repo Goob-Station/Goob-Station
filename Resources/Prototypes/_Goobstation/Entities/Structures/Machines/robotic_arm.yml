@@ -78,3 +78,4 @@
     range: 5
   - type: ApcPowerReceiver
     powerLoad: 50 # Idle power usage, increases when active
+  - type: PowerSwitch

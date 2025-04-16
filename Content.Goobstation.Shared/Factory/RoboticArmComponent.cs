@@ -30,7 +30,7 @@ public sealed partial class RoboticArmComponent : Component
     /// Sink port on this arm that machines link to.
     /// </summary>
     [DataField]
-    public ProtoId<SinkPortPrototype> InputPort = "RoboticArmOutput";
+    public ProtoId<SinkPortPrototype> InputPort = "RoboticArmInput";
 
     /// <summary>
     /// The source port of the linked input machine.
