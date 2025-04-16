@@ -7371,3 +7371,11 @@ Entries:
       message: Added 4 bottle boxes to nukie outpost. Biggest change.
   id: 857
   time: '2025-04-16T04:29:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Changeling arm hammer, Mjollnir and crusher hammer no longer send their
+        victims straight to Ohio.
+  id: 858
+  time: '2025-04-16T04:29:33.0000000+00:00'
