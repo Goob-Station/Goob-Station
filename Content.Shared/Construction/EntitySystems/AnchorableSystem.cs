@@ -296,7 +296,7 @@ public sealed partial class AnchorableSystem : EntitySystem
     private bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
     {
         // Probably ignore CanCollide on the anchoring body?
-        var gridUid = coordinates.GetGridUid(EntityManager);
+        var gridUid = _transformSystem.GetGrid(coordinates);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return false;
@@ -345,7 +345,7 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     public bool AnyUnstackablesAnchoredAt(EntityCoordinates location)
     {
-        var gridUid = location.GetGridUid(EntityManager);
+        var gridUid = _transformSystem.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return false;
