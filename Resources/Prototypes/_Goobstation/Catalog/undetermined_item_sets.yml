@@ -99,4 +99,4 @@
     sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
     state: control
   content:
-  - ClothingModsuitResponsory
+  - ClothingModsuitPraetorian

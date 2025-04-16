@@ -84,13 +84,6 @@
           - state: equipped-HEAD-sealed
           - state: equipped-HEAD-sealed-unshaded
             shader: unshaded
-    - type: Reflect
-      reflectProb: 0.03
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
 
 - type: entity
   parent: ClothingModsuitChestplateStandard
@@ -117,17 +110,8 @@
       visualLayers:
         outerClothing:
           - state: equipped-OUTERCLOTHING-sealed
-    - type: Reflect
-      reflectProb: 0.05
-      spread: 270
-      innate: true
-      reflects:
-        - Energy
-        - NonEnergy
     - type: StaminaDamageResistance
       coefficient: 0.5 # 50%
-    - type: TemperatureProtection
-      coefficient: 0.001
     - type: FireProtection
       reduction: 1
 

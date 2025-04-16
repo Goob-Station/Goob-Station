@@ -117,8 +117,6 @@
           - state: equipped-OUTERCLOTHING-sealed
     - type: StaminaDamageResistance
       coefficient: 0.5 # 50%
-    - type: TemperatureProtection
-      coefficient: 0.001
     - type: FireProtection
       reduction: 1
     - type: ClothingGrantComponent
