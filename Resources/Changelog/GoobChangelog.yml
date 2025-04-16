@@ -7211,3 +7211,245 @@ Entries:
       message: Nukies now can buy surplus and super surplus bundles!
   id: 840
   time: '2025-04-15T22:55:47.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The firefighter backpack and attached nozzle can now be found in atmos
+        lockers or ordered through cargo. 
+    - type: Tweak
+      message: 'RPD crates can now be ordered through cargo. '
+  id: 841
+  time: '2025-04-15T23:11:03.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Fixed wonderprod's fun
+  id: 842
+  time: '2025-04-15T23:11:21.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix void cloak being visible sometimes when it shouldn't be.
+    - type: Fix
+      message: Eldritch water doesn't deal radiation anymore.
+    - type: Fix
+      message: >-
+        You can now interact with transmutation rune as rust heretic without
+        rusting tiles underneath.
+    - type: Fix
+      message: It is not easier to interact with transmutation rune.
+    - type: Fix
+      message: Rustwalkers cannot be killed by rust mansus grasp anymore.
+    - type: Add
+      message: Mansus grasp now has more surgery qualities but at lower speed.
+    - type: Remove
+      message: Likely removed rust ascension lag.
+  id: 843
+  time: '2025-04-15T23:34:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot purchase anaconda
+  id: 844
+  time: '2025-04-15T23:35:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: ᔑ⟍̅⟍̅ᒷ⟍̅ ᒷリᓵ⍑ᔑリℸ ̣¦リ˧ ⚍ᓭᒷ ᔑ ʖ¦ʖꖎᒷ ∴¦ℸ ̣⍑ ᔑリ ¦ℸ ̣ᒷᒲ 𝙹リ ᔑリ ᔑꖎℸ ̣ᔑ∷.
+  id: 845
+  time: '2025-04-15T23:39:13.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked the cobra pistol, it now uses 9.5 mm caseless magnum rounds and
+        has a higher muzzle velocity
+    - type: Add
+      message: >-
+        Added 9.5 caseless magnum ammo, -P is available to traitors, 12 round
+        mags of 20 damage bullets. Semi Armor Piercing High Explosive (SAP-HE),
+        which splits its damage between 13 direct damage and 10 explosive damage
+        (one tile explosive)
+    - type: Tweak
+      message: The WSPR now take 9.5mm rounds (19 damage > 25 damage)
+    - type: Tweak
+      message: WSPR mags are now 1TC more expensive due to increased damage (6 > 7)
+    - type: Tweak
+      message: The WSPR is actually quiet now
+    - type: Tweak
+      message: Reduced hristov wield slowdown to 10%
+    - type: Tweak
+      message: .50 shotgun shell > 12 Gauge
+    - type: Tweak
+      message: .75 shell > 8 Gauge
+    - type: Add
+      message: you can now bash people with rifle stocks
+    - type: Fix
+      message: >-
+        Fixed my autism again, the AKM now acts like an AK, AKA it doesn't have
+        a bolt hold open
+  id: 846
+  time: '2025-04-15T23:41:01.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Remove
+      message: Cowboy accent no longer replaces wow with by gum.
+  id: 847
+  time: '2025-04-15T23:44:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed abductor agent not getting glorpmind.
+  id: 848
+  time: '2025-04-15T23:55:38.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Added CentComm wizard robes.
+  id: 849
+  time: '2025-04-16T04:23:16.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Added 19 new OC plushies.
+    - type: Add
+      message: Cargo crate with the plushies.
+  id: 850
+  time: '2025-04-16T04:23:25.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: Abductor Plush!
+  id: 851
+  time: '2025-04-16T04:24:08.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Fix
+      message: Fixed IPCs being unable to disarm
+  id: 852
+  time: '2025-04-16T04:24:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Blade heretic path reworked.
+    - type: Add
+      message: Ash path mark now deals stamina damage and burn instead of firestacks.
+    - type: Add
+      message: Engineers can dual wield hammers.
+  id: 853
+  time: '2025-04-16T04:25:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Ion storms are now essentially guaranteed to happen during a round.
+  id: 854
+  time: '2025-04-16T04:26:03.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Hristov can now oneshot unarmored target.
+    - type: Tweak
+      message: Hristov and it's ammo price increased (60 -> 75, 8 -> 10).
+    - type: Tweak
+      message: >-
+        Binoculars and Hristov zoom increased to 8 tiles. Hardlight bow also got
+        3 tiles zoom.
+    - type: Tweak
+      message: Hristov penetrating capabilities are strongly improved.
+  id: 855
+  time: '2025-04-16T04:27:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Roundstart trash, puddles and other variation spawn once again.
+  id: 856
+  time: '2025-04-16T04:28:09.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added 4 bottle boxes to nukie outpost. Biggest change.
+  id: 857
+  time: '2025-04-16T04:29:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Changeling arm hammer, Mjollnir and crusher hammer no longer send their
+        victims straight to Ohio.
+  id: 858
+  time: '2025-04-16T04:29:33.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: NorthStars cost 30 (from 40)
+    - type: Tweak
+      message: Betrayal Knife hits faster, but less hard, and costs less (30 from 40)
+  id: 859
+  time: '2025-04-16T04:31:07.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Changed multifire values, .45 is worse for multifire, cap laser cannot
+        at all.
+  id: 860
+  time: '2025-04-16T04:31:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Armblade does less overall damage, more limb damage.
+  id: 861
+  time: '2025-04-16T04:32:07.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Added 'select all' and 'deselect all' buttons to the gas filters drop
+        down menu on air alarms
+  id: 862
+  time: '2025-04-16T04:32:49.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Deathsquad Gear can no longer be selected when using the chameleon kit
+  id: 863
+  time: '2025-04-16T04:33:57.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Lich costs 5 wizcoins to get
+    - type: Tweak
+      message: Forcewall is breakable
+  id: 864
+  time: '2025-04-16T04:35:24.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Zombies, Zombie Infections, and Deathsquad Metashields.
+    - type: Remove
+      message: Removed blood red hardsuit from Nukies Metashield.
+    - type: Tweak
+      message: Changed Nuclear Operatives description in Metashield.
+  id: 865
+  time: '2025-04-16T04:35:33.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Healium is effective at higher concentrations, doubling it's maximum
+        healing rate. It is also slightly less intoxicating.
+    - type: Tweak
+      message: >-
+        Breathing higher concentrations of Nitrium allows for even faster
+        movement.
+    - type: Tweak
+      message: >-
+        BZ can get you high in very low doses without risk of asphyxiation or
+        poison.
+    - type: Fix
+      message: >-
+        The effects Nitrium has on movement speed will consistently end 6
+        seconds after you last breath it in.
+  id: 866
+  time: '2025-04-16T04:40:12.0000000+00:00'
