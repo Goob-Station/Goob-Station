@@ -641,7 +641,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 25 # 2.5x as much compared to regular mags.
+    Telecrystal: 20 # 2x as much compared to regular mags.
   categories:
   - UplinkAmmo
 

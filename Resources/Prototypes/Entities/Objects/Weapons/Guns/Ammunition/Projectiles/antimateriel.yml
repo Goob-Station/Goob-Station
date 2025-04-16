@@ -43,8 +43,7 @@
     armorPenetration: 0.5 # Goobstation
     damage:
       types:
-        Piercing: 100 # Goobstation - AWP is real
-        Ion: 20 # Goobstation - IPC won't escape AWP
+        Piercing: 75
     penetrationThreshold: 100 # Goobstation - This count as penetration health
   - type: StaminaDamageOnCollide
-    damage: 60
+    damage: 115 # Goob edit
