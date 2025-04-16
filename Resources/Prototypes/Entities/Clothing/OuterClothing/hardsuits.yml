@@ -200,6 +200,11 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitAtmos
+  - type: Enchanter # Goobstation
+    minLevel: 2 # Guaranteed Fire Prot II
+    maxLevel: 3.25 # Small chance of Fire Prot III
+    enchants:
+    - EnchantProtFire
 
 #Engineering Hardsuit
 - type: entity
