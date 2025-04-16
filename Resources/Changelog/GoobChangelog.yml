@@ -7595,3 +7595,9 @@ Entries:
       message: Fixed protection enchant not working.
   id: 885
   time: '2025-04-16T19:05:38.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Syringes are no longer explosion-proof.
+  id: 886
+  time: '2025-04-16T19:09:05.0000000+00:00'
