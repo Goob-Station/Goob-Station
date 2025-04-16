@@ -45,3 +45,15 @@
   storage:
     back:
     - PersonalAI
+
+- type: loadout
+  id: GoldPersonalAI
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobStationAi
+      time: 180000 # 50 hrs
+  storage:
+    back:
+    - GoldPersonalAI
