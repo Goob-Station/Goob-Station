@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -270,6 +271,41 @@
     norot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingle_pony
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAbductor
+  name: alien plush
+  description: Glorp Zap Zeeble Glarp "Plush" Bleeble
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_abductor
+  - type: UseDelay
+    delay: 15
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Shitmed/Misc/abductor.ogg
+  - type: MeleeWeapon
+    attackRate: 0.5
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/taser_hit.ogg
 
 - type: entity
   id: GrenadeToy
