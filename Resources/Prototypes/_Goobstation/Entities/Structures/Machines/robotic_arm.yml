@@ -4,11 +4,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseMachinePowered
+  parent: [ ConstructibleMachine, BaseMachinePowered ]
   id: RoboticArm
   name: robotic arm
   description: A high-tech robotic arm capable of moving items to and from machines that have automation upgrades.
   components:
+  # Visuals
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/robotic_arm.rsi
     layers:
@@ -31,6 +32,7 @@
         enum.RoboticArmLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  # Physics
   - type: Transform
     noRot: false
   - type: Rotatable
@@ -52,6 +54,25 @@
         hard: false
         layer:
         - Impassable
+  # Construction
+  - type: Machine
+    board: RoboticArmCircuitboard
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+    - machine_board
+    - machine_parts
+    - robotic_arm_item
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - robotic_arm_item
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      robotic_arm_item: !type:ContainerSlot
+  # Arm
   - type: ItemSlots
     slots:
       robotic_arm_item:
@@ -63,6 +84,7 @@
         locked: true
         # TODO
   - type: RoboticArm
+  # Linking
   - type: DeviceLinkSink
     ports:
     - RoboticArmInput
@@ -76,6 +98,7 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 5
+  # Power
   - type: ApcPowerReceiver
     powerLoad: 50 # Idle power usage, increases when active
   - type: PowerSwitch

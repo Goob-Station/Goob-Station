@@ -49,3 +49,8 @@
   parent: BaseGoldCircuitboardRecipe
   id: SyndicateMicrowaveMachineCircuitboard
   result: SyndicateMicrowaveMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: RoboticArmCircuitboard
+  result: RoboticArmCircuitboard
