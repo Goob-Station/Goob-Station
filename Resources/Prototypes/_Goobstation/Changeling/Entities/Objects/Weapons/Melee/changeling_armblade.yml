@@ -32,7 +32,6 @@
         Structural: 20
     clickPartDamageMultiplier: 3
     heavyPartDamageMultiplier: 1.5
-    armorPenetration: 0.2
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
