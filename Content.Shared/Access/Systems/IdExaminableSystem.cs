@@ -115,7 +115,9 @@ public sealed class IdExaminableSystem : EntitySystem
         args.Verbs.Add(wantedVerb);
     }
 
-    private void OnWantedMenuOpen(EntityUid uid, IdExaminableComponent comp, GetVerbsEvent<AlternativeVerb> args) // Goobstation-WantedMenu
+    private void OnWantedMenuOpen(EntityUid uid,
+            IdExaminableComponent comp,
+            GetVerbsEvent<AlternativeVerb> args) // Goobstation-WantedMenu
     {
         if (!args.CanInteract || !args.CanAccess)
             return;
@@ -170,3 +172,4 @@ public sealed class IdExaminableSystem : EntitySystem
 
         return val;
     }
+}

@@ -80,8 +80,12 @@ public sealed partial class CriminalRecordsConsoleSystem
     private void OnChangeStatus(Entity<IdExaminableComponent> ent, ref CriminalRecordChangeStatus msg)
     {
         // prevent malf client violating wanted/reason nullability
-        if (msg.Status == SecurityStatus.Wanted != (msg.Reason != null) &&
-            msg.Status == SecurityStatus.Suspected != (msg.Reason != null))
+        var requireReason = msg.Status is SecurityStatus.Wanted
+            or SecurityStatus.Suspected
+            or SecurityStatus.Search
+            or SecurityStatus.Dangerous;
+
+        if (requireReason != (msg.Reason != null))
             return;
 
         if (!CheckSelected(ent, msg.Actor, out var mob, out var key))
@@ -138,6 +142,12 @@ public sealed partial class CriminalRecordsConsoleSystem
             (_, SecurityStatus.Discharged) => "released",
             // going from any other state to wanted, AOS or prisonbreak / lazy secoff never set them to released and they reoffended
             (_, SecurityStatus.Wanted) => "wanted",
+            // person has been sentenced to perma
+            (_, SecurityStatus.Perma) => "perma",
+            // person needs to be searched
+            (_, SecurityStatus.Search) => "search",
+            // person is very dangerous
+            (_, SecurityStatus.Dangerous) => "dangerous",
             // person is no longer sus
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
             // going from wanted to none, must have been a mistake
@@ -146,6 +156,12 @@ public sealed partial class CriminalRecordsConsoleSystem
             (SecurityStatus.Detained, SecurityStatus.None) => "released",
             // criminal is no longer on parole
             (SecurityStatus.Paroled, SecurityStatus.None) => "not-parole",
+            // criminal is no longer in perma
+            (SecurityStatus.Perma, SecurityStatus.None) => "not-perma",
+            // person no longer needs to be searched
+            (SecurityStatus.Search, SecurityStatus.None) => "not-search",
+            // person is no longer dangerous
+            (SecurityStatus.Dangerous, SecurityStatus.None) => "not-dangerous",
             // this is impossible
             _ => "not-wanted"
         };
