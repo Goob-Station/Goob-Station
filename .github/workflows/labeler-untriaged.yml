@@ -74,10 +74,6 @@ on:
   pull_request_target:
     types: [opened]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   add_label:
     runs-on: ubuntu-latest
