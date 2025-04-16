@@ -21,4 +21,9 @@ public sealed partial class VendingMachineItem : BoxContainer
 
         NameLabel.Text = text;
     }
+
+    public void SetText(string text)
+    {
+        NameLabel.Text = text;
+    }
 }
