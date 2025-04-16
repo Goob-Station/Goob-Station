@@ -236,6 +236,31 @@
   categories:
     - UplinkWeaponry
 
+- type: listing
+  id: UplinkWeaponM7S
+  name: uplink-m7s-name
+  description: uplink-m7s-desc
+  productEntity: WeaponSubMachineGunM7S
+  cost:
+    Telecrystal: 65
+  categories:
+    -  UplinkWeaponry
+
+- type: listing
+  id: UplinkWeaponHeavensgate
+  name: uplink-heavensgate-name
+  description: uplink-heavensgate-desc
+  productEntity: WeaponSniperHeavensGate
+  cost:
+    Telecrystal: 100
+  categories:
+    -  UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 # Wearables
 
 - type: listing
@@ -627,6 +652,17 @@
 #  categories:
 #  - UplinkAmmo
 
+- type: listing
+  id: UplinkMagazinePistolCaselessMagnumMinusP
+  name: uplink-caseless-magnum-pistol-mag-minusp-name
+  description: uplink-caseless-magnum-pistol-mag-minusp-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: rubber }
+  productEntity: MagazinePistolCaselessMagnumMinusP
+  cost:
+    Telecrystal: 3 # goob - 5 shots to crit
+  categories:
+  - UplinkAmmo
+
 # 弾薬
 - type: listing
   id: UplinkRifleMag
@@ -644,9 +680,9 @@
   name: uplink-rifle-caseless-mag-name
   description: uplink-rifle-caseless-mag-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
-  productEntity: MagazineCaselessRifle
+  productEntity: MagazineCaselessMagnum
   cost:
-    Telecrystal: 6
+    Telecrystal: 7 # slightly more expensive than the M-90 due to more total damage
   categories:
   - UplinkAmmo
 
@@ -686,6 +722,60 @@
     Telecrystal: 40 # goob
   categories:
   - UplinkDisruption
+
+- type: listing
+  id: UplinkMagazinePistolCaselessMagnumSAPHE
+  name: uplink-caseless-magnum-pistol-mag-saphe-name
+  description: uplink-caseless-magnum-pistol-mag-saphe-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolCaselessMagnumSAPHE
+  cost:
+    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10 explosive
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineM7S
+  name: uplink-m7s-mag-name
+  description: uplink-m7s-mag-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
+  productEntity: MagazineCaselessRifleM7S
+  cost:
+    Telecrystal: 8 # 48 rounds of .25 rifle, 19 damage a shot but half the velocity of other weapons
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBox92AP
+  name: uplink-92-AP-name
+  description: uplink-92-AP-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  cost:
+    Telecrystal: 10 # 100 AP damage, don't blame me
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBox92AT
+  name: uplink-92-AT-name
+  description: uplink-92-AT-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Mechs
 
