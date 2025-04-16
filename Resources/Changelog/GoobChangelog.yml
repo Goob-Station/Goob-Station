@@ -7227,3 +7227,79 @@ Entries:
       message: Fixed wonderprod's fun
   id: 842
   time: '2025-04-15T23:11:21.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix void cloak being visible sometimes when it shouldn't be.
+    - type: Fix
+      message: Eldritch water doesn't deal radiation anymore.
+    - type: Fix
+      message: >-
+        You can now interact with transmutation rune as rust heretic without
+        rusting tiles underneath.
+    - type: Fix
+      message: It is not easier to interact with transmutation rune.
+    - type: Fix
+      message: Rustwalkers cannot be killed by rust mansus grasp anymore.
+    - type: Add
+      message: Mansus grasp now has more surgery qualities but at lower speed.
+    - type: Remove
+      message: Likely removed rust ascension lag.
+  id: 843
+  time: '2025-04-15T23:34:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot purchase anaconda
+  id: 844
+  time: '2025-04-15T23:35:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: ᔑ⟍̅⟍̅ᒷ⟍̅ ᒷリᓵ⍑ᔑリℸ ̣¦リ˧ ⚍ᓭᒷ ᔑ ʖ¦ʖꖎᒷ ∴¦ℸ ̣⍑ ᔑリ ¦ℸ ̣ᒷᒲ 𝙹リ ᔑリ ᔑꖎℸ ̣ᔑ∷.
+  id: 845
+  time: '2025-04-15T23:39:13.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked the cobra pistol, it now uses 9.5 mm caseless magnum rounds and
+        has a higher muzzle velocity
+    - type: Add
+      message: >-
+        Added 9.5 caseless magnum ammo, -P is available to traitors, 12 round
+        mags of 20 damage bullets. Semi Armor Piercing High Explosive (SAP-HE),
+        which splits its damage between 13 direct damage and 10 explosive damage
+        (one tile explosive)
+    - type: Tweak
+      message: The WSPR now take 9.5mm rounds (19 damage > 25 damage)
+    - type: Tweak
+      message: WSPR mags are now 1TC more expensive due to increased damage (6 > 7)
+    - type: Tweak
+      message: The WSPR is actually quiet now
+    - type: Tweak
+      message: Reduced hristov wield slowdown to 10%
+    - type: Tweak
+      message: .50 shotgun shell > 12 Gauge
+    - type: Tweak
+      message: .75 shell > 8 Gauge
+    - type: Add
+      message: you can now bash people with rifle stocks
+    - type: Fix
+      message: >-
+        Fixed my autism again, the AKM now acts like an AK, AKA it doesn't have
+        a bolt hold open
+  id: 846
+  time: '2025-04-15T23:41:01.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Remove
+      message: Cowboy accent no longer replaces wow with by gum.
+  id: 847
+  time: '2025-04-15T23:44:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed abductor agent not getting glorpmind.
+  id: 848
+  time: '2025-04-15T23:55:38.0000000+00:00'

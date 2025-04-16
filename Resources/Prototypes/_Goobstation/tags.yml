@@ -15,6 +15,7 @@
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -64,6 +65,18 @@
 
 - type: Tag
   id: CartridgeSmart
+
+- type: Tag
+  id: CartridgeCaselessMagnum95
+
+- type: Tag
+  id: CartridgeCaselessMagnum95MinusP
+
+- type: Tag
+  id: CartridgeCaselessMagnum95SAPHE
+
+- type: Tag
+  id: CartridgeAntiMaterielHeavy
 
 - type: Tag
   id: Clarke
@@ -253,6 +266,15 @@
 
 - type: Tag
   id: MagazineSmart
+
+- type: Tag
+  id: MagazineCaselessM7S
+
+- type: Tag
+  id: MagazineCaselessMagnum95
+
+- type: Tag
+  id: MagazineCaselessMagnum95Pistol
 
 - type: Tag
   id: Mask
