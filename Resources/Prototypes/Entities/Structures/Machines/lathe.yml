@@ -1041,6 +1041,7 @@
     - type: MiningPoints # DeltaV - Source of mining points for miners
     - type: MiningPointsLathe # DeltaV
     - type: MaterialStorageMagnetPickup # Frontier
+    - type: OreSiloClient
 
 - type: entity
   parent: OreProcessor
