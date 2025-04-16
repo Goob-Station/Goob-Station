@@ -107,14 +107,6 @@ public sealed class FishingSystem : SharedFishingSystem
 
     #endregion
 
-    protected override void StopFishing(
-        Entity<FishingRodComponent> fishingRod,
-        EntityUid? fisher)
-    {
-        QueueDel(fishingRod.Comp.FishingLure);
-        base.StopFishing(fishingRod, fisher);
-    }
-
     protected override void SetupFishingFloat(Entity<FishingRodComponent> fishingRod, EntityUid player, EntityCoordinates target)
     {
         var (uid, component) = fishingRod;
