@@ -26,8 +26,8 @@ public abstract class SharedFishingSystem : EntitySystem
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly ThrowingSystem Throwing = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
+    [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     protected EntityQuery<ActiveFisherComponent> FisherQuery;
@@ -60,82 +60,17 @@ public abstract class SharedFishingSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        UpdateFishing();
-    }
 
-    private void UpdateFishing()
-    {
         if (!Timing.IsFirstTimePredicted)
             return;
 
-        var currentTime = Timing.CurTime;
-        var activeFishers = EntityQueryEnumerator<ActiveFisherComponent>();
-        while (activeFishers.MoveNext(out var fisher, out var fisherComp))
-        {
-            // Get fishing rod, then float, then spot... ReCurse.
-            if (!FishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp) ||
-                !FishLureQuery.TryComp(fishingRodComp.FishingLure, out var fishingFloatComp) ||
-                !ActiveFishSpotQuery.TryComp(fishingFloatComp.AttachedEntity, out var activeSpotComp))
-                continue;
+        UpdateFishers();
+        UpdateFishSpots();
+        UpdateLures();
+    }
 
-            var fishRod = fisherComp.FishingRod;
-            var fishSpot = fishingFloatComp.AttachedEntity.Value;
-
-            fisherComp.TotalProgress ??= fishingRodComp.StartingProgress;
-            fisherComp.NextStruggle ??= Timing.CurTime + TimeSpan.FromSeconds(fishingRodComp.StartingStruggleTime);
-
-            // Fish fighting logic
-            CalculateFightingTimings((fisher ,fisherComp), activeSpotComp);
-
-            switch (fisherComp.TotalProgress)
-            {
-                case < 0f:
-                    // It's over
-                    _popup.PopupEntity(Loc.GetString("fishing-progress-fail"), fisher, fisher);
-                    StopFishing((fishRod, fishingRodComp), fisher);
-                    continue;
-
-                case >= 1f:
-                    if (activeSpotComp.Fish != null)
-                    {
-                        ThrowFishReward(activeSpotComp.Fish.Value, fishSpot, fisher);
-                        _popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
-                    }
-
-                    StopFishing((fishRod, fishingRodComp), fisher);
-                    break;
-            }
-        }
-
-        var fishingSpots = EntityQueryEnumerator<ActiveFishingSpotComponent>();
-        while (fishingSpots.MoveNext(out var activeSpotComp))
-        {
-            if (currentTime < activeSpotComp.FishingStartTime || activeSpotComp.IsActive || activeSpotComp.FishingStartTime == null)
-                continue;
-
-            // Trigger start of the fishing process
-            if (TerminatingOrDeleted(activeSpotComp.AttachedFishingLure))
-                continue;
-
-            // Get fishing lure, then rod, then player... ReCurse.
-            if (!FishLureQuery.TryComp(activeSpotComp.AttachedFishingLure, out var fishingFloatComp) ||
-                !FishRodQuery.TryComp(fishingFloatComp.FishingRod, out var fishRodComp))
-                continue;
-
-            var fishRod = fishingFloatComp.FishingRod;
-            var fisher = Transform(fishingFloatComp.FishingRod).ParentUid;
-
-            var activeFisher = EnsureComp<ActiveFisherComponent>(fisher);
-            activeFisher.FishingRod = fishRod;
-            activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
-            activeFisher.TotalProgress = fishRodComp.StartingProgress;
-            activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(fishRodComp.StartingStruggleTime); // Compensate ping for 0.3 seconds
-
-            // Predicted because it works like 99.9% of the time anyway.
-            _popup.PopupPredicted(Loc.GetString("fishing-progress-start"), fisher, fisher);
-            activeSpotComp.IsActive = true;
-        }
-
+    protected virtual void UpdateLures()
+    {
         var fishingLures = EntityQueryEnumerator<FishingLureComponent>();
         while (fishingLures.MoveNext(out var fishingLure, out var lureComp))
         {
@@ -160,6 +95,52 @@ public abstract class SharedFishingSystem : EntitySystem
                 var rod = (lureComp.FishingRod, fishingRodComp);
                 StopFishing(rod, fisher);
                 ToggleFishingActions(rod, fisher, false);
+            }
+        }
+    }
+
+    protected virtual void UpdateFishSpots()
+    {
+        // Handle this on server side, because PVS will kill it while predicting on client
+    }
+
+    protected virtual void UpdateFishers()
+    {
+        var activeFishers = EntityQueryEnumerator<ActiveFisherComponent>();
+        while (activeFishers.MoveNext(out var fisher, out var fisherComp))
+        {
+            // Get fishing rod, then float, then spot... ReCurse.
+            if (!FishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp) ||
+                !FishLureQuery.TryComp(fishingRodComp.FishingLure, out var fishingFloatComp) ||
+                !ActiveFishSpotQuery.TryComp(fishingFloatComp.AttachedEntity, out var activeSpotComp))
+                continue;
+
+            var fishRod = fisherComp.FishingRod;
+            var fishSpot = fishingFloatComp.AttachedEntity.Value;
+
+            fisherComp.TotalProgress ??= fishingRodComp.StartingProgress;
+            fisherComp.NextStruggle ??= Timing.CurTime + TimeSpan.FromSeconds(fishingRodComp.StartingStruggleTime);
+
+            // Fish fighting logic
+            CalculateFightingTimings((fisher ,fisherComp), activeSpotComp);
+
+            switch (fisherComp.TotalProgress)
+            {
+                case < 0f:
+                    // It's over
+                    Popup.PopupEntity(Loc.GetString("fishing-progress-fail"), fisher, fisher);
+                    StopFishing((fishRod, fishingRodComp), fisher);
+                    continue;
+
+                case >= 1f:
+                    if (activeSpotComp.Fish != null)
+                    {
+                        ThrowFishReward(activeSpotComp.Fish.Value, fishSpot, fisher);
+                        Popup.PopupEntity(Loc.GetString("fishing-progress-success"), fisher, fisher);
+                    }
+
+                    StopFishing((fishRod, fishingRodComp), fisher);
+                    break;
             }
         }
     }
@@ -315,7 +296,7 @@ public abstract class SharedFishingSystem : EntitySystem
             return;
         }
 
-        _popup.PopupPredicted(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid, uid);
+        Popup.PopupPredicted(Loc.GetString("fishing-rod-remove-lure", ("ent", Name(uid))), uid, uid);
 
         if (!FishLureQuery.TryComp(component.FishingLure, out var lureComp))
             return;

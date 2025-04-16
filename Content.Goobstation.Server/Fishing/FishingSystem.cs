@@ -115,6 +115,40 @@ public sealed class FishingSystem : SharedFishingSystem
         base.StopFishing(fishingRod, fisher);
     }
 
+    protected override void UpdateFishSpots()
+    {
+        base.UpdateFishSpots();
+
+        var fishingSpots = EntityQueryEnumerator<ActiveFishingSpotComponent>();
+        while (fishingSpots.MoveNext(out var spot, out var activeSpotComp))
+        {
+            if (Timing.CurTime < activeSpotComp.FishingStartTime || activeSpotComp.IsActive || activeSpotComp.FishingStartTime == null)
+                continue;
+
+            // Trigger start of the fishing process
+
+            // Get fishing lure, then rod, then player... ReCurse.
+            if (!FishLureQuery.TryComp(activeSpotComp.AttachedFishingLure, out var fishingFloatComp) ||
+                !FishRodQuery.TryComp(fishingFloatComp.FishingRod, out var fishRodComp))
+                continue;
+
+            var fishRod = fishingFloatComp.FishingRod;
+            var fisher = Transform(fishingFloatComp.FishingRod).ParentUid;
+
+            var activeFisher = EnsureComp<ActiveFisherComponent>(fisher);
+            activeFisher.FishingRod = fishRod;
+            activeFisher.ProgressPerUse *= fishRodComp.Efficiency;
+            activeFisher.TotalProgress = fishRodComp.StartingProgress;
+            activeFisher.NextStruggle = Timing.CurTime + TimeSpan.FromSeconds(fishRodComp.StartingStruggleTime); // Compensate ping
+            Dirty(fisher, activeFisher);
+
+            // Predicted because it works like 99.9% of the time anyway.
+            Popup.PopupEntity(Loc.GetString("fishing-progress-start"), fisher, fisher);
+            activeSpotComp.IsActive = true;
+            Dirty(spot, activeSpotComp);
+        }
+    }
+
     protected override void SetupFishingFloat(Entity<FishingRodComponent> fishingRod, EntityUid player, EntityCoordinates target)
     {
         var (uid, component) = fishingRod;
