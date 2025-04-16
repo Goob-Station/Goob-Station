@@ -145,6 +145,10 @@
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: Enchanter # Goobstation
+    maxLevel: 2.5 # Decent chance of getting prot II
+    enchants:
+    - EnchantProtection
 
 #Mercenary Helmet
 - type: entity
