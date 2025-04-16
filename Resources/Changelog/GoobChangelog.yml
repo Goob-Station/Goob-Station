@@ -7395,3 +7395,9 @@ Entries:
         at all.
   id: 860
   time: '2025-04-16T04:31:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Armblade does less overall damage, more limb damage.
+  id: 861
+  time: '2025-04-16T04:32:07.0000000+00:00'
