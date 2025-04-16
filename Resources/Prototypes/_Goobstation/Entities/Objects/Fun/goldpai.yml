@@ -1,0 +1,28 @@
+
+- type: entity
+  parent: PersonalAI
+  id: GoldPersonalAI
+  name: golden personal ai device
+  description: this shit kinda rad ngl 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/goldpai.rsi
+    layers:
+    - state: goldpai-base
+    - state: goldpai-off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: pai-system-role-name-gold
+    roleDescription: pai-system-role-description-gold
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: goldpai-off-overlay }
+          Searching: { state: goldpai-searching-overlay }
+          On: { state: goldpai-on-overlay }
