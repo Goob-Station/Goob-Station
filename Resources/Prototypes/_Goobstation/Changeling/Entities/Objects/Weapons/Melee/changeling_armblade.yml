@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -27,9 +28,9 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 12
+        Slash: 20
         Structural: 20
-    clickPartDamageMultiplier: 3
+    clickPartDamageMultiplier: 2
     heavyPartDamageMultiplier: 1.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -62,6 +63,6 @@
         Structural: 1
   - type: TimedDespawn
     lifetime: 60
-  - type: GibThisGuy
+  - type: GibThisGuy 
     ocNames:
     - BombasterDS
