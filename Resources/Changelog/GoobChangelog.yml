@@ -7359,3 +7359,9 @@ Entries:
       message: Hristov penetrating capabilities are strongly improved.
   id: 855
   time: '2025-04-16T04:27:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Roundstart trash, puddles and other variation spawn once again.
+  id: 856
+  time: '2025-04-16T04:28:09.0000000+00:00'
