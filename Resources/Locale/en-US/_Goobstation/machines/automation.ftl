@@ -16,3 +16,11 @@ signal-port-description-automation-slot-beaker = An automation slot for a liquid
 
 signal-port-name-automation-slot-input = Item: Input items
 signal-port-description-automation-slot-input = An automation slot for a machine's input item storage.
+
+# Flatpacker
+
+signal-port-name-automation-slot-board = Item: Board Slot
+signal-port-description-automation-slot-board = An automation slot for a flatpacker's circuitboard.
+
+signal-port-name-automation-slot-materials = Item: Material Storage
+signal-port-description-automation-slot-materials = An automation slot for inserting materials into a machine's storage.

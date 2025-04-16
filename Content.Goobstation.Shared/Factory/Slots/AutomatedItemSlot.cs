@@ -19,53 +19,38 @@ public sealed partial class AutomatedItemSlot : AutomationSlot
     [DataField(required: true)]
     public string SlotId = string.Empty;
 
-    private ItemSlotsSystem? _slots;
-
-    // Dependency doesnt work for whatever reason
-    public ItemSlotsSystem Slots
-    {
-        get
-        {
-            _slots ??= EntMan.System<ItemSlotsSystem>();
-            return _slots;
-        }
-    }
-
-    private ItemSlot? _slot;
+    private ItemSlotsSystem _slots;
 
     [ViewVariables]
-    public ItemSlot? GetSlot(EntityUid uid)
+    public ItemSlot Slot;
+
+    public override void Initialize()
     {
-        if (_slot == null)
-            Slots.TryGetSlot(uid, SlotId, out _slot);
-        return _slot;
+        base.Initialize();
+
+        _slots = EntMan.System<ItemSlotsSystem>();
+
+        if (_slots.TryGetSlot(Owner, SlotId, out var slot))
+            Slot = slot;
+        else
+            throw new InvalidOperationException($"Entity {EntMan.ToPrettyString(Owner)} had no item slot {SlotId}");
     }
 
-    public override bool Insert(EntityUid uid, EntityUid item)
+    public override bool Insert(EntityUid item)
     {
-        if (!base.Insert(uid, item))
-            return false;
-
-        if (GetSlot(uid) is not {} slot)
-            return false;
-
-        return Slots.TryInsert(uid, slot, item, user: null);
+        return base.Insert(item) &&
+            _slots.TryInsert(Owner, Slot, item, user: null);
     }
 
-    public override bool CanInsert(EntityUid uid, EntityUid item)
+    public override bool CanInsert(EntityUid item)
     {
-        if (!base.CanInsert(uid, item))
-            return false;
-
-        if (GetSlot(uid) is not {} slot)
-            return false;
-
-        return Slots.CanInsert(uid, usedUid: item, user: null, slot);
+        return base.CanInsert(item) &&
+            _slots.CanInsert(Owner, usedUid: item, user: null, Slot);
     }
 
-    public override EntityUid? GetItem(EntityUid uid, AutomationFilter? filter)
+    public override EntityUid? GetItem(AutomationFilter? filter)
     {
-        if (GetSlot(uid)?.Item is not {} item || (filter?.IsDenied(item) ?? false))
+        if (Slot.Item is not {} item || (filter?.IsDenied(item) ?? false))
             return null;
 
         return item;

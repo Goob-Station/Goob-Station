@@ -20,4 +20,5 @@
       upgrade: upgrade-kit-automation
     - type: Automated
     - type: DeviceNetwork
+      deviceNetId: Wireless
       receiveFrequencyId: BasicDevice

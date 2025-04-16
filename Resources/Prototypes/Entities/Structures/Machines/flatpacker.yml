@@ -78,6 +78,15 @@
           components:
           - MachineBoard
           - ComputerBoard
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotBoard
+      output: AutomationSlotBoard
+      slotId: board_slot
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null # no automatic silo stealer...
   - type: ContainerContainer
     containers:
       machine_board: !type:Container

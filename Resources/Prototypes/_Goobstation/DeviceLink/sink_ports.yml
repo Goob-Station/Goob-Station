@@ -23,3 +23,13 @@
   id: AutomationSlotInput
   name: signal-port-name-automation-slot-input
   description: signal-port-description-automation-slot-input
+
+- type: sinkPort
+  id: AutomationSlotBoard
+  name: signal-port-name-automation-slot-board
+  description: signal-port-description-automation-slot-board
+
+- type: sinkPort
+  id: AutomationSlotMaterials
+  name: signal-port-name-automation-slot-materials
+  description: signal-port-description-automation-slot-materials

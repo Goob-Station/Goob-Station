@@ -37,3 +37,8 @@
   id: AutomationSlotInput
   name: signal-port-name-automation-slot-input
   description: signal-port-description-automation-slot-input
+
+- type: sourcePort
+  id: AutomationSlotBoard
+  name: signal-port-name-automation-slot-board
+  description: signal-port-description-automation-slot-board

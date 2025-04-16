@@ -13,23 +13,10 @@ namespace Content.Goobstation.Shared.Factory.Slots;
 
 /// <summary>
 /// An abstraction over some way to insert/take an item from a machine.
-/// For these methods user is the machine that is doing the automation not a player.
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class AutomationSlot
 {
-    [Dependency] public readonly IEntityManager EntMan = default!;
-    private EntityWhitelistSystem? __whitelist;
-    // Dependency not working my beloved
-    private EntityWhitelistSystem _whitelist
-    {
-        get
-        {
-            __whitelist ??= EntMan.System<EntityWhitelistSystem>();
-            return __whitelist;
-        }
-    }
-
     /// <summary>
     /// The input port for this slot, or null if can only be used as an output.
     /// </summary>
@@ -54,25 +41,40 @@ public abstract partial class AutomationSlot
     [DataField]
     public EntityWhitelist? Blacklist;
 
-    public void Initialize()
+    /// <summary>
+    /// The automated machine this slot belongs to.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid Owner;
+
+    [Dependency] public readonly IEntityManager EntMan = default!;
+    protected EntityWhitelistSystem _whitelist;
+
+    /// <summary>
+    /// Initialize the slot after <see cref="Owner"/> is set.
+    /// System dependencies don't work so inheritors have to call <c>base.Initialize()</c> and then add their systems.
+    /// </summary>
+    public virtual void Initialize()
     {
         IoCManager.InjectDependencies(this);
+
+        _whitelist = EntMan.System<EntityWhitelistSystem>();
     }
 
     /// <summary>
     /// Try to insert an item into the slot, returning true if it was removed from its previous container.
     /// Inheritors must override this and use <c>if (!base.Insert(uid, item)) return false;</c>
     /// </summary>
-    public virtual bool Insert(EntityUid uid, EntityUid item)
+    public virtual bool Insert(EntityUid item)
     {
-        return CanInsert(uid, item);
+        return CanInsert(item);
     }
 
     /// <summary>
     /// Check if an item can be inserted into the slot, returning true if it can.
     /// Inheritors must override this and use <c>if (!base.CanInsert(uid, item)) return false;</c>
     /// </summary>
-    public virtual bool CanInsert(EntityUid uid, EntityUid item)
+    public virtual bool CanInsert(EntityUid item)
     {
         return _whitelist.CheckBoth(item, whitelist: Whitelist, blacklist: Blacklist);
     }
@@ -82,5 +84,5 @@ public abstract partial class AutomationSlot
     /// If there are multiple items, which one returned is arbitrary and should not be relied upon.
     /// This should be "pure" and not actually modify anything.
     /// </summary>
-    public abstract EntityUid? GetItem(EntityUid uid, AutomationFilter? filter);
+    public abstract EntityUid? GetItem(AutomationFilter? filter);
 }

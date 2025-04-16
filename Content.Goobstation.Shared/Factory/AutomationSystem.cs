@@ -34,6 +34,7 @@ public sealed class AutomationSystem : EntitySystem
     {
         foreach (var slot in ent.Comp.Slots)
         {
+            slot.Owner = ent;
             slot.Initialize();
         }
     }

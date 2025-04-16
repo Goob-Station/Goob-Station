@@ -19,41 +19,34 @@ public sealed partial class AutomatedContainer : AutomationSlot
     [DataField(required: true)]
     public string ContainerId = string.Empty;
 
-    private SharedContainerSystem? _containers;
+    private SharedContainerSystem _container;
 
-    // Dependency doesnt work for whatever reason
-    public SharedContainerSystem Containers
+    public BaseContainer Container;
+
+    public override void Initialize()
     {
-        get
-        {
-            _containers ??= EntMan.System<SharedContainerSystem>();
-            return _containers;
-        }
+        base.Initialize();
+
+        _container = EntMan.System<SharedContainerSystem>();
+
+        Container = _container.GetContainer(Owner, ContainerId);
     }
 
-    private BaseContainer? _container;
-    public BaseContainer GetContainer(EntityUid uid)
+    public override bool Insert(EntityUid item)
     {
-        _container ??= Containers.GetContainer(uid, ContainerId);
-        return _container;
+        return base.Insert(item) && _container.Insert(item, Container);
     }
 
-    public override bool Insert(EntityUid uid, EntityUid item)
+    public override bool CanInsert(EntityUid item)
     {
-        return base.Insert(uid, item) && Containers.Insert(item, GetContainer(uid));
+        return base.CanInsert(item) && _container.CanInsert(item, Container);
     }
 
-    public override bool CanInsert(EntityUid uid, EntityUid item)
+    public override EntityUid? GetItem(AutomationFilter? filter)
     {
-        return base.CanInsert(uid, item) && Containers.CanInsert(item, GetContainer(uid));
-    }
+        var count = Container.Count;
 
-    public override EntityUid? GetItem(EntityUid uid, AutomationFilter? filter)
-    {
-        var container = GetContainer(uid);
-        var count = container.Count;
-
-        foreach (var item in container.ContainedEntities)
+        foreach (var item in Container.ContainedEntities)
         {
             if (filter?.IsAllowed(item) ?? true)
                 return item;

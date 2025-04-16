@@ -257,7 +257,7 @@ public sealed class RoboticArmSystem : EntitySystem
         if (!_transform.InRange(Transform(machine).Coordinates, coords, 0.25f))
             return false;
 
-        return slot.Insert(machine, item);
+        return slot.Insert(item);
     }
 
     public bool TryPickupAny(Entity<RoboticArmComponent> ent)
@@ -270,7 +270,6 @@ public sealed class RoboticArmSystem : EntitySystem
             return false;
 
         var output = ent.Comp.OutputSlot;
-        var outputMachine = GetOutputMachine(ent) ?? EntityUid.Invalid;
         if (output == null && IsOutputBlocked(ent))
             return false;
 
@@ -283,7 +282,7 @@ public sealed class RoboticArmSystem : EntitySystem
                 continue;
 
             // make sure the destination will accept it or it gets stuck
-            if (output?.CanInsert(outputMachine, item.Value) ?? true)
+            if (output?.CanInsert(item.Value) ?? true)
             {
                 ent.Comp.InputItems.RemoveAt(i);
                 found = item.Value;
@@ -310,7 +309,7 @@ public sealed class RoboticArmSystem : EntitySystem
             return false;
 
         // TODO: pass filters
-        if (slot.GetItem(machine, null) is not {} item)
+        if (slot.GetItem(null) is not {} item)
             return false;
 
         return _slots.TryInsert(ent, ent.Comp.ItemSlot, item, user: null);
