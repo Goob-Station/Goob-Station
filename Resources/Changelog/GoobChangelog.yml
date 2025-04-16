@@ -7589,3 +7589,9 @@ Entries:
       message: No more roundstart SM activations
   id: 884
   time: '2025-04-16T19:05:16.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed protection enchant not working.
+  id: 885
+  time: '2025-04-16T19:05:38.0000000+00:00'
