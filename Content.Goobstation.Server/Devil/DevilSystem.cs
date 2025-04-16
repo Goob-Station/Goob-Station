@@ -14,6 +14,7 @@ using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
@@ -104,7 +105,7 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<ThirstComponent>(uid);
         RemComp<TemperatureComponent>(uid);
         RemComp<TemperatureSpeedComponent>(uid);
-        RemComp<Condemned.CondemnedComponent>(uid);
+        RemComp<CondemnedComponent>(uid);
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(uid);
@@ -194,7 +195,7 @@ public sealed partial class DevilSystem : EntitySystem
     private void OnListen(EntityUid uid, DevilComponent comp, ListenEvent args)
     {
         // Other Devils and entities without souls have no authority over you.
-        if (HasComp<DevilComponent>(args.Source) || HasComp<Condemned.CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source))
+        if (HasComp<DevilComponent>(args.Source) || HasComp<CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source))
             return;
 
         var message = Regex.Replace(args.Message.ToLowerInvariant(), @"[\s\W]+", "");
@@ -231,7 +232,7 @@ public sealed partial class DevilSystem : EntitySystem
             return;
 
         _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", devil.Comp.TrueName)), devil, PopupType.LargeCaution);
-        _condemned.StartCondemnation(args.Target.Value, behavior: Condemned.CondemnedSystem.CondemnedBehavior.Banish);
+        _condemned.StartCondemnation(args.Target.Value, behavior: CondemnedBehavior.Banish);
     }
 
     #endregion

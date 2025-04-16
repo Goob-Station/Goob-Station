@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Devil.Condemned;
+namespace Content.Goobstation.Shared.Devil.Condemned;
 
 /// <summary>
 /// Marks an entity as having sold their soul.
@@ -17,13 +17,13 @@ public sealed partial class CondemnedComponent : Component
     /// The current phase of the condemnation animation.
     /// </summary>
     [DataField]
-    public CondemnedSystem.CondemnedPhase CurrentPhase = CondemnedSystem.CondemnedPhase.Waiting;
+    public CondemnedPhase CurrentPhase = CondemnedPhase.Waiting;
 
     /// <summary>
     /// Who owns this entities soul
     /// </summary>
     [DataField]
-    public EntityUid SoulOwner;
+    public EntityUid? SoulOwner;
 
     /// <summary>
     /// The elapsed time of the phase.
@@ -47,13 +47,13 @@ public sealed partial class CondemnedComponent : Component
     /// Is this entities soul owned, but not by a devil?
     /// </summary>
     [DataField]
-    public bool SoulOwnedNotDevil = false;
+    public bool SoulOwnedNotDevil = true;
 
     /// <summary>
     /// Should this entity be sent to hell on death?
     /// </summary>
     [DataField]
-    public bool CondemnOnDeath = true;
+    public bool CondemnOnDeath = false;
 
     /// <summary>
     /// Was this target already weak to holy before becoming condemned?
@@ -71,5 +71,19 @@ public sealed partial class CondemnedComponent : Component
     /// Should this entity be banished (sent to limbo for several minutes) or should they just be deleted?
     /// </summary>
     [DataField]
-    public CondemnedSystem.CondemnedBehavior CondemnedBehavior = CondemnedSystem.CondemnedBehavior.Delete;
+    public CondemnedBehavior CondemnedBehavior = CondemnedBehavior.Delete;
+}
+
+public enum CondemnedPhase : byte
+{
+    Waiting,
+    PentagramActive,
+    HandActive,
+    Complete
+}
+
+public enum CondemnedBehavior : byte
+{
+    Delete,
+    Banish,
 }

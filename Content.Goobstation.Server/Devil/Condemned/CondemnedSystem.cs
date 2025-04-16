@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
@@ -27,20 +28,6 @@ public sealed partial class CondemnedSystem : EntitySystem
     private readonly EntProtoId _defaultHandProto = "HellHand";
     private readonly SoundPathSpecifier _defaultSoundPath = new("/Audio/_Goobstation/Effects/earth_quake.ogg");
     private readonly ProtoId<PolymorphPrototype> _banishProto = "ShadowJaunt180";
-
-    public enum CondemnedPhase : byte
-    {
-        Waiting,
-        PentagramActive,
-        HandActive,
-        Complete
-    }
-
-    public enum CondemnedBehavior : byte
-    {
-        Delete,
-        Banish,
-    }
 
     public override void Initialize()
     {

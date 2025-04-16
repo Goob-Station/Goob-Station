@@ -24,20 +24,6 @@
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: contract-written
-  - type: Food
-    solution: food
-    delay: 10
-    forceFeedDelay: 10
-  - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 1
-        - ReagentId: SulfuricAcid # Sulphur and brimstone.... get it?
-          Quantity: 9
   - type: FaxableObject
   - type: Tag
     tags:

@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Server.Devil.Condemned;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Server.Body.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Body.Components;
@@ -240,6 +241,7 @@ public sealed class DevilContractSystem : EntitySystem
         var condemned = EnsureComp<CondemnedComponent>(contractee);
         condemned.SoulOwner = devil;
         condemned.CondemnOnDeath = true;
+        condemned.SoulOwnedNotDevil = false;
 
         return true;
     }

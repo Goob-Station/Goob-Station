@@ -29,3 +29,6 @@ revival-contract-use-failed = You cannot offer {$target} two deals at once.
 
 revival-contract-prompt-reject = Reject Offer
 revival-contract-prompt-accept = Accept Offer
+
+revival-contract-menu-title = Contract From the Depths
+revival-contract-menu-text = Sell your soul for a second chance?

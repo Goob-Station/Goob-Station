@@ -20,10 +20,4 @@ public sealed partial class PendingRevivalContractComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? Offerer;
-
-    /// <summary>
-    /// How long until the deal expires?
-    /// </summary>
-    [DataField]
-    public TimeSpan ExpiryTime = TimeSpan.FromSeconds(45);
 }
