@@ -7,13 +7,29 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server.Heretic.Components.PathSpecific;
+using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
 
-[RegisterComponent]
+namespace Content.Shared._Goobstation.Heretic.Components;
+
+[RegisterComponent, NetworkedComponent]
 public sealed partial class RiposteeComponent : Component
 {
-    [DataField] public float Cooldown = 20f;
-    [ViewVariables(VVAccess.ReadWrite)] public float Timer = 20f;
+    [DataField]
+    public float Cooldown = 20f;
 
-    [DataField] public bool CanRiposte = true;
+    [DataField]
+    public EntityWhitelist? WeaponWhitelist = new()
+    {
+        Tags = new()
+        {
+            "HereticBlade",
+        },
+    };
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float Timer = 20f;
+
+    [DataField]
+    public bool CanRiposte = true;
 }

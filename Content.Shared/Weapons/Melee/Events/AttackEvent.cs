@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -56,4 +59,20 @@ namespace Content.Shared.Weapons.Melee.Events
             ClickLocation = clickLocation;
         }
     }
+
+    // Goobstation start
+    public sealed class BeforeHarmfulActionEvent(EntityUid user, HarmfulActionType type) : CancellableEntityEventArgs
+    {
+        public EntityUid User { get; } = user;
+
+        public HarmfulActionType Type { get; } = type;
+    }
+
+    public enum HarmfulActionType : byte
+    {
+        Harm,
+        Disarm,
+        Grab,
+    }
+    // Goobstation end
 }
