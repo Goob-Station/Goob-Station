@@ -15,7 +15,6 @@
     exclusiveAntag: true
     roleType: FreeAgent
   - type: WizardRole
-  - type: CanEnchant #Let's them enchant
 
 - type: entity
   parent: BaseMindRoleAntag
@@ -27,7 +26,6 @@
     exclusiveAntag: true
     roleType: Familiar
   - type: ApprenticeRole
-  - type: CanEnchant #Let's them enchant
 
 - type: antag
   id: Wizard
