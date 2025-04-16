@@ -7601,3 +7601,9 @@ Entries:
       message: Syringes are no longer explosion-proof.
   id: 886
   time: '2025-04-16T19:09:05.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: NTR's scarf is now in their loadout.
+  id: 887
+  time: '2025-04-16T19:16:59.0000000+00:00'
