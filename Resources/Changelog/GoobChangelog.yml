@@ -7323,3 +7323,9 @@ Entries:
       message: Abductor Plush!
   id: 851
   time: '2025-04-16T04:24:08.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Fix
+      message: Fixed IPCs being unable to disarm
+  id: 852
+  time: '2025-04-16T04:24:24.0000000+00:00'
