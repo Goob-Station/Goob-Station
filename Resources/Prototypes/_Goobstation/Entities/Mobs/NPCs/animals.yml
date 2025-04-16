@@ -460,3 +460,43 @@
       EnchantInsulated: 1 # eat ALL the wires
       EnchantUnbreaking: 3 # very hard to kill
       EnchantSharpness: 5 # hit hard ye
+
+- type: entity
+  name: Clown Ian
+  parent: MobCorgiIan
+  id: MobCorgiIanClown
+  description: Honkmother's favorite corgi.
+  components:
+    - type: Sprite
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: clown_ian
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: clown_ian
+        Critical:
+          Base: clown_ian_dead  
+        Dead:
+          Base: clown_ian_dead
+    - type: Grammar
+      attributes:
+        proper: true
+        gender: male
+    - type: AutoImplant
+      implants: 
+      - SadTromboneImplant
+      - BikeHornImplant
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepClown
+    - type: Speech
+      speechVerb: Cluwne
+    - type: Bloodstream
+      bloodMaxVolume: 150
+      bloodReagent: Laughter
+    - type: Clumsy
+    - type: NoSlip
+    - type: Tag
+      tags:
+      - FootstepSound
