@@ -1,31 +1,23 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
-
-- type: dataset
+﻿- type: localizedDataset
   id: RatKingCommandStay
   values:
-    - "Sit!"
-    - "Stay!"
-    - "Stop!"
+    prefix: rat-king-command-stay-
+    count: 3
 
-- type: dataset
+- type: localizedDataset
   id: RatKingCommandFollow
   values:
-    - "Heel!"
-    - "Follow!"
+    prefix: rat-king-command-follow-
+    count: 2
 
-- type: dataset
+- type: localizedDataset
   id: RatKingCommandCheeseEm
   values:
-    - "Attack!"
-    - "Sic!"
-    - "Kill!"
-    - "Cheese 'Em!"
+    prefix: rat-king-command-cheese-
+    count: 4
 
-- type: dataset
+- type: localizedDataset
   id: RatKingCommandLoose
   values:
-    - "Free!"
-    - "Loose!"
+    prefix: rat-king-command-loose-
+    count: 2

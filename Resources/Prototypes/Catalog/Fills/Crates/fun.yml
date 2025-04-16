@@ -114,10 +114,12 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -174,6 +176,47 @@
         weight: 0.25
       - id: PlushieDesislavaBlackburn
         weight: 0.15
+    - !type:GroupSelector # Self insert crew :-)
+      children:
+      - id: PlushieBenny
+        weight: 0.65
+      - id: PlushieCairo
+        weight: 0.65
+      - id: PlushiePash
+        weight: 0.65
+      - id: PlushieDelta
+        weight: 0.65
+      - id: PlushieRaki
+        weight: 0.65
+      - id: PlushieTina
+        weight: 0.65
+      - id: PlushieKnott
+        weight: 0.65
+      - id: PlushieKury
+        weight: 0.65
+      - id: PlushieZlorb
+        weight: 0.65
+      - id: PlushieTiderMoth
+        weight: 0.65
+      - id: PlushieCommandHuman
+        weight: 0.65
+      - id: PlushieRanork
+        weight: 0.65
+      - id: PlushieByrrne
+        weight: 0.65
+      - id: PlushieWehWinter
+        weight: 0.65
+      - id: PlushieHaleigh
+        weight: 0.65
+      - id: PlushieStoop
+        weight: 0.65
+      - id: PlushieAhti
+        weight: 0.65
+      - id: PlushieSparkle
+        weight: 0.65
+      - id: PlushieGrub
+        weight: 0.65
+
 
 - type: entity
   id: CrateFunPlushie
@@ -515,3 +558,31 @@
       - id: BoxDarts
         amount: 1
         prob: 0.05
+
+- type: entity
+  id: CrateFunSelfInsertPlushie # Self insert crate :-)
+  parent: CrateGenericSteel
+  name: crew plushie crate
+  description: A box full of cute plushies of beloved crewmembers.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PlushieBenny
+      - id: PlushieCairo
+      - id: PlushiePash
+      - id: PlushieDelta
+      - id: PlushieRaki
+      - id: PlushieTina
+      - id: PlushieKnott
+      - id: PlushieKury
+      - id: PlushieZlorb
+      - id: PlushieTiderMoth
+      - id: PlushieCommandHuman
+      - id: PlushieRanork
+      - id: PlushieByrrne
+      - id: PlushieWehWinter
+      - id: PlushieHaleigh
+      - id: PlushieStoop
+      - id: PlushieAhti
+      - id: PlushieSparkle
+      - id: PlushieGrub
