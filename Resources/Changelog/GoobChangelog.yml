@@ -7409,3 +7409,9 @@ Entries:
         down menu on air alarms
   id: 862
   time: '2025-04-16T04:32:49.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Deathsquad Gear can no longer be selected when using the chameleon kit
+  id: 863
+  time: '2025-04-16T04:33:57.0000000+00:00'
