@@ -338,4 +338,6 @@
     - type: Penetratable # Goobstation - Better snipers
       penetrateDamage: 50
       damagePenalty: 0.2
+    - type: CombatMode
+      canDisarm: true
     - type: ExaminableCharacter # WWDP

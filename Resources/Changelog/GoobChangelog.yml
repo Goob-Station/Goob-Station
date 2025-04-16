@@ -7297,3 +7297,51 @@ Entries:
       message: Cowboy accent no longer replaces wow with by gum.
   id: 847
   time: '2025-04-15T23:44:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed abductor agent not getting glorpmind.
+  id: 848
+  time: '2025-04-15T23:55:38.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Added CentComm wizard robes.
+  id: 849
+  time: '2025-04-16T04:23:16.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Added 19 new OC plushies.
+    - type: Add
+      message: Cargo crate with the plushies.
+  id: 850
+  time: '2025-04-16T04:23:25.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: Abductor Plush!
+  id: 851
+  time: '2025-04-16T04:24:08.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Fix
+      message: Fixed IPCs being unable to disarm
+  id: 852
+  time: '2025-04-16T04:24:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Blade heretic path reworked.
+    - type: Add
+      message: Ash path mark now deals stamina damage and burn instead of firestacks.
+    - type: Add
+      message: Engineers can dual wield hammers.
+  id: 853
+  time: '2025-04-16T04:25:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Ion storms are now essentially guaranteed to happen during a round.
+  id: 854
+  time: '2025-04-16T04:26:03.0000000+00:00'
