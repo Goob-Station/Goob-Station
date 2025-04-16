@@ -7345,3 +7345,17 @@ Entries:
       message: Ion storms are now essentially guaranteed to happen during a round.
   id: 854
   time: '2025-04-16T04:26:03.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Hristov can now oneshot unarmored target.
+    - type: Tweak
+      message: Hristov and it's ammo price increased (60 -> 75, 8 -> 10).
+    - type: Tweak
+      message: >-
+        Binoculars and Hristov zoom increased to 8 tiles. Hardlight bow also got
+        3 tiles zoom.
+    - type: Tweak
+      message: Hristov penetrating capabilities are strongly improved.
+  id: 855
+  time: '2025-04-16T04:27:43.0000000+00:00'
