@@ -384,10 +384,14 @@
 - type: entity
   parent: BaseNullrod
   id: UristHand
-  name: Hand of Urist
+  name: Grey Emperor's Glove
   description: The tide beckons.
   suffix: Unremoveable
   components:
+  - type: PointLight
+    radius: 5
+    energy: 3
+    netsync: false
   - type: Item
     size: Ginormous
     sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
