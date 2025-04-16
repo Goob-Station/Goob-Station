@@ -7475,3 +7475,11 @@ Entries:
       message: Fully reworked aranesp, check the guidebook for new info.
   id: 868
   time: '2025-04-16T04:47:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate messenger bag is now slightly bigger, to be consistent with
+        the duffelbag.
+  id: 869
+  time: '2025-04-16T04:48:34.0000000+00:00'
