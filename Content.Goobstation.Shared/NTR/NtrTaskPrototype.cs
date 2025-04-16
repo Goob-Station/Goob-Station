@@ -1,6 +1,12 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
 
 namespace Content.Goobstation.Shared.NTR;
 /// <summary>
@@ -48,11 +54,11 @@ public sealed class NtrTaskPrototype : IPrototype
     [DataField]
     public float Weight = 1.0f;
 
-    /// <summary>
-    /// Handles the reagents if needed to complete the task.
-    /// </summary>
-    [DataField]
-    public List<NtrTaskReagentEntry> ReagentEntries = new();
+    [DataField("cooldown")]
+    public float Cooldown = 0f; //in seconds
+
+    [DataField("reagents")]
+    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> RequiredReagents = new();
 }
 
 [DataDefinition, Serializable, NetSerializable]
@@ -86,12 +92,12 @@ public readonly partial record struct NtrTaskItemEntry()
     public LocId Name { get; init; } = string.Empty;
 }
 
-[DataDefinition, Serializable, NetSerializable]
-public sealed partial class NtrTaskReagentEntry
-{
-    [DataField("reagent")]
-    public string Reagent = string.Empty;
+// [DataDefinition, Serializable, NetSerializable]
+// public sealed partial class NtrTaskReagentEntry
+// {
+//     [DataField("reagent")]
+//     public string Reagent = string.Empty;
 
-    [DataField("amount")]
-    public int Amount;
-}
+//     [DataField("amount")]
+//     public int Amount;
+// }

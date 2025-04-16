@@ -2,6 +2,7 @@
   id: TaskStampHos
   proto: SecurityDocument
   reward: 2
+  cooldown: 180
   description: Get HOS & NanoRep stamp on this document to complete.
   entries:
   - name: StampHOS
@@ -16,6 +17,7 @@
   id: TaskStampHop
   proto: ServiceDocument
   reward: 2
+  cooldown: 180
   description: Get HOP & NanoRep stamp on this document to complete.
   entries:
   - name: StampHOP
@@ -30,6 +32,7 @@
   id: TaskStampCe
   proto: EngineeringDocument
   reward: 2
+  cooldown: 180
   description: Get CE & NanoRep stamp on this document to complete.
   entries:
   - name: StampCE
@@ -44,6 +47,7 @@
   id: TaskStampCmo
   proto: MedicalDocument
   reward: 2
+  cooldown: 180
   description: Get CMO & NanoRep stamp on this document to complete.
   entries:
   - name: StampCMO
@@ -58,6 +62,7 @@
   id: TaskStampRd
   proto: ScienceDocument
   reward: 2
+  cooldown: 180
   description: Get RD & NanoRep stamp on this document to complete.
   entries:
   - name: StampRD
@@ -72,6 +77,7 @@
   id: TaskStampQm
   proto: CargoDocument
   reward: 2
+  cooldown: 180
   description: Get QM & NanoRep stamp on this document to complete.
   entries:
   - name: StampQM
@@ -87,22 +93,24 @@
   proto: NTRgamerulePowergrid
   reward: 5
   weight: 0.3 # 3 times rarer than the stamps one
+  cooldown: 600
   description: Enforce a powergrid check from CC.
   entries:
   - name: Power grid check
     isEvent: true
     stamps: []
 
+# reagent specific
+
 - type: ntrTask
-  id: BloodChangelingTask
-  name: Blood Changeling Sample
-  description: Provide a vial with 30u of BloodChangeling.
-  reward: 15
+  id: TaskLingBlood
   proto: TaskVial
-  weight: 0.3 # the same as the powergrid one because its rare and shift specific
+  reward: 15 # rare & gamemode specific
+  weight: 0.1 # epic
+  cooldown: 600
+  description: Send a vial with 30 changelings blood to CC for research.
+  reagents:
+    BloodChangeling: 30
   entries:
-    - name: Send Changelings blood to CentComm
-      stamps: []
-  reagentEntries:
-    - reagent: BloodChangeling
-      amount: 30
+  - name: Send lings blood to CentComm.
+    stamps: []

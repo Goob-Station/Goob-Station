@@ -83,7 +83,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
         SubscribeLocalEvent<NtrTaskConsoleComponent, TaskSkipMessage>(OnTaskSkipMessage);
         SubscribeLocalEvent<NtrTaskDatabaseComponent, MapInitEvent>(OnMapInit);
 
-        // SubscribeLocalEvent<NtrTaskConsoleComponent, TaskFailedEvent>(OnTaskFailed);
+        SubscribeLocalEvent<NtrTaskConsoleComponent, TaskFailedEvent>(OnTaskFailed);
         SubscribeLocalEvent<NtrTaskConsoleComponent, TaskCompletedEvent>(OnTaskCompleted);
 
         SubscribeLocalEvent<NtrTaskConsoleComponent, ItemSlotInsertAttemptEvent>(OnInsertAttempt);
@@ -125,10 +125,15 @@ public sealed partial class NtrTaskSystem : EntitySystem
     }
     private void OnInsertAttempt(EntityUid uid, NtrTaskConsoleComponent component, ItemSlotInsertAttemptEvent args)
     {
-        if (args.Slot.Name != "documentSlot" || !args.Item.Valid)
-            return;
-
         var item = args.Item;
+
+        ent.Comp.History.Add(new NtrTaskHistoryData(
+            data,
+            skipped ? TaskResult.Skipped : TaskResult.Completed,
+            _gameTiming.CurTime,
+            actorName,
+            _timing.CurTime.TotalSeconds
+        ));
 
         if (HasComp<SpamDocumentComponent>(item))
         {
@@ -149,7 +154,6 @@ public sealed partial class NtrTaskSystem : EntitySystem
             _audio.PlayPvs(component.DenySound, uid);
             return;
         }
-        // Corrected: Pass the item EntityUid to CheckReagentRequirements
         foreach (var taskId in documentComp.Tasks)
         {
             if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
@@ -162,61 +166,53 @@ public sealed partial class NtrTaskSystem : EntitySystem
                 return;
             }
         }
-    }
-    public void OnItemInserted(EntityUid uid, NtrTaskConsoleComponent component, ref ItemSlotInsertAttemptEvent args)
-    {
-        if (args.Slot.Name != "documentSlot" || args.Cancelled)
-            return;
-
-        if (!args.Item.Valid)
-            return;
-
-        EntityUid item = args.Item;
-
-        if (!TryComp<RandomDocumentComponent>(item, out var documentComp))
-            return;
-
-        if (_station.GetOwningStation(uid) is { } station &&
-            TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
-            TryComp<NtrBankAccountComponent>(station, out var account))
+        if (!args.Cancelled)
         {
-            foreach (var taskId in documentComp.Tasks)
+            if (_station.GetOwningStation(uid) is { } station &&
+                TryComp<NtrTaskDatabaseComponent>(station, out var db) &&
+                TryComp<NtrBankAccountComponent>(station, out var account))
             {
-                if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto) ||
-                    !TryGetActiveTask(station, taskProto, out var taskData))
-                    continue;
+                foreach (var taskId in documentComp.Tasks)
+                {
+                    if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto) ||
+                        !TryGetActiveTask(station, taskProto, out var taskData))
+                        continue;
 
-                account.Balance += taskProto.Reward;
+                    var ev = new TaskCompletedEvent(taskProto);
+                    RaiseLocalEvent(uid, ev);
+                    TryRemoveTask(station, taskData.Value.Id, false);
+                }
 
-                TryRemoveTask(station, taskData.Value.Id, false);
+                var query = EntityQueryEnumerator<NtrClientAccountComponent>();
+                while (query.MoveNext(out var client, out _))
+                {
+                    var balanceEv = new NtrAccountBalanceUpdatedEvent(client, account.Balance);
+                    RaiseLocalEvent(client, balanceEv);
+                }
+
+                UpdateTaskConsoles();
             }
 
-            var query = EntityQueryEnumerator<NtrClientAccountComponent>();
-            while (query.MoveNext(out var client, out _))
-            {
-                var balanceEv = new NtrAccountBalanceUpdatedEvent(client, account.Balance);
-                RaiseLocalEvent(client, balanceEv);
-            }
-
-            UpdateTaskConsoles();
+            _slots.TryEject(uid, args.Slot.Name, null, out _);
+            QueueDel(item);
+            _audio.PlayPvs(component.PrintSound, uid);
         }
-
-        _slots.TryEject(uid, args.Slot.Name, null, out _);
-        QueueDel(item);
-        _audio.PlayPvs(component.PrintSound, uid);
     }
-    private bool CheckReagentRequirements(EntityUid vial, NtrTaskPrototype taskProto)
+    public bool CheckReagentRequirements(EntityUid container, NtrTaskPrototype task)
     {
-        if (!TryComp<SolutionContainerManagerComponent>(vial, out var solutionManager))
+        if (task.RequiredReagents.Count == 0)
+            return true;
+
+        if (!TryComp<SolutionContainerManagerComponent>(container, out var solutionManager))
             return false;
 
-        if (!_solutionContainer.TryGetSolution((vial, solutionManager), "beaker", out var solution, out _))
+        if (!_solutionContainer.TryGetSolution(container, "beaker", out var solution))
             return false;
 
-        foreach (var reagentEntry in taskProto.ReagentEntries)
+        foreach (var (reagentId, requiredAmount) in task.RequiredReagents)
         {
-            var quantity = _solutionContainer.GetTotalPrototypeQuantity(solution.Value, reagentEntry.Reagent);
-            if (quantity < reagentEntry.Amount)
+            var actualAmount = _solutionContainer.GetTotalPrototypeQuantity(solution.Value, reagentId);
+            if (actualAmount < requiredAmount)
                 return false;
         }
 
@@ -542,12 +538,18 @@ public sealed partial class NtrTaskSystem : EntitySystem
     }
     private List<NtrTaskPrototype> GetAvailableTasks(EntityUid uid, NtrTaskDatabaseComponent component)
     {
+        var currentTime = _timing.CurTime.TotalSeconds;
+
         return _protoMan.EnumeratePrototypes<NtrTaskPrototype>()
             .Where(proto =>
                 proto.ID != "PowerGridCheck" ||
                 (_timing.CurTime >= component.NextPowerGridTime))
             .Where(proto =>
-                !component.Tasks.Any(b => b.Task == proto.ID && !b.IsActive))
+                !component.Tasks.Any(b => b.Task == proto.ID && !b.IsActive) &&
+                component.History
+                    .Where(h => h.TaskData.Task == proto.ID)
+                    .All(h => (currentTime - h.CompletionTime) >= proto.Cooldown)
+            )
             .ToList();
     }
     // weight pick for future tasks
@@ -718,26 +720,26 @@ public sealed partial class NtrTaskSystem : EntitySystem
             _uiSystem.SetUiState((uid, ui), NtrTaskUiKey.Key, state);
         }
     }
-    // private void OnTaskFailed(EntityUid uid, NtrTaskConsoleComponent component, TaskFailedEvent args)
-    // {
-    //     if (_station.GetOwningStation(uid) is not { } station ||
-    //         !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
-    //         return;
-    //     // apply penalty
-    //     ntrAccount.Balance = Math.Max(0, ntrAccount.Balance - args.Penalty);
+    private void OnTaskFailed(EntityUid uid, NtrTaskConsoleComponent component, TaskFailedEvent args)
+    {
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
+            return;
+        // apply penalty
+        ntrAccount.Balance = Math.Max(0, ntrAccount.Balance - args.Penalty);
 
-    //     var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
-    //     var query = EntityQueryEnumerator<NtrClientAccountComponent>();
-    //     while (query.MoveNext(out var client, out var comp))
-    //     {
-    //         RaiseLocalEvent(client, ev);
-    //     }
-    //     // del the spam document
-    //     if (Exists(args.User))
-    //         _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), uid, args.User);
+        var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
+        var query = EntityQueryEnumerator<NtrClientAccountComponent>();
+        while (query.MoveNext(out var client, out var comp))
+        {
+            RaiseLocalEvent(client, ev);
+        }
+        // del the spam document
+        if (Exists(args.User))
+            _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), uid, args.User);
 
-    //     _audio.PlayPvs(component.DenySound, uid);
-    // }
+        _audio.PlayPvs(component.DenySound, uid);
+    }
     // private void OnDocumentInserted(DocumentInsertedEvent args)
     // {
     //     if (!Exists(args.Document))

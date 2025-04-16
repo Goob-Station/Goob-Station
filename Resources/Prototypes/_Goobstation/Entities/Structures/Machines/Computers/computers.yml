@@ -15,7 +15,8 @@
   - type: NtrTaskConsole
   - type: ItemSlots
     slots:
-      item:
+      documentSlot:
+        name: Console slot
         whitelist:
           tags:
           - Paper
