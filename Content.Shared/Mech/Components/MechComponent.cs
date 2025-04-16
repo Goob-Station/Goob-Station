@@ -189,26 +189,36 @@ public sealed partial class MechComponent : Component
     public List<EntProtoId> StartingEquipment = new();
 
     #region Action Prototypes
+
     [DataField]
     public EntProtoId MechCycleAction = "ActionMechCycleEquipment";
+
     [DataField]
     public EntProtoId ToggleAction = "ActionToggleLight"; //Goobstation Mech Lights toggle action
+
     [DataField]
     public EntProtoId MechUiAction = "ActionMechOpenUI";
+
     [DataField]
     public EntProtoId MechEjectAction = "ActionMechEject";
+
     #endregion
 
     #region Visualizer States
+
     [DataField]
     public string? BaseState;
+
     [DataField]
     public string? OpenState;
+
     [DataField]
     public string? BrokenState;
+
     #endregion
 
     [DataField] public EntityUid? MechCycleActionEntity;
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
     [DataField, AutoNetworkedField] public EntityUid? ToggleActionEntity; //Goobstation Mech Lights toggle action
+}
