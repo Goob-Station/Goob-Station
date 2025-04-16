@@ -7467,3 +7467,11 @@ Entries:
       message: Gizmo now gives a popup if you're unable to use it.
   id: 867
   time: '2025-04-16T04:41:18.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Hyperzine is now twice as cheap to make, and also heals stamina damage.
+    - type: Tweak
+      message: Fully reworked aranesp, check the guidebook for new info.
+  id: 868
+  time: '2025-04-16T04:47:50.0000000+00:00'
