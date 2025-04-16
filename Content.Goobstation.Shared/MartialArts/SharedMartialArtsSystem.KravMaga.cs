@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -49,14 +60,14 @@ public abstract partial class SharedMartialArtsSystem
                 if(_netManager.IsClient)
                     return;
                 _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
-                _stamina.TryTakeStamina(hitEntity, 25f);
+                _stamina.TakeStaminaDamage(hitEntity, 25f, applyResistances: true);
                 break;
             case KravMagaMoves.NeckChop:
                 var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);
                 comp.SilencedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;
             case KravMagaMoves.LungPunch:
-                _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage);
+                _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
                 var blockedBreathingComponent = EnsureComp<KravMagaBlockedBreathingComponent>(hitEntity);
                 blockedBreathingComponent.BlockedTime = _timing.CurTime + TimeSpan.FromSeconds(moveComp.EffectTime);
                 break;

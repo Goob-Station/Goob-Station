@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -10,6 +16,7 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Content.Shared.Weapons.Melee;
 
 namespace Content.Shared._Shitmed.ItemSwitch;
 public abstract class SharedItemSwitchSystem : EntitySystem
@@ -145,6 +152,10 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         };
         RaiseLocalEvent(uid, ref attempt);
 
+        TimeSpan nextAttack = new TimeSpan(0);
+        if (TryComp<MeleeWeaponComponent>(ent, out var meleeComp))
+            nextAttack = meleeComp.NextAttack;
+
         if (ent.Comp.States.TryGetValue(ent.Comp.State, out var prevState)
             && prevState.RemoveComponents
             && prevState.Components is not null)
@@ -152,6 +163,9 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         if (state.Components is not null)
             EntityManager.AddComponents(ent, state.Components);
+
+        if (TryComp<MeleeWeaponComponent>(ent, out meleeComp) && nextAttack.Ticks != 0)
+            meleeComp.NextAttack = nextAttack;
 
         if (!comp.Predictable) predicted = false;
 

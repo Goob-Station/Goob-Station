@@ -1,12 +1,66 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: weightedRandom
   id: GameDirector
   weights:
     Traitor: 0.25
     Changeling: 0.10
     Nukeops: 0.05
-    Revolutionary: 0.04
-    Zombie: 0.03
-    Heretic: 0.10
-    BlobGameMode: 0.04
-    Wizard: 0.05
+    Revolutionary: 0.05
+    Zombie: 0.04
+    Heretic: 0.11
+    BlobGameMode: 0.05
+    Wizard: 0.007
     #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself
+
+
+- type: incompatibleModes
+  id: Nukeops
+  modes:
+  - Nukeops
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+
+- type: incompatibleModes
+  id: HonkOps
+  modes:
+  - Nukeops
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+
+- type: incompatibleModes
+  id: Wizard
+  modes:
+  - Wizard
+
+- type: incompatibleModes
+  id: BlobGameMode
+  modes:
+  - BlobGameMode
+  - Nukeops
+  - HonkOps
+
+- type: incompatibleModes
+  id: Zombie
+  modes:
+  - Nukeops
+  - HonkOps
+
+- type: incompatibleModes
+  id: Revolutionary
+  modes:
+  - Nukeops
+  - HonkOps

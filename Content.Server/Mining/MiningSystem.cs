@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Destructible;
 using Content.Shared.Mining;
 using Content.Shared.Mining.Components;
@@ -35,7 +43,8 @@ public sealed class MiningSystem : EntitySystem
             return;
 
         var coords = Transform(uid).Coordinates;
-        var toSpawn = _random.Next(proto.MinOreYield, proto.MaxOreYield+1);
+        var modifier = component.Modifier; // Goobstation
+        var toSpawn = (int) _random.NextFloat((float) proto.MinOreYield * modifier, (float) (proto.MaxOreYield+1) * modifier); // Goobstation - Apply fortune
         for (var i = 0; i < toSpawn; i++)
         {
             Spawn(proto.OreEntity, coords.Offset(_random.NextVector2(0.2f)));

@@ -1,3 +1,51 @@
+// SPDX-FileCopyrightText: 2022 CommieFlowers <rasmus.cedergren@hotmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Errant <35878406+errant@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Adeinitas <147965189+adeinitas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Callmore <22885888+Callmore@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Dakamakat <52600490+dakamakat@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Danger Revolution! <142105406+DangerRevolution@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Timemaster99 <57200767+Timemaster99@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Common.Stunnable; // Goobstation - Martial Arts
@@ -22,6 +70,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Random; // Goob - Shove
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
@@ -39,6 +88,8 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
+    [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
+
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
@@ -119,19 +170,18 @@ public sealed partial class StaminaSystem : EntitySystem
 
     private void OnDisarmed(EntityUid uid, StaminaComponent component, DisarmedEvent args)
     {
+        // No random stamina damage
         if (args.Handled)
             return;
 
         if (component.Critical)
             return;
 
-        var damage = args.PushProbability * component.CritThreshold;
-        TakeStaminaDamage(uid, damage, component, source: args.Source);
+        TakeStaminaDamage(uid, args.StaminaDamage, component, source: args.Source, applyResistances: true);
 
         args.PopupPrefix = "disarm-action-shove-";
         args.IsStunned = component.Critical;
-
-        args.Handled = true;
+        // Shoving shouldnt handle it
     }
 
     // goobstation - stun resistance. try not to modify this method at all
@@ -185,6 +235,8 @@ public sealed partial class StaminaSystem : EntitySystem
             var damageOvertime = component.Overtime;
             damageImmediate *= hitEvent.Multiplier;
             damageImmediate += hitEvent.FlatModifier;
+            damageOvertime *= hitEvent.Multiplier;
+            damageOvertime += hitEvent.FlatModifier;
 
             if (args.Direction == null)
             {
@@ -207,7 +259,7 @@ public sealed partial class StaminaSystem : EntitySystem
         if (!TryComp<StaminaComponent>(args.Embedded, out var stamina))
             return;
 
-        TakeStaminaDamage(args.Embedded, component.Damage, stamina, source: uid);
+        TakeStaminaDamage(args.Embedded, component.Damage, stamina, source: uid, applyResistances: true);
     }
 
     private void OnThrowHit(EntityUid uid, StaminaDamageOnCollideComponent component, ThrowDoHitEvent args)
@@ -235,13 +287,15 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
 
         var damage = component.Damage;
+        var overtime = component.Damage;
 
         damage *= hitEvent.Multiplier;
-
         damage += hitEvent.FlatModifier;
+        overtime *= hitEvent.Multiplier;
+        overtime += hitEvent.FlatModifier;
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
-        TakeOvertimeStaminaDamage(target, component.Overtime); // Goobstation
+        TakeOvertimeStaminaDamage(target, overtime); // Goobstation
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
@@ -289,7 +343,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
     // goob edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
-        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true)
+        EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
     {
         if (!Resolve(uid, ref component, false)
         || value == 0) // no damage???
@@ -303,6 +357,18 @@ public sealed partial class StaminaSystem : EntitySystem
         // Have we already reached the point of max stamina damage?
         if (component.Critical)
             return;
+
+        if (applyResistances)
+        {
+            var hitEvent = new TakeStaminaDamageEvent((uid, component));
+            RaiseLocalEvent(uid, hitEvent);
+
+            if (hitEvent.Handled)
+                return;
+
+            value *= hitEvent.Multiplier;
+            value += hitEvent.FlatModifier;
+        }
 
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);
