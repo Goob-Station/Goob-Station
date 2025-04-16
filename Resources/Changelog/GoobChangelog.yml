@@ -7551,3 +7551,11 @@ Entries:
       message: Advanced Remote Signaller moved to advanced tools research in Industrial
   id: 879
   time: '2025-04-16T04:55:02.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Gave Bingles their own Antagonist Rule
+    - type: Remove
+      message: Removed fun!
+  id: 880
+  time: '2025-04-16T04:55:10.0000000+00:00'
