@@ -407,12 +407,14 @@
     # Goobstation
     - LatheMiscStatic
     - MedicalVehiclesStatic
+    - GrenadeTriggersStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
     # Goobstation
     - SecurityAmmoStaticGoob
     - SyndicateAmmoLightStatic
+    - ScienceExplosives
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -718,6 +720,8 @@
     - SecurityBoardsStaticGoob
     - SecurityBoardsStaticGoob
     - PowerCellsStatic
+    - ScienceExplosives
+    - GrenadeTriggersStatic
     dynamicPacks:
     - SecurityEquipment
     - SecurityBoards
@@ -823,6 +827,7 @@
     - MedicalBoardsStatic
     - MedicalBoardsStaticGoob
     - PowerCellsStatic
+    - GrenadeTriggersStatic
     dynamicPacks:
     - Chemistry
     # Goobstation Packs
