@@ -7535,3 +7535,9 @@ Entries:
       message: Fixed not being able to remove/insert posibrains from IPC torsos.
   id: 877
   time: '2025-04-16T04:53:32.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Add vox emote sounds (harrowing)
+  id: 878
+  time: '2025-04-16T04:54:06.0000000+00:00'
