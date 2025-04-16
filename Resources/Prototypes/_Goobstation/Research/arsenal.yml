@@ -56,7 +56,7 @@
   technologyPrerequisites:
   - RipleyAPLU
   - ExplosiveTechnology
-  position: 3,-1
+  position: 2,-1
 
 - type: technology
   id: AdvancedWeaponry
@@ -107,7 +107,7 @@
   - WeaponMechCombatMissileRack8
   technologyPrerequisites:
   - Gygax
-  position: 4,-2
+  position: 3,-2
 
 - type: technology
   id: Durand
@@ -133,7 +133,7 @@
   - WeaponMechCombatShotgunIncendiary
   technologyPrerequisites:
   - Gygax
-  position: 4,-1
+  position: 3,-1
 
 - type: technology
   id: SmartWeaponry
