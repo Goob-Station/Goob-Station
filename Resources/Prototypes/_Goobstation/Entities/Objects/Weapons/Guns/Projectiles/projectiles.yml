@@ -7,9 +7,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -122,16 +124,17 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
-        Heat: 5
+        Blunt: 1
+        Piercing: 1
+        Heat: 1
         Structural: 20
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 2
-    intensitySlope: 2
-    totalIntensity: 18 # 30 damage per tile
-    maxTileBreak: 0
+    maxIntensity: 3 # 3x3 explosion
+    intensitySlope: 1.5 # 45 damage at the center tile
+    totalIntensity: 12 # 22.5 damage at the edges
+    maxTileBreak: 0 # 11.25 damage at the corners
   - type: PointLight
     radius: 3.5
     color: orange
