@@ -7623,3 +7623,9 @@ Entries:
       message: Burrner and hristov ammo is slightly more expensive.
   id: 889
   time: '2025-04-16T19:18:22.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Bingle plushies now make binglepit sounds when used.
+  id: 890
+  time: '2025-04-16T19:19:39.0000000+00:00'
