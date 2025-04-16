@@ -55,6 +55,7 @@
     - id: BoxTracker
     - id: BlueshieldUndeterminedWeapon
     - id: ClothingOuterHardsuitBlueshieldLightMaid
+    - id: ClothingOuterBlueshieldMaid
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

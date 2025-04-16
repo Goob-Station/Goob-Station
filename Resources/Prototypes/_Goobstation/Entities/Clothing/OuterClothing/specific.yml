@@ -34,7 +34,7 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetHEV
   - type: ClothingGrantComponent
     component:
@@ -75,3 +75,17 @@
     - type: Clothing
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
       quickEquip: true
+
+# BSOs maid outer
+
+- type: entity
+  id: ClothingOuterBlueshieldMaid
+  parent: ClothingBlueshieldArmourVest # i told the guy who made the bounty that this might be an issue, but he said its okay so idk
+  name: maid armored outfit
+  description: A normal looking maid outfit, with a metal plating inside.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Clothing/OuterClothing/Misc/maid.rsi
+    - type: Clothing
+      sprite: _Goobstation/Clothing/OuterClothing/Misc/maid.rsi
+      quickEquip: true # why
