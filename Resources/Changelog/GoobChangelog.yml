@@ -7433,3 +7433,23 @@ Entries:
       message: Changed Nuclear Operatives description in Metashield.
   id: 865
   time: '2025-04-16T04:35:33.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Healium is effective at higher concentrations, doubling it's maximum
+        healing rate. It is also slightly less intoxicating.
+    - type: Tweak
+      message: >-
+        Breathing higher concentrations of Nitrium allows for even faster
+        movement.
+    - type: Tweak
+      message: >-
+        BZ can get you high in very low doses without risk of asphyxiation or
+        poison.
+    - type: Fix
+      message: >-
+        The effects Nitrium has on movement speed will consistently end 6
+        seconds after you last breath it in.
+  id: 866
+  time: '2025-04-16T04:40:12.0000000+00:00'
