@@ -7517,3 +7517,9 @@ Entries:
       message: Wizard spellcards are now slightly stronger to better match their price.
   id: 874
   time: '2025-04-16T04:51:50.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Adds an Antagonist Testing Area, accessible from the ghost bar
+  id: 875
+  time: '2025-04-16T04:52:53.0000000+00:00'
