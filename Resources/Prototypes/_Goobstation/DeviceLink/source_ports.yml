@@ -17,3 +17,13 @@
   id: SignalContrabandDetected
   name: signal-port-name-contraband-detected #TODO Add localisation
   description: signal-port-description-contraband-detected
+
+- type: sourcePort
+  id: RoboticArmOutput
+  name: signal-port-name-output-machine
+  description: signal-port-description-output-machine
+
+- type: sourcePort
+  id: RoboticArmMoved
+  name: signal-port-name-item-moved
+  description: signal-port-description-item-moved

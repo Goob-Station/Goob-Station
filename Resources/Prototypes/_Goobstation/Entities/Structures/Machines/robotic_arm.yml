@@ -55,6 +55,7 @@
   - type: ItemSlots
     slots:
       robotic_arm_item:
+        insertOnInteract: false
         whitelist:
           components:
           - Item
@@ -62,5 +63,18 @@
         locked: true
         # TODO
   - type: RoboticArm
+  - type: DeviceLinkSink
+    ports:
+    - RoboticArmInput
+    # TODO: ports to disable it
+  - type: DeviceLinkSource
+    ports:
+    - RoboticArmOutput
+    - RoboticArmMoved
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 5
   - type: ApcPowerReceiver
     powerLoad: 50 # Idle power usage, increases when active

@@ -8,3 +8,8 @@
   id: MaterialSiloUtilizer
   name: signal-port-name-material-silo-utilizer
   description: signal-port-description-material-silo-utilizer
+
+- type: sinkPort
+  id: RoboticArmInput
+  name: signal-port-name-input-machine
+  description: signal-port-description-input-machine
