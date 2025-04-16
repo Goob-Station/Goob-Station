@@ -11,7 +11,9 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -308,12 +310,40 @@
     Glass: 300
     Plasma: 200
 
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: MagazinePistolCaselessRifle
+#  result: MagazinePistolCaselessRifle
+#  materials:
+#    Steel: 145
+
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazinePistolCaselessRifle
-  result: MagazinePistolCaselessRifle
+  id: MagazineCaselessMagnum
+  result: MagazineCaselessMagnum
   materials:
     Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolCaselessMagnum
+  result: MagazinePistolCaselessMagnum
+  materials:
+    Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolCaselessMagnumMinusP
+  result: MagazinePistolCaselessMagnumMinusP
+  materials:
+    Steel: 100 # reduced cost because reduced damage
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineCaselessRifleM7S
+  result: MagazineCaselessRifleM7S
+  materials:
+    Steel: 800
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -431,26 +461,26 @@
   materials:
     Steel: 160
 
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazinePistolCaselessRifleEmpty
-  result: MagazinePistolCaselessRifleEmpty
-  materials:
-    Steel: 25
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: MagazinePistolCaselessRifleEmpty
+#  result: MagazinePistolCaselessRifleEmpty
+#  materials:
+#    Steel: 25
 
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineCaselessRifleEmpty
-  result: MagazineCaselessRifleEmpty
-  materials:
-    Steel: 25
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: MagazineCaselessRifleEmpty
+#  result: MagazineCaselessRifleEmpty
+#  materials:
+#    Steel: 25
 
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineCaselessRifle
-  result: MagazineCaselessRifle
-  materials:
-    Steel: 400
+#- type: latheRecipe
+#  parent: BaseAmmoRecipe
+#  id: MagazineCaselessRifle
+#  result: MagazineCaselessRifle
+#  materials:
+#    Steel: 400
 
 - type: latheRecipe
   parent: BaseAmmoRecipe

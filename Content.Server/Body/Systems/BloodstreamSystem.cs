@@ -97,7 +97,6 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
@@ -108,15 +107,18 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
@@ -155,7 +157,6 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
 
     public override void Initialize()
     {
@@ -255,14 +256,17 @@ public sealed class BloodstreamSystem : EntitySystem
             // deal bloodloss damage if their blood level is below a threshold.
             var bloodPercentage = GetBloodLevelPercentage(uid, bloodstream);
             if (bloodPercentage >= bloodstream.BloodlossThreshold) // Goobstation
-                RemCompDeferred<BloodlossDamageMultiplierComponent>(uid);
+                RaiseLocalEvent(uid, new StoppedTakingBloodlossDamageEvent());
             if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
             {
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
 
-                if (TryComp(uid, out BloodlossDamageMultiplierComponent? multiplier)) // Goobstation
-                    amt *= multiplier.Multiplier;
+                // Goobstation start
+                var multiplierEv = new GetBloodlossDamageMultiplierEvent();
+                RaiseLocalEvent(uid, multiplierEv);
+                amt *= multiplierEv.Multiplier;
+                // Goobstation end
 
                 _damageableSystem.TryChangeDamage(uid, amt,
                     ignoreResistances: false, interruptsDoAfters: false);
@@ -313,17 +317,8 @@ public sealed class BloodstreamSystem : EntitySystem
         bloodSolution.MaxVolume = entity.Comp.BloodMaxVolume;
         tempSolution.MaxVolume = entity.Comp.BleedPuddleThreshold * 4; // give some leeway, for chemstream as well
 
-        // Ensure blood that should have DNA has it; must be run here, in case DnaComponent has not yet been initialized
-
-        if (TryComp<DnaComponent>(entity.Owner, out var donorComp) && donorComp.DNA == String.Empty)
-        {
-            donorComp.DNA = _forensicsSystem.GenerateDNA();
-
-            var ev = new GenerateDnaEvent { Owner = entity.Owner, DNA = donorComp.DNA };
-            RaiseLocalEvent(entity.Owner, ref ev);
-        }
-
         // Fill blood solution with BLOOD
+        // The DNA string might not be initialized yet, but the reagent data gets updated in the GenerateDnaEvent subscription
         bloodSolution.AddReagent(new ReagentId(entity.Comp.BloodReagent, GetEntityBloodData(entity.Owner)), entity.Comp.BloodMaxVolume - bloodSolution.Volume);
     }
 
@@ -612,6 +607,8 @@ public sealed class BloodstreamSystem : EntitySystem
                 reagentData.AddRange(GetEntityBloodData(entity.Owner));
             }
         }
+        else
+            Log.Error("Unable to set bloodstream DNA, solution entity could not be resolved");
     }
 
     /// <summary>
@@ -622,13 +619,10 @@ public sealed class BloodstreamSystem : EntitySystem
         var bloodData = new List<ReagentData>();
         var dnaData = new DnaData();
 
-        if (TryComp<DnaComponent>(uid, out var donorComp))
-        {
+        if (TryComp<DnaComponent>(uid, out var donorComp) && donorComp.DNA != null)
             dnaData.DNA = donorComp.DNA;
-        } else
-        {
+        else
             dnaData.DNA = Loc.GetString("forensics-dna-unknown");
-        }
 
         bloodData.Add(dnaData);
 
