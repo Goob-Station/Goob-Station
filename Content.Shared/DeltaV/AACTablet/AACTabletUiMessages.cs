@@ -11,7 +11,7 @@ public enum AACTabletKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class AACTabletSendPhraseMessage(ProtoId<QuickPhrasePrototype> phraseId) : BoundUserInterfaceMessage
+public sealed class AACTabletSendPhraseMessage(List<ProtoId<QuickPhrasePrototype>> phraseIds) : BoundUserInterfaceMessage
 {
-    public ProtoId<QuickPhrasePrototype> PhraseId = phraseId;
+    public List<ProtoId<QuickPhrasePrototype>> PhraseIds = phraseIds;
 }

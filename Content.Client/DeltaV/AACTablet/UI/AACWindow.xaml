@@ -4,12 +4,20 @@
     Resizable="True"
     SetSize="540 300"
     MinSize="540 300">
-    <TabContainer Name="WindowBody" TabTitle="Search" VerticalExpand="True" MouseFilter="Pass">
-        <BoxContainer Orientation="Vertical" Name="Search" MinSize="540 200">
-            <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True" Margin="4 4" />
-            <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
-                <BoxContainer Name="SearchResults" Orientation="Vertical" HorizontalExpand="True" />
-            </ScrollContainer>
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <CheckBox Name="ShouldBuffer" Text="Combine"/>
+            <LineEdit Name="BufferedString" Editable="False" HorizontalExpand="True"/>
+            <Button Name="ClearButton" Text="Backspace" TextAlign="Center"/>
+            <Button Name="SendButton" Text="Send" TextAlign="Center"/>
         </BoxContainer>
-    </TabContainer>
+        <TabContainer Name="WindowBody" TabTitle="Search" VerticalExpand="True" MouseFilter="Pass">
+            <BoxContainer Orientation="Vertical" Name="Search" MinSize="540 200">
+                <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True" Margin="4 4" />
+                <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                    <BoxContainer Name="SearchResults" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+        </TabContainer>
+    </BoxContainer>
 </controls:FancyWindow>
