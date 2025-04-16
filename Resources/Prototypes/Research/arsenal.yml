@@ -61,6 +61,7 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -202,27 +203,6 @@
   # Goobstation R&D Console rework end
 
 - type: technology
-  id: ExplosiveTechnology
-  name: research-technology-explosive-technology
-  icon:
-    sprite: Objects/Devices/payload.rsi
-    state: payload-explosive-armed
-  discipline: Arsenal
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - SignallerAdvanced
-  - SignalTrigger
-  - VoiceTrigger
-  - TimerTrigger
-  - FlashPayload
-  - ExplosivePayload
-  - ChemicalPayload
-  technologyPrerequisites:
-  - SalvageWeapons # Goobstation R&D Console rework
-  position: 2,-1  # Goobstation R&D Console rework
-
-- type: technology
   id: SpecialMeans
   name: research-technology-special-means
   icon:
@@ -296,7 +276,6 @@
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
-  - ExplosiveTechnology # Goobstation R&D Console rework
   - Shuttlecraft  # Goobstation R&D Console rework
   position: 3,-4  # Goobstation R&D Console rework
 
