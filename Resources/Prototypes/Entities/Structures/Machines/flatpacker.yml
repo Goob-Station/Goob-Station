@@ -89,6 +89,9 @@
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
       output: null # no automatic silo stealer...
+    - !type:AutomatedPorts
+      sinks:
+      - On
   - type: ContainerContainer
     containers:
       machine_board: !type:Container

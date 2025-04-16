@@ -4,15 +4,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Factory.Slots;
-using Content.Shared.DeviceLinking;
-using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Goobstation.Shared.Factory;
 
 public sealed class AutomationSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!;
 
     private EntityQuery<AutomationSlotsComponent> _slotsQuery;
     private EntityQuery<AutomatedComponent> _automatedQuery;
@@ -44,10 +40,10 @@ public sealed class AutomationSystem : EntitySystem
         if (!TryComp<AutomationSlotsComponent>(ent, out var comp))
             return;
 
-        _device.EnsureSinkPorts(ent, comp.Slots.Select(slot => slot.Input)
-            .OfType<ProtoId<SinkPortPrototype>>().ToArray());
-        _device.EnsureSourcePorts(ent, comp.Slots.Select(slot => slot.Output)
-            .OfType<ProtoId<SourcePortPrototype>>().ToArray());
+        foreach (var slot in comp.Slots)
+        {
+            slot.AddPorts();
+        }
     }
 
     private void OnShutdown(Entity<AutomatedComponent> ent, ref ComponentShutdown args)
@@ -57,10 +53,7 @@ public sealed class AutomationSystem : EntitySystem
 
         foreach (var slot in comp.Slots)
         {
-            if (slot.Input is {} input)
-                _device.RemoveSinkPort(ent, input);
-            if (slot.Output is {} output)
-                _device.RemoveSourcePort(ent, output);
+            slot.RemovePorts();
         }
     }
 

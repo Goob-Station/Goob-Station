@@ -48,10 +48,4 @@ public sealed partial class AutomatedMaterialStorage : AutomationSlot
         // not checking volume etc since all lathes currently have unlimited capacity
         return _whitelist.IsWhitelistPassOrNull(storage.Whitelist, item);
     }
-
-    public override EntityUid? GetItem(AutomationFilter? filter)
-    {
-        // naughty YML if this ever runs
-        return null;
-    }
 }
