@@ -561,6 +561,7 @@
     - ShuttleBoards
     # Goobstation Packs
     - SharedBoards
+    - UpgradeKits
   - type: MaterialStorage
     whitelist:
       tags:
