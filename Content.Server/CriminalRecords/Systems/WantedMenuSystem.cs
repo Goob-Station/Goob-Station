@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.StationRecords;
 using Content.Shared.Access.Components;
 using Content.Shared.CriminalRecords;
