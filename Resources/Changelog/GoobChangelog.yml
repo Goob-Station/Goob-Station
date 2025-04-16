@@ -7559,3 +7559,11 @@ Entries:
       message: Removed fun!
   id: 880
   time: '2025-04-16T04:55:10.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Added the Holo-Cigar, a new syndicate uplink item, that turns you into
+        Big Boss. It allows you to dual wield any firearms effectively 
+  id: 881
+  time: '2025-04-16T08:44:31.0000000+00:00'
