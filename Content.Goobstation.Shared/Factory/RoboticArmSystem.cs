@@ -40,7 +40,7 @@ public sealed class RoboticArmSystem : EntitySystem
 
         _itemQuery = GetEntityQuery<ItemComponent>();
 
-        SubscribeLocalEvent<RoboticArmComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<RoboticArmComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RoboticArmComponent, AfterAutoHandleStateEvent>(OnHandleState);
         // input items
         SubscribeLocalEvent<RoboticArmComponent, StartCollideEvent>(OnStartCollide);
@@ -86,21 +86,14 @@ public sealed class RoboticArmSystem : EntitySystem
         }
     }
 
-    private void OnStartup(Entity<RoboticArmComponent> ent, ref ComponentStartup args)
+    private void OnInit(Entity<RoboticArmComponent> ent, ref ComponentInit args)
     {
         _device.EnsureSinkPorts(ent, ent.Comp.InputPort);
         _device.EnsureSourcePorts(ent, ent.Comp.OutputPort, ent.Comp.MovedPort);
 
         UpdateSlots(ent);
 
-        if (!_slots.TryGetSlot(ent, ent.Comp.ItemSlotId, out var slot))
-        {
-            Log.Warning($"Missing item slot {ent.Comp.ItemSlotId} on robotic arm {ToPrettyString(ent)}");
-            RemCompDeferred<RoboticArmComponent>(ent);
-            return;
-        }
-
-        ent.Comp.ItemSlot = slot;
+        UpdateItemSlot(ent);
     }
 
     private void OnHandleState(Entity<RoboticArmComponent> ent, ref AfterAutoHandleStateEvent args)
@@ -149,6 +142,8 @@ public sealed class RoboticArmSystem : EntitySystem
 
     private void OnItemModified<T>(Entity<RoboticArmComponent> ent, ref T args) where T: ContainerModifiedMessage
     {
+        // need to do this here for flatpacking at least from PVS stuff
+        UpdateItemSlot(ent);
         _appearance.SetData(ent, RoboticArmVisuals.HasItem, ent.Comp.HasItem);
     }
 
@@ -327,6 +322,18 @@ public sealed class RoboticArmSystem : EntitySystem
             ent.Comp.InputSlot = _automation.GetSlot(input, inPort, input: false);
         if (GetOutputMachine(ent) is {} output && ent.Comp.OutputMachinePort is {} outPort)
             ent.Comp.OutputSlot = _automation.GetSlot(output, outPort, input: true);
+    }
+
+    private void UpdateItemSlot(Entity<RoboticArmComponent> ent)
+    {
+        if (!_slots.TryGetSlot(ent, ent.Comp.ItemSlotId, out var slot))
+        {
+            Log.Warning($"Missing item slot {ent.Comp.ItemSlotId} on robotic arm {ToPrettyString(ent)}");
+            RemCompDeferred<RoboticArmComponent>(ent);
+            return;
+        }
+
+        ent.Comp.ItemSlot = slot;
     }
 
     private bool IsOutputBlocked(EntityUid uid)
