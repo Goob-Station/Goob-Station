@@ -7505,3 +7505,9 @@ Entries:
         of being an elderly man in goob.
   id: 872
   time: '2025-04-16T04:50:34.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: New warden locker sprite
+  id: 873
+  time: '2025-04-16T04:51:11.0000000+00:00'
