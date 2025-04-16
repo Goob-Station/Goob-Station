@@ -7415,3 +7415,11 @@ Entries:
       message: Deathsquad Gear can no longer be selected when using the chameleon kit
   id: 863
   time: '2025-04-16T04:33:57.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Lich costs 5 wizcoins to get
+    - type: Tweak
+      message: Forcewall is breakable
+  id: 864
+  time: '2025-04-16T04:35:24.0000000+00:00'
