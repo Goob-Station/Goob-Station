@@ -219,6 +219,10 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
   - type: Fiber
     fiberColor: fibers-blue
+  - type: Enchanter
+    enchants:
+    - EnchantInsulated
+    - EnchantProtFire # they're quite limited
 
 - type: entity
   parent: ClothingHandsBase
