@@ -14,7 +14,7 @@
 
 using System.Linq;
 using System.Text;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goobstation.Shared.Wizard.SanguineStrike;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
@@ -46,12 +46,11 @@ public sealed class HereticBladeSystem : EntitySystem
     [Dependency] private readonly HereticCombatMarkSystem _combatMark = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SanguineStrikeSystem _sanguine = default!;
+    [Dependency] private readonly SharedSanguineStrikeSystem _sanguine = default!;
 
     public override void Initialize()
     {
@@ -141,7 +140,8 @@ public sealed class HereticBladeSystem : EntitySystem
 
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-        if (isUpgradedVoid) sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
+        if (isUpgradedVoid)
+            sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
 
         args.PushMarkup(sb.ToString());
     }
@@ -207,17 +207,18 @@ public sealed class HereticBladeSystem : EntitySystem
         }
 
         // blade path exclusive.
-        if (HasComp<SilverMaelstromComponent>(args.User))
-        {
-            args.BonusDamage += args.BaseDamage; // double it.
-            if (aliveMobsCount > 0 && TryComp<DamageableComponent>(args.User, out var dmg))
-            {
-                var baseHeal = args.BaseDamage.GetTotal();
-                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal : baseHeal / 3f;
-                bonusHeal *= aliveMobsCount;
+        if (!HasComp<SilverMaelstromComponent>(args.User))
+            return;
 
-                _sanguine.LifeSteal(args.User, bonusHeal, dmg);
-            }
-        }
+        args.BonusDamage += args.BaseDamage; // double it.
+
+        if (aliveMobsCount <= 0 || !TryComp<DamageableComponent>(args.User, out var dmg))
+            return;
+
+        var baseHeal = args.BaseDamage.GetTotal();
+        var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal : baseHeal / 3f;
+        bonusHeal *= aliveMobsCount;
+
+        _sanguine.LifeSteal(args.User, bonusHeal, dmg);
     }
 }
