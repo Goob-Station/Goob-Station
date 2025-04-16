@@ -80,11 +80,12 @@
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
 using Content.Shared.Mind;
 using Robust.Shared.Network;
 
-namespace Content.Shared.Magic;
+namespace Content.Goobstation.Shared.Magic;
 
 public sealed class SpellbookSystem : EntitySystem
 {

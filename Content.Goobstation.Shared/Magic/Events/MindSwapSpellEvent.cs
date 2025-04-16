@@ -9,7 +9,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.Audio;
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Goobstation.Shared.Magic.Events;
 
 public sealed partial class MindSwapSpellEvent : EntityTargetActionEvent, ISpeakSpell
 {

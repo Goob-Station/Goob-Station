@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Shared.Magic;
+namespace Content.Goobstation.Shared.Magic;
 
 public interface ISpeakSpell // The speak n spell interface
 {

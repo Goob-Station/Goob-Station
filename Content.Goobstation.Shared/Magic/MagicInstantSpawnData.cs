@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared.Magic;
+namespace Content.Goobstation.Shared.Magic;
 
 // TODO: If still needed, move to magic component
 [ImplicitDataDefinitionForInheritors]

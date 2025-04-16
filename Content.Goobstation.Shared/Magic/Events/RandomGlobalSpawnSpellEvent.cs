@@ -7,7 +7,7 @@ using Content.Shared.Actions;
 using Content.Shared.Storage;
 using Robust.Shared.Audio;
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Goobstation.Shared.Magic.Events;
 
 public sealed partial class RandomGlobalSpawnSpellEvent : InstantActionEvent, ISpeakSpell
 {

@@ -6,7 +6,7 @@
 
 using Content.Shared.Actions;
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Goobstation.Shared.Magic.Events;
 
 /// <summary>
 /// Adds provided Charge to the held wand

@@ -88,6 +88,8 @@ using Content.Goobstation.Common.Wizard;
 using Content.Goobstation.Common.Wizard.BindSoul;
 using Content.Goobstation.Common.Wizard.Chuuni;
 using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
+using Content.Goobstation.Shared.Magic.Events;
+using Content.Goobstation.Shared.Wizard.Chuuni;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -106,7 +108,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
 using Content.Shared.Magic.Components;
-using Content.Shared.Magic.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
@@ -134,7 +135,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Magic;
+namespace Content.Goobstation.Shared.Magic;
 
 /// <summary>
 /// Handles learning and using spells (actions)
@@ -907,20 +908,24 @@ public abstract class SharedMagicSystem : EntitySystem
 
         if (TryComp(args.Action, out MagicComponent? magic))
         {
-            var intTest = (int) magic.School;
-            Log.Info(intTest.ToString());
-            var invocationEv = new HandleSpellInvocationEvent((int) magic.School, args.Performer);
+            var invocationEv = new GetSpellInvocationEvent(magic.School, args.Performer);
             RaiseLocalEvent(args.Performer, invocationEv);
-            if (invocationEv.Invocation != null)
-            {
+            if (invocationEv.Invocation.HasValue)
                 speech = invocationEv.Invocation;
+            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+            {
+                _damageable.TryChangeDamage(args.Performer,
+                    -invocationEv.ToHeal,
+                    true,
+                    false,
+                    canSever: false,
+                    targetPart: TargetBodyPart.All);
             }
         }
 
         if (string.IsNullOrEmpty(speech))
             return;
 
-        Log.Info(speech);
         var ev = new SpeakSpellEvent(args.Performer, speech);
         // Goob edit end
         RaiseLocalEvent(ref ev);

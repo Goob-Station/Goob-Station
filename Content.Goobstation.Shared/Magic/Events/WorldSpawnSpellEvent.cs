@@ -12,7 +12,7 @@ using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Storage;
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Goobstation.Shared.Magic.Events;
 
 // TODO: This class needs combining with InstantSpawnSpellEvent
 

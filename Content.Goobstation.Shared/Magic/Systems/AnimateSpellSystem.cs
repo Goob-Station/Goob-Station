@@ -6,15 +6,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Magic.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using System.Linq;
 
-namespace Content.Shared.Magic.Systems;
+namespace Content.Goobstation.Shared.Magic.Systems;
 
 public sealed class AnimateSpellSystem : EntitySystem
 {

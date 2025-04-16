@@ -4,15 +4,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Goobstation.Shared.Magic.Events;
 
 [ByRefEvent]
-public struct BeforeCastSpellEvent(EntityUid performer)
+public readonly struct SpeakSpellEvent(EntityUid performer, string speech)
 {
-    /// <summary>
-    /// The Performer of the event, to check if they meet the requirements.
-    /// </summary>
-    public EntityUid Performer = performer;
-
-    public bool Cancelled;
+    public readonly EntityUid Performer = performer;
+    public readonly string Speech = speech;
 }

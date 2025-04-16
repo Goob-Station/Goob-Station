@@ -10,20 +10,18 @@
 
 using Content.Shared.Actions;
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Goobstation.Shared.Magic.Events;
 
-// TODO: Can probably just be an entity or something
-public sealed partial class TeleportSpellEvent : WorldTargetActionEvent, ISpeakSpell
+public sealed partial class KnockSpellEvent : InstantActionEvent, ISpeakSpell
 {
-    [DataField]
-    public string? Speech { get; private set; }
-
-    // TODO: Move to magic component
-    // TODO: Maybe not since sound specifier is a thing
-    // Keep here to remind what the volume was set as
     /// <summary>
-    /// Volume control for the spell.
+    /// The range this spell opens doors in
+    /// 10f is the default
+    /// Should be able to open all doors/lockers in visible sight
     /// </summary>
     [DataField]
-    public float BlinkVolume = 5f;
+    public float Range = 10f;
+
+    [DataField]
+    public string? Speech { get; private set; }
 }

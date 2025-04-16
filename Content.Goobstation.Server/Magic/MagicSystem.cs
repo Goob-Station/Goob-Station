@@ -29,11 +29,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Magic;
+using Content.Goobstation.Shared.Magic.Events;
 using Content.Server.Chat.Systems;
-using Content.Shared.Magic;
-using Content.Shared.Magic.Events;
 
-namespace Content.Server.Magic;
+namespace Content.Goobstation.Server.Magic;
 
 public sealed class MagicSystem : SharedMagicSystem
 {

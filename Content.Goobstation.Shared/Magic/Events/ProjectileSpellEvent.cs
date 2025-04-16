@@ -11,7 +11,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Magic.Events;
+namespace Content.Goobstation.Shared.Magic.Events;
 
 public sealed partial class ProjectileSpellEvent : EntityWorldTargetActionEvent, ISpeakSpell // Goob edit
 {

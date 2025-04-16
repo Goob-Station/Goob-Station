@@ -13,6 +13,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Common.Wizard.Chuuni;
+using Content.Goobstation.Shared.Magic;
 using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Goobstation.Shared.Wizard.Chuuni;
 using Content.Goobstation.Shared.Wizard.Projectiles;
@@ -179,14 +180,19 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnHandleSpellInvocation(HandleSpellInvocationEvent args)
     {
-        Log.Info("HandleSpellInvocation");
-        var invocation = HandleSpellInvocation((MagicSchool) args.MagicSchool, args.Performer);
+        var target = args.Performer;
+        _inventory.TryGetSlotEntity(target, "eyes", out var eyeUid); // hack shitcode fix right here'
+
+        if (HasComp<ChuuniEyepatchComponent>(eyeUid))
+            target = eyeUid.Value;
+
+        var invocation = HandleSpellInvocation((MagicSchool) args.MagicSchool, target);
         if(invocation != null)
             Log.Info(invocation);
         args.Invocation = invocation;
     }
 
-    protected LocId? HandleSpellInvocation(MagicSchool magicSchool, EntityUid user)
+    public LocId? HandleSpellInvocation(MagicSchool magicSchool, EntityUid user)
     {
         var invocationEv = new GetSpellInvocationEvent(magicSchool, user);
         RaiseLocalEvent(user, invocationEv);

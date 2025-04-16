@@ -7,8 +7,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Magic;
 using Content.Shared.Magic;
 
-namespace Content.Client.Magic;
+namespace Content.Goobstation.Client.Magic;
 
 public sealed class MagicSystem : SharedMagicSystem;
