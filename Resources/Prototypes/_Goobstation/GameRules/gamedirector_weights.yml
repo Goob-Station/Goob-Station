@@ -13,11 +13,11 @@
     Traitor: 0.25
     Changeling: 0.10
     Nukeops: 0.05
-    Revolutionary: 0.04
-    Zombie: 0.03
-    Heretic: 0.10
-    BlobGameMode: 0.04
-    Wizard: 0.001
+    Revolutionary: 0.05
+    Zombie: 0.04
+    Heretic: 0.11
+    BlobGameMode: 0.05
+    Wizard: 0.01
     #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself
 
 
