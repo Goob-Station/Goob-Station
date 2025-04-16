@@ -30,7 +30,7 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
         SubscribeLocalEvent<ItemRandomizeMovementspeedComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
-    #region Main Functions
+    #region Main Methods
 
     private void OnStartup(EntityUid uid, ItemRandomizeMovementspeedComponent comp, MapInitEvent args)
     {
