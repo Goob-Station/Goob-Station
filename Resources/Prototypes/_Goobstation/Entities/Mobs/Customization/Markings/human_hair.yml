@@ -273,6 +273,6 @@
   bodyPart: Hair
   markingCategory: Hair
   sprites:
-  - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
-    state: spikehawk
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: spikehawk
 
