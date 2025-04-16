@@ -7511,3 +7511,9 @@ Entries:
       message: New warden locker sprite
   id: 873
   time: '2025-04-16T04:51:11.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Wizard spellcards are now slightly stronger to better match their price.
+  id: 874
+  time: '2025-04-16T04:51:50.0000000+00:00'
