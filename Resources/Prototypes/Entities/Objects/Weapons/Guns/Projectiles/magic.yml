@@ -327,7 +327,7 @@
   components:
   - type: Reflective
     reflective: Magic
-  - type: OnPolymorphProjectileHit
+  - type: PolymorphOnTrigger
     polymorph: WizardForcedMonkey
   - type: TriggerWhitelist
     whitelist:
@@ -348,7 +348,7 @@
       color: brown
   - type: Reflective
     reflective: Magic
-  - type: OnPolymorphProjectileHit
+  - type: PolymorphOnTrigger
     polymorph: WizardWallDoor
   - type: TriggerWhitelist
     whitelist:
@@ -421,7 +421,7 @@
   components:
   - type: Reflective
     reflective: Magic
-  - type: OnPolymorphProjectileHit
+  - type: PolymorphOnTrigger
     polymorph: WizardForcedCluwne
   - type: TriggerWhitelist
     whitelist:
@@ -455,7 +455,7 @@
   components:
   - type: Reflective
     reflective: Magic
-  - type: OnPolymorphProjectileHit
+  - type: PolymorphOnTrigger
     polymorph: BreadMorph
   - type: TriggerWhitelist
     whitelist:
