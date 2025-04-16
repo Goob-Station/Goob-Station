@@ -24,7 +24,7 @@
   - FloorBlueCircuit
   - FloorRedCircuit
 
-# Keeps flash payloads out of the hands of tiders, I guess. All triggers roundstart for autolathes
+# Keeps flash payloads out of the hands of tiders, I guess. All triggers roundstart for autolathes and med/sci/secfab
 - type: latheRecipePack
   id: ScienceExplosives
   recipes:
