@@ -7491,3 +7491,9 @@ Entries:
         Piercing"
   id: 870
   time: '2025-04-16T04:48:44.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Aghosts now have a neck slot for neck items.
+  id: 871
+  time: '2025-04-16T04:50:11.0000000+00:00'
