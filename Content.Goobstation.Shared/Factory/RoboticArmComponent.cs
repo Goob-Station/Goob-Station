@@ -94,6 +94,7 @@ public sealed partial class RoboticArmComponent : Component
     /// <summary>
     /// The currently held item.
     /// </summary>
+    [ViewVariables]
     public EntityUid? HeldItem => ItemSlot.Item;
 
     /// <summary>

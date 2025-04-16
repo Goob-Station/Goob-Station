@@ -217,6 +217,7 @@ public sealed class RoboticArmSystem : EntitySystem
     private void OnPortDisconnected(Entity<RoboticArmComponent> ent, ref PortDisconnectedEvent args)
     {
         // this event is shit and doesnt have source/sink entity and port just 1 string
+        // so if you made InputPort and OutputPort the same string it would silently break
         // absolute supercode
         if (args.Port == ent.Comp.InputPort)
         {
@@ -243,18 +244,14 @@ public sealed class RoboticArmSystem : EntitySystem
     public bool TryDrop(Entity<RoboticArmComponent> ent, EntityUid item)
     {
         if (GetOutputMachine(ent) is {} machine && ent.Comp.OutputSlot is {} slot)
-        {
             return TryInsert(ent, item, machine, slot);
-        }
-
-        // nothing linked, just drop it
-        var coords = OutputPosition(ent);
 
         // no dropping items into walls
-        if (coords.GetTileRef(EntityManager, _map) is {} turf && _turf.IsTileBlocked(turf, CollisionGroup.Impassable))
+        if (IsOutputBlocked(ent))
             return false;
 
-        _transform.SetCoordinates(item, coords);
+        // nothing linked, just drop it there
+        _transform.SetCoordinates(item, OutputPosition(ent));
         return true;
     }
 
@@ -271,27 +268,43 @@ public sealed class RoboticArmSystem : EntitySystem
     public bool TryPickupAny(Entity<RoboticArmComponent> ent)
     {
         if (GetInputMachine(ent) is {} machine && ent.Comp.InputSlot is {} slot)
-        {
             return TryPickupFrom(ent, machine, slot);
-        }
 
         var count = ent.Comp.InputItems.Count;
         if (count == 0)
             return false;
 
-        // TODO: find last item that is allowed by the filter
+        var output = ent.Comp.OutputSlot;
+        var outputMachine = GetOutputMachine(ent) ?? EntityUid.Invalid;
+        if (output == null && IsOutputBlocked(ent))
+            return false;
 
-        // pop the last item from the list
-        var i = count - 1;
-        var (netEnt, _) = ent.Comp.InputItems[i];
-        ent.Comp.InputItems.RemoveAt(i);
-        var item = GetEntity(netEnt);
+        // check them in reverse since removing near the end is cheaper
+        var found = EntityUid.Invalid;
+        for (var i = count - 1; i >= 0; i--)
+        {
+            var netEnt = ent.Comp.InputItems[i].Item1;
+            if (!TryGetEntity(netEnt, out var item))
+                continue;
+
+            // make sure the destination will accept it or it gets stuck
+            if (output?.CanInsert(outputMachine, item.Value) ?? true)
+            {
+                ent.Comp.InputItems.RemoveAt(i);
+                found = item.Value;
+                break;
+            }
+        }
+
+        // nothing :(
+        if (!found.Valid)
+            return false;
 
         // no longer need this
-        _wake.SetEnabled(item, false);
+        _wake.SetEnabled(found, false);
 
-        // insert it into the slot
-        return _slots.TryInsert(ent, ent.Comp.ItemSlot, item, user: null);
+        // insert it into the arm slot
+        return _slots.TryInsert(ent, ent.Comp.ItemSlot, found, user: null);
     }
 
     public bool TryPickupFrom(Entity<RoboticArmComponent> ent, EntityUid machine, AutomationSlot slot)
@@ -301,7 +314,7 @@ public sealed class RoboticArmSystem : EntitySystem
         if (!_transform.InRange(Transform(machine).Coordinates, coords, 0.25f))
             return false;
 
-        // TODO: filters
+        // TODO: pass filters
         if (slot.GetItem(machine, null) is not {} item)
             return false;
 
@@ -314,6 +327,13 @@ public sealed class RoboticArmSystem : EntitySystem
             ent.Comp.InputSlot = _automation.GetSlot(input, inPort, input: false);
         if (GetOutputMachine(ent) is {} output && ent.Comp.OutputMachinePort is {} outPort)
             ent.Comp.OutputSlot = _automation.GetSlot(output, outPort, input: true);
+    }
+
+    private bool IsOutputBlocked(EntityUid uid)
+    {
+        var coords = OutputPosition(uid);
+        return coords.GetTileRef(EntityManager, _map) is {} turf &&
+            _turf.IsTileBlocked(turf, CollisionGroup.MachineMask);
     }
 
     private void StartMoving(Entity<RoboticArmComponent> ent)

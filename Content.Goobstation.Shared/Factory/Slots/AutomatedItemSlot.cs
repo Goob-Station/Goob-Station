@@ -38,10 +38,24 @@ public sealed partial class AutomatedItemSlot : AutomationSlot
 
     public override bool Insert(EntityUid uid, EntityUid item)
     {
+        if (!base.Insert(uid, item))
+            return false;
+
         if (GetSlot(uid) is not {} slot)
             return false;
 
         return Slots.TryInsert(uid, slot, item, user: null);
+    }
+
+    public override bool CanInsert(EntityUid uid, EntityUid item)
+    {
+        if (!base.CanInsert(uid, item))
+            return false;
+
+        if (GetSlot(uid) is not {} slot)
+            return false;
+
+        return Slots.CanInsert(uid, usedUid: item, user: null, slot);
     }
 
     public override EntityUid? GetItem(EntityUid uid, AutomationFilter? filter)

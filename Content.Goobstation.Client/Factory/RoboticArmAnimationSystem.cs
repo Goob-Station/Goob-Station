@@ -25,7 +25,7 @@ public sealed class RoboticArmAnimationSystem : EntitySystem
             if (comp.NextMove is {} nextMove)
                 Animate((uid, comp), nextMove);
             else
-                Reset(uid);
+                Reset((uid, comp));
         }
     }
 
@@ -43,11 +43,12 @@ public sealed class RoboticArmAnimationSystem : EntitySystem
         sprite.LayerSetRotation(RoboticArmLayers.Arm, angle);
     }
 
-    private void Reset(EntityUid uid)
+    private void Reset(Entity<RoboticArmComponent> ent)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
+        var angle = ent.Comp.HasItem ? new Angle(Math.PI) : Angle.Zero;
         sprite.LayerSetRotation(RoboticArmLayers.Arm, Angle.Zero);
     }
 }

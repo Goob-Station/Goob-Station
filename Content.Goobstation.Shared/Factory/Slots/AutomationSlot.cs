@@ -1,5 +1,6 @@
 using Content.Goobstation.Shared.Factory.Filters;
 using Content.Shared.DeviceLinking;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
 
@@ -13,6 +14,16 @@ namespace Content.Goobstation.Shared.Factory.Slots;
 public abstract partial class AutomationSlot
 {
     [Dependency] public readonly IEntityManager EntMan = default!;
+    private EntityWhitelistSystem? __whitelist;
+    // Dependency not working my beloved
+    private EntityWhitelistSystem _whitelist
+    {
+        get
+        {
+            __whitelist ??= EntMan.System<EntityWhitelistSystem>();
+            return __whitelist;
+        }
+    }
 
     /// <summary>
     /// The input port for this slot, or null if can only be used as an output.
@@ -26,6 +37,18 @@ public abstract partial class AutomationSlot
     [DataField(required: true)]
     public ProtoId<SourcePortPrototype>? Output;
 
+    /// <summary>
+    /// Whitelist that can be used in YML regardless of slot type.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// Blacklist that can be used in YML regardless of slot type.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
+
     public void Initialize()
     {
         IoCManager.InjectDependencies(this);
@@ -33,8 +56,21 @@ public abstract partial class AutomationSlot
 
     /// <summary>
     /// Try to insert an item into the slot, returning true if it was removed from its previous container.
+    /// Inheritors must override this and use <c>if (!base.Insert(uid, item)) return false;</c>
     /// </summary>
-    public abstract bool Insert(EntityUid uid, EntityUid item);
+    public virtual bool Insert(EntityUid uid, EntityUid item)
+    {
+        return CanInsert(uid, item);
+    }
+
+    /// <summary>
+    /// Check if an item can be inserted into the slot, returning true if it can.
+    /// Inheritors must override this and use <c>if (!base.CanInsert(uid, item)) return false;</c>
+    /// </summary>
+    public virtual bool CanInsert(EntityUid uid, EntityUid item)
+    {
+        return _whitelist.CheckBoth(item, whitelist: Whitelist, blacklist: Blacklist);
+    }
 
     /// <summary>
     /// Get an item that can be taken from this slot, which has to match a given filter.

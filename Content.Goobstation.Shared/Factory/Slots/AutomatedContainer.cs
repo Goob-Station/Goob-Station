@@ -35,7 +35,12 @@ public sealed partial class AutomatedContainer : AutomationSlot
 
     public override bool Insert(EntityUid uid, EntityUid item)
     {
-        return Containers.Insert(item, GetContainer(uid));
+        return base.Insert(uid, item) && Containers.Insert(item, GetContainer(uid));
+    }
+
+    public override bool CanInsert(EntityUid uid, EntityUid item)
+    {
+        return base.CanInsert(uid, item) && Containers.CanInsert(item, GetContainer(uid));
     }
 
     public override EntityUid? GetItem(EntityUid uid, AutomationFilter? filter)
