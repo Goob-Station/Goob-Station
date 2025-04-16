@@ -584,19 +584,6 @@
   - type: ThrowableBlocked
   - type: Ammo
     muzzleFlash: null
-    # GoobStation End
-  - type: ExaminableSolution
-    solution: injector
-  - type: Spillable
-    solution: injector
-  - type: TrashOnSolutionEmpty
-    solution: injector
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 2
-    fillBaseName: syringe
-    inHandsMaxFillLevels: 3
-    inHandsFillBaseName: -fill-
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -614,6 +601,19 @@
         solution: injector
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+    # GoobStation End
+  - type: ExaminableSolution
+    solution: injector
+  - type: Spillable
+    solution: injector
+  - type: TrashOnSolutionEmpty
+    solution: injector
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: syringe
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
   - type: Tag
     tags:
     - Syringe
