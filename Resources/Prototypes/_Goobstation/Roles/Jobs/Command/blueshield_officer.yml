@@ -51,20 +51,27 @@
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
   access:
-  - Security
+  - Atmospherics
+  - Bar
   - Brig
-  - External
-  - Cryogenics
-  - Maintenance
-  - Engineering
-  - Medical
-  - Research
+  - BlueshieldOfficer
+  - Cargo
   - Command
   - CentralCommand
-  - BlueshieldOfficer
-  - Service
+  - Cryogenics
+  - Chapel
+  - External
+  - Engineering
   - Hydroponics
-  - Cargo
+  - Janitor
+  - Kitchen
+  - Maintenance
+  - Medical
+  - Research
+  - Security
+  - Service
+  - Salvage
+  - Theatre
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, BluespaceLifelineImplant ] # Go big, or go home.
