@@ -17,6 +17,8 @@ public sealed class AACTabletSystem : EntitySystem
 
     private readonly List<string> _localisedPhrases = [];
 
+    public const int MaxPhrases = 10; // no writing novels
+
     public override void Initialize()
     {
         base.Initialize();
@@ -25,7 +27,7 @@ public sealed class AACTabletSystem : EntitySystem
 
     private void OnSendPhrase(Entity<AACTabletComponent> ent, ref AACTabletSendPhraseMessage message)
     {
-        if (ent.Comp.NextPhrase > _timing.CurTime)
+        if (ent.Comp.NextPhrase > _timing.CurTime || message.PhraseIds.Count > MaxPhrases)
             return;
 
         var senderName = Identity.Entity(message.Actor, EntityManager);
