@@ -40,7 +40,7 @@ public sealed class RoboticArmSystem : EntitySystem
 
         _itemQuery = GetEntityQuery<ItemComponent>();
 
-        SubscribeLocalEvent<RoboticArmComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<RoboticArmComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<RoboticArmComponent, AfterAutoHandleStateEvent>(OnHandleState);
         // input items
         SubscribeLocalEvent<RoboticArmComponent, StartCollideEvent>(OnStartCollide);
@@ -86,7 +86,7 @@ public sealed class RoboticArmSystem : EntitySystem
         }
     }
 
-    private void OnInit(Entity<RoboticArmComponent> ent, ref ComponentInit args)
+    private void OnStartup(Entity<RoboticArmComponent> ent, ref ComponentStartup args)
     {
         _device.EnsureSinkPorts(ent, ent.Comp.InputPort);
         _device.EnsureSourcePorts(ent, ent.Comp.OutputPort, ent.Comp.MovedPort);
