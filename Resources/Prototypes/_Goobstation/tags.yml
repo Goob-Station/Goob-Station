@@ -271,6 +271,9 @@
   id: Lungs
 
 - type: Tag
+  id: MagazineAntiMateriel
+
+- type: Tag
   id: MagazineHighCaliber
 
 - type: Tag
