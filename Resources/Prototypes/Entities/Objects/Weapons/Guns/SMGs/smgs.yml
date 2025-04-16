@@ -54,6 +54,7 @@
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -184,7 +185,7 @@
   name: Drozd
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: An excellent fully automatic Heavy SMG.
+  description: An excellent burst-fire Heavy SMG. # Goobstation edit
   components:
     - type: Sprite
       sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
@@ -209,10 +210,11 @@
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
       - Burst
-      - FullAuto
-      - SemiAuto
-      shotsPerBurst: 3
-      burstCooldown: 0.25
+      #- FullAuto # Goobstation - start
+      #- SemiAuto
+      selectedMode: Burst
+      shotsPerBurst: 5
+      burstCooldown: 0.75 # Goobstation - end
     - type: ItemSlots
       slots:
         gun_magazine:
@@ -299,3 +301,5 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.5
