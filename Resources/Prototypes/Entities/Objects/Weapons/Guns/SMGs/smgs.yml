@@ -119,6 +119,13 @@
     price: 500
   - type: Multishot # Goobstation
     spreadMultiplier: 2
+  - type: RestrictGunshotsByUserTag # Goobstation
+    doesntContain:
+    - Oni
+    messages:
+    - oni-cannot-shoot-guns-1
+    - oni-cannot-shoot-guns-2
+    - oni-cannot-shoot-guns-3
 
 - type: entity
   name: Atreides
