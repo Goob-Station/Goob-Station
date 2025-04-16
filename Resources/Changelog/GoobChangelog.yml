@@ -7365,3 +7365,9 @@ Entries:
       message: Roundstart trash, puddles and other variation spawn once again.
   id: 856
   time: '2025-04-16T04:28:09.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added 4 bottle boxes to nukie outpost. Biggest change.
+  id: 857
+  time: '2025-04-16T04:29:23.0000000+00:00'
