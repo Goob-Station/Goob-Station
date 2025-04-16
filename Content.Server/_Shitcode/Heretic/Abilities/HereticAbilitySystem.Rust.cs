@@ -42,8 +42,6 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    public const string RustTile = "PlatingRust";
-
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
 
@@ -53,8 +51,10 @@ public sealed partial class HereticAbilitySystem
         { "WallReinforced", "WallReinforcedRust" },
     };
 
-    private void SubscribeRust()
+    protected override void SubscribeRust()
     {
+        base.SubscribeRust();
+
         SubscribeLocalEvent<HereticComponent, HereticLeechingWalkEvent>(OnLeechingWalk);
         SubscribeLocalEvent<HereticComponent, EventHereticRustConstruction>(OnRustConstruction);
         SubscribeLocalEvent<GhoulComponent, EventHereticAggressiveSpread>(OnGhoulAggressiveSpread);
@@ -72,7 +72,7 @@ public sealed partial class HereticAbilitySystem
 
     private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)
     {
-        if (!_rustbringer.IsTileRust(Transform(ent).Coordinates, out _))
+        if (!IsTileRust(Transform(ent).Coordinates, out _))
             return;
 
         args.Cancel();
@@ -384,7 +384,7 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (!_rustbringer.IsTileRust(args.Target, out var pos))
+        if (!IsTileRust(args.Target, out var pos))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-not-rusted"), ent, ent);
             return;
@@ -477,7 +477,7 @@ public sealed partial class HereticAbilitySystem
         var query = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var leech, out var xform))
         {
-            if (!_rustbringer.IsTileRust(xform.Coordinates, out _))
+            if (!IsTileRust(xform.Coordinates, out _))
                 continue;
 
             var multiplier = 1f;

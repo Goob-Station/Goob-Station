@@ -31,7 +31,7 @@
     wideAnimationRotation: -125
     damage:
       types:
-        Slash: 17.5
+        Slash: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -48,6 +48,7 @@
   - type: Tag
     tags:
     - HereticItem
+    - HereticBlade
   - type: Enchanter
     # only level 1 as you can easily mass produce these
     enchants:
@@ -71,7 +72,7 @@
     damage:
       types:
         Heat: 10
-        Slash: 7.5
+        Slash: 10
   - type: Cautery
     speed: 1.5
 
@@ -86,9 +87,32 @@
     path: Blade
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
-    state: icon
+    layers:
+    - state: icon
+      map: [ "base" ]
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
+  - type: Tag
+    tags:
+    - HereticItem
+    - HereticBlade
+    - HereticBladeBlade
+  - type: Multihit
+    damageMultiplier: 0.75
+    multihitWhitelist:
+      tags:
+      - HereticBladeBlade
+    conditions:
+    - !type:MultihitUserHereticEvent
+      requiredPath: Blade
+      minPathStage: 7
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.InfusedBladeVisuals.Infused:
+        base:
+          False: { state: icon }
+          True: { state: infused }
 
 - type: entity
   parent: HereticBladeBase
@@ -153,4 +177,4 @@
     damage:
       types:
         Cold: 10
-        Slash: 7.5
+        Slash: 10

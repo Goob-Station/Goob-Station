@@ -8,10 +8,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Standing;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._EinsteinEngines.TelescopicBaton;
+namespace Content.Shared._EinsteinEngines.TelescopicBaton;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class KnockdownOnHitComponent : Component
 {
     [DataField]

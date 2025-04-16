@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Actions.Events;
@@ -16,29 +8,23 @@ using Content.Shared.Explosion;
 using Content.Shared.Maps;
 using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 
-namespace Content.Shared._Goobstation.Heretic.Systems;
+namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
-public sealed class RustbringerSystem : EntitySystem
+public abstract partial class SharedHereticAbilitySystem
 {
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-
     public const string RustTile = "PlatingRust";
 
-    public override void Initialize()
+    protected virtual void SubscribeRust()
     {
-        base.Initialize();
-
         SubscribeLocalEvent<RustbringerComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
         SubscribeLocalEvent<RustbringerComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
         SubscribeLocalEvent<RustbringerComponent, SlipAttemptEvent>(OnSlipAttempt);
         SubscribeLocalEvent<RustbringerComponent, GetExplosionResistanceEvent>(OnGetExplosionResists);
         SubscribeLocalEvent<RustbringerComponent, ElectrocutionAttemptEvent>(OnElectrocuteAttempt);
-        SubscribeLocalEvent<RustbringerComponent, DisarmAttemptEvent>(OnDisarmAttempt);
+        SubscribeLocalEvent<RustbringerComponent, BeforeHarmfulActionEvent>(OnBeforeHarmfulAction);
         SubscribeLocalEvent<RustbringerComponent, DamageModifyEvent>(OnModifyDamage);
     }
 
@@ -47,22 +33,14 @@ public sealed class RustbringerSystem : EntitySystem
         if (!IsTileRust(Transform(ent).Coordinates, out _))
             return;
 
-        var specifier = new DamageModifierSet
-        {
-            Coefficients =
-            {
-                {"Caustic", 0f},
-                {"Poison", 0f},
-                {"Radiation", 0f},
-                {"Cellular", 0f},
-            },
-        };
-
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, specifier);
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, ent.Comp.ModifierSet);
     }
 
-    private void OnDisarmAttempt(Entity<RustbringerComponent> ent, ref DisarmAttemptEvent args)
+    private void OnBeforeHarmfulAction(Entity<RustbringerComponent> ent, ref BeforeHarmfulActionEvent args)
     {
+        if (args.Cancelled || args.Type == HarmfulActionType.Harm)
+            return;
+
         if (!IsTileRust(Transform(ent).Coordinates, out _))
             return;
 
