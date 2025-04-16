@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 247.2.0
+  engineVersion: 248.0.2
   forkId: ""
   forkVersion: ""
-  time: 04/16/2025 02:59:10
+  time: 04/16/2025 03:31:03
   entityCount: 18136
 maps:
 - 1
@@ -7398,7 +7398,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -62978.938
+      secondsUntilStateChange: -63009.168
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -45180,7 +45180,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310734.47
+      secondsUntilStateChange: -310764.7
       state: Opening
   - uid: 6747
     components:
@@ -45188,7 +45188,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310735.2
+      secondsUntilStateChange: -310765.4
       state: Opening
   - uid: 6749
     components:
@@ -45196,7 +45196,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310733.75
+      secondsUntilStateChange: -310763.97
       state: Opening
   - uid: 6750
     components:
@@ -45204,7 +45204,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -310733.12
+      secondsUntilStateChange: -310763.34
       state: Opening
 - proto: Cutlass
   entities:
@@ -55654,14 +55654,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 11648
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.5,6.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 11654
     components:
     - type: Transform
@@ -68453,6 +68445,12 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 11648
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -4.5,6.5
+      parent: 2
   - uid: 11655
     components:
     - type: Transform
