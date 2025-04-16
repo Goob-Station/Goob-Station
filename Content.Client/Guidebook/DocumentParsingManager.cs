@@ -71,6 +71,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -112,15 +114,17 @@ public sealed partial class DocumentParsingManager
             .Assert(_tagControlParsers.ContainsKey, tag => $"unknown tag: {tag}")
             .Bind(tag => _tagControlParsers[tag]);
 
+        var whitespaceAndCommentParser = SkipWhitespaces.Then(Try(String("<!--").Then(Parser<char>.Any.SkipUntil(Try(String("-->"))))).SkipMany());
+
         _controlParser = OneOf(_tagParser, TryHeaderControl, ListControlParser, TextControlParser)
-            .Before(SkipWhitespaces);
+            .Before(whitespaceAndCommentParser);
 
         foreach (var typ in _reflectionManager.GetAllChildren<IDocumentTag>())
         {
             _tagControlParsers.Add(typ.Name, CreateTagControlParser(typ.Name, typ, _sandboxHelper));
         }
 
-        ControlParser = SkipWhitespaces.Then(_controlParser.Many());
+        ControlParser = whitespaceAndCommentParser.Then(_controlParser.Many());
 
         _sawmill = Logger.GetSawmill("Guidebook");
     }

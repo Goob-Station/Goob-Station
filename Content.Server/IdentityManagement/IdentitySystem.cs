@@ -17,7 +17,9 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -102,6 +104,16 @@ public sealed class IdentitySystem : SharedIdentitySystem
     {
         _queuedIdentityUpdates.Add(uid);
     }
+
+    // WWDP simple public API
+    public string GetEntityIdentity(EntityUid uid)
+    {
+        var representation = GetIdentityRepresentation(uid);
+        var name = GetIdentityName(uid, representation);
+
+        return name;
+    }
+    // WWDP edit end
 
     #region Private API
 
