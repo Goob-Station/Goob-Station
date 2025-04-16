@@ -7567,3 +7567,9 @@ Entries:
         Big Boss. It allows you to dual wield any firearms effectively 
   id: 881
   time: '2025-04-16T08:44:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix fishing breaking the game.
+  id: 882
+  time: '2025-04-16T13:32:58.0000000+00:00'
