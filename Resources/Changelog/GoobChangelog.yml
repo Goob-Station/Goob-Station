@@ -7583,3 +7583,9 @@ Entries:
       message: High tier antag tokens cannot be exchanged for wizard.
   id: 883
   time: '2025-04-16T13:34:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: No more roundstart SM activations
+  id: 884
+  time: '2025-04-16T19:05:16.0000000+00:00'
