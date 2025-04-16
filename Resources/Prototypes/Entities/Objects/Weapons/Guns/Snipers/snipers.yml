@@ -49,14 +49,18 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -82,13 +86,14 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.8 # Goobstation
+    fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
+    autoCycle: false # Goobstation
     capacity: 10
     proto: CartridgeLightRifle
     whitelist:
@@ -101,6 +106,65 @@
   - type: StaticPrice
     price: 500
 
+# Goobstation - Start - I decided to put it here, because it changes Hristov.
+- type: entity
+  name: BaseMagazineSniper
+  parent: [BaseItem, BaseGunWieldable]
+  id: BaseWeaponSniperMagazine
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    size: Huge
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineAntiMateriel
+        insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineAntiMateriel
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeAntiMateriel
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeAntiMateriel
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 500
+# Goobstation - End
+
 - type: entity
   name: Kardashev-Mosin
   parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband]
@@ -111,6 +175,8 @@
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Item  # Goob edit start
     size: Large
+  - type: Gun
+    fireRate: 1.2
   - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
@@ -128,7 +194,7 @@
 
 - type: entity
   name: Hristov
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband]
+  parent: [BaseWeaponSniperMagazine, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
@@ -138,25 +204,25 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.4
+    # fireRate: 0.4 # Goobstation
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeAntiMateriel
-    capacity: 5
-    proto: CartridgeAntiMateriel
+  #- type: BallisticAmmoProvider - Goobstation - Magazine Sniper
+  #  whitelist:
+  #    tags:
+  #    - CartridgeAntiMateriel
+  #  capacity: 5
+  #  proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.25
-    sprintModifier: 0.25
+    walkModifier: 0.9 # goob edit V
+    sprintModifier: 0.9 # goob edit ^
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 3
-    pvsIncrease: 0.3
+    maxOffset: 8 # Goobstation - Sniper rifles buff
+    pvsIncrease: 0.8 # Goobstation - Sniper rifles buff
 
 - type: entity
   name: musket
