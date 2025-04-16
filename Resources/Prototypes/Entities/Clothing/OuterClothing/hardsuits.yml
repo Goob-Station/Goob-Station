@@ -123,6 +123,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
@@ -1220,6 +1221,8 @@
       head: ClothingHeadHelmetHardsuitDeathsquad
   - type: ModifyDelayedKnockdown # Goobstation - End
     cancel: true
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 #CBURN Hardsuit
 - type: entity

@@ -77,6 +77,10 @@
   - Maintenance
   - Engineering
   - External
+  special: # Goobstation
+  - !type:AddComponentSpecial
+    components:
+    - type: EngineeringStaff
 
 - type: startingGear
   id: TechnicalAssistantGear
