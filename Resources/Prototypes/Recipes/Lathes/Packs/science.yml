@@ -24,6 +24,13 @@
   - FloorBlueCircuit
   - FloorRedCircuit
 
+# Keeps flash payloads out of the hands of tiders, I guess. All triggers roundstart for autolathes
+- type: latheRecipePack
+  id: ScienceExplosives
+  recipes:
+  - ChemicalPayload
+  - FlashPayload
+
 ## Dynamic
 
 - type: latheRecipePack
@@ -73,16 +80,6 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
-
-# Only contains parts for making basic modular grenades, no actual explosives
-- type: latheRecipePack
-  id: ScienceExplosives
-  recipes:
-  - ChemicalPayload
-  - FlashPayload
-  - TimerTrigger
-  - SignalTrigger
-  - VoiceTrigger
 
 - type: latheRecipePack
   id: ScienceBoards

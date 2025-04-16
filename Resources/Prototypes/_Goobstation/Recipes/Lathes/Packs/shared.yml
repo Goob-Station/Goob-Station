@@ -11,6 +11,13 @@
   - AutolatheMachineCircuitboard
   - CircuitImprinterMachineCircuitboard
 
+- type: latheRecipePack
+  id: GrenadeTriggers
+  recipes:
+  - TimerTrigger
+  - SignalTrigger
+  - VoiceTrigger
+
 #Dynamic
 - type: latheRecipePack
   id: SharedBoards
