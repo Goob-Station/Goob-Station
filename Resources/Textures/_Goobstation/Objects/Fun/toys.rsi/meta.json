@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn, plyush, bellcatsu , George Gimme, and Ahti",
+    "copyright": "BeeRobynn, plyush, bellcatsu , George Gimme, Ahti, and Shy Bandit",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,9 @@
         },
         {
             "name": "plushie_kobliska"
+        },
+        {
+            "name": "plushie_abductor"
         },
         {
             "name": "plushie_desislava",
