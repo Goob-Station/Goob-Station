@@ -12,7 +12,7 @@
   - CircuitImprinterMachineCircuitboard
 
 - type: latheRecipePack
-  id: GrenadeTriggers
+  id: GrenadeTriggersStatic
   recipes:
   - TimerTrigger
   - SignalTrigger
