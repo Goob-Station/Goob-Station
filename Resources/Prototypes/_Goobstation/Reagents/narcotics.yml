@@ -6,11 +6,13 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -209,6 +211,8 @@
         - !type:ReagentThreshold
           min: 15
 
+# Homemade hyperzine, should be worse than it and harder to make, but
+# doesn't require vestine. Should NOT be addictive when we get addictions
 - type: reagent
   id: Aranesp
   name: reagent-name-aranesp
@@ -219,35 +223,12 @@
   color: "#75fff5"
   metabolisms:
     Narcotic:
+      metabolismRate: 1
       effects:
-      - !type:GenericStatusEffect
-        key: Stun
-        time: 2
-        type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
-        time: 2
-        type: Remove
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
-        time: 5
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.25
-        sprintSpeedModifier: 1.25
-      - !type:TakeStaminaDamage
-        conditions:
-        amount: -20
       - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.25
-            Asphyxiation: 0.25
         conditions:
         - !type:OrganType
           type: Yowie
-          shouldHave: false
-      - !type:HealthChange # intentionally no yowie conditions
         damage:
           groups:
             Brute: -1
@@ -256,6 +237,56 @@
             Shock: -0.5
             Cold: -0.5
             Radiation: -0.5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.3
+        sprintSpeedModifier: 1.3
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+      - !type:TakeStaminaDamage
+        amount: -5
+        immediate: true
+      - !type:RemoveComponentEffect
+        component: DelayedKnockdown
+        locale: reagent-effect-guidebook-remove-delayed-knockdown
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:ResetNarcolepsy
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 0.5
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          types:
+            Poison: 3
       - !type:Emote
         emote: Gasp
         probability: 0.1

@@ -76,6 +76,8 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -174,7 +176,7 @@ public sealed class ReflectSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    private bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null)
+    public bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null) // Goob edit
     {
         if (!Resolve(reflector, ref reflect, false) ||
             !_toggle.IsActivated(reflector) ||
@@ -220,7 +222,7 @@ public sealed class ReflectSystem : EntitySystem
             if (reflect.DamageOnReflectModifier != 0)
             {
                 _damageable.TryChangeDamage(reflector, projectileComp.Damage * reflect.DamageOnReflectModifier,
-                    projectileComp.IgnoreResistances, origin: projectileComp.Shooter);
+                    projectileComp.IgnoreResistances, origin: projectileComp.Shooter, armorPenetration: projectileComp.ArmorPenetration);
             }
             // WD EDIT END
 
@@ -252,7 +254,7 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
-    private bool TryReflectHitscan(
+    public bool TryReflectHitscan( // Goobstation
         EntityUid user,
         EntityUid reflector,
         EntityUid? shooter,
