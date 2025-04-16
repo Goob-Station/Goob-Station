@@ -7329,3 +7329,13 @@ Entries:
       message: Fixed IPCs being unable to disarm
   id: 852
   time: '2025-04-16T04:24:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Blade heretic path reworked.
+    - type: Add
+      message: Ash path mark now deals stamina damage and burn instead of firestacks.
+    - type: Add
+      message: Engineers can dual wield hammers.
+  id: 853
+  time: '2025-04-16T04:25:29.0000000+00:00'
