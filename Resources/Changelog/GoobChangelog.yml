@@ -7379,3 +7379,11 @@ Entries:
         victims straight to Ohio.
   id: 858
   time: '2025-04-16T04:29:33.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: NorthStars cost 30 (from 40)
+    - type: Tweak
+      message: Betrayal Knife hits faster, but less hard, and costs less (30 from 40)
+  id: 859
+  time: '2025-04-16T04:31:07.0000000+00:00'
