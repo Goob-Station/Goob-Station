@@ -158,11 +158,13 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -862,6 +864,11 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
 
 
 - type: listing
@@ -874,6 +881,11 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDeception
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
 
 - type: listing
   id: UplinkCyberpen
@@ -1117,6 +1129,10 @@
   categories:
   - UplinkDisruption
   conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -1132,6 +1148,10 @@
   categories:
   - UplinkDisruption
   conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -1192,6 +1212,7 @@
       blacklist:
         tags:
           - NukeOpsUplink
+          - ContravendUplink
 
 
 # Goobstation - Nukeop reinforcement
@@ -1210,6 +1231,9 @@
       whitelist:
         tags:
           - NukeOpsUplink
+      blacklist:
+        tags:
+          - ContravendUplink
 
 
 - type: listing
@@ -1227,6 +1251,9 @@
       whitelist:
         tags:
           - NukeOpsUplink
+      blacklist:
+        tags:
+        - ContravendUplink
 
 
 - type: listing
@@ -1244,6 +1271,7 @@
       blacklist:
         tags:
           - NukeOpsUplink
+          - ContravendUplink
 
 
 - type: listing
@@ -1261,6 +1289,9 @@
       whitelist:
         tags:
           - NukeOpsUplink
+      blacklist:
+        tags:
+        - ContravendUplink
 
 
 - type: listing
@@ -1289,6 +1320,11 @@
     Telecrystal: 30 # goob
   categories:
     - UplinkAllies
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+        - ContravendUplink
 
 
 - type: listing
@@ -1304,6 +1340,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
 
 
 # Implants
@@ -1382,6 +1422,11 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
 
 - type: listing
   id: UplinkMicroBombImplanter
@@ -1438,6 +1483,7 @@
     whitelist:
       tags:
         - NukeOpsUplink
+        - ContravendUplink
 
 - type: listing
   id: UplinkDeathAcidifierImplanter
@@ -1491,6 +1537,7 @@
       blacklist:
         components:
           - SurplusBundle
+          - ContravendUplink
 
 - type: listing
   id: UplinkFakeMindshield

@@ -4,7 +4,6 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tristan <traynor123123@gmail.com>
@@ -21,17 +20,20 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -515,6 +517,7 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+          - ContravendUplink
 
 - type: listing
   id: UplinkSmokeImplanter
@@ -805,6 +808,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+      - ContravendUplink
 
 # Martial Arts
 - type: listing
@@ -821,6 +825,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+      - ContravendUplink
 
 - type: listing
   id: UplinkMysteriousScroll
