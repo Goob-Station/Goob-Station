@@ -222,11 +222,6 @@
     Telecrystal: 40
   categories:
   - UplinkWeaponry
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink # nukies are all about attrittion, no infinite ammo for them
 
 - type: listing
   id: UplinkBulkMosin
