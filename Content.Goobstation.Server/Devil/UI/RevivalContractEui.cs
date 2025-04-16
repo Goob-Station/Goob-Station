@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Devil.Contract.Revival;
+using Content.Goobstation.Shared.Devil;
 using Content.Server.EUI;
 using Content.Shared.Eui;
-using Content.Shared.Ghost;
 using Content.Shared.Mind;
 
 namespace Content.Goobstation.Server.Devil.UI;
@@ -16,7 +16,7 @@ public sealed class RevivalContractEui(MindComponent mind, SharedMindSystem mind
     {
         base.HandleMessage(msg);
 
-        if (msg is not ReturnToBodyMessage { Accepted: true })
+        if (msg is not RevivalContractMessage { Accepted: true })
         {
             Close();
             return;

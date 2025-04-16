@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Eui;
-using Content.Shared.Ghost;
+using Content.Goobstation.Shared.Devil;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 
@@ -23,13 +23,13 @@ public sealed class RevivalContractEui : BaseEui
 
         _menu.DenyButton.OnPressed += _ =>
         {
-            SendMessage(new ReturnToBodyMessage(false));
+            SendMessage(new RevivalContractMessage(false));
             _menu.Close();
         };
 
         _menu.AcceptButton.OnPressed += _ =>
         {
-            SendMessage(new ReturnToBodyMessage(true));
+            SendMessage(new RevivalContractMessage(true));
             _menu.Close();
         };
     }
@@ -44,7 +44,7 @@ public sealed class RevivalContractEui : BaseEui
     {
         base.Closed();
 
-        SendMessage(new ReturnToBodyMessage(false));
+        SendMessage(new RevivalContractMessage(false));
         _menu.Close();
     }
 
