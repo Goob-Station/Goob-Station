@@ -19,6 +19,9 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -169,5 +172,27 @@
     state: sheaterOff
   product: CrateEngineeringSpaceHeater
   cost: 350
+  category: cargoproduct-category-name-engineering
+  group: market
+
+# RPD
+- type: cargoProduct
+  id: EngineeringRPD
+  icon:
+    sprite: Objects/Tools/rpd.rsi
+    state: icon
+  product: CrateRPD
+  cost: 800
+  category: cargoproduct-category-name-engineering
+  group: market
+
+# Assmos - Extinguisher Nozzle
+- type: cargoProduct 
+  id: EngineeringFirefighterBackpackTank
+  icon:
+    sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi
+    state: icon
+  product: CrateEngineeringFirefighterBackpackTank
+  cost: 1000
   category: cargoproduct-category-name-engineering
   group: market
