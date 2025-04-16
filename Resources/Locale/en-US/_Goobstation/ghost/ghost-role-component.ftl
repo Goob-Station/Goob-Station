@@ -65,3 +65,8 @@ ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 ghost-role-information-Gman-name = The G-Man
 ghost-role-information-Gman-description = The right man in the wrong place can make all the difference in the world.
 ghost-role-information-Gman-rules = You are beholden to no rules or boundaries. Death cannot hold you, and neither can Nanotrasen.
+
+# shuttle roles
+
+ghost-role-information-alien-tourist-name = Alien Tourist
+ghost-role-information-alien-tourist-description = Look around the station. Glorp at people. Get shot by a trigger-happy officer.
