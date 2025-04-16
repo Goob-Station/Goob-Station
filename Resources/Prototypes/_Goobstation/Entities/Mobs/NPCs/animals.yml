@@ -468,6 +468,8 @@
   description: Honkmother's favorite corgi.
   components:
     - type: Sprite
+      drawdepth: Mobs
+      sprite: _Goobstation/Mobs/Animals/clown_ian.rsi
       layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: clown_ian
