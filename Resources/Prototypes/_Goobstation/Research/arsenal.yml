@@ -55,7 +55,6 @@
   - WeaponMechCombatUltraRifle
   technologyPrerequisites:
   - RipleyAPLU
-  - ExplosiveTechnology
   position: 2,-1
 
 - type: technology
