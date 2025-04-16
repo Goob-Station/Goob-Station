@@ -156,10 +156,10 @@
   #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - LavalandStormScheduler # Lavaland Change
+    - LavalandStormScheduler
 
 - type: gamePreset
-  id: TheSleeper
+  id: TheGhost
   alias:
     - calm
     - calmdynamic
@@ -169,7 +169,8 @@
   minPlayers: 5
   rules:
     - CalmDynamic
-    - LavalandStormScheduler # Lavaland Change
+    - LavalandStormScheduler
+    - SubGamemodesRule
     - RareIonStormScheduler
 
 - type: gamePreset
@@ -183,5 +184,6 @@
   minPlayers: 25
   rules:
     - CombatDynamic
-    - LavalandStormScheduler # Lavaland Change
+    - LavalandStormScheduler
+    - SubGamemodesRule
     - IonStormScheduler
