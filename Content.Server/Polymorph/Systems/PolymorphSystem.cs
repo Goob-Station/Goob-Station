@@ -105,6 +105,7 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
@@ -476,6 +477,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         RaiseLocalEvent(child, ref ev);
 
+        // visual effect spawn
+        if (configuration.EffectProto != null)
+            SpawnAttachedTo(configuration.EffectProto, child.ToCoordinates());
+
         return child;
     }
 
@@ -557,13 +562,20 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         RaiseLocalEvent(parent, ref ev);
 
-        if (component.Configuration.ShowPopup) // Goob edit
-        {
-            _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+        // visual effect spawn
+        if (component.Configuration.EffectProto != null)
+            SpawnAttachedTo(component.Configuration.EffectProto, parent.ToCoordinates());
+
+        var popup = Loc.GetString("polymorph-revert-popup-generic",
                     ("parent", Identity.Entity(uid, EntityManager)),
-                    ("child", Identity.Entity(parent, EntityManager))),
-                parent);
-        }
+                    ("child", Identity.Entity(parent, EntityManager));
+        if (component.Configuration.ExitPolymorphPopup != null)
+            popup = Loc.GetString(component.Configuration.ExitPolymorphPopup,
+                ("parent", Identity.Entity(uid, EntityManager)),
+                ("child", Identity.Entity(parent, EntityManager))
+
+        if (component.Configuration.ShowPopup)
+            _popup.PopupEntity(popup);
         QueueDel(uid);
 
         return parent;
