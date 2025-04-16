@@ -23,7 +23,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -41,6 +43,25 @@
       rarePrototypes:
         - FoamBlade
         - PlushieGhost
+        - PlushieBenny
+        - PlushieCairo
+        - PlushiePash
+        - PlushieDelta
+        - PlushieRaki
+        - PlushieTina
+        - PlushieKnott
+        - PlushieKury
+        - PlushieZlorb
+        - PlushieTiderMoth
+        - PlushieCommandHuman
+        - PlushieRanork
+        - PlushieByrrne
+        - PlushieWehWinter
+        - PlushieHaleigh
+        - PlushieStoop
+        - PlushieAhti
+        - PlushieSparkle
+        - PlushieGrub
       rareChance: 0.03
       prototypes:
         - PlushieBee
