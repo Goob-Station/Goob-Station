@@ -42,6 +42,7 @@
   - type: ItemToggleSize
     activatedSize: Normal
   - type: ToggleAnimation
+  - type: EnchantingTool # Goobstation
   - type: Tag
     tags:
     - HereticItem
