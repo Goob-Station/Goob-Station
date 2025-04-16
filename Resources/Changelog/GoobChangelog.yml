@@ -7387,3 +7387,11 @@ Entries:
       message: Betrayal Knife hits faster, but less hard, and costs less (30 from 40)
   id: 859
   time: '2025-04-16T04:31:07.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Changed multifire values, .45 is worse for multifire, cap laser cannot
+        at all.
+  id: 860
+  time: '2025-04-16T04:31:58.0000000+00:00'
