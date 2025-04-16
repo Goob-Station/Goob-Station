@@ -7339,3 +7339,9 @@ Entries:
       message: Engineers can dual wield hammers.
   id: 853
   time: '2025-04-16T04:25:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Ion storms are now essentially guaranteed to happen during a round.
+  id: 854
+  time: '2025-04-16T04:26:03.0000000+00:00'
