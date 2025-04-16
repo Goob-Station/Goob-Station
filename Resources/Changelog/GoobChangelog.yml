@@ -7613,3 +7613,13 @@ Entries:
       message: Added alien tourist shuttle event.
   id: 888
   time: '2025-04-16T19:17:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Heretic blades, .45 AP, .50 antimaterial and .60 bullets now have 35%,
+        40%, 50% and 50% armor pierce respectively.
+    - type: Tweak
+      message: Burrner and hristov ammo is slightly more expensive.
+  id: 889
+  time: '2025-04-16T19:18:22.0000000+00:00'
