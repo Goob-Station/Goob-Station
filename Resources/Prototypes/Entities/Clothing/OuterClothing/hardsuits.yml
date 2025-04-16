@@ -922,6 +922,9 @@
     knockdownTimeDelta: -1
   - type: StaminaResistance # Goobstation
     damageCoefficient: 0.8
+  - type: Tag
+    tags:
+    - MonkeyWearable
 
 #Wizard Hardsuit
 - type: entity
