@@ -176,7 +176,7 @@ public sealed class ReflectSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    private bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null)
+    public bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null) // Goob edit
     {
         if (!Resolve(reflector, ref reflect, false) ||
             !_toggle.IsActivated(reflector) ||
@@ -254,7 +254,7 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
-    private bool TryReflectHitscan(
+    public bool TryReflectHitscan( // Goobstation
         EntityUid user,
         EntityUid reflector,
         EntityUid? shooter,

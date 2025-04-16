@@ -86,8 +86,7 @@
       types:
         Heat: 0
   - type: StaminaDamageOnCollide
-    damage: 30
-    overtime: 30
+    damage: 60
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]

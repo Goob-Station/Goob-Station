@@ -1,37 +1,5 @@
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: dataset
-  id: skeletonNamesFirst
+- type: localizedDataset
+  id: NamesSkeletonFirst
   values:
-  - Sternum
-  - Ribs
-  - Vertebrae
-  - Sacrum
-  - Mandible
-  - Clavicle
-  - Scapula
-  - Humerus
-  - Radius
-  - Ulna
-  - Carpals
-  - Phalanges
-  - Pelvis
-  - Femur
-  - Tibia
-  - Fibula
-  - Marrow
-  - Tarsals
-  - Patella
-  - Tailbone
-  - Rib
-  - Hyoid
-  - Coccyx
-  - Tarsus
-  - Lacrimal
-  - Bone
+    prefix: names-skeleton-first-dataset-
+    count: 27

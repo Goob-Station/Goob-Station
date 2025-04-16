@@ -543,6 +543,9 @@
     damage:
       types:
         Piercing: 3
+  - type: Reflective
+    reflective:
+      - NonEnergy
   - type: EmbeddableProjectile
     offset: "-0.1,0"
     minimumSpeed: 3
