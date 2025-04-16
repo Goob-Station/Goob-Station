@@ -8,6 +8,7 @@ nullrod-atheistfedora-untrained-usage-popup = The hat's razor sharp brim begins 
 nullrod-pistol-untrained-usage-popup = The silver grips heat painfully in your hands.
 nullrod-honkmother-untrained-usage-popup = You think you're funny, huh?
 nullrod-uristhand-untrained-usage-popup = Secure trespass.
+nullrod-chainsaw-untrained-usage-popup = Ahh, and look at what we have here — a bloody heathen!
 
 nullrod-pray-prompt = Pray to Nullrod
 nullrod-pray-start = {$user} begins to whisper to the {$nullrod}...

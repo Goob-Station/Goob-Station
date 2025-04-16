@@ -141,6 +141,12 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
+  - type: AltarSource
+    rodProto: HolyChainsaw # Shitchap
+    effectProto: EffectSpark
+  - type: Construction
+    graph: AltarsGraph
+    node: ToolAltarNode
 
 - type: entity
   id: AltarSpaceChristian
