@@ -7309,3 +7309,11 @@ Entries:
       message: Added CentComm wizard robes.
   id: 849
   time: '2025-04-16T04:23:16.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Added 19 new OC plushies.
+    - type: Add
+      message: Cargo crate with the plushies.
+  id: 850
+  time: '2025-04-16T04:23:25.0000000+00:00'
