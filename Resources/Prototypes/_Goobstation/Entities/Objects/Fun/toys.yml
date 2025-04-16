@@ -14,7 +14,9 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
@@ -219,6 +221,32 @@
 
 - type: entity
   parent: BasePlushie
+  id: BaseBinglePlushie
+  abstract: true
+  components:
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/falling.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/falling.ogg
+
+- type: entity
+  parent: BaseBinglePlushie
   id: PlushieBingle
   name: full size bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
@@ -227,9 +255,11 @@
     norot: true
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: alive
+  
+
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBingleSmall
   name: bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
@@ -238,9 +268,10 @@
     norot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingleing
+ 
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBingleYakub
   name: yakub bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
@@ -249,6 +280,7 @@
     norot: true
     sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
     state: yakubbingle
+
 
 - type: entity
   parent: BasePlushie
@@ -262,7 +294,7 @@
     state: bongle
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBinglePony
   name: bingle pony plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
