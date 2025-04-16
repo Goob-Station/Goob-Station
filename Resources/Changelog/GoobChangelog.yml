@@ -7573,3 +7573,13 @@ Entries:
       message: Fix fishing breaking the game.
   id: 882
   time: '2025-04-16T13:32:58.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard *should be* fairly rare (1%), please report wizard sightings to
+        corroborate if its working well :trollface:.
+    - type: Tweak
+      message: High tier antag tokens cannot be exchanged for wizard.
+  id: 883
+  time: '2025-04-16T13:34:47.0000000+00:00'
