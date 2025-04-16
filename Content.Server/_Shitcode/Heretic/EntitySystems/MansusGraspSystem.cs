@@ -17,6 +17,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Bible;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
@@ -45,6 +46,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Maps;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
@@ -55,7 +57,6 @@ using Content.Shared.Tag;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
-using Content.Goobstation.Shared.Bible;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -216,25 +217,8 @@ public sealed class MansusGraspSystem : EntitySystem
 
         var target = args.Target.Value;
 
-        if (TryComp<BibleUserComponent>(args.Target, out _) && TryComp(args.User, out StatusEffectsComponent? hereticstatus))
-        {
-            _stun.KnockdownOrStun(args.User, comp.KnockdownTime, true, hereticstatus);
-            _stamina.TakeStaminaDamage(args.User, comp.StaminaDamage);
-            _language.DoRatvarian(args.User, comp.SpeechTime, true, hereticstatus);
-            _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(args.User,
-                "MansusGraspAffected",
-                ent.Comp.AffectedTime,
-                true,
-                hereticstatus);
-
-            _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
-            hereticComp.MansusGrasp = EntityUid.Invalid;
-            InvokeGrasp(args.User, ent);
-            QueueDel(ent);
-            args.Handled = true;
-
+        if (TryBibleUser(args, ent, comp))
             return;
-        }
 
         if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;
@@ -275,6 +259,36 @@ public sealed class MansusGraspSystem : EntitySystem
         InvokeGrasp(args.User, ent);
         QueueDel(ent);
         args.Handled = true;
+    }
+
+    private bool TryBibleUser(AfterInteractEvent args, Entity<MansusGraspComponent> ent, MansusGraspComponent comp)
+    {
+        if (TryComp<BibleUserComponent>(args.Target, out _) &&
+            TryComp(args.User, out StatusEffectsComponent? hereticstatus))
+        {
+            _stun.KnockdownOrStun(args.User, comp.KnockdownTime, true, hereticstatus);
+            _stamina.TakeStaminaDamage(args.User, comp.StaminaDamage);
+            _language.DoRatvarian(args.User, comp.SpeechTime, true, hereticstatus);
+            _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(args.User,
+                "MansusGraspAffected",
+                ent.Comp.AffectedTime,
+                true,
+                hereticstatus);
+
+            if (TryComp<HereticComponent>(args.User, out var hereticComp)) // Added null check
+            {
+                _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+                hereticComp.MansusGrasp = EntityUid.Invalid;
+            }
+
+            InvokeGrasp(args.User, ent);
+            QueueDel(ent);
+            args.Handled = true;
+
+            return true;
+        }
+
+        return false;
     }
 
     private void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent> ent)
