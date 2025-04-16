@@ -50,6 +50,7 @@
     },
     {
         "name": "buff",
+        "directions": 4
     }
   ]
 }
