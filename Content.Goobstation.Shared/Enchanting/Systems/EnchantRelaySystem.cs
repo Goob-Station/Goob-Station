@@ -25,7 +25,7 @@ public sealed class EnchantRelaySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EnchantedComponent, DamageModifyEvent>(RelayEvent);
+        SubInventory<DamageModifyEvent>();
         SubscribeLocalEvent<EnchantedComponent, MeleeHitEvent>(RelayEvent);
         SubInventory<AttackedEvent>(true);
         SubInventory<StepTriggerAttemptEvent>(true);
