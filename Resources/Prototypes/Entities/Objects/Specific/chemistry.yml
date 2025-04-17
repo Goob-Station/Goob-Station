@@ -771,6 +771,7 @@
     tags:
     - Syringe
     - Trash
+    - SyringeGunAmmo # Goobstation - bluespace syringe can be fired, so should the cryostasis syringe
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 62
