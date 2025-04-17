@@ -7687,3 +7687,11 @@ Entries:
       message: Cheap sunglasses are now in the loadout.
   id: 896
   time: '2025-04-17T18:11:08.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: pAIs can now be found in loadouts
+    - type: Add
+      message: Working golden pAI in loadouts
+  id: 897
+  time: '2025-04-17T18:13:17.0000000+00:00'
