@@ -138,7 +138,6 @@
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector
-<<<<<<< HEAD
         tableId: BeltAssaultBSOEntityTable
 
 - type: entity
@@ -170,6 +169,3 @@
     - id: EphedrineChemistryBottle
       amount: 2
     - id: OmnizineChemistryBottle
-=======
-        tableId: BeltAssaultBSOEntityTable
->>>>>>> master
