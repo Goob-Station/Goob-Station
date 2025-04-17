@@ -7673,3 +7673,11 @@ Entries:
         accumulating stealth.
   id: 894
   time: '2025-04-17T18:07:56.0000000+00:00'
+- author: BombasterDS, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Tape recorders and cassettes can be found as security and reporter
+        equipment! They also can be made in autolathe and service techfab.
+  id: 895
+  time: '2025-04-17T18:08:47.0000000+00:00'
