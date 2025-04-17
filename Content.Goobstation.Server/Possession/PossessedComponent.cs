@@ -13,36 +13,36 @@ namespace Content.Goobstation.Server.Possession;
 [RegisterComponent]
 public sealed partial class PossessedComponent : Component
 {
-    [DataField]
+    [ViewVariables]
     public EntityUid OriginalMindId;
 
-    [DataField]
+    [ViewVariables]
     public EntityUid OriginalEntity;
 
-    [DataField]
+    [ViewVariables]
     public MindComponent OriginalMindComponent;
 
-    [DataField]
+    [ViewVariables]
     public EntityUid PossessorMindId;
 
-    [DataField]
+    [ViewVariables]
     public EntityUid PossessorOriginalEntity;
 
-    [DataField]
+    [ViewVariables]
     public MindComponent PossessorMindComponent;
 
-    [DataField]
+    [ViewVariables]
     public TimeSpan PossessionEndTime;
 
-    [DataField]
+    [ViewVariables]
     public TimeSpan PossessionTimeRemaining;
 
-    [DataField]
+    [ViewVariables]
     public bool WasPacified;
 
-    [DataField]
+    [ViewVariables]
     public bool DoPacify;
 
-    [DataField]
+    [ViewVariables]
     public SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");
 }

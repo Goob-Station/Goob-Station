@@ -167,6 +167,12 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!_mind.TryGetMind(possessor, out var possessorMind, out var possessorMindComp))
             return false;
 
+        DoPossess(possessed, possessor, possessionDuration, pacifyPossessed, possessorMind, possessorMindComp);
+        return true;
+    }
+
+    public void DoPossess(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, EntityUid possessorMind, MindComponent possessorMindComp)
+    {
         _mind.TryGetMind(possessed, out var possessedMind, out var possessedMindComp);
 
         var possessedComp = EnsureComp<PossessedComponent>(possessed);
@@ -199,8 +205,6 @@ public sealed partial class PossessionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("possession-popup-self"), possessedMind, possessedMind, PopupType.LargeCaution);
         _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", possessed)), possessed, PopupType.MediumCaution);
         _audio.PlayPvs(possessedComp.PossessionSoundPath, possessed);
-
-        return true;
     }
 
     private bool CheckMindswapBlocker(Type type, string message, EntityUid possessed, EntityUid possessor)

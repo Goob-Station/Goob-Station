@@ -11,15 +11,15 @@ namespace Content.Goobstation.Server.Insanity;
 [RegisterComponent]
 public sealed partial class InsanityComponent : Component
 {
-    [DataField]
+    [ViewVariables]
     public TimeSpan NextInsanityTick = TimeSpan.Zero;
 
-    [DataField]
+    [ViewVariables]
     public TimeSpan ExecutionInterval = TimeSpan.FromSeconds(15);
 
-    [DataField]
+    [ViewVariables]
     public bool IsBlinded;
 
-    [DataField]
+    [ViewVariables]
     public bool IsMuted;
 }

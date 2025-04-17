@@ -18,18 +18,18 @@ public sealed partial class TeleportOnStateChangeComponent : Component
     /// <summary>
     /// The co-ordinates to teleport to.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public EntityCoordinates? Coordinates;
 
     /// <summary>
     /// What mob-state should trigger the teleportation?
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public MobState MobStateTrigger = MobState.Critical;
 
     /// <summary>
     /// Should the component be removed on trigger?
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public bool RemoveOnTrigger;
 }
