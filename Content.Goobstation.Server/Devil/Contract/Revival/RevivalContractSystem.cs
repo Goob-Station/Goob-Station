@@ -4,7 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Diagnostics;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.UI;
 using Content.Server.Administration.Systems;
@@ -13,9 +12,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.Roles;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Devil.Contract.Revival;
 public sealed partial class PendingRevivalContractSystem : EntitySystem
@@ -93,9 +90,9 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
 
     private void OnMessage(Entity<PendingRevivalContractComponent> ent, ref RevivalContractMessage args)
     {
-        if (args.Accepted)
+        if (args.Accepted && ent.Comp.Contractee is { } contractee)
         {
-            TryReviveAndTransferSoul(ent.Comp.Contractee, ent.Comp);
+            TryReviveAndTransferSoul(contractee, ent.Comp);
             _mind.UnVisit(ent.Comp.MindId);
         }
         RemComp<PendingRevivalContractComponent>(args.Actor);

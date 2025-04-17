@@ -8,7 +8,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
-using Content.Goobstation.Server.Devil.Condemned;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Server.Body.Systems;
@@ -225,20 +224,20 @@ public sealed class DevilContractSystem : EntitySystem
 
     #region Helper Events
 
-    public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
+    public bool TryTransferSouls(EntityUid? devil, EntityUid? contractee, int added)
     {
         // Can't sell what doesn't exist.
-        if (HasComp<CondemnedComponent>(contractee))
+        if (HasComp<CondemnedComponent>(contractee) || devil == contractee || contractee == null || devil == null)
             return false;
 
         // Can't sell yer soul to yourself
         if (devil == contractee)
             return false;
 
-        var ev = new SoulAmountChangedEvent(devil, contractee, added);
-        RaiseLocalEvent(devil, ref ev);
+        var ev = new SoulAmountChangedEvent((EntityUid)devil, (EntityUid)contractee, added);
+        RaiseLocalEvent((EntityUid)devil, ref ev);
 
-        var condemned = EnsureComp<CondemnedComponent>(contractee);
+        var condemned = EnsureComp<CondemnedComponent>((EntityUid)contractee);
         condemned.SoulOwner = devil;
         condemned.CondemnOnDeath = true;
         condemned.SoulOwnedNotDevil = false;
