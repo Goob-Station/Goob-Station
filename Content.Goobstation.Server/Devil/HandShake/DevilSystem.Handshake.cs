@@ -44,11 +44,7 @@ public sealed partial class DevilSystem
 
     private void OnDevilHandInteract(EntityUid uid, DevilComponent component, InteractHandEvent args)
     {
-        if (args.Handled || !TryComp<PendingHandshakeComponent>(args.User, out var pending))
-            return;
-
-        // Validate this is our offerer and check expiry
-        if (pending.Offerer != uid)
+        if (args.Handled || !TryComp<PendingHandshakeComponent>(args.User, out var pending) || pending.Offerer != uid)
             return;
 
         args.Handled = true;
