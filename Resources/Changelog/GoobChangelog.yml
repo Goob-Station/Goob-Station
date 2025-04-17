@@ -7657,3 +7657,9 @@ Entries:
       message: Cryostatis syringes can now be fired from the syringe gun!
   id: 892
   time: '2025-04-17T18:03:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Thieves should now appear in game director!
+  id: 893
+  time: '2025-04-17T18:04:37.0000000+00:00'
