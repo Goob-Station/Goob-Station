@@ -236,6 +236,7 @@
     - PowerCellsStatic
     - LatheMiscStatic
     - ChemistryStatic
+    - TapeRecorderStatic
     dynamicPacks:
     - Janitor
     - Instruments
