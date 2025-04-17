@@ -7681,3 +7681,9 @@ Entries:
         equipment! They also can be made in autolathe and service techfab.
   id: 895
   time: '2025-04-17T18:08:47.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Cheap sunglasses are now in the loadout.
+  id: 896
+  time: '2025-04-17T18:11:08.0000000+00:00'
