@@ -72,6 +72,9 @@ public sealed class SharedMultishotSystem : EntitySystem
         {
             var (gunEnt, gunComp, _) = gun;
 
+            if (!HasComp<MultishotComponent>(GetEntity(msg.Gun)) && gunEnt != GetEntity(msg.Gun))
+                continue;
+
             if (gunComp.Target == null || !gunComp.BurstActivated || !gunComp.LockOnTargetBurst)
                 gunComp.Target = target;
 

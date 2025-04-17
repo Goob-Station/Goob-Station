@@ -131,8 +131,9 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation
-  - type: AltFireMelee # Goobstation V
+  - type: Multishot # Goobstation V
+    missChance: 0.3
+  - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
     damage:
