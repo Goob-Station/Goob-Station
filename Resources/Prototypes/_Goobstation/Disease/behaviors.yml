@@ -7,7 +7,7 @@
 - type: entity
   id: DiseaseBehaviorCancer
   parent: DiseaseBehaviorBase
-  name: cancer
+  name: Cancer
   description: Deals genetic damage over time.
   components:
   - type: DiseaseEffect
@@ -20,7 +20,7 @@
 - type: entity
   id: DiseaseBehaviorPoison
   parent: DiseaseBehaviorBase
-  name: poison
+  name: Poison
   description: Deals poison damage over time.
   components:
   - type: DiseaseEffect
@@ -33,7 +33,7 @@
 - type: entity
   id: DiseaseBehaviorBlunt
   parent: DiseaseBehaviorBase
-  name: poison
+  name: Tissue degradation
   description: Deals blunt damage over time.
   components:
   - type: DiseaseEffect
@@ -46,7 +46,7 @@
 - type: entity
   id: DiseaseBehaviorVomit
   parent: DiseaseBehaviorBase
-  name: vomiting
+  name: Vomiting
   description: Makes you periodically vomit.
   components:
   - type: DiseaseEffect
@@ -62,7 +62,7 @@
 - type: entity
   id: DiseaseBehaviorFeelUnwell
   parent: DiseaseBehaviorBase
-  name: feeling unwell
+  name: Feeling unwell
   description: Makes you feel unwell.
   components:
   - type: DiseaseEffect
@@ -78,7 +78,7 @@
 - type: entity
   id: DiseaseBehaviorHeadache
   parent: DiseaseBehaviorBase
-  name: headache
+  name: Headache
   description: Gives you headaches, which may make working more difficult.
   components:
   - type: DiseaseEffect
@@ -94,7 +94,7 @@
 - type: entity
   id: DiseaseBehaviorFightImmunity
   parent: DiseaseBehaviorBase
-  name: immune resistance
+  name: Immune resistance
   description: Makes the disease resist immunity once developed.
   components:
   - type: DiseaseEffect
@@ -104,7 +104,7 @@
 - type: entity
   id: DiseaseBehaviorCough
   parent: DiseaseBehaviorBase
-  name: cough
+  name: Cough
   description: Makes you cough. Infective.
   components:
   - type: DiseaseEffect

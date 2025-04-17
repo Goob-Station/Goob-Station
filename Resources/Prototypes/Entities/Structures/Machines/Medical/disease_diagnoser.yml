@@ -29,6 +29,13 @@
   - type: Appearance
   - type: Machine
     board: DiagnoserMachineCircuitboard
+  # <Goobstation>
+  - type: DiseaseAnalyzer
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      disease_swab_slot: !type:ContainerSlot {}
+  # </Goobstation>
 
 - type: entity
   name: disease diagnoser report
@@ -52,6 +59,3 @@
     headerMargin: 0.0, 0.0, 0.0, 6.0
     backgroundImageTile: true
     backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
-    contentMargin: 12.0, 0.0, 12.0, 0.0
-    # This is a narrow piece of paper
-    maxWritableArea: 128.0, 0.0

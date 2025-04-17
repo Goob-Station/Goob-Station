@@ -53,6 +53,7 @@
       - state: green
       - state: scientist
 
+- type: entity
   id: SpawnPointVirologist
   parent: SpawnPointJobBase
   name: virologist

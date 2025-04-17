@@ -1791,7 +1791,7 @@
     hasPainScreams: false
     threshold: 70
     cap: 140
-
+  - type: DiseaseCarrier # Goobstation
 
 - type: entity
   name: monkey
