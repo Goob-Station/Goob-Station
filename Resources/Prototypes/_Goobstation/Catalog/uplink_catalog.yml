@@ -259,6 +259,16 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkWeaponCombatShotgun
+  name: uplink-combat-shotgun-name
+  description: uplink-combat-shotgun-desc
+  productEntity: WeaponShotgunCombat
+  cost:
+    Telecrystal: 60
+  categories:
+    -  UplinkWeaponry
+
 # Wearables
 
 - type: listing
@@ -775,6 +785,17 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkBox8Gauge
+  name: uplink-high-caliber-shotgun-box-name
+  description: uplink-high-caliber-shotgun-box-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: lethal }
+  productEntity: MagazineBoxShotgunHighCaliber
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
 
 # Mechs
 

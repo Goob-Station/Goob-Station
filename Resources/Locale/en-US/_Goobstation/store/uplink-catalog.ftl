@@ -119,7 +119,10 @@ uplink-m7s-name = M7S
 uplink-m7s-desc = A high capacity but low velocity submachinegun that takes 48 round magazines.
 
 uplink-heavensgate-name = Heaven's gate
-uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+uplink-heavensgate-desc = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+
+uplink-combat-shotgun-name = Combat shotgun
+uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
 
 # Ammo
 
@@ -170,6 +173,9 @@ uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper r
 
 uplink-92-AT-name = box of .92 anti-tank rounds
 uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
+
+uplink-high-caliber-shotgun-box-name = 8 Gauge shell box
+uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the combat shotgun.
 
 # Grenades
 
