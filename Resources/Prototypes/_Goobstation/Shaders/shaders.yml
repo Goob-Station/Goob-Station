@@ -1,4 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: shader
   id: WideColoredScreenBorder
   kind: source
   path: "/Textures/_Goobstation/Shaders/colored_screen_border_wide.swsl"
+
+- type: shader
+  id: Enchant
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/enchant.swsl"

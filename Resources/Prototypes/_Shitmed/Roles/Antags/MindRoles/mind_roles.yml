@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleLoneAbductor
@@ -6,6 +13,7 @@
   - type: MindRole
     exclusiveAntag: true
     antagPrototype: LoneAbductorAntag
+    roleType: SoloAntagonist
   - type: Abductor
 
 - type: entity
@@ -16,6 +24,7 @@
   - type: MindRole
     exclusiveAntag: true
     antagPrototype: AbductorAgentAntag
+    roleType: TeamAntagonist
   - type: Abductor
 
 - type: entity
@@ -26,6 +35,7 @@
   - type: MindRole
     exclusiveAntag: true
     antagPrototype: AbductorScientistAntag
+    roleType: TeamAntagonist
   - type: Abductor
 
 - type: entity
