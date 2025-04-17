@@ -18,11 +18,17 @@ public sealed partial class HoloCigarAffectedGunComponent : Component
     public bool WasOriginallyMultishot = false;
 
     [ViewVariables]
-    public bool GunRequieredWield;
+    public float OriginalMissChance;
 
     [ViewVariables]
-    public float OriginalSpreadModifier = 1.5f;
+    public float OriginalSpreadModifier;
 
     [ViewVariables]
-    public bool GunWasWieldable;
+    public float OriginalSpreadAddition;
+
+    [ViewVariables]
+    public float OriginalHandDamage;
+
+    [ViewVariables]
+    public float OriginalStaminaDamage;
 }

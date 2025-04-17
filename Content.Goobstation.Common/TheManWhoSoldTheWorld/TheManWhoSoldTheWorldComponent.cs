@@ -17,4 +17,7 @@ public sealed partial class TheManWhoSoldTheWorldComponent : Component
 
     [ViewVariables]
     public SoundSpecifier DeathAudio = new SoundPathSpecifier("/Audio/_Goobstation/Items/TheManWhoSoldTheWorld/whouuuHOOAAAAAAAAAAAAH.ogg");
+
+    [DataField]
+    public bool AddedNoWieldNeeded;
 }

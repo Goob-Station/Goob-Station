@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Common.Weapons.Multishot;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
@@ -25,24 +26,23 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Prototypes;
-using System.Linq;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Weapons.Multishot;
 
-public sealed partial class SharedMultishotSystem : EntitySystem
+public sealed class SharedMultishotSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
+    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
 
     public override void Initialize()
     {
@@ -69,7 +69,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
 
         foreach(var gun in gunsEnumerator)
         {
-            var (gunEnt, gunComp, multiComp) = gun;
+            var (gunEnt, gunComp, _) = gun;
 
             if (gunComp.Target == null || !gunComp.BurstActivated || !gunComp.LockOnTargetBurst)
                 gunComp.Target = target;
@@ -125,7 +125,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         if (!_handsSystem.IsHolding(target, weapon, out var hand))
             return;
 
-        // I didn't found better way to get hand
+        // I didn't find better way to get hand
         var bodySymmetry = hand.Location switch
         {
             HandLocation.Left => BodyPartSymmetry.Left,
@@ -140,7 +140,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         var bodyPart = _bodySystem.GetTargetBodyPart(BodyPartType.Hand, bodySymmetry);
 
         var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.HandDamage);
-        var handsDamageEv = new TryChangePartDamageEvent(damage, target, bodyPart, true, true, false, 1);
+        var handsDamageEv = new TryChangePartDamageEvent(damage, target, bodyPart, true);
 
         RaiseLocalEvent(target, ref handsDamageEv);
     }
