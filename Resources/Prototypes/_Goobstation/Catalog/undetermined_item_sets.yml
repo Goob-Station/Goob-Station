@@ -1,7 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Blueshield
 
 - type: thiefBackpackSet
-  id: ChesterSet
+  id: BSOChesterSet
   name: blueshield-box-category-chester-name
   description: blueshield-box-category-chester-description
   sprite:
@@ -17,7 +24,7 @@
   - WeaponLeverChester
 
 - type: thiefBackpackSet
-  id: CQCSet
+  id: BSOCQCSet
   name: blueshield-box-category-cqc-name
   description: blueshield-box-category-cqc-description
   sprite:
@@ -27,7 +34,7 @@
   - BSOManual
 
 - type: thiefBackpackSet
-  id: RevolverSet
+  id: BSORevolverSet
   name: blueshield-box-category-revolver-name
   description: blueshield-box-category-revolver-description
   sprite:
@@ -41,7 +48,7 @@
   - EnergySpeedloaderDisabler
 
 - type: thiefBackpackSet
-  id: BlueshieldSet
+  id: BSOBlueshieldSet
   name: blueshield-box-category-blueshield-name
   description: blueshield-box-category-blueshield-description
   sprite:
@@ -51,7 +58,7 @@
   - BlueShieldShieldFilled
 
 - type: thiefBackpackSet
-  id: SyringeSet
+  id: BSOSyringeSet
   name: blueshield-box-category-syringe-name
   description: blueshield-box-category-syringe-description
   sprite:
@@ -63,7 +70,7 @@
 # Blueshield Hardsuits
 
 - type: thiefBackpackSet
-  id: LightSet
+  id: BSOLightSet
   name: blueshield-box-category-lightset-name
   description: blueshield-box-category-lightset-description
   sprite:
@@ -73,7 +80,7 @@
   - ClothingOuterHardsuitBlueshieldLight
 
 - type: thiefBackpackSet
-  id: HeavySet
+  id: BSOHeavySet
   name: blueshield-box-category-heavyset-name
   description: blueshield-box-category-heavyset-description
   sprite:
@@ -81,3 +88,35 @@
     state: icon
   content:
   - ClothingOuterHardsuitBlueshieldHeavy
+
+## ERT
+
+- type: thiefBackpackSet
+  id: ERTBallisticsSet
+  name: ert-box-category-ballistic-name
+  description: ert-box-category-ballistic-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
+    state: base
+  content:
+  - WeaponRifleAnnie
+  - MagazineLightRifle
+  - MagazineLightRifle
+  - MagazineLightRifle
+  - WeaponPistolN1984
+  - MagazineMagnum
+  - MagazineMagnum
+
+- type: thiefBackpackSet
+  id: ERTPulseSet
+  name: ert-box-category-pulse-name
+  description: ert-box-category-pulse-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    state: icon
+  content:
+  - WeaponPulseCarbineAdvanced
+  - WeaponEnergyRevolver
+  - EnergySpeedloaderPulse
+  - EnergySpeedloaderPulse
+  - EnergySpeedloaderDisabler

@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
@@ -94,13 +102,15 @@ public sealed class RoofOverlay : Overlay
                     // Due to stencilling we essentially draw on unrooved tiles
                     while (tileEnumerator.MoveNext(out var tileRef))
                     {
-                        if (!_roof.IsRooved(roofEnt, tileRef.GridIndices))
+                        var color = _roof.GetColor(roofEnt, tileRef.GridIndices);
+
+                        if (color == null)
                         {
                             continue;
                         }
 
                         var local = _lookup.GetLocalBounds(tileRef, grid.Comp.TileSize);
-                        worldHandle.DrawRect(local, roof.Color);
+                        worldHandle.DrawRect(local, color.Value);
                     }
                 }
             }, null);

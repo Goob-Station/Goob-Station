@@ -1,3 +1,40 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 GlassEclipse <tsymall5@gmail.com>
+# SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Charlese2 <knightside@hotmail.com>
+# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 ninruB <38016303+asperger-sind@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Jackal298 <129199891+Jackal298@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 kerisargit <108146620+kerisargit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 shibe <95730644+shibechef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BulletMagnum
   name: bullet (.45 magnum)
@@ -35,14 +72,14 @@
 - type: entity
   id: BulletMagnumAP
   name: bullet (.45 magnum armor-piercing)
-  parent: BaseBulletAP
+  parent: BaseBullet # Goob edit
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 26 # 20% decrease
-    ignoreResistances: true
+        Piercing: 30
+    armorPenetration: 0.4 # Goobstation
 
 - type: entity
   id: BulletMagnumUranium

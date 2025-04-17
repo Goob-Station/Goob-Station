@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JustinWinningham <justinmwinningham@gmail.com>
+# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 #None of these besides the full barricade are constructible yet since I can't understand code, and they need to do stuff like go over airlocks / windows.
 #Consider porting the barricade kit from /vg/ if you do make them constructible, along with their HP values. Or don't.
 

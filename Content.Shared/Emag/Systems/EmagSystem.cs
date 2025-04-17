@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2023 deltanedas <deltanedas@laptop>
+// SPDX-FileCopyrightText: 2023 deltanedas <user@zenith>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -82,7 +100,7 @@ public sealed class EmagSystem : EntitySystem
         if (!emaggedEvent.Handled)
             return false;
 
-        _popup.PopupPredicted(Loc.GetString("emag-success", ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.Medium);
+        _popup.PopupPredicted(Loc.GetString(ent.Comp.SuccessText, ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.Medium); // Goobstation - Success text de-hardcoded
 
         _audio.PlayPredicted(ent.Comp.EmagSound, ent, ent);
 

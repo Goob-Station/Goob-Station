@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 amogus <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: SpawnPointPirates
   parent: MarkerBase
@@ -26,5 +37,7 @@
     name: ghost-role-information-pirate-irs-name # leaving it like that because i'm too lazy to redo it
     description: ghost-role-information-pirate-irs-description
     rules: ghost-role-information-pirate-irs-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
