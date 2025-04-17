@@ -16,9 +16,9 @@ namespace Content.Goobstation.Shared.Religion.Nullrod;
 
 public sealed class NullrodTransformSystem : EntitySystem
 {
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
 
     public override void Initialize()
@@ -31,7 +31,8 @@ public sealed class NullrodTransformSystem : EntitySystem
     {
         if (args.Handled
             || !_netManager.IsServer
-            || HasComp<StorageComponent>(args.Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
+            || HasComp<StorageComponent>(args
+                .Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
             || !_tagSystem.HasTag(args.Used, "Nullrod") // Checks used entity for the tag we need.
            )
             return;

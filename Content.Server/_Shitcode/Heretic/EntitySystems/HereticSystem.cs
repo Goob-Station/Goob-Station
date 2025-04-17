@@ -135,10 +135,6 @@ public sealed class HereticSystem : EntitySystem
 
         GenerateRequiredKnowledgeTags(ent);
         RaiseLocalEvent(ent, new EventHereticRerollTargets());
-
-
-        EnsureComp<WeakToHolyComponent>(ent);
-        EnsureComp<CanEnchantComponent>(ent);
     }
 
     #region Internal events (target reroll, ascension, etc.)

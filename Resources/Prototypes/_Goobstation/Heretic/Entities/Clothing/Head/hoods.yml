@@ -19,6 +19,10 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Heretic/eldritch_hood.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 2
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -35,6 +39,10 @@
   - type: Sprite
     sprite: _Goobstation/Heretic/void_hood.rsi
     state: icon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 2
   - type: Clothing
     sprite: _Goobstation/Heretic/void_hood.rsi
   - type: Tag

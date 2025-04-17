@@ -22,13 +22,6 @@
       components:
       - Puddle # Ruins rust path tile rusting and is annoying in general.
       - HereticRitualRune # This is handled by HereticRitualSystem, blacklisting rune makes it so grasp doesn't disappear when interacting with it.
-  - type: Blocking
-    passiveBlockModifier:
-      coefficients:
-        Holy: 1.35
-    activeBlockModifier:
-      coefficients:
-        Holy: 1.35
   - type: Sprite
     sprite: _Goobstation/Heretic/mansus_grasp.rsi
     state: icon
