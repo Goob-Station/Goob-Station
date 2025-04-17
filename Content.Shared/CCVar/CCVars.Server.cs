@@ -3,6 +3,7 @@
 // SPDX-FileCopyrightText: 2025 Clyde "ChainXyle" Xanthos <vankoughnettsky@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Neptune <154393072+Neptune-Zvezda@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Thomas <87614336+Aeshus@users.noreply.github.com>
