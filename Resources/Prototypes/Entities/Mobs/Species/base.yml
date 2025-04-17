@@ -412,6 +412,7 @@
   - type: SleepEmitSound
   - type: SSDIndicator
   - type: StandingState
+  - type: SpeechSynthesis # Corvax-Frontier-Barks
   - type: Dna
   - type: MindContainer
     showExamineInfo: true

@@ -874,6 +874,13 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("borg_name");
 
+                    // Corvax-Frontier-Barks-start
+                    b.Property<string>("BarkVoice")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("bark_voice");
+                    // Corvax-Frontier-Barks-end
+
                     b.Property<string>("CharacterName")
                         .IsRequired()
                         .HasColumnType("text")

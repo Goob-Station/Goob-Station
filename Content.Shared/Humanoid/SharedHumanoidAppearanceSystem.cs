@@ -35,6 +35,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Preferences;
+using Content.Shared._Corvax.Speech.Synthesis; // Corvax-Frontier-Barks
+using Content.Shared._Corvax.Speech.Synthesis.Components; // Corvax-Frontier-Barks
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -67,6 +69,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
+    // Corvax-Frontier-Barks-start
+    [ValidatePrototypeId<BarkPrototype>]
+    public const string DefaultBarkVoice = "BarksGoonSpeak1";
+    // Corvax-Frontier-Barks-end
 
     public override void Initialize()
     {
@@ -467,6 +473,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         EnsureDefaultMarkings(uid, humanoid);
+        SetBarkVoice(uid, profile.BarkVoice, humanoid); // Corvax-Frontier-Barks
 
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
@@ -546,6 +553,17 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (sync)
             Dirty(uid, humanoid);
     }
+
+    // Corvax-Frontier-Barks-start
+    public void SetBarkVoice(EntityUid uid, string? barkvoiceId, HumanoidAppearanceComponent humanoid)
+    {
+        if (!TryComp<SpeechSynthesisComponent>(uid, out var comp))
+            return;
+
+        humanoid.BarkVoice = barkvoiceId ?? DefaultBarkVoice;
+        comp.VoicePrototypeId = barkvoiceId;
+    }
+    // Corvax-Frontier-Barks-end
 
     /// <summary>
     /// Takes ID of the species prototype, returns UI-friendly name of the species.
