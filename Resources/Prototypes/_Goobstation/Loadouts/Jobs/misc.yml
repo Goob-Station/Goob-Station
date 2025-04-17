@@ -7,6 +7,20 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+- type: loadoutEffectGroup
+  id: PersonalAI
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobResearchDirector
+      time: 36000 # 10 hrs
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBorg
+      time: 36000 # 10 hrs
+
 - type: loadout
   id: Bodycam
   equipment:
@@ -24,6 +38,27 @@
     proto: EffectSpeciesVox
   equipment:
     mask: ClothingMaskClownUnremoveable
+
+- type: loadout
+  id: PersonalAI
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PersonalAI
+  storage:
+    back:
+    - PersonalAI
+
+- type: loadout
+  id: GoldPersonalAI
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobStationAi
+      time: 180000 # 50 hrs
+  storage:
+    back:
+    - GoldPersonalAI
 
 # Cheap Sunglasses
 - type: loadout
