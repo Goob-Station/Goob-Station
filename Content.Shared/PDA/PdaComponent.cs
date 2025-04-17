@@ -76,6 +76,9 @@ namespace Content.Shared.PDA
         [DataField("id", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string? IdCard;
 
+        [DataField("pen", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        public string? Pen;
+
         [ViewVariables] public EntityUid? ContainedId;
         [ViewVariables] public bool FlashlightOn;
 

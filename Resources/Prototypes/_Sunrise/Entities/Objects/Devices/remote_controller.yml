@@ -1,0 +1,87 @@
+﻿- type: entity
+  id: RemoteShuttleControllerBase
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Sunrise/Entities/Objects/Devices/remote_controller.rsi
+  - type: Item
+    size: Normal
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+  - type: ShuttleConsole
+    portable: true
+  - type: RadarConsole
+    maxRange: 256
+  - type: ActivatableUI
+    key: enum.ShuttleConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ShuttleConsoleUiKey.Key:
+        type: ShuttleConsoleBoundUserInterface
+
+- type: entity
+  id: RemoteAssaultOpsShuttleController
+  parent: RemoteShuttleControllerBase
+  name: Удаленный контроллер управления шаттлом (Диверсионный отряд)
+  description: Теперь вам не нужен пилот, ведь пилот это вы!
+  components:
+  - type: Sprite
+    state: syndicate
+  - type: DroneConsole
+    portable: true
+    components:
+    - type: AssaultOpsShuttle
+
+- type: entity
+  id: RemoteNukeOpShuttleController
+  parent: RemoteShuttleControllerBase
+  name: Удаленный контроллер управления шаттлом (Ядерные оперативки)
+  description: Теперь вам не нужен пилот, ведь пилот это вы!
+  components:
+  - type: Sprite
+    state: syndicate
+  - type: DroneConsole
+    portable: true
+    components:
+    - type: NukeOpsShuttle
+
+- type: entity
+  id: RemoteSecurityShuttleController
+  parent: RemoteShuttleControllerBase
+  name: Удаленный контроллер управления шаттлом (Шаттл службы безопастности)
+  description: Теперь вам не нужен пилот, ведь пилот это вы!
+  components:
+  - type: Sprite
+    state: nanotrasen
+  - type: DroneConsole
+    portable: true
+    components:
+    - type: SecurityShuttle
+
+- type: entity
+  id: RemoteCargoShuttleController
+  parent: RemoteShuttleControllerBase
+  name: Удаленный контроллер управления шаттлом (Шаттл карго)
+  description: Теперь вам не нужен пилот, ведь пилот это вы!
+  components:
+  - type: Sprite
+    state: nanotrasen
+  - type: DroneConsole
+    portable: true
+    components:
+    - type: CargoShuttle
+
+- type: entity
+  id: RemotePrisonShuttleController
+  parent: RemoteShuttleControllerBase
+  name: Удаленный контроллер управления шаттлом (Тюремный шаттл)
+  description: Теперь вам не нужен пилот, ведь пилот это вы!
+  components:
+  - type: Sprite
+    state: nanotrasen
+  - type: DroneConsole
+    portable: true
+    components:
+    - type: PrisonShuttle

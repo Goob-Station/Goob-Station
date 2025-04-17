@@ -37,6 +37,9 @@ public sealed partial class GameRuleComponent : Component
     [DataField]
     public int MinPlayers;
 
+    [DataField]
+    public int MinCommandStaff;
+
     /// <summary>
     /// If true, this rule not having enough players will cancel the preset selection.
     /// If false, it will simply not run silently.

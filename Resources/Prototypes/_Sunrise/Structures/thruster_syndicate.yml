@@ -1,0 +1,33 @@
+- type: entity
+  id: ThrusterSyndicate
+  parent: [ BaseThruster, ConstructibleMachine ]
+  components:
+    - type: Thruster
+      baseThrust: 150
+    - type: Machine
+      board: ThrusterSyndicateMachineCircuitboard
+    - type: Sprite
+      sprite: _Sunrise/Structures/Shuttles/syndicate_thruster.rsi
+      layers:
+        - state: base
+          map: ["enum.ThrusterVisualLayers.Base"]
+        - state: red_thrust
+          map: ["enum.ThrusterVisualLayers.ThrustOn"]
+          shader: unshaded
+          visible: false
+        - state: red_thrust_burn_unshaded
+          map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+          shader: unshaded
+          visible: false
+          offset: 0, 1
+
+- type: entity
+  id: ThrusterSyndicateMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: thruster syndie machine board
+  components:
+  - type: MachineBoard
+    prototype: ThrusterSyndicate
+    stackRequirements:
+      Capacitor: 4
+      Steel: 5

@@ -38,6 +38,8 @@ namespace Content.Shared.PDA
         {
             if (pda.IdCard != null)
                 pda.IdSlot.StartingItem = pda.IdCard;
+            if (pda.Pen != null)
+                pda.PenSlot.StartingItem = pda.Pen;
 
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaIdSlotId, pda.IdSlot);
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPenSlotId, pda.PenSlot);

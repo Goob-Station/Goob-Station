@@ -58,6 +58,11 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (component.ImplantedEntity == null || _net.IsClient)
             return;
 
+        // Sunrise-Start
+        if (args.Container.ID != "implant")
+            return;
+        // Sunrise-End
+
         if (!string.IsNullOrWhiteSpace(component.ImplantAction))
         {
             _actionsSystem.AddAction(component.ImplantedEntity.Value, ref component.Action, component.ImplantAction, uid);
@@ -82,6 +87,11 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
 
     private void OnRemoveAttempt(EntityUid uid, SubdermalImplantComponent component, ContainerGettingRemovedAttemptEvent args)
     {
+        // Sunrise-Start
+        if (args.Container.ID != "implant")
+            return;
+        // Sunrise-End
+
         if (component.Permanent && component.ImplantedEntity != null)
             args.Cancel();
     }
@@ -90,6 +100,11 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     {
         if (component.ImplantedEntity == null || Terminating(component.ImplantedEntity.Value))
             return;
+
+        // Sunrise-Start
+        if (args.Container.ID != "implant")
+            return;
+        // Sunrise-End
 
         if (component.ImplantAction != null)
             _actionsSystem.RemoveProvidedActions(component.ImplantedEntity.Value, uid);
@@ -107,6 +122,11 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         {
             _transformSystem.DropNextTo(entity, uid);
         }
+
+        // Sunrsie-Start
+        var ev = new ImplantEjectEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(uid, ref ev);
+        // Sunrsie-End
     }
 
     /// <summary>
@@ -242,22 +262,17 @@ public readonly struct ImplantImplantedEvent
         Implanted = implanted;
     }
 }
-
-// GoobStation
-
-/// <summary>
-/// Event that is raised whenever removed implant from implanted entity.
-/// Raised on implanted entity.
-/// </summary>
+// Sunrise-Start
 [ByRefEvent]
-public readonly struct ImplantRemovedFromEvent
+public readonly struct ImplantEjectEvent
 {
     public readonly EntityUid Implant;
-    public readonly EntityUid Implanted;
+    public readonly EntityUid? Implanted;
 
-    public ImplantRemovedFromEvent(EntityUid implant, EntityUid implanted)
+    public ImplantEjectEvent(EntityUid implant, EntityUid? implanted)
     {
         Implant = implant;
         Implanted = implanted;
     }
 }
+// Sunrise-End

@@ -1,0 +1,9 @@
+# Assault Operative
+- type: entity
+  categories: [ HideSpawnMenu ]
+  name: Assault Operative
+  parent: MobHuman
+  id: MobHumanAssaultOp
+  components:
+    - type: AssaultOperative
+    - type: RandomHumanoidAppearance

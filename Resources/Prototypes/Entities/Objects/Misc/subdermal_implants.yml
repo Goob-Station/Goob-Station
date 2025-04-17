@@ -93,6 +93,7 @@
 
 - type: entity
   id: BaseSubdermalImplant
+  parent: BaseItem
   name: implant
   description: A microscopic chip that's injected under the skin.
   abstract: true
@@ -101,7 +102,13 @@
   - type: Tag
     tags:
     - SubdermalImplant
-    - HideContextMenu
+  # Sunrsie-Start
+  - type: Sprite
+    sprite: _Sunrise/Entities/Objects/Implants/implants.rsi
+    state: reviver_implant
+  - type: Item
+    size: Tiny
+  # Sunrsie-End
 
 #Fun implants
 
@@ -110,7 +117,7 @@
   id: SadTromboneImplant
   name: sad trombone implant
   description: This implant plays a sad tune when the user dies.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] Sunrsie-Edit
   components:
     - type: SubdermalImplant
       whitelist:
@@ -130,7 +137,7 @@
   id: LightImplant
   name: light implant
   description: This implant emits light from the user's skin on activation.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantAction: ActionToggleLight
@@ -143,7 +150,6 @@
     - type: Tag
       tags:
         - SubdermalImplant
-        - HideContextMenu
         - Flashlight
     - type: UnpoweredFlashlight
 
@@ -152,7 +158,7 @@
   id: BikeHornImplant
   name: bike horn implant
   description: This implant lets the user honk anywhere at any time.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateHonkImplant
@@ -165,6 +171,7 @@
     - type: Tag
       tags:
       - BikeHorn
+      - SubdermalImplant # Sunrsie-Edit
 
 #Security implants
 
@@ -173,7 +180,7 @@
   id: TrackingImplant
   name: tracking implant
   description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Security radio channel.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       whitelist:
@@ -197,6 +204,50 @@
     - type: Rattle
       radioChannel: "Security"
 
+#ERT implants Sunrise-start
+#- type: entity
+#  parent: [ BaseSubdermalImplant, StorePresetUplink ]
+#  id: UplinkImplantErt
+#  name: uplink implant
+#  description: This implant lets the user access a hidden Syndicate uplink at will.
+#  categories: [ HideSpawnMenu ]  Sunrsie-Edit
+#  components:
+#  - type: SubdermalImplant
+#    implantAction: ActionOpenUplinkImplantErt
+#    whitelist:
+#      components:
+#      - Hands
+#  - type: Store
+#    balance:
+#    Bluecrystal: 0
+#    Crystallite: 0
+#  - type: UserInterface
+#    interfaces:
+#      enum.StoreUiKey.Key:
+#        type: StoreBoundUserInterface
+#  - type: Tag
+#    tags:
+#    - NTUplink
+#    - SubdermalImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: TrackingImplantErt
+  name: tracking ERT implant
+  description: This implant has a tracking device attached to the suit sensor network, as well as a condition monitor for the Centcom radio channel.
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
+  components:
+    - type: SubdermalImplant
+      whitelist:
+        components:
+        - MobState # admeme implanting a chair with tracking implant needs to give the chair mobstate so it can die first
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Critical
+    - type: Rattle
+      radioChannel: "CentCom"
+#Sunrise-end
+
 #Traitor implants
 
 - type: entity
@@ -204,7 +255,7 @@
   id: StorageImplant
   name: storage implant
   description: This implant grants hidden storage within a person's body using bluespace technology.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantAction: ActionOpenStorageImplant
@@ -228,7 +279,7 @@
   id: FreedomImplant
   name: freedom implant
   description: This implant lets the user break out of hand restraints up to three times before ceasing to function anymore.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateFreedomImplant
@@ -253,7 +304,7 @@
   id: UplinkImplant
   name: uplink implant
   description: This implant lets the user access a hidden Syndicate uplink at will.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
   - type: SubdermalImplant
     implantAction: ActionOpenUplinkImplant
@@ -267,13 +318,19 @@
     interfaces:
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+#Sunrise-start
+  - type: Tag
+    tags:
+    - SyndieAgentUplink
+    - SubdermalImplant
+#Sunrise-end
 
 - type: entity
   parent: BaseSubdermalImplant
   id: EmpImplant
   name: EMP implant
   description: This implant creates an electromagnetic pulse when activated.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateEmpImplant
@@ -288,7 +345,7 @@
   id: ScramImplant
   name: scram implant
   description: This implant randomly teleports the user within a large radius when activated.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateScramImplant
@@ -303,7 +360,7 @@
   id: DnaScramblerImplant
   name: DNA scrambler implant
   description: This implant lets the user randomly change their appearance and name once.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantAction: ActionActivateDnaScramblerImplant
@@ -318,11 +375,11 @@
   id: MicroBombImplant
   name: micro-bomb implant
   description: This implant detonates the user upon activation or upon death.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]  Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantationTimeMultiplier: 4 # Goobstation - Traitor suicide implants
-      permanent: true
+      #permanent: true Sunrsie-Edit
       implantAction: ActionActivateMicroBomb
     - type: TriggerOnMobstateChange
       mobState:
@@ -340,7 +397,6 @@
     - type: Tag
       tags:
         - SubdermalImplant
-        - HideContextMenu
         - MicroBomb
 
 
@@ -349,11 +405,11 @@
   id: MacroBombImplant
   name: macro-bomb implant
   description: This implant creates a large explosion on death after a preprogrammed countdown.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] Sunrsie-Edit
   components:
     - type: SubdermalImplant
       implantationTimeMultiplier: 4 # Goobstation - Traitor suicide implants
-      permanent: true
+      #permanent: true Sunrsie-Edit
     - type: TriggerOnMobstateChange #Chains with OnUseTimerTrigger
       mobState:
       - Dead
@@ -377,7 +433,6 @@
     - type: Tag
       tags:
         - SubdermalImplant
-        - HideContextMenu
         - MacroBomb
 
 - type: entity
@@ -385,11 +440,11 @@
   id: DeathAcidifierImplant
   name: death-acidifier implant
   description: This implant melts the user and their equipment upon death.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] Sunrsie-Edit
   components:
   - type: SubdermalImplant
     implantationTimeMultiplier: 4 # Goobstation - Traitor suicide implants
-    permanent: true
+    #permanent: true Sunrsie-Edit
     implantAction: ActionActivateDeathAcidifier
   - type: TriggerOnMobstateChange
     mobState:
@@ -402,7 +457,6 @@
   - type: Tag
     tags:
     - SubdermalImplant
-    - HideContextMenu
     - DeathAcidifier
 
 - type: entity
@@ -410,10 +464,10 @@
   id: DeathRattleImplant
   name: death rattle implant
   description: This implant will inform the Syndicate radio channel should the user fall into critical condition or die.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] Sunrsie-Edit
   components:
     - type: SubdermalImplant
-      permanent: true
+      #permanent: true Sunrsie-Edit
       whitelist:
         components:
         - MobState # admeme implanting a chair with rattle implant needs to give the chair mobstate so it can die first
@@ -442,13 +496,15 @@
   id: MindShieldImplant
   name: mindshield implant
   description: This implant will ensure loyalty to Nanotrasen and prevent mind control devices.
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ] Sunrsie-Edit
   components:
    - type: SubdermalImplant
+     #permanent: true Sunrsie-Edit
    - type: MindShieldImplant
    - type: Tag
      tags:
        - MindShield
+       - SubdermalImplant
 
 # Centcomm implants
 

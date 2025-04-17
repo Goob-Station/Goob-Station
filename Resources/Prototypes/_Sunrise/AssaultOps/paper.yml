@@ -1,0 +1,11 @@
+﻿- type: entity
+  name: цель
+  parent: Paper
+  id: DocumentAssaultOpsGoal
+  components:
+  - type: Paper
+    content: assault-ops-document-goal
+    stampState: paper_stamp-syndicate
+    stampedBy:
+    - stampedColor: '#850000FF'
+      stampedName: stamp-component-stamped-name-syndicate

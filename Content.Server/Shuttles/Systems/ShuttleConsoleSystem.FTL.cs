@@ -158,6 +158,13 @@ public sealed partial class ShuttleConsoleSystem
     {
         var consoleUid = GetDroneConsole(ent.Owner);
 
+        // Sunrise-Start
+        if (TryComp<DroneConsoleComponent>(consoleUid, out var droneConsole))
+        {
+            consoleUid = droneConsole.Entity;
+        }
+        // Sunrise-End
+
         if (consoleUid == null)
             return;
 

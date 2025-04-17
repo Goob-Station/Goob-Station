@@ -1,0 +1,20 @@
+﻿- type: entity
+  parent: BaseItem
+  id: IcarusKey
+  name: icarus authentication keycard
+  description: A high profile authentication keycard to Nanotrasen's Icarus secured network.
+  components:
+  - type: Sprite
+    sprite: _Sunrise/AssaultOperatives/goldeneye_key.rsi
+    layers:
+      - state: key
+  - type: IcarusKey
+  - type: Item
+    size: Tiny
+  - type: WarpPoint
+    follow: true
+    location: Icarus key
+  - type: SubdermalImplant
+  - type: Tag
+    tags:
+    - SubdermalImplant

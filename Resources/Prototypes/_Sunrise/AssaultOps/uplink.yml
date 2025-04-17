@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseUplinkRadio
+  id: UplinkRadioAssaultOperatives0TC
+  suffix: AssaultOps
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 0
+  - type: Tag
+    tags:
+    - AssaultOpsUplink
+
+
+- type: entity
+  parent: BaseUplinkRadio
+  id: UplinkRadioAssaultOperatives40TC
+  suffix: AssaultOps
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 40
+  - type: Tag
+    tags:
+    - AssaultOpsUplink

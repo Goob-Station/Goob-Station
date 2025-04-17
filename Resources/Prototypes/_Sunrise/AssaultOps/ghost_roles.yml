@@ -1,0 +1,35 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointAssaultOpsCommander
+  components:
+  - type: GhostRole
+    name: Командир диверсионного отряда
+    description: Вы являетесь оперативником синдиката, назначенным на уничтожение станции. Вашей задачей как антагониста является выполнение всего необходимого для достижения этой цели.
+    rules: ghost-role-information-rules-default-team-antagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Sunrise/Interface/Misc/antag_preview.rsi
+      state: test
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointAssaultOpsOperative
+  components:
+  - type: GhostRole
+    name: Оперативник диверсионного отряда
+    description: Вы являетесь оперативником синдиката, назначенным на уничтожение станции. Вашей задачей как антагониста является выполнение всего необходимого для достижения этой цели.
+    rules: ghost-role-information-rules-default-team-antagonist
+    raffle:
+      settings: default
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: _Sunrise/Interface/Misc/antag_preview.rsi
+      state: test

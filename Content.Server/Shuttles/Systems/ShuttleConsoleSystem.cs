@@ -286,7 +286,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         if (!_tags.HasTag(user, "CanPilot") ||
             !TryComp<ShuttleConsoleComponent>(uid, out var component) ||
             !this.IsPowered(uid, EntityManager) ||
-            !Transform(uid).Anchored ||
+            !Transform(uid).Anchored && !component.Portable || // Sunrise-Edit
             !_blocker.CanInteract(user, uid))
         {
             return false;
@@ -366,6 +366,13 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         RaiseLocalEvent(entity.Value, ref getShuttleEv);
         entity = getShuttleEv.Console;
+
+        // Sunrise-Start
+        if (TryComp<DroneConsoleComponent>(entity, out var droneConsole))
+        {
+            entity = droneConsole.Entity;
+        }
+        // Sunrise-End
 
         TryComp(entity, out TransformComponent? consoleXform);
         var shuttleGridUid = consoleXform?.GridUid;

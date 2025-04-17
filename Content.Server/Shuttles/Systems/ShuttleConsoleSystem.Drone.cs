@@ -70,7 +70,7 @@ public sealed partial class ShuttleConsoleSystem
 
         var stationUid = _station.GetOwningStation(uid);
 
-        if (stationUid == null)
+        if (stationUid == null && !component.Portable)
             return null;
 
         // I know this sucks but needs device linking or something idunno
@@ -78,9 +78,9 @@ public sealed partial class ShuttleConsoleSystem
 
         while (query.MoveNext(out var cUid, out _, out var xform))
         {
-            if (xform.GridUid == null ||
+            if ((xform.GridUid == null ||
                 !TryComp<StationMemberComponent>(xform.GridUid, out var member) ||
-                member.Station != stationUid)
+                member.Station != stationUid) && !component.Portable)
             {
                 continue;
             }

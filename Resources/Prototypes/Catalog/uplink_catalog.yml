@@ -244,6 +244,7 @@
   - UplinkWeaponry
 
 
+
 - type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
@@ -1215,7 +1216,7 @@
         tags:
           - NukeOpsUplink
           - ContravendUplink
-
+          - AssaultOpsUplink
 
 # Goobstation - Nukeop reinforcement
 - type: listing

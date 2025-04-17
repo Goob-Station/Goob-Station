@@ -1,0 +1,10 @@
+- type: entity
+  parent: PassengerPDA
+  id: AssaultOpsPDA
+  name: passenger PDA
+  description: Why isn't it gray?
+  components:
+    - type: Pda
+      id: AgentIDCard
+      pen: Hypopen
+      state: pda

@@ -1,0 +1,13 @@
+﻿- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskGaiter
+  name: neck gaiter
+  description: For the agent wanting to keep a low profile whilst concealing their identity. Has a small respirator to be used with internals.
+  components:
+    - type: Sprite
+      sprite: _Sunrise/AssaultOperatives/gaiter.rsi
+    - type: Clothing
+      sprite: _Sunrise/AssaultOperatives/gaiter.rsi
+    - type: BreathMask
+    - type: IngestionBlocker
+    - type: IdentityBlocker

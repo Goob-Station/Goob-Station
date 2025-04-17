@@ -166,6 +166,7 @@
     #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
   inhand:
   - NukeOpsDeclarationOfWar
+  - RemoteNukeOpShuttleController # Sunrise-Edit
 
 #Nuclear Operative Medic Gear
 - type: startingGear

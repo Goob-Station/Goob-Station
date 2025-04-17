@@ -1,0 +1,41 @@
+- type: startingGear
+  id: AssaultOperativeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTactical
+    back: ClothingBackpackAssaultOpsFill
+    mask: ClothingMaskGaiter
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesColorBlack
+    id: AssaultOpsPDA
+  # SUNRISE-TODO: Лоадаут для ДОшников
+  #innerclothingskirt: ClothingUniformJumpsuitTactical
+
+- type: startingGear
+  id: LoneAssaultOperativeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTactical
+    back: ClothingBackpackAssaultOpsFill
+    mask: ClothingMaskGaiter
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesColorBlack
+    id: AssaultOpsPDA
+    pocket2: UplinkRadioAssaultOperatives40TC
+  # SUNRISE-TODO: Лоадаут для ДОшников
+  #innerclothingskirt: ClothingUniformJumpsuitTactical
+
+- type: startingGear
+  id: AssaultCommanderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTactical
+    back: ClothingBackpackAssaultOpsFill
+    mask: ClothingMaskGaiter
+    eyes: ClothingEyesGlassesSunglasses
+    shoes: ClothingShoesColorBlack
+    id: AssaultOpsPDA
+    pocket1: RemoteAssaultOpsShuttleController
+    pocket2: UplinkRadioAssaultOperatives0TC
+  # SUNRISE-TODO: Лоадаут для ДОшников
+  #innerclothingskirt: ClothingUniformJumpsuitTactical
+  inhand:
+  - FlippoLighter
+  - DocumentAssaultOpsGoal

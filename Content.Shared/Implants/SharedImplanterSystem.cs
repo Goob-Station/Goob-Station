@@ -58,6 +58,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         SubscribeLocalEvent<ImplanterComponent, ComponentInit>(OnImplanterInit);
         SubscribeLocalEvent<ImplanterComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<ImplanterComponent, EntRemovedFromContainerMessage>(OnEntEjected); // Sunrise-Edit
         SubscribeLocalEvent<ImplanterComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<ImplanterComponent, UseInHandEvent>(OnUseInHand);
@@ -81,7 +82,18 @@ public abstract class SharedImplanterSystem : EntitySystem
     {
         var implantData = EntityManager.GetComponent<MetaDataComponent>(args.Entity);
         component.ImplantData = (implantData.EntityName, implantData.EntityDescription);
+        ChangeOnImplantVisualizer(uid, component); // Sunrise-Edit
+        Dirty(uid, component); // Sunrise-Edit
     }
+
+    // Sunrise-Start
+    private void OnEntEjected(EntityUid uid, ImplanterComponent component, EntRemovedFromContainerMessage args)
+    {
+        component.ImplantData = ("", "");
+        ChangeOnImplantVisualizer(uid, component);
+        Dirty(uid, component);
+    }
+    // Sunrise-End
 
     private void OnExamine(EntityUid uid, ImplanterComponent component, ExaminedEvent args)
     {

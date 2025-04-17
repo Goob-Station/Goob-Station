@@ -1,0 +1,11 @@
+- type: entity
+  id: SpawnPointAssaultOps
+  parent: MarkerBase
+  name: assaultops
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Objects/Fun/toys.rsi
+      state: base

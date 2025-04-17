@@ -86,6 +86,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Server.Cuffs;
 using Content.Server.Forensics;
 using Content.Server.Humanoid;
@@ -107,11 +108,15 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using System.Numerics;
+using Content.Server.Body.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
 using Content.Shared.Store.Components;
+using Robust.Server.Containers;
+using Robust.Shared.Collections;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.Implants;
 
@@ -128,6 +133,10 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
+
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    private HashSet<Entity<MapGridComponent>> _targetGrids = [];
 
     public override void Initialize()
     {
@@ -138,6 +147,37 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
         SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
         SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
+        SubscribeLocalEvent<ImplantedComponent, BeingGibbedEvent>(OnGibbed);
+    }
+
+    private void OnGibbed(EntityUid uid, ImplantedComponent component, BeingGibbedEvent args)
+    {
+        if (!_container.TryGetContainer(uid, ImplanterComponent.ImplantSlotId, out var implantContainer))
+            return;
+
+        foreach (var implant in implantContainer.ContainedEntities)
+        {
+            if (!TryComp<SubdermalImplantComponent>(implant, out var subdermalImplant))
+                continue;
+
+            if (!subdermalImplant.DropContainerItemsIfGibbed)
+                continue;
+
+            if (!_container.TryGetContainer(implant, BaseStorageId, out var storageImplant))
+                continue;
+
+            var entCoords = Transform(uid).Coordinates;
+
+            var containedEntites = storageImplant.ContainedEntities.ToArray();
+
+            foreach (var entity in containedEntites)
+            {
+                if (Terminating(entity))
+                    continue;
+
+                _container.RemoveEntity(storageImplant.Owner, entity, force: true, destination: entCoords);
+            }
+        }
     }
 
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)

@@ -1,0 +1,53 @@
+﻿- type: entity
+  id: IcarusBeam
+  name: icarus
+  categories: [ HideSpawnMenu ]
+  description: A beam of light from the sun.
+  components:
+  - type: Clickable
+  - type: MovementIgnoreGravity
+  - type: Sprite
+    sprite: _Sunrise/AssaultOperatives/sunray.rsi
+    drawdepth: Effects
+    noRot: false
+    netsync: false
+    scale: 6, 6
+    layers:
+      - state: sunray_splash
+      - state: sunray
+        offset: 0, 1
+      - state: sunray_muzzle
+        offset: 0, 2
+  - type: IcarusBeam
+  - type: AmbientSound
+    range: 14
+    sound:
+      path: /Audio/_Sunrise/AssaultOperatives/sunbeam_loop.ogg
+  - type: Physics
+    bodyType: Dynamic
+    bodyStatus: InAir
+    linearDamping: 0
+    angularDamping: 0
+  - type: PointLight
+    radius: 12
+    color: yellow
+    energy: 10.0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2
+        density: 1
+        hard: false
+        mask:
+          - Impassable
+          - BulletImpassable
+        layer:
+          - Impassable
+          - MidImpassable
+          - HighImpassable
+          - LowImpassable
+  - type: WarpPoint
+    follow: true
+    location: Icarus beam

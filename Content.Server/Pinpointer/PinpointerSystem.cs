@@ -19,8 +19,11 @@ using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Popups;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Events;
+using Content.Shared.Verbs;
+using Robust.Shared.Random;
 
 namespace Content.Server.Pinpointer;
 
@@ -28,6 +31,8 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly PopupSystem _popups = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -38,6 +43,44 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 
         SubscribeLocalEvent<PinpointerComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<FTLCompletedEvent>(OnLocateTarget);
+
+        SubscribeLocalEvent<PinpointerComponent, GetVerbsEvent<AlternativeVerb>>(AddSwitchVerb);
+    }
+
+    private void AddSwitchVerb(EntityUid uid, PinpointerComponent component, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () =>
+            {
+                SwitchTarget(uid, component, args.User);
+            },
+            Text = Loc.GetString("pinpointer-switch-target"),
+            Priority = 2
+        };
+        args.Verbs.Add(verb);
+    }
+
+    private void SwitchTarget(EntityUid uid, PinpointerComponent component, EntityUid user)
+    {
+        if (component.IsActive && component.Component != null)
+        {
+            if (!EntityManager.ComponentFactory.TryGetRegistration(component.Component, out var reg))
+            {
+                Logger.Error($"Unable to find component registration for {component.Component} for pinpointer!");
+                DebugTools.Assert(false);
+                return;
+            }
+
+            var target = FindTargetFromComponent(uid, reg.Type, component.Target);
+
+            SetTarget(uid, target, component);
+        }
+
+        _popups.PopupEntity(Loc.GetString("pinpointer-target-switched"), user, user);
     }
 
     public override bool TogglePinpointer(EntityUid uid, PinpointerComponent? pinpointer = null)
@@ -101,7 +144,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
                 return;
             }
 
-            var target = FindTargetFromComponent(uid, reg.Type);
+            var target = FindTargetFromComponent(uid, reg.Type, component.Target);
             SetTarget(uid, target, component);
         }
     }
@@ -123,7 +166,7 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
     ///     Try to find the closest entity from whitelist on a current map
     ///     Will return null if can't find anything
     /// </summary>
-    private EntityUid? FindTargetFromComponent(EntityUid uid, Type whitelist, TransformComponent? transform = null)
+    private EntityUid? FindTargetFromComponent(EntityUid uid, Type whitelist, EntityUid? currentTarget, TransformComponent? transform = null)
     {
         _xformQuery.Resolve(uid, ref transform, false);
 
@@ -142,6 +185,17 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
 
             var dist = (_transform.GetWorldPosition(compXform) - worldPos).LengthSquared();
             l.TryAdd(dist, otherUid);
+        }
+
+        if (l.Count > 1)
+        {
+            foreach (var target in l.ToList())
+            {
+                if (currentTarget == target.Value)
+                    l.Remove(target.Key);
+            }
+
+            return _random.Pick(l).Value;
         }
 
         // return uid with a smallest distance

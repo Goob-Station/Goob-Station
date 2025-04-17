@@ -57,11 +57,11 @@
         - Guardian # no holoparasite macrobomb wombo combo
         tags:
         - Unimplantable
-      currentMode: Draw
+      currentMode: Inject #Sunrise-Edit
       implanterSlot:
         name: Implant
-        locked: True
-        priority: 0
+        ejectOnBreak: true #Sunrise-Edit
+        swap: false #Sunrise-Edit
         whitelist:
           tags:
             - SubdermalImplant

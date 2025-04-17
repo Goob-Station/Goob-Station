@@ -1,0 +1,16 @@
+﻿- type: entity
+  name: pinpointer
+  id: PinpointerIcarus
+  parent: PinpointerBase
+  components:
+    - type: Pinpointer
+      component: IcarusKey
+    - type: Sprite
+      sprite: _Sunrise/AssaultOperatives/pinpointer.rsi
+      layers:
+        - state: pinpointer_icarus
+          map: ["enum.PinpointerLayers.Base"]
+        - state: pinonnull
+          map: ["enum.PinpointerLayers.Screen"]
+          shader: unshaded
+          visible: false
