@@ -1,4 +1,8 @@
-﻿using Content.Shared._Sunrise.Interrogator;
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._Sunrise.Interrogator;
 using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;

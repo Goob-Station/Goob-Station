@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._Sunrise.AssaultOps.Icarus;
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
