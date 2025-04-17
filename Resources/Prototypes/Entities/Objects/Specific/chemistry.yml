@@ -153,6 +153,7 @@
 # SPDX-FileCopyrightText: 2025 botanySupremist <definitelyrealBotSupremist@gmail.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -771,6 +772,7 @@
     tags:
     - Syringe
     - Trash
+    - SyringeGunAmmo # Goobstation - bluespace syringe can be fired, so should the cryostasis syringe
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 62

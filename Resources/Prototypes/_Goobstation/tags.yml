@@ -168,7 +168,7 @@
   id: EnergySpeedloaderLethal
 
 - type: Tag
-  id: EnergySpeedloaderTerminate
+  id: EnergySpeedloaderPulse
 
 - type: Tag
   id: ExtendedEmergencyOxygenTank

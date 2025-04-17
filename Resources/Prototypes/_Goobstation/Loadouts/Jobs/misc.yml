@@ -59,3 +59,9 @@
   storage:
     back:
     - GoldPersonalAI
+
+# Cheap Sunglasses
+- type: loadout
+  id: CheapSunglasses
+  equipment: 
+    eyes: ClothingEyesGlassesCheapSunglasses
