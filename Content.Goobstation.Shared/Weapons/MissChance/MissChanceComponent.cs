@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Weapons.MissChance;
@@ -6,8 +7,5 @@ namespace Content.Goobstation.Shared.Weapons.MissChance;
 public sealed partial class MissChanceComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float Chance = 0.65f; // 65%
-
-    [DataField, AutoNetworkedField]
-    public bool MissNext;
+    public float Chance = 0.35f; // 65% to hit the target
 }

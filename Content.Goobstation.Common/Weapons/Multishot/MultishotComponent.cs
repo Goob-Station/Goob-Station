@@ -21,7 +21,7 @@ public sealed partial class MultishotComponent : Component
     /// Shows that this entity is affected with multishot debuffs.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public bool MultishotAffected = false;
+    public bool MultishotAffected;
 
     /// <summary>
     /// The chance of bullet fired of the gun while dual-wielding getting its BulletImpassable fixture layer removed.
@@ -47,11 +47,14 @@ public sealed partial class MultishotComponent : Component
     /// Cry: Can't use DamageSpecifier because this component is in Common.
     /// </summary>
     [DataField]
-    public float HandDamage = 0f;
+    public float HandDamage;
 
     /// <summary>
     ///  Stamina damage applied to the entity when firing this gun with another one.
     /// </summary>
     [DataField]
-    public float StaminaDamage = 0f;
+    public float StaminaDamage;
+
+    [DataField]
+    public static string ExamineMessage = "multishot-component-examine";
 }

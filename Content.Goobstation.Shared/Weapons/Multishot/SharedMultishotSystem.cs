@@ -21,6 +21,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -28,6 +29,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Shared.Weapons.Multishot;
 
@@ -50,6 +52,7 @@ public sealed class SharedMultishotSystem : EntitySystem
         SubscribeLocalEvent<MultishotComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
         SubscribeLocalEvent<MultishotComponent, GunShotEvent>(OnGunShot);
         SubscribeLocalEvent<MultishotComponent, AmmoShotEvent>(OnAmmoShot);
+        SubscribeLocalEvent<MultishotComponent, ExaminedEvent>(OnExamined);
         SubscribeAllEvent<RequestShootEvent>(OnRequestShoot);
     }
 
@@ -172,6 +175,14 @@ public sealed class SharedMultishotSystem : EntitySystem
             Dirty(gun.Item1, gun.Item3);
             _gunSystem.RefreshModifiers(gun.Item1);
         }
+    }
+
+    private void OnExamined(Entity<MultishotComponent> ent, ref ExaminedEvent args)
+    {
+        var message = new FormattedMessage();
+        var chance = (MathF.Round(ent.Comp.MissChance * 100f)).ToString();
+        message.AddText(Loc.GetString(MultishotComponent.ExamineMessage, ("chance", chance)));
+        args.PushMessage(message);
     }
 
     /// <summary>

@@ -2,13 +2,14 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Weapons.MissChance;
 
 public sealed class MissChanceSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -18,9 +19,12 @@ public sealed class MissChanceSystem : EntitySystem
 
     private void PreventCollide(Entity<MissChanceComponent> ent, ref PreventCollideEvent args)
     {
+        // This piece of goidacode guarantees synchronized random
+        var random = new Random((int) _timing.CurTick.Value + (int) GetNetEntity(ent));
+
         if (args.Cancelled
         || !HasComp<MobStateComponent>(args.OtherEntity)
-        || !_random.Prob(ent.Comp.Chance))
+        || !random.Prob(ent.Comp.Chance))
             return;
 
         args.Cancelled = true;
