@@ -21,7 +21,7 @@
       containers:
         machine_board: !type:Container
         machine_parts: !type:Container
-    - type: VirologyServer
+    # - type: VirologyServer # TODO virology ui
     - type: SingletonDeviceNetServer
     - type: DeviceNetwork
       deviceNetId: Wireless
