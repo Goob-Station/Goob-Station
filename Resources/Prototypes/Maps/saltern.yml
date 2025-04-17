@@ -49,7 +49,6 @@
             StationAi: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ] # Goobstation
             BlueshieldOfficer: [ 1, 1 ] # Goobstation
-            NanotrasenCareerTrainer: [ 1, 1 ] # Goobstation
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]

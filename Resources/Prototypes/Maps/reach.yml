@@ -44,7 +44,6 @@
           availableJobs:
             NanotrasenRepresentative: [ 1, 1 ] # Goobstation
             BlueshieldOfficer: [ 1, 1 ] # Goobstation
-            NanotrasenCareerTrainer: [ 1, 1 ] # Goobstation
             Captain: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 1, 2 ]
