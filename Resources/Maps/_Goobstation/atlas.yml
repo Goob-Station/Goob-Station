@@ -4105,7 +4105,7 @@ entities:
       pos: -24.5,16.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1885.2059
+      secondsUntilStateChange: -1857.5349
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -49418,13 +49418,6 @@ entities:
     components:
     - type: Transform
       pos: -6.5,15.5
-      parent: 2
-- proto: SpawnPointNanotrasenCareerTrainer
-  entities:
-  - uid: 223004
-    components:
-    - type: Transform
-      pos: 39.5,2.5
       parent: 2
 - proto: SpawnPointNanotrasenRepresentative
   entities:
