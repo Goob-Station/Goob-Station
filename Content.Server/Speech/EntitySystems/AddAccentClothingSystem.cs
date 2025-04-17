@@ -25,6 +25,8 @@ public sealed class AddAccentClothingSystem : EntitySystem
         SubscribeLocalEvent<AddAccentClothingComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
     }
 
+
+//  TODO: Turn this into a relay event.
     private void OnGotEquipped(EntityUid uid, AddAccentClothingComponent component, ref ClothingGotEquippedEvent args)
     {
         // does the user already has this accent?
