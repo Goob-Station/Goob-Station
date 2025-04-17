@@ -197,6 +197,9 @@ uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What coul
 uplink-smoke-implant-name = Smoke Implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
+uplink-nutriment-implant-name = Nutriment Pump Implant
+uplink-nutriment-implant-desc = Removes the users need to consume food and/or drinks.
+
 uplink-jaunter-implanter-name = Jaunter Implanter
 uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.
 
