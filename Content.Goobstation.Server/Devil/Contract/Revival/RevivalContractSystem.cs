@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Diagnostics;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.UI;
 using Content.Server.Administration.Systems;
@@ -37,7 +38,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         if (args.Target is not { Valid: true } target
             || !TryComp<MobStateComponent>(target, out var mobState)
             || mobState.CurrentState != MobState.Dead
-            || !TryComp<ActorComponent>(target, out var actor))
+            || TryComp<ActorComponent>(target, out var actor))
             return;
 
         // Non-devils can't offer deals silly.
@@ -70,7 +71,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         ent.Comp.ContractOwner = args.User;
 
         // WHY DOESNT THIS OPEN PROPERLYYYY!!!
-        _userInterface.OpenUi(args.Used, RevivalContractUiKey.Key, actor.PlayerSession.AttachedEntity);
+        _userInterface.OpenUi(args.Used, RevivalContractUiKey.Key, actor!.PlayerSession, true);
     }
 
     private void OnMessage(Entity<RevivalContractComponent> ent, ref RevivalContractMessage args)
