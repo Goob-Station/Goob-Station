@@ -28,6 +28,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# NepuStation - Gun buffs and AP for certain munitions.
+
 - type: entity
   id: BulletRifle
   name: bullet (0.20 rifle)
@@ -37,7 +39,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 22
+        Piercing: 30
 
 - type: entity
   id: BulletRiflePractice
@@ -59,8 +61,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 3
-        Heat: 2
+        Blunt: 5
+        Heat: 2.5
 
 - type: entity
   id: BulletRifleUranium
@@ -71,5 +73,6 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 10
-        Piercing: 12
+        Radiation: 5
+        Piercing: 25
+    armorPenetration: 0.5
