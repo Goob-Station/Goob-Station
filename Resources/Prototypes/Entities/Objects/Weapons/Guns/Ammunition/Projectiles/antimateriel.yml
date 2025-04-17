@@ -34,6 +34,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# NepuStation - Buffed Gun damage
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
@@ -41,10 +43,10 @@
   name: bullet (.60 anti-materiel)
   components:
   - type: Projectile
-    armorPenetration: 0.5 # Goobstation
+    armorPenetration: 0.75 # Goobstation
     damage:
       types:
-        Piercing: 75
+        Piercing: 100
     penetrationThreshold: 100 # Goobstation - This count as penetration health
   - type: StaminaDamageOnCollide
     damage: 115 # Goob edit
