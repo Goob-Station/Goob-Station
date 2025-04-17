@@ -7,7 +7,7 @@
   name: dart gun
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: DartGun
-  description: 'The label reads: "Interdyne Pharmaceutics is not responsible for Geneva Convention violations caused by improper use."'
+  description: 'The label reads: "Interdyne Pharmaceutics is not responsible for any geneva convention violations caused by improper use."'
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/dart_gun.rsi

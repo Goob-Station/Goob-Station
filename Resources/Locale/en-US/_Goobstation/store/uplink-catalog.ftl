@@ -75,7 +75,7 @@ uplink-beenades-name = Beenades
 uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 
 uplink-dart-gun-name = Dart Gun
-uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing distantly heal allies or commit war crimes by poisoning foes.
+uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
 # Weapons
 
 uplink-dualetta-kit-name = Dualetta kit
