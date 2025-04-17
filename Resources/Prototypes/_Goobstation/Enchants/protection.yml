@@ -25,7 +25,7 @@
     - EnchantProtBlast
     - EnchantProtFire
   - type: DamageModifyEnchant
-    factor: 0.25 # 10% reduction per piece at IV
+    factor: 0.974 # 10% reduction per piece at IV
     protectWearer: true
 
 - type: entity
