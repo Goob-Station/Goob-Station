@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.DeltaV.TapeRecorder.Components;
+namespace Content.Goobstation.Shared.TapeRecorder;
 
 /// <summary>
 /// Added to tape records that are updating, winding or rewinding the tape.

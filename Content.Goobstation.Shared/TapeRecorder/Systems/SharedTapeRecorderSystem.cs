@@ -1,13 +1,10 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
-using Content.Shared.DeltaV.TapeRecorder.Components;
-using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Labels.Components;
 using Content.Shared.Popups;
-using Content.Shared.Tag;
 using Content.Shared.Toggleable;
 using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
@@ -19,7 +16,7 @@ using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
-namespace Content.Shared.DeltaV.TapeRecorder.Systems;
+namespace Content.Goobstation.Shared.TapeRecorder;
 
 public abstract class SharedTapeRecorderSystem : EntitySystem
 {

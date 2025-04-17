@@ -5,15 +5,11 @@ using Content.Server.Speech.Components;
 using Content.Shared.Chat;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
-using Content.Shared.DeltaV.TapeRecorder;
-using Content.Shared.DeltaV.TapeRecorder.Components;
-using Content.Shared.DeltaV.TapeRecorder.Systems;
-using Robust.Server.Audio;
+using Content.Goobstation.Shared.TapeRecorder;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using System.Text;
 
-namespace Content.Server.DeltaV.TapeRecorder;
+namespace Content.Goobstation.Server.TapeRecorder;
 
 public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
 {
