@@ -43,9 +43,9 @@ public sealed partial class DevilSystem
         args.Verbs.Add(handshakeVerb);
     }
 
-    private void OnDevilHandInteract(Entity<DevilComponent> ent, InteractHandEvent args)
+    private void OnDevilHandInteract(Entity<DevilComponent> ent, ref InteractHandEvent args)
     {
-        if (args.Handled || !TryComp<PendingHandshakeComponent>(args.User, out var pending) || pending.Offerer != uid)
+        if (args.Handled || !TryComp<PendingHandshakeComponent>(args.User, out var pending) || pending.Offerer != ent)
             return;
 
         args.Handled = true;
@@ -59,7 +59,7 @@ public sealed partial class DevilSystem
         }
 
         // Accept the handshake
-        HandleHandshake(uid, args.User);
+        HandleHandshake(ent, args.User);
         RemComp<PendingHandshakeComponent>(args.User);
     }
 
