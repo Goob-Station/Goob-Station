@@ -176,6 +176,22 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_blue
 
+- type: hitscan
+  id: LightPulse
+  damage:
+    types:
+      Heat: 20 # Slightly nerfing damage, otherwise people will bitch about how I'm giving the pulse pistol out like candy
+      Blunt: 5 # Split damage is cool.
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_blue
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
 - type: entity
   id: BulletTemperatureCold
   name: cold temperature bolt
@@ -216,3 +232,54 @@
     energy: 1
   - type: ChangeTemperatureOnCollide # This will probably be tweaked.
     heat: 35000
+
+
+- type: entity
+  name : disabler bolt
+  id: BulletEnergyGunDisabler
+  parent: BulletDisabler
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
+    layers:
+    - state: bolt_blue_heavy
+      shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Ammo
+  - type: StaminaDamageOnCollide
+    damage: 33
+  - type: Projectile
+    impactEffect: BulletImpactEffectDisabler
+    damage:
+      types:
+        Ion: 10
+    soundHit:
+      collection: WeakHit
+    forceSound: true

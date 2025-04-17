@@ -38,3 +38,15 @@
       amount: 1
   products:
     Aranesp: 1
+
+- type: reaction
+  id: Amnestizine
+  reactants:
+    Mercury:
+      amount: 1
+    Plasma:
+      amount: 1
+    NevcottaPowder:
+      amount: 2
+  products:
+    Amnestizine: 1
