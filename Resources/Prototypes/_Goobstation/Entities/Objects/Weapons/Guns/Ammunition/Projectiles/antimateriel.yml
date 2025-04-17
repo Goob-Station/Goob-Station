@@ -13,7 +13,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 95 # WYCI 50-120 damage based on range, bounty buddy said it was fine without for now
+        Piercing: 150 # WYCI 50-120 damage based on range, bounty buddy said it was fine without for now
         Structural: 100 # Goes through one wall, girder's the next / 2 rwindows 3 grilles
     armorPenetration: 0.75
     penetrationThreshold: 360
@@ -31,7 +31,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
+        Piercing: 50
         Structural: 800 # kills 3 regular walls, mutually destructs on a fourth. kills one R wall, MD's on the second
     armorPenetration: 0.9
     penetrationThreshold: 800 # the bigger this is the more PP (penetrative power)
