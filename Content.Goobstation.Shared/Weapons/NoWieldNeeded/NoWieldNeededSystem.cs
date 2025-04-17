@@ -32,10 +32,9 @@ public sealed class NoWieldNeededSystem : EntitySystem
         gun.MaxAngle += bonus.MaxAngle;
         gun.AngleDecay += bonus.AngleDecay;
         gun.AngleIncrease += bonus.AngleIncrease;
-
-        comp.GunsWithBonus.Add(uid);
-
         _gun.RefreshModifiers(args.Entity);
+
+        comp.GunsWithBonus.Add(args.Entity);
     }
 
     private void OnGunDropped(EntityUid uid, NoWieldNeededComponent comp, EntRemovedFromContainerMessage args)
@@ -43,7 +42,7 @@ public sealed class NoWieldNeededSystem : EntitySystem
         if (!comp.GetBonus)
             return;
 
-        comp.GunsWithBonus.Remove(uid);
+        comp.GunsWithBonus.Remove(args.Entity);
         RevertGun(args.Entity);
     }
 
@@ -61,7 +60,6 @@ public sealed class NoWieldNeededSystem : EntitySystem
         gun.MaxAngle -= bonus.MaxAngle;
         gun.AngleDecay -= bonus.AngleDecay;
         gun.AngleIncrease -= bonus.AngleIncrease;
-
         _gun.RefreshModifiers(uid);
     }
 }
