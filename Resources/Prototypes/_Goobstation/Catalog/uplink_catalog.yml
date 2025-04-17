@@ -39,6 +39,7 @@
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -463,6 +464,34 @@
     - Zookeeper
   saleLimit: 1
 
+- type: listing
+  id: uplinkBeeNades    #goob - bee update
+  name: uplink-beenades-name
+  description: uplink-beenades-desc
+  productEntity: BeeGrenade
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+    - Zookeeper
+
+- type: listing
+  id: UplinkDartGun
+  name: uplink-dart-gun-name
+  description: uplink-dart-gun-desc
+  productEntity: DartGun
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Medical
 
 # chemicals
 
@@ -481,6 +510,16 @@
   name: uplink-lollypop-bundle-name
   description: uplink-lollypop-bundle-desc
   productEntity: SyndicateLollypopBundle
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkSyringePistol
+  name: uplink-syringe-pistol-name
+  description: uplink-syringe-pistol-desc
+  productEntity: SyringePistol
   cost:
     Telecrystal: 15
   categories:
@@ -896,7 +935,7 @@
   - UplinkDeception
 
 - type: listing
-  id: NukieMysteriousScroll
+  id: UplinkMysteriousScrollLoneops
   name: uplink-sleeping-carp-name
   description: uplink-sleeping-carp-desc
   productEntity: SleepingCarpScroll
