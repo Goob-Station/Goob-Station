@@ -433,6 +433,10 @@
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: Enchanter # Goobstation
+    maxLevel: 2.5 # Decent chance of getting prot II
+    enchants:
+    - EnchantProtection
 
 #Brigmedic Hardsuit
 - type: entity
