@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2024 Weide <64257676+Lyacs@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -22,3 +24,9 @@
     proto: EffectSpeciesVox
   equipment:
     mask: ClothingMaskClownUnremoveable
+
+# Cheap Sunglasses
+- type: loadout
+  id: CheapSunglasses
+  equipment: 
+    eyes: ClothingEyesGlassesCheapSunglasses
