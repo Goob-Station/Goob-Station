@@ -111,6 +111,7 @@
   description: Send a vial with 30 changelings blood to CC for research.
   reagents:
     BloodChangeling: 30
+  solutionName: "beaker"
   entries:
   - name: Send lings blood to CentComm.
     stamps: []

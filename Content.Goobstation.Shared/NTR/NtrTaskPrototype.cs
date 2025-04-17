@@ -58,7 +58,10 @@ public sealed class NtrTaskPrototype : IPrototype
     public float Cooldown = 0f; //in seconds
 
     [DataField("reagents")]
-    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> RequiredReagents = new();
+    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents { get; init; } = new();
+
+    [DataField("solutionName")]
+    public string SolutionName { get; private set; } = "default"; // i want to end it all already
 }
 
 [DataDefinition, Serializable, NetSerializable]

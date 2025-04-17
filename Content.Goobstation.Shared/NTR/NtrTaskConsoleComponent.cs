@@ -48,6 +48,9 @@ public sealed partial class NtrTaskConsoleComponent : Component
 
     [DataField]
     public HashSet<string> ActiveTaskIds = new();
+
+    [DataField("slotId")]
+    public string SlotId = "taskSlot";
 }
 
 [NetSerializable, Serializable]
