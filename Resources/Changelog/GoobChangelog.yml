@@ -7651,3 +7651,9 @@ Entries:
       message: Edited ERT loadouts. No more annies for the non-combat roles.
   id: 891
   time: '2025-04-17T06:22:53.0000000+00:00'
+- author: teneketaro
+  changes:
+    - type: Add
+      message: Cryostatis syringes can now be fired from the syringe gun!
+  id: 892
+  time: '2025-04-17T18:03:25.0000000+00:00'
