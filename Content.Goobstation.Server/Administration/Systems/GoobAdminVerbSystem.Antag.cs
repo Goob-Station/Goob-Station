@@ -10,17 +10,15 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
-using Content.Goobstation.Server.GameTicking.Rules;
+using Content.Goobstation.Server.Devil.GameTicking.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
-using Content.Server.Antag.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Mind.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Administration.Systems;
