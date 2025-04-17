@@ -44,7 +44,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 35
+        Piercing: 60
 
 - type: entity
   id: BulletMagnumPractice
@@ -66,8 +66,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 7
-        Heat: 7
+        Blunt: 45
+        Heat: 5
 
 - type: entity
   id: BulletMagnumAP
@@ -78,8 +78,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 30
-    armorPenetration: 0.4 # Goobstation
+        Piercing: 60
+    armorPenetration: 0.75 # Goobstation
 
 - type: entity
   id: BulletMagnumUranium
@@ -90,5 +90,6 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 15
-        Piercing: 20
+        Radiation: 5 # NepuStation
+        Piercing: 55 # NepuStation
+      armorPenetration: 0.25 # NepuStation weapons rebalancing
