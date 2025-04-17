@@ -14,6 +14,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Goobstation.Shared.Weapons.MissChance;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode;
@@ -26,10 +27,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Weapons.Multishot;
 
@@ -39,9 +37,8 @@ public sealed class SharedMultishotSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
     [Dependency] private readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly MissChanceSystem _miss = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
 
     public override void Initialize()
@@ -85,28 +82,10 @@ public sealed class SharedMultishotSystem : EntitySystem
         if (!comp.MultishotAffected)
             return;
 
-        foreach (var (ammo, _) in args.Ammo)
-        {
-            if (!TryComp<FixturesComponent>(ammo, out var fixtures)
-            || !_random.Prob(multishotWeapon.Comp.MissChance))
-                continue;
-
-            ApplyMissChance(ammo, fixtures);
-        }
+        args.Ammo.ForEach(ammo => _miss.ApplyMissChance(ammo.Item1, multishotWeapon.Comp.MissChance));
 
         DamageHands(uid, comp, args.User);
         DealStaminaDamage(uid, comp, args.User);
-    }
-
-    private void ApplyMissChance(EntityUid? uid, FixturesComponent? comp)
-    {
-        if (uid == null || comp == null)
-            return;
-
-        foreach (var (key, fixture) in comp.Fixtures)
-        {
-            _physics.RemoveCollisionMask(uid.Value, key, fixture, 64, manager: comp); // 64 is BulletImpassable
-        }
     }
 
     private void DealStaminaDamage(EntityUid weapon, MultishotComponent component, EntityUid target)
