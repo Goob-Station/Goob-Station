@@ -42,7 +42,7 @@ public sealed partial class DevilSystem
         args.Verbs.Add(handshakeVerb);
     }
 
-    private void OnDevilHandInteract(EntityUid uid, DevilComponent component, InteractHandEvent args)
+    private void OnDevilHandInteract(Entity<DevilComponent> ent, InteractHandEvent args)
     {
         if (args.Handled || !TryComp<PendingHandshakeComponent>(args.User, out var pending) || pending.Offerer != uid)
             return;
