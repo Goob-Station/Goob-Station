@@ -542,7 +542,7 @@
   id: RPD
   parent: RCD
   name: RPD
-  description: A device used to rapidly pipe things.
+  description: The rapid piping device allows for the quick placement and removal of atmospheric-related buildings requires compressive matter to use.
   components:
   - type: RCD
     isRpd: true

@@ -249,6 +249,7 @@
     tags:
     - Engineering
     - Maintenance
+    - Atmospherics # Goobstation
   - type: RandomMetadata
     nameSegments:
     - names_drone # maintainer drones get named after maintainers get it? its funny
