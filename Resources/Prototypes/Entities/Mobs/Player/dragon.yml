@@ -297,6 +297,11 @@
     defaultChannel: Dragonmind
   - type: Puller
     needsHands: false
+  - type: RandomMetadata
+    nameSegments:
+    - NamesDragon
+    - NamesDragonTitle
+    nameFormat: name-format-dragon
   - type: NightVision # Goobstation - Nigthvision
     color: "#808080"
     activateSound: null
