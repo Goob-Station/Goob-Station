@@ -22,7 +22,6 @@ using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Physics.Components; // Goobstation
-using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
@@ -126,8 +125,13 @@ public abstract class SharedStealthSystem : EntitySystem
         if (args.NewPosition.EntityId != args.OldPosition.EntityId)
             return;
 
+        // Goobstation - Fixing stealth suit resolve error
+        if (!TryComp<StealthComponent>(uid, out var stealthComp))
+            return;
+
         var delta = component.MovementVisibilityRate * (args.NewPosition.Position - args.OldPosition.Position).Length();
-        ModifyVisibility(uid, delta);
+
+        ModifyVisibility(uid, delta, stealthComp); // Goobstation - Fixing stealth suit resolve error
     }
 
     // Goobstation - Proper invisibility
@@ -137,8 +141,11 @@ public abstract class SharedStealthSystem : EntitySystem
         if (TryComp<PhysicsComponent>(uid, out var phys))
             limit += Math.Min(component.MaxInvisibilityPenalty, phys.LinearVelocity.Length() * component.InvisibilityPenalty);
 
-        if (args.Stealth.LastVisibility > limit)
-            args.FlatModifier += args.SecondsSinceUpdate * component.PassiveVisibilityRate;
+        // Goobstation - Wait before accumulating stealth
+        var noMoveTime = (float) component.NoMoveTime.TotalSeconds;
+
+        if (args.Stealth.LastVisibility > limit && args.SecondsSinceUpdate > noMoveTime)
+            args.FlatModifier += (args.SecondsSinceUpdate - noMoveTime) * component.PassiveVisibilityRate;
     }
 
     /// <summary>
