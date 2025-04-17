@@ -4,8 +4,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Devil.UI;
-
 namespace Content.Goobstation.Server.Devil.Contract.Revival;
 
 [RegisterComponent]
@@ -15,13 +13,13 @@ public sealed partial class PendingRevivalContractComponent : Component
     /// The entity being revived.
     /// </summary>
     [ViewVariables]
-    public EntityUid? Contractee;
+    public EntityUid Contractee;
 
     /// <summary>
     /// The entity offering revival
     /// </summary>
     [ViewVariables]
-    public EntityUid? Offerer;
+    public EntityUid Offerer;
 
     /// <summary>
     /// The contract attached to this player.
@@ -29,6 +27,9 @@ public sealed partial class PendingRevivalContractComponent : Component
     [ViewVariables]
     public EntityUid Contract;
 
-    [DataField]
-    public Enum UiKey = RevivalContractUiKey.Key;
+    /// <summary>
+    /// The MindId of the player.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid MindId;
 }

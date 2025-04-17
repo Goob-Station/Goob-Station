@@ -13,6 +13,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
@@ -30,15 +31,14 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RevivalContractComponent, AfterInteractEvent>(AfterInteract);
-        SubscribeLocalEvent<RevivalContractComponent, RevivalContractMessage>(OnMessage);
+        SubscribeLocalEvent<PendingRevivalContractComponent, RevivalContractMessage>(OnMessage);
     }
 
     private void AfterInteract(Entity<RevivalContractComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Target is not { Valid: true } target
             || !TryComp<MobStateComponent>(target, out var mobState)
-            || mobState.CurrentState != MobState.Dead
-            || TryComp<ActorComponent>(target, out var actor))
+            || mobState.CurrentState != MobState.Dead)
             return;
 
         // Non-devils can't offer deals silly.
@@ -48,8 +48,15 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
             return;
         }
 
+        // Make sure the mind actually exists
+        if (!_mind.TryGetMind(target, out var mindId, out var mindComp) || mindComp.CurrentEntity is not { } ghost)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("revival-contract-no-mind"), args.User, args.User);
+            return;
+        }
+
         // You can't offer two deals at once.
-        if (HasComp<PendingRevivalContractComponent>(target))
+        if (HasComp<PendingRevivalContractComponent>(ghost))
         {
             var failedPopup = Loc.GetString("revival-contract-use-failed");
             _popupSystem.PopupEntity(failedPopup, args.User, args.User);
@@ -57,37 +64,46 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         }
 
         // Create pending contract
-        var pending = EnsureComp<PendingRevivalContractComponent>(target);
+        var pending = EnsureComp<PendingRevivalContractComponent>(ghost);
         pending.Contractee = target;
         pending.Offerer = args.User;
         pending.Contract = ent;
+        pending.MindId = mindId;
 
         // Show confirmation
         var successPopup = Loc.GetString("revival-contract-use-success", ("target", target));
         _popupSystem.PopupEntity(successPopup, args.User, args.User);
 
-        // UI code!!
         ent.Comp.Signer = target;
         ent.Comp.ContractOwner = args.User;
 
-        // WHY DOESNT THIS OPEN PROPERLYYYY!!!
-        _userInterface.OpenUi(args.Used, RevivalContractUiKey.Key, actor!.PlayerSession, true);
+        TryOpenUi(ghost);
     }
 
-    private void OnMessage(Entity<RevivalContractComponent> ent, ref RevivalContractMessage args)
+    private bool TryOpenUi(EntityUid target)
+    {
+        if (!_userInterface.HasUi(target, RevivalContractUiKey.Key))
+            return false;
+
+        if (_mind.TryGetMind(target, out _, out var mindComp) && mindComp.Session is { } session)
+            _userInterface.OpenUi(target, RevivalContractUiKey.Key, session);
+
+        return true;
+    }
+
+    private void OnMessage(Entity<PendingRevivalContractComponent> ent, ref RevivalContractMessage args)
     {
         if (args.Accepted)
         {
-            TryReviveAndTransferSoul(ent.Comp.Signer);
-            _mind.UnVisit(ent.Comp.Signer);
+            TryReviveAndTransferSoul(ent.Comp.Contractee, ent.Comp);
+            _mind.UnVisit(ent.Comp.MindId);
         }
-
-        RemComp<PendingRevivalContractComponent>(ent.Comp.Signer);
+        RemComp<PendingRevivalContractComponent>(args.Actor);
     }
 
-    private bool TryReviveAndTransferSoul(EntityUid target)
+    private bool TryReviveAndTransferSoul(EntityUid target, PendingRevivalContractComponent pending)
     {
-        if (!TryComp<PendingRevivalContractComponent>(target, out var pending) || TerminatingOrDeleted(target))
+        if (TerminatingOrDeleted(target))
             return false;
 
         if (TryComp<RevivalContractComponent>(pending.Contract, out var contract))

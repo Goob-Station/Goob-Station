@@ -49,19 +49,4 @@ public sealed class RevivalContractBoundUserInterface : BoundUserInterface
         SendPredictedMessage(new RevivalContractMessage(false));
         Close();
     }
-
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-
-        if (_menu == null)
-            return;
-
-        _menu.Accepted -= OnAccepted;
-        _menu.Rejected -= OnRejected;
-        _menu.OnClose -= OnClosed;
-
-        _menu.Close();
-        _menu = null;
-    }
 }

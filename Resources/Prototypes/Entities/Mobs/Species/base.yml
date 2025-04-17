@@ -466,7 +466,7 @@
     penetrateDamage: 50
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
-  
+
 - type: entity
   save: false
   parent:
