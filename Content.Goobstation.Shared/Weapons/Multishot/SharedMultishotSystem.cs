@@ -49,6 +49,7 @@ public sealed class SharedMultishotSystem : EntitySystem
         SubscribeLocalEvent<MultishotComponent, GotUnequippedHandEvent>(OnUnequipWeapon);
         SubscribeLocalEvent<MultishotComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
         SubscribeLocalEvent<MultishotComponent, GunShotEvent>(OnGunShot);
+        SubscribeLocalEvent<MultishotComponent, AmmoShotEvent>(OnAmmoShot);
         SubscribeAllEvent<RequestShootEvent>(OnRequestShoot);
     }
 
@@ -82,10 +83,16 @@ public sealed class SharedMultishotSystem : EntitySystem
         if (!comp.MultishotAffected)
             return;
 
-        args.Ammo.ForEach(ammo => _miss.ApplyMissChance(ammo.Item1, multishotWeapon.Comp.MissChance));
-
         DamageHands(uid, comp, args.User);
         DealStaminaDamage(uid, comp, args.User);
+    }
+
+    private void OnAmmoShot(Entity<MultishotComponent> ent, ref AmmoShotEvent args)
+    {
+        if (!ent.Comp.MultishotAffected)
+            return;
+
+        args.FiredProjectiles.ForEach(uid => _miss.ApplyMissChance(uid, ent.Comp.MissChance));
     }
 
     private void DealStaminaDamage(EntityUid weapon, MultishotComponent component, EntityUid target)

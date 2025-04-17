@@ -5,6 +5,7 @@
 
 using Content.Goobstation.Common.TheManWhoSoldTheWorld;
 using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Goobstation.Common.Weapons.NoWieldNeeded;
 using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -51,7 +52,6 @@ public sealed class HoloCigarSystem : EntitySystem
         SubscribeLocalEvent<HoloCigarComponent, ComponentHandleState>(OnComponentHandleState);
 
         SubscribeLocalEvent<HoloCigarAffectedGunComponent, DroppedEvent>(OnDroppedEvent);
-        SubscribeLocalEvent<HoloCigarAffectedGunComponent, WieldAttemptEvent>(OnWieldAttemptEvent);
 
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MapInitEvent>(OnMapInitEvent);
@@ -81,11 +81,6 @@ public sealed class HoloCigarSystem : EntitySystem
     }
 
     #region Event Methods
-
-    private void OnWieldAttemptEvent(Entity<HoloCigarAffectedGunComponent> ent, ref WieldAttemptEvent args)
-    {
-        args.Cancel(); // cancel any attempts to wield holocigar weapons
-    }
 
     private void OnMobStateChangedEvent(Entity<TheManWhoSoldTheWorldComponent> ent, ref MobStateChangedEvent args)
     {
