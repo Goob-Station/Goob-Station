@@ -527,6 +527,29 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: UplinkNutrimentImplanter
+  name: uplink-nutriment-implant-name
+  description: uplink-nutriment-implant-desc
+  icon: { sprite: Objects/Consumable/Food/burger.rsi, state: bacon }
+  productEntity: NutrimentImplanter
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkImplants
+
+# I don't know if this is balanced, so i'm just going to leave it commented out.
+# If you want to add this in the future, feel free. - Sol
+#- type: listing
+#  id: UplinkStypticStimulatorImplanter
+#  name: uplink-styptic-stimulator-implant-name
+#  description: uplink-styptic-stimulator-implant-desc
+#  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
+#  productEntity: StypticStimulatorImplanter
+#  cost:
+#    Telecrystal: 40
+#  categories:
+#  - UplinkImplants
 
 - type: listing
   id: UplinkKravMagaImplanter
