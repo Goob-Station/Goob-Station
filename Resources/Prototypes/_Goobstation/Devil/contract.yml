@@ -76,6 +76,12 @@
   description: A devilish piece of black parchment detailing a contract of revival. All ink that touches the page seems to turn to blood.
   components:
   - type: RevivalContract
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+      enum.RevivalContractUiKey.Key:
+        type: RevivalContractBoundUserInterface
   - type: Paper
     editingDisabled: true
     content: |2

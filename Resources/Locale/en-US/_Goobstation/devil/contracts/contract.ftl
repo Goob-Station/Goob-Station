@@ -31,4 +31,4 @@ revival-contract-prompt-reject = Reject Offer
 revival-contract-prompt-accept = Accept Offer
 
 revival-contract-menu-title = Contract From the Depths
-revival-contract-menu-text = Sell your soul for a second chance?
+revival-contract-menu-prompt = Sell your soul for a second chance?

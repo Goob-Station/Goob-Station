@@ -4,45 +4,40 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Devil.UI;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.UI;
 using Content.Server.Administration.Systems;
-using Content.Server.EUI;
 using Content.Server.Mind;
 using Content.Shared.Interaction;
-using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.Verbs;
+using Robust.Server.GameObjects;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil.Contract.Revival;
 public sealed partial class PendingRevivalContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly DevilContractSystem _contract = default!;
-    [Dependency] private readonly EuiManager _euiManager = default!;
-    [Dependency] private readonly PendingRevivalContractSystem _revivalContract = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RevivalContractComponent, AfterInteractEvent>(AfterInteract);
+        SubscribeLocalEvent<RevivalContractComponent, RevivalContractMessage>(OnMessage);
     }
 
-    private void AfterInteract(EntityUid uid, RevivalContractComponent comp, AfterInteractEvent args)
+    private void AfterInteract(Entity<RevivalContractComponent> ent, ref AfterInteractEvent args)
     {
-        // Seperated into two checks for readabilities’ sake.
-        if (!TryComp<MobStateComponent>(args.Target, out var mobState) || mobState.CurrentState != MobState.Dead || !HasComp<ActorComponent>(args.Target))
-            return;
-
-        if (args.Target == null || args.Handled)
+        if (args.Target is not { Valid: true } target
+            || !TryComp<MobStateComponent>(target, out var mobState)
+            || mobState.CurrentState != MobState.Dead
+            || !TryComp<ActorComponent>(target, out var actor))
             return;
 
         // Non-devils can't offer deals silly.
@@ -53,42 +48,55 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
         }
 
         // You can't offer two deals at once.
-        if (HasComp<PendingRevivalContractComponent>(args.Target))
+        if (HasComp<PendingRevivalContractComponent>(target))
         {
             var failedPopup = Loc.GetString("revival-contract-use-failed");
-            _popupSystem.PopupEntity(failedPopup, uid);
+            _popupSystem.PopupEntity(failedPopup, args.User, args.User);
             return;
         }
 
         // Create pending contract
-        var pending = AddComp<PendingRevivalContractComponent>((EntityUid)args.Target);
-        pending.Contractee = uid;
+        var pending = EnsureComp<PendingRevivalContractComponent>(target);
+        pending.Contractee = target;
         pending.Offerer = args.User;
+        pending.Contract = ent;
 
         // Show confirmation
-        var sucessPopup = Loc.GetString("revival-contract-use-success", ("target", args.Target));
-        _popupSystem.PopupEntity(sucessPopup, uid);
+        var successPopup = Loc.GetString("revival-contract-use-success", ("target", target));
+        _popupSystem.PopupEntity(successPopup, args.User, args.User);
 
         // UI code!!
-        if (_mindSystem.TryGetMind((EntityUid)args.Target, out _, out var mind) && mind.Session is { } playerSession)
-            _euiManager.OpenEui(new RevivalContractEui(mind, _mindSystem, _revivalContract), playerSession);
+        ent.Comp.Signer = target;
+        ent.Comp.ContractOwner = args.User;
 
+        // WHY DOESNT THIS OPEN PROPERLYYYY!!!
+        _userInterface.OpenUi(args.Used, RevivalContractUiKey.Key, actor.PlayerSession.AttachedEntity);
     }
 
-    public bool TryReviveAndTransferSoul(EntityUid? target)
+    private void OnMessage(Entity<RevivalContractComponent> ent, ref RevivalContractMessage args)
+    {
+        if (args.Accepted)
+        {
+            TryReviveAndTransferSoul(ent.Comp.Signer);
+            _mind.UnVisit(ent.Comp.Signer);
+        }
+
+        RemComp<PendingRevivalContractComponent>(ent.Comp.Signer);
+    }
+
+    private bool TryReviveAndTransferSoul(EntityUid target)
     {
         if (!TryComp<PendingRevivalContractComponent>(target, out var pending) || TerminatingOrDeleted(target))
             return false;
 
-        if (TryComp<RevivalContractComponent>(pending.Contractee, out var contract) && contract.ContractOwner != null)
+        if (TryComp<RevivalContractComponent>(pending.Contract, out var contract))
         {
-            contract.Signer = target;
-            _rejuvenate.PerformRejuvenate((EntityUid)target);
-            _popupSystem.PopupEntity(Loc.GetString("revival-contract-accepted"), (EntityUid)target);
-            _contract.TryTransferSouls((EntityUid)contract.ContractOwner, (EntityUid)contract.Signer, 1);
+            _rejuvenate.PerformRejuvenate(target);
+            _popupSystem.PopupEntity(Loc.GetString("revival-contract-accepted"), target, target);
+            _contract.TryTransferSouls(contract.ContractOwner, contract.Signer, 1);
         }
 
-        RemComp<PendingRevivalContractComponent>((EntityUid)target);
+        RemComp<PendingRevivalContractComponent>(target);
         return true;
     }
 
