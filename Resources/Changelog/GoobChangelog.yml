@@ -7695,3 +7695,15 @@ Entries:
       message: Working golden pAI in loadouts
   id: 897
   time: '2025-04-17T18:13:17.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Syringe Pistol, previously known as Dart Syringe Gun, is no longer
+        armor-piercing, but is available to every traitor and is cheaper.
+    - type: Tweak
+      message: >-
+        Chemists now start with their chembags filled, and chembags provide 75%
+        explosion resistance to their contents.
+  id: 898
+  time: '2025-04-17T18:16:08.0000000+00:00'
