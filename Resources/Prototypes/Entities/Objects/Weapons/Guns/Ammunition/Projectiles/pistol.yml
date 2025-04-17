@@ -27,6 +27,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# NepuStation - Buffed Gun damages, added armor penetration to some bullets.
+# Just revert the commits if it was too much.
+
 - type: entity
   id: BulletPistol
   name: bullet (.35 auto)
@@ -36,7 +39,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 16
+        Piercing: 20
 
 - type: entity
   id: BulletPistolPractice
@@ -58,7 +61,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 2
+        Blunt: 3
         Heat: 2
 
 - type: entity
@@ -70,5 +73,6 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 6
-        Piercing: 10
+        Radiation: 5
+        Piercing: 15
+    armorPenetration: 0.5
