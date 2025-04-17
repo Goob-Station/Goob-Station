@@ -7663,3 +7663,13 @@ Entries:
       message: Thieves should now appear in game director!
   id: 893
   time: '2025-04-17T18:04:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Syndicate stealth suit heat and pierce protection was decreased.
+    - type: Tweak
+      message: >-
+        Syndicate stealth suit now requires 3 second of no-stealth loss to start
+        accumulating stealth.
+  id: 894
+  time: '2025-04-17T18:07:56.0000000+00:00'
