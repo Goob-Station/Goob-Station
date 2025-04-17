@@ -20,6 +20,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -536,6 +537,29 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: UplinkNutrimentImplanter
+  name: uplink-nutriment-implant-name
+  description: uplink-nutriment-implant-desc
+  icon: { sprite: Objects/Consumable/Food/burger.rsi, state: bacon }
+  productEntity: NutrimentImplanter
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkImplants
+
+# I don't know if this is balanced, so i'm just going to leave it commented out.
+# If you want to add this in the future, feel free. - Sol
+#- type: listing
+#  id: UplinkStypticStimulatorImplanter
+#  name: uplink-styptic-stimulator-implant-name
+#  description: uplink-styptic-stimulator-implant-desc
+#  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
+#  productEntity: StypticStimulatorImplanter
+#  cost:
+#    Telecrystal: 40
+#  categories:
+#  - UplinkImplants
 
 - type: listing
   id: UplinkKravMagaImplanter
@@ -635,7 +659,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 6 # Slightly more total damage compared to C20 mags
+    Telecrystal: 10 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
   categories:
   - UplinkAmmo
 
@@ -646,7 +670,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
+    Telecrystal: 20 # 2x as much compared to regular mags.
   categories:
   - UplinkAmmo
 

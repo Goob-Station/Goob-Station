@@ -77,6 +77,33 @@
   components:
   - type: KravMagaImplant
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NutrimentPumpImplant
+  name: nutriment pump implant
+  description: This implant allows prevents the user from getting hungry or thirsty.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: NutrimentPumpImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SpaceProofImplant
+  name: space proofing implant
+  description: This implant allows the user to survive in space and without air.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpaceProofImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: StypticStimulatorImplant
+  name: styptic stimulator implant
+  description: This implant sends the users regeneration into overdrive.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StypticStimulatorImplant
+
 # Admeme
 
 - type: entity

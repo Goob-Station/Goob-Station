@@ -7583,3 +7583,71 @@ Entries:
       message: High tier antag tokens cannot be exchanged for wizard.
   id: 883
   time: '2025-04-16T13:34:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: No more roundstart SM activations
+  id: 884
+  time: '2025-04-16T19:05:16.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed protection enchant not working.
+  id: 885
+  time: '2025-04-16T19:05:38.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Syringes are no longer explosion-proof.
+  id: 886
+  time: '2025-04-16T19:09:05.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: NTR's scarf is now in their loadout.
+  id: 887
+  time: '2025-04-16T19:16:59.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added alien tourist shuttle event.
+  id: 888
+  time: '2025-04-16T19:17:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Heretic blades, .45 AP, .50 antimaterial and .60 bullets now have 35%,
+        40%, 50% and 50% armor pierce respectively.
+    - type: Tweak
+      message: Burrner and hristov ammo is slightly more expensive.
+  id: 889
+  time: '2025-04-16T19:18:22.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Bingle plushies now make binglepit sounds when used.
+  id: 890
+  time: '2025-04-16T19:19:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: CCV4!!
+    - type: Add
+      message: Added a plushie of a specific Blueshield Officer.
+    - type: Add
+      message: Added the Nanotrasen Career Trainer.
+    - type: Add
+      message: Added the Inspector Ghostrole for admins.
+    - type: Add
+      message: >-
+        Added Token Gamerules for mins. Use these instead of the normal ones for
+        antag tokens!!
+    - type: Add
+      message: >-
+        Added a new implant to the uplink, the Nutriment Pump Implant. It allows
+        you to not require food or water.
+    - type: Tweak
+      message: Edited ERT loadouts. No more annies for the non-combat roles.
+  id: 891
+  time: '2025-04-17T06:22:53.0000000+00:00'
