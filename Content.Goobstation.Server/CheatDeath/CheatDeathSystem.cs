@@ -56,10 +56,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
     private void OnDeathCheatAttempt(Entity<CheatDeathComponent> ent, ref CheatDeathEvent args)
     {
-        if (args.Handled)
-            return;
-
-        if (!_mobStateSystem.IsDead(ent) && !ent.Comp.CanCheatStanding)
+        if (args.Handled || (!_mobStateSystem.IsDead(ent) && !ent.Comp.CanCheatStanding))
             return;
 
         // If the entity is out of revives, or if they are unrevivable, return.

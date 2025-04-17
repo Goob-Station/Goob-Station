@@ -25,6 +25,9 @@ public sealed partial class InsanitySystem : EntitySystem
     [Dependency] private readonly StunSystem _stunSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
 
+    private const int SeedMax = 5;
+    private const int SeedMin = 0;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -62,7 +65,7 @@ public sealed partial class InsanitySystem : EntitySystem
 
     private void TryInsanityEffect(EntityUid uid, InsanityComponent comp)
     {
-        var seed = _random.Next(0, 6);
+        var seed = _random.Next(SeedMin, SeedMax);
 
         switch (seed)
         {

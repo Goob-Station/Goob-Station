@@ -25,6 +25,14 @@ public sealed class DevilClausePrototype : IPrototype
     public string? DamageModifierSet;
 
     [DataField]
-    public List<string>? SpecialActions;
+    public List<SpecialCase>? SpecialActions;
 
+}
+
+public enum SpecialCase : byte
+{
+    SoulOwnership,
+    RemoveHand,
+    RemoveLeg,
+    RemoveOrgan,
 }

@@ -336,12 +336,12 @@ public sealed class DevilContractSystem : EntitySystem
         {
             switch (specialAction)
             {
-                case "SoulOwnership":
+                case SpecialCase.SoulOwnership:
                     if (contract.ContractOwner != null)
                         TryTransferSouls(contract.ContractOwner.Value, target, 1);
                     break;
 
-                case "RemoveHand":
+                case SpecialCase.RemoveHand:
                     TryComp<BodyComponent>(target, out var body);
                     var hands = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ToList();
                     if (hands.Count > 0)
@@ -352,7 +352,7 @@ public sealed class DevilContractSystem : EntitySystem
                     }
                     break;
 
-                case "RemoveLeg":
+                case SpecialCase.RemoveLeg:
                     TryComp<BodyComponent>(target, out var bodyLeg);
                     var legs = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).ToList();
                     if (legs.Count > 0)
@@ -363,7 +363,7 @@ public sealed class DevilContractSystem : EntitySystem
                     }
                     break;
 
-                case "RemoveOrgan":
+                case SpecialCase.RemoveOrgan:
                     var organs = _bodySystem.GetBodyOrgans(target).ToList();
                     if (organs.Count > 0)
                     {
