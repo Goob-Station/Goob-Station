@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 ## Buckshot
 
 # Buckshot
@@ -178,4 +179,20 @@
   - type: SpentAmmoVisuals
     state: "beanbag"
 
-
+- type: entity
+  id: ShellShotgunHighCaliberSarin
+  name: shell (8 Gauge sarin gas)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
+    - type: Sprite
+      layers:
+        - state: practice
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: BulletShotgunHeavySlugSarin
+    - type: SpentAmmoVisuals
+      state: "practice"

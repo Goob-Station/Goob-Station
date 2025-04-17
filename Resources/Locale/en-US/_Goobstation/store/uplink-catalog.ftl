@@ -147,10 +147,10 @@ uplink-caseless-magnum-pistol-mag-saphe-desc = 12 rounds of 9.5mm Semi Armor Pie
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge pellet)
 uplink-shotgun-magazine-desc = Shutgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
 uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
@@ -180,8 +180,11 @@ uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the comb
 uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
 uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
 
-uplink-high-caliber-shotgun-box-flash-name = 8 Gauge flash shell box
-uplink-high-caliber-shotgun-box-flash-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Does not knock down those without hearing protection
+uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
+uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Does not knock down those without hearing protection
+
+uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
+uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 # Grenades
 

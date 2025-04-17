@@ -843,6 +843,17 @@
   categories:
   - UplinkAmmo
 
+- type: listing
+  id: UplinkBox8GaugeSarin
+  name: uplink-high-caliber-shotgun-box-sarin-name
+  description: uplink-high-caliber-shotgun-box-sarin-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: practice }
+  productEntity: MagazineBoxShotgunHighCaliberSarin
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkAmmo
+
 # Mechs
 
 - type: listing
