@@ -130,7 +130,7 @@
   parent: [ClothingHandsGlovesCombat, BaseCentcommContraband]
   id: ClothingHandsGlovesDeathsquad
   suffix: DO NOT MAP # Just don't...
-  name: deathsquad power claws
+  name: mk-3 "redactor" power gloves
   description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin.
   components:
   - type: Sprite
@@ -255,6 +255,47 @@
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-white
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesConquest
+  name: viltrumite prosthetic
+  description: Stand ready for my arrival, worm.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+  - type: Insulated
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 80
+        Structural: 120
+    mustBeEquippedToUse: true
+  - type: StaminaDamageOnHit
+    damage: 45
+    overtime: 80
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 8
+
+- type: entity
+  parent: ClothingHandsGlovesConquest
+  id: ClothingHandsGlovesConquestUnremovable
+  suffix: Unremovable
+  name: viltrumite prosthetic
+  description: Stand ready for my arrival, worm.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+  - type: Insulated
+  - type: Unremoveable
+
 
 # Knuckle Dusters
 
