@@ -266,7 +266,7 @@
   description: uplink-combat-shotgun-desc
   productEntity: WeaponShotgunCombat
   cost:
-    Telecrystal: 60
+    Telecrystal: 50
   categories:
     -  UplinkWeaponry
 
@@ -537,29 +537,6 @@
   categories:
     - UplinkImplants
 
-- type: listing
-  id: UplinkNutrimentImplanter
-  name: uplink-nutriment-implant-name
-  description: uplink-nutriment-implant-desc
-  icon: { sprite: Objects/Consumable/Food/burger.rsi, state: bacon }
-  productEntity: NutrimentImplanter
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkImplants
-
-# I don't know if this is balanced, so i'm just going to leave it commented out.
-# If you want to add this in the future, feel free. - Sol
-#- type: listing
-#  id: UplinkStypticStimulatorImplanter
-#  name: uplink-styptic-stimulator-implant-name
-#  description: uplink-styptic-stimulator-implant-desc
-#  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
-#  productEntity: StypticStimulatorImplanter
-#  cost:
-#    Telecrystal: 40
-#  categories:
-#  - UplinkImplants
 
 - type: listing
   id: UplinkKravMagaImplanter
@@ -659,7 +636,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 10 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
+    Telecrystal: 6 # Slightly more total damage compared to C20 mags
   categories:
   - UplinkAmmo
 
@@ -670,7 +647,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 20 # 2x as much compared to regular mags.
+    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
   categories:
   - UplinkAmmo
 
@@ -818,6 +795,28 @@
   productEntity: MagazineBoxShotgunHighCaliber
   cost:
     Telecrystal: 10
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBox8GaugeSlug
+  name: uplink-high-caliber-shotgun-box-slug-name
+  description: uplink-high-caliber-shotgun-box-slug-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: slug }
+  productEntity: MagazineBoxShotgunSlugHighCaliber
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBox8GaugeFlash
+  name: uplink-high-caliber-shotgun-flash-slug-name
+  description: uplink-high-caliber-shotgun-flash-slug-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: incendiary }
+  productEntity: MagazineBoxShotgunHighCaliberFlash
+  cost:
+    Telecrystal: 1
   categories:
   - UplinkAmmo
 

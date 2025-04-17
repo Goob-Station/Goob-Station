@@ -89,7 +89,7 @@ uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
 
 uplink-WSPR-name = WSPR Bundle
-uplink-WSPR-desc = A silenced burst rifle, does not match the damage output of other options but gets the job done quietly.
+uplink-WSPR-desc = Puts highly damaging 9.5mm holes in targets with a whisper quiet three round burst.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -177,6 +177,12 @@ uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. 
 uplink-high-caliber-shotgun-box-name = 8 Gauge shell box
 uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the combat shotgun.
 
+uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
+uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-flash-name = 8 Gauge flash shell box
+uplink-high-caliber-shotgun-box-flash-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Does not knock down those without hearing protection
+
 # Grenades
 
 uplink-sarin-gas-grenade-name = Sarin gas grenade
@@ -202,9 +208,6 @@ uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What coul
 
 uplink-smoke-implant-name = Smoke Implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
-
-uplink-nutriment-implant-name = Nutriment Pump Implant
-uplink-nutriment-implant-desc = Removes the users need to consume food and/or drinks.
 
 uplink-jaunter-implanter-name = Jaunter Implanter
 uplink-jaunter-implanter-desc = Swaps position of the user and target upon activation. Recharges passively.

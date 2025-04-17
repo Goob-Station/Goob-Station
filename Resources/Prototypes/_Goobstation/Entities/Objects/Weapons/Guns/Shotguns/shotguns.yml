@@ -76,7 +76,7 @@
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunCombat
   description: An old design beefed up to take 8 Gauge shells, intended to repell boarding parties. This time, you are the boarding party.
-  components: 
+  components:
   - type: Item
     size: Large
   - type: Sprite
