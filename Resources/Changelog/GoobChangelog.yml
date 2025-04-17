@@ -7629,3 +7629,25 @@ Entries:
       message: Bingle plushies now make binglepit sounds when used.
   id: 890
   time: '2025-04-16T19:19:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: CCV4!!
+    - type: Add
+      message: Added a plushie of a specific Blueshield Officer.
+    - type: Add
+      message: Added the Nanotrasen Career Trainer.
+    - type: Add
+      message: Added the Inspector Ghostrole for admins.
+    - type: Add
+      message: >-
+        Added Token Gamerules for mins. Use these instead of the normal ones for
+        antag tokens!!
+    - type: Add
+      message: >-
+        Added a new implant to the uplink, the Nutriment Pump Implant. It allows
+        you to not require food or water.
+    - type: Tweak
+      message: Edited ERT loadouts. No more annies for the non-combat roles.
+  id: 891
+  time: '2025-04-17T06:22:53.0000000+00:00'
