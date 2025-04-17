@@ -10,7 +10,7 @@
 # Blueshield
 
 - type: thiefBackpackSet
-  id: ChesterSet
+  id: BSOChesterSet
   name: blueshield-box-category-chester-name
   description: blueshield-box-category-chester-description
   sprite:
@@ -26,7 +26,7 @@
   - WeaponLeverChester
 
 - type: thiefBackpackSet
-  id: CQCSet
+  id: BSOCQCSet
   name: blueshield-box-category-cqc-name
   description: blueshield-box-category-cqc-description
   sprite:
@@ -36,7 +36,7 @@
   - BSOManual
 
 - type: thiefBackpackSet
-  id: RevolverSet
+  id: BSORevolverSet
   name: blueshield-box-category-revolver-name
   description: blueshield-box-category-revolver-description
   sprite:
@@ -50,7 +50,7 @@
   - EnergySpeedloaderDisabler
 
 - type: thiefBackpackSet
-  id: BlueshieldSet
+  id: BSOBlueshieldSet
   name: blueshield-box-category-blueshield-name
   description: blueshield-box-category-blueshield-description
   sprite:
@@ -60,7 +60,7 @@
   - BlueShieldShieldFilled
 
 - type: thiefBackpackSet
-  id: SyringeSet
+  id: BSOSyringeSet
   name: blueshield-box-category-syringe-name
   description: blueshield-box-category-syringe-description
   sprite:
@@ -72,7 +72,7 @@
 # Blueshield Hardsuits
 
 - type: thiefBackpackSet
-  id: LightSet
+  id: BSOLightSet
   name: blueshield-box-category-lightset-name
   description: blueshield-box-category-lightset-description
   sprite:
@@ -82,7 +82,7 @@
   - ClothingOuterHardsuitBlueshieldLight
 
 - type: thiefBackpackSet
-  id: HeavySet
+  id: BSOHeavySet
   name: blueshield-box-category-heavyset-name
   description: blueshield-box-category-heavyset-description
   sprite:
@@ -90,6 +90,7 @@
     state: icon
   content:
   - ClothingOuterHardsuitBlueshieldHeavy
+
 
 - type: thiefBackpackSet
   id: ModsuitSet
@@ -100,3 +101,35 @@
     state: control
   content:
   - ClothingModsuitPraetorian
+
+## ERT
+
+- type: thiefBackpackSet
+  id: ERTBallisticsSet
+  name: ert-box-category-ballistic-name
+  description: ert-box-category-ballistic-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
+    state: base
+  content:
+  - WeaponRifleAnnie
+  - MagazineLightRifle
+  - MagazineLightRifle
+  - MagazineLightRifle
+  - WeaponPistolN1984
+  - MagazineMagnum
+  - MagazineMagnum
+
+- type: thiefBackpackSet
+  id: ERTPulseSet
+  name: ert-box-category-pulse-name
+  description: ert-box-category-pulse-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    state: icon
+  content:
+  - WeaponPulseCarbineAdvanced
+  - WeaponEnergyRevolver
+  - EnergySpeedloaderPulse
+  - EnergySpeedloaderPulse
+  - EnergySpeedloaderDisabler

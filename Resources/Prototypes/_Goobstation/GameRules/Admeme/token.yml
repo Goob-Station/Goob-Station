@@ -1,0 +1,176 @@
+# These are the gamerules to spawn antags for tokens.
+- type: entity
+  parent: NinjaSpawn
+  id: TokenNinjaSpawn
+  components:
+  - type: AntagSelection
+    agentName: ninja-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSpaceNinjaToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SpaceNinjaGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: ninja-role-greeting
+        color: Green
+        sound: /Audio/Misc/ninja_greeting.ogg
+      components:
+      - type: SpaceNinja
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: RandomMetadata
+        nameSegments:
+        - names_ninja_title
+        - names_ninja
+      mindRoles:
+      - MindRoleNinja
+
+- type: entity
+  parent: DragonSpawn
+  id: TokenDragonSpawn
+  components:
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragonToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleDragon
+
+- type: entity
+  parent: RevenantSpawn
+  id: TokenRevenantSpawn
+  components:
+  - type: RandomSpawnRule
+    prototype: MobRevenantToken
+
+- type: entity
+  parent: LoneOpsSpawn
+  id: TokenLoneOpsSpawn
+  components:
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointLoneNukeOperativeToken
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateLoneOperativeGearFull
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalNukie
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeops
+
+- type: entity
+  parent: DerelictCyborgSyndicateSpawn
+  id: TokenDerelictCyborgSyndicateSpawn
+  components:
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelictSyndicateAssaultBattery
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborgSyndicateToken
+      min: 1
+      max: 1
+      pickPlayer: false
+
+- type: entity
+  parent: BingleSpawn
+  id: TokenBingleSpawn
+  components:
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostBinglePrimeToken
+
+- type: entity
+  parent: BlobMidround
+  id: TokenBlobMidround
+  components:
+  - type: BlobSpawnRule
+    carrierBlobProtos:
+    - SpawnPointGhostBlobRatToken
+    playersPerCarrierBlob: 30
+    maxCarrierBlob: 1
+  - type: Tag
+    tags:
+    - MidroundAntag
+
+- type: entity
+  parent: LoneAbductorSpawn
+  id: TokenLoneAbductorSpawn
+  components:
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: LoneAbductorSpawnerToken # idk why this shit is defined twice, but i dont want to mess with it so... *shrugs
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: LoneAbductorGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: GhostRole
+        name: abductor-lone-ghost-role-name-token
+        description: ghost-role-information-description-token-generic
+        rules: abductors-ghost-role-rules
+      - type: Tag
+        tags:
+        - Abductor
+        - AbductorScientist
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+        - AbductorMind
+      mindRoles:
+      - MindRoleLoneAbductor
+
+- type: entity
+  parent: WizardMidround
+  id: TokenWizard
+  components:
+  - type: AntagSelection
+    useCharacterNames: true
+    selectionTime: PostPlayerSpawn
+    definitions:
+    - spawnerPrototype: SpawnPointWizardToken
+      playerRatio: 20
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleWizard
+      startingGear: WizardGear
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalEVA
+      components:
+      - type: Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - wizard_first
+        - wizard_last
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+  - type: Tag
+    tags:
+    - MidroundAntag
