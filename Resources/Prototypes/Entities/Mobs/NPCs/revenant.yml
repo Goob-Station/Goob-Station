@@ -107,8 +107,8 @@
     context: "ghost"
   - type: Spectral
   - type: MovementSpeedModifier
-    baseWalkSpeed: 6
-    baseSprintSpeed: 6
+    baseWalkSpeed: 8
+    baseSprintSpeed: 8
   - type: Sprite
     sprite: Mobs/Ghosts/revenant.rsi
     layers:
@@ -157,7 +157,7 @@
       - EmagSiliconLaw
   - type: PointLight
     color: MediumPurple
-    radius: 2
+    radius: 3
     softness: 1
   - type: UserInterface
     interfaces:
