@@ -249,6 +249,8 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
             AddButton(ContentKeyFunctions.SmartEquipBack); // Goobstation - Equip To Back
+            AddButton(ContentKeyFunctions.SmartEquipSlimeStorage); // Goobstation - Equip To slime storage
+            AddButton(ContentKeyFunctions.SmartEquipStorageImplant); // Goobstation - Equip To storage implant
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
             AddButton(ContentKeyFunctions.ThrowItemInHand);

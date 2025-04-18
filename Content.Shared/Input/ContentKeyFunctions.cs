@@ -153,6 +153,8 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction SmartEquipBackpack = "SmartEquipBackpack";
         public static readonly BoundKeyFunction SmartEquipBelt = "SmartEquipBelt";
         public static readonly BoundKeyFunction SmartEquipBack = "SmartEquipBack"; // Goobstation - Smart equip to back
+        public static readonly BoundKeyFunction SmartEquipSlimeStorage = "SmartEquipSlimeStorage"; // Goobstation - Smart equip to slime storage
+        public static readonly BoundKeyFunction SmartEquipStorageImplant = "SmartEquipStorageImplant"; // Goobstation - Smart equip to storage implant
         public static readonly BoundKeyFunction OpenBackpack = "OpenBackpack";
         public static readonly BoundKeyFunction OpenBelt = "OpenBelt";
         public static readonly BoundKeyFunction OpenAHelp = "OpenAHelp";

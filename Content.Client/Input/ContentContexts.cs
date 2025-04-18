@@ -137,6 +137,8 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.SmartEquipBackpack);
             human.AddFunction(ContentKeyFunctions.SmartEquipBelt);
             human.AddFunction(ContentKeyFunctions.SmartEquipBack); // Goobstation - Smart equip to back
+            human.AddFunction(ContentKeyFunctions.SmartEquipSlimeStorage); // Goobstation - Smart equip to slime storage
+            human.AddFunction(ContentKeyFunctions.SmartEquipStorageImplant); // Goobstation - Smart equip to storage implant
             human.AddFunction(ContentKeyFunctions.OpenBackpack);
             human.AddFunction(ContentKeyFunctions.OpenBelt);
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
