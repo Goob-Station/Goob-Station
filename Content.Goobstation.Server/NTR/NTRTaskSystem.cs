@@ -187,16 +187,22 @@ public sealed partial class NtrTaskSystem : EntitySystem
     {
         if (!TryComp<RandomDocumentComponent>(item, out var documentComp) || documentComp.Tasks.Count == 0)
             return false;
-
-        if (!HasValidStamps(item))
+        if (documentComp.Tasks != null)
         {
-            _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), console);
-            _audio.PlayPvs(component.DenySound, console);
-            return true;
-        }
+            foreach (var taskId in documentComp.Tasks)
+            {
+                if (!HasValidStamps(item))
+                {
+                    _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), console);
+                    _audio.PlayPvs(component.DenySound, console);
+                    return true;
+                }
 
-        ProcessSuccessfulSubmission(item, console, component);
-        return true;
+                ProcessSuccessfulSubmission(item, console, component);
+                return true;
+            }
+        }
+        return false;
     }
     private List<ProtoId<NtrTaskPrototype>> GetVialTasks(EntityUid vial)
     {
@@ -265,24 +271,36 @@ public sealed partial class NtrTaskSystem : EntitySystem
         return getIdentityEvent.Title;
     }
     public bool CheckReagentRequirements(EntityUid container, NtrTaskPrototype task)
-    {
-        if (!_solutionContainer.TryGetSolution(container, task.SolutionName, out _, out var solution))
+    {// i hate solutions so much man
+        if (!_solutionContainer.TryGetSolution(container, task.SolutionName, out var solutionEntity, out var solution))
         {
-            _popup.PopupEntity(Loc.GetString("ntr-console-no-solution"), container);
+            _popup.PopupEntity(Loc.GetString("ntr-console-no-solution", ("solutionName", task.SolutionName)), container);
             return false;
         }
 
         foreach (var (reagentProtoId, requiredAmount) in task.Reagents)
         {
-            var reagent = new ReagentId(reagentProtoId, null);
-            if (!solution.TryGetReagentQuantity(reagent, out var actual) || actual < requiredAmount)
+            if (!_protoMan.TryIndex(reagentProtoId, out ReagentPrototype? requiredReagentProto))
             {
-                _popup.PopupEntity(
-                    Loc.GetString("ntr-console-insufficient-reagent",
-                        ("reagent", reagentProtoId.ToString()),
-                        ("required", requiredAmount),
-                        ("actual", actual)),
-                    container);
+                _popup.PopupEntity(Loc.GetString("ntr-console-invalid-reagent-proto", ("reagentId", reagentProtoId)), container);
+                return false;
+            }
+            // manually check for the solution name cuz blood has so much data that it messes up with everthing
+            FixedPoint2 actualAmount = FixedPoint2.Zero;
+            foreach (var reagent in solution.Contents)
+            {
+                if (reagent.Reagent.Prototype == requiredReagentProto.ID)
+                {
+                    actualAmount += reagent.Quantity;
+                }
+            }
+            if (actualAmount < requiredAmount)
+            {
+                _popup.PopupEntity(Loc.GetString("ntr-console-insufficient-reagent",
+                    ("reagent", requiredReagentProto.ID),
+                    ("required", requiredAmount),
+                    ("actual", actualAmount)),
+                container);
                 return false;
             }
         }
