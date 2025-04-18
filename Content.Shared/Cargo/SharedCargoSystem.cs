@@ -12,6 +12,7 @@ using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Cargo;
 
@@ -64,7 +65,8 @@ public abstract class SharedCargoSystem : EntitySystem
 
         foreach (var (account, percentage) in stationBank.Comp.RevenueDistribution)
         {
-            distribution.Add(account, remaining * percentage);
+            var existing = distribution.GetOrNew(account);
+            distribution[account] = existing + remaining * percentage;
         }
         return distribution;
     }
