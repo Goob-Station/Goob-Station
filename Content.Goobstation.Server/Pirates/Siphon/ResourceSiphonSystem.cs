@@ -96,7 +96,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         var funds = _cargo.GetBalanceFromAccount(bank.AsNullable(), bank.Comp.PrimaryAccount) - ent.Comp.DrainRate;
         if (funds > 0)
         {
-            _cargo.UpdateBankAccount(bank.AsNullable(), (int) -ent.Comp.DrainRate, _cargo.CreateAccountDistribution(bank.Comp.PrimaryAccount, bank));
+            _cargo.UpdateBankAccount(bank.AsNullable(), (int) -ent.Comp.DrainRate, bank.Comp.PrimaryAccount);
             UpdateCredits(ent, ent.Comp.DrainRate);
         }
     }
