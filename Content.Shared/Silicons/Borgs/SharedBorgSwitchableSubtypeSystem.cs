@@ -5,9 +5,6 @@ namespace Content.Shared.Silicons.Borgs;
 
 public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 {
-    // TODO: remove bug with BorgVisualLayers & fix midround borgs type switch
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-
     public override void Initialize()
     {
         base.Initialize();

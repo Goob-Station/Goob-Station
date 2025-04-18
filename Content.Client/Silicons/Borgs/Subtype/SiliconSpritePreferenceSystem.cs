@@ -1,11 +1,12 @@
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
-namespace Content.Client.Silicons.Borgs.Subtype;
+namespace Content.Goobstation.Client.Silicons.Subtype;
 
 public sealed partial class SiliconSpritePreferenceSystem : SharedBorgSwitchableSubtypeSystem
 {
@@ -39,6 +40,12 @@ public sealed partial class SiliconSpritePreferenceSystem : SharedBorgSwitchable
         var rsiPath = SpriteSpecifierSerializer.TextureRoot / subtypePrototype.SpritePath;
 
         if (_resourceCache.TryGetResource<RSIResource>(rsiPath, out var resource))
-            sprite.BaseRSI = resource.RSI;
+        {
+            sprite.LayerSetRSI(BorgVisualLayers.Body, resource.RSI);
+            sprite.LayerSetRSI(BorgVisualLayers.LightStatus, resource.RSI);
+
+            sprite.LayerSetState(BorgVisualLayers.Body, subtypePrototype.SpriteBodyState);
+            sprite.LayerSetState(BorgVisualLayers.LightStatus, subtypePrototype.SpriteToggleLightState);
+        }
     }
 }

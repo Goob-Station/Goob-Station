@@ -1,0 +1,204 @@
+# Generic subtypes
+- type: borgSubtype
+  parentBorgType: generic
+  id: default_generic
+  spritePath: Mobs/Silicon/chassis.rsi
+
+  dummyPrototype: BorgChassisGeneric
+
+# Mining subtypes
+- type: borgSubtype
+  parentBorgType: mining
+  id: default_mining
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisMining
+
+# Engineering subtypes
+- type: borgSubtype
+  parentBorgType: engineering
+  id: default_engineering
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisEngineer
+
+# Janitorial subtypes
+- type: borgSubtype
+  parentBorgType: janitor
+  id: default_janitor
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisJanitor
+
+# Medical subtypes
+- type: borgSubtype
+  parentBorgType: medical
+  id: default_medical
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisMedical
+
+- type: borgSubtype
+  parentBorgType: medical
+  id: medical_standart
+  spritePath: _Goobstation/Mobs/Silicon/Medical/standart.rsi
+  dummyPrototype: BorgChassisMedicalStandart
+  spriteBodyState: medical
+  spriteToggleLightState: medical_l
+
+# Service subtypes
+- type: borgSubtype
+  parentBorgType: service
+  id: default_service
+  spritePath: Mobs/Silicon/chassis.rsi
+  dummyPrototype: BorgChassisService
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_standart
+  spritePath: _Goobstation/Mobs/Silicon/Service/standart.rsi
+  dummyPrototype: BorgChassisServiceStandart
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_brobot
+  spritePath: _Goobstation/Mobs/Silicon/Service/standart.rsi
+  dummyPrototype: BorgChassisServiceBrobot
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_waitress
+  spritePath: _Goobstation/Mobs/Silicon/Service/waitress.rsi
+  dummyPrototype: BorgChassisServiceWaitress
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_cricket
+  spritePath: _Goobstation/Mobs/Silicon/Service/cricket.rsi
+  dummyPrototype: BorgChassisServiceCricket
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_kent
+  spritePath: _Goobstation/Mobs/Silicon/Service/kent.rsi
+  dummyPrototype: BorgChassisServiceKent
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_noble
+  spritePath: _Goobstation/Mobs/Silicon/Service/noble.rsi
+  dummyPrototype: BorgChassisServiceNoble
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_rich
+  spritePath: _Goobstation/Mobs/Silicon/Service/rich.rsi
+  dummyPrototype: BorgChassisServiceRich
+
+- type: borgSubtype
+  parentBorgType: service
+  id: service_rover
+  spritePath: _Goobstation/Mobs/Silicon/Service/rover.rsi
+  dummyPrototype: BorgChassisServiceRover
+
+
+###
+# Medical
+- type: entity
+  id: BorgChassisMedicalStandart
+  parent: BaseBorgChassis
+  name: medical cyborg
+  components:
+- type: entity
+  id: BorgChassisMedicalStandart
+  parent: BaseBorgChassis # Assuming BaseBorgChassis has basic borg setup
+  name: medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_standart
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_standart
+
+# Service
+- type: entity
+  id: BorgChassisServiceStandart
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_standart
+
+
+- type: entity
+  id: BorgChassisServiceBrobot
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_brobot
+
+- type: entity
+  id: BorgChassisServiceWaitress
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_waitress
+
+- type: entity
+  id: BorgChassisServiceCricket
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_cricket
+
+- type: entity
+  id: BorgChassisServiceKent
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_kent
+
+- type: entity
+  id: BorgChassisServiceNoble
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_noble
+
+- type: entity
+  id: BorgChassisServiceRich
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_rich
+
+- type: entity
+  id: BorgChassisServiceRover
+  parent: BorgChassisService
+  name: service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_rover
+
+###

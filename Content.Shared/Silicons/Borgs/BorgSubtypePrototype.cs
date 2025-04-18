@@ -29,4 +29,10 @@ public sealed partial class BorgSubtypePrototype : IPrototype
     /// </summary>
     [DataField]
     public required ProtoId<BorgTypePrototype> ParentBorgType = "generic";
+
+    [DataField]
+    public string SpriteBodyState = "body";
+
+    [DataField]
+    public string SpriteToggleLightState = "light";
 }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "bebright",
+  "copyright": "ttt",
   "size": {
     "x": 32,
     "y": 32
@@ -12,11 +12,11 @@
       "directions": 4
     },
     {
-      "name": "service_e",
+      "name": "service_e_r",
       "directions": 4
     },
     {
-      "name": "service_e_r",
+      "name": "service_e",
       "directions": 4
     },
     {
