@@ -72,10 +72,10 @@
     price: 500
 
 - type: entity
-  name: Bojevic combat shotgun
+  name: "'Bojevic' combat shotgun"
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunCombat
-  description: Nicknamed 'Bojevic', the combat shotgun is an old design with a beefier shell intended to repell boarding parties; this time, you are the boarding party. '8 GUAGE' is stamped on the barrel.
+  description: An old design with a beefier shell intended to repell boarding parties; this time, you are the boarding party. '8 GUAGE' is stamped on the barrel.
   components:
   - type: Item
     size: Large
