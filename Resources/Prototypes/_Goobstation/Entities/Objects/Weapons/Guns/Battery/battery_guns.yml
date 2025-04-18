@@ -204,6 +204,46 @@
     steps: 5
     zeroVisible: true
 
+- type: entity
+  name: centcomm disabler
+  parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
+  id: WeaponDisablerAdvanced
+  description: A non-lethal self-defense weapon for agents not trustable with traditional lethals. Recharges over time.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: PacifismAllowedGun
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+
+- type: entity
+  name: advanced pulse carbine
+  parent: WeaponPulseCarbine
+  id: WeaponPulseCarbineAdvanced
+  description: A state-of-the-art pulse carbine. This particular one has an experimental recharging cell.
+  components:
+  - type: Tag
+    tags:
+    - Rifle
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 80
 
 - type: entity
   name: CR-2 energy assault rifle

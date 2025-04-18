@@ -146,7 +146,6 @@
 # SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
-# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
@@ -210,6 +209,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
@@ -218,6 +218,7 @@
 # SPDX-FileCopyrightText: 2025 Terraspark4941 <terraspark4941@gmail.com>
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
@@ -584,6 +585,9 @@
   id: ComputerTelevisionCircuitboard
 
 - type: Tag
+  id: ContravendUplink
+
+- type: Tag
   id: ConveyorAssembly
 
 - type: Tag
@@ -843,6 +847,9 @@
 
 - type: Tag
   id: GrenadeFlashBang
+
+- type: Tag
+  id: GrimoireGhost
 
 - type: Tag
   id: HudMedical

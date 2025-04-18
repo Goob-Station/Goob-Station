@@ -73,7 +73,7 @@
   - type: Tool
   - type: Prying
   - type: UseDelay # Goobstation - For insta prying
-    delay: 1
+    delay: 0.25 # Goobstation - Changed to 0.25, Shit was annoying
   - type: MultipleTool
     statusShowBehavior: true
     entries:

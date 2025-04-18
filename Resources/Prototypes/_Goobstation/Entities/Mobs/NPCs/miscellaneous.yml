@@ -385,3 +385,20 @@
   - type: Grammar
     attributes:
       gender: female
+
+- type: entity
+  id: MobRevenantToken
+  parent: MobRevenant
+  name: revenant
+  description: A spooky ghostie.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-revenant-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
