@@ -80,6 +80,8 @@ public sealed partial class DevilSystem : EntitySystem
     private readonly ProtoId<PolymorphPrototype> _jauntEntityProto = "ShadowJaunt";
     private readonly ProtoId<DamageModifierSetPrototype> _devilDamageModifierSet = "DevilDealPositive";
 
+    private static readonly TimeSpan BasePossessionDuration = TimeSpan.FromSeconds(30);
+
     public override void Initialize()
     {
         base.Initialize();
@@ -146,7 +148,7 @@ public sealed partial class DevilSystem : EntitySystem
         if (!_mind.TryGetMind(args.User, out var mindId, out var mind))
             return;
 
-        if (comp.Souls is >= 2 and <= 6 && comp.Souls % 2 == 0)
+        if (comp.Souls is > 1 and < 7 && comp.Souls % 2 == 0)
         {
             // Set new power level (1 at 2, 2 at 4, 3 at 6)
             comp.PowerLevel = comp.Souls / 2;
@@ -250,13 +252,6 @@ public sealed partial class DevilSystem : EntitySystem
 
     private static ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
     {
-        comp.PowerLevelToJauntPrototypeMap = new Dictionary<int, ProtoId<PolymorphPrototype>>()
-        {
-            { 1, new ProtoId<PolymorphPrototype>("ShadowJaunt30") },
-            { 2, new ProtoId<PolymorphPrototype>("ShadowJaunt60") },
-            { 3, new ProtoId<PolymorphPrototype>("ShadowJaunt90") },
-        };
-
         return comp.PowerLevelToJauntPrototypeMap.TryGetValue(comp.PowerLevel, out var value) ? value : new ProtoId<PolymorphPrototype>("ShadowJaunt30");
     }
 
@@ -273,7 +268,7 @@ public sealed partial class DevilSystem : EntitySystem
 
     private static TimeSpan GetPossessionDuration(DevilComponent comp)
     {
-        return TimeSpan.FromSeconds(30) * comp.PowerLevel;
+        return BasePossessionDuration * comp.PowerLevel;
     }
 
     private void GenerateTrueName(DevilComponent comp)
