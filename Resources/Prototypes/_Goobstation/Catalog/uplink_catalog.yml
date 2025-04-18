@@ -132,6 +132,17 @@
     stock: 1
 
 - type: listing
+  id: UplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster } # Goobstation
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost:
+    Telecrystal: 20 # Goobstation
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkM90
   name: uplink-m90-name
   description: uplink-m90-desc
@@ -245,21 +256,6 @@
     Telecrystal: 65
   categories:
     -  UplinkWeaponry
-
-- type: listing
-  id: UplinkWeaponHeavensgate
-  name: uplink-heavensgate-name
-  description: uplink-heavensgate-desc
-  productEntity: WeaponSniperHeavensGate
-  cost:
-    Telecrystal: 100
-  categories:
-    -  UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 # Wearables
 
@@ -807,38 +803,6 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkBox92AP
-  name: uplink-92-AP-name
-  description: uplink-92-AP-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
-  cost:
-    Telecrystal: 10 # 100 AP damage, don't blame me
-  categories:
-  - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing
-  id: UplinkBox92AT
-  name: uplink-92-AT-name
-  description: uplink-92-AT-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
-  cost:
-    Telecrystal: 8
-  categories:
-  - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
 # Mechs
 
 - type: listing
@@ -933,21 +897,6 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
-
-- type: listing
-  id: UplinkMysteriousScrollLoneops
-  name: uplink-sleeping-carp-name
-  description: uplink-sleeping-carp-desc
-  productEntity: SleepingCarpScroll
-  cost:
-    Telecrystal: 70
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - LoneOpsUplink
 
 - type: listing
   id: UplinkHoloCigar

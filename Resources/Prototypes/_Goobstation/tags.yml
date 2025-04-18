@@ -81,9 +81,6 @@
   id: CartridgeCaselessMagnum95SAPHE
 
 - type: Tag
-  id: CartridgeAntiMaterielHeavy
-
-- type: Tag
   id: Clarke
 
 - type: Tag
