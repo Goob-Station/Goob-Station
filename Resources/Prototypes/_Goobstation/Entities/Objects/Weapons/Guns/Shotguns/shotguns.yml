@@ -89,7 +89,7 @@
   - type: Tag
     tags:
     - WeaponShotgunKammerer
-  - type: BallisticAmmoProvider #W YCI internal magazine weapon with bolt
+  - type: BallisticAmmoProvider # WYCI internal magazine weapon with bolt
     whitelist:
       tags:
       - ShellShotgunHeavy
