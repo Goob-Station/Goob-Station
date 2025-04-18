@@ -362,7 +362,7 @@
         Blunt: 16
 
 - type: entity
-  parent: [ClothingHandsKnuckleDustersBase, BaseCommandContraband]
+  parent: [ClothingHandsKnuckleDustersBase, BaseGrandTheftContraband]
   id: ClothingHandsKnucklesQuartermaster
   suffix: DO NOT MAP
   name: quartermaster's engraved knuckleduster
@@ -380,7 +380,7 @@
   - type: StaticPrice
     price: 1337
   - type: StaminaDamageOnHit
-    damage: 15
+    damage: 18 # plus half the blunt (6) - 24 damage - 5 hits to stun
   - type: Tag
     tags:
     - WhitelistChameleon

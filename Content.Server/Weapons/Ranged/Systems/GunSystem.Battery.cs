@@ -16,6 +16,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Damage; // Goobstation
 using Content.Server.Power.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
@@ -23,7 +24,6 @@ using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility; // Goobstation
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -96,18 +96,7 @@ public sealed partial class GunSystem
         // Goobstation - partial armor piercing
         if (component is not ProjectileBatteryAmmoProviderComponent p)
             return;
-
-        var ap = GetProjectileArmorPiercing(p.Prototype);
-        if (ap is null or 0)
-            return;
-
-        var msg = new FormattedMessage();
-        msg.AddText("\n" + Loc.GetString("armor-piercing-examine-start"));
-        msg.PushColor(ap < 0 ? Color.Blue : Color.Red);
-        msg.AddText(" " +  Math.Abs((int)ap).ToString() + "% " + (ap < 0 ? Loc.GetString("worse") : Loc.GetString("better")) + " ");
-        msg.Pop();
-        msg.AddText(Loc.GetString("armor-piercing-examine-end"));
-        args.Message.AddMessage(msg);
+        args.Message.AddMessage(ArmorPenetrationExamine.ArmorPenetrationExamineText(GetProjectileArmorPiercing(p.Prototype)));
     }
 
     private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)
