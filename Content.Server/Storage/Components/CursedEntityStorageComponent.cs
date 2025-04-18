@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2020 Clyybber <darkmine956@gmail.com>
 // SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 Remie Richards <remierichards@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
@@ -27,6 +27,6 @@ namespace Content.Server.Storage.Components;
 [RegisterComponent]
 public sealed partial class CursedEntityStorageComponent : Component
 {
-    [DataField("cursedSound")]
-    public SoundSpecifier CursedSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
+    [DataField]
+    public SoundSpecifier CursedSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg", AudioParams.Default.WithVariation(0.125f));
 }
