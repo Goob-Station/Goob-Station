@@ -12,6 +12,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
+using Content.Goobstation.Common.Religion.Events;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -218,6 +219,12 @@ public abstract class SharedSpellsSystem : EntitySystem
     private void OnBananaTouch(BananaTouchEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(ev.Target, ev.Performer);
+        RaiseLocalEvent(ev.Target, beforeTouchSpellEvent);
+
+        if (beforeTouchSpellEvent.Cancelled)
             return;
 
         if (TryComp(ev.Target, out StatusEffectsComponent? status))

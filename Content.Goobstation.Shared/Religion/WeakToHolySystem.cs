@@ -52,6 +52,8 @@ public sealed class WeakToHolySystem : EntitySystem
             _damageableSystem.ChangeDamageContainer(ent, TransformedContainerId);
     }
 
+    #region holy damage dealt
+
     // used for entities that should take holy damage always e.g ghouls
     private void OnUnholyRoundstartDamage(Entity<WeakToHolyComponent> ent, ref DamageUnholyEvent args)
     {
@@ -90,6 +92,10 @@ public sealed class WeakToHolySystem : EntitySystem
         }
     }
 
+    #endregion
+
+    #region heretic rune healing
+
     // Passively heal on runes
     private void OnCollide(Entity<HereticRitualRuneComponent> ent, ref StartCollideEvent args)
     {
@@ -123,4 +129,6 @@ public sealed class WeakToHolySystem : EntitySystem
         heretic.Damage.DamageDict.Remove("Holy");
         DirtyEntity(args.OtherEntity);
     }
+
+    #endregion
 }

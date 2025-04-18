@@ -12,3 +12,5 @@ nullrod-chainsaw-untrained-usage-popup = Ahh, and look at what we have here — 
 
 nullrod-pray-prompt = Pray to Nullrod
 nullrod-pray-start = {$user} begins to whisper to the {$nullrod}...
+
+nullrod-spelldenial-popup = THE POWER OF GOD COMPELS YOU!
