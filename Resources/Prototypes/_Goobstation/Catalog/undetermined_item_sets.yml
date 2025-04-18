@@ -164,15 +164,17 @@
   content:
   - WeaponHeadOfSecurityRifle
 
-- type: thiefBackpackSet
-  id: CQCSet
-  name: hos-box-category-cqc-name
-  description: hos-box-category-cqc-description
-  sprite:
-    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
-    state: icon-hos
-  content:
-  - HOSManual
+# Yeah not happening.
+# Come back when you're a little mmm richer? (when you make a custom martial art)
+#- type: thiefBackpackSet
+#  id: CQCSet
+#  name: hos-box-category-cqc-name
+#  description: hos-box-category-cqc-description
+#  sprite:
+#    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+#    state: icon-hos
+#  content:
+#  - HOSManual
 
 ## Armor
 
