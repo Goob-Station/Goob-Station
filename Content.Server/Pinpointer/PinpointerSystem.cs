@@ -283,7 +283,8 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
                 continue;
 
             var dist = lengh.Value.Length();
-            list.Add(dist, target);
+            if (!list.TryAdd(dist, target))
+                list.TryAdd(dist + 1f, target); // safety measure
         }
 
         return list.Count > 0 ? list.First().Value : null;

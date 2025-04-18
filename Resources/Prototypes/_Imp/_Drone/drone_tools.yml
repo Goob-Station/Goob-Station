@@ -53,7 +53,9 @@
   components:
   - type: Unremoveable
   - type: Pinpointer
-    component: ResearchServer
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - ResearchServer
     targetName: the station
 
 # PAI actions
