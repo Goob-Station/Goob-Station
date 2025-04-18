@@ -79,7 +79,7 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
-    - type: CanEnchant
+    - type: CanEnchant #GoobStation
 
 - type: startingGear
   id: ChaplainGear

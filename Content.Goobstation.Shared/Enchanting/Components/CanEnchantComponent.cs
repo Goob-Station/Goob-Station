@@ -6,5 +6,10 @@
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Enchanting.Components;
+
+/// <summary>
+/// Component checked for by EnchanterSystem before enchanting.
+/// Place this on any entity you want to allow to enchant... e.g. Chaplain, Heretic or Wizard.
+/// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CanEnchantComponent : Component;
