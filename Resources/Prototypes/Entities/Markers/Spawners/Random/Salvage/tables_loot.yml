@@ -167,6 +167,7 @@
         range: 4, 7
     - id: SpaceCash1000
     - id: WristwatchGold
+    - id: ExperimentalCircuitBoard
     - !type:NestedSelector
       tableId: RingTableCommon
 
