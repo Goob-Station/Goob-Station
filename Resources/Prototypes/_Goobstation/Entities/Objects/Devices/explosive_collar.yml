@@ -25,10 +25,19 @@
     intensitySlope: 10
     totalIntensity: 40
     canCreateVacuum: false
-  - type: TriggerOnSignal
+  - type: TimerStartOnSignal
+  - type: OnUseTimerTrigger
+    delay: 3
+    useVerbInstead: true
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 10 # loud
+    initialBeepDelay: 0
+    beepInterval: 0.2 # scary sound
   - type: DeviceLinkSink
     ports:
-      - Trigger
+      - Timer
   - type: GuideHelp
     guides:
       - Security
