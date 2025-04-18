@@ -498,7 +498,7 @@
     - SurgeryStepClampInternalBleeders
     - SurgeryStepRemoveOrgan
   - type: SurgeryPartCondition
-    part: Torso
+    part: Chest
   - type: SurgeryOrganCondition
     organ:
     - type: BorgBrain
