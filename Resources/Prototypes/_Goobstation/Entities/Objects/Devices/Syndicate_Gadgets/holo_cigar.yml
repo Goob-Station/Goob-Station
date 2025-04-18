@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem , BaseSyndicateContraband ]
   id: HoloCigar
   name: holo-cigar
   description: A sleek electronic cigar imported straight from Sol. You feel badass merely glimpsing it...
@@ -24,6 +24,10 @@
   - type: Appearance
   - type: BurnStateVisuals
   - type: HoloCigar
+    music:
+      path: /Audio/_Goobstation/Items/TheManWhoSoldTheWorld/invisible.ogg
+      params:
+        volume: -5
   - type: ClothingGrantComponent
     component:
     - type: TheManWhoSoldTheWorld

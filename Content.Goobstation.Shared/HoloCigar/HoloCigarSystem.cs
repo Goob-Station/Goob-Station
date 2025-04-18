@@ -181,9 +181,7 @@ public sealed class HoloCigarSystem : EntitySystem
 
         if (ent.Comp.Lit == false)
         {
-            var audio = _audio.PlayPvs(ent.Comp.Music,
-                ent,
-                AudioParams.Default.WithLoop(true).WithVolume(3f)); // must be louder than everything else on jehovah
+            var audio = _audio.PlayPvs(ent.Comp.Music, ent);
 
             if (audio is null)
                 return;

@@ -20,9 +20,7 @@
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
   - type: Item
     shape:
-    - 0,0,1,1
-    - 0,0,3,0
-    storedOffset: -4, -3
+    - 0,0,2,1
   - type: Gun
     fireRate: 15
     projectileSpeed: 20 # half regular bullet speed

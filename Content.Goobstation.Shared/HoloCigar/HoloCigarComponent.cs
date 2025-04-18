@@ -19,12 +19,11 @@ public sealed partial class HoloCigarComponent : Component
     [ViewVariables]
     public bool Lit;
 
-    [ViewVariables]
-    public SoundSpecifier Music = new SoundPathSpecifier("/Audio/_Goobstation/Items/TheManWhoSoldTheWorld/invisible.ogg");
+    [DataField]
+    public SoundSpecifier? Music;
 
     [ViewVariables]
     public EntityUid? MusicEntity;
-
 }
 
 [Serializable, NetSerializable]
