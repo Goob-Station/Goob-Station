@@ -1,7 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Standard Combat Hardsuits
@@ -36,11 +34,9 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 - type: entity
   parent: [ClothingOuterHardsuitCombatStandard,BaseCommandContraband]
@@ -88,11 +84,9 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
+    delayDelta: 1
+    knockdownTimeDelta: -1
 
 # Riot Combat Hardsuits
 - type: entity
@@ -126,7 +120,3 @@
     clothingPrototypes: #goobstation change
       head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
-  - type: ModifyDelayedKnockdown # Goobstation
-    cancel: true

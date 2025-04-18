@@ -5,35 +5,30 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using System.Text;
-using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Teleportation;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using System.Linq;
+using System.Text;
+using Content.Server.Atmos.Rotting;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -51,7 +46,6 @@ public sealed class HereticBladeSystem : EntitySystem
     [Dependency] private readonly TeleportSystem _teleport = default!;
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SanguineStrikeSystem _sanguine = default!;
 
     public override void Initialize()
     {
@@ -148,7 +142,7 @@ public sealed class HereticBladeSystem : EntitySystem
 
     private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.IsHit || string.IsNullOrWhiteSpace(ent.Comp.Path))
+        if (string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
         if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
@@ -160,32 +154,16 @@ public sealed class HereticBladeSystem : EntitySystem
         if (ent.Comp.Path != hereticComp.CurrentPath)
             return;
 
-        if (hereticComp.PathStage >= 7)
+        if (hereticComp is { CurrentPath: "Rust", PathStage: >= 7 })
         {
-            switch (hereticComp.CurrentPath)
+            args.BonusDamage += new DamageSpecifier
             {
-                case "Rust":
-                    args.BonusDamage += new DamageSpecifier
-                    {
-                        DamageDict =
-                        {
-                            { "Poison", 5f },
-                        },
-                    };
-                    break;
-                case "Blade":
-                    args.BonusDamage += new DamageSpecifier
-                    {
-                        DamageDict =
-                        {
-                            { "Structural", 10f },
-                        },
-                    };
-                    break;
-            }
+                DamageDict =
+                {
+                    { "Poison", 7.5f },
+                },
+            };
         }
-
-        var aliveMobsCount = 0;
 
         foreach (var hit in args.HitEntities)
         {
@@ -193,14 +171,11 @@ public sealed class HereticBladeSystem : EntitySystem
             // if (HasComp<HereticComponent>(hit))
             //    continue;
 
-            if (hit == args.User)
-                continue;
-
-            if (TryComp(hit, out MobStateComponent? mobState) && mobState.CurrentState != MobState.Dead)
-                aliveMobsCount++;
-
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
-                _combatMark.ApplyMarkEffect(hit, mark, ent.Comp.Path, args.User);
+            {
+                _combatMark.ApplyMarkEffect(hit, ent.Comp.Path, args.User);
+                RemComp(hit, mark);
+            }
 
             if (hereticComp.PathStage >= 7)
                 ApplySpecialEffect(args.User, hit, args);
@@ -210,13 +185,17 @@ public sealed class HereticBladeSystem : EntitySystem
         if (HasComp<SilverMaelstromComponent>(args.User))
         {
             args.BonusDamage += args.BaseDamage; // double it.
-            if (aliveMobsCount > 0 && TryComp<DamageableComponent>(args.User, out var dmg))
+            if (TryComp<DamageableComponent>(args.User, out var dmg))
             {
-                var baseHeal = args.BaseDamage.GetTotal();
-                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal : baseHeal / 3f;
-                bonusHeal *= aliveMobsCount;
+                // -5 to all damage types
+                // if infused do -10. why? gaming.
+                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? 10f : 5f;
 
-                _sanguine.LifeSteal(args.User, bonusHeal, dmg);
+                var orig = dmg.Damage.DamageDict;
+                foreach (var k in orig.Keys)
+                    orig[k] = MathF.Max((float) orig[k] - bonusHeal, 0f);
+
+                _damage.SetDamage(args.User, dmg, new() { DamageDict = orig });
             }
         }
     }

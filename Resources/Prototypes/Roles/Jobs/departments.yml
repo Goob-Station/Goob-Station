@@ -150,15 +150,8 @@
   - ERTEngineer
   - DeathSquad
   - HecuOperative
-  - BlueshieldOfficer # Goobstation - Start
-  - NanotrasenRepresentative
-  - NanotrasenCareerTrainer
-  - NavyOfficer
-  - NavyCaptain
-  - NavyOfficerUndercover
-  - SpecialOperationsOfficer
-  - Diplomat
-  - GovernmentMan # Goobstation - End
+  - BlueshieldOfficer # Goobstation
+  - NanotrasenRepresentative # Goobstation
   editorHidden: true
   weight: 120
 
@@ -177,7 +170,6 @@
   - Quartermaster
   - BlueshieldOfficer # Goobstation
   - NanotrasenRepresentative # Goobstation
-  - NanotrasenCareerTrainer # Goobstation
   - CentralCommandOfficial
   - CBURN
   - ERTLeader

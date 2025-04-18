@@ -23,13 +23,13 @@ namespace Content.Server.Cloning
     {
         private readonly EntityUid _mindId;
         private readonly MindComponent _mind;
-        private readonly CloningPodSystem _cloningPodSystem;
+        private readonly CloningSystem _cloningSystem;
 
-        public AcceptCloningEui(EntityUid mindId, MindComponent mind, CloningPodSystem cloningPodSys)
+        public AcceptCloningEui(EntityUid mindId, MindComponent mind, CloningSystem cloningSys)
         {
             _mindId = mindId;
             _mind = mind;
-            _cloningPodSystem = cloningPodSys;
+            _cloningSystem = cloningSys;
         }
 
         public override void HandleMessage(EuiMessageBase msg)
@@ -43,7 +43,7 @@ namespace Content.Server.Cloning
                 return;
             }
 
-            _cloningPodSystem.TransferMindToClone(_mindId, _mind);
+            _cloningSystem.TransferMindToClone(_mindId, _mind);
             Close();
         }
     }

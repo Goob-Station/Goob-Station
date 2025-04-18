@@ -163,7 +163,6 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: EngineeringStaff # Goobstation
 
 - type: startingGear
   id: ChiefEngineerGear

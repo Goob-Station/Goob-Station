@@ -95,7 +95,7 @@ namespace Content.Server.Power.Components
         ///     When false, causes this to appear powered even if not receiving power from an Apc.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public override bool NeedsPower
+        public bool NeedsPower
         {
             get => _needsPower;
             set
@@ -112,9 +112,9 @@ namespace Content.Server.Power.Components
         /// <summary>
         ///     When true, causes this to never appear powered.
         /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
         [DataField("powerDisabled")]
-        public override bool PowerDisabled
-        {
+        public bool PowerDisabled {
             get => !NetworkLoad.Enabled;
             set => NetworkLoad.Enabled = !value;
         }

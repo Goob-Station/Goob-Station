@@ -1,11 +1,4 @@
-# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-#
-# SPDX-License-Identifier: MIT
-
-advertisement-snack-1 = Try our new nougat bar!
+﻿advertisement-snack-1 = Try our new nougat bar!
 advertisement-snack-2 = Twice the calories for half the price!
 advertisement-snack-3 = The healthiest!
 advertisement-snack-4 = Award-winning chocolate bars!

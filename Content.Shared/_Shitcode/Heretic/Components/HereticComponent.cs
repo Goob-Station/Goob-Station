@@ -98,9 +98,3 @@ public sealed partial class SacrificeTargetData
     [DataField]
     public ProtoId<JobPrototype> Job;
 }
-
-[Serializable, NetSerializable]
-public enum InfusedBladeVisuals
-{
-    Infused,
-}

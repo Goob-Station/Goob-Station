@@ -430,8 +430,8 @@
       roleLoadout: [ RoleSurvivalClown ]
     - type: RandomMetadata
       nameSegments:
-      - NamesClown
-
+      - names_clown
+      
 - type: randomHumanoidSettings
   id: VisitorJanitor
   parent: VisitorCivilian
@@ -580,8 +580,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 - type: randomHumanoidSettings
   id: ChallengeVictimChiefEngineer
@@ -599,8 +599,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 - type: randomHumanoidSettings
   id: ChallengeVictimCMO
@@ -618,8 +618,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfPersonnel
@@ -637,8 +637,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 - type: randomHumanoidSettings
   id: ChallengeVictimHeadOfSecurity
@@ -656,8 +656,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 - type: randomHumanoidSettings
   id: ChallengeVictimResearchDirector
@@ -675,8 +675,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 - type: randomHumanoidSettings
   id: ChallengeVictimQuartermaster
@@ -694,8 +694,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 # Security
 # Following use EventHumanoidMindShielded since they are heads and probably should have mindshields
@@ -718,8 +718,8 @@
       roleLoadout: [ RoleSurvivalVoxSupport ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirst
-      - NamesLast
+      - names_first
+      - names_last
 
 # Engineering
 
@@ -780,8 +780,6 @@
       name: ghost-role-information-syndie-disaster-victim-name
       description: ghost-role-information-syndie-disaster-victim-description
       rules: ghost-role-information-freeagent-rules
-      mindRoles:
-      - MindRoleGhostRoleFreeAgent
       raffle:
         settings: short
     - type: Loadout

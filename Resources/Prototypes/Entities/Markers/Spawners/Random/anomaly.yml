@@ -61,9 +61,7 @@
   - type: RandomSpawner
     prototypes:
     - AnomalyRockIron
-    - AnomalyRockCoal
     - AnomalyRockSilver
-    - AnomalyRockGold
     - AnomalyRockQuartz
     - AnomalyRockUranium
     chance: 1

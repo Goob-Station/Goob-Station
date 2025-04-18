@@ -292,11 +292,9 @@
   - type: Item
     size: Normal
   - type: Sprite
-    sprite: Objects/Misc/Lights/lights.rsi
     layers:
       - state: floodlight
-        map: [ "base" ]
-      - state: floodlight-on
+      - state: floodlight_on
         shader: unshaded
         visible: false
         map: [ "light" ]
@@ -347,13 +345,9 @@
   parent: BaseItem
   description: A pole with powerful mounted lights on it. It's broken.
   components:
-  - type: Item
-    size: Normal
-    sprite: Objects/Misc/Lights/lights.rsi
-    heldPrefix: floodlight-broken
   - type: Sprite
     sprite: Objects/Misc/Lights/lights.rsi
-    state: floodlight-broken
+    state: floodlight_broken
   - type: Anchorable
   - type: Damageable
     damageContainer: StructuralInorganic

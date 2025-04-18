@@ -92,12 +92,6 @@
     angularDamping: 0
     linearDamping: 0
     canCollide: False
-  - type: Tag
-    tags:
-    - FollowerStayOnPolymorph
-  - type: Reflect
-    reflectProb: 1
-    spread: 5
 
 - type: entity
   parent: BaseBullet
@@ -108,17 +102,13 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/items.rsi
-    layers:
-    - state: bullet
-      shader: unshaded
+    state: protective_blade
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
-    ignoreResistances: true
     damage:
       types:
-        Slash: 25
+        Slash: 15
+        Piercing: 15
         Structural: 100
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
-  - type: Reflective
-    reflective: None

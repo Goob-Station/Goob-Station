@@ -17,8 +17,8 @@
   dollPrototype: MobVoxDummy
   skinColoration: VoxFeathers
   defaultSkinTone: "#6c741d"
-  maleFirstNames: NamesVox
-  femaleFirstNames: NamesVox
+  maleFirstNames: names_vox
+  femaleFirstNames: names_vox
   naming: First
   sexes:
   - Unsexed

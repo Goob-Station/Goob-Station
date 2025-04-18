@@ -244,8 +244,6 @@
     name: ghost-role-information-rat-king-name
     description: ghost-role-information-rat-king-description
     rules: ghost-role-information-freeagent-rules
-    mindRoles:
-    - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
     requirements: # Goobstation - ghost roles requirements
@@ -272,8 +270,8 @@
     price: 2500 # rat wealth
   - type: RandomMetadata
     nameSegments:
-    - NamesRegalratKingdom
-    - NamesRegalratTitle
+    - RegalRatNameKingdom
+    - RegalRatNameTitle
   - type: GuideHelp
     guides:
     - MinorAntagonists

@@ -1,5 +1,0 @@
-- type: entity
-  abstract: true
-  id: BaseEnchant
-  components:
-  - type: Enchant

@@ -17,8 +17,8 @@ namespace Content.Shared.Cloning;
 [RegisterComponent]
 public sealed partial class CloningPodComponent : Component
 {
-    [DataField]
-    public ProtoId<SinkPortPrototype> PodPort = "CloningPodReceiver";
+    [ValidatePrototypeId<SinkPortPrototype>]
+    public const string PodPort = "CloningPodReceiver";
 
     [ViewVariables]
     public ContainerSlot BodyContainer = default!;
@@ -38,25 +38,23 @@ public sealed partial class CloningPodComponent : Component
     /// <summary>
     /// The material that is used to clone entities.
     /// </summary>
-    [DataField]
+    [DataField("requiredMaterial"), ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<MaterialPrototype> RequiredMaterial = "Biomass";
 
     /// <summary>
-    /// The current amount of time it takes to clone a body.
+    /// The current amount of time it takes to clone a body
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float CloningTime = 30f;
 
     /// <summary>
-    /// The mob to spawn on emag.
+    /// The mob to spawn on emag
     /// </summary>
-    [DataField]
+    [DataField("mobSpawnId"), ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId MobSpawnId = "MobAbomination";
 
-    /// <summary>
-    /// The sound played when a mob is spawned from an emagged cloning pod.
-    /// </summary>
-    [DataField]
+    // TODO: Remove this from here when cloning and/or zombies are refactored
+    [DataField("screamSound")]
     public SoundSpecifier ScreamSound = new SoundCollectionSpecifier("ZombieScreams")
     {
         Params = AudioParams.Default.WithVolume(4),
@@ -82,4 +80,22 @@ public enum CloningPodStatus : byte
     Cloning,
     Gore,
     NoMind
+}
+
+/// <summary>
+/// Raised after a new mob got spawned when cloning a humanoid
+/// </summary>
+[ByRefEvent]
+public struct CloningEvent
+{
+    public bool NameHandled = false;
+
+    public readonly EntityUid Source;
+    public readonly EntityUid Target;
+
+    public CloningEvent(EntityUid source, EntityUid target)
+    {
+        Source = source;
+        Target = target;
+    }
 }

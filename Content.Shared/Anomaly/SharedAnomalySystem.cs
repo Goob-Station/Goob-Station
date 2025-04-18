@@ -247,7 +247,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         var ev = new AnomalySupercriticalEvent(uid, powerMod);
         RaiseLocalEvent(uid, ref ev, true);
 
-        EndAnomaly(uid, component, true, logged: true);
+        EndAnomaly(uid, component, true);
     }
 
     /// <summary>
@@ -257,17 +257,13 @@ public abstract class SharedAnomalySystem : EntitySystem
     /// <param name="component"></param>
     /// <param name="supercritical">Whether or not the anomaly ended via supercritical event</param>
     /// <param name="spawnCore">Create anomaly cores based on the result of completing an anomaly?</param>
-    /// <param name="logged">Whether or not the anomaly decaying/going supercritical is logged</param>
-    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true, bool logged = false)
+    public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false, bool spawnCore = true)
     {
-        if (logged)
-        {
-            // Logging before resolve, in case the anomaly has deleted itself.
-            if (_net.IsServer)
-                Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
-            AdminLog.Add(LogType.Anomaly, supercritical ? LogImpact.High : LogImpact.Low,
-                $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
-        }
+        // Logging before resolve, in case the anomaly has deleted itself.
+        if (_net.IsServer)
+            Log.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
+        AdminLog.Add(LogType.Anomaly, supercritical ? LogImpact.High : LogImpact.Low,
+                     $"Anomaly {ToPrettyString(uid)} {(supercritical ? "went supercritical" : "decayed")}.");
 
         if (!Resolve(uid, ref component))
             return;
@@ -348,7 +344,7 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         if (newVal < 0)
         {
-            EndAnomaly(uid, component, logged: true);
+            EndAnomaly(uid, component);
             return;
         }
 

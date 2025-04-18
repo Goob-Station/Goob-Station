@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn, plyush, bellcatsu , George Gimme, and Ahti, plushie_samantha by SolsticeOfTheWinter, Abductor by Shy Bandit",
+    "copyright": "BeeRobynn, plyush, bellcatsu , George Gimme, and Ahti",
     "size": {
         "x": 32,
         "y": 32
@@ -13,21 +13,6 @@
         {
             "name": "plushie_durk"
         },
-		{
-            "name": "plushie_samantha"
-        },
-		{
-            "name": "plushiesamantha-equipped-HELMET",
-            "directions": 4
-        },
-		{
-            "name": "plushiesamantha-inhand-left",
-            "directions": 4
-        },
-        {
-            "name": "plushiesamantha-inhand-right",
-            "directions": 4
-        },
         {
             "name": "plushie_blackburn"
         },
@@ -36,9 +21,6 @@
         },
         {
             "name": "plushie_kobliska"
-        },
-        {
-            "name": "plushie_abductor"
         },
         {
             "name": "plushie_desislava",
@@ -60,6 +42,5 @@
             "name": "bingle_pony",
             "directions": 4
         }
-
     ]
 }

@@ -53,8 +53,6 @@
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -227,9 +225,6 @@
   - type: StaticPrice
     price: 150
   - type: PryUnpowered
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 25
-    damagePenalty: 0.1
 
 - type: entity
   id: BaseSecureWindoor
@@ -300,9 +295,7 @@
     tags:
       - SecureWindoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 50
-    damagePenalty: 0.1
+
 
 #Plasma Windoors
 - type: entity
@@ -369,9 +362,6 @@
     price: 500
   - type: RadiationBlocker
     resistance: 2
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 40
-    damagePenalty: 0.1
 
 - type: entity
   id: BaseSecurePlasmaWindoor
@@ -442,9 +432,7 @@
     tags:
       - SecurePlasmaWindoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 50
-    damagePenalty: 0.1
+
 
 #Uranium Windoors
 - type: entity
@@ -511,9 +499,6 @@
     price: 560
   - type: RadiationBlocker
     resistance: 3
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 40
-    damagePenalty: 0.1
 
 - type: entity
   id: BaseSecureUraniumWindoor
@@ -584,6 +569,3 @@
     tags:
       - SecureUraniumWindoor
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 50
-    damagePenalty: 0.1

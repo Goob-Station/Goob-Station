@@ -23,7 +23,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Gravity;
-using Content.Shared.Inventory; // Goobstation
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
@@ -177,7 +176,6 @@ public sealed class StepTriggerSystem : EntitySystem
         var msg = new StepTriggerAttemptEvent { Source = uid, Tripper = otherUid };
 
         RaiseLocalEvent(uid, ref msg);
-        RaiseLocalEvent(otherUid, ref msg); // Goobstation - let enchants handle it too
 
         return msg.Continue && !msg.Cancelled;
     }
@@ -285,9 +283,8 @@ public sealed class StepTriggerSystem : EntitySystem
 }
 
 [ByRefEvent]
-public struct StepTriggerAttemptEvent : IInventoryRelayEvent // Goobstation
+public struct StepTriggerAttemptEvent
 {
-    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.FEET | SlotFlags.OUTERCLOTHING; // Goobstation
     public EntityUid Source;
     public EntityUid Tripper;
     public bool Continue;

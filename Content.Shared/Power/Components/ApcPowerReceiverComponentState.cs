@@ -12,6 +12,4 @@ namespace Content.Shared.Power.Components;
 public sealed class ApcPowerReceiverComponentState : ComponentState
 {
     public bool Powered;
-    public bool NeedsPower;
-    public bool PowerDisabled;
 }

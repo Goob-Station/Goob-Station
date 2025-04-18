@@ -150,10 +150,7 @@ public abstract partial class InteractionTest
 
         // Please someone purge async construction code
         Task<bool> task = default!;
-        await Server.WaitPost(() =>
-        {
-            task = SConstruction.TryStartItemConstruction(prototype, SEntMan.GetEntity(Player));
-        });
+        await Server.WaitPost(() => task = SConstruction.TryStartItemConstruction(prototype, SEntMan.GetEntity(Player)));
 
         Task? tickTask = null;
         while (!task.IsCompleted)

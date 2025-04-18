@@ -133,6 +133,7 @@
     - FootstepSound
     - DoorBumpOpener
     - VulpEmotes
+  - type: FootPrints # WD EDIT
 
 - type: entity
   save: false

@@ -1,17 +1,68 @@
-- type: localizedDataset
-  id: NamesSyndicateNormal
-  values:
-    prefix: names-syndicate-normal-dataset-
-    count: 25
+# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 
-- type: localizedDataset
-  id: NamesSyndicateElite
+- type: dataset
+  id: SyndicateNamesNormal
   values:
-    prefix: names-syndicate-elite-dataset-
-    count: 23
+  - Alfa
+  - Bravo
+  - Charlie
+  - Delta
+  - Echo
+  - Foxtrot
+  - Golf
+  - Hotel
+  - India
+  - Juliett
+  - Kilo
+  - Lima
+  - Mike
+  - November
+  - Oscar
+  - Papa
+  - Quebec
+  - Romeo
+  - Sierra
+  - Tango
+  - Uniform
+  - Victor
+  - Whiskey
+  - X-Ray
+  - Zulu
 
-- type: localizedDataset
-  id: NamesSyndicatePrefix
+- type: dataset
+  id: SyndicateNamesElite
   values:
-    prefix: names-syndicate-prefix-dataset-
-    count: 2
+  - Alpha
+  - Beta
+  - Gamma
+  - Delta
+  - Epsilon
+  - Zeta
+  - Eta
+  - Theta
+  - Iota
+  - Lambda
+  - Mu
+  - Nu
+  - Xi
+  - Omicron
+  - Pi
+  - Rho
+  - Sigma
+  - Tau
+  - Upsilon
+  - Phi
+  - Chi
+  - Psi
+  - Omega
+
+- type: dataset
+  id: SyndicateNamesPrefix
+  values:
+  - Operative
+  - Agent

@@ -13,8 +13,8 @@
   sprites: CyborgSprites
   defaultSkinTone: "#fff9e2"
   markingLimits: MobHumanMarkingLimits
-  maleFirstNames: NamesBorg
-  femaleFirstNames: NamesBorg
+  maleFirstNames: names_borg
+  femaleFirstNames: names_borg
   dollPrototype: BorgChassisSelectable
   skinColoration: TintedHues
 

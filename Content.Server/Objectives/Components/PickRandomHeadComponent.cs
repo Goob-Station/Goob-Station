@@ -12,5 +12,7 @@ namespace Content.Server.Objectives.Components;
 /// Sets the target for <see cref="TargetObjectiveComponent"/> to a random head.
 /// If there are no heads it will fallback to any person.
 /// </summary>
-[RegisterComponent]
-public sealed partial class PickRandomHeadComponent : Component;
+[RegisterComponent, Access(typeof(KillPersonConditionSystem))]
+public sealed partial class PickRandomHeadComponent : Component
+{
+}

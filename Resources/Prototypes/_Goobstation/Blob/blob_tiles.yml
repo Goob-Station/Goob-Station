@@ -21,8 +21,6 @@
       name: ghost-role-information-blob-name
       description: ghost-role-information-blob-description
       rules: You are an antagonist, destroy the station!
-      mindRoles:
-      - MindRoleGhostRoleSoloAntagonist
       raffle:
         settings: default
       requirements:
@@ -113,8 +111,6 @@
     name: ghost-role-information-blob-name
     description: ghost-role-information-blob-description
     rules: You are an antagonist, destroy the station!
-    mindRoles:
-    - MindRoleGhostRoleSoloAntagonist
     reregister: false
     raffle:
       settings: default

@@ -63,8 +63,8 @@ public sealed partial class TriggerSystem
                 {
                     // Goobstation start
                     triggerOnTimedCollide.Colliding[collidingEntity] -= triggerOnTimedCollide.Threshold;
-                    var attemptEv = new BeforeTriggerEvent(uid, collidingEntity);
-                    RaiseLocalEvent(uid, ref attemptEv, true);
+                    var attemptEv = new TriggerAttemptEvent(uid, collidingEntity);
+                    RaiseLocalEvent(uid, attemptEv, true);
                     if (attemptEv.Cancelled)
                         continue;
                     RaiseLocalEvent(uid, new TriggerEvent(uid, collidingEntity), true);

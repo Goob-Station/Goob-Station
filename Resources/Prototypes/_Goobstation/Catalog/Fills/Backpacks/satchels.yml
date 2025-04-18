@@ -11,12 +11,8 @@
   - type: StorageFill
     contents:
     - id: HandheldFaxOfficial
+    - id: HyperFlash
     - id: WeaponPulsePistol
-    - id: CentralCommandBusinessCard
-    - id: BoxFolderCentCom
-    - id: CentcommMindShieldImplanter # SetOutfit doesn't apply implants.
-    - id: BluespaceLifelineImplanter # As much as i hate cramming bags with implants...
-    - id: DeterrentCaseFilled
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -29,10 +25,7 @@
     - id: NukeOverride # No need for codes.
     - id: MagazineLightRifleUranium
     - id: MagazineLightRifleUranium
-    - id: DeterrentCaseFilled
-    - id: CentralCommandBusinessCard
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
+    - id: HyperFlash
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -44,21 +37,4 @@
     - id: WeaponPulsePistol
     - id: MagazinePistolNeurotoxin
     - id: MagazinePistolNeurotoxin
-    - id: DeterrentCaseFilled
-    - id: CentralCommandBusinessCard
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
-
-- type: entity
-  parent: ClothingBackpackSatchelLeather
-  id: ClothingBackpackSatchelLeatherFilledInspector
-  components:
-  - type: StorageFill
-    contents:
-    - id: HandheldFaxOfficial
-    - id: WeaponPulsePistol
-    - id: DeterrentCaseFilled
-    - id: CentralCommandBusinessCard
-    - id: BoxFolderCentCom
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
+    - id: HyperFlash

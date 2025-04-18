@@ -1,11 +1,45 @@
-- type: localizedDataset
-  id: NamesRegalratKingdom
-  values:
-    prefix: names-regal-rat-kingdom-dataset-
-    count: 15
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
 
-- type: localizedDataset
-  id: NamesRegalratTitle
+- type: dataset
+  id: RegalRatNameKingdom
   values:
-    prefix: names-regal-rat-title-dataset-
-    count: 17
+  - Plague
+  - Ammonia
+  - Maintenance
+  - Trash
+  - Garbage
+  - Rat
+  - Vermin
+  - Cheese
+  - Munching
+  - Big
+  - Filth
+  - Sewer
+  - Disposal
+  - Service
+  - The
+
+- type: dataset
+  id: RegalRatNameTitle
+  values:
+  - King
+  - Lord
+  - Prince
+  - Emperor
+  - Supreme
+  - Overlord
+  - Master
+  - Shogun
+  - Bojar
+  - Tsar
+  - Fan #vs
+  - Enjoyer
+  - President
+  - Mayor
+  - Boss
+  - Prophet
+  - Cheese

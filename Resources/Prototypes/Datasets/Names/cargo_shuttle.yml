@@ -1,5 +1,16 @@
-- type: localizedDataset
-  id: NamesCargoShuttle
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: dataset
+  id: ShuttleNames
   values:
-    prefix: names-cargo-shuttle-dataset-
-    count: 8
+  - A Shuttle Will Not Occur
+  - Big Money Shuttle
+  - Engine Change
+  - Ships-the-Cargo
+  - Shootel
+  - Shuttle McShuttleface
+  - ShuttleShuttle
+  - Urist McShuttle

@@ -54,8 +54,6 @@
     - id: ClothingBackpackDuffelSurgeryFilled
     - id: BoxTracker
     - id: BlueshieldUndeterminedWeapon
-    - id: PlushieSamantha
-      prob: 0.20
 
 - type: entity
   id: LockerBlueshieldOfficerFilled

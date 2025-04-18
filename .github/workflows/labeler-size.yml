@@ -7,6 +7,10 @@
 name: "Labels: Size"
 on: pull_request_target
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   size-label:
     runs-on: ubuntu-latest
@@ -14,7 +18,7 @@ jobs:
       - name: size-label
         uses: "pascalgn/size-label-action@v0.5.5"
         env:
-          GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
           # Custom size configuration
           sizes: >

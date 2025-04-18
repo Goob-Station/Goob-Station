@@ -5,59 +5,31 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by Wyvernrer",
+    "copyright": "Sprited by SolsticeOfTheWinter",
     "states": [
         {
-            "name": "icon-disabling",
-            "delays": [
-                [
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2
-                ]
-            ]
+            "name": "base"
         },
         {
-            "name": "icon-lethal",
-            "delays": [
-                [
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2,
-                    0.2
-                ]
-            ]
+            "name": "icon"
         },
         {
-            "name": "lethal-empty",
-            "delays": [
-                [
-                    0.2,
-                    0.2
-                ]
-            ]
+            "name": "base-1"
         },
         {
-            "name": "disabling-empty",
-            "delays": [
-                [
-                    0.2,
-                    0.2
-                ]
-            ]
+            "name": "base-2"
+        },
+        {
+            "name": "base-3"
+        },
+        {
+            "name": "disabling-1"
+        },
+        {
+            "name": "disabling-2"
+        },
+        {
+            "name": "disabling-3"
         }
     ]
 }

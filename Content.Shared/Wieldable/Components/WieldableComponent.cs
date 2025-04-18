@@ -24,7 +24,6 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -39,7 +38,7 @@ namespace Content.Shared.Wieldable.Components;
 /// <summary>
 ///     Used for objects that can be wielded in two or more hands,
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation edit
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedWieldableSystem)), AutoGenerateComponentState]
 public sealed partial class WieldableComponent : Component
 {
     [DataField("wieldSound")]
@@ -62,7 +61,7 @@ public sealed partial class WieldableComponent : Component
     ///     Whether using the item inhand while wielding causes the item to unwield.
     ///     Unwielding can conflict with other inhand actions.
     /// </summary>
-    [DataField, AutoNetworkedField] // Goobstation edit
+    [DataField]
     public bool UnwieldOnUse = true;
 
     /// <summary>
@@ -71,7 +70,7 @@ public sealed partial class WieldableComponent : Component
     [DataField]
     public bool UseDelayOnWield = true;
 
-    [DataField("wieldedInhandPrefix"), AutoNetworkedField] // Goobstation edit
+    [DataField("wieldedInhandPrefix")]
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;

@@ -9,8 +9,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -22,7 +20,7 @@
   parent: BaseItem
   id: Cane
   name: cane
-  description: A standard wooden cane. Can help disabled people move easier. # Goobstation
+  description: A wooden cane.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane.rsi
@@ -46,7 +44,6 @@
         Blunt: 3
   - type: UseDelay
     delay: 1
-  - type: MovementImpairedCorrection # Goobstation
 
 - type: entity
   name: cane blade
@@ -112,7 +109,6 @@
           tags:
           - CaneBlade
   - type: HideContrabandContent #Goobstation-Contraband detector
-  - type: MovementImpairedCorrection # Goobstation
 
 - type: entity
   id: CaneSheathFilled

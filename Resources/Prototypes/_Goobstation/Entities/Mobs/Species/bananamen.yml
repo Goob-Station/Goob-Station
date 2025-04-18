@@ -48,6 +48,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Inventory
     templateId: human 
+  - type: FootPrints # WD EDIT
 
 - type: entity
   parent: BaseSpeciesDummy

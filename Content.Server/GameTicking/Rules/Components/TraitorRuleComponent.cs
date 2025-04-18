@@ -46,13 +46,13 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> CodewordAdjectives = "Adjectives";
+    public ProtoId<DatasetPrototype> CodewordAdjectives = "adjectives";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
+    public ProtoId<DatasetPrototype> CodewordVerbs = "verbs";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
+    public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // goob edit
 
     /// <summary>
     /// Give this traitor an Uplink on spawn.

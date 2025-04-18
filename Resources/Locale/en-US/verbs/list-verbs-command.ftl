@@ -1,10 +1,4 @@
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-### Localization used for the list verbs command.
+﻿### Localization used for the list verbs command.
 # Mostly help + error messages.
 
 list-verbs-command-description = Lists all verbs that a player can use on a given entity.

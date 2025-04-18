@@ -129,6 +129,12 @@ public abstract partial class SharedEntityStorageComponent : Component
     public float EnteringRange = 0.18f;
 
     /// <summary>
+    /// If true, there may be mobs inside the container, even if the container is an Item
+    /// </summary>
+    [DataField]
+    public bool ItemCanStoreMobs = false;
+
+    /// <summary>
     /// Whether or not to show the contents when the storage is closed
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
@@ -211,7 +217,10 @@ public sealed class EntityStorageComponentState : ComponentState
 }
 
 [ByRefEvent]
-public record struct InsertIntoEntityStorageAttemptEvent(EntityUid ItemToInsert, bool Cancelled = false);
+public record struct InsertIntoEntityStorageAttemptEvent(bool Cancelled = false);
+
+[ByRefEvent]
+public record struct StoreMobInItemContainerAttemptEvent(bool Handled, bool Cancelled = false);
 
 [ByRefEvent]
 public record struct StorageOpenAttemptEvent(EntityUid User, bool Silent, bool Cancelled = false);

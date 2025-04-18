@@ -120,7 +120,6 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles.RoleCodeword;
@@ -183,7 +182,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         string[] codewords = new string[finalCodewordCount];
         for (var i = 0; i < finalCodewordCount; i++)
         {
-            codewords[i] = Loc.GetString(_random.PickAndTake(codewordPool));
+            codewords[i] = _random.PickAndTake(codewordPool);
         }
         return codewords;
     }
@@ -194,15 +193,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (!_mindSystem.TryGetMind(traitor, out var mindId, out var mind))
             return false;
 
-        var briefing = "";
-
-        if (component.GiveCodewords)
-        {
-            Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - added codewords flufftext to briefing");
-            briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", component.Codewords)));
-        }
-
-        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
+        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers).Values);
+        component.ObjectiveIssuer = issuer;
 
         Note[]? code = null;
 

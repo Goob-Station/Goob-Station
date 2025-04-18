@@ -28,15 +28,3 @@
     layers:
       - state: green
       - state: centcom
-
-- type: entity
-  id: SpawnPointNanotrasenCareerTrainer
-  parent: SpawnPointJobBase
-  name: nanotrasencareertrainer
-  components:
-  - type: SpawnPoint
-    job_id: NanotrasenCareerTrainer
-  - type: Sprite
-    layers:
-      - state: green
-      - state: centcom

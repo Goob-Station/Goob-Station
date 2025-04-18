@@ -636,9 +636,8 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
         if (existing.Count > SpeechBubbleCap)
         {
-            // Get the next speech bubble to fade
-            // Any speech bubbles before it are already fading
-            var last = existing[^(SpeechBubbleCap + 1)];
+            // Get the oldest to start fading fast.
+            var last = existing[0];
             last.FadeNow();
         }
     }

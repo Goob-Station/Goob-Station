@@ -24,7 +24,6 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
-using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
 
@@ -47,7 +46,7 @@ public sealed class MindShieldSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);
-        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
+        SubscribeLocalEvent<MindShieldComponent, ImplantRemovedFromEvent>(OnMindShieldRemoved); // GoobStation
     }
 
     /// <summary>
@@ -90,17 +89,20 @@ public sealed class MindShieldSystem : EntitySystem
             RemComp<Goobstation.Shared.Mindcontrol.MindcontrolledComponent>(implanted);
     }
 
-    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    // GoobStation
+    /// <summary>
+    /// Removes mindshield comp if mindshield implant was ejected
+    /// </summary>
+    public void OnMindShieldRemoved(Entity<MindShieldComponent> mindshielded, ref ImplantRemovedFromEvent args)
     {
-        if (!_tag.HasTag(ent, MindShieldTag))
+        if (!_tag.HasTag(args.Implant, MindShieldTag))
             return;
 
-        _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), args.Container.Owner, args.Container.Owner);
+        _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), mindshielded, mindshielded);
 
-        if (TryComp<HeadRevolutionaryComponent>(args.Container.Owner, out var headRevComp))
-            _revolutionarySystem.ToggleConvertAbility((args.Container.Owner, headRevComp), true);
+        if (TryComp<HeadRevolutionaryComponent>(mindshielded, out var headRevComp))
+            _revolutionarySystem.ToggleConvertAbility((mindshielded, headRevComp), true);
 
-        RemComp<MindShieldComponent>(args.Container.Owner);
+        RemComp<MindShieldComponent>(mindshielded);
     }
 }
-

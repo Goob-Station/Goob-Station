@@ -112,4 +112,3 @@
     lifetime: 0.6
   - type: SinguloFood
     energy: -10
-    energyFactor: 0.97

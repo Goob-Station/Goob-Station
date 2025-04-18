@@ -205,7 +205,7 @@ public sealed class PaperSystem : EntitySystem
                     return;
                 }
 
-                var writeEvent = new PaperWriteEvent(args.User, entity);
+                var writeEvent = new PaperWriteEvent(entity, args.User);
                 RaiseLocalEvent(args.Used, ref writeEvent);
 
                 entity.Comp.Mode = PaperAction.Write;

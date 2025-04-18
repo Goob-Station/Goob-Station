@@ -9,8 +9,3 @@
   id: names_gman
   values:
   - The G-Man
-
-- type: dataset
-  id: names_conquest
-  values:
-  - Conquest

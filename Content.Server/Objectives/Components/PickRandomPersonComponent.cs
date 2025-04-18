@@ -12,7 +12,7 @@ namespace Content.Server.Objectives.Components;
 /// <summary>
 /// Sets the target for <see cref="TargetObjectiveComponent"/> to a random person.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, Access(typeof(KillPersonConditionSystem))]
 public sealed partial class PickRandomPersonComponent : Component
 {
     [DataField]

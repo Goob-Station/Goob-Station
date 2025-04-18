@@ -1,7 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
@@ -21,10 +19,10 @@
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: 180
-    attackRate: 3
+    attackRate: 1.5
     damage:
       types:
-        Slash: 8
+        Slash: 17.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Sharp
@@ -35,7 +33,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 15
+        Slash: 20
   - type: DisarmMalus
     malus: 0.225
   - type: BackStab
