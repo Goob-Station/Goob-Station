@@ -39,7 +39,8 @@
     state: pinpointer-science
   - type: Pinpointer
     updateTargetName: true
-    whitelist: # Goob edit: pinpointer whitelist
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
       components:
       - Artifact
 
