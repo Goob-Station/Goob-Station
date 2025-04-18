@@ -5,6 +5,9 @@
 # SPDX-FileCopyrightText: 2024 Sphiral <145869023+SphiraI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -73,9 +76,15 @@
     - name: head
       slotTexture: head
       slotFlags: HEAD
-      uiWindowPos: 0,2
+      uiWindowPos: 0,3 # Goobstation - Moved up slightly
       strippingWindowPos: 0,0
       displayName: Head
+    - name: neck # Goobstation - For drip reasons.
+      slotTexture: neck
+      slotFlags: NECK
+      uiWindowPos: 0,2
+      strippingWindowPos: 0,1
+      displayName: Neck
     - name: mask
       slotTexture: mask
       slotFlags: MASK

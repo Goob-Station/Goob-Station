@@ -88,6 +88,8 @@
 # SPDX-FileCopyrightText: 2024 tosatur <63034378+tosatur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Accents that work off of word replacements.
@@ -454,7 +456,7 @@
     accent-cowboy-words-93: accent-cowboy-replacement-93
     accent-cowboy-words-94: accent-cowboy-replacement-94
     accent-cowboy-words-95: accent-cowboy-replacement-95
-    accent-cowboy-words-96: accent-cowboy-replacement-96
+#    accent-cowboy-words-96: accent-cowboy-replacement-96 -GoobStation
     accent-cowboy-words-97: accent-cowboy-replacement-97
     accent-cowboy-words-98: accent-cowboy-replacement-98
     accent-cowboy-words-99: accent-cowboy-replacement-99
