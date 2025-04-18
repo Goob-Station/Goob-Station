@@ -73,7 +73,7 @@
         components:
         - type: Item
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
-          prefix: stun
+          heldPrefix: stun
           storedRotation: -90
           size: Huge
         - type: MeleeWeapon
@@ -101,7 +101,7 @@
         components:
         - type: Item
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
-          prefix: ion
+          heldPrefix: ion
           storedRotation: -90
           size: Huge
         - type: MeleeWeapon
@@ -123,7 +123,7 @@
         components:
         - type: Item
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
-          prefix: lethal
+          heldPrefix: lethal
           storedRotation: -90
           size: Huge
         - type: MeleeWeapon
@@ -145,7 +145,7 @@
         components:
         - type: Item
           sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
-          prefix: empowered
+          heldPrefix: empowered
           storedRotation: -90
           size: Huge
         - type: IgniteOnMeleeHit

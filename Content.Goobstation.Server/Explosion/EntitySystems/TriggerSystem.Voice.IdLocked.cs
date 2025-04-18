@@ -20,11 +20,11 @@ namespace Content.Server.Explosion.EntitySystems
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, ComponentInit>(OnVoiceInit);
+            SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, MapInitEvent>(OnVoiceInit);
             SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, ListenEvent>(OnListen);
         }
 
-        private void OnVoiceInit(EntityUid uid, TriggerOnVoiceIdLockedComponent comp, ComponentInit args)
+        private void OnVoiceInit(EntityUid uid, TriggerOnVoiceIdLockedComponent comp, MapInitEvent args)
         {
             // Set the access levels.
             EnsureComp<AccessReaderComponent>(uid, out var accessReader);
