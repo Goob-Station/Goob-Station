@@ -85,9 +85,6 @@ public sealed class MindShieldSystem : EntitySystem
 
     private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (!_tag.HasTag(ent, MindShieldTag))
-            return;
-
         _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), args.Container.Owner, args.Container.Owner);
 
         if (TryComp<HeadRevolutionaryComponent>(args.Container.Owner, out var headRevComp))
