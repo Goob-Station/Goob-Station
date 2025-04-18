@@ -15,11 +15,11 @@ public sealed class ArmorPenetrationExamine
             return [];
 
         var msg = new FormattedMessage();
-        msg.AddText("\n" + Loc.GetString("armor-piercing-examine-start"));
+        msg.AddText("\n" + Loc.GetString("armor-penetration-examine-start"));
         msg.PushColor(ap < 0 ? Color.Blue : Color.Red);
         msg.AddText(" " +  Math.Abs((int)ap) + "% " + (ap < 0 ? Loc.GetString("worse") : Loc.GetString("better")) + " ");
         msg.Pop();
-        msg.AddText(Loc.GetString("armor-piercing-examine-end"));
+        msg.AddText(Loc.GetString("armor-penetration-examine-end"));
         return msg;
     }
 }
