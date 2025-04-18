@@ -340,7 +340,7 @@
         - !type:DoActsBehavior
           acts: ["Destruction"]
   - type: Gun
-    # projectileSpeed: 20 # Goobstation edit
+    projectileSpeed: 25 # Goobstation edit
     fireRate: 1 # Goobstation edit
     selectedMode: SemiAuto
     angleDecay: 45

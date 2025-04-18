@@ -1,0 +1,12 @@
+- type: entity
+  id: CartridgeLowCaliber
+  name: cartridge (5x23mm)
+  parent: BaseCartridge
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLowCaliber
+    deleteOnSpawn: true
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeLowCaliber

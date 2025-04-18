@@ -16,6 +16,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Damage; // Goobstation
 using Content.Server.Power.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
@@ -91,6 +92,11 @@ public sealed partial class GunSystem
         };
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
+
+        // Goobstation - partial armor penetration
+        if (component is not ProjectileBatteryAmmoProviderComponent p)
+            return;
+        args.Message.AddMessage(ArmorPenetrationExamine.ArmorPenetrationExamineText(GetProjectilePenetration(p.Prototype)));
     }
 
     private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)

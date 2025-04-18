@@ -60,6 +60,7 @@ using Robust.Shared.Player;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.CCVar;
+using Content.Goobstation.Common.Damage;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Coordinates;
@@ -127,6 +128,11 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
+
+        // Goobstation - partial armor penetration
+        args.Message.AddMessage(ArmorPenetrationExamine
+            .ArmorPenetrationExamineText(component.ResistanceBypass ? 100 : (int)Math.Round(component.ArmorPenetration * 100)));
+
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,

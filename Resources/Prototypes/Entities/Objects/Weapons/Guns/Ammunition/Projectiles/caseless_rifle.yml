@@ -25,18 +25,19 @@
 
 - type: entity
   id: BulletCaselessRifle
-  name: bullet (.25 caseless)
+  name: bullet (9.5mm HP) # Goobstation edit
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 19
+        Piercing: 26 # Goobstation edit
+    armorPenetration: -0.25 # Goobstation
 
 - type: entity
   id: BulletCaselessRiflePractice
-  name: bullet (.25 caseless practice)
+  name: bullet (9.5mm practice) # Goobstation edit
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:
