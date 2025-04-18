@@ -37,7 +37,6 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
-using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -180,53 +179,45 @@ public sealed partial class BlockingSystem : EntitySystem
         var msgUser = Loc.GetString("action-popup-blocking-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        if (component.BlockingToggleAction != null)
+        //Don't allow someone to block if they're not parented to a grid
+        if (xform.GridUid != xform.ParentUid)
         {
-            //Don't allow someone to block if they're not parented to a grid
-            if (xform.GridUid != xform.ParentUid)
-            {
-                CantBlockError(user);
-                return false;
-            }
+            CantBlockError(user);
+            return false;
+        }
 
-            // Don't allow someone to block if they're not holding the shield
-            if(!_handsSystem.IsHolding(user, item, out _))
-            {
-                CantBlockError(user);
-                return false;
-            }
+        // Don't allow someone to block if they're not holding the shield
+        if (!_handsSystem.IsHolding(user, item, out _))
+        {
+            CantBlockError(user);
+            return false;
+        }
 
-            //Don't allow someone to block if someone else is on the same tile
-            var playerTileRef = xform.Coordinates.GetTileRef();
-            if (playerTileRef != null)
+        //Don't allow someone to block if someone else is on the same tile
+        var playerTileRef = xform.Coordinates.GetTileRef();
+        if (playerTileRef != null)
+        {
+            var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
+            var mobQuery = GetEntityQuery<MobStateComponent>();
+            foreach (var uid in intersecting)
             {
-                var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
-                var mobQuery = GetEntityQuery<MobStateComponent>();
-                foreach (var uid in intersecting)
+                if (uid != user && mobQuery.HasComponent(uid))
                 {
-                    if (uid != user && mobQuery.HasComponent(uid))
-                    {
-                        TooCloseError(user);
-                        return false;
-                    }
+                    TooCloseError(user);
+                    return false;
                 }
             }
-
-            //Don't allow someone to block if they're somehow not anchored.
-            _transformSystem.AnchorEntity(user, xform);
-            if (!xform.Anchored)
-            {
-                CantBlockError(user);
-                return false;
-            }
-            _actionsSystem.SetToggled(component.BlockingToggleActionEntity, true);
-            if (_gameTiming.IsFirstTimePredicted)
-            {
-                _popupSystem.PopupEntity(msgOther, user, Filter.PvsExcept(user), true);
-                if(_gameTiming.InPrediction)
-                    _popupSystem.PopupEntity(msgUser, user, user);
-            }
         }
+
+        //Don't allow someone to block if they're somehow not anchored.
+        _transformSystem.AnchorEntity(user, xform);
+        if (!xform.Anchored)
+        {
+            CantBlockError(user);
+            return false;
+        }
+        _actionsSystem.SetToggled(component.BlockingToggleActionEntity, true);
+        _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
 
         if (TryComp<PhysicsComponent>(user, out var physicsComponent))
         {
@@ -234,7 +225,7 @@ public sealed partial class BlockingSystem : EntitySystem
                 component.Shape,
                 BlockingComponent.BlockFixtureID,
                 hard: true,
-                collisionLayer: (int) CollisionGroup.WallLayer,
+                collisionLayer: (int)CollisionGroup.WallLayer,
                 body: physicsComponent);
         }
 
@@ -247,13 +238,13 @@ public sealed partial class BlockingSystem : EntitySystem
     private void CantBlockError(EntityUid user)
     {
         var msgError = Loc.GetString("action-popup-blocking-user-cant-block");
-        _popupSystem.PopupEntity(msgError, user, user);
+        _popupSystem.PopupClient(msgError, user, user);
     }
 
     private void TooCloseError(EntityUid user)
     {
         var msgError = Loc.GetString("action-popup-blocking-user-too-close");
-        _popupSystem.PopupEntity(msgError, user, user);
+        _popupSystem.PopupClient(msgError, user, user);
     }
 
     /// <summary>
@@ -279,8 +270,7 @@ public sealed partial class BlockingSystem : EntitySystem
         //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
         //then toggle the action to false, unanchor the user, remove the hard fixture
         //and set the users bodytype back to their original type
-        if (component.BlockingToggleAction != null && TryComp<BlockingUserComponent>(user, out var blockingUserComponent)
-                                                     && TryComp<PhysicsComponent>(user, out var physicsComponent))
+        if (TryComp<BlockingUserComponent>(user, out var blockingUserComponent) && TryComp<PhysicsComponent>(user, out var physicsComponent))
         {
             if (xform.Anchored)
                 _transformSystem.Unanchor(user, xform);
@@ -288,12 +278,7 @@ public sealed partial class BlockingSystem : EntitySystem
             _actionsSystem.SetToggled(component.BlockingToggleActionEntity, false);
             _fixtureSystem.DestroyFixture(user, BlockingComponent.BlockFixtureID, body: physicsComponent);
             _physics.SetBodyType(user, blockingUserComponent.OriginalBodyType, body: physicsComponent);
-            if (_gameTiming.IsFirstTimePredicted)
-            {
-                _popupSystem.PopupEntity(msgOther, user, Filter.PvsExcept(user), true);
-                if(_gameTiming.InPrediction)
-                    _popupSystem.PopupEntity(msgUser, user, user);
-            }
+            _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
         }
 
         component.IsBlocking = false;
@@ -337,7 +322,7 @@ public sealed partial class BlockingSystem : EntitySystem
 
     private void OnVerbExamine(EntityUid uid, BlockingComponent component, GetVerbsEvent<ExamineVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess || !_net.IsServer)
+        if (!args.CanInteract || !args.CanAccess)
             return;
 
         var fraction = component.IsBlocking ? component.ActiveBlockFraction : component.PassiveBlockFraction;
