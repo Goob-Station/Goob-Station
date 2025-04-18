@@ -13,6 +13,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
 using Content.Shared.Verbs;
+using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
@@ -24,6 +25,7 @@ public sealed class ScryingOrbSystem : SharedScryingOrbSystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedGhostSystem _ghost = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private static readonly EntProtoId ObserverProto = "MobObserverWizard";
 
@@ -110,11 +112,11 @@ public sealed class ScryingOrbSystem : SharedScryingOrbSystem
 
         var ghost = Spawn(ObserverProto, Transform(user).Coordinates);
         _transformSystem.AttachToGridOrMap(ghost);
-
+        _player.TryGetSessionById(mindComp.UserId, out var session);
         if (!string.IsNullOrWhiteSpace(mindComp.CharacterName))
             _meta.SetEntityName(ghost, mindComp.CharacterName);
-        else if (!string.IsNullOrWhiteSpace(mindComp.Session?.Name))
-            _meta.SetEntityName(ghost, mindComp.Session.Name);
+        else if (!string.IsNullOrWhiteSpace(session?.Name))
+            _meta.SetEntityName(ghost, session.Name);
 
         _mind.Visit(mind, ghost, mindComp);
         _ghost.SetCanReturnToBody(Comp<GhostComponent>(ghost), true);

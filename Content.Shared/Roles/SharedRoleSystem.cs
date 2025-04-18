@@ -33,6 +33,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -41,12 +42,13 @@ namespace Content.Shared.Roles;
 
 public abstract class SharedRoleSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly SharedMindSystem _minds = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private   readonly IConfigurationManager _cfg = default!;
+    [Dependency] private   readonly IEntityManager _entityManager = default!;
+    [Dependency] private   readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected readonly ISharedPlayerManager Player = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private   readonly SharedMindSystem _minds = default!;
 
     private JobRequirementOverridePrototype? _requirementOverride;
 
@@ -279,7 +281,7 @@ public abstract class SharedRoleSystem : EntitySystem
         Dirty(mind, comp);
 
         // Update player character window
-        if (_minds.TryGetSession(mind, out var session))
+        if (Player.TryGetSessionById(comp.UserId, out var session))
             RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
         else
         {
@@ -611,8 +613,11 @@ public abstract class SharedRoleSystem : EntitySystem
     /// </summary>
     public void MindPlaySound(EntityUid mindId, SoundSpecifier? sound, MindComponent? mind = null)
     {
-        if (Resolve(mindId, ref mind) && mind.Session != null)
-            _audio.PlayGlobal(sound, mind.Session);
+        if (!Resolve(mindId, ref mind))
+            return;
+
+        if (Player.TryGetSessionById(mind.UserId, out var session))
+            _audio.PlayGlobal(sound, session);
     }
 
     // TODO ROLES Change to readonly.
