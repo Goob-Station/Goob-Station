@@ -1,9 +1,12 @@
 ﻿using System.Linq;
 using Content.Shared._Shitmed.CCVar;
+using Content.Shared._Shitmed.DoAfter;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Weapons.Melee.Events;
+using Content.Shared._Shitmed.Weapons.Ranged.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Body.Components;
@@ -14,7 +17,9 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
+using Content.Shared.Standing;
 using Content.Shared.Popups;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -42,6 +47,9 @@ public sealed partial class WoundSystem
         SubscribeLocalEvent<WoundableComponent, BeforeDamageChangedEvent>(DudeItsJustLikeMatrix);
         SubscribeLocalEvent<WoundableComponent, WoundHealAttemptOnWoundableEvent>(HealWoundsOnWoundableAttempt);
         SubscribeLocalEvent<WoundableComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<WoundableComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterDelayMultiplier);
+        SubscribeLocalEvent<WoundableComponent, AttemptHandsMeleeEvent>(OnAttemptHandsMelee);
+        SubscribeLocalEvent<WoundableComponent, AttemptHandsShootEvent>(OnAttemptHandsShoot);
     }
 
     #region Event Handling
@@ -150,7 +158,7 @@ public sealed partial class WoundSystem
         args.ExcludedContainers = new List<string> { WoundContainerId, BoneContainerId };
     }
 
-    private void DudeItsJustLikeMatrix(EntityUid uid, WoundableComponent comp, BeforeDamageChangedEvent args)
+    private void DudeItsJustLikeMatrix(EntityUid uid, WoundableComponent comp, ref BeforeDamageChangedEvent args)
     {
         if (!args.CanBeCancelled
             || args.Damage.GetTotal() <= 0)
@@ -191,6 +199,8 @@ public sealed partial class WoundSystem
             _popup.PopupEntity(Loc.GetString("woundable-dodged", ("entity", bodyPart.Body.Value)), bodyPart.Body.Value, PopupType.Medium);
         }
 
+        Logger.Debug($"DudeItsJustLikeMatrix works");
+
         args.Cancelled = true;
     }
 
@@ -209,16 +219,11 @@ public sealed partial class WoundSystem
         RemoveWound(wound, woundComponent);
     }
 
-    private void OnDamageChanged(EntityUid uid, WoundableComponent component, DamageChangedEvent args)
+    private void OnDamageChanged(EntityUid uid, WoundableComponent component, ref DamageChangedEvent args)
     {
-        Logger.Debug($"Damage changed event received for {uid}");
         // Skip if there was no damage delta or if wounds aren't allowed
         if (args.DamageDelta == null || !component.AllowWounds || !_timing.IsFirstTimePredicted)
             return;
-
-        // Update woundable integrity based on new damage
-        //UpdateWoundableIntegrity(uid, component);
-        //CheckWoundableSeverityThresholds(uid, component);
 
         // Create or update wounds based on damage changes
         foreach (var (damageType, damageValue) in args.DamageDelta.DamageDict)
@@ -249,7 +254,50 @@ public sealed partial class WoundSystem
             }
         }
 
-        args.Damageable.Damage.ClampMax(component.IntegrityCap);
+        // Update woundable integrity based on new damage
+        UpdateWoundableIntegrity(uid, component);
+        CheckWoundableSeverityThresholds(uid, component);
+    }
+
+    private void OnGetDoAfterDelayMultiplier(EntityUid uid, WoundableComponent component, ref GetDoAfterDelayMultiplierEvent args)
+    {
+        if (component.WoundableIntegrity > 50)
+            return;
+
+        args.Multiplier *= (float) (component.WoundableIntegrity / component.IntegrityCap);
+    }
+
+    private void OnAttemptHandsMelee(EntityUid uid, WoundableComponent component, ref AttemptHandsMeleeEvent args)
+    {
+        Logger.Debug("OnAttemptHandsMelee Internal");
+        if (component.WoundableIntegrity > 25
+            || args.Handled
+            || !TryComp(uid, out BodyPartComponent? bodyPart)
+            || bodyPart.Body is not { } body)
+            return;
+
+        if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, 0.20f))
+        {
+            Logger.Debug("Fumbled internal due to wounds");
+            args.Handled = true;
+            args.Cancel();
+        }
+    }
+
+    private void OnAttemptHandsShoot(EntityUid uid, WoundableComponent component, ref AttemptHandsShootEvent args)
+    {
+        Logger.Debug("OnAttemptHandsShoot Internal");
+        if (component.WoundableIntegrity > 25
+            || args.Handled
+            || !TryComp(uid, out BodyPartComponent? bodyPart)
+            || bodyPart.Body is not { } body)
+            return;
+
+        if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, 0.20f))
+        {
+            Logger.Debug("Fumbled internal due to wounds");
+            args.Handled = true;
+        }
     }
 
     #endregion
@@ -695,12 +743,12 @@ public sealed partial class WoundSystem
 
             if (IsWoundableRoot(woundableEntity, woundableComp))
             {
-                DropWoundableOrgans(woundableEntity, woundableComp);
+                /*DropWoundableOrgans(woundableEntity, woundableComp);
                 DestroyWoundableChildren(woundableEntity, woundableComp);
                 _body.GibBody(bodyPart.Body.Value);
 
                 if (_net.IsServer)
-                    QueueDel(woundableEntity); // More blood for the blood God!
+                    QueueDel(woundableEntity); // More blood for the blood God!*/
             }
             else
             {
@@ -745,7 +793,6 @@ public sealed partial class WoundSystem
     {
         if (!Resolve(woundableEntity, ref woundableComp))
             return;
-
 
         var bodyPart = Comp<BodyPartComponent>(parentWoundableEntity);
         if (!bodyPart.Body.HasValue)
@@ -832,6 +879,7 @@ public sealed partial class WoundSystem
         // Still does the funny popping, if the children are critted. for the funny :3
         DestroyWoundableChildren(woundableEntity, woundableComp);
         _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
+        _trauma.UpdateBodyBoneAlert(woundableEntity);
     }
 
     #endregion
@@ -860,13 +908,12 @@ public sealed partial class WoundSystem
         WoundableComponent? woundableComp = null,
         WoundComponent? woundComp = null)
     {
-        Logger.Debug($"Transferring wound damage from wound: {ToPrettyString(wound)} to parent: {ToPrettyString(parent)} w/ severed: {ToPrettyString(severed)}");
-        /*if (TryComp(parent, out DamageableComponent? parentDamageable)
+        if (TryComp(parent, out DamageableComponent? parentDamageable)
             && TryComp(severed, out DamageableComponent? severedDamageable))
         {
             var damage = severedDamageable.Damage;
-            _damageable.TryChangeDamage(parent, damage, ignoreResistances: true, interruptsDoAfters: false, partDamageable: parentDamageable);
-        }*/
+            _damageable.TryChangeDamage(parent, damage, ignoreResistances: true, interruptsDoAfters: false);
+        }
 
         var bodyPart = Comp<BodyPartComponent>(severed);
         foreach (var woundEnt in GetWoundableWounds(parent, woundableComp))
@@ -1117,6 +1164,19 @@ public sealed partial class WoundSystem
         _appearance.SetData(woundable,
             WoundableVisualizerKeys.Wounds,
             new WoundVisualizerGroupData(GetWoundableWounds(woundable).Select(ent => GetNetEntity(ent)).ToList()));
+    }
+
+    private bool TryFumble(string message, SoundPathSpecifier sound, EntityUid body, float odds)
+    {
+        var rand = new System.Random((int) _timing.CurTick.Value);
+        if (rand.NextFloat() < odds)
+        {
+            _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
+            RaiseLocalEvent(body, new DropHandItemsEvent(), false);
+            _audio.PlayPredicted(sound, body, body);
+            return true;
+        }
+        return false;
     }
 
     #endregion

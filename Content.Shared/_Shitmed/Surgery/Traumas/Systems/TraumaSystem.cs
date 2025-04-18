@@ -1,11 +1,13 @@
 ﻿using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Alert;
 using Content.Shared.Body.Systems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
@@ -34,9 +36,11 @@ public sealed partial class TraumaSystem : EntitySystem
     [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly AlertsSystem _alert = default!;
 
     private ISawmill _sawmill = default!;
-
+    private string _brokenBonesAlertId = "BrokenBones";
     public override void Initialize()
     {
         base.Initialize();

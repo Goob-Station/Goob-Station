@@ -216,10 +216,8 @@ public sealed class DefibrillatorSystem : EntitySystem
 
                     _consciousness.RemoveConsciousnessModifier(target, target, "DeathThreshold");
                 }
-                else
-                {
-                    _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid, targetPart: TargetBodyPart.Chest);
-                }
+
+                _damageable.TryChangeDamage(target, component.ZapHeal, true, origin: uid, targetPart: TargetBodyPart.Chest);
             }
             // Shitmed Change End
             if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&

@@ -71,6 +71,7 @@ public sealed class TargetingUIController : UIController, IOnStateEntered<Gamepl
             || TargetingControl == null)
             return;
 
+        Logger.Debug($"Cycletarget: {bodyPart} and {targetingComponent.Target}");
         var player = _entManager.GetNetEntity(user);
         if (bodyPart != targetingComponent.Target)
         {

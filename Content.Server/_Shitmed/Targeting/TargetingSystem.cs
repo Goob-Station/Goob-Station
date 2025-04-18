@@ -21,12 +21,14 @@ public sealed class TargetingSystem : SharedTargetingSystem
         if (!TryComp<TargetingComponent>(GetEntity(message.Uid), out var target))
             return;
 
+        Logger.Debug($"OnTargetChange from {target.Target} to {message.BodyPart}");
         target.Target = message.BodyPart;
         Dirty(GetEntity(message.Uid), target);
     }
 
     private void OnMobStateChange(EntityUid uid, TargetingComponent component, MobStateChangedEvent args)
     {
+        Logger.Debug("OnMobStateChange TARGETING");
         // Revival is handled by the server, so we're keeping all of this here.
         var changed = false;
 

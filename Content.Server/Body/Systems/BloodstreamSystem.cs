@@ -33,6 +33,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Body.Components;
 
 namespace Content.Server.Body.Systems;
 
@@ -64,7 +65,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         SubscribeLocalEvent<BloodstreamComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BloodstreamComponent, EntityUnpausedEvent>(OnUnpaused);
-        SubscribeLocalEvent<BloodstreamComponent, DamageChangedEvent>(OnDamageChanged);
+        //SubscribeLocalEvent<BloodstreamComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<BloodstreamComponent, HealthBeingExaminedEvent>(OnHealthBeingExamined);
         SubscribeLocalEvent<BloodstreamComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BloodstreamComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
@@ -72,6 +73,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<BloodstreamComponent, GenerateDnaEvent>(OnDnaGenerated);
+        SubscribeLocalEvent<BloodstreamComponent, WoundSeverityPointChangedOnBodyEvent>(OnWoundSeverityChanged);
     }
 
     private void OnMapInit(Entity<BloodstreamComponent> ent, ref MapInitEvent args)
@@ -140,6 +142,31 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             if (bloodSolution.Volume < bloodSolution.MaxVolume && !_mobStateSystem.IsDead(uid))
             {
                 TryModifyBloodLevel(uid, bloodstream.BloodRefreshAmount, bloodstream);
+            }
+
+            // Sync bleeding amount from wounds if body exists
+            if (TryComp<BodyComponent>(uid, out var body))
+            {
+                // Calculate total bleeding from all wounds
+                FixedPoint2 totalBleedAmount = FixedPoint2.Zero;
+                var rootPart = body.RootContainer.ContainedEntity;
+
+                if (rootPart.HasValue)
+                {
+                    foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
+                    {
+                        foreach (var wound in _wound.GetWoundableWounds(bodyPart))
+                        {
+                            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
+                                continue;
+
+                            totalBleedAmount += bleeds.BleedingAmount;
+                        }
+                    }
+                }
+
+                // Update the bloodstream component's bleed amount to match wounds
+                bloodstream.BleedAmount = totalBleedAmount.Float();
             }
 
             // Removes blood from the bloodstream based on bleed amount (bleed rate)
@@ -464,6 +491,14 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         return true;
     }
 
+    public override bool TryModifyBleedAmount(EntityUid uid, float amount)
+    {
+        if (!TryComp<BloodstreamComponent>(uid, out var component))
+            return false;
+
+        return TryModifyBleedAmount(uid, amount, component);
+    }
+
     /// <summary>
     ///     BLOOD FOR THE BLOOD GOD
     /// </summary>
@@ -555,5 +590,22 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
         bloodData.Add(dnaData);
 
         return bloodData;
+    }
+    private void OnWoundSeverityChanged(Entity<BloodstreamComponent> ent, ref WoundSeverityPointChangedOnBodyEvent args)
+    {
+        if (!TryComp<BleedInflicterComponent>(args.WoundEntity, out var bleeds)
+            || !bleeds.IsBleeding)
+            return;
+
+        // Calculate the change in severity
+        var deltaBleed = args.NewSeverity - args.OldSeverity;
+
+        // Only update if there was an actual change
+        if (deltaBleed == 0)
+            return;
+
+        // Convert severity change to bleed amount (using similar logic as in SharedBloodstreamSystem)
+        var bleedChange = deltaBleed * BleedsSeverityTrade;
+        TryModifyBleedAmount(ent, bleedChange.Float(), ent);
     }
 }

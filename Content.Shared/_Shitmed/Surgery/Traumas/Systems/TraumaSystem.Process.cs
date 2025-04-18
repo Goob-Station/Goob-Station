@@ -75,7 +75,6 @@ public partial class TraumaSystem
         // Overflow is only used when we are capping the wound, so we use it over the computed delta
         // which will be useless in this specific scenario.
         var delta = args.Overflow ?? args.NewSeverity - args.OldSeverity;
-        Logger.Debug($"Delta: {delta} is lower than the threshold {delta < woundEnt.Comp.SeverityThreshold}");
         if (delta <= 0 || delta < woundEnt.Comp.SeverityThreshold)
             return;
 
@@ -234,7 +233,6 @@ public partial class TraumaSystem
         FixedPoint2 severity,
         WoundableComponent? woundable = null)
     {
-        Logger.Debug("Executing random trauma chance");
         var traumaList = new List<TraumaType>();
         if (!Resolve(target, ref woundable))
             return traumaList;
@@ -468,7 +466,6 @@ public partial class TraumaSystem
             TraumaType.Dismemberment,
             bodyPart.PartType);
 
-        Logger.Debug($"Dismemberment deduction: {deduction}");
         var bonePenalty = (FixedPoint2) 0f;
 
         // Broken bones increase the chance of your limb getting delimbed
@@ -480,7 +477,6 @@ public partial class TraumaSystem
 
             bonePenalty = 1 - boneComp.BoneIntegrity / boneComp.IntegrityCap;
         }
-        Logger.Debug($"Dismemberment bone penalty: {bonePenalty}");
 
         var chance =
             FixedPoint2.Clamp(
@@ -488,9 +484,8 @@ public partial class TraumaSystem
                 - deduction + woundInflicter.Comp.TraumasChances[TraumaType.Dismemberment],
                 0,
                 0.7); // Maximum 70% chance to dismember, because it's a bit too free otherwise
-        Logger.Debug($"Dismemberment chance: {chance}");
+
         var result = _random.Prob((float) chance);
-        Logger.Debug($"Dismemberment result: {result}");
         return result;
     }
 
@@ -575,7 +570,6 @@ public partial class TraumaSystem
 
     private void ApplyTraumas(Entity<WoundableComponent> target, Entity<TraumaInflicterComponent> inflicter, List<TraumaType> traumas, FixedPoint2 severity)
     {
-        Logger.Debug($"Applying traumas to {target}");
         var bodyPart = Comp<BodyPartComponent>(target);
         if (!bodyPart.Body.HasValue)
             return;

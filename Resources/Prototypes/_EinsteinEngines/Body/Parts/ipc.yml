@@ -30,6 +30,7 @@
         color: "#DD8822"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
+  - type: Nerve
 
 - type: entity
   parent: [ PartIPCBase, BaseChestInorganic ]

@@ -27,7 +27,6 @@ public sealed class SharedSuicideSystem : EntitySystem
         if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness))
         {
             KillConsciousness((target, victimConsciousness));
-            return;
         }
         // Shitmed Change End
 
@@ -66,7 +65,6 @@ public sealed class SharedSuicideSystem : EntitySystem
         {
             // redirect suicide to consciousness
             KillConsciousness((target, victimConsciousness));
-            return;
         }
         // Shitmed Change End
 

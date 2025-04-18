@@ -228,6 +228,7 @@ namespace Content.Shared.Damage
 
                 return appliedDamage;
             }
+
             // For entities without a body, apply damage directly
             return ApplyDamageToEntity(uid.Value, damage, ignoreResistances, interruptsDoAfters, origin, damageable);
         }
@@ -244,8 +245,6 @@ namespace Content.Shared.Damage
             TargetBodyPart? targetPart,
             float partMultiplier)
         {
-            // Apply universal modifiers
-            damage = ApplyUniversalAllModifiers(damage);
             DamageSpecifier? totalAppliedDamage = null;
 
             // This cursed shitcode lets us know if the target part is a power of 2
@@ -339,14 +338,39 @@ namespace Content.Shared.Damage
                 // Apply part multiplier if needed
                 var adjustedDamage = partMultiplier != 1.0f ? damage * partMultiplier : damage;
 
-                var appliedDamage = TryChangeDamage(chosenTarget.Id, adjustedDamage, ignoreResistances,
+                totalAppliedDamage = TryChangeDamage(chosenTarget.Id, adjustedDamage, ignoreResistances,
                     interruptsDoAfters, partDamageable, origin);
-
-                if (appliedDamage != null && !appliedDamage.Empty)
-                    totalAppliedDamage = appliedDamage;
             }
 
-            return ApplyDamageToEntity(uid, totalAppliedDamage, ignoreResistances: true, interruptsDoAfters: interruptsDoAfters, origin: origin);
+            // Only process if there was actual damage applied
+            if (totalAppliedDamage != null && !totalAppliedDamage.Empty)
+            {
+                // Update the damage dictionary of the parent entity based on all body parts
+                if (_damageableQuery.TryComp(uid, out var parentDamageable))
+                {
+                    // Reset the parent's damage values
+                    foreach (var type in parentDamageable.Damage.DamageDict.Keys.ToList())
+                        parentDamageable.Damage.DamageDict[type] = FixedPoint2.Zero;
+
+                    // Sum up damage from all body parts
+                    foreach (var (partId, _) in _body.GetBodyChildren(uid))
+                    {
+                        if (!_damageableQuery.TryComp(partId, out var partDamageable))
+                            continue;
+
+                        foreach (var (type, value) in partDamageable.Damage.DamageDict)
+                        {
+                            if (parentDamageable.Damage.DamageDict.TryGetValue(type, out var existing))
+                                parentDamageable.Damage.DamageDict[type] = existing + value;
+                        }
+                    }
+
+                    // Now call DamageChanged with the actual total delta
+                    DamageChanged(uid, parentDamageable, totalAppliedDamage, interruptsDoAfters, origin);
+                }
+            }
+
+            return totalAppliedDamage;
         }
 
         /// <summary>
@@ -397,28 +421,59 @@ namespace Content.Shared.Damage
                 }
 
                 if (damage.Empty)
-                {
                     return damage;
-                }
             }
 
             damage = ApplyUniversalAllModifiers(damage);
 
             var delta = new DamageSpecifier();
             delta.DamageDict.EnsureCapacity(damage.DamageDict.Count);
-
             var dict = damageable.Damage.DamageDict;
+
+            // Check for integrity cap on body parts
+            float? scaleFactor = null;
+            if (_woundableQuery.TryComp(uid, out var woundable))
+            {
+                var positiveDamage = damage.DamageDict.Where(d => d.Value > 0).Sum(d => d.Value.Float());
+                Logger.Debug($"positiveDamage: {positiveDamage}");
+                if (positiveDamage > 0)
+                {
+                    var remaining = (woundable.IntegrityCap - damageable.TotalDamage).Float();
+                    Logger.Debug($"remaining: {remaining}");
+                    if (remaining > 0)
+                    {
+                        if (remaining < positiveDamage)
+                            scaleFactor = remaining / positiveDamage;
+                        else
+                            scaleFactor = 1f;
+                    }
+                    else
+                    {
+                        scaleFactor = 0f;
+                    }
+                }
+            }
+
+            // Apply damage
             foreach (var (type, value) in damage.DamageDict)
             {
                 if (!dict.TryGetValue(type, out var oldValue))
                     continue;
 
-                var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
-                if (newValue == oldValue)
+                // Scale positive damage if needed due to integrity cap
+                var adjustedValue = value;
+                if (scaleFactor is not null)
+                    adjustedValue = FixedPoint2.New(value.Float() * scaleFactor.Value);
+
+                var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + adjustedValue);
+                if (newValue == oldValue &&
+                    (scaleFactor is null
+                    || scaleFactor is not null
+                    && scaleFactor.Value != 0f))
                     continue;
 
                 dict[type] = newValue;
-                delta.DamageDict[type] = newValue - oldValue;
+                delta.DamageDict[type] = value; // Report original damage value in delta
             }
 
             if (delta.DamageDict.Count > 0)
@@ -636,8 +691,8 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         bool CanBeCancelled = false, // Shitmed Change
         TargetBodyPart? TargetPart = null, // Shitmed Change
-        bool Cancelled = false,
-        bool HeavyAttack = false);
+        bool HeavyAttack = false,
+        bool Cancelled = false);
 
     /// <summary>
     ///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.

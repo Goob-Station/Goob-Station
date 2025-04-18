@@ -35,6 +35,7 @@ using Robust.Shared.Network;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.Body.Systems;
 
@@ -669,6 +670,5 @@ public partial class SharedBodySystem
         foreach (var trauma in traumas)
             _trauma.RemoveTrauma(trauma);
     }
-
     // Shitmed Change End
 }

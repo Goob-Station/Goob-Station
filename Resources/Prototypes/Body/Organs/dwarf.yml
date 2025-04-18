@@ -27,7 +27,7 @@
     integrityThresholds:
       Normal: 38
       Damaged: 22
-      Destroyed: 0  
+      Destroyed: 0
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -40,5 +40,5 @@
   - type: Stomach
   - type: Metabolizer
     # mm very yummy
-    maxReagents: 5
+    maxPoisonsProcessable: 5
     metabolizerTypes: [Dwarf]

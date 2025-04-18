@@ -16,7 +16,6 @@ using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using System.Linq;
-using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Nutrition.EntitySystems
 {

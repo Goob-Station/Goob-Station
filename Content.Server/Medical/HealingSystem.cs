@@ -71,9 +71,10 @@ public sealed class HealingSystem : EntitySystem
     private void OnDoAfter(Entity<DamageableComponent> entity, ref HealingDoAfterEvent args)
     {
         var dontRepeat = false;
-
         // Shitmed Change: Consciousness check because some body entities don't have Consciousness
-        if (!TryComp(args.Used, out HealingComponent? healing) || HasComp<BodyComponent>(entity) && HasComp<ConsciousnessComponent>(entity))
+        if (!TryComp(args.Used, out HealingComponent? healing)
+            || HasComp<BodyComponent>(entity)
+            && HasComp<ConsciousnessComponent>(entity))
             return;
 
         if (args.Handled || args.Cancelled)
@@ -192,21 +193,22 @@ public sealed class HealingSystem : EntitySystem
         var (partType, symmetry) = _bodySystem.ConvertTargetBodyPart(targeting.Target);
         var targetedBodyPart = _bodySystem.GetBodyChildrenOfType(target, partType, target, symmetry).ToList().FirstOrNull();
 
-        if (targetedBodyPart == null)
+        if (targetedBodyPart == null
+            || !TryComp(targetedBodyPart.Value.Id, out DamageableComponent? damageable))
         {
             _popupSystem.PopupEntity(Loc.GetString("does-not-exist-rebell"), target, user, PopupType.MediumCaution);
             return false;
         }
 
-        if (healing.Damage.DamageDict.Keys.Any(damageKey => _wounds.GetWoundableSeverityPoint(
+        if (healing.Damage.DamageDict.Keys
+            .Any(damageKey => _wounds.GetWoundableSeverityPoint(
                 targetedBodyPart.Value.Id,
                 damageGroup: GetDamageGroupByType(damageKey),
-                healable: true) > 0))
+                healable: true) > 0 || damageable.Damage.DamageDict[damageKey].Value > 0))
             return true;
 
         if (healing.BloodlossModifier == 0)
             return false;
-
 
         foreach (var wound in _wounds.GetWoundableWounds(targetedBodyPart.Value.Id))
         {
@@ -229,23 +231,12 @@ public sealed class HealingSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        var stuffToHeal = new Dictionary<string, FixedPoint2>();
         var targetedWoundable = EntityUid.Invalid;
         if (TryComp<TargetingComponent>(args.User, out var targeting))
         {
             var (partType, symmetry) = _bodySystem.ConvertTargetBodyPart(targeting.Target);
             var targetedBodyPart = _bodySystem.GetBodyChildrenOfType(ent, partType, comp, symmetry).ToList().FirstOrDefault();
-
-            foreach (var damage in
-                     healing.Damage.DamageDict.Where(damage =>
-                         _wounds.HasDamageOfGroup(targetedBodyPart.Id, damage.Key)
-                         || _wounds.HasDamageOfType(targetedBodyPart.Id, damage.Key)))
-            {
-                stuffToHeal.Add(damage.Key, damage.Value);
-            }
-
-            if (stuffToHeal.Count > 0)
-                targetedWoundable = targetedBodyPart.Id;
+            targetedWoundable = targetedBodyPart.Id;
         }
 
         if (targetedWoundable == EntityUid.Invalid)
@@ -258,7 +249,8 @@ public sealed class HealingSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<WoundableComponent>(targetedWoundable, out var woundableComp))
+        if (!TryComp<WoundableComponent>(targetedWoundable, out var woundableComp)
+            || !TryComp<DamageableComponent>(targetedWoundable, out var damageableComp))
             return;
 
         var woundableDamageContainer = woundableComp.DamageContainerID;
@@ -275,60 +267,57 @@ public sealed class HealingSystem : EntitySystem
             return;
         }
 
+        var healedBleed = false;
+        var canHeal = true;
+        var healedTotal = FixedPoint2.Zero;
+        FixedPoint2 modifiedBleedStopAbility = 0;
         // Heal some bleeds
-        var bleedStopAbility = FixedPoint2.New(-healing.BloodlossModifier);
         if (healing.BloodlossModifier != 0)
         {
-            foreach (var wound in _wounds.GetWoundableWounds(targetedWoundable, woundableComp))
-            {
-                if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
-                    continue;
-
-                if (bleedStopAbility > bleeds.BleedingAmount)
-                {
-                    bleedStopAbility -= bleeds.BleedingAmountRaw;
-                    bleeds.BleedingAmountRaw = 0;
-                    bleeds.IsBleeding = false;
-                    bleeds.Scaling = 0;
-                }
-                else
-                {
-                    bleeds.BleedingAmountRaw -= bleedStopAbility;
-                }
-            }
-            _bloodstreamSystem.TryModifyBleedAmount(ent, healing.ModifyBloodLevel);
-
-            if (bleedStopAbility != -healing.BloodlossModifier)
-            {
-                _popupSystem.PopupEntity(bleedStopAbility > 0
+            healedBleed = _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
+            Logger.Debug($"Healed bleed: {healedBleed}");
+            Logger.Debug($"Modified bleed stop ability: {modifiedBleedStopAbility}");
+            if (healedBleed)
+                _popupSystem.PopupEntity(modifiedBleedStopAbility > 0
                         ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
                         : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
                     ent,
                     args.User);
+
+            _bloodstreamSystem.TryModifyBleedAmount(ent, healing.ModifyBloodLevel);
+        }
+
+        if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp)))
+        {
+            Logger.Debug("Trauma blocking healing");
+            canHeal = false;
+
+            if (!healedBleed)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
+                Logger.Debug("No healing done and trauma is blocking, cancelling.");
+                return;
             }
         }
 
-        var healedTotal = (FixedPoint2) 0;
-        foreach (var (key, value) in stuffToHeal)
+        if (canHeal)
         {
-            if (_wounds.TryHealWoundsOnWoundable(targetedWoundable, -value, key, out var healed, woundableComp))
-            {
+            var damageChanged = _damageable.TryChangeDamage(ent, healing.Damage * _damageable.UniversalTopicalsHealModifier, true, origin: args.User);
+
+            if (damageChanged is not null)
+                healedTotal += -damageChanged.GetTotal();
+
+            // We handle wounds separately since tracking their changes through damageablesystem is kinda hard. And the only case where we want to know if we healed them is usually for loops like these.
+            if (_wounds.TryHealWoundsOnWoundable(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, woundableComp))
                 healedTotal += healed;
-                continue;
-            }
 
-            // Check for a group if it's not a type
-            if (_wounds.TryHealWoundsOnWoundable(targetedWoundable, -value, out var healedGroup, woundableComp, key))
+            if (healedTotal <= 0 && !healedBleed)
             {
-                healedTotal += healedGroup;
-            }
-        }
+                if (healing.BloodlossModifier == 0)
+                    _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
 
-        if (healedTotal <= 0 && bleedStopAbility == -healing.BloodlossModifier)
-        {
-            if (healing.BloodlossModifier == 0)
-            _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-rebell", ("target", ent)), ent, args.User);
-            return;
+                return;
+            }
         }
 
         // Re-verify that we can heal the damage.
@@ -364,13 +353,7 @@ public sealed class HealingSystem : EntitySystem
         if (args.Repeat || dontRepeat)
             return;
 
-        if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp)))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
-            return;
-        }
-
-        if (bleedStopAbility != -healing.BloodlossModifier)
+        if (modifiedBleedStopAbility != -healing.BloodlossModifier)
             _popupSystem.PopupEntity(Loc.GetString("medical-item-finished-using", ("item", args.Used)), ent, args.User, PopupType.Medium);
     }
 
@@ -415,8 +398,8 @@ public sealed class HealingSystem : EntitySystem
         // Shitmed Change Start
         var anythingToDo =
             HasDamage((target, targetDamage), component) ||
-            (TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
-             IsBodyDamaged((target, bodyComp), user, component)) ||
+            TryComp<BodyComponent>(target, out var bodyComp) && // I'm paranoid, sorry.
+            IsBodyDamaged((target, bodyComp), user, component) ||
             component.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)
                 && _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
@@ -473,10 +456,11 @@ public sealed class HealingSystem : EntitySystem
 
         var percentDamage = (float) 1;
         if (TryComp<DamageableComponent>(uid, out var damageable))
-            percentDamage = (float) (damageable.TotalDamage / amount);
-        else if (TryComp<ConsciousnessComponent>(uid, out var consciousness))
-            percentDamage = (float) (consciousness.Threshold / consciousness.Cap - consciousness.Consciousness);
-         //basically make it scale from 1 to the multiplier.
+            percentDamage *= (float) (damageable.TotalDamage / amount);
+
+        if (TryComp<ConsciousnessComponent>(uid, out var consciousness))
+            percentDamage *= (float) (consciousness.Threshold / consciousness.Cap - consciousness.Consciousness);
+        //basically make it scale from 1 to the multiplier.
         var modifier = percentDamage * (component.SelfHealPenaltyMultiplier - 1) + 1;
         return Math.Max(modifier, 1);
     }

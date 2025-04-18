@@ -1,12 +1,19 @@
-﻿using System.Linq;
+﻿using Content.Shared._Shitmed.DoAfter;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Weapons.Melee.Events;
+using Content.Shared._Shitmed.Weapons.Ranged.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Components;
+using Content.Shared.Popups;
+using Content.Shared.Standing;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;
+using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
@@ -16,6 +23,9 @@ public partial class TraumaSystem
     {
         SubscribeLocalEvent<BoneComponent, BoneSeverityChangedEvent>(OnBoneSeverityChanged);
         SubscribeLocalEvent<BoneComponent, BoneIntegrityChangedEvent>(OnBoneIntegrityChanged);
+        SubscribeLocalEvent<BoneComponent, GetDoAfterDelayMultiplierEvent>(OnGetDoAfterDelayMultiplier);
+        SubscribeLocalEvent<BoneComponent, AttemptHandsMeleeEvent>(OnAttemptHandsMelee);
+        SubscribeLocalEvent<BoneComponent, AttemptHandsShootEvent>(OnAttemptHandsShoot);
     }
 
     #region Event Handling
@@ -42,10 +52,6 @@ public partial class TraumaSystem
 
             case BoneSeverity.Broken:
                 _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(6f));
-
-                if (bodyComp.PartType == BodyPartType.Hand)
-                    _virtual.TrySpawnVirtualItemInHand(bone, bodyComp.Body.Value);
-
                 break;
         }
     }
@@ -79,6 +85,65 @@ public partial class TraumaSystem
         }
     }
 
+    private void OnGetDoAfterDelayMultiplier(Entity<BoneComponent> bone, ref GetDoAfterDelayMultiplierEvent args)
+    {
+        args.Multiplier *= bone.Comp.BoneSeverity switch
+        {
+            BoneSeverity.Damaged => 0.92f,
+            BoneSeverity.Cracked => 0.84f,
+            BoneSeverity.Broken => 0.75f,
+            _ => 1f,
+        };
+    }
+
+    private void OnAttemptHandsMelee(Entity<BoneComponent> bone, ref AttemptHandsMeleeEvent args)
+    {
+        Logger.Debug("OnAttemptHandsMelee Bones");
+        var odds = bone.Comp.BoneSeverity switch
+        {
+            BoneSeverity.Cracked => 0.10f,
+            BoneSeverity.Broken => 0.25f,
+            _ => 0f,
+        };
+
+        if (odds == 0f
+            || args.Handled
+            || bone.Comp.BoneWoundable is null
+            || !TryComp(bone.Comp.BoneWoundable.Value, out BodyPartComponent? bodyPart)
+            || bodyPart.Body is not { } body)
+            return;
+
+        if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
+        {
+            Logger.Debug("Fumbled Bones");
+            args.Handled = true;
+            args.Cancel();
+        }
+    }
+
+    private void OnAttemptHandsShoot(Entity<BoneComponent> bone, ref AttemptHandsShootEvent args)
+    {
+        Logger.Debug("OnAttemptHandsShoot Bones");
+        var odds = bone.Comp.BoneSeverity switch
+        {
+            BoneSeverity.Cracked => 0.10f,
+            BoneSeverity.Broken => 0.25f,
+            _ => 0f,
+        };
+
+        if (odds == 0f
+            || args.Handled
+            || bone.Comp.BoneWoundable is null
+            || !TryComp(bone.Comp.BoneWoundable.Value, out BodyPartComponent? bodyPart)
+            || bodyPart.Body is not { } body)
+            return;
+
+        if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
+        {
+            Logger.Debug("Fumbled Bones");
+            args.Handled = true;
+        }
+    }
 
     #endregion
 
@@ -114,7 +179,9 @@ public partial class TraumaSystem
         if (!Resolve(boneEnt, ref boneComp))
             return false;
 
-        AddTrauma(boneEnt, woundable, inflicter, TraumaType.BoneDamage, inflicterSeverity);
+        if (_net.IsServer)
+            AddTrauma(boneEnt, woundable, inflicter, TraumaType.BoneDamage, inflicterSeverity);
+
         ApplyDamageToBone(boneEnt, inflicterSeverity, boneComp);
 
         return true;
@@ -139,6 +206,58 @@ public partial class TraumaSystem
         return true;
     }
 
+/// <summary>
+    /// Updates the broken bones alert for a body based on its current bone state
+    /// </summary>
+    public void UpdateBodyBoneAlert(EntityUid boneWoundable, BodyPartComponent? bodyPartComp = null)
+    {
+        if (!Resolve(boneWoundable, ref bodyPartComp)
+            || bodyPartComp.Body is not { } body
+            || !TryComp(body, out BodyComponent? bodyComp))
+            return;
+
+        bool hasBrokenBones = false;
+
+        var rootPart = bodyComp.RootContainer.ContainedEntity;
+        if (rootPart.HasValue)
+        {
+            foreach (var (_, woundable) in _wound.GetAllWoundableChildren(rootPart.Value))
+            {
+                if (woundable.Bone == null)
+                    continue;
+
+                foreach (var boneEntity in woundable.Bone.ContainedEntities)
+                {
+                    Logger.Debug("Checking bone entity");
+                    if (!TryComp(boneEntity, out BoneComponent? boneComp))
+                        continue;
+
+                    Logger.Debug($"Bone found with severity: {boneComp.BoneSeverity}");
+                    if (boneComp.BoneSeverity == BoneSeverity.Broken)
+                    {
+                        hasBrokenBones = true;
+                        break;
+                    }
+                }
+
+                if (hasBrokenBones)
+                    break;
+            }
+        }
+
+        // Update the alert based on whether any bones are broken
+        if (hasBrokenBones)
+        {
+            Logger.Debug("Showing broken bones alert");
+            _alert.ShowAlert(body, _brokenBonesAlertId);
+        }
+        else
+        {
+            Logger.Debug("Clearing broken bones alert");
+            _alert.ClearAlert(body, _brokenBonesAlertId);
+        }
+    }
+
     #endregion
 
     #region Private API
@@ -161,11 +280,13 @@ public partial class TraumaSystem
             var ev = new BoneSeverityChangedEvent((bone, boneComp), boneComp.BoneSeverity, nearestSeverity);
             RaiseLocalEvent(bone, ref ev, true);
         }
+
         boneComp.BoneSeverity = nearestSeverity;
-
         Dirty(bone, boneComp);
-    }
 
+        if (boneComp.BoneWoundable != null)
+            UpdateBodyBoneAlert(boneComp.BoneWoundable.Value);
+    }
 
 
     private void ProcessLegsState(EntityUid body, BodyComponent? bodyComp = null)
@@ -263,38 +384,17 @@ public partial class TraumaSystem
         }
     }
 
-    private void UpdateLegsMovementSpeed(EntityUid body, BodyComponent bodyComp)
+    private bool TryFumble(string message, SoundPathSpecifier sound, EntityUid body, float odds)
     {
-        var walkSpeed = 0f;
-        var sprintSpeed = 0f;
-        var acceleration = 0f;
-
-        foreach (var legEntity in bodyComp.LegEntities)
+        var rand = new System.Random((int) _timing.CurTick.Value);
+        if (rand.NextFloat() < odds)
         {
-            if (!TryComp<MovementBodyPartComponent>(legEntity, out var legModifier))
-                continue;
-
-            if (!TryComp<BodyPartComponent>(legEntity, out var bodyPart))
-                continue;
-
-            var feet = _body.GetBodyChildrenOfType(body, BodyPartType.Foot, symmetry: bodyPart.Symmetry).ToList();
-
-            var feetModifier = 1f;
-            if (feet.Count != 0 && TryComp<BoneComponent>(feet.First().Id, out var bone) && bone.BoneSeverity == BoneSeverity.Broken)
-            {
-                feetModifier = 0.2f;
-            }
-
-            walkSpeed += legModifier.WalkSpeed * feetModifier;
-            sprintSpeed += legModifier.SprintSpeed * feetModifier;
-            acceleration += legModifier.Acceleration * feetModifier;
+            _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
+            RaiseLocalEvent(body, new DropHandItemsEvent(), false);
+            _audio.PlayPredicted(sound, body, body);
+            return true;
         }
-
-        walkSpeed /= bodyComp.RequiredLegs;
-        sprintSpeed /= bodyComp.RequiredLegs;
-        acceleration /= bodyComp.RequiredLegs;
-
-        _movementSpeed.ChangeBaseSpeed(body, walkSpeed, sprintSpeed, acceleration);
+        return false;
     }
 
     #endregion

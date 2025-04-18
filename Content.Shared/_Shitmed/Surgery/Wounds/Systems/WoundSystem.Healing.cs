@@ -2,8 +2,10 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared.Body.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.CPUJob.JobQueues;
@@ -77,6 +79,121 @@ public partial class WoundSystem
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// Heals bleeding wounds on a body entity, starting with the most severely bleeding woundable
+    /// and cascading any leftover healing to the next most severe bleeding woundable.
+    /// </summary>
+    /// <param name="body">The body entity to check for bleeding wounds</param>
+    /// <param name="healAmount">The amount of healing to apply</param>
+    /// <param name="healed">The total amount of bleeding that was healed</param>
+    /// <param name="component">Optional body component if already resolved</param>
+    /// <returns>True if any bleeding was healed, false otherwise</returns>
+    public bool TryHealMostSevereBleedingWoundables(EntityUid body, float healAmount, out FixedPoint2 healed, BodyComponent? component = null)
+    {
+        healed = FixedPoint2.Zero;
+        Logger.Debug($"Attempting to heal most severe bleeding woundables with {healAmount} bleed");
+        if (!Resolve(body, ref component) || healAmount <= 0)
+            return false;
+
+        Logger.Debug($"Checking for root part of body");
+        // Get the root part of the body
+        var rootPart = component.RootContainer.ContainedEntity;
+        if (!rootPart.HasValue)
+        {
+            Logger.Debug("No root part found");
+            return false;
+        }
+
+        // Collect all woundables and their total bleeding amounts
+        var bleedingWoundables = new List<(EntityUid Woundable, FixedPoint2 BleedAmount)>();
+        foreach (var (bodyPart, _) in _body.GetBodyChildren(body))
+        {
+            Logger.Debug($"Checking body part: {bodyPart}");
+            FixedPoint2 totalBleedAmount = FixedPoint2.Zero;
+            bool hasBleedingWounds = false;
+            foreach (var wound in GetWoundableWounds(bodyPart))
+            {
+                Logger.Debug($"Checking wound: {wound}");
+                if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
+                    continue;
+
+                Logger.Debug("Bleeding wound found");
+                hasBleedingWounds = true;
+                totalBleedAmount += bleeds.BleedingAmount;
+            }
+
+            Logger.Debug($"{bodyPart} Has bleeding wounds: {hasBleedingWounds}, total bleed amount: {totalBleedAmount}");
+            if (hasBleedingWounds)
+                bleedingWoundables.Add((bodyPart, totalBleedAmount));
+        }
+
+        // Sort woundables by bleeding amount (descending)
+        var sortedWoundables = bleedingWoundables
+            .OrderByDescending(x => x.BleedAmount)
+            .Select(x => x.Woundable)
+            .ToList();
+
+        float remainingHealAmount = healAmount;
+        bool anyHealed = false;
+
+        // Apply healing to each woundable in order
+        foreach (var woundable in sortedWoundables)
+        {
+            Logger.Debug($"Applying healing to {woundable} w/remaining heal amount: {remainingHealAmount}");
+            if (remainingHealAmount <= 0)
+                break;
+
+            FixedPoint2 modifiedBleed;
+            bool didHeal = TryHealBleedingWounds(woundable, -remainingHealAmount, out modifiedBleed);
+            Logger.Debug($"Did heal: {didHeal}, modified bleed: {modifiedBleed}");
+            if (didHeal)
+            {
+                Logger.Debug($"Healing {woundable} with {modifiedBleed} bleed");
+                anyHealed = true;
+                healed += -modifiedBleed - remainingHealAmount;
+                remainingHealAmount = (float) -modifiedBleed;
+
+                if (remainingHealAmount <= 0)
+                    break;
+            }
+        }
+
+        return anyHealed;
+    }
+
+    public bool TryHealBleedingWounds(EntityUid woundable, float bleedStopAbility, out FixedPoint2 modifiedBleed, WoundableComponent? component = null)
+    {
+        modifiedBleed = FixedPoint2.New(-bleedStopAbility);
+        Logger.Debug($"Initial modified bleed: {modifiedBleed}");
+        if (!Resolve(woundable, ref component))
+            return false;
+
+        foreach (var wound in GetWoundableWounds(woundable, component))
+        {
+            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
+                continue;
+
+            Logger.Debug($"Starting bleed check");
+            if (modifiedBleed > bleeds.BleedingAmount)
+            {
+                Logger.Debug($"Bleeding amount is greater than modified bleed, subtracting {bleeds.BleedingAmountRaw} from {modifiedBleed}, total sum: {modifiedBleed - bleeds.BleedingAmountRaw}");
+                modifiedBleed -= bleeds.BleedingAmountRaw;
+                bleeds.BleedingAmountRaw = 0;
+                bleeds.IsBleeding = false;
+                bleeds.Scaling = 0;
+            }
+            else
+            {
+                Logger.Debug($"Bleeding amount is less than modified bleed, subtracting {modifiedBleed} from {bleeds.BleedingAmountRaw}, total sum: {bleeds.BleedingAmountRaw - modifiedBleed}");
+                bleeds.BleedingAmountRaw -= modifiedBleed;
+                modifiedBleed = 0;
+            }
+        }
+
+        Logger.Debug($"Modified bleed on healing: {modifiedBleed}, comparing to {bleedStopAbility}");
+        return modifiedBleed != -bleedStopAbility;
     }
 
     public void ForceHealWoundsOnWoundable(EntityUid woundable,
@@ -183,6 +300,28 @@ public partial class WoundSystem
 
         healed = actualHeal;
         return actualHeal > 0;
+    }
+
+    public bool TryHealWoundsOnWoundable(EntityUid woundable,
+        DamageSpecifier damage,
+        out FixedPoint2 healed,
+        WoundableComponent? component = null,
+        bool ignoreMultipliers = false)
+    {
+        healed = 0;
+        if (!Resolve(woundable, ref component))
+            return false;
+
+        foreach (var (key, value) in damage.DamageDict)
+        {
+            if (TryHealWoundsOnWoundable(woundable, -value, key, out var tempHealed, component, ignoreMultipliers))
+            {
+                healed += tempHealed;
+                continue;
+            }
+        }
+
+        return healed > 0;
     }
 
     public bool TryGetWoundableWithMostDamage(

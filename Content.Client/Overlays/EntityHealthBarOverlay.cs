@@ -126,7 +126,7 @@ public sealed class EntityHealthBarOverlay : Overlay
     /// <summary>
     /// Returns a ratio between 0 and 1, and whether the entity is in crit.
     /// </summary>
-private (float ratio, bool inCrit)? CalcProgress(EntityUid uid, MobStateComponent component, DamageableComponent dmg, MobThresholdsComponent thresholds)
+    private (float ratio, bool inCrit)? CalcProgress(EntityUid uid, MobStateComponent component, DamageableComponent dmg, MobThresholdsComponent thresholds)
     {
         // Shitmed Change Start
         if (_entManager.TryGetComponent<ConsciousnessComponent>(uid, out var consciousness))

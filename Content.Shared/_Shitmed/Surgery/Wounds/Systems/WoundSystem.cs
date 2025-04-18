@@ -40,7 +40,6 @@ public partial class WoundSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-
     // I'm the one.... who throws........
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;

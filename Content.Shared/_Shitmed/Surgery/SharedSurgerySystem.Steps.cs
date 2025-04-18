@@ -588,13 +588,9 @@ public abstract partial class SharedSurgerySystem
 
             case TraumaType.Dismemberment:
                 if (_trauma.TryGetWoundableTrauma(args.Part, out var traumas, TraumaType.Dismemberment))
-                {
                     foreach (var trauma in traumas)
-                    {
-                        // yeah, that simple
                         _trauma.RemoveTrauma(trauma);
-                    }
-                }
+
                 break;
         }
     }

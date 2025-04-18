@@ -14,10 +14,10 @@
         Normal: 60
         Damaged: 27
         Destroyed: 0
-      slotId: core      
+      slotId: core
     - type: Stomach
     - type: Metabolizer
-      maxReagents: 3
+      maxPoisonsProcessable: 3
       metabolizerTypes: [ Slime ]
       removeEmpty: true
       groups:

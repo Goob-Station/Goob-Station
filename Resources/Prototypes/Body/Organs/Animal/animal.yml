@@ -9,7 +9,7 @@
     integrityThresholds:
       Normal: 13
       Damaged: 6
-      Destroyed: 0  
+      Destroyed: 0
   - type: Food
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
@@ -57,7 +57,7 @@
     integrityThresholds:
       Normal: 17
       Damaged: 8
-      Destroyed: 0    
+      Destroyed: 0
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -101,7 +101,7 @@
     integrityThresholds:
       Normal: 28
       Damaged: 16
-      Destroyed: 0    
+      Destroyed: 0
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -113,7 +113,7 @@
           Quantity: 5
   - type: Stomach
   - type: Metabolizer
-    maxReagents: 3
+    maxPoisonsProcessable: 3
     metabolizerTypes: [ Animal ]
     groups:
     - id: Food
@@ -156,9 +156,9 @@
     integrityThresholds:
       Normal: 17
       Damaged: 8
-      Destroyed: 0    
+      Destroyed: 0
   - type: Metabolizer
-    maxReagents: 1
+    maxPoisonsProcessable: 1
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
@@ -188,9 +188,9 @@
     integrityThresholds:
       Normal: 14
       Damaged: 6
-      Destroyed: 0    
+      Destroyed: 0
   - type: Metabolizer
-    maxReagents: 2
+    maxPoisonsProcessable: 2
     metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine
@@ -223,9 +223,9 @@
     integrityThresholds:
       Normal: 17
       Damaged: 8
-      Destroyed: 0    
+      Destroyed: 0
   - type: Metabolizer
-    maxReagents: 5
+    maxPoisonsProcessable: 5
     metabolizerTypes: [ Animal ]
     removeEmpty: true
   - type: Tag # goob edit

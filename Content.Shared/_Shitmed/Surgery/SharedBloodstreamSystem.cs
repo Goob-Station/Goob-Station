@@ -2,6 +2,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Body.Part;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
@@ -16,8 +17,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly WoundSystem _wound = default!;
 
     // balanced, trust me
-    private const float BleedsSeverityTrade = 0.15f;
-    private const float BleedsScalingTimeDefault = 9f;
+    protected const float BleedsSeverityTrade = 0.15f;
+    protected const float BleedsScalingTimeDefault = 9f;
 
     public override void Initialize()
     {
@@ -265,10 +266,11 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         var formula = (float) (args.Component.WoundSeverityPoint / BleedsScalingTimeDefault * args.Component.BleedingScalingMultiplier);
         component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
         component.ScalingStartsAt = _gameTiming.CurTime;
-
         component.IsBleeding = true;
 
         Dirty(uid, component);
+
+        TryModifyBleedAmount(uid, component.BleedingAmountRaw.Float());
     }
 
     private void OnWoundHealAttempt(EntityUid uid, BleedInflicterComponent component, ref WoundHealAttemptEvent args)
@@ -290,7 +292,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         var severityPenalty = component.BleedingAmountRaw - oldBleedsAmount / BleedsScalingTimeDefault;
         component.SeverityPenalty += severityPenalty;
 
-        var formula = (float)(args.Component.WoundSeverityPoint / BleedsScalingTimeDefault *
+        var formula = (float) (args.Component.WoundSeverityPoint / BleedsScalingTimeDefault *
                               args.Component.BleedingScalingMultiplier);
         component.ScalingFinishesAt = _gameTiming.CurTime + TimeSpan.FromSeconds(formula);
         component.ScalingStartsAt = _gameTiming.CurTime;
@@ -304,4 +306,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         Dirty(uid, component);
     }
+
+    public abstract bool TryModifyBleedAmount(EntityUid uid, float bleedAmount);
 }

@@ -148,7 +148,7 @@
     slotId: stomach
   - type: Stomach
   - type: Metabolizer
-    maxReagents: 6
+    maxPoisonsProcessable: 6
     metabolizerTypes: [ Plant ]
     removeEmpty: true
     groups:
