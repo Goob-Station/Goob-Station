@@ -168,6 +168,7 @@
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -2216,34 +2217,3 @@
     whitelist:
     - Chef
     - Mime
-
-
-- type: listing
-  id: uplinkBeeNades    #goob - bee update
-  name: uplink-beenades-name
-  description: uplink-beenades-desc
-  productEntity: BeeGrenade
-  cost:
-    Telecrystal: 16
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Botanist
-    - Zookeeper
-
-- type: listing
-  id: UplinkDartSyringeGun
-  name: uplink-dart-syringe-gun-name
-  description: uplink-dart-syringe-gun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: icon-dart }
-  productEntity: DartSyringeGun
-  cost:
-    Telecrystal: 20 # Hypopen is better
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerDepartmentCondition
-    whitelist:
-    - Medical
