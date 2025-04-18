@@ -30,7 +30,7 @@
 
 - type: entity
   name: artifact pinpointer
-  description: A handheld tracking device that tracks all alien artifacts on it's level. Keep upright to retain accuracy.
+  description: A handheld tracking device that tracks the nearest artifact. Keep upright to retain accuracy.
   id: PinpointerArtifact
   parent: PinpointerBase
   components:
