@@ -182,6 +182,9 @@
   - type: Speech
     speechVerb: Ghost
   - type: NightVision # Goobstation - Nightvision
+    color: MediumPurple
+    activateSound: null
+    deactivateSound: null
   - type: Reactive
     groups:
       Acidic: [Touch]
