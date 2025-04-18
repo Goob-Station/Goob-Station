@@ -3,8 +3,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Shared.Traits.Components;
 using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
@@ -57,7 +59,8 @@ public sealed partial class MovementImpairedSystem : EntitySystem
             if (baseMultiplier > 1)
                 comp.SpeedCorrectionOverflow[args.Equipped] = baseMultiplier - 1;
 
-            comp.ImpairedSpeedMultiplier = Math.Clamp(baseMultiplier.Float(), 0, 1);
+            var totalOverflow = comp.SpeedCorrectionOverflow.Values.Aggregate((FixedPoint2)0, (a,b) => a + b);
+            comp.ImpairedSpeedMultiplier = Math.Clamp((baseMultiplier + totalOverflow).Float(), 0, 1);
         }
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
