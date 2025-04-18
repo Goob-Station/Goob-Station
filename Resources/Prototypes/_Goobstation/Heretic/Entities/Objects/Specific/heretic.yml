@@ -42,6 +42,7 @@
   - type: ItemToggleSize
     activatedSize: Normal
   - type: ToggleAnimation
+  - type: EnchantingTool
   - type: Tag
     tags:
     - HereticItem
