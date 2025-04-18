@@ -52,7 +52,7 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
+    public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor";
 
     /// <summary>
     /// Give this traitor an Uplink on spawn.
