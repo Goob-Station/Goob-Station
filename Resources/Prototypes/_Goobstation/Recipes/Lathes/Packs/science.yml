@@ -10,3 +10,8 @@
   id: BluespaceTheory
   recipes:
   - MaterialBSCrystal
+
+- type: latheRecipePack
+  id: ExperimentalScienceGoob
+  recipes:
+  - ExperimentalCircuitBoard

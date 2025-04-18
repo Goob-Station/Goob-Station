@@ -44,3 +44,18 @@
   position: -4,-2
   technologyPrerequisites:
   - DeterrenceTechnologies
+
+- type: technology
+  id: ExperimentalScience
+  name: research-technology-experimental-science
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ExperimentalCircuitBoard
+  position: -4,0
+  technologyPrerequisites:
+  - AdvancedAnomalyResearch

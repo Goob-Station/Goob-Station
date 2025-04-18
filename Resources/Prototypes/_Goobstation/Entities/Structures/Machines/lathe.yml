@@ -192,6 +192,7 @@
     - ShuttleBoards
     - MedicalBoardsGoob
     - BluespaceTheory
+    - ExperimentalScienceGoob
     - MechBoardsScience
   - type: EmagLatheRecipes
     emagDynamicPacks:

@@ -263,7 +263,6 @@
       weight: 2
     - id: ClothingHandsKnuckleDustersSyndicate
     - id: ExperimentalCircuitBoard # Goob edit
-      weight: 2
 
 - type: entityTable
   id: MaintenanceLockerLoot

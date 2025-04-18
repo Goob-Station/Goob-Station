@@ -18,14 +18,3 @@
     contents:
     - id: ModsuitCoreStandard
       amount: 3
-
-- type: entity
-  id: CrateScienceExperimentalBoardFilled
-  parent: CrateScienceSecure
-  name: experimental law board crate
-  description: Contains an experimental law board inside.
-  components:
-  - type: StorageFill
-    contents:
-    - id: ExperimentalCircuitBoard
-      amount: 1
