@@ -118,8 +118,8 @@
 - type: entity
   parent: ClothingHeadHardsuitBase
   id: ClothingHeadHelmetHardsuitBasic
-  name: basic hardsuit helmet
-  description: A basic-looking hardsuit helmet that provides minor protection against most sources of damage.
+  name: basic voidsuit helmet # Goob edit
+  description: A basic-looking voidsuit helmet that provides minor protection against most sources of damage. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/basic.rsi
