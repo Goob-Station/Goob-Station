@@ -1423,7 +1423,7 @@ public sealed partial class WoundSystem
     public IEnumerable<Entity<WoundComponent>> GetWoundableWounds(EntityUid targetEntity,
         WoundableComponent? targetWoundable = null)
     {
-        if (!Resolve(targetEntity, ref targetWoundable)
+        if (!Resolve(targetEntity, ref targetWoundable, false)
             || targetWoundable.Wounds.Count == 0)
             yield break;
 
