@@ -102,14 +102,14 @@
   components:
   - type: Sprite
     layers:
-    - state: pinpointer-way
+    - state: pinpointer-universal
       map: ["enum.PinpointerLayers.Base"]
     - state: pinonnull
       map: ["enum.PinpointerLayers.Screen"]
       shader: unshaded
       visible: false
   - type: Icon
-    state: pinpointer-way
+    state: pinpointer-universal
   - type: Pinpointer
     updateTargetName: true
     canRetarget: true
