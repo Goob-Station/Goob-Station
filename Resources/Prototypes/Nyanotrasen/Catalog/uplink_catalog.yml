@@ -23,7 +23,7 @@
   description: uplink-samurai-crate-desc
   productEntity: CrateSyndicateSamurai
   cost:
-    Telecrystal: 30
+    Telecrystal: 25
   categories:
   - UplinkWearables
   conditions:
