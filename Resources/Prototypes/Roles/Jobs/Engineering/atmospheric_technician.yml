@@ -81,6 +81,9 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
+  - !type:AddComponentSpecial # Goobstation
+    components:
+    - type: EngineeringStaff
 
 - type: startingGear
   id: AtmosphericTechnicianGear
