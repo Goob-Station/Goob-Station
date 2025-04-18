@@ -340,13 +340,14 @@ public abstract class SharedItemSystem : EntitySystem
             }
         }
 
-        if (Container.TryGetContainingContainer((uid, null, null), out var container)) // Goobstation - reinsert item in storage because size changed
+        if (Container.TryGetContainingContainer((uid, null, null), out var container) && MetaData(container.Owner).EntityPrototype?.ID != "MobSlimePerson") // Goobstation - reinsert item in storage because size changed
         {
             if (TryComp(container.Owner, out StorageComponent? storage))
             {
                 _transform.AttachToGridOrMap(uid);
                 if (!_storage.Insert(container.Owner, uid, out _, null, storage, false))
                     _handsSystem.PickupOrDrop(args.User, uid, animate: false);
+
             }
             else if (TryComp(container.Owner, out InventoryComponent? inventory))
             {
