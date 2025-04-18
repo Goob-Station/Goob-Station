@@ -32,11 +32,11 @@ public sealed class NPCBlackboardSerializer : ITypeReader<NPCBlackboard, Mapping
 
         foreach (var data in node)
         {
-            var key = data.Key.ToYamlNode().AsString();
+            var key = data.Key;
 
             if (data.Value.Tag == null)
             {
-                validated.Add(new ErrorNode(data.Key, $"Unable to validate {key}'s type"));
+                validated.Add(new ErrorNode(node.GetKeyNode(key), $"Unable to validate {key}'s type"));
                 continue;
             }
 
@@ -44,7 +44,7 @@ public sealed class NPCBlackboardSerializer : ITypeReader<NPCBlackboard, Mapping
 
             if (!reflection.TryLooseGetType(typeString, out var type))
             {
-                validated.Add(new ErrorNode(data.Key, $"Unable to find type for {typeString}"));
+                validated.Add(new ErrorNode(node.GetKeyNode(key), $"Unable to find type for {typeString}"));
                 continue;
             }
 
@@ -69,7 +69,7 @@ public sealed class NPCBlackboardSerializer : ITypeReader<NPCBlackboard, Mapping
 
         foreach (var data in node)
         {
-            var key = data.Key.ToYamlNode().AsString();
+            var key = data.Key;
 
             if (data.Value.Tag == null)
                 throw new NullReferenceException($"Found null tag for {key}");
