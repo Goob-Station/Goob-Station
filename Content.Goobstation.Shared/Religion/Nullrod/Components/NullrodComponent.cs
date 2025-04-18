@@ -32,12 +32,6 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         public SoundSpecifier UntrainedUseSound = new SoundPathSpecifier("/Audio/Effects/hallelujah.ogg");
 
         /// <summary>
-        /// Which sound to play on untrained use.
-        /// </summary>
-        [DataField]
-        public SoundSpecifier DenialSound = new SoundPathSpecifier("/Audio/Effects/hallelujah.ogg");
-
-        /// <summary>
         /// How long does the praying do-after take to complete?
         /// </summary>
         [DataField]
