@@ -1,0 +1,24 @@
+- type: latheRecipe
+  id: Pinpointer
+  result: PinpointerGeneric
+  completetime: 3
+  materials:
+    Steel: 600
+    Glass: 500
+    Plasma: 200
+    Gold: 200
+
+- type: latheRecipe
+  id: PinpointerArtifact
+  parent: Pinpointer
+  result: PinpointerArtifact
+
+- type: latheRecipe
+  id: PinpointerAnomaly
+  parent: Pinpointer
+  result: PinpointerAnomaly
+
+- type: latheRecipe
+  id: PinpointerBorg
+  parent: Pinpointer
+  result: PinpointerBorg

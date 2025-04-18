@@ -193,6 +193,7 @@
     - MedicalBoardsGoob
     - BluespaceTheory
     - MechBoardsScience
+    - Pinpointers
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - MechBoardsSecurity

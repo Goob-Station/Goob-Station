@@ -55,3 +55,11 @@
   recipes:
     - ClothingEyesNightVisionGoggles
     - ClothingEyesThermalVisionGoggles
+
+- type: latheRecipePack
+  id: Pinpointers
+  recipes:
+  - Pinpointer
+  - PinpointerArtifact
+  - PinpointerAnomaly
+  - PinpointerBorg
