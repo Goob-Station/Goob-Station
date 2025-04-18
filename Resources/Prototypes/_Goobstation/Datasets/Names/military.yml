@@ -18,3 +18,12 @@
   - Ambassador
   - Counsellor
   - Minister Counsellor
+
+- type: dataset
+  id: NamesFirstInspector
+  values:
+  - Auditor
+  - Senior Auditor
+  - Inspector
+  - Senior Inspector
+

@@ -434,7 +434,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+    proto: LightPulse # Goobstation
     fireCost: 200
   - type: Battery
     maxCharge: 2000
