@@ -167,7 +167,6 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
     // Shitmed Change Start
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
     [Dependency] private readonly BodySystem _body = default!;
