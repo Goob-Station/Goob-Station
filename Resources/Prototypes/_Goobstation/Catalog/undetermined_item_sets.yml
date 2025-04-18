@@ -120,3 +120,47 @@
   - EnergySpeedloaderPulse
   - EnergySpeedloaderPulse
   - EnergySpeedloaderDisabler
+
+## voidsuit selectors
+
+# paramedic
+- type: thiefBackpackSet
+  id: VoidsuitSelectorParamedicVoidsuit
+  name: spacesuit-paramedic-voidsuit-name
+  description: spacesuit-paramedic-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    state: icon
+  content:
+  - ClothingOuterHardsuitVoidParamed
+
+- type: thiefBackpackSet
+  id: VoidsuitSelectorParamedicHardsuit
+  name: spacesuit-paramedic-hardsuit-name
+  description: spacesuit-paramedic-hardsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
+    state: control
+  content:
+  - ClothingModsuitParamedicPowerCell
+
+# security
+- type: thiefBackpackSet
+  id: VoidsuitSelectorSecurityVoidsuit
+  name: spacesuit-security-voidsuit-name
+  description: spacesuit-security-voidsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
+    state: icon
+  content:
+  - ClothingOuterVoidsuitSecurity
+
+- type: thiefBackpackSet
+  id: VoidsuitSelectorSecurityHardsuit
+  name: spacesuit-security-hardsuit-name
+  description: spacesuit-security-hardsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
+    state: control
+  content:
+  - ClothingModsuitSecurityPowerCell
