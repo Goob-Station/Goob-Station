@@ -24,16 +24,16 @@ public partial class TraumaSystem
 
     private void InitProcess()
     {
-        SubscribeLocalEvent<TraumaInflicterComponent, ComponentStartup>(OnTraumaInflicterStartup);
+        SubscribeLocalEvent<TraumaInflicterComponent, MapInitEvent>(OnTraumaInflicterInit);
         SubscribeLocalEvent<TraumaComponent, ComponentGetState>(OnComponentGet);
         SubscribeLocalEvent<TraumaComponent, ComponentHandleState>(OnComponentHandleState);
         SubscribeLocalEvent<TraumaInflicterComponent, WoundSeverityPointChangedEvent>(OnWoundSeverityPointChanged);
         SubscribeLocalEvent<TraumaInflicterComponent, WoundHealAttemptEvent>(OnWoundHealAttempt);
     }
 
-    private void OnTraumaInflicterStartup(
+    private void OnTraumaInflicterInit(
         Entity<TraumaInflicterComponent> woundEnt,
-        ref ComponentStartup args)
+        ref MapInitEvent args)
     {
         woundEnt.Comp.TraumaContainer = _container.EnsureContainer<Container>(woundEnt, TraumaContainerId);
     }

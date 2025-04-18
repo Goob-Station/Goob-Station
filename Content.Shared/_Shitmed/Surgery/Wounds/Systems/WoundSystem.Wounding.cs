@@ -36,7 +36,7 @@ public sealed partial class WoundSystem
 
     private void InitWounding()
     {
-        SubscribeLocalEvent<WoundableComponent, ComponentStartup>(OnWoundableStartup);
+        SubscribeLocalEvent<WoundableComponent, MapInitEvent>(OnWoundableInit);
         SubscribeLocalEvent<WoundableComponent, EntInsertedIntoContainerMessage>(OnWoundableInserted);
         SubscribeLocalEvent<WoundableComponent, EntRemovedFromContainerMessage>(OnWoundableRemoved);
         SubscribeLocalEvent<WoundComponent, EntGotInsertedIntoContainerMessage>(OnWoundInserted);
@@ -54,7 +54,7 @@ public sealed partial class WoundSystem
 
     #region Event Handling
 
-    private void OnWoundableStartup(EntityUid uid, WoundableComponent comp, ComponentStartup args)
+    private void OnWoundableInit(EntityUid uid, WoundableComponent comp, MapInitEvent args)
     {
         // Set root to itself.
         if (comp.RootWoundable == default)
