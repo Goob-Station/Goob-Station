@@ -85,7 +85,7 @@ uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
 uplink-WSPR-name = WSPR
-uplink-WSPR-desc = A silenced burst rifle doing a quiet job using 9.5mm caseless magnum hollow-point bullets.
+uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -129,10 +129,10 @@ uplink-rifle-mag-name = Rifle Magazine (.20)
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
 uplink-rifle-caseless-mag-name = Rifle Magazine (9.5mm HP)
-uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless bullets. Compatible with the WSPR.
+uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless magnum hollow-point bullets. Compatible with the WSPR.
 
 uplink-pistol-magazine-caseless-saphe-name = Pistol Magazine (9.5mm SAP-HE)
-uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum Semi Armor Piercing High Explosive ammunition. It is exactly what you have read. Compatible with the Cobra.
+uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum semi-armor-piercing high-explosive ammunition. It is exactly what you have read. Compatible with the Cobra.
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.

@@ -179,7 +179,7 @@
   name: WSPR
   parent: [BaseSyndicateContraband, BaseWeaponRifle]
   id: WeaponRifleWSPR
-  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 9.5mm caseless ammo.
+  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 9.5mm caseless magnum ammo.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
