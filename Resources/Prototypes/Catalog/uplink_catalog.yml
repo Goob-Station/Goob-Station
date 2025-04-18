@@ -230,6 +230,10 @@
     Telecrystal: 4 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkEsword
@@ -317,6 +321,10 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 - type: listing
@@ -341,6 +349,10 @@
     Telecrystal: 60 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 - type: listing
@@ -353,6 +365,10 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 - type: listing
@@ -365,6 +381,10 @@
     Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 # Explosives
@@ -646,6 +666,10 @@
     Telecrystal: 12 # goob - l6 exists
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 # for the hristov
 - type: listing
@@ -657,6 +681,10 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 #- type: listing # Goob - why does it even exists?
 #  id: UplinkAmmoBundle

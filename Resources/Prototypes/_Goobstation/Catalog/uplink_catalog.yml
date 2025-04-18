@@ -129,6 +129,9 @@
       - NukeOpsUplink
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkM90
@@ -140,6 +143,10 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni 
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -166,6 +173,9 @@
     blacklist:
       tags:
       - NukeOpsUplink
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWSPR
@@ -176,6 +186,10 @@
     Telecrystal: 60
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWeaponRifleBurner
@@ -187,6 +201,10 @@
     Telecrystal: 100 # don't kill me piras
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkBowHardlight
@@ -203,6 +221,9 @@
     blacklist:
       tags:
       - NukeOpsUplink
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkDualettaBundle
@@ -214,6 +235,10 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkPistolAnaconda
@@ -234,6 +259,10 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWeaponM7S
@@ -244,6 +273,10 @@
     Telecrystal: 65
   categories:
     -  UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 - type: listing
   id: UplinkWeaponHeavensgate
@@ -310,7 +343,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
   productEntity: ClothingOuterHardsuitSyndieCommander
   cost:
-    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
+    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck. Lmao you lazy ass, could've just copypasted juggernaut bundle.
   categories:
   - UplinkWearables
   conditions:
