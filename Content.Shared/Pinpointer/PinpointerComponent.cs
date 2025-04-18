@@ -71,8 +71,18 @@ public sealed partial class PinpointerComponent : Component
     [DataField("canRetarget"), ViewVariables(VVAccess.ReadWrite)]
     public bool CanRetarget;
 
+    /// <summary>
+    ///     Goob edit: if true, this pinpointer will automatically track ANY nearest entity of a specified type.
+    ///     Doesn't work with retargeting, it will always left only one entity in target list.
+    /// </summary>
+    [DataField]
+    public bool CanTargetMultiple;
+
+    /// <summary>
+    /// Goob edit: many targets instead of just one
+    /// </summary>
     [ViewVariables]
-    public EntityUid? Target = null;
+    public List<EntityUid> Targets = new();
 
     [ViewVariables, AutoNetworkedField]
     public bool IsActive = false;

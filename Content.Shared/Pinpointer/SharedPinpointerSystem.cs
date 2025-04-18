@@ -53,26 +53,56 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
         // TODO add doafter once the freeze is lifted
         args.Handled = true;
-        component.Target = args.Target;
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} set target of {ToPrettyString(uid):pinpointer} to {ToPrettyString(component.Target.Value):target}");
+        // Goob edit start
+        // ignore can target multiple, because too hard to support
+        component.Targets.Clear();
+        component.Targets.Add(target);
+        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} set target of {ToPrettyString(uid):pinpointer} to {ToPrettyString(target):target}");
         if (component.UpdateTargetName)
-            component.TargetName = component.Target == null ? null : Identity.Name(component.Target.Value, EntityManager);
+            component.TargetName = Identity.Name(target, EntityManager);
+        // Goob edit end
     }
 
     /// <summary>
     ///     Set pinpointers target to track
+    ///     Goob edit: If CanTargetMultiple is true in Pinpointer component, then it will be ADDED, not set
     /// </summary>
     public virtual void SetTarget(EntityUid uid, EntityUid? target, PinpointerComponent? pinpointer = null)
     {
         if (!Resolve(uid, ref pinpointer))
             return;
 
-        if (pinpointer.Target == target)
+        if (target == null || pinpointer.Targets.Contains(target.Value))
             return;
 
-        pinpointer.Target = target;
+        if (!pinpointer.CanTargetMultiple)
+        {
+            pinpointer.Targets.Clear();
+        }
+
+        pinpointer.Targets.Add(target.Value);
+
         if (pinpointer.UpdateTargetName)
-            pinpointer.TargetName = target == null ? null : Identity.Name(target.Value, EntityManager);
+            pinpointer.TargetName = Identity.Name(target.Value, EntityManager);
+        if (pinpointer.IsActive)
+            UpdateDirectionToTarget(uid, pinpointer);
+    }
+
+    /// <summary>
+    /// Goob edit: sets a list of targets for a pinpointer.
+    /// </summary>
+    public virtual void SetTargets(EntityUid uid, List<EntityUid> targets, PinpointerComponent? pinpointer = null)
+    {
+        if (!Resolve(uid, ref pinpointer))
+            return;
+
+        if (!pinpointer.CanTargetMultiple)
+        {
+            return; // No.
+        }
+
+        pinpointer.Targets = targets;
+
         if (pinpointer.IsActive)
             UpdateDirectionToTarget(uid, pinpointer);
     }

@@ -38,9 +38,8 @@
   - type: Icon
     state: pinpointer-science
   - type: Pinpointer
-    updateTargetName: true
-    canRetarget: true
-    retargetingWhitelist: # Goob edit: pinpointer whitelist
+    canTargetMultiple: true
+    whitelist: # Goob edit: pinpointer whitelist
       components:
       - Artifact
 
