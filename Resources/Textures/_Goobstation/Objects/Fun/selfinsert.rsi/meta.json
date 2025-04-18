@@ -1,0 +1,71 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Muppet",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "plushie_benny"
+        },
+        {
+            "name": "plushie_byrrne"
+        },
+        {
+            "name": "plushie_byrrne_gibbed"
+        },
+        {
+            "name": "plushie_cairo"
+        },
+        {
+            "name": "plushie_command_human"
+        },
+        {
+            "name": "plushie_delta"
+        },
+        {
+            "name": "plushie_knott"
+        },
+        {
+            "name": "plushie_kury"
+        },
+        {
+            "name": "plushie_pash"
+        },
+        {
+            "name": "plushie_raki"
+        },
+        {
+            "name": "plushie_ranork"
+        },
+        {
+            "name": "plushie_sparkle"
+        },
+        {
+            "name": "plushie_stoop"
+        },
+        {
+            "name": "plushie_tider_moth"
+        },
+        {
+            "name": "plushie_tina"
+        },
+        {
+            "name": "plushie_weh_winter"
+        },
+        {
+            "name": "plushie_zlorb"
+        },
+        {
+            "name": "plushie_violet_slime"
+        },
+        {
+            "name": "plushie_ahti"
+        },
+        {
+            "name": "plushie_grub"
+        }
+    ]
+}
