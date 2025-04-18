@@ -79,8 +79,18 @@ public sealed class EnchanterSystem : EntitySystem
             return;
         }
 
-        // only users with this component can enchant
-        if (!TryComp<CanEnchantComponent>(user, out _))
+        var query = EntityManager.EntityQueryEnumerator<CanEnchantComponent>();
+        bool canEnchant = false;
+        while (query.MoveNext(out var entity, out _))
+        {
+            if (entity == user)
+            {
+                canEnchant = true;
+                break;
+            }
+        }
+
+        if (!canEnchant)
         {
             _popup.PopupClient(Loc.GetString("enchanter-disallowed-enchant"), user, user);
             return;

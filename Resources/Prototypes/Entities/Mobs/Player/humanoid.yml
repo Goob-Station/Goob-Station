@@ -338,8 +338,6 @@
     - type: Loadout
       prototypes: [ ERTChaplainGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
-    - type: BibleUser
-    - type: CanEnchant #Let's them enchant
 
 ## ERT Janitor
 
