@@ -26,6 +26,7 @@
       path: /Audio/Weapons/genhit3.ogg
   extraDamage: 5
   paralyzeTime: 1
+  dropHeldItemsBehavior: NoDrop
   canDoWhileProne: false
 
 - type: combo
@@ -59,7 +60,7 @@
     sound:
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 10
-  paralyzeTime: 2
+  paralyzeTime: 1
   staminaDamage: 10
   canDoWhileProne: false
 

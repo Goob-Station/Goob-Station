@@ -13,10 +13,12 @@ using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Standing;
@@ -26,6 +28,8 @@ namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
+    private static readonly SoundSpecifier NeckSnapSound = new SoundPathSpecifier("/Audio/_Goobstation/Wounds/crack1.ogg");
+
     private void InitializeCqc()
     {
         SubscribeLocalEvent<CanPerformComboComponent, CqcSlamPerformedEvent>(OnCQCSlam);
@@ -38,7 +42,6 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
-
 
     #region Generic Methods
 
@@ -81,7 +84,7 @@ public partial class SharedMartialArtsSystem
 
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
     {
-        if (args.Weapon != args.Performer)
+        if (args.Weapon != args.Performer || args.Target == args.Performer)
             return;
 
         switch (args.Type)
@@ -90,14 +93,50 @@ public partial class SharedMartialArtsSystem
                 _stamina.TakeStaminaDamage(args.Target, 25f, applyResistances: true);
                 break;
             case ComboAttackType.Harm:
+                // Snap neck
+                if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
+                    TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
+                    TryComp(args.Target, out PullableComponent? pullable) &&
+                    puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
+                    targeting.Target == TargetBodyPart.Head)
+                {
+                    _pulling.TryStopPull(args.Target, pullable);
+                    _mobState.ChangeMobState(args.Target, MobState.Dead, null, ent);
+
+                    var dmg = new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Blunt", 100 },
+                            { "Asphyxiation", 300 },
+                        },
+                    };
+
+                    _damageable.TryChangeDamage(args.Target,
+                        dmg,
+                        true,
+                        canSever: false,
+                        origin: ent,
+                        targetPart: TargetBodyPart.Head);
+
+                    if (_netManager.IsServer)
+                        _audio.PlayPvs(NeckSnapSound, args.Target);
+
+                    ComboPopup(ent, args.Target, "Neck Snap");
+                    break;
+                }
+
+                // Leg sweep
                 if (!TryComp<StandingStateComponent>(ent, out var standing)
                     || standing.CurrentState == StandingState.Standing ||
                     !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
                     targetStanding.CurrentState != StandingState.Standing)
-                    return;
-                _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
+                    break;
+
                 _status.TryRemoveStatusEffect(ent, "KnockedDown");
                 _standingState.Stand(ent);
+                _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
+                ComboPopup(ent, args.Target, "Leg Sweep");
                 break;
         }
     }
@@ -169,16 +208,18 @@ public partial class SharedMartialArtsSystem
             return;
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
+
+        ComboPopup(ent, target, proto.Name);
+
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
         if(!_hands.TryDrop(target, activeItem.Value))
             return;
-        if (!_hands.TryGetEmptyHand(target, out var emptyHand))
+        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
             return;
-        if(!_hands.TryPickupAnyHand(ent, activeItem.Value))
+        if(!_hands.TryPickup(ent, activeItem.Value, emptyHand))
             return;
         _hands.SetActiveHand(ent, emptyHand);
-        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CqcConsecutivePerformedEvent args)

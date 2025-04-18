@@ -27,6 +27,28 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CanPerformComboComponent, ComboAttackPerformedEvent>(OnAttackPerformed);
         SubscribeLocalEvent<CanPerformComboComponent, ComboBeingPerformedEvent>(OnComboBeingPerformed);
+        SubscribeLocalEvent<CanPerformComboComponent, SaveLastAttacksEvent>(OnSave);
+        SubscribeLocalEvent<CanPerformComboComponent, ResetLastAttacksEvent>(OnReset);
+        SubscribeLocalEvent<CanPerformComboComponent, LoadLastAttacksEvent>(OnLoad);
+    }
+
+    private void OnLoad(Entity<CanPerformComboComponent> ent, ref LoadLastAttacksEvent args)
+    {
+        if (ent.Comp.LastAttacksSaved == null)
+            return;
+
+        ent.Comp.LastAttacks = ent.Comp.LastAttacksSaved;
+        ent.Comp.LastAttacksSaved = null;
+    }
+
+    private void OnReset(Entity<CanPerformComboComponent> ent, ref ResetLastAttacksEvent args)
+    {
+        ent.Comp.LastAttacks.Clear();
+    }
+
+    private void OnSave(Entity<CanPerformComboComponent> ent, ref SaveLastAttacksEvent args)
+    {
+        ent.Comp.LastAttacksSaved = new(ent.Comp.LastAttacks);
     }
 
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)

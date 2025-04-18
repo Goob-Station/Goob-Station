@@ -12,6 +12,7 @@ using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.Stealth;
+using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
 using Content.Shared._White.Grab;
@@ -25,6 +26,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
@@ -37,6 +39,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
@@ -74,6 +77,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly BackStabSystem _backstab = default!;
     [Dependency] private readonly SharedGoobStealthSystem _stealth = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -445,6 +449,20 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 break;
             case MartialArtsForms.Ninjutsu:
                 EnsureComp<NinjutsuSneakAttackComponent>(user);
+                break;
+            case MartialArtsForms.CloseQuartersCombat:
+                var riposte = EnsureComp<RiposteeComponent>(user);
+                riposte.Data.Add(new(0f,
+                    false,
+                    null,
+                    true,
+                    new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg"),
+                    TimeSpan.FromSeconds(4),
+                    true,
+                    false,
+                    0.75f,
+                    null,
+                    null));
                 break;
         }
 

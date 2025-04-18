@@ -37,7 +37,8 @@ public sealed partial class HereticAbilitySystem
 
     private void OnDanceOfTheBrand(Entity<HereticComponent> ent, ref HereticDanceOfTheBrandEvent args)
     {
-        EnsureComp<RiposteeComponent>(ent);
+        var riposte = EnsureComp<RiposteeComponent>(ent);
+        riposte.Data.Add(new());
     }
 
     private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)

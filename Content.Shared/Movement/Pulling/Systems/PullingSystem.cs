@@ -194,7 +194,6 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, StopBeingPulledAlertEvent>(OnStopBeingPulledAlert);
         SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goobstation
         SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goobstation
-        SubscribeLocalEvent<PullableComponent, StatusEffectEndedEvent>(OnStatusEffectEnded); // Goobstation
 
         SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged);
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
@@ -217,16 +216,6 @@ public sealed class PullingSystem : EntitySystem
     }
 
     // Goobstation - Grab Intent
-    private void OnStatusEffectEnded(Entity<PullableComponent> ent, ref StatusEffectEndedEvent args)
-    {
-        if (ent.Comp.GrabStage < GrabStage.Soft || !_blocker.CanInteract(ent.Owner, null) ||
-            _mobState.IsIncapacitated(ent) || !TryComp(ent.Comp.Puller, out PullerComponent? puller))
-            return;
-
-        if (args.Key == "Stun")
-            TrySetGrabStages((ent.Comp.Puller.Value, puller), ent, GrabStage.No);
-    }
-
     private void OnAttacked(Entity<PullerComponent> ent, ref AttackedEvent args)
     {
         if (ent.Comp.Pulling != args.User)

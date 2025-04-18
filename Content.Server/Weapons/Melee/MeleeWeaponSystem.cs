@@ -265,7 +265,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
     }
 
-    protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
+    public override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session) // Goob edit
     {
         EntityCoordinates targetCoordinates;
         Angle targetLocalAngle;

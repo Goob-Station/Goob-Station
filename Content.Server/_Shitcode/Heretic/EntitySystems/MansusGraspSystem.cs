@@ -223,20 +223,25 @@ public sealed class MansusGraspSystem : EntitySystem
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
 
-        // upgraded grasp
-        if (!TryApplyGraspEffectAndMark( args.User, hereticComp, target, ent))
-            return;
-
-        if (TryComp(target, out StatusEffectsComponent? status))
+        var beforeEvent = new BeforeHarmfulActionEvent(args.User, HarmfulActionType.MansusGrasp);
+        RaiseLocalEvent(target, beforeEvent);
+        if (!beforeEvent.Cancelled)
         {
-            _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
-            _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
-            _language.DoRatvarian(target, comp.SpeechTime, true, status);
-            _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,
-                "MansusGraspAffected",
-                ent.Comp.AffectedTime,
-                true,
-                status);
+            // upgraded grasp
+            if (!TryApplyGraspEffectAndMark(args.User, hereticComp, target, ent))
+                return;
+
+            if (TryComp(target, out StatusEffectsComponent? status))
+            {
+                _stun.KnockdownOrStun(target, comp.KnockdownTime, true, status);
+                _stamina.TakeStaminaDamage(target, comp.StaminaDamage);
+                _language.DoRatvarian(target, comp.SpeechTime, true, status);
+                _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(target,
+                    "MansusGraspAffected",
+                    ent.Comp.AffectedTime,
+                    true,
+                    status);
+            }
         }
 
         _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);

@@ -80,6 +80,7 @@ namespace Content.Shared.Weapons.Melee.Events
         Harm,
         Disarm,
         Grab,
+        MansusGrasp,
     }
     // Goobstation end
 }

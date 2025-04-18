@@ -25,6 +25,9 @@ public sealed partial class CanPerformComboComponent : Component
     public List<ComboAttackType> LastAttacks = new();
 
     [DataField]
+    public List<ComboAttackType>? LastAttacksSaved = new();
+
+    [DataField]
     public List<ComboPrototype> AllowedCombos = new();
 
     [DataField]
