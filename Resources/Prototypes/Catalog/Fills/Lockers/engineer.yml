@@ -126,7 +126,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitAtmos
+      - id: ClothingModsuitAtmostechPowerCell # Goob edit
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingMaskGasAtmos
@@ -169,7 +169,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitEngineering
+      - id: UndeterminedVoidsuitEngineer # Goob edit
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingHandsGlovesColorYellow

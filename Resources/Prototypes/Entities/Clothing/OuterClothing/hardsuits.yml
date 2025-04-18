@@ -207,38 +207,38 @@
     enchants:
     - EnchantProtFire
 
-#Engineering Hardsuit
-- type: entity
-  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
-  id: ClothingOuterHardsuitEngineering
-  name: engineering hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.04
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Shock: 0.8
-        Caustic: 0.5
-        Radiation: 0.2
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitEngineering
+#Engineering Hardsuit - MOVED TO _Goobstation/Entities/Clothing/OuterClothing/Voidsuits.yml
+#- type: entity
+#  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+#  id: ClothingOuterHardsuitEngineering
+#  name: engineering hardsuit
+#  description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.04
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.5
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.9
+#        Slash: 0.9
+#        Piercing: 0.9
+#        Shock: 0.8
+#        Caustic: 0.5
+#        Radiation: 0.2
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.7
+#    sprintModifier: 0.7
+#  - type: HeldSpeedModifier
+#  - type: ToggleableClothing # Goobstation - Modsuits change
+#    clothingPrototypes:
+#      head: ClothingHeadHelmetHardsuitEngineering
 
 #Spationaut Hardsuit
 - type: entity
@@ -397,42 +397,42 @@
     delayDelta: 3
     knockdownTimeDelta: -3
 
-#Security Hardsuit
-- type: entity
-  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
-  id: ClothingOuterHardsuitSecurity
-  name: security hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.4
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Caustic: 0.7
-        Heat: 0.7 # Goobstation
-  - type: ClothingSpeedModifier
-    walkModifier: 0.75
-    sprintModifier: 0.75
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitSecurity
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.6
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
+#Security Hardsuit - Goobstation, deprecated
+#- type: entity
+#  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
+#  id: ClothingOuterHardsuitSecurity
+#  name: security hardsuit
+#  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.5
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.4
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.6
+#        Slash: 0.6
+#        Piercing: 0.6
+#        Caustic: 0.7
+#        Heat: 0.7 # Goobstation
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.75
+#    sprintModifier: 0.75
+#  - type: HeldSpeedModifier
+#  - type: ToggleableClothing # Goobstation - Modsuits change
+#    clothingPrototypes:
+#      head: ClothingHeadHelmetHardsuitSecurity
+#  - type: StaminaDamageResistance # Goobstation
+#    coefficient: 0.6
+#  - type: ModifyDelayedKnockdown # Goobstation
+#    delayDelta: 3
+#    knockdownTimeDelta: -3
 
 #Brigmedic Hardsuit
 - type: entity
@@ -657,43 +657,43 @@
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.5
 
-#Head of Security's Hardsuit
-- type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
-  id: ClothingOuterHardsuitSecurityRed
-  name: head of security's hardsuit
-  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.45
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.6
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.5
-        Piercing: 0.5
-        Radiation: 0.5
-        Caustic: 0.6
-        Heat: 0.6 # Goobstation
-  - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitSecurityRed
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
+#Head of Security's Hardsuit - MOVED TO _Goobstation/Entities/Clothing/OuterClothing/Voidsuits.yml
+#- type: entity
+#  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+#  id: ClothingOuterHardsuitSecurityRed
+#  name: head of security's hardsuit
+#  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.45
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.6
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.6
+#        Slash: 0.5
+#        Piercing: 0.5
+#        Radiation: 0.5
+#        Caustic: 0.6
+#        Heat: 0.6 # Goobstation
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.8
+#    sprintModifier: 0.8
+#  - type: HeldSpeedModifier
+#  - type: ToggleableClothing
+#    clothingPrototypes:
+#      head: ClothingHeadHelmetHardsuitSecurityRed
+#  - type: ModifyDelayedKnockdown # Goobstation
+#    delayDelta: 3
+#    knockdownTimeDelta: -3
+#  - type: StaminaDamageResistance # Goobstation
+#    coefficient: 0.5
 
 #Luxury Mining Hardsuit
 - type: entity

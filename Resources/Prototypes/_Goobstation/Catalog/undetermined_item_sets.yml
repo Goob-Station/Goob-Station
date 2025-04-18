@@ -134,7 +134,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
   content:
-  - ClothingOuterHardsuitVoidParamed
+  - ClothingOuterVoidsuitParamedic
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorParamedicHardsuit
@@ -166,3 +166,46 @@
     state: control
   content:
   - ClothingModsuitSecurityPowerCell
+
+# head of security
+- type: thiefBackpackSet
+  id: VoidsuitSelectorHeadOfSecurityVoidsuit
+  name: spacesuit-headofsecurity-voidsuit-name
+  description: spacesuit-headofsecurity-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+    state: icon
+  content:
+  - ClothingOuterVoidsuitHeadOfSecurity
+
+- type: thiefBackpackSet
+  id: VoidsuitSelectorHeadOfSecurityHardsuit
+  name: spacesuit-headofsecurity-hardsuit-name
+  description: spacesuit-headofsecurity-hardsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
+    state: control
+  content:
+  - ClothingModsuitHeadOfSecurityPowerCell
+
+# engineer
+
+- type: thiefBackpackSet
+  id: VoidsuitSelectorEngineerVoidsuit
+  name: spacesuit-engineer-voidsuit-name
+  description: spacesuit-engineer-voidsuit-desc
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    state: icon
+  content:
+  - ClothingOuterVoidsuitEngineer
+
+- type: thiefBackpackSet
+  id: VoidsuitSelectorEngineerHardsuit
+  name: spacesuit-engineer-voidsuit-name
+  description: spacesuit-engineer-voidsuit-desc
+  sprite:
+    sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
+    state: control
+  content:
+  - ClothingModsuitEngineerPowerCell

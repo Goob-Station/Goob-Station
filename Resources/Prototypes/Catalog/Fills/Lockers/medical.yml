@@ -162,7 +162,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterHardsuitVoidParamed
+      - id: UndeterminedVoidsuitParamedic # Goob edit
       - id: OxygenTankFilled
       - id: NitrogenTankFilled
       - id: ClothingOuterCoatParamedicWB
