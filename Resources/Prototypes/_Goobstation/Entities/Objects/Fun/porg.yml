@@ -1,0 +1,34 @@
+
+- type: entity
+  parent: BaseItem
+  id: POrgBase
+  name: pOrg base
+  description: The incomplete core of a pAI Operational Roaming Gadget
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/porg.rsi
+    state: porg-base
+  - type: Appearance
+  - type: Item
+    size: Normal
+  - type: Construction
+    graph: POrg
+    node: start
+    defaultTarget: porg
+
+- type: entity
+  parent: BaseMob
+  id: POrg
+  name: pOrg
+  description: pAI Operational Roaming Gadget, a simple locomotion unit for your wallet sized friend.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/porg.rsi
+    layers:
+    - state: porg
+    - state: porg_e
+  - type: Construction
+    graph: POrg
+    node: porg
+  - type: MultiHandedItem
+  - type: Puller

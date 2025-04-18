@@ -1,0 +1,22 @@
+
+- type: constructionGraph
+  id: POrg
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: porg
+          steps:
+          - tag: POrgHead
+            name: IPC head
+            icon:
+              sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+              state: head_m
+            doAfter: 2
+          - material: Cable
+            amount: 2
+            doAfter: 3
+          - tool: Screwing
+            doAfter: 2
+    - node: porg
+      entity: POrg
