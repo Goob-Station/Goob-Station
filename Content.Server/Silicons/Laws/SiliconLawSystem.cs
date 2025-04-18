@@ -409,18 +409,17 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             return;
 
         // Goob edit start
-
-        if (TryComp(args.Entity, out ExperimentalLawProviderComponent? experimentalLaws))
-        {
-            ApplyExperimentalLaws((ent.Owner, ent.Comp, provider), (args.Entity, experimentalLaws));
-            return;
-        }
-
         if (HasComp<ActiveExperimentalLawProviderComponent>(ent))
         {
             var message = Loc.GetString("experimental-law-provider-fail");
             _radio.SendRadioMessage(ent, message, AnnouncementChannel, ent, escapeMarkup: false);
             RemComp<ActiveExperimentalLawProviderComponent>(ent);
+        }
+
+        if (TryComp(args.Entity, out ExperimentalLawProviderComponent? experimentalLaws))
+        {
+            ApplyExperimentalLaws(ent, (args.Entity, experimentalLaws, provider));
+            return;
         }
         // Goob edit end
         var lawset = GetLawset(provider.Laws).Laws;
@@ -430,25 +429,27 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         {
             SetLaws(lawset, update, provider.LawUploadSound);
         }
+
+        ent.Comp.LastLawset = provider.Laws;
     }
 
     // Goob edit start
-    private void ApplyExperimentalLaws(Entity<SiliconLawUpdaterComponent, SiliconLawProviderComponent> ent, Entity<ExperimentalLawProviderComponent> experiment)
+    private void ApplyExperimentalLaws(Entity<SiliconLawUpdaterComponent> ent, Entity<ExperimentalLawProviderComponent, SiliconLawProviderComponent> experiment)
     {
-        var laws = GetRandomLaws(experiment.Comp.RandomLawsets);
-        var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp1.Components);
+        var laws = GetRandomLaws(experiment.Comp1.RandomLawsets);
+        var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
 
         while (query.MoveNext(out var update))
         {
-            SetLaws(laws.Laws, update, ent.Comp2.LawUploadSound);
+            SetLaws(laws.Laws, update, experiment.Comp2.LawUploadSound);
         }
 
         var activeProv = EnsureComp<ActiveExperimentalLawProviderComponent>(ent);
-        activeProv.Timer = experiment.Comp.RewardTime;
-        activeProv.RewardPoints = experiment.Comp.RewardPoints;
-        activeProv.OldSiliconLawsetId = ent.Comp2.Laws;
+        activeProv.Timer = experiment.Comp1.RewardTime;
+        activeProv.RewardPoints = experiment.Comp1.RewardPoints;
+        activeProv.OldSiliconLawsetId = ent.Comp.LastLawset;
 
-        var message = Loc.GetString("experimental-law-provider-start", ("timeLeft", (int) experiment.Comp.RewardTime));
+        var message = Loc.GetString("experimental-law-provider-start", ("timeLeft", (int) experiment.Comp1.RewardTime));
         _radio.SendRadioMessage(ent, message, AnnouncementChannel, ent, escapeMarkup: false);
 
         QueueDel(experiment); // Don't need this experimental board anymore
@@ -473,10 +474,6 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
                 researchClient.Server == null)
                 continue;
 
-            _research.ModifyServerPoints(researchClient.Server.Value, provider.RewardPoints);
-            var message = Loc.GetString("experimental-law-provider-success", ("amount", provider.RewardPoints));
-            _radio.SendRadioMessage(uid, message, AnnouncementChannel, uid, escapeMarkup: false);
-
             if (!TryComp(uid, out SiliconLawUpdaterComponent? updater))
                 continue;
 
@@ -490,6 +487,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             }
 
             RemCompDeferred(uid, provider);
+            _research.ModifyServerPoints(researchClient.Server.Value, provider.RewardPoints);
+            var message = Loc.GetString("experimental-law-provider-success", ("amount", provider.RewardPoints));
+            _radio.SendRadioMessage(uid, message, AnnouncementChannel, uid, escapeMarkup: false);
         }
     }
 

@@ -36,4 +36,10 @@ public sealed partial class SiliconLawUpdaterComponent : Component
     /// </summary>
     [DataField(required: true)]
     public ComponentRegistry Components;
+
+    /// <summary>
+    /// Goob edit: the last lawset that was loaded with this updater.
+    /// </summary>
+    [ViewVariables]
+    public ProtoId<SiliconLawsetPrototype> LastLawset = "Crewsimov";
 }
