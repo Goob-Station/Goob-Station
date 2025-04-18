@@ -59,4 +59,7 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         [DataField]
         public EntityUid? LastAttackedEntity;
 
+        [DataField]
+        public DamageSpecifier? HolyDamage { get; private set; }
+
     }

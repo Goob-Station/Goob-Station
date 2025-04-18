@@ -10,8 +10,4 @@ using Robust.Shared.GameStates;
 namespace Content.Goobstation.Shared.Religion;
 
 [RegisterComponent] [NetworkedComponent]
-public sealed partial class WeakToHolyComponent : Component
-{
-    [DataField]
-    public bool RoundStart { get; set; }
-}
+public sealed partial class UnholyItemComponent : Component;

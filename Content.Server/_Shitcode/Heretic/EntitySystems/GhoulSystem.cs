@@ -140,6 +140,8 @@ public sealed partial class GhoulSystem : EntitySystem
     {
         GhoulifyEntity(ent);
         EnsureComp<WeakToHolyComponent>(ent); //shitchap
+        var unholy = EnsureComp<WeakToHolyComponent>(ent);
+        unholy.RoundStart = true;
     }
     private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)
     {
