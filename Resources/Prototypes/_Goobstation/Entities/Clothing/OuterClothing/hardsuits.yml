@@ -286,7 +286,7 @@
       head: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
   - type: ModifyDelayedKnockdown
     delayDelta: 2
-    knockdownTimeDelta: -2'
+    knockdownTimeDelta: -2
   - type: StaminaDamageResistance
     coefficient: 0.5
   - type: ClothingGrantComponent

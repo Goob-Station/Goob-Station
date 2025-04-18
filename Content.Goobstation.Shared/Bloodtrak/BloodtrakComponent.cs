@@ -40,7 +40,7 @@ public sealed partial class BloodtrakComponent : Component
     /// <remarks>
     /// 0.09 radians ≈ 5.16 degrees
     /// </remarks>
-    [DataField]
+    [ViewVariables]
     public double Precision = 0.09;
 
     /// <summary>
@@ -70,19 +70,19 @@ public sealed partial class BloodtrakComponent : Component
     /// <summary>
     /// How long until the next execution.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public TimeSpan CooldownDuration = TimeSpan.FromSeconds(30f);
 
     /// <summary>
     /// When active tracking ends
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public TimeSpan ExpirationTime;
 
     /// <summary>
     /// When cooldown ends
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public TimeSpan CooldownEndTime = TimeSpan.Zero;
 
     [ViewVariables]

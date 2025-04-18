@@ -28,60 +28,54 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         SubscribeLocalEvent<BloodtrakComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<BloodtrakComponent, ActivateInWorldEvent>(OnActivate);
-        SubscribeLocalEvent<DnaComponent, ComponentStartup>(OnDnaStartup);
-        SubscribeLocalEvent<DnaComponent, ComponentRemove>(OnDnaRemoved);
-        SubscribeLocalEvent<DnaComponent, EntityTerminatingEvent>(OnDnaTerminating);
-    }
-
-    private void OnDnaStartup(EntityUid uid, DnaComponent component, ComponentStartup args)
-    {
-        _dnaMap[component.DNA] = uid;
-    }
-
-    private void OnDnaRemoved(EntityUid uid, DnaComponent component, ComponentRemove args)
-    {
-        _dnaMap.Remove(component.DNA);
-    }
-
-    private void OnDnaTerminating(EntityUid uid, DnaComponent component, ref EntityTerminatingEvent args)
-    {
-        _dnaMap.Remove(component.DNA);
     }
 
     /// <summary>
     /// Checks the DNA of the puddle against known DNA entries to find a matching entity.
     /// </summary>
-    private EntityUid? GetPuddleDnaOwner(AfterInteractEvent args)
+    private EntityUid? GetPuddleDnaOwner(EntityUid target, EntityUid user)
     {
-        if (args.Target is not { Valid: true } targetEntity ||
-            !_tag.HasTag(targetEntity, "DNASolutionScannable") ||
-            !HasComp<PuddleComponent>(targetEntity))
+        if (!_tag.HasTag(target, "DNASolutionScannable") || !HasComp<PuddleComponent>(target))
         {
-            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-scan-failed"), args.User, args.User);
-            args.Handled = true;
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-scan-failed"), user, user);
             return null;
         }
 
-        var solutionsDna = _forensicsSystem.GetSolutionsDNA(targetEntity);
+        var solutionsDna = _forensicsSystem.GetSolutionsDNA(target);
+
         if (solutionsDna.Count == 0)
         {
-            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-dna"), args.User, args.User);
-            args.Handled = true;
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-dna"), user, user);
             return null;
         }
+
+        var targetDna = GetEntityDNAs();
 
         foreach (var dna in solutionsDna)
         {
-            if (!_dnaMap.TryGetValue(dna, out var uid))
-                continue;
+            if (!targetDna.TryGetValue(dna, out var uid))
+                return null;
 
-            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), args.User, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), user, user);
             return uid;
         }
 
-        _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-no-match"), args.User, args.User);
-        args.Handled = true;
+        _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-match"), user, user);
         return null;
+    }
+
+    private Dictionary<string, EntityUid> GetEntityDNAs()
+    {
+        var result = new Dictionary<string, EntityUid>();
+
+        var query = EntityQueryEnumerator<DnaComponent>();
+        while (query.MoveNext(out var uid, out var dna))
+        {
+            if (dna.DNA is not null)
+                result[dna.DNA] = uid;
+        }
+
+        return result;
     }
 
     private void OnAfterInteract(EntityUid uid, BloodtrakComponent component, AfterInteractEvent args)
@@ -90,7 +84,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             return;
 
         args.Handled = true;
-        component.Target = GetPuddleDnaOwner(args);
+        component.Target = GetPuddleDnaOwner(target, args.User);
     }
 
     public override bool TogglePinpointer(EntityUid uid, BloodtrakComponent? pinpointer = null)
@@ -114,18 +108,14 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
                 var displaySeconds = Math.Ceiling(secondsLeft);
                 var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", displaySeconds));
 
-                _popupSystem.PopupPredicted(popUp,
-                    pinpointer.Owner,
-                    pinpointer.Owner);
+                _popupSystem.PopupEntity(popUp, uid);
                 return false;
             }
 
             // If the targrt does not exist anymore (deleted, etc), display no target.
             if (pinpointer.Target == null || !Exists(pinpointer.Target.Value))
             {
-                _popupSystem.PopupPredicted(Loc.GetString("bloodtrak-no-target"),
-                    pinpointer.Owner,
-                    pinpointer.Owner);
+                _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-target"), uid);
                 return false;
             }
 
@@ -173,21 +163,14 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
             if (!targetValid || expired)
             {
                 // Deactivate only if target is invalid or time expired
-                _popupSystem.PopupPredicted(
-                    Loc.GetString(targetValid ? "bloodtrak-tracking-expired" : "bloodtrak-target-lost"),
-                    tracker.Owner,
-                    tracker.Owner
-                );
+                _popupSystem.PopupEntity(Loc.GetString(targetValid ? "bloodtrak-tracking-expired" : "bloodtrak-target-lost"), uid);
                 TogglePinpointer(uid, tracker);
                 tracker.Target = null;
                 tracker.CooldownEndTime = currentTime + tracker.CooldownDuration;
                 Dirty(uid, tracker);
             }
             else
-            {
-                // Target is valid and tracking is active: update direction
                 UpdateDirectionToTarget(uid, tracker);
-            }
         }
     }
 
@@ -233,7 +216,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         return _transform.GetWorldPosition(trg, xformQuery) - _transform.GetWorldPosition(pin, xformQuery);
     }
 
-    private Shared.Bloodtrak.Distance CalculateDistance(Vector2 vec, BloodtrakComponent pinpointer)
+    private static Shared.Bloodtrak.Distance CalculateDistance(Vector2 vec, BloodtrakComponent pinpointer)
     {
         var dist = vec.Length();
 

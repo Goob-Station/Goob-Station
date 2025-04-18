@@ -22,10 +22,8 @@
     startingCharge: 500
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
+    autoRechargeRate: 2
   - type: DisarmMalus
-  - type: UseDelay
-    delay: 1
   - type: Tag
     tags:
     - Justice
