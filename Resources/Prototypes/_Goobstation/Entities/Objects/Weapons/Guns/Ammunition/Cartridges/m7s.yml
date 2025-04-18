@@ -3,6 +3,11 @@
   name: cartridge (5x23mm)
   parent: BaseCartridge
   components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: BulletLowCaliber
     deleteOnSpawn: true
