@@ -6,7 +6,7 @@
 - type: entity
   id: ExperimentalCircuitBoard
   parent: BaseElectronics
-  name: law board (experimental)
+  name: experimental law board
   description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
   components:
   - type: Sprite
@@ -19,7 +19,7 @@
 - type: entity
   id: ExperimentalCircuitBoardDebug
   parent: ExperimentalCircuitBoard
-  name: law board (experimental)
+  name: experimental experimental law board # Lol
   suffix: DEBUG
   description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
   components:
