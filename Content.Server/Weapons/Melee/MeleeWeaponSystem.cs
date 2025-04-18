@@ -63,10 +63,12 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Coordinates;
+using Content.Shared.Humanoid;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Weapons.Melee;
 
@@ -127,6 +129,18 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
+
+        // Goobstation - partial armor penetration
+        var ap = (component.ResistanceBypass ? 100 : (int)Math.Round(component.ArmorPenetration * 100));
+        if (ap == 0)
+            return;
+        var msg = new FormattedMessage();
+        msg.AddText("\n" + Loc.GetString("armor-piercing-examine-start"));
+        msg.PushColor(ap < 0 ? Color.Blue : Color.Red);
+        msg.AddText(" " +  Math.Abs(ap).ToString() + "% " + (ap < 0 ? Loc.GetString("worse") : Loc.GetString("better")) + " ");
+        msg.Pop();
+        msg.AddText(Loc.GetString("armor-piercing-examine-end"));
+        args.Message.AddMessage(msg);
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,

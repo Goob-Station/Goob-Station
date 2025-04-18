@@ -19,7 +19,7 @@
 
 - type: entity
   id: BaseCartridgeCaselessRifle
-  name: cartridge (.25 rifle)
+  name: cartridge (9.5mm) # Goob edit
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -42,7 +42,7 @@
 
 - type: entity
   id: CartridgeCaselessRifle
-  name: cartridge (.25 caseless)
+  name: cartridge (9.5mm HP) # Goob edit
   parent: BaseCartridgeCaselessRifle
   components:
   - type: CartridgeAmmo
@@ -50,7 +50,7 @@
 
 - type: entity
   id: CartridgeCaselessRiflePractice
-  name: cartridge (.25 caseless practice)
+  name: cartridge (9.5mm practice) # Goob edit
   parent: BaseCartridgeCaselessRifle
   components:
   - type: CartridgeAmmo

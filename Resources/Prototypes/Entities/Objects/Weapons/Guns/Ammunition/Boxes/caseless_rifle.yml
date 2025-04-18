@@ -19,7 +19,7 @@
   abstract: true
   parent: BaseItem
   id: BaseMagazineBoxCaselessRifle
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -45,7 +45,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle10x24
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -65,7 +65,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifleBig
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     capacity: 200
@@ -85,7 +85,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle
-  name: ammunition box (.25 caseless)
+  name: ammunition box (9.5mm HP) # Goob edit
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -99,7 +99,7 @@
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRiflePractice
-  name: ammunition box (.25 caseless practice)
+  name: ammunition box (9.5mm practice) # Goob edit
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

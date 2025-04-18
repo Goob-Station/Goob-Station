@@ -287,7 +287,7 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
 
         var damage = component.Damage;
-        var overtime = component.Damage;
+        var overtime = component.Overtime;
 
         damage *= hitEvent.Multiplier;
         damage += hitEvent.FlatModifier;

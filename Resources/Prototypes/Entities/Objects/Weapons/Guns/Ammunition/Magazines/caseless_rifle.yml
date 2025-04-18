@@ -21,7 +21,7 @@
 
 - type: entity
   id: BaseMagazineCaselessRifle
-  name: "magazine (.25 caseless)"
+  name: "magazine (9.5mm HP)" # Goob edit
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: BaseMagazineCaselessRifleShort
-  name: "caseless rifle short magazine (.25 caseless)"
+  name: "caseless rifle short magazine (9.5mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   abstract: true
   components:
@@ -74,7 +74,7 @@
 
 - type: entity
   id: BaseMagazinePistolCaselessRifle
-  name: "pistol magazine (.25 caseless)"
+  name: "pistol magazine (9.5mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   abstract: true
   components:
@@ -104,7 +104,7 @@
 
 - type: entity
   id: MagazineCaselessRifle10x24
-  name: "box magazine (.25 caseless)"
+  name: "box magazine (9.5mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -119,7 +119,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRifle
-  name: "pistol magazine (.25 caseless)"
+  name: "pistol magazine (9.5mm HP)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -139,7 +139,7 @@
 
 - type: entity
   id: MagazinePistolCaselessRiflePractice
-  name: "pistol magazine (.25 caseless practice)"
+  name: "pistol magazine (9.5mm practice)" # Goob edit
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -159,7 +159,7 @@
 
 - type: entity
   id: MagazineCaselessRifle
-  name: "magazine (.25 caseless)"
+  name: "magazine (9.5mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -173,7 +173,7 @@
 
 - type: entity
   id: MagazineCaselessRiflePractice
-  name: "magazine (.25 caseless practice)"
+  name: "magazine (9.5mm practice)" # Goob edit
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -187,7 +187,7 @@
 
 - type: entity
   id: MagazineCaselessRifleShort
-  name: "short magazine (.25 caseless)"
+  name: "short magazine (9.5mm HP)" # Goob edit
   parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider
@@ -202,7 +202,7 @@
 
 - type: entity
   id: MagazineCaselessRifleShortPractice
-  name: "short magazine (.25 caseless practice)"
+  name: "short magazine (9.5mm practice)" # Goob edit
   parent: BaseMagazineCaselessRifleShort
   components:
   - type: BallisticAmmoProvider

@@ -17,6 +17,7 @@ using Content.Shared.Examine;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility; // Goobstation
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -37,6 +38,18 @@ public sealed partial class GunSystem
             return;
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
+
+        // Goobstation - partial armor piercing
+        var ap = GetProjectileArmorPiercing(component.Prototype);
+        if (!ap.HasValue)
+            return;
+        var msg = new FormattedMessage();
+        msg.AddText("\n" + Loc.GetString("armor-piercing-examine-start"));
+        msg.PushColor(ap < 0 ? Color.Blue : Color.Red);
+        msg.AddText(" " +  Math.Abs((int)ap).ToString() + "% " + (ap < 0 ? Loc.GetString("worse") : Loc.GetString("better")) + " ");
+        msg.Pop();
+        msg.AddText(Loc.GetString("armor-piercing-examine-end"));
+        args.Message.AddMessage(msg);
     }
 
     private DamageSpecifier? GetProjectileDamage(string proto)
@@ -68,5 +81,20 @@ public sealed partial class GunSystem
         {
             args.PushMarkup(Loc.GetString("gun-cartridge-unspent"));
         }
+    }
+
+    private int? GetProjectileArmorPiercing(string proto)
+    {
+        if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto)
+        || !entityProto.Components.TryGetValue(_factory.GetComponentName<ProjectileComponent>(), out var projectile))
+            return null;
+
+        var p = (ProjectileComponent) projectile.Component;
+        var pen = (p.IgnoreResistances ? 100 : (int)Math.Round(p.ArmorPenetration * 100));
+
+        if (pen == 0)
+            return null;
+
+        return pen;
     }
 }
