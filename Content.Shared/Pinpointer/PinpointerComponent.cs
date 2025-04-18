@@ -12,6 +12,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -25,9 +26,11 @@ namespace Content.Shared.Pinpointer;
 [Access(typeof(SharedPinpointerSystem))]
 public sealed partial class PinpointerComponent : Component
 {
-    // TODO: Type serializer oh god
-    [DataField("component"), ViewVariables(VVAccess.ReadWrite)]
-    public string? Component;
+    /// <summary>
+    /// Goob edit: pinpointer now works on EntityWhitelist (actually only on components but nvm)
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
 
     [DataField("mediumDistance"), ViewVariables(VVAccess.ReadWrite)]
     public float MediumDistance = 16f;
@@ -55,6 +58,12 @@ public sealed partial class PinpointerComponent : Component
     /// </summary>
     [DataField("updateTargetName"), ViewVariables(VVAccess.ReadWrite)]
     public bool UpdateTargetName;
+
+    /// <summary>
+    ///     Goob edit: pinpointer can retarget only whitelisted entities if specified.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? RetargetingWhitelist;
 
     /// <summary>
     ///     Whether or not the target can be reassigned.

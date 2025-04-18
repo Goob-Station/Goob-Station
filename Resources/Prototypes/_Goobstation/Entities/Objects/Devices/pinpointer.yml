@@ -1,0 +1,90 @@
+- type: entity
+  name: anomaly pinpointer
+  description: A handheld tracking device that locks onto any anomaly while off. Keep upright to retain accuracy.
+  id: PinpointerAnomaly
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-way
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-way
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Anomaly
+
+- type: entity
+  name: artifact pinpointer
+  description: A handheld tracking device that tracks all alien artifacts on it's level. Keep upright to retain accuracy.
+  id: PinpointerArtifact
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-way
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-way
+  - type: Pinpointer
+    updateTargetName: true
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Artifact
+
+- type: entity
+  name: borg pinpointer
+  description: A handheld tracking device that locks onto any silicon while off. Keep upright to retain accuracy.
+  id: PinpointerBorg
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-way
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-way
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - BorgChassis
+
+- type: entity
+  name: generic pinpointer
+  description: A handheld tracking device that locks onto any item while off. Keep upright to retain accuracy.
+  id: PinpointerGeneric
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-way
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-way
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Item

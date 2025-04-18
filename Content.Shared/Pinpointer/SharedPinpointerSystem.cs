@@ -18,6 +18,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.Pinpointer;
 
@@ -25,6 +26,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goob edit
 
     public override void Initialize()
     {
@@ -42,7 +44,11 @@ public abstract class SharedPinpointerSystem : EntitySystem
         if (!args.CanReach || args.Target is not { } target)
             return;
 
+        // Goob edit: retargeting has a whitelist
         if (!component.CanRetarget || component.IsActive)
+            return;
+
+        if (_whitelist.IsWhitelistFail(component.RetargetingWhitelist, target))
             return;
 
         // TODO add doafter once the freeze is lifted

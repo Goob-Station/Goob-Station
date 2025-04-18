@@ -67,7 +67,9 @@
   parent: [ PinpointerBase, BaseCommandContraband ]
   components:
   - type: Pinpointer
-    component: NukeDisk
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - NukeDisk
     targetName: nuclear authentication disk
 
 - type: entity
@@ -87,7 +89,9 @@
   - type: Icon
     state: pinpointer-syndicate
   - type: Pinpointer
-    component: NukeDisk
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - NukeDisk
     targetName: nuclear authentication disk
 
 - type: entity
@@ -128,5 +132,7 @@
   - type: Icon
     state: pinpointer-station
   - type: Pinpointer
-    component: ResearchServer
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - ResearchServer
     targetName: the station
