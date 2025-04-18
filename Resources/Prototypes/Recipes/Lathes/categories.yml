@@ -6,7 +6,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Generic
-
 - type: latheCategory
   id: Circuitry
   name: lathe-category-circuitry
