@@ -102,8 +102,11 @@ uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowere
 uplink-revolver-python-name = Python
 uplink-revolver-python-desc = A brutally simple, effective, and loud Syndicate revolver. Comes loaded with armor-piercing rounds. Uses .45 magnum.
 
+uplink-gloves-knuckleduster-name = Syndicate Knuckle Dusters
+uplink-gloves-knuckleduster-desc = A pair of plastitanium knuckle dusters that let you punch hard enough to break the captains jaw into pieces.
+
 uplink-pistol-cobra-name = Cobra
-uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (.25 caseless).
+uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silencer. Uses pistol magazines (9.5mm caseless magnum).
 
 uplink-rifle-mosin-name = Surplus Rifle
 uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
@@ -319,9 +322,6 @@ uplink-decoy-kit-desc = State-of-the-art distraction technology straight from RN
 
 uplink-chemistry-kit-name = Chemical Synthesis Kit
 uplink-chemistry-kit-desc = A starter kit for the aspiring chemist, notably includes a chemical payload and timer, a hyperzine syringe, and two vials of vestine for all your criminal needs!
-
-uplink-dart-syringe-gun-name = Dart Syringe Gun
-uplink-dart-syringe-gun-desc = A gun that takes in syringes as ammunition, and injects their contents on its victims. Can pierce through armor. Injects faster than normal syringe guns.
 
 uplink-knives-kit-name = Throwing Knives Kit
 uplink-knives-kit-desc = A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
@@ -563,6 +563,3 @@ uplink-business-card-desc = A business card that you can give to someone to demo
 
 uplink-fake-mindshield-name = Fake Mindshield
 uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
-
-uplink-beenades-name = Beenades
-uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!

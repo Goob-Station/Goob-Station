@@ -26,7 +26,9 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Centronias <charlie.t.santos@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
@@ -39,6 +41,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.TheManWhoSoldTheWorld;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -142,6 +145,9 @@ public abstract class SharedWieldableSystem : EntitySystem
         if (TryComp<NoWieldNeededComponent>(args.User, out var noWieldNeeded) && noWieldNeeded.GetBonus) { // GoobStation change - check for NoWieldNeeded
             _gun.RefreshModifiers(uid, args.User);
         }
+
+        if(HasComp<TheManWhoSoldTheWorldComponent>(args.User))
+            return;
 
         if (TryComp<WieldableComponent>(uid, out var wieldable) &&
             !wieldable.Wielded &&

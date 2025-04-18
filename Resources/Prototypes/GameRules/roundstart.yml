@@ -47,7 +47,6 @@
 # SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
 # SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
@@ -108,8 +107,12 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -138,8 +141,6 @@
     rules:
     - id: Thief
       prob: 0.5
-    - id: Heretic # goob edit
-      prob: 0.2
 
 - type: entity
   id: DeathMatch31
@@ -193,8 +194,8 @@
   components:
   - type: RandomMetadata #this generates the random operation name cuz it's cool.
     nameSegments:
-    - operationPrefix
-    - operationSuffix
+    - NamesOperationPrefix
+    - NamesOperationSuffix
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
@@ -229,8 +230,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesElite
+        - nukeops-role-commander
+        - NamesSyndicateElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -247,8 +248,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesElite
+        - nukeops-role-agent
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -267,8 +268,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesElite
+        - nukeops-role-operator
+        - NamesSyndicateNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -297,7 +298,7 @@
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
-    selectionTime: BeforeJobs # Goobstation
+    selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -323,7 +324,7 @@
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
-      - MindRoleTraitor
+      - MindRoleTraitorReinforcement
 
 - type: entity
   id: Revolutionary
@@ -333,7 +334,7 @@
     minPlayers: 15
   - type: RevolutionaryRule
   - type: AntagSelection
-    selectionTime: BeforeJobs # Goobstation
+    selectionTime: IntraPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
@@ -360,6 +361,57 @@
   parent: BaseGameRule
   components:
   - type: SecretRule
+
+# TODO: merg goob and upstream wizards
+#- type: entity
+#  abstract: true
+#  parent: BaseGameRule
+#  id: BaseWizardRule
+#  components:
+#  - type: AntagObjectives
+#    objectives:
+#    - WizardSurviveObjective
+#    - WizardDemonstrateObjective
+#  - type: LoadMapRule
+#    gridPath: /Maps/Shuttles/wizard.yml
+#  - type: RuleGrids
+#  - type: AntagSelection
+#  - type: AntagLoadProfileRule
+#    speciesOverride: Human
+
+#- type: entity
+#  parent: BaseWizardRule
+#  id: Wizard
+#  components:
+#  - type: GameRule
+#    minPlayers: 10
+#  - type: AntagSelection
+#    agentName: wizard-round-end-name
+#    selectionTime: PrePlayerSpawn
+#    definitions:
+#    - prefRoles: [ Wizard ]
+#      max: 1
+#      playerRatio: 1
+#      spawnerPrototype: SpawnPointGhostWizard
+#      roleLoadout:
+#       - RoleSurvivalExtended
+#      briefing:
+#        text: wizard-role-greeting
+#        color: Turquoise
+#        # TODO: Need Wizard Start sound
+#        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
+#      startingGear: WizardBlueGear
+#      # TODO: WizardComp as needed
+#      components:
+#      - type: NpcFactionMember
+#        factions:
+#        - Wizard
+#      - type: RandomMetadata
+#        nameSegments:
+#        - names_wizard_first
+#        - names_wizard_last
+#      mindRoles:
+#      - MindRoleWizard
 
 - type: entity
   id: Zombie
