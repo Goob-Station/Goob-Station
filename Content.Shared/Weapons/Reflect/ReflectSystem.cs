@@ -203,13 +203,7 @@ public sealed class ReflectSystem : EntitySystem
         var newRot = rotation.RotateVec(locRot.ToVec());
         _transform.SetLocalRotation(projectile, newRot.ToAngle());
 
-        if (_netManager.IsServer)
-        {
-            if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
-                RemCompDeferred(projectile, homing);
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
-        }
+        PlayAudioAndPopup(reflect, user);
 
         if (Resolve(projectile, ref projectileComp, false))
         {
@@ -249,7 +243,19 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
-    public bool TryReflectHitscan( // Goobstation
+    private void PlayAudioAndPopup(ReflectComponent reflect, EntityUid user)
+    {
+        // Can probably be changed for prediction
+        if (_netManager.IsServer)
+        {
+            if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
+                RemCompDeferred(projectile, homing);
+            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
+            _audio.PlayPvs(reflect.SoundOnReflect, user);
+        }
+    }
+
+    private bool TryReflectHitscan(
         EntityUid user,
         EntityUid reflector,
         EntityUid? shooter,
@@ -271,11 +277,7 @@ public sealed class ReflectSystem : EntitySystem
             return false;
         }
 
-        if (_netManager.IsServer)
-        {
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
-        }
+        PlayAudioAndPopup(reflect, user);
 
         // WD EDIT START
         if (reflect.DamageOnReflectModifier != 0 && damage != null)
