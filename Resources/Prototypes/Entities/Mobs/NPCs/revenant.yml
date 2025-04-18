@@ -157,7 +157,7 @@
       - EmagSiliconLaw
   - type: PointLight
     color: MediumPurple
-    radius: 3
+    radius: 5
     softness: 1
   - type: UserInterface
     interfaces:
@@ -179,6 +179,7 @@
     - NamesRevenantTheme
   - type: Speech
     speechVerb: Ghost
+  - type: NightVision # Goobstation - Nightvision
   - type: Reactive
     groups:
       Acidic: [Touch]
