@@ -511,3 +511,13 @@
   id: ContrabandDetectorCircuitboard
   result: ContrabandDetectorCircuitboard
   completetime: 4
+
+# Clothing
+
+- type: latheRecipe
+  id: ExplosiveCollar
+  result: ClothingNeckExplosiveCollar
+  materials:
+    Steel: 750
+    Plastic: 500
+    Plasma: 1000

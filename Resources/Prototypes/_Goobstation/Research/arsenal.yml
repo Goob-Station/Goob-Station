@@ -96,6 +96,21 @@
   position: 3,-2
 
 - type: technology
+  id: ExplosiveSpecialMeans
+  name: research-technology-special-explosive-means
+  icon:
+    sprite: _Goobstation/Clothing/Neck/Misc/explosive_collar.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 7500
+  recipeUnlocks:
+  - ExplosiveCollar
+  technologyPrerequisites:
+  - SpecialMeans
+  position: 5,3
+
+- type: technology
   id: Durand
   name: research-technology-durand
   icon:

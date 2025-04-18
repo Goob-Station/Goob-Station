@@ -22,8 +22,8 @@
   - type: Explosive
     explosionType: Default
     maxIntensity: 20
-    intensitySlope: 5
-    totalIntensity: 60
+    intensitySlope: 10
+    totalIntensity: 40
     canCreateVacuum: false
   - type: TriggerOnSignal
   - type: DeviceLinkSink

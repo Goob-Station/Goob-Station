@@ -42,6 +42,11 @@
   - WeaponEnergyRifle
 
 - type: latheRecipePack
+  id: SecurityClothingGoob
+  recipes:
+  - ExplosiveCollar
+
+- type: latheRecipePack
   id: SecurityAmmoGoob
   recipes:
   - EnergyMagRifleIon
