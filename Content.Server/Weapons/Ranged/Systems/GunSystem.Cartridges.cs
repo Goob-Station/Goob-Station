@@ -83,6 +83,7 @@ public sealed partial class GunSystem
         }
     }
 
+    // Goobstation - partial armor piercing
     private int? GetProjectileArmorPiercing(string proto)
     {
         if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto)

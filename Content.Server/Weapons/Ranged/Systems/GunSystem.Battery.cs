@@ -23,6 +23,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility; // Goobstation
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -91,6 +92,22 @@ public sealed partial class GunSystem
         };
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), damageType);
+
+        // Goobstation - partial armor piercing
+        if (component is not ProjectileBatteryAmmoProviderComponent p)
+            return;
+
+        var ap = GetProjectileArmorPiercing(p.Prototype);
+        if (ap is null or 0)
+            return;
+
+        var msg = new FormattedMessage();
+        msg.AddText("\n" + Loc.GetString("armor-piercing-examine-start"));
+        msg.PushColor(ap < 0 ? Color.Blue : Color.Red);
+        msg.AddText(" " +  Math.Abs((int)ap).ToString() + "% " + (ap < 0 ? Loc.GetString("worse") : Loc.GetString("better")) + " ");
+        msg.Pop();
+        msg.AddText(Loc.GetString("armor-piercing-examine-end"));
+        args.Message.AddMessage(msg);
     }
 
     private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)
