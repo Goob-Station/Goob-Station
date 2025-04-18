@@ -198,6 +198,7 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+    - type: CanEnchant
 
 - type: startingGear
   id: ERTChaplainGear
