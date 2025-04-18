@@ -1,11 +1,10 @@
 - type: entity
   id: ActionActivateAutoinjector
-  name: Active Autoinjector
+  name: Activate Auto-injector
   description: Activate your auto injector to administer chemicals into your bloodstream.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 45
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem

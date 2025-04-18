@@ -2,10 +2,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Clothing;
+using Content.Goobstation.Shared.Clothing;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Clothing;
+namespace Content.Goobstation.Server.Clothing;
 /// <summary>
 /// Component applied by clothing that allows the wearer to inject themselves with a reagent on a cooldown.
 /// Used for auto-injection mechanisms like emergency epi-pens or stimulants. Possible uses for a modsuit in the future.
@@ -25,9 +26,18 @@ public sealed partial class ClothingAutoInjectComponent : Component
     [DataField]
     public EntProtoId Action = "ActionActivateAutoinjector";
 
+    [DataField]
+    public LocId FailPopup = "clothing-auto-inject-fail";
+
+    [DataField]
+    public SoundSpecifier InjectSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
+
     /// <summary>
     /// The UID of the action, stored here so it can be safely removed.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public EntityUid? ActionEntity;
+
+    [ViewVariables]
+    public TimeSpan NextAvailableTime;
 }

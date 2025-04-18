@@ -8,9 +8,11 @@ using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
+using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
-namespace Content.Server._Goobstation.Clothing;
+namespace Content.Goobstation.Server.Clothing.Systems;
 
 /// <summary>
 /// This can be used for modsuit modules in the future.
@@ -22,6 +24,8 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -31,7 +35,7 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         SubscribeLocalEvent<ClothingAutoInjectComponent, ComponentShutdown>(OnShutdown);
     }
 
-    public void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ref ActionActivateAutoInjectorEvent args)
+    private void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ref ActionActivateAutoInjectorEvent args)
     {
         if (args.Handled)
             return;
@@ -39,14 +43,25 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         if (!_proto.TryIndex(component.Proto, out var proto))
             return;
 
+        if (_timing.CurTime < component.NextAvailableTime)
+        {
+            var time = component.NextAvailableTime - _timing.CurTime;
+            _popup.PopupEntity(Loc.GetString(component.FailPopup, ("time", time.TotalSeconds)), args.Performer, args.Performer);
+            args.Handled = true;
+            return;
+        }
+
         if (!TryInjectReagents(args.Performer, proto.Reagents))
             return;
 
+        component.NextAvailableTime = _timing.CurTime + proto.Cooldown;
+
+        _audio.PlayPvs(component.InjectSound, uid);
         _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), uid, uid);
         args.Handled = true;
     }
 
-    public bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
+    private bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
     {
         var solution = new Solution();
         foreach (var reagent in reagents)

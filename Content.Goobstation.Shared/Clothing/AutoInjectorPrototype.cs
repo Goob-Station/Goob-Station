@@ -5,7 +5,7 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Clothing;
+namespace Content.Goobstation.Shared.Clothing;
 
 /// <summary>
 /// Prototype for clothing-integrated autoinjectors. Could be used for modsuits in the future.
@@ -25,5 +25,11 @@ public sealed class AutoInjectorPrototype : IPrototype
     /// </summary>
     [DataField(required: true)]
     public Dictionary<string, FixedPoint2> Reagents = new();
+
+    /// <summary>
+    /// How long between each injection?
+    /// </summary>
+    [DataField]
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(70);
 
 }

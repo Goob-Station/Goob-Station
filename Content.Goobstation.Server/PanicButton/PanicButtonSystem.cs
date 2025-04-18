@@ -30,9 +30,11 @@ namespace Content.Goobstation.Server.PanicButton
             SubscribeLocalEvent<PanicButtonComponent, PanicButtonDoAfterEvent>(OnDoAfterComplete);
         }
 
-
         private void OnButtonPressed(Entity<PanicButtonComponent> ent, ref UseInHandEvent args)
         {
+            if (args.Handled)
+                return;
+
             EnsureComp<UseDelayComponent>(ent.Owner, out var useDelay);
             if (_useDelaySystem.IsDelayed((ent.Owner, useDelay)))
                 return;
@@ -54,7 +56,10 @@ namespace Content.Goobstation.Server.PanicButton
                 BlockDuplicate = true
             };
 
-            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            if (_doAfterSystem.TryStartDoAfter(doAfterArgs))
+                return;
+
+            args.Handled = true;
         }
 
         private void OnDoAfterComplete(Entity<PanicButtonComponent> ent, ref PanicButtonDoAfterEvent args)
