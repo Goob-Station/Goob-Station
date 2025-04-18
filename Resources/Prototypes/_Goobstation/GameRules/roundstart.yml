@@ -296,3 +296,38 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseSpyRule
+  components:
+  - type: SpyRule
+  # TODO: codewords in yml
+  # TODO: uplink in yml
+  #- type: AntagRandomObjectives
+  #  sets:
+  #  - groups: TraitorObjectiveGroups
+    maxDifficulty: 5
+  - type: AntagSelection
+    agentName: traitor-round-end-agent-name
+
+- type: entity
+  parent: BaseSpyRule
+  id: Spies
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn # Goobstation
+    definitions:
+    - prefRoles: [ Spy ]
+      max: 8
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - Changeling # Goobstation
+      lateJoinAdditional: true
+      mindRoles:
+      - MindRoleSpy

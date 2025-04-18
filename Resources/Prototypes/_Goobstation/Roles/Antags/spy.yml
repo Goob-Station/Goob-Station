@@ -1,0 +1,19 @@
+- type: antag
+  id: Spy
+  name: roles-antag-syndicate-spy-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-syndicate-spy-objective
+  guides: [ Traitors ]
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSpy
+  name: Spy Role
+  #  description: mind-role-traitor-description
+  components:
+  - type: MindRole
+    antagPrototype: Spy
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+  - type: SpyRole

@@ -96,6 +96,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Spy;
 using Content.Server.Access.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.CartridgeLoader;
@@ -359,8 +360,11 @@ namespace Content.Server.PDA
                 return;
 
             // check if its locked again to prevent malicious clients opening locked uplinks
-            if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid))
+            if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid) && !HasComp<SpyUplinkComponent>(uid))
                 _store.ToggleUi(msg.Actor, uid);
+
+            if (HasComp<SpyUplinkComponent>(uid))
+                Log.Debug("Spy attempted to uplink"); // send to spy uplink instead
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaLockUplinkMessage msg)
