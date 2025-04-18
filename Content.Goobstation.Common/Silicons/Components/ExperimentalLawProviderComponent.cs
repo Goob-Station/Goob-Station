@@ -1,4 +1,8 @@
-﻿namespace Content.Goobstation.Common.Silicons.Components;
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Goobstation.Common.Silicons.Components;
 
 /// <summary>
 /// Used for law uploading console, when inserted it will update laws randomly,
