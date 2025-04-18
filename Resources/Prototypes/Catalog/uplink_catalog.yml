@@ -610,7 +610,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
-    Telecrystal: 2 # goob
+    Telecrystal: 3 # goob
   categories:
   - UplinkAmmo
 

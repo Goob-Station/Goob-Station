@@ -63,12 +63,11 @@ using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Coordinates;
-using Content.Shared.Humanoid;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Utility;
+using Robust.Shared.Utility; // Goobstation
 
 namespace Content.Server.Weapons.Melee;
 
