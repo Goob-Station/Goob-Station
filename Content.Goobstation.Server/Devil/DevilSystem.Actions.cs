@@ -64,9 +64,9 @@ public sealed partial class DevilSystem
 
         args.Handled = true;
 
-        Spawn("PolymorphShadowJauntAnimation", Transform(uid).Coordinates);
+        Spawn(_jauntAnimationProto, Transform(uid).Coordinates);
         Spawn(_pentagramEffectProto, Transform(uid).Coordinates);
-        _poly.PolymorphEntity(uid, "ShadowJaunt");
+        _poly.PolymorphEntity(uid, _jauntEntityProto);
     }
 
     private void OnPossess(EntityUid uid, DevilComponent comp, ref DevilPossessionEvent args)
@@ -82,7 +82,7 @@ public sealed partial class DevilSystem
 
         if (_possession.TryPossessTarget(args.Target, args.Performer, GetPossessionDuration(comp), true))
         {
-            Spawn("PolymorphShadowJauntAnimation", Transform(args.Performer).Coordinates);
+            Spawn(_jauntAnimationProto, Transform(args.Performer).Coordinates);
             Spawn(_pentagramEffectProto, Transform(args.Performer).Coordinates);
             _poly.PolymorphEntity(args.Performer, GetJauntEntity(comp));
         }

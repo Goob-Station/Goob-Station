@@ -224,20 +224,20 @@ public sealed class DevilContractSystem : EntitySystem
 
     #region Helper Events
 
-    public bool TryTransferSouls(EntityUid? devil, EntityUid? contractee, int added)
+    public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
         // Can't sell what doesn't exist.
-        if (HasComp<CondemnedComponent>(contractee) || devil == contractee || contractee == null || devil == null)
+        if (HasComp<CondemnedComponent>(contractee))
             return false;
 
         // Can't sell yer soul to yourself
         if (devil == contractee)
             return false;
 
-        var ev = new SoulAmountChangedEvent((EntityUid)devil, (EntityUid)contractee, added);
-        RaiseLocalEvent((EntityUid)devil, ref ev);
+        var ev = new SoulAmountChangedEvent(devil, contractee, added);
+        RaiseLocalEvent(devil, ref ev);
 
-        var condemned = EnsureComp<CondemnedComponent>((EntityUid)contractee);
+        var condemned = EnsureComp<CondemnedComponent>(contractee);
         condemned.SoulOwner = devil;
         condemned.CondemnOnDeath = true;
         condemned.SoulOwnedNotDevil = false;
@@ -313,23 +313,48 @@ public sealed class DevilContractSystem : EntitySystem
 
     private void ApplyEffectToTarget(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
     {
-        if (clause.AddedComponents != null)
-        {
-            foreach (var comp in clause.AddedComponents.Select(component => component.Value)) // im linqing it
-                EntityManager.AddComponent(target, comp);
-        }
+        TryAddComponents(target, clause);
+        TryRemoveComponents(target, clause);
+        TryChangeDamageModifier(target, clause);
+        TrySpecialActions(target, contract, clause);
+    }
 
-        if (clause.RemovedComponents != null)
-        {
-            foreach (var component in clause.RemovedComponents.Select(component => component.Value.Component))
-                EntityManager.RemoveComponent(target, component);
-        }
+    private bool TryChangeDamageModifier(EntityUid target, DevilClausePrototype clause)
+    {
+        if (clause.DamageModifierSet == null)
+            return false;
 
-        if (clause.DamageModifierSet != null)
-            _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet);
+        _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet);
 
+        return true;
+    }
+
+    private bool TryRemoveComponents(EntityUid target, DevilClausePrototype clause)
+    {
+        if (clause.RemovedComponents == null)
+            return false;
+
+        foreach (var component in clause.RemovedComponents.Select(component => component.Value.Component))
+            EntityManager.RemoveComponent(target, component);
+
+        return true;
+    }
+
+    private bool TryAddComponents(EntityUid target, DevilClausePrototype clause)
+    {
+        if (clause.AddedComponents == null)
+            return false;
+
+        foreach (var comp in clause.AddedComponents.Select(component => component.Value)) // im linqing it
+            EntityManager.AddComponent(target, comp);
+
+        return true;
+    }
+
+    private bool TrySpecialActions(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
+    {
         if (clause.SpecialActions == null)
-            return;
+            return false;
 
         foreach (var specialAction in clause.SpecialActions)
         {
@@ -373,6 +398,8 @@ public sealed class DevilContractSystem : EntitySystem
                     break;
             }
         }
+
+        return true;
     }
 
     #endregion

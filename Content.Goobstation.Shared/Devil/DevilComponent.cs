@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
+using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -78,6 +79,9 @@ public sealed partial class DevilComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
+
+    [ViewVariables]
+    public Dictionary<int, ProtoId<PolymorphPrototype>> PowerLevelToJauntPrototypeMap = new();
 
 
 

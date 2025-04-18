@@ -34,6 +34,7 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
@@ -75,6 +76,9 @@ public sealed partial class DevilSystem : EntitySystem
     private readonly EntProtoId _contractPrototype = "PaperDevilContract";
     private readonly EntProtoId _revivalContractPrototype = "PaperDevilContractRevival";
     private readonly EntProtoId _pentagramEffectProto = "Pentagram";
+    private readonly EntProtoId _jauntAnimationProto = "PolymorphShadowJauntAnimation";
+    private readonly ProtoId<PolymorphPrototype> _jauntEntityProto = "ShadowJaunt";
+    private readonly ProtoId<DamageModifierSetPrototype> _devilDamageModifierSet = "DevilDealPositive";
 
     public override void Initialize()
     {
@@ -118,7 +122,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Change damage modifier
         if (TryComp<DamageableComponent>(uid, out var damageableComp))
-            _damageable.SetDamageModifierSetId(uid, "DevilDealPositive", damageableComp);
+            _damageable.SetDamageModifierSetId(uid, _devilDamageModifierSet, damageableComp);
 
         // Add base actions
         foreach (var actionId in comp.BaseDevilActions)
@@ -142,11 +146,10 @@ public sealed partial class DevilSystem : EntitySystem
         if (!_mind.TryGetMind(args.User, out var mindId, out var mind))
             return;
 
-        // If the new amount of souls is in range of a level up, increase the power level.
-        if (comp.Souls % 2 == 0 && comp.Souls <= 6)
+        if (comp.Souls is >= 2 and <= 6 && comp.Souls % 2 == 0)
         {
-            // Set new power level
-            comp.PowerLevel = TryGetNewPowerLevel(args.User, comp);
+            // Set new power level (1 at 2, 2 at 4, 3 at 6)
+            comp.PowerLevel = comp.Souls / 2;
 
             // Raise event
             var ev = new PowerLevelChangedEvent(args.User, comp.PowerLevel);
@@ -245,16 +248,16 @@ public sealed partial class DevilSystem : EntitySystem
         return true;
     }
 
-    private static int TryGetNewPowerLevel(EntityUid uid, DevilComponent comp)
+    private static ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
     {
-        // Every two souls is one level.
-        return comp.Souls switch
+        comp.PowerLevelToJauntPrototypeMap = new Dictionary<int, ProtoId<PolymorphPrototype>>()
         {
-            2 => 1,
-            4 => 2,
-            6 => 3,
-            _ => 0,
+            { 1, new ProtoId<PolymorphPrototype>("ShadowJaunt30") },
+            { 2, new ProtoId<PolymorphPrototype>("ShadowJaunt60") },
+            { 3, new ProtoId<PolymorphPrototype>("ShadowJaunt90") },
         };
+
+        return comp.PowerLevelToJauntPrototypeMap.TryGetValue(comp.PowerLevel, out var value) ? value : new ProtoId<PolymorphPrototype>("ShadowJaunt30");
     }
 
     private void PlayFwooshSound(EntityUid uid, DevilComponent comp)
@@ -270,22 +273,7 @@ public sealed partial class DevilSystem : EntitySystem
 
     private static TimeSpan GetPossessionDuration(DevilComponent comp)
     {
-        return comp.PowerLevel switch
-        {
-            2 => TimeSpan.FromSeconds(60),
-            3 => TimeSpan.FromSeconds(90),
-            _ => TimeSpan.FromSeconds(30),
-        };
-    }
-
-    private ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
-    {
-        return comp.PowerLevel switch
-        {
-            2 => "ShadowJaunt60",
-            3 => "ShadowJaunt90",
-            _ => "ShadowJaunt30",
-        };
+        return TimeSpan.FromSeconds(30) * comp.PowerLevel;
     }
 
     private void GenerateTrueName(DevilComponent comp)
