@@ -1569,6 +1569,22 @@
   - type: SiliconLawUpdater
     components:
     - type: StationAiHeld
+  # Goob edit start
+  - type: ActiveRadio
+    channels:
+    - Science
+  - type: Speech
+    speechSounds: Tenor
+  - type: ResearchClient
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+    altVerb: true
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  # Goob edit end
   - type: ItemSlotsLock
     slots:
     - circuit_holder

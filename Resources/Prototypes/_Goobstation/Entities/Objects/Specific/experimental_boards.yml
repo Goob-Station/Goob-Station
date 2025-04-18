@@ -1,0 +1,28 @@
+- type: entity
+  id: ExperimentalCircuitBoard
+  parent: BaseElectronics
+  name: law board (experimental)
+  description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Crewsimov # Placeholder because lazy.
+  - type: ExperimentalLawProvider
+
+- type: entity
+  id: ExperimentalCircuitBoardDebug
+  parent: ExperimentalCircuitBoard
+  name: law board (experimental)
+  suffix: DEBUG
+  description: An electronics board containing experimental lawset. When installed, will give some research points after time has passed.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: Crewsimov # Placeholder because lazy.
+  - type: ExperimentalLawProvider
+    rewardTime: 10.0
+    rewardPoints: 100000

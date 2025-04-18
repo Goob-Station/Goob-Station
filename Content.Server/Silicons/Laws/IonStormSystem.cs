@@ -179,7 +179,7 @@ public sealed class IonStormSystem : EntitySystem
     }
 
     // for your own sake direct your eyes elsewhere
-    private string GenerateLaw()
+    public string GenerateLaw() // Goob edit: make it public
     {
         // pick all values ahead of time to make the logic cleaner
         var threats = Pick(Threats);
