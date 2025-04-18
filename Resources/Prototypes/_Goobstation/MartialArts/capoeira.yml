@@ -10,6 +10,7 @@
   - SweepKick
   - CircleKick
   - SpinKick
+  - KickUp
 
 - type: combo
   id: PushKick
@@ -57,7 +58,7 @@
       path: /Audio/Weapons/genhit1.ogg
   extraDamage: 10
   paralyzeTime: 2
-  staminaDamage: 5
+  staminaDamage: 10
   dropHeldItemsBehavior: NoDrop
   canDoWhileProne: false
 
@@ -80,3 +81,13 @@
   staminaDamage: 15
   extraDamage: 20
   canDoWhileProne: false
+
+- type: combo
+  id: KickUp
+  name: Kick Up
+  martialArtsForm: Capoeira
+  attacks:
+  - Disarm
+  - Disarm
+  event: !type:KickUpPerformedEvent
+  performOnSelf: true

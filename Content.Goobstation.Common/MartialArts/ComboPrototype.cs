@@ -77,6 +77,11 @@ public sealed partial class ComboPrototype : IPrototype
     [DataField(required: true)]
     public string Name = string.Empty;
 
+    /// <summary>
+    /// Is this combo performed on self only or only on other targets
+    /// </summary>
+    [DataField]
+    public bool PerformOnSelf;
 }
 
 [Prototype("comboList")]

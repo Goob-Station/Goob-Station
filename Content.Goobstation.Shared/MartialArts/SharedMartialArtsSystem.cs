@@ -11,6 +11,7 @@
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goobstation.Shared.Stealth;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
 using Content.Shared._White.Grab;
@@ -72,6 +73,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private readonly BackStabSystem _backstab = default!;
+    [Dependency] private readonly SharedGoobStealthSystem _stealth = default!;
 
     public override void Initialize()
     {
@@ -305,8 +307,15 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!TryComp(ent, out MartialArtsKnowledgeComponent? comp))
             return;
 
-        if (comp.MartialArtsForm == MartialArtsForms.Ninjutsu)
-            OnNinjutsuMeleeHit(ent, ref args);
+        switch (comp.MartialArtsForm)
+        {
+            case MartialArtsForms.Ninjutsu:
+                OnNinjutsuMeleeHit(ent, ref args);
+                break;
+            case MartialArtsForms.Capoeira:
+                OnCapoeiraMeleeHit(ent, ref args);
+                break;
+        }
 
         if (args.Weapon != ent)
             return;

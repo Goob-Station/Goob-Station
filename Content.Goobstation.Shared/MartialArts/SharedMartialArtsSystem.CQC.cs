@@ -96,6 +96,7 @@ public partial class SharedMartialArtsSystem
                     targetStanding.CurrentState != StandingState.Standing)
                     return;
                 _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
+                _status.TryRemoveStatusEffect(ent, "KnockedDown");
                 _standingState.Stand(ent);
                 break;
         }

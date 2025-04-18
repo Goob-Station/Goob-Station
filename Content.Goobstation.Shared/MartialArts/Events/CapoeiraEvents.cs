@@ -27,7 +27,7 @@ public abstract partial class BaseCapoeiraEvent : EntityEventArgs
     public virtual TimeSpan AttackSpeedMultiplierTime { get; set; } = TimeSpan.Zero;
 
     [DataField]
-    public virtual SoundSpecifier Sound { get; set; } = new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg");
+    public virtual SoundSpecifier? Sound { get; set; } = new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg");
 }
 
 public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
@@ -36,12 +36,18 @@ public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
     public float ThrowRange = 1f;
 }
 
-public sealed partial class  SweepKickPerformedEvent : BaseCapoeiraEvent;
+public sealed partial class SweepKickPerformedEvent : BaseCapoeiraEvent;
 
-public sealed partial class CircleKickPerformedEvent : BaseCapoeiraEvent;
+public sealed partial class CircleKickPerformedEvent : BaseCapoeiraEvent
+{
+    [DataField]
+    public TimeSpan SlowDownTime = TimeSpan.FromSeconds(4);
+}
 
 public sealed partial class SpinKickPerformedEvent : BaseCapoeiraEvent
 {
     [DataField]
     public ProtoId<EmotePrototype>? Emote = "Flip";
 }
+
+public sealed partial class KickUpPerformedEvent : BaseCapoeiraEvent;

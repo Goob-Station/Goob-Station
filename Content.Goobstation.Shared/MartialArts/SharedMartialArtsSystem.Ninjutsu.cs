@@ -2,9 +2,9 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
-using Content.Goobstation.Shared.Weapons.ThrowableBlocker;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
@@ -13,6 +13,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -33,11 +34,17 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<ThrownEvent>(OnThrow);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
 
+        SubscribeLocalEvent<NinjutsuSneakAttackComponent, SelfBeforeGunShotEvent>(OnBeforeGunShot);
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, AfterComboCheckEvent>(OnNinjutsuAttackPerformed);
 
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, ComponentInit>(OnSneakAttackInit);
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, ComponentRemove>(OnSneakAttackRemove);
         SubscribeLocalEvent<NinjutsuSneakAttackComponent, StatusEffectEndedEvent>(OnAlertEffectEnded);
+    }
+
+    private void OnBeforeGunShot(Entity<NinjutsuSneakAttackComponent> ent, ref SelfBeforeGunShotEvent args)
+    {
+        ResetDebuff(ent);
     }
 
     private void OnAlertEffectEnded(Entity<NinjutsuSneakAttackComponent> ent, ref StatusEffectEndedEvent args)
@@ -65,30 +72,40 @@ public abstract partial class SharedMartialArtsSystem
             knowledge.MartialArtsForm != MartialArtsForms.Ninjutsu)
             return;
 
-        if (ev.NewMobState > ev.OldMobState)
-            ApplyMultiplier(ev.Origin.Value, 1.3f, TimeSpan.FromSeconds(3), MartialArtModifierType.MoveSpeed);
+        if (ev.NewMobState <= ev.OldMobState)
+            return;
+
+        ApplyMultiplier(ev.Origin.Value, 1.3f, 0f, TimeSpan.FromSeconds(3), MartialArtModifierType.MoveSpeed);
+        _modifier.RefreshMovementSpeedModifiers(ev.Origin.Value);
     }
 
     private void OnThrow(ref ThrownEvent ev)
     {
-        // ThrowableBlocked items are all harmful
-        // I could check for the other components but DamageOtherOnHit is in server for whatever reason
-        if (HasComp<NinjutsuSneakAttackComponent>(ev.User) && HasComp<ThrowableBlockedComponent>(ev.Thrown))
+        if (HasComp<NinjutsuSneakAttackComponent>(ev.User))
             ResetDebuff(ev.User.Value);
     }
 
     private void OnNinjutsuMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
     {
-        if (_netManager.IsClient)
-            return;
-
-        if (HasComp<NinjutsuLossOfSurpriseComponent>(uid))
+        if (!ev.IsHit)
             return;
 
         if (!TryComp(uid, out NinjutsuSneakAttackComponent? sneakAttack))
             return;
 
-        if (!ev.IsHit || ev.HitEntities.Count == 0)
+        if (HasComp<NinjutsuLossOfSurpriseComponent>(uid))
+        {
+            ResetDebuff(uid);
+            return;
+        }
+
+        ResetDebuff(uid);
+
+        if (ev.HitEntities.Count == 0)
+            return;
+
+        var target = ev.HitEntities[0];
+        if (target == uid)
             return;
 
         if (!IsWeaponValid(uid, ev.Weapon, out _))
@@ -106,11 +123,25 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         // Assassinate
-        // Ideally this should deal massive damage that is easily stopped by armor
-        ev.BonusDamage += ev.BaseDamage / total * sneakAttack.AssassinateModifier;
+        var isUnarmed = uid == ev.Weapon;
+        var damageType = isUnarmed ? "Blunt" : "Slash";
+        var modifier = isUnarmed ? sneakAttack.AssassinateUnarmedModifier : sneakAttack.AssassinateModifier;
+        var bonusDamage = new DamageSpecifier
+        {
+            DamageDict =
+            {
+                { damageType, modifier },
+            },
+        };
+        _damageable.TryChangeDamage(target,
+            bonusDamage,
+            origin: uid,
+            armorPenetration: sneakAttack.AssassinateArmorPierce);
 
-        var target = ev.HitEntities[0];
-        _audio.PlayPvs(uid == ev.Weapon ? sneakAttack.AssassinateSoundUnarmed : sneakAttack.AssassinateSoundArmed,
+        if (_netManager.IsClient)
+            return;
+
+        _audio.PlayPvs(isUnarmed ? sneakAttack.AssassinateSoundUnarmed : sneakAttack.AssassinateSoundArmed,
             target);
         ComboPopup(uid, target, sneakAttack.AssassinateComboName);
     }
@@ -125,12 +156,14 @@ public abstract partial class SharedMartialArtsSystem
 
         ResetDebuff(ent);
 
-        if (args.Type != ComboAttackType.Harm || !IsWeaponValid(args.Performer, args.Weapon, out var melee) ||
+        if (args.Type != ComboAttackType.Harm || args.Target == args.Performer ||
+            !IsWeaponValid(args.Performer, args.Weapon, out var melee) ||
             !_standingState.IsDown(args.Target))
             return;
 
         // Swift Strike
-        _stamina.TakeStaminaDamage(args.Target, 20f);
+        if (args.Performer == args.Weapon)
+            _stamina.TakeStaminaDamage(args.Target, 30f, applyResistances: true);
         var fireRate = TimeSpan.FromSeconds(1f / _melee.GetAttackRate(args.Weapon, args.Performer, melee));
         melee.NextAttack -= fireRate / 2f;
         Dirty(args.Weapon, melee);
@@ -246,5 +279,7 @@ public abstract partial class SharedMartialArtsSystem
             "LossOfSurprise",
             TimeSpan.FromSeconds(5),
             true);
+
+        _stealth.TryRevealNinja(uid);
     }
 }

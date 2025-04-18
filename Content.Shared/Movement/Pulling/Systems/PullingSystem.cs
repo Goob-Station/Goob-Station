@@ -974,7 +974,9 @@ public sealed class PullingSystem : EntitySystem
             return true;
 
         var max = meleeWeaponComponent.NextAttack > _timing.CurTime ? meleeWeaponComponent.NextAttack : _timing.CurTime;
-        meleeWeaponComponent.NextAttack = puller.Comp.StageChangeCooldown + max;
+        var attackRateEv = new GetMeleeAttackRateEvent(puller, meleeWeaponComponent.AttackRate, 1, puller);
+        RaiseLocalEvent(puller, ref attackRateEv);
+        meleeWeaponComponent.NextAttack = puller.Comp.StageChangeCooldown * attackRateEv.Multipliers + max;
         Dirty(puller, meleeWeaponComponent);
 
         var beforeEvent = new BeforeHarmfulActionEvent(puller, HarmfulActionType.Grab);

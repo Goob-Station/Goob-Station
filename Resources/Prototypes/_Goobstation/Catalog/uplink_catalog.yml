@@ -892,9 +892,9 @@
   description: uplink-capoeira-desc
   productEntity: CapoeiraManual
   cost:
-    Telecrystal: 25
+    Telecrystal: 40
   categories:
-  - UplinkDeception
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkMysteriousScroll

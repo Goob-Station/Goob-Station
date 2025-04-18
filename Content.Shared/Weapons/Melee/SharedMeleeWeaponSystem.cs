@@ -503,9 +503,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 if (!Blocker.CanAttack(user, target, (weaponUid, weapon), true))
                     return false;
-
-                if (weaponUid == target) // Goobstatiom
-                    return false;
                 break;
             default:
                 if (!Blocker.CanAttack(user, weapon: (weaponUid, weapon)))
@@ -950,8 +947,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         var target = GetEntity(ev.Target);
 
-        if (Deleted(target)
-            || user == target)
+        if (Deleted(target))
         {
             return false;
         }
@@ -959,6 +955,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
             combatMode.CanDisarm == false) // WWDP
         {
+            return false;
+        }
+
+        if (user == target) // Goobstation
+        {
+            _meleeSound.PlaySwingSound(user, meleeUid, component);
+            var comboEv = new ComboAttackPerformedEvent(user, user, meleeUid, ComboAttackType.Disarm);
+            RaiseLocalEvent(user, comboEv);
             return false;
         }
 

@@ -59,11 +59,11 @@ public partial class SharedMartialArtsSystem
         component.CurrentTarget = args.Target;
         component.ResetTime = _timing.CurTime + TimeSpan.FromSeconds(4);
         component.LastAttacks.Add(args.Type);
-        CheckCombo(uid, component);
+        CheckCombo(uid, args.Target, component);
         RaiseLocalEvent(uid, ref afterEv);
     }
 
-    private void CheckCombo(EntityUid uid, CanPerformComboComponent comp)
+    private void CheckCombo(EntityUid uid, EntityUid target, CanPerformComboComponent comp)
     {
         var success = false;
 
@@ -71,6 +71,10 @@ public partial class SharedMartialArtsSystem
         {
             if (success)
                 break;
+
+            // If we are targeting ourselves and combo doesn't allow it (or otherwise), then continue
+            if (uid == target != proto.PerformOnSelf)
+                continue;
 
             var sum = comp.LastAttacks.Count - proto.AttackTypes.Count;
             if (sum < 0)

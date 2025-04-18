@@ -6,6 +6,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -18,16 +19,31 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, CircleKickPerformedEvent>(OnCircleKick);
         SubscribeLocalEvent<CanPerformComboComponent, SweepKickPerformedEvent>(OnSweepKick);
         SubscribeLocalEvent<CanPerformComboComponent, SpinKickPerformedEvent>(OnSpinKick);
+        SubscribeLocalEvent<CanPerformComboComponent, KickUpPerformedEvent>(OnKickUp);
 
         SubscribeLocalEvent<GrantCapoeiraComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCapoeiraComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
 
-    private void OnCapoeiraAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
+    private void OnCapoeiraMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
+    {
+        if (ev.HitEntities.Count > 0 || ev.Weapon != uid)
+            return;
+
+        // Damage up on miss
+        ApplyMultiplier(uid,
+            1f,
+            5f,
+            TimeSpan.FromSeconds(3),
+            MartialArtModifierType.Damage | MartialArtModifierType.Unarmed);
+    }
+
+    private void OnCapoeiraAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent,
+        ref ComboAttackPerformedEvent args)
     {
         if (args.Type == ComboAttackType.Grab)
         {
-            ApplyMultiplier(ent, 1.2f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
+            ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);
             _modifier.RefreshMovementSpeedModifiers(ent);
             return;
         }
@@ -37,7 +53,20 @@ public abstract partial class SharedMartialArtsSystem
 
         var velocity = GetVelocity(ent);
         var multiplier = Math.Clamp(MathF.Pow(velocity, 0.2f), 1f, 1.5f);
-        ApplyMultiplier(ent, multiplier, TimeSpan.FromSeconds(3));
+        ApplyMultiplier(ent, multiplier, 0f, TimeSpan.FromSeconds(3));
+    }
+
+    private void OnKickUp(Entity<CanPerformComboComponent> ent, ref KickUpPerformedEvent args)
+    {
+        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
+            || !TryUseMartialArt(ent, proto, out var target, out _))
+            return;
+
+        if (target != ent.Owner)
+            return;
+
+        _status.TryRemoveStatusEffect(ent, "KnockedDown");
+        _standingState.Stand(ent);
     }
 
     private void OnSpinKick(Entity<CanPerformComboComponent> ent, ref SpinKickPerformedEvent args)
@@ -68,7 +97,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _audio.PlayPvs(args.Sound, target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
-        ApplyMultiplier(ent, args.AttackSpeedMultiplier, args.AttackSpeedMultiplierTime);
+        ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime);
 
         if (args.Emote != null && TryComp(ent, out AnimatedEmotesComponent? emotes))
         {
@@ -79,7 +108,7 @@ public abstract partial class SharedMartialArtsSystem
         ComboPopup(ent, target, proto.Name);
     }
 
-    private void OnSweepKick(Entity<CanPerformComboComponent> ent, ref Events.SweepKickPerformedEvent args)
+    private void OnSweepKick(Entity<CanPerformComboComponent> ent, ref SweepKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _))
@@ -98,11 +127,11 @@ public abstract partial class SharedMartialArtsSystem
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Torso);
         _audio.PlayPvs(args.Sound, target);
-        ApplyMultiplier(ent, args.AttackSpeedMultiplier, args.AttackSpeedMultiplierTime);
+        ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime);
         ComboPopup(ent, target, proto.Name);
     }
 
-    private void OnCircleKick(Entity<CanPerformComboComponent> ent, ref Events.CircleKickPerformedEvent args)
+    private void OnCircleKick(Entity<CanPerformComboComponent> ent, ref CircleKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _))
@@ -113,13 +142,14 @@ public abstract partial class SharedMartialArtsSystem
             return;
 
         var power = GetCapoeiraPower(args, velocity);
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage * power, applyResistances: true);
+        var speedMultiplier = 1f / MathF.Max(1f, power);
+        ApplyMultiplier(target, speedMultiplier, 0f, args.SlowDownTime, MartialArtModifierType.MoveSpeed);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
     }
 
-    private void OnPushKick(Entity<CanPerformComboComponent> ent, ref Events.PushKickPerformedEvent args)
+    private void OnPushKick(Entity<CanPerformComboComponent> ent, ref PushKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !TryUseMartialArt(ent, proto, out var target, out _))
@@ -151,10 +181,11 @@ public abstract partial class SharedMartialArtsSystem
 
     private void ApplyMultiplier(EntityUid uid,
         float multiplier,
+        float modifier,
         TimeSpan time,
         MartialArtModifierType type = MartialArtModifierType.AttackRate)
     {
-        if (Math.Abs(multiplier - 1f) < 0.001f || time <= TimeSpan.Zero)
+        if (Math.Abs(multiplier - 1f) < 0.001f && Math.Abs(modifier) < 0.001f || time <= TimeSpan.Zero)
             return;
 
         var multComp = EnsureComp<MartialArtModifiersComponent>(uid);
@@ -162,6 +193,7 @@ public abstract partial class SharedMartialArtsSystem
         {
             Type = type,
             Multiplier = multiplier,
+            Modifier = modifier,
             EndTime = _timing.CurTime + time,
         });
 

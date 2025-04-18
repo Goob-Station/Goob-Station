@@ -21,7 +21,7 @@
     sound:
       path: /Audio/Weapons/genhit3.ogg
   extraDamage: 10
-  staminaDamage: 40
+  staminaDamage: 50
 
 - type: combo
   id: DragonTail

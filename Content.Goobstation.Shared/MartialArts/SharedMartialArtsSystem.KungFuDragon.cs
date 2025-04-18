@@ -35,7 +35,11 @@ public abstract partial class SharedMartialArtsSystem
         args.ModifiersList.Add(ent.Comp.ModifierSet);
 
         // Works for both armed and unarmed attacks
-        ApplyMultiplier(ent, ent.Comp.DamageMultiplier, ent.Comp.AttackDamageBuffDuration, MartialArtModifierType.Damage);
+        ApplyMultiplier(ent,
+            ent.Comp.DamageMultiplier,
+            0f,
+            ent.Comp.AttackDamageBuffDuration,
+            MartialArtModifierType.Damage);
     }
 
     private void OnDragonStrike(Entity<CanPerformComboComponent> ent, ref DragonStrikePerformedEvent args)

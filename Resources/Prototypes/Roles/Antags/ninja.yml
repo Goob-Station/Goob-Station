@@ -103,6 +103,7 @@
     belt: EnergyKatana
   inhand:
     - JetpackBlackFilled
+    - NinjutsuScroll # Goobstation
   storage:
     back: # belt holds katana so satchel has the tools for sabotaging things
     - Crowbar

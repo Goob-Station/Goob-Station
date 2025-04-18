@@ -147,7 +147,7 @@ public sealed partial class PullerComponent : Component
     public TimeSpan NextStageChange;
 
     [DataField]
-    public TimeSpan StageChangeCooldown = TimeSpan.FromSeconds(1.5f);
+    public TimeSpan StageChangeCooldown = TimeSpan.FromSeconds(1f);
 
     [DataField]
     public Dictionary<GrabStage, float> EscapeChances = new()

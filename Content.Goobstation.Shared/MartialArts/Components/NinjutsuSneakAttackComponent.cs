@@ -12,7 +12,13 @@ public sealed partial class NinjutsuSneakAttackComponent : Component
     public float Multiplier = 2f;
 
     [DataField]
-    public float AssassinateModifier = 50f;
+    public float AssassinateModifier = 180f;
+
+    [DataField]
+    public float AssassinateUnarmedModifier = 115f;
+
+    [DataField]
+    public float AssassinateArmorPierce = -2.5f;
 
     [DataField]
     public SoundSpecifier AssassinateSoundUnarmed = new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg");
