@@ -72,10 +72,10 @@
     price: 500
 
 - type: entity
-  name: combat shotgun
+  name: 'Bojevic' combat shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunCombat
-  description: An old design beefed up to take 8 Gauge shells, intended to repell boarding parties. This time, you are the boarding party.
+  description: An old design with a beefier shell intended to repell boarding parties. This time, you are the boarding party. '8 GUAGE' is stamped on the barrel.
   components:
   - type: Item
     size: Large
@@ -83,13 +83,13 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: GunRequiresWield # remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1
   - type: Tag
     tags:
     - WeaponShotgunKammerer
-  - type: BallisticAmmoProvider
+  - type: BallisticAmmoProvider #W YCI internal magazine weapon with bolt
     whitelist:
       tags:
       - ShellShotgunHeavy
