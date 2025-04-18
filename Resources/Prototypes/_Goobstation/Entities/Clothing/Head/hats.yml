@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ClothingHeadBase, BaseCentcommContraband]
   id: ClothingHeadHatBeretEliteNavyOfficer
@@ -116,3 +131,26 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTrainer
+  name: NCT's hat
+  description: A hat issued to Nanotrasen Career Trainers. Makes you feel stylish.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/trainer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/trainer.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBeretTrainer
+  name: NCT's beret
+  description: A beret issued to Nanotrasen Career Trainers. Makes you feel stylish.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
+

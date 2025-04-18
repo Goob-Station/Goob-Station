@@ -1,3 +1,16 @@
+<!--
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Myakot <30875116+Myakot@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 TurboTrackerss14 <130304754+TurboTrackerss14@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 UBlueberry <161545003+UBlueberry@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
 # Security
 Ensuring the safety of both station and crew is number one for [color=#cb0000]Security[/color]. They are ready for any situation, and [color=#cb0000]Security[/color] are on hand to maintain order and control crowds.
@@ -17,6 +30,7 @@ They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Oper
 ## Gear
 First we have non-lethals a step above simply telling someone to cooperate with instructions. Both the stunbaton and disabler are capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands.
 
+Stunbaton operates differently depending on attack type. On light attack ([color=yellow]Left click[/color]) it deals 75 immediate stamina damage and knocks target down for 4 seconds after 2 second delay, these values are can be modified or cancelled entirely by armor and stimulants. Light attacks are delayed by 2.5 seconds and consume twice as much battery power. Heavy attacks ([color=yellow]Right click[/color]) deal 15 immediate stamina damage and 40 overtime stamina damage, which soft-crits the target after 2 hits when overtime stamina damage reaches stamcrit threshold (100 stamina damage for most species). Soft stamina crit still allows the target to crawl, but any immediate stamina damage will stamcrit them, allowing them to be cuffed. To stun your target using heavy stunbaton attack, you need to either hit them twice, then wait a while until they are knocked down and hit them once more to fully stamcrit them, or hit them four times in quick succession.
   <Box>
     <GuideEntityEmbed Entity="Stunbaton"/>
     <GuideEntityEmbed Entity="Handcuffs"/>

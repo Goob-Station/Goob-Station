@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Offensive
 - type: listing
   id: SpellbookMimeMalaise
@@ -521,6 +536,10 @@
     blacklist:
     - SpellbookFullRandom
     - SpellbookSemiRandom
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
 
 - type: listing
   id: SpellbookSwap
@@ -592,24 +611,24 @@
     - SpellbookFullRandom
     - SpellbookSemiRandom
 
-- type: listing
-  id: SpellbookCurseOfByond
-  name: spellbook-curse-of-byond-name
-  description: spellbook-curse-of-byond-description
-  productAction: ActionCurseOfByond
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    whitelist:
-      - SpellbookTileToggle
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#- type: listing
+#  id: SpellbookCurseOfByond
+#  name: spellbook-curse-of-byond-name
+#  description: spellbook-curse-of-byond-description
+#  productAction: ActionCurseOfByond
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookUtility
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#      - SpellbookTileToggle
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
 
 # Equipment
 - type: listing
@@ -795,6 +814,10 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
 
 # Event
 - type: listing

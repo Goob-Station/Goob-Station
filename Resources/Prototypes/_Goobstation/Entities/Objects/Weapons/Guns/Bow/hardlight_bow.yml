@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: hardlight bow
   parent: [BaseItem, BaseSyndicateContraband]
@@ -125,4 +132,7 @@
           True: { state: bow }
           False: { state: bow-folded }
   - type: ToggleableLightWieldable
-  # TODO: Zoom
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 4 # Goobstation - Sniper rifles buff
+    pvsIncrease: 0.4 # Goobstation - Sniper rifles buff

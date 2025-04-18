@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   save: false
   name: Urist McRaptor
@@ -170,9 +179,6 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
-  - type: FootPrints # Goobstation - resomi footprints
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
   - type: Bloodstream # Goobstation - lore stuff
     bloodReagent: AmmoniaBlood
   - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
@@ -194,6 +200,11 @@
     heatDamage:
       types:
         Heat : 3 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed # Goobstation - You're supposed to be used to the cold why are you so slow
+    thresholds: # Goobstation - Calculated based on UI alert thresholds, rounded up
+      272: 0.8
+      242: 0.6
+      196: 0.4
   - type: MovementSpeedModifier
     weightlessAcceleration: 2.5 # Goobstation - Birb move fast in zero-g
   - type: PseudoItem # Goobstation - Baggable; certified smol ops

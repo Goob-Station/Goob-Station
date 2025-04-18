@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: AdminPDA
   id: ChronoPDA
@@ -101,7 +116,7 @@
 - type: entity
   parent: ERTLeaderPDA
   id: BlueshieldPDA
-  name: Blueshield Officer PDA
+  name: blueshield officer PDA
   description: The silver shield of the Blueshield is engraved on the front.
   components:
   - type: Appearance
@@ -123,7 +138,7 @@
 - type: entity
   parent: CentcomPDA
   id: DeathsquadPDA
-  name: Deathsquad PDA
+  name: deathsquad PDA
   description: Rip and tear until it is done.
   components:
   - type: Appearance
@@ -139,6 +154,8 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-deathsquad
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: CentcomPDA
@@ -151,8 +168,17 @@
 
 - type: entity
   parent: CentcomPDA
+  id: TrainerPDA
+  name: nct's PDA
+  description: A standard-issue nanotrasen career trainer PDA.
+  components:
+  - type: Pda
+    id: NanotrasenCareerTrainerIDCard
+
+- type: entity
+  parent: CentcomPDA
   id: NavyCaptainPDA
-  name: Navy Captain's PDA
+  name: navy captain's PDA
   description: The devil's in the details.
   components:
   - type: Pda
@@ -177,7 +203,7 @@
 - type: entity
   parent: NavyCaptainPDA
   id: NavyOfficerPDA
-  name: Navy Officer's PDA
+  name: navy officer's PDA
   components:
   - type: Pda
     id: CentcomIDCardNavyOfficer
@@ -185,7 +211,7 @@
 - type: entity
   parent: NavyCaptainPDA
   id: SpecialOperationsOfficerPDA
-  name: Special Operations Officer's PDA
+  name: special operations officer's PDA
   components:
   - type: Pda
     id: CentcomIDCardSpecialOperationsOfficer
@@ -197,4 +223,12 @@
   components:
   - type: Pda
     id: CentcomIDCardDiplomat
+
+- type: entity
+  parent: NavyCaptainPDA
+  id: InspectorPDA
+  name: auditor's PDA
+  components:
+  - type: Pda
+    id: CentcomIDCardInspector
 

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Resomi
   name: species-name-resomi
@@ -8,8 +13,8 @@
   markingLimits: MobResomiMarkingLimits
   dollPrototype: MobResomiDummy
   skinColoration: Hues
-  maleFirstNames: names_resomi_male
-  femaleFirstNames: names_resomi_female
+  maleFirstNames: NamesResomiMale
+  femaleFirstNames: NamesResomiFemale
   naming: First
   sexes: # Goobstation - why bother having male/female names and soundCollections if they were only available unsexed?
   - Unsexed

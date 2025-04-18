@@ -1,11 +1,22 @@
-using Content.Server.Atmos.EntitySystems;
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Shared.Popups;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Heretic;
-using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -15,33 +26,45 @@ using Content.Shared.Humanoid;
 using Content.Server.Body.Components;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Medical;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticCombatMarkSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly ProtectiveBladeSystem _pbs = default!;
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
-    public bool ApplyMarkEffect(EntityUid target, string? path, EntityUid user)
+    public void ApplyMarkEffect(EntityUid target, HereticCombatMarkComponent mark, string? path, EntityUid user)
     {
         if (string.IsNullOrWhiteSpace(path))
-            return false;
+            return;
 
         switch (path)
         {
             case "Ash":
-                // gives fire stacks
-                _flammable.AdjustFireStacks(target, 5, ignite: true);
+                _stamina.TakeStaminaDamage(target, 6f * mark.Repetitions);
+
+                var dmg = new DamageSpecifier
+                {
+                    DamageDict =
+                    {
+                        { "Heat", 3f * mark.Repetitions },
+                    },
+                };
+
+                _damageable.TryChangeDamage(target, dmg, origin: user, targetPart: TargetBodyPart.All);
                 break;
 
             case "Blade":
@@ -79,23 +102,29 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
                 break;
 
             default:
-                return false;
+                return;
         }
+
+        var repetitions = mark.Repetitions - 1;
+        RemComp(target, mark);
+        if (repetitions <= 0)
+            return;
 
         // transfers the mark to the next nearby person
-        var look = _lookup.GetEntitiesInRange(target, 5f);
-        if (look.Count != 0)
-        {
-            var lookent = look.ToArray()[0];
-            if (HasComp<HumanoidAppearanceComponent>(lookent)
-            && !HasComp<HereticComponent>(lookent))
-            {
-                var markComp = EnsureComp<HereticCombatMarkComponent>(lookent);
-                markComp.Path = path;
-            }
-        }
+        var look = _lookup.GetEntitiesInRange(target, 5f, flags: LookupFlags.Dynamic)
+            .Where(x => x != target && HasComp<HumanoidAppearanceComponent>(x) && !HasComp<HereticComponent>(x) && !HasComp<GhoulComponent>(x))
+            .ToList();
+        if (look.Count == 0)
+            return;
 
-        return true;
+        _random.Shuffle(look);
+        var lookent = look.First();
+        if (!HasComp<HumanoidAppearanceComponent>(lookent) || HasComp<HereticComponent>(lookent))
+            return;
+
+        var markComp = EnsureComp<HereticCombatMarkComponent>(lookent);
+        markComp.Path = path;
+        markComp.Repetitions = repetitions;
     }
 
     public override void Initialize()
