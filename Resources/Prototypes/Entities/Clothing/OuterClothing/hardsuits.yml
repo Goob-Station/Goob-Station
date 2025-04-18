@@ -398,41 +398,41 @@
     knockdownTimeDelta: -3
 
 #Security Hardsuit - MOVED TO _Goobstation/Entities/Clothing/OuterClothing/Voidsuits.yml
-#- type: entity
-#  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
-#  id: ClothingOuterHardsuitSecurity
-#  name: security hardsuit
-#  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
-#  - type: Clothing
-#    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
-#  - type: PressureProtection
-#    highPressureMultiplier: 0.5
-#    lowPressureMultiplier: 1000
-#  - type: ExplosionResistance
-#    damageCoefficient: 0.4
-#  - type: Armor
-#    modifiers:
-#      coefficients:
-#        Blunt: 0.6
-#        Slash: 0.6
-#        Piercing: 0.6
-#        Caustic: 0.7
-#        Heat: 0.7 # Goobstation
-#  - type: ClothingSpeedModifier
-#    walkModifier: 0.75
-#    sprintModifier: 0.75
-#  - type: HeldSpeedModifier
-#  - type: ToggleableClothing # Goobstation - Modsuits change
-#    clothingPrototypes:
-#      head: ClothingHeadHelmetHardsuitSecurity
-#  - type: StaminaDamageResistance # Goobstation
-#    coefficient: 0.6
-#  - type: ModifyDelayedKnockdown # Goobstation
-#    delayDelta: 3
-#    knockdownTimeDelta: -3
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
+  id: ClothingOuterHardsuitSecurity
+  name: security hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Caustic: 0.7
+        Heat: 0.7 # Goobstation
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitSecurity
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.6
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 3
+    knockdownTimeDelta: -3
 
 #Brigmedic Hardsuit
 - type: entity

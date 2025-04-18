@@ -323,31 +323,31 @@
         Piercing: 0.9
         Heat: 0.9
 
-#Security Hardsuit - Goob edit, deprecated
-#- type: entity
-#  parent: ClothingHeadHardsuitWithLightBase
-#  id: ClothingHeadHelmetHardsuitSecurity
-#  name: security hardsuit helmet
-#  description: Armored hardsuit helmet for security needs.
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/Head/Hardsuits/security.rsi
-#  - type: Clothing
-#    sprite: Clothing/Head/Hardsuits/security.rsi
-#  - type: PointLight
-#    color: "#ffeead"
-#  - type: PressureProtection
-#    highPressureMultiplier: 0.525
-#    lowPressureMultiplier: 1000
-#  - type: Armor
-#    modifiers:
-#      coefficients:
-#        Blunt: 0.9
-#        Slash: 0.9
-#        Piercing: 0.9
-#        Heat: 0.9
-#  - type: FlashImmunity # Goobstation
-#  - type: FlashSoundSuppression # Goobstation
+#Security Hardsuit - Goob deprecated
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSecurity
+  name: security hardsuit helmet
+  description: Armored hardsuit helmet for security needs.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/security.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/security.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: FlashImmunity # Goobstation
+  - type: FlashSoundSuppression # Goobstation
 
 #Brigmedic Hardsuit
 - type: entity
