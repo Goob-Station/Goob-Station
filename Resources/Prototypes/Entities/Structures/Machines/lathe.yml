@@ -896,6 +896,11 @@
     - SyndicateCatridgesStatic
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: MaterialStorage
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: [BaseLatheLube, BaseSiloUtilizer] #Goob edit

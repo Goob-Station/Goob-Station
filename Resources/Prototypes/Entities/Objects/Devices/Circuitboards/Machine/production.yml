@@ -1127,7 +1127,7 @@
   - type: Sprite
     state: supply
   - type: MachineBoard
-    prototype: MaterialSilo #Goobstation - Silo
+    prototype: MachineMaterialSilo
     stackRequirements:
       Manipulator: 4
       Cable: 1

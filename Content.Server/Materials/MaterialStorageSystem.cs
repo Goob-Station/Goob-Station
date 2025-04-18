@@ -144,6 +144,11 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
+        _popup.PopupEntity(Loc.GetString("machine-insert-item",
+                ("user", user),
+                ("machine", receiver),
+                ("item", toInsert)),
+            receiver);
         if (user != receiver) // Goobstation - for automation to not spam popups
             _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
                 ("item", toInsert)), receiver);
@@ -152,7 +157,8 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         // Logging
         TryComp<StackComponent>(toInsert, out var stack);
         var count = stack?.Count ?? 1;
-        _adminLogger.Add(LogType.Action, LogImpact.Low,
+        _adminLogger.Add(LogType.Action,
+            LogImpact.Low,
             $"{ToPrettyString(user):player} inserted {count} {ToPrettyString(toInsert):inserted} into {ToPrettyString(receiver):receiver}");
         return true;
     }
