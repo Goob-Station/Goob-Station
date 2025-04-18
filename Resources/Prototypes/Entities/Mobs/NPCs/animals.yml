@@ -3324,6 +3324,9 @@
     tags:
     - VimPilot
   - type: VentCrawler # goobstation - Ventcrawl
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
 
 - type: entity
   name: calico cat
