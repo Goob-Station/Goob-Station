@@ -21,11 +21,11 @@
   - Harm
   - Harm
   event: !type:PushKickPerformedEvent
+    staminaToHeal: -30
     sound:
       path: /Audio/Weapons/genhit3.ogg
   extraDamage: 5
   paralyzeTime: 1
-  dropHeldItemsBehavior: NoDrop
   canDoWhileProne: false
 
 - type: combo
@@ -37,6 +37,7 @@
   - Disarm
   - Harm
   event: !type:CircleKickPerformedEvent
+    staminaToHeal: -40
     sound:
       path: /Audio/Weapons/genhit2.ogg
   extraDamage: 15
@@ -51,6 +52,7 @@
   - Harm
   - Disarm
   event: !type:SweepKickPerformedEvent
+    staminaToHeal: -60
     attackSpeedMultiplier: 1.5
     attackSpeedMultiplierTime: 5
     minVelocity: 2
@@ -59,7 +61,6 @@
   extraDamage: 10
   paralyzeTime: 2
   staminaDamage: 10
-  dropHeldItemsBehavior: NoDrop
   canDoWhileProne: false
 
 - type: combo
@@ -72,6 +73,7 @@
   - Disarm
   - Harm
   event: !type:SpinKickPerformedEvent
+    staminaToHeal: -100
     attackSpeedMultiplier: 1.5
     attackSpeedMultiplierTime: 5
     minVelocity: 2
@@ -79,7 +81,7 @@
       path: /Audio/Weapons/genhit1.ogg
   paralyzeTime: 2
   staminaDamage: 15
-  extraDamage: 20
+  extraDamage: 25
   canDoWhileProne: false
 
 - type: combo
@@ -90,4 +92,5 @@
   - Disarm
   - Disarm
   event: !type:KickUpPerformedEvent
+    staminaToHeal: -20
   performOnSelf: true

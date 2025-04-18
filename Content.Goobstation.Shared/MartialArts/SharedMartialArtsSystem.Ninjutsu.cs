@@ -75,7 +75,7 @@ public abstract partial class SharedMartialArtsSystem
         if (ev.NewMobState <= ev.OldMobState)
             return;
 
-        ApplyMultiplier(ev.Origin.Value, 1.3f, 0f, TimeSpan.FromSeconds(3), MartialArtModifierType.MoveSpeed);
+        ApplyMultiplier(ev.Origin.Value, 1.2f, 0f, TimeSpan.FromSeconds(3), MartialArtModifierType.MoveSpeed);
         _modifier.RefreshMovementSpeedModifiers(ev.Origin.Value);
     }
 

@@ -118,7 +118,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Set a max drunk time in seconds to prevent permanent drunkeness. 
+    ///     Set a max drunk time in seconds to prevent permanent drunkeness.
     /// </summary>
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
@@ -353,7 +353,7 @@ public sealed partial class GoobCVars
     /// Shove range multiplier.
     /// </summary>
     public static readonly CVarDef<float> ShoveRange =
-        CVarDef.Create("game.shove_range", 3f, CVar.SERVER | CVar.ARCHIVE);
+        CVarDef.Create("game.shove_range", 1f, CVar.SERVER | CVar.ARCHIVE);
 
     /// <summary>
     /// Shove speed multiplier, does not affect range.

@@ -28,6 +28,9 @@ public abstract partial class BaseCapoeiraEvent : EntityEventArgs
 
     [DataField]
     public virtual SoundSpecifier? Sound { get; set; } = new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg");
+
+    [DataField]
+    public float StaminaToHeal = -20f;
 }
 
 public sealed partial class PushKickPerformedEvent : BaseCapoeiraEvent
@@ -41,7 +44,7 @@ public sealed partial class SweepKickPerformedEvent : BaseCapoeiraEvent;
 public sealed partial class CircleKickPerformedEvent : BaseCapoeiraEvent
 {
     [DataField]
-    public TimeSpan SlowDownTime = TimeSpan.FromSeconds(4);
+    public TimeSpan SlowDownTime = TimeSpan.FromSeconds(2);
 }
 
 public sealed partial class SpinKickPerformedEvent : BaseCapoeiraEvent

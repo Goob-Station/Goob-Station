@@ -6,6 +6,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Components;
 
@@ -33,9 +34,16 @@ public abstract partial class SharedMartialArtsSystem
         // Damage up on miss
         ApplyMultiplier(uid,
             1f,
-            5f,
+            2f,
             TimeSpan.FromSeconds(3),
             MartialArtModifierType.Damage | MartialArtModifierType.Unarmed);
+
+        // Miss recovery
+        if (!TryComp(uid, out MeleeWeaponComponent? melee))
+            return;
+
+        melee.NextAttack -= TimeSpan.FromSeconds(0.75f / _melee.GetAttackRate(uid, uid, melee));
+        Dirty(uid, melee);
     }
 
     private void OnCapoeiraAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent,
@@ -67,6 +75,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);
+        _stamina.TryTakeStamina(ent, args.StaminaToHeal);
     }
 
     private void OnSpinKick(Entity<CanPerformComboComponent> ent, ref SpinKickPerformedEvent args)
@@ -89,7 +98,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
-            false,
+            true,
             proto.DropHeldItemsBehavior);
 
         if (TryComp<PullableComponent>(target, out var pullable))
@@ -122,7 +131,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
-            false,
+            true,
             proto.DropHeldItemsBehavior);
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Torso);
@@ -143,7 +152,7 @@ public abstract partial class SharedMartialArtsSystem
 
         var power = GetCapoeiraPower(args, velocity);
         var speedMultiplier = 1f / MathF.Max(1f, power);
-        ApplyMultiplier(target, speedMultiplier, 0f, args.SlowDownTime, MartialArtModifierType.MoveSpeed);
+        ApplyMultiplier(target, speedMultiplier, 0f, args.SlowDownTime * power, MartialArtModifierType.MoveSpeed);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
@@ -170,7 +179,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _stun.TryKnockdown(target,
             TimeSpan.FromSeconds(proto.ParalyzeTime * power),
-            false,
+            true,
             proto.DropHeldItemsBehavior);
 
         _audio.PlayPvs(args.Sound, target);
@@ -200,15 +209,18 @@ public abstract partial class SharedMartialArtsSystem
         Dirty(uid, multComp);
     }
 
-    private float GetCapoeiraPower(Events.BaseCapoeiraEvent ev, float velocity)
+    private float GetCapoeiraPower(BaseCapoeiraEvent ev, float velocity)
     {
         return Math.Clamp(velocity * ev.VelocityPowerMultiplier, ev.MinPower, ev.MaxPower);
     }
 
-    private bool TryPerformCapoeiraMove(EntityUid uid, Events.BaseCapoeiraEvent ev, float velocity)
+    private bool TryPerformCapoeiraMove(EntityUid uid, BaseCapoeiraEvent ev, float velocity)
     {
         if (ev.MinVelocity <= velocity)
+        {
+            _stamina.TryTakeStamina(uid, ev.StaminaToHeal);
             return true;
+        }
 
         _popupSystem.PopupEntity(Loc.GetString("capoeira-fail-low-velocity"), uid, uid);
         return false;
