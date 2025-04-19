@@ -12,8 +12,10 @@
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -256,9 +258,14 @@ public abstract partial class SharedHandsSystem : EntitySystem
         var locUser = ("user", Identity.Entity(examinedUid, EntityManager));
         var locItems = ("items", ContentLocalizationManager.FormatList(heldItemNames));
 
-        using (args.PushGroup(nameof(HandsComponent)))
+        // WWDP examine
+        if (args.Examiner == args.Examined) // Use the selfaware locale when inspecting yourself
+            locKey += "-selfaware";
+
+        using (args.PushGroup(nameof(HandsComponent), 99)) //  priority for examine
         {
-            args.PushMarkup(Loc.GetString(locKey, locUser, locItems));
+            args.PushMarkup("- " + Loc.GetString(locKey, locUser, locItems)); // "-" for better formatting
         }
+        // WWDP edit end
     }
 }
