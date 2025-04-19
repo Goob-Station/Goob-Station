@@ -48,7 +48,6 @@ public sealed partial class ModifyBleedAmount : EntityEffect
             sys.TryModifyBleedAmount(args.TargetEntity, amt, blood);
 
             // Shitmed Change
-            Logger.Debug($"Attempting to heal most severe bleeding woundables with {amt} bleed");
             var woundsSys = args.EntityManager.System<WoundSystem>();
             woundsSys.TryHealMostSevereBleedingWoundables(args.TargetEntity, -amt, out _);
         }

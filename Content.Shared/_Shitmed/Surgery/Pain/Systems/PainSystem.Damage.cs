@@ -55,7 +55,7 @@ public partial class PainSystem
             return false;
 
         var modifierToSet =
-            modifier with {Change = change, Time = _timing.CurTime + time ?? modifier.Time, PainDamageType = painType ?? modifier.PainDamageType};
+            modifier with { Change = change, Time = _timing.CurTime + time ?? modifier.Time, PainDamageType = painType ?? modifier.PainDamageType };
         nerveSys.Modifiers[(nerveUid, identifier)] = modifierToSet;
 
         var ev = new PainModifierChangedEvent(uid, nerveUid, modifier.Change);
@@ -210,7 +210,7 @@ public partial class PainSystem
             return false;
 
         var modifierToSet =
-            modifier with { Change = change};
+            modifier with { Change = change };
         nerve.PainFeelingModifiers[(nerveUid, identifier)] = modifierToSet;
 
         UpdatePainFeels(nerveUid);
@@ -244,7 +244,7 @@ public partial class PainSystem
             return false;
 
         var modifierToSet =
-            modifier with { Change = change, Time = _timing.CurTime + time ?? modifier.Time};
+            modifier with { Change = change, Time = _timing.CurTime + time ?? modifier.Time };
         nerve.PainFeelingModifiers[(nerveUid, identifier)] = modifierToSet;
 
         UpdatePainFeels(nerveUid);
@@ -278,7 +278,7 @@ public partial class PainSystem
             return false;
 
         var modifierToSet =
-            modifier with { Change = change ?? modifier.Change, Time = _timing.CurTime + time};
+            modifier with { Change = change ?? modifier.Change, Time = _timing.CurTime + time };
         nerve.PainFeelingModifiers[(nerveUid, identifier)] = modifierToSet;
 
         UpdatePainFeels(nerveUid);
@@ -397,7 +397,7 @@ public partial class PainSystem
             return false;
 
         var multiplierToSet =
-            multiplier with {Change = change, Time = _timing.CurTime + time ?? multiplier.Time, PainDamageType = painType ?? multiplier.PainDamageType};
+            multiplier with { Change = change, Time = _timing.CurTime + time ?? multiplier.Time, PainDamageType = painType ?? multiplier.PainDamageType };
         nerveSys.Multipliers[identifier] = multiplierToSet;
 
         UpdateNerveSystemPain(uid, nerveSys);
@@ -431,7 +431,7 @@ public partial class PainSystem
             return false;
 
         var multiplierToSet =
-            multiplier with {Change = change ?? multiplier.Change, Time = _timing.CurTime + time, PainDamageType = painType ?? multiplier.PainDamageType};
+            multiplier with { Change = change ?? multiplier.Change, Time = _timing.CurTime + time, PainDamageType = painType ?? multiplier.PainDamageType };
         nerveSys.Multipliers[identifier] = multiplierToSet;
 
         UpdateNerveSystemPain(uid, nerveSys);
@@ -465,7 +465,7 @@ public partial class PainSystem
             return false;
 
         var multiplierToSet =
-            multiplier with {Change = change ?? multiplier.Change, Time = _timing.CurTime + time ?? multiplier.Time, PainDamageType = painType};
+            multiplier with { Change = change ?? multiplier.Change, Time = _timing.CurTime + time ?? multiplier.Time, PainDamageType = painType };
         nerveSys.Multipliers[identifier] = multiplierToSet;
 
         UpdateNerveSystemPain(uid, nerveSys);
@@ -597,7 +597,7 @@ public partial class PainSystem
                     sex = humanoid.Sex;
 
                 CleanupSounds(nerveSys);
-                if (_trauma.HasBodyTrauma(body.Value, TraumaType.OrganDamage))
+                if (_trauma.HasBodyTrauma(body.Value, TraumaType.OrganDamage) && _random.Prob(0.22f))
                 {
                     // If the person suffers organ damage, do funny gaggling sound :3
                     PlayPainSound(body.Value,
@@ -605,21 +605,17 @@ public partial class PainSystem
                         nerveSys.OrganDamageWhimpersSounds[sex],
                         AudioParams.Default.WithVolume(-12f));
                 }
-                else
+                else if (_random.Prob(0.22f))
                 {
+                    // Play screaming with less chance
                     if (_random.Prob(0.34f))
-                    {
-                        // Play screaming with less chance
                         PlayPainSound(body.Value, nerveSys, nerveSys.PainShockScreams[sex], AudioParams.Default.WithVolume(12f));
-                    }
                     else
-                    {
                         // Whimpering
                         PlayPainSound(body.Value,
                             nerveSys,                    // Pained or normal
                             _random.Prob(0.34f) ? nerveSys.PainShockWhimpers[sex] : nerveSys.CritWhimpers[sex],
                             AudioParams.Default.WithVolume(-12f));
-                    }
                 }
 
                 nerveSys.NextCritScream = _timing.CurTime + _random.Next(nerveSys.CritScreamsIntervalMin, nerveSys.CritScreamsIntervalMax);
@@ -636,34 +632,25 @@ public partial class PainSystem
         }
 
         foreach (var (key, value) in nerveSys.Modifiers)
-        {
             if (_timing.CurTime > value.Time)
                 TryRemovePainModifier(nerveSysEnt, key.Item1, key.Item2, nerveSys);
-        }
 
         foreach (var (key, value) in nerveSys.Multipliers)
-        {
             if (_timing.CurTime > value.Time)
                 TryRemovePainMultiplier(nerveSysEnt, key, nerveSys);
-        }
 
         // I hate myself.
         foreach (var (ent, nerve) in nerveSys.Nerves)
-        {
             foreach (var (key, value) in nerve.PainFeelingModifiers.ToList())
-            {
                 if (_timing.CurTime > value.Time)
                     TryRemovePainFeelsModifier(key.Item1, key.Item2, ent, nerve);
-            }
-        }
     }
 
     private void UpdateNerveSystemPain(EntityUid uid, NerveSystemComponent? nerveSys = null)
     {
-        if (!Resolve(uid, ref nerveSys))
-            return;
-
-        if (!TryComp<OrganComponent>(uid, out var organ) || organ.Body == null)
+        if (!Resolve(uid, ref nerveSys)
+            || !TryComp<OrganComponent>(uid, out var organ)
+            || organ.Body == null)
             return;
 
         var totalPain = (FixedPoint2) 0;
@@ -712,7 +699,7 @@ public partial class PainSystem
 
     private void ApplyPainReflexesEffects(EntityUid body, Entity<NerveSystemComponent> nerveSys, PainThresholdTypes reaction)
     {
-        if (!_net.IsServer || _random.Prob(0.70f)) // I HATE THE CONSTANT SCREAMING.
+        if (!_net.IsServer || _random.Prob(0.60f)) // I HATE THE CONSTANT SCREAMING.
             return;
 
         var sex = Sex.Unsexed;

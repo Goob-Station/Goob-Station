@@ -251,7 +251,6 @@
   - type: Wound
     woundType: Internal
     woundVisibility: HandScanner
-    scarWound: RadiationScar
     integrityMultiplier: 0
   - type: TraumaInflicter
     severityThreshold: 0

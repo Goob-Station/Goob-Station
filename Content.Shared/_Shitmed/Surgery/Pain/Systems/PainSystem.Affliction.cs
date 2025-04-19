@@ -21,16 +21,10 @@ public partial class PainSystem
 
     private void OnPainChanged(Entity<PainInflicterComponent> woundEnt, ref WoundSeverityPointChangedEvent args)
     {
-        if (_timing.ApplyingState)
-            return;
-
-        if (!TryComp<BodyPartComponent>(args.Component.HoldingWoundable, out var bodyPart))
-            return;
-
-        if (bodyPart.Body == null)
-            return;
-
-        if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var nerveSys))
+        if (_timing.ApplyingState
+            || !TryComp<BodyPartComponent>(args.Component.HoldingWoundable, out var bodyPart)
+            || bodyPart.Body == null
+            || !_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var nerveSys))
             return;
 
         // bro how
@@ -51,17 +45,14 @@ public partial class PainSystem
 
     private void OnPainRemoved(Entity<PainInflicterComponent> woundEnt, ref WoundRemovedEvent args)
     {
-        if (!TryComp<BodyPartComponent>(args.Component.HoldingWoundable, out var bodyPart))
-            return;
-
-        if (bodyPart.Body == null)
+        if (!TryComp<BodyPartComponent>(args.Component.HoldingWoundable, out var bodyPart)
+            || bodyPart.Body == null)
             return;
 
         var rootPart = Comp<BodyComponent>(bodyPart.Body.Value).RootContainer.ContainedEntity;
-        if (!rootPart.HasValue)
-            return;
 
-        if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var nerveSys))
+        if (!rootPart.HasValue
+            || !_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var nerveSys))
             return;
 
         // bro how
@@ -75,13 +66,9 @@ public partial class PainSystem
         }
 
         if (allPain <= 0)
-        {
             TryRemovePainModifier(nerveSys.Value, args.Component.HoldingWoundable, PainModifierIdentifier);
-        }
         else
-        {
             TryChangePainModifier(nerveSys.Value, args.Component.HoldingWoundable, PainModifierIdentifier, allPain);
-        }
     }
 
     #endregion

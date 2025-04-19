@@ -28,19 +28,13 @@ public partial class ConsciousnessSystem
         component.RequiredConsciousnessParts.Clear();
 
         foreach (var ((modEntity, modType), modifier) in state.Modifiers)
-        {
             component.Modifiers.Add((GetEntity(modEntity), modType), modifier);
-        }
 
         foreach (var ((multiplierEntity, multiplierType), modifier) in state.Multipliers)
-        {
             component.Multipliers.Add((GetEntity(multiplierEntity), multiplierType), modifier);
-        }
 
         foreach (var (id, (entity, causesDeath, isLost)) in state.RequiredConsciousnessParts)
-        {
             component.RequiredConsciousnessParts.Add(id, (GetEntity(entity), causesDeath, isLost));
-        }
     }
 
     private void OnComponentGet(EntityUid uid, ConsciousnessComponent comp, ref ComponentGetState args)
@@ -56,22 +50,16 @@ public partial class ConsciousnessSystem
         state.IsConscious = comp.IsConscious;
 
         foreach (var ((modEntity, modType), modifier) in comp.Modifiers)
-        {
             if (!TerminatingOrDeleted(modEntity))
                 state.Modifiers.Add((GetNetEntity(modEntity), modType), modifier);
-        }
 
         foreach (var ((multiplierEntity, multiplierType), modifier) in comp.Multipliers)
-        {
             if (!TerminatingOrDeleted(multiplierEntity))
                 state.Multipliers.Add((GetNetEntity(multiplierEntity), multiplierType), modifier);
-        }
 
         foreach (var (id, (entity, causesDeath, isLost)) in comp.RequiredConsciousnessParts)
-        {
             if (!TerminatingOrDeleted(entity))
                 state.RequiredConsciousnessParts.Add(id, (GetNetEntity(entity), causesDeath, isLost));
-        }
 
         args.State = state;
     }

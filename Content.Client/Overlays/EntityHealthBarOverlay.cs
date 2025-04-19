@@ -76,6 +76,11 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -209,47 +214,30 @@ public sealed class EntityHealthBarOverlay : Overlay
     /// </summary>
     private (float ratio, bool inCrit)? CalcProgress(EntityUid uid, MobStateComponent component, DamageableComponent dmg, MobThresholdsComponent thresholds)
     {
-        // Shitmed Change Start
-        if (_entManager.TryGetComponent<ConsciousnessComponent>(uid, out var consciousness))
+        if (_mobStateSystem.IsAlive(uid, component))
         {
-            if (_mobStateSystem.IsAlive(uid, component))
-            {
-                var ratio = 1 - ((consciousness.Cap - consciousness.Consciousness) / (consciousness.Cap - consciousness.Threshold)).Float();
-                return (ratio, false);
-            }
+            if (dmg.HealthBarThreshold != null && dmg.TotalDamage < dmg.HealthBarThreshold)
+                return null;
 
-            if (_mobStateSystem.IsCritical(uid, component))
-            {
-                var ratio = 1 - ((consciousness.Threshold - consciousness.Consciousness) / consciousness.Threshold).Float();
-                return (ratio, true);
-            }
+            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
+                !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))
+                return (1, false);
+
+            var ratio = 1 - ((FixedPoint2) (dmg.TotalDamage / threshold)).Float();
+            return (ratio, false);
         }
-        else // Shitmed Change End
+
+        if (_mobStateSystem.IsCritical(uid, component))
         {
-            // Typical management
-            if (_mobStateSystem.IsAlive(uid, component))
+            if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var critThreshold, thresholds) ||
+                !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, thresholds))
             {
-                if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds))
-                    return (1, false);
-
-                var ratio = 1 - ((FixedPoint2)(dmg.TotalDamage / threshold)).Float();
-                return (ratio, false);
+                return (1, true);
             }
 
-            if (_mobStateSystem.IsCritical(uid, component))
-            {
-                if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var critThreshold, thresholds) ||
-                    !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out var deadThreshold, thresholds))
-                {
-                    return (1, true);
-                }
+            var ratio = 1 - ((dmg.TotalDamage - critThreshold) / (deadThreshold - critThreshold)).Value.Float();
 
-                var ratio = 1 -
-                            ((dmg.TotalDamage - critThreshold) /
-                             (deadThreshold - critThreshold)).Value.Float();
-
-                return (ratio, true);
-            }
+            return (ratio, true);
         }
 
         return (0, true);

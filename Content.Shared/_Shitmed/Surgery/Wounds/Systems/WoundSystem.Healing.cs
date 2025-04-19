@@ -269,7 +269,7 @@ public partial class WoundSystem
         bool ignoreMultipliers = false)
     {
         healed = 0;
-        if (!Resolve(woundable, ref component))
+        if (!Resolve(woundable, ref component, false))
             return false;
 
         var woundsToHeal =
@@ -309,7 +309,7 @@ public partial class WoundSystem
         bool ignoreMultipliers = false)
     {
         healed = 0;
-        if (!Resolve(woundable, ref component))
+        if (!Resolve(woundable, ref component, false))
             return false;
 
         foreach (var (key, value) in damage.DamageDict)

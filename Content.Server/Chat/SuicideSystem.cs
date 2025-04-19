@@ -88,7 +88,6 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components; // Shitmed Change
-using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components; // Shitmed Change
 
 namespace Content.Server.Chat;
 
@@ -107,7 +106,6 @@ public sealed class SuicideSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<DamageableComponent, SuicideEvent>(OnDamageableSuicide);
-        SubscribeLocalEvent<ConsciousnessComponent, SuicideEvent>(OnConsciousnessSuicide); // Shitmed Change
         SubscribeLocalEvent<MobStateComponent, SuicideEvent>(OnEnvironmentalSuicide);
         SubscribeLocalEvent<MindContainerComponent, SuicideGhostEvent>(OnSuicideGhost);
     }
@@ -223,7 +221,7 @@ public sealed class SuicideSystem : EntitySystem
     /// </summary>
     private void OnDamageableSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
-        if (args.Handled || HasComp<ConsciousnessComponent>(victim))
+        if (args.Handled)
             return;
 
         var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", victim));
@@ -245,23 +243,10 @@ public sealed class SuicideSystem : EntitySystem
             args.DamageType ??= "Bloodloss";
 
         _suicide.ApplyLethalDamage(victim, args.DamageType);
-        args.Handled = true;
-    }
 
+        if (TryComp(victim, out ConsciousnessComponent? consciousness))
+            _suicide.KillConsciousness((victim, consciousness));
 
-    // Shitmed Change
-    private void OnConsciousnessSuicide(Entity<ConsciousnessComponent> theOneToLeave, ref SuicideEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        var othersMessage = Loc.GetString("suicide-command-default-text-others", ("name", theOneToLeave));
-        _popup.PopupEntity(othersMessage, theOneToLeave, Filter.PvsExcept(theOneToLeave), true);
-
-        var selfMessage = Loc.GetString("suicide-command-default-text-self");
-        _popup.PopupEntity(selfMessage, theOneToLeave, theOneToLeave);
-
-        _suicide.KillConsciousness(theOneToLeave);
         args.Handled = true;
     }
 }

@@ -15,6 +15,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared.Body.Components;
+using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Shared.Chat;
 
@@ -29,12 +30,8 @@ public sealed class SharedSuicideSystem : EntitySystem
     /// </summary>
     public void ApplyLethalDamage(Entity<DamageableComponent> target, DamageSpecifier damageSpecifier)
     {
-        // Shitmed Change Start
-        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness))
-        {
+        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness)) // Shitmed Change
             KillConsciousness((target, victimConsciousness));
-        }
-        // Shitmed Change End
 
         // Create a new damageSpecifier so that we don't make alterations to the original DamageSpecifier
         // Failing  to do this will permanently change a weapon's damage making it insta-kill people
@@ -58,7 +55,7 @@ public sealed class SharedSuicideSystem : EntitySystem
             appliedDamageSpecifier.DamageDict[key] = Math.Ceiling((double) (value * lethalAmountOfDamage / totalDamage));
         }
 
-        _damageableSystem.TryChangeDamage(target, appliedDamageSpecifier, true, origin: target);
+        _damageableSystem.TryChangeDamage(target, appliedDamageSpecifier, true, origin: target, targetPart: TargetBodyPart.Chest); // Shitmed Change
     }
 
     /// <summary>
@@ -66,13 +63,8 @@ public sealed class SharedSuicideSystem : EntitySystem
     /// </summary>
     public void ApplyLethalDamage(Entity<DamageableComponent> target, ProtoId<DamageTypePrototype>? damageType)
     {
-        // Shitmed Change Start
-        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness))
-        {
-            // redirect suicide to consciousness
+        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness)) // Shitmed Change
             KillConsciousness((target, victimConsciousness));
-        }
-        // Shitmed Change End
 
         if (!TryComp<MobThresholdsComponent>(target, out var mobThresholds))
             return;
@@ -90,7 +82,7 @@ public sealed class SharedSuicideSystem : EntitySystem
         }
 
         var damage = new DamageSpecifier(damagePrototype, lethalAmountOfDamage);
-        _damageableSystem.TryChangeDamage(target, damage, true, origin: target);
+        _damageableSystem.TryChangeDamage(target, damage, true, origin: target, targetPart: TargetBodyPart.Chest); // Shitmed Change
     }
 
     /// <summary>

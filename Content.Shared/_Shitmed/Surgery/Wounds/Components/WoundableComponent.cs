@@ -20,7 +20,7 @@ public sealed partial class WoundableComponent : Component
     /// UID of the root woundable entity.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public EntityUid RootWoundable;
+    public EntityUid? RootWoundable;
 
     /// <summary>
     /// Set of UIDs representing child woundable entities.

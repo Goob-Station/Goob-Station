@@ -73,7 +73,9 @@ public sealed partial class WoundSystem
             return;
 
         var parentWoundable = Comp<WoundableComponent>(comp.HoldingWoundable);
-        var woundableRoot = Comp<WoundableComponent>(parentWoundable.RootWoundable);
+
+        if (!TryComp<WoundableComponent>(parentWoundable.RootWoundable, out var woundableRoot))
+            return;
 
         var ev = new WoundAddedEvent(comp, parentWoundable, woundableRoot);
         RaiseLocalEvent(uid, ref ev);
@@ -198,8 +200,6 @@ public sealed partial class WoundSystem
 
             _popup.PopupEntity(Loc.GetString("woundable-dodged", ("entity", bodyPart.Body.Value)), bodyPart.Body.Value, PopupType.Medium);
         }
-
-        Logger.Debug($"DudeItsJustLikeMatrix works");
 
         args.Cancelled = true;
     }
@@ -713,9 +713,6 @@ public sealed partial class WoundSystem
                 WoundableVisualizerKeys.Wounds,
                 new WoundVisualizerGroupData(GetWoundableWounds(woundableEntity).Select(ent => GetNetEntity(ent)).ToList()));
 
-            foreach (var wound in GetWoundableWounds(woundableEntity, woundableComp))
-                TransferWoundDamage(parentWoundableEntity, woundableEntity, wound);
-
             foreach (var wound in GetWoundableWounds(parentWoundableEntity))
             {
                 if (MetaData(wound.Owner).EntityPrototype!.ID != "Blunt") //lol
@@ -728,15 +725,6 @@ public sealed partial class WoundSystem
                     TraumaType.Dismemberment,
                     15f);
                 break;
-            }
-
-            foreach (var wound in GetWoundableWounds(parentWoundableEntity))
-            {
-                if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
-                    continue;
-
-                // Bleeding :3
-                bleeds.ScalingLimit += 6;
             }
 
             Dirty(woundableEntity, woundableComp);
@@ -767,16 +755,28 @@ public sealed partial class WoundSystem
                 }
                 var bodyPartId = container.ID;
 
+                // Prevent anomalous behaviour
                 if (bodyPart.PartType == BodyPartType.Hand)
-                {
-                    // Prevent anomalous behaviour
                     _hands.TryDrop(bodyPart.Body!.Value, woundableEntity);
-                }
 
                 DropWoundableOrgans(woundableEntity, woundableComp);
                 DestroyWoundableChildren(woundableEntity, woundableComp);
 
+                foreach (var wound in GetWoundableWounds(woundableEntity, woundableComp))
+                    TransferWoundDamage(parentWoundableEntity, woundableEntity, wound);
+
+
+                foreach (var wound in GetWoundableWounds(parentWoundableEntity))
+                {
+                    if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
+                        continue;
+
+                    // Bleeding :3
+                    bleeds.ScalingLimit += 6;
+                }
+
                 _body.DetachPart(parentWoundableEntity, bodyPartId.Remove(0, 15), woundableEntity);
+
                 if (_net.IsServer)
                     QueueDel(woundableEntity);
             }
@@ -908,14 +908,22 @@ public sealed partial class WoundSystem
         WoundableComponent? woundableComp = null,
         WoundComponent? woundComp = null)
     {
+        var bodyPart = Comp<BodyPartComponent>(severed);
+
         if (TryComp(parent, out DamageableComponent? parentDamageable)
-            && TryComp(severed, out DamageableComponent? severedDamageable))
+            && TryComp(severed, out DamageableComponent? severedDamageable)
+            && bodyPart.Body is not null
+            && TryComp<BodyComponent>(bodyPart.Body.Value, out var body)
+            && body.RootContainer.ContainedEntities.Count > 0)
         {
             var damage = severedDamageable.Damage;
-            _damageable.TryChangeDamage(parent, damage, ignoreResistances: true, interruptsDoAfters: false);
+            _damageable.TryChangeDamage(bodyPart.Body.Value,
+                damage,
+                targetPart: _body.GetTargetBodyPart(body.RootContainer.ContainedEntities.First()),
+                ignoreResistances: true,
+                interruptsDoAfters: false);
         }
 
-        var bodyPart = Comp<BodyPartComponent>(severed);
         foreach (var woundEnt in GetWoundableWounds(parent, woundableComp))
         {
             if (MetaData(woundEnt).EntityPrototype!.ID != MetaData(wound).EntityPrototype!.ID)
@@ -1014,7 +1022,9 @@ public sealed partial class WoundSystem
 
         FixWoundableRoots(childEntity, childWoundable);
 
-        var woundableRoot = Comp<WoundableComponent>(parentWoundable.RootWoundable);
+        if (!TryComp<WoundableComponent>(parentWoundable.RootWoundable, out var woundableRoot))
+            return;
+
         var woundableAttached = new WoundableAttachedEvent(parentEntity, parentWoundable);
 
         RaiseLocalEvent(childEntity, ref woundableAttached, true);
@@ -1050,7 +1060,9 @@ public sealed partial class WoundSystem
 
         FixWoundableRoots(childEntity, childWoundable);
 
-        var oldWoundableRoot = Comp<WoundableComponent>(parentWoundable.RootWoundable);
+        if (!TryComp<WoundableComponent>(parentWoundable.RootWoundable, out var oldWoundableRoot))
+            return;
+
         var woundableDetached = new WoundableDetachedEvent(parentEntity, parentWoundable);
 
         RaiseLocalEvent(childEntity, ref woundableDetached);
@@ -1061,7 +1073,7 @@ public sealed partial class WoundSystem
             RaiseLocalEvent(woundId, ref ev);
 
             var ev2 = new WoundRemovedEvent(wound, childWoundable, oldWoundableRoot);
-            RaiseLocalEvent(childWoundable.RootWoundable, ref ev2);
+            RaiseLocalEvent(childWoundable.RootWoundable.Value, ref ev2);
         }
 
         Dirty(childEntity, childWoundable);

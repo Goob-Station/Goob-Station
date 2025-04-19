@@ -10,6 +10,12 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -334,11 +340,10 @@ public sealed class MobThresholdSystem : EntitySystem
     public void VerifyThresholds(EntityUid target, MobThresholdsComponent? threshold = null,
         MobStateComponent? mobState = null, DamageableComponent? damageable = null, BodyComponent? body = null)
     {
-        if (!Resolve(target, ref mobState, ref threshold))
+        if (!Resolve(target, ref mobState, ref threshold, ref damageable))
             return;
 
-        if (damageable != null)
-            CheckThresholds(target, mobState, threshold, damageable);
+        CheckThresholds(target, mobState, threshold, damageable);
 
         if (_net.IsServer)
             RaiseNetworkEvent(new MobThresholdChecked(GetNetEntity(target)), target);
@@ -397,7 +402,7 @@ public sealed class MobThresholdSystem : EntitySystem
     private void UpdateAlerts(EntityUid target, MobState currentMobState, MobThresholdsComponent? threshold = null,
         DamageableComponent? damageable = null, BodyComponent? body = null) // Shitmed Change
     {
-        if (!Resolve(target, ref threshold)) // Shitmed Change
+        if (!Resolve(target, ref threshold, ref damageable)) // Shitmed Change
             return;
 
         // don't handle alerts if they are managed by another system... BobbySim (soon TM)
@@ -418,19 +423,6 @@ public sealed class MobThresholdSystem : EntitySystem
 
         if (alertPrototype.SupportsSeverity)
         {
-            // Shitmed Change Start
-            var totalDamage = (FixedPoint2) 0;
-            if (damageable != null && !HasComp<ConsciousnessComponent>(target))
-            {
-                totalDamage = damageable.TotalDamage;
-            }
-            else
-            {
-                if (body is { RootContainer.ContainedEntity: not null })
-                    foreach (var (_, wound) in _wound.GetAllWounds(body.RootContainer.ContainedEntity.Value))
-                        totalDamage += wound.WoundSeverityPoint;
-            }
-            // Shitmed Change End
             var severity = _alerts.GetMinSeverity(currentAlert);
 
             var ev = new BeforeAlertSeverityCheckEvent(currentAlert, severity);
@@ -443,7 +435,7 @@ public sealed class MobThresholdSystem : EntitySystem
             }
 
             if (TryGetNextState(target, currentMobState, out var nextState, threshold) &&
-                TryGetPercentageForState(target, nextState.Value, totalDamage, out var percentage)) // Shitmed Change
+                TryGetPercentageForState(target, nextState.Value, damageable.TotalDamage, out var percentage))
             {
                 percentage = FixedPoint2.Clamp(percentage.Value, 0, 1);
 

@@ -161,6 +161,26 @@
 
 - type: entity
   parent: SurgeryBase
+  id: SurgeryAttachGroin
+  name: Attach Groin
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepInsertFeature
+    - SurgeryStepSealWounds
+  - type: SurgeryPartCondition
+    part: Chest
+  - type: SurgeryTraumaPresentCondition
+    inverted: true
+    trauma: Dismemberment
+  - type: SurgeryPartRemovedCondition
+    connection: groin
+    part: Groin
+
+- type: entity
+  parent: SurgeryBase
   id: SurgeryAttachLeftArm
   name: Attach Left Arm
   categories: [ HideSpawnMenu ]

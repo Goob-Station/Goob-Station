@@ -155,6 +155,9 @@ public partial class ConsciousnessSystem
         if (TerminatingOrDeleted(target) || !Resolve(target, ref consciousness, ref mobState) || _net.IsClient)
             return;
 
+
+        /* Im not a big fan of how janky the UpdateMobState is for this, so its getting commented out for now.
+
         var newMobState = consciousness.IsConscious
             ? MobState.Alive
             : MobState.Critical;
@@ -171,7 +174,7 @@ public partial class ConsciousnessSystem
         if (consciousness.ForceDead)
             newMobState = MobState.Dead;
 
-        _mobStateSystem.ChangeMobState(target, newMobState, mobState);
+        _mobStateSystem.ChangeMobState(target, newMobState, mobState);*/
     }
 
     private void CheckRequiredParts(EntityUid bodyId, ConsciousnessComponent consciousness)
@@ -179,7 +182,7 @@ public partial class ConsciousnessSystem
         var alive = true;
         var conscious = true;
 
-        foreach (var (/*identifier */_, (entity, forcesDeath, isLost)) in consciousness.RequiredConsciousnessParts)
+        foreach (var (identifier, (entity, forcesDeath, isLost)) in consciousness.RequiredConsciousnessParts)
         {
             if (entity == null || !isLost)
                 continue;
