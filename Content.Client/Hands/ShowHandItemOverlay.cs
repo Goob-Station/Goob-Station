@@ -12,16 +12,19 @@
 
 using System.Numerics;
 using Content.Client.Hands.Systems;
+using Content.Goobstation.Common.MartialArts;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
+using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
 using Robust.Shared.Map;
+using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Hands
@@ -32,8 +35,12 @@ namespace Content.Client.Hands
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
+        [Dependency] private readonly IPlayerManager _player = default!; // Goobstation
 
         private readonly SpriteSystem _sprite; // Goobstation
+
+        private static readonly ResPath ComboAttackRsi =
+            new ResPath("/Textures/_Goobstation/Interface/Misc/intents.rsi"); // Goobstation
 
         private HandsSystem? _hands;
         private readonly IRenderTexture _renderBackbuffer;
@@ -95,6 +102,31 @@ namespace Content.Client.Hands
             var handEntity = _hands.GetActiveHandEntity();
 
             // Goob edit start
+            if (_player.LocalEntity != null)
+            {
+                var comboEv = new GetPerformedAttackTypesEvent(null);
+                _entMan.EventBus.RaiseLocalEvent(_player.LocalEntity.Value, ref comboEv);
+                if (comboEv.AttackTypes is { Count: > 0 })
+                {
+                    var color = Color.White.WithAlpha(0.75f);
+                    for (var i = 0; i < comboEv.AttackTypes.Count; i++)
+                    {
+                        var texture = _sprite.GetState(new SpriteSpecifier.Rsi(ComboAttackRsi,
+                                comboEv.AttackTypes[i].ToString().ToLower()))
+                            .Frame0;
+
+                        var size = texture.Size;
+
+                        var offsetVec2 = new Vector2(-offsetVec.X,
+                            (2f * i + 1f - comboEv.AttackTypes.Count) * texture.Size.Y / 1.8f);
+
+                        screen.DrawTextureRect(texture,
+                            UIBox2.FromDimensions(mousePos.Position - size / 2 + offsetVec2, size),
+                            color);
+                    }
+                }
+            }
+
             if (handEntity == null)
                 return;
 

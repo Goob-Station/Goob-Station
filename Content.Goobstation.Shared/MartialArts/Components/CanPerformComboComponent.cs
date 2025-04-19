@@ -11,17 +11,16 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts.Components;
-[RegisterComponent]
-[NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CanPerformComboComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? CurrentTarget;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public ProtoId<ComboPrototype> BeingPerformed;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public List<ComboAttackType> LastAttacks = new();
 
     [DataField]
@@ -36,6 +35,6 @@ public sealed partial class CanPerformComboComponent : Component
     [DataField]
     public TimeSpan ResetTime = TimeSpan.Zero;
 
-    [DataField]
-    public int ConsecutiveGnashes = 0;
+    [DataField, AutoNetworkedField]
+    public int ConsecutiveGnashes;
 }

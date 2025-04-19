@@ -12,7 +12,6 @@
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -39,11 +38,17 @@ public partial class SharedMartialArtsSystem
 
         ent.Comp.LastAttacks = ent.Comp.LastAttacksSaved;
         ent.Comp.LastAttacksSaved = null;
+
+        if (args.Dirty)
+            Dirty(ent);
     }
 
     private void OnReset(Entity<CanPerformComboComponent> ent, ref ResetLastAttacksEvent args)
     {
         ent.Comp.LastAttacks.Clear();
+
+        if (args.Dirty)
+            Dirty(ent);
     }
 
     private void OnSave(Entity<CanPerformComboComponent> ent, ref SaveLastAttacksEvent args)
@@ -64,10 +69,10 @@ public partial class SharedMartialArtsSystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
 
+        Dirty(uid, component);
+
         if (component.CurrentTarget != null && args.Target != component.CurrentTarget.Value)
-        {
             component.LastAttacks.Clear();
-        }
 
         var afterEv = new AfterComboCheckEvent(uid, args.Target, args.Weapon, args.Type);
 
@@ -118,6 +123,5 @@ public partial class SharedMartialArtsSystem
     private void OnComboBeingPerformed(Entity<CanPerformComboComponent> ent, ref ComboBeingPerformedEvent args)
     {
         ent.Comp.BeingPerformed = args.ProtoId;
-        Dirty(ent, ent.Comp);
     }
 }

@@ -111,12 +111,17 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
-        while (query.MoveNext(out _, out var comp))
+        while (query.MoveNext(out var ent, out var comp))
         {
             if (_timing.CurTime < comp.ResetTime || comp.LastAttacks.Count <= 0)
                 continue;
+
+            if (comp.LastAttacks.Count <= 0 && comp.ConsecutiveGnashes == 0)
+                continue;
+
             comp.LastAttacks.Clear();
             comp.ConsecutiveGnashes = 0;
+            Dirty(ent, comp);
         }
 
         var kravSilencedQuery = EntityQueryEnumerator<KravMagaSilencedComponent>();
