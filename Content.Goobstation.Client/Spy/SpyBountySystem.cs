@@ -7,13 +7,5 @@ namespace Content.Goobstation.Client.Spy;
 /// </summary>
 public sealed class SpyBountySystem : SharedSpyBountySystem
 {
-    public override void SetupBounties()
-    {
-        throw new NotImplementedException();
-    }
 
-    public override void CreateDbEntity()
-    {
-        throw new NotImplementedException();
-    }
 }

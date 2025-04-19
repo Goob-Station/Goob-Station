@@ -186,7 +186,7 @@
     AmePartFlatpackStealObjective: 1
     ExpeditionsCircuitboardStealObjective: 1            #sup
     CargoShuttleCircuitboardStealObjective: 1
-    SalvageShuttleCircuitboardStealObjective: 1
+#    SalvageShuttleCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1                #srv
     BibleStealObjective: 1
     ClothingNeckGoldmedalStealObjective: 1              #other
@@ -223,3 +223,8 @@
   weights:
     EscapeThiefShuttleObjective: 1
 #Changeling, crew, wizard, when you code it...
+- type: weightedRandom
+  id: SpyObjectiveGroups
+  weights:
+    ThiefObjectiveGroupItem: 1
+    ThiefObjectiveGroupStructure: 1

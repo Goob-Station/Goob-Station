@@ -4,8 +4,8 @@ namespace Content.Goobstation.Shared.Spy;
 public sealed partial class SpyBountyDatabaseComponent : Component
 {
     [ViewVariables]
-    public List<SpyBounty> Bounties = [];
+    public HashSet<SpyBountyData> Bounties = [];
 
     [ViewVariables]
-    public List<BlackMarketListing> BlackMarketListings = [];
+    public HashSet<BlackMarketListing> BlackMarketListings = [];
 }

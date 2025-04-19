@@ -277,6 +277,9 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      # Goobstation - Spies
+      enum.SpyUiKey.Key:
+        type: SpyUplinkBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener

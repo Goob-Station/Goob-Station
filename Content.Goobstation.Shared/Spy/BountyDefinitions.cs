@@ -1,5 +1,6 @@
 using Content.Shared.Objectives;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Spy;
 
@@ -14,15 +15,17 @@ public sealed class SpyBountyRewardPrototype : IPrototype // beyond any syndie u
 }
 
 // Active bounty instance
-public struct SpyBounty
+[Serializable, NetSerializable]
+[Virtual, DataDefinition]
+public sealed partial class SpyBountyData
 {
-    public EntityUid? TargetEntity;
+    public NetEntity? TargetEntity;
     public ProtoId<StealTargetGroupPrototype> TargetGroup;
-    public EntityUid? Owner;
+    public NetEntity? Owner;
     public TimeSpan TimeAssigned;
     public TimeSpan? TimeCompleted;
 
-    public SpyBounty(EntityUid targetEntity, ProtoId<StealTargetGroupPrototype> targetGroup)
+    public SpyBountyData(NetEntity targetEntity, ProtoId<StealTargetGroupPrototype> targetGroup)
     {
         TargetEntity = targetEntity;
         TargetGroup = targetGroup;
@@ -32,7 +35,7 @@ public struct SpyBounty
 // Black market listing
 public struct BlackMarketListing
 {
-    public EntityUid Item;
+    public NetEntity Item;
     public int Price;
     public TimeSpan TimeListed;
     public bool Purchased;

@@ -133,6 +133,7 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
+        [Dependency] private readonly SharedSpyBountySystem _spyBounty = default!;
 
         public override void Initialize()
         {
@@ -359,12 +360,14 @@ namespace Content.Server.PDA
             if (!PdaUiKey.Key.Equals(msg.UiKey))
                 return;
 
+            // Goob - Spy start
             // check if its locked again to prevent malicious clients opening locked uplinks
             if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid) && !HasComp<SpyUplinkComponent>(uid))
                 _store.ToggleUi(msg.Actor, uid);
 
             if (HasComp<SpyUplinkComponent>(uid))
-                Log.Debug("Spy attempted to uplink"); // send to spy uplink instead
+                _spyBounty.ToggleUi(msg.Actor, uid); // send to spy uplink instead
+            // Goob - Spy end
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaLockUplinkMessage msg)
