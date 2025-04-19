@@ -100,7 +100,6 @@ using Content.Server.Access.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.CartridgeLoader;
 using Content.Server.Chat.Managers;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.Instruments;
 using Content.Server.PDA.Ringer;
 using Content.Server.Station.Systems;
@@ -117,6 +116,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.PDA
 {
