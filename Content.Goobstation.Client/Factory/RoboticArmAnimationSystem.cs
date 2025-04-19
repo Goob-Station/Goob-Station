@@ -52,6 +52,6 @@ public sealed class RoboticArmAnimationSystem : EntitySystem
             return;
 
         var angle = ent.Comp.HasItem ? new Angle(Math.PI) : Angle.Zero;
-        sprite.LayerSetRotation(RoboticArmLayers.Arm, Angle.Zero);
+        sprite.LayerSetRotation(RoboticArmLayers.Arm, angle);
     }
 }
