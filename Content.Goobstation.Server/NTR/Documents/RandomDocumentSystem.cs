@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Paper;
 using Content.Shared.Paper;    //ammount of times this whole system was re-done: 3
 using Content.Shared.StoryGen; //ammount of hours wasted trying to understand papersystem: 29
