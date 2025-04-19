@@ -14,10 +14,23 @@
   - type: Construction
     graph: POrg
     node: start
+    defaultTarget: porgfull
+
+- type: entity
+  parent: POrgBase
+  id: POrgBuild
+  name: pOrg chassis
+  description: Almost ready for your buddy.
+  components:
+  - type: Sprite
+    state: porg-construction
+  - type: Construction
+    graph: POrg
+    node: porgfull
     defaultTarget: porg
 
 - type: entity
-  parent: BaseMob
+  parent: [BaseMob, StripableInventoryBase]
   id: POrg
   name: pOrg
   description: pAI Operational Roaming Gadget, a simple locomotion unit for your wallet sized friend.
@@ -31,5 +44,213 @@
     graph: POrg
     node: porg
   - type: Carriable
-  - type: Puller
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: CombatMode
+  - type: NoSlip
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 150
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 7.5
+  - type: RotationVisuals
+    horizontalRotation: 90
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      75: Critical
+      150: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+    locPrefix: silicon
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+        requireInputValidation: false
+  - type: IntrinsicUI
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionAGhostShowStationMap
+  - type: Targeting # Shitmed Change
+  - type: ActivatableUI
+    key: enum.BorgUiKey.Key
+  - type: SiliconLawBound
+  - type: SiliconLawProvider
+    laws: FamimovLawset
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+  - type: ComplexInteraction
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+  - type: ZombieImmune
+  - type: Repairable
+    doAfterDelay: 10
+    allowSelfRepair: false
+  - type: WiresPanel
+  - type: ActivatableUIRequiresPanel
+  - type: NameIdentifier
+    group: Silicon
+  - type: ContainerContainer
+    containers:
+      porg_brain: !type:ContainerSlot { }
+  - type: ItemToggle
+    onActivate: false # You should not be able to turn off a borg temporarily.
+    activated: false # gets activated when a mind is added
+    onUse: false # no item-borg toggling sorry
+  - type: ItemTogglePointLight
+  - type: AccessToggle
+  - type: Body
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Flashed
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: UnblockableSpeech
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorg
+  - type: Lock
+    locked: true
+    unlockOnClick: false
+  - type: ActivatableUIRequiresLock
+  - type: LockedWiresPanel
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: Silicon #Goobstation - Iondamage
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 225
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - porg_brain
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: HandheldLight
+    builtin: true
+    toggleOnInteract: false
+    wattage: 0.2
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
+  - type: ToggleableLightVisuals
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 4
+    netsync: false
   - type: Pullable
+  - type: Puller
+    needsHands: false
+  - type: StandingState
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - VimPilot
+  - type: Emoting
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
+  - type: ProtectedFromStepTriggers
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 75 # It's harder to kill iron golem
+    damagePenalty: 0.25

@@ -11,6 +11,9 @@
             "name": "porg-base"
         },
         {
+            "name": "porg-construction"
+        },
+        {
             "name": "porg",
             "directions": 4
         },
