@@ -18,6 +18,9 @@ public sealed partial class AutomatedContainer : AutomationSlot
     [DataField(required: true)]
     public string ContainerId = string.Empty;
 
+    [DataField(required: true)]
+    public int MaxItems;
+
     private SharedContainerSystem _container;
 
     public BaseContainer Container;
@@ -38,7 +41,9 @@ public sealed partial class AutomatedContainer : AutomationSlot
 
     public override bool CanInsert(EntityUid item)
     {
-        return base.CanInsert(item) && _container.CanInsert(item, Container);
+        return base.CanInsert(item)
+            && Container.Count < MaxItems
+            && _container.CanInsert(item, Container);
     }
 
     public override EntityUid? GetItem(EntityUid? filter)
