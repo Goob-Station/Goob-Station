@@ -13,7 +13,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Damage; // Goobstation
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -42,7 +41,12 @@ public sealed partial class GunSystem
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
 
         // Goobstation - partial armor penetration
-        args.Message.AddMessage(ArmorPenetrationExamine.ArmorPenetrationExamineText(GetProjectilePenetration(component.Prototype)));
+        var ap = GetProjectilePenetration(component.Prototype);
+        if (ap == 0)
+            return;
+
+        var absap = Math.Abs(ap);
+        args.Message.AddMarkupPermissive(Loc.GetString("armor-penetration", ("absap", absap), ("ap", ap)));
     }
 
     private DamageSpecifier? GetProjectileDamage(string proto)
@@ -77,17 +81,14 @@ public sealed partial class GunSystem
     }
 
     // Goobstation - partial armor penetration
-    private int? GetProjectilePenetration(string proto)
+    private int GetProjectilePenetration(string proto)
     {
         if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto)
         || !entityProto.Components.TryGetValue(_factory.GetComponentName<ProjectileComponent>(), out var projectile))
-            return null;
+            return 0;
 
         var p = (ProjectileComponent) projectile.Component;
         var pen = (p.IgnoreResistances ? 100 : (int)Math.Round(p.ArmorPenetration * 100));
-
-        if (pen == 0)
-            return null;
 
         return pen;
     }
