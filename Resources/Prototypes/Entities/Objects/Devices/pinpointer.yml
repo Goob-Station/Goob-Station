@@ -118,10 +118,10 @@
 
 - type: entity
   parent: PinpointerBase
-  name: station pinpointer
-  description: A handheld tracking device that leads to the direction of any nearby station.
+  name: research server pinpointer  # Goob edit
+  description: A handheld tracking device that leads to the direction of any nearby research server.
   id: PinpointerStation
-  suffix: Station
+  #suffix: Station # Goob edit
   components:
   - type: Sprite
     layers:
@@ -137,4 +137,4 @@
     whitelist: # Goob edit: pinpointer whitelist
       components:
       - ResearchServer
-    targetName: the station
+    targetName: research servers # Goob edit

@@ -34,6 +34,9 @@ public sealed partial class PinpointerComponent : Component
     [DataField]
     public EntityWhitelist? Whitelist;
 
+    [DataField]
+    public EntityWhitelist? Blacklist;
+
     [DataField("mediumDistance"), ViewVariables(VVAccess.ReadWrite)]
     public float MediumDistance = 16f;
 
@@ -67,6 +70,9 @@ public sealed partial class PinpointerComponent : Component
     [DataField]
     public EntityWhitelist? RetargetingWhitelist;
 
+    [DataField]
+    public EntityWhitelist? RetargetingBlacklist;
+
     /// <summary>
     ///     Whether or not the target can be reassigned.
     /// </summary>
@@ -78,7 +84,7 @@ public sealed partial class PinpointerComponent : Component
     ///     Doesn't work with retargeting, it will always left only one entity in target list.
     /// </summary>
     [DataField]
-    public bool CanTargetMultiple;
+    public bool CanTargetMultiple = true;
 
     /// <summary>
     /// Goob edit: many targets instead of just one

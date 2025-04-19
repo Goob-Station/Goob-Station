@@ -30,7 +30,7 @@
 
 - type: entity
   name: artifact pinpointer
-  description: A handheld tracking device that tracks the nearest artifact. Keep upright to retain accuracy.
+  description: A handheld tracking device that tracks all near artifacts. Keep upright to retain accuracy.
   id: PinpointerArtifact
   parent: PinpointerBase
   components:
@@ -45,7 +45,7 @@
   - type: Icon
     state: pinpointer-science
   - type: Pinpointer
-    canTargetMultiple: true
+    targetName: grids
     whitelist: # Goob edit: pinpointer whitelist
       components:
       - Artifact
@@ -78,20 +78,91 @@
   description: A handheld tracking device that locks onto any item while off. Keep upright to retain accuracy.
   id: PinpointerGeneric
   parent: PinpointerBase
+  suffix: Admin
   components:
   - type: Sprite
     layers:
-    - state: pinpointer-crew
+    - state: pinpointer-universal
       map: ["enum.PinpointerLayers.Base"]
     - state: pinonnull
       map: ["enum.PinpointerLayers.Screen"]
       shader: unshaded
       visible: false
   - type: Icon
-    state: pinpointer-crew
+    state: pinpointer-universal
   - type: Pinpointer
     updateTargetName: true
     canRetarget: true
     retargetingWhitelist: # Goob edit: pinpointer whitelist
       components:
       - Item
+
+- type: entity
+  name: station pinpointer
+  description: A handheld tracking device that tracks all near stations. Keep upright to retain accuracy.
+  id: PinpointerStationGoob
+  parent: PinpointerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-crewprox
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-crewprox
+  - type: Pinpointer
+    targetName: nearest station
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - BecomesStation
+      - LavalandStation # Lavaland change
+
+- type: entity
+  name: thief's pinpointer
+  description: A handheld tracking device that can target anything worthwhile, including high risk items and stealable structures while off. Keep upright to retain accuracy.
+  id: PinpointerThief
+  parent: [ PinpointerBase, BaseMinorContraband ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer_thief
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer_thief
+  - type: Pinpointer
+    updateTargetName: true
+    canRetarget: true
+    retargetingWhitelist: # Goob edit: pinpointer whitelist
+      components:
+      - StealTarget
+
+- type: entity
+  name: syndicate nuke pinpointer
+  description: Produced specifically for nuclear operative missions, get that nuclear bomb!
+  id: PinpointerSyndicateNuclearFission
+  parent: [ PinpointerBase, BaseSyndicateContraband ]
+  components:
+  - type: Sprite
+    layers:
+    - state: pinpointer-syndicate
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    state: pinpointer-syndicate
+  - type: Pinpointer
+    whitelist: # Goob edit: pinpointer whitelist
+      components:
+      - Nuke
+    # TODO: add a special component to Syndicate nuke, so pinpointers can
+    # ignore it and instead track only station nukes
+    targetName: nuclear fission explosive

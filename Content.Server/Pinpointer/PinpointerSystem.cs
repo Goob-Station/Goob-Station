@@ -103,18 +103,18 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
     /// </summary>
     private void LocateTarget(EntityUid uid, PinpointerComponent component)
     {
-        if (component.IsActive && component.Whitelist != null)
+        if (!component.IsActive || component.Whitelist == null)
+            return;
+
+        if (component.CanTargetMultiple)
         {
-            if (component.CanTargetMultiple)
-            {
-                var targets = FindAllTargetsFromComponent(uid, component.Whitelist);
-                SetTargets(uid, targets, component);
-            }
-            else
-            {
-                var target = FindTargetFromComponent(uid, component.Whitelist);
-                SetTarget(uid, target, component);
-            }
+            var targets = FindAllTargetsFromComponent(uid, component.Whitelist, component.Blacklist);
+            SetTargets(uid, targets, component);
+        }
+        else
+        {
+            var target = FindTargetFromComponent(uid, component.Whitelist, component.Blacklist);
+            SetTarget(uid, target, component);
         }
     }
 
@@ -136,12 +136,17 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
     ///     Will return null if can't find anything
     ///     Goob edit: requires EntityWhitelist instead of just Type.
     /// </summary>
-    private EntityUid? FindTargetFromComponent(EntityUid uid, EntityWhitelist whitelist, TransformComponent? transform = null)
+    private EntityUid? FindTargetFromComponent(
+        Entity<TransformComponent?> ent,
+        EntityWhitelist whitelist,
+        EntityWhitelist? blacklist)
     {
-        _xformQuery.Resolve(uid, ref transform, false);
+        _xformQuery.Resolve(ent, ref ent.Comp, false);
 
-        if (transform == null)
+        if (ent.Comp == null)
             return null;
+
+        var transform = ent.Comp;
 
         // sort all entities in distance increasing order
         var mapId = transform.MapID;
@@ -166,6 +171,9 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
                 if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
                     continue;
 
+                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
+                    continue;
+
                 var dist = (_transform.GetWorldPosition(compXform) - worldPos).LengthSquared();
                 l.TryAdd(dist, otherUid);
             }
@@ -179,15 +187,20 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
     /// <summary>
     /// Goob edit: Gets all possible targets within it's whitelist relative to pinpointer entity.
     /// </summary>
-    private List<EntityUid> FindAllTargetsFromComponent(EntityUid uid, EntityWhitelist whitelist, TransformComponent? transform = null)
+    private List<EntityUid> FindAllTargetsFromComponent(
+        Entity<TransformComponent?> ent,
+        EntityWhitelist whitelist,
+        EntityWhitelist? blacklist)
     {
-        _xformQuery.Resolve(uid, ref transform, false);
+        _xformQuery.Resolve(ent, ref ent.Comp, false);
         var list = new List<EntityUid>();
 
-        if (transform == null)
+        if (ent.Comp == null)
             return list;
 
+        var transform = ent.Comp;
         var mapId = transform.MapID;
+
         if (whitelist.Components == null)
             return list;
 
@@ -203,6 +216,9 @@ public sealed class PinpointerSystem : SharedPinpointerSystem
             foreach (var (otherUid, _) in EntityManager.GetAllComponents(reg.Type))
             {
                 if (!_xformQuery.TryGetComponent(otherUid, out var compXform) || compXform.MapID != mapId)
+                    continue;
+
+                if (Whitelist.IsBlacklistPass(blacklist, otherUid))
                     continue;
 
                 list.Add(otherUid);

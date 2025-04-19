@@ -14,12 +14,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 
 namespace Content.Shared.Pinpointer;
@@ -28,7 +30,8 @@ public abstract class SharedPinpointerSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // Goob edit
+    [Dependency] protected readonly EntityWhitelistSystem Whitelist = default!; // Goob edit
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // Goob edit
 
     public override void Initialize()
     {
@@ -43,25 +46,30 @@ public abstract class SharedPinpointerSystem : EntitySystem
     /// </summary>
     private void OnAfterInteract(EntityUid uid, PinpointerComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target is not { } target)
+        if (!args.CanReach || args.Target is not { } target || args.Handled)
             return;
 
-        // Goob edit: retargeting has a whitelist
         if (!component.CanRetarget || component.IsActive)
             return;
 
-        if (_whitelist.IsWhitelistFail(component.RetargetingWhitelist, target))
+        // Goob edit start: retargeting has a whitelist
+        args.Handled = true;
+
+        if (Whitelist.IsWhitelistFail(component.RetargetingWhitelist, target) ||
+            Whitelist.IsBlacklistPass(component.RetargetingBlacklist, target))
+        {
             return;
+        }
 
         // TODO add doafter once the freeze is lifted
-        args.Handled = true;
-        // Goob edit start
         // ignore can target multiple, because too hard to support
         component.Targets.Clear();
         component.Targets.Add(target);
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} set target of {ToPrettyString(uid):pinpointer} to {ToPrettyString(target):target}");
         if (component.UpdateTargetName)
             component.TargetName = Identity.Name(target, EntityManager);
+
+        _popup.PopupPredicted(Loc.GetString("pinpointer-link-success"), uid, args.User);
         // Goob edit end
     }
 
@@ -75,11 +83,19 @@ public abstract class SharedPinpointerSystem : EntitySystem
             return;
 
         if (target == null || pinpointer.Targets.Contains(target.Value))
+        {
             return;
+        }
 
         if (!pinpointer.CanTargetMultiple)
         {
             pinpointer.Targets.Clear();
+        }
+
+        if (TerminatingOrDeleted(target.Value))
+        {
+            TrySetArrowAngle(uid, Angle.Zero, pinpointer);
+            return;
         }
 
         pinpointer.Targets.Add(target.Value);
@@ -103,7 +119,9 @@ public abstract class SharedPinpointerSystem : EntitySystem
             return; // No.
         }
 
-        pinpointer.Targets = targets;
+        var targetsList = targets.Where(Exists).ToList();
+
+        pinpointer.Targets = targetsList;
 
         if (pinpointer.IsActive)
             UpdateDirectionToTarget(uid, pinpointer);
@@ -196,10 +214,14 @@ public abstract class SharedPinpointerSystem : EntitySystem
         if (_emag.CheckFlag(uid, EmagType.Interaction))
             return;
 
-        if (component.CanRetarget)
-            return;
-
         args.Handled = true;
+
+        if (component.CanRetarget)
+        {
+            component.RetargetingWhitelist = null; // Can target anything
+            return;
+        }
+
         component.CanRetarget = true;
     }
 }

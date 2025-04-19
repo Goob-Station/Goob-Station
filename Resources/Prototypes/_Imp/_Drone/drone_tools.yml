@@ -46,17 +46,12 @@
   - type: Unremoveable
 
 - type: entity
-  parent: PinpointerStation
-  id: PinpointerStationUnremoveable
+  parent: PinpointerStationGoob
+  id: PinpointerStationUnremovable
   description: You are the station. Find yourself. Press E to activate.
   suffix: Unremoveable
   components:
   - type: Unremoveable
-  - type: Pinpointer
-    whitelist: # Goob edit: pinpointer whitelist
-      components:
-      - ResearchServer
-    targetName: the station
 
 # PAI actions
 
