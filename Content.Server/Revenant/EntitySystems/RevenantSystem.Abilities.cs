@@ -403,6 +403,13 @@ public sealed partial class RevenantSystem
                 Transform(e).Coordinates.TryDistance(EntityManager, xform.Coordinates, out var dist) ? component.OverloadZapRadius : dist);
             var comp = EnsureComp<RevenantOverloadedLightsComponent>(allLight.First());
             comp.Target = ent; //who they gon fire at?
+
+            if (!HasComp<RevenantOverloadedLightsComponent>(uid)) //Goob edit, Makes revenant also spawn lightning from itself
+            {
+                var revenantComp = EnsureComp<RevenantOverloadedLightsComponent>(uid);
+                revenantComp.Target = ent;
+            }
+
         }
     }
 

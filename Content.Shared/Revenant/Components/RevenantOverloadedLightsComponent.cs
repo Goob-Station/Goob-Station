@@ -27,7 +27,7 @@ public sealed partial class RevenantOverloadedLightsComponent : Component
     public float ZapDelay = 2f;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ZapRange = 6f;
+    public float ZapRange = 7f;
 
     [DataField("zapBeamEntityId",customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string ZapBeamEntityId = "LightningRevenant";
