@@ -52,7 +52,7 @@
     Nitrogen:
       amount: 1
   products:
-    Ammonia: 4
+    Ammonia: 3
 
 - type: reaction
   id: CelluloseBreakdown
