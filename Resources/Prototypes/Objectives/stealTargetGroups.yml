@@ -226,7 +226,7 @@
     state: icon
 
 - type: stealTargetGroup
-  id: ClothingOuterHardsuitVoidParamed
+  id: ClothingOuterVoidsuitParamedic # Goob edit
   name: steal-target-groups-clothing-outer-hardsuit-void-paramed
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi

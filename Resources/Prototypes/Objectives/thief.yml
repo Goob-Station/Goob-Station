@@ -290,12 +290,12 @@
 
 - type: entity                                      #Medical subgroup
   parent: BaseThiefStealObjective
-  id: ClothingOuterHardsuitVoidParamedStealObjective
+  id: ClothingOuterVoidsuitParamedicStealObjective # Goob edit
   components:
   - type: NotJobRequirement
     job: Paramedic
   - type: StealCondition
-    stealGroup: ClothingOuterHardsuitVoidParamed
+    stealGroup: ClothingOuterVoidsuitParamedic # Goob edit
   - type: Objective
     difficulty: 1
 

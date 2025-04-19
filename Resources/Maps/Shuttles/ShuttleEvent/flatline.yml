@@ -878,7 +878,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingOuterHardsuitVoidParamed
+- proto: UndeterminedVoidsuitParamedic
   entities:
   - uid: 208
     components:

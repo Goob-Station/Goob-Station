@@ -5615,7 +5615,7 @@ entities:
     - type: Transform
       pos: 3.488811,9.626272
       parent: 2
-- proto: ClothingOuterHardsuitVoidParamed
+- proto: ClothingOuterVoidsuitParamedic
   entities:
   - uid: 800
     components:
