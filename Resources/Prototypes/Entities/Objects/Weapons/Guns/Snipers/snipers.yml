@@ -121,6 +121,9 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
     size: Huge
+    shape:
+      - 0,0,6,1
+    storedRotation: 45
   - type: Clothing
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
     quickEquip: false
