@@ -69,12 +69,12 @@
   - type: StorageFill
     contents:
       - id: ClothingHeadHelmetEVALarge
-      - id: ClothingOuterHardsuitEVAPrisoner 
+      - id: ClothingOuterHardsuitEVAPrisoner
       - id: ClothingHeadHelmetEVALarge
         prob: 0.80
       - id: ClothingOuterHardsuitEVAPrisoner
         prob: 0.80
-      - id: ClothingOuterVoidsuitParamedic # >make change, need to git pull, git pull, git gui no longer shows a change
+      - id: ClothingOuterVoidsuitParamedic # Goob edit
         prob: 0.10
       - id: ClothingOuterRedRacoon
         prob: 0.10
