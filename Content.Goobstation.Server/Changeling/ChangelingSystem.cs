@@ -92,6 +92,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using Content.Goobstation.Server.Flashbang;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -139,6 +140,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -258,17 +260,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         var chemicals = comp.Chemicals;
         // either amount or regen
 
-        if (TryComp<FlammableComponent>(uid, out var flame)) // if on fire, reduce total chemicals restored to a 1/4 - if not, continue as normal //
+        if (!CheckFireStatus(uid)) // if on fire, reduce total chemicals restored to a 1/4 //
         {
-            if (!flame.OnFire)
-            {
-                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
-            }
-            else
-            {
-                chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
-            }
-
+            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
+        }
+        else
+        {
+            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
         }
 
         comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
@@ -378,6 +376,33 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
 
     /// <summary>
+    /// Knocks down and/or stuns entities in range if they aren't a changeling
+    /// </summary>
+    public void TryScreechStun(EntityUid uid, ChangelingIdentityComponent comp)
+    {
+        var nearbyEntities = _lookup.GetEntitiesInRange(uid, comp.ShriekPower);
+
+        var stunTime = 2f;
+        var knockdownTime = 4f;
+
+        foreach (var player in nearbyEntities)
+        {
+            if (HasComp<ChangelingIdentityComponent>(player))
+                continue;
+
+            if (CheckSoundSuppression(player, "ears") || CheckSoundSuppression(player, "head"))
+            {
+                _stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);
+                _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime / 2f), true);
+                continue;
+            }
+
+            _stun.TryStun(player, TimeSpan.FromSeconds(stunTime), true);
+            _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime), true);
+        }
+    }
+
+    /// <summary>
     ///     Check if the target is crit/dead or cuffed, for absorbing.
     /// </summary>
     public bool IsIncapacitated(EntityUid uid)
@@ -402,6 +427,23 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return comp.Equipment.ContainsKey(proto) ? 0f : null;
     }
 
+    /// <summary>
+    ///     Check if target has sound suppression
+    /// </summary>
+    public bool CheckSoundSuppression(EntityUid uid, string slotId)
+    {
+        if (_inventory.TryGetSlotEntity(uid, slotId, out var itemUid))
+        {
+            return HasComp<FlashSoundSuppressionComponent>(itemUid);
+        }
+        return false;
+    }
+
+    public bool CheckFireStatus(EntityUid uid)
+    {
+        return (TryComp<FlammableComponent>(uid, out var fire) && fire.OnFire);
+    }
+
     public bool TryUseAbility(EntityUid uid,
         ChangelingIdentityComponent comp,
         BaseActionEvent action,
@@ -414,13 +456,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
 
-        if (TryComp<FlammableComponent>(uid, out var fire)) // checks if the changeling is on fire, and if the ability is affected by fire
+        if (CheckFireStatus(uid) && fireAffected) // checks if the changeling is on fire, and if the ability is affected by fire
         {
-            if (fire.OnFire && fireAffected)
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
-                return false;
-            }
+            _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
+            return false;
         }
 
         if (comp.Biomass < 1 && lingAction.RequireBiomass)

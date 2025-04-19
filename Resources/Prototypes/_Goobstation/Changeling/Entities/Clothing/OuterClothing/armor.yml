@@ -28,13 +28,12 @@
         Slash: 0.5
         Piercing: 0.5
         Heat: 0.5
-        Radiation: 0.5
         Caustic: 0.5
   - type: FireProtection
     reduction: 0.65 # made to help protect changelings against fire. gives it a real purpose to use over regular armor
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 1
+    sprintModifier: 1
   - type: HeldSpeedModifier
   - type: ExplosionResistance
     damageCoefficient: 0.5

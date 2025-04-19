@@ -66,8 +66,8 @@ changeling-passive-activate = Activated ability
 changeling-passive-activate-fail = Failed to activate the ability
 changeling-passive-active = Already active!
 
-changeling-fleshmend = Our body twists, sealing wounds and regenerating dead cells
-changeling-panacea = We mutate and alter our DNA for better cell regeneration
+changeling-fleshmend = We begin to seal our wounds and regenerate dead cells.
+changeling-panacea = We begin to reconstruct our cellular structure and immune system.
 
 changeling-chameleon-start = We adapt our skin to the environment
 changeling-chameleon-end = Our skin is losing its translucency

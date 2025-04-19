@@ -74,7 +74,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     public bool ChameleonActive = false;
 
     public bool VoidAdaptActive = false;
-    public float DefaultColdDamageThreshold; // changeling's species default thresholds
 
     public List<EntityUid>? ActiveArmor = null;
 

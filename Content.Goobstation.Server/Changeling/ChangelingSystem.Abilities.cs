@@ -47,15 +47,13 @@ using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
 using Content.Server.Temperature.Components;
-using Content.Server.Atmos.Components;
 using Content.Shared._Shitmed.Body.Components;
-using Content.Server.Flash.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Temperature.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Goobstation.Shared.Overlays;
+using Content.Goobstation.Shared.Atmos.Components;
+using Content.Goobstation.Shared.Temperature.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -134,13 +132,10 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-nograb"), uid, uid);
             return;
         }
-        if (TryComp<FlammableComponent>(target, out var flame)) // checks if the target is on fire
+        if (CheckFireStatus(uid)) // checks if the target is on fire
         {
-            if (flame.OnFire)
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
-                return;
-            }
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
+            return;
         }
 
         if (!TryUseAbility(uid, comp, args))
@@ -389,7 +384,7 @@ public sealed partial class ChangelingSystem
             var puller = Comp<PullableComponent>(uid).Puller;
             if (puller != null)
             {
-                _stun.KnockdownOrStun((EntityUid) puller, TimeSpan.FromSeconds(1), true);
+                _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1), true);
             }
         }
     }
@@ -527,26 +522,12 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
             return;
 
-        DoScreech(uid, comp);
+        DoScreech(uid, comp); // screenshake
+        TryScreechStun(uid, comp); // the actual thing
 
         var power = comp.ShriekPower;
-        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
-
-        if (HasComp<FlashImmunityComponent>(uid) && !HasComp<ThermalVisionComponent>(uid))
-        {
-            _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
-        }
-        else
-        {
-            thermalVision.FlashDurationMultiplier -= 1f;
-            EnsureComp<FlashImmunityComponent>(uid);
-            _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
-            RemComp<FlashImmunityComponent>(uid);
-            thermalVision.FlashDurationMultiplier += 1f;
-        }
-
-        var lookup = _lookup.GetEntitiesInRange(uid, power);
         var lights = GetEntityQuery<PoweredLightComponent>();
+        var lookup = _lookup.GetEntitiesInRange(uid, power);
 
         foreach (var ent in lookup)
             if (lights.HasComponent(ent))
@@ -629,13 +610,10 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
-        if (TryComp<FlammableComponent>(target, out var flame)) // checks if the target is on fire
+        if (CheckFireStatus(uid)) // checks if the target is on fire
         {
-            if (flame.OnFire)
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
-                return;
-            }
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-onfire"), uid, uid);
+            return;
         }
         var mind = _mind.GetMind(uid);
         if (mind == null)
@@ -702,10 +680,10 @@ public sealed partial class ChangelingSystem
             var puller = Comp<PullableComponent>(uid).Puller;
             if (puller != null)
             {
-                _puddle.TrySplashSpillAt((EntityUid) puller, Transform((EntityUid) puller).Coordinates, soln, out _);
-                _stun.KnockdownOrStun((EntityUid) puller, TimeSpan.FromSeconds(1.5), true);
+                _puddle.TrySplashSpillAt(puller.Value, Transform((EntityUid) puller).Coordinates, soln, out _);
+                _stun.KnockdownOrStun(puller.Value, TimeSpan.FromSeconds(1.5), true);
 
-                if (!TryComp((EntityUid) puller, out StatusEffectsComponent? status))
+                if (!TryComp(puller.Value, out StatusEffectsComponent? status))
                     return;
 
                 _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>((EntityUid) puller,
@@ -749,11 +727,9 @@ public sealed partial class ChangelingSystem
 
             if (!comp.VoidAdaptActive)
             {
-                comp.DefaultColdDamageThreshold = tempComp.ColdDamageThreshold; // to account for species having different temp thresholds
-
-                EnsureComp<BreathingImmunityComponent>(uid);
-                EnsureComp<PressureImmunityComponent>(uid);
-                EnsureComp<TemperatureSlowImmuneComponent>(uid);
+                EnsureComp<SpecialBreathingImmunityComponent>(uid);
+                EnsureComp<SpecialPressureImmunityComponent>(uid);
+                EnsureComp<SpecialLowTempImmunityComponent>(uid);
                 tempComp.ColdDamageThreshold = -273.15f;
                 _popup.PopupEntity(Loc.GetString("changeling-voidadapt-start"), uid, uid);
                 comp.VoidAdaptActive = true;
@@ -761,10 +737,9 @@ public sealed partial class ChangelingSystem
             }
             else
             {
-                RemComp<BreathingImmunityComponent>(uid);
-                RemComp<PressureImmunityComponent>(uid);
-                RemComp<TemperatureSlowImmuneComponent>(uid);
-                tempComp.ColdDamageThreshold = comp.DefaultColdDamageThreshold;
+                RemComp<SpecialBreathingImmunityComponent>(uid);
+                RemComp<SpecialPressureImmunityComponent>(uid);
+                RemComp<SpecialLowTempImmunityComponent>(uid);
                 _popup.PopupEntity(Loc.GetString("changeling-voidadapt-end"), uid, uid);
                 comp.VoidAdaptActive = false;
                 comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed

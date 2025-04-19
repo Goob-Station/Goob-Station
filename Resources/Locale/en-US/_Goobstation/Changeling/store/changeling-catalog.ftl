@@ -39,30 +39,31 @@ evolutionmenu-combat-boneshard-desc =
 evolutionmenu-combat-armor-name = Chitinous Armor
 evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
-    Provides extensive protection against physical damage, but less against other types.
-    It massively slows your movement, and maintaining its shape slows chemical generation.
+    Provides solid protection against physical damage.
+    Maintaining its shape slows chemical generation.
     WARNING: Requires you to absorb at least 2 organics to use the ability.
     Costs 25 chemicals.
 
 evolutionmenu-combat-shield-name = Organic Shield
-evolutionmenu-combat-shield-desc =
+evolutionmenu-combat-shield-desc = 
     Reforms one of your arms into a large, fleshy shield.
-    Blocks attacks automatically, but very brittle.
+    Reduces incoming damage, albeit is less durable than conventional shields.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 20 chemicals.
 
 evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
 evolutionmenu-combat-shriek-dissonant-desc =
-    You emit an EMP blast, which disables technology in the surrounding area, including radio headsets.
+    You scream out an EMP blast, which disables technology in the surrounding area, including radio headsets.
     Good for escaping cyborgs and security.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
 evolutionmenu-combat-shriek-resonant-name = Resonant Shriek
 evolutionmenu-combat-shriek-resonant-desc =
-    You emit a tone beyond the range of human hearing,
-    bursting lights and causing disorientation in an area around yourself.
+    You scream out a disorienting high frequency sound,
+    bursting lights as well as causing sensory overloads in organisms and silicons.
     Good for escaping groups, or hindering people from fleeing.
+    Changelings are not affected by this sound, and ear protection will reduce disorientation.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals.
 
@@ -115,7 +116,7 @@ evolutionmenu-sting-armblade-desc =
 evolutionmenu-utility-panacea-name = Anatomic Panacea
 evolutionmenu-utility-panacea-desc =
     Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
-    Costs 35 chemicals.
+    Costs 30 chemicals.
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
@@ -151,7 +152,7 @@ evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Rapidly heal your brute damage.
     Burn and oxygen damage healed at a lower amount.
-    Costs 40 chemicals.
+    Costs 35 chemicals.
 
 evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc =

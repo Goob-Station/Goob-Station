@@ -191,7 +191,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Anatomic Panacea
   <Box>
-    [color=#999999][italic] 2 Evolution Points / 35 Chems [italic][/color]
+    [color=#999999][italic] 2 Evolution Points / 30 Chems [italic][/color]
   </Box>
   - Produces 10 units of Ling Panacea within the changeling.
   - Heals 60 genetic, radiation and poison damage.
@@ -282,9 +282,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Fleshmend
   <Box>
-    [color=#999999][italic] 5 Evolution Points / 40 Chems [italic][/color]
+    [color=#999999][italic] 5 Evolution Points / 35 Chems [italic][/color]
   </Box>
-  - Changeling produces 10 units of changeling fleshmenders.
+  - Changeling produces 5 units of changeling fleshmenders.
   - Reduces bleed by 8 every unit.
   - Restores 20 blood level per unit.
   - Heals 70 of each brute damage.

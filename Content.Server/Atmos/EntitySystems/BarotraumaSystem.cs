@@ -28,6 +28,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
+using Content.Goobstation.Shared.Atmos.Components;
 using Content.Server._Goobstation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
@@ -197,7 +198,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float GetFeltLowPressure(EntityUid uid, BarotraumaComponent barotrauma, float environmentPressure)
         {
-            if (barotrauma.HasImmunity)
+            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid))
             {
                 return Atmospherics.OneAtmosphere;
             }
@@ -211,7 +212,7 @@ namespace Content.Server.Atmos.EntitySystems
         /// </summary>
         public float GetFeltHighPressure(EntityUid uid, BarotraumaComponent barotrauma, float environmentPressure)
         {
-            if (barotrauma.HasImmunity)
+            if (barotrauma.HasImmunity || HasComp<SpecialPressureImmunityComponent>(uid))
             {
                 return Atmospherics.OneAtmosphere;
             }

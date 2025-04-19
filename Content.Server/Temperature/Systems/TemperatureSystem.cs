@@ -105,6 +105,7 @@ using Content.Shared.Temperature;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Projectiles;
+using Content.Goobstation.Shared.Temperature.Components;
 
 namespace Content.Server.Temperature.Systems;
 
@@ -235,6 +236,11 @@ public sealed class TemperatureSystem : EntitySystem
         float lastTemp = temperature.CurrentTemperature;
         temperature.CurrentTemperature += heatAmount / GetHeatCapacity(uid, temperature);
         float delta = temperature.CurrentTemperature - lastTemp;
+
+        if (HasComp<SpecialLowTempImmunityComponent>(uid) && temperature.CurrentTemperature < Atmospherics.T37C) // Goob edit
+        {
+            temperature.CurrentTemperature = Atmospherics.T37C;
+        }
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), true);
     }
