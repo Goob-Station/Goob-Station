@@ -45,7 +45,7 @@
   - type: Icon
     state: pinpointer-science
   - type: Pinpointer
-    targetName: grids
+    targetName: artifacts
     whitelist: # Goob edit: pinpointer whitelist
       components:
       - Artifact
@@ -121,7 +121,7 @@
       - LavalandStation # Lavaland change
 
 - type: entity
-  name: thief's pinpointer
+  name: thieving pinpointer
   description: A handheld tracking device that can target anything worthwhile, including high risk items and stealable structures while off. Keep upright to retain accuracy.
   id: PinpointerThief
   parent: [ PinpointerBase, BaseMinorContraband ]
@@ -141,7 +141,7 @@
     canRetarget: true
     retargetingWhitelist: # Goob edit: pinpointer whitelist
       components:
-      - StealTarget
+      - StealTarget # You can marker your objective with it!
 
 - type: entity
   name: syndicate nuke pinpointer

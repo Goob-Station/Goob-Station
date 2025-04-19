@@ -5,7 +5,7 @@
 
 - type: latheRecipe
   id: Pinpointer
-  result: PinpointerGeneric
+  result: PinpointerStationGoob
   completetime: 3
   materials:
     Steel: 600
