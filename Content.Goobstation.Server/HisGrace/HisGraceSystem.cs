@@ -15,6 +15,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Hands;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Jittering;
@@ -236,7 +237,7 @@ public sealed partial class HisGraceSystem : EntitySystem
                     var coordinates = _transform.GetMapCoordinates(uid);
                     var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
 
-                    _damageable.TryChangeDamage(entity, melee.Damage);
+                    _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Head, origin: uid);
                     _audio.PlayPvs(melee.HitSound, uid);
                     _popup.PopupEntity(Loc.GetString("hisgrace-attack-popup", ("target", Name(entity))), uid, PopupType.LargeCaution);
                     _melee.DoLunge(uid, uid, angle, coordinates.Position, null, angle, false, false);
@@ -328,8 +329,8 @@ public sealed partial class HisGraceSystem : EntitySystem
         _audio.PlayPvs(comp.SoundDevour, target);
         _popup.PopupEntity(devourPopup, target, PopupType.LargeCaution);
 
-        // don't apply bonuses for enities consumed that don't have minds
-        if (_mind.TryGetMind(target, out _, out _))
+        // don't apply bonuses for enities consumed that don't have minds or aren't human (no farming sentient mice)
+        if (_mind.TryGetMind(target, out _, out _) && HasComp<HumanoidAppearanceComponent>(target))
         {
             var ev = new HisGraceEntityConsumedEvent();
             RaiseLocalEvent(comp.Owner, ref ev);
