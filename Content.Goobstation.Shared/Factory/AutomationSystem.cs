@@ -62,7 +62,7 @@ public sealed class AutomationSystem : EntitySystem
     public AutomationSlot? GetSlot(Entity<AutomationSlotsComponent?> ent, string port, bool input)
     {
         // entity has no automation slots to begin with
-        if (!_slotsQuery.Resolve(ref ent, false))
+        if (!_slotsQuery.Resolve(ent, ref ent.Comp, false))
             return null;
 
         // automation isn't enabled

@@ -135,7 +135,7 @@ public sealed class RoboticArmSystem : EntitySystem
         // need to only get EndCollide when it leaves the area, not when it sleeps
         _wake.SetEnabled(item, false, wake);
         ent.Comp.InputItems.Add((GetNetEntity(item), wakeEnabled));
-        DirtyField(ent, nameof(RoboticArmComponent.InputItems));
+        DirtyField((ent, ent), nameof(RoboticArmComponent.InputItems));
     }
 
     private void OnEndCollide(Entity<RoboticArmComponent> ent, ref EndCollideEvent args)
@@ -151,7 +151,7 @@ public sealed class RoboticArmSystem : EntitySystem
 
         var wake = ent.Comp.InputItems[i].Item2;
         ent.Comp.InputItems.RemoveAt(i);
-        DirtyField(ent, nameof(RoboticArmComponent.InputItems));
+        DirtyField((ent, ent), nameof(RoboticArmComponent.InputItems));
         _wake.SetEnabled(args.OtherEntity, wake); // don't break conveyors for skipped items
     }
 
@@ -214,16 +214,16 @@ public sealed class RoboticArmSystem : EntitySystem
             ent.Comp.InputMachine = GetNetEntity(args.Source);
             ent.Comp.InputMachinePort = args.SourcePort;
             ent.Comp.InputSlot = _automation.GetSlot(args.Source, args.SourcePort, input: false);
-            DirtyField(ent, nameof(RoboticArmComponent.InputMachine));
-            DirtyField(ent, nameof(RoboticArmComponent.InputMachinePort));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.InputMachine));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.InputMachinePort));
         }
         else if (args.SourcePort == ent.Comp.OutputPort)
         {
             ent.Comp.OutputMachine = GetNetEntity(args.Sink);
             ent.Comp.OutputMachinePort = args.SinkPort;
             ent.Comp.OutputSlot = _automation.GetSlot(args.Sink, args.SinkPort, input: true);
-            DirtyField(ent, nameof(RoboticArmComponent.OutputMachine));
-            DirtyField(ent, nameof(RoboticArmComponent.OutputMachinePort));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.OutputMachine));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.OutputMachinePort));
         }
     }
 
@@ -237,16 +237,16 @@ public sealed class RoboticArmSystem : EntitySystem
             ent.Comp.InputMachine = null;
             ent.Comp.InputMachinePort = null;
             ent.Comp.InputSlot = null;
-            DirtyField(ent, nameof(RoboticArmComponent.InputMachine));
-            DirtyField(ent, nameof(RoboticArmComponent.InputMachinePort));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.InputMachine));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.InputMachinePort));
         }
         else if (args.Port == ent.Comp.OutputPort)
         {
             ent.Comp.OutputMachine = null;
             ent.Comp.OutputMachinePort = null;
             ent.Comp.OutputSlot = null;
-            DirtyField(ent, nameof(RoboticArmComponent.OutputMachine));
-            DirtyField(ent, nameof(RoboticArmComponent.OutputMachinePort));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.OutputMachine));
+            DirtyField((ent, ent), nameof(RoboticArmComponent.OutputMachinePort));
         }
     }
 
@@ -303,7 +303,7 @@ public sealed class RoboticArmSystem : EntitySystem
             if (output?.CanInsert(item.Value) ?? true)
             {
                 ent.Comp.InputItems.RemoveAt(i);
-                DirtyField(ent, nameof(RoboticArmComponent.InputItems));
+                DirtyField((ent, ent), nameof(RoboticArmComponent.InputItems));
                 found = item.Value;
                 break;
             }
@@ -375,14 +375,14 @@ public sealed class RoboticArmSystem : EntitySystem
     {
         SetPowerDraw(ent, ent.Comp.MovingPowerDraw);
         ent.Comp.NextMove = _timing.CurTime + ent.Comp.MoveDelay;
-        DirtyField(ent, nameof(RoboticArmComponent.NextMove));
+        DirtyField((ent, ent), nameof(RoboticArmComponent.NextMove));
     }
 
     private void StopMoving(Entity<RoboticArmComponent> ent)
     {
         SetPowerDraw(ent, ent.Comp.IdlePowerDraw);
         ent.Comp.NextMove = null;
-        DirtyField(ent, nameof(RoboticArmComponent.NextMove));
+        DirtyField((ent, ent), nameof(RoboticArmComponent.NextMove));
     }
 
     private void SetPowerDraw(EntityUid uid, float draw)
