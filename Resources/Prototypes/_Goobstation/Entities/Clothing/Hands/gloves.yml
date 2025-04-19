@@ -315,7 +315,7 @@
     size: Small
     storedRotation: -90
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.4
     damage:
       types:
         Blunt: 12
@@ -355,12 +355,17 @@
   - type: Sprite
     state: syndicateknuckleduster
   - type: MeleeWeapon
+    attackRate: 1.5
     damage:
       types:
         Blunt: 16
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
 
 - type: entity
-  parent: [ClothingHandsKnuckleDustersBase, BaseGrandTheftContraband]
+  parent: [ClothingHandsKnuckleDustersBase, BaseCommandContraband]
   id: ClothingHandsKnucklesQuartermaster
   suffix: DO NOT MAP
   name: quartermaster's engraved knuckleduster
@@ -369,16 +374,18 @@
   - type: Sprite
     state: goldenknuckleduster
   - type: MeleeWeapon
+    attackRate: 1.4
     damage:
       types:
-        Blunt: 12
+        Blunt: 13
+    mustBeEquippedToUse: true
   - type: PhysicalComposition
     materialComposition:
       Gold: 500
   - type: StaticPrice
-    price: 1337
+    price: 1500
   - type: StaminaDamageOnHit
-    damage: 18 # plus half the blunt (6) - 24 damage - 5 hits to stun
+    damage: 12
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -399,5 +406,8 @@
     damage:
       types:
         Blunt: 35
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag

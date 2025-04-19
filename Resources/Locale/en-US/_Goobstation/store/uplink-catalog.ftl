@@ -117,6 +117,9 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 uplink-m7s-name = M7S
 uplink-m7s-desc = A high capacity but low velocity submachinegun that takes 48 round magazines.
 
+uplink-heavensgate-name = Heaven's gate
+uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade
@@ -160,6 +163,12 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 
 uplink-m7s-mag-name = M7S .25 magazine
 uplink-m7s-mag-desc = A 48 round .25 rifle magazine, side mounts on the M7S submachinegun
+
+uplink-92-AP-name = box of .92 armour piercing rounds
+uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper rifle. effective for anti-infantry use.
+
+uplink-92-AT-name = box of .92 anti-tank rounds
+uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
 
 # Grenades
 
