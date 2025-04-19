@@ -118,7 +118,7 @@ uplink-m7s-name = M7S
 uplink-m7s-desc = A high capacity but low velocity submachinegun that takes 48 round magazines.
 
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
-uplink-he1sg8-bundle-desc = High Energy One-Shell bundle. Comes with 10 demolishing and 10 overcharged Gauss-8 cartridges.
+uplink-he1sg8-bundle-desc = High Energy One-Shell bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges.
 
 # Ammo
 

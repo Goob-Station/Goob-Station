@@ -59,6 +59,7 @@
   lightColor: Cyan
   fireColor: Cyan
   texturePath: /Textures/Effects/fire_greyscale.rsi
-  smallSoundIterationThreshold: 0
   sound:
+    path: /Audio/Effects/tesla_collapse.ogg
+  smallSound:
     path: /Audio/Effects/tesla_collapse.ogg
