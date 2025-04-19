@@ -21,6 +21,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
@@ -38,6 +39,7 @@ namespace Content.Client.Hands
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
         [Dependency] private readonly IPlayerManager _player = default!; // Goobstation
+        [Dependency] private readonly IResourceCache _resourceCache = default!; // Goobstation
 
         private readonly SpriteSystem _sprite; // Goobstation
 
@@ -113,9 +115,11 @@ namespace Content.Client.Hands
                     var color = Color.White.WithAlpha(0.75f);
                     for (var i = 0; i < comboEv.AttackTypes.Count; i++)
                     {
-                        var texture = _sprite.GetState(new SpriteSpecifier.Rsi(ComboAttackRsi,
-                                comboEv.AttackTypes[i].ToString().ToLower()))
-                            .Frame0;
+                        var rsiActual = _resourceCache.GetResource<RSIResource>(ComboAttackRsi).RSI;
+                        if (!rsiActual.TryGetState(comboEv.AttackTypes[i].ToString().ToLower(), out var state))
+                            continue;
+                        
+                        var texture = state.Frame0;
 
                         var size = texture.Size;
 
