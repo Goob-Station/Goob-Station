@@ -85,6 +85,8 @@
 # SPDX-FileCopyrightText: 2024 vorkathbruh <152932728+vorkathbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -172,24 +174,25 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
+    back: ClothingBackpackDuffelSyndicateMedical # Goobstation
     eyes: ClothingEyesHudSyndicateAgent
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    belt: ClothingBeltChemBagSyndiFilled # Goobstation
     pocket2: BaseUplinkRadio225TCMedic
   storage:
     back:
     - SyndiHypo
-    - SawAdvanced
-    - Cautery
+    #- SawAdvanced # Shitmed
+    #- Cautery # Shitmed
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    - HandheldHealthAnalyzer
+    #- HandheldHealthAnalyzer # Goobstation
     - CombatMedipen
     - DeathAcidifierImplanter
-    - OmnimedToolSyndie # Shitmed
+    - MedkitCombatFilled # Goobstation
 
 #Lone Operative Gear
 - type: startingGear
