@@ -92,7 +92,14 @@
       input: AutomationSlotInput
       output: AutomationSlotInput
       containerId: disposals
-      maxItems: 30 # disposals doesn't have a limit this is just so you can't use it one as an ME system
+      maxItems: 30 # disposals doesn't have a limit this is just so you can't use it as an ME system
+    - !type:AutomatedPorts
+      sinks:
+      - Toggle
+      - DisposalFlush
+      - DisposalEject
+      sources:
+      - DisposalReady
   - type: ContainerContainer
     containers:
       disposals: !type:Container

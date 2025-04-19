@@ -24,3 +24,14 @@ signal-port-description-automation-slot-board = An automation slot for a flatpac
 
 signal-port-name-automation-slot-materials = Item: Material Storage
 signal-port-description-automation-slot-materials = An automation slot for inserting materials into a machine's storage.
+
+# Disposal unit
+
+signal-port-name-flush = Flush
+signal-port-description-flush = Signal port to toggle a disposal unit's flush mechanism.
+
+signal-port-name-eject = Eject
+signal-port-description-eject = Signal port to eject a disposal unit's contents.
+
+signal-port-name-ready = Ready
+signal-port-description-ready = Signal port that gets pulsed after a disposal unit becomes fully pressurized.

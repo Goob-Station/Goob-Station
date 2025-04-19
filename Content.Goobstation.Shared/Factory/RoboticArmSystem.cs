@@ -43,7 +43,7 @@ public sealed class RoboticArmSystem : EntitySystem
         base.Initialize();
 
         _itemQuery = GetEntityQuery<ItemComponent>();
-        _thrownQuery = GetEntityQuery<ItemComponent>();
+        _thrownQuery = GetEntityQuery<ThrownItemComponent>();
 
         SubscribeLocalEvent<RoboticArmComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RoboticArmComponent, AfterAutoHandleStateEvent>(OnHandleState);
@@ -123,7 +123,7 @@ public sealed class RoboticArmSystem : EntitySystem
             return;
 
         // thrown items move too fast to be caught...
-        if (thrownQuery.HasComp(item))
+        if (_thrownQuery.HasComp(item))
             return;
 
         // ignore non-filtered items

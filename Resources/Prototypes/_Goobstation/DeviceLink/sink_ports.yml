@@ -4,6 +4,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# Robotic Arm
+
 - type: sinkPort
   id: MaterialSiloUtilizer
   name: signal-port-name-material-silo-utilizer
@@ -13,6 +15,8 @@
   id: RoboticArmInput
   name: signal-port-name-input-machine
   description: signal-port-description-input-machine
+
+# Reagent Grinder
 
 - type: sinkPort
   id: AutomationSlotBeaker
@@ -24,6 +28,8 @@
   name: signal-port-name-automation-slot-input
   description: signal-port-description-automation-slot-input
 
+# Flatpacker
+
 - type: sinkPort
   id: AutomationSlotBoard
   name: signal-port-name-automation-slot-board
@@ -33,3 +39,15 @@
   id: AutomationSlotMaterials
   name: signal-port-name-automation-slot-materials
   description: signal-port-description-automation-slot-materials
+
+# Disposal Unit
+
+- type: sinkPort
+  id: DisposalFlush
+  name: signal-port-name-flush
+  description: signal-port-description-flush
+
+- type: sinkPort
+  id: DisposalEject
+  name: signal-port-name-eject
+  description: signal-port-description-eject
