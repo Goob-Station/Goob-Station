@@ -220,7 +220,7 @@ public sealed class InjectorSystem : SharedInjectorSystem
 
         DoAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, actualDelay, new InjectorDoAfterEvent(), injector.Owner, target: target, used: injector.Owner)
         {
-            BreakOnMove = isTarget, // Goob edit - do-after doesn't break on move if injecting yourself
+            BreakOnMove = true,
             BreakOnWeightlessMove = false,
             BreakOnDamage = true,
             NeedHand = injector.Comp.NeedHand,

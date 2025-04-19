@@ -145,6 +145,10 @@ public sealed class PacificationSystem : EntitySystem
         if (args.Target == null)
             return;
 
+        // Goobstation - can attack self while pacified
+        if (uid == args.Target)
+            return;
+
         // If we would do zero damage, it should be fine.
         if (args.Weapon != null && args.Weapon.Value.Comp.Damage.GetTotal() == FixedPoint2.Zero)
             return;

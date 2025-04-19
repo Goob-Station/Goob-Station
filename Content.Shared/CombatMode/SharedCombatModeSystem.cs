@@ -23,6 +23,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.DoAfter;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
@@ -107,6 +108,11 @@ public abstract class SharedCombatModeSystem : EntitySystem
 
         if (component.CombatToggleActionEntity != null)
             _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);
+
+        // Goobstation start
+        var ev = new CombatModeToggledEvent(entity, value);
+        RaiseLocalEvent(entity, ref ev, true);
+        // Goobstation end
 
         // Change mouse rotator comps if flag is set
         if (!component.ToggleMouseRotator || IsNpc(entity) && !_mind.TryGetMind(entity, out _, out _))
