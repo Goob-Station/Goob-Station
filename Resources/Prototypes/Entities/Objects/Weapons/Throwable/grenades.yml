@@ -7,7 +7,7 @@
 # SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
 # SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
 # SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
 # SPDX-FileCopyrightText: 2021 BulletGrade <66234359+BulletGrade@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
@@ -157,6 +157,7 @@
   - type: Tag # Goobstation
     tags:
     - Grenade
+    - HandGrenade
 
 - type: entity
   name: explosive grenade
@@ -206,6 +207,7 @@
   - type: Flashbang # Goobstation
   - type: Tag
     tags:
+    - HandGrenade
     - GrenadeFlashBang
 
 - type: entity
@@ -440,6 +442,9 @@
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Item
     size: Small
+  - type: Tag
+    tags:
+    - HandGrenade
   - type: PayloadCase
   - type: Construction
     graph: ModularGrenadeGraph
