@@ -328,17 +328,12 @@ public sealed partial class HisGraceSystem : EntitySystem
         _audio.PlayPvs(comp.SoundDevour, target);
         _popup.PopupEntity(devourPopup, target, PopupType.LargeCaution);
 
-        /* commented for testing
         // don't apply bonuses for enities consumed that don't have minds
         if (_mind.TryGetMind(target, out _, out _))
         {
             var ev = new HisGraceEntityConsumedEvent();
             RaiseLocalEvent(comp.Owner, ref ev);
         }
-        */
-
-        var ev = new HisGraceEntityConsumedEvent();
-        RaiseLocalEvent(comp.Owner, ref ev);
 
         return true;
     }
