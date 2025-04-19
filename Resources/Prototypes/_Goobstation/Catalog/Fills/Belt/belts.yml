@@ -4,6 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -139,3 +140,33 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltAssaultBSOEntityTable
+
+- type: entity
+  parent: ChemBag
+  id: ChemBagFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Jug
+    - id: LargeBeaker
+    - id: Beaker
+    - id: BaseChemistryEmptyVial
+    - id: Syringe
+
+- type: entity
+  parent: ClothingBeltChemBagSyndi
+  id: ClothingBeltChemBagSyndiFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Jug
+    - id: LargeBeaker
+    - id: OmnimedToolSyndie
+    - id: DartGun
+    - id: EpinephrineChemistryBottle
+      amount: 2
+    - id: EphedrineChemistryBottle
+      amount: 2
+    - id: OmnizineChemistryBottle

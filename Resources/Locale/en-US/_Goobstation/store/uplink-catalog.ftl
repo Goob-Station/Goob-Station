@@ -52,6 +52,9 @@ uplink-gondola-desc = Crate containing one standard issue gondola.
 uplink-operative-radio-name = Nuclear Operative Teleporter
 uplink-operative-radio-desc = Radio in a nuclear operative of extremely questionable quality. No off button, buy this if you're ready to party. They have basic nuclear operative gear.
 
+uplink-mobroach-microbomb-name = SyndiRoach Teleporter
+uplink-mobroach-microbomb-desc = Call in a handy mothroach equipped with a microbomb implant. Explodes when seriously injured.
+
 uplink-signaller-name = Advanced Remote Signaller
 uplink-signaller-desc = A device that can trigger signals at any distance. You can link items with a multitool or network configurator.
 
@@ -68,15 +71,11 @@ uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, de
 uplink-pie-cannon-name = Regenerating Pie Cannon
 uplink-pie-cannon-desc = A pie cannon that automatically regenerates pies, one every ten seconds.
 
-uplink-mobroach-microbomb-name = SyndiRoach Teleporter
-uplink-mobroach-microbomb-desc = Call in a handy mothroach equipped with a microbomb implant. Explodes when seriously injured.
+uplink-beenades-name = Beenades
+uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
 
-uplink-advanced-combat-medipen-name = Advanced Combat Medipen
-uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
-
-uplink-smugglers-satchel-name = Smuggler's Satchel
-uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
-
+uplink-dart-gun-name = Dart Gun
+uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
 # Weapons
 
 uplink-dualetta-kit-name = Dualetta kit
@@ -192,6 +191,12 @@ uplink-lollypop-bundle-desc = Contains 9 completely random lollypops. What could
 uplink-lollypop-bundle-big-name = Donk Co. Candy Bundle
 uplink-lollypop-bundle-big-desc = Contains an ungodly amount of candy. What could they contain?
 
+uplink-advanced-combat-medipen-name = Advanced Combat Medipen
+uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
+
+uplink-syringe-pistol-name = Syringe Pistol
+uplink-syringe-pistol-desc = A gun that takes syringes as ammunition, and injects their contents to its victims. Injects faster than normal syringe guns and can fit in pockets.
+
 # Implants
 
 uplink-smoke-implant-name = Smoke Implant
@@ -218,6 +223,9 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
+
+uplink-smugglers-satchel-name = Smuggler's Satchel
+uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
 
 # Disruption
 
