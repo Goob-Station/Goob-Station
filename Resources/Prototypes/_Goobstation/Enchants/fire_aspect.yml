@@ -1,0 +1,14 @@
+# Light your enemies on fire
+- type: entity
+  parent: BaseEnchant
+  id: EnchantFireAspect
+  name: Fire Aspect
+  components:
+  - type: Enchant
+    maxLevel: 2
+    whitelist:
+      components:
+      - MeleeWeapon
+  - type: FireAspectEnchant
+  - type: IgniteOnMeleeHit
+    fireStacks: 1

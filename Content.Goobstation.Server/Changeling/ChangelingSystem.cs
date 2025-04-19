@@ -630,7 +630,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         var data = new TransformData
         {
             Name = metadata.EntityName,
-            DNA = dna.DNA,
+            DNA = dna.DNA ?? Loc.GetString("forensics-dna-unknown"),
             Appearance = appearance
         };
 

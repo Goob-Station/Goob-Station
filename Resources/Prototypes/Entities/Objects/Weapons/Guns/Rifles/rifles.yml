@@ -71,9 +71,11 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -131,6 +133,16 @@
     price: 500
   - type: Multishot # Goobstation
     spreadMultiplier: 1.6
+  - type: AltFireMelee # Goobstation V
+    attackType: Heavy
+  - type: MeleeWeapon
+    damage:
+      types:
+       Blunt: 12
+    angle: 0
+    wideAnimationRotation: 90 # when/if bayonets get added (to rifles) set this to -90
+    soundHit:
+      collection: MetalThud # Goobstation ^ 
 
 - type: entity
   name: AKM
@@ -150,6 +162,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
+    boltClosed: null # Goobstation
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots
@@ -243,6 +256,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Gun
+    fireRate: 4.5 # Goobstation
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: ItemSlots

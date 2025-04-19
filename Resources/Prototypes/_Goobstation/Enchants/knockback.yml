@@ -1,0 +1,15 @@
+# Throws mobs back when you hit them
+- type: entity
+  parent: BaseEnchant
+  id: EnchantKnockback
+  name: Knockback
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - MeleeWeapon
+    maxLevel: 2
+  - type: KnockbackEnchant
+  - type: MeleeThrowOnHit
+    distance: 5
+    speed: 1.5
