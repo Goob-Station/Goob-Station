@@ -343,6 +343,9 @@ public abstract class SharedMagicSystem : EntitySystem
             && TryComp<DivineInterventionComponent>(handsComp.ActiveHandEntity, out var comp))
         {
             args.Cancelled = true;
+
+            if (_timing.IsFirstTimePredicted)
+                return;
             _popupSystem.PopupPredicted(Loc.GetString("nullrod-spelldenial-popup"), args.Target.Value, args.Target.Value, PopupType.MediumCaution);
             _audio.PlayPredicted(comp.DenialSound, args.Target.Value, ent);
             Spawn(comp.EffectProto, Transform(args.Target.Value).Coordinates);
