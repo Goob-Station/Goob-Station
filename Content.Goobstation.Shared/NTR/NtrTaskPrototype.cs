@@ -37,7 +37,7 @@ public sealed class NtrTaskPrototype : IPrototype
     public LocId Description = string.Empty;
 
     /// <summary>
-    /// The entries that must be satisfied for the cargo bounty to be complete.
+    /// The entries that must be satisfied for the ntr bounty to be complete.
     /// </summary>
     [DataField(required: true)]
     public List<NtrTaskItemEntry> Entries = new();
@@ -61,7 +61,10 @@ public sealed class NtrTaskPrototype : IPrototype
     public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents { get; init; } = new();
 
     [DataField("solutionName")]
-    public string SolutionName { get; private set; } = "solution"; // i want to end it all already
+    public string SolutionName { get; private set; } = "drink"; // i want to end it all already
+
+    [DataField("reagentTask")] // shitcod
+    public bool IsReagentTask { get; init; } = false;
 }
 
 [DataDefinition, Serializable, NetSerializable]

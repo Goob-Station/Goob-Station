@@ -69,6 +69,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly ILocalizationManager _loc = default!;
 
     private readonly ProtoId<NameIdentifierGroupPrototype> _nameIdentifierGroup = "Task";
 
@@ -140,13 +141,10 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         if (TryHandleRegularDocument(item, uid, component))
             return;
-
-        _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), uid);
-        _audio.PlayPvs(component.DenySound, uid);
     }
 
     private bool TryHandleSpamDocument(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
-    {
+    {// todo: make this actually work and appear
         if (!HasComp<SpamDocumentComponent>(item))
             return false;
 
@@ -164,75 +162,76 @@ public sealed partial class NtrTaskSystem : EntitySystem
         if (!HasTag(item, "Vial") || !TryComp<SolutionContainerManagerComponent>(item, out var solutions))
             return false;
 
-        foreach (var taskId in GetVialTasks(item))
+        var stationEnt = _station.GetOwningStation(console);
+        if (stationEnt == null || !TryComp<NtrTaskDatabaseComponent>(stationEnt.Value, out var db))
+            return false;
+        foreach (var taskData in db.Tasks.ToList())
         {
-            if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? task))
-            {
-                _popup.PopupEntity(Loc.GetString("ntr-console-task-fail"), console);
-                return true;
-            }
+            if (!taskData.IsActive)
+                continue;
 
-            if (!CheckReagentRequirements(item, task))
+            if (!_protoMan.TryIndex<NtrTaskPrototype>(taskData.Task, out var taskProto) || !taskProto.IsReagentTask)
+                continue;
+
+            if (CheckReagentRequirements(item, taskProto))
             {
-                _popup.PopupEntity(Loc.GetString("ntr-console-reagent-fail"), console);
-                return true;
+                if (ProcessSuccessfulSubmission(item, console, component, taskProto.ID))
+                {
+                    return true;
+                }
             }
         }
 
-        ProcessSuccessfulSubmission(item, console, component);
-        return true;
+        return false;
     }
-
     private bool TryHandleRegularDocument(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
     {
         if (!TryComp<RandomDocumentComponent>(item, out var documentComp) || documentComp.Tasks.Count == 0)
             return false;
-        if (documentComp.Tasks != null)
+        if (!HasValidStamps(item))
         {
-            foreach (var taskId in documentComp.Tasks)
+            _popup.PopupEntity(_loc.GetString("ntr-console-insert-deny"), console);
+            _audio.PlayPvs(component.DenySound, console);
+            return true;
+        }
+        for (int i = 0; i < documentComp.Tasks.Count; i++)
+        {
+            var taskId = documentComp.Tasks[i];
+            if (ProcessSuccessfulSubmission(item, console, component, taskId))
             {
-                if (!HasValidStamps(item))
-                {
-                    _popup.PopupEntity(Loc.GetString("ntr-console-insert-deny"), console);
-                    _audio.PlayPvs(component.DenySound, console);
-                    return true;
-                }
-
-                ProcessSuccessfulSubmission(item, console, component);
+                documentComp.Tasks.RemoveAt(i);
+                UpdateTaskConsoles();
                 return true;
             }
         }
         return false;
     }
-    private List<ProtoId<NtrTaskPrototype>> GetVialTasks(EntityUid vial)
+    private bool ProcessSuccessfulSubmission(EntityUid item, EntityUid console, NtrTaskConsoleComponent component, string taskId)
     {
-        return HasTag(vial, "Vial")
-            ? new List<ProtoId<NtrTaskPrototype>> { "TaskLingBlood" }
-            : new List<ProtoId<NtrTaskPrototype>>();
-    }
+        var stationEnt = _station.GetOwningStation(console);
+        if (stationEnt == null)
+            return false;
 
-    private void ProcessSuccessfulSubmission(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
-    {
-        if (_station.GetOwningStation(console) is not { } station ||
-            !TryComp<NtrTaskDatabaseComponent>(station, out var db) ||
-            !TryComp<NtrBankAccountComponent>(station, out var account))
-            return;
+        if (!TryComp<NtrTaskDatabaseComponent>(stationEnt.Value, out var db))
+            return false;
 
-        var tasks = TryComp<RandomDocumentComponent>(item, out var doc)
-            ? doc.Tasks
-            : GetVialTasks(item);
+        if (!TryComp<NtrBankAccountComponent>(stationEnt.Value, out var account))
+            return false;
 
-        foreach (var taskId in tasks)
+        if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
         {
-            if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto) ||
-                taskProto == null ||
-                !TryGetActiveTask(station, taskProto, out var taskData))
-                continue;
+            _popup.PopupEntity(_loc.GetString("ntr-console-task-fail"), console);
+            return false;
+        }
 
+        if (!TryGetActiveTask(stationEnt.Value, taskProto, out var taskData))
+            return false;
 
-            account.Balance += taskProto.Reward;
-            TryRemoveTask(station, taskData.Value.Id, false);
+        var ev = new TaskCompletedEvent(taskProto);
+        RaiseLocalEvent(console, ev);
 
+        if (TryRemoveTask(stationEnt.Value, taskData.Value.Id, false))
+        {
             db.History.Add(new NtrTaskHistoryData(
                 taskData.Value,
                 NtrTaskHistoryData.TaskResult.Completed,
@@ -240,12 +239,11 @@ public sealed partial class NtrTaskSystem : EntitySystem
                 null
             ));
         }
-
         UpdateClientBalances(account);
-        UpdateTaskConsoles();
-        _slots.TryEject(console, component.SlotId, null, out _);
         QueueDel(item);
         _audio.PlayPvs(component.PrintSound, console);
+
+        return true;
     }
     private void UpdateClientBalances(NtrBankAccountComponent account)
     {
@@ -270,11 +268,13 @@ public sealed partial class NtrTaskSystem : EntitySystem
         RaiseLocalEvent(getIdentityEvent);
         return getIdentityEvent.Title;
     }
+#endregion
+#region reagent shit
     public bool CheckReagentRequirements(EntityUid container, NtrTaskPrototype task)
-    {// i hate solutions so much man
-        if (!_solutionContainer.TryGetSolution(container, task.SolutionName, out var solutionEntity, out var solution))
+    {
+        if (!_solutionContainer.TryGetSolution(container, task.SolutionName, out _, out var solution))
         {
-            _popup.PopupEntity(Loc.GetString("ntr-console-no-solution", ("solutionName", task.SolutionName)), container);
+            _popup.PopupEntity(_loc.GetString("ntr-console-no-solution", ("solutionName", task.SolutionName)), container);
             return false;
         }
 
@@ -282,31 +282,36 @@ public sealed partial class NtrTaskSystem : EntitySystem
         {
             if (!_protoMan.TryIndex(reagentProtoId, out ReagentPrototype? requiredReagentProto))
             {
-                _popup.PopupEntity(Loc.GetString("ntr-console-invalid-reagent-proto", ("reagentId", reagentProtoId)), container);
+                _popup.PopupEntity(_loc.GetString("ntr-console-invalid-reagent-proto", ("reagentId", reagentProtoId)), container);
                 return false;
             }
-            // manually check for the solution name cuz blood has so much data that it messes up with everthing
-            FixedPoint2 actualAmount = FixedPoint2.Zero;
+
+            var actualAmount = 0;
+            string actualReagent = "None";
             foreach (var reagent in solution.Contents)
             {
-                if (reagent.Reagent.Prototype == requiredReagentProto.ID)
-                {
-                    actualAmount += reagent.Quantity;
-                }
+                if (reagent.Reagent.Prototype != requiredReagentProto.ID)
+                    continue;
+                actualAmount += (int) (reagent.Quantity * 100);
+                actualReagent = reagent.Reagent.Prototype;
             }
+
             if (actualAmount < requiredAmount)
             {
-                _popup.PopupEntity(Loc.GetString("ntr-console-insufficient-reagent",
-                    ("reagent", requiredReagentProto.ID),
-                    ("required", requiredAmount),
-                    ("actual", actualAmount)),
-                container);
+                _popup.PopupEntity(_loc.GetString("ntr-console-insufficient-reagent-debug",
+                        ("requiredReagent", requiredReagentProto.ID),
+                        ("actualReagent", actualReagent),
+                        ("required", requiredAmount),
+                        ("actual", actualAmount)),
+                    container);
                 return false;
             }
         }
 
         return true;
     }
+#endregion
+#region More task logic
     private bool TryGetActiveTask(EntityUid station, NtrTaskPrototype proto, [NotNullWhen(true)] out NtrTaskData? task)
     {
         task = null;
@@ -443,7 +448,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         if (TryComp<SolutionContainerManagerComponent>(vial, out var solutions))
         {
-            if (_solutionContainer.EnsureSolution(vial, "beaker", out var beakerSolution, FixedPoint2.New(30)))
+            if (_solutionContainer.EnsureSolution(vial, "drink", out var beakerSolution, FixedPoint2.New(30)))
             {
                 beakerSolution.RemoveAllSolution();
                 component.ActiveTaskIds.Add(args.TaskId);
@@ -757,7 +762,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
         }
         // del the spam document
         if (Exists(args.User))
-            _popup.PopupEntity(Loc.GetString("ntr-console-spam-penalty"), uid, args.User);
+            _popup.PopupEntity(_loc.GetString("ntr-console-spam-penalty"), uid, args.User);
 
         _audio.PlayPvs(component.DenySound, uid);
     }

@@ -105,13 +105,464 @@
 - type: ntrTask
   id: TaskLingBlood
   proto: TaskVial
-  reward: 15 # rare & gamemode specific
-  weight: 0.1 # epic
+  reward: 15
+  weight: 0.005
   cooldown: 600
   description: Send a vial with 30 changelings blood to CC for research.
+  reagentTask: true
+  solutionName: beaker
   reagents:
-    BloodChangeling: 30
-  solutionName: "beaker"
+    BloodChangeling: 3000
   entries:
   - name: Send lings blood to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskArtifexium
+  proto: TaskVial
+  reward: 10
+  weight: 0.001  # Very rare - high value chem
+  cooldown: 600
+  description: Send a vial with 30 artifexium to CC for research.
+  reagentTask: true
+  solutionName: beaker
+  reagents:
+    Artifexium: 3000
+  entries:
+  - name: Send artifexium to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskDexalin
+  proto: TaskVial
+  solutionName: beaker
+  reward: 3
+  weight: 0.05  # Common medical chem
+  cooldown: 600
+  description: Send a vial with 30u of Dexalin plus to CC due to emergency.
+  reagentTask: true
+  reagents:
+    DexalinPlus: 3000
+  entries:
+  - name: Send dexalin to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskWeh
+  proto: TaskVial
+  solutionName: beaker
+  reward: 5
+  weight: 0.1  # Fun chem - medium common
+  cooldown: 600
+  description: Send a vial with 30u of Weh juice to CC for wehwehwehweh
+  reagentTask: true
+  reagents:
+    JuiceThatMakesYouWeh: 3000
+  entries:
+  - name: Send weh juice to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskHew
+  proto: TaskVial
+  solutionName: beaker
+  reward: 10
+  weight: 0.001  # Very rare - counterpart to Weh
+  cooldown: 3600
+  description: Send a vial with 30u of heW juice to CC for wehwehwehweh
+  reagentTask: true
+  reagents:
+    JuiceThatMakesYouHew: 3000
+  entries:
+  - name: Send heW juice to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskEthyl
+  proto: TaskVial
+  solutionName: beaker
+  reward: 7
+  weight: 0.01  # Uncommon anti-toxin
+  cooldown: 3600
+  description: Send a vial with 30u of Ethylredoxrazine for something important.
+  reagentTask: true
+  reagents:
+    Ethylredoxrazine: 3000
+  entries:
+  - name: Send chemicals to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskIpecac
+  proto: TaskVial
+  reward: 4
+  weight: 0.03  # Semi-common toxin
+  cooldown: 3600
+  description: Send a vial with 30u of Ipecac for torturing.
+  reagentTask: true
+  solutionName: beaker
+  reagents:
+    Ipecac: 3000
+  entries:
+  - name: Send chemicals to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskTRAcid
+  proto: TaskVial
+  solutionName: beaker
+  reward: 5
+  weight: 0.02  # Uncommon medical
+  cooldown: 3600
+  description: Send a vial with 30u of Tranexamic Acid for stocking security.
+  reagentTask: true
+  reagents:
+    TranexamicAcid: 3000
+  entries:
+  - name: Send chemicals to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskSigynate
+  solutionName: beaker
+  proto: TaskVial
+  reward: 5
+  weight: 0.02  # Uncommon medical
+  cooldown: 3600
+  description: Send a vial with 30u of Sigynate for stocking security.
+  reagentTask: true
+  reagents:
+    Sigynate: 3000
+  entries:
+  - name: Send chemicals to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskCogni
+  proto: TaskVial
+  solutionName: beaker
+  reward: 10
+  weight: 0.0005  # Extremely rare
+  cooldown: 3600
+  description: Send a vial with at least 10u of Cognizine for research.
+  reagentTask: true
+  reagents:
+    Cognizine: 1000
+  entries:
+  - name: Send Cognizine to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskHoly
+  proto: TaskVial
+  solutionName: beaker
+  reward: 6
+  weight: 0.005  # Rare special chem
+  cooldown: 3600
+  description: Send a vial with 30u Holy water for research.
+  reagentTask: true
+  reagents:
+    Holywater: 3000
+  entries:
+  - name: Send Holy water to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskRazorium
+  solutionName: beaker # jugs has the beaker thing for some reason
+  proto: TaskJug
+  reward: 7
+  weight: 0.005  # Rare dangerous chem
+  cooldown: 1800
+  description: Send a jug with 100u of Razorium to CC for a clown execution.
+  reagentTask: true
+  reagents:
+    Razorium: 10000
+  entries:
+  - name: Send Razorium to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskPunct
+  proto: TaskJug
+  solutionName: beaker
+  reward: 8
+  weight: 0.005  # Rare medical
+  cooldown: 1800
+  description: Send a jug with 100u of Puncturase to CC for stocking ERT with chems.
+  reagentTask: true
+  reagents:
+    Puncturase: 10000
+  entries:
+  - name: Send Puncturase to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskTrico
+  proto: TaskJug
+  solutionName: beaker
+  reward: 5
+  weight: 0.02  # Uncommon medical
+  cooldown: 1800
+  description: Send a jug with 100u of Tricordrazine to CC for training.
+  reagentTask: true
+  reagents:
+    Tricordrazine: 10000
+  entries:
+  - name: Send Tricordrazine to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskMeth
+  proto: TaskJug
+  solutionName: beaker
+  reward: 10
+  weight: 0.001  # Very rare
+  cooldown: 1800
+  description: Send a jug with 100u of Desoxyephedrine to CC for [REDACTED].
+  reagentTask: true
+  reagents:
+    Desoxyephedrine: 10000
+  entries:
+  - name: Send Meth to CentComm.
+    stamps: []
+
+- type: ntrTask
+  id: TaskTHC
+  proto: TaskJug
+  solutionName: beaker
+  reward: 7
+  weight: 0.005  # Rare
+  cooldown: 1800
+  description: Send a jug with 100u of THC to CC for a "special party".
+  reagentTask: true
+  reagents:
+    THC: 10000
+  entries:
+  - name: Send THC to CentComm.
+    stamps: []
+
+# Drink tasks
+- type: ntrTask
+  id: TaskKiraSpecial
+  proto: TaskBottle
+  reward: 2
+  weight: 0.2
+  cooldown: 300
+  description: Send 30u of Kira Special cocktail to CC.
+  reagentTask: true
+  reagents:
+    KiraSpecial: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskNuclearCola
+  proto: TaskBottle
+  reward: 5
+  weight: 0.05
+  cooldown: 600
+  description: Send 30u of Nuclear Cola to CC. Highly classified!
+  reagentTask: true
+  reagents:
+    NuclearCola: 3000
+  entries:
+  - name: Sending a special drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskGildlager
+  proto: TaskBottle
+  reward: 3
+  weight: 0.15
+  cooldown: 400
+  description: Deliver 30u of Gildlager beer for quality check.
+  reagentTask: true
+  reagents:
+    Gildlager: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskGrog
+  proto: TaskBottle
+  reward: 3
+  weight: 0.1
+  cooldown: 300
+  description: Provide 30u of authentic Space Grog.
+  reagentTask: true
+  reagents:
+    Grog: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskHippiesDelight
+  proto: TaskBottle
+  reward: 5
+  weight: 0.05
+  cooldown: 600
+  description: 30u of Hippie's Delight required for "analysis".
+  reagentTask: true
+  reagents:
+    HippiesDelight: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskIrishCarBomb
+  proto: TaskBottle
+  reward: 3
+  weight: 0.15
+  cooldown: 450
+  description: Collect 30u of Irish Car Bomb cocktail.
+  reagentTask: true
+  reagents:
+    IrishCarBomb: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskLongIslandIcedTea
+  proto: TaskBottle
+  reward: 3
+  weight: 0.1
+  cooldown: 450
+  description: Submit 30u of Long Island Iced Tea.
+  reagentTask: true
+  reagents:
+    LongIslandIcedTea: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskManhattan
+  proto: TaskBottle
+  reward: 4
+  weight: 0.08
+  cooldown: 500
+  description: 30u of Manhattan cocktail needed for VIP party.
+  reagentTask: true
+  reagents:
+    Manhattan: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskManlyDorf
+  proto: TaskBottle
+  reward: 2
+  weight: 0.25
+  cooldown: 350
+  description: Obtain 30u of Manly Dorf brew.
+  reagentTask: true
+  reagents:
+    ManlyDorf: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskPinaColada
+  proto: TaskBottle
+  reward: 3
+  weight: 0.1
+  cooldown: 400
+  description: 30u of Pina Colada for tropical research.
+  reagentTask: true
+  reagents:
+    PinaColada: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskCogChamp
+  proto: TaskBottle
+  reward: 3
+  weight: 0.15
+  cooldown: 450
+  description: Collect 30u of CogChamp energy drink.
+  reagentTask: true
+  reagents:
+    CogChamp: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskSingulo
+  proto: TaskBottle
+  reward: 5
+  weight: 0.05
+  cooldown: 600
+  description: 30u of Singularity Bomb cocktail - handle with care!
+  reagentTask: true
+  reagents:
+    Singulo: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskTequilaSunrise
+  proto: TaskBottle
+  reward: 3
+  weight: 0.2
+  cooldown: 400
+  description: 30u of Tequila Sunrise for sunrise simulation.
+  reagentTask: true
+  reagents:
+    TequilaSunrise: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskWhiteRussian
+  proto: TaskBottle
+  reward: 2
+  weight: 0.25
+  cooldown: 400
+  description: The Dude abides - 30u of White Russian required.
+  reagentTask: true
+  reagents:
+    WhiteRussian: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskBudgetInsulsDrink
+  proto: TaskBottle
+  reward: 4
+  weight: 0.05
+  cooldown: 400
+  description: 30u of Budget Insulation drink for tiders.
+  reagentTask: true
+  reagents:
+    BudgetInsulsDrink: 3000
+  entries:
+  - name: Sending a drink to CC
+    stamps: []
+
+- type: ntrTask
+  id: TaskZombieCocktail
+  proto: TaskBottle
+  reward: 5
+  weight: 0.005
+  cooldown: 900
+  description: EXTREME 30u of Zombie Cocktail!
+  reagents:
+    ZombieCocktail: 3000
+  reagentTask: true
+  entries:
+  - name: Sending a special drink to CC
     stamps: []
