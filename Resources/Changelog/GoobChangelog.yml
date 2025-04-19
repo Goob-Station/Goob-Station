@@ -1,20 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 GoobBotTest <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 GoobBotTest[bot] <922032+GoobBotTest[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 GoobBot[bot] <923088+GoobBot[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 silver2127 <52584484+silver2127@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 Name: Gooblog
 Order: -1
 Entries:
@@ -7109,3 +7092,630 @@ Entries:
       message: Group retaliation to monkeys and mice.
   id: 824
   time: '2025-04-07T18:48:11.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: >-
+        Added tracking for actions (popups) and examines within the chat window.
+        You can toggle this on and off via a couple of client CVARs in your
+        settings.
+    - type: Tweak
+      message: >-
+        If the same message is sent consecutively multiple times, it'll wrap up
+        in chat, such as Urist Mchands says: Loser x28
+  id: 825
+  time: '2025-04-15T03:22:04.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Remove
+      message: 1984d curse of byond spell, admins can still use though
+  id: 826
+  time: '2025-04-15T22:07:21.0000000+00:00'
+- author: Rouden, Aidenkrz
+  changes:
+    - type: Add
+      message: Added Fishing.
+  id: 827
+  time: '2025-04-15T22:08:58.0000000+00:00'
+- author: >-
+    SolsticeOfTheWinter, Rosef, The Chinese Communist Party, The Friends I Made
+    Along the Way
+  changes:
+    - type: Add
+      message: Added the Devil.
+  id: 828
+  time: '2025-04-15T22:09:34.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Stun baton delayed knockdown is back.
+    - type: Add
+      message: Stamresists on armor.
+    - type: Tweak
+      message: Beanbags and hardlight bow disabler arrows buffed.
+  id: 829
+  time: '2025-04-15T22:11:27.0000000+00:00'
+- author: PunishedJoe
+  changes:
+    - type: Add
+      message: >-
+        Adds MODsuit variations of existing crew voidsuits, not currently
+        obtainable (trvst thv plvn)
+  id: 830
+  time: '2025-04-15T22:11:44.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: Added proper cooldowns to Grabbing.
+    - type: Add
+      message: Grabbing release attempts can now be attempted by hitting the B key.
+    - type: Add
+      message: Grabbing release attempts should be smoother now.
+  id: 831
+  time: '2025-04-15T22:12:51.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Nanotrasen Representative's room spacing on Omega
+  id: 832
+  time: '2025-04-15T22:15:56.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Saltern
+  id: 833
+  time: '2025-04-15T22:16:25.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Add
+      message: Added the Lavaland Shuttle to Cluster
+    - type: Fix
+      message: Fixed Salvage dock becoming permanently spaced on Cluster
+  id: 834
+  time: '2025-04-15T22:17:14.0000000+00:00'
+- author: PeccNeck
+  changes:
+    - type: Fix
+      message: Bluespace shelter capsules now load correctly
+  id: 835
+  time: '2025-04-15T22:17:55.0000000+00:00'
+- author: FireNameFN
+  changes:
+    - type: Tweak
+      message: Footprints and bodyprints will not disappear without mopping them.
+  id: 836
+  time: '2025-04-15T22:19:04.0000000+00:00'
+- author: SolsticeOfTheWinter, Spessman
+  changes:
+    - type: Add
+      message: Added the Chief Engineers Singularity Buster Rocket Launcher. Have fun.
+  id: 837
+  time: '2025-04-15T22:42:28.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Voiceless dead ritual now requires a muzzle instead of a poppy.
+  id: 838
+  time: '2025-04-15T22:42:53.0000000+00:00'
+- author: SolsticeOfTheWinter, Unkn0wn_Gh0st
+  changes:
+    - type: Add
+      message: >-
+        Added Knuckledusters to the game. The QM has his own, and syndicates can
+        buy their own. You can also get them in maintenance.
+  id: 839
+  time: '2025-04-15T22:45:54.0000000+00:00'
+- author: terminatorbo
+  changes:
+    - type: Add
+      message: Nukies now can buy surplus and super surplus bundles!
+  id: 840
+  time: '2025-04-15T22:55:47.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: >-
+        The firefighter backpack and attached nozzle can now be found in atmos
+        lockers or ordered through cargo. 
+    - type: Tweak
+      message: 'RPD crates can now be ordered through cargo. '
+  id: 841
+  time: '2025-04-15T23:11:03.0000000+00:00'
+- author: JohnOakman
+  changes:
+    - type: Tweak
+      message: Fixed wonderprod's fun
+  id: 842
+  time: '2025-04-15T23:11:21.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix void cloak being visible sometimes when it shouldn't be.
+    - type: Fix
+      message: Eldritch water doesn't deal radiation anymore.
+    - type: Fix
+      message: >-
+        You can now interact with transmutation rune as rust heretic without
+        rusting tiles underneath.
+    - type: Fix
+      message: It is not easier to interact with transmutation rune.
+    - type: Fix
+      message: Rustwalkers cannot be killed by rust mansus grasp anymore.
+    - type: Add
+      message: Mansus grasp now has more surgery qualities but at lower speed.
+    - type: Remove
+      message: Likely removed rust ascension lag.
+  id: 843
+  time: '2025-04-15T23:34:21.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Nukies cannot purchase anaconda
+  id: 844
+  time: '2025-04-15T23:35:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: ᔑ⟍̅⟍̅ᒷ⟍̅ ᒷリᓵ⍑ᔑリℸ ̣¦リ˧ ⚍ᓭᒷ ᔑ ʖ¦ʖꖎᒷ ∴¦ℸ ̣⍑ ᔑリ ¦ℸ ̣ᒷᒲ 𝙹リ ᔑリ ᔑꖎℸ ̣ᔑ∷.
+  id: 845
+  time: '2025-04-15T23:39:13.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked the cobra pistol, it now uses 9.5 mm caseless magnum rounds and
+        has a higher muzzle velocity
+    - type: Add
+      message: >-
+        Added 9.5 caseless magnum ammo, -P is available to traitors, 12 round
+        mags of 20 damage bullets. Semi Armor Piercing High Explosive (SAP-HE),
+        which splits its damage between 13 direct damage and 10 explosive damage
+        (one tile explosive)
+    - type: Tweak
+      message: The WSPR now take 9.5mm rounds (19 damage > 25 damage)
+    - type: Tweak
+      message: WSPR mags are now 1TC more expensive due to increased damage (6 > 7)
+    - type: Tweak
+      message: The WSPR is actually quiet now
+    - type: Tweak
+      message: Reduced hristov wield slowdown to 10%
+    - type: Tweak
+      message: .50 shotgun shell > 12 Gauge
+    - type: Tweak
+      message: .75 shell > 8 Gauge
+    - type: Add
+      message: you can now bash people with rifle stocks
+    - type: Fix
+      message: >-
+        Fixed my autism again, the AKM now acts like an AK, AKA it doesn't have
+        a bolt hold open
+  id: 846
+  time: '2025-04-15T23:41:01.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Remove
+      message: Cowboy accent no longer replaces wow with by gum.
+  id: 847
+  time: '2025-04-15T23:44:52.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed abductor agent not getting glorpmind.
+  id: 848
+  time: '2025-04-15T23:55:38.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Added CentComm wizard robes.
+  id: 849
+  time: '2025-04-16T04:23:16.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Added 19 new OC plushies.
+    - type: Add
+      message: Cargo crate with the plushies.
+  id: 850
+  time: '2025-04-16T04:23:25.0000000+00:00'
+- author: rotundfan
+  changes:
+    - type: Add
+      message: Abductor Plush!
+  id: 851
+  time: '2025-04-16T04:24:08.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Fix
+      message: Fixed IPCs being unable to disarm
+  id: 852
+  time: '2025-04-16T04:24:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Blade heretic path reworked.
+    - type: Add
+      message: Ash path mark now deals stamina damage and burn instead of firestacks.
+    - type: Add
+      message: Engineers can dual wield hammers.
+  id: 853
+  time: '2025-04-16T04:25:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Ion storms are now essentially guaranteed to happen during a round.
+  id: 854
+  time: '2025-04-16T04:26:03.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Hristov can now oneshot unarmored target.
+    - type: Tweak
+      message: Hristov and it's ammo price increased (60 -> 75, 8 -> 10).
+    - type: Tweak
+      message: >-
+        Binoculars and Hristov zoom increased to 8 tiles. Hardlight bow also got
+        3 tiles zoom.
+    - type: Tweak
+      message: Hristov penetrating capabilities are strongly improved.
+  id: 855
+  time: '2025-04-16T04:27:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Roundstart trash, puddles and other variation spawn once again.
+  id: 856
+  time: '2025-04-16T04:28:09.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Add
+      message: Added 4 bottle boxes to nukie outpost. Biggest change.
+  id: 857
+  time: '2025-04-16T04:29:23.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: >-
+        Changeling arm hammer, Mjollnir and crusher hammer no longer send their
+        victims straight to Ohio.
+  id: 858
+  time: '2025-04-16T04:29:33.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: NorthStars cost 30 (from 40)
+    - type: Tweak
+      message: Betrayal Knife hits faster, but less hard, and costs less (30 from 40)
+  id: 859
+  time: '2025-04-16T04:31:07.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: >-
+        Changed multifire values, .45 is worse for multifire, cap laser cannot
+        at all.
+  id: 860
+  time: '2025-04-16T04:31:58.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Armblade does less overall damage, more limb damage.
+  id: 861
+  time: '2025-04-16T04:32:07.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Added 'select all' and 'deselect all' buttons to the gas filters drop
+        down menu on air alarms
+  id: 862
+  time: '2025-04-16T04:32:49.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Remove
+      message: Deathsquad Gear can no longer be selected when using the chameleon kit
+  id: 863
+  time: '2025-04-16T04:33:57.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: Lich costs 5 wizcoins to get
+    - type: Tweak
+      message: Forcewall is breakable
+  id: 864
+  time: '2025-04-16T04:35:24.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Zombies, Zombie Infections, and Deathsquad Metashields.
+    - type: Remove
+      message: Removed blood red hardsuit from Nukies Metashield.
+    - type: Tweak
+      message: Changed Nuclear Operatives description in Metashield.
+  id: 865
+  time: '2025-04-16T04:35:33.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: >-
+        Healium is effective at higher concentrations, doubling it's maximum
+        healing rate. It is also slightly less intoxicating.
+    - type: Tweak
+      message: >-
+        Breathing higher concentrations of Nitrium allows for even faster
+        movement.
+    - type: Tweak
+      message: >-
+        BZ can get you high in very low doses without risk of asphyxiation or
+        poison.
+    - type: Fix
+      message: >-
+        The effects Nitrium has on movement speed will consistently end 6
+        seconds after you last breath it in.
+  id: 866
+  time: '2025-04-16T04:40:12.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Oni have normal accuracy when shooting guns, however they need to wield
+        pistols and cannot shoot larger guns at all.
+    - type: Tweak
+      message: >-
+        Terminus now requires two hands to use and needs to be charged to shoot
+        disabler bolts but shoots faster and is researched earlier.
+    - type: Fix
+      message: Gizmo now gives a popup if you're unable to use it.
+  id: 867
+  time: '2025-04-16T04:41:18.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Hyperzine is now twice as cheap to make, and also heals stamina damage.
+    - type: Tweak
+      message: Fully reworked aranesp, check the guidebook for new info.
+  id: 868
+  time: '2025-04-16T04:47:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate messenger bag is now slightly bigger, to be consistent with
+        the duffelbag.
+  id: 869
+  time: '2025-04-16T04:48:34.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Vorple Narp "More Charges" Zeegle Nip "Less Damage" Xop Gleep "Armor
+        Piercing"
+  id: 870
+  time: '2025-04-16T04:48:44.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Aghosts now have a neck slot for neck items.
+  id: 871
+  time: '2025-04-16T04:50:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new trait, Movement Impaired. You can now live out your dreams
+        of being an elderly man in goob.
+  id: 872
+  time: '2025-04-16T04:50:34.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Tweak
+      message: New warden locker sprite
+  id: 873
+  time: '2025-04-16T04:51:11.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Wizard spellcards are now slightly stronger to better match their price.
+  id: 874
+  time: '2025-04-16T04:51:50.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Adds an Antagonist Testing Area, accessible from the ghost bar
+  id: 875
+  time: '2025-04-16T04:52:53.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Rodentia? You gouda be kidding me, the cheese puns are un-brie-lievable!
+  id: 876
+  time: '2025-04-16T04:53:24.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed not being able to remove/insert posibrains from IPC torsos.
+  id: 877
+  time: '2025-04-16T04:53:32.0000000+00:00'
+- author: Armok
+  changes:
+    - type: Add
+      message: Add vox emote sounds (harrowing)
+  id: 878
+  time: '2025-04-16T04:54:06.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Grenade research is now roundstart in techfabs and autolathes, nothing
+        stops the mail!
+    - type: Tweak
+      message: Advanced Remote Signaller moved to advanced tools research in Industrial
+  id: 879
+  time: '2025-04-16T04:55:02.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Add
+      message: Gave Bingles their own Antagonist Rule
+    - type: Remove
+      message: Removed fun!
+  id: 880
+  time: '2025-04-16T04:55:10.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Add
+      message: >-
+        Added the Holo-Cigar, a new syndicate uplink item, that turns you into
+        Big Boss. It allows you to dual wield any firearms effectively 
+  id: 881
+  time: '2025-04-16T08:44:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix fishing breaking the game.
+  id: 882
+  time: '2025-04-16T13:32:58.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard *should be* fairly rare (1%), please report wizard sightings to
+        corroborate if its working well :trollface:.
+    - type: Tweak
+      message: High tier antag tokens cannot be exchanged for wizard.
+  id: 883
+  time: '2025-04-16T13:34:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: No more roundstart SM activations
+  id: 884
+  time: '2025-04-16T19:05:16.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed protection enchant not working.
+  id: 885
+  time: '2025-04-16T19:05:38.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Syringes are no longer explosion-proof.
+  id: 886
+  time: '2025-04-16T19:09:05.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: NTR's scarf is now in their loadout.
+  id: 887
+  time: '2025-04-16T19:16:59.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added alien tourist shuttle event.
+  id: 888
+  time: '2025-04-16T19:17:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Heretic blades, .45 AP, .50 antimaterial and .60 bullets now have 35%,
+        40%, 50% and 50% armor pierce respectively.
+    - type: Tweak
+      message: Burrner and hristov ammo is slightly more expensive.
+  id: 889
+  time: '2025-04-16T19:18:22.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Bingle plushies now make binglepit sounds when used.
+  id: 890
+  time: '2025-04-16T19:19:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: CCV4!!
+    - type: Add
+      message: Added a plushie of a specific Blueshield Officer.
+    - type: Add
+      message: Added the Nanotrasen Career Trainer.
+    - type: Add
+      message: Added the Inspector Ghostrole for admins.
+    - type: Add
+      message: >-
+        Added Token Gamerules for mins. Use these instead of the normal ones for
+        antag tokens!!
+    - type: Add
+      message: >-
+        Added a new implant to the uplink, the Nutriment Pump Implant. It allows
+        you to not require food or water.
+    - type: Tweak
+      message: Edited ERT loadouts. No more annies for the non-combat roles.
+  id: 891
+  time: '2025-04-17T06:22:53.0000000+00:00'
+- author: teneketaro
+  changes:
+    - type: Add
+      message: Cryostatis syringes can now be fired from the syringe gun!
+  id: 892
+  time: '2025-04-17T18:03:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Thieves should now appear in game director!
+  id: 893
+  time: '2025-04-17T18:04:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Syndicate stealth suit heat and pierce protection was decreased.
+    - type: Tweak
+      message: >-
+        Syndicate stealth suit now requires 3 second of no-stealth loss to start
+        accumulating stealth.
+  id: 894
+  time: '2025-04-17T18:07:56.0000000+00:00'
+- author: BombasterDS, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Tape recorders and cassettes can be found as security and reporter
+        equipment! They also can be made in autolathe and service techfab.
+  id: 895
+  time: '2025-04-17T18:08:47.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Cheap sunglasses are now in the loadout.
+  id: 896
+  time: '2025-04-17T18:11:08.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: pAIs can now be found in loadouts
+    - type: Add
+      message: Working golden pAI in loadouts
+  id: 897
+  time: '2025-04-17T18:13:17.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Syringe Pistol, previously known as Dart Syringe Gun, is no longer
+        armor-piercing, but is available to every traitor and is cheaper.
+    - type: Tweak
+      message: >-
+        Chemists now start with their chembags filled, and chembags provide 75%
+        explosion resistance to their contents.
+  id: 898
+  time: '2025-04-17T18:16:08.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Only heretic, wizard and chaplain have ability to enchant items now.
+  id: 899
+  time: '2025-04-18T22:48:25.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Brought back disposal unit speed flush.
+  id: 900
+  time: '2025-04-19T02:12:44.0000000+00:00'

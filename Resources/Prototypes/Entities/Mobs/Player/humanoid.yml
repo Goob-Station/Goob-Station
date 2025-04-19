@@ -41,7 +41,6 @@
 # SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mota <belochuc@gmail.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
@@ -108,14 +107,18 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Random humanoids
+## All role time requirements are from goobstation.
 
 - type: randomHumanoidSettings
   id: EventHumanoid
@@ -165,31 +168,38 @@
       state: icon
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: DeathSquad
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid # Goobstation
   randomizeName: false
   components:
-    - type: GrantImplant
-      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ] # Goobstation
+    - type: AutoImplant
+      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant] # Goobstation
     - type: GhostRole
       name: ghost-role-information-Death-Squad-name
       description: ghost-role-information-Death-Squad-description
       rules: ghost-role-information-Death-Squad-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 48000 # Goobstation
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # Goobstation
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
     - type: RandomMetadata
       nameSegments:
-        - NamesFirstMilitaryLeader
-        - NamesLastMilitary
+        - NamesMilitaryFirstLeader
+        - NamesMilitaryLast
 
 
 ## ERT Leader
@@ -204,14 +214,14 @@
       state: ertleader
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitaryLeader
-      - NamesLastMilitary
+      - NamesMilitaryFirstLeader
+      - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: ERTLeader
 
 - type: randomHumanoidSettings
   id: ERTLeader
-  parent: EventHumanoidMindShielded
+  parent: CentcommHumanoid # Goobstation
   randomizeName: false
   components:
     - type: GhostRole
@@ -221,13 +231,22 @@
       raffle:
         settings: short
       job: ERTLeader
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # five hours
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitaryLeader
-      - NamesLastMilitary
+      - NamesMilitaryFirstLeader
+      - NamesMilitaryLast
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
@@ -256,29 +275,6 @@
       prototypes: [ ERTLeaderGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
 
-- type: entity
-  id: RandomHumanoidSpawnerERTLeaderEVAAnnie
-  parent: RandomHumanoidSpawnerERTLeaderEVA
-  suffix: ERTRole, Annie, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVAAnnie
-
-- type: randomHumanoidSettings
-  id: ERTLeaderEVAAnnie
-  parent: ERTLeaderEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-leader-name
-      description: ghost-role-information-ert-leader-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTLeader
-    - type: Loadout
-      prototypes: [ ERTLeaderGearEVAAnnie ]
-      roleLoadout: [ RoleSurvivalEVA ]
-
 ## ERT Chaplain
 
 - type: entity
@@ -292,8 +288,8 @@
       state: chaplain #needs an ERT variant once a good suit it made.
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: ERTChaplain
 
@@ -301,6 +297,7 @@
   id: ERTChaplain
   parent: ERTLeader
   components:
+    - type: CanEnchant #GoobStation
     - type: BibleUser
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
@@ -311,8 +308,8 @@
       job: ERTChaplain
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: Loadout
       prototypes: [ ERTChaplainGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -358,8 +355,8 @@
       state: ertjanitor
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: ERTJanitor
 
@@ -376,8 +373,8 @@
       job: ERTJanitor
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -422,8 +419,8 @@
       state: ertengineer
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: ERTEngineer
 
@@ -438,10 +435,17 @@
       raffle:
         settings: short
       job: ERTEngineer
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Engineering
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # five hours
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: Loadout
       prototypes: [ ERTEngineerGear ]
       roleLoadout: [ RoleSurvivalExtended ]
@@ -486,8 +490,8 @@
       state: ertsecurity
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: ERTSecurity
 
@@ -504,11 +508,13 @@
       job: ERTSecurity
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -536,6 +542,8 @@
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 # ERT Lecter is dead, and I have killed it. - Sol
 #- type: entity
@@ -574,8 +582,8 @@
       state: ertmedical
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: RandomHumanoidSpawner
       settings: ERTMedical
 
@@ -592,11 +600,13 @@
       job: ERTMedical
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA
@@ -620,10 +630,19 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Medical
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 18000 # five hours
       job: ERTMedical
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
 
 ## CBURN
 
@@ -642,8 +661,8 @@
   id: CBURNAgent
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
-      implants: [ FreedomImplant, RadioImplantCentcomm ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: Loadout
       prototypes: [CBURNGear]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -653,10 +672,17 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      requirements:
+      - !type:DepartmentTimeRequirement
+        department: Security
+        time: 36000 # ten hours
+      - !type:DepartmentTimeRequirement
+        department: Command
+        time: 18000 # five hours
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstMilitary
-      - NamesLastMilitary
+      - NamesMilitaryFirst
+      - NamesMilitaryLast
 
 ## Central Command
 
@@ -674,8 +700,8 @@
   id: CentcomOfficial
   parent: EventHumanoidMindShielded
   components:
-    - type: GrantImplant
-      implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
+    - type: AutoImplant
+      implants: [ FreedomImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ] # Goobstation
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
       description: ghost-role-information-centcom-official-description
@@ -696,7 +722,7 @@
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
-      nameSegments: [ names_death_commando ]
+      nameSegments: [ NamesDeathCommando ]
     - type: RandomHumanoidSpawner
       settings: SyndicateAgent
 
@@ -740,8 +766,8 @@
       settings: Cluwne
     - type: RandomMetadata
       nameSegments:
-      - names_first
-      - names_last
+      - NamesFirst
+      - NamesLast
 
 - type: randomHumanoidSettings
   id: Cluwne

@@ -1,0 +1,12 @@
+# Lets you walk through lava unimpeded
+- type: entity
+  parent: BaseEnchant
+  id: EnchantLavaforged
+  name: Lavaforged
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - ProtectedFromStepTriggers # only go on shoes/hardsuit
+      - MobState # lava mouse
+  - type: LavaImmunityEnchant
