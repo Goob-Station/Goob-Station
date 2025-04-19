@@ -39,22 +39,28 @@
     sprite: _Goobstation/Objects/Fun/porg.rsi
     layers:
     - state: porg
-    - state: porg_e
+      map: ["enum.BorgVisualLayers.Body"]
+    - state: porg_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: true
+    - state: porg_l
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
   - type: Construction
     graph: POrg
     node: porg
+  #movement
   - type: Carriable
-  - type: Reactive
-    groups:
-      Acidic: [Touch]
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      collection: MetalThud
-  - type: CombatMode
+  - type: Pullable
+  - type: Puller
+    needsHands: false
   - type: NoSlip
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 7.5
+  #collision
   - type: Fixtures
     fixtures:
       fix1:
@@ -66,20 +72,32 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 7.5
-  - type: RotationVisuals
-    horizontalRotation: 90
-  - type: MobState
-    allowedStates:
-    - Alive
-    - Critical
-    - Dead
+  #attack
+  - type: CombatMode
+  - type: Targeting # Shitmed Change
+  - type: MeleeWeapon
+    hidden: true
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 10
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  #defense
+  - type: Damageable
+    damageContainer: Silicon
+    damageModifierSet: Silicon #Goobstation - Iondamage
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
       150: Dead
     stateAlertDict:
       Alive: BorgHealth
@@ -87,6 +105,44 @@
       Dead: BorgDead
     showOverlays: false
     allowRevives: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: RotationVisuals
+    horizontalRotation: 90
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: ProtectedFromStepTriggers
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 75 # It's harder to kill iron golem
+    damagePenalty: 0.25
   - type: HealthExaminable
     examinableTypes:
       - Blunt
@@ -95,8 +151,24 @@
       - Heat
       - Shock
     locPrefix: silicon
+  #actions
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+    - ActionPAIPlayMidi
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 2
   - type: UserInterface
     interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+        requireInputValidation: false
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
       enum.SiliconLawsUiKey.Key:
@@ -104,25 +176,21 @@
         requireInputValidation: false
       enum.BorgUiKey.Key:
         type: BorgBoundUserInterface
-      enum.InstrumentUiKey.Key:
-        type: InstrumentBoundUserInterface
-        requireInputValidation: false
-      enum.StationMapUiKey.Key:
-        type: StationMapBoundUserInterface
-        requireInputValidation: false
   - type: IntrinsicUI
     uis:
       enum.StationMapUiKey.Key:
         toggleAction: ActionAGhostShowStationMap
-  - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
+
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: porg_e
+    noMindState: porg_e_r
   - type: SiliconLawBound
   - type: SiliconLawProvider
     laws: FamimovLawset
-  - type: ActionGrant
-    actions:
-    - ActionViewLaws
+
   - type: ComplexInteraction
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -139,11 +207,12 @@
     allowSelfRepair: false
   - type: WiresPanel
   - type: ActivatableUIRequiresPanel
-  - type: NameIdentifier
-    group: Silicon
-  - type: ContainerContainer
-    containers:
-      porg_brain: !type:ContainerSlot { }
+  - type: ItemSlots
+    slots:
+      borg_brain:
+        whitelist:
+          components:
+          - PAI
   - type: ItemToggle
     onActivate: false # You should not be able to turn off a borg temporarily.
     activated: false # gets activated when a mind is added
@@ -151,6 +220,8 @@
   - type: ItemTogglePointLight
   - type: AccessToggle
   - type: Body
+  - type: Inventory
+    templateId: borgShort
   - type: StatusEffects
     allowed:
     - Stun
@@ -171,32 +242,23 @@
     unlockOnClick: false
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
-  - type: Damageable
-    damageContainer: Silicon
-    damageModifierSet: Silicon #Goobstation - Iondamage
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 60
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Machines/warning_buzzer.ogg
-          params:
-            volume: 5
-    - trigger:
-        !type:DamageTrigger
-        damage: 225
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:EmptyContainersBehaviour
-        containers:
-        - porg_brain
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+
+  - type: InteractionPopup
+    interactSuccessString: petting-success-generic-cyborg
+    interactFailureString: petting-failure-generic-cyborg
+
+  - type: StandingState
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - VimPilot
+  - type: Emoting
+  - type: Examiner
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
   - type: HandheldLight
     builtin: true
     toggleOnInteract: false
@@ -232,25 +294,3 @@
     autoRot: true
     radius: 4
     netsync: false
-  - type: Pullable
-  - type: Puller
-    needsHands: false
-  - type: StandingState
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - FootstepSound
-    - VimPilot
-  - type: Emoting
-  - type: GuideHelp
-    guides:
-    - Cyborgs
-    - Robotics
-  - type: ProtectedFromStepTriggers
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 75 # It's harder to kill iron golem
-    damagePenalty: 0.25

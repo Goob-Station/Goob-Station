@@ -408,6 +408,7 @@
           Empty: { state: empty }
           Occupied: { state: full }
   - type: Intellicard
+  - type: PAI
 
 - type: entity
   id: PlayerStationAiPreview

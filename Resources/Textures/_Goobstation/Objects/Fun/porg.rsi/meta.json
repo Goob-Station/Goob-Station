@@ -20,6 +20,14 @@
         {
             "name": "porg_e",
             "directions": 4
+        },
+        {
+            "name": "porg_e_r",
+            "directions": 4
+        },
+        {
+            "name": "porg_l",
+            "directions": 4
         }
     ]
 }
