@@ -232,7 +232,6 @@
   cost: 10000
   recipeUnlocks:
   - WeaponLaserCannon
-  - HoloprojectorSecurityAdvanced # Goobstation
   - WeaponMechCombatSolarisLaser # Goobstation
   # Goobstation R&D Console rework start
   position: 5,0
@@ -251,6 +250,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
+  - HoloprojectorSecurityAdvanced # Goobstation
   # Goobstation R&D Console rework start
   technologyPrerequisites:
   - WeaponizedLaserManipulation
