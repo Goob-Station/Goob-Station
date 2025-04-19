@@ -71,7 +71,7 @@ public sealed class AutomationSystem : EntitySystem
 
         foreach (var slot in ent.Comp.Slots)
         {
-            string id = input ? slot.Input : slot.Output;
+            string? id = input ? slot.Input : slot.Output;
             if (id == port)
                 return slot;
         }
