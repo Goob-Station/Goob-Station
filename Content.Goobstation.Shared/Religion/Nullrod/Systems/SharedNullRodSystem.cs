@@ -10,6 +10,7 @@ using Content.Goobstation.Common.Religion.Events;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Damage;
+using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
@@ -31,22 +32,7 @@ public sealed partial class SharedNullRodSystem : EntitySystem
 
         SubscribeLocalEvent<NullrodComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<NullrodComponent, ShotAttemptedEvent>(OnShootAttempt);
-
-        SubscribeLocalEvent<DivineInterventionComponent, BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
     }
-
-    #region Spell denial
-
-    private void OnTouchSpellAttempt(Entity<DivineInterventionComponent> ent, ref BeforeCastTouchSpellEvent args)
-    {
-        if (HasComp<NullrodComponent>(args.Target))
-        {
-            args.Cancelled = true;
-            SpellDenialEffectsPopup(args.Target.Value, args.Performer);
-        }
-    }
-
-    #endregion
 
     #region Attack Attempts
     private void OnAttackAttempt(Entity<NullrodComponent> ent, ref AttackAttemptEvent args)
@@ -82,11 +68,6 @@ public sealed partial class SharedNullRodSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.UntrainedUseSound, user);
 
         ent.Comp.NextPopupTime = _timing.CurTime + ent.Comp.PopupCooldown;
-    }
-
-    private void SpellDenialEffectsPopup(EntityUid target, EntityUid performer)
-    {
-        _popupSystem.PopupEntity(Loc.GetString("nullrod-spelldenial-popup"), performer, performer, PopupType.MediumCaution);
     }
     #endregion
 

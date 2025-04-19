@@ -5,11 +5,24 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
+namespace Content.Goobstation.Common.Religion;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class DivineInterventionComponent : Component;
+public sealed partial class DivineInterventionComponent : Component
+{
+    /// <summary>
+    /// Which sound to play on spell denial.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier DenialSound = new SoundPathSpecifier("/Audio/Effects/hallelujah.ogg");
+
+    /// <summary>
+    /// Which effect to display.
+    /// </summary>
+    [DataField]
+    public EntProtoId EffectProto = "EffectSpark";
+}

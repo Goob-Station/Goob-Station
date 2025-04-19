@@ -3,6 +3,7 @@
   id: BaseNullrod
   abstract: true
   components:
+  - type: DivineIntervention
   - type: Nullrod
     holyDamage:
       types:
@@ -185,8 +186,7 @@
         Slash: 5
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-  - type: MeleeThrowOnHit
-    speed: 2
+  - type: GrabbingItem
   - type: IgniteOnMeleeHit # emphasis on FLAMING GIFT!!
     fireStacks: 0.25
   - type: Cautery
@@ -354,7 +354,7 @@
     attackRate: 1.5
     damage:
       types:
-        Blunt: 10
+        Blunt: 12
     soundHit:
         collection: RubberHammer
         params:
@@ -452,13 +452,14 @@
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: Unremoveable
-  - type: GrabbingItem
   - type: Insulated
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
         Blunt: 50
     UntrainedUseString: nullrod-uristhand-untrained-usage-popup
+  - type: MeleeThrowOnHit
+    speed: 1
   - type: Tag
     tags:
       - UristHand
@@ -568,8 +569,8 @@
         - 0,1,0,1
     - type: BasicEntityAmmoProvider
       proto: BulletPistolSilver
-      capacity: 6
-      count: 6
+      capacity: 5
+      count: 5
     - type: AmmoCounter
     - type: ContainerContainer
       containers:

@@ -31,7 +31,6 @@
   - type: Magic
     requiresClothes: true
     school: Mime
-  - type: DivineIntervention
   - type: ActionUpgrade
     effectedLevels:
       2: ActionMimeMalaiseII
