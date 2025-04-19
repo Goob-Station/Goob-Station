@@ -130,6 +130,15 @@ public sealed class RiposteeSystem : EntitySystem
             if (args.User == ent.Owner)
                 continue;
 
+            if (data.CanRiposteEvent != null)
+            {
+                var ev = data.CanRiposteEvent;
+                ev.Handled = false;
+                RaiseLocalEvent(ent, (object) ev);
+                if (!ev.Handled)
+                    continue;
+            }
+
             if (!data.CanRiposteWhileProne && _standing.IsDown(ent))
                 continue;
 

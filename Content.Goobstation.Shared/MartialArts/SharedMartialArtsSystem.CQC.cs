@@ -39,6 +39,8 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, CqcPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CqcConsecutivePerformedEvent>(OnCQCConsecutive);
 
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, CanDoCQCEvent>(OnCQCCheck);
+
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
@@ -46,17 +48,38 @@ public partial class SharedMartialArtsSystem
 
     #region Generic Methods
 
-        private void OnMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)
+    private void OnCQCCheck(Entity<MartialArtsKnowledgeComponent> ent, ref CanDoCQCEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!ent.Comp.Blocked)
         {
-            if (!HasComp<MobStateComponent>(ent))
-                return;
-
-            if (!TryGrantMartialArt(ent, ent.Comp))
-                return;
-
-            if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge))
-                knowledge.Blocked = true;
+            args.Handled = true;
+            return;
         }
+
+        foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
+        {
+            if (!TryPrototype(entInRange, out var entProto) || entProto.ID != "SpawnPointChef")
+                continue;
+
+            args.Handled = true;
+            return;
+        }
+    }
+
+    private void OnMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)
+    {
+        if (!HasComp<MobStateComponent>(ent))
+            return;
+
+        if (!TryGrantMartialArt(ent, ent.Comp))
+            return;
+
+        if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge))
+            knowledge.Blocked = true;
+    }
 
     private void OnGrantCQCUse(EntityUid ent, GrantMartialArtKnowledgeComponent comp, UseInHandEvent args)
     {

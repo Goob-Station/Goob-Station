@@ -225,7 +225,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     private void OnComboAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
     {
         if (ent.Comp.Blocked)
-            return;
+        {
+            var ev = new CanDoCQCEvent();
+            RaiseLocalEvent(ent, ev);
+            if (!ev.Handled)
+                return;
+        }
 
         switch (ent.Comp.MartialArtsForm)
         {
@@ -465,7 +470,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                     false,
                     0.75f,
                     null,
-                    null));
+                    null,
+                    new CanDoCQCEvent()));
                 break;
         }
 
@@ -515,6 +521,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent))
             return false;
 
+        if (knowledgeComponent.MartialArtsForm != proto.MartialArtsForm)
+            return false;
+
         if (!proto.CanDoWhileProne && IsDown(ent))
         {
             _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-prone"), ent, ent);
@@ -524,19 +533,13 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         downed = IsDown(ent.Comp.CurrentTarget.Value);
         target = ent.Comp.CurrentTarget.Value;
 
-        if (knowledgeComponent.MartialArtsForm == proto.MartialArtsForm && !knowledgeComponent.Blocked)
+        if (!knowledgeComponent.Blocked)
             return true;
 
-        foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
-        {
-            if (!TryPrototype(entInRange, out var entProto) || entProto.ID != "SpawnPointChef" ||
-                !knowledgeComponent.Blocked)
-                continue;
-
-            return true;
-        }
-
-        return false;
+        // TODO: fix blocked martial art supercode
+        var ev = new CanDoCQCEvent();
+        RaiseLocalEvent(ent, ev);
+        return ev.Handled;
 
         bool IsDown(EntityUid uid)
         {

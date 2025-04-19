@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -33,7 +34,8 @@ public sealed partial class RiposteData(
     bool canRiposteWhileProne,
     float riposteChance,
     LocId? riposteUsedMessage,
-    LocId? riposteAvailableMessage)
+    LocId? riposteAvailableMessage,
+    BaseRiposteCheckEvent? canRiposteEvent)
 {
     // Default values for blade heretic
     public RiposteData() : this(20f,
@@ -46,7 +48,8 @@ public sealed partial class RiposteData(
         true,
         1f,
         "heretic-riposte-used",
-        "heretic-riposte-available")
+        "heretic-riposte-available",
+        null)
     {
     }
 
@@ -85,4 +88,7 @@ public sealed partial class RiposteData(
 
     [DataField]
     public LocId? RiposteAvailableMessage = riposteAvailableMessage;
+
+    [DataField, NonSerialized]
+    public BaseRiposteCheckEvent? CanRiposteEvent = canRiposteEvent;
 }
