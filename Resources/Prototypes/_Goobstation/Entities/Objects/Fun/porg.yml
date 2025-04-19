@@ -30,5 +30,6 @@
   - type: Construction
     graph: POrg
     node: porg
-  - type: MultiHandedItem
+  - type: Carriable
   - type: Puller
+  - type: Pullable
