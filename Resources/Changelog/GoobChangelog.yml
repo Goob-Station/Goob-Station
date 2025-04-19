@@ -7707,3 +7707,9 @@ Entries:
         explosion resistance to their contents.
   id: 898
   time: '2025-04-17T18:16:08.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Only heretic, wizard and chaplain have ability to enchant items now.
+  id: 899
+  time: '2025-04-18T22:48:25.0000000+00:00'
