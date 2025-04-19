@@ -7713,3 +7713,9 @@ Entries:
       message: Only heretic, wizard and chaplain have ability to enchant items now.
   id: 899
   time: '2025-04-18T22:48:25.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Brought back disposal unit speed flush.
+  id: 900
+  time: '2025-04-19T02:12:44.0000000+00:00'
