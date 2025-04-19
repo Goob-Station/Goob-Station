@@ -57,7 +57,7 @@
     key: enum.StackFilterUiKey.Key
   - type: UserInterface
     interfaces:
-      enum.NameFilterUiKey.Key:
+      enum.StackFilterUiKey.Key:
         type: StackFilterBUI
   - type: Construction
     node: stack
