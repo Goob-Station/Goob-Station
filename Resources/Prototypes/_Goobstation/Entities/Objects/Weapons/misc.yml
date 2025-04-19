@@ -57,10 +57,13 @@
   name: energy vortex
   components:
   - type: Sprite
-    sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
+    sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
     shader: unshaded
     layers:
-    - state: tesla_projectile
+    - state: energy_ball
+    scale: 0.5, 0.5
+  - type: ScaleData
+    scale: 0.5, 0.5
   - type: Physics
     bodyType: KinematicController
     bodyStatus: InAir
@@ -75,16 +78,22 @@
         - BulletImpassable
   - type: Clickable
   - type: GravityWell
-    maxRange: 3
+    maxRange: 4
     baseRadialAcceleration: 20
     baseTangentialAcceleration: 20
     gravPulsePeriod: 0.1
   - type: SingularityDistortion
-    intensity: 8
-    falloffPower: 2
+    intensity: 2
+    falloffPower: 1
   - type: LightningArcShooter
-    shootMaxInterval: 1.5
-    shootRange: 3
+    maxLightningArc: 2
+    arcDepth: 2
+    shootMaxInterval: 2
+    shootRange: 4
+  - type: Electrified
+    shockDamage: 1
+    requirePower: false
+    ignoreInsulation: true # 1984, you cannot just pass near A FUCKING ENERGY BALL wearing insuls
   - type: AmbientSound
     volume: 0
     range: 10
