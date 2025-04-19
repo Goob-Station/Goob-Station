@@ -72,11 +72,11 @@
       autoRot: true
       castShadows: false
     - type: Lightning
-      canArc: false
+      canArc: true
     - type: Electrified # Goobstation
       ignoreInsulation: true
       requirePower: false
-      shockDamage: 30
+      shockDamage: 40
 
 - type: entity
   name: charged lightning
