@@ -23,6 +23,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -81,6 +82,7 @@
       ownerOnly: true # get your own tome!
       balance:
         WizCoin: 10 # prices are balanced around this 10 point maximum and how strong the spells are
+    - type: EnchantingTool
     - type: GuideHelp # Goobstation
       guides:
       - Wizard
@@ -120,6 +122,7 @@
     - type: GuideHelp # Goobstation
       guides:
       - Wizard
+    - type: EnchantingTool
     - type: Tag
       tags:
       - GrimoireGhost

@@ -33,10 +33,13 @@ public sealed class EnchanterSystem : EntitySystem
     [Dependency] private readonly SharedStackSystem _stack = default!;
 
     private List<EntProtoId<EnchantComponent>> _pool = new();
+    private EntityQuery<CanEnchantComponent> _userQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _userQuery = GetEntityQuery<CanEnchantComponent>();
 
         SubscribeLocalEvent<EnchanterComponent, ExaminedEvent>(OnExamined);
 
@@ -79,18 +82,7 @@ public sealed class EnchanterSystem : EntitySystem
             return;
         }
 
-        var query = EntityManager.EntityQueryEnumerator<CanEnchantComponent>();
-        bool canEnchant = false;
-        while (query.MoveNext(out var entity, out _))
-        {
-            if (entity == user)
-            {
-                canEnchant = true;
-                break;
-            }
-        }
-
-        if (!canEnchant)
+        if (_userQuery.HasComp(user) == false)
         {
             _popup.PopupClient(Loc.GetString("enchanter-disallowed-enchant"), user, user);
             return;
