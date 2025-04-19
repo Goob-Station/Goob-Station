@@ -202,8 +202,8 @@
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorEngineerHardsuit
-  name: spacesuit-engineer-voidsuit-name
-  description: spacesuit-engineer-voidsuit-desc
+  name: spacesuit-engineer-hardsuit-name
+  description: spacesuit-engineer-hardsuit-desc
   sprite:
     sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
     state: control
