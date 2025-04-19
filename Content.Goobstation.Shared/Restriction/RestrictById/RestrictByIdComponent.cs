@@ -22,41 +22,32 @@ public sealed partial class RestrictByIdComponent : Component
     public List<ProtoId<AccessLevelPrototype>> AccessLists = [];
 
     /// <summary>
-    ///     Whether the restriction should be inverted
-    /// </summary>
-    /// <remarks>
-    /// For example, setting the ID to "Clown" and invert to true, would allow anyone but someone with a clown ID to use it.
-    /// </remarks>
-    [DataField]
-    public bool Invert { get; set; } = false;
-
-    /// <summary>
     ///     Whether melee attacks should be restricted. True by default.
     /// </summary>
     [DataField]
-    public bool RestrictMelee { get; set; } = true;
+    public bool RestrictMelee = true;
 
     /// <summary>
     ///     Whether ranged attacks should be restricted. True by default.
     /// </summary>
     [DataField]
-    public bool RestrictRanged { get; set; } = true;
+    public bool RestrictRanged = true;
 
     /// <summary>
     ///     Whether the item can be emagged to remove it's access locks.
     /// </summary>
     [DataField]
-    public bool IsEmaggable { get; set; } = false;
+    public bool IsEmaggable;
 
     /// <summary>
     ///     Whether the item is currently emagged.
     /// </summary>
-    [DataField]
-    public bool IsEmagged = false;
+    [ViewVariables]
+    public bool IsEmagged;
 
     /// <summary>
     ///     Whether ranged attacks should be restricted. True by default.
     /// </summary>
-    [DataField]
-    public string FailText { get; set; } = "restricted-by-id-component-attack-fail-id-wrong";
+    [ViewVariables]
+    public string FailText = "restricted-by-id-component-attack-fail-id-wrong";
 }

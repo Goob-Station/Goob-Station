@@ -21,32 +21,24 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<RestrictByIdComponent, ComponentInit>(OnComponentInit);
+            SubscribeLocalEvent<RestrictByIdComponent, MapInitEvent>(OnComponentInit);
             SubscribeLocalEvent<RestrictByIdComponent, AttemptShootEvent>(OnAttemptShoot);
             SubscribeLocalEvent<RestrictByIdComponent, AttemptMeleeEvent>(OnAttemptMelee);
             SubscribeLocalEvent<RestrictByIdComponent, GotEmaggedEvent>(OnEmagged);
         }
 
-        private void OnComponentInit(Entity<RestrictByIdComponent> ent, ref ComponentInit args)
+        private void OnComponentInit(Entity<RestrictByIdComponent> ent, ref MapInitEvent args)
         {
-            var item = ent.Comp.Owner;
-
-            // Set the access levels.
-            EnsureComp<AccessReaderComponent>(item, out var accessReader);
-            _accessReader.SetAccesses(item, accessReader, ent.Comp.AccessLists);
+            EnsureComp<AccessReaderComponent>(ent, out var accessReader);
+            _accessReader.SetAccesses(ent, accessReader, ent.Comp.AccessLists);
         }
 
         private void OnEmagged(Entity<RestrictByIdComponent> ent, ref GotEmaggedEvent args)
         {
-            if (!ent.Comp.IsEmaggable)
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction) || !ent.Comp.IsEmaggable)
                 return;
 
-            var item = ent.Comp.Owner;
-
-            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
-                return;
-
-            RemComp<AccessReaderComponent>(item);
+            RemComp<AccessReaderComponent>(ent);
             ent.Comp.IsEmagged = true;
             args.Handled = true;
             args.Repeatable = false;
@@ -55,59 +47,29 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
         {
-            var attacker = args.User;
-            var item = ent.Owner;
-            var comp = ent.Comp;
-
-            // If the item is currently emagged, do not check for accesses.
-            if (comp.IsEmagged)
+            if (ent.Comp.IsEmagged || !ent.Comp.RestrictRanged)
                 return;
 
-            // Get the failtext from the localization string.
-            args.Message = Loc.GetString(comp.FailText);
-
-            // If the entity shooting the item is invalid, return.
-            if (!attacker.IsValid() || !item.IsValid() || !ent.Comp.RestrictRanged)
-                return;
-
-            // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
-            if (_accessReader.IsAllowed(attacker, item) && !comp.Invert)
-                return;
-            // If the entities ID card doesn't match the allowed accesses, but invert is true, return and allow the shot.
-            if (!_accessReader.IsAllowed(attacker, item) && comp.Invert)
+            if (_accessReader.IsAllowed(args.User, ent))
                 return;
 
             args.Cancelled = true;
-            _popupSystem.PopupClient(args.Message, item, PopupType.MediumCaution);
+            args.Message = Loc.GetString(ent.Comp.FailText);
+            _popupSystem.PopupClient(args.Message, ent, args.User, PopupType.Medium);
 
         }
 
         private void OnAttemptMelee(Entity<RestrictByIdComponent> ent, ref AttemptMeleeEvent args)
         {
-            var attacker = args.User;
-            var item = ent.Owner;
-            var comp = ent.Comp;
-
-            // If the item is currently emagged, do not check for accesses.
-            if (comp.IsEmagged)
+            if (ent.Comp.IsEmagged || !ent.Comp.RestrictMelee)
                 return;
 
-            // Get the failtext from the localization string.
-            args.Message = Loc.GetString(comp.FailText);
-
-            // If the entity swinging the weapon is invalid, return.
-            if (!attacker.IsValid() || !item.IsValid() || !comp.RestrictMelee)
-                return;
-
-            // If the entities ID card matches the allowed accesses, and invert is false, return and allow the shot.
-            if (_accessReader.IsAllowed(attacker, item) && !comp.Invert)
-                return;
-            // If the entities ID card doesn't match the allowed accesses, but invert is true, return and allow the shot.
-            if (!_accessReader.IsAllowed(attacker, item) && comp.Invert)
+            if (_accessReader.IsAllowed(args.User, ent))
                 return;
 
             args.Cancelled = true;
-            _popupSystem.PopupClient(args.Message, item, PopupType.MediumCaution);
+            args.Message = Loc.GetString(ent.Comp.FailText);
+            _popupSystem.PopupClient(args.Message, ent, args.User, PopupType.Medium);
         }
     }
 }
