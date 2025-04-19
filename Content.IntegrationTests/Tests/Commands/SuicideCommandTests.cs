@@ -143,12 +143,14 @@ public sealed class SuicideCommandTests
 
         MindComponent mindComponent = default;
         MobStateComponent mobStateComp = default;
+        DamageableComponent damageableComp = default;
         await server.WaitPost(() =>
         {
             if (mind != null)
                 mindComponent = entManager.GetComponent<MindComponent>(mind.Value);
 
             mobStateComp = entManager.GetComponent<MobStateComponent>(player);
+            damageableComp = entManager.GetComponent<DamageableComponent>(player);
         });
 
 
@@ -159,7 +161,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsDead(player, mobStateComp));
+                Assert.That(mobStateSystem.IsDead(player, mobStateComp), $"Player is alive when they should be dead: {entManager.ToPrettyString(player)}, {player.Id}, {mobStateComp.CurrentState}, {damageableComp.Damage.GetTotal()}");
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });
@@ -225,10 +227,7 @@ public sealed class SuicideCommandTests
                 Assert.That(mobStateSystem.IsDead(player, mobStateComp));
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-
-                // Shitmed Change - Consciousness entities do not use damage to, thus this check will always be false
-                if (!entManager.HasComponent<ConsciousnessComponent>(player))
-                    Assert.That(damageableComp.Damage.GetTotal(), Is.EqualTo(lethalDamageThreshold));
+                Assert.That(damageableComp.Damage.GetTotal(), Is.EqualTo(lethalDamageThreshold));
             });
         });
 
@@ -277,7 +276,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             Assert.Multiple(() =>
             {
-                Assert.That(mobStateSystem.IsAlive(player, mobStateComp), $"Player is alive when they should be dead: {player}, {player.Id}");
+                Assert.That(mobStateSystem.IsAlive(player, mobStateComp), $"Player is alive when they should be dead: {entManager.ToPrettyString(player)}, {player.Id}");
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
             });

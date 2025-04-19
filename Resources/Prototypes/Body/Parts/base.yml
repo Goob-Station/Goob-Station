@@ -180,13 +180,13 @@
     tags:
       - Head
   - type: Woundable
-    integrity: 42
-    integrityCap: 42
+    integrity: 65
+    integrityCap: 65
     thresholds:
-      Minor: 36
-      Moderate: 30
-      Severe: 24
-      Critical: 12
+      Minor: 50
+      Moderate: 35
+      Severe: 20
+      Critical: 10
       Loss: 0
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
@@ -232,6 +232,15 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
     bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+  - type: Woundable
+    integrity: 65
+    integrityCap: 65
+    thresholds:
+      Minor: 50
+      Moderate: 35
+      Severe: 20
+      Critical: 10
+      Loss: 0
 
 - type: entity
   abstract: true
@@ -260,6 +269,15 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
     bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+  - type: Woundable
+    integrity: 65
+    integrityCap: 65
+    thresholds:
+      Minor: 50
+      Moderate: 35
+      Severe: 20
+      Critical: 10
+      Loss: 0
 
 - type: entity
   abstract: true
@@ -355,6 +373,15 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
     bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+  - type: Woundable
+    integrity: 65
+    integrityCap: 65
+    thresholds:
+      Minor: 50
+      Moderate: 35
+      Severe: 20
+      Critical: 10
+      Loss: 0
 
 - type: entity
   abstract: true
@@ -384,6 +411,15 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
     bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
+  - type: Woundable
+    integrity: 65
+    integrityCap: 65
+    thresholds:
+      Minor: 50
+      Moderate: 35
+      Severe: 20
+      Critical: 10
+      Loss: 0
 
 - type: entity
   abstract: true

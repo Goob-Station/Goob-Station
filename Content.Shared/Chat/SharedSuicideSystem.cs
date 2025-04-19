@@ -30,8 +30,8 @@ public sealed class SharedSuicideSystem : EntitySystem
     /// </summary>
     public void ApplyLethalDamage(Entity<DamageableComponent> target, DamageSpecifier damageSpecifier)
     {
-        //if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness)) // Shitmed Change
-        //    KillConsciousness((target, victimConsciousness));
+        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness)) // Shitmed Change
+            KillConsciousness((target, victimConsciousness));
 
         // Create a new damageSpecifier so that we don't make alterations to the original DamageSpecifier
         // Failing  to do this will permanently change a weapon's damage making it insta-kill people
@@ -55,8 +55,8 @@ public sealed class SharedSuicideSystem : EntitySystem
             appliedDamageSpecifier.DamageDict[key] = Math.Ceiling((double) (value * lethalAmountOfDamage / totalDamage));
         }
 
-        Logger.Info($"Applying lethal damage to {target} with {appliedDamageSpecifier.GetTotal()}, old total: {totalDamage}, Last keys: {mobThresholds.Thresholds.Keys.Last()}, Total: {target.Comp.TotalDamage}");
         _damageableSystem.TryChangeDamage(target, appliedDamageSpecifier, true, origin: target, targetPart: TargetBodyPart.Chest); // Shitmed Change
+        Dirty(target, target.Comp);
     }
 
     /// <summary>
@@ -64,8 +64,8 @@ public sealed class SharedSuicideSystem : EntitySystem
     /// </summary>
     public void ApplyLethalDamage(Entity<DamageableComponent> target, ProtoId<DamageTypePrototype>? damageType)
     {
-        //if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness)) // Shitmed Change
-        //    KillConsciousness((target, victimConsciousness));
+        if (TryComp<ConsciousnessComponent>(target, out var victimConsciousness)) // Shitmed Change
+            KillConsciousness((target, victimConsciousness));
 
         if (!TryComp<MobThresholdsComponent>(target, out var mobThresholds))
             return;
@@ -83,8 +83,8 @@ public sealed class SharedSuicideSystem : EntitySystem
         }
 
         var damage = new DamageSpecifier(damagePrototype, lethalAmountOfDamage);
-        Logger.Info($"Applying lethal typed damage to {target} with {damage.GetTotal()}");
         _damageableSystem.TryChangeDamage(target, damage, true, origin: target, targetPart: TargetBodyPart.Chest); // Shitmed Change
+        Dirty(target, target.Comp);
     }
 
     /// <summary>

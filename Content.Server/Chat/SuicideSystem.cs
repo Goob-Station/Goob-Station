@@ -149,6 +149,7 @@ public sealed class SuicideSystem : EntitySystem
         {
             _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(victim):player} suicided.");
         }
+
         return true;
     }
 
@@ -240,7 +241,7 @@ public sealed class SuicideSystem : EntitySystem
         if (HasComp<SiliconComponent>(victim)) // Goobstation
             args.DamageType ??= "Shock";
         else
-            args.DamageType ??= "Bloodloss";
+            args.DamageType ??= "Slash";
 
         _suicide.ApplyLethalDamage(victim, args.DamageType);
 
