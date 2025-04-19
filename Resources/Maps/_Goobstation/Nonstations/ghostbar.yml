@@ -10689,13 +10689,6 @@ entities:
       parent: 4
     - type: AtmosPipeColor
       color: '#FC033DFF'
-- proto: GatewayAntagPlanet
-  entities:
-  - uid: 2289
-    components:
-    - type: Transform
-      pos: 19.5,-9.5
-      parent: 4
 - proto: GhostBarSpawner
   entities:
   - uid: 41
