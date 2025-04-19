@@ -299,11 +299,9 @@
     damage:
       types:
         Heat: 0
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: WizardWabbajack
-    whitelist:
-      components:
-      - Body
+  - type: TriggerOnProjectileHit
   - type: Reflective
     reflective: Magic
   - type: Ammo
@@ -553,7 +551,7 @@
   id: ProjectileEmpBolt
   name: electromagnetic bolt
   description: Energy low!!!
-  parent: BaseBulletTrigger
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -569,6 +567,7 @@
     reflective: Magic
   - type: Ammo
     muzzleFlash: null
+  - type: TriggerOnProjectileHit
   - type: EmpOnTrigger
     range: 3
     energyConsumption: 50000

@@ -168,6 +168,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
         [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+        [Dependency] private readonly EntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -345,8 +346,10 @@ namespace Content.Server.Explosion.EntitySystems
         //ShitChap - Spell Reflection Functionality
         private void TriggerOnProjectileHit(EntityUid uid, TriggerOnProjectileHitComponent component, ref ProjectileHitEvent args)
         {
-            Trigger(uid);
-            _explosions.TriggerExplosive(uid);
+            if (HasComp<ExplosiveComponent>(uid))
+                _explosions.TriggerExplosive(uid);
+            else
+                Trigger(uid, args.Target);
         }
 
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)
