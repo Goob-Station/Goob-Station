@@ -1,0 +1,31 @@
+- type: entity
+  id: HisGrace
+  name: his grace
+  description: An otherworldly entity bound within the confines of a seemingly ordinary toolbox. Feed it, before it feeds on you.
+  parent: [BaseItem, BaseSyndicateContraband]
+  components:
+  - type: HisGrace
+    hungerOnDevour: 20
+    healing:
+      groups:
+        brute: -6
+        burn: -6
+        airloss: -3
+        toxin: -3
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: MeleeWeapon
+    heavyStaminaCost: 10
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: Appearance
+  - type: Sprite
+    sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
