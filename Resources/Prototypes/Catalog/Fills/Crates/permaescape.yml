@@ -74,7 +74,7 @@
         prob: 0.80
       - id: ClothingOuterHardsuitEVAPrisoner
         prob: 0.80
-      - id: ClothingOuterHardsuitVoidParamed
+      - id: ClothingOuterVoidsuitParamedic
         prob: 0.10
       - id: ClothingOuterRedRacoon
         prob: 0.10
