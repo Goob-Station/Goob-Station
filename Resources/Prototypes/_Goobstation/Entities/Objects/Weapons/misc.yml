@@ -51,7 +51,7 @@
           True: {visible: true}
           False: {visible: false}
 
-# This is used by HE1S G8 overcharged cartridge, idk where to put it
+# This is used by HE1S-G8 overcharged cartridge, idk where to put it
 - type: entity
   id: EnergyVortex
   name: energy vortex
