@@ -35,7 +35,6 @@
     magState: mag
     steps: 2
     zeroVisible: false
-    proto: null
   - type: Appearance
 
 - type: entity

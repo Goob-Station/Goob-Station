@@ -381,7 +381,7 @@
     Steel: 165
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazineShotgunLeverRifleEmpty
   result: MagazineShotgunLeverRifleEmpty
   materials:
@@ -441,14 +441,14 @@
     Steel: 160
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazinePistolCaselessRifleEmpty
   result: MagazinePistolCaselessRifleEmpty
   materials:
     Steel: 25
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazineCaselessRifleEmpty
   result: MagazineCaselessRifleEmpty
   materials:
@@ -469,7 +469,7 @@
     Steel: 1500
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
+  parent: BaseEmptyAmmoRecipe
   id: MagazinePistolHighCapacityEmpty
   result: MagazinePistolHighCapacityEmpty
   materials:
