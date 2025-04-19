@@ -114,10 +114,10 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
         while (query.MoveNext(out var ent, out var comp))
         {
-            if (_timing.CurTime < comp.ResetTime || comp.LastAttacks.Count <= 0)
+            if (_timing.CurTime < comp.ResetTime)
                 continue;
 
-            if (comp.LastAttacks.Count <= 0 && comp.ConsecutiveGnashes == 0)
+            if (comp.LastAttacks.Count == 0 && comp.ConsecutiveGnashes == 0)
                 continue;
 
             comp.LastAttacks.Clear();
@@ -235,10 +235,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             case MartialArtsForms.Capoeira:
                 OnCapoeiraAttackPerformed(ent, ref args);
                 break;
-            case MartialArtsForms.CorporateJudo:
-            case MartialArtsForms.SleepingCarp:
-            default:
-            return;
         }
     }
 
@@ -458,7 +454,8 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 break;
             case MartialArtsForms.CloseQuartersCombat:
                 var riposte = EnsureComp<RiposteeComponent>(user);
-                riposte.Data.Add(new(0.1f,
+                riposte.Data.TryAdd("CQC",
+                    new(0.1f,
                     false,
                     null,
                     true,

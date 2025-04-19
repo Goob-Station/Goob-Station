@@ -18,7 +18,7 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class RiposteeComponent : Component
 {
     [DataField]
-    public List<RiposteData> Data = new();
+    public Dictionary<string, RiposteData> Data = new();
 }
 
 [Serializable, NetSerializable, DataDefinition]

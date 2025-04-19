@@ -86,7 +86,7 @@ public sealed class RiposteeSystem : EntitySystem
             if (!uid.IsValid())
                 continue;
 
-            foreach (var data in rip.Data)
+            foreach (var data in rip.Data.Values)
             {
                 if (data.Cooldown <= 0f)
                 {
@@ -122,7 +122,7 @@ public sealed class RiposteeSystem : EntitySystem
         if (_mobState.IsIncapacitated(ent))
             return;
 
-        foreach (var data in ent.Comp.Data)
+        foreach (var data in ent.Comp.Data.Values)
         {
             if (!data.CanRiposte)
                 continue;
