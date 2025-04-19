@@ -1157,7 +1157,7 @@
 
 - type: Tag
   id: NozzleBackTank
-  
+
 - type: Tag
   id: Nozzle # Assmos - Extinguisher Nozzle
 
@@ -1172,9 +1172,6 @@
 
 - type: Tag
   id: NukeOpsUplink
-
-- type: Tag
-  id: LoneOpsUplink
 
 - type: Tag
   id: Ointment
