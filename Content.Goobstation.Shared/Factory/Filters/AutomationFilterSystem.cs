@@ -140,8 +140,11 @@ public sealed class AutomationFilterSystem : EntitySystem
 
     private void OnCombinedInit(Entity<CombinedFilterComponent> ent, ref ComponentInit args)
     {
-        if (!_slots.TryGetSlot(ent, CombinedFilterComponent.FilterAName, out var filterA) ||
-            !_slots.TryGetSlot(ent, CombinedFilterComponent.FilterBName, out var filterB))
+        if (!TryComp<ItemSlotsComponent>(ent, out var slots))
+            return;
+
+        if (!_slots.TryGetSlot(ent, CombinedFilterComponent.FilterAName, out var filterA, slots) ||
+            !_slots.TryGetSlot(ent, CombinedFilterComponent.FilterBName, out var filterB, slots))
         {
             Log.Error($"{ToPrettyString(ent)} was missing filter slots!");
             RemCompDeferred<CombinedFilterComponent>(ent);
