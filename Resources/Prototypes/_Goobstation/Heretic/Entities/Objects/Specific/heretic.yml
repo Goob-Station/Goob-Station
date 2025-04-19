@@ -5,6 +5,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -42,6 +44,7 @@
   - type: ItemToggleSize
     activatedSize: Normal
   - type: ToggleAnimation
+  - type: EnchantingTool
   - type: Tag
     tags:
     - HereticItem
@@ -92,6 +95,12 @@
     angularDamping: 0
     linearDamping: 0
     canCollide: False
+  - type: Tag
+    tags:
+    - FollowerStayOnPolymorph
+  - type: Reflect
+    reflectProb: 1
+    spread: 5
 
 - type: entity
   parent: BaseBullet
@@ -102,13 +111,17 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/items.rsi
-    state: protective_blade
+    layers:
+    - state: bullet
+      shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
+    ignoreResistances: true
     damage:
       types:
-        Slash: 15
-        Piercing: 15
+        Slash: 25
         Structural: 100
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: Reflective
+    reflective: None
