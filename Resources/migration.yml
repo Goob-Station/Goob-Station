@@ -862,9 +862,12 @@ SalvageExpeditionsComputerCircuitboard: LavalandShuttleConsoleCircuitboard
 # 2025-01-27
 FoodCondimentPacketFrostoil: FoodCondimentPacketColdsauce
 
-#2025-02-05
+# 2025-02-05
 WeaponSubMachineGunVector: null
 WeaponSubMachineGunVectorRubber: null
+
+# 2025-02-11
+WallShuttleInterior: WallShuttle
 
 # 2025-02-20
 MagazineBoxAntiMaterielBig: null
