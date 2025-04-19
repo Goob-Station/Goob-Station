@@ -131,14 +131,13 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.6
+    fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
-    autoCycle: false
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: ItemSlots
@@ -220,8 +219,8 @@
   #  capacity: 5
   #  proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.75 # goob edit V
-    sprintModifier: 0.75 # goob edit ^
+    walkModifier: 0.9 # goob edit V
+    sprintModifier: 0.9 # goob edit ^
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 8 # Goobstation - Sniper rifles buff
