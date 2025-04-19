@@ -17,9 +17,8 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Misc/explosive_collar.rsi
-    stripDelay: 10
+    stripDelay: 6
     equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
-    quickEquip: true
     slots:
     - neck
   - type: SelfUnremovableClothing
