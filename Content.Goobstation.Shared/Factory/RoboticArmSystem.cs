@@ -346,14 +346,17 @@ public sealed class RoboticArmSystem : EntitySystem
         if (ent.Comp.ItemSlot != null)
             return;
 
-        if (!_slots.TryGetSlot(ent, ent.Comp.ItemSlotId, out var slot))
+        if (!TryComp<ItemSlotsComponent>(ent, out var slots))
+            return;
+
+        if (!_slots.TryGetSlot(ent, ent.Comp.ItemSlotId, out var slot, slots))
         {
             Log.Warning($"Missing item slot {ent.Comp.ItemSlotId} on robotic arm {ToPrettyString(ent)}");
             RemCompDeferred<RoboticArmComponent>(ent);
             return;
         }
 
-        if (!_slots.TryGetSlot(ent, ent.Comp.FilterSlotId, out var filterSlot))
+        if (!_slots.TryGetSlot(ent, ent.Comp.FilterSlotId, out var filterSlot, slots))
         {
             Log.Warning($"Missing filter slot {ent.Comp.FilterSlotId} on robotic arm {ToPrettyString(ent)}");
             RemCompDeferred<RoboticArmComponent>(ent);
