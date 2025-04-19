@@ -217,4 +217,4 @@
 - type: damageModifierSet
   id: StructuralImmunity
   coefficients:
-    StructuralImmunity: 0
+    Structural: 0
