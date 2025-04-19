@@ -100,7 +100,7 @@
     contents:
       - id: WeaponSniperHristov
       - id: MagazineBoxAntiMateriel
-      - id: ClothingNeckTieRed
+      - id: MagazineAntiMateriel # ClothingNeckTieRed # Goobstation
       - id: ClothingHandsGlovesLatex
       - id: ClothingUniformJumpsuitLawyerBlack
       - id: BarberScissors
