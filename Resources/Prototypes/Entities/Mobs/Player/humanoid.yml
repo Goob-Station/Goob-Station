@@ -297,9 +297,6 @@
   id: ERTChaplain
   parent: ERTLeader
   components:
-    - type: CanEnchant #GoobStation
-    - type: BibleUser
-    - type: CanEnchant #Let's them enchant
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
       description: ghost-role-information-ert-chaplain-description
