@@ -17,19 +17,15 @@ on:
       - synchronize
       - reopened
       - ready_for_review
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
+      
 jobs:
   Label:
-    if: ( github.event.pull_request.draft == false ) && ( github.actor != 'GoobBot' )
+    if: ( github.event.pull_request.draft == false )
     runs-on: ubuntu-latest
     steps:
       - name: Check for Merge Conflicts
         uses: eps1lon/actions-label-merge-conflict@v3.0.0
         with:
           dirtyLabel: "S: Merge Conflict"
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          repoToken: "${{ secrets.BOT_TOKEN }}"
           commentOnDirty: "This pull request has conflicts, please resolve those before we can evaluate the pull request."

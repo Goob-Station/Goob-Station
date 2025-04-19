@@ -1,4 +1,10 @@
-﻿comp-containment-turned-on = The containment field generator boots up.
+# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+comp-containment-turned-on = The containment field generator boots up.
 comp-containment-turned-off = The containment field generator shuts down.
 
 comp-containment-on = It's switched [color=green]on[/color], ready to generate a connection.
