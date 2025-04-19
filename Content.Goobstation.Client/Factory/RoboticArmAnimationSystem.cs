@@ -22,6 +22,9 @@ public sealed class RoboticArmAnimationSystem : EntitySystem
         var query = EntityQueryEnumerator<RoboticArmComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            if (comp.ItemSlot == null)
+                continue;
+
             if (comp.NextMove is {} nextMove)
                 Animate((uid, comp), nextMove);
             else

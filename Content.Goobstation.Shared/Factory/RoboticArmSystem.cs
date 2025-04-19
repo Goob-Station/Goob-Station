@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Factory.Filters;
 using Content.Goobstation.Shared.Factory.Slots;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
@@ -10,6 +11,7 @@ using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
+using Content.Shared.Throwing;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Containers;
@@ -22,6 +24,7 @@ namespace Content.Goobstation.Shared.Factory;
 public sealed class RoboticArmSystem : EntitySystem
 {
     [Dependency] private readonly AutomationSystem _automation = default!;
+    [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _map = default!;
@@ -33,12 +36,14 @@ public sealed class RoboticArmSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
 
     private EntityQuery<ItemComponent> _itemQuery;
+    private EntityQuery<ThrownItemComponent> _thrownQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _itemQuery = GetEntityQuery<ItemComponent>();
+        _thrownQuery = GetEntityQuery<ItemComponent>();
 
         SubscribeLocalEvent<RoboticArmComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<RoboticArmComponent, AfterAutoHandleStateEvent>(OnHandleState);
@@ -93,7 +98,7 @@ public sealed class RoboticArmSystem : EntitySystem
 
         UpdateSlots(ent);
 
-        UpdateItemSlot(ent);
+        UpdateItemSlots(ent);
     }
 
     private void OnHandleState(Entity<RoboticArmComponent> ent, ref AfterAutoHandleStateEvent args)
@@ -108,12 +113,22 @@ public sealed class RoboticArmSystem : EntitySystem
         if (args.OurFixtureId != ent.Comp.InputFixtureId)
             return;
 
+        AddInput(ent, args.OtherEntity);
+    }
+
+    private void AddInput(Entity<RoboticArmComponent> ent, EntityUid item)
+    {
         // never pick up non-items
-        var item = args.OtherEntity;
         if (!_itemQuery.HasComp(item))
             return;
 
-        // TODO: check filter against item
+        // thrown items move too fast to be caught...
+        if (thrownQuery.HasComp(item))
+            return;
+
+        // ignore non-filtered items
+        if (_filter.IsBlocked(ent.Comp.Filter, item))
+            return;
 
         var wake = CompOrNull<CollisionWakeComponent>(item);
         var wakeEnabled = wake?.Enabled ?? false;
@@ -136,14 +151,17 @@ public sealed class RoboticArmSystem : EntitySystem
 
         var wake = ent.Comp.InputItems[i].Item2;
         ent.Comp.InputItems.RemoveAt(i);
-        _wake.SetEnabled(args.OtherEntity, wake); // don't break conveyors for skipped items
         DirtyField(ent, nameof(RoboticArmComponent.InputItems));
+        _wake.SetEnabled(args.OtherEntity, wake); // don't break conveyors for skipped items
     }
 
     private void OnItemModified<T>(Entity<RoboticArmComponent> ent, ref T args) where T: ContainerModifiedMessage
     {
+        if (args.Container.ID != ent.Comp.ItemSlotId)
+            return;
+
         // need to do this here for flatpacking at least from PVS stuff
-        UpdateItemSlot(ent);
+        UpdateItemSlots(ent);
         _appearance.SetData(ent, RoboticArmVisuals.HasItem, ent.Comp.HasItem);
     }
 
@@ -285,6 +303,7 @@ public sealed class RoboticArmSystem : EntitySystem
             if (output?.CanInsert(item.Value) ?? true)
             {
                 ent.Comp.InputItems.RemoveAt(i);
+                DirtyField(ent, nameof(RoboticArmComponent.InputItems));
                 found = item.Value;
                 break;
             }
@@ -308,8 +327,7 @@ public sealed class RoboticArmSystem : EntitySystem
         if (!_transform.InRange(Transform(machine).Coordinates, coords, 0.25f))
             return false;
 
-        // TODO: pass filters
-        if (slot.GetItem(null) is not {} item)
+        if (slot.GetItem(ent.Comp.Filter) is not {} item)
             return false;
 
         return _slots.TryInsert(ent, ent.Comp.ItemSlot, item, user: null);
@@ -323,8 +341,11 @@ public sealed class RoboticArmSystem : EntitySystem
             ent.Comp.OutputSlot = _automation.GetSlot(output, outPort, input: true);
     }
 
-    private void UpdateItemSlot(Entity<RoboticArmComponent> ent)
+    private void UpdateItemSlots(Entity<RoboticArmComponent> ent)
     {
+        if (ent.Comp.ItemSlot != null)
+            return;
+
         if (!_slots.TryGetSlot(ent, ent.Comp.ItemSlotId, out var slot))
         {
             Log.Warning($"Missing item slot {ent.Comp.ItemSlotId} on robotic arm {ToPrettyString(ent)}");
@@ -332,7 +353,15 @@ public sealed class RoboticArmSystem : EntitySystem
             return;
         }
 
+        if (!_slots.TryGetSlot(ent, ent.Comp.FilterSlotId, out var filterSlot))
+        {
+            Log.Warning($"Missing filter slot {ent.Comp.FilterSlotId} on robotic arm {ToPrettyString(ent)}");
+            RemCompDeferred<RoboticArmComponent>(ent);
+            return;
+        }
+
         ent.Comp.ItemSlot = slot;
+        ent.Comp.FilterSlot = filterSlot;
     }
 
     private bool IsOutputBlocked(EntityUid uid)

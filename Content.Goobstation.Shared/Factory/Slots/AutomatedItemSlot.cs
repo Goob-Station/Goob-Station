@@ -3,7 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Factory.Filters;
 using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Goobstation.Shared.Factory.Slots;
@@ -48,9 +47,9 @@ public sealed partial class AutomatedItemSlot : AutomationSlot
             _slots.CanInsert(Owner, usedUid: item, user: null, Slot);
     }
 
-    public override EntityUid? GetItem(AutomationFilter? filter)
+    public override EntityUid? GetItem(EntityUid? filter)
     {
-        if (Slot.Item is not {} item || (filter?.IsDenied(item) ?? false))
+        if (Slot.Item is not {} item || _filter.IsBlocked(filter, item))
             return null;
 
         return item;

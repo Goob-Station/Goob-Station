@@ -1,0 +1,235 @@
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.DeviceLinking;
+using Content.Shared.Examine;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Labels.Components;
+using Content.Shared.Popups;
+using Content.Shared.Stacks;
+using Robust.Shared.Prototypes;
+
+namespace Content.Goobstation.Shared.Factory.Filters;
+
+public sealed class AutomationFilterSystem : EntitySystem
+{
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    private EntityQuery<LabelComponent> _labelQuery;
+    private EntityQuery<StackComponent> _stackQuery;
+
+    public static readonly int GateCount = Enum.GetValues(typeof(LogicGate)).Length;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _labelQuery = GetEntityQuery<LabelComponent>();
+        _stackQuery = GetEntityQuery<StackComponent>();
+
+        Subs.BuiEvents<LabelFilterComponent>(LabelFilterUiKey.Key, subs =>
+        {
+            subs.Event<LabelFilterSetLabelMessage>(OnLabelSet);
+        });
+        SubscribeLocalEvent<LabelFilterComponent, ExaminedEvent>(OnLabelExamined);
+        SubscribeLocalEvent<LabelFilterComponent, AutomationFilterEvent>(OnLabelFilter);
+
+        Subs.BuiEvents<NameFilterComponent>(NameFilterUiKey.Key, subs =>
+        {
+            subs.Event<NameFilterSetNameMessage>(OnNameSet);
+            subs.Event<NameFilterSetModeMessage>(OnNameSetMode);
+        });
+        SubscribeLocalEvent<NameFilterComponent, ExaminedEvent>(OnNameExamined);
+        SubscribeLocalEvent<NameFilterComponent, AutomationFilterEvent>(OnNameFilter);
+
+        Subs.BuiEvents<StackFilterComponent>(StackFilterUiKey.Key, subs =>
+        {
+            subs.Event<StackFilterSetSizeMessage>(OnStackSet);
+        });
+        SubscribeLocalEvent<StackFilterComponent, ExaminedEvent>(OnStackExamined);
+        SubscribeLocalEvent<StackFilterComponent, AutomationFilterEvent>(OnStackFilter);
+
+        SubscribeLocalEvent<CombinedFilterComponent, ComponentInit>(OnCombinedInit);
+        SubscribeLocalEvent<CombinedFilterComponent, UseInHandEvent>(OnCombinedUse);
+        SubscribeLocalEvent<CombinedFilterComponent, ExaminedEvent>(OnCombinedExamined);
+        SubscribeLocalEvent<CombinedFilterComponent, AutomationFilterEvent>(OnCombinedFilter);
+    }
+
+    /* Label filter */
+
+    private void OnLabelSet(Entity<LabelFilterComponent> ent, ref LabelFilterSetLabelMessage args)
+    {
+        var label = args.Label.Trim();
+        if (label.Length > ent.Comp.MaxLength)
+            return;
+
+        ent.Comp.Label = label;
+        Dirty(ent);
+    }
+
+    private void OnLabelExamined(Entity<LabelFilterComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        if (string.IsNullOrEmpty(ent.Comp.Label))
+        {
+            args.PushMarkup(Loc.GetString("automation-filter-examine-empty"));
+            return;
+        }
+
+        args.PushText(Loc.GetString("automation-filter-examine-string", ("name", ent.Comp.Label)));
+    }
+
+    private void OnLabelFilter(Entity<LabelFilterComponent> ent, ref AutomationFilterEvent args)
+    {
+        args.Allowed = _labelQuery.CompOrNull(args.Item)?.CurrentLabel == ent.Comp.Label;
+    }
+
+    /* Name filter */
+
+    private void OnNameSet(Entity<NameFilterComponent> ent, ref NameFilterSetNameMessage args)
+    {
+        var name = args.Name.Trim();
+        if (name.Length > ent.Comp.MaxLength || ent.Comp.Name == name)
+            return;
+
+        ent.Comp.Name = name;
+        Dirty(ent);
+    }
+
+    private void OnNameSetMode(Entity<NameFilterComponent> ent, ref NameFilterSetModeMessage args)
+    {
+        if (ent.Comp.Mode == args.Mode)
+            return;
+
+        ent.Comp.Mode = args.Mode;
+        Dirty(ent);
+    }
+
+    private void OnNameExamined(Entity<NameFilterComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        if (string.IsNullOrEmpty(ent.Comp.Name))
+        {
+            args.PushMarkup(Loc.GetString("automation-filter-examine-empty"));
+            return;
+        }
+
+        args.PushText(Loc.GetString("automation-filter-examine-string", ("name", ent.Comp.Name)));
+    }
+
+    private void OnNameFilter(Entity<NameFilterComponent> ent, ref AutomationFilterEvent args)
+    {
+        var name = Name(args.Item);
+        var check = ent.Comp.Name;
+        args.Allowed = ent.Comp.Mode switch
+        {
+            NameFilterMode.Contain => name.Contains(check),
+            NameFilterMode.Start => name.StartsWith(check),
+            NameFilterMode.End => name.EndsWith(check),
+            NameFilterMode.Match => name == check
+        };
+    }
+
+    private void OnCombinedInit(Entity<CombinedFilterComponent> ent, ref ComponentInit args)
+    {
+        if (!_slots.TryGetSlot(ent, CombinedFilterComponent.FilterAName, out var filterA) ||
+            !_slots.TryGetSlot(ent, CombinedFilterComponent.FilterBName, out var filterB))
+        {
+            Log.Error($"{ToPrettyString(ent)} was missing filter slots!");
+            RemCompDeferred<CombinedFilterComponent>(ent);
+            return;
+        }
+
+        ent.Comp.FilterA = filterA;
+        ent.Comp.FilterB = filterB;
+    }
+
+    /* Stack filter */
+
+    private void OnStackSet(Entity<StackFilterComponent> ent, ref StackFilterSetSizeMessage args)
+    {
+        if (args.Size < 1 || ent.Comp.Size == args.Size)
+            return;
+
+        ent.Comp.Size = args.Size;
+        Dirty(ent);
+    }
+
+    private void OnStackExamined(Entity<StackFilterComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup(Loc.GetString("stack-filter-examine", ("size", ent.Comp.Size)));
+    }
+
+    private void OnStackFilter(Entity<StackFilterComponent> ent, ref AutomationFilterEvent args)
+    {
+        args.Allowed = _stackQuery.CompOrNull(args.Item)?.Count >= ent.Comp.Size;
+    }
+
+    /* Combined filter */
+
+    private void OnCombinedUse(Entity<CombinedFilterComponent> ent, ref UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        var gate = (int) ent.Comp.Gate;
+        gate = ++gate % GateCount;
+        ent.Comp.Gate = (LogicGate) gate;
+        Dirty(ent);
+
+        var msg = Loc.GetString("logic-gate-cycle", ("gate", ent.Comp.Gate.ToString().ToUpper()));
+        _popup.PopupClient(msg, ent, args.User);
+    }
+
+    private void OnCombinedExamined(Entity<CombinedFilterComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup(Loc.GetString("combined-filter-examine", ("gate", ent.Comp.Gate.ToString().ToUpper())));
+    }
+
+    private void OnCombinedFilter(Entity<CombinedFilterComponent> ent, ref AutomationFilterEvent args)
+    {
+        var a = IsAllowed(ent.Comp.FilterA.Item, args.Item);
+        var b = IsAllowed(ent.Comp.FilterB.Item, args.Item);
+        args.Allowed = ent.Comp.Gate switch
+        {
+            LogicGate.Or => a || b,
+            LogicGate.And => a && b,
+            LogicGate.Xor => a != b,
+            LogicGate.Nor => !(a || b),
+            LogicGate.Nand => !(a && b),
+            LogicGate.Xnor => a == b
+        };
+    }
+
+    #region Public API
+    /// <summary>
+    /// Returns true if an item is allowed by the filter, false if it's blocked.
+    /// If there is no filter, items are always allowed.
+    /// </summary>
+    public bool IsAllowed(EntityUid? filter, EntityUid item)
+    {
+        if (filter is not {} uid)
+            return true;
+
+        var ev = new AutomationFilterEvent(item);
+        RaiseLocalEvent(uid, ref ev);
+        return ev.Allowed;
+    }
+
+    /// <summary>
+    /// Inverse of <see cref="IsAllowed"/>.
+    /// </summary>
+    public bool IsBlocked(EntityUid? filter, EntityUid item) => !IsAllowed(filter, item);
+    #endregion
+}

@@ -120,6 +120,26 @@ public sealed partial class RoboticArmComponent : Component
     public List<(NetEntity, bool)> InputItems = new();
     #endregion
 
+    #region Filter slot
+    /// <summary>
+    /// Item slot that stores a filter.
+    /// </summary>
+    [DataField]
+    public string FilterSlotId = "robotic_arm_filter";
+
+    /// <summary>
+    /// The filter slot cached on init.
+    /// </summary>
+    [ViewVariables]
+    public ItemSlot FilterSlot = default!;
+
+    /// <summary>
+    /// The currently inserted filter.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? Filter => FilterSlot.Item;
+    #endregion
+
     #region Arm Moving
     /// <summary>
     /// How long it takes to move an item.

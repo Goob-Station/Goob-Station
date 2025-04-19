@@ -1,0 +1,10 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+		xmlns:controls="using:Content.Client.UserInterface.Controls"
+		Title="{Loc 'stack-filter-window-title'}"
+		MinSize="200 150">
+	<BoxContainer Orientation="Horizontal">
+	    <Label Text="{Loc 'stack-filter-stack-size'}"/>
+    	<LineEdit Name="SizeEdit" PlaceHolder="1"/>
+	</BoxContainer>
+	<Button Name="ConfirmButton" Text="{Loc 'generic-confirm'}"/>
+</controls:FancyWindow>

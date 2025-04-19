@@ -48,6 +48,7 @@ public abstract partial class AutomationSlot
     public EntityUid Owner;
 
     [Dependency] public readonly IEntityManager EntMan = default!;
+    protected AutomationFilterSystem _filter;
     protected EntityWhitelistSystem _whitelist;
     protected SharedDeviceLinkSystem _device;
 
@@ -59,6 +60,7 @@ public abstract partial class AutomationSlot
     {
         IoCManager.InjectDependencies(this);
 
+        _filter = EntMan.System<AutomationFilterSystem>();
         _whitelist = EntMan.System<EntityWhitelistSystem>();
         _device = EntMan.System<SharedDeviceLinkSystem>();
     }
@@ -86,7 +88,7 @@ public abstract partial class AutomationSlot
     /// If there are multiple items, which one returned is arbitrary and should not be relied upon.
     /// This should be "pure" and not actually modify anything.
     /// </summary>
-    public virtual EntityUid? GetItem(AutomationFilter? filter)
+    public virtual EntityUid? GetItem(EntityUid? filter)
     {
         return null;
     }

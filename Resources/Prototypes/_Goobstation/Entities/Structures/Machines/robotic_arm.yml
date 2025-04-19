@@ -64,25 +64,30 @@
     - machine_board
     - machine_parts
     - robotic_arm_item
+    - robotic_arm_filter
   - type: EmptyOnMachineDeconstruct
     containers:
     - robotic_arm_item
+    - robotic_arm_filter
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
       robotic_arm_item: !type:ContainerSlot
+      robotic_arm_filter: !type:ContainerSlot
   # Arm
   - type: ItemSlots
     slots:
       robotic_arm_item:
         insertOnInteract: false
+        insertSound: null # it plays twice because theres no user to pass to PlayPredicted
         whitelist:
           components:
           - Item
-      filter:
-        locked: true
-        # TODO
+      robotic_arm_filter:
+        whitelist:
+          components:
+          - AutomationFilter
   - type: RoboticArm
   # Linking
   - type: DeviceLinkSink
