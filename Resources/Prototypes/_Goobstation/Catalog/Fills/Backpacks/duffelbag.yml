@@ -113,3 +113,18 @@
       amount: 5
     - id: FoodSnackChocolate
       amount: 5
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledHE1SG8
+  name: HE1S-G8 bundle
+  description: This bundle holds the HE1S-G8 rifle paired with 19 cartridges for some extra funny.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperHE1SG8 # 1 cartridge inside
+    - id: CartridgeG8Demolishing
+      amount: 9
+    - id: CartridgeG8Hypercharged
+      amount: 9
+    # There's exactly 9 free slots here if someone wants to add a third ammo type for it

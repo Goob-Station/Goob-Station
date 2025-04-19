@@ -30,3 +30,8 @@
   supportedTypes:
   - Heat
   - Shock
+
+- type: damageContainer
+  id: OnlyStructural
+  supportedTypes:
+  - Structural

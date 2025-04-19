@@ -48,3 +48,17 @@
   fireColor: Red
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
+
+- type: explosion
+  id: Electrical
+  damagePerIntensity:
+    types:
+      Shock: 10
+      Structural: 20
+      Ion: 20
+  lightColor: Cyan
+  fireColor: Cyan
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  smallSoundIterationThreshold: 0
+  sound:
+    path: /Audio/Effects/tesla_collapse.ogg

@@ -48,3 +48,65 @@
         enum.FlashVisuals.LightLayer:
           True: {visible: true}
           False: {visible: false}
+
+# This is used by HE1S G8 overcharged cartridge, idk where to put it
+- type: entity
+  id: EnergyVortex
+  name: energy vortex
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
+    shader: unshaded
+    layers:
+    - state: tesla_projectile
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
+    sleepingAllowed: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        layer:
+        - BulletImpassable
+  - type: Clickable
+  - type: GravityWell
+    maxRange: 3
+    baseRadialAcceleration: 20
+    baseTangentialAcceleration: 20
+    gravPulsePeriod: 0.1
+  - type: SingularityDistortion
+    intensity: 8
+    falloffPower: 2
+  - type: LightningArcShooter
+    shootMaxInterval: 1.5
+    shootRange: 3
+  - type: AmbientSound
+    volume: 0
+    range: 10
+    sound:
+      path: /Audio/Effects/tesla.ogg
+  - type: Damageable
+    damageContainer: OnlyStructural
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Structural
+        damage: 777
+      behaviors:
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Electrical
+    maxIntensity: 15
+    intensitySlope: 5
+    totalIntensity: 300
+  - type: TriggerOnSpawn
+  - type: EmpOnTrigger
+    range: 4
+    energyConsumption: 720
+    disableDuration: 15
+  - type: TimedDespawn
+    lifetime: 7.5
