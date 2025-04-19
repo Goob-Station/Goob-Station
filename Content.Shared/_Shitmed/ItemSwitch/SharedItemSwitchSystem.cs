@@ -41,6 +41,7 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         SubscribeLocalEvent<ItemSwitchComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<ItemSwitchComponent, GetVerbsEvent<ActivationVerb>>(OnActivateVerb);
         SubscribeLocalEvent<ItemSwitchComponent, ActivateInWorldEvent>(OnActivate);
+        SubscribeLocalEvent<ItemSwitchComponent, ItemSwitchAttemptEvent>(OnSwitchAttempt);
 
         SubscribeLocalEvent<ClothingComponent, ItemSwitchedEvent>(UpdateClothingLayer);
     }
@@ -62,14 +63,21 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             Switch((ent, ent.Comp), state, predicted: ent.Comp.Predictable);
     }
 
+    private void OnSwitchAttempt(Entity<ItemSwitchComponent> ent, ref ItemSwitchAttemptEvent args)
+    {
+        if (ent.Comp is { IsPowered: false, NeedsPower: true } && ent.Comp.State == ent.Comp.DefaultState)
+        {
+            args.Popup = Loc.GetString("item-switch-failed-no-power");
+            args.Cancelled = true;
+            Dirty(ent);
+        }
+    }
+
     private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
     {
         var comp = ent.Comp;
 
         if (args.Handled || !comp.OnUse || comp.States.Count == 0)
-            return;
-
-        if (comp is { IsPowered: false, NeedsPower: true })
             return;
 
         args.Handled = true;
@@ -85,9 +93,6 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         var comp = ent.Comp;
 
         if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0)
-            return;
-
-        if (comp is { IsPowered: false, NeedsPower: true })
             return;
 
         var user = args.User;
@@ -111,7 +116,6 @@ public abstract class SharedItemSwitchSystem : EntitySystem
     private void OnActivate(Entity<ItemSwitchComponent> ent, ref ActivateInWorldEvent args)
     {
         var comp = ent.Comp;
-        var uid = args.User;
 
         if (args.Handled || !comp.OnActivate)
             return;

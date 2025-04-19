@@ -102,7 +102,7 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
     ///     Amount of energy consumed per swing
     /// </summary>
     [DataField]
-    public int EnergyPerUse = default!;
+    public int EnergyPerUse;
 
     public ItemSwitchState(string verb)
     {
