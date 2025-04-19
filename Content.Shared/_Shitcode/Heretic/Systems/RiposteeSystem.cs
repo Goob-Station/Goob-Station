@@ -160,15 +160,15 @@ public sealed class RiposteeSystem : EntitySystem
 
             args.Cancel();
 
+            if (data.Cooldown > 0f)
+                data.CanRiposte = false;
+
             CounterAttack(weapon.Value, ent, args.User, data);
             RaiseNetworkEvent(new RiposteUsedEvent(GetNetEntity(ent.Owner),
                     GetNetEntity(args.User),
                     GetNetEntity(weapon.Value.Owner),
                     data),
                 ent.Owner);
-
-            if (data.Cooldown > 0f)
-                data.CanRiposte = false;
 
             break;
         }
@@ -189,7 +189,8 @@ public sealed class RiposteeSystem : EntitySystem
         if (!inCombat)
             _combatMode.SetInCombatMode(user, true);
 
-        if (_melee.AttemptLightAttack(user, weapon.Owner, weapon.Comp, target) && _net.IsServer &&
+        if (data.KnockdownTime > TimeSpan.Zero && _net.IsServer &&
+            _melee.AttemptLightAttack(user, weapon.Owner, weapon.Comp, target) &&
             _melee.InRange(user, target, weapon.Comp.Range, CompOrNull<ActorComponent>(user)?.PlayerSession))
         {
             if (data.Paralyze)

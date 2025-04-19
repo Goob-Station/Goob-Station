@@ -457,7 +457,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
                 break;
             case MartialArtsForms.CloseQuartersCombat:
                 var riposte = EnsureComp<RiposteeComponent>(user);
-                riposte.Data.Add(new(0f,
+                riposte.Data.Add(new(0.1f,
                     false,
                     null,
                     true,
