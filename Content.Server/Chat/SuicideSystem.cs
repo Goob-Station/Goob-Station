@@ -244,9 +244,6 @@ public sealed class SuicideSystem : EntitySystem
 
         _suicide.ApplyLethalDamage(victim, args.DamageType);
 
-        if (TryComp(victim, out ConsciousnessComponent? consciousness))
-            _suicide.KillConsciousness((victim, consciousness));
-
         args.Handled = true;
     }
 }

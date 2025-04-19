@@ -129,8 +129,11 @@ public partial class ConsciousnessSystem
         if (!Resolve(uid, ref consciousness))
             return;
 
-        consciousness.Multiplier = consciousness.Multipliers.Aggregate((FixedPoint2) 0,
-            (current, multiplier) => current + multiplier.Value.Change) / consciousness.Multipliers.Count;
+        if (consciousness.Multipliers.Count > 0)
+            consciousness.Multiplier = consciousness.Multipliers.Aggregate((FixedPoint2) 0,
+                (current, multiplier) => current + multiplier.Value.Change) / consciousness.Multipliers.Count;
+        else
+            consciousness.Multiplier = 1.0; // Just in case i guess?
 
         UpdateConsciousnessModifiers(uid, consciousness);
     }

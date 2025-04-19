@@ -25,16 +25,6 @@
   - type: Damageable
     damageContainer: Inorganic # Shitmed Change
   - type: BodyPart
-  - type: Woundable
-    damageContainer: Inorganic
-    integrity: 65
-    integrityCap: 65
-    thresholds:
-      Minor: 60
-      Moderate: 45
-      Severe: 30
-      Critical: 12
-      Loss: 0
   - type: SurgeryTool # Shitmed Change
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
@@ -86,12 +76,12 @@
         id: lungs
   - type: Woundable
     damageContainer: Inorganic
-    integrity: 100
-    integrityCap: 100
+    integrity: 200
+    integrityCap: 200
     thresholds:
-      Minor: 84
-      Moderate: 70
-      Severe: 55
+      Minor: 180
+      Moderate: 120
+      Severe: 60
       Critical: 30
       Loss: 0
   - type: WoundableVisuals

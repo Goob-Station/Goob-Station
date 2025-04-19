@@ -524,6 +524,7 @@ public partial class SharedBodySystem
     public (EntityUid Entity, BodyPartComponent BodyPart)? GetRootPartOrNull(EntityUid bodyId, BodyComponent? body = null)
     {
         if (!Resolve(bodyId, ref body)
+            || body.RootContainer is null // A test fails because of this so :shrug:
             || body.RootContainer.ContainedEntity is null)
         {
             return null;
@@ -1127,7 +1128,7 @@ public partial class SharedBodySystem
         TargetBodyPart targetPart = TargetBodyPart.Chest,
         TargetingComponent? targetComp = null)
     {
-        if (!Resolve(target, ref targetComp))
+        if (!Resolve(target, ref targetComp, false))
             return null;
 
         if (_mobState.IsIncapacitated(target)

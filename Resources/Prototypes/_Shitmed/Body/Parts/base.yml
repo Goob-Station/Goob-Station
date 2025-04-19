@@ -14,16 +14,6 @@
   components:
   - type: Damageable
     damageContainer: OrganicPart # Shitmed Change
-  - type: Woundable
-    damageContainer: Biological
-    integrity: 65
-    integrityCap: 65
-    thresholds:
-      Minor: 60
-      Moderate: 45
-      Severe: 30
-      Critical: 12
-      Loss: 0
   - type: Nerve
   - type: Extractable
     juiceSolution:
@@ -46,14 +36,6 @@
   components:
   - type: Woundable
     damageContainer: OrganicPart
-    integrity: 200
-    integrityCap: 200
-    thresholds:
-      Minor: 180
-      Moderate: 120
-      Severe: 60
-      Critical: 30
-      Loss: 0
   - type: Destructible
     thresholds:
     - trigger:
