@@ -8,10 +8,10 @@
     hungerOnDevour: 20
     healing:
       groups:
-        brute: -6
-        burn: -6
-        airloss: -3
-        toxin: -3
+        Brute: -16
+        Burn: -16
+        Airloss: -10
+        Toxin: -10
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/toolbox_drop.ogg
@@ -24,8 +24,35 @@
       path: "/Audio/Weapons/smash.ogg"
   - type: Appearance
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
-    state: icon
+    sprite: _Goobstation/Objects/Weapons/Melee/hisgrace.rsi
+    layers:
+    - state: icon
+    - state: icon-ascended
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleVisuals.Layer" ]
   - type: Item
     size: Ginormous
-    sprite: Objects/Tools/Toolboxes/toolbox_green.rsi
+    sprite: _Goobstation/Objects/Weapons/Melee/hisgrace.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        shader: unshaded
+      - state: inhand-left-ascended
+        visible: false
+        shader: unshaded
+        map: [ "enum.ToggleVisuals.Layer" ]
+      right:
+      - state: inhand-right
+        shader: unshaded
+      - state: inhand-right-ascended
+        visible: false
+        shader: unshaded
+        map: [ "enum.ToggleVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+

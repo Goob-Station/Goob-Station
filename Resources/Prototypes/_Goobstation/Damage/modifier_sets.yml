@@ -212,3 +212,13 @@
     Heat: 0.8
     Ion: 2.0 # double damage from ion
   ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: HisGraceAscended
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Cold: 0.5
+    Heat: 0.5
+  ignoreArmorPierceFlags: All

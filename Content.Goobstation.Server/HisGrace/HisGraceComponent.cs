@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Server.HisGrace;
 
@@ -12,12 +13,6 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? User;
-
-    /// <summary>
-    /// Is His Grace currently activated?
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public bool IsActivated;
 
     /// <summary>
     /// The current state of His Grace.
@@ -34,8 +29,7 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// <summary>
     /// The current hunger of his grace.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int Hunger = Math.Clamp(0, 0, 200);
+    [ViewVariables(VVAccess.ReadWrite)] public int Hunger;
 
     /// <summary>
     /// When the next hunger tick is.
@@ -44,10 +38,10 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     public TimeSpan NextHungerTick;
 
     /// <summary>
-    /// The delay between each hunger tick.
+    /// The delay between each action tick.
     /// </summary>
     [DataField]
-    public TimeSpan HungerTickDelay = TimeSpan.FromSeconds(3);
+    public TimeSpan TickDelay = TimeSpan.FromSeconds(3);
 
     /// <summary>
     /// State to hunger increment dict
@@ -72,7 +66,7 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// How much the hunger decreases per tick.
     /// </summary>
     [DataField]
-    public int HungerIncrement;
+    public int HungerIncrement = 1;
 
     /// <summary>
     /// How much the hunger is restored by when devouring an entitiy.
@@ -84,7 +78,7 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// How much the damage is currently increased by.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 CurrentDamageIncrease;
+    public DamageSpecifier CurrentDamageIncrease = new() { DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", 0 } } };
 
     /// <summary>
     /// The base damage of the item.
@@ -99,20 +93,20 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     public DamageSpecifier Healing;
 
     /// <summary>
-    /// The current hunger of his grace.
+    /// A dictionary mapping states to the threshold required to get to them, and what their hunrer increment is.
     /// </summary>
     [DataField]
-    public Dictionary<HisGraceState, int> StateThreshholds = new()
+    public Dictionary<HisGraceState, (int Threshold, int Increment)> StateThresholds = new()
     {
-        { HisGraceState.Peckish, 0 },
+        { HisGraceState.Peckish, (0, 1) },
 
-        { HisGraceState.Hungry, 50 },
+        { HisGraceState.Hungry, (50, 2) },
 
-        { HisGraceState.Ravenous, 100 },
+        { HisGraceState.Ravenous, (100, 3) },
 
-        { HisGraceState.Starving, 150 },
+        { HisGraceState.Starving, (150, 4) },
 
-        { HisGraceState.Death, 200 },
+        { HisGraceState.Death, (200, 5) },
     };
 
     /// <summary>
@@ -126,9 +120,29 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// </summary>
     public Robust.Shared.Containers.Container Stomach;
 
+    /// <summary>
+    /// Is His Grace currently being held?
+    /// </summary>
     public bool IsHeld;
 
-    public bool CanAttack = true;
+    /// <summary>
+    /// The time at which His Grace will attack a nearby target.
+    /// </summary>
+    public TimeSpan NextGroundAttack;
+
+    /// <summary>
+    /// The time at which His Grace will attempt to attack his user for being too far.
+    /// </summary>
+    public TimeSpan NextUserAttack;
+
+    /// <summary>
+    /// Sound played on devour
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier? SoundDevour = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg")
+    {
+        Params = AudioParams.Default.WithVolume(-3f),
+    };
 }
 
 public enum HisGraceState : byte
