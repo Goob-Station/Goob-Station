@@ -20,7 +20,6 @@ research-technology-clarke = Clarke
 research-technology-gygax = Gygax
 research-technology-durand = Durand
 research-technology-explosive-mech-ammunition = Explosive Mech Ammunition
-research-technology-special-explosive-means = Special Explosive Means
 research-technology-honk-weapons = Bananium Weapons
 research-technology-modsuits = Modular Technologies
 research-technology-smart-weaponry = Smart Weaponry

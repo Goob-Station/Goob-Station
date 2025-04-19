@@ -923,6 +923,16 @@
   categories:
   - UplinkExplosives
 
+- type: listing
+  id: UplinkExplosiveCollar
+  name: uplink-explosive-collar-name
+  description: uplink-explosive-collar-desc
+  productEntity: ClothingNeckExplosiveCollar
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkExplosives
+
 # Misc
 - type: listing
   id: UplinkDimensionPot
