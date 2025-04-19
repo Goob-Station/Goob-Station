@@ -1,15 +1,26 @@
-<Control xmlns="https://spacestation14.io">
+<Control xmlns="https://spacestation14.io"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
     <BoxContainer Orientation="Vertical">
+        <PanelContainer
+            Name="ClaimedOverlay"
+            Visible="False"
+            Modulate="0, 0, 0, 180">
+            <Label Text="CLAIMED!" StyleClasses="BountyClaimedText"/>
+        </PanelContainer>
         <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
             <TextureRect
                 Name="BountyItemTexture"
                 Margin="0,0,4,0"
                 MinSize="48 48"
-                Stretch="KeepAspectCentered" />
+                Stretch="KeepAspectCentered"
+                />
             <Control MinWidth="5"/>
             <Label FontColorOverride="#FF6347" Name="BountyTitle" Text="Bounty PLACEHOLDER Title"/>
         </BoxContainer>
         <RichTextLabel Name="BountyDesc" Text="Steal PLACEHOLDER found in the PLACEHOLDER."/>
-        <Label FontColorOverride="#32CD32" Name="Reward" Text="Reward: PLACEHOLDER"/>
+        <BoxContainer Orientation="Horizontal">
+            <Label FontColorOverride="#32CD32" Name="Reward" Text="Reward: PLACEHOLDER"/>
+            <Button Name="ClaimButton" Access="Public" Text="Claim."></Button>
+        </BoxContainer>
     </BoxContainer>
 </Control>

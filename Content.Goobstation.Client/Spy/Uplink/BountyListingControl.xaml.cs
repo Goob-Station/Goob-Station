@@ -31,6 +31,8 @@ public sealed partial class BountyListingControl : Control
 
         BountyTitle.Text = Loc.GetString("objective-condition-steal-title-alive-no-owner", ("itemName", Loc.GetString(targetGroup.Name)));
         BountyDesc.Text = Loc.GetString(targetGroup.Name);
+        if (_data.Owner != null)
+            ClaimedOverlay.Visible = true;
     }
 
     public void SetTexture()

@@ -18,3 +18,17 @@ public sealed class SpyUplinkUpdateState : BoundUserInterfaceState
         Listings = listings;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class SpyRequestUpdateInterfaceMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class SpyClaimBountyMessage : BoundUserInterfaceMessage
+{
+    public SpyBountyData Bounty;
+
+    public SpyClaimBountyMessage(SpyBountyData bounty)
+    {
+        Bounty = bounty;
+    }
+}

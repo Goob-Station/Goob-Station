@@ -5,7 +5,7 @@ namespace Content.Goobstation.Client.Spy;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class SpyBountySystem : SharedSpyBountySystem
+public sealed class SpySystem : SharedSpySystem
 {
 
 }

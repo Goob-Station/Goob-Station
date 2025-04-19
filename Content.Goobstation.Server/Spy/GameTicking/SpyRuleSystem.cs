@@ -23,7 +23,7 @@ namespace Content.Goobstation.Server.Spy.GameTicking;
 public sealed class SpyRuleSystem : GameRuleSystem<SpyRuleComponent>
 {
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedSpyBountySystem _bountySystem = default!;
+    [Dependency] private readonly SharedSpySystem _spy = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -115,7 +115,7 @@ public sealed class SpyRuleSystem : GameRuleSystem<SpyRuleComponent>
         GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
-        _bountySystem.CreateDbEntity();
-        _bountySystem.SetupBounties();
+        _spy.CreateDbEntity();
+        _spy.SetupBounties();
     }
 }

@@ -133,7 +133,7 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
-        [Dependency] private readonly SharedSpyBountySystem _spyBounty = default!;
+        [Dependency] private readonly SharedSpySystem _spy = default!;
 
         public override void Initialize()
         {
@@ -366,7 +366,7 @@ namespace Content.Server.PDA
                 _store.ToggleUi(msg.Actor, uid);
 
             if (HasComp<SpyUplinkComponent>(uid))
-                _spyBounty.ToggleUi(msg.Actor, uid); // send to spy uplink instead
+                _spy.ToggleUi(msg.Actor, uid); // send to spy uplink instead
             // Goob - Spy end
         }
 

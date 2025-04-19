@@ -20,6 +20,10 @@ internal sealed partial class SpyUplinkBoundUserInterface : BoundUserInterface
         base.Open();
 
         _menu = this.CreateWindow<SpyUplinkMenu>();
+        _menu.OnBountyButtonPressed += (_, bounty) =>
+        {
+            SendMessage(new SpyClaimBountyMessage(bounty));
+        };
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

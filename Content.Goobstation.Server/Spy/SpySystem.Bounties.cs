@@ -1,32 +1,17 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Shared.Spy;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Events;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
 using Content.Shared.Objectives;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Server.Spy;
 
-/// <summary>
-/// This handles...
-/// </summary>
-public sealed class SpyBountySystem : SharedSpyBountySystem
+public sealed partial class SpySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IEntityManager _entityMan = default!;
-
-    private readonly ProtoId<WeightedRandomPrototype> _weightedItemObjectives = "ThiefObjectiveGroupItem";
-    private readonly ProtoId<WeightedRandomPrototype> _weightedStructureObjectives = "ThiefObjectiveGroupStructure";
-
-    private const int GlobalBountyAmount = 10;
 
     public override void CreateDbEntity()
     {
@@ -39,6 +24,18 @@ public sealed class SpyBountySystem : SharedSpyBountySystem
         Log.Info("Spy DB Entity Created at UID: " + dbEnt.Id);
     }
 
+    private bool TrySetBountyOwner(SpyBountyData data, EntityUid newOwner)
+    {
+        if (!TryGetSpyDatabaseEntity(out var nullableEnt) || nullableEnt is not { } dbEnt)
+            return false;
+
+        var bounty = dbEnt.Comp.Bounties.FirstOrDefault(b => b.TargetEntity == data.TargetEntity);
+        if (bounty == null)
+            return false;
+        bounty.Owner = GetNetEntity(newOwner);
+        return false;
+    }
+
     public override void SetupBounties()
     {
         if (!TryGetSpyDatabaseEntity(out var nullableEnt) || nullableEnt is not { } dbEnt)
@@ -47,7 +44,7 @@ public sealed class SpyBountySystem : SharedSpyBountySystem
         if (!TryPickBounties(out var bounties))
             return;
 
-        dbEnt.Comp.Bounties = bounties.ToHashSet();
+        dbEnt.Comp.Bounties = bounties.ToList();
 
         foreach (var bounty in dbEnt.Comp.Bounties)
         {
@@ -58,7 +55,7 @@ public sealed class SpyBountySystem : SharedSpyBountySystem
         }
     }
 
-    private bool TryPickBounties([NotNullWhen(true)] out HashSet<SpyBountyData>? bounties)
+    private bool TryPickBounties([NotNullWhen(true)] out List<SpyBountyData>? bounties)
     {
         bounties = null;
 
@@ -112,7 +109,7 @@ public sealed class SpyBountySystem : SharedSpyBountySystem
             .Take(GlobalBountyAmount)
             .Select(ent =>
                 new SpyBountyData(GetNetEntity(ent), new ProtoId<StealTargetGroupPrototype>(ent.Comp.StealGroup)))
-            .ToHashSet();
+            .ToList();
 
         return true;
     }

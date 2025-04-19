@@ -7,7 +7,7 @@ namespace Content.Goobstation.Shared.Spy;
 /// <summary>
 /// This handles the serverside for the Spy uplink ui.
 /// </summary>
-public abstract partial class SharedSpyBountySystem
+public abstract partial class SharedSpySystem
 {
     /// <summary>
     /// Toggles the user interface for spies uplink
