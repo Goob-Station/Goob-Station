@@ -212,3 +212,8 @@
     Heat: 0.8
     Ion: 2.0 # double damage from ion
   ignoreArmorPierceFlags: All # Goobstation
+
+- type: damageModifierSet
+  id: StructuralImmunity
+  coefficients:
+    StructuralImmunity: 0
