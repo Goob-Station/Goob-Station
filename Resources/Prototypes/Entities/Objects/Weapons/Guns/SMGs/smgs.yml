@@ -271,7 +271,7 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 2.5 # Goobstation - I am the one who knocks.
+    fireRate: 2.5 # Goobstation - down from 5.5 I am the one who knocks.
     minAngle: 1
     maxAngle: 6
     angleIncrease: 1.5
