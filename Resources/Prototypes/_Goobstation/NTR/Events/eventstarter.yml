@@ -9,7 +9,7 @@
   - type: EventTrigger # this component delets this entity on spawn
     eventId: "GiftsEngineering"
   - type: Sprite # sprite needed for NTRstore
-    sprite: Objects\Materials\Sheets\metal.rsi
+    sprite: Objects/Materials/Sheets\metal.rsi
     state: titanium_3
 
 - type: entity
@@ -20,7 +20,7 @@
   - type: EventTrigger
     eventId: "GiftsPizzaPartySmall"
   - type: Sprite
-    sprite: Objects\Consumable\Food\Baked\pizza.rsi
+    sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: box1
 
 # respose teams below
@@ -32,7 +32,7 @@
   - type: EventTrigger
     eventId: "SpawnERTSecurity"
   - type: Sprite
-    sprite: Structures\Wallmounts\signs.rsi
+    sprite: Structures/Wallmounts/signs.rsi
     state: security
 
 - type: entity
@@ -43,7 +43,7 @@
   - type: EventTrigger
     eventId: "SpawnERTMedical"
   - type: Sprite
-    sprite: Structures\Wallmounts\signs.rsi
+    sprite: Structures/Wallmounts/signs.rsi
     state: medbay
 
 - type: entity
@@ -54,7 +54,7 @@
   - type: EventTrigger
     eventId: "SpawnERTEngineering"
   - type: Sprite
-    sprite: Structures\Wallmounts\signs.rsi
+    sprite: Structures/Wallmounts/signs.rsi
     state: eng
 
 - type: entity
@@ -65,7 +65,7 @@
   - type: EventTrigger
     eventId: "SpawnERTJanitorial"
   - type: Sprite
-    sprite: Structures\Wallmounts\signs.rsi
+    sprite: Structures/Wallmounts/signs.rsi
     state: janitor
 
 - type: entity
@@ -76,7 +76,7 @@
   - type: EventTrigger
     eventId: "SpawnCBURN"
   - type: Sprite
-    sprite: Structures\Wallmounts\signs.rsi
+    sprite: Structures/Wallmounts/signs.rsi
     state: zomlab
 
 # job unlockers
@@ -152,3 +152,13 @@
   - type: Sprite
     sprite: Markers/jobs.rsi
     state: doctor
+
+# powergrid check
+
+- type: entity
+  id: NTRgamerulePowergrid
+  categories: [ HideSpawnMenu ]
+  name: AN ITEM THAT YOU WERENT SUPPOSED TO SEE
+  components:
+  - type: EventTrigger
+    eventId: "PowerGridCheck"

@@ -35,11 +35,14 @@ public readonly partial record struct NtrTaskHistoryData
     [DataField]
     public TimeSpan Timestamp { get; init; } = TimeSpan.MinValue;
 
+    [DataField("completionTime")]
+    public double CompletionTime { get; init; }
+
     /// <summary>
     /// The prototype containing information about the bounty.
     /// </summary>
-    [DataField(required: true)]
-    public ProtoId<NtrTaskPrototype> Task { get; init; } = string.Empty;
+    [DataField]
+    public ProtoId<NtrTaskPrototype> Task { get; init; }
 
     public NtrTaskHistoryData(NtrTaskData task, TaskResult result, TimeSpan timestamp, string? actorName)
     {
@@ -48,6 +51,7 @@ public readonly partial record struct NtrTaskHistoryData
         Id = task.Id;
         ActorName = actorName;
         Timestamp = timestamp;
+        CompletionTime = timestamp.TotalSeconds;
     }
 
     /// <summary>

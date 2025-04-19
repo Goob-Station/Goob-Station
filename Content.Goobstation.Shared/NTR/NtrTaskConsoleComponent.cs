@@ -8,7 +8,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Goobstation.Shared.NTR;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class NtrTaskProviderComponent : Component
+public sealed partial class NtrTaskConsoleComponent : Component
 {
     /// <summary>
     /// The sound made when the bounty is skipped.
@@ -45,20 +45,32 @@ public sealed partial class NtrTaskProviderComponent : Component
     /// </summary>
     [DataField("printSound")]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");
+
+    [DataField]
+    public HashSet<string> ActiveTaskIds = new();
+
+    [DataField("slotId")]
+    public string SlotId = "taskSlot";
 }
 
 [NetSerializable, Serializable]
-public sealed class NtrTaskProviderState : BoundUserInterfaceState
+public sealed class NtrTaskConsoleState : BoundUserInterfaceState
 {
-    public List<NtrTaskData> Tasks;
-    public List<NtrTaskHistoryData> History;
-    public TimeSpan UntilNextSkip;
+    public List<NtrTaskData> AvailableTasks { get; }
+    public List<NtrTaskHistoryData> History { get; }
+    public TimeSpan UntilNextSkip { get; }
+    public HashSet<string> LockedTasks { get; }
 
-    public NtrTaskProviderState(List<NtrTaskData> tasks, List<NtrTaskHistoryData> history, TimeSpan untilNextSkip)
+    public NtrTaskConsoleState(
+        List<NtrTaskData> available,
+        List<NtrTaskHistoryData> history,
+        TimeSpan skipTime,
+        HashSet<string>? locked = null)
     {
-        Tasks = tasks;
+        AvailableTasks = available;
         History = history;
-        UntilNextSkip = untilNextSkip;
+        UntilNextSkip = skipTime;
+        LockedTasks = locked ?? new HashSet<string>();
     }
 }
 

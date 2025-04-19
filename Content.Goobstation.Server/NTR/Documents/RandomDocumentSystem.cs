@@ -4,6 +4,7 @@ using Content.Shared.StoryGen; //ammount of hours wasted trying to understand pa
 using Robust.Shared.Random;    //skill issue.
 using System.Linq;
 using Content.Goobstation.Shared.NTR;
+using Content.Goobstation.Shared.NTR.Documents;
 using Robust.Shared.GameStates;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;

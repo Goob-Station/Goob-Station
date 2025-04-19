@@ -1,7 +1,7 @@
 using Content.Goobstation.Shared.NTR;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.NTR
+namespace Content.Goobstation.Shared.NTR.Documents
 {
     [RegisterComponent]
     public sealed partial class RandomDocumentComponent : Component

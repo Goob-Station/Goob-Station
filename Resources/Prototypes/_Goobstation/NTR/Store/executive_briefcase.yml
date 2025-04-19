@@ -36,7 +36,8 @@
           - CorporateOverride
         insertSound:
           path: /Audio/Machines/id_insert.ogg
-  - type: NtrAccountClient
+  - type: NtrClientAccount
+  - type: Speech
 
 - type: entity
   id: ExecutiveBriefcaseDebug

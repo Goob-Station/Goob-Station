@@ -2,6 +2,7 @@ using Content.Server.Paper;
 using Content.Shared.Paper;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Goobstation.Shared.NTR.Documents;
 using Robust.Shared.Localization;
 using System.Collections.Generic;
 using System;

@@ -3,7 +3,7 @@ store-currency-nt-loyalty-point = NT loyalty point
 store-preset-name-ntr = Executive briefcase store
 
 ntr-scan-fail = ERROR: Item rejected by scanning protocol.
-ntr-scan-success = SCAN COMPLETE: Credited {amount} loyalty points to your Nanotrasen account.
+ntr-scan-success = Successfully credited {$amount} loyalty points.
 # listing
 # station
 
@@ -51,8 +51,8 @@ ntr-executive-glasses-desc = For when you need to look more important than you a
 ntr-executive-savaliniaharunianisimious-name = Svalinn laser pistol
 ntr-executive-savaliniaharunianisimious-desc = A standard Svalinn laser pistol, commonly used in NanoTrasen self-defense training programs.
 
-ntr-executive-1984-name = NT-1984
-ntr-executive-1984-desc = A standard NT-1984 sidearm for personal defense.
+ntr-executive-1984-name = Deckard revolver
+ntr-executive-1984-desc = A standard Deckard sidearm for personal defense.
 
 ntr-executive-combatmed-name = Combat medkit
 ntr-executive-combatmed-desc = For when you need more than just basic first aid supplies.
@@ -127,3 +127,22 @@ ntr-executive-tier-5-name = Rare machine boards
 ntr-console-insert-deny = Wrong!
 ntr-console-insert-accept = Correct!
 
+ntr-bounty-console-reward-label = Reward: [color=limegreen]{$reward} loyalty points[/color]
+ntr-bounty-console-manifest-entry =
+    { $amount ->
+        [1] {$item}
+        *[other] {$item} x{$amount}
+    }
+
+ntr-bounty-console-flavor-left = Bounties approved by Central Command. Bribes not included. Probably.
+
+ntr-console-spam-penalty = Penalty applied: -4 NT points for submitting spam!
+ntr-console-reagent-fail = Not enough reagents to complete the task!
+
+# experimental
+ntr-console-no-solution = Could not find solution {$solutionName} on the vial.
+ntr-console-missing-reagent = Vial is missing reagent {$reagent}.
+ntr-console-insufficient-reagent-debug = Insufficient reagent. Required: {$requiredReagent}, Found: {$actualReagent}. Required amount: {$required}, Actual amount: {$actual}.
+ntr-console-task-fail = Task failed to load.
+
+ntr-debug-vial = task: {$task}

@@ -3,7 +3,10 @@
   id: NTRExecutiveCrateEVA
   name: EVA crate
   description: A crate containing 3 pairs of EVA hardsuits, to keep you and your people alive in a catastrophic situation.
-  productEntity: CrateEvaKit
+  productEntity: SpawnPodEvaKit
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 15
   categories:
@@ -16,7 +19,10 @@
   id: NTRExecutiveSpesosSmall
   name: ntr-executive-spesos-small-name
   description: ntr-executive-spesos-small-desc
-  productEntity: NTRCrateSpesosSmall
+  productEntity: SpawnPodSpesos
+  icon:
+    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 20
   categories:
@@ -29,7 +35,10 @@
   id: NTRExecutiveResearchDisksSmall
   name: ntr-executive-disk-small-name
   description: ntr-executive-disk-small-desc
-  productEntity: NTRCratePointDisks
+  productEntity: SpawnPodDisks
+  icon:
+    sprite: Structures/Storage/Crates/scicrate_secure.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 20
   categories:
@@ -42,7 +51,10 @@
   id: NTRExecutiveEmergencyMed
   name: ntr-executive-emergency-meds-name
   description: ntr-executive-emergency-meds-desc
-  productEntity: NTRCrateEmergencyMed
+  productEntity: SpawnPodEmergencyMed
+  icon:
+    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 15 # to be changed
   categories:
@@ -55,7 +67,10 @@
   id: NTRExecutiveDisablers
   name: ntr-executive-disablers-name
   description: ntr-executive-disablers-desc
-  productEntity: NTRCrateDisablers
+  productEntity: SpawnPodDisablers
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 20
   categories:
@@ -81,7 +96,10 @@
   id: NTRExecutiveToolsSmall
   name: ntr-executive-tools-small-name
   description: ntr-executive-tools-small-desc
-  productEntity: NTRCrateToolsSmall
+  productEntity: SpawnPodTools
+  icon:
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 25
   categories:
@@ -191,7 +209,10 @@
   id: NTRExecutiveInternCall
   name: Call intern squad
   description: Calls in a lead intern with special summoning coins, that are calling more interns.
-  productEntity: RadioLeadIntern
+  productEntity: SpawnPodInterns
+  icon:
+    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    state: icon_alt
   cost:
     NTLoyaltyPoint: 75
   categories:
@@ -205,7 +226,10 @@
   id: NTRExecutiveDagger
   name: Phoron dagger
   description: A fancy and expensive phoron dagger, used by elite CentComm fighters and important people.
-  productEntity: PhoronDagger
+  productEntity: SpawnPodDagger
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/e_daggerntr.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 35 # its a bit better than a cc pen, but still.
   categories:
@@ -218,7 +242,10 @@
   id: NTRExecutiveSingleIntern
   name: Single Intern Coin
   description: Summons one basic intern.
-  productEntity: InternCoin
+  productEntity: SpawnPodCoin
+  icon:
+    sprite: Objects\Misc\coins.rsi
+    state: coin_gold
   cost:
     NTLoyaltyPoint: 25
   categories:
@@ -231,7 +258,10 @@
   id: NTRExecutiveBSDCall
   name: ntr-executive-bsd-name
   description: ntr-executive-bsd-desc
-  productEntity: BlueShieldDeputySpawnBriefcase
+  productEntity: SpawnPodBsd
+  icon:
+    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    state: icon_alt
   cost:
     NTLoyaltyPoint: 75
   categories:
@@ -245,7 +275,10 @@
   id: NTRExecutiveHardsuit
   name: ntr-executive-hardsuit-name
   description: ntr-executive-hardsuit-desc
-  productEntity: ClothingOuterHardsuitNanorep
+  productEntity: SpawnPodHardsuit
+  icon:
+    sprite: _Goobstation\Clothing\OuterClothing\Hardsuits\ntr.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 35
   categories:
@@ -258,7 +291,10 @@
   id: NTRExecutiveCigar
   name: ntr-executive-cigar-name
   description: ntr-executive-cigar-desc
-  productEntity: CigarGoldCase
+  productEntity: SpawnPodGoldCase
+  icon:
+    sprite: Objects/Consumable/Smokeables/Cigars/case.rsi
+    state: closed
   cost:
     NTLoyaltyPoint: 2 # lol
   categories:
@@ -271,7 +307,10 @@
   id: NTRExecutiveWhiskey
   name: ntr-executive-whiskey-name
   description: ntr-executive-whiskey-desc
-  productEntity: DrinkPremiumWhiskeyBottleFull
+  productEntity: SpawnPodWhiskey
+  icon:
+    sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 1 # lol
   categories:
@@ -284,7 +323,10 @@
   id: NTRExecutiveGlasses
   name: ntr-executive-glasses-name
   description: ntr-executive-glasses-desc
-  productEntity: ClothingEyesGlassesCentCommNoThermal
+  productEntity: SpawnPodCentCommGlasses
+  icon:
+    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 1
   categories:
@@ -297,7 +339,10 @@
   id: NTRExecutiveSavalin
   name: ntr-executive-savaliniaharunianisimious-name # :troll:
   description: ntr-executive-savaliniaharunianisimious-desc
-  productEntity: WeaponLaserSvalinn
+  productEntity: SpawnPodSvalinn
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 10
   categories:
@@ -307,10 +352,13 @@
   restockAfterPurchase: 1800 # 30 mins cuz ntr shouldn't spam these if he wanted to give it to the interns or some shit
 
 - type: listing
-  id: NTRExecutive1984
+  id: NTRExecutiveDeckard
   name: ntr-executive-1984-name
   description: ntr-executive-1984-desc
-  productEntity: WeaponPistolN1984
+  productEntity: SpawnPodDeckard
+  icon:
+    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    state: base
   cost:
     NTLoyaltyPoint: 15
   categories:
@@ -323,7 +371,10 @@
   id: NTRExecutiveCombatKit
   name: ntr-executive-combatmed-name
   description: ntr-executive-combatmed-desc
-  productEntity: MedkitCombatFilled
+  productEntity: SpawnPodMedkit
+  icon:
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: blackkit
   cost:
     NTLoyaltyPoint: 15
   categories:
@@ -413,7 +464,10 @@
   id: NTRExecutiveTelecom
   name: ntr-executive-telecom-name
   description: ntr-executive-telecom-desc
-  productEntity: NTRBoardTelecom
+  productEntity: SpawnPodTelecom
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 35
   categories:
@@ -426,7 +480,10 @@
   id: NTRExecutiveSilo
   name: ntr-executive-silo-name
   description: ntr-executive-silo-desc
-  productEntity: NTRBoardSilo
+  productEntity: SpawnPodSilo
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: engineering
   cost:
     NTLoyaltyPoint: 50
   categories:
@@ -441,7 +498,10 @@
   id: NTRExecutiveFat
   name: ntr-executive-fat-name
   description: ntr-executive-fat-desc
-  productEntity: FatExtractorMachineCircuitboard
+  productEntity: SpawnPodFat
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: service
   cost:
     NTLoyaltyPoint: 20 # the cheapest
   categories:
@@ -454,7 +514,10 @@
   id: NTRExecutiveGravity
   name: ntr-executive-grav-name
   description: ntr-executive-grav-desc
-  productEntity: MiniGravityGeneratorCircuitboard
+  productEntity: SpawnPodGrav
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: engineering
   cost:
     NTLoyaltyPoint: 35
   categories:
@@ -467,7 +530,10 @@
   id: NTRExecutiveCargoTeleporter
   name: ntr-executive-teleporter-name
   description: ntr-executive-teleporter-desc
-  productEntity: CargoTelepadMachineCircuitboard
+  productEntity: SpawnPodTeleporter
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: supply
   cost:
     NTLoyaltyPoint: 75 # almost t3 tech, its gonna be expensive bruv
   categories:
@@ -482,7 +548,10 @@
   id: NTRExecutiveHolopad
   name: ntr-executive-holopad-name
   description: ntr-executive-holopad-desc
-  productEntity: NTRBoardHolopad
+  productEntity: SpawnPodHolopad
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
   categories:
   - NTRBoards
   cost:
@@ -498,7 +567,10 @@
   id: NTRExecutiveCrewMonitoring
   name: ntr-executive-monitoring-name
   description: ntr-executive-monitoring-desc
-  productEntity: CrewMonitoringServerMachineCircuitboard
+  productEntity: SpawnPodMonitoring
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_medical
   cost:
     NTLoyaltyPoint: 75
   categories:
@@ -513,7 +585,10 @@
   id: NTRExecutiveRndServer
   name: ntr-executive-rnd-name
   description: ntr-executive-rnd-desc
-  productEntity: ResearchAndDevelopmentServerMachineCircuitboard
+  productEntity: SpawnPodRnd
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: science
   cost:
     NTLoyaltyPoint: 100
   categories:
@@ -528,7 +603,10 @@
   id: NTRExecutiveComms
   name: ntr-executive-comms-name
   description: ntr-executive-comms-desc
-  productEntity: CommsComputerCircuitboard
+  productEntity: SpawnPodComms
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: cpu_command
   cost:
     NTLoyaltyPoint: 100
   categories:
@@ -543,7 +621,10 @@
   id: NTRExecutiveCargoSell
   name: ntr-executive-cargosell-name
   description: ntr-executive-cargosell-desc
-  productEntity: CargoSaleComputerCircuitboard
+  productEntity: SpawnPodCargo
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: supply
   cost:
     NTLoyaltyPoint: 50
   categories:
@@ -559,7 +640,10 @@
   id: NTRExecutiveCargoShuttle
   name: ntr-executive-cargoshuttle-name
   description: ntr-executive-cargoshuttle-desc
-  productEntity: CargoShuttleConsoleCircuitboard
+  productEntity: SpawnPodCargoShuttle
+  icon:
+    sprite: Objects/Misc/module.rsi
+    state: supply
   cost:
     NTLoyaltyPoint: 50
   categories:
@@ -575,7 +659,10 @@
   id: NTRExecutiveShuttle
   name: ntr-executive-shuttle-name
   description: ntr-executive-shuttle-desc
-  productEntity: NTRBoardShuttle
+  productEntity: SpawnPodShuttle
+  icon:
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+    state: icon
   cost:
     NTLoyaltyPoint: 50
   categories:

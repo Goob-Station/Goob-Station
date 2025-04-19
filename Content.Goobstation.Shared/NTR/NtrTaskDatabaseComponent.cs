@@ -1,5 +1,5 @@
 using Content.Goobstation.Shared.NTR;
-using Content.Shared.Cargo;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.NTR;
@@ -14,7 +14,7 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     /// Maximum amount of bounties a station can have.
     /// </summary>
     [DataField]
-    public int MaxTasks = 6;
+    public int MaxTasks = 5;
 
     /// <summary>
     /// A list of all the bounties currently active for a station.
@@ -52,5 +52,38 @@ public sealed partial class NtrTaskDatabaseComponent : Component
     /// The time between skipping bounties.
     /// </summary>
     [DataField]
-    public TimeSpan SkipDelay = TimeSpan.FromMinutes(15);
+    public TimeSpan SkipDelay = TimeSpan.FromMinutes(5);
+
+    /// <summary>
+    /// Time between automatic task generation
+    /// </summary>
+    [DataField]
+    public TimeSpan TaskGenerationDelay = TimeSpan.FromMinutes(1);
+
+    /// <summary>
+    /// Time when next task will be generated
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextTaskGenerationTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// Tracks which task prototypes have been printed
+    /// </summary>
+    [DataField]
+    public HashSet<string> PrintedPrototypes = new();
+
+    /// <summary>
+    /// Cooldown for PowerGridCheck task
+    /// </summary>
+    [DataField]
+    public TimeSpan PowerGridCooldown = TimeSpan.FromMinutes(10);
+
+    /// <summary>
+    /// When next PowerGridCheck can appear
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    public TimeSpan NextPowerGridTime = TimeSpan.Zero;
+
+    [DataField("maxActiveTime")] // if u cant complete a task in 20 mins, skill issue.
+    public TimeSpan MaxActiveTime = TimeSpan.FromMinutes(20); // 20 min to complete a task
 }

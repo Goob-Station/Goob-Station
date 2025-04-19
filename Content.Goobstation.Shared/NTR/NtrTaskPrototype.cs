@@ -1,6 +1,12 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
 
 namespace Content.Goobstation.Shared.NTR;
 /// <summary>
@@ -31,7 +37,7 @@ public sealed class NtrTaskPrototype : IPrototype
     public LocId Description = string.Empty;
 
     /// <summary>
-    /// The entries that must be satisfied for the cargo bounty to be complete.
+    /// The entries that must be satisfied for the ntr bounty to be complete.
     /// </summary>
     [DataField(required: true)]
     public List<NtrTaskItemEntry> Entries = new();
@@ -41,6 +47,24 @@ public sealed class NtrTaskPrototype : IPrototype
     /// </summary>
     [DataField]
     public string IdPrefix = "CC";
+
+    /// <summary>
+    /// Weight for random selection (higher = more frequent)
+    /// </summary>
+    [DataField]
+    public float Weight = 1.0f;
+
+    [DataField("cooldown")]
+    public float Cooldown = 0f; //in seconds
+
+    [DataField("reagents")]
+    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents { get; init; } = new();
+
+    [DataField("solutionName")]
+    public string SolutionName { get; private set; } = "drink"; // i want to end it all already
+
+    [DataField("reagentTask")] // shitcod
+    public bool IsReagentTask { get; init; } = false;
 }
 
 [DataDefinition, Serializable, NetSerializable]
@@ -52,7 +76,7 @@ public readonly partial record struct NtrTaskItemEntry()
     /// <summary>
     /// A whitelist for determining what items satisfy the entry.
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public EntityWhitelist Whitelist { get; init; } = default!;
 
     /// <summary>
@@ -61,9 +85,25 @@ public readonly partial record struct NtrTaskItemEntry()
     [DataField]
     public int Amount { get; init; } = 1;
 
+    [DataField]
+    public bool InstantCompletion { get; init; } = false;
+
+    [DataField]
+    public bool IsEvent { get; init; } = false;
+
     /// <summary>
     /// A player-facing name for the item.
     /// </summary>
     [DataField]
     public LocId Name { get; init; } = string.Empty;
 }
+
+// [DataDefinition, Serializable, NetSerializable]
+// public sealed partial class NtrTaskReagentEntry
+// {
+//     [DataField("reagent")]
+//     public string Reagent = string.Empty;
+
+//     [DataField("amount")]
+//     public int Amount;
+// }

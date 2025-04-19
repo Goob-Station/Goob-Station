@@ -32,7 +32,7 @@
     shoes: ClothingShoesBootsJack
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
-    pocket1: DefibrillatorCompact # wow personal doctor for NTR
+    pocket1: WeaponEnergyRevolver
     pocket2: Flash
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackBlueshield
@@ -41,8 +41,9 @@
     - ClothingMaskGasSecurity
     - Flash
     - BluespaceLifelineImplanter
-    - WeaponEnergyRevolver
+    - DefibrillatorCompact # wow personal doctor for NTR
     - SecHypo
+    - WeaponShotgunSawnEmpty # wild west style
   inhand:
     - MedkitCombatFilled
 

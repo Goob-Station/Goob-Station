@@ -9,7 +9,7 @@ namespace Content.Goobstation.Shared.NTR;
 /// A data structure for storing currently available bounties.
 /// </summary>
 [DataDefinition, NetSerializable, Serializable]
-public readonly partial record struct NtrTaskData
+public partial record struct NtrTaskData
 {
     /// <summary>
     /// A unique id used to identify the bounty
@@ -24,9 +24,24 @@ public readonly partial record struct NtrTaskData
     [DataField(required: true)]
     public ProtoId<NtrTaskPrototype> Task { get; init; } = string.Empty;
 
+    [DataField]
+    public bool IsActive = false;
+
+    [DataField]
+    public TimeSpan ActiveTime;
+
+    [DataField]
+    public bool IsCompleted = false;
+
     public NtrTaskData(NtrTaskPrototype task, int uniqueIdentifier)
     {
         Task = task.ID;
         Id = $"{task.IdPrefix}{uniqueIdentifier:D3}";
+        IsActive = false;
+        ActiveTime = default;
+    }
+    public NtrTaskData AsActive(TimeSpan time)
+    {
+        return this with { IsActive = true, ActiveTime = time };
     }
 }
