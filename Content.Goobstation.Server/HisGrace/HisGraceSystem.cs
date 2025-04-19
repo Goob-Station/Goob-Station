@@ -1,20 +1,14 @@
 using System.Linq;
-using System.Numerics;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared._vg.TileMovement;
-using Content.Shared.Coordinates;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
@@ -36,7 +30,6 @@ namespace Content.Goobstation.Server.HisGrace;
 public sealed partial class HisGraceSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
@@ -77,11 +70,13 @@ public sealed partial class HisGraceSystem : EntitySystem
     private void OnEquipped(EntityUid uid, HisGraceComponent component, ref GotEquippedHandEvent args)
     {
         component.IsHeld = true;
+        component.Holder = args.User;
     }
 
     private void OnUnequipped(EntityUid uid, HisGraceComponent component, ref GotUnequippedHandEvent args)
     {
         component.IsHeld = false;
+        component.Holder = null;
     }
 
     private void OnMeleeHit(EntityUid uid, HisGraceComponent comp, ref MeleeHitEvent args)
@@ -106,7 +101,7 @@ public sealed partial class HisGraceSystem : EntitySystem
     private void OnEntityConsumed(EntityUid uid, HisGraceComponent comp, ref HisGraceEntityConsumedEvent args)
     {
         comp.EntitiesAbsorbed++;
-        comp.Hunger -= Math.Clamp(comp.HungerOnDevour, 0, 200);
+        comp.Hunger -= comp.HungerOnDevour;
 
         if (comp.EntitiesAbsorbed >= 25)
             ChangeState(comp, HisGraceState.Ascended);
@@ -226,7 +221,7 @@ public sealed partial class HisGraceSystem : EntitySystem
             }
 
             // Handle attacking when not held
-            if (!hisGrace.IsHeld)
+            if (!hisGrace.IsHeld || hisGrace.Holder != hisGrace.User)
             {
                 foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity) && entity != hisGrace.User
                              &&  _timing.CurTime > hisGrace.NextGroundAttack

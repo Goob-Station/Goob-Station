@@ -126,6 +126,12 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     public bool IsHeld;
 
     /// <summary>
+    /// Who is holding His Grace
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? Holder;
+
+    /// <summary>
     /// The time at which His Grace will attack a nearby target.
     /// </summary>
     public TimeSpan NextGroundAttack;
