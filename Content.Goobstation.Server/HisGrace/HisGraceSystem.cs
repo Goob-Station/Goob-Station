@@ -107,7 +107,7 @@ public sealed partial class HisGraceSystem : EntitySystem
     private void OnEntityConsumed(EntityUid uid, HisGraceComponent comp, ref HisGraceEntityConsumedEvent args)
     {
         comp.EntitiesAbsorbed++;
-        comp.Hunger -= comp.HungerOnDevour;
+        comp.Hunger = Math.Max(0, comp.Hunger - comp.HungerOnDevour);
 
         if (comp.EntitiesAbsorbed >= 25)
             ChangeState(comp, HisGraceState.Ascended);
@@ -283,7 +283,8 @@ public sealed partial class HisGraceSystem : EntitySystem
             if (hisGrace.NextHungerTick > _timing.CurTime)
                 continue;
 
-            _damageable.TryChangeDamage(hisGrace.User, hisGrace.Healing);
+            if (!TerminatingOrDeleted(hisGrace.User))
+                _damageable.TryChangeDamage(hisGrace.User, hisGrace.Healing);
 
             hisGrace.Hunger = Math.Clamp(hisGrace.Hunger + hisGrace.HungerIncrement, 0, 200);
             hisGrace.NextHungerTick = _timing.CurTime + hisGrace.TickDelay;

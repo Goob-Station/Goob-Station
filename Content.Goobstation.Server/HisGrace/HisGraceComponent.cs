@@ -49,25 +49,6 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     public TimeSpan TickDelay = TimeSpan.FromSeconds(3);
 
     /// <summary>
-    /// State to hunger increment dict
-    /// </summary>
-    [DataField]
-    public Dictionary<HisGraceState, int> HungerIncrementThresholds = new()
-    {
-        { HisGraceState.Dormant, 1 },
-
-        { HisGraceState.Peckish, 1 },
-
-        { HisGraceState.Hungry, 2 },
-
-        { HisGraceState.Ravenous, 3 },
-
-        { HisGraceState.Starving, 4 },
-
-        { HisGraceState.Ascended, 0 },
-    };
-
-    /// <summary>
     /// How much the hunger decreases per tick.
     /// </summary>
     [DataField]
