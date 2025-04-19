@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMaterielHeavyAP
+  name: bullet (.92 anti-materiel AP)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 95 # WYCI 50-120 damage based on range, bounty buddy said it was fine without for now
+        Structural: 100 # Goes through one wall, girder's the next / 2 rwindows 3 grilles
+    armorPenetration: 0.75
+    penetrationThreshold: 360
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 115
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletAntiMaterielHeavyAT
+  name: bullet (.92 anti-materiel AT)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+        Structural: 800 # kills 3 regular walls, mutually destructs on a fourth. kills one R wall, MD's on the second
+    armorPenetration: 0.9
+    penetrationThreshold: 800 # the bigger this is the more PP (penetrative power)
+    penetrationDamageTypeRequirement:
+    - Structural
+  - type: StaminaDamageOnCollide
+    damage: 115
