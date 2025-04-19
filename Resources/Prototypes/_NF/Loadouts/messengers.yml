@@ -67,13 +67,3 @@
   id: ChemistMessenger
   equipment:
     back: ClothingBackpackMessengerChemistry
-
-- type: loadout
-  id: NanotrasenRepresentativeMessenger
-  equipment:
-    back: ClothingBackpackMessengerCentcomm
-
-- type: loadout
-  id: BlueshieldOfficerMessenger
-  equipment:
-    back: ClothingBackpackMessengerBlueshield
