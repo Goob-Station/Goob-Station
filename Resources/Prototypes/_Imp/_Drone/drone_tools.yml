@@ -49,7 +49,7 @@
 
 - type: entity
   parent: PinpointerStationGoob
-  id: PinpointerStationUnremovable
+  id: PinpointerStationUnremoveable
   description: You are the station. Find yourself. Press E to activate.
   suffix: Unremoveable
   components:
