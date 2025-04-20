@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: EMP grenade
+  description: A grenade designed to wreak havoc on electronic systems.
+  parent: [GrenadeBase, BaseSecurityContraband]
+  id: SecEmpGrenade
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+  - type: EmpOnTrigger
+    range: 5.5
+    energyConsumption: 50000
+  - type: DeleteOnTrigger
+  - type: Appearance
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg
