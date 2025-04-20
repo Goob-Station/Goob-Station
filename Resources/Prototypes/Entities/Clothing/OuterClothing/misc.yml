@@ -129,6 +129,9 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBaseToggleable
@@ -167,6 +170,9 @@
     sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -178,6 +184,9 @@
     sprite: Clothing/OuterClothing/Misc/judge.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/judge.rsi
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -202,6 +211,9 @@
     sprite: Clothing/OuterClothing/Misc/santa.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/santa.rsi
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   abstract: true
