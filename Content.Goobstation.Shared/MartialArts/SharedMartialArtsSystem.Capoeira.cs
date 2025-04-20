@@ -157,7 +157,7 @@ public abstract partial class SharedMartialArtsSystem
 
         var power = GetCapoeiraPower(args, velocity);
         var speedMultiplier = 1f / MathF.Max(1f, power);
-        ApplyMultiplier(target, speedMultiplier, 0f, args.SlowDownTime * power, MartialArtModifierType.MoveSpeed);
+        _stun.TrySlowdown(target, args.SlowDownTime * power, true, speedMultiplier, speedMultiplier);
         _modifier.RefreshMovementSpeedModifiers(target);
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
         _audio.PlayPvs(args.Sound, target);

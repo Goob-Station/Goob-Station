@@ -29,7 +29,7 @@ public sealed class ComboAttackPerformedEvent(
     public ComboAttackType Type { get; } = type;
 }
 
-[Serializable,NetSerializable]
+[Serializable, NetSerializable]
 public enum ComboAttackType : byte
 {
     Harm,

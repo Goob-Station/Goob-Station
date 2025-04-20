@@ -26,6 +26,12 @@ public sealed partial class NinjutsuSneakAttackComponent : Component
     public float AssassinateArmorPierce = -2.5f;
 
     [DataField]
+    public float TakedownKnockdownTime = 2f;
+
+    [DataField]
+    public float TakedownBackstabMultiplier = 2.5f;
+
+    [DataField]
     public SoundSpecifier AssassinateSoundUnarmed = new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg");
 
     [DataField]
@@ -35,6 +41,9 @@ public sealed partial class NinjutsuSneakAttackComponent : Component
     // This should be LocId but combos names don't use locale anyway
     [DataField]
     public string AssassinateComboName = "Assassinate";
+
+    [DataField]
+    public string TakedownComboName = "Ninjutsu Takedown";
 
     [DataField]
     public ProtoId<AlertPrototype> Alert = "SneakAttack";

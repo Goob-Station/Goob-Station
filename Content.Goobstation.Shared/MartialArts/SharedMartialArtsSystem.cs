@@ -111,6 +111,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         var query = EntityQueryEnumerator<CanPerformComboComponent>();
         while (query.MoveNext(out var ent, out var comp))
         {
@@ -219,7 +222,15 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         if (!HasComp<MobStateComponent>(args.Target))
             return;
-        RaiseLocalEvent(args.User, new ComboAttackPerformedEvent(args.User, args.Target, args.User, ComboAttackType.Hug));
+
+        if (!TryComp(args.User, out MartialArtsKnowledgeComponent? knowledge))
+            return;
+
+        if (knowledge.MartialArtsForm == MartialArtsForms.Ninjutsu)
+            OnNinjutsuHug(args.User, args.Target);
+
+        // Including this in combos clutters combo counter
+        // RaiseLocalEvent(args.User, new ComboAttackPerformedEvent(args.User, args.Target, args.User, ComboAttackType.Hug));
     }
 
     private void OnComboAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)

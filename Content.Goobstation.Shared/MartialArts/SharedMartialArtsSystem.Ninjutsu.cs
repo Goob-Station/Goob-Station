@@ -29,7 +29,6 @@ public abstract partial class SharedMartialArtsSystem
 
     private void InitializeNinjutsu()
     {
-        SubscribeLocalEvent<CanPerformComboComponent, NinjutsuTakedownPerformedEvent>(OnNinjutsuTakedown);
         SubscribeLocalEvent<CanPerformComboComponent, BiteTheDustPerformedEvent>(OnBiteTheDust);
         SubscribeLocalEvent<CanPerformComboComponent, DirtyKillPerformedEvent>(OnDirtyKill);
 
@@ -88,6 +87,32 @@ public abstract partial class SharedMartialArtsSystem
     {
         if (HasComp<NinjutsuSneakAttackComponent>(ev.User))
             ResetDebuff(ev.User.Value);
+    }
+
+    private void OnNinjutsuHug(EntityUid ent, EntityUid target)
+    {
+        if (!TryComp(ent, out NinjutsuSneakAttackComponent? sneakAttack))
+            return;
+
+        if (HasComp<NinjutsuLossOfSurpriseComponent>(ent))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("ninjutsu-fail-loss-of-surprise"), ent, ent);
+            return;
+        }
+
+        if (_standingState.IsDown(target))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
+            return;
+        }
+
+        var time = sneakAttack.TakedownKnockdownTime;
+        if (_backstab.TryBackstab(target, ent, Angle.FromDegrees(45d), true, false, false))
+            time *= sneakAttack.TakedownBackstabMultiplier;
+
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(time), true);
+        _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
+        ComboPopup(ent, target, sneakAttack.TakedownComboName);
     }
 
     private void OnNinjutsuMeleeHit(EntityUid uid, ref MeleeHitEvent ev)
@@ -219,42 +244,6 @@ public abstract partial class SharedMartialArtsSystem
             target,
             proto.DamageType,
             proto.ExtraDamage * GetDamageMultiplier(ent),
-            out _,
-            TargetBodyPart.Torso);
-        _audio.PlayPvs(args.Sound, target);
-        ComboPopup(ent, target, proto.Name);
-    }
-
-    private void OnNinjutsuTakedown(Entity<CanPerformComboComponent> ent, ref NinjutsuTakedownPerformedEvent args)
-    {
-        if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto, out var target, out var downed))
-            return;
-
-        if (!TryComp(ent, out NinjutsuSneakAttackComponent? sneakAttack))
-            return;
-
-        if (HasComp<NinjutsuLossOfSurpriseComponent>(ent))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("ninjutsu-fail-loss-of-surprise"), ent, ent);
-            return;
-        }
-
-        if (downed)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-down"), ent, ent);
-            return;
-        }
-
-        float time = proto.ParalyzeTime;
-        if (_backstab.TryBackstab(target, ent, Angle.FromDegrees(45d), true, false, false))
-            time *= args.BackstabMultiplier;
-
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(time), true, proto.DropHeldItemsBehavior);
-        DoDamage(ent,
-            target,
-            proto.DamageType,
-            proto.ExtraDamage * sneakAttack.Multiplier,
             out _,
             TargetBodyPart.Torso);
         _audio.PlayPvs(args.Sound, target);

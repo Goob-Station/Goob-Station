@@ -20,7 +20,6 @@
   event: !type:DragonClawPerformedEvent
     sound:
       path: /Audio/Weapons/genhit3.ogg
-  extraDamage: 10
   staminaDamage: 50
 
 - type: combo
@@ -37,7 +36,6 @@
   extraDamage: 15
   staminaDamage: 30
   paralyzeTime: 6
-  dropHeldItemsBehavior: NoDrop
 
 - type: combo
   id: DragonStrike

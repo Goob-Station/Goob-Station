@@ -28,5 +28,5 @@ public sealed partial class DragonPowerBuffComponent : Component
     public float DamageMultiplier = 1.2f;
 
     [DataField]
-    public TimeSpan AttackDamageBuffDuration = TimeSpan.FromSeconds(3);
+    public TimeSpan AttackDamageBuffDuration = TimeSpan.FromSeconds(5);
 }
