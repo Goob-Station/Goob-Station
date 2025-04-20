@@ -15,7 +15,7 @@
   content:
   - StorageImplanter
   - DnaScramblerImplanter
-  - ChemistryBottleEphedrine
+  - EphedrineChemistryBottle
   - SoapOmega
   - Syringe
   - DrinkShaker
