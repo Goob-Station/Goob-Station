@@ -22,7 +22,7 @@ public sealed partial class ItemRandomizeMovementspeedComponent : Component
     /// The max limit of the modifier.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Max = 1.6f;
+    public float Max = 2f;
 
     /// <summary>
     /// The current modifier.
@@ -31,10 +31,22 @@ public sealed partial class ItemRandomizeMovementspeedComponent : Component
     public float CurrentModifier = 1f;
 
     /// <summary>
+    /// The value we are moving towards.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float TargetModifier;
+
+    /// <summary>
     /// Next execution time.
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan NextExecutionTime;
+
+    /// <summary>
+    /// Smooth!
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float SmoothingTime = 0.2f;
 
     /// <summary>
     /// The Uid of the entity that picked up the item.
