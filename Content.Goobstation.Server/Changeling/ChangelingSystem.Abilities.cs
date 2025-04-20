@@ -723,30 +723,26 @@ public sealed partial class ChangelingSystem
     }
     public void OnVoidAdapt(EntityUid uid, ChangelingIdentityComponent comp, ref ActionVoidAdaptEvent args)
     {
-        if (TryComp<TemperatureComponent>(uid, out var tempComp))
-        {
-            if (!TryUseAbility(uid, comp, args))
-                return;
+        if (!TryUseAbility(uid, comp, args))
+            return;
 
-            if (!comp.VoidAdaptActive)
-            {
-                EnsureComp<SpecialBreathingImmunityComponent>(uid);
-                EnsureComp<SpecialPressureImmunityComponent>(uid);
-                EnsureComp<SpecialLowTempImmunityComponent>(uid);
-                tempComp.ColdDamageThreshold = -273.15f;
-                _popup.PopupEntity(Loc.GetString("changeling-voidadapt-start"), uid, uid);
-                comp.VoidAdaptActive = true;
-                comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
-            }
-            else
-            {
-                RemComp<SpecialBreathingImmunityComponent>(uid);
-                RemComp<SpecialPressureImmunityComponent>(uid);
-                RemComp<SpecialLowTempImmunityComponent>(uid);
-                _popup.PopupEntity(Loc.GetString("changeling-voidadapt-end"), uid, uid);
-                comp.VoidAdaptActive = false;
-                comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
-            }
+        if (!comp.VoidAdaptActive)
+        {
+            EnsureComp<SpecialBreathingImmunityComponent>(uid);
+            EnsureComp<SpecialPressureImmunityComponent>(uid);
+            EnsureComp<SpecialLowTempImmunityComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("changeling-voidadapt-start"), uid, uid);
+            comp.VoidAdaptActive = true;
+            comp.ChemicalRegenMultiplier -= 0.25f; // chem regen slowed by a flat 25%
+        }
+        else
+        {
+            RemComp<SpecialBreathingImmunityComponent>(uid);
+            RemComp<SpecialPressureImmunityComponent>(uid);
+            RemComp<SpecialLowTempImmunityComponent>(uid);
+            _popup.PopupEntity(Loc.GetString("changeling-voidadapt-end"), uid, uid);
+            comp.VoidAdaptActive = false;
+            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
         }
     }
     public void OnAdrenalineReserves(EntityUid uid, ChangelingIdentityComponent comp, ref ActionAdrenalineReservesEvent args)
