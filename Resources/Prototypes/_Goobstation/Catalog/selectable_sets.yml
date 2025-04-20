@@ -75,8 +75,8 @@
     sprite: Objects/Tanks/anesthetic.rsi
     state: icon
   content:
-  - ChemistryBottleNocturine
-  - ChemistryBottleNocturine
+  - NocturineChemistryBottle
+  - NocturineChemistryBottle
   - HypopenBox
   - NitrousOxideTankFilled
 
@@ -352,7 +352,7 @@
     - ClothingOuterHardsuitBlueshieldLight
 
 - type: selectableSet
-  id: BSOHeavyHardsuitSet
+  id: BSOHardsuitHeavySet
   name: selectable-set-blueshield-hardsuit-heavy-name
   description: selectable-set-blueshield-hardsuit-heavy-description
   sprite:
