@@ -1,0 +1,41 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+          xmlns:controls="using:Content.Client.UserInterface.Controls"
+          Title="{Loc 'criminal-verb-UI-name'}"
+          MinSize="220 110">
+    <BoxContainer Name="PersonContainer"
+                  Orientation="Vertical"
+                  VerticalExpand="True"
+                  HorizontalExpand="True"
+                  Margin="5">
+        <Label Name="PersonName"
+               Margin="0 0 0 5"
+               StyleClasses="LabelBig"/>
+        <BoxContainer Orientation="Horizontal"
+                      Margin="0 0 0 5">
+            <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
+                   FontColorOverride="DarkGray" />
+            <TextureRect Name="PersonJobIcon"
+                         TextureScale="2 2"
+                         Margin="6 0"
+                         VerticalAlignment="Center" />
+            <Label Name="PersonJob" />
+        </BoxContainer>
+        <PanelContainer StyleClasses="LowDivider"
+                        Margin="0 5 0 5" />
+        <BoxContainer Orientation="Horizontal"
+                      Margin="0 5 0 5">
+            <Label Name="StatusLabel"
+                   Text="{Loc 'criminal-records-console-status'}"
+                   FontColorOverride="DarkGray" />
+            <Label Text=":"
+                   FontColorOverride="DarkGray" />
+            <AnimatedTextureRect Name="PersonStatusTX"
+                                 Margin="8 0" />
+            <OptionButton Name="StatusOptionButton"
+                          MinWidth="130" />
+        </BoxContainer>
+        <RichTextLabel Name="WantedReason"
+                       Visible="False"
+                       MaxWidth="425" />
+    </BoxContainer>
+</controls:FancyWindow>
