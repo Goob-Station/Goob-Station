@@ -117,7 +117,7 @@
     state: scar_face_2
 
 - type: marking
-  id: BodyScar_r
+  id: BodyScarr
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Dwarf, Oni]
