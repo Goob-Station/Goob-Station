@@ -132,6 +132,7 @@
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #When adding new hardsuits, please try to keep the organization consistent with hardsuit-helmets.yml (if possible.)
@@ -870,7 +871,7 @@
         Blunt: 0.4
         Slash: 0.4
         Piercing: 0.3
-        Heat: 0.5
+        Heat: 0.4
         Radiation: 0.25
         Caustic: 0.4
   - type: ClothingSpeedModifier
