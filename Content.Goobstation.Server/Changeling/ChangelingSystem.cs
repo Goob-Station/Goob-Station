@@ -10,13 +10,18 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -32,6 +37,7 @@ using Content.Goobstation.Shared.Changeling.Systems;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Body.Systems;
+using Content.Server.Atmos.Components;
 using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
@@ -90,6 +96,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
+using Content.Goobstation.Server.Flashbang;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -137,6 +144,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -149,9 +157,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
     public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
-
-    public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
-    public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
     public override void Initialize()
     {
@@ -216,7 +221,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnRefreshSpeed(Entity<ChangelingIdentityComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
-            args.ModifySpeed(1.25f, 1.5f);
+            args.ModifySpeed(1.5f, 2.0f);
         else
             args.ModifySpeed(1f, 1f);
     }
@@ -258,7 +263,16 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         var chemicals = comp.Chemicals;
         // either amount or regen
-        chemicals += amount ?? 1 + comp.BonusChemicalRegen;
+
+        if (!CheckFireStatus(uid)) // if on fire, reduce total chemicals restored to a 1/4 //
+        {
+            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier;
+        }
+        else
+        {
+            chemicals += (amount ?? 1 + comp.BonusChemicalRegen) * comp.ChemicalRegenMultiplier * 0.25f;
+        }
+
         comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
@@ -328,7 +342,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 15f, visual: false, immediate: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -366,6 +380,33 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
 
     /// <summary>
+    /// Knocks down and/or stuns entities in range if they aren't a changeling
+    /// </summary>
+    public void TryScreechStun(EntityUid uid, ChangelingIdentityComponent comp)
+    {
+        var nearbyEntities = _lookup.GetEntitiesInRange(uid, comp.ShriekPower);
+
+        var stunTime = 2f;
+        var knockdownTime = 4f;
+
+        foreach (var player in nearbyEntities)
+        {
+            if (HasComp<ChangelingIdentityComponent>(player))
+                continue;
+
+            if (CheckSoundSuppression(player, "ears") || CheckSoundSuppression(player, "head"))
+            {
+                _stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);
+                _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime / 2f), true);
+                continue;
+            }
+
+            _stun.TryStun(player, TimeSpan.FromSeconds(stunTime), true);
+            _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime), true);
+        }
+    }
+
+    /// <summary>
     ///     Check if the target is crit/dead or cuffed, for absorbing.
     /// </summary>
     public bool IsIncapacitated(EntityUid uid)
@@ -390,16 +431,40 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return comp.Equipment.ContainsKey(proto) ? 0f : null;
     }
 
+    /// <summary>
+    ///     Check if target has sound suppression
+    /// </summary>
+    public bool CheckSoundSuppression(EntityUid uid, string slotId)
+    {
+        if (_inventory.TryGetSlotEntity(uid, slotId, out var itemUid))
+        {
+            return HasComp<FlashSoundSuppressionComponent>(itemUid);
+        }
+        return false;
+    }
+
+    public bool CheckFireStatus(EntityUid uid)
+    {
+        return (TryComp<FlammableComponent>(uid, out var fire) && fire.OnFire);
+    }
+
     public bool TryUseAbility(EntityUid uid,
         ChangelingIdentityComponent comp,
         BaseActionEvent action,
-        float? chemCostOverride = null)
+        float? chemCostOverride = null,
+        bool fireAffected = true)
     {
         if (action.Handled)
             return false;
 
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
+
+        if (CheckFireStatus(uid) && fireAffected) // checks if the changeling is on fire, and if the ability is affected by fire
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-onfire"), uid, uid, PopupType.LargeCaution);
+            return false;
+        }
 
         if (comp.Biomass < 1 && lingAction.RequireBiomass)
         {
@@ -537,15 +602,19 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
 
             comp.ActiveArmor = newArmor;
+            comp.ChemicalRegenMultiplier -= 0.25f; // base chem regen slowed by a flat 25%
             return true;
         }
+        else
+        {
+            // Unequip armor
+            foreach (var armor in comp.ActiveArmor)
+                QueueDel(armor);
 
-        // Unequip armor
-        foreach (var armor in comp.ActiveArmor)
-            QueueDel(armor);
-
-        comp.ActiveArmor = null!;
-        return true;
+            comp.ActiveArmor = null!;
+            comp.ChemicalRegenMultiplier += 0.25f; // chem regen debuff removed
+            return true;
+        }
     }
 
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingIdentityComponent comp, bool countObjective = false)
@@ -743,8 +812,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (newUid != null)
         {
             PlayMeatySound((EntityUid) newUid, comp);
-            var loc = Loc.GetString("changeling-transform-others", ("user", locName));
-            _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
         }
 
         return true;
