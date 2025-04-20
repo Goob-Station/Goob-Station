@@ -29,9 +29,9 @@
     prototypes: [LeadInternGear]
   - type: Access
     Tags:
-      - Maintenance
-      - Command
-      - CentralCommand
+    - Maintenance
+    - Command
+    - CentralCommand
 
 # Basic Intern Coin
 - type: entity
@@ -79,7 +79,7 @@
   - type: Loadout
     prototypes: [NTInternGear]
   - type: Access
-    access:
+    Tags:
     - Maintenance
     - Command
     - CentralCommand
@@ -96,7 +96,7 @@
   - type: Loadout
     prototypes: [NTNerdInternGear]
   - type: Access
-    access:
+    Tags:
     - Maintenance
     - Command
     - CentralCommand
