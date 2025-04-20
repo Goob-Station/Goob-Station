@@ -17,6 +17,9 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 LuciferMkshelter <stepanteliatnik2022@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -262,6 +265,10 @@ public sealed partial class StoreMenu : DefaultWindow
                 StyleClasses = { "OpenBoth" }
             };
 
+            if (proto.Evil) // Goobstation start
+            {
+                catButton.AddStyleClass("ButtonColorRed");
+            } // Goobstation end
             catButton.OnPressed += args => OnCategoryButtonPressed?.Invoke(args, catButton.Id);
             CategoryListContainer.AddChild(catButton);
         }
