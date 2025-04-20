@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2024 Rank #1 Jonestown partygoer <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
@@ -10689,13 +10690,6 @@ entities:
       parent: 4
     - type: AtmosPipeColor
       color: '#FC033DFF'
-- proto: GatewayAntagPlanet
-  entities:
-  - uid: 2289
-    components:
-    - type: Transform
-      pos: 19.5,-9.5
-      parent: 4
 - proto: GhostBarSpawner
   entities:
   - uid: 41
