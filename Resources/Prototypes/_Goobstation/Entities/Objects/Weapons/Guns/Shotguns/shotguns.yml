@@ -1,4 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -68,3 +70,31 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+
+- type: entity
+  name: "'Bojevic' combat shotgun"
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponShotgunCombat
+  description: An old design with a beefier shell intended to repell boarding parties; this time, you are the boarding party. '8 GUAGE' is stamped on the barrel.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+  - type: GunRequiresWield # remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 1
+  - type: Tag
+    tags:
+    - WeaponShotgunKammerer
+  - type: BallisticAmmoProvider # WYCI internal magazine weapon with bolt
+    whitelist:
+      tags:
+      - ShellShotgunHeavy
+    capacity: 5
+    proto: ShellShotgunHighCaliber
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+    autoCycle: false

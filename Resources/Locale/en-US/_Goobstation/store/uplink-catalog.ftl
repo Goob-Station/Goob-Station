@@ -88,7 +88,7 @@ uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
 
 uplink-WSPR-name = WSPR Bundle
-uplink-WSPR-desc = A silenced burst rifle, does not match the damage output of other options but gets the job done quietly.
+uplink-WSPR-desc = Puts highly damaging 9.5mm holes in targets with a whisper quiet three round burst.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -118,7 +118,10 @@ uplink-m7s-name = M7S
 uplink-m7s-desc = A high capacity but low velocity submachinegun that takes 48 round magazines.
 
 uplink-heavensgate-name = Heaven's gate
-uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+uplink-heavensgate-desc = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+
+uplink-combat-shotgun-name = Combat shotgun
+uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
 
 # Ammo
 
@@ -143,10 +146,10 @@ uplink-caseless-magnum-pistol-mag-saphe-desc = 12 rounds of 9.5mm Semi Armor Pie
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge pellet)
 uplink-shotgun-magazine-desc = Shutgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
 uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
@@ -169,6 +172,18 @@ uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper r
 
 uplink-92-AT-name = box of .92 anti-tank rounds
 uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
+
+uplink-high-caliber-shotgun-box-name = 8 Gauge shell box
+uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
+uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
+uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Does not knock down those without hearing protection
+
+uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
+uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 # Grenades
 
