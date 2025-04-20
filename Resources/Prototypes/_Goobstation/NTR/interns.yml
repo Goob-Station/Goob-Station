@@ -5,7 +5,7 @@
   description: A NT-approved radio that can summon a lead intern with special coins.
   components:
   - type: Sprite
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon_alt
   - type: Item
     size: Huge
@@ -43,7 +43,7 @@
   description: Toss to summon an intern.
   components:
   - type: Sprite
-    sprite: Objects\Misc\coins.rsi
+    sprite: Objects/Misc/coins.rsi
     state: coin_gold
   - type: GhostRole
     name: ghost-role-intern-name
@@ -60,7 +60,7 @@
   description: Toss to summon a nerd intern.
   components:
   - type: Sprite
-    sprite: Objects\Misc\coins.rsi
+    sprite: Objects/Misc/coins.rsi
     state: coin_silver
   - type: GhostRole
     name: ghost-role-nerd-intern-name

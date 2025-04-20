@@ -9,7 +9,7 @@
   - type: EventTrigger # this component delets this entity on spawn
     eventId: "GiftsEngineering"
   - type: Sprite # sprite needed for NTRstore
-    sprite: Objects/Materials/Sheets\metal.rsi
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: titanium_3
 
 - type: entity

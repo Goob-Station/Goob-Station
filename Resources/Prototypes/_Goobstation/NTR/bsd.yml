@@ -62,7 +62,7 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon_alt
   - type: Item
     size: Ginormous
