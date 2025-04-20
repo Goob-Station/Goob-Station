@@ -499,7 +499,7 @@
     sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default # same as macrobomb
+    explosionType: Holy # Shitchap
     totalIntensity: 3500
     intensitySlope: 15
     maxIntensity: 70

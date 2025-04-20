@@ -68,6 +68,9 @@
   name: job-name-chaplain
   description: job-description-chaplain
   playTimeTracker: JobChaplain
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 36000 # 10 hours
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
@@ -91,3 +94,4 @@
     back:
     - Bible
     - RubberStampChaplain
+    - Nullrod

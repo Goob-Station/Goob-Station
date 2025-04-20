@@ -35,6 +35,7 @@
       mindRoles:
       - MindRoleHeretic
       components:
+      - type: WeakToHoly
       - type: CanEnchant
   - type: Tag
     tags:
@@ -63,6 +64,7 @@
       mindRoles:
       - MindRoleHeretic
       components:
+      - type: WeakToHoly
       - type: CanEnchant
   - type: Tag
     tags:

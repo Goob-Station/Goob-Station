@@ -84,6 +84,8 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Common.Religion.Events;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -162,6 +164,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
@@ -171,6 +174,7 @@ public abstract class SharedMagicSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MagicComponent, BeforeCastSpellEvent>(OnBeforeCastSpell);
+        SubscribeLocalEvent<MagicComponent, BeforeCastTouchSpellEvent>(OnTouchSpellAttempt);
 
         SubscribeLocalEvent<InstantSpawnSpellEvent>(OnInstantSpawn);
         SubscribeLocalEvent<TeleportSpellEvent>(OnTeleportSpell);
@@ -182,6 +186,7 @@ public abstract class SharedMagicSystem : EntitySystem
         SubscribeLocalEvent<ChargeSpellEvent>(OnChargeSpell);
         SubscribeLocalEvent<RandomGlobalSpawnSpellEvent>(OnRandomGlobalSpawnSpell);
         SubscribeLocalEvent<MindSwapSpellEvent>(OnMindSwapSpell);
+
 
         // Spell wishlist
         //  A wishlish of spells that I'd like to implement or planning on implementing in a future PR
@@ -327,6 +332,33 @@ public abstract class SharedMagicSystem : EntitySystem
         RaiseLocalEvent(spell, ref ev);
         return !ev.Cancelled;
     }
+
+    //goobstation start
+    private void OnTouchSpellAttempt(Entity<MagicComponent> ent, ref BeforeCastTouchSpellEvent args)
+    {
+        if (!TryComp<HandsComponent>(args.Target, out var handsComp))
+            return;
+
+        if (handsComp.ActiveHandEntity != null
+            && TryComp<DivineInterventionComponent>(handsComp.ActiveHandEntity, out var comp))
+        {
+            args.Cancelled = true;
+
+            if (_timing.IsFirstTimePredicted)
+                return;
+            _popupSystem.PopupPredicted(Loc.GetString("nullrod-spelldenial-popup"), args.Target.Value, args.Target.Value, PopupType.MediumCaution);
+            _audio.PlayPredicted(comp.DenialSound, args.Target.Value, ent);
+            Spawn(comp.EffectProto, Transform(args.Target.Value).Coordinates);
+        }
+    }
+
+    public bool SpellDenied(EntityUid spell, EntityUid target)
+    {
+        var beforeTouchSpellEvent = new BeforeCastTouchSpellEvent(target);
+        RaiseLocalEvent(spell, ref beforeTouchSpellEvent);
+        return beforeTouchSpellEvent.Cancelled;
+    }
+    //goobstation end
 
     #region Spells
     #region Instant Spawn Spells
@@ -509,7 +541,9 @@ public abstract class SharedMagicSystem : EntitySystem
     // staves.yml ActionRGB light
     private void OnChangeComponentsSpell(ChangeComponentsSpellEvent ev)
     {
-        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
+        if (ev.Handled
+            || !PassesSpellPrerequisites(ev.Action, ev.Performer)
+            || SpellDenied(ev.Action, ev.Target))
             return;
 
         ev.Handled = true;
@@ -592,7 +626,9 @@ public abstract class SharedMagicSystem : EntitySystem
     #region Smite Spells
     private void OnSmiteSpell(SmiteSpellEvent ev)
     {
-        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
+        if (ev.Handled
+            || !PassesSpellPrerequisites(ev.Action, ev.Performer)
+            || SpellDenied(ev.Action, ev.Target))
             return;
 
         ev.Handled = true;
@@ -706,7 +742,9 @@ public abstract class SharedMagicSystem : EntitySystem
 
     private void OnMindSwapSpell(MindSwapSpellEvent ev)
     {
-        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
+        if (ev.Handled
+            || !PassesSpellPrerequisites(ev.Action, ev.Performer)
+            || SpellDenied(ev.Action, ev.Target))
             return;
 
         // Goobstation start

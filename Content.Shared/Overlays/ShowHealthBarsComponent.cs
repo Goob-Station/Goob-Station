@@ -98,7 +98,7 @@ public sealed partial class ShowHealthBarsComponent : Component
     [DataField, AutoNetworkedField] // Shitmed Change
     public List<ProtoId<DamageContainerPrototype>> DamageContainers = new()
     {
-        "Biological"
+        "Biological", "BiologicalMetaphysical"
     };
 
     [DataField]

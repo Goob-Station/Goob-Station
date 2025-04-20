@@ -13,12 +13,17 @@
   name: ominous hood
   description: A torn, dust-caked hood. Strange eyes line the inside.
   components:
+  - type: UnholyItem
   - type: HereticMagicItem
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_hood.rsi
     state: icon
   - type: Clothing
     sprite: _Goobstation/Heretic/eldritch_hood.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 1.25
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -32,12 +37,17 @@
   name: void hood
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
+  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/void_hood.rsi
     state: icon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 1.25
   - type: Clothing
     sprite: _Goobstation/Heretic/void_hood.rsi
   - type: Tag
-    tags: []
+    tags: [ ]
   - type: StripMenuInvisible
   - type: VoidCloakHood

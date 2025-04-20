@@ -80,8 +80,13 @@
             max: 3
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StealTarget
-    stealGroup: AltarNanotrasen
+  - type: Construction
+    graph: AltarsGraph
+    node: NanotrasenAltarNode
+  - type: AltarSource
+    rodProto: AtheistFedora
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarChaos
@@ -94,6 +99,17 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: chaos
+  - type: PointLight
+    radius: 1.5
+    energy: 1
+    color: "#fbb1b1"
+  - type: AltarSource
+    rodProto: GodHand
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: ChaosAltarNode
 
 - type: entity
   id: AltarDruid
@@ -106,6 +122,13 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
+  - type: AltarSource
+    rodProto: MonkStaff
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: DruidAltarNode
 
 - type: entity
   id: AltarToolbox
@@ -118,6 +141,12 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
+  - type: AltarSource
+    rodProto: HolyChainsaw # Shitchap
+    effectProto: EffectSpark
+  - type: Construction
+    graph: AltarsGraph
+    node: ToolAltarNode
 
 - type: entity
   id: AltarSpaceChristian
@@ -137,6 +166,13 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: AltarSource
+    rodProto: Rosary
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: SpaceChristianAltarNode
 
 - type: entity
   id: AltarSatana
@@ -175,6 +211,13 @@
     radius: 1.5
     energy: 1
     color: "#e0ffff"
+  - type: Construction
+    graph: AltarsGraph
+    node: TechnologyAltarNode
+  - type: AltarSource
+    rodProto: ClothingBeltHolsterFilledChaplain
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarConvertFestival
@@ -224,18 +267,23 @@
   name: maint altar
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    sprite: _ShitChap/Structures/convertaltar.rsi
     layers:
     - state: maint
-    - state: lightning
       shader: unshaded
   - type: Icon
-    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    sprite: _ShitChap/Structures/convertaltar.rsi
     state: maint
   - type: PointLight
     radius: 1.5
     energy: 1
-    color: "#fbceb1"
+    color: "#ff6347"
+  - type: AltarSource
+    rodProto: UristHand # Shitchap
+    effectProto: EffectSpark
+  - type: Construction
+    graph: AltarsGraph
+    node: MaintsAltarNode
 
 - type: entity
   id: AltarConvertBlue
@@ -293,6 +341,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: AltarsGraph
+    node: AltarConvertNode
 
 - type: entity
   id: AltarConvertOrange
@@ -406,6 +457,13 @@
             max: 5
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Construction
+    graph: AltarsGraph
+    node: HeavenAltarNode
+  - type: AltarSource
+    rodProto: HolyClaymore
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -420,7 +478,13 @@
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-
+  - type: AltarSource
+    rodProto: ArrythmicKnife # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: FangsAltarNode
 
 - type: entity
   id: AltarBananium
@@ -432,5 +496,9 @@
     sprite: Structures/Furniture/Altars/Cults/bananium.rsi
     state: full
   - type: Construction
-    graph: BananiumAltarGraph
-    node: bananiumAltar
+    graph: AltarsGraph
+    node: BananiumAltarNode
+  - type: AltarSource
+    rodProto: HonkmotherMaw # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Items/bikehorn.ogg
