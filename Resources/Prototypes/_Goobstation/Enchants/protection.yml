@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Gaia <gaia.chiavazza@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   abstract: true
   parent: BaseEnchant
@@ -19,7 +25,7 @@
     - EnchantProtBlast
     - EnchantProtFire
   - type: DamageModifyEnchant
-    factor: 0.9 # 35% reduction per piece at IV
+    factor: 0.974 # 10% reduction per piece at IV
     protectWearer: true
 
 - type: entity
