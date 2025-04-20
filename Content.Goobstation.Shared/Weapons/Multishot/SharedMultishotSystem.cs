@@ -83,7 +83,7 @@ public sealed class SharedMultishotSystem : EntitySystem
         }
     }
 
-    private void OnGunShot(Entity<MultishotComponent> multishotWeapon, ref GunShotEvent args)
+    private void OnGunShot(EntityUid uid, MultishotComponent comp, ref GunShotEvent args)
     {
         var (uid, comp) = multishotWeapon;
 
