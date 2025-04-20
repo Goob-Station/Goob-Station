@@ -137,8 +137,10 @@
 # SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lenny <187471588+Bynnel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -176,6 +178,10 @@
     attackRate: 2 #open and close that shit on their arm like hell! because you sure aren't doing any damage with this
     soundHit:
       path: "/Audio/Items/wirecutter.ogg"
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 2 # Goobstation
   - type: Tool
     qualities:
       - Cutting
@@ -239,6 +245,14 @@
         Piercing: 6
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
+  - type: EmbeddableProjectile # V Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 8 # ^ Goobstation
   - type: Tool
     qualities:
       - Screwing
@@ -293,6 +307,10 @@
         Blunt: 4.5
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5 # Goobstation
   - type: Tool
     qualities:
       - Anchoring
@@ -474,6 +492,10 @@
         Piercing: 10
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10 # Goobstation
   - type: Tending # Shitmed
     speed: 0.75
   - type: Drill # Shitmed
@@ -710,6 +732,10 @@
         Blunt: 14
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 15 # Goobstation
   - type: Item
     size: Normal
     sprite: Objects/Tools/shovel.rsi
@@ -746,6 +772,10 @@
         Blunt: 7
     soundHit:
       collection: MetalThud
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 7 # Goobstation
   - type: Tool
     qualities:
     - Rolling
