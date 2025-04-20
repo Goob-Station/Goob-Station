@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
@@ -10,9 +11,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -59,8 +60,11 @@ public abstract partial class SharedMartialArtsSystem
             case KravMagaMoves.LegSweep:
                 if(_netManager.IsClient)
                     return;
+
+                if (_standingState.IsDown(hitEntity))
+                    break;
                 _stun.TryKnockdown(hitEntity, TimeSpan.FromSeconds(4), true); // okay buddy
-                _stamina.TakeStaminaDamage(hitEntity, 25f, applyResistances: true);
+                // _stamina.TakeStaminaDamage(hitEntity, moveComp.StaminaDamage, applyResistances: true);
                 break;
             case KravMagaMoves.NeckChop:
                 var comp = EnsureComp<KravMagaSilencedComponent>(hitEntity);

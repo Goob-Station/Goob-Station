@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
@@ -111,7 +112,7 @@ public partial class SharedMartialArtsSystem
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
             || !_proto.TryIndex<MartialArtPrototype>(proto.MartialArtsForm.ToString(), out var martialArtProto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage + ent.Comp.ConsecutiveGnashes * 5, out _);
@@ -137,14 +138,14 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpKneeHaulPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         if (!downed)
         {
             DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds((long)proto.ParalyzeTime), true);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
         }
         else
         {
@@ -162,7 +163,7 @@ public partial class SharedMartialArtsSystem
         ref SleepingCarpCrashingWavesPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || downed)
             return;
 

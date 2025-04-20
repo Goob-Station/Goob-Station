@@ -10,8 +10,8 @@
 - type: entity
   parent: [BaseItem, BaseCentcommContraband]
   id: BSOManual
-  name: Nanotrasen CQC Manual
-  description: A small, blue manual. There are drawn instructions of tactical hand-to-hand combat.
+  name: Nanotrasen Dragon Kung Fu Manual
+  description: A small, blue manual. There are drawn instructions of Dragon Kung Fu, one of the Shaolin animal styles. The Dragon uses fluid movements and hard strikes. Pausing increases your defenses. You can perform a powerful strike against a downed opponent.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
@@ -21,4 +21,4 @@
     size: Small
   - type: StaticPrice
     price: 3000
-  - type: GrantCqc
+  - type: GrantKungFuDragon

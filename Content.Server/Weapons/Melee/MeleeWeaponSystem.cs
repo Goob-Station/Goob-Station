@@ -177,6 +177,9 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         PhysicalShove(user, target);
         Interaction.DoContactInteraction(user, target);
 
+        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
+
         if (_mobState.IsIncapacitated(target))
             return true;
 
@@ -198,9 +201,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         Interaction.DoContactInteraction(user, target);
-
-        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboEv);
 
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);
         if (inTargetHand != null)
@@ -265,7 +265,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
     }
 
-    protected override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session)
+    public override bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session) // Goob edit
     {
         EntityCoordinates targetCoordinates;
         Angle targetLocalAngle;
@@ -287,16 +287,9 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
         var pushVector = (targetPos - userPos).Normalized() * force;
 
-        var animated = false;
-        var throwInAir = false;
+        var animated = HasComp<ItemComponent>(target);
 
-        if (HasComp<ItemComponent>(target)) // Throw items instead of shoving
-        {
-            animated = true;
-            throwInAir = true;
-        }
-
-        _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated, throwInAir: throwInAir);
+        _throwing.TryThrow(target, pushVector, force * _shoveSpeed, animated: animated);
     }
 
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)

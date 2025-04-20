@@ -11,11 +11,11 @@ blueshield-box-category-chester-description =
     Includes: 10 Gauge shotgun, the Chester. Spare ammo,
     Alternate ammo, Spare magazines.
 
-blueshield-box-category-cqc-name = close quarters combat set
+blueshield-box-category-cqc-name = dragon kung fu set
 blueshield-box-category-cqc-description =
     Sometimes you need to get your hands dirty.
     Includes: A book capable of teaching the user
-    advanced close-quarters-combat.
+    Dragon Kung Fu martial art.
 
 blueshield-box-category-revolver-name = revolver set
 blueshield-box-category-revolver-description =

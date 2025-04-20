@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
@@ -76,11 +77,11 @@ public partial class SharedMartialArtsSystem
     private void OnJudoThrow(Entity<CanPerformComboComponent> ent, ref JudoThrowPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || downed)
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false, proto.DropHeldItemsBehavior);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
@@ -91,7 +92,7 @@ public partial class SharedMartialArtsSystem
     private void OnJudoEyepoke(Entity<CanPerformComboComponent> ent, ref JudoEyePokePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
         if (!TryComp(target, out StatusEffectsComponent? status))
@@ -115,7 +116,7 @@ public partial class SharedMartialArtsSystem
     private void OnJudoArmbar(Entity<CanPerformComboComponent> ent, ref JudoArmbarPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         switch (downed)
@@ -127,7 +128,7 @@ public partial class SharedMartialArtsSystem
                 break;
             case true:
                 _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-                //_stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false);
+                //_stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), false, proto.DropHeldItemsBehavior);
                 break;
         }
 

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
@@ -12,7 +13,6 @@
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Shared.MartialArts;
@@ -27,6 +27,34 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CanPerformComboComponent, ComboAttackPerformedEvent>(OnAttackPerformed);
         SubscribeLocalEvent<CanPerformComboComponent, ComboBeingPerformedEvent>(OnComboBeingPerformed);
+        SubscribeLocalEvent<CanPerformComboComponent, SaveLastAttacksEvent>(OnSave);
+        SubscribeLocalEvent<CanPerformComboComponent, ResetLastAttacksEvent>(OnReset);
+        SubscribeLocalEvent<CanPerformComboComponent, LoadLastAttacksEvent>(OnLoad);
+    }
+
+    private void OnLoad(Entity<CanPerformComboComponent> ent, ref LoadLastAttacksEvent args)
+    {
+        if (ent.Comp.LastAttacksSaved == null)
+            return;
+
+        ent.Comp.LastAttacks = ent.Comp.LastAttacksSaved;
+        ent.Comp.LastAttacksSaved = null;
+
+        if (args.Dirty)
+            Dirty(ent);
+    }
+
+    private void OnReset(Entity<CanPerformComboComponent> ent, ref ResetLastAttacksEvent args)
+    {
+        ent.Comp.LastAttacks.Clear();
+
+        if (args.Dirty)
+            Dirty(ent);
+    }
+
+    private void OnSave(Entity<CanPerformComboComponent> ent, ref SaveLastAttacksEvent args)
+    {
+        ent.Comp.LastAttacksSaved = new(ent.Comp.LastAttacks);
     }
 
     private void OnMapInit(EntityUid uid, CanPerformComboComponent component, MapInitEvent args)
@@ -42,24 +70,28 @@ public partial class SharedMartialArtsSystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
 
+        Dirty(uid, component);
+
         if (component.CurrentTarget != null && args.Target != component.CurrentTarget.Value)
-        {
             component.LastAttacks.Clear();
-        }
+
+        var afterEv = new AfterComboCheckEvent(uid, args.Target, args.Weapon, args.Type);
 
         if (args.Weapon != uid)
         {
             component.LastAttacks.Clear();
+            RaiseLocalEvent(uid, ref afterEv);
             return;
         }
 
         component.CurrentTarget = args.Target;
-        component.ResetTime = _timing.CurTime + TimeSpan.FromSeconds(4);
+        component.ResetTime = _timing.CurTime + TimeSpan.FromSeconds(5);
         component.LastAttacks.Add(args.Type);
-        CheckCombo(uid, component);
+        CheckCombo(uid, args.Target, component);
+        RaiseLocalEvent(uid, ref afterEv);
     }
 
-    private void CheckCombo(EntityUid uid, CanPerformComboComponent comp)
+    private void CheckCombo(EntityUid uid, EntityUid target, CanPerformComboComponent comp)
     {
         var success = false;
 
@@ -67,6 +99,10 @@ public partial class SharedMartialArtsSystem
         {
             if (success)
                 break;
+
+            // If we are targeting ourselves and combo doesn't allow it (or otherwise), then continue
+            if (uid == target != proto.PerformOnSelf)
+                continue;
 
             var sum = comp.LastAttacks.Count - proto.AttackTypes.Count;
             if (sum < 0)
@@ -88,6 +124,5 @@ public partial class SharedMartialArtsSystem
     private void OnComboBeingPerformed(Entity<CanPerformComboComponent> ent, ref ComboBeingPerformedEvent args)
     {
         ent.Comp.BeingPerformed = args.ProtoId;
-        Dirty(ent, ent.Comp);
     }
 }

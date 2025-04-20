@@ -30,7 +30,9 @@
   - Disarm
   event: !type:JudoThrowPerformedEvent
   staminaDamage: 30
-  paralyzeTime: 3
+  paralyzeTime: 4
+  dropHeldItemsBehavior: NoDrop
+  canDoWhileProne: false
 
 - type: combo
   id: JudoArmbar

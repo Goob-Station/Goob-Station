@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
@@ -13,18 +14,23 @@ using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Standing;
 using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {
+    private static readonly SoundSpecifier NeckSnapSound = new SoundPathSpecifier("/Audio/_Goobstation/Wounds/crack1.ogg");
+
     private void InitializeCqc()
     {
         SubscribeLocalEvent<CanPerformComboComponent, CqcSlamPerformedEvent>(OnCQCSlam);
@@ -32,62 +38,77 @@ public partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, CqcRestrainPerformedEvent>(OnCQCRestrain);
         SubscribeLocalEvent<CanPerformComboComponent, CqcPressurePerformedEvent>(OnCQCPressure);
         SubscribeLocalEvent<CanPerformComboComponent, CqcConsecutivePerformedEvent>(OnCQCConsecutive);
-        SubscribeLocalEvent<MartialArtsKnowledgeComponent, ComboAttackPerformedEvent>(OnCQCAttackPerformed);
+
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, CanDoCQCEvent>(OnCQCCheck);
 
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
 
-
     #region Generic Methods
 
-        private void OnMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)
+    private void OnCQCCheck(Entity<MartialArtsKnowledgeComponent> ent, ref CanDoCQCEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!ent.Comp.Blocked)
         {
-            if (!HasComp<MobStateComponent>(ent))
-                return;
-
-            if (!TryGrantMartialArt(ent, ent.Comp))
-                return;
-
-            if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge))
-                knowledge.Blocked = true;
+            args.Handled = true;
+            return;
         }
 
-    private void OnGrantCQCUse(Entity<GrantCqcComponent> ent, ref UseInHandEvent args)
+        foreach (var entInRange in _lookup.GetEntitiesInRange(ent, 8f))
+        {
+            if (!TryPrototype(entInRange, out var entProto) || entProto.ID != "SpawnPointChef")
+                continue;
+
+            args.Handled = true;
+            return;
+        }
+    }
+
+    private void OnMapInitEvent(Entity<GrantCqcComponent> ent, ref MapInitEvent args)
+    {
+        if (!HasComp<MobStateComponent>(ent))
+            return;
+
+        if (!TryGrantMartialArt(ent, ent.Comp))
+            return;
+
+        if (TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledge))
+            knowledge.Blocked = true;
+    }
+
+    private void OnGrantCQCUse(EntityUid ent, GrantMartialArtKnowledgeComponent comp, UseInHandEvent args)
     {
         if (!_netManager.IsServer)
             return;
 
-        if (ent.Comp.Used)
+        if (comp.Used)
         {
-            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
+            _popupSystem.PopupEntity(Loc.GetString(comp.LearnFailMessage, ("manual", Identity.Entity(ent, EntityManager))),
                 args.User,
                 args.User);
             return;
         }
 
-        if (!TryGrantMartialArt(args.User, ent.Comp))
+        if (!TryGrantMartialArt(args.User, comp))
             return;
-        _popupSystem.PopupEntity(Loc.GetString("cqc-success-learned"), args.User, args.User);
-        ent.Comp.Used = true;
+        _popupSystem.PopupEntity(Loc.GetString(comp.LearnMessage), args.User, args.User);
+        comp.Used = true;
     }
 
-    private void OnGrantCQCExamine(Entity<GrantCqcComponent> ent, ref ExaminedEvent args)
+    private void OnGrantCQCExamine(EntityUid ent, GrantMartialArtKnowledgeComponent comp, ExaminedEvent args)
     {
-        if (ent.Comp.Used)
+        if (comp.Used)
             args.PushMarkup(Loc.GetString("cqc-manual-used", ("manual", Identity.Entity(ent, EntityManager))));
     }
 
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
     {
-        if (!TryComp<MartialArtsKnowledgeComponent>(ent, out var knowledgeComponent))
-            return;
-
-        if (knowledgeComponent.MartialArtsForm != MartialArtsForms.CloseQuartersCombat)
-            return;
-
-        if(knowledgeComponent.Blocked)
+        if (args.Weapon != args.Performer || args.Target == args.Performer)
             return;
 
         switch (args.Type)
@@ -96,15 +117,52 @@ public partial class SharedMartialArtsSystem
                 _stamina.TakeStaminaDamage(args.Target, 25f, applyResistances: true);
                 break;
             case ComboAttackType.Harm:
-                if (!TryComp<RequireProjectileTargetComponent>(ent, out var standing)
-                    || !standing.Active)
-                    return;
-                _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
+                // Snap neck
+                if (!_mobState.IsDead(args.Target) && !HasComp<GodmodeComponent>(args.Target) &&
+                    TryComp(ent, out PullerComponent? puller) && puller.Pulling == args.Target &&
+                    TryComp(args.Target, out PullableComponent? pullable) &&
+                    puller.GrabStage == GrabStage.Suffocate && TryComp(ent, out TargetingComponent? targeting) &&
+                    targeting.Target == TargetBodyPart.Head)
+                {
+                    _pulling.TryStopPull(args.Target, pullable);
+                    _mobState.ChangeMobState(args.Target, MobState.Dead, null, ent);
+
+                    var dmg = new DamageSpecifier
+                    {
+                        DamageDict =
+                        {
+                            { "Blunt", 100 },
+                            { "Asphyxiation", 300 },
+                        },
+                    };
+
+                    _damageable.TryChangeDamage(args.Target,
+                        dmg,
+                        true,
+                        canSever: false,
+                        origin: ent,
+                        targetPart: TargetBodyPart.Head);
+
+                    if (_netManager.IsServer)
+                        _audio.PlayPvs(NeckSnapSound, args.Target);
+
+                    ComboPopup(ent, args.Target, "Neck Snap");
+                    break;
+                }
+
+                // Leg sweep
+                if (!TryComp<StandingStateComponent>(ent, out var standing)
+                    || standing.CurrentState == StandingState.Standing ||
+                    !TryComp(args.Target, out StandingStateComponent? targetStanding) ||
+                    targetStanding.CurrentState != StandingState.Standing)
+                    break;
+
+                _status.TryRemoveStatusEffect(ent, "KnockedDown");
                 _standingState.Stand(ent);
+                _stun.TryKnockdown(args.Target, TimeSpan.FromSeconds(5), true);
+                ComboPopup(ent, args.Target, "Leg Sweep");
                 break;
         }
-
-
     }
 
     #endregion
@@ -114,12 +172,12 @@ public partial class SharedMartialArtsSystem
     private void OnCQCSlam(Entity<CanPerformComboComponent> ent, ref CqcSlamPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed)
+            || !TryUseMartialArt(ent, proto, out var target, out var downed)
             || downed)
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
@@ -129,7 +187,7 @@ public partial class SharedMartialArtsSystem
     private void OnCQCKick(Entity<CanPerformComboComponent> ent, ref CqcKickPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out var downed))
+            || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
         var mapPos = _transform.GetMapCoordinates(ent).Position;
@@ -159,10 +217,10 @@ public partial class SharedMartialArtsSystem
     private void OnCQCRestrain(Entity<CanPerformComboComponent> ent, ref CqcRestrainPerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
         ComboPopup(ent, target, proto.Name);
     }
@@ -170,26 +228,28 @@ public partial class SharedMartialArtsSystem
     private void OnCQCPressure(Entity<CanPerformComboComponent> ent, ref CqcPressurePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, source: ent, applyResistances: true);
+
+        ComboPopup(ent, target, proto.Name);
+
         if (!_hands.TryGetActiveItem(target, out var activeItem))
             return;
         if(!_hands.TryDrop(target, activeItem.Value))
             return;
-        if (!_hands.TryGetEmptyHand(target, out var emptyHand))
+        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
             return;
-        if(!_hands.TryPickupAnyHand(ent, activeItem.Value))
+        if(!_hands.TryPickup(ent, activeItem.Value, emptyHand))
             return;
         _hands.SetActiveHand(ent, emptyHand);
-        ComboPopup(ent, target, proto.Name);
     }
 
     private void OnCQCConsecutive(Entity<CanPerformComboComponent> ent, ref CqcConsecutivePerformedEvent args)
     {
         if (!_proto.TryIndex(ent.Comp.BeingPerformed, out var proto)
-            || !TryUseMartialArt(ent, proto.MartialArtsForm, out var target, out _))
+            || !TryUseMartialArt(ent, proto, out var target, out _))
             return;
 
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _);
