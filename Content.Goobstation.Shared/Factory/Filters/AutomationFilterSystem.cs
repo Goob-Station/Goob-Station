@@ -18,6 +18,7 @@ public sealed class AutomationFilterSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
 
     private EntityQuery<FilterSlotComponent> _slotQuery;
     private EntityQuery<LabelComponent> _labelQuery;
@@ -50,15 +51,18 @@ public sealed class AutomationFilterSystem : EntitySystem
 
         Subs.BuiEvents<StackFilterComponent>(StackFilterUiKey.Key, subs =>
         {
-            subs.Event<StackFilterSetSizeMessage>(OnStackSet);
+            subs.Event<StackFilterSetMinMessage>(OnStackSetMin);
+            subs.Event<StackFilterSetSizeMessage>(OnStackSetSize);
         });
         SubscribeLocalEvent<StackFilterComponent, ExaminedEvent>(OnStackExamined);
         SubscribeLocalEvent<StackFilterComponent, AutomationFilterEvent>(OnStackFilter);
+        SubscribeLocalEvent<StackFilterComponent, AutomationFilterSplitEvent>(OnStackSplit);
 
         SubscribeLocalEvent<CombinedFilterComponent, ComponentInit>(OnCombinedInit);
         SubscribeLocalEvent<CombinedFilterComponent, UseInHandEvent>(OnCombinedUse);
         SubscribeLocalEvent<CombinedFilterComponent, ExaminedEvent>(OnCombinedExamined);
         SubscribeLocalEvent<CombinedFilterComponent, AutomationFilterEvent>(OnCombinedFilter);
+        SubscribeLocalEvent<CombinedFilterComponent, AutomationFilterSplitEvent>(OnCombinedSplit);
 
         SubscribeLocalEvent<FilterSlotComponent, ComponentInit>(OnSlotInit);
     }
@@ -161,9 +165,18 @@ public sealed class AutomationFilterSystem : EntitySystem
 
     /* Stack filter */
 
-    private void OnStackSet(Entity<StackFilterComponent> ent, ref StackFilterSetSizeMessage args)
+    private void OnStackSetMin(Entity<StackFilterComponent> ent, ref StackFilterSetMinMessage args)
     {
-        if (args.Size < 1 || ent.Comp.Size == args.Size)
+        if (args.Min < 1 || ent.Comp.Min == args.Min)
+            return;
+
+        ent.Comp.Min = args.Min;
+        Dirty(ent);
+    }
+
+    private void OnStackSetSize(Entity<StackFilterComponent> ent, ref StackFilterSetSizeMessage args)
+    {
+        if (args.Size < 0 || ent.Comp.Size == args.Size)
             return;
 
         ent.Comp.Size = args.Size;
@@ -180,7 +193,12 @@ public sealed class AutomationFilterSystem : EntitySystem
 
     private void OnStackFilter(Entity<StackFilterComponent> ent, ref AutomationFilterEvent args)
     {
-        args.Allowed = _stackQuery.CompOrNull(args.Item)?.Count >= ent.Comp.Size;
+        args.Allowed = _stackQuery.CompOrNull(args.Item)?.Count >= ent.Comp.Min;
+    }
+
+    private void OnStackSplit(Entity<StackFilterComponent> ent, ref AutomationFilterSplitEvent args)
+    {
+        args.Size = ent.Comp.Size;
     }
 
     /* Combined filter */
@@ -224,6 +242,13 @@ public sealed class AutomationFilterSystem : EntitySystem
         };
     }
 
+    private void OnCombinedSplit(Entity<CombinedFilterComponent> ent, ref AutomationFilterSplitEvent args)
+    {
+        var a = GetSplitSize(ent.Comp.FilterA.Item);
+        var b = GetSplitSize(ent.Comp.FilterB.Item);
+        args.Size = Math.Max(a, b);
+    }
+
     private void OnSlotInit(Entity<FilterSlotComponent> ent, ref ComponentInit args)
     {
         if (!TryComp<ItemSlotsComponent>(ent, out var slots))
@@ -259,6 +284,42 @@ public sealed class AutomationFilterSystem : EntitySystem
     /// </summary>
     public bool IsBlocked(EntityUid? filter, EntityUid item) => !IsAllowed(filter, item);
 
+    /// <summary>
+    /// Gets the split size for a filter.
+    /// If non-zero then the pulled item is split into a multiple of the return value.
+    /// If zero then nothing special is done.
+    /// </summary>
+    public int GetSplitSize(EntityUid? filter)
+    {
+        if (filter is not {} uid)
+            return 0;
+
+        var ev = new AutomationFilterSplitEvent();
+        RaiseLocalEvent(uid, ref ev);
+        return ev.Size;
+    }
+
+    public EntityUid? TrySplit(EntityUid? filter, EntityUid item)
+    {
+        // if it's 0 don't need to split, take the item out directly
+        var split = GetSplitSize(filter);
+        if (split == 0)
+            return item;
+
+        // don't need to split if it's already a multiple of the split size
+        var stack = Comp<StackComponent>(item);
+        var excess = stack.Count % split;
+        if (excess == 0)
+            return item;
+
+        // have to split it, client will return null here
+        var coords = Transform(item).Coordinates;
+        return _stack.Split(item, stack.Count - excess, coords, stack);
+    }
+
+    /// <summary>
+    /// Get the filter in a machine's filter slot, or null if it has none.
+    /// </summary>
     public EntityUid? GetSlot(EntityUid uid)
     {
         return _slotQuery.CompOrNull(uid)?.Filter;

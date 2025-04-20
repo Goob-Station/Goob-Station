@@ -13,4 +13,5 @@ name-filter-mode-End = End with
 name-filter-mode-Match = Match exactly
 
 stack-filter-window-title = Edit Stack Filter
-stack-filter-stack-size = Minimum stack size
+stack-filter-min-stack-size = Min stack size
+stack-filter-stack-chunk-size = Out chunk size

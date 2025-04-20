@@ -327,10 +327,15 @@ public sealed class RoboticArmSystem : EntitySystem
         if (!_transform.InRange(Transform(machine).Coordinates, coords, 0.25f))
             return false;
 
-        if (slot.GetItem(_filter.GetSlot(ent)) is not {} item)
+        var filter = _filter.GetSlot(ent);
+        if (slot.GetItem(filter) is not {} item)
             return false;
 
-        return _slots.TryInsert(ent, ent.Comp.ItemSlot, item, user: null);
+        // client can't predict splitting because it spawns entities
+        if (_filter.TrySplit(filter, item) is not {} stack)
+            return false;
+
+        return _slots.TryInsert(ent, ent.Comp.ItemSlot, stack, user: null);
     }
 
     private void UpdateSlots(Entity<RoboticArmComponent> ent)

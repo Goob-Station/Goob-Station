@@ -15,6 +15,7 @@ public sealed partial class StackFilterWindow : FancyWindow
 {
     [Dependency] private readonly EntityManager _entMan = default!;
 
+    public event Action<int>? OnSetMin;
     public event Action<int>? OnSetSize;
 
     public StackFilterWindow()
@@ -22,12 +23,23 @@ public sealed partial class StackFilterWindow : FancyWindow
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
-        SizeEdit.OnTextChanged += _ =>
+        MinEdit.OnTextChanged += _ =>
         {
-            ConfirmButton.Disabled = !int.TryParse(SizeEdit.Text, out var size) || size < 1;
+            MinConfirmButton.Disabled = !int.TryParse(MinEdit.Text, out var min) || min < 1;
         };
 
-        ConfirmButton.OnPressed += _ =>
+        MinConfirmButton.OnPressed += _ =>
+        {
+            if (int.TryParse(MinEdit.Text, out var min))
+                OnSetMin?.Invoke(min);
+        };
+
+        SizeEdit.OnTextChanged += _ =>
+        {
+            SizeConfirmButton.Disabled = !int.TryParse(SizeEdit.Text, out var size) || size < 0;
+        };
+
+        SizeConfirmButton.OnPressed += _ =>
         {
             if (int.TryParse(SizeEdit.Text, out var size))
                 OnSetSize?.Invoke(size);
@@ -39,6 +51,8 @@ public sealed partial class StackFilterWindow : FancyWindow
         if (!_entMan.TryGetComponent<StackFilterComponent>(uid, out var comp))
             return;
 
+        var min = comp.Min;
+        MinEdit.Text = min.ToString();
         var size = comp.Size;
         SizeEdit.Text = size.ToString();
     }

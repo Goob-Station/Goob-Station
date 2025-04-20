@@ -20,13 +20,27 @@ public sealed partial class StackFilterComponent : Component
     /// Minimum stack size to require.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public int Size = 1;
+    public int Min = 1;
+
+    /// <summary>
+    /// Items must be taken out in chunks of this size.
+    /// Combining more than stack filter makes it use the highest set chunk size.
+    /// If 0 then output is not chunked.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int Size;
 }
 
 [Serializable, NetSerializable]
 public enum StackFilterUiKey : byte
 {
     Key
+}
+
+[Serializable, NetSerializable]
+public sealed partial class StackFilterSetMinMessage(int min) : BoundUserInterfaceMessage
+{
+    public readonly int Min = min;
 }
 
 [Serializable, NetSerializable]

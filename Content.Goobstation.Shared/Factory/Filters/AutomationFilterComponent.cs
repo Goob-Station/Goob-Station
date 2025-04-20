@@ -19,3 +19,9 @@ public sealed partial class AutomationFilterComponent : Component;
 /// </summary>
 [ByRefEvent]
 public record struct AutomationFilterEvent(EntityUid Item, bool Allowed = false);
+
+/// <summary>
+/// Event raised on a filter to get its stack split size.
+/// </summary>
+[ByRefEvent]
+public record struct AutomationFilterSplitEvent(int Size = 0);

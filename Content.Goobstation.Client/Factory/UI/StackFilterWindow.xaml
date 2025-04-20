@@ -1,12 +1,17 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
         xmlns:controls="using:Content.Client.UserInterface.Controls"
         Title="{Loc 'stack-filter-window-title'}"
-        MinSize="250 120">
-    <BoxContainer Orientation="Vertical" Align="Center">
+        MinSize="280 180">
+    <BoxContainer Orientation="Vertical" Align="Center" Margin="10">
         <BoxContainer Orientation="Horizontal" Margin="5">
-            <Label Text="{Loc 'stack-filter-stack-size'}"/>
-            <LineEdit Name="SizeEdit" PlaceHolder="1" HorizontalExpand="True"/>
+            <Label Text="{Loc 'stack-filter-min-stack-size'}"/>
+            <LineEdit Name="MinEdit" PlaceHolder="1" HorizontalExpand="True" MaxWidth="40"/>
+	        <Button Name="MinConfirmButton" Text="{Loc 'generic-confirm'}" MaxSize="100 50"/>
         </BoxContainer>
-        <Button Name="ConfirmButton" Text="{Loc 'generic-confirm'}" MaxSize="100 50"/>
+        <BoxContainer Orientation="Horizontal" Margin="5">
+            <Label Text="{Loc 'stack-filter-stack-chunk-size'}"/>
+            <LineEdit Name="SizeEdit" PlaceHolder="1" HorizontalExpand="True" MaxWidth="40"/>
+	        <Button Name="SizeConfirmButton" Text="{Loc 'generic-confirm'}" MaxSize="100 50"/>
+        </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

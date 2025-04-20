@@ -22,6 +22,7 @@ public sealed class StackFilterBUI : BoundUserInterface
 
         _window = this.CreateWindow<StackFilterWindow>();
         _window.SetEntity(Owner);
+        _window.OnSetMin += min => SendPredictedMessage(new StackFilterSetMinMessage(min));
         _window.OnSetSize += size => SendPredictedMessage(new StackFilterSetSizeMessage(size));
     }
 }
