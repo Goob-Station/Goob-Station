@@ -482,12 +482,15 @@ public sealed partial class NtrTaskSystem : EntitySystem
 #region Console logic
 
     private void OnBalanceUpdated(EntityUid uid, NtrClientAccountComponent clientComp, ref NtrAccountBalanceUpdatedEvent args)
-
     {
         if (!TryComp<StoreComponent>(uid, out var storeComp))
             return;
+        // there was a bug that i couldnt replicate, that made the account ballance
+        // go negative, so yeah... shitcod
+        var newBalance = Math.Max(0, args.Balance);
+
         Log.Debug($"Old storeComp.Balance = {storeComp.Balance.First().Value.Value}; args.Balance = {args.Balance}");
-        storeComp.Balance["NTLoyaltyPoint"] = FixedPoint2.New(args.Balance);
+        storeComp.Balance["NTLoyaltyPoint"] = FixedPoint2.New(newBalance);
         Log.Debug($"New storeComp.Balance = {storeComp.Balance.First().Value.Value}");
         Dirty(uid, storeComp);
         Log.Debug($"Check {storeComp.Balance.First().Value.Value}");

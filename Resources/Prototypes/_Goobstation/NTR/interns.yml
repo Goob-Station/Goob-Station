@@ -27,13 +27,11 @@
     randomizeName: true
   - type: Loadout
     prototypes: [LeadInternGear]
-  - type: ContainerContainer
-    id: Backpack
   - type: Access
-    access:
-    - Maintenance
-    - Command
-    - CentralCommand
+    Tags:
+      - Maintenance
+      - Command
+      - CentralCommand
 
 # Basic Intern Coin
 - type: entity

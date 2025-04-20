@@ -33,6 +33,8 @@ task-tr-acid-desc = Send a vial with 30u of Tranexamic Acid for stocking securit
 
 task-sigynate-desc = Send a vial with 30u of Sigynate for stocking security.
 
+task-dexalin-desc = Send a vial with 30u of dexalin plus to centcomm.
+
 task-cogni-name = Send Cognizine to CentComm
 task-cogni-desc = Send a vial with at least 10u of Cognizine for research.
 
