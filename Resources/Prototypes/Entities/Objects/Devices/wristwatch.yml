@@ -44,6 +44,9 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
 
 - type: entity
   id: WristwatchGold
@@ -63,3 +66,6 @@
     sprite: Objects/Devices/goldwatch.rsi
   - type: StaticPrice
     price: 500 #if you ever increase the price of kidneys, increase this too.
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 500
