@@ -8,9 +8,14 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -460,3 +465,45 @@
       EnchantInsulated: 1 # eat ALL the wires
       EnchantUnbreaking: 3 # very hard to kill
       EnchantSharpness: 5 # hit hard ye
+
+- type: entity
+  name: Clown Ian
+  parent: MobCorgiIan
+  id: MobCorgiIanClown
+  description: Honkmother's favorite corgi.
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: _Goobstation/Mobs/Animals/clown_ian.rsi
+      layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: clown_ian
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: clown_ian
+        Critical:
+          Base: clown_ian_dead  
+        Dead:
+          Base: clown_ian_dead
+    - type: Grammar
+      attributes:
+        proper: true
+        gender: male
+    - type: AutoImplant
+      implants: 
+      - SadTromboneImplant
+      - BikeHornImplant
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: FootstepClown
+    - type: Speech
+      speechVerb: Cluwne
+    - type: Bloodstream
+      bloodMaxVolume: 150
+      bloodReagent: Laughter
+    - type: Clumsy
+    - type: NoSlip
+    - type: Tag
+      tags:
+      - FootstepSound
