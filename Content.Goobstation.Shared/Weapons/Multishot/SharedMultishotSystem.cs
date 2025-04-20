@@ -85,8 +85,6 @@ public sealed class SharedMultishotSystem : EntitySystem
 
     private void OnGunShot(EntityUid uid, MultishotComponent comp, ref GunShotEvent args)
     {
-        var (uid, comp) = multishotWeapon;
-
         if (!comp.MultishotAffected)
             return;
 
@@ -94,12 +92,12 @@ public sealed class SharedMultishotSystem : EntitySystem
         DealStaminaDamage(uid, comp, args.User);
     }
 
-    private void OnAmmoShot(Entity<MultishotComponent> ent, ref AmmoShotEvent args)
+    private void OnAmmoShot(EntityUid uid, MultishotComponent comp, ref AmmoShotEvent args)
     {
-        if (!ent.Comp.MultishotAffected)
+        if (!comp.MultishotAffected)
             return;
 
-        args.FiredProjectiles.ForEach(uid => _miss.ApplyMissChance(uid, ent.Comp.MissChance));
+        args.FiredProjectiles.ForEach(ent => _miss.ApplyMissChance(ent, comp.MissChance));
     }
 
     private void DealStaminaDamage(EntityUid weapon, MultishotComponent component, EntityUid target)
@@ -138,13 +136,13 @@ public sealed class SharedMultishotSystem : EntitySystem
         RaiseLocalEvent(target, ref handsDamageEv);
     }
 
-    private void OnRefreshModifiers(Entity<MultishotComponent> multishotWeapon, ref GunRefreshModifiersEvent args)
+    private void OnRefreshModifiers(EntityUid uid, MultishotComponent comp, ref GunRefreshModifiersEvent args)
     {
-        if (!multishotWeapon.Comp.MultishotAffected)
+        if (!comp.MultishotAffected)
             return;
 
-        args.MaxAngle = args.MaxAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.SpreadAddition);
-        args.MinAngle = args.MinAngle * multishotWeapon.Comp.SpreadMultiplier + Angle.FromDegrees(multishotWeapon.Comp.SpreadAddition);
+        args.MaxAngle = args.MaxAngle * comp.SpreadMultiplier + Angle.FromDegrees(comp.SpreadAddition);
+        args.MinAngle = args.MinAngle * comp.SpreadMultiplier + Angle.FromDegrees(comp.SpreadAddition);
     }
 
     private void OnEquipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)
