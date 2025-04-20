@@ -385,7 +385,6 @@
   - type: PointLight
     radius: 4
     energy: 1
-    netsync: false
   - type: Item
     size: Ginormous
     sprite: _ShitChap/Objects/Weapons/Nullrod/uristhand.rsi
