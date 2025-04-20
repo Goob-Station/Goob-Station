@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-namespace Content.Server.Bible.Components
+namespace Content.Goobstation.Shared.Bible
 {
     [RegisterComponent]
     public sealed partial class BibleUserComponent : Component {}

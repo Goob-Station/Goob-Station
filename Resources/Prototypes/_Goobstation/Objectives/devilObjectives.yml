@@ -1,0 +1,23 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseDevilObjective
+  components:
+  - type: Objective
+    difficulty: 1.5
+    issuer: objective-issuer-devil
+
+- type: entity
+  parent: BaseDevilObjective
+  id: DevilContractObjective
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: contract-written
+  - type: NumberObjective
+    min: 7
+    max: 9
+    title: objective-condition-contract-title
+    description: objective-condition-contract-description
+  - type: SignContractCondition

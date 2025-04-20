@@ -1,0 +1,38 @@
+- type: entity
+  id: PolymorphShadowJauntAnimation
+  name: Unknown
+  description: You can't figure out what that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Mobs/polymorphs.rsi
+    state: shadow_jaunt
+    loop: false
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: PolymorphShadowJauntEndAnimation
+  name: Unknown
+  description: You can't figure out what that is.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Goobstation/Mobs/polymorphs.rsi
+    state: shadow_jaunt_end
+    loop: false
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: PolymorphShadowJaunt
+  name: Unknown
+  description: You can't figure out what that is.
+  parent: BaseMobJaunt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 12
+    baseWalkSpeed: 8
