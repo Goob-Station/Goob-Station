@@ -73,7 +73,6 @@ public sealed class SlipperySystem : EntitySystem
         SubscribeLocalEvent<NoSlipComponent, SlipAttemptEvent>(OnNoSlipAttempt);
         SubscribeLocalEvent<SlowedOverSlipperyComponent, SlipAttemptEvent>(OnSlowedOverSlipAttempt);
         SubscribeLocalEvent<ThrownItemComponent, SlipCausingAttemptEvent>(OnThrownSlipAttempt);
-        // as long as slip-resistant mice are never added, this should be fine (otherwise a mouse-hat will transfer it's power to the wearer).
         SubscribeLocalEvent<NoSlipComponent, InventoryRelayedEvent<SlipAttemptEvent>>((e, c, ev) => OnNoSlipAttempt(e, c, ev.Args));
         SubscribeLocalEvent<SlowedOverSlipperyComponent, InventoryRelayedEvent<SlipAttemptEvent>>((e, c, ev) => OnSlowedOverSlipAttempt(e, c, ev.Args));
         SubscribeLocalEvent<SlowedOverSlipperyComponent, InventoryRelayedEvent<GetSlowedOverSlipperyModifierEvent>>(OnGetSlowedOverSlipperyModifier);
@@ -150,7 +149,7 @@ public sealed class SlipperySystem : EntitySystem
                 return;
         }
 
-        var hardStun = component.SuperSlippery; // Goobstation
+        var hardStun = component.slipData.SuperSlippery; // Goobstation
         // Goob edit end
 
         var ev = new SlipEvent(other);
@@ -158,9 +157,9 @@ public sealed class SlipperySystem : EntitySystem
 
         if (TryComp(other, out PhysicsComponent? physics) && !HasComp<SlidingComponent>(other))
         {
-            _physics.SetLinearVelocity(other, physics.LinearVelocity * component.LaunchForwardsMultiplier, body: physics);
+            _physics.SetLinearVelocity(other, physics.LinearVelocity * component.SlipData.LaunchForwardsMultiplier, body: physics);
 
-            if (component.SuperSlippery && requiresContact)
+            if (component.SlipData.SuperSlippery && requiresContact)
             {
                 var sliding = EnsureComp<SlidingComponent>(other);
                 sliding.CollidingEntities.Add(uid);
@@ -171,7 +170,7 @@ public sealed class SlipperySystem : EntitySystem
         var playSound = !_statusEffects.HasStatusEffect(other, "KnockedDown");
 
         // goob edit - stunmeta
-        var time = TimeSpan.FromSeconds(component.ParalyzeTime);
+        var time = TimeSpan.FromSeconds(component.SlipData.ParalyzeTime);
         if (hardStun)
             _stun.TryParalyze(other, time, true);
         else
