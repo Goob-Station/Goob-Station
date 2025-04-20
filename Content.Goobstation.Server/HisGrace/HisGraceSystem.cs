@@ -4,8 +4,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.HisGrace;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.Components;
+using Content.Server.Item;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
@@ -35,7 +37,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.HisGrace;
 
-public sealed partial class HisGraceSystem : EntitySystem
+public sealed partial class HisGraceSystem : SharedHisGraceSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly PopupSystem _popup = null!;
@@ -46,7 +48,6 @@ public sealed partial class HisGraceSystem : EntitySystem
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = null!;
     [Dependency] private readonly TransformSystem _transform = null!;
     [Dependency] private readonly AudioSystem _audio = null!;
-    [Dependency] private readonly AppearanceSystem _appearance = null!;
     [Dependency] private readonly MindSystem _mind = null!;
     [Dependency] private readonly StunSystem _stun = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
@@ -143,11 +144,12 @@ public sealed partial class HisGraceSystem : EntitySystem
         if (!TryComp<HisGraceUserComponent>(comp.User, out var userComp))
             return;
 
-        if (args.NewState == HisGraceState.Ascended && TryComp<AppearanceComponent>(uid, out var appearanceComponent))
+        if (args.NewState == HisGraceState.Ascended && args.OldState != HisGraceState.Ascended && TryComp<AppearanceComponent>(uid, out var appearanceComponent))
         {
             EnsureComp<UnremoveableComponent>(uid);
             DoAscension(comp);
-            _appearance.SetData(uid, ToggleVisuals.Toggled, true, appearanceComponent);
+            DoAscensionVisuals((uid, comp), "ascended");
+
             return;
         }
 
@@ -348,9 +350,11 @@ public sealed partial class HisGraceSystem : EntitySystem
         // don't apply bonuses for enities consumed that don't have minds or aren't human (no farming sentient mice)
         if (_mind.TryGetMind(target, out _, out _) && HasComp<HumanoidAppearanceComponent>(target))
         {
-            var ev = new HisGraceEntityConsumedEvent();
-            RaiseLocalEvent(comp.Owner, ref ev);
+            // ignored for testing
         }
+
+        var ev = new HisGraceEntityConsumedEvent();
+        RaiseLocalEvent(comp.Owner, ref ev);
 
         return true;
     }

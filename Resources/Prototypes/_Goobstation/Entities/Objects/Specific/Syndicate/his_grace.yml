@@ -42,17 +42,6 @@
   - type: Item
     size: Ginormous
     sprite: _Goobstation/Objects/Weapons/Melee/hisgrace.rsi
-    inhandVisuals:
-      left:
-      - state: inhand-left
-      - state: inhand-left-ascended
-        visible: false
-        map: [ "enum.ToggleVisuals.Layer" ]
-      right:
-      - state: inhand-right
-      - state: inhand-right-ascended
-        visible: false
-        map: [ "enum.ToggleVisuals.Layer" ]
   - type: GenericVisualizer
     visuals:
       enum.ToggleVisuals.Toggled:
