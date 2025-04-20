@@ -45,3 +45,9 @@ marking-TattooTribal1 = Tribal Tattoo
 
 marking-BuffChest_buff = Buff
 marking-BuffChest = Buff
+
+marking-TattooEyeMothRight-tattoo_eye_moth_r = Right Eye
+marking-TattooEyeMothRight = Right Eye
+
+marking-TattooEyeMothLeft-tattoo_eye_moth_l = Left Eye
+marking-TattooEyeMothLeft = Left Eye
