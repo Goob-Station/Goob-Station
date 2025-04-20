@@ -7725,3 +7725,9 @@ Entries:
       message: Ghost bar arena portal was temporarily removed.
   id: 901
   time: '2025-04-20T00:33:44.0000000+00:00'
+- author: The Independent State of Chemlabia
+  changes:
+    - type: Fix
+      message: Fixed syringes being breakable.
+  id: 902
+  time: '2025-04-20T06:21:21.0000000+00:00'
