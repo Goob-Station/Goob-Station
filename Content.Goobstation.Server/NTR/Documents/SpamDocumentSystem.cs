@@ -3,14 +3,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Paper;
-using Content.Shared.Paper;
-using Robust.Shared.Random;
 using System.Text;
 using Content.Goobstation.Shared.NTR.Documents;
-using Robust.Shared.Localization;
-using System.Collections.Generic;
-using System;
+using Content.Shared.Paper;
+using Robust.Shared.Random;
 // mocho please we need content.shitcode asap ;-;
 namespace Content.Goobstation.Server.NTR.Documents
 {
@@ -20,14 +16,14 @@ namespace Content.Goobstation.Server.NTR.Documents
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly PaperSystem _paper = default!;
 
-        private readonly List<(string department, int varCount)> _departments = new()
-        {//maybe put this inside a comp or smth
+        private readonly List<(string department, int varCount)> _departments =
+        [ //maybe put this inside a comp or smth
             ("security", 4),
-            ("cargo", 3),// cuz cargo has only 3 texts while every other department has 4
+            ("cargo", 3), // cuz cargo has only 3 texts while every other department has 4
             ("medical", 4),
             ("engineering", 4),
-            ("science", 4)
-        };//oh and also, service sucks ass so i removed that, womp womp
+            ("science", 4),
+        ];//oh and also, service sucks ass so i removed that, womp womp
 
         private readonly Dictionary<string, string> _departmentShortNames = new()
         {
@@ -79,7 +75,7 @@ namespace Content.Goobstation.Server.NTR.Documents
             // 10% chance of mimic document being just 100% legit but with an offset date to mess with NTRs
             if (_random.Prob(0.1f))
             {
-                var (department, varCount) = _random.Pick(_departments);
+                var (department, _) = _random.Pick(_departments);
                 var args = GetDepartmentArgs(department, dateString);
                 return _loc.GetString($"{department}-document-text", args.ToArray());
             }
@@ -120,7 +116,7 @@ namespace Content.Goobstation.Server.NTR.Documents
             var result = new StringBuilder();
             var shortName = _departmentShortNames[department];
 
-            for (int i = 1; i <= varCount; i++)
+            for (var i = 1; i <= varCount; i++)
             {
                 var textKey = $"funny-{shortName}{i}-{_random.Next(1, 3)}";
                 if (_loc.HasString(textKey))
@@ -136,45 +132,45 @@ namespace Content.Goobstation.Server.NTR.Documents
         {
             return department switch
             {
-                "security" => new List<(string, object)>
-                {
+                "security" =>
+                [
                     ("start", _loc.GetString("security-starting-text", ("date", date))),
                     ("text1", _loc.GetString($"funny-sec1-{_random.Next(1, 16)}")),
                     ("text2", _loc.GetString($"funny-sec2-{_random.Next(1, 5)}")),
                     ("text3", _loc.GetString($"funny-sec3-{_random.Next(1, 3)}")),
-                    ("text4", _loc.GetString($"funny-sec4-{_random.Next(1, 9)}"))
-                },
-                "cargo" => new List<(string, object)>
-                {
+                    ("text4", _loc.GetString($"funny-sec4-{_random.Next(1, 9)}")),
+                ],
+                "cargo" =>
+                [
                     ("start", _loc.GetString("cargo-starting-text", ("date", date))),
                     ("text1", _loc.GetString($"funny-cargo1-{_random.Next(1, 6)}")),
                     ("text2", _loc.GetString($"funny-cargo2-{_random.Next(1, 9)}")),
                     ("text3", _loc.GetString($"funny-cargo3-{_random.Next(1, 10)}")),
-                },
-                "medical" => new List<(string, object)>
-                {
+                ],
+                "medical" =>
+                [
                     ("start", _loc.GetString("medical-starting-text", ("date", date))),
                     ("text1", _loc.GetString($"funny-med1-{_random.Next(1, 3)}")),
                     ("text2", _loc.GetString($"funny-med2-{_random.Next(1, 9)}")),
                     ("text3", _loc.GetString($"funny-med3-{_random.Next(1, 7)}")),
                     ("text4", _loc.GetString($"funny-med4-{_random.Next(1, 11)}")),
-                },
-                "engineering" => new List<(string, object)>
-                {
+                ],
+                "engineering" =>
+                [
                     ("start", _loc.GetString("engineering-starting-text", ("date", date))),
                     ("text1", _loc.GetString($"funny-engi1-{_random.Next(1, 6)}")),
                     ("text2", _loc.GetString($"funny-engi2-{_random.Next(1, 11)}")),
                     ("text3", _loc.GetString($"funny-engi3-{_random.Next(1, 10)}")),
                     ("text4", _loc.GetString($"funny-engi4-{_random.Next(1, 11)}")),
-                },
-                _ => new List<(string, object)> // sci by default cuz service sucks ass
-                {
+                ],
+                _ =>
+                [
                     ("start", _loc.GetString("science-starting-text", ("date", date))),
                     ("text1", _loc.GetString($"funny-sci1-{_random.Next(1, 8)}")),
                     ("text2", _loc.GetString($"funny-sci2-{_random.Next(1, 10)}")),
                     ("text3", _loc.GetString($"funny-sci3-{_random.Next(1, 16)}")),
                     ("text4", _loc.GetString($"funny-sci4-{_random.Next(1, 8)}")),
-                }
+                ]
             };
         }
     }

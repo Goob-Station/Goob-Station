@@ -1,7 +1,5 @@
-using Robust.Shared.Serialization;
-using Content.Shared.Cargo.Prototypes;
-using Content.Goobstation.Shared.NTR;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.NTR;
 
@@ -38,7 +36,7 @@ public partial record struct NtrTaskData
         Task = task.ID;
         Id = $"{task.IdPrefix}{uniqueIdentifier:D3}";
         IsActive = false;
-        ActiveTime = default;
+        ActiveTime = TimeSpan.Zero;
     }
     public NtrTaskData AsActive(TimeSpan time)
     {

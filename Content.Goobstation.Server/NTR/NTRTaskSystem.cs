@@ -11,70 +11,46 @@ using Content.Goobstation.Common.NTR;
 using Content.Goobstation.Shared.NTR;
 using Content.Goobstation.Shared.NTR.Documents;
 using Content.Goobstation.Shared.NTR.Events;
-using Content.Server.DeviceLinking.Systems;
 using Content.Server.NameIdentifier;
 using Content.Server.Popups;
-using Content.Server.Radio.EntitySystems;
-using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Server.Store.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
-using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Inventory;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Paper;
-using Content.Shared.Store;
 using Content.Shared.Store.Components;
-using Content.Shared.Whitelist;
+using Content.Shared.Tag;
 using JetBrains.Annotations;
-using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Chemistry;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Tag;
 
-// goidacore & PURE SHITCODE inside
+// Lucifer: goidacore & PURE SHITCODE inside
+// pheenty: This is true, I've checked...
 namespace Content.Goobstation.Server.NTR;
 
-public sealed partial class NtrTaskSystem : EntitySystem
+public sealed class NtrTaskSystem : EntitySystem
 {
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly NameIdentifierSystem _nameIdentifier = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSys = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IGameTiming _timing = default!; // how did this even happen
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private readonly DeviceLinkSystem _linker = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly PaperSystem _paperSystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
 
@@ -139,15 +115,11 @@ public sealed partial class NtrTaskSystem : EntitySystem
         var item = args.Item;
         args.Cancelled = true;
 
+        // If one of the checks succeeds, we return
         // do not mess up the order please or it would not work, i beg you
-        if (TryHandleSpamDocument(item, uid, component))
-            return;
-
-        if (TryHandleVial(item, uid, component))
-            return;
-
-        if (TryHandleRegularDocument(item, uid, component))
-            return;
+        if (TryHandleSpamDocument(item, uid, component)
+        || TryHandleVial(item, uid, component)
+        || TryHandleRegularDocument(item, uid, component)) { }
     }
 
     private bool TryHandleSpamDocument(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
@@ -166,7 +138,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
     private bool TryHandleVial(EntityUid item, EntityUid console, NtrTaskConsoleComponent component)
     {
-        if (!HasTag(item, "Vial") || !TryComp<SolutionContainerManagerComponent>(item, out var solutions))
+        if (!HasTag(item, "Vial") || !HasComp<SolutionContainerManagerComponent>(item))
             return false;
 
         var stationEnt = _station.GetOwningStation(console);
@@ -177,7 +149,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
             if (!taskData.IsActive)
                 continue;
 
-            if (!_protoMan.TryIndex<NtrTaskPrototype>(taskData.Task, out var taskProto) || !taskProto.IsReagentTask)
+            if (!_protoMan.TryIndex(taskData.Task, out var taskProto) || !taskProto.IsReagentTask)
                 continue;
 
             if (CheckReagentRequirements(item, taskProto))
@@ -201,7 +173,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
             _audio.PlayPvs(component.DenySound, console);
             return true;
         }
-        for (int i = 0; i < documentComp.Tasks.Count; i++)
+        for (var i = 0; i < documentComp.Tasks.Count; i++)
         {
             var taskId = documentComp.Tasks[i];
             if (ProcessSuccessfulSubmission(item, console, component, taskId))
@@ -287,14 +259,14 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         foreach (var (reagentProtoId, requiredAmount) in task.Reagents)
         {
-            if (!_protoMan.TryIndex(reagentProtoId, out ReagentPrototype? requiredReagentProto))
+            if (!_protoMan.TryIndex(reagentProtoId, out var requiredReagentProto))
             {
                 _popup.PopupEntity(_loc.GetString("ntr-console-invalid-reagent-proto", ("reagentId", reagentProtoId)), container);
                 return false;
             }
 
             var actualAmount = 0;
-            string actualReagent = "None";
+            var actualReagent = "None";
             foreach (var reagent in solution.Contents)
             {
                 if (reagent.Reagent.Prototype != requiredReagentProto.ID)
@@ -341,7 +313,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
         var requiredStamps = new HashSet<string>();
         foreach (var taskId in documentComp.Tasks)
         {
-            if (!_protoMan.TryIndex(taskId, out NtrTaskPrototype? taskProto))
+            if (!_protoMan.TryIndex(taskId, out var taskProto))
                 continue;
 
             foreach (var entry in taskProto.Entries)
@@ -356,14 +328,13 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         foreach (var requiredStamp in requiredStamps)
         {
-            bool found = false;
+            var found = false;
             foreach (var stamp in paperComp.StampedBy)
             {
-                if (stamp.StampedName == requiredStamp)
-                {
-                    found = true;
-                    break;
-                }
+                if (stamp.StampedName != requiredStamp)
+                    continue;
+                found = true;
+                break;
             }
             if (!found)
                 return false;
@@ -393,7 +364,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
         if (_station.GetOwningStation(uid) is not { } station ||
             !TryComp<NtrTaskDatabaseComponent>(station, out var db))
             return;
-        if (!TryGetTaskId(station, args.Task, out var taskData))
+        if (!TryGetTaskId(station, args.Task, out _))
             return;
         if (!TryComp<NtrBankAccountComponent>(station, out var ntrAccount))
             return;
@@ -412,7 +383,8 @@ public sealed partial class NtrTaskSystem : EntitySystem
         }
         UpdateTaskConsoles();
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        _uiSystem.SetUiState(uid, NtrTaskUiKey.Key,
+        _uiSystem.SetUiState(uid,
+            NtrTaskUiKey.Key,
             new NtrTaskConsoleState(db.Tasks, db.History, untilNextSkip));
         _audio.PlayPvs(component.SkipSound, uid);
     }
@@ -434,13 +406,12 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         if (!TryGetTaskFromId(station, args.TaskId, out var task))
             return;
-        for (int i = 0; i < db.Tasks.Count; i++)
+        for (var i = 0; i < db.Tasks.Count; i++)
         {
-            if (db.Tasks[i].Id == task.Value.Id)
-            {
-                db.Tasks[i] = db.Tasks[i].AsActive(_timing.CurTime);
-                break;
-            }
+            if (db.Tasks[i].Id != task.Value.Id)
+                continue;
+            db.Tasks[i] = db.Tasks[i].AsActive(_timing.CurTime);
+            break;
         }
 
         if (!_protoMan.TryIndex(task.Value.Task, out var ntrPrototype))
@@ -453,7 +424,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
         }
         var vial = Spawn(ntrPrototype.Proto, Transform(uid).Coordinates);
 
-        if (TryComp<SolutionContainerManagerComponent>(vial, out var solutions))
+        if (HasComp<SolutionContainerManagerComponent>(vial))
         {
             if (_solutionContainer.EnsureSolution(vial, "drink", out var beakerSolution, FixedPoint2.New(30)))
             {
@@ -463,13 +434,12 @@ public sealed partial class NtrTaskSystem : EntitySystem
         }
         if (!task.Value.IsActive)
         {
-            for (int i = 0; i < db.Tasks.Count; i++)
+            for (var i = 0; i < db.Tasks.Count; i++)
             {
-                if (db.Tasks[i].Id == task.Value.Id)
-                {
-                    db.Tasks[i] = db.Tasks[i].AsActive(_timing.CurTime);
-                    break;
-                }
+                if (db.Tasks[i].Id != task.Value.Id)
+                    continue;
+                db.Tasks[i] = db.Tasks[i].AsActive(_timing.CurTime);
+                break;
             }
         }
         component.ActiveTaskIds.Add(args.TaskId);
@@ -538,12 +508,6 @@ public sealed partial class NtrTaskSystem : EntitySystem
         FillTasksDatabase(station);
         db.NextSkipTime = _timing.CurTime + db.SkipDelay;
         var untilNextSkip = db.NextSkipTime - _timing.CurTime;
-        var state = new NtrTaskConsoleState(
-            db.Tasks,
-            db.History,
-            untilNextSkip,
-            component.ActiveTaskIds
-        );
         _uiSystem.SetUiState(uid, NtrTaskUiKey.Key, new NtrTaskConsoleState(db.Tasks, db.History, untilNextSkip));
         _audio.PlayPvs(component.SkipSound, uid);
     }
@@ -587,20 +551,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
         // powergridcheck task should not be super common
-        var allTasks = _protoMan.EnumeratePrototypes<NtrTaskPrototype>()
-            .Where(proto => proto.ID != "PowerGridCheck" ||
-                            _timing.CurTime >= component.NextPowerGridTime)
-            .ToList();
 
-        var filteredTasks = new List<NtrTaskPrototype>();
-        foreach (var proto in allTasks)
-        {
-            if (component.Tasks.Any(b => b.Task == proto.ID))
-                continue;
-            filteredTasks.Add(proto);
-        }
-
-        var pool = filteredTasks.Count == 0 ? allTasks : filteredTasks;
         var availableTasks = GetAvailableTasks(uid, component);
         if (availableTasks.Count == 0)
             return false;
@@ -615,7 +566,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         return TryAddTask(uid, task, component);
     }
-    private List<NtrTaskPrototype> GetAvailableTasks(EntityUid uid, NtrTaskDatabaseComponent component)
+    private List<NtrTaskPrototype> GetAvailableTasks(EntityUid _, NtrTaskDatabaseComponent component)
     {
         var currentTime = _timing.CurTime.TotalSeconds;
 
@@ -637,12 +588,12 @@ public sealed partial class NtrTaskSystem : EntitySystem
         if (tasks.Count == 0)
             return null;
 
-        float totalWeight = tasks.Sum(t => t.Weight);
+        var totalWeight = tasks.Sum(t => t.Weight);
         if (totalWeight <= 0)
             return _random.Pick(tasks);
 
-        float randomValue = _random.NextFloat() * totalWeight;
-        float currentSum = 0;
+        var randomValue = _random.NextFloat() * totalWeight;
+        var currentSum = 0f;
 
         foreach (var task in tasks)
         {
@@ -701,7 +652,6 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         if (removed)
         {
-            string? actorName = actor != null ? GetActorName(actor.Value) : null;
             ent.Comp.History.Add(new NtrTaskHistoryData(
             data,
             skipped ? NtrTaskHistoryData.TaskResult.Skipped
@@ -742,10 +692,6 @@ public sealed partial class NtrTaskSystem : EntitySystem
                 !TryComp<NtrTaskDatabaseComponent>(station, out var db))
                 continue;
 
-            var filteredTasks = db.Tasks
-                .Where(t => !provider.ActiveTaskIds.Contains(t.Id))
-                .ToList();
-
             var untilNextSkip = db.NextSkipTime - _timing.CurTime;
             var state = new NtrTaskConsoleState(
                 db.Tasks,
@@ -766,7 +712,7 @@ public sealed partial class NtrTaskSystem : EntitySystem
 
         var ev = new NtrAccountBalanceUpdatedEvent(uid, ntrAccount.Balance);
         var query = EntityQueryEnumerator<NtrClientAccountComponent>();
-        while (query.MoveNext(out var client, out var comp))
+        while (query.MoveNext(out var client, out _))
         {
             RaiseLocalEvent(client, ev);
         }

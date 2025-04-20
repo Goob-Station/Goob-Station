@@ -3,8 +3,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Containers.ItemSlots;
-using Content.Server.Store.Systems;
 using Content.Shared.Store.Components;
 using Robust.Shared.Containers;
 
@@ -12,8 +10,6 @@ namespace Content.Goobstation.Server.NTR;
 
 public sealed class CorporateOverrideSystem : EntitySystem
 {
-    [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
@@ -35,9 +31,8 @@ public sealed class CorporateOverrideSystem : EntitySystem
         if (args.Container.ID != "CorporateOverrideSlot" || !TryComp<StoreComponent>(uid, out var store))
             return;
 
-        if (!store.Categories.Contains(comp.UnlockedCategory))
+        if (store.Categories.Add(comp.UnlockedCategory))
         {
-            store.Categories.Add(comp.UnlockedCategory);
             Dirty(uid, store);
         }
     }
@@ -47,10 +42,9 @@ public sealed class CorporateOverrideSystem : EntitySystem
         if (args.Container.ID != "CorporateOverrideSlot" || !TryComp<StoreComponent>(uid, out var store))
             return;
 
-        if (store.Categories.Contains(comp.UnlockedCategory))
-        {
-            store.Categories.Remove(comp.UnlockedCategory);
-            Dirty(uid, store);
-        }
+        if (!store.Categories.Contains(comp.UnlockedCategory))
+            return;
+        store.Categories.Remove(comp.UnlockedCategory);
+        Dirty(uid, store);
     }
 }

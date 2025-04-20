@@ -1,12 +1,8 @@
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Content.Shared.Chemistry;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.FixedPoint;
 
 namespace Content.Goobstation.Shared.NTR;
 /// <summary>
@@ -55,7 +51,7 @@ public sealed class NtrTaskPrototype : IPrototype
     public float Weight = 1.0f;
 
     [DataField("cooldown")]
-    public float Cooldown = 0f; //in seconds
+    public float Cooldown; //in seconds
 
     [DataField("reagents")]
     public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Reagents { get; init; } = new();
@@ -64,7 +60,7 @@ public sealed class NtrTaskPrototype : IPrototype
     public string SolutionName { get; private set; } = "drink"; // i want to end it all already
 
     [DataField("reagentTask")] // shitcod
-    public bool IsReagentTask { get; init; } = false;
+    public bool IsReagentTask { get; init; }
 }
 
 [DataDefinition, Serializable, NetSerializable]

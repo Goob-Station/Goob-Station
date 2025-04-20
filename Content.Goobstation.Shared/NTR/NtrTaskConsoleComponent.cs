@@ -65,45 +65,28 @@ public sealed partial class NtrTaskConsoleComponent : Component
 }
 
 [NetSerializable, Serializable]
-public sealed class NtrTaskConsoleState : BoundUserInterfaceState
+public sealed class NtrTaskConsoleState(
+    List<NtrTaskData> available,
+    List<NtrTaskHistoryData> history,
+    TimeSpan skipTime,
+    HashSet<string>? locked = null)
+    : BoundUserInterfaceState
 {
-    public List<NtrTaskData> AvailableTasks { get; }
-    public List<NtrTaskHistoryData> History { get; }
-    public TimeSpan UntilNextSkip { get; }
-    public HashSet<string> LockedTasks { get; }
-
-    public NtrTaskConsoleState(
-        List<NtrTaskData> available,
-        List<NtrTaskHistoryData> history,
-        TimeSpan skipTime,
-        HashSet<string>? locked = null)
-    {
-        AvailableTasks = available;
-        History = history;
-        UntilNextSkip = skipTime;
-        LockedTasks = locked ?? new HashSet<string>();
-    }
+    public List<NtrTaskData> AvailableTasks { get; } = available;
+    public List<NtrTaskHistoryData> History { get; } = history;
+    public TimeSpan UntilNextSkip { get; } = skipTime;
+    public HashSet<string> LockedTasks { get; } = locked ?? new HashSet<string>();
 }
 
 [Serializable, NetSerializable]
-public sealed class TaskSkipMessage : BoundUserInterfaceMessage
+public sealed class TaskSkipMessage(string taskId) : BoundUserInterfaceMessage
 {
-    public string TaskId;
-
-    public TaskSkipMessage(string taskId)
-    {
-        TaskId = taskId;
-    }
+    public string TaskId = taskId;
 }
 [Serializable, NetSerializable]
-public sealed class TaskPrintLabelMessage : BoundUserInterfaceMessage
+public sealed class TaskPrintLabelMessage(string taskId) : BoundUserInterfaceMessage
 {
-    public string TaskId;
-
-    public TaskPrintLabelMessage(string taskId)
-    {
-        TaskId = taskId;
-    }
+    public string TaskId = taskId;
 }
 
 [Serializable, NetSerializable]

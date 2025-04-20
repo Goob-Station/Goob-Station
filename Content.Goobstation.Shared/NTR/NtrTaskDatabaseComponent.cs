@@ -1,5 +1,3 @@
-using Content.Goobstation.Shared.NTR;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.NTR;
