@@ -27,7 +27,7 @@
     minAngle: 23
     maxAngle: 66
     angleDecay: -8
-    angleIncrease: -1
+    angleIncrease: -1.2
     availableModes:
     - FullAuto
     soundGunshot:
