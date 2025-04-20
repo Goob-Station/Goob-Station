@@ -82,7 +82,9 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -187,35 +189,36 @@
 
 #Paramedic Voidsuit
 #Despite having resistances and looking like a hardsuit, this parents off the EVA suit so it goes here.
-- type: entity
-  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
-  id: ClothingOuterHardsuitVoidParamed
-  name: paramedic void suit
-  description: A void suit made for paramedics.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
-  - type: HeldSpeedModifier
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.90
-        Radiation: 0.75
-        Caustic: 0.5
-  - type: GroupExamine
-  - type: StealTarget
-    stealGroup: ClothingOuterHardsuitVoidParamed
-  - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
-      head: ClothingHeadHelmetVoidParamed
+# MOVED TO _Goobstation/Entities/Clothing/OuterClothing/Voidsuits.yml
+#- type: entity
+#  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
+#  id: ClothingOuterHardsuitVoidParamed
+#  name: paramedic void suit
+#  description: A void suit made for paramedics.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.5
+#    lowPressureMultiplier: 1000
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.9
+#    sprintModifier: 0.9
+#  - type: HeldSpeedModifier
+#  - type: TemperatureProtection
+#    heatingCoefficient: 0.1
+#    coolingCoefficient: 0.1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Heat: 0.90
+#        Radiation: 0.75
+#        Caustic: 0.5
+#  - type: GroupExamine
+#  - type: StealTarget
+#    stealGroup: ClothingOuterHardsuitVoidParamed
+#  - type: ToggleableClothing # Goobstation - Modsuits change
+#    clothingPrototypes: 
+#      head: ClothingHeadHelmetVoidParamed
