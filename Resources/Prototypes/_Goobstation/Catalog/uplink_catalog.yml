@@ -853,7 +853,7 @@
   id: UplinkBox8Gauge
   name: uplink-high-caliber-shotgun-box-name
   description: uplink-high-caliber-shotgun-box-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: lethal }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-lethal }
   productEntity: MagazineBoxShotgunHighCaliber
   cost:
     Telecrystal: 10
@@ -864,7 +864,7 @@
   id: UplinkBox8GaugeSlug
   name: uplink-high-caliber-shotgun-box-slug-name
   description: uplink-high-caliber-shotgun-box-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: slug }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-slug }
   productEntity: MagazineBoxShotgunSlugHighCaliber
   cost:
     Telecrystal: 8
@@ -873,9 +873,9 @@
 
 - type: listing
   id: UplinkBox8GaugeFlash
-  name: uplink-high-caliber-shotgun-flash-slug-name
-  description: uplink-high-caliber-shotgun-flash-slug-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: incendiary }
+  name: uplink-high-caliber-shotgun-box-flash-slug-name
+  description: uplink-high-caliber-shotgun-box-flash-slug-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
   productEntity: MagazineBoxShotgunHighCaliberFlash
   cost:
     Telecrystal: 1
@@ -886,10 +886,10 @@
   id: UplinkBox8GaugeSarin
   name: uplink-high-caliber-shotgun-box-sarin-name
   description: uplink-high-caliber-shotgun-box-sarin-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: practice }
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-sarin }
   productEntity: MagazineBoxShotgunHighCaliberSarin
   cost:
-    Telecrystal: 15
+    Telecrystal: 12
   categories:
   - UplinkAmmo
 

@@ -120,7 +120,7 @@ uplink-m7s-desc = A high capacity but low velocity submachinegun that takes 48 r
 uplink-heavensgate-name = Heaven's gate
 uplink-heavensgate-desc = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
 
-uplink-combat-shotgun-name = Combat shotgun
+uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
 uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
 
 # Ammo
