@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wizard.Traps;
+using Content.Goobstation.Shared.Wizard.TimeStop;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.TimeStop;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;

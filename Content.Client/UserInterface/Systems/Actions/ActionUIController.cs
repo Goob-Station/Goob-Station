@@ -102,7 +102,9 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -112,7 +114,6 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Client._Shitcode.Wizard.Systems;
 using Content.Client.Actions;
 using Content.Client.Construction;
 using Content.Client.Gameplay;
@@ -124,8 +125,10 @@ using Content.Client.UserInterface.Systems.Actions.Controls;
 using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Actions.Windows;
 using Content.Client.UserInterface.Systems.Gameplay;
-using Content.Shared._Goobstation.Wizard.Components;
-using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Goobstation.Shared.ActionTargetMarkSystem;
+using Content.Goobstation.Shared.Wizard;
+using Content.Goobstation.Shared.Wizard.Components;
+using Content.Goobstation.Shared.Wizard.SpellCards;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Input;
@@ -168,8 +171,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly TransformSystem _transform = default!; // Goobstation
-    [UISystemDependency] private readonly SpellsSystem? _spells = default!; // Goobstation
-    [UISystemDependency] private readonly ActionTargetMarkSystem? _mark = default!; // Goobstation
+    [UISystemDependency] private readonly SharedSpellsSystem? _spells = default!; // Goobstation
+    [UISystemDependency] private readonly IActionTargetMarkSystem? _mark = default!; // Goobstation - fix this
     [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
     private ActionButtonContainer? _container;
@@ -1288,7 +1291,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
 
         if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId);
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId); // fix
 
         Func<EntityUid, bool>? predicate = null;
         var attachedEnt = entityAction.AttachedEntity;
@@ -1321,7 +1324,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // Goobstation
         if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value);
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value); // fix
 
         SelectingTargetFor = null;
 

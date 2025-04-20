@@ -7,7 +7,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Inventory.Events;
 
 namespace Content.Shared.Heretic.Systems;
@@ -32,7 +31,7 @@ public sealed class HereticClothingSystem : EntitySystem
 
     private bool IsTargetValid(EntityUid target)
     {
-        return HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target) ||
-               HasComp<WizardComponent>(target) || HasComp<ApprenticeComponent>(target);
+        return HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target); //||
+               //HasComp<WizardComponent>(target) || HasComp<ApprenticeComponent>(target);
     }
 }

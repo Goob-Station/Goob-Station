@@ -7,6 +7,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
+using Content.Goobstation.Server.Wizard.Components;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -29,7 +30,6 @@ public sealed partial class GoobAdminVerbSystem
         if (!AntagVerbAllowed(args, out var targetPlayer))
             return;
 
-        // Goobstation - changelings
         Verb ling = new()
         {
             Text = Loc.GetString("admin-verb-text-make-changeling"),
@@ -46,7 +46,6 @@ public sealed partial class GoobAdminVerbSystem
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(ling);
 
-        // Goobstation - Blob
         Verb blobAntag = new()
         {
             Text = Loc.GetString("admin-verb-text-make-blob"),
@@ -61,6 +60,20 @@ public sealed partial class GoobAdminVerbSystem
         };
         if (!HasComp<SiliconComponent>(args.Target))
             args.Verbs.Add(blobAntag);
+
+        Verb wizard = new()
+        {
+            Text = Loc.GetString("admin-verb-make-wizard"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Clothing/Head/Hats/wizardhat.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<WizardRuleComponent>(targetPlayer, "Wizard");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-text-make-wizard"),
+        };
+        args.Verbs.Add(wizard);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)

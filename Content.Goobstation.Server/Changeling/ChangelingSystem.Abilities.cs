@@ -26,7 +26,6 @@ using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -407,7 +406,7 @@ public sealed partial class ChangelingSystem
         if (!TryToggleItem(uid, DartGunPrototype, comp, out var dartgun))
             return;
 
-        if (!TryComp(dartgun, out AmmoSelectorComponent? ammoSelector))
+        if (!TryComp(dartgun, out Shared.Weapons.AmmoSelector.AmmoSelectorComponent? ammoSelector))
         {
             PlayMeatySound(uid, comp);
             return;
