@@ -604,17 +604,6 @@
 # Deception
 
 - type: listing
-  id: UplinkSmugglerSatchel
-  name: smuggler's satchel
-  description: uplink-smugglers-satchel-desc
-  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
-  productEntity: ClothingSatchelSmuggler
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkDeception
-
-- type: listing
   id: UplinkClothingExplosiveGloves
   name: uplink-clothing-explosive-gloves-name
   description: uplink-clothing-explosive-gloves-desc

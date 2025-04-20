@@ -224,9 +224,6 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
 
-uplink-smugglers-satchel-name = Smuggler's Satchel
-uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
-
 # Disruption
 
 uplink-syndicate-weapon-module-advanced-name = advanced weapons module
