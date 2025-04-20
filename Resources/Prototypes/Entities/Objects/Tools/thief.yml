@@ -84,12 +84,13 @@
   parent: ToolboxThief
   components:
     - type: Sprite
-      sprite: Clothing/Back/Satchels/smuggler.rsi
+      sprite:  Clothing/Back/Satchels/satchel.rsi # Clothing/Back/Satchels/smuggler.rsi # Goobstation - uncomment when this is merged from upstream
       state: folded
     - type: Item
       storedRotation: 90
-    - type: SetSelector # Goobstation
-      spawnedStoragePrototype: ClothingBackpackSatchelSmugglerUnanchored
-      spawnedStorageContainer: storagebase # Goobstation
-      approveSound: # Goobstation
-        collection: storageRustle # Goobstation
+    # Goobstation
+    - type: SetSelector
+      spawnedStoragePrototype: ClothingSatchelSmuggler # ClothingBackpackSatchelSmugglerUnanchored
+      spawnedStorageContainer: storagebase
+      approveSound:
+        collection: storageRustle
