@@ -4,7 +4,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-traitor-arc-intro = You are a ARC terrorist.
+traitor-arc-intro = You are an ARC terrorist.
 traitor-arc-goal = The creatures of this world must be freed from the iron grasp of Nanotrasen, and you are their only hope!
 traitor-arc-allies = You may cooperate with other syndicate agents if you support our cause. Maybe you can convince the Bee Liberation Front agents to cooperate for once?
 traitor-arc-uplink = The Syndicate have graciously given one of their PDA-uplinks for your task.
@@ -46,7 +46,7 @@ traitor-legaltrouble-allies = Death to the Syndicate.
 traitor-legaltrouble-uplink =  You've connected to the black market to clean this mess up. Your uplink is located in your PDA. If there's no evidence, there's no crime.
 traitor-legaltrouble-roundend = [color=white]in Legal Trouble[/color]
 
-traitor-mi13-intro = You are a MI13 agent.
+traitor-mi13-intro = You are an MI13 agent.
 traitor-mi13-goal =  Avoid killing innocent personnel at all costs. You are not here to mindlessly kill people, as that would attract too much attention and is not our goal. Avoid detection at all costs.
 traitor-mi13-allies = You are the only operative we are sending, any others are fake. All other syndicate agents are not to be trusted, with the exception of Cybersun specialists.
 traitor-mi13-uplink = You have been provided with a syndicate uplink located in your PDA to accomplish your task.
