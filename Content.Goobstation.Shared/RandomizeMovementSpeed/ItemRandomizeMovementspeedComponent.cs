@@ -46,7 +46,7 @@ public sealed partial class ItemRandomizeMovementspeedComponent : Component
     /// Smooth!
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SmoothingTime = 0.2f;
+    public float SmoothingTime = 0.6f;
 
     /// <summary>
     /// The Uid of the entity that picked up the item.
