@@ -6,5 +6,6 @@
 - type: damageModifierSet
   id: Resomi
   coefficients: # Goobstation - natural cold resistance should reduce damage, but higher intolerance to heat should take more damage.
+    Brute: 1.15
     Heat: 1.1
     Cold: 0.7
