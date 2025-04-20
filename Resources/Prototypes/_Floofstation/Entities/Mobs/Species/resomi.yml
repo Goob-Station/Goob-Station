@@ -196,23 +196,15 @@
     heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:
       types:
-        Cold : 0.05 #per second, scales with temperature & other constants
+        Cold : 0 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 3 #per second, scales with temperature & other constants
   - type: TemperatureSpeed # Goobstation - You're supposed to be used to the cold why are you so slow
-    thresholds: # Goobstation - Calculated based on UI alert thresholds, rounded up
-      272: 0.8
-      242: 0.6
-      196: 0.4
-  - type: MovementSpeedModifier
-    weightlessAcceleration: 2.5 # Goobstation - Birb move fast in zero-g
-  - type: PseudoItem # Goobstation - Baggable; certified smol ops
-    storedOffset: -10,0
-    shape:
-      - 0, 0, 3, 2
-      - 0, 2, 5, 4
-
+    thresholds: # Goobstation - cold-immune resomi
+      272: 1
+      242: 1
+      196: 1
 
 - type: entity
   parent: BaseSpeciesDummy
