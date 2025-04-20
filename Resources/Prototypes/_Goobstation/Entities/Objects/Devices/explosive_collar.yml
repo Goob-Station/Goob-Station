@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: Clothing
+  id: ClothingNeckExplosiveCollar
+  name: explosive collar
+  suffix: SelfUnremovable
+  description: An electric collar that explodes on the signal.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Misc/explosive_collar.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Misc/explosive_collar.rsi
+    stripDelay: 6
+    equipDelay: 5 # to avoid accidentally falling into the trap associated with SelfUnremovableClothing
+    slots:
+    - neck
+  - type: SelfUnremovableClothing
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 20
+    intensitySlope: 10
+    totalIntensity: 40
+    canCreateVacuum: false
+  - type: TimerStartOnSignal
+  - type: OnUseTimerTrigger
+    delay: 2
+    useVerbInstead: true
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 10 # loud
+    initialBeepDelay: 0
+    beepInterval: 0.2 # scary sound
+  - type: DeviceLinkSink
+    ports:
+      - Timer
+  - type: GuideHelp
+    guides:
+      - Security
+  - type: Tag
+    tags:
+    - WhitelistChameleon

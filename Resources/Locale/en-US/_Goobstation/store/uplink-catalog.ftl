@@ -242,3 +242,6 @@ uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndi
 
 uplink-pizza-party-crate-name = Pizza Party Crate
 uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.
+
+uplink-explosive-collar-name = Explosive Collar
+uplink-explosive-collar-desc = An explosive device that you can put on yourself or someone else, and detonate it with a signal. Now it's Your Turn To Die!
