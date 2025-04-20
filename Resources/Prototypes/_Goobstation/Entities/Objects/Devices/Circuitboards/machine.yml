@@ -24,7 +24,7 @@
   parent: BaseMachineCircuitboard
   id: RoboticArmCircuitboard
   name: robotic arm machine board
-  description: A machine printed circuit board for a robotic arm
+  description: A machine printed circuit board for a robotic arm.
   components:
   - type: Sprite
     state: engineering
@@ -38,3 +38,16 @@
       BorgArm:
         amount: 2
         defaultPrototype: LeftArmBorg
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: StorageBinCircuitboard
+  name: storage bin machine board
+  description: A machine printed circuit board for a storage bin.
+  components:
+  - type: MachineBoard
+    prototype: StorageBin
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+      Steel: 1

@@ -19,6 +19,7 @@ public sealed class AutomationFilterSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+    private EntityQuery<FilterSlotComponent> _slotQuery;
     private EntityQuery<LabelComponent> _labelQuery;
     private EntityQuery<StackComponent> _stackQuery;
 
@@ -28,6 +29,7 @@ public sealed class AutomationFilterSystem : EntitySystem
     {
         base.Initialize();
 
+        _slotQuery = GetEntityQuery<FilterSlotComponent>();
         _labelQuery = GetEntityQuery<LabelComponent>();
         _stackQuery = GetEntityQuery<StackComponent>();
 
@@ -57,6 +59,8 @@ public sealed class AutomationFilterSystem : EntitySystem
         SubscribeLocalEvent<CombinedFilterComponent, UseInHandEvent>(OnCombinedUse);
         SubscribeLocalEvent<CombinedFilterComponent, ExaminedEvent>(OnCombinedExamined);
         SubscribeLocalEvent<CombinedFilterComponent, AutomationFilterEvent>(OnCombinedFilter);
+
+        SubscribeLocalEvent<FilterSlotComponent, ComponentInit>(OnSlotInit);
     }
 
     /* Label filter */
@@ -220,6 +224,21 @@ public sealed class AutomationFilterSystem : EntitySystem
         };
     }
 
+    private void OnSlotInit(Entity<FilterSlotComponent> ent, ref ComponentInit args)
+    {
+        if (!TryComp<ItemSlotsComponent>(ent, out var slots))
+            return;
+
+        if (!_slots.TryGetSlot(ent, ent.Comp.FilterSlotId, out var filterSlot, slots))
+        {
+            Log.Warning($"Missing filter slot {ent.Comp.FilterSlotId} on {ToPrettyString(ent)}");
+            RemCompDeferred<FilterSlotComponent>(ent);
+            return;
+        }
+
+        ent.Comp.FilterSlot = filterSlot;
+    }
+
     #region Public API
     /// <summary>
     /// Returns true if an item is allowed by the filter, false if it's blocked.
@@ -239,5 +258,10 @@ public sealed class AutomationFilterSystem : EntitySystem
     /// Inverse of <see cref="IsAllowed"/>.
     /// </summary>
     public bool IsBlocked(EntityUid? filter, EntityUid item) => !IsAllowed(filter, item);
+
+    public EntityUid? GetSlot(EntityUid uid)
+    {
+        return _slotQuery.CompOrNull(uid)?.Filter;
+    }
     #endregion
 }

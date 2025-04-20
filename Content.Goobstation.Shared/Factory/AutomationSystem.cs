@@ -9,7 +9,6 @@ namespace Content.Goobstation.Shared.Factory;
 
 public sealed class AutomationSystem : EntitySystem
 {
-
     private EntityQuery<AutomationSlotsComponent> _slotsQuery;
     private EntityQuery<AutomatedComponent> _automatedQuery;
 

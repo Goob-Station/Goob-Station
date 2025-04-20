@@ -127,7 +127,7 @@ public sealed class RoboticArmSystem : EntitySystem
             return;
 
         // ignore non-filtered items
-        if (_filter.IsBlocked(ent.Comp.Filter, item))
+        if (_filter.IsBlocked(_filter.GetSlot(ent), item))
             return;
 
         var wake = CompOrNull<CollisionWakeComponent>(item);
@@ -327,7 +327,7 @@ public sealed class RoboticArmSystem : EntitySystem
         if (!_transform.InRange(Transform(machine).Coordinates, coords, 0.25f))
             return false;
 
-        if (slot.GetItem(ent.Comp.Filter) is not {} item)
+        if (slot.GetItem(_filter.GetSlot(ent)) is not {} item)
             return false;
 
         return _slots.TryInsert(ent, ent.Comp.ItemSlot, item, user: null);
@@ -356,15 +356,7 @@ public sealed class RoboticArmSystem : EntitySystem
             return;
         }
 
-        if (!_slots.TryGetSlot(ent, ent.Comp.FilterSlotId, out var filterSlot, slots))
-        {
-            Log.Warning($"Missing filter slot {ent.Comp.FilterSlotId} on robotic arm {ToPrettyString(ent)}");
-            RemCompDeferred<RoboticArmComponent>(ent);
-            return;
-        }
-
         ent.Comp.ItemSlot = slot;
-        ent.Comp.FilterSlot = filterSlot;
     }
 
     private bool IsOutputBlocked(EntityUid uid)

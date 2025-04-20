@@ -30,6 +30,11 @@
   name: signal-port-name-item-moved
   description: signal-port-description-item-moved
 
+- type: sourcePort
+  id: AutomationSlotFilter
+  name: signal-port-name-automation-slot-filter
+  description: signal-port-description-automation-slot-filter
+
 # Reagent Grinder
 
 - type: sourcePort
@@ -55,3 +60,20 @@
   id: DisposalReady
   name: signal-port-name-ready
   description: signal-port-description-ready
+
+# Storage Bin
+
+- type: sourcePort
+  id: AutomationSlotStorage
+  name: signal-port-name-automation-slot-storage
+  description: signal-port-description-automation-slot-storage
+
+- type: sourcePort
+  id: StorageInserted
+  name: signal-port-name-storage-inserted
+  description: signal-port-description-storage-inserted
+
+- type: sourcePort
+  id: StorageRemoved
+  name: signal-port-name-storage-removed
+  description: signal-port-description-storage-removed

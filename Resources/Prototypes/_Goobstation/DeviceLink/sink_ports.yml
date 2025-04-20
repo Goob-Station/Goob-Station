@@ -11,10 +11,17 @@
   name: signal-port-name-material-silo-utilizer
   description: signal-port-description-material-silo-utilizer
 
+# Robotic Arm
+
 - type: sinkPort
   id: RoboticArmInput
   name: signal-port-name-input-machine
   description: signal-port-description-input-machine
+
+- type: sinkPort
+  id: AutomationSlotFilter
+  name: signal-port-name-automation-slot-filter
+  description: signal-port-description-automation-slot-filter
 
 # Reagent Grinder
 
@@ -51,3 +58,10 @@
   id: DisposalEject
   name: signal-port-name-eject
   description: signal-port-description-eject
+
+# Storage Bin
+
+- type: sinkPort
+  id: AutomationSlotStorage
+  name: signal-port-name-automation-slot-storage
+  description: signal-port-description-automation-slot-storage

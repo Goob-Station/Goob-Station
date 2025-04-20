@@ -22,3 +22,16 @@
     - type: DeviceNetwork
       deviceNetId: Wireless
       receiveFrequencyId: BasicDevice
+
+# for entities that come pre-automated
+- type: entity
+  abstract: true
+  id: BaseAutomatedMachine
+  components:
+  - type: AutomationSlots
+  - type: Automated
+  - type: UpgradedMachine
+    upgrade: upgrade-kit-automation
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice

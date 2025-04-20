@@ -48,8 +48,6 @@ public sealed partial class AutomatedContainer : AutomationSlot
 
     public override EntityUid? GetItem(EntityUid? filter)
     {
-        var count = Container.Count;
-
         foreach (var item in Container.ContainedEntities)
         {
             if (_filter.IsAllowed(filter, item))

@@ -167,8 +167,11 @@
   - LatheUpgradeKitHyper
   - LatheUpgradeKitCryo
   # End DeltaV Additions
-  - UpgradeKitAutomation # Goobstation
-  - RoboticArmCircuitboard # Goobstation
+  # Begin Goobstation Additions
+  - UpgradeKitAutomation
+  - RoboticArmCircuitboard
+  - StorageBinCircuitboard
+  # End Goobstation Additions
   - SheetifierMachineCircuitboard
   # Goobstation R&D Console rework start
   position: 1,-5

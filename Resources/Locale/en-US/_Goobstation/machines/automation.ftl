@@ -9,6 +9,9 @@ signal-port-description-output-machine = A machine automation slot to insert ite
 signal-port-name-item-moved = Item Moved
 signal-port-description-item-moved = Signal port that gets pulsed after an item is moved by this arm.
 
+signal-port-name-automation-slot-filter = Item: Filter Slot
+signal-port-description-automation-slot-filter = An automation slot for an automation machine's filter.
+
 # Reagent Grinder
 
 signal-port-name-automation-slot-beaker = Item: Beaker Slot
@@ -25,7 +28,7 @@ signal-port-description-automation-slot-board = An automation slot for a flatpac
 signal-port-name-automation-slot-materials = Item: Material Storage
 signal-port-description-automation-slot-materials = An automation slot for inserting materials into a machine's storage.
 
-# Disposal unit
+# Disposal Unit
 
 signal-port-name-flush = Flush
 signal-port-description-flush = Signal port to toggle a disposal unit's flush mechanism.
@@ -35,3 +38,14 @@ signal-port-description-eject = Signal port to eject a disposal unit's contents.
 
 signal-port-name-ready = Ready
 signal-port-description-ready = Signal port that gets pulsed after a disposal unit becomes fully pressurized.
+
+# Storage Bin
+
+signal-port-name-automation-slot-storage = Item: Storage
+signal-port-description-automation-slot-storage = An automation slot for a storage bin's inventory.
+
+signal-port-name-storage-inserted = Inserted
+signal-port-description-storage-inserted = Signal port that gets pulsed after an item is inserted into a storage bin.
+
+signal-port-name-storage-removed = Removed
+signal-port-description-storage-removed = Signal port that gets pulsed after an item is removed from a storage bin.
