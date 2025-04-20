@@ -250,6 +250,7 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
+  - HoloprojectorSecurityAdvanced # Goobstation
   # Goobstation R&D Console rework start
   technologyPrerequisites:
   - WeaponizedLaserManipulation

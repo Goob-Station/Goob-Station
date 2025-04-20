@@ -1,0 +1,39 @@
+- type: entity
+  name: bloodtrak
+  description: A handheld tracking device, capable of tracking someone from their DNA. This particular model only works on puddles, and only functions for a short duration.
+  parent: [BaseItem, BaseSecurityContraband]
+  id: BloodTrak
+  components:
+  - type: Transform
+    noRot: True
+  - type: Sprite
+    noRot: True
+    sprite: Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer-detective
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: Objects/Devices/pinpointer.rsi
+    state: pinpointer-detective
+  - type: Item
+    sprite: Objects/Devices/pinpointer.rsi
+  - type: Bloodtrak
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PinpointerVisuals.IsActive:
+        enum.PinpointerLayers.Screen:
+          True: { visible: True }
+          False: { visible: False }
+      enum.PinpointerVisuals.TargetDistance:
+        enum.PinpointerLayers.Screen:
+          Unknown: { state: pinonnull }
+          Reached: { state: pinondirect }
+          Close: { state: pinonclose }
+          Medium: { state: pinonmedium }
+          Far: { state: pinonfar }
+  - type: AnimationPlayer

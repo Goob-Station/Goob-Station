@@ -123,7 +123,7 @@
     HandTeleporterStealObjective: 0.5
     EnergyShotgunStealObjective: 0.5
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
-    MultiphaseStealObjective: 0.5 # Goobstation
+    LawbringerStealObjective: 0.5 # Goobstation
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill

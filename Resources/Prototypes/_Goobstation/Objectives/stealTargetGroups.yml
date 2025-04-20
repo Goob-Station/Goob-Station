@@ -19,11 +19,11 @@
     state: icon
 
 - type: stealTargetGroup
-  id: WeaponEnergyGunMultiphase
-  name: steal-target-groups-weapon-multiphase
+  id: WeaponEnergyGunLawbringer
+  name: steal-target-groups-weapon-lawbringer
   sprite:
-    sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
-    state: base
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    state: icon
 
 - type: stealTargetGroup
   id: RapidSyringeGun

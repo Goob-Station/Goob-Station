@@ -138,8 +138,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/29/2025 00:19:59
+  entityCount: 13586
+maps:
+- 1
+grids:
+- 1
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   2: FloorArcadeBlue2
@@ -3450,7 +3461,6 @@ entities:
           decals:
             1487: -19,-26
     - type: RadiationGridResistance
-    - type: LoadedMap
     - type: BecomesStation
       id: Europa
     - type: Gravity
@@ -22039,6 +22049,14 @@ entities:
       parent: 4497
     - type: Physics
       canCollide: False
+- proto: CapsaicinDispenser
+  entities:
+  - uid: 641
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.5,17.5
+      parent: 1
 - proto: CaptainIDCard
   entities:
   - uid: 1657
@@ -28803,134 +28821,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 16.5,-9.5
-      parent: 1
-- proto: ChairOfficeLight
-  entities:
-  - uid: 318
-    components:
-    - type: Transform
-      pos: -24.5,41.5
-      parent: 1
-  - uid: 641
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.5,13.5
-      parent: 1
-  - uid: 713
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,33.5
-      parent: 1
-  - uid: 1269
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.5,33.5
-      parent: 1
-  - uid: 1304
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -29.5,10.5
-      parent: 1
-  - uid: 1370
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -17.5,15.5
-      parent: 1
-  - uid: 1568
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,19.5
-      parent: 1
-  - uid: 2230
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -20.5,-3.5
-      parent: 1
-  - uid: 2557
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 19.5,50.5
-      parent: 1
-  - uid: 2641
-    components:
-    - type: Transform
-      pos: 8.5,45.5
-      parent: 1
-  - uid: 2783
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -17.5,-16.5
-      parent: 1
-  - uid: 3039
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 19.5,54.5
-      parent: 1
-  - uid: 3367
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -34.5,18.5
-      parent: 1
-  - uid: 3590
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 12.5,64.5
-      parent: 1
-  - uid: 3753
-    components:
-    - type: Transform
-      pos: 17.5,42.5
-      parent: 1
-  - uid: 3754
-    components:
-    - type: Transform
-      pos: 20.5,42.5
-      parent: 1
-  - uid: 3846
-    components:
-    - type: Transform
-      pos: -1.5,58.5
-      parent: 1
-  - uid: 3995
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,62.5
-      parent: 1
-  - uid: 3997
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,62.5
-      parent: 1
-  - uid: 4142
-    components:
-    - type: Transform
-      pos: 23.5,51.5
-      parent: 1
-  - uid: 4159
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -10.5,55.5
-      parent: 1
-  - uid: 4295
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,55.5
       parent: 1
 - proto: ChairRitual
   entities:
@@ -52073,6 +51963,14 @@ entities:
     - type: Transform
       pos: 26.5,60.5
       parent: 1
+- proto: GlassBoxLawbringerFilled
+  entities:
+  - uid: 148
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,9.5
+      parent: 1
 - proto: GravityGenerator
   entities:
   - uid: 5596
@@ -54943,6 +54841,12 @@ entities:
       parent: 1
 - proto: Lamp
   entities:
+  - uid: 318
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -28.463863,10.889995
+      parent: 1
   - uid: 541
     components:
     - type: Transform
@@ -56115,18 +56019,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-7.5
-      parent: 1
-- proto: MagazinePistolSubMachineGunTopMounted
-  entities:
-  - uid: 148
-    components:
-    - type: Transform
-      pos: -28.452702,11.117328
-      parent: 1
-  - uid: 1035
-    components:
-    - type: Transform
-      pos: -28.379318,11.025598
       parent: 1
 - proto: MaintenanceFluffSpawner
   entities:
@@ -81698,13 +81590,6 @@ entities:
     components:
     - type: Transform
       pos: -23.465538,3.3343198
-      parent: 1
-- proto: WeaponSubMachineGunWt550
-  entities:
-  - uid: 1954
-    components:
-    - type: Transform
-      pos: -28.452702,10.842139
       parent: 1
 - proto: WeaponTurretSyndicateBroken
   entities:

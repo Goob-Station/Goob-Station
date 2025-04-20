@@ -151,8 +151,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 15:33:24
-  entityCount: 17863
+  time: 03/29/2025 00:31:23
+  entityCount: 17834
 maps:
 - 1
 grids:
@@ -7459,7 +7459,7 @@ entities:
       pos: -30.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58015.184
+      secondsUntilStateChange: -58064.418
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -34695,6 +34695,14 @@ entities:
     - type: Transform
       pos: -42.471054,7.4323015
       parent: 2
+- proto: CapsaicinDispenser
+  entities:
+  - uid: 6273
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,49.5
+      parent: 2
 - proto: CaptainIDCard
   entities:
   - uid: 5383
@@ -39596,161 +39604,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -78.28054,21.356312
       parent: 2
-- proto: ChairOfficeDark
-  entities:
-  - uid: 6271
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.563465,72.61863
-      parent: 2
-  - uid: 6272
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -18.496109,40.761044
-      parent: 2
-  - uid: 6273
-    components:
-    - type: Transform
-      pos: -32.505547,42.656483
-      parent: 2
-  - uid: 6274
-    components:
-    - type: Transform
-      pos: -15.448621,87.66424
-      parent: 2
-  - uid: 6275
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.500065,39.662216
-      parent: 2
-  - uid: 6276
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 21.597977,43.849842
-      parent: 2
-  - uid: 6277
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 19.566727,43.818592
-      parent: 2
-  - uid: 6278
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -35.363758,63.695774
-      parent: 2
-  - uid: 6279
-    components:
-    - type: Transform
-      pos: -28.451696,6.5310707
-      parent: 2
-  - uid: 6280
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -9.460061,4.5917788
-      parent: 2
-  - uid: 6281
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -14.515135,17.655678
-      parent: 2
-  - uid: 6282
-    components:
-    - type: Transform
-      pos: -22.32909,73.603004
-      parent: 2
-  - uid: 6283
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -21.39159,71.74363
-      parent: 2
-  - uid: 6284
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -24.563465,72.634254
-      parent: 2
-  - uid: 6285
-    components:
-    - type: Transform
-      pos: -20.51659,73.603004
-      parent: 2
-  - uid: 6286
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -23.469715,71.83738
-      parent: 2
-  - uid: 6287
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -0.3776512,17.680063
-      parent: 2
-  - uid: 6288
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.54984474,72.83825
-      parent: 2
-  - uid: 6289
-    components:
-    - type: Transform
-      pos: -2.4808834,40.56486
-      parent: 2
-  - uid: 6290
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.427639,66.733505
-      parent: 2
-- proto: ChairOfficeLight
-  entities:
-  - uid: 6291
-    components:
-    - type: Transform
-      pos: -41.450005,66.61128
-      parent: 2
-  - uid: 6292
-    components:
-    - type: Transform
-      pos: -39.33168,28.640572
-      parent: 2
-  - uid: 6293
-    components:
-    - type: Transform
-      pos: -36.45098,32.69692
-      parent: 2
-  - uid: 6294
-    components:
-    - type: Transform
-      pos: -41.51348,32.48598
-      parent: 2
-  - uid: 6295
-    components:
-    - type: Transform
-      pos: -26.492,24.705412
-      parent: 2
-  - uid: 6296
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -3.381362,32.744434
-      parent: 2
-  - uid: 6297
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -6.325226,24.876038
-      parent: 2
 - proto: ChairRitual
   entities:
   - uid: 6298
@@ -42405,11 +42258,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -17.5,39.5
       parent: 2
-  - uid: 6704
-    components:
-    - type: Transform
-      pos: -38.5,40.5
-      parent: 2
   - uid: 6705
     components:
     - type: Transform
@@ -44012,7 +43860,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305770.72
+      secondsUntilStateChange: -305819.97
       state: Opening
   - uid: 6931
     components:
@@ -44020,7 +43868,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305771.44
+      secondsUntilStateChange: -305820.7
       state: Opening
   - uid: 6932
     components:
@@ -44028,7 +43876,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305770
+      secondsUntilStateChange: -305819.25
       state: Opening
   - uid: 6933
     components:
@@ -44036,7 +43884,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -305769.38
+      secondsUntilStateChange: -305818.62
       state: Opening
 - proto: CyberPen
   entities:
@@ -70362,6 +70210,14 @@ entities:
     - type: Transform
       pos: -16.5,70.5
       parent: 2
+- proto: GlassBoxLawbringerFilled
+  entities:
+  - uid: 6271
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -38.5,40.5
+      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 10465
@@ -78063,18 +77919,6 @@ entities:
     components:
     - type: Transform
       pos: 29.182188,37.520115
-      parent: 2
-- proto: MagazinePistolSubMachineGunTopMounted
-  entities:
-  - uid: 11739
-    components:
-    - type: Transform
-      pos: -34.31289,40.249386
-      parent: 2
-  - uid: 11740
-    components:
-    - type: Transform
-      pos: -34.66445,40.03845
       parent: 2
 - proto: MagicDiceBag
   entities:
@@ -97000,6 +96844,12 @@ entities:
       parent: 2
 - proto: TableWood
   entities:
+  - uid: 6272
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -34.5,40.5
+      parent: 2
   - uid: 14951
     components:
     - type: Transform
@@ -97123,11 +96973,6 @@ entities:
     components:
     - type: Transform
       pos: -34.5,39.5
-      parent: 2
-  - uid: 14973
-    components:
-    - type: Transform
-      pos: -34.5,40.5
       parent: 2
   - uid: 14974
     components:
@@ -111300,13 +111145,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: WeaponSubMachineGunWt550
-  entities:
-  - uid: 17532
-    components:
-    - type: Transform
-      pos: -34.50039,40.60095
-      parent: 2
 - proto: WeldingFuelTankFull
   entities:
   - uid: 17533

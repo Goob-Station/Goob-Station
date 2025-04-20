@@ -22,3 +22,18 @@
   - type: Sprite
     layers:
     - state: box
+
+- type: entity
+  name: lethal injections box
+  parent: [BoxCardboard, BaseSecurityContraband]
+  id: BoxLethalInjection
+  description: A box containing several lethal injection syringes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SyringePoisonLethalInjection
+      amount: 3
+  - type: Sprite
+    layers:
+    - state: box
+

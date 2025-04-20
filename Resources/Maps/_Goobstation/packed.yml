@@ -162,8 +162,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/14/2025 02:01:00
-  entityCount: 15099
+  time: 03/29/2025 00:37:49
+  entityCount: 15097
 maps:
 - 1
 grids:
@@ -32874,6 +32874,14 @@ entities:
     - type: Transform
       pos: 59.5,38.5
       parent: 2
+- proto: CapsaicinDispenser
+  entities:
+  - uid: 10185
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,20.5
+      parent: 2
 - proto: CaptainIDCard
   entities:
   - uid: 4871
@@ -61949,6 +61957,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 31.5,39.5
       parent: 2
+- proto: GlassBoxLawbringerFilled
+  entities:
+  - uid: 10186
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 45.5,23.5
+      parent: 2
 - proto: GlowstickRed
   entities:
   - uid: 8995
@@ -68311,18 +68327,6 @@ entities:
     components:
     - type: Transform
       pos: 19.434057,-38.4118
-      parent: 2
-- proto: MagazinePistolSubMachineGunTopMounted
-  entities:
-  - uid: 10185
-    components:
-    - type: Transform
-      pos: 45.548477,23.915247
-      parent: 2
-  - uid: 10186
-    components:
-    - type: Transform
-      pos: 45.548477,23.915247
       parent: 2
 - proto: MailMetricsCartridge
   entities:
@@ -82810,11 +82814,6 @@ entities:
     - type: Transform
       pos: 44.5,23.5
       parent: 2
-  - uid: 12507
-    components:
-    - type: Transform
-      pos: 45.5,23.5
-      parent: 2
   - uid: 12508
     components:
     - type: Transform
@@ -95504,13 +95503,6 @@ entities:
     components:
     - type: Transform
       pos: 36.48081,27.346535
-      parent: 2
-- proto: WeaponSubMachineGunWt550
-  entities:
-  - uid: 14835
-    components:
-    - type: Transform
-      pos: 45.454727,23.618372
       parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:

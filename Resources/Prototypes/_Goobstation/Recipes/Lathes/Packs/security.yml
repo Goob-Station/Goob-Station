@@ -53,6 +53,11 @@
   - MagazineBoxShotgunUraniumHighCaliber
 
 - type: latheRecipePack
+  id: SecurityEquipmentDynamicGoob
+  recipes:
+  - HoloprojectorSecurityAdvanced
+
+- type: latheRecipePack
   id: SecurityCybernetics
   parent: MedicalCybernetics
   recipes:
