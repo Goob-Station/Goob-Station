@@ -228,7 +228,7 @@
   id: ClothingOuterStorageToggleableBase
   components:
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
   - type: UserInterface
     interfaces:
@@ -288,6 +288,9 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   abstract: true
@@ -314,6 +317,9 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -322,7 +328,7 @@
   abstract: True
   components:
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodWinterDefault
   - type: ContainerContainer
     containers:

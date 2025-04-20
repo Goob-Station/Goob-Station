@@ -43,6 +43,9 @@
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance
     coefficient: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicContraband ]

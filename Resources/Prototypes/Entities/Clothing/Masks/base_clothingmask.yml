@@ -33,7 +33,7 @@
     - Mask
   - type: StaticPrice
     price: 25
-  - type: AltClothingLayer
+  - type: AltClothingLayer # Goobstation
     defaultLayer: mask
     altLayer: maskalt
     changeToAltMessage: alt-clothing-component-mask-alt

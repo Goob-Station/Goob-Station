@@ -59,6 +59,9 @@
       heatingCoefficient: 0.4
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -115,6 +118,9 @@
       heatingCoefficient: 0.4
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 
 - type: entity
@@ -173,6 +179,9 @@
       heatingCoefficient: 0.4
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -230,6 +239,9 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -288,6 +300,9 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.0
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -344,6 +359,9 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.0
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -402,6 +420,9 @@
     coefficient: 0.9
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -458,3 +479,6 @@
     coefficient: 0.7
   - type: FireProtection
     reduction: 0.5
+  - type: HideClothingLayerClothing
+    hiddenSlots:
+    - jumpsuit

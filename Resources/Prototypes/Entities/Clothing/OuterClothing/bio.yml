@@ -26,6 +26,9 @@
     modifiers:
       coefficients:
         Caustic: 0.5
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBioGeneral

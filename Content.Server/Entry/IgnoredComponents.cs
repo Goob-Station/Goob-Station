@@ -79,6 +79,7 @@ namespace Content.Server.Entry
             "HolidayRsiSwap",
             "OptionsVisualizer",
             "ToggleableLightWieldable", // Goobstation
+            "HideClothingLayerClothing", // Goobstation
         };
     }
 }

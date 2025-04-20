@@ -117,6 +117,9 @@
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterSuitBomb
@@ -160,6 +163,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -192,6 +198,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing, ClothingOuterBaseToggleable ]
@@ -210,10 +219,13 @@
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodRad
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
@@ -284,6 +296,9 @@
         whitelist:
           tags:
             - PowerCell
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -297,6 +312,9 @@
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterBase
@@ -335,6 +353,9 @@
       toggleable-clothing: !type:Container {}
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingOuterBaseToggleable ]
@@ -349,13 +370,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/iansuit.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodIan
   - type: Construction
     graph: ClothingOuterSuitIan
     node: suit
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingOuterBaseToggleable ]
@@ -371,8 +395,11 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodCarp
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit
 
 - type: entity
   parent: ClothingOuterSuitCarp
@@ -387,5 +414,8 @@
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCarp
+  - type: HideClothingLayerClothing # Goobstation
+    hiddenSlots:
+    - jumpsuit

@@ -305,6 +305,9 @@ public sealed class ClientClothingSystem : ClothingSystem
         // bookmark to determine where in the list of layers we should insert the clothing layers.
         if (!slotLayerExists)
             slotLayerExists = sprite.LayerMapTryGet(slot, out index);
+
+        var hiddenEv = new CheckClothingSlotHiddenEvent(slot);
+        RaiseLocalEvent(equipee, ref hiddenEv);
         // Goob edit end
 
         // Select displacement maps
@@ -346,6 +349,8 @@ public sealed class ClientClothingSystem : ClothingSystem
                     sprite.LayerSetColor(key, layerData.Color.Value);
                 if (layerData.Scale != null)
                     sprite.LayerSetScale(key, layerData.Scale.Value);
+                if (!hiddenEv.Visible) // Goobstation
+                    sprite.LayerSetVisible(key, false);
             }
             else
                 index = sprite.LayerMapReserveBlank(key);
@@ -364,6 +369,8 @@ public sealed class ClientClothingSystem : ClothingSystem
 
             sprite.LayerSetData(index, layerData);
             layer.Offset += slotDef.Offset;
+            if (!hiddenEv.Visible) // Goobstation
+                layer.Visible = false;
 
             if (displacementData is not null)
             {
