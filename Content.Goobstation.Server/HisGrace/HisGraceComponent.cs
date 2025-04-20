@@ -131,7 +131,7 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// Sound played on devour
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier? SoundDevour = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg")
+    public readonly SoundSpecifier? SoundDevour = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg")
     {
         Params = AudioParams.Default.WithVolume(-3f),
     };

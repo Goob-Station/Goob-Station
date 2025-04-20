@@ -50,6 +50,7 @@ public sealed partial class HisGraceSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
 
     private readonly ProtoId<DamageModifierSetPrototype> _ascensionDamageSet = new("HisGraceAscended");
+    private List<KeyValuePair<HisGraceState,(int Threshold, int Increment)>> _orderedStates = []; // states ordered ascending
 
     public override void Initialize()
     {
@@ -73,6 +74,8 @@ public sealed partial class HisGraceSystem : EntitySystem
             return;
 
         component.BaseDamage = melee.Damage;
+
+        _orderedStates = component.StateThresholds.OrderBy(t => t.Value.Threshold).ToList();
     }
 
     private void OnEquipped(EntityUid uid, HisGraceComponent component, ref GotEquippedHandEvent args)
@@ -116,7 +119,6 @@ public sealed partial class HisGraceSystem : EntitySystem
     private void OnEntityConsumed(EntityUid uid, HisGraceComponent comp, ref HisGraceEntityConsumedEvent args)
     {
         comp.EntitiesAbsorbed++;
-        comp.Hunger = Math.Max(0, comp.Hunger - comp.HungerOnDevour);
 
         if (comp.EntitiesAbsorbed >= 25)
             ChangeState(comp, HisGraceState.Ascended);
@@ -139,7 +141,7 @@ public sealed partial class HisGraceSystem : EntitySystem
         if (!TryComp<HisGraceUserComponent>(comp.User, out var userComp))
             return;
 
-        if (args.NewState == HisGraceState.Ascended && TryComp<AppearanceComponent>(uid, out var appearanceComponent)) // add more logic here later
+        if (args.NewState == HisGraceState.Ascended && TryComp<AppearanceComponent>(uid, out var appearanceComponent))
         {
             EnsureComp<UnremoveableComponent>(uid);
             DoAscension(comp);
@@ -265,32 +267,24 @@ public sealed partial class HisGraceSystem : EntitySystem
                 }
             }
 
-            var orderedThresholds = hisGrace.StateThresholds
-                .OrderBy(t => t.Value.Threshold) // Order thresholds ascending
-                .ToList();
-
             // Update hunger based on threshold.
-            for (var i = orderedThresholds.Count - 1; i >= 0; i--)
+
+            var downgradeNeeded = hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold) && hisGrace.Hunger < currentThreshold.Threshold;
+            for (var i = _orderedStates.Count - 1; i >= 0; i--)
             {
-                var threshold = orderedThresholds[i];
-                if (hisGrace.Hunger < threshold.Value.Threshold)
-                    continue;
-
-                if (threshold.Key <= hisGrace.CurrentState)
-                    break;
-
-                hisGrace.HungerIncrement = threshold.Value.Increment;
-                ChangeState(hisGrace, threshold.Key);
-                break;
-            }
-
-            if (hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold) && hisGrace.Hunger < currentThreshold.Threshold)
-            {
-                // Find the highest threshold below the current hunger
-                foreach (var threshold in orderedThresholds.Where(threshold => hisGrace.Hunger >= threshold.Value.Threshold))
+                var threshold = _orderedStates[i];
+                if (threshold.Key > hisGrace.CurrentState)
+                {
+                    if (hisGrace.Hunger >= threshold.Value.Threshold)
+                    {
+                        hisGrace.HungerIncrement = threshold.Value.Increment;
+                        ChangeState(hisGrace, threshold.Key);
+                        break;
+                    }
+                }
+                else if (downgradeNeeded && hisGrace.Hunger >= threshold.Value.Threshold)
                 {
                     hisGrace.HungerIncrement = threshold.Value.Increment;
-
                     ChangeState(hisGrace, threshold.Key);
                     break;
                 }
@@ -341,6 +335,8 @@ public sealed partial class HisGraceSystem : EntitySystem
     {
         if (!_state.IsIncapacitated(target) || comp.CurrentState == HisGraceState.Dormant || !_containerSystem.Insert(target, comp.Stomach))
             return false;
+
+        comp.Hunger = Math.Max(0, comp.Hunger - comp.HungerOnDevour);
 
         var devourPopup = Loc.GetString("hisgrace-devour", ("target", Name(target)));
         _audio.PlayPvs(comp.SoundDevour, target);
