@@ -65,7 +65,7 @@
       required: true
       defaultMarkings: [ HarpyEarsDefault ]
     Chest:
-      points: 3
+      points: 1
       required: true
       defaultMarkings: [ HarpyChestDefault ]
     Legs:
