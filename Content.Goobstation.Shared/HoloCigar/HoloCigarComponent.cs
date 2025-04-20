@@ -1,11 +1,12 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.GameStates;
-using System;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.HoloCigar;
@@ -28,11 +29,7 @@ public sealed partial class HoloCigarComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class HoloCigarComponentState: ComponentState
+public sealed class HoloCigarComponentState(bool lit) : ComponentState
 {
-    public bool Lit;
-    public HoloCigarComponentState(bool lit)
-    {
-        Lit = lit;
-    }
+    public bool Lit = lit;
 }

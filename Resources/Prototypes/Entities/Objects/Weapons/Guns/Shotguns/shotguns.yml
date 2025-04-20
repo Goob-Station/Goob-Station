@@ -62,6 +62,7 @@
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -273,7 +274,6 @@
     graph: ShotgunSawn
     node: shotgunsawn
     deconstructionTarget: null
-  - type: Multishot # Goobstation
 
 - type: entity
   name: sawn-off shotgun
@@ -312,7 +312,6 @@
     deconstructionTarget: null
   - type: StaticPrice
     price: 0
-  - type: Multishot # Goobstation
 
 - type: entity
   name: blunderbuss
