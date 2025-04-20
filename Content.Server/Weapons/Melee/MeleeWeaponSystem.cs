@@ -177,9 +177,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         PhysicalShove(user, target);
         Interaction.DoContactInteraction(user, target);
 
-        var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
-        RaiseLocalEvent(user, comboEv);
-
         if (_mobState.IsIncapacitated(target))
             return true;
 

@@ -961,8 +961,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (user == target) // Goobstation
         {
             _meleeSound.PlaySwingSound(user, meleeUid, component);
-            var comboEv = new ComboAttackPerformedEvent(user, user, meleeUid, ComboAttackType.Disarm);
-            RaiseLocalEvent(user, comboEv);
+            var selfComboEv = new ComboAttackPerformedEvent(user, user, meleeUid, ComboAttackType.Disarm);
+            RaiseLocalEvent(user, selfComboEv);
             return false;
         }
 
@@ -979,6 +979,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         RaiseLocalEvent(target.Value, beforeEvent);
         if (beforeEvent.Cancelled)
             return false;
+
+        var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Disarm);
+        RaiseLocalEvent(user, comboEv);
         // Goobstation end
 
         return true;

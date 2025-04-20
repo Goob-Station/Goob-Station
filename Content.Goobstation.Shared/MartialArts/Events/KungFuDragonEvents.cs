@@ -29,7 +29,11 @@ public sealed partial class DragonClawPerformedEvent : BaseKungFuDragonEvent
 }
 
 [DataDefinition]
-public sealed partial class DragonTailPerformedEvent : BaseKungFuDragonEvent;
+public sealed partial class DragonTailPerformedEvent : BaseKungFuDragonEvent
+{
+    [DataField]
+    public TimeSpan DownedParalyzeTime = TimeSpan.FromSeconds(1);
+}
 
 [DataDefinition]
 public sealed partial class DragonStrikePerformedEvent : BaseKungFuDragonEvent;

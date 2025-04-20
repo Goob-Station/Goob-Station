@@ -97,8 +97,11 @@ public abstract partial class SharedMartialArtsSystem
         if (HasComp<NinjutsuLossOfSurpriseComponent>(ent))
         {
             _popupSystem.PopupEntity(Loc.GetString("ninjutsu-fail-loss-of-surprise"), ent, ent);
+            ResetDebuff(ent);
             return;
         }
+
+        ResetDebuff(ent);
 
         if (_standingState.IsDown(target))
         {
@@ -111,6 +114,7 @@ public abstract partial class SharedMartialArtsSystem
             time *= sneakAttack.TakedownBackstabMultiplier;
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(time), true);
+
         _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
         ComboPopup(ent, target, sneakAttack.TakedownComboName);
     }

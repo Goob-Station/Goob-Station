@@ -72,18 +72,18 @@ public abstract partial class SharedMartialArtsSystem
             || !TryUseMartialArt(ent, proto, out var target, out var downed))
             return;
 
-        if (downed)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("martial-arts-fail-target-downed"), ent, ent);
-            return;
-        }
-
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
-        DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Torso);
+        if (downed)
+            _stun.TryParalyze(target, args.DownedParalyzeTime, true);
+        else
+        {
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+            DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Torso);
+        }
+
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
     }

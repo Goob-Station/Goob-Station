@@ -274,12 +274,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
 
-        if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
-            combatMode.CanDisarm == false) // WWDP
-        {
-            return false;
-        }
-
         var target = GetEntity(ev.Target);
 
         // They need to either have hands...

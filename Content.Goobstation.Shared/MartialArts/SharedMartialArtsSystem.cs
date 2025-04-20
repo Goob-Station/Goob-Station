@@ -220,6 +220,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
     private void OnInteract(InteractHandEvent args)
     {
+        if (_netManager.IsClient || args.User == args.Target)
+            return;
+
         if (!HasComp<MobStateComponent>(args.Target))
             return;
 

@@ -70,8 +70,6 @@ public partial class SharedMartialArtsSystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
 
-        Dirty(uid, component);
-
         if (component.CurrentTarget != null && args.Target != component.CurrentTarget.Value)
             component.LastAttacks.Clear();
 
@@ -81,6 +79,7 @@ public partial class SharedMartialArtsSystem
         {
             component.LastAttacks.Clear();
             RaiseLocalEvent(uid, ref afterEv);
+            Dirty(uid, component);
             return;
         }
 
@@ -89,6 +88,7 @@ public partial class SharedMartialArtsSystem
         component.LastAttacks.Add(args.Type);
         CheckCombo(uid, args.Target, component);
         RaiseLocalEvent(uid, ref afterEv);
+        Dirty(uid, component);
     }
 
     private void CheckCombo(EntityUid uid, EntityUid target, CanPerformComboComponent comp)
