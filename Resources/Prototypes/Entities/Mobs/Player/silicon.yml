@@ -408,7 +408,6 @@
           Empty: { state: empty }
           Occupied: { state: full }
   - type: Intellicard
-  - type: BorgBrain #Goobstation
 
 - type: entity
   id: PlayerStationAiPreview

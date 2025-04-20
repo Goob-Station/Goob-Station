@@ -3,7 +3,7 @@
   parent: BaseItem
   id: POrgBase
   name: pOrg base
-  description: The incomplete core of a pAI Operational Roaming Gadget
+  description: The core of a pAI Observational Roaming Gadget
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/porg.rsi
@@ -33,7 +33,7 @@
   parent: [BaseMob, StripableInventoryBase]
   id: POrg
   name: pOrg
-  description: pAI Operational Roaming Gadget, a simple locomotion unit for your wallet sized friend.
+  description: pAI Observational Roaming Gadget, a simple locomotion unit for your wallet sized friend.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/porg.rsi
@@ -48,6 +48,7 @@
       shader: unshaded
       map: ["light","enum.BorgVisualLayers.LightStatus"]
       visible: false
+  - type: PorgNaming
   - type: Construction
     graph: POrg
     node: porg
@@ -174,10 +175,14 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
         requireInputValidation: false
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
   - type: IntrinsicUI
     uis:
       enum.StationMapUiKey.Key:
         toggleAction: ActionAGhostShowStationMap
+  - type: ActivatableUI
+    key: enum.BorgUiKey.Key
   - type: BorgChassis
     maxModules: 0
     hasMindState: porg_e
@@ -185,7 +190,6 @@
     brainWhitelist:
     components:
     - PAI
-    - Intellicard
   - type: SiliconLawBound
   - type: SiliconLawProvider
     laws: FamimovLawset
@@ -234,6 +238,11 @@
   - type: Lock
     locked: true
     unlockOnClick: false
+  - type: WiresPanel
+    openDelay: 3
+  - type: ActivatableUIRequiresPanel
+  - type: ActivatableUIRequiresLock
+  - type: LockedWiresPanel
   - type: InteractionPopup
     interactSuccessString: petting-success-generic-cyborg
     interactFailureString: petting-failure-generic-cyborg
