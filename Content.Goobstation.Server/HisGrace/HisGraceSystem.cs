@@ -13,11 +13,13 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Jittering;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
@@ -333,10 +335,11 @@ public sealed partial class HisGraceSystem : EntitySystem
 
     private bool TryDevour(HisGraceComponent comp, EntityUid target)
     {
-        if (!_state.IsIncapacitated(target) || comp.CurrentState == HisGraceState.Dormant || !_containerSystem.Insert(target, comp.Stomach))
+        if (!_state.IsIncapacitated(target) || !_containerSystem.Insert(target, comp.Stomach) )
             return false;
 
-        comp.Hunger = Math.Max(0, comp.Hunger - comp.HungerOnDevour);
+        // Hunger gained from eating an entity is 20% of their
+        comp.Hunger -= GetHungerValue(target, comp).Int();
 
         var devourPopup = Loc.GetString("hisgrace-devour", ("target", Name(target)));
         _audio.PlayPvs(comp.SoundDevour, target);
@@ -350,6 +353,24 @@ public sealed partial class HisGraceSystem : EntitySystem
         }
 
         return true;
+    }
+
+    private FixedPoint2 GetHungerValue(EntityUid target, HisGraceComponent comp)
+    {
+        FixedPoint2 hungerValue = 5;
+
+        if (!TryComp<MobThresholdsComponent>(target, out var mobThresholds))
+            return hungerValue;
+
+        var thresholds = mobThresholds.Thresholds;
+        var (criticalThreshold, value) = thresholds.FirstOrDefault(kvp => kvp.Value == MobState.Critical);
+
+        if (value != MobState.Critical)
+            return hungerValue;
+
+        hungerValue = comp.HungerOnDevourMultiplier * criticalThreshold;
+
+        return hungerValue;
     }
 
     #endregion

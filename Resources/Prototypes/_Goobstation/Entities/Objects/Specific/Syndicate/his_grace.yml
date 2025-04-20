@@ -34,7 +34,6 @@
     - state: icon
     - state: icon-ascended
       visible: false
-      shader: unshaded
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Item
     size: Ginormous
@@ -42,17 +41,13 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        shader: unshaded
       - state: inhand-left-ascended
         visible: false
-        shader: unshaded
         map: [ "enum.ToggleVisuals.Layer" ]
       right:
       - state: inhand-right
-        shader: unshaded
       - state: inhand-right-ascended
         visible: false
-        shader: unshaded
         map: [ "enum.ToggleVisuals.Layer" ]
   - type: GenericVisualizer
     visuals:

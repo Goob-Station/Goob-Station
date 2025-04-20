@@ -55,10 +55,10 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     public int HungerIncrement = 1;
 
     /// <summary>
-    /// How much the hunger is restored by when devouring an entitiy.
+    /// The hunger given by an entity is their critical state threshold times this number.
     /// </summary>
     [DataField]
-    public int HungerOnDevour = 20;
+    public FixedPoint2 HungerOnDevourMultiplier = 0.2;
 
     /// <summary>
     /// How much the damage is currently increased by.
