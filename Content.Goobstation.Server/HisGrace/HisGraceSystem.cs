@@ -20,6 +20,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee;
@@ -46,6 +47,7 @@ public sealed partial class HisGraceSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = null!;
     [Dependency] private readonly MindSystem _mind = null!;
     [Dependency] private readonly StunSystem _stun = null!;
+    [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
 
     private readonly ProtoId<DamageModifierSetPrototype> _ascensionDamageSet = new("HisGraceAscended");
 
@@ -60,6 +62,7 @@ public sealed partial class HisGraceSystem : EntitySystem
         SubscribeLocalEvent<HisGraceComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<HisGraceComponent, HisGraceHungerChangedEvent>(OnHungerChanged);
         SubscribeLocalEvent<HisGraceComponent, HisGraceEntityConsumedEvent>(OnEntityConsumed);
+        SubscribeLocalEvent<HisGraceUserComponent, RefreshMovementSpeedModifiersEvent>(OnModifierRefresh);
     }
 
     private void OnInit(EntityUid uid, HisGraceComponent component, MapInitEvent args)
@@ -90,12 +93,19 @@ public sealed partial class HisGraceSystem : EntitySystem
             TryDevour(comp, hitEntity);
     }
 
+    private void OnModifierRefresh(EntityUid uid, HisGraceUserComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(comp.SpeedMultiplier);
+    }
+
     private void OnUse(EntityUid uid, HisGraceComponent comp, ref UseInHandEvent args)
     {
         if (comp.CurrentState != HisGraceState.Dormant)
             return;
 
         comp.User = args.User;
+        EnsureComp<HisGraceUserComponent>(args.User);
+        _speedModifier.RefreshMovementSpeedModifiers(args.User);
 
         var popUp = Loc.GetString("hisgrace-use-start");
         _popup.PopupEntity(popUp, args.User, args.User, PopupType.MediumCaution);
@@ -121,6 +131,14 @@ public sealed partial class HisGraceSystem : EntitySystem
 
     private void OnHungerChanged(EntityUid uid, HisGraceComponent comp, ref HisGraceHungerChangedEvent args)
     {
+        if (comp.User is not { } user)
+            return;
+
+        _speedModifier.RefreshMovementSpeedModifiers(user);
+
+        if (!TryComp<HisGraceUserComponent>(comp.User, out var userComp))
+            return;
+
         if (args.NewState == HisGraceState.Ascended && TryComp<AppearanceComponent>(uid, out var appearanceComponent)) // add more logic here later
         {
             EnsureComp<UnremoveableComponent>(uid);
@@ -168,6 +186,7 @@ public sealed partial class HisGraceSystem : EntitySystem
             {
                 RemComp<UnremoveableComponent>(uid);
                 RemComp<JitteringComponent>(uid);
+                userComp.SpeedMultiplier = 1.2f;
 
                 break;
             }
@@ -177,18 +196,16 @@ public sealed partial class HisGraceSystem : EntitySystem
             {
                 EnsureComp<UnremoveableComponent>(uid);
                 EnsureComp<JitteringComponent>(uid);
+                userComp.SpeedMultiplier = 1.4f;
                 break;
             }
 
             case HisGraceState.Death:
             {
-                if (comp.User is { } user)
-                {
-                    _damageable.TryChangeDamage(user, comp.DamageOnFail, targetPart: TargetBodyPart.Head,  origin: uid, ignoreResistances: true);
+                _damageable.TryChangeDamage(user, comp.DamageOnFail, targetPart: TargetBodyPart.Head,  origin: uid, ignoreResistances: true);
 
-                    var popUp = Loc.GetString("hisgrace-death", ("target", Name(user)));
-                    _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
-                }
+                var popUp = Loc.GetString("hisgrace-death", ("target", Name(user)));
+                _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
 
 
                 ChangeState(comp, HisGraceState.Dormant);
