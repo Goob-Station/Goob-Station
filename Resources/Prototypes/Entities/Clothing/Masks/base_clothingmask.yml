@@ -33,6 +33,11 @@
     - Mask
   - type: StaticPrice
     price: 25
+  - type: AltClothingLayer
+    defaultLayer: mask
+    altLayer: maskalt
+    changeToAltMessage: alt-clothing-component-mask-alt
+    changeToDefaultMessage: alt-clothing-component-mask-default
 
 - type: entity
   abstract: true

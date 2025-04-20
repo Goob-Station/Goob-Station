@@ -84,3 +84,30 @@
     - type: Construction
       graph: VoiceMaskCraftable
       node: end
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasHalf
+  name: half gas mask
+  description: A gas mask... only the half of it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Mask/gashalf.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Mask/gashalf.rsi
+  - type: IdentityBlocker
+    coverage: MOUTH
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true
+  - type: Construction
+    graph: GasMaskHalf
+    node: end
+    deconstructionTarget: null

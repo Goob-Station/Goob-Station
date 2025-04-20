@@ -163,11 +163,16 @@
     - HamsterWearable
     - WhitelistChameleon
     - GasMask # goob edit
+    - GasMaskFullDefault # goob edit
     - Mask # goob edit
   - type: HideLayerClothing
     slots:
     - Snout
     hideOnToggle: true
+  - type: Construction # Goobstation
+    graph: GasMaskHalf
+    node: start
+    deconstructionTarget: null
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
@@ -238,6 +243,12 @@
     modifiers:
       coefficients:
         Heat: 0.80
+  - type: Tag # Goobstation
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
 
 - type: entity
   parent: [ClothingMaskGasAtmos, BaseCommandContraband]
@@ -282,6 +293,12 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
+  - type: Tag # Goobstation
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -580,6 +597,12 @@
         Heat: 0.95
   - type: IngestionBlocker # Goobstation
     blockSmokeIngestion: true
+  - type: Tag # Goobstation
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - GasMask
+    - Mask
 
 - type: entity
   parent: [ ClothingMaskGas, BaseCentcommContraband ]

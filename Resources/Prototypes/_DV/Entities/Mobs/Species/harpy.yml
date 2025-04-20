@@ -106,9 +106,10 @@
         visible: false
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "maskalt" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "head" ]
       - map: [ "singingLayer" ]
         sprite: _DV/Effects/harpysinger.rsi
@@ -226,6 +227,7 @@
         visible: false
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "maskalt" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]

@@ -195,6 +195,9 @@
   id: GasMask
 
 - type: Tag
+  id: GasMaskFullDefault
+
+- type: Tag
   id: GorillaFormAction
 
 - type: Tag

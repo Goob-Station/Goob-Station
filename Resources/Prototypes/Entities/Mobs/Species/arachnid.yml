@@ -133,6 +133,7 @@
       - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "maskalt" ]
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "pocket1" ]
@@ -157,7 +158,7 @@
   - type: HumanoidAppearance
     species: Arachnid
   - type: Inventory
-    speciesId: arachnid 
+    speciesId: arachnid
 
 
 #>88w88<

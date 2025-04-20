@@ -202,10 +202,11 @@
       - map: [ "back" ]
       - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "maskalt" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "head" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
@@ -214,7 +215,7 @@
         state: "creampie_moth"
         visible: false
   - type: Inventory
-    speciesId: moth 
+    speciesId: moth
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -242,7 +243,7 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Inventory
-    speciesId: moth 
+    speciesId: moth
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

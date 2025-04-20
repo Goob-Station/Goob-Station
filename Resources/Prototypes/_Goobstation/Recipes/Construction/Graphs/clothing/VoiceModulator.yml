@@ -13,7 +13,7 @@
       edges:
         - to: end
           steps:
-            - tag: GasMask
+            - tag: GasMaskFullDefault
               name: gas mask
               icon:
                 sprite: Clothing/Mask/gas.rsi
