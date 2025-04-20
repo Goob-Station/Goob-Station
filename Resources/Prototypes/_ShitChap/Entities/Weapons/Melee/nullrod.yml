@@ -383,8 +383,9 @@
   suffix: Unremoveable
   components:
   - type: PointLight
-    radius: 5
-    energy: 3
+    radius: 4
+    energy: 2
+    color: '#FF3300FF'
     netsync: false
   - type: Item
     size: Ginormous
@@ -459,7 +460,7 @@
         Blunt: 50
     UntrainedUseString: nullrod-uristhand-untrained-usage-popup
   - type: MeleeThrowOnHit
-    speed: 1
+    distance: 2
   - type: Tag
     tags:
       - UristHand
