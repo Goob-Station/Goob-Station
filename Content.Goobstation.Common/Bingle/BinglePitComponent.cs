@@ -2,9 +2,11 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 shibe <swiftshibe@gmail.com>
 // SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -31,7 +33,7 @@ public sealed partial class BinglePitComponent : Component
     /// amount of Bingle Points needed for a new bingle
     /// </summary>
     [DataField]
-    public float SpawnNewAt = 20f;
+    public float SpawnNewAt = 12f;
 
     /// <summary>
     /// amount bingles needed to evolve / gain a level / expand the ... THE FACTORY MUST GROW
