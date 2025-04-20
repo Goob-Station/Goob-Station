@@ -85,8 +85,10 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -224,6 +226,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - Welder # Goobstation-WelderSword
 
 - type: entity
   name: industrial welding tool
@@ -242,6 +245,9 @@
         - ReagentId: WeldingFuel
           Quantity: 250
         maxVol: 250
+  - type: Tag # Goobstation-WelderSword
+    tags:
+    - WelderIndustrial
 
 - type: entity
   name: advanced industrial welding tool
@@ -298,6 +304,9 @@
       Plasma: 50
   - type: StaticPrice #Goobstation - Recycle update
     price: 50
+  - type: Tag # Goobstation-WelderSword
+    tags:
+    - WelderExperimental
 
 - type: entity
   name: emergency welding tool
