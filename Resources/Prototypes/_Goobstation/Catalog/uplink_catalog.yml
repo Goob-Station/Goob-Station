@@ -962,3 +962,22 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Human
+
+- type: listing
+  id: UplinkUndeterminedBundle
+  name: uplink-undetermined-bundle-name
+  description: uplink-undetermined-bundle-desc
+  productEntity: CrateSyndicateUndetermined
+  cost:
+    Telecrystal: 99 # :trollface:
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

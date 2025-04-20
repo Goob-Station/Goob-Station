@@ -81,3 +81,25 @@
     damage:
       types:
         Blunt: 5
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadHatHoodCloakSith
+  name: dark lord hood
+  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/void_hood.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/void_hood.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: PressureProtection
+    lowPressureMultiplier: 1000
+    highPressureMultiplier: 0.5

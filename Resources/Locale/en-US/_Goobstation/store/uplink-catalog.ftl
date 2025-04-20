@@ -242,3 +242,6 @@ uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndi
 
 uplink-pizza-party-crate-name = Pizza Party Crate
 uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.
+
+uplink-undetermined-bundle-name = Undetermined Bundle Crate
+uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.

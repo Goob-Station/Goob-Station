@@ -1,23 +1,13 @@
-<!--
-SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-
-SPDX-License-Identifier: AGPL-3.0-or-later
--->
-
 <controls:FancyWindow xmlns="https://spacestation14.io"
-						xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+						xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
 						xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-						Title="{Loc 'thief-backpack-window-title'}"
+						Title="{Loc 'set-selector-window-title'}"
 						MinSize="700 700">
 	<BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
 		<!-- First Informational panel -->
 		<Label Name="Description" Margin="5 5"/>
 		<controls:HLine Color="#404040" Thickness="2" Margin="0 5"/>
-		<Label Name="SelectedSets" Text="{Loc 'thief-backpack-window-selected'}" Margin="5 5"/>
+		<Label Name="SelectedSets" Text="{Loc 'set-selector-window-selected'}" Margin="5 5"/>
 
 		<!-- Second sets panel -->
 		<PanelContainer Margin="5 5">
@@ -39,7 +29,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 		<!-- Third approve button panel -->
 		<PanelContainer Margin="10">
 			<Button Name="ApproveButton"
-					Text="{Loc 'thief-backpack-window-approve-button'}"
+					Text="{Loc 'set-selector-window-approve-button'}"
 					Margin="0 5"
 					Access="Public"
 					HorizontalAlignment ="Right"
