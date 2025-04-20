@@ -199,6 +199,7 @@
     duration: 4
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
+  - type: Flashbang
   - type: Ammo
     muzzleFlash: null
   - type: PointLight
