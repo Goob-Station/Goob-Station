@@ -27,11 +27,6 @@
     randomizeName: true
   - type: Loadout
     prototypes: [LeadInternGear]
-  - type: Access
-    Tags:
-    - Maintenance
-    - Command
-    - CentralCommand
 
 # Basic Intern Coin
 - type: entity
@@ -78,11 +73,6 @@
     randomizeName: true
   - type: Loadout
     prototypes: [NTInternGear]
-  - type: Access
-    Tags:
-    - Maintenance
-    - Command
-    - CentralCommand
 
 # NT Nerd Intern
 - type: entity
@@ -95,11 +85,6 @@
     randomizeName: true
   - type: Loadout
     prototypes: [NTNerdInternGear]
-  - type: Access
-    Tags:
-    - Maintenance
-    - Command
-    - CentralCommand
 
 # NT Nerd Intern Gear
 - type: startingGear
