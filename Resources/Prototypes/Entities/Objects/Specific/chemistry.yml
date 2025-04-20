@@ -540,7 +540,7 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
-    # GoobStation Start - Added embeddable properties for syringe gun
+    # Goobstation Start - Added embeddable properties for syringe gun
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -586,24 +586,7 @@
   - type: ThrowableBlocked
   - type: Ammo
     muzzleFlash: null
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -4
-      - !type:SpillBehavior
-        solution: injector
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    # GoobStation End
+    # Goobstation End
   - type: ExaminableSolution
     solution: injector
   - type: Spillable
