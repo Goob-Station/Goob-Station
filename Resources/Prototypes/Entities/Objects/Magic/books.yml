@@ -122,7 +122,6 @@
     - type: GuideHelp # Goobstation
       guides:
       - Wizard
-    - type: EnchantingTool
     - type: Tag
       tags:
       - GrimoireGhost
