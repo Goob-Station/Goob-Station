@@ -174,7 +174,7 @@
   description: uplink-WSPR-desc
   productEntity: WeaponRifleWSPR
   cost:
-    Telecrystal: 60
+    Telecrystal: 65
   categories:
   - UplinkWeaponry
 
@@ -222,7 +222,7 @@
   description: uplink-anaconda-desc
   productEntity: WeaponPistolAnaconda
   cost:
-    Telecrystal: 40
+    Telecrystal: 38 # This + esword = 75 TC
   categories:
   - UplinkWeaponry
 
@@ -242,7 +242,7 @@
   description: uplink-m7s-desc
   productEntity: WeaponSubMachineGunM7S
   cost:
-    Telecrystal: 65
+    Telecrystal: 60
   categories:
     -  UplinkWeaponry
 
@@ -254,7 +254,7 @@
   cost:
     Telecrystal: 100
   categories:
-    -  UplinkWeaponry
+  -  UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -714,17 +714,6 @@
 #  categories:
 #  - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazinePistolCaselessMagnumMinusP
-  name: uplink-caseless-magnum-pistol-mag-minusp-name
-  description: uplink-caseless-magnum-pistol-mag-minusp-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: rubber }
-  productEntity: MagazinePistolCaselessMagnumMinusP
-  cost:
-    Telecrystal: 3 # goob - 5 shots to crit
-  categories:
-  - UplinkAmmo
-
 # 弾薬
 - type: listing
   id: UplinkRifleMag
@@ -742,9 +731,9 @@
   name: uplink-rifle-caseless-mag-name
   description: uplink-rifle-caseless-mag-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
-  productEntity: MagazineCaselessMagnum
+  productEntity: MagazineCaselessRifle
   cost:
-    Telecrystal: 7 # slightly more expensive than the M-90 due to more total damage
+    Telecrystal: 6
   categories:
   - UplinkAmmo
 
@@ -786,13 +775,13 @@
   - UplinkDisruption
 
 - type: listing
-  id: UplinkMagazinePistolCaselessMagnumSAPHE
-  name: uplink-caseless-magnum-pistol-mag-saphe-name
-  description: uplink-caseless-magnum-pistol-mag-saphe-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
-  productEntity: MagazinePistolCaselessMagnumSAPHE
+  id: UplinkMagazinePistolCaselessRifleSAPHE
+  name: uplink-pistol-magazine-caseless-saphe-name
+  description: uplink-pistol-magazine-caseless-saphe-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: practice }
+  productEntity: MagazinePistolCaselessRifleSAPHE
   cost:
-    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10 explosive
+    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 12 pierce 11 explosive
   categories:
   - UplinkAmmo
 
@@ -801,7 +790,7 @@
   name: uplink-m7s-mag-name
   description: uplink-m7s-mag-desc
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
-  productEntity: MagazineCaselessRifleM7S
+  productEntity: MagazineLowCaliberM7S
   cost:
     Telecrystal: 8 # 48 rounds of .25 rifle, 19 damage a shot but half the velocity of other weapons
   categories:

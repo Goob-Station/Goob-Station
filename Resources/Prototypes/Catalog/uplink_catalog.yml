@@ -614,16 +614,16 @@
   - UplinkAmmo
 
 # For the Cobra
-#- type: listing
-#  id: UplinkMagazinePistolCaselessMagnumMinusP
-#  name: uplink-caseless-magnum-pistol-mag-minusp-name
-#  description: uplink-caseless-magnum-pistol-mag-minusp-desc
-#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: rubber }
-#  productEntity: MagazinePistolCaselessMagnumMinusP
-#  cost:
-#    Telecrystal: 3 # goob - 5 shots to crit
-#  categories:
-#  - UplinkAmmo
+- type: listing
+  id: UplinkMagazinePistolCaselessRifle
+  name: uplink-pistol-magazine-caseless-name
+  description: uplink-pistol-magazine-caseless-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolCaselessRifle
+  cost:
+    Telecrystal: 3 # goob
+  categories:
+  - UplinkAmmo
 
 # For the Python
 - type: listing
