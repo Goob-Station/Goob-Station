@@ -27,25 +27,25 @@
     NTLoyaltyPoint: 35
   categories:
   - NTRstation
-  restockTime: 120 # todo: change # give them revs some time man
+  restockTime: 1200 # give them revs some time man
   resetRestockOnPurchase: true
   restockAfterPurchase: 900 # 15min
 
 - type: listing
   id: NTRExecutiveSecHardsuit
   name: Security hardsuits crate
-  description: A crate containing security hardsuits. Please use them wisely.
+  description: A crate containing 1 security hardsuit. Please use them wisely.
   productEntity: SpawnPodSecHardsuit
   icon:
     sprite: Structures/Storage/Crates/sec_gear.rsi
     state: icon
   cost:
-    NTLoyaltyPoint: 30
+    NTLoyaltyPoint: 10
   categories:
   - NTRstation
-  restockTime: 120 # todo: change
+  restockTime: 600
   resetRestockOnPurchase: true
-  restockAfterPurchase: 900 # 15min
+  restockAfterPurchase: 300
 
 - type: listing
   id: NTRExecutiveSpesosSmall

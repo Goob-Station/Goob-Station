@@ -77,7 +77,6 @@
   components:
   - type: SpamDocument
     stype: Obvious
-    tasks: []
 
 - type: entity
   id: SpamDocumentMimic
@@ -88,4 +87,3 @@
   components:
   - type: SpamDocument
     stype: Mimic
-    tasks: []

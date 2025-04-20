@@ -51,7 +51,7 @@
   id: ScienceDocumentTemplate
   locId: science-document-text
   variables:
-    start: placeholder
+    start: science_starting_dataset
     text1: science_text1_dataset
     text2: science_text2_dataset
     text3: science_text3_dataset
