@@ -12,28 +12,16 @@
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 shibe <swiftshibe@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: BaseFastDrawImplanter
   parent: BaseImplanter
-  name: fast draw implanter
-  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
-  abstract: true
   components:
-    - type: Sprite
-      sprite: Objects/Specific/Medical/implanter.rsi
-      state: implanter0
-      layers:
-        - state: implanter1
-          map: [ "implantFull" ]
-          visible: true
-        - state: implanter0
-          map: [ "implantOnly" ]
     - type: Implanter
-      currentMode: Draw
-      drawTime: 30
+      drawTime: 10
 
 - type: entity
   id: RevsFastDrawImplanter
