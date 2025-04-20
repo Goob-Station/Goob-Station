@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified for SS14 by Peptide90",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "tallbrick0",
+            "directions": 4
+        },
+        {
+            "name": "tallbrick1",
+            "directions": 4
+        },
+        {
+            "name": "tallbrick2",
+            "directions": 4
+        },
+        {
+            "name": "tallbrick3",
+            "directions": 4
+        },
+        {
+            "name": "tallbrick4",
+            "directions": 4
+        },
+        {
+            "name": "tallbrick5",
+            "directions": 4
+        },
+        {
+            "name": "tallbrick6",
+            "directions": 4
+        },
+        {
+            "name": "tallbrick7",
+            "directions": 4
+        }
+    ]
+}

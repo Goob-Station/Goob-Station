@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/be7a9f24f2bca68f07e4b0b086dc03a3eb9f971f/mojave/icons/structure/wall_decor.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "flag_us"
+    },
+    {
+      "name": "flag_china"
+    },
+    {
+      "name": "flag_cali"
+    },
+    {
+      "name": "flag_arizona"
+    },
+    {
+      "name": "flag_enclave"
+    },
+    {
+      "name": "flag_ncr"
+    },
+    {
+      "name": "flag_legion"
+    },
+    {
+      "name": "flag_rangers"
+    },
+    {
+      "name": "flag_westbos"
+    },
+    {
+      "name": "flag_eastbos"
+    },
+    {
+      "name": "flag_colorado"
+    },
+    {
+      "name": "flag_denver"
+    },
+    {
+      "name": "clock",
+      "directions": 4
+    },
+    {
+      "name": "calendar"
+    },
+    {
+      "name": "calendar_blank"
+    },
+    {
+      "name": "notice_sign"
+    },
+    {
+      "name": "danger_sign"
+    },
+    {
+      "name": "wanted_poster"
+    },
+    {
+      "name": "cross"
+    },
+    {
+      "name": "exit",
+      "directions": 4
+    },
+    {
+      "name": "wallscreen",
+      "directions": 4
+    },
+    {
+      "name": "ncr_sign"
+    },
+    {
+      "name": "ncr_enlist"
+    },
+    {
+      "name": "ncr_wrench"
+    },
+    {
+      "name": "ncr_looselip"
+    },
+    {
+      "name": "ncr_you"
+    },
+    {
+      "name": "ncr_espionage"
+    },
+    {
+      "name": "ncr_bombs"
+    },
+    {
+      "name": "poster_fallout"
+    },
+    {
+      "name": "poster_wecan"
+    },
+    {
+      "name": "wanted_poster_goose"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/fff561d5e2ae8af913a835327a849eebbe5ce3e0/mojave/icons/obstacles/tallobstacles.dmi",
+  "size": {
+    "x": 32,
+    "y": 54
+  },
+  "states": [
+    {
+      "name": "closed"
+    },
+    {
+      "name": "closing"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "opening"
+    }
+  ]
+}
