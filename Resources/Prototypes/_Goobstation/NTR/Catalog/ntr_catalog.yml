@@ -16,6 +16,38 @@
   restockAfterPurchase: 900 # 15min
 
 - type: listing
+  id: NTRExecutiveMindshield
+  name: Mindshield crate
+  description: A crate containing 3 mindshield implants. Corporate advises you to buy them in cargo anyway.
+  productEntity: SpawnPodMindshield
+  icon:
+    sprite: Structures/Storage/Crates/command.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 35
+  categories:
+  - NTRstation
+  restockTime: 120 # todo: change # give them revs some time man
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15min
+
+- type: listing
+  id: NTRExecutiveSecHardsuit
+  name: Security hardsuits crate
+  description: A crate containing security hardsuits. Please use them wisely.
+  productEntity: SpawnPodSecHardsuit
+  icon:
+    sprite: Structures/Storage/Crates/sec_gear.rsi
+    state: icon
+  cost:
+    NTLoyaltyPoint: 30
+  categories:
+  - NTRstation
+  restockTime: 120 # todo: change
+  resetRestockOnPurchase: true
+  restockAfterPurchase: 900 # 15min
+
+- type: listing
   id: NTRExecutiveSpesosSmall
   name: ntr-executive-spesos-small-name
   description: ntr-executive-spesos-small-desc
@@ -211,7 +243,7 @@
   description: Calls in a lead intern with special summoning coins, that are calling more interns.
   productEntity: SpawnPodInterns
   icon:
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon_alt
   cost:
     NTLoyaltyPoint: 75
@@ -244,7 +276,7 @@
   description: Summons one basic intern.
   productEntity: SpawnPodCoin
   icon:
-    sprite: Objects\Misc\coins.rsi
+    sprite: Objects/Misc/coins.rsi
     state: coin_gold
   cost:
     NTLoyaltyPoint: 25
@@ -260,7 +292,7 @@
   description: ntr-executive-bsd-desc
   productEntity: SpawnPodBsd
   icon:
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon_alt
   cost:
     NTLoyaltyPoint: 75
@@ -277,7 +309,7 @@
   description: ntr-executive-hardsuit-desc
   productEntity: SpawnPodHardsuit
   icon:
-    sprite: _Goobstation\Clothing\OuterClothing\Hardsuits\ntr.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
     state: icon
   cost:
     NTLoyaltyPoint: 35

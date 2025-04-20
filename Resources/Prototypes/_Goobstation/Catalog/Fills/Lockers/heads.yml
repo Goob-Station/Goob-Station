@@ -23,6 +23,7 @@
     - id: HandheldFaxNanorep
     - id: RubberStampNanorep
     - id: ExecutiveBriefcaseEmpty # nanorep update
+    - id: ComputerNTRTasksFlatpack # nanorep update
     - id: Paper
       amount: !type:ConstantNumberSelector
         value: 5

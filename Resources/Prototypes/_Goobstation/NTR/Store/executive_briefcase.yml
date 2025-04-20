@@ -7,9 +7,9 @@
   components:
   - type: Item
     size: Ginormous
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
   - type: Sprite
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon
   - type: UserInterface
     interfaces:

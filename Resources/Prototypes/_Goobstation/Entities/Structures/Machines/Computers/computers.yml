@@ -2,7 +2,7 @@
   id: ComputerNTRTasks
   parent: [BaseComputer]
   name: NTR tasks computer
-  description: Hi
+  description: A terminal providing access to NanoNet missions. Your loyalty will be rewarded — complete tasks, accumulate loyalty points, and spend them on exclusive NTR privileges.
   components:
   - type: UserInterface
     interfaces:

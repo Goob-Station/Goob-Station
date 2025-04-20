@@ -259,11 +259,11 @@
   description: Basic hardsuit to protect its user from space.
   components:
   - type: Sprite
-    sprite: _Goobstation\Clothing\OuterClothing\Hardsuits\ntr.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
   - type: Item
     size: Ginormous
   - type: Clothing
-    sprite: _Goobstation\Clothing\OuterClothing\Hardsuits\ntr.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/ntr.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000

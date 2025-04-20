@@ -36,6 +36,6 @@
   id: ExecutiveBriefcase
   name: steal-target-groups-executive-briefcase
   sprite:
-    sprite: _Goobstation\Objects\Tools\executive_briefcase.rsi
+    sprite: _Goobstation/Objects/Tools/executive_briefcase.rsi
     state: icon
 

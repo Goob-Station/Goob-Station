@@ -258,3 +258,21 @@
   components:
   - type: SpawnOnDespawn
     prototype: MedkitCombatFilled
+
+- type: entity
+  id: SpawnPodMindshield
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplyMindshield
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CrateMindShieldImplants
+
+- type: entity
+  id: SpawnPodSecHardsuit
+  categories: [ HideSpawnMenu ]
+  name: SpawnSupplySecHardsuit
+  parent: SpawnSupplyEmpty
+  components:
+  - type: SpawnOnDespawn
+    prototype: CrateArmoryCombatHardsuit
