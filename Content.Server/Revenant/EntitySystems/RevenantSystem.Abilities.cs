@@ -393,9 +393,13 @@ public sealed partial class RevenantSystem
             if (!mobState.HasComponent(ent) || !_mobState.IsAlive(ent))
                 continue;
 
+            var revenantComp = EnsureComp<RevenantOverloadedLightsComponent>(uid);
+            revenantComp.Target = ent; //Goob edit, makes revenant spawn lightning from itself as well
+
             var nearbyLights = _lookup.GetEntitiesInRange(ent, component.OverloadZapRadius)
                 .Where(e => poweredLights.HasComponent(e) && !HasComp<RevenantOverloadedLightsComponent>(e) &&
                             _interact.InRangeUnobstructed(e, uid, -1)).ToArray();
+
 
             if (!nearbyLights.Any())
                 continue;
@@ -406,11 +410,7 @@ public sealed partial class RevenantSystem
             var comp = EnsureComp<RevenantOverloadedLightsComponent>(allLight.First());
             comp.Target = ent; //who they gon fire at?
 
-            if (!HasComp<RevenantOverloadedLightsComponent>(uid)) //Goob edit, Makes revenant also spawn lightning from itself
-            {
-                var revenantComp = EnsureComp<RevenantOverloadedLightsComponent>(uid);
-                revenantComp.Target = ent;
-            }
+            
 
         }
     }
