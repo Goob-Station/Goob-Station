@@ -52,7 +52,7 @@
     children:
     - id: LoneOpsSpawn
     - id: UnknownShuttleManOWar
-    - id: UnknownShuttleInstigator
+    # - id: UnknownShuttleInstigator # Goobstation - disable syndicate fireteams
 
 # Shuttle Game Rules
 
@@ -206,21 +206,21 @@
   - type: LoadMapRule
     preloadedGrid: NTIncorporation
 
-- type: entity
-  id: UnknownShuttleInstigator
-  parent: BaseUnknownShuttleRule
-  components:
-  - type: StationEvent
-    startAnnouncement: null #dont nark on antags
-    weight: 1 #  lower because antags.
-    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
-    chaos: # Goobstation
-      # holy mini-nukies
-      Hostile: 80
-      Death: 100
-      Medical: 100
-  - type: LoadMapRule
-    preloadedGrid: Instigator
+#- type: entity # Goobstation - disable syndicate fireteams - start
+#  id: UnknownShuttleInstigator
+#  parent: BaseUnknownShuttleRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: null #dont nark on antags
+#    weight: 1 #  lower because antags.
+#    earliestStart: 50 # late to hopefully have enough ghosts to fill all roles quickly (3) and because antags
+#    chaos: # Goobstation
+#      # holy mini-nukies
+#      Hostile: 80
+#      Death: 100
+#      Medical: 100
+#  - type: LoadMapRule
+#    preloadedGrid: Instigator # Goobstation - disable syndicate fireteams - end
 
 - type: entity
   id: UnknownShuttleJoe
