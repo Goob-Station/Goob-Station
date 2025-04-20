@@ -344,12 +344,11 @@ namespace Content.Server.Explosion.EntitySystems
         }
 
         //ShitChap - Spell Reflection Functionality
-        private void TriggerOnProjectileHit(EntityUid uid, TriggerOnProjectileHitComponent component, ref ProjectileHitEvent args)
+        private void TriggerOnProjectileHit(Entity<TriggerOnProjectileHitComponent> uid, ref ProjectileHitEvent args)
         {
-            if (HasComp<ExplosiveComponent>(uid))
+            if (uid.Comp.ExplosiveProjectile)
                 _explosions.TriggerExplosive(uid);
-            else
-                Trigger(uid, args.Target);
+            Trigger(uid, args.Target);
         }
 
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)

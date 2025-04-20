@@ -13,9 +13,11 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Explosion.Components.OnTrigger;
 
 /// <summary>
-/// Explode using the entity's <see cref="ExplosiveComponent"/> if Collision.
+/// Trigger on Projectile hit, use field for explode using the projectile's <see cref="ExplosiveComponent"/> if hit.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TriggerOnProjectileHitComponent : Component
 {
+    [DataField]
+    public bool ExplosiveProjectile;
 }

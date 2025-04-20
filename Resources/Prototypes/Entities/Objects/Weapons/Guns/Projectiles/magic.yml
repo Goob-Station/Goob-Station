@@ -108,6 +108,7 @@
     - state: fireball
       shader: unshaded
   - type: TriggerOnProjectileHit
+    explosiveProjectile: true
   - type: Explosive
     explosionType: Default
     maxIntensity: 3.5 # Goob edit
