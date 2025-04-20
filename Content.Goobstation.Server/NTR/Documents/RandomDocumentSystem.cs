@@ -4,9 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.NTR.Documents;
-using Content.Shared.Paper;
-using Robust.Shared.Random;
+using Content.Goobstation.Shared.NTR.Documents; //amount of times this whole system was re-done: 3
+using Content.Shared.Paper;                     //amount of hours wasted trying to understand papersystem: 29
+using Robust.Shared.Random;                     //skill issue.
 
 // todo: clean these usings
 namespace Content.Goobstation.Server.NTR.Documents

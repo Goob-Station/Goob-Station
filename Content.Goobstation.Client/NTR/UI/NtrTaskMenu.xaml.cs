@@ -32,7 +32,7 @@ public sealed partial class NtrTaskMenu : FancyWindow
     }
 
     /// <summary>
-    /// Adds task to the UI
+    /// Adds tasks to the UI
     /// </summary>
     /// <param name="tasks"></param>
     /// <param name="history"></param>
