@@ -24,3 +24,30 @@
     - 1, 4, 6, 4
     - 6, 2, 6, 2
     - 5, 3, 5, 5
+- type: entity
+  parent: PonderingOrb
+  id: PonderingOrbRadioactive
+  name: pönderıng örb [700 rads]
+  description: If you can read this you are dead.. also someone is türking it
+  suffix: DEBUG
+  components:
+  - type: RadiationSource
+    intensity: 700
+- type: entity
+  parent: PonderingOrb
+  id: PonderingOrbRadioactiveM
+  name: pönderıng örb [100 rads]
+  description: In glory of Richard Turk
+  suffix: DEBUG
+  components:
+  - type: RadiationSource
+    intensity: 100
+- type: entity
+  parent: PonderingOrb
+  id: PonderingOrbRadioactiveS
+  name: pönderıng örb [7 rads]
+  description: Local artifact gone emmisive
+  suffix: DEBUG
+  components:
+  - type: RadiationSource
+    intensity: 7

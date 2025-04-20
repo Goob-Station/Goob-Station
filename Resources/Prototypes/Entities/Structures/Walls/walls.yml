@@ -220,8 +220,6 @@
   - type: Airtight
   - type: StaticPrice
     price: 75
-  - type: RadiationBlocker
-    resistance: 2
   - type: BlockWeather
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 50
@@ -314,6 +312,8 @@
     cost: 6
     delay: 8
     fx: EffectRCDDeconstruct8
+  - type: RadiationBlocker # Goobstation
+    resistance: 40
   - type: Destructible
     thresholds:
     - trigger:
@@ -481,6 +481,8 @@
   - type: Construction
     graph: Girder
     node: goldWall
+  - type: RadiationBlocker # Goobstation
+    resistance: 10
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -587,7 +589,7 @@
     key: walls
     base: plasma
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 10
 
 - type: entity
   parent: BaseWall
@@ -1376,7 +1378,7 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
-    resistance: 6
+    resistance: 20
 
 - type: entity
   parent: BaseWall
