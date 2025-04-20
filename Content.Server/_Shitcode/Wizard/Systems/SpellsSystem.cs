@@ -590,7 +590,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 -invocationEv.ToHeal,
                 true,
                 false,
-                canSever: false,
                 targetPart: TargetBodyPart.All);
 
             if (speakerUid != casterUid)
@@ -599,7 +598,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
                     -invocationEv.ToHeal,
                     true,
                     false,
-                    canSever: false,
                     targetPart: TargetBodyPart.All);
             }
         }

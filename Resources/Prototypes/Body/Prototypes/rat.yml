@@ -7,10 +7,10 @@
 - type: body
   id: Rat
   name: "animal"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoRat
+    chest:
+      part: ChestRat
       connections:
       - legs
       organs:

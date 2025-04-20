@@ -89,13 +89,39 @@
     slotId: feet # Shitmed
 
 - type: entity
-  parent: [ PartAnimalBase, BaseTorso ]
-  id: TorsoAnimal
-  name: animal torso
+  parent: [ PartAnimalBase, BaseChest ]
+  id: ChestAnimal
+  name: animal chest
   components:
+  - type: Sprite
+    layers:
+    - state: chest_m
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+- type: entity
+  parent: [ PartAnimalBase, BaseGroin ]
+  id: GroinAnimal
+  name: animal groin
+  components:
+  - type: Sprite
+    layers:
+    - state: groin_m
   - type: BodyPart
     # standard organs are good for most animals
     children: # most animals have no hands (primate is unused) so just legs by default
       legs:
         id: legs
         type: Leg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20

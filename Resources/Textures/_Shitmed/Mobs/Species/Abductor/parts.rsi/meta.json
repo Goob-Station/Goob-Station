@@ -47,7 +47,11 @@
       "directions": 4
     },
     {
-      "name": "torso",
+      "name": "chest",
+      "directions": 4
+    },
+    {
+      "name": "groin",
       "directions": 4
     }
   ]

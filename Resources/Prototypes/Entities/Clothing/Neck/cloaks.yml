@@ -199,14 +199,18 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       neck: ClothingHeadHatHoodGoliathCloak
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Tail
     modifiers:
      coefficients:
-      Blunt: 0.85
-      Slash: 0.85
-      Piercing: 0.85
+      Blunt: 0.65
+      Slash: 0.65
+      Piercing: 0.65
   - type: Construction
     graph: GoliathCloak
     node: cloak
@@ -236,7 +240,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodMoth
     requiredSlot:
     - neck
@@ -259,7 +263,7 @@
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/void.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHatHoodVoidCloak
     requiredSlot:
     - neck

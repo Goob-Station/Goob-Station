@@ -11,17 +11,22 @@
 - type: body
   id: SpaceCobra
   name: "space cobra"
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
+      connections:
+      - groin
+      organs:
+        lungs: OrganSpaceAnimalLungs # Immunity to airloss
+        heart: OrganCobraHeart # Allows you to become invisible.
+    groin:
+      part: GroinAnimal
       connections:
       - legs
       organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganCobraHeart # Allows you to become invisible.
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal

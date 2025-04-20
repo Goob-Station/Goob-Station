@@ -13,29 +13,34 @@
 - type: body
   id: Moth
   name: "moth"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadMoth
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoMoth
+    chest:
+      part: ChestMoth
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
-        stomach: OrganMothStomach
-        liver: OrganAnimalLiver
-        kidneys: OrganHumanKidneys
       connections:
       - right arm
       - left arm
+      - groin
+      - head # Shitmed
+    groin:
+      part: GroinMoth
+      connections:
       - right leg
       - left leg
-      - head # Shitmed
+      organs:
+        stomach: OrganMothStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
     right arm:
       part: RightArmMoth
       connections:

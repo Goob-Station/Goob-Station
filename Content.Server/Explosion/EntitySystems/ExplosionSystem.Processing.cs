@@ -97,6 +97,11 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
@@ -123,6 +128,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+
+// Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared.Body.Components;
+using System.Linq;
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -565,8 +575,21 @@ public sealed partial class ExplosionSystem
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true, partMultiplier: 0.3f); // Shitmed: Temp change, nerf explosion delimbing
-
+                // Shitmed Change Start
+                if (TryComp<BodyComponent>(entity, out var body) && HasComp<ConsciousnessComponent>(entity))
+                {
+                    var bodyParts = _body.GetBodyChildren(entity, body).ToList();
+                    foreach (var bodyPart in bodyParts)
+                    {
+                        // Distribute the last damage on the other parts... for the cinematic effect :3
+                        _damageableSystem.TryChangeDamage(bodyPart.Id, damage / bodyParts.Count, ignoreResistances: true);
+                    }
+                }
+                else
+                {
+                    _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true);
+                }
+                // Shitmed Change End
             }
         }
 

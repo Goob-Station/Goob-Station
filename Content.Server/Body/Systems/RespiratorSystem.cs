@@ -55,9 +55,16 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -65,8 +72,6 @@ using Content.Goobstation.Common.MartialArts;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
-using Content.Shared._Shitmed.Body.Components; // Shitmed Change
-using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.EntityEffects.Effects;
@@ -87,6 +92,11 @@ using Robust.Shared.Timing;
 using Content.Shared.Movement.Pulling.Components; // Goobstation
 using Content.Shared.Movement.Pulling.Systems; // Goobstation
 
+// Shitmed Change
+using Content.Shared._Shitmed.Body.Components;
+using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 
 namespace Content.Server.Body.Systems;
 
@@ -104,6 +114,7 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
 
@@ -376,6 +387,32 @@ public sealed class RespiratorSystem : EntitySystem
             }
         }
 
+        // Shitmed Change Start
+        if (_consciousness.TryGetNerveSystem(ent, out var nerveSys))
+        {
+            if (!_consciousness.TryGetConsciousnessModifier(ent, nerveSys.Value, out var modifier, "Suffocation"))
+            {
+                _consciousness.AddConsciousnessModifier(
+                    ent,
+                    nerveSys.Value,
+                    -ent.Comp.Damage.GetTotal(),
+                    identifier: "Suffocation",
+                    type: ConsciousnessModType.Pain);
+            }
+            else
+            {
+                _consciousness.SetConsciousnessModifier(
+                    ent,
+                    nerveSys.Value,
+                    modifier.Value.Change - ent.Comp.Damage.GetTotal(),
+                    identifier: "Suffocation",
+                    type: ConsciousnessModType.Pain);
+            }
+
+            return;
+        }
+        // Shitmed Change End
+
         _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, interruptsDoAfters: false);
     }
 
@@ -390,6 +427,30 @@ public sealed class RespiratorSystem : EntitySystem
         {
             _alertsSystem.ClearAlert(ent, entity.Comp1.Alert);
         }
+
+        // Shitmed Change Start
+        if (_consciousness.TryGetNerveSystem(ent, out var nerveSys))
+        {
+            if (!_consciousness.TryGetConsciousnessModifier(ent, nerveSys.Value, out var modifier, "Suffocation"))
+                return;
+
+            if (modifier.Value.Change < ent.Comp.DamageRecovery.GetTotal())
+            {
+                _consciousness.RemoveConsciousnessModifier(ent, nerveSys.Value, "Suffocation");
+            }
+            else
+            {
+                _consciousness.SetConsciousnessModifier(
+                    ent,
+                    nerveSys.Value,
+                    modifier.Value.Change + ent.Comp.DamageRecovery.GetTotal(),
+                    identifier: "Suffocation",
+                    type: ConsciousnessModType.Pain);
+            }
+
+            return;
+        }
+        // Shitmed Change End
 
         _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery);
     }

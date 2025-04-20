@@ -24,9 +24,28 @@
     species: Rodentia
 
 - type: entity
-  parent: [ PartRodentiaBase, BaseTorso ]
-  id: TorsoRodentia
-  name: "rodentia torso"
+  parent: [ PartRodentiaBase, BaseChest ]
+  id: ChestRodentia
+  name: "rodentia chest"
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: "chest_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: "chest_m"
+
+- type: entity
+  parent: [ PartRodentiaBase, BaseGroin ]
+  id: GroinRodentia
+  name: "rodentia groin"
+  components:
+  - type: Sprite
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: "groin_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    state: "groin_m"
 
 - type: entity
   parent: [ PartRodentiaBase, BaseHead ]

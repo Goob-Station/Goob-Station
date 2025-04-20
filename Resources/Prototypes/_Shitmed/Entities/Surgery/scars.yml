@@ -1,0 +1,60 @@
+- type: entity
+  id: BluntScar
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    woundType: External
+    woundVisibility: Always
+    canBeHealed: false
+    isScar: true
+  - type: PainInflicter
+
+- type: entity
+  id: PiercingScar
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    woundType: External
+    woundVisibility: Always
+    canBeHealed: false
+    isScar: true
+  - type: PainInflicter
+
+- type: entity
+  id: SlashScar
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    woundType: External
+    woundVisibility: Always
+    canBeHealed: false
+    isScar: true
+  - type: PainInflicter
+
+- type: entity
+  id: BurnScar
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    woundType: External
+    woundVisibility: Always
+    canBeHealed: false
+    isScar: true
+  - type: PainInflicter
+
+- type: entity
+  id: RadiationScar
+  parent: WoundBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Wound
+    woundType: External
+    woundVisibility: Always
+    canBeHealed: false
+    isScar: true
+  - type: PainInflicter
+    multiplier: 0 # lmao

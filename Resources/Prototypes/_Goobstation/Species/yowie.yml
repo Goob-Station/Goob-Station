@@ -36,7 +36,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobYowieTorso
+    Chest: MobYowieChest
+    Groin: MobYowieGroin
     Eyes: MobHumanoidEyes
     LArm: MobYowieLArm
     RArm: MobYowieRArm
@@ -48,7 +49,7 @@
     RFoot: MobYowieRFoot
     Tail: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
-    
+
 - type: markingPoints
   id: MobYowieMarkingLimits
   points:
@@ -109,22 +110,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobYowieTorso
+  id: MobYowieChest
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobYowieTorsoMale
+  id: MobYowieChestMale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobYowieTorsoFemale
+  id: MobYowieChestFemale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobYowieGroin
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobYowieGroinMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobYowieGroinFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobYowieLLeg

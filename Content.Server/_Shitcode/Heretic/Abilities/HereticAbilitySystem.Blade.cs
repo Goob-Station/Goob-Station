@@ -74,8 +74,8 @@ public sealed partial class HereticAbilitySystem
     private void OnChampionStance(Entity<HereticComponent> ent, ref HereticChampionStanceEvent args)
     {
         // remove limbloss
-        foreach (var part in _body.GetBodyChildren(ent))
-            part.Component.CanSever = false;
+        //foreach (var part in _body.GetBodyChildren(ent))
+            //part.Component.CanSever = false; - Pending rework lmao
 
         EnsureComp<ChampionStanceComponent>(ent);
     }

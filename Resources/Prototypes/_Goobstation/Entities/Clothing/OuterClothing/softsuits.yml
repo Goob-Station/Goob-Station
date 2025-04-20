@@ -21,12 +21,19 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Hand
+    - Leg
+    - Foot
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Radiation: 0.75
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Radiation: 0.65
   - type: Tag
     tags:
     - SuitEVA

@@ -58,6 +58,7 @@ using Content.Shared.Localizations;
 using Content.Shared._Shitmed.EntityEffects.Effects; // Shitmed Change
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using Content.Server.Temperature.Components; // Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
@@ -241,10 +242,16 @@ namespace Content.Server.EntityEffects.Effects
                     damageSpec * scale,
                     IgnoreResistances,
                     interruptsDoAfters: false,
-                    // Shitmed Change Start
+            // Shitmed Change Start
                     targetPart: TargetBodyPart.All,
-                    partMultiplier: 0.5f,
-                    canSever: false);
+                    partMultiplier: 0.5f);
+
+            args.EntityManager.System<WoundSystem>()
+                .TryHealWoundsOnWoundable(
+                    args.TargetEntity,
+                    damageSpec * scale,
+                    out var healed);
+
             // Shitmed Change End
 
         }

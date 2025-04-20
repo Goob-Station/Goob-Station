@@ -11,6 +11,12 @@
   name: space animal lungs
   components:
   - type: Organ
+    intCap: 28
+    integrity: 28
+    integrityThresholds:
+      Normal: 28
+      Damaged: 16
+      Destroyed: 0  
     onAdd:
     - type: BreathingImmunity
 
@@ -20,6 +26,12 @@
   name: space animal heart
   components:
   - type: Organ
+    intCap: 21
+    integrity: 21
+    integrityThresholds:
+      Normal: 21
+      Damaged: 12
+      Destroyed: 0  
     onAdd:
     - type: PressureImmunity
 

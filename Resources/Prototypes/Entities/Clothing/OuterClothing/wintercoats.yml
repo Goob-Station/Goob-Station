@@ -119,6 +119,11 @@
   - type: Item
     size: Normal
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
         Slash: 0.95
@@ -259,11 +264,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.75
+        Slash: 0.85
+        Heat: 0.8
+        Caustic: 0.65
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -279,11 +289,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.75
+        Slash: 0.85
+        Heat: 0.80
+        Caustic: 0.65
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -322,11 +337,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+        Slash: 0.85
+        Heat: 0.80
+        Caustic: 0.75
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -406,11 +426,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.9
-        Caustic: 0.9
+        Slash: 0.85
+        Heat: 0.80
+        Caustic: 0.75
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -426,11 +451,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+        Slash: 0.85
+        Heat: 0.80
+        Caustic: 0.85
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -472,11 +502,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
+        Slash: 0.85
         Heat: 0.75
-        Caustic: 0.9
+        Caustic: 0.85
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -506,11 +541,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+        Slash: 0.85
+        Heat: 0.80
+        Caustic: 0.85
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -540,11 +580,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+        Slash: 0.85
+        Heat: 0.80
+        Caustic: 0.85
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -573,11 +618,16 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
+    - Arm
+    - Tail
     modifiers:
       coefficients:
-        Slash: 0.95
-        Heat: 0.90
-        Caustic: 0.9
+        Slash: 0.85
+        Heat: 0.80
+        Caustic: 0.85
     priceMultiplier: 0.15
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:

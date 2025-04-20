@@ -9,17 +9,23 @@
 - type: body
   id: Carp
   name: carp
-  root: torso
+  root: chest
   slots:
-    torso:
-      part: TorsoAnimal
+    chest:
+      part: ChestAnimal
+      connections:
+      - groin
+      organs:
+        lungs: OrganSpaceAnimalLungs # Immunity to airloss
+        heart: OrganSpaceAnimalHeart # Immunity to pressure
+    groin:
+      part: GroinAnimal
       connections:
       - tail
       organs:
-        lungs: OrganSpaceAnimalLungs # Immunity to airloss
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganSpaceAnimalHeart # Immunity to pressure
         kidneys: OrganAnimalKidneys
     tail:
       part: TailCarp
+

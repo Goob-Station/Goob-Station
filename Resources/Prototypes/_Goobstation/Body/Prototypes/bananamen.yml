@@ -15,24 +15,29 @@
 - type: body
   id: BananaMen
   name: bananamen
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadHuman
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
-    torso:
-      part: TorsoHuman
+    chest:
+      part: ChestHuman
       connections:
+      - groin
       - right arm
       - left arm
-      - right leg
-      - left leg
       organs:
         heart: OrganBananaMenHeart
         lungs: OrganBananaMenLungs
+    groin:
+      part: GroinHuman
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganBananaMenStomach
         liver: OrganBananaMenLiver
         kidneys: OrganBananaMenKidneys

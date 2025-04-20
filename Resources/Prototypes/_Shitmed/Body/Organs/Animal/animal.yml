@@ -15,6 +15,12 @@
     state: brain
   - type: Organ
     slotId: brain
+    intCap: 28
+    integrity: 28
+    integrityThresholds:
+      Normal: 28
+      Damaged: 16
+      Destroyed: 0    
   - type: Input
     context: "ghost"
   - type: Brain
@@ -50,6 +56,10 @@
   - type: Item
     size: Small
     heldPrefix: brain
+  - type: NerveSystem # backmen: wounding
+  - type: ConsciousnessRequired
+    identifier: "nerveSystem"
+    causesDeath: true
 
 - type: entity
   id: OrganAnimalEyes
@@ -60,6 +70,12 @@
   # start-backmen: surgery
   - type: Organ
     slotId: eyes
+    intCap: 12
+    integrity: 12
+    integrityThresholds:
+      Normal: 12
+      Damaged: 6
+      Destroyed: 0    
   - type: Eyes
   # end-backmen: surgery
   - type: Sprite

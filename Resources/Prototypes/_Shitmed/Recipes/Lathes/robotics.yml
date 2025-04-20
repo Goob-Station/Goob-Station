@@ -26,14 +26,25 @@
 
 - type: latheRecipe
   parent: BaseRoboticsRecipe
-  id: TorsoIPC
-  result: TorsoIPC
+  id: ChestIPC
+  result: ChestIPC
   completetime: 3
   materials:
-    Steel: 3000
-    Gold: 500
-    Plastic: 500
-    Plasma: 500
+    Steel: 1500
+    Gold: 250
+    Plastic: 250
+    Plasma: 250
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: GroinIPC
+  result: GroinIPC
+  completetime: 3
+  materials:
+    Steel: 1500
+    Gold: 250
+    Plastic: 250
+    Plasma: 250
 
 # Generic
 
