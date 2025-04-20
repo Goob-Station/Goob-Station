@@ -157,6 +157,12 @@
             "name": "pinpointer-station"
         },
         {
+            "name": "pinpointer-universal"
+        },
+        {
+            "name": "pinpointer-science"
+        },
+        {
             "name": "inhand-left",
             "directions": 4
         },

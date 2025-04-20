@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: latheRecipe
+  id: Pinpointer
+  result: PinpointerStationGoob
+  completetime: 3
+  materials:
+    Steel: 600
+    Glass: 500
+    Plasma: 200
+    Gold: 200
+
+- type: latheRecipe
+  id: PinpointerArtifact
+  parent: Pinpointer
+  result: PinpointerArtifact
+
+- type: latheRecipe
+  id: PinpointerAnomaly
+  parent: Pinpointer
+  result: PinpointerAnomaly
+
+- type: latheRecipe
+  id: PinpointerBorg
+  parent: Pinpointer
+  result: PinpointerBorg
