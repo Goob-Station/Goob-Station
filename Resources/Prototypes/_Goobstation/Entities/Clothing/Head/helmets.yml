@@ -88,13 +88,13 @@
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
   id: ClothingHeadHatHoodCloakSith
   name: dark lord hood
-  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor.
+  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_hood.rsi
+    sprite: Clothing/Head/Hoods/voidcloak.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/void_hood.rsi
+    sprite: Clothing/Head/Hoods/voidcloak.rsi
   - type: Armor
     modifiers:
       coefficients:
