@@ -49,3 +49,11 @@
   parent: BaseGoldCircuitboardRecipe
   id: SyndicateMicrowaveMachineCircuitboard
   result: SyndicateMicrowaveMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: RoboticArmCircuitboard
+  icon:
+    sprite: _Goobstation/Structures/Machines/robotic_arm.rsi
+    state: icon
+  result: RoboticArmCircuitboard
