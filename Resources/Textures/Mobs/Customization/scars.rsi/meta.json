@@ -45,6 +45,11 @@
     },
     {
         "name": "scar_face_2",
+
+        "directions": 4
+    },
+    {
+        "name": "buff",
         "directions": 4
     }
   ]

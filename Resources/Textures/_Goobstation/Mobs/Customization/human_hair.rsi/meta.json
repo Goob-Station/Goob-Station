@@ -138,6 +138,10 @@
       {
         "name": "wispy",
         "directions": 4
+      },
+	   {
+        "name": "spikehawk",
+        "directions": 4
       }
     ]
   }
