@@ -5,6 +5,10 @@ using Robust.Shared.Serialization.Manager.Attributes;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.IoC;
 using Content.Shared.Containers;
+using Content.Shared.ChangeNameInContainer;
+using Content.Shared.Chat;
+using Content.Shared.Speech;
+using Content.Shared.Heretic;
 
 namespace Content.Goobstation.Shared.Porg
 {
@@ -34,14 +38,12 @@ namespace Content.Goobstation.Shared.Porg
             string baseName;
             if (containedUid.HasValue && _entityManager.TryGetComponent<MetaDataComponent>(containedUid.Value, out var containedMetaData))
             {
-                if (!_entityManager.HasComponent<PorgNamerComponent>(containedUid.Value)) // Check if it has the PorgNamingComponent
+                if (!_entityManager.HasComponent<PorgNamerComponent>(containedUid.Value))
                 {
-
                     _metaData.SetEntityName(containerUid, "pOrg");
                 }
                 else
                 {
-                    // Use the contained entity's name if it exists
                     baseName = containedMetaData.EntityName;
                     _metaData.SetEntityName(containerUid, $"pOrg ({baseName})");
                 }
@@ -51,7 +53,6 @@ namespace Content.Goobstation.Shared.Porg
                 _metaData.SetEntityName(containerUid, "pOrg");
             }
         }
-
     }
     [RegisterComponent]
     public sealed partial class PorgNamingComponent : Component

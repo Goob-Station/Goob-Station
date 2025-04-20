@@ -52,7 +52,6 @@
   - type: Construction
     graph: POrg
     node: porg
-  #movement
   - type: Carriable
   - type: Pullable
   - type: Puller
@@ -61,7 +60,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 7.5
-  #collision
   - type: Fixtures
     fixtures:
       fix1:
@@ -73,7 +71,6 @@
         - MobMask
         layer:
         - MobLayer
-  #attack
   - type: CombatMode
   - type: Targeting # Shitmed Change
   - type: MeleeWeapon
@@ -92,7 +89,6 @@
         Blunt: 5
     soundHit:
       collection: MetalThud
-  #defense
   - type: Damageable
     damageContainer: Silicon
     damageModifierSet: Silicon #Goobstation - Iondamage
@@ -152,7 +148,6 @@
       - Heat
       - Shock
     locPrefix: silicon
-  #actions
   - type: ActionGrant
     actions:
     - ActionViewLaws
@@ -193,7 +188,6 @@
   - type: SiliconLawBound
   - type: SiliconLawProvider
     laws: FamimovLawset
-
   - type: ComplexInteraction
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -246,7 +240,6 @@
   - type: InteractionPopup
     interactSuccessString: petting-success-generic-cyborg
     interactFailureString: petting-failure-generic-cyborg
-
   - type: StandingState
   - type: Tag
     tags:
