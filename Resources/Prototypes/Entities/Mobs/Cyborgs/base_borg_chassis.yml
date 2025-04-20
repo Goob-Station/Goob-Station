@@ -267,6 +267,9 @@
     doAfterDelay: 10
     allowSelfRepair: false
   - type: BorgChassis
+    brainBlacklist: #Goobstation
+      components:
+      - PAI
   - type: LockingWhitelist
     blacklist:
       components:

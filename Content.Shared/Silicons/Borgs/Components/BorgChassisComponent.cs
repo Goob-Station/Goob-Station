@@ -33,6 +33,13 @@ public sealed partial class BorgChassisComponent : Component
     [DataField("brainWhitelist")]
     public EntityWhitelist? BrainWhitelist;
 
+    // Goobstation
+    /// <summary>
+    /// A blacklist for which entities don't count as valid brains
+    /// </summary>
+    [DataField("brainBlacklist")]
+    public EntityWhitelist? BrainBlacklist;
+
     /// <summary>
     /// The container ID for the brain
     /// </summary>

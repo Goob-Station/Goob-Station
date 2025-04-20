@@ -161,7 +161,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
         }
 
         if (component.BrainEntity == null && brain != null &&
-            _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
+            _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used) &&
+            _whitelistSystem.IsBlacklistFailOrNull(component.BrainBlacklist, used)) // Goobstation
         {
             if (_mind.TryGetMind(used, out _, out var mind) && mind.Session != null)
             {
