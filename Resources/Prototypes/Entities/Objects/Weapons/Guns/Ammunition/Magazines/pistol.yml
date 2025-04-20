@@ -118,7 +118,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 35
+    capacity: 30
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -305,7 +305,6 @@
   parent: BaseMagazinePistolSubMachineGun
   components:
   - type: BallisticAmmoProvider
-    capacity: 30
     proto: CartridgePistol
     whitelist:
       tags:
