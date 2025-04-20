@@ -111,9 +111,6 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
-  - type: Item
-    shape:
-    - 0,0,4,2
 
 - type: entity
   name: Annie
@@ -138,7 +135,6 @@
     burstCooldown: 0.8
     shotsPerBurst: 4
     fireRate: 6.5
-    projectileSpeed: 40
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
   - type: ChamberMagazineAmmoProvider
@@ -172,9 +168,6 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Item
-    shape:
-    - 0,0,4,2
 
 - type: entity
   name: WSPR
@@ -227,6 +220,3 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Item
-    shape:
-    - 0,0,4,2
