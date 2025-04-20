@@ -166,8 +166,8 @@
       coefficients:
         Blunt: 0.65
         Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.6
+        Piercing: 0.65
+        Heat: 0.75
         Radiation: 0.55
         Caustic: 0.7
   - type: ClothingSpeedModifier
@@ -186,6 +186,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
+      noMoveTime: 3 
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3

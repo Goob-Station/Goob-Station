@@ -24,6 +24,8 @@
 # SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 cohanna <conornhanna@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -82,6 +84,9 @@
     price: 100
   - type: RadiationBlocker
     resistance: 2
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 75
+    damagePenalty: 0.1
 
 - type: entity
   id: PlasmaWindowDirectional
@@ -138,6 +143,9 @@
     price: 50
   - type: RadiationBlocker
     resistance: 1
+  - type: Penetratable # Goobstation - Better snipers
+    penetrateDamage: 50
+    damagePenalty: 0.1
 
 - type: entity
   parent: PlasmaWindow
