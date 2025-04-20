@@ -51,7 +51,7 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// <summary>
     /// How much the hunger decreases per tick.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int HungerIncrement = 1;
 
     /// <summary>
@@ -70,13 +70,13 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// The base damage of the item.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public DamageSpecifier BaseDamage;
+    public DamageSpecifier BaseDamage = new();
 
     /// <summary>
     /// How much His Grace heals you per tick.
     /// </summary>
     [DataField]
-    public DamageSpecifier Healing;
+    public DamageSpecifier Healing = new();
 
     /// <summary>
     /// A dictionary mapping states to the threshold required to get to them, and what their hunrer increment is.
@@ -99,12 +99,12 @@ public sealed partial class HisGraceComponent : Robust.Shared.GameObjects.Compon
     /// The damage dealt to an entity when it fails to feed His Grace.
     /// </summary>
     [DataField]
-    public DamageSpecifier DamageOnFail = new() { DamageDict = new Dictionary<string, FixedPoint2> { { "Slash", 300 } } };
+    public DamageSpecifier DamageOnFail = new();
 
     /// <summary>
     /// Where the entities go when it devours them, empties on user death.
     /// </summary>
-    public Robust.Shared.Containers.Container Stomach;
+    public Robust.Shared.Containers.Container Stomach = new();
 
     /// <summary>
     /// Is His Grace currently being held?
