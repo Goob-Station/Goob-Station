@@ -45,9 +45,9 @@
     state: icon-alt
   - type: ThiefUndeterminedBackpack # Someone should rename this.
     possibleSets:
-    - ModsuitSet
+    - BSOModsuitSet
     - BSOLightSet
-    - BSOHeavySet
+#    - BSOHeavySet
     maxSelectedSets: 1
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key

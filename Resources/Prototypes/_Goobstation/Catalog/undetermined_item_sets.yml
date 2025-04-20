@@ -94,7 +94,7 @@
 
 
 - type: thiefBackpackSet
-  id: ModsuitSet
+  id: BSOModsuitSet
   name: blueshield-box-category-modsuitset-name
   description: blueshield-box-category-modsuitset-description
   sprite:
