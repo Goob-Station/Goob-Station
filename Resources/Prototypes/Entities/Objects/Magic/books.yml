@@ -82,7 +82,6 @@
       ownerOnly: true # get your own tome!
       balance:
         WizCoin: 10 # prices are balanced around this 10 point maximum and how strong the spells are
-    - type: EnchantingTool
     - type: GuideHelp # Goobstation
       guides:
       - Wizard
