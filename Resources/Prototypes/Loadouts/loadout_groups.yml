@@ -127,6 +127,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
@@ -137,9 +138,11 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 starch <starchpersonal@gmail.com>
 #
@@ -589,6 +592,7 @@
   loadouts:
   - BotanistHead
   - BotanistBandana
+  - BotanistBeret # Goobstation
 
 - type: loadoutGroup
   id: BotanistJumpsuit
@@ -1462,6 +1466,8 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ChemistMJ # goob
 
 - type: loadoutGroup
@@ -1472,6 +1478,7 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ChemistBackpack
@@ -1488,6 +1495,7 @@
   minLimit: 0
   loadouts:
   - ParamedicHead
+  - SeniorPhysicianBeret # Goobstation
 
 - type: loadoutGroup
   id: ParamedicJumpsuit
@@ -1495,6 +1503,8 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - SeniorPhysicianJumpsuit # Goobstation
+  - SeniorPhysicianJumpskirt # Goobstation
   - ParamedMJ # goob
 
 - type: loadoutGroup
@@ -1504,6 +1514,7 @@
   loadouts:
   - ParamedicWindbreaker
   - ParamedicWintercoat
+  - SeniorPhysicianLabCoat # Goobstation
 
 - type: loadoutGroup
   id: ParamedicShoes

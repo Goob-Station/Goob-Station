@@ -154,3 +154,13 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
 
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSeniorBotanist
+  name: botanical beret
+  description: A green beret featuring a small blue flower given to experienced botanists.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/beret_botany.rsi
