@@ -7719,3 +7719,9 @@ Entries:
       message: Brought back disposal unit speed flush.
   id: 900
   time: '2025-04-19T02:12:44.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Ghost bar arena portal was temporarily removed.
+  id: 901
+  time: '2025-04-20T00:33:44.0000000+00:00'
