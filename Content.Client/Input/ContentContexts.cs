@@ -58,6 +58,7 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -137,6 +138,8 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.SmartEquipBackpack);
             human.AddFunction(ContentKeyFunctions.SmartEquipBelt);
             human.AddFunction(ContentKeyFunctions.SmartEquipBack); // Goobstation - Smart equip to back
+            human.AddFunction(ContentKeyFunctions.SmartEquipSlimeStorage); // Goobstation - Smart equip to slime storage
+            human.AddFunction(ContentKeyFunctions.SmartEquipStorageImplant); // Goobstation - Smart equip to storage implant
             human.AddFunction(ContentKeyFunctions.OpenBackpack);
             human.AddFunction(ContentKeyFunctions.OpenBelt);
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
