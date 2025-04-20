@@ -35,7 +35,6 @@
 # SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
 # SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
@@ -90,6 +89,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -107,8 +109,8 @@
     context: "ghost"
   - type: Spectral
   - type: MovementSpeedModifier
-    baseWalkSpeed: 6
-    baseSprintSpeed: 6
+    baseWalkSpeed: 8
+    baseSprintSpeed: 8
   - type: Sprite
     sprite: Mobs/Ghosts/revenant.rsi
     layers:
@@ -157,7 +159,7 @@
       - EmagSiliconLaw
   - type: PointLight
     color: MediumPurple
-    radius: 2
+    radius: 5
     softness: 1
   - type: UserInterface
     interfaces:
@@ -179,6 +181,10 @@
     - NamesRevenantTheme
   - type: Speech
     speechVerb: Ghost
+  - type: NightVision # Goobstation - Nightvision
+    color: MediumPurple
+    activateSound: null
+    deactivateSound: null
   - type: Reactive
     groups:
       Acidic: [Touch]
