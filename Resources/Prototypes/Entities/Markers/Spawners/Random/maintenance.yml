@@ -296,6 +296,7 @@
         - id: ClothingNeckPluralPin
         - id: ClothingNeckOmnisexualPin
         - id: ClothingNeckGenderqueerPin
+        - id: ClothingNeckGenderfluidPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
     # Rare Group
