@@ -26,6 +26,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComponent>
 {
     [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly SharedAirlockSystem _airlock = default!; // Goobstation - Greytide Virus EA instead of open-bolt
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly LockSystem _lock = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -107,8 +108,8 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
             if (!_access.AreAccessTagsAllowed(accessIds, accessEnt.Value.Comp) || _access.AreAccessTagsAllowed(virusComp.Blacklist, accessEnt.Value.Comp))
                 continue;
 
-            // open and bolt airlocks
-            _door.TryOpenAndBolt(airlockUid, doorComp, airlockComp);
+            // Goobstation - EA instead of open-bolt
+            _airlock.SetEmergencyAccess((airlockUid, airlockComp), true, null);
         }
     }
 }
