@@ -72,9 +72,9 @@
   - type: Body
     prototype: Drone
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    # - Binary # Goobstation - replaced with collective mind
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
     # - Binary # Goobstation - replaced with collective mind
@@ -246,7 +246,6 @@
     - EmagImmune
     - CanPilot
     - VimPilot
-    - DroneMind # Goobstation
   - type: CollectiveMind # Goobstation
     defaultChannel: Dronemind
     channels:

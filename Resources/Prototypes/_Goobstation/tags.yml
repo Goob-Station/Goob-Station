@@ -117,9 +117,6 @@
   id: CursedAnimalMask
 
 - type: Tag
-  id: DroneMind
-
-- type: Tag
   id: Durand
 
 - type: Tag

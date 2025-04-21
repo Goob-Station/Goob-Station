@@ -189,13 +189,13 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    # - Binary # Goobstation - replaced with collective mind
+  #- type: IntrinsicRadioTransmitter
+  #  channels:
+  #  - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    # - Binary # Goobstation - replaced with collective mind
     - Common
+    # - Binary # Goobstation - replaced with collective mind
   # Goobstation
   - type: CollectiveMind
     defaultChannel: Binary
