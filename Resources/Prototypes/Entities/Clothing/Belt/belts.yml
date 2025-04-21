@@ -430,6 +430,7 @@
         - SurgeryTool # Shitmed Change
         - Defibrillator # Goobstation
         - SyringeGun # Goobstation
+        - GunApplySolution # Goobstation - Syndicate dart gun
   - type: ItemMapper
     mapLayers:
       bottle:

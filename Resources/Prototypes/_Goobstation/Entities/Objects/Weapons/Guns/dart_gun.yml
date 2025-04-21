@@ -1,0 +1,72 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: dart gun
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: DartGun
+  description: 'The label reads: "Interdyne Pharmaceutics is not responsible for any geneva convention violations caused by improper use."'
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/dart_gun.rsi
+    state: icon
+  - type: Item
+    size: Small
+    storedRotation: -90
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: PacifismAllowedGun
+  - type: Multishot
+  - type: AmmoCounter
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/Misc/arrow_nock.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletDartGun
+    capacity: 5
+    count: 5
+  - type: SolutionContainerManager
+    solutions:
+      solution:
+        maxVol: 30
+  - type: RefillableSolution
+    solution: solution
+  - type: ExaminableSolution
+    solution: solution
+  - type: GunApplySolution
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletDartGun
+  name: chemical dart
+  description: Is this one healing or harming?
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Darts/dart_red.rsi
+    layers:
+    - state: icon
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 1
+    angle: -45
+  - type: Ammo
+    muzzleFlash: null
+  - type: Reflective
+    reflective: None
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 5
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 5
+    solution: ammo
