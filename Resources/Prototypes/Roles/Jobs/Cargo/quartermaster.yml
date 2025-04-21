@@ -167,6 +167,7 @@
     ears: ClothingHeadsetAltCargo # Goobstation
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
+    eyes: Sunglasses #Goobstation
   storage:
     back:
     - Flash

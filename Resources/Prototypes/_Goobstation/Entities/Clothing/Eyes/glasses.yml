@@ -184,3 +184,22 @@
   - type: Construction
     graph: GlassesMedDiagHUD
     node: glassesMedDiag
+
+
+- type: entity
+  parent: ClothingEyesGlassesCheapSunglasses
+  id: ClothingEyesGlassesMesonSunglasses
+  name: meson sunglasses
+  description: Perfect fit for the perfect engineer.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/mesonsunglasses.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/mesonsunglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Tag
+    tags:
+    - Sunglasses
+    - HamsterWearable
+    - WhitelistChameleon
