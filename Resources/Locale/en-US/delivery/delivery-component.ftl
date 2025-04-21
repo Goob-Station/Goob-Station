@@ -8,3 +8,11 @@ delivery-opened = You open the {$delivery}.
 
 delivery-unlock-verb = Unlock
 delivery-open-verb = Open
+
+delivery-teleporter-amount-examine =
+    { $amount ->
+        [one] It contains [color=yellow]{$amount}[/color] delivery.
+        *[other] It contains [color=yellow]{$amount}[/color] deliveries.
+    }
+delivery-teleporter-empty = The {$entity} is empty.
+delivery-teleporter-empty-verb = Take mail
