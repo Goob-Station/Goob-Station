@@ -1,14 +1,5 @@
-using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Serialization.Manager.Attributes;
-using Content.Shared.IdentityManagement;
-using Robust.Shared.IoC;
-using Content.Shared.Containers;
-using Content.Shared.ChangeNameInContainer;
-using Content.Shared.Chat;
-using Content.Shared.Speech;
-using Content.Shared.Heretic;
+using Content.Goobstation.Shared.Porg.Components;
 
 namespace Content.Goobstation.Shared.Porg
 {
@@ -38,7 +29,7 @@ namespace Content.Goobstation.Shared.Porg
             string baseName;
             if (containedUid.HasValue && _entityManager.TryGetComponent<MetaDataComponent>(containedUid.Value, out var containedMetaData))
             {
-                if (!_entityManager.HasComponent<PorgNamerComponent>(containedUid.Value))
+                if (!HasComp<PorgNamerComponent>(containedUid.Value))
                 {
                     _metaData.SetEntityName(containerUid, "pOrg");
                 }
@@ -53,13 +44,5 @@ namespace Content.Goobstation.Shared.Porg
                 _metaData.SetEntityName(containerUid, "pOrg");
             }
         }
-    }
-    [RegisterComponent]
-    public sealed partial class PorgNamingComponent : Component
-    {
-    }
-    [RegisterComponent]
-    public sealed partial class PorgNamerComponent: Component
-    {
     }
 }
