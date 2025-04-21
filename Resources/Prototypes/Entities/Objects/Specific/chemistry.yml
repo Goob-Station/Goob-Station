@@ -541,6 +541,19 @@
   - type: Injector
     injectOnly: false
     # GoobStation Start - Added embeddable properties for syringe gun
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    canHeavyAttack: false
+    angle: 0
+    damage:
+      types:
+        Piercing: 1
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+  - type: CombatDoAfter
+    trigger: !type:CombatSyringeTriggerEvent
+    breakOnDamage: true
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -741,6 +754,8 @@
       Glass: 62
       Plasma: 25
       Silver: 12
+  - type: CombatDoAfter # Goobstation
+    delay: 3 # Longer than a regular syringe
 
 - type: entity
   id: SyringeCryostasis

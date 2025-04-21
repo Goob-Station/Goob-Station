@@ -375,6 +375,7 @@ public sealed partial class DoAfterArgs
         ShowTo = other.ShowTo; // Goobstation - Show doAfter popup to another entity
 
         MultiplyDelay = other.MultiplyDelay; // Goobstation
+        ColorOverride = other.ColorOverride; // Goobstation
 
         // Networked
         NetUser = other.NetUser;

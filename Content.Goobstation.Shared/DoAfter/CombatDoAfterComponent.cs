@@ -11,11 +11,12 @@ public sealed partial class CombatDoAfterComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? DoAfterUser;
 
-    [DataField(required: true)]
+    // Only one trigger currently supported
+    [NonSerialized, DataField(required: true)]
     public BaseCombatDoAfterSuccessEvent Trigger;
 
     [DataField]
-    public float Delay = 1.5f;
+    public float Delay = 2f;
 
     [DataField]
     public float DelayVariation = 0.3f;
@@ -42,5 +43,5 @@ public sealed partial class CombatDoAfterComponent : Component
     public Color? ColorOverride = Color.Red;
 
     [DataField]
-    public bool MeleeHitTrigger;
+    public bool AlwaysTriggerOnSelf = true;
 }
