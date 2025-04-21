@@ -341,9 +341,7 @@ namespace Content.IntegrationTests.Tests
             {
                 foreach (var protoId in protoIds)
                 {
-                    // TODO fix ninja
-                    // Currently ninja fails to equip their own loadout.
-                    if (protoId == "MobHumanSpaceNinja" || protoId == "LavalandHierophantTelepad") // TODO Lavaland Change: fix telepad
+                    if (protoId == "LavalandHierophantTelepad") // TODO Lavaland Change: fix telepad
                         continue;
 
                     var count = Count(server.EntMan);
