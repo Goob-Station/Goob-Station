@@ -506,10 +506,16 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         return GetStatus(entity, id, comp) == DoAfterStatus.Running;
     }
 
-    // Goobstation
+    // Goobstation start
     public bool TryGetDoAfter(DoAfterComponent comp, ushort id, [NotNullWhen(true)] out DoAfter? doAfter)
     {
         return comp.DoAfters.TryGetValue(id, out doAfter);
     }
+
+    public DoAfterArgs GetArgs(DoAfter doAfter)
+    {
+        return doAfter.Args;
+    }
+    // Goobstation end
     #endregion
 }

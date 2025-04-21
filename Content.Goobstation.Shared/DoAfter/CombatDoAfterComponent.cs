@@ -43,5 +43,8 @@ public sealed partial class CombatDoAfterComponent : Component
     public Color? ColorOverride = Color.Red;
 
     [DataField]
+    public Color? SuccessColorOverride = Color.Lime;
+
+    [DataField]
     public bool AlwaysTriggerOnSelf = true;
 }

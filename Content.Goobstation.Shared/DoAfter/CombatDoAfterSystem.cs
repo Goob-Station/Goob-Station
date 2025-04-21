@@ -41,25 +41,16 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
 
     private void OnDropped(Entity<CombatDoAfterComponent> ent, ref DroppedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         TryCancelDoAfter(ent);
     }
 
     private void OnDeselected(Entity<CombatDoAfterComponent> ent, ref HandDeselectedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         TryCancelDoAfter(ent);
     }
 
     private void OnSelected(Entity<CombatDoAfterComponent> ent, ref HandSelectedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         if (!_combat.IsInCombatMode(args.User))
             return;
 
@@ -68,9 +59,6 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
 
     private void OnToggle(ref CombatModeToggledEvent ev)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         if (!TryComp(ev.User, out HandsComponent? hands))
             return;
 
@@ -121,27 +109,52 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
             Dirty(item.Value, combatDoAfter);
     }
 
-    private bool CheckDoAfter(Entity<CombatDoAfterComponent> item, EntityUid? user, IReadOnlyList<EntityUid>? targets)
+    private bool CheckDoAfter(Entity<CombatDoAfterComponent> item,
+        EntityUid? user,
+        IReadOnlyList<EntityUid>? targets,
+        bool setSuccessColorOverride = true)
     {
         if (item.Comp.DoAfterUser == null || user != null && item.Comp.DoAfterUser != user ||
             item.Comp.DoAfterId == null)
             return user != null && targets != null && item.Comp.AlwaysTriggerOnSelf && targets.Contains(user.Value);
 
-        if (targets != null && item.Comp.AlwaysTriggerOnSelf && targets.Contains(item.Comp.DoAfterUser.Value))
+        var success = targets != null && item.Comp.AlwaysTriggerOnSelf && targets.Contains(item.Comp.DoAfterUser.Value);
+
+        if (!setSuccessColorOverride || item.Comp.SuccessColorOverride == null && success)
             return true;
 
         if (!TryComp(item.Comp.DoAfterUser.Value, out DoAfterComponent? doAfterComp))
-            return false;
+            return success;
 
         if (!_doAfter.TryGetDoAfter(doAfterComp, item.Comp.DoAfterId.Value, out var doAfter))
-            return false;
+            return success;
+
+        if (success)
+        {
+            SetSuccessColorOverride(item.Comp.DoAfterUser.Value);
+            return true;
+        }
 
         if (doAfter.Cancelled)
             return false;
 
         var difference = _timing.CurTime - doAfter.StartTime - doAfter.Args.Delay;
 
-        return Math.Abs(difference.TotalSeconds) < item.Comp.ActivationTolerance;
+        success = Math.Abs(difference.TotalSeconds) < item.Comp.ActivationTolerance;
+
+        if (success)
+            SetSuccessColorOverride(item.Comp.DoAfterUser.Value);
+
+        return success;
+
+        void SetSuccessColorOverride(EntityUid doAfterUser)
+        {
+            if (!setSuccessColorOverride || item.Comp.SuccessColorOverride == null)
+                return;
+
+            _doAfter.GetArgs(doAfter).ColorOverride = item.Comp.SuccessColorOverride.Value;
+            Dirty(doAfterUser, doAfterComp);
+        }
     }
 
     private bool TryCancelDoAfter(Entity<CombatDoAfterComponent> ent)

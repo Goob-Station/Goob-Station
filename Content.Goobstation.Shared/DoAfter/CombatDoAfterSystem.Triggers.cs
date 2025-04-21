@@ -50,7 +50,7 @@ public sealed partial class CombatDoAfterSystem
 
     private void OnHit(Entity<CombatDoAfterComponent> ent, ref MeleeHitEvent args)
     {
-        if (!args.IsHit || !_timing.IsFirstTimePredicted)
+        if (!args.IsHit)
             return;
 
         if (ent.Comp.Trigger is not CombatDoAfterMeleeHitEvent hitEvent)
