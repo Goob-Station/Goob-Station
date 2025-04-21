@@ -139,7 +139,6 @@
         - CanPilot
         - FootstepSound
         - DoorBumpOpener
-        - AbductorMind
       mindRoles:
       - MindRoleLoneAbductor
 

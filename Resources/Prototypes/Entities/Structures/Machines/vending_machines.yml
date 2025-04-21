@@ -247,11 +247,16 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: DoAfter
   - type: Electrified
     enabled: false

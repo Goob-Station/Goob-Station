@@ -308,10 +308,12 @@
   name: binary translator key
   description: An encryption key that translates binary signals used by silicons.
   components:
-  - type: EncryptionKey
-    channels:
-    - Binary
-    defaultChannel: Binary
+  # Goobstation - replaced with collective mind
+  # wyci
+  #- type: EncryptionKey
+  #  channels:
+  #  - Binary
+  #  defaultChannel: Binary
   - type: Sprite
     layers:
     - state: crypt_silver
@@ -323,10 +325,12 @@
   name: binary translator key
   description: A syndicate encryption key that translates binary signals used by silicons.
   components:
-  - type: EncryptionKey
-    channels:
-    - Binary
-    defaultChannel: Binary
+  # Goobstation - replaced with collective mind
+  # wyci
+  #- type: EncryptionKey
+  #  channels:
+  #  - Binary
+  #  defaultChannel: Binary
   - type: Sprite
     layers:
     - state: crypt_red

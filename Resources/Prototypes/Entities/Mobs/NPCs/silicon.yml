@@ -191,11 +191,16 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: HealthExaminable
     examinableTypes:
     - Blunt
@@ -645,7 +650,7 @@
     - Bot
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon

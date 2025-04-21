@@ -74,11 +74,16 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: DoAfter
   - type: Pullable
   - type: Examiner
@@ -87,7 +92,6 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
-  - type: CollectiveMind # Goobstation
 
 - type: entity
   name: drone
@@ -245,6 +249,8 @@
     - DroneMind # Goobstation
   - type: CollectiveMind # Goobstation
     defaultChannel: Dronemind
+    channels:
+    - Dronemind
   - type: Access
     tags:
     - Engineering

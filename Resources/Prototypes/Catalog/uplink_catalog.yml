@@ -873,22 +873,23 @@
       tags:
       - ContravendUplink
 
-
-- type: listing
-  id: UplinkBinaryTranslatorKey
-  name: uplink-binary-translator-key-name
-  description: uplink-binary-translator-key-desc
-  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
-  productEntity: EncryptionKeyBinarySyndicate
-  cost:
-    Telecrystal: 5 # goob
-  categories:
-  - UplinkDeception
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContravendUplink
+# Goobstation - replaced with collective mind
+# WYCI
+#- type: listing
+#  id: UplinkBinaryTranslatorKey
+#  name: uplink-binary-translator-key-name
+#  description: uplink-binary-translator-key-desc
+#  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: ai_label }
+#  productEntity: EncryptionKeyBinarySyndicate
+#  cost:
+#    Telecrystal: 5 # goob
+#  categories:
+#  - UplinkDeception
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - ContravendUplink
 
 - type: listing
   id: UplinkCyberpen

@@ -74,11 +74,10 @@
     - MindRoleGhostRoleFamiliar
     raffle:
       settings: short
-  - type: Tag
-    tags:
-    - MansusLinkMind
   - type: CollectiveMind
     defaultChannel: MansusLink
+    channels:
+    - MansusLink
 
 - type: entity
   parent: BaseMobGhoul
@@ -209,11 +208,10 @@
     rules: ghostrole-ghoul-rules
     raffle:
       settings: short
-  - type: Tag
-    tags:
-    - MansusLinkMind
   - type: CollectiveMind
     defaultChannel: MansusLink
+    channels:
+    - MansusLink
   - type: FactionException
   - type: NpcFactionMember
     factions:

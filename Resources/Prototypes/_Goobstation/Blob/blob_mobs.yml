@@ -42,9 +42,10 @@
       tags:
         - HidesHair
         - BlobMob
-        - BlobMind
     - type: CollectiveMind
       defaultChannel: Blobmind
+      channels:
+      - Blobmind
     - type: IngestionBlocker
     - type: IdentityBlocker
     - type: BlobPod
@@ -132,9 +133,10 @@
       tags:
         - Blobbernaut
         - BlobMob
-        - BlobMind
     - type: CollectiveMind
       defaultChannel: Blobmind
+      channels:
+      - Blobmind
     - type: GhostRole
       name: ghost-role-information-blobbernaut-name
       description: ghost-role-information-blobbernaut-description
@@ -280,6 +282,7 @@
     - type: Tag
       tags:
       - BypassInteractionRangeChecks
-      - BlobMind
     - type: CollectiveMind
       defaultChannel: Blobmind
+      channels:
+      - Blobmind

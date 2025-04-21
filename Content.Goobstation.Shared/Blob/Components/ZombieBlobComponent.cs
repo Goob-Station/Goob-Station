@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -37,5 +38,5 @@ public sealed partial class ZombieBlobComponent : Component
     public bool CanShoot = false;
 
     [DataField]
-    public ProtoId<TagPrototype> TagAdded = "BlobMind";
+    public ProtoId<CollectiveMindPrototype> CollectiveMindAdded = "Blobmind";
 }

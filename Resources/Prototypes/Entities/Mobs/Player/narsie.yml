@@ -129,7 +129,7 @@
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
     - Command
     - CentCom
@@ -141,6 +141,11 @@
     - Supply
     - Syndicate
     globalReceive: true
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: Physics
     bodyType: Dynamic
     bodyStatus: InAir

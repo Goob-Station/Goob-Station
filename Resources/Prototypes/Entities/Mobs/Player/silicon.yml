@@ -107,7 +107,7 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
     - Command
     - Engineering
@@ -118,7 +118,7 @@
     - Supply
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
     - Command
     - Engineering
@@ -127,6 +127,11 @@
     - Security
     - Service
     - Supply
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: IgnoreUIRange
   - type: StationAiHeld
   - type: StationAiOverlay
@@ -184,11 +189,16 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
     - Common
+  # Goobstation
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: ActionGrant
     actions:
     - ActionAIViewLaws

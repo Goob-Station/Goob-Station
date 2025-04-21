@@ -19,6 +19,9 @@ namespace Content.Shared._Starlight.CollectiveMind
         public ProtoId<CollectiveMindPrototype>? DefaultChannel = null;
 
         [DataField]
+        public HashSet<ProtoId<CollectiveMindPrototype>> Channels = new();
+
+        [DataField]
         public bool HearAll = false;
 
         [DataField]

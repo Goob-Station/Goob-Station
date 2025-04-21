@@ -30,6 +30,7 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
@@ -236,7 +237,8 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     {
         if (args.NewMobState == MobState.Dead)
         {
-            _tagSystem.RemoveTag(uid, component.TagAdded);
+            if (TryComp<CollectiveMindComponent>(uid, out var comp))
+                comp.Channels.Remove(component.CollectiveMindAdded);
             RemComp<ZombieBlobComponent>(uid);
         }
     }

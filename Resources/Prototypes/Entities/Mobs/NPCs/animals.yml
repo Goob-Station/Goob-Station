@@ -2055,7 +2055,6 @@
     - ChefPilot
     - Mouse
     - Meat
-    - MouseMind # Goobstation
   - type: Respirator
     damage:
       types:
@@ -2139,6 +2138,10 @@
     attackMemoryLength: 5 # stop caring fast if you don't keep hitting
   - type: GroupRetaliation
     range: 5 # slightly lower for mice
+  - type: CollectiveMind
+    defaultChannel: Mousemind
+    channels:
+    - Mousemind
   # </Goobstation>
 
 - type: entity

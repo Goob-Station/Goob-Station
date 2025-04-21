@@ -70,7 +70,7 @@
   - type: BorgSwitchableType
     inherentRadioChannels:
     - Common
-    - Binary
+    # - Binary # Goobstation - replaced with collective mind
 
 - type: entity
   id: BorgChassisGeneric

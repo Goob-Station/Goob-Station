@@ -57,6 +57,7 @@ using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Tag;
 
 namespace Content.Server.Heretic.Abilities;
@@ -282,7 +283,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
-    public ProtoId<TagPrototype> MansusLinkTag = "MansusLinkMind";
+    public ProtoId<CollectiveMindPrototype> MansusLinkMind = "MansusLink";
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
@@ -294,7 +295,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             return;
         }
 
-        if (_tag.HasTag(args.Target, MansusLinkTag))
+        if (TryComp<CollectiveMindComponent>(args.Target, out var mind) && mind.Channels.Contains(MansusLinkMind))
         {
             _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -316,7 +317,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (args.Cancelled)
             return;
 
-        _tag.AddTag(ent, MansusLinkTag);
+        EnsureComp<CollectiveMindComponent>(args.Target).Channels.Add(MansusLinkMind);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
