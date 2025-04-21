@@ -9,7 +9,7 @@
       components:
       - Clothing
       - Armor
-    maxLevel: 1
+    maxLevel: 2
 
 - type: entity
   parent: BaseProtEnchant

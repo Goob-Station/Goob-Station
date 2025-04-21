@@ -133,6 +133,11 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
+  - type: Enchanter # Goobstation
+    minLevel: 2
+    maxLevel: 2
+    enchants:
+    - EnchantProtection
 
 - type: entity
   parent: BaseAnomalyCore
@@ -321,6 +326,10 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 - type: entity
   parent: BaseAnomalyInertCore
