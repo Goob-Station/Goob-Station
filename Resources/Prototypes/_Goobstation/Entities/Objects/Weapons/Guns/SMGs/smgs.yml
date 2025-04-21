@@ -26,8 +26,8 @@
     projectileSpeed: 20 # half regular bullet speed
     minAngle: 23
     maxAngle: 66
-    angleDecay: -8
-    angleIncrease: -1.2
+    angleDecay: -8 # Intentionally negative, loses accuracy while not shooting
+    angleIncrease: -1.15 # Intentionally negative, gains accuracy while shooting
     availableModes:
     - FullAuto
     soundGunshot:
