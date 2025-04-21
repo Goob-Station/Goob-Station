@@ -3,19 +3,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.NTR.Scan;
+using Content.Goobstation.Shared.NTR.Scan;
+using Content.Server.Chat.Systems;
+using Content.Server.Store.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Store;
+using Content.Shared.FixedPoint;
+using Content.Shared.Interaction;
+using Content.Shared.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Store.Components;
-using Content.Shared.Interaction;
-using Content.Server.Store.Systems;
-using Content.Shared.FixedPoint;
-using Content.Shared.Mind;
-using Content.Goobstation.Shared.NTR.Scan;
-using Content.Goobstation.Common.NTR.Scan;
-using Content.Server.Chat.Systems;
-using Content.Server.Chat.Managers;
-using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.NTR.Scan
 {
@@ -51,8 +48,13 @@ namespace Content.Goobstation.Server.NTR.Scan
             if (!TryComp<ScannableForPointsComponent>(target, out var scannable) || scannable.AlreadyScanned)
                 return;
 
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.ScanDuration,
-                new BriefcaseScannerDoAfterEvent(), uid, target: target, used: uid)
+            var doAfterArgs = new DoAfterArgs(EntityManager,
+                args.User,
+                component.ScanDuration,
+                new BriefcaseScannerDoAfterEvent(),
+                uid,
+                target: target,
+                used: uid)
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,
@@ -84,7 +86,9 @@ namespace Content.Goobstation.Server.NTR.Scan
                     _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2>
                     {
                         { "NTLoyaltyPoint", FixedPoint2.New(points) }
-                    }, uid, store);
+                    },
+                    uid,
+                    store);
                     _chatManager.TrySendInGameICMessage(uid, Loc.GetString("ntr-scan-success", ("amount", points)), InGameICChatType.Speak, true);
 
                     QueueDel(target);

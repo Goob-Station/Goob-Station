@@ -36,7 +36,7 @@ public sealed partial class TaskEntry : BoxContainer
 
         UntilNextSkip = untilNextSkip;
 
-        if (!_prototype.TryIndex<NtrTaskPrototype>(task.Task, out var taskPrototype))
+        if (!_prototype.TryIndex(task.Task, out var taskPrototype))
             return;
 
         var items = new List<string>();

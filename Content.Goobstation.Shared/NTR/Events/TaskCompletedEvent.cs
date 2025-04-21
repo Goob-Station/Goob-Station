@@ -6,11 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 namespace Content.Goobstation.Shared.NTR.Events;
-public sealed class TaskCompletedEvent : EntityEventArgs
+public sealed class TaskCompletedEvent(NtrTaskPrototype task) : EntityEventArgs
 {
-    public NtrTaskPrototype Task;
-    public TaskCompletedEvent(NtrTaskPrototype task)
-    {
-        Task = task;
-    }
+    public NtrTaskPrototype Task = task;
 }

@@ -4,16 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Paper;
-using Content.Shared.Paper;    //ammount of times this whole system was re-done: 3
-using Content.Shared.StoryGen; //ammount of hours wasted trying to understand papersystem: 29
-using Robust.Shared.Random;    //skill issue.
-using System.Linq;
-using Content.Goobstation.Shared.NTR;
-using Content.Goobstation.Shared.NTR.Documents;
-using Robust.Shared.GameStates;
-using Content.Shared.Popups;
-using Robust.Shared.Prototypes;
+using Content.Goobstation.Shared.NTR.Documents; //amount of times this whole system was re-done: 3
+using Content.Shared.Paper;                     //amount of hours wasted trying to understand papersystem: 29
+using Robust.Shared.Random;                     //skill issue.
+
 // todo: clean these usings
 namespace Content.Goobstation.Server.NTR.Documents
 {
@@ -65,73 +59,73 @@ namespace Content.Goobstation.Server.NTR.Documents
         }
         private (string, object)[] GetServiceArgs(string date)
         {
-            return new (string, object)[]
-            {
+            return
+            [
                 ("start", _loc.GetString("service-starting-text", ("date", date))),
                 ("text1", _loc.GetString($"funny-service1-{_random.Next(1, 16)}")),
                 ("text2", _loc.GetString($"funny-service2-{_random.Next(1, 16)}")),
                 ("text3", _loc.GetString($"funny-service3-{_random.Next(1, 16)}")),
-                ("text4", _loc.GetString($"funny-service4-{_random.Next(1, 16)}"))
-            };
+                ("text4", _loc.GetString($"funny-service4-{_random.Next(1, 16)}")),
+            ];
             //return args.ToArray();
         }
 
         private (string, object)[] GetSecurityArgs(string date)
         {
-            return new (string, object)[]
-            {
+            return
+            [
                 ("start", _loc.GetString("security-starting-text", ("date", date))),
                 ("text1", _loc.GetString($"funny-sec1-{_random.Next(1, 16)}")),
                 ("text2", _loc.GetString($"funny-sec2-{_random.Next(1, 5)}")),
                 ("text3", _loc.GetString($"funny-sec3-{_random.Next(1, 3)}")),
-                ("text4", _loc.GetString($"funny-sec4-{_random.Next(1, 9)}"))
-            };
+                ("text4", _loc.GetString($"funny-sec4-{_random.Next(1, 9)}")),
+            ];
         }
 
         private (string, object)[] GetCargoArgs(string date)
         {
-            return new (string, object)[]
-            {
+            return
+            [
                 ("start", _loc.GetString("cargo-starting-text", ("date", date))),
                 ("text1", _loc.GetString($"funny-cargo1-{_random.Next(1, 6)}")),
                 ("text2", _loc.GetString($"funny-cargo2-{_random.Next(1, 9)}")),
-                ("text3", _loc.GetString($"funny-cargo3-{_random.Next(1, 10)}"))
-            };
+                ("text3", _loc.GetString($"funny-cargo3-{_random.Next(1, 10)}")),
+            ];
         }
 
         private (string, object)[] GetMedicalArgs(string date)
         {
-            return new (string, object)[]
-            {
+            return
+            [
                 ("start", _loc.GetString("medical-starting-text", ("date", date))),
                 ("text1", _loc.GetString($"funny-med1-{_random.Next(1, 3)}")),
                 ("text2", _loc.GetString($"funny-med2-{_random.Next(1, 9)}")),
                 ("text3", _loc.GetString($"funny-med3-{_random.Next(1, 7)}")),
                 ("text4", _loc.GetString($"funny-med4-{_random.Next(1, 11)}")),
-            };
+            ];
         }
 
         private (string, object)[] GetEngineeringArgs(string date)
         {
-            return new (string, object)[]
-            {
+            return
+            [
                 ("start", _loc.GetString("engineering-starting-text", ("date", date))),
                 ("text1", _loc.GetString($"funny-engi1-{_random.Next(1, 6)}")),
                 ("text2", _loc.GetString($"funny-engi2-{_random.Next(1, 11)}")),
                 ("text3", _loc.GetString($"funny-engi3-{_random.Next(1, 10)}")),
                 ("text4", _loc.GetString($"funny-engi4-{_random.Next(1, 11)}")),
-            };
+            ];
         }
         private (string, object)[] GetScienceArgs(string date)
         {
-            return new (string, object)[]
-            {
+            return
+            [
                 ("start", _loc.GetString("science-starting-text", ("date", date))),
                 ("text1", _loc.GetString($"funny-sci1-{_random.Next(1, 8)}")),
                 ("text2", _loc.GetString($"funny-sci2-{_random.Next(1, 10)}")),
                 ("text3", _loc.GetString($"funny-sci3-{_random.Next(1, 16)}")),
                 ("text4", _loc.GetString($"funny-sci4-{_random.Next(1, 8)}")),
-            };
+            ];
         }
     }
 }

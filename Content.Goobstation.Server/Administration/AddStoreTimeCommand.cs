@@ -7,7 +7,6 @@ using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Content.Shared.Store.Components;
-using Robust.Shared.Player;
 using System.Linq;
 // i made this command cuz i was tired of waiting, so its for debug purposes
 namespace Content.Goobstation.Server.Administration
@@ -33,7 +32,7 @@ namespace Content.Goobstation.Server.Administration
             if (!_adminManager.HasAdminFlag(player, AdminFlags.Admin))
             {
                 shell.WriteLine("You don't have permission to run this command!");
-                return; // who do you think i am to let players abuse this command, john station?
+                return; // who do you think i am to let players abuse this command, john station mr. 65%?
             }
             if (args.Length != 3)
             {
