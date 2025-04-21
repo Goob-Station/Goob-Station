@@ -17,32 +17,21 @@ namespace Content.Goobstation.Shared.Porg
 
         private void OnItemInserted(EntityUid uid, PorgNamingComponent component, EntInsertedIntoContainerMessage args)
         {
-            UpdateContainerName(args.Container.Owner, args.Entity);
+            string? entityName = null;
+            if (HasComp<PorgNamerComponent>(args.Entity))
+            {
+                entityName = $"({Name(args.Entity)})";
+            }
+            UpdateContainerName(args.Container.Owner, entityName);
         }
-
         private void OnItemRemoved(EntityUid uid, PorgNamingComponent naming, ref EntRemovedFromContainerMessage args)
         {
-            UpdateContainerName(args.Container.Owner, null);
+            string? entityName = null;
+            UpdateContainerName(args.Container.Owner, entityName);
         }
-        private void UpdateContainerName(EntityUid containerUid, EntityUid? containedUid)
+        private void UpdateContainerName(EntityUid containerUid, string? entityName)
         {
-            string baseName;
-            if (containedUid.HasValue && _entityManager.TryGetComponent<MetaDataComponent>(containedUid.Value, out var containedMetaData))
-            {
-                if (!HasComp<PorgNamerComponent>(containedUid.Value))
-                {
-                    _metaData.SetEntityName(containerUid, "pOrg");
-                }
-                else
-                {
-                    baseName = containedMetaData.EntityName;
-                    _metaData.SetEntityName(containerUid, $"pOrg ({baseName})");
-                }
-            }
-            else
-            {
-                _metaData.SetEntityName(containerUid, "pOrg");
-            }
+            _metaData.SetEntityName(containerUid, $"pOrg {entityName}");
         }
     }
 }
