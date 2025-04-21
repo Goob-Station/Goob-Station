@@ -68,6 +68,10 @@
   - type: IgnitionSource
     temperature: 400
     ignited: true
+  - type: Enchanter # Goobstation
+    minLevel: 2
+    enchants:
+    - EnchantFireAspect
 
 - type: entity
   parent: BaseAnomalyCore
@@ -81,6 +85,9 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
+  - type: Enchanter # Goobstation
+    enchants:
+    - EnchantKnockback
 
 - type: entity
   parent: BaseAnomalyCore
@@ -94,6 +101,11 @@
     energy: 1.5
     color: "#befaff"
     castShadows: false
+  - type: Enchanter # Goobstation
+    minLevel: 2 # Guaranteed Fire Prot II
+    maxLevel: 3 # Small chance of Fire Prot III
+    enchants:
+    - EnchantProtFire
 
 - type: entity
   parent: BaseAnomalyCore
@@ -245,6 +257,10 @@
     energy: 1.5
     color: "#fca3c0"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantFireAspect
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -258,6 +274,9 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
+  - type: Enchanter # Goobstation
+    enchants:
+    - EnchantKnockback
 
 - type: entity
   parent: BaseAnomalyInertCore
@@ -271,6 +290,10 @@
     energy: 1.5
     color: "#befaff"
     castShadows: false
+  - type: Enchanter # Goobstation
+    maxLevel: 2
+    enchants:
+    - EnchantProtFire
 
 - type: entity
   parent: BaseAnomalyInertCore
