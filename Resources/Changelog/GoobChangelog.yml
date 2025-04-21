@@ -7731,3 +7731,11 @@ Entries:
       message: Fixed syringes being breakable.
   id: 902
   time: '2025-04-20T06:21:21.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Buff and tattoo to markings...and a hair style
+    - type: Tweak
+      message: You can have 3 chest markings
+  id: 903
+  time: '2025-04-20T18:32:56.0000000+00:00'
