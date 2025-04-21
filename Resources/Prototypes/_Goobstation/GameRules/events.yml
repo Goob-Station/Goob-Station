@@ -42,3 +42,18 @@
       min: 1
       max: 1
       pickPlayer: false
+
+- type: entity
+  id: SplitPersonalityDevelop
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 7
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    duration: null
+  - type: AddComponentRandomRule
+    amount: 1
+    components:
+      - type: SplitPersonality
+

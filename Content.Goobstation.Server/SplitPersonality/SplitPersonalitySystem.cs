@@ -5,10 +5,12 @@ using Content.Shared.Players;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 // todo
 // speaking only to host
-// randomized swapping
 // split personality gamerule
 namespace Content.Goobstation.Server.SplitPersonality;
 public sealed partial class SplitPersonalitySystem : EntitySystem
@@ -16,62 +18,156 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<SplitPersonalityComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<SplitPersonalityComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<SplitPersonalityDummyComponent, TakeGhostRoleEvent>(OnGhostRoleTaken);
+        SubscribeLocalEvent<SplitPersonalityDummyComponent, PlayerDetachedEvent>(OnPlayerDetached);
     }
 
     private void OnInit(EntityUid uid, SplitPersonalityComponent comp, MapInitEvent args)
     {
+        comp.NextSwapAttempt = _timing.CurTime + comp.SwapAttemptDelay;
         comp.MindsContainer = _container.EnsureContainer<Container>(uid, "SplitPersonalityContainer");
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+
+        if (!_mind.TryGetMind(uid, out var hostMindId, out var hostMind))
             return;
 
-        comp.MindRoles.AddRange(mind.MindRoles);
+        comp.OriginalMind = hostMindId;
+        comp.MindRoles.AddRange(hostMind.MindRoles);
+        comp.Objectives.AddRange(hostMind.Objectives);
+
+        comp.AdditionalMindsCount = Math.Max(1, comp.AdditionalMindsCount);
 
         for (var i = 0; i < comp.AdditionalMindsCount; i++)
-        {
-            // Spawn a dummy entity for each ghost role
-            var dummy = Spawn("SplitPersonalityDummy", MapCoordinates.Nullspace);
-            _container.Insert(dummy, comp.MindsContainer);
-            comp.GhostRoleDummies.Add(dummy);
-
-            // Setup ghost role component
-            var ghostRole = EnsureComp<GhostRoleComponent>(dummy);
-            ghostRole.RoleName = $"Split Personality of {MetaData(uid).EntityName}";
-            ghostRole.RoleDescription = "A fragmented piece of the host's psyche.";
-
-            _meta.SetEntityName(dummy, $"Split Personality of {MetaData(uid).EntityName}");
-
-            mind.MindRoles.AddRange(comp.MindRoles);
-
-            // Track the host entity on the dummy
-            EnsureComp<SplitPersonalityDummyComponent>(dummy).Host = uid;
-        }
+            SpawnDummy(uid, comp);
     }
-
     private void OnGhostRoleTaken(EntityUid dummy, SplitPersonalityDummyComponent comp, TakeGhostRoleEvent args)
     {
         // Transfer the mind to visit the host entity
-        if (args.Player.GetMind() is not { } mind)
+        if (args.Player.GetMind() is not { } mind|| !TryComp<SplitPersonalityComponent>(comp.Host, out var hostComp))
             return;
 
         _mind.TransferTo(mind, dummy);
+        if (!_mind.TryGetMind(args.Player, out var dummyMind, out var mindComponent))
+            return;
+
+        mindComponent.MindRoles.AddRange(hostComp.MindRoles);
+
+        foreach (var objective in hostComp.Objectives)
+            _mind.AddObjective(dummyMind, mindComponent, objective);
     }
 
     private void OnRemove(EntityUid uid, SplitPersonalityComponent comp, ComponentRemove args)
     {
-        if (comp.OriginalMind is not { } originalMind)
-            return;
-
-        _mind.TransferTo(originalMind, uid);
+        if (comp.OriginalMind is { } originalMind)
+            _mind.TransferTo(originalMind, uid);
 
         foreach (var dummy in comp.GhostRoleDummies.Where(dummy => !TerminatingOrDeleted(dummy)))
             QueueDel(dummy);
 
         comp.GhostRoleDummies.Clear();
+    }
+
+    private void OnPlayerDetached(EntityUid uid, SplitPersonalityDummyComponent comp, ref PlayerDetachedEvent args)
+    {
+        if (!TryComp<SplitPersonalityComponent>(comp.Host, out var hostComp))
+            return;
+
+        hostComp.GhostRoleDummies.Remove(uid);
+        QueueDel(uid);
+    }
+
+    private bool TryAlternateMind(SplitPersonalityComponent comp)
+    {
+        if (!_random.Prob(comp.SwapProbability))
+            return false;
+
+        var eligibleDummies = // linq monstrosity
+            comp.GhostRoleDummies.Where
+            (dummy => !TerminatingOrDeleted(dummy)
+            && dummy is { } dummyResolved
+            && _mind.TryGetMind(dummyResolved, out _, out _))
+            .ToList();
+
+        if (eligibleDummies.Count == 0)
+            return false;
+
+        var selectedDummy = _random.Pick(eligibleDummies);
+
+        if (!TryComp<SplitPersonalityDummyComponent>(selectedDummy, out var selectedDummyComponent)
+            || selectedDummyComponent.Host is not { } dummyHostResolved
+            || selectedDummy is not { } selectedDummyResolved)
+            return false;
+
+        return TrySwapMinds(dummyHostResolved, selectedDummyResolved);
+    }
+
+    #region helper Methods
+
+    private bool TrySwapMinds(EntityUid host, EntityUid dummy)
+    {
+        if (!_mind.TryGetMind(host, out var hostMindId, out var hostMind)
+            || !_mind.TryGetMind(dummy, out var dummyMindId, out var dummyMind))
+            return false;
+
+        _mind.TransferTo(hostMindId, dummy);
+        _mind.TransferTo(dummyMindId, host);
+        return true;
+    }
+
+    private bool TryReturnMind(SplitPersonalityComponent comp)
+    {
+        if (comp.OriginalMind is not { } originalMind)
+            return false;
+
+        foreach (var dummy in comp.GhostRoleDummies)
+        {
+            if (dummy is not { } dummyResolved
+                || !_mind.TryGetMind(dummyResolved, out var dummyMindId, out _)
+                || dummyMindId != originalMind)
+                continue;
+
+            if (TryComp<SplitPersonalityDummyComponent>(dummy, out var dummyComp)
+                && dummyComp.Host is { } hostResolved)
+                return TrySwapMinds(hostResolved, dummyResolved);
+        }
+        return false;
+    }
+
+    private void SpawnDummy(EntityUid hostUid, SplitPersonalityComponent comp)
+    {
+        var dummy = Spawn("SplitPersonalityDummy", MapCoordinates.Nullspace);
+        _container.Insert(dummy, comp.MindsContainer);
+        comp.GhostRoleDummies.Add(dummy);
+
+        var ghostRole = EnsureComp<GhostRoleComponent>(dummy);
+        ghostRole.RoleName = $"Split Personality of {Name(hostUid)}";
+        ghostRole.RoleDescription = "A fragmented piece of the host's psyche.";
+
+        _meta.SetEntityName(dummy, $"Split Personality of {Name(hostUid)}");
+        EnsureComp<SplitPersonalityDummyComponent>(dummy).Host = hostUid;
+    }
+
+    #endregion
+    public override void Update(float frametime)
+    {
+        base.Update(frametime);
+
+        var query = EntityQueryEnumerator<SplitPersonalityComponent>();
+        while (query.MoveNext(out var comp))
+        {
+            if (_timing.CurTime < comp.NextSwapAttempt)
+                continue;
+
+            TryReturnMind(comp);
+            TryAlternateMind(comp);
+
+            comp.NextSwapAttempt = _timing.CurTime + comp.SwapAttemptDelay;
+        }
     }
 }

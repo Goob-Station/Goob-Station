@@ -1,7 +1,8 @@
+# despite being mob, this thing is just a ball that can't move and can never be seen. its basically an object.
 - type: entity
   id: SplitPersonalityDummy
   name: Split Personality
-  parent: BaseItem
+  parent: BaseMob
   description: A fragment of someone's psyche.
   components:
   - type: GhostRole
