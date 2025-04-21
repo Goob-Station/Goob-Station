@@ -478,6 +478,10 @@
     knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance # Goobstation
     coefficient: 0.6
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 - type: entity # This is from upstream, so it goes in wizden code.
   parent: [ClothingOuterArmorCaptainCarapace, BaseCentcommContraband]

@@ -11,5 +11,5 @@
     maxLevel: 2
   - type: KnockbackEnchant
   - type: MeleeThrowOnHit
-    distance: 5
-    speed: 1.5
+    distance: 1
+    speed: 1

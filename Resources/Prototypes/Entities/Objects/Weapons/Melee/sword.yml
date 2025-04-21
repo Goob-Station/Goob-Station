@@ -192,6 +192,10 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
   - type: PirateAccent
     # not putting a BlockMovement component here cause that's funny.
+  - type: Enchanter
+    maxLevel: 5
+    enchants:
+    - EnchantSharpness
 
 
 - type: entity

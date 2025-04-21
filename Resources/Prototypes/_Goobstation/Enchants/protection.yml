@@ -5,9 +5,11 @@
   components:
   - type: Enchant
     whitelist:
+      requireAll: true
       components:
       - Clothing
-    maxLevel: 4
+      - Armor
+    maxLevel: 1
 
 - type: entity
   parent: BaseProtEnchant
@@ -19,7 +21,7 @@
     - EnchantProtBlast
     - EnchantProtFire
   - type: DamageModifyEnchant
-    factor: 0.9 # 35% reduction per piece at IV
+    factor: 0.9
     protectWearer: true
 
 - type: entity

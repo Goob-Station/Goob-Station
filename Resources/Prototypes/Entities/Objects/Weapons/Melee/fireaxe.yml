@@ -108,7 +108,6 @@
     maxLevel: 5.25 # Small chance of getting Sharpness V first try
     enchants:
     - EnchantFireAspect
-    - EnchantSharpness
 
 - type: entity
   id: FireAxeFlaming

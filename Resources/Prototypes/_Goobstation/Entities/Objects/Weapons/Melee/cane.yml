@@ -32,6 +32,10 @@
       - CaneBlade
   - type: DisarmMalus
   - type: Execution
+  - type: Enchanter
+    maxLevel: 5
+    enchants:
+    - EnchantSharpness
 
 - type: entity
   id: CaneSheathFilledNanotrasen

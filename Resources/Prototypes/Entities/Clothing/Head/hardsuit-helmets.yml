@@ -348,6 +348,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Brigmedic Hardsuit
 - type: entity
@@ -376,6 +380,10 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Warden's Hardsuit
 - type: entity
@@ -402,6 +410,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Captain's Hardsuit
 - type: entity
@@ -419,6 +431,10 @@
     lowPressureMultiplier: 1000
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -498,6 +514,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -544,6 +564,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Blood-red Medic Hardsuit
 - type: entity
@@ -570,6 +594,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -601,6 +629,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -627,6 +659,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -651,6 +687,10 @@
         Heat: 0.9
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: Enchanter # Goobstation
+    maxLevel: 1
+    enchants:
+    - EnchantProtection
 
 #Wizard Hardsuit
 - type: entity

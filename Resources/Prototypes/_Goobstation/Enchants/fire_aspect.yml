@@ -11,4 +11,4 @@
       - MeleeWeapon
   - type: FireAspectEnchant
   - type: IgniteOnMeleeHit
-    fireStacks: 1
+    fireStacks: 0
