@@ -1,0 +1,7 @@
+- type: entity
+  id: SplitPersonalityDummy
+  name: Split Personality
+  parent: BaseItem
+  description: A fragment of someone's psyche.
+  components:
+  - type: GhostRole
