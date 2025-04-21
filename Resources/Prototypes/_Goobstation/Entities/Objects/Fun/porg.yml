@@ -187,8 +187,8 @@
     hasMindState: porg_e
     noMindState: porg_e_r
     brainWhitelist:
-    components:
-    - PAI
+      components:
+      - PAI
   - type: SiliconLawBound
   - type: SiliconLawProvider
     laws: FamimovLawset
@@ -257,7 +257,6 @@
     - Cyborgs
     - Robotics
   - type: HandheldLight
-    builtin: true
     toggleOnInteract: false
     wattage: 0.2
     blinkingBehaviourId: blinking
