@@ -19,7 +19,7 @@
     message: station-event-tidemind-message
     affected:
       - Passenger
-    channel: TidemindMind
+    channel: Tidemind
 
 - type: entity
   parent: BaseGameRule
