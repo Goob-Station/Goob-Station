@@ -187,7 +187,11 @@
   - type: Tool
     useSound:
       collection: Welder
-    qualities: Welding
+    qualities:
+    - Welding
+    - Axing # Goobstation
+  - type: ToolTileCompatible # Goobstation
+    delay: 2
   - type: Welder
   - type: PointLight
     enabled: false
