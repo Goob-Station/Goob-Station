@@ -383,7 +383,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
                 {
                     string? pAIName = null;
                     if (paiComponent.LastUser != null)
-                        pAIName = $" ({Name(paiComponent.LastUser.Value)})";
+                        pAIName = $" ({Name(paiComponent.LastUser.Value)}'s pAI)";
                     _metaData.SetEntityName(uid, $"pOrg{pAIName}");
                 }
             }
