@@ -1,7 +1,9 @@
 using System.Linq;
 using Content.Server.Ghost.Roles.Components;
+using Content.Server.Popups;
+using Content.Server.Stunnable;
 using Content.Shared.Mind;
-using Content.Shared.Players;
+using Content.Shared.Popups;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -11,7 +13,6 @@ using Robust.Shared.Timing;
 
 // todo
 // speaking only to host
-// split personality gamerule
 namespace Content.Goobstation.Server.SplitPersonality;
 public sealed partial class SplitPersonalitySystem : EntitySystem
 {
@@ -20,19 +21,24 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<SplitPersonalityComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<SplitPersonalityComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<SplitPersonalityDummyComponent, TakeGhostRoleEvent>(OnGhostRoleTaken);
-        SubscribeLocalEvent<SplitPersonalityDummyComponent, PlayerDetachedEvent>(OnPlayerDetached);
     }
 
     private void OnInit(EntityUid uid, SplitPersonalityComponent comp, MapInitEvent args)
     {
         comp.NextSwapAttempt = _timing.CurTime + comp.SwapAttemptDelay;
         comp.MindsContainer = _container.EnsureContainer<Container>(uid, "SplitPersonalityContainer");
+
+        var popup = Loc.GetString("split-personality-start-popup");
+        _popup.PopupEntity(popup, uid, uid, PopupType.LargeCaution);
+        _stun.TryParalyze(uid, TimeSpan.FromSeconds(6), true);
 
         if (!_mind.TryGetMind(uid, out var hostMindId, out var hostMind))
             return;
@@ -55,6 +61,8 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         if (!_mind.TryGetMind(args.Player, out var dummyMind, out var mindComponent))
             return;
 
+        _mind.ControlMob(args.Player.UserId, dummy);
+
         mindComponent.MindRoles.AddRange(hostComp.MindRoles);
 
         foreach (var objective in hostComp.Objectives)
@@ -71,16 +79,6 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
         comp.GhostRoleDummies.Clear();
     }
-
-    private void OnPlayerDetached(EntityUid uid, SplitPersonalityDummyComponent comp, ref PlayerDetachedEvent args)
-    {
-        if (!TryComp<SplitPersonalityComponent>(comp.Host, out var hostComp))
-            return;
-
-        hostComp.GhostRoleDummies.Remove(uid);
-        QueueDel(uid);
-    }
-
     private bool TryAlternateMind(SplitPersonalityComponent comp)
     {
         if (!_random.Prob(comp.SwapProbability))
@@ -110,9 +108,12 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
     private bool TrySwapMinds(EntityUid host, EntityUid dummy)
     {
-        if (!_mind.TryGetMind(host, out var hostMindId, out var hostMind)
-            || !_mind.TryGetMind(dummy, out var dummyMindId, out var dummyMind))
+        if (!_mind.TryGetMind(host, out var hostMindId, out _)
+            || !_mind.TryGetMind(dummy, out var dummyMindId, out _))
             return false;
+
+        var popup = Loc.GetString("split-personality-swap-popup");
+        _popup.PopupEntity(popup, dummy, dummy, PopupType.LargeCaution);
 
         _mind.TransferTo(hostMindId, dummy);
         _mind.TransferTo(dummyMindId, host);
@@ -163,7 +164,9 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
             if (_timing.CurTime < comp.NextSwapAttempt)
                 continue;
 
-            TryReturnMind(comp);
+            if (TryReturnMind(comp))
+                continue;
+
             TryAlternateMind(comp);
 
             comp.NextSwapAttempt = _timing.CurTime + comp.SwapAttemptDelay;
