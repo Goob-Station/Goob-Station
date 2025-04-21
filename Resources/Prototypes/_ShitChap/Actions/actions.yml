@@ -24,3 +24,22 @@
     requiresClothes: false
     requiresSpeech: true
     school: Transmutation
+
+- type: entity
+  id: ActionChaplainSmoke
+  name: Smoke
+  description: Spawns a cloud of choking smoke at your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 45
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/smoke.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: smoke
+    event: !type:SmokeSpellEvent
+  - type: Magic
+    school: Conjuration

@@ -160,6 +160,12 @@
         Burn: -11.0
         Toxin: -1.0
         Airloss: -3.0
+  - type: ActionGrant
+    actions:
+    - ActionChaplainSmoke
+  - type: ItemActionGrant
+    actions:
+    - ActionChaplainSmoke
   - type: Tag
     tags:
     - Rosary

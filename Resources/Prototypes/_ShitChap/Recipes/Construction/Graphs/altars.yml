@@ -102,8 +102,7 @@
         - !type:SnapToGrid
           southRotation: true
         steps:
-        - material: CableMV
-          amount: 1
+        - tag: CapacitorStockPart
           doAfter: 3
       - to: ToolAltarNode
         completed:
@@ -203,7 +202,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: Bible
+        prototype: ClothingHeadHatHoodNunHood
         amount: 1
       steps:
       - tool: Prying
@@ -215,7 +214,7 @@
     - to: AltarConvertNode
       completed:
       - !type:SpawnPrototype
-        prototype: CableMVStack1
+        prototype: CapacitorStockPart
         amount: 1
       steps:
       - tool: Prying

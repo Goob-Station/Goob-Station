@@ -484,7 +484,7 @@
     soundPath: /Audio/Effects/hallelujah.ogg
   - type: Construction
     graph: AltarsGraph
-    node: FangsAltarNode
+    node: FangedAltarNode
 
 - type: entity
   id: AltarBananium
