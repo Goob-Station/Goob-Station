@@ -242,8 +242,8 @@
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel
   - type: InteractionPopup
-    interactSuccessString: petting-success-generic-cyborg
-    interactFailureString: petting-failure-generic-cyborg
+    interactSuccessString: petting-success-porg
+    interactFailureString: petting-failure-porg
   - type: StandingState
   - type: Tag
     tags:
