@@ -21,6 +21,9 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
+  - type: StationEvent
+    chaosScore: 300
+    eventType: Roundstart
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
@@ -46,6 +49,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 350
+    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -69,6 +75,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 200
+    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     agentName: changeling-roundend-name
@@ -89,6 +98,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 500
+    eventType: Roundstart
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -156,6 +168,9 @@
   components:
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 300
+    eventType: Roundstart
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -183,6 +198,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: BlobRule
+  - type: StationEvent
+    chaosScore: 450
+    eventType: HostilesSpawn
 
 - type: entity
   id: BlobGameMode
@@ -192,6 +210,8 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
+  - type: StationEvent
+    eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
@@ -218,8 +238,6 @@
     earliestStart: 50
     minimumPlayers: 20
     maxOccurrences: 2
-    chaosScore: 450 # Goobstation
-    eventType: HostilesSpawn # Goobstation
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat

@@ -26,12 +26,6 @@ public sealed partial class GameDirectorComponent : Component
     ///   Used to restrict the game director to spawning positive events for some time after high-impact negative events
     /// </summary>
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
-    public TimeSpan GracePeriodUntil;
-
-    /// <summary>
-    ///   Used to restrict the game director to spawning positive events for some time after high-impact negative events
-    /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan EventIntervalMin = TimeSpan.FromMinutes(2);
 
     /// <summary>

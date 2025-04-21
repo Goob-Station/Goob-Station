@@ -86,7 +86,6 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     private void OnUnpaused(EntityUid uid, GameDirectorComponent component, ref EntityUnpausedEvent args)
     {
         component.TimeNextEvent += args.PausedTime;
-        component.GracePeriodUntil += args.PausedTime;
     }
 
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -217,7 +216,8 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         LogMessage($"Total player count: {count}", false);
 
         var weights = weightList.Weights;
-        while (scheduler.ChaosScore < 0)
+        int maxIters = 50, i = 0;
+        while (scheduler.ChaosScore < 0 && i < maxIters)
         {
             LogMessage("Choosing roundstart antag");
             var pick = _random.Pick(weights);
@@ -229,21 +229,23 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             LogMessage($"Roundstart antag chosen: {pick}");
             if (weights.Count == 0)
                 return;
+
+            i++;
         }
 
         return;
 
         void IndexAndStartGameMode(string pick)
         {
+            LogMessage("Choosing roundstart antag");
             var pickProto = _prototypeManager.Index(pick);
             if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
                !pickProto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory) ||
                pickGameRule.MinPlayers > count)
             {
-                LogMessage("Not enough players for roundstart antags selected...");
+                LogMessage("Couldn't select roundstart antag...");
                 return;
             }
-            LogMessage("Choosing roundstart antag");
             LogMessage($"Roundstart antag chosen: {pick}");
             GameTicker.AddGameRule(pick);
             scheduler.ChaosScore += stationEvent.ChaosScore;
