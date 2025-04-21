@@ -165,6 +165,10 @@
     - Screwing
     useSound:
       collection: Screwdriver
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20 # Goobstation - ow
 
 - type: entity
   name: Cybersun pen
