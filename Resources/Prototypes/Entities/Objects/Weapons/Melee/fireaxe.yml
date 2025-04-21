@@ -117,9 +117,19 @@
   description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon
-    wideAnimationRotation: 90
-    heavyStaminaCost: 35 # goob edit
-    attackRate: 0.5  # goob edit
+    # Goobstation - fire axe buff
+    damage:
+      types:
+        Heat: 5
+        Slash: 10
+        Structural: 20
+  # Goobstation - fire axe buff
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Heat: 10
+        Slash: 10
+        Structural: 80
   - type: IgniteOnMeleeHit
     fireStacks: 5 #Goobchange
   - type: Sprite
@@ -130,7 +140,3 @@
     quickEquip: false
     slots:
     - back
-  # Goobstation - Fireaxe plating prying; prevent fire axe from plating prying
-  - type: Tool
-    qualities:
-      - Prying
