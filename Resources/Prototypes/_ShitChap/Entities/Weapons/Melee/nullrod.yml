@@ -401,8 +401,9 @@
     delay: 0
   - type: Tool
     qualities:
-    - Screwing
+      - Screwing
     speedModifier: 1.2
+    useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
   - type: Prying
     enabled: false
