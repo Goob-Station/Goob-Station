@@ -203,3 +203,20 @@
     - Sunglasses
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRD
+  name: RD's purple glasses
+  description: Custom-made plasma glasses for the RD, flash proof and with a diagnostic hud. NEEERD!!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/glassesRD.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/glassesRD.rsi
+  - type: FlashImmunity
+  - type: ShowHealthBars
+    damageContainers:
+    - Inorganic
+    - Silicon
+    - SiliconRadiation

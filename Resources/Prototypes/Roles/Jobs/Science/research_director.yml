@@ -164,6 +164,7 @@
   equipment:
     id: RnDPDA
     ears: ClothingHeadsetAltScience # Goobstation
+    eyes: ClothingEyesGlassesRD #Goobstation
   storage:
     back:
     - Flash
