@@ -8,8 +8,8 @@
     whitelist:
       components:
       - MeleeWeapon
-    maxLevel: 2
+    maxLevel: 1
   - type: KnockbackEnchant
   - type: MeleeThrowOnHit
     distance: 1
-    speed: 1
+    speed: 1.5
