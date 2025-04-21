@@ -73,6 +73,7 @@
 // SPDX-FileCopyrightText: 2024 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
