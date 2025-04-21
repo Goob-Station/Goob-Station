@@ -17,6 +17,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.DoAfter;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared.Alert;
 using Content.Shared.Body.Part;
@@ -328,6 +329,10 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         Dirty(target, ensnareable);
 
         UpdateAlert(target, ensnareable);
+        // Goobstation start
+        var ensnaredEv = new EnsnaredEvent(target);
+        RaiseLocalEvent(ensnare, ref ensnaredEv);
+        // Goobstation end
         var ev = new EnsnareEvent(component.WalkSpeed, component.SprintSpeed);
         RaiseLocalEvent(target, ev);
         return true;

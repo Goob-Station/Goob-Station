@@ -1,7 +1,10 @@
+using Content.Goobstation.Common.DoAfter;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Ensnaring.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Goobstation.Shared.DoAfter;
@@ -11,8 +14,29 @@ public sealed partial class CombatDoAfterSystem
     private void InitializeTriggers()
     {
         SubscribeLocalEvent<CombatDoAfterComponent, MeleeHitEvent>(OnHit);
+        SubscribeLocalEvent<CombatDoAfterComponent, ThrownEvent>(OnThrow);
 
         SubscribeLocalEvent<InjectorComponent, CombatSyringeTriggerEvent>(OnCombatSyringeHit);
+        SubscribeLocalEvent<EnsnaringComponent, CombatDoAfterThrownEvent>(OnEnsnaringThrow);
+
+        SubscribeLocalEvent<EnsnaringKnockdownComponent, EnsnaredEvent>(OnEnsnared);
+        SubscribeLocalEvent<EnsnaringKnockdownComponent, StopThrowEvent>(OnStopThrow);
+    }
+
+    private void OnStopThrow(Entity<EnsnaringKnockdownComponent> ent, ref StopThrowEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
+    private void OnEnsnared(Entity<EnsnaringKnockdownComponent> ent, ref EnsnaredEvent args)
+    {
+        _layingDown.TryLieDown(args.Target);
+        RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
+    private void OnEnsnaringThrow(Entity<EnsnaringComponent> ent, ref CombatDoAfterThrownEvent args)
+    {
+        EnsureComp<EnsnaringKnockdownComponent>(ent);
     }
 
     private void OnCombatSyringeHit(Entity<InjectorComponent> ent, ref CombatSyringeTriggerEvent args)
@@ -48,6 +72,20 @@ public sealed partial class CombatDoAfterSystem
         QueueDel(ent);
     }
 
+    private void OnThrow(Entity<CombatDoAfterComponent> ent, ref ThrownEvent args)
+    {
+        if (args.User == null)
+            return;
+
+        if (ent.Comp.Trigger is not CombatDoAfterThrownEvent thrownEvent)
+            return;
+
+        if (CheckDoAfter(ent, args.User.Value, null))
+            RaiseLocalEvent(ent, (object) thrownEvent);
+
+        TryCancelDoAfter(ent);
+    }
+
     private void OnHit(Entity<CombatDoAfterComponent> ent, ref MeleeHitEvent args)
     {
         if (!args.IsHit)
@@ -64,12 +102,6 @@ public sealed partial class CombatDoAfterSystem
             args.BonusDamage = hitEvent.BonusDamage;
         }
 
-        if (ent.Comp is { DoAfterId: not null, DoAfterUser: not null })
-        {
-            _doAfter.Cancel(ent.Comp.DoAfterUser.Value, ent.Comp.DoAfterId.Value);
-            ent.Comp.DoAfterId = null;
-            ent.Comp.DoAfterUser = null;
-            Dirty(ent);
-        }
+        TryCancelDoAfter(ent);
     }
 }

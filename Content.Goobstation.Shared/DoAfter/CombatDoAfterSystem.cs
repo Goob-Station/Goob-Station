@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Goobstation.Common.DoAfter;
+using Content.Shared._White.Standing;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.CombatMode;
@@ -21,6 +22,7 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
 
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
+    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
@@ -34,19 +36,27 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
         SubscribeLocalEvent<CombatModeToggledEvent>(OnToggle);
         SubscribeLocalEvent<CombatDoAfterComponent, HandSelectedEvent>(OnSelected);
         SubscribeLocalEvent<CombatDoAfterComponent, HandDeselectedEvent>(OnDeselected);
-        SubscribeLocalEvent<CombatDoAfterComponent, DroppedEvent>(OnDropped);
 
         InitializeTriggers();
     }
 
-    private void OnDropped(Entity<CombatDoAfterComponent> ent, ref DroppedEvent args)
-    {
-        TryCancelDoAfter(ent);
-    }
-
     private void OnDeselected(Entity<CombatDoAfterComponent> ent, ref HandDeselectedEvent args)
     {
-        TryCancelDoAfter(ent);
+        if (ent.Comp.DropCancelDelay <= TimeSpan.Zero)
+        {
+            TryCancelDoAfter(ent);
+            return;
+        }
+
+        var (uid, comp) = ent;
+        Timer.Spawn(ent.Comp.DropCancelDelay,
+            () =>
+            {
+                if (TerminatingOrDeleted(uid) || !Resolve(uid, ref comp, false))
+                    return;
+
+                TryCancelDoAfter((uid, comp));
+            });
     }
 
     private void OnSelected(Entity<CombatDoAfterComponent> ent, ref HandSelectedEvent args)
@@ -120,7 +130,7 @@ public sealed partial class CombatDoAfterSystem : EntitySystem
 
         var success = targets != null && item.Comp.AlwaysTriggerOnSelf && targets.Contains(item.Comp.DoAfterUser.Value);
 
-        if (!setSuccessColorOverride || item.Comp.SuccessColorOverride == null && success)
+        if ((!setSuccessColorOverride || item.Comp.SuccessColorOverride == null) && success)
             return true;
 
         if (!TryComp(item.Comp.DoAfterUser.Value, out DoAfterComponent? doAfterComp))

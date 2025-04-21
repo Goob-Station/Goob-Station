@@ -15,6 +15,10 @@ public sealed partial class CombatDoAfterComponent : Component
     [NonSerialized, DataField(required: true)]
     public BaseCombatDoAfterSuccessEvent Trigger;
 
+    // Required for throw trigger which activates after dropping item
+    [DataField]
+    public TimeSpan DropCancelDelay = TimeSpan.Zero;
+
     [DataField]
     public float Delay = 2f;
 

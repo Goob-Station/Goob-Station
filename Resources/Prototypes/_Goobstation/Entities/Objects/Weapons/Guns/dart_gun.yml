@@ -42,6 +42,9 @@
   - type: ExaminableSolution
     solution: solution
   - type: GunApplySolution
+  - type: Tag
+    tags:
+    - GunCanAimShooter
 
 - type: entity
   categories: [ HideSpawnMenu ]

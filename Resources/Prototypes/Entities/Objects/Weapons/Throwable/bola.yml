@@ -46,8 +46,11 @@
     canThrowTrigger: true
     canMoveBreakout: true
     maxEnsnares: 1
-  - type: KnockdownOnCollide
   - type: ThrowableBlocked
+  - type: CombatDoAfter
+    trigger: !type:CombatDoAfterThrownEvent
+    delay: 1.5
+    dropCancelDelay: 0.005
 
 - type: entity
   name: bola

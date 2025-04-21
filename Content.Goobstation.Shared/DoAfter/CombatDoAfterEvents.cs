@@ -11,12 +11,16 @@ public sealed partial class CombatDoAfterEvent : SimpleDoAfterEvent;
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class BaseCombatDoAfterSuccessEvent : EntityEventArgs;
 
-public abstract partial class CombatDoAfterMeleeHitEvent : BaseCombatDoAfterSuccessEvent
+[Virtual]
+public partial class CombatDoAfterMeleeHitEvent : BaseCombatDoAfterSuccessEvent
 {
     public IReadOnlyList<EntityUid> Targets;
 
     public DamageSpecifier BonusDamage = new();
 }
+
+[Virtual]
+public partial class CombatDoAfterThrownEvent : BaseCombatDoAfterSuccessEvent;
 
 public sealed partial class CombatSyringeTriggerEvent : CombatDoAfterMeleeHitEvent
 {
