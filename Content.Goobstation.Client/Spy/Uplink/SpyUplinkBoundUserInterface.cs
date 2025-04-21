@@ -9,7 +9,7 @@ namespace Content.Goobstation.Client.Spy.Uplink;
 internal sealed partial class SpyUplinkBoundUserInterface : BoundUserInterface
 {
     private SpyUplinkMenu? _menu;
-    private HashSet<SpyBountyData> _bounties = [];
+    private List<SpyBountyData> _bounties = [];
 
     public SpyUplinkBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {

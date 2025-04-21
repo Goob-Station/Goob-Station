@@ -5,25 +5,26 @@
     Title="Spy Uplink"
     MinSize="512 512"
     SetSize="512 512">
- <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True">
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True">
         <!-- Title -->
         <BoxContainer Orientation="Horizontal">
-            <Label FontColorOverride="#FFD700" Text="Spy Bounties" HorizontalAlignment="Left"/>
-            <Label FontColorOverride="#FFD700" Text="Time until refresh: " HorizontalAlignment="Right"/>
+            <Label FontColorOverride="#FFD700" Text="Spy Bounties" Margin="0 0 200 0" />
+            <Label FontColorOverride="#FFD700" Text="Time until refresh: " />
+            <Label FontColorOverride="#FFD700" Name="RefreshTimeLabel" Text="10:00" />
         </BoxContainer>
-        <PanelContainer StyleClasses="HighDivider" />
+        <PanelContainer Modulate="#FFD700" StyleClasses="HighDivider" />
         <PanelContainer VerticalExpand="True">
             <ScrollContainer
                 HScrollEnabled="False"
                 HorizontalExpand="True"
                 MinSize="100 256"
-                VerticalExpand="True">
-                    <BoxContainer
-                        Name = "UplinkBountyContainer"
-                        MinSize="100 256"
-                        Orientation="Vertical"
-                        SizeFlagsStretchRatio="2"
-                        VerticalExpand="True">
+                VerticalExpand="True" Margin="1">
+                <BoxContainer
+                    Name="UplinkBountyContainer"
+                    MinSize="100 256"
+                    Orientation="Vertical"
+                    SizeFlagsStretchRatio="2"
+                    VerticalExpand="True">
                 </BoxContainer>
             </ScrollContainer>
         </PanelContainer>

@@ -25,16 +25,16 @@ public abstract partial class SharedSpySystem
             || !_ui.TryToggleUi(uplink, SpyUiKey.Key, actor.PlayerSession))
             return;
 
-        UpdateUserInterface(user, uplink);
+        UpdateUserInterface(uplink, user: user);
     }
 
     /// <summary>
     /// Updates the user interface for spies uplink
     /// </summary>
-    /// <param name="user">The person who is opening the spy uplink ui.</param>
     /// <param name="uplink">The uplink entity itself</param>
     /// <param name="component">The uplink component being refreshed.</param>
-    public void UpdateUserInterface(EntityUid? user, EntityUid uplink, SpyUplinkComponent? component = null)
+    /// <param name="user">The person who is opening the spy uplink ui.</param>
+    protected void UpdateUserInterface(EntityUid uplink, EntityUid? user = null, SpyUplinkComponent? component = null)
     {
         if (!Resolve(uplink, ref component) || !_net.IsServer)
             return;

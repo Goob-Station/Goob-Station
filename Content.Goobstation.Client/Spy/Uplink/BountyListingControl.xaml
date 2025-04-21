@@ -1,26 +1,49 @@
 <Control xmlns="https://spacestation14.io"
          xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
-    <BoxContainer Orientation="Vertical">
-        <PanelContainer
-            Name="ClaimedOverlay"
-            Visible="False"
-            Modulate="0, 0, 0, 180">
-            <Label Text="CLAIMED!" StyleClasses="BountyClaimedText"/>
+    <!-- Main container with overlay capability -->
+    <PanelContainer Name="MainContainer"
+                   HorizontalExpand="True"
+                   VerticalExpand="True">
+
+        <!-- Content container -->
+        <BoxContainer Orientation="Vertical" Name="ContentContainer" Margin="5">
+            <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                <TextureRect Name="BountyItemTexture"
+                          Margin="0,0,4,0"
+                          MinSize="48 48"
+                          Stretch="KeepAspectCentered"/>
+                <Control MinWidth="5"/>
+                <Label FontColorOverride="#FF6347"
+                     Name="BountyTitle"
+                     Text="Bounty PLACEHOLDER Title"/>
+            </BoxContainer>
+            <RichTextLabel Name="BountyDesc"
+                         Text="Steal PLACEHOLDER found in the PLACEHOLDER."/>
+            <BoxContainer Orientation="Horizontal">
+                <Label FontColorOverride="#32CD32"
+                     Name="Reward"
+                     Text="Reward: PLACEHOLDER"
+                     Margin="0,0,225,0"/>
+                <Button Name="ClaimButton"
+                      Access="Public"
+                      Text="Claim."/>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Overlay panel -->
+        <PanelContainer Name="ClaimedOverlay"
+                      Visible="False"
+                      HorizontalExpand="True"
+                      VerticalExpand="True"
+                      Margin="-1">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#000000B4"></gfx:StyleBoxFlat>
+            </PanelContainer.PanelOverride>
+            <Label Text="CLAIMED!"
+                 StyleClasses="BountyClaimedText"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 FontColorOverride="#FFFFFF"/>
         </PanelContainer>
-        <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
-            <TextureRect
-                Name="BountyItemTexture"
-                Margin="0,0,4,0"
-                MinSize="48 48"
-                Stretch="KeepAspectCentered"
-                />
-            <Control MinWidth="5"/>
-            <Label FontColorOverride="#FF6347" Name="BountyTitle" Text="Bounty PLACEHOLDER Title"/>
-        </BoxContainer>
-        <RichTextLabel Name="BountyDesc" Text="Steal PLACEHOLDER found in the PLACEHOLDER."/>
-        <BoxContainer Orientation="Horizontal">
-            <Label FontColorOverride="#32CD32" Name="Reward" Text="Reward: PLACEHOLDER"/>
-            <Button Name="ClaimButton" Access="Public" Text="Claim."></Button>
-        </BoxContainer>
-    </BoxContainer>
+    </PanelContainer>
 </Control>

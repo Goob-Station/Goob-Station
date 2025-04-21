@@ -1,10 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Goobstation.Shared.Spy;
+using Content.Server.DoAfter;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
+using Content.Shared.DoAfter;
 using Content.Shared.Objectives;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -21,6 +23,8 @@ public sealed partial class SpySystem : SharedSpySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     private readonly ProtoId<WeightedRandomPrototype> _weightedItemObjectives = "ThiefObjectiveGroupItem";
     private readonly ProtoId<WeightedRandomPrototype> _weightedStructureObjectives = "ThiefObjectiveGroupStructure";

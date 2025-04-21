@@ -11,9 +11,9 @@ public enum SpyUiKey : byte
 [Serializable, NetSerializable]
 public sealed class SpyUplinkUpdateState : BoundUserInterfaceState
 {
-    public readonly HashSet<SpyBountyData> Listings;
+    public readonly List<SpyBountyData> Listings;
 
-    public SpyUplinkUpdateState(HashSet<SpyBountyData> listings)
+    public SpyUplinkUpdateState(List<SpyBountyData> listings)
     {
         Listings = listings;
     }

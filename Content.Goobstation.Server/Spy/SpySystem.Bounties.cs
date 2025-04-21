@@ -24,15 +24,16 @@ public sealed partial class SpySystem
         Log.Info("Spy DB Entity Created at UID: " + dbEnt.Id);
     }
 
-    private bool TrySetBountyOwner(SpyBountyData data, EntityUid newOwner)
+    private bool TrySetBountyOwner(SpyBountyData data, Entity<SpyUplinkComponent> ent)
     {
         if (!TryGetSpyDatabaseEntity(out var nullableEnt) || nullableEnt is not { } dbEnt)
             return false;
-
-        var bounty = dbEnt.Comp.Bounties.FirstOrDefault(b => b.TargetEntity == data.TargetEntity);
+        var targetEnt = data.TargetEntity;
+        var bounty = dbEnt.Comp.Bounties.FirstOrDefault(b => b.TargetEntity == targetEnt);
         if (bounty == null)
             return false;
-        bounty.Owner = GetNetEntity(newOwner);
+        bounty.Owner = GetNetEntity(ent);
+        ent.Comp.ClaimedBounty = bounty;
         return false;
     }
 

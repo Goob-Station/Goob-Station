@@ -39,3 +39,25 @@
   - type: StaticPrice
     price: 3000
   - type: GrantSleepingCarp
+
+- type: entity
+  parent: [BaseItem, StorePresetUplink, BaseSyndicateContraband]
+  id: BaseSpyUplinkRadio
+  name: spy uplink
+  description: Suspiciously looking old radio...
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: radio
+  - type: UserInterface
+    interfaces:
+      enum.SpyUiKey.Key:
+        type: SpyUplinkBoundUserInterface
+  - type: ActivatableUI
+    key: enum.SpyUiKey.Key
+  - type: SpyUplink
