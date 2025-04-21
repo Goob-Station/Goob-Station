@@ -452,8 +452,7 @@
   components:
   - type: Sprite
     state: box
-  - type: RadiationBlockingContainer
-    resistance: 2
+
 
 - type: entity
   name: candle box

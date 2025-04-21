@@ -124,7 +124,7 @@
   - type: Singularity
     energy: 180
     level: 1
-    radsPerLevel: 2
+    radsPerLevel: 12
     energyLoss: 1
   - type: RandomWalk # To make the singularity move around.
     maxSpeed: 2.5

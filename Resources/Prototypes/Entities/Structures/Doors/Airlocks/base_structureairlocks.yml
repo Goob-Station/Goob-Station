@@ -316,8 +316,6 @@
     node: glassAirlock
   - type: PaintableAirlock
     group: Glass
-  - type: RadiationBlocker
-    resistance: 2
   - type: Tag
     tags:
       - GlassAirlock

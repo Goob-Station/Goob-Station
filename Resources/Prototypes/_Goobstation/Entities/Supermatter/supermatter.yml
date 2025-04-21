@@ -17,6 +17,7 @@
     mode: SnapgridCenter
   components:
     - type: Supermatter
+      radiationOutputFactor: 0.005
       whitelist:
         tags:
           - EmitterBolt

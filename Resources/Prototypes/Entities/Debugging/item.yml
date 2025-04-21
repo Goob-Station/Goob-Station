@@ -53,3 +53,13 @@
   components:
   - type: RadiationSource
     intensity: 7
+- type: entity
+  name: N2 gas miner
+  parent: GasMinerNitrogen
+  id: GasMinerNitrogenSM
+  suffix: SM DEBUG, 4500kPa
+  components:
+  - type: GasMiner
+    maxExternalPressure: 4500
+    spawnAmount: 40000
+    spawnTemperature: 70
