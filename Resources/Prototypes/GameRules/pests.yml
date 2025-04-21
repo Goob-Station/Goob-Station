@@ -36,8 +36,8 @@
     earliestStart: 15
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
-    chaos: # Goobstation
-      Mess: 10 # there's 15 morbillion mice usually and they're easy to kill
+    chaosScore: 20 # Goobstation
+    eventType: Neutral # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -62,9 +62,8 @@
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
-    chaos: # Goobstation
-      Mess: 10
-      Hostile: 1 # low chance to spawn rat king
+    chaosScore: 150 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -91,9 +90,8 @@
       path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
-    chaos: # Goobstation
-      Mess: 15
-      Hostile: 2
+    chaosScore: 20 # Goobstation
+    eventType: Neutral # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
@@ -113,9 +111,8 @@
       path: /Audio/Announcements/attention.ogg
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
-    chaos: # Goobstation
-      Friend: -5
-      Mess: 5
+    chaosScore: 20 # Goobstation
+    eventType: Neutral # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobSnail
@@ -137,9 +134,8 @@
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 30
-    chaos: # Goobstation
-      Mess: 5
-      Hostile: 1 # the very low gib snail prob
+    chaosScore: 40 # Goobstation
+    eventType: Chaotic # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobSnail

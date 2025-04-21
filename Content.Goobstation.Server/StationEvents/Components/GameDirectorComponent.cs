@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goobstation.Common.StationEvents;
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -98,10 +98,10 @@ public sealed partial class GameDirectorComponent : Component
     public bool NoRoundstartAntags;
 
     /// <summary>
-    ///   All the event types that are allowed to run in the current rule
+    ///   All the event types that are disallowed to run in the current rule
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<EventTypePrototype>> AllowedEvents = new();
+    public HashSet<ProtoId<EventTypePrototype>> DisallowedEvents = new();
 
     [ViewVariables]
     public List<SelectedEvent> SelectedEvents = new();
@@ -111,17 +111,3 @@ public sealed partial class GameDirectorComponent : Component
     /// </summary>
     public ProtoId<WeightedRandomPrototype> RoundStartAntagsWeightTable = "GameDirector";
 }
-
-
-/// <summary>
-///   Used to specify which events should be possible in the current game director rule.
-/// </summary>
-[DataDefinition]
-[Prototype]
-public sealed partial class EventTypePrototype : IPrototype
-{
-    [ViewVariables]
-    [IdDataField]
-    public string ID { get; private set; } = default!;
-}
-

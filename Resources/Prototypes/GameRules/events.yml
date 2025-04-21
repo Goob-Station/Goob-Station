@@ -220,8 +220,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
-    chaos: # Goobstation
-      Anomaly: 100
+    chaosScore: 70 # Goobstation
+    eventType: Chaos # Goobstation
   - type: AnomalySpawnRule
 
 - type: entity
@@ -238,8 +238,8 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
-    chaos: # Goobstation
-      Anomaly: 40
+    chaosScore: 40 # Goobstation
+    eventType: Chaos # Goobstation
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -251,8 +251,8 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
-    chaos: # Goobstation
-      Anomaly: 40
+    chaosScore: 40 # Goobstation
+    eventType: Neutral # Goobstation
   - type: BluespaceLockerRule
 
 - type: entity
@@ -263,8 +263,8 @@
     weight: 7
     duration: 1
     minimumPlayers: 15
-    chaos: # Goobstation
-      Power: 100
+    chaosScore: 60 # Goobstation
+    eventType: Maintenance # Goobstation
   - type: BreakerFlipRule
 
 - type: entity
@@ -276,6 +276,8 @@
     minimumPlayers: 25
     weight: 3
     duration: 1
+    chaosScore: 50 # Goobstation
+    eventType: Neutral # Goobstation
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
@@ -289,6 +291,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 1
+    chaosScore: 30 # Goobstation
+    eventType: Chaos # Goobstation
   - type: ClericalErrorRule
 
 - type: entity
@@ -299,6 +303,8 @@
     weight: 5
     duration: 1
     minimumPlayers: 10
+    chaosScore: 60 # Goobstation
+    eventType: Chaos # Goobstation
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -312,12 +318,8 @@
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
+    chaosScore: 300 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -347,12 +349,8 @@
     earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 30
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 40
-      Medical: 40
+    chaosScore: 160 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
     # Goobstation start
@@ -411,6 +409,8 @@
     earliestStart: 20
     reoccurrenceDelay: 20
     minimumPlayers: 15
+    chaosScore: 80 # Goobstation
+    eventType: Chaos # Goobstation
   - type: ParadoxCloneRule
   - type: AntagObjectives
     objectives:
@@ -443,12 +443,8 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 20
-    chaos: # Goobstation
-      Hostile: 20
-      Friend: 20
-      Combat: 40
-      Death: 100
-      Medical: 100
+    chaosScore: 150 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -511,9 +507,8 @@
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
-    chaos:
-      Atmos: 100
-      Medical: 50
+    chaosScore: 80 # Goobstation # most of the time scrubbers just clean it
+    eventType: Maintenance # Goobstation
   - type: GasLeakRule
 
 - type: entity
@@ -525,10 +520,8 @@
     minimumPlayers: 15
     weight: 7
     duration: 240
-    chaos:
-      Hostile: 20
-      Friend: 20
-      Medical: 100
+    chaosScore: 40 # Goobstation
+    eventType: Maintenance # Goobstation
   - type: KudzuGrowthRule
 
 - type: entity
@@ -545,6 +538,8 @@
         volume: -4
     duration: 60
     maxDuration: 120
+    chaosScore: 80 # Goobstation
+    eventType: Interference # Goobstation
   - type: PowerGridCheckRule
 
 - type: entity
@@ -559,8 +554,8 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
-    chaos: # Goobstation
-      Friend: 20
+    chaosScore: 60 # Goobstation
+    eventType: Interference # Goobstation
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -589,8 +584,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
-    chaos: # Goobstation
-      Mess: 200
+    chaosScore: 70 # Goobstation
+    eventType: Interference # Goobstation
   - type: VentClogRule
 
 - type: entity
@@ -605,9 +600,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
-      Hostile: 20
-      Medical: 50
+    chaosScore: 100 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -629,9 +623,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
-      Hostile: 20
-      Medical: 50
+    chaosScore: 100 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -653,9 +646,8 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
-      Hostile: 20
-      Medical: 50
+    chaosScore: 100 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -673,9 +665,8 @@
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
-      Hostile: 20
-      Medical: 50
+    chaosScore: 100 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
@@ -691,10 +682,8 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
-    chaos: # Goobstation
-      Hostile: 100
-      Medical: 200
-      Death: 200
+    chaosScore: 700 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -728,10 +717,8 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-    chaos: # Goobstation
-      Hostile: 60
-      Medical: 75
-      Death: 100
+    chaosScore: 300 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: RuleGrids
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
@@ -776,6 +763,8 @@
       path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
+    chaosScore: 300 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -799,8 +788,8 @@
     duration: 150
     maxDuration: 300
     reoccurrenceDelay: 30
-    chaos: # Goobstation
-      Friend: 20
+    chaosScore: 10 # Goobstation
+    eventType: Chaotic # Goobstation
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 0.1
     maxTimeBetweenIncidents: 300
@@ -816,10 +805,8 @@
     weight: 8
     reoccurrenceDelay: 20
     duration: 1
-    chaos: # Goobstation
-      Hostile: 10
-      Friend: 20
-      Mess: 30
+    chaosScore: 70 # Goobstation
+    eventType: Chaotic # Goobstation
   - type: IonStormRule
 
 - type: entity
@@ -831,10 +818,8 @@
     minimumPlayers: 20
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
-    chaos: # Goobstation
-      Hostile: 20 # for when they're actually properly hostile
-      Hunger: 10
-      Thirst: 10
+    chaosScore: 20 # Goobstation
+    eventType: Neutral # Goobstation
   - type: MobReplacementRule
 
 - type: entity
@@ -847,9 +832,8 @@
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
-    chaos: # Goobstation
-      Atmos: 15
-      Mess: 30
+    chaosScore: 80 # Goobstation
+    eventType: Maintenance # Goobstation
   - type: GreytideVirusRule
     accessGroups:
     - Cargo
@@ -871,10 +855,8 @@
     reoccurrenceDelay: 20
     minimumPlayers: 4
     duration: null
-    chaos: # Goobstation
-      # can be both hostile and friendly
-      Hostile: 10
-      Friend: -10
+    chaosScore: 60 # Goobstation
+    eventType: Chaotic # Goobstation
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner

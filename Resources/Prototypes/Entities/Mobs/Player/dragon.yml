@@ -301,8 +301,8 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: CombatPower # Goobstation
-    factor: 4 # times more dangerous than a crew-member
+  - type: ChaosAdjuster # Goobstation
+    amount: 0.05 # inverse of 10 crew
 
 - type: entity
   parent: BaseMobDragon

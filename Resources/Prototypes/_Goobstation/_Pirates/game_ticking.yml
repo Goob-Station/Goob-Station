@@ -17,10 +17,8 @@
     earliestStart: 20
     reoccurrenceDelay: 60
     minimumPlayers: 30
-    chaos:
-      Hostile: 50
-      Medical: 50
-      Death: 25
+    chaosScore: 200 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: PendingPirateRule
     ransomPrototype: BikeHornRansom
   - type: Tag

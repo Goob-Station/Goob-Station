@@ -10,7 +10,6 @@
 using System.Linq;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Server.StationEvents.Components;
-using Content.Goobstation.Server.StationEvents.Metric;
 using Content.Goobstation.Shared.StationEvents;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
@@ -127,7 +126,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
                 continue;
 
-            if (!scheduler.AllowedEvents.Contains(stationEvent.EventType) || !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime))
+            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime))
                 continue;
 
             scheduler.SelectedEvents.Add(new SelectedEvent(proto, stationEvent));
@@ -147,7 +146,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             var proto = entry.Key;
             var stationEvent = entry.Value;
 
-            if (!scheduler.AllowedEvents.Contains(stationEvent.EventType) || !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime))
+            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime))
                 continue;
 
             LogMessage(proto.ID);
@@ -165,6 +164,12 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
         scheduler.ChaosScore += count.Players * scheduler.LivingChaosChange * frameTime;
         scheduler.ChaosScore += count.Ghosts * scheduler.DeadChaosChange * frameTime;
+
+        var chaosAdjusters = EntityQueryEnumerator<ChaosAdjusterComponent>();
+        while (chaosAdjusters.MoveNext(out var adjuster))
+        {
+            scheduler.ChaosScore += adjuster.Amount * frameTime;
+        }
 
         var currTime = _timing.CurTime;
         if (currTime < scheduler.TimeNextEvent)
@@ -302,7 +307,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             weight = MathF.Pow(weight, scheduler.ChaosExponent);
             weight += scheduler.ChaosOffset;
             if (negative) weight = -weight;
-            var delta = ChaosDelta(scheduler.ChaosScore, weight, scheduler.ChaosMatching);
+            var delta = ChaosDelta(-scheduler.ChaosScore, weight, scheduler.ChaosMatching);
             weights[ev] = 1f / (delta + 1f);
         }
 

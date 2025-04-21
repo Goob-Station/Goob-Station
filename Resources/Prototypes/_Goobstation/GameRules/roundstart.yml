@@ -218,10 +218,8 @@
     earliestStart: 50
     minimumPlayers: 20
     maxOccurrences: 2
-    chaos:
-      Hostile: 200
-      Death: 300
-      Medical: 200
+    chaosScore: 450 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
