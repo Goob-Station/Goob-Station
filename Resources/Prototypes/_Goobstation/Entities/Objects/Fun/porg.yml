@@ -99,6 +99,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
+      100: Critcal
       150: Dead
     stateAlertDict:
       Alive: BorgHealth
