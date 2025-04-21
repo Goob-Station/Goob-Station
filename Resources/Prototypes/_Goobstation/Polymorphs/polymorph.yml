@@ -84,7 +84,7 @@
   configuration:
     entity: PolymorphShadowJaunt
     forced: true
-    duration: 8
+    duration: 4
     attachToGridOrMap: true
 
 - type: polymorph
