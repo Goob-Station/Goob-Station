@@ -81,8 +81,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goobstation.Server.StationEvents.Components;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes; // Goobstation
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.StationEvents.Components;
@@ -174,10 +175,16 @@ public sealed partial class StationEventComponent : Component
 
     // Goobstation start
     /// <summary>
-    ///  Expected Chaos changes when this event occurs.
-    ///  Used by the GameDirector, which picks an event expected to make the desired chaos changes.
+    ///  What type of event is this.
+    ///  Used by the GameDirector to determine whether it should be able to fire this event.
     /// </summary>
-    [DataField("chaos")]
-    public ChaosMetrics Chaos = new ChaosMetrics();
+    [DataField]
+    public ProtoId<EventTypePrototype> EventType = "Neutral";
+
+    /// <summary>
+    ///  Used by the GameDirector to determine which events to fire.
+    /// </summary>
+    [DataField]
+    public float ChaosScore = 10f;
     // Goobstation end
 }
