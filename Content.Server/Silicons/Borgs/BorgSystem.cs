@@ -57,6 +57,7 @@ using Content.Server.Administration.Managers;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
+using Content.Server.Instruments;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
 using Content.Shared.Database;
@@ -68,6 +69,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
+using Content.Shared.PAI;
 using Content.Shared.Pointing;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
@@ -82,6 +84,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using YamlDotNet.Core;
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -107,6 +110,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly InstrumentSystem _instrumentSystem = default!;
 
 
     [ValidatePrototypeId<JobPrototype>]
@@ -208,9 +212,24 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         base.OnInserted(uid, component, args);
 
+        string? pAIName = null;
+        /* Goobstation
+           Save the name of the pAI.*/
+        if (HasComp<PAIComponent>(args.Entity))
+        {
+            pAIName = $" ({Name(args.Entity)})";
+        }
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind) && args.Container == component.BrainContainer)
         {
             _mind.TransferTo(mindId, uid, mind: mind);
+            /* Goobstation
+             * apply the saved name (example: Urist McHands pAI) to the end of the pOrgs
+             * if anyone ever steals this code but wants to append pAI name onto normal borgs they can just change the fixed string of pOrg
+             */
+        }
+        if (pAIName != null)
+        {
+            _metaData.SetEntityName(args.Container.Owner, $"pOrg{pAIName}");
         }
     }
 
@@ -222,6 +241,16 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+        if (HasComp<PAIComponent>(args.Entity)) // GoobStation (again, pOrg specific due to no reason to change it)
+        {
+            _metaData.SetEntityName(args.Container.Owner, "pOrg");
+        }
+        if (HasComp<ActiveInstrumentComponent>(uid))
+        {
+            _instrumentSystem.ToggleInstrumentUi(uid, uid);
+        }
+        if (TryComp<InstrumentComponent>(uid, out var instrument))
+            _instrumentSystem.Clean(uid, instrument);
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
@@ -345,6 +374,22 @@ public sealed partial class BorgSystem : SharedBorgSystem
     /// </summary>
     public void BorgActivate(EntityUid uid, BorgChassisComponent component)
     {
+        // Goobstation set pOrg name if a pAI wakes up inside it
+        if (_container.TryGetContainer(uid, component.BrainContainerId, out var brainContainer))
+        {
+            foreach (var containedEntity in brainContainer.ContainedEntities)
+            {
+                if (TryComp<PAIComponent>(containedEntity, out var paiComponent))
+                {
+                    string? pAIName = null;
+                    if (paiComponent.LastUser != null)
+                        pAIName = $" ({Name(paiComponent.LastUser.Value)})";
+                    _metaData.SetEntityName(uid, $"pOrg{pAIName}");
+                }
+            }
+        }
+
+
         Popup.PopupEntity(Loc.GetString("borg-mind-added", ("name", Identity.Name(uid, EntityManager))), uid);
         if (_powerCell.HasDrawCharge(uid))
         {
@@ -363,6 +408,23 @@ public sealed partial class BorgSystem : SharedBorgSystem
         Toggle.TryDeactivate(uid);
         _powerCell.SetDrawEnabled(uid, false);
         _appearance.SetData(uid, BorgVisuals.HasPlayer, false);
+        // Goobstation fake implementation of copying the name of the "empty" pAI inside if the pAI does /ghost
+        if (_container.TryGetContainer(uid, component.BrainContainerId, out var brainContainer))
+        {
+            foreach (var containedEntity in brainContainer.ContainedEntities)
+            {
+                if (HasComp<PAIComponent>(containedEntity))
+                {
+                    _metaData.SetEntityName(uid, $"pOrg (personal ai device)");
+                    if (HasComp<ActiveInstrumentComponent>(uid))
+                    {
+                        _instrumentSystem.ToggleInstrumentUi(uid, uid);
+                    }
+                    if (TryComp<InstrumentComponent>(uid, out var instrument))
+                        _instrumentSystem.Clean(uid, instrument);
+                }
+            }
+        }
     }
 
     /// <summary>

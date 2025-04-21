@@ -48,7 +48,6 @@
       shader: unshaded
       map: ["light","enum.BorgVisualLayers.LightStatus"]
       visible: false
-  - type: PorgNaming
   - type: Construction
     graph: POrg
     node: porg
