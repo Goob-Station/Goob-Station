@@ -55,11 +55,10 @@
       params:
         variation: 0.250
   - type: Reflect
-    reflectProb: .1
-    otherTypeReflectProb: .1
+    reflectProb: 0
+    otherTypeReflectProb: 0
     reflects:
       - Energy
-    soundOnReflect: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
   - type: Welder
     fuelConsumption: 3
   - type: SolutionContainerManager
