@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2020 Git-Nivrak <59925169+Git-Nivrak@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
 # SPDX-FileCopyrightText: 2021 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
@@ -30,7 +30,7 @@
 # SPDX-FileCopyrightText: 2021 scrato <Mickaello2003@gmx.de>
 # SPDX-FileCopyrightText: 2021 tmtmtl30 <53132901+tmtmtl30@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 Andreas K�mper <andreas@kaemper.tech>
 # SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 E F R <602406+Efruit@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
@@ -127,6 +127,24 @@
           visible: false
         - state: panel_open
           map: ["enum.WiresVisualLayers.MaintenancePanel"]
+        - state: pressure_unlit
+          visible: false
+          shader: unshaded
+          map: ["enum.FirelockVisualLayersPressure.Base"]
+        - state: temperature_unlit
+          visible: false
+          shader: unshaded
+          map: ["enum.FirelockVisualLayersTemperature.Base"]
+    - type: GenericVisualizer
+      visuals:
+        enum.FirelockVisuals.PressureWarning:
+          enum.FirelockVisualLayersPressure.Base:
+            True: { visible: true }
+            False: { visible: false }
+        enum.FirelockVisuals.TemperatureWarning:
+          enum.FirelockVisualLayersTemperature.Base:
+            True: { visible: true }
+            False: { visible: false }
     - type: AnimationPlayer
     - type: Fixtures
       fixtures:
@@ -203,6 +221,7 @@
     - type: Penetratable # Goobstation - Better snipers
       penetrateDamage: 75
       damagePenalty: 0.2
+    - type: SyncSprite
 
 - type: entity
   id: Firelock
