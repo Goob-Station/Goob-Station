@@ -136,7 +136,7 @@
     intensity: 3645
   - type: RadiationSource
     slope: 0.2 # its emit really far away
-    intensity: 2
+    intensity: 12
   - type: PointLight
     enabled: true
     radius: 10
