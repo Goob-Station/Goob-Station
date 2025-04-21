@@ -8,7 +8,6 @@
 using Content.Goobstation.Common.StationEvents;
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Server.StationEvents.Components;
 
@@ -19,19 +18,19 @@ public sealed partial class GameDirectorComponent : Component
     ///   How long until the next check for an event runs
     ///   Default value is how long until first event is allowed
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan TimeNextEvent;
 
     /// <summary>
     ///   Used to restrict the game director to spawning positive events for some time after high-impact negative events
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan EventIntervalMin = TimeSpan.FromMinutes(2);
 
     /// <summary>
     ///   Used to restrict the game director to spawning positive events for some time after high-impact negative events
     /// </summary>
-    [DataField(customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField]
     public TimeSpan EventIntervalMax = TimeSpan.FromMinutes(8);
 
     /// <summary>
@@ -43,16 +42,16 @@ public sealed partial class GameDirectorComponent : Component
     public float ChaosScore = 0;
 
     /// <summary>
-    /// The minimum amount of chaos worth of events to generate at the start.
+    /// The minimum amount of chaos worth of events to generate at the start, per player.
     /// </summary>
     [DataField]
-    public float MinStartingChaos = 200;
+    public float MinStartingChaos = 5;
 
     /// <summary>
-    /// The maximum amount of chaos worth of events to generate at the start.
+    /// The maximum amount of chaos worth of events to generate at the start, per player.
     /// </summary>
     [DataField]
-    public float MaxStartingChaos = 600;
+    public float MaxStartingChaos = 10;
 
     /// <summary>
     ///   How much to change chaos per second per living person
@@ -90,6 +89,12 @@ public sealed partial class GameDirectorComponent : Component
     /// </summary>
     [DataField]
     public bool NoRoundstartAntags;
+
+    /// <summary>
+    /// Whether to ignore whether an event can actually run in this context.
+    /// </summary>
+    [DataField]
+    public bool IgnoreTimings = false;
 
     /// <summary>
     ///   All the event types that are disallowed to run in the current rule

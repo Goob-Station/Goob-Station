@@ -90,8 +90,9 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
+        var totalPlayers = GetTotalPlayerCount(_playerManager.Sessions);
         // set up starting chaos score
-        scheduler.ChaosScore = -_random.NextFloat(scheduler.MinStartingChaos, scheduler.MaxStartingChaos);
+        scheduler.ChaosScore = -_random.NextFloat(scheduler.MinStartingChaos * totalPlayers, scheduler.MaxStartingChaos * totalPlayers);
 
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid, out var selectedRules))
@@ -125,7 +126,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
                 continue;
 
-            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime))
+            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || (!scheduler.IgnoreTimings && !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime)))
                 continue;
 
             scheduler.SelectedEvents.Add(new SelectedEvent(proto, stationEvent));
@@ -145,14 +146,12 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             var proto = entry.Key;
             var stationEvent = entry.Value;
 
-            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime))
+            if (scheduler.DisallowedEvents.Contains(stationEvent.EventType) || (!scheduler.IgnoreTimings && !_event.CanRun(proto, stationEvent, count.Players, _timing.CurTime)))
                 continue;
 
-            LogMessage(proto.ID);
             scheduler.SelectedEvents.Add(new SelectedEvent(proto, stationEvent));
         }
     }
-
 
     /// <summary>
     ///   Decide what event to run next
@@ -174,8 +173,6 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         if (currTime < scheduler.TimeNextEvent)
             return;
 
-        LogMessage($"Chaos is: {scheduler.ChaosScore}");
-
         // This is the first event, add an automatic delay
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
@@ -185,16 +182,25 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             return;
         }
 
+        TimeSpan amt = TimeSpan.FromSeconds(_random.NextDouble(scheduler.EventIntervalMin.TotalSeconds, scheduler.EventIntervalMax.TotalSeconds));
+        scheduler.TimeNextEvent = currTime + amt;
+        LogMessage($"Chaos score: {scheduler.ChaosScore}, Next event at: {scheduler.TimeNextEvent}");
+
         if(TryComp<SelectedGameRulesComponent>(uid, out var selectedRules))
             SetupEvents(scheduler, count, selectedRules);
         else
             SetupEvents(scheduler, count);
 
         var selectedEvent = ChooseEvent(scheduler);
-        _event.RunNamedEvent(selectedEvent.Proto.ID);
-        scheduler.ChaosScore += selectedEvent.Comp.ChaosScore;
+        if (selectedEvent != null)
+        {
+            _event.RunNamedEvent(selectedEvent.Proto.ID);
+            scheduler.ChaosScore += selectedEvent.Comp.ChaosScore;
+        }
+        else {
+            LogMessage($"No runnable events");
+        }
 
-        scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextDouble(scheduler.EventIntervalMin.TotalSeconds, scheduler.EventIntervalMax.TotalSeconds));
     }
 
     /// <summary>
@@ -296,7 +302,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     /// <summary>
     ///   Picks an event based on current chaos score, events' chaos scores and weights.
     /// </summary>
-    private SelectedEvent ChooseEvent(GameDirectorComponent scheduler)
+    private SelectedEvent? ChooseEvent(GameDirectorComponent scheduler)
     {
         var possible = scheduler.SelectedEvents;
         Dictionary<SelectedEvent, float> weights = new();
@@ -310,10 +316,10 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             weight += scheduler.ChaosOffset;
             if (negative) weight = -weight;
             var delta = ChaosDelta(-scheduler.ChaosScore, weight, scheduler.ChaosMatching);
-            weights[ev] = 1f / (delta + 1f);
+            weights[ev] = ev.Comp.Weight / (delta + 1f);
         }
 
-        return _random.Pick(weights);
+        return weights.Count == 0 ? null : _random.Pick(weights);
     }
 
     private float ChaosDelta(float chaos1, float chaos2, float logBase)

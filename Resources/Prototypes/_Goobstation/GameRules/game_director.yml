@@ -31,3 +31,22 @@
     chaosExponent: 2 # nothing ever happens
     eventIntervalMin: 180
     eventIntervalMax: 720
+
+- type: entity
+  id: NewDirectorDebug
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: GameDirector
+    minStartingChaos: 400
+    maxStartingChaos: 800
+    eventIntervalMin: 2
+    eventIntervalMax: 8
+    livingChaosChange: -48
+    ignoreTimings: true
+  # default config
+  - type: SelectedGameRules
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicGameRulesTable
