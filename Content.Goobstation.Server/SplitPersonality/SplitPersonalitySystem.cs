@@ -49,10 +49,9 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
     private void OnGhostRoleTaken(EntityUid dummy, SplitPersonalityDummyComponent comp, TakeGhostRoleEvent args)
     {
         // Transfer the mind to visit the host entity
-        if (args.Player.GetMind() is not { } mind|| !TryComp<SplitPersonalityComponent>(comp.Host, out var hostComp))
+        if (!TryComp<SplitPersonalityComponent>(comp.Host, out var hostComp))
             return;
 
-        _mind.TransferTo(mind, dummy);
         if (!_mind.TryGetMind(args.Player, out var dummyMind, out var mindComponent))
             return;
 

@@ -2,7 +2,13 @@
 - type: entity
   id: SplitPersonalityDummy
   name: Split Personality
-  parent: BaseMob
   description: A fragment of someone's psyche.
   components:
   - type: GhostRole
+    makeSentient: true
+  - type: LagCompensation
+  - type: Actions
+  - type: Alerts
+  - type: Eye
+  - type: Examiner
+  - type: MindContainer
