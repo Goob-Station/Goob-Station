@@ -123,10 +123,6 @@ public sealed class SharedMultishotSystem : EntitySystem
             HandLocation.Right => BodyPartSymmetry.Right,
             _ => BodyPartSymmetry.None,
         };
-        if (hand.Location == HandLocation.Left)
-            bodySymmetry = BodyPartSymmetry.Left;
-        else if (hand.Location == HandLocation.Right)
-            bodySymmetry = BodyPartSymmetry.Right;
 
         var bodyPart = _bodySystem.GetTargetBodyPart(BodyPartType.Hand, bodySymmetry);
 
