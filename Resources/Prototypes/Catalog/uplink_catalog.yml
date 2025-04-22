@@ -188,17 +188,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkGlovesKnuckleDusters
-  name: uplink-gloves-knuckleduster-name
-  description: uplink-gloves-knuckleduster-desc
-  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster } # Goobstation
-  productEntity: ClothingHandsKnuckleDustersSyndicate
-  cost:
-    Telecrystal: 15 # Goobstation
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc

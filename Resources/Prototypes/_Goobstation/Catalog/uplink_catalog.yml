@@ -132,6 +132,17 @@
     stock: 1
 
 - type: listing
+  id: UplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkM90
   name: uplink-m90-name
   description: uplink-m90-desc
@@ -922,21 +933,6 @@
     Telecrystal: 40
   categories:
   - UplinkDeception
-
-- type: listing
-  id: UplinkMysteriousScrollLoneops
-  name: uplink-sleeping-carp-name
-  description: uplink-sleeping-carp-desc
-  productEntity: SleepingCarpScroll
-  cost:
-    Telecrystal: 70
-  categories:
-  - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - LoneOpsUplink
 
 - type: listing
   id: UplinkHoloCigar

@@ -201,4 +201,4 @@
   parent: SyndicateOperativeGearFull
   equipment:
     # Goobstation - Telecrystal rework
-    pocket2: LoneOpsUplink350TC
+    pocket2: BaseUplinkRadio350TC
