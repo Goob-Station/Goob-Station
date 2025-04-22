@@ -21,7 +21,7 @@
     weight: 7.5
     minimumPlayers: 10
     duration: 1
-    chaosScore: 125 # Goobstation
+    chaosScore: 300 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: RuleGrids
   - type: LoadMapRule
@@ -117,7 +117,7 @@
     weight: 7.5
     minimumPlayers: 20
     duration: 1
-    chaosScore: 225 # Goobstation
+    chaosScore: 450 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: RuleGrids
   - type: LoadMapRule

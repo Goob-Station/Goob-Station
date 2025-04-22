@@ -72,7 +72,7 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-    chaosScore: 450 # Goobstation
+    chaosScore: 800 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: AntagSelection
     useCharacterNames: true

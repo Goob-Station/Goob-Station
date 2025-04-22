@@ -40,11 +40,11 @@
   - type: GameRule
     minPlayers: 25
   - type: GameDirector
-    minStartingChaos: 400
-    maxStartingChaos: 800
+    minStartingChaos: 800
+    maxStartingChaos: 1600
     eventIntervalMin: 2
     eventIntervalMax: 8
-    livingChaosChange: -48
+    livingChaosChange: -38.4
     ignoreTimings: true
   # default config
   - type: SelectedGameRules

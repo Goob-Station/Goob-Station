@@ -138,7 +138,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         if (selectedRules == null)
             return;
 
-        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents))
+        if(!_event.TryBuildLimitedEvents(selectedRules.ScheduledGameRules, out var possibleEvents, scheduler.IgnoreTimings))
             return;
 
         foreach (var entry in possibleEvents)
@@ -219,20 +219,18 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 #else
         var count = GetTotalPlayerCount(_playerManager.Sessions);
 #endif
-        LogMessage($"Total player count: {count}", false);
+        LogMessage($"Trying to run roundstart rules, total player count: {count}", false);
 
         var weights = weightList.Weights;
         int maxIters = 50, i = 0;
         while (scheduler.ChaosScore < 0 && i < maxIters)
         {
-            LogMessage("Choosing roundstart antag");
             var pick = _random.Pick(weights);
 
             if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
                 weights = weights.Where(w => !incompModes.Modes.Contains(w.Key) && w.Key != pick).ToDictionary();
 
             IndexAndStartGameMode(pick);
-            LogMessage($"Roundstart antag chosen: {pick}");
             if (weights.Count == 0)
                 return;
 
@@ -243,16 +241,14 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
         void IndexAndStartGameMode(string pick)
         {
-            LogMessage("Choosing roundstart antag");
             var pickProto = _prototypeManager.Index(pick);
             if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
                !pickProto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory) ||
                pickGameRule.MinPlayers > count)
             {
-                LogMessage("Couldn't select roundstart antag...");
                 return;
             }
-            LogMessage($"Roundstart antag chosen: {pick}");
+            LogMessage($"Roundstart rule chosen: {pick}");
             GameTicker.AddGameRule(pick);
             scheduler.ChaosScore += stationEvent.ChaosScore;
         }

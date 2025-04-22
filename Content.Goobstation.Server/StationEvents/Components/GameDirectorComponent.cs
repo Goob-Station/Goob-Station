@@ -45,25 +45,25 @@ public sealed partial class GameDirectorComponent : Component
     /// The minimum amount of chaos worth of events to generate at the start, per player.
     /// </summary>
     [DataField]
-    public float MinStartingChaos = 5;
+    public float MinStartingChaos = 10;
 
     /// <summary>
     /// The maximum amount of chaos worth of events to generate at the start, per player.
     /// </summary>
     [DataField]
-    public float MaxStartingChaos = 10;
+    public float MaxStartingChaos = 20;
 
     /// <summary>
     ///   How much to change chaos per second per living person
     /// </summary>
     [DataField]
-    public float LivingChaosChange = -0.005f;
+    public float LivingChaosChange = -0.008f;
 
     /// <summary>
     ///   How much to change chaos per second per dead person
     /// </summary>
     [DataField]
-    public float DeadChaosChange = 0.01f;
+    public float DeadChaosChange = 0.02f;
 
     /// <summary>
     ///   How much to offset chaos of events away from 0 when picking events
@@ -76,10 +76,10 @@ public sealed partial class GameDirectorComponent : Component
     ///   Higher values make high-chaos events more uncommon.
     /// </summary>
     [DataField]
-    public float ChaosExponent = 1.5f;
+    public float ChaosExponent = 1.2f;
 
     /// <summary>
-    ///   Higher values make the game director be more picky with events.
+    ///   Lower values make the game director be more picky with events.
     /// </summary>
     [DataField]
     public float ChaosMatching = 2f;

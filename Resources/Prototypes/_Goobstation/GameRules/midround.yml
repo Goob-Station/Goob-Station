@@ -19,7 +19,7 @@
       path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
-    chaosScore: 100
+    chaosScore: 250
     eventType: HostilesSpawn
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
@@ -52,7 +52,7 @@
       path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
-    chaosScore: 100
+    chaosScore: 250
     eventType: HostilesSpawn
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
@@ -85,7 +85,7 @@
       path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
-    chaosScore: 100
+    chaosScore: 250
     eventType: HostilesSpawn
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
@@ -116,7 +116,7 @@
     maxOccurrences: 1
     duration: null
     occursDuringRoundEnd: false
-    chaosScore: 300
+    chaosScore: 800
     eventType: HostilesSpawn
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
@@ -150,7 +150,7 @@
     weight: 5
     duration: 1
     minimumPlayers: 15
-    chaosScore: 60
+    chaosScore: 90
     eventType: Chaotic
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
@@ -168,7 +168,7 @@
     minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2
-    chaosScore: 400
+    chaosScore: 800
     eventType: HostilesSpawn
   - type: BlobSpawnRule
     carrierBlobProtos:

@@ -62,7 +62,7 @@
     weight: 6
     duration: 30 # DeltaV: was 50, used as a delay now
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
-    chaosScore: 150 # Goobstation
+    chaosScore: 350 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:

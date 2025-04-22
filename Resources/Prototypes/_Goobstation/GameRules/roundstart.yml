@@ -22,7 +22,7 @@
   - type: GameRule
     minPlayers: 15
   - type: StationEvent
-    chaosScore: 300
+    chaosScore: 600
     eventType: Roundstart
   - type: AntagObjectives
     objectives:
@@ -50,7 +50,7 @@
   - type: GameRule
     minPlayers: 30
   - type: StationEvent
-    chaosScore: 350
+    chaosScore: 700
     eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -76,7 +76,7 @@
   - type: GameRule
     minPlayers: 30
   - type: StationEvent
-    chaosScore: 200
+    chaosScore: 400
     eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -99,7 +99,7 @@
   - type: GameRule
     minPlayers: 30
   - type: StationEvent
-    chaosScore: 500
+    chaosScore: 1000
     eventType: Roundstart
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
@@ -169,7 +169,7 @@
   - type: GameRule
     minPlayers: 30
   - type: StationEvent
-    chaosScore: 300
+    chaosScore: 600
     eventType: Roundstart
   - type: RevolutionaryRule
   - type: AntagSelection
@@ -199,8 +199,8 @@
   components:
   - type: BlobRule
   - type: StationEvent
-    chaosScore: 450
-    eventType: HostilesSpawn
+    chaosScore: 900
+    eventType: Roundstart
 
 - type: entity
   id: BlobGameMode
@@ -211,6 +211,7 @@
   - type: GameRule
     minPlayers: 15
   - type: StationEvent
+    chaosScore: 900
     eventType: Roundstart
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
@@ -238,6 +239,8 @@
     earliestStart: 50
     minimumPlayers: 20
     maxOccurrences: 2
+    eventType: Roundstart
+    chaosScore: 900
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat

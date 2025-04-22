@@ -200,7 +200,7 @@
   - type: RuleGrids
   - type: AntagSelection
   - type: StationEvent # Goobstation
-    chaosScore: 600
+    chaosScore: 1200
     eventType: Roundstart
   - type: AntagLoadProfileRule
     speciesOverride: Human
@@ -286,7 +286,7 @@
   components:
   - type: TraitorRule
   - type: StationEvent # Goobstation
-    chaosScore: 350
+    chaosScore: 700
     eventType: Roundstart
   # TODO: codewords in yml
   # TODO: uplink in yml
@@ -339,7 +339,7 @@
   - type: GameRule
     minPlayers: 15
   - type: StationEvent # Goobstation
-    chaosScore: 500
+    chaosScore: 800
     eventType: Roundstart
   - type: RevolutionaryRule
   - type: AntagSelection

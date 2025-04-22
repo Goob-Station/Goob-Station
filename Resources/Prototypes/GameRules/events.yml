@@ -318,7 +318,7 @@
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
-    chaosScore: 300 # Goobstation
+    chaosScore: 600 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: SpaceSpawnRule
     spawnDistance: 0
@@ -349,7 +349,7 @@
     earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 30
-    chaosScore: 160 # Goobstation
+    chaosScore: 300 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
@@ -443,7 +443,7 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 20
-    chaosScore: 150 # Goobstation
+    chaosScore: 280 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: RandomSpawnRule
     prototype: MobRevenant
@@ -600,7 +600,7 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaosScore: 100 # Goobstation
+    chaosScore: 240 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:
@@ -623,7 +623,7 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaosScore: 100 # Goobstation
+    chaosScore: 240 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:
@@ -646,7 +646,7 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaosScore: 100 # Goobstation
+    chaosScore: 240 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     entries:
@@ -665,7 +665,7 @@
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaosScore: 100 # Goobstation
+    chaosScore: 240 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: VentCrittersRule
     playerRatio: 35 # DeltaV: Clown spiders are very robust
@@ -682,7 +682,7 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
-    chaosScore: 700 # Goobstation
+    chaosScore: 1400 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: ZombieRule
   - type: AntagSelection
@@ -717,7 +717,7 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-    chaosScore: 300 # Goobstation
+    chaosScore: 700 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: RuleGrids
   - type: LoadMapRule
@@ -763,7 +763,7 @@
       path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
-    chaosScore: 300 # Goobstation
+    chaosScore: 550 # Goobstation
     eventType: HostilesSpawn # Goobstation
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
@@ -788,7 +788,7 @@
     duration: 150
     maxDuration: 300
     reoccurrenceDelay: 30
-    chaosScore: 10 # Goobstation
+    chaosScore: 30 # Goobstation
     eventType: Chaotic # Goobstation
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 0.1
@@ -805,7 +805,7 @@
     weight: 8
     reoccurrenceDelay: 20
     duration: 1
-    chaosScore: 70 # Goobstation
+    chaosScore: 150 # Goobstation
     eventType: Chaotic # Goobstation
   - type: IonStormRule
 
@@ -832,7 +832,7 @@
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
-    chaosScore: 80 # Goobstation
+    chaosScore: 160 # Goobstation
     eventType: Maintenance # Goobstation
   - type: GreytideVirusRule
     accessGroups:
@@ -855,7 +855,7 @@
     reoccurrenceDelay: 20
     minimumPlayers: 4
     duration: null
-    chaosScore: 60 # Goobstation
+    chaosScore: 80 # Goobstation
     eventType: Chaotic # Goobstation
   - type: SpaceSpawnRule
     spawnDistance: 0
