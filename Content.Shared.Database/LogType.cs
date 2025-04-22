@@ -574,4 +574,9 @@ public enum LogType
     /// GameDirector related game interactions.
     /// </summary>
     GameDirector = 100, // Goobstation
+
+    /// <summary>
+    /// SecretPlus related game interactions.
+    /// </summary>
+    SecretPlus = 101, // Goobstation
 }

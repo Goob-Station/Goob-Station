@@ -172,11 +172,12 @@ public sealed class EventManagerSystem : EntitySystem
     /// <summary>
     /// Returns true if the provided EntityTableSelector gives at least one prototype with a StationEvent comp.
     /// </summary>
-    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents)
+    public bool TryBuildLimitedEvents(EntityTableSelector limitedEventsTable, out Dictionary<EntityPrototype, StationEventComponent> limitedEvents,
+                                      bool allEvents = false) // Goobstation
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
 
-        var availableEvents = AvailableEvents(); // handles the player counts and individual event restrictions
+        AvailableEvents(allEvents, allEvents ? int.MaxValue : null, allEvents ? TimeSpan.MaxValue : null); // Goobstation
 
         if (availableEvents.Count == 0)
         {
