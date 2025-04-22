@@ -7739,3 +7739,15 @@ Entries:
       message: You can have 3 chest markings
   id: 903
   time: '2025-04-20T18:32:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Armor-piercing values are now shown on examine.
+    - type: Tweak
+      message: Reworked M7S. Meet the Ventilator.
+    - type: Tweak
+      message: Caseless Magnum is now hollow-point.
+    - type: Fix
+      message: Disablers no longer deal double the damage.
+  id: 904
+  time: '2025-04-22T04:40:50.0000000+00:00'
