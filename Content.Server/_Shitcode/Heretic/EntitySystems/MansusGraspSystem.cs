@@ -224,7 +224,7 @@ public sealed class MansusGraspSystem : EntitySystem
             return;
 
         // upgraded grasp
-        if (!TryApplyGraspEffectAndMark( args.User, hereticComp, target, ent))
+        if (!TryApplyGraspEffectAndMark(args.User, hereticComp, target, ent))
             return;
 
         if (TryComp(target, out StatusEffectsComponent? status))
@@ -252,7 +252,7 @@ public sealed class MansusGraspSystem : EntitySystem
         EntityUid? grasp)
     {
         if (hereticComp.CurrentPath == null)
-            return false;
+            return true;
 
         if (hereticComp.PathStage >= 2)
         {

@@ -53,6 +53,11 @@
   actionPrototypes:
   - ActionHereticLivingHeart
 
+- type: hereticKnowledge
+  id: CloakOfShadow
+  actionPrototypes:
+  - ActionHereticShadowCloak
+
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret

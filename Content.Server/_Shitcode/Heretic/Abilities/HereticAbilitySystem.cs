@@ -21,9 +21,7 @@ using Content.Server.Flash;
 using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
-using Content.Server.Popups;
 using Content.Server.Store.Systems;
-using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -65,7 +63,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 {
     // keeping track of all systems in a single file
     [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
@@ -144,33 +141,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         SubscribeSide();
     }
 
-    private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
+    protected override void SpeakAbility(EntityUid ent, HereticActionComponent actionComp)
     {
-        if (args.Handled)
-            return false;
-
-        if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))
-            return false;
-
-        // check if any magic items are worn
-        if (TryComp<HereticComponent>(ent, out var hereticComp) && actionComp.RequireMagicItem && !hereticComp.Ascended)
-        {
-            var ev = new CheckMagicItemEvent();
-            RaiseLocalEvent(ent, ev);
-
-            if (!ev.Handled)
-            {
-                _popup.PopupEntity(Loc.GetString("heretic-ability-fail-magicitem"), ent, ent);
-                return false;
-            }
-        }
-
         // shout the spell out
         if (!string.IsNullOrWhiteSpace(actionComp.MessageLoc))
             _chat.TrySendInGameICMessage(ent, Loc.GetString(actionComp.MessageLoc!), InGameICChatType.Speak, false);
-
-        return true;
     }
+
     private void OnStore(Entity<HereticComponent> ent, ref EventHereticOpenStore args)
     {
         if (!TryComp<StoreComponent>(ent, out var store))
@@ -202,7 +179,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         if (!_hands.TryForcePickupAnyHand(ent, st))
         {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             QueueDel(st);
             return;
         }
@@ -229,7 +206,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         if (ent.Comp.SacrificeTargets.Count == 0)
         {
-            _popup.PopupEntity(Loc.GetString("heretic-livingheart-notargets"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-livingheart-notargets"), ent, ent);
             args.Handled = true;
             return;
         }
@@ -278,7 +255,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 ("direction", locdir));
         }
 
-        _popup.PopupEntity(loc, ent, ent, PopupType.Medium);
+        Popup.PopupEntity(loc, ent, ent, PopupType.Medium);
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
@@ -290,13 +267,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         if (!HasComp<MindContainerComponent>(args.Target))
         {
-            _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-nomind"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-manselink-fail-nomind"), ent, ent);
             return;
         }
 
         if (_tag.HasTag(args.Target, MansusLinkTag))
         {
-            _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
         }
 
@@ -307,8 +284,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             BreakOnWeightlessMove = true,
             MultiplyDelay = false
         };
-        _popup.PopupEntity(Loc.GetString("heretic-manselink-start"), ent, ent);
-        _popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
+        Popup.PopupEntity(Loc.GetString("heretic-manselink-start"), ent, ent);
+        Popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
         _doafter.TryStartDoAfter(dargs);
     }
     private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)

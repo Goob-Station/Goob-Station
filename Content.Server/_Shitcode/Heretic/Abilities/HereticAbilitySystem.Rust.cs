@@ -321,7 +321,7 @@ public sealed partial class HereticAbilitySystem
             return true;
 
         if (ent != null)
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-rust-stage-low"), ent.Value, ent.Value);
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-rust-stage-low"), ent.Value, ent.Value);
 
         return false;
     }
@@ -386,7 +386,7 @@ public sealed partial class HereticAbilitySystem
 
         if (!IsTileRust(args.Target, out var pos))
         {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-not-rusted"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-not-rusted"), ent, ent);
             return;
         }
 
@@ -400,7 +400,7 @@ public sealed partial class HereticAbilitySystem
             if (fix.Fixtures.All(x => (x.Value.CollisionLayer & (int) mask) == 0))
                 continue;
 
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-occupied"), ent, ent);
+            Popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-occupied"), ent, ent);
             return;
         }
 

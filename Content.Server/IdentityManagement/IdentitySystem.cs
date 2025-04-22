@@ -23,6 +23,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Identity;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.CriminalRecords.Systems;
@@ -183,6 +184,13 @@ public sealed class IdentitySystem : SharedIdentitySystem
         InventoryComponent? inventory=null,
         HumanoidAppearanceComponent? appearance=null)
     {
+        // Goobstation start
+        var ev = new GetIdentityRepresentationEntityEvent();
+        RaiseLocalEvent(target, ref ev);
+        if (ev.Uid != null)
+            return GetIdentityRepresentation(ev.Uid.Value);
+        // Goobstation end
+
         int age = 18;
         Gender gender = Gender.Epicene;
         string species = SharedHumanoidAppearanceSystem.DefaultSpecies;
