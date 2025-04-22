@@ -44,7 +44,7 @@
     requirePower: false
     ignoreInsulation: true
   - type: TimedDespawn
-    lifetime: 0.3 # 1984
+    lifetime: 0.25 # 1984
   # SpawnOnTrigger is kinda broken so we do this, totally not shitcode, also allows more control to where to place the
   # vortex as you need to hover your cursor over the needed entity, because the others will be shocked and knocked down
   - type: AnchorOnTrigger
