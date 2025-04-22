@@ -82,7 +82,7 @@ uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
 uplink-weapon-burner-name = Burner Heavy Rifle
-uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
+uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
 uplink-WSPR-name = WSPR
 uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets, which do more damage to flesh but fair worse against armour.
