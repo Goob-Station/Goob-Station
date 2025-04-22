@@ -41,11 +41,12 @@ public sealed partial class SiliconSpritePreferenceSystem : SharedBorgSwitchable
 
         if (_resourceCache.TryGetResource<RSIResource>(rsiPath, out var resource))
         {
-            sprite.LayerSetRSI(BorgVisualLayers.Body, resource.RSI);
-            sprite.LayerSetRSI(BorgVisualLayers.LightStatus, resource.RSI);
-
+            subtypePrototype.SpriteBodyState = borgType.SpriteBodyState;
+            subtypePrototype.SpriteToggleLightState = borgType.SpriteToggleLightState;
             sprite.LayerSetState(BorgVisualLayers.Body, subtypePrototype.SpriteBodyState);
             sprite.LayerSetState(BorgVisualLayers.LightStatus, subtypePrototype.SpriteToggleLightState);
+            sprite.LayerSetRSI(BorgVisualLayers.Body.GetHashCode(), resource.RSI);
+            sprite.LayerSetRSI(BorgVisualLayers.LightStatus.GetHashCode(), resource.RSI);
         }
     }
 }

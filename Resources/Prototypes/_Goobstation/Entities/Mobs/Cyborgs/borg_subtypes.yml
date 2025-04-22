@@ -39,8 +39,6 @@
   id: medical_standart
   spritePath: _Goobstation/Mobs/Silicon/Medical/standart.rsi
   dummyPrototype: BorgChassisMedicalStandart
-  spriteBodyState: medical
-  spriteToggleLightState: medical_l
 
 # Service subtypes
 - type: borgSubtype
@@ -102,18 +100,9 @@
 # Medical
 - type: entity
   id: BorgChassisMedicalStandart
-  parent: BaseBorgChassis
+  parent: BorgChassisMedical
   name: medical cyborg
   components:
-- type: entity
-  id: BorgChassisMedicalStandart
-  parent: BaseBorgChassis # Assuming BaseBorgChassis has basic borg setup
-  name: medical cyborg
-  components:
-  - type: BorgSwitchableType
-    selectedBorgType: medical
-  - type: BorgSwitchableSubtype
-    borgSubtype: medical_standart
   - type: BorgSwitchableType
     selectedBorgType: medical
   - type: BorgSwitchableSubtype
