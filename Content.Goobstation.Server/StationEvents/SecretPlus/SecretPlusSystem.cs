@@ -206,14 +206,15 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
 #endif
         LogMessage($"Trying to run roundstart rules, total player count: {count}", false);
 
-        var weights = weightList.Weights;
+        var weights = weightList.Weights.ToDictionary();
         int maxIters = 50, i = 0;
         while (scheduler.ChaosScore < 0 && i < maxIters)
         {
             var pick = _random.Pick(weights);
 
+            weights.Remove(pick);
             if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
-                weights = weights.Where(w => !incompModes.Modes.Contains(w.Key) && w.Key != pick).ToDictionary();
+                weights = weights.Where(w => !incompModes.Modes.Contains(w.Key)).ToDictionary();
 
             IndexAndStartGameMode(pick);
             if (weights.Count == 0)
