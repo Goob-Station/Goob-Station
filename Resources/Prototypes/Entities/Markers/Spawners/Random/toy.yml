@@ -63,6 +63,12 @@
         - PlushieAhti
         - PlushieSparkle
         - PlushieGrub
+        - PlushieFern
+        - PlushieHexadecimal
+        - PlushieFlint
+        - PlushiePistachio
+        - PlushieSeesTheStars
+
       rareChance: 0.03
       prototypes:
         - PlushieBee
