@@ -14,7 +14,7 @@
     whitelist:
       components:
       - MeleeWeapon
-    maxLevel: 1
+    maxLevel: 2
   - type: KnockbackEnchant
   - type: MeleeThrowOnHit
     distance: 1
