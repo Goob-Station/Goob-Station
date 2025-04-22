@@ -14,6 +14,25 @@
         tableId: BasicGameRulesTable
 
 - type: entity
+  id: HellDynamic
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameRule
+    minPlayers: 40
+  - type: GameDirector
+    livingChaosChange: -0.02 # double standard value
+    deadChaosChange: 0.02
+    chaosExponent: 1 # five billion loneops
+    eventIntervalMin: 90
+    eventIntervalMax: 270
+    minStartingChaos: 15
+    maxStartingChaos: 30 # ling-blob-nukeops is fun
+  - type: SelectedGameRules
+    scheduledGameRules: !type:NestedSelector
+      tableId: GameDirectorTable
+
+- type: entity
   id: CombatDynamic
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
@@ -35,11 +54,11 @@
     minPlayers: 0
   - type: GameDirector
     noRoundstartAntags: true
-    livingChaosChange: -0.002
-    deadChaosChange: -0.005
-    chaosExponent: 2 # nothing ever happens
+    livingChaosChange: -0.006
+    deadChaosChange: 0.015
+    chaosExponent: 1.3 # nothing ever happens
     eventIntervalMin: 180
-    eventIntervalMax: 720
+    eventIntervalMax: 540
 
 - type: entity
   id: NewDirectorDebug

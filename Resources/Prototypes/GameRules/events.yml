@@ -223,7 +223,7 @@
     weight: 8
     duration: 35
     chaosScore: 70 # Goobstation
-    eventType: Chaos # Goobstation
+    eventType: Chaotic # Goobstation
   - type: AnomalySpawnRule
 
 - type: entity
@@ -241,7 +241,7 @@
     weight: 8
     duration: 35
     chaosScore: 40 # Goobstation
-    eventType: Chaos # Goobstation
+    eventType: Chaotic # Goobstation
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -294,7 +294,7 @@
     weight: 5
     duration: 1
     chaosScore: 30 # Goobstation
-    eventType: Chaos # Goobstation
+    eventType: Chaotic # Goobstation
   - type: ClericalErrorRule
 
 - type: entity
@@ -306,7 +306,7 @@
     duration: 1
     minimumPlayers: 10
     chaosScore: 60 # Goobstation
-    eventType: Chaos # Goobstation
+    eventType: Chaotic # Goobstation
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -412,7 +412,7 @@
     reoccurrenceDelay: 20
     minimumPlayers: 15
     chaosScore: 80 # Goobstation
-    eventType: Chaos # Goobstation
+    eventType: Chaotic # Goobstation
   - type: ParadoxCloneRule
   - type: AntagObjectives
     objectives:

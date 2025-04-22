@@ -112,7 +112,7 @@
     startAnnouncement: station-event-unknown-shuttle-incoming #!!
     weight: 2
     chaosScore: -40 # Goobstation
-    eventType: Chaos # Goobstation
+    eventType: Chaotic # Goobstation
   - type: LoadMapRule
     preloadedGrid: Honki
 

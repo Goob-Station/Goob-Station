@@ -172,7 +172,6 @@
     - CalmDynamic
     - LavalandStormScheduler
     - SubGamemodesRule
-    - RareIonStormScheduler
 
 - type: gamePreset
   id: TheGuide
@@ -187,4 +186,17 @@
     - CombatDynamic
     - LavalandStormScheduler
     - SubGamemodesRule
-    - IonStormScheduler
+
+- type: gamePreset
+  id: TheWarrior
+  alias:
+    - hell
+    - helldynamic
+  name: warrior-title
+  description: warrior-description
+  showInVote: true # likely temporary i'm not sure this is a good idea at all, but will stop chudshifts if newdirector turns out too chuddy
+  minPlayers: 40
+  rules:
+    - HellDynamic
+    - LavalandStormScheduler
+    - SubGamemodesRule

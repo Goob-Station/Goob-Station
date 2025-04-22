@@ -173,7 +173,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # Goob - Game Director
+  showInVote: true # Goob - temporarily enabled during newdirector testing
   description: secret-description
   rules:
     - Secret
