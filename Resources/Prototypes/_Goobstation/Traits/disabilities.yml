@@ -40,14 +40,3 @@
   components:
     - type: MovementImpaired
       impairedSpeedMultiplier: 0.6
-
-- type: trait
-  id: SplitPersonality
-  name: trait-movement-split-personality-name
-  description: trait-movement-split-personality-desc
-  category: Disabilities
-  blacklist:
-    components:
-    - BorgChassis
-  components:
-  - type: SplitPersonality

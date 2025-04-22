@@ -11,6 +11,12 @@ namespace Content.Goobstation.Server.SplitPersonality;
 public sealed partial class SplitPersonalityComponent : Component
 {
     /// <summary>
+    /// Should the entity do startup flavor when receiving the component?
+    /// This means the whole popup and falling to the ground.
+    /// </summary>
+    public bool DoStartFlavor = true;
+
+    /// <summary>
     /// The original, or main, mind of this entity.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]

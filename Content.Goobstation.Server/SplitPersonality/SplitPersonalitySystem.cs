@@ -41,9 +41,12 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         comp.NextSwapAttempt = _timing.CurTime + comp.SwapAttemptDelay;
         comp.MindsContainer = _container.EnsureContainer<Container>(uid, "SplitPersonalityContainer");
 
-        var popup = Loc.GetString("split-personality-start-popup");
-        _popup.PopupEntity(popup, uid, uid, PopupType.LargeCaution);
-        _stun.TryParalyze(uid, TimeSpan.FromSeconds(6), true);
+        if (comp.DoStartFlavor)
+        {
+            var popup = Loc.GetString("split-personality-start-popup");
+            _popup.PopupEntity(popup, uid, uid, PopupType.LargeCaution);
+            _stun.TryParalyze(uid, TimeSpan.FromSeconds(6), true);
+        }
 
         if (!_mind.TryGetMind(uid, out var hostMindId, out var hostMind))
             return;
