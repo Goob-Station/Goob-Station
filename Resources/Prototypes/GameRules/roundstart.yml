@@ -207,6 +207,9 @@
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
+  - type: StationEvent # Goobstation
+    chaosScore: 1200
+    eventType: Roundstart
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
@@ -290,6 +293,9 @@
   id: BaseTraitorRule
   components:
   - type: TraitorRule
+  - type: StationEvent # Goobstation
+    chaosScore: 700
+    eventType: Roundstart
   # TODO: codewords in yml
   # TODO: uplink in yml
   - type: AntagRandomObjectives
@@ -340,6 +346,9 @@
   components:
   - type: GameRule
     minPlayers: 15
+  - type: StationEvent # Goobstation
+    chaosScore: 800
+    eventType: Roundstart
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn # Goobstation
