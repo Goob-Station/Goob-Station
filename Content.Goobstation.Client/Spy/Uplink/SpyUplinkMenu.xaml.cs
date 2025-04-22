@@ -12,7 +12,6 @@ public sealed partial class SpyUplinkMenu : DefaultWindow
 {
 
     private List<SpyBountyData> _cachedBounties = new();
-    public event Action<BaseButton.ButtonEventArgs, SpyBountyData>? OnBountyButtonPressed;
 
     public SpyUplinkMenu()
     {
@@ -39,7 +38,6 @@ public sealed partial class SpyUplinkMenu : DefaultWindow
     {
         var newListing = new BountyListingControl(bounty);
         newListing.SetTexture();
-        newListing.ClaimButton.OnButtonDown += args => OnBountyButtonPressed?.Invoke(args, bounty);
         UplinkBountyContainer.AddChild(newListing);
     }
 

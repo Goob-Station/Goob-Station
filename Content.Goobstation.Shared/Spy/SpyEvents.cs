@@ -4,4 +4,14 @@ using Robust.Shared.Serialization;
 namespace Content.Goobstation.Shared.Spy;
 
 [Serializable, NetSerializable]
-public sealed partial class SpyStealDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class SpyStealDoAfterEvent : DoAfterEvent
+{
+    public NetEntity Sound;
+
+    public SpyStealDoAfterEvent(NetEntity sound)
+    {
+        Sound = sound;
+    }
+
+    public override DoAfterEvent Clone() => this;
+}

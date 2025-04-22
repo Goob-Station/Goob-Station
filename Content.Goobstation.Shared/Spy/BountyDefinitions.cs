@@ -1,4 +1,5 @@
 using Content.Shared.Objectives;
+using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -19,24 +20,18 @@ public sealed class SpyBountyRewardPrototype : IPrototype // beyond any syndie u
 [Virtual, DataDefinition]
 public sealed partial class SpyBountyData
 {
-    public NetEntity? TargetEntity;
+    public NetEntity TargetEntity;
     public ProtoId<StealTargetGroupPrototype> TargetGroup;
-    public NetEntity? Owner;
+    public bool Claimed;
     public TimeSpan TimeAssigned;
     public TimeSpan? TimeCompleted;
+    public ListingData RewardListing;
 
-    public SpyBountyData(NetEntity targetEntity, ProtoId<StealTargetGroupPrototype> targetGroup)
+    public SpyBountyData(NetEntity targetEntity, ProtoId<StealTargetGroupPrototype> targetGroup, ListingData rewardListing)
     {
         TargetEntity = targetEntity;
         TargetGroup = targetGroup;
+        RewardListing = rewardListing;
     }
 }
 
-// Black market listing
-public struct BlackMarketListing
-{
-    public NetEntity Item;
-    public int Price;
-    public TimeSpan TimeListed;
-    public bool Purchased;
-}

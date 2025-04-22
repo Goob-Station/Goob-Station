@@ -3,8 +3,10 @@ using System.Linq;
 using Content.Goobstation.Shared.Spy;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
+using Content.Shared.FixedPoint;
 using Content.Shared.Objectives;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Store;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
@@ -12,6 +14,21 @@ namespace Content.Goobstation.Server.Spy;
 
 public sealed partial class SpySystem
 {
+    private readonly HashSet<ProtoId<StoreCategoryPrototype>> _categories =
+    [
+        "UplinkWeaponry",
+        "UplinkAmmo",
+        "UplinkExplosives",
+        "UplinkChemicals",
+        "UplinkDeception",
+        "UplinkDisruption",
+        "UplinkImplants",
+        "UplinkAllies",
+        "UplinkWearables",
+        "UplinkJob",
+        "UplinkPointless",
+        "UplinkSales",
+    ];
 
     public override void CreateDbEntity()
     {
@@ -24,17 +41,17 @@ public sealed partial class SpySystem
         Log.Info("Spy DB Entity Created at UID: " + dbEnt.Id);
     }
 
-    private bool TrySetBountyOwner(SpyBountyData data, Entity<SpyUplinkComponent> ent)
+    private bool TrySetBountyClaimed(NetEntity bountyEntity)
     {
         if (!TryGetSpyDatabaseEntity(out var nullableEnt) || nullableEnt is not { } dbEnt)
             return false;
-        var targetEnt = data.TargetEntity;
-        var bounty = dbEnt.Comp.Bounties.FirstOrDefault(b => b.TargetEntity == targetEnt);
+
+        var bounty = dbEnt.Comp.Bounties.FirstOrDefault(b => b.TargetEntity == bountyEntity);
         if (bounty == null)
             return false;
-        bounty.Owner = GetNetEntity(ent);
-        ent.Comp.ClaimedBounty = bounty;
-        return false;
+
+        bounty.Claimed = true;
+        return true;
     }
 
     public override void SetupBounties()
@@ -77,17 +94,17 @@ public sealed partial class SpySystem
 
         // randomize them turn them inall uniqueto protoids and make sure they're .
         var randomizeTargets = weightedPickedObjectives
-            .OrderBy(_ => _random.Next())
-            .ToList()
-            .Select(protoId => _protoMan.Index(protoId))
             .Distinct()
+            .Select(protoId => _protoMan.Index(protoId))
+            .OrderBy(_ => _random.Next())
             .ToList();
 
         // make there StealConditionComponent easily accessible.
         List<(EntityPrototype proto, StealConditionComponent condition)> finalObjectives = [];
         foreach (var target in randomizeTargets)
         {
-            if(!target.Components.TryGetComponent("StealCondition", out var stealConditionComponent) || stealConditionComponent is not StealConditionComponent stealCondition)
+            if (!target.Components.TryGetComponent("StealCondition", out var stealConditionComponent) ||
+                stealConditionComponent is not StealConditionComponent stealCondition)
                 continue;
             finalObjectives.Add((target, stealCondition));
         }
@@ -101,15 +118,32 @@ public sealed partial class SpySystem
         {
             ProtoId<StealTargetGroupPrototype> stealGroup = comp.StealGroup;
 
-            if(finalObjectives.Any(item => item.condition.StealGroup == stealGroup))
+            if (finalObjectives.Any(item => item.condition.StealGroup == stealGroup))
                 possibleBounties.Add((stealTarget, comp));
         }
 
+        // select a random reward
+        // test
+
+        var listings = _store.GetAllListings()
+            .OrderBy(p =>
+                p.Cost.Values.Sum())
+            .Where(p =>
+                p.Categories.Any(category =>
+                    _categories.Contains(category)))
+            .ToList();
+
         bounties = possibleBounties
-            .OrderBy(_ => _random.Next())
+            .DistinctBy(ent => ent.Comp.StealGroup)
+            .DistinctBy(ent => ent.Owner)
             .Take(GlobalBountyAmount)
             .Select(ent =>
-                new SpyBountyData(GetNetEntity(ent), new ProtoId<StealTargetGroupPrototype>(ent.Comp.StealGroup)))
+                new SpyBountyData(GetNetEntity(ent),
+                    new ProtoId<StealTargetGroupPrototype>(ent.Comp.StealGroup),
+                    listings
+                        .OrderBy(_ => _random.Next())
+                        .First())) // select a random item
+            .OrderBy(_ => _random.Next())
             .ToList();
 
         return true;

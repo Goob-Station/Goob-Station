@@ -24,17 +24,19 @@ public sealed partial class BountyListingControl : Control
 
         _data = data;
 
-        if (!_prototype.TryIndex(_data.TargetGroup, out var targetGroup))
+        if (!_prototype.TryIndex(_data.TargetGroup, out var targetGroup)
+            || _data.RewardListing.ProductEntity is not { } productProtoId
+            ||  !_prototype.TryIndex(productProtoId, out var productProto))
             return;
 
         BountyTitle.Text = Loc.GetString("objective-condition-steal-title-alive-no-owner", ("itemName", Loc.GetString(targetGroup.Name)));
         BountyDesc.Text = Loc.GetString(targetGroup.Name);
+        RewardLabel.Text = _data.RewardListing.Name != null ? Loc.GetString(_data.RewardListing.Name) : productProto.Name;
 
-        if (_data.Owner == null)
+        if (_data.Claimed == false)
             return;
 
         ClaimedOverlay.Visible = true;
-        ClaimButton.Visible = false;
     }
 
     public void SetTexture()

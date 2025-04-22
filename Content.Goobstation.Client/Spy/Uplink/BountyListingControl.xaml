@@ -21,12 +21,10 @@
                          Text="Steal PLACEHOLDER found in the PLACEHOLDER."/>
             <BoxContainer Orientation="Horizontal">
                 <Label FontColorOverride="#32CD32"
-                     Name="Reward"
-                     Text="Reward: PLACEHOLDER"
-                     Margin="0,0,225,0"/>
-                <Button Name="ClaimButton"
-                      Access="Public"
-                      Text="Claim."/>
+                       Text="Reward:"/>
+                <Label FontColorOverride="#32CD32"
+                       Name="RewardLabel"
+                       Text="PLACEHOLDER"/>
             </BoxContainer>
         </BoxContainer>
 
