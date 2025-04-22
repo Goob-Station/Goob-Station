@@ -29,7 +29,7 @@ public sealed partial class HoloCigarAffectedGunComponent : Component
     public float OriginalSpreadAddition;
 
     [ViewVariables]
-    public float OriginalHandDamage;
+    public float OriginalHandDamageAmount;
 
     [ViewVariables]
     public float OriginalStaminaDamage;

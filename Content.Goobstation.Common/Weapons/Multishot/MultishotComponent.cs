@@ -46,11 +46,17 @@ public sealed partial class MultishotComponent : Component
     public float SpreadAddition = 5f;
 
     /// <summary>
-    /// Blunt damage applied to hands when firing this gun with another one. Doesn't damage the firing entity itself.
-    /// Cry: Can't use DamageSpecifier because this component is in Common.
+    /// This is Common, and we can't import DamageSpecifier here, so we shitcode it instead.
+    /// Amount of damage applied to hands when firing this gun with another one. Doesn't damage the shooter itself.
     /// </summary>
     [DataField]
-    public float HandDamage;
+    public float HandDamageAmount;
+
+    /// <summary>
+    /// <see cref="HandDamageAmount"/> Type of the said damage.
+    /// </summary>
+    [DataField]
+    public string HandDamageType = "Blunt";
 
     /// <summary>
     ///  Stamina damage applied to the entity when firing this gun with another one.

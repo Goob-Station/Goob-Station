@@ -110,7 +110,7 @@ public sealed class SharedMultishotSystem : EntitySystem
 
     private void DamageHands(EntityUid weapon, MultishotComponent component, EntityUid target)
     {
-        if (component.HandDamage == 0)
+        if (component.HandDamageAmount == 0)
             return;
 
         if (!_handsSystem.IsHolding(target, weapon, out var hand))
@@ -126,7 +126,7 @@ public sealed class SharedMultishotSystem : EntitySystem
 
         var bodyPart = _bodySystem.GetTargetBodyPart(BodyPartType.Hand, bodySymmetry);
 
-        var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), component.HandDamage);
+        var damage = new DamageSpecifier(_proto.Index<DamageTypePrototype>(component.HandDamageType), component.HandDamageAmount);
         var handsDamageEv = new TryChangePartDamageEvent(damage, target, bodyPart, true);
 
         RaiseLocalEvent(target, ref handsDamageEv);

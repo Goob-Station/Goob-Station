@@ -8,7 +8,6 @@
 using Content.Goobstation.Common.TheManWhoSoldTheWorld;
 using Content.Goobstation.Common.Weapons.Multishot;
 using Content.Goobstation.Common.Weapons.NoWieldNeeded;
-using Content.Shared._Goobstation.Weapons.Ranged;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction.Events;
@@ -19,7 +18,6 @@ using Content.Shared.Smoking;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Wieldable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
@@ -156,7 +154,7 @@ public sealed class HoloCigarSystem : EntitySystem
             affected.OriginalMissChance = multi.MissChance;
             affected.OriginalSpreadModifier = multi.SpreadMultiplier;
             affected.OriginalSpreadAddition = multi.SpreadAddition;
-            affected.OriginalHandDamage = multi.HandDamage;
+            affected.OriginalHandDamageAmount = multi.HandDamageAmount; // We don't care about the type though
             affected.OriginalStaminaDamage = multi.StaminaDamage;
         }
 
@@ -164,7 +162,7 @@ public sealed class HoloCigarSystem : EntitySystem
         multi.MissChance = 0f;
         multi.SpreadMultiplier = 1f; // no extra spread chuds
         multi.SpreadAddition = 0f;
-        multi.HandDamage = 0f;
+        multi.HandDamageAmount = 0f;
         multi.StaminaDamage = 0f;
 
         _gun.RefreshModifiers(args.Item);
@@ -190,9 +188,7 @@ public sealed class HoloCigarSystem : EntitySystem
 
         if (ent.Comp.Lit == false)
         {
-            var audio = _audio.PlayPvs(ent.Comp.Music,
-                ent,
-                AudioParams.Default.WithLoop(true).WithVolume(3f)); // must be louder than everything else on jehovah
+            var audio = _audio.PlayPvs(ent.Comp.Music, ent);
 
             if (audio is null)
                 return;
@@ -236,7 +232,7 @@ public sealed class HoloCigarSystem : EntitySystem
                 multiShotComp.MissChance = cigarAffectedGunComponent.OriginalMissChance;
                 multiShotComp.SpreadMultiplier = cigarAffectedGunComponent.OriginalSpreadModifier;
                 multiShotComp.SpreadAddition = cigarAffectedGunComponent.OriginalSpreadAddition;
-                multiShotComp.HandDamage = cigarAffectedGunComponent.OriginalHandDamage;
+                multiShotComp.HandDamageAmount = cigarAffectedGunComponent.OriginalHandDamageAmount;
                 multiShotComp.StaminaDamage = cigarAffectedGunComponent.OriginalStaminaDamage;
                 break;
             }
