@@ -7751,3 +7751,9 @@ Entries:
       message: Disablers no longer deal double the damage.
   id: 904
   time: '2025-04-22T04:40:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed carp scroll being unbuyable.
+  id: 905
+  time: '2025-04-22T05:52:22.0000000+00:00'
