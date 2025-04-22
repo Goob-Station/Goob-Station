@@ -23,6 +23,7 @@
   name: Protection
   components:
   - type: Enchant
+    maxLevel: 4
     incompatible:
     - EnchantProtBlast
     - EnchantProtFire
@@ -47,6 +48,7 @@
   name: Fire Protection
   components:
   - type: Enchant
+    maxLevel: 4
     incompatible:
     - EnchantProtection
     - EnchantProtBlast

@@ -18,4 +18,4 @@
   - type: BonusDamageEnchant
     damage:
       types:
-        Slash: 1
+        Slash: 4

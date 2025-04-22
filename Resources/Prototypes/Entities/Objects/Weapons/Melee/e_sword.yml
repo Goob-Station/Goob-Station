@@ -223,10 +223,6 @@
       - Energy
   - type: IgnitionSource
     temperature: 700
-  - type: Enchanter
-    maxLevel: 5
-    enchants:
-    - EnchantSharpness
 
 - type: entity
   name: energy sword
@@ -258,10 +254,6 @@
       params:
         variation: 0.250
         volume: -2
-  - type: Enchanter
-    maxLevel: 5
-    enchants:
-    - EnchantSharpness
 
 - type: entity
   name: energy dagger

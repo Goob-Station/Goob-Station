@@ -428,9 +428,6 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
-  - type: Enchanter # Goobstation
-    enchants:
-    - EnchantInsulated
 
 # Budget Insulated Gloves
 - type: entity
@@ -458,9 +455,6 @@
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
-  - type: Enchanter # Goobstation
-    enchants:
-    - EnchantBudgetInsulated
 
 # Conductive Insulated Gloves
 - type: entity

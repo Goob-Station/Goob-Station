@@ -19,4 +19,4 @@
   - type: DamageOnAttacked
     damage:
       types:
-        Slash: 1.25
+        Slash: 4

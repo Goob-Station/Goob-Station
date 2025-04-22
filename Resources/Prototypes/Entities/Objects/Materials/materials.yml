@@ -529,9 +529,6 @@
   - type: PhysicalComposition
     materialComposition:
       Diamond: 100
-  - type: Enchanter # Goobstation
-    enchants:
-    - EnchantFortune
 
 - type: entity
   parent: MaterialDiamond
@@ -981,12 +978,6 @@
     sprite: Objects/Materials/hide.rsi
     shape:
     - 0,0,2,2
-  - type: Enchanter # Goobstation
-    enchants:
-    - EnchantUnbreaking
-    - EnchantFireAspect
-    - EnchantProtFire
-    - EnchantLavaforged
 
 - type: entity
   parent: MaterialGoliathHide

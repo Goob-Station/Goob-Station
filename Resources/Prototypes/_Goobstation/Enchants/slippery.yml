@@ -5,6 +5,10 @@
   name: Slippery
   components:
   - type: Enchant
+    blacklist:
+    - ProtectedFromStepTriggers # Player won't like their boots to get slippery instead of unslippable
+    incompatible:
+    - EnchantUnslippable
     maxLevel: 4
   - type: SlipperyEnchant
   - type: ComponentsEnchant

@@ -51,10 +51,6 @@
     tags:
     - HereticItem
     - HereticBlade
-  - type: Enchanter
-    # only level 1 as you can easily mass produce these
-    enchants:
-    - EnchantSharpness
 
 - type: entity
   parent: HereticBladeBase

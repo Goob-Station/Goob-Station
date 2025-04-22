@@ -5,6 +5,8 @@
   name: Unslippable
   components:
   - type: Enchant
+    incompatible:
+    - EnchantSlippery
     whitelist:
       components:
       - ProtectedFromStepTriggers # only go on shoes/hardsuit
