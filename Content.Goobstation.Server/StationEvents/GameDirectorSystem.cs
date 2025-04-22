@@ -311,19 +311,20 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             bool negative = weight < 0f;
             weight = MathF.Abs(weight);
             weight = MathF.Pow(weight, scheduler.ChaosExponent);
-            weight += scheduler.ChaosOffset;
             if (negative) weight = -weight;
-            var delta = ChaosDelta(-scheduler.ChaosScore, weight, scheduler.ChaosMatching);
+            weight += scheduler.ChaosOffset; // offset negative-chaos events upwards too else they never happen
+            weight += weight < 0f ? -scheduler.ChaosThreshold : scheduler.ChaosThreshold; // make sure it's not in (-1, 1) to not get absurdly low event probabilities
+            var delta = ChaosDelta(-scheduler.ChaosScore, weight, scheduler.ChaosMatching, scheduler.ChaosThreshold);
             weights[ev] = ev.Comp.Weight / (delta + 1f);
         }
 
         return weights.Count == 0 ? null : _random.Pick(weights);
     }
 
-    private float ChaosDelta(float chaos1, float chaos2, float logBase)
+    private float ChaosDelta(float chaos1, float chaos2, float logBase, float differentSignMultiplier)
     {
         float ratio = chaos2 / chaos1;
-        if (ratio < 0f) ratio = MathF.Abs(chaos2 * chaos1);
+        if (ratio < 0f) ratio = MathF.Abs(chaos2 * chaos1 / differentSignMultiplier);
         return MathF.Abs(MathF.Log(ratio, logBase));
     }
 

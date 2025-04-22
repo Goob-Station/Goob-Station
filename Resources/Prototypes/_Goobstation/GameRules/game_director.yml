@@ -4,6 +4,15 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+- type: entityTable
+  id: GameDirectorTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+      - !type:NestedSelector
+        tableId: SpaceTrafficControlTable
+      - !type:NestedSelector
+        tableId: BasicGameRulesTable
+
 - type: entity
   id: CombatDynamic
   parent: BaseGameRule
@@ -15,7 +24,7 @@
   # default config
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
-      tableId: BasicGameRulesTable
+      tableId: GameDirectorTable
 
 - type: entity
   id: CalmDynamic
@@ -49,4 +58,4 @@
   # default config
   - type: SelectedGameRules
     scheduledGameRules: !type:NestedSelector
-      tableId: BasicGameRulesTable
+      tableId: GameDirectorTable

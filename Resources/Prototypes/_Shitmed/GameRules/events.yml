@@ -18,7 +18,7 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 7.5
+    weight: 5
     minimumPlayers: 10
     duration: 1
     chaosScore: 300 # Goobstation
@@ -114,7 +114,7 @@
   - type: StationEvent
     earliestStart: 15
     reoccurrenceDelay: 45
-    weight: 7.5
+    weight: 5
     minimumPlayers: 20
     duration: 1
     chaosScore: 450 # Goobstation

@@ -87,6 +87,13 @@ public sealed partial class GameDirectorComponent : Component
     public float ChaosMatching = 2f;
 
     /// <summary>
+    ///   "Base" chaos value to use for event weighting.
+    ///   Matters for how much having negative weight affects probability.
+    /// </summary>
+    [DataField]
+    public float ChaosThreshold = 10f;
+
+    /// <summary>
     /// Does this round start with antags at all?
     /// </summary>
     [DataField]
