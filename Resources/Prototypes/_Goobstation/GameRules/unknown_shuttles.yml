@@ -25,5 +25,7 @@
     weight: 4
     chaos: # Goobstation
       Friend: -20
+    chaosScore: -80 # Goobstation
+    eventType: FriendlySpawn # Goobstation
   - type: LoadMapRule
     preloadedGrid: AlienTourist

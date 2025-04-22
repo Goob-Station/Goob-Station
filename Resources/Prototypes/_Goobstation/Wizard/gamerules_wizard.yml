@@ -77,6 +77,8 @@
       Friend: 40
       Medical: 200
       Death: 200
+    chaosScore: 800 # Goobstation
+    eventType: HostilesSpawn # Goobstation
   - type: AntagSelection
     useCharacterNames: true
     selectionTime: PostPlayerSpawn
