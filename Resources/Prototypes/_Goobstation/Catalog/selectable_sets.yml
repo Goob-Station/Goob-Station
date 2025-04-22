@@ -139,9 +139,9 @@
   content:
   - EncryptionKeySyndie
   - WeaponPistolCobra
-  - MagazinePistolCaselessMagnumMinusP # MagazinePistolCaselessRifle
-  - MagazinePistolCaselessMagnumMinusP # MagazinePistolCaselessRifle
-  - MagazinePistolCaselessMagnumMinusP # MagazinePistolCaselessRifle
+  - MagazinePistolCaselessRifle
+  - MagazinePistolCaselessRifle
+  - MagazinePistolCaselessRifle
   - CQCManual
   - ClothingOuterVestWeb
   - ClothingShoesChameleonNoSlips
