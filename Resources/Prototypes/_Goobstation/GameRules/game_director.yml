@@ -21,9 +21,9 @@
   - type: GameRule
     minPlayers: 40
   - type: GameDirector
-    livingChaosChange: -0.02 # double standard value
-    deadChaosChange: 0.02
-    chaosExponent: 1 # five billion loneops
+    livingChaosChange: -0.014
+    deadChaosChange: 0.03
+    chaosExponent: 1.1 # five billion loneops
     eventIntervalMin: 90
     eventIntervalMax: 270
     minStartingChaos: 15
