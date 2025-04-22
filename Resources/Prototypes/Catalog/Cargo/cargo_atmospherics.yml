@@ -69,7 +69,7 @@
     sprite: Structures/Storage/canister.rsi
     state: black
   product: CarbonDioxideCanister
-  cost: 400 # Goobstation # even though it's poisonous, it comes locked and only damages you slowly even with high amounts (tested)
+  cost: 400 # even though it's poisonous, it comes locked and only damages you slowly even with high amounts (tested)
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -89,7 +89,7 @@
     sprite: Structures/Storage/canister.rsi
     state: yellow
   product: StorageCanister
-  cost: 210 # Goobstation # no gases in it so it's cheaper
+  cost: 210 # No gases in it so it's cheaper
   category: cargoproduct-category-name-atmospherics
   group: market
 
