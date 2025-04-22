@@ -67,6 +67,7 @@
       path: /Audio/Announcements/attention.ogg
     weight: 10 # 10 default
     reoccurrenceDelay: 30
+    earliestStart: 20 # Goobstation
     duration: 1
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
     chaos: # Goobstation

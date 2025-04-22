@@ -210,33 +210,39 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         int maxIters = 50, i = 0;
         while (scheduler.ChaosScore < 0 && i < maxIters)
         {
+            i++;
+
             var pick = _random.Pick(weights);
+
+            StationEventComponent? stationEvent = null;
+            if (_prototypeManager.TryIndex(pick, out var entProto) &&
+                entProto.TryGetComponent<StationEventComponent>(out stationEvent, _factory) &&
+                _random.Prob(1 - -scheduler.ChaosScore / stationEvent.ChaosScore)) // have a chance to re-pick if we have low chaos budget left compared to this
+                continue;
 
             weights.Remove(pick);
             if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
                 weights = weights.Where(w => !incompModes.Modes.Contains(w.Key)).ToDictionary();
 
-            IndexAndStartGameMode(pick);
+            IndexAndStartGameMode(pick, entProto, stationEvent);
             if (weights.Count == 0)
                 return;
-
-            i++;
         }
 
         return;
 
-        void IndexAndStartGameMode(string pick)
+        void IndexAndStartGameMode(string pick, EntityPrototype? pickProto, StationEventComponent? evComp)
         {
-            var pickProto = _prototypeManager.Index(pick);
-            if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
-               !pickProto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory) ||
+            if(pickProto == null ||
+               evComp == null ||
+               !pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
                pickGameRule.MinPlayers > count)
             {
                 return;
             }
             LogMessage($"Roundstart rule chosen: {pick}");
             GameTicker.AddGameRule(pick);
-            scheduler.ChaosScore += stationEvent.ChaosScore;
+            scheduler.ChaosScore += evComp.ChaosScore;
         }
     }
 
