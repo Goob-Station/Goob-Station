@@ -19,6 +19,9 @@
   - type: WizardRule
   - type: GameRule
     minPlayers: 30
+  - type: StationEvent
+    chaosScore: 900
+    eventType: HostilesSpawn
   - type: AntagObjectives
     objectives:
     - WizardSurviveObjective
@@ -62,6 +65,9 @@
 - type: entity
   parent: BaseWizardRule
   id: Wizard
+  components:
+  - type: StationEvent
+    eventType: Roundstart
 
 - type: entity
   parent: BaseWizardRule
@@ -77,8 +83,6 @@
       Friend: 40
       Medical: 200
       Death: 200
-    chaosScore: 800 # Goobstation
-    eventType: HostilesSpawn # Goobstation
   - type: AntagSelection
     useCharacterNames: true
     selectionTime: PostPlayerSpawn

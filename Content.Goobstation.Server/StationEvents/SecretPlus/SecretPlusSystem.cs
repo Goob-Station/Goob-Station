@@ -154,12 +154,6 @@ public sealed class SecretPlusSystem : GameRuleSystem<SecretPlusComponent>
         scheduler.ChaosScore += count.Players * scheduler.LivingChaosChange * frameTime;
         scheduler.ChaosScore += count.Ghosts * scheduler.DeadChaosChange * frameTime;
 
-        var chaosAdjusters = EntityQueryEnumerator<ChaosAdjusterComponent>();
-        while (chaosAdjusters.MoveNext(out var adjuster))
-        {
-            scheduler.ChaosScore += adjuster.Amount * frameTime;
-        }
-
         var currTime = _timing.CurTime;
         if (currTime < scheduler.TimeNextEvent)
             return;

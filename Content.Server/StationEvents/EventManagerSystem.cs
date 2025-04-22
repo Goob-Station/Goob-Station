@@ -177,7 +177,7 @@ public sealed class EventManagerSystem : EntitySystem
     {
         limitedEvents = new Dictionary<EntityPrototype, StationEventComponent>();
 
-        AvailableEvents(allEvents, allEvents ? int.MaxValue : null, allEvents ? TimeSpan.MaxValue : null); // Goobstation
+        var availableEvents = AvailableEvents(allEvents, allEvents ? int.MaxValue : null, allEvents ? TimeSpan.MaxValue : null); // Goobstation
 
         if (availableEvents.Count == 0)
         {
