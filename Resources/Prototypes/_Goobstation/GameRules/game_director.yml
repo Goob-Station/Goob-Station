@@ -52,7 +52,7 @@
     minStartingChaos: 800
     maxStartingChaos: 1600
     eventIntervalMin: 2
-    eventIntervalMax: 8
+    eventIntervalMax: 6
     livingChaosChange: -38.4
     ignoreTimings: true
   # default config

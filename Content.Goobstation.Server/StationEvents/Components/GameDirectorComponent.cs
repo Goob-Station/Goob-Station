@@ -33,7 +33,7 @@ public sealed partial class GameDirectorComponent : Component
     ///   Used to restrict the game director to spawning positive events for some time after high-impact negative events
     /// </summary>
     [DataField]
-    public TimeSpan EventIntervalMax = TimeSpan.FromMinutes(8);
+    public TimeSpan EventIntervalMax = TimeSpan.FromMinutes(6);
 
     /// <summary>
     ///   The current chaos score
