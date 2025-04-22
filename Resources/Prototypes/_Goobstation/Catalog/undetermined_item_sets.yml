@@ -128,8 +128,8 @@
 # paramedic
 - type: thiefBackpackSet
   id: VoidsuitSelectorParamedicVoidsuit
-  name: spacesuit-paramedic-voidsuit-name
-  description: spacesuit-paramedic-voidsuit-desc
+  name: selectable-set-paramedic-voidsuit-name
+  description: selectable-set-paramedic-voidsuit-desc
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
@@ -138,8 +138,8 @@
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorParamedicHardsuit
-  name: spacesuit-paramedic-hardsuit-name
-  description: spacesuit-paramedic-hardsuit-desc
+  name: selectable-set-paramedic-modsuit-name
+  description: selectable-set-paramedic-modsuit-desc
   sprite:
     sprite: _Goobstation/Clothing/Back/Modsuits/paramedic.rsi
     state: control
@@ -149,8 +149,8 @@
 # security
 - type: thiefBackpackSet
   id: VoidsuitSelectorSecurityVoidsuit
-  name: spacesuit-security-voidsuit-name
-  description: spacesuit-security-voidsuit-desc
+  name: selectable-set-security-voidsuit-name
+  description: selectable-set-security-voidsuit-desc
   sprite:
     sprite: _Goobstation/Clothing/OuterClothing/Voidsuits/security.rsi
     state: icon
@@ -159,8 +159,8 @@
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorSecurityHardsuit
-  name: spacesuit-security-hardsuit-name
-  description: spacesuit-security-hardsuit-desc
+  name: selectable-set-security-modsuit-name
+  description: selectable-set-security-modsuit-desc
   sprite:
     sprite: _Goobstation/Clothing/Back/Modsuits/security.rsi
     state: control
@@ -170,8 +170,8 @@
 # head of security
 - type: thiefBackpackSet
   id: VoidsuitSelectorHeadOfSecurityVoidsuit
-  name: spacesuit-headofsecurity-voidsuit-name
-  description: spacesuit-headofsecurity-voidsuit-desc
+  name: selectable-set-headofsecurity-voidsuit-name
+  description: selectable-set-headofsecurity-voidsuit-desc
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
     state: icon
@@ -180,8 +180,8 @@
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorHeadOfSecurityHardsuit
-  name: spacesuit-headofsecurity-hardsuit-name
-  description: spacesuit-headofsecurity-hardsuit-desc
+  name: selectable-set-headofsecurity-modsuit-name
+  description: selectable-set-headofsecurity-modsuit-desc
   sprite:
     sprite: _Goobstation/Clothing/Back/Modsuits/headofsecurity.rsi
     state: control
@@ -192,8 +192,8 @@
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorEngineerVoidsuit
-  name: spacesuit-engineer-voidsuit-name
-  description: spacesuit-engineer-voidsuit-desc
+  name: selectable-set-engineering-voidsuit-name
+  description: selectable-set-engineering-voidsuit-desc
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
     state: icon
@@ -202,8 +202,8 @@
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorEngineerHardsuit
-  name: spacesuit-engineer-hardsuit-name
-  description: spacesuit-engineer-hardsuit-desc
+  name: selectable-set-engineering-modsuit-name
+  description: selectable-set-engineering-modsuit-desc
   sprite:
     sprite: _Goobstation/Clothing/Back/Modsuits/engineer.rsi
     state: control
