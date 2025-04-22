@@ -186,6 +186,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+  - type: SolarPanelReplacementMarker
 
 - type: entity
   id: SolarPanelBroken
