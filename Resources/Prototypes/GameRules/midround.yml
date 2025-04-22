@@ -26,6 +26,10 @@
   - type: AntagObjectives
     objectives:
     - EscapeThiefShuttleObjective
+  # Goobstation
+  - type: StationEvent
+    chaosScore: 300
+    eventType: HostilesSpawn
   - type: AntagRandomObjectives
     sets:
     - groups: ThiefBigObjectiveGroups

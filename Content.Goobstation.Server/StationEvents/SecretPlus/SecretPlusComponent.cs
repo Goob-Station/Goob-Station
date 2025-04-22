@@ -111,5 +111,5 @@ public sealed partial class SecretPlusComponent : Component
     /// Weight table for roundstart antags.
     /// </summary>
     [DataField]
-    public ProtoId<WeightedRandomPrototype> RoundStartAntagsWeightTable = "GameDirector";
+    public ProtoId<WeightedRandomPrototype> RoundStartAntagsWeightTable = "SecretPlus";
 }
