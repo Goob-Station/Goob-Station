@@ -31,7 +31,7 @@ public sealed partial class HisGraceComponent : Component
     public int EntitiesAbsorbed;
 
     /// <summary>
-    /// The current hunger of his grace.
+    /// The current hunger of His Grace.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public int Hunger;
 
