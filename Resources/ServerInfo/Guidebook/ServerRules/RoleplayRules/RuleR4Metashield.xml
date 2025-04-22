@@ -45,7 +45,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   In the eyes of the public, changelings are an exterminated predatory lifeform and their potential existence on the station is shielded.
   This metashield prohibits players from crew bloodtesting until the metashield is revealed.
-  
+
   Knowledge about the abilities of changelings is not shielded.
 
   The revealing condition for this shield is any of the following:
@@ -58,18 +58,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   ## Heretics
 
   To normal people, heretics are generally unknown. Security and Command may be aware that a group of people following a rogue god exists, but it's an absurd reality.
-  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them. 
+  This metashield prohibits normal players from knowing what runes or reality fractures are. Security may be suspicious of them.
 
   Knowledge about the ability of heretics is not shielded.
 
   The revealing condition for this shield is any of the following:
-  - witnessing a crewmember drawing a rune  
-  - witnessing a crewmember harvesting a reality fracture 
+  - witnessing a crewmember drawing a rune
+  - witnessing a crewmember harvesting a reality fracture
   - witnessing a crewmember using their powers
-   
-  ## Implanted Implants
 
-  Implanted implants are shielded.
+  ## Implanted implants
+
+  Implanted, implants are shielded.
 
   Implanters themselves and un-implanted implants are not shielded. This prohibits implant checking.
 
