@@ -1342,6 +1342,7 @@
   loadouts:
   - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
+  - ChemistUshanka # Goobstation
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerJumpsuit
