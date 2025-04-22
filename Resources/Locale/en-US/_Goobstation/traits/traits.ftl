@@ -34,5 +34,9 @@ trait-movement-impaired-desc = You can't quite seem to walk very well without so
 
 movement-impaired-trait-examined = [color=yellow]{CAPITALIZE(SUBJECT($target))} seems to walk with a slight limp. It doesn't seem like {SUBJECT($target)} can walk very well without assistance[/color]
 
+
+trait-movement-split-personality-name = Split Personality
+trait-movement-split-personality-desc = You never quite grew out of that imaginary friend phase...
+
 trait-tide-accent-name = Tide accent
 trait-tide-accent-desc = Me shu insuls
