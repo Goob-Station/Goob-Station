@@ -308,6 +308,12 @@
     deactivateSound: null
   - type: CombatPower # Goobstation
     factor: 4 # times more dangerous than a crew-member
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 2.5 # fast because dragon strong
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   parent: BaseMobDragon
