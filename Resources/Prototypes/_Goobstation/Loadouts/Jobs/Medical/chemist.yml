@@ -1,0 +1,16 @@
+- type: loadoutEffectGroup
+  id: MasterChemist
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 72000 #20 hours
+
+- type: loadout
+  id: ChemistUshanka
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterChemist
+  equipment:
+    head: ClothingHeadHatUshanka
