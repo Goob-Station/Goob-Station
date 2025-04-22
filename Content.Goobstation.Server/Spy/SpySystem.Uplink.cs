@@ -13,6 +13,7 @@ namespace Content.Goobstation.Server.Spy;
 public sealed partial class SpySystem
 {
     private static readonly SoundSpecifier StealSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/wewewew.ogg");
+    private static readonly SoundSpecifier StealSuccessSound = new SoundPathSpecifier("/Audio/Effects/kaching.ogg");
     private static readonly TimeSpan StealTime = TimeSpan.FromSeconds(15);
 
     /// <inheritdoc/>
@@ -28,9 +29,15 @@ public sealed partial class SpySystem
             return;
 
         var target = args.Args.Target.Value;
+        var user = args.Args.User;
         _audio.Stop(GetEntity(args.Sound));
-        TrySetBountyClaimed(GetNetEntity(target));
+        if(!TrySetBountyClaimed(GetNetEntity(target),out var bountyData))
+            return;
         QueueDel(args.Args.Target);
+        // spawn an entity
+        var reward = Spawn(bountyData.RewardListing.ProductEntity, Transform(user).Coordinates);
+        _hands.PickupOrDrop(user, reward);
+        _audio.PlayLocal(StealSuccessSound, ent, user);
     }
 
     private void OnInteractEvent(Entity<SpyUplinkComponent> ent, ref AfterInteractEvent args)
@@ -43,6 +50,9 @@ public sealed partial class SpySystem
             || args.Target is not { } target
             || dbEnt.Comp.Bounties.Any(bounty => bounty.TargetEntity != GetNetEntity(target)))
             return;
+
+        var ev = new SpyStartStealEvent(GetNetEntity(target));
+        RaiseNetworkEvent(ev);
 
         var sound = _audio.PlayPvs(StealSound, ent, AudioParams.Default.WithLoop(true));
 

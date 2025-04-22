@@ -41,16 +41,19 @@ public sealed partial class SpySystem
         Log.Info("Spy DB Entity Created at UID: " + dbEnt.Id);
     }
 
-    private bool TrySetBountyClaimed(NetEntity bountyEntity)
+    private bool TrySetBountyClaimed(NetEntity bountyEntity, [NotNullWhen(true)] out SpyBountyData? bountyData)
     {
+        bountyData = null;
         if (!TryGetSpyDatabaseEntity(out var nullableEnt) || nullableEnt is not { } dbEnt)
             return false;
 
         var bounty = dbEnt.Comp.Bounties.FirstOrDefault(b => b.TargetEntity == bountyEntity);
         if (bounty == null)
             return false;
+        // goida event
 
         bounty.Claimed = true;
+        bountyData = bounty;
         return true;
     }
 

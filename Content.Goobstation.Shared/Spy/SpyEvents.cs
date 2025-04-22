@@ -15,3 +15,9 @@ public sealed partial class SpyStealDoAfterEvent : DoAfterEvent
 
     public override DoAfterEvent Clone() => this;
 }
+
+[Serializable, NetSerializable]
+public sealed class SpyStartStealEvent(NetEntity target) : EntityEventArgs
+{
+    public NetEntity Target = target;
+}
