@@ -51,8 +51,10 @@ public sealed partial class SpySystem
             || dbEnt.Comp.Bounties.Any(bounty => bounty.TargetEntity != GetNetEntity(target)))
             return;
 
+        Log.Info(target.Id.ToString());
+
         var ev = new SpyStartStealEvent(GetNetEntity(target));
-        RaiseNetworkEvent(ev);
+        //RaiseNetworkEvent(ev);
 
         var sound = _audio.PlayPvs(StealSound, ent, AudioParams.Default.WithLoop(true));
 

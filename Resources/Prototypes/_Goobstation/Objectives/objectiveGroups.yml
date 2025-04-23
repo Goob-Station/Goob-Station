@@ -1,0 +1,43 @@
+- type: weightedRandom
+  id: SpyBountyObjectiveGroupEasy
+  weights:
+    MortyStealObjective: 1
+    ForensicScannerStealObjective: 1
+    ClothingHeadHatWardenStealObjective: 1
+    WantedListCartridgeStealObjective: 1
+    ClothingHeadsetAltMedicalStealObjective: 1
+    AmePartFlatpackStealObjective: 1
+    ExpeditionsCircuitboardStealObjective: 1
+    ClothingEyesHudBeerStealObjective: 1
+    BibleStealObjective: 1
+
+- type: weightedRandom
+  id: SpyBountyObjectiveGroupMedium
+  weights:
+    WalterStealObjective: 1
+    FaxMachineCaptainStealObjective: 1
+    ChemDispenserStealObjective: 1
+    XenoArtifactStealObjective: 1
+    FreezerHeaterStealObjective: 1
+    ClothingOuterHardsuitVoidParamedStealObjective: 1
+    BoozeDispenserStealObjective: 1
+    FireAxeStealObjective: 1
+    AltarNanotrasenStealObjective: 1
+    PlantRDStealObjective: 1
+    ToiletGoldenStealObjective: 1
+    BingusStealObjective: 1
+
+- type: weightedRandom
+  id: SpyBountyObjectiveGroupHard
+  weights:
+    TegStealObjective: 1
+    ClothingNeckGoldmedalStealObjective: 1
+    FlippoEngravedLighterStealObjective: 0.5
+    NuclearBombStealObjective: 0.5
+    CargoShuttleCircuitboardStealObjective: 1
+    IanStealObjective: 1
+    McGriffStealObjective: 1
+    RenaultStealObjective: 1
+    ShivaStealObjective: 1
+    TropicoStealObjective: 1
+    ClothingNeckClownmedalStealObjective: 0.5

@@ -18,7 +18,7 @@ public sealed class SpySystem : SharedSpySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<SpyStartStealEvent>(OnSpyStartStealEvent);
+        //SubscribeNetworkEvent<SpyStartStealEvent>(OnSpyStartStealEvent); so cursed bro
     }
 
     private void OnSpyStartStealEvent(SpyStartStealEvent ev)

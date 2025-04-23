@@ -26,12 +26,21 @@ public sealed partial class SpyBountyData
     public TimeSpan TimeAssigned;
     public TimeSpan? TimeCompleted;
     public ListingData RewardListing;
+    public SpyBountyDifficulty Difficulty;
 
-    public SpyBountyData(NetEntity targetEntity, ProtoId<StealTargetGroupPrototype> targetGroup, ListingData rewardListing)
+    public SpyBountyData(NetEntity targetEntity, ProtoId<StealTargetGroupPrototype> targetGroup, ListingData rewardListing, SpyBountyDifficulty difficulty)
     {
         TargetEntity = targetEntity;
         TargetGroup = targetGroup;
         RewardListing = rewardListing;
+        Difficulty = difficulty;
     }
 }
 
+[Serializable, NetSerializable]
+public enum SpyBountyDifficulty
+{
+    Easy,
+    Medium,
+    Hard,
+}
