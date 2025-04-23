@@ -2,12 +2,13 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: MagazinePistolCaselessRifleEmpty
-  name: pistol magazine (.25 caseless any)
+  name: pistol magazine (9.5mm any)
   parent: BaseMagazinePistolCaselessRifle
   components:
   - type: BallisticAmmoProvider
@@ -15,28 +16,22 @@
 
 - type: entity
   id: MagazineCaselessRifleEmpty
-  name: magazine (.25 caseless any)
+  name: magazine (9.5mm any)
   parent: BaseMagazineCaselessRifle
   components:
   - type: BallisticAmmoProvider
     proto: null
 
 - type: entity
-  id: MagazineCaselessRifleM7S
-  name: "M7S magazine (.25 caseless)"
-  parent: BaseMagazineCaselessRifle
+  id: MagazinePistolCaselessRifleSAPHE
+  name: "pistol magazine (9.5mm SAP-HE)"
+  parent: BaseMagazinePistolCaselessRifle
   components:
-  - type: Tag
-    tags:
-      - MagazineCaselessM7S
   - type: BallisticAmmoProvider
-    proto: CartridgeCaselessRifle
-    capacity: 48
+    proto: CartridgeCaselessRifleSAPHE
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi
-    storedRotation: -90
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-    proto: null
+    layers:
+    - state: practice # it's orange, orange means explosions
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
