@@ -31,6 +31,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Prometheus;
 
 namespace Content.Goobstation.Server.StationEvents;
 
@@ -89,6 +90,30 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     [Dependency] private readonly IConfigurationManager _configManager = default!;
 
     private ISawmill _sawmill = default!;
+
+    private static readonly Gauge EventsRunTotal = Metrics.CreateGauge(
+        "game_director_events_run_total",
+        "Total number of station events run by the Game Director.",
+        "event_name");
+
+    private static readonly Gauge StoryBeatChangesTotal = Metrics.CreateGauge(
+        "game_director_story_beat_changes_total",
+        "Total number of story beat changes.",
+        "story_name", "beat_name");
+
+    private static readonly Gauge ActivePlayers = Metrics.CreateGauge(
+        "game_director_active_players",
+        "Current number of active players counted by the Game Director.");
+
+    private static readonly Gauge ActiveGhosts = Metrics.CreateGauge(
+        "game_director_active_ghosts",
+        "Current number of active ghosts counted by the Game Director.");
+
+    private static readonly Gauge RoundstartAntagsSelectedTotal = Metrics.CreateGauge(
+        "game_director_roundstart_antags_selected_total",
+        "Total number of roundstart antagonists selected.",
+        "antag_name");
+
 
     public override void Initialize()
     {
@@ -190,6 +215,9 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         }
         // Decide what story beat to work with (which sets chaos goals)
         var count = CountActivePlayers();
+        ActivePlayers.Set(count.Players);
+        ActiveGhosts.Set(count.Ghosts);
+
         var beat = DetermineNextBeat(scheduler, chaos, count);
 
         // This is the first event, add an automatic delay
@@ -201,6 +229,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             return;
         }
 
+        RankedEvent? chosenEvent = null;
         // Pick the best events (which move the station towards the chaos desired by the beat)
         var bestEvents = ChooseEvents(scheduler, beat, chaos, count);
 
@@ -210,10 +239,14 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             // Sorts the possible events and then picks semi-randomly.
             // when beat.RandomEventLimit is 1 it's always the "best" event picked. Higher values
             // allow more events to be randomly selected.
-            var chosenEvent = SelectBest(bestEvents, beat.RandomEventLimit);
+            chosenEvent = SelectBest(bestEvents, beat.RandomEventLimit);
 
             _event.RunNamedEvent(chosenEvent.PossibleEvent.StationEvent);
+        }
 
+        if (chosenEvent != null)
+        {
+            EventsRunTotal.WithLabels(chosenEvent.PossibleEvent.StationEvent).Inc();
             // 2 - 6 minutes until the next event is considered, can vary per beat
             scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax));
         }
@@ -276,7 +309,9 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             LogMessage($"Roundstart antag chosen: {pick}");
             LogMessage($"Roundstart antag chosen: {pick2}");
 
+            RoundstartAntagsSelectedTotal.WithLabels(pick).Inc();
             GameTicker.AddGameRule(pick);
+            RoundstartAntagsSelectedTotal.WithLabels(pick2).Inc();
             GameTicker.AddGameRule(pick2);
         }
 
@@ -293,6 +328,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             }
             LogMessage("Choosing roundstart antag");
             LogMessage($"Roundstart antag chosen: {pick}");
+            RoundstartAntagsSelectedTotal.WithLabels(pick).Inc();
             GameTicker.AddGameRule(pick);
         }
     }
@@ -424,6 +460,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             var beatName = scheduler.RemainingBeats[0];
             var beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
 
+            StoryBeatChangesTotal.WithLabels(scheduler.CurrentStoryName.ToString() ?? "Unknown", beatName).Inc();
             LogMessage($"New StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
             return beat;
         }
@@ -456,6 +493,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 var beatName = scheduler.RemainingBeats[0];
                 var beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
 
+                StoryBeatChangesTotal.WithLabels(storyName.ToString() ?? "Unknown", beatName).Inc();
                 LogMessage($"First StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
                 return beat;
             }
