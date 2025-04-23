@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.IdentityManagement;
@@ -44,6 +45,12 @@ public partial class SharedMartialArtsSystem
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
             args.User,
             args.User);
+            return;
+        }
+
+        if (HasComp<ChangelingIdentityComponent>(args.User))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), args.User, args.User);
             return;
         }
 
