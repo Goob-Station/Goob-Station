@@ -92,7 +92,6 @@
   - CyberPen
   - BriefcaseThiefBribingBundleFilled
   - ClothingMaskGasVoiceChameleon
-  # TODO Chameleon stamp
 
 - type: selectableSet
   id: ThiefSmugglerSet
@@ -269,16 +268,16 @@
   content:
     - EncryptionKeySyndie
     - SleepingCarpScroll
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
-    - DehydratedSpaceCarp
+    - DehydratedSpaceCarp # 1
+    - DehydratedSpaceCarp # 2
+    - DehydratedSpaceCarp # 3
+    - DehydratedSpaceCarp # 4
+    - DehydratedSpaceCarp # 5
+    - DehydratedSpaceCarp # 6
+    - DehydratedSpaceCarp # 7
+    - DehydratedSpaceCarp # 8
+    - DehydratedSpaceCarp # 9
+    - DehydratedSpaceCarp # 10
     - FireExtinguisher
 
 # Blueshield officer

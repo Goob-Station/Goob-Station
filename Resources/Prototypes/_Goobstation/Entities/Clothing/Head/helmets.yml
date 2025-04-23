@@ -104,4 +104,3 @@
         Heat: 0.9
   - type: PressureProtection
     lowPressureMultiplier: 1000
-    highPressureMultiplier: 0.5

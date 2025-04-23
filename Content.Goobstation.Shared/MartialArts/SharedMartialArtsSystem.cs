@@ -11,7 +11,6 @@
 
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
@@ -191,12 +190,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
-
-        if (HasComp<ChangelingIdentityComponent>(user))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), user, user);
-            return false;
-        }
 
         if (HasComp<KravMagaComponent>(user))
         {

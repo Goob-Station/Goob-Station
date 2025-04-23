@@ -222,12 +222,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.7
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.75
   - type: ExplosionResistance
-    damageCoefficient: 0.6
+    damageCoefficient: 0.65 # 65% damage received
   - type: ToggleableClothing
     stripDelay: null
     clothingPrototypes:
@@ -236,8 +236,7 @@
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
   - type: StaminaDamageResistance
-    coefficient: 0.6
+    coefficient: 0.55
   - type: PressureProtection
     lowPressureMultiplier: 1000
-    highPressureMultiplier: 0.5
-  # Purposefully no temperature protection
+  # Intentionally no temperature or high pressure protection
