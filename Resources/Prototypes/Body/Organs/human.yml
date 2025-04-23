@@ -195,6 +195,7 @@
     - Organ
     - Brain
   - type: Extractable # goob edit
+    grindableSolutionName: organ
   - type: SolutionContainerManager
     solutions:
       organ:
