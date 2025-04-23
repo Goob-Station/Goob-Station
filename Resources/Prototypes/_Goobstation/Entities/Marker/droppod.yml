@@ -1,0 +1,16 @@
+- type: entity
+  name: Droppod Smoke Marker
+  id: DroppodSmokeMarker
+  description: "Spawns a smoke cloud when the droppod lands."
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Objects/Weapons/Grenades/tear_gas.rsi
+        state: icon
+        shader: unshaded
+  - type: Tag
+    tags:
+    - ForceFixRotations
+    - DroppodSmokePos
