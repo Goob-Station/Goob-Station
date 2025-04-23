@@ -860,3 +860,13 @@
       path: /Audio/_Goobstation/Wizard/charge.ogg
     useSound:
       path: /Audio/_Goobstation/Wizard/charge.ogg
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieDumbLizard
+  name: stupid dumb blue lizard plushie
+  description: Unfortunately this plushie won't thump their tail
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_dumb_lizard

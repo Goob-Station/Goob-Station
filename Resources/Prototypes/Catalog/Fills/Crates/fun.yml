@@ -227,7 +227,8 @@
         weight: 0.65
       - id: PlushieSeesTheStars
         weight: 0.65
-
+      - id: PlushieDumbLizard
+        weight: 0.65
 
 - type: entity
   id: CrateFunPlushie
