@@ -9,7 +9,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
@@ -153,8 +155,6 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(args.User, comp);
 
-        UpdateBiomass(uid, comp, comp.MaxBiomass - comp.TotalAbsorbedEntities);
-
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, false, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
@@ -170,7 +170,6 @@ public sealed partial class ChangelingSystem
         {
             bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += 10;
-            comp.MaxBiomass += targetComp.MaxBiomass / 2;
         }
         else
         {
