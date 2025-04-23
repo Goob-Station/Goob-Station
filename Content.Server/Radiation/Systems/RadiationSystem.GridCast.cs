@@ -19,10 +19,10 @@ using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
+using Content.Shared.Singularity.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -154,18 +154,11 @@ public partial class RadiationSystem
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
         var dist = Math.Max(dir.Length(),0.5f);
-
+        if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
+            dist = Math.Max(dist - horizon.Radius, 0.5f);
         var rads = source.Intensity / (dist );
         if (rads < 0.01)
             return null;
-        // // check if receiver is too far away
-        // if (dist > GridcastMaxDistance)
-        //     return null;
-        //
-        // // will it even reach destination considering distance penalty
-        // var rads = source.Intensity - source.Slope * dist;
-        // if (rads < MinIntensity)
-        //     return null;
 
         // create a new radiation ray from source to destination
         // at first we assume that it doesn't hit any radiation blockers

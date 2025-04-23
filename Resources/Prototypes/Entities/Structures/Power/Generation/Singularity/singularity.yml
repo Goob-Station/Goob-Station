@@ -126,7 +126,7 @@
   - type: Singularity
     energy: 180
     level: 1
-    radsPerLevel: 12
+    radsPerLevel: 6
     energyLoss: 1
   - type: RandomWalk # To make the singularity move around.
     maxSpeed: 2.5
@@ -136,7 +136,7 @@
     intensity: 3645
   - type: RadiationSource
     slope: 0.2 # its emit really far away
-    intensity: 12
+    intensity: 6
   - type: PointLight
     enabled: true
     radius: 10
