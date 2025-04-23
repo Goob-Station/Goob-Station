@@ -116,6 +116,7 @@
   - type: AltarSource
     rodProto: HolyChainsaw # Shitchap
     effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
   - type: Construction
     graph: AltarsGraph
     node: ToolAltarNode
@@ -226,6 +227,7 @@
   - type: AltarSource
     rodProto: UristHand # Shitchap
     effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
   - type: Construction
     graph: AltarsGraph
     node: MaintsAltarNode
