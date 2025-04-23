@@ -104,7 +104,7 @@ selectable-set-syndicate-friendship-description =
 
 selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
-    Grr! Rrrr! Grr... Grrow!!
+    Grr! Rrrr! Grr... Grrow?! KOWABUNGA!
     Contains: Sleeping Carp, 10 dehydrated carp and a syndicate encryption key.
 
 # Blueshield
