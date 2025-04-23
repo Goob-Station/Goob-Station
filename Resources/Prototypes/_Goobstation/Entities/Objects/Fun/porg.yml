@@ -196,11 +196,10 @@
   - type: ComplexInteraction
   - type: Access
     enabled: false
-    groups:
-    - Maintenance
-    - External
     tags:
     - Borg
+    - External
+    - Maintenance
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
