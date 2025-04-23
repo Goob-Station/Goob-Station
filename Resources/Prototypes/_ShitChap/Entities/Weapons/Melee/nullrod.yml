@@ -160,12 +160,6 @@
         Burn: -11.0
         Toxin: -1.0
         Airloss: -3.0
-  - type: ActionGrant
-    actions:
-    - ActionChaplainSmoke
-  - type: ItemActionGrant
-    actions:
-    - ActionChaplainSmoke
   - type: Tag
     tags:
     - Rosary
@@ -258,6 +252,9 @@
   description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #Can parry blows - cqc update
   components:
   - type: Nullrod
+    holyDamage:
+      types:
+        Holy: 1
     DamageOnUntrainedUse:
       types:
         Blunt: 20
@@ -272,7 +269,7 @@
     attackRate: 5.0
     damage:
       types:
-        Blunt: 2
+        Blunt: 0.5
     soundHit:
       collection: BoxingHit
   - type: Blocking
@@ -502,7 +499,7 @@
     damage:
       types:
         Slash: 2
-        Blunt: 4
+        Blunt: 3
         Structural: 4
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
@@ -511,8 +508,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 8
-        Structural: 6
+        Slash: 3
+        Structural: 4
   - type: Item
     size: Ginormous
     sprite: _ShitChap/Objects/Weapons/Nullrod/divinechainsaw.rsi

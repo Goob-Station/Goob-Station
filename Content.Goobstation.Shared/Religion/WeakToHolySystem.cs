@@ -42,7 +42,7 @@ public sealed class WeakToHolySystem : EntitySystem
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
 
-        SubscribeLocalEvent<NullrodComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<WeakToHolyComponent, AttackedEvent>(OnDamageTaken);
     }
 
     private void OnStartup(Entity<WeakToHolyComponent> ent, ref ComponentStartup args)
@@ -77,19 +77,19 @@ public sealed class WeakToHolySystem : EntitySystem
         }
     }
 
-    private void OnMeleeHit(Entity<NullrodComponent> ent, ref MeleeHitEvent args)
+    private void OnDamageTaken(Entity<WeakToHolyComponent> ent, ref AttackedEvent args)
     {
-        if (ent.Comp.HolyDamage == null)
+        if(!TryComp<NullrodComponent>(args.Used, out var weapon))
             return;
 
-        foreach (var target in args.HitEntities)
-        {
-            var unholyEvent = new DamageUnholyEvent(target, ent.Comp.HolyDamage, args.User);
-            RaiseLocalEvent(target, unholyEvent);
+        if (weapon.HolyDamage == null)
+            return;
 
-            if (unholyEvent.Handled)
-                _damageableSystem.TryChangeDamage(unholyEvent.Target, unholyEvent.Damage, origin: unholyEvent.Origin);
-        }
+        var unholyEvent = new DamageUnholyEvent(ent, weapon.HolyDamage, args.Used);
+        RaiseLocalEvent(ent, unholyEvent);
+
+        if (unholyEvent.Handled)
+            _damageableSystem.TryChangeDamage(unholyEvent.Target, unholyEvent.Damage, origin: unholyEvent.Origin);
     }
 
     #endregion
