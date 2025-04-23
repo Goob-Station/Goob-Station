@@ -88,7 +88,6 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IMetricFactory _metricsFactory = default!;
 
     private ISawmill _sawmill = default!;
 
