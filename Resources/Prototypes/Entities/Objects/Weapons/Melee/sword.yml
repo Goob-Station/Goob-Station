@@ -268,6 +268,28 @@
   - type: DisarmMalus
 
 - type: entity
+  name: claymore
+  parent: [ BaseSword, BaseMajorContraband ]
+  id: Claymore
+  description: An ancient war blade.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/claymore.rsi
+  - type: MeleeWeapon
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 20
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/claymore.rsi
+    slots:
+    - back
+  - type: DisarmMalus
+
+- type: entity
   name: cutlass
   parent: [ BaseSword, BaseMajorContraband ]
   id: Cutlass
