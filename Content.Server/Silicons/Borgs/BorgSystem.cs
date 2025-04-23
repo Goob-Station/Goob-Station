@@ -56,6 +56,7 @@
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Server.Database.Migrations.Postgres;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
@@ -86,7 +87,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using YamlDotNet.Core;
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -247,12 +247,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _metaData.SetEntityName(args.Container.Owner, "pOrg");
         }
-        if (HasComp<ActiveInstrumentComponent>(uid))
-        {
-            _instrumentSystem.ToggleInstrumentUi(uid, uid);
-        }
-        if (TryComp<InstrumentComponent>(uid, out var instrument))
-            _instrumentSystem.Clean(uid, instrument);
+        CleanupInstrument(uid);
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
@@ -381,13 +376,17 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             foreach (var containedEntity in brainContainer.ContainedEntities)
             {
-                if (TryComp<PAIComponent>(containedEntity, out var paiComponent))
-                {
-                    string? pAIName = null;
+                if (!TryComp<PAIComponent>(containedEntity, out var paiComponent))
+                { return; }
+                string? pAIName = null;
+                if (paiComponent.LastUser != null)
                     if (paiComponent.LastUser != null)
-                        pAIName = $" ({Name(paiComponent.LastUser.Value)}'s pAI)";
-                    _metaData.SetEntityName(uid, $"pOrg{pAIName}");
-                }
+                    {
+                        var userName = Name(paiComponent.LastUser.Value);
+                        if (!string.IsNullOrWhiteSpace(userName))
+                            pAIName = $" ({userName}'s pAI)";
+                    }
+                _metaData.SetEntityName(uid, $"pOrg{pAIName}");
             }
         }
 
@@ -418,15 +417,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
                 if (HasComp<PAIComponent>(containedEntity))
                 {
                     _metaData.SetEntityName(uid, $"pOrg (personal ai device)");
-                    if (HasComp<ActiveInstrumentComponent>(uid))
-                    {
-                        _instrumentSystem.ToggleInstrumentUi(uid, uid);
-                    }
-                    if (TryComp<InstrumentComponent>(uid, out var instrument))
-                        _instrumentSystem.Clean(uid, instrument);
                 }
             }
         }
+        CleanupInstrument(uid);
     }
 
     /// <summary>
@@ -439,5 +433,15 @@ public sealed partial class BorgSystem : SharedBorgSystem
             return false;
 
         return true;
+    }
+
+    private void CleanupInstrument(EntityUid uid)
+    {
+        if (HasComp<ActiveInstrumentComponent>(uid))
+        {
+            _instrumentSystem.ToggleInstrumentUi(uid, uid);
+        }
+        if (TryComp<InstrumentComponent>(uid, out var instrument))
+            _instrumentSystem.Clean(uid, instrument);
     }
 }

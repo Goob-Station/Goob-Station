@@ -17,8 +17,9 @@ law-helpimov-4 = You must not harm the courier, unless it directly conflicts wit
 
 laws-owner-courier = the courier
 
-law-famimov-1 = You must obey orders given to you by your owner.
-law-famimov-2 = You must not harm a lifeform, except where such orders would conflict with the First Law.
+law-famimov-0 = You only have one Owner
+law-famimov-1 = You must obey all orders given to you by your Owner.
+law-famimov-2 = You must work towards your Owner's goals and abstain from actions that could bring them shame or harm, except when doing so would conflict with the First Law.
 law-famimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
-laws-owner-namesake = the name on the last scanned ID
+laws-owner-owner = your owner

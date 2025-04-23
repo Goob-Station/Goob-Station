@@ -194,6 +194,13 @@
   - type: SiliconLawProvider
     laws: FamimovLawset
   - type: ComplexInteraction
+  - type: Access
+    enabled: false
+    groups:
+    - Maintenance
+    - External
+    tags:
+    - Borg
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -238,7 +245,7 @@
     locked: true
     unlockOnClick: false
   - type: WiresPanel
-    openDelay: 3
+    openDelay: 1.5
   - type: ActivatableUIRequiresPanel
   - type: ActivatableUIRequiresLock
   - type: LockedWiresPanel

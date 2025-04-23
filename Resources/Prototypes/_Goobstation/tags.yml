@@ -352,6 +352,9 @@
   id: Poppy
 
 - type: Tag
+  id: POrgHead
+
+- type: Tag
   id: RipleyMKIIUpgradeKit
 
 - type: Tag
@@ -467,6 +470,3 @@
 
 - type: Tag
   id: MidroundAntag
-
-- type: Tag
-  id: POrgHead
