@@ -99,6 +99,12 @@ public sealed partial class StationEventComponent : Component
     public const float WeightHigh = 15.0f;
     public const float WeightVeryHigh = 20.0f;
 
+    /// <summary>
+    /// Can this event be selected randomly by the game director?
+    /// </summary>
+    [DataField]
+    public bool IsSelectable;
+
     [DataField]
     public float Weight = WeightNormal;
 
