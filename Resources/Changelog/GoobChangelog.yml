@@ -7757,3 +7757,11 @@ Entries:
       message: Fixed carp scroll being unbuyable.
   id: 905
   time: '2025-04-22T05:52:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Changeling biomass.
+    - type: Tweak
+      message: Changeling steal DNA objective changed to absorb objective.
+  id: 906
+  time: '2025-04-23T01:21:47.0000000+00:00'
