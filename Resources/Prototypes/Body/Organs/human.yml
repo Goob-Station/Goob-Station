@@ -194,12 +194,15 @@
     - Meat
     - Organ
     - Brain
+  - type: Extractable # goob edit
   - type: SolutionContainerManager
     solutions:
       organ:
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
       food:
         maxVol: 5
         reagents:
