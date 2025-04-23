@@ -14,9 +14,6 @@
     whitelist:
       components:
       - Damageable
-    blacklist:
-      components:
-      - MobState # It shouldn't affect mobs
     maxLevel: 3
   - type: DamageModifyEnchant
     factor: 0.5 # 87.5% resistance at III
