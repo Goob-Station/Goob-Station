@@ -12,14 +12,16 @@
 # SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: BaseCartridgeCaselessRifle
-  name: cartridge (.25 rifle)
+  name: cartridge (9.5mm) # Goob edit
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -42,7 +44,7 @@
 
 - type: entity
   id: CartridgeCaselessRifle
-  name: cartridge (.25 caseless)
+  name: cartridge (9.5mm HP) # Goob edit
   parent: BaseCartridgeCaselessRifle
   components:
   - type: CartridgeAmmo
@@ -50,7 +52,7 @@
 
 - type: entity
   id: CartridgeCaselessRiflePractice
-  name: cartridge (.25 caseless practice)
+  name: cartridge (9.5mm practice) # Goob edit
   parent: BaseCartridgeCaselessRifle
   components:
   - type: CartridgeAmmo
