@@ -135,8 +135,8 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (ap == 0)
             return;
 
-        var absap = Math.Abs(ap);
-        args.Message.AddMarkupPermissive("\n" + (Loc.GetString("armor-penetration", ("absap", absap), ("ap", ap))));
+        var abs = Math.Abs(ap);
+        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,

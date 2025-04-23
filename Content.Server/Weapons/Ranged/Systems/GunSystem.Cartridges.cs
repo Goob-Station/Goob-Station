@@ -29,6 +29,7 @@ public sealed partial class GunSystem
         base.InitializeCartridge();
         SubscribeLocalEvent<CartridgeAmmoComponent, ExaminedEvent>(OnCartridgeExamine);
         SubscribeLocalEvent<CartridgeAmmoComponent, DamageExamineEvent>(OnCartridgeDamageExamine);
+        SubscribeLocalEvent<BasicEntityAmmoProviderComponent, DamageExamineEvent>(OnBasicEntityDamageExamine); // Goobstation
     }
 
     private void OnCartridgeDamageExamine(EntityUid uid, CartridgeAmmoComponent component, ref DamageExamineEvent args)
@@ -45,8 +46,8 @@ public sealed partial class GunSystem
         if (ap == 0)
             return;
 
-        var absap = Math.Abs(ap);
-        args.Message.AddMarkupPermissive(Loc.GetString("armor-penetration", ("absap", absap), ("ap", ap)));
+        var abs = Math.Abs(ap);
+        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
 
     private DamageSpecifier? GetProjectileDamage(string proto)
@@ -80,16 +81,35 @@ public sealed partial class GunSystem
         }
     }
 
-    // Goobstation - partial armor penetration
+    // Goobstation start - partial armor penetration
+    private void OnBasicEntityDamageExamine(EntityUid uid, BasicEntityAmmoProviderComponent component, ref DamageExamineEvent args)
+    {
+        if (component.Proto == null)
+            return;
+
+        var damageSpec = GetProjectileDamage(component.Proto);
+
+        if (damageSpec == null)
+            return;
+
+        _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-projectile"));
+
+        var ap = GetProjectilePenetration(component.Proto);
+        if (ap == 0)
+            return;
+
+        var abs = Math.Abs(ap);
+        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
+    }
     private int GetProjectilePenetration(string proto)
     {
         if (!ProtoManager.TryIndex<EntityPrototype>(proto, out var entityProto)
-        || !entityProto.Components.TryGetValue(_factory.GetComponentName<ProjectileComponent>(), out var projectile))
+            || !entityProto.Components.TryGetValue(_factory.GetComponentName<ProjectileComponent>(), out var projectile))
             return 0;
 
         var p = (ProjectileComponent) projectile.Component;
-        var pen = (p.IgnoreResistances ? 100 : (int)Math.Round(p.ArmorPenetration * 100));
 
-        return pen;
+        return p.IgnoreResistances ? 100 : (int)Math.Round(p.ArmorPenetration * 100);
     }
+    // Goobstation end
 }
