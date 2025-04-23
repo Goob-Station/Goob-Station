@@ -105,8 +105,7 @@ selectable-set-syndicate-friendship-description =
 selectable-set-syndicate-carp-name = Carp Bundle
 selectable-set-syndicate-carp-description =
     Grr! Rrrr! Grr... Grrow!!
-    Contains: scroll with the Way of the Sleeping Carp martial art techniques,
-    a carp hardsuit, five dehydrated carps and a syndicate encryption key.
+    Contains: Sleeping Carp, 10 dehydrated carp and a syndicate encryption key.
 
 # Blueshield
 

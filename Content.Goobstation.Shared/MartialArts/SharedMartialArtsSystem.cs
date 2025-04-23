@@ -10,6 +10,7 @@
 
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
@@ -22,6 +23,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
@@ -60,6 +62,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     public override void Initialize()
     {
@@ -187,6 +190,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
+
+        if (HasComp<ChangelingIdentityComponent>(user))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), user, user);
+            return false;
+        }
 
         if (HasComp<KravMagaComponent>(user))
         {

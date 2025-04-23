@@ -73,6 +73,7 @@ public partial class SharedMartialArtsSystem
             case >= 3:
                 if (!TryGrantMartialArt(args.User, ent.Comp))
                     return;
+                _faction.AddFaction(args.User, "Dragon");
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
