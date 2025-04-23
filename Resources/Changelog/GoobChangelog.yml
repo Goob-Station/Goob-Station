@@ -7765,3 +7765,12 @@ Entries:
       message: Changeling steal DNA objective changed to absorb objective.
   id: 906
   time: '2025-04-23T01:21:47.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added metrics to game director, doesn't actually do anything player
+        facing, but this means it should be easier for us to make game director
+        suck less now.
+  id: 907
+  time: '2025-04-23T20:02:02.0000000+00:00'
