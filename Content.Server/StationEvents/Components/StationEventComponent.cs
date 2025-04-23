@@ -103,7 +103,7 @@ public sealed partial class StationEventComponent : Component
     /// Can this event be selected randomly by the game director?
     /// </summary>
     [DataField]
-    public bool IsSelectable;
+    public bool IsSelectable = true;
 
     [DataField]
     public float Weight = WeightNormal;
