@@ -12,7 +12,8 @@
   components:
   - type: Enchant
     blacklist:
-    - ProtectedFromStepTriggers # Player won't like their boots to get slippery instead of unslippable
+      components:
+      - ProtectedFromStepTriggers # Player won't like their boots to get slippery instead of unslippable
     incompatible:
     - EnchantUnslippable
     maxLevel: 4
