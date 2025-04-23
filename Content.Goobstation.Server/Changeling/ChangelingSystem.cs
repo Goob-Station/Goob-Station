@@ -44,7 +44,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Flash;
 using Content.Server.Flash.Components;
 using Content.Server.Gravity;
 using Content.Server.Humanoid;
@@ -75,7 +74,6 @@ using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
-using Content.Shared.Jittering;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -88,7 +86,6 @@ using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Revolutionary.Components;
-using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
@@ -100,6 +97,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Content.Goobstation.Server.Flashbang;
+using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Server.Guardian;
 using static Content.Shared.Inventory.InventorySystem;
 
 namespace Content.Goobstation.Server.Changeling;
@@ -126,7 +125,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
@@ -141,14 +139,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -776,6 +772,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         RemComp<HungerComponent>(uid);
         RemComp<ThirstComponent>(uid);
+        RemComp<CanHostGuardianComponent>(uid);
+        RemComp<MartialArtsKnowledgeComponent>(uid);
+        RemComp<CanPerformComboComponent>(uid);
         EnsureComp<ZombieImmuneComponent>(uid);
 
         // add actions
