@@ -89,6 +89,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Movement.Pulling.Components; // Goobstation
 using Content.Shared.Movement.Pulling.Systems; // Goobstation
+using Content.Goobstation.Shared.Body.Components;
 
 
 namespace Content.Server.Body.Systems;

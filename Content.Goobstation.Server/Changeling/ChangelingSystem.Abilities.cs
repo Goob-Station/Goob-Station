@@ -49,14 +49,13 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
-using Content.Server.Temperature.Components;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Goobstation.Shared.Atmos.Components;
 using Content.Goobstation.Shared.Temperature.Components;
+using Content.Goobstation.Shared.Body.Components;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -689,7 +688,7 @@ public sealed partial class ChangelingSystem
                 if (!TryComp(puller.Value, out StatusEffectsComponent? status))
                     return;
 
-                _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>((EntityUid) puller,
+                _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(puller.Value,
                     "TemporaryBlindness",
                     TimeSpan.FromSeconds(2f),
                     true,

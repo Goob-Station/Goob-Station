@@ -109,6 +109,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Projectiles;
 using Content.Goobstation.Shared.Temperature.Components;
+using Content.Goobstation.Shared.Temperature;
 
 namespace Content.Server.Temperature.Systems;
 
@@ -147,6 +148,8 @@ public sealed class TemperatureSystem : EntitySystem
         SubscribeLocalEvent<InternalTemperatureComponent, MapInitEvent>(OnInit);
 
         SubscribeLocalEvent<ChangeTemperatureOnCollideComponent, ProjectileHitEvent>(ChangeTemperatureOnCollide);
+
+        SubscribeLocalEvent<TemperatureComponent, TemperatureImmunityEvent>(TryTemperatureImmunity); // Goob edit
 
         // Allows overriding thresholds based on the parent's thresholds.
         SubscribeLocalEvent<TemperatureComponent, EntParentChangedMessage>(OnParentChange);
@@ -211,6 +214,17 @@ public sealed class TemperatureSystem : EntitySystem
         ShouldUpdateDamage.Clear();
     }
 
+    private void TryTemperatureImmunity(EntityUid uid, TemperatureComponent temperature, ref TemperatureImmunityEvent args) // Goob edit
+    {
+        if (HasComp<SpecialLowTempImmunityComponent>(uid))
+            args.LowImmune = true;
+        else
+            args.LowImmune = false;
+
+        if (temperature.CurrentTemperature < args.IdealTemperature && args.LowImmune) // immune to low temperatures?
+            temperature.CurrentTemperature = args.IdealTemperature;
+    }
+
     public void ForceChangeTemperature(EntityUid uid, float temp, TemperatureComponent? temperature = null)
     {
         if (!Resolve(uid, ref temperature))
@@ -240,10 +254,10 @@ public sealed class TemperatureSystem : EntitySystem
         temperature.CurrentTemperature += heatAmount / GetHeatCapacity(uid, temperature);
         float delta = temperature.CurrentTemperature - lastTemp;
 
-        if (HasComp<SpecialLowTempImmunityComponent>(uid) && temperature.CurrentTemperature < Atmospherics.T37C) // Goob edit
-        {
-            temperature.CurrentTemperature = Atmospherics.T37C;
-        }
+        // Goob start
+        var tempEv = new TemperatureImmunityEvent();
+        RaiseLocalEvent(uid, tempEv);
+        // Goob end
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), true);
     }

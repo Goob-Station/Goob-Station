@@ -31,6 +31,7 @@ using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goobstation.Shared.Changeling;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
@@ -97,6 +98,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Content.Goobstation.Server.Flashbang;
+using static Content.Shared.Inventory.InventorySystem;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -172,6 +174,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+
+        SubscribeLocalEvent<InventoryComponent, SoundSuppressionPresenceEvent>(CheckSoundSuppression);
 
         SubscribeAbilities();
     }
@@ -394,7 +398,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (HasComp<ChangelingIdentityComponent>(player))
                 continue;
 
-            if (CheckSoundSuppression(player, "ears") || CheckSoundSuppression(player, "head"))
+            var soundEv = new SoundSuppressionPresenceEvent();
+            RaiseLocalEvent(player, soundEv);
+
+            if (soundEv.SoundProtected)
             {
                 _stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);
                 _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime / 2f), true);
@@ -434,13 +441,18 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     /// <summary>
     ///     Check if target has sound suppression
     /// </summary>
-    public bool CheckSoundSuppression(EntityUid uid, string slotId)
+    private void CheckSoundSuppression(EntityUid uid, InventoryComponent comp, ref SoundSuppressionPresenceEvent args)
     {
-        if (_inventory.TryGetSlotEntity(uid, slotId, out var itemUid))
+        var slots = new InventorySlotEnumerator(comp);
+
+        while (slots.MoveNext(out var slot))
         {
-            return HasComp<FlashSoundSuppressionComponent>(itemUid);
+            if (slot.ContainedEntity != null && HasComp<FlashSoundSuppressionComponent>(slot.ContainedEntity.Value))
+            {
+                args.SoundProtected = true;
+                return;
+            }
         }
-        return false;
     }
 
     public bool CheckFireStatus(EntityUid uid)
