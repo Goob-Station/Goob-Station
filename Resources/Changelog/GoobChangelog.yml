@@ -7774,3 +7774,11 @@ Entries:
         suck less now.
   id: 907
   time: '2025-04-23T20:02:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Resomi are now immune to cold, slightly more vulnarable to blunt, slash
+        and heat, unable to fit into duffelbags and fly.
+  id: 908
+  time: '2025-04-23T20:08:20.0000000+00:00'
