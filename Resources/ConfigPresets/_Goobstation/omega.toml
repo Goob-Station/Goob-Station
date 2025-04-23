@@ -1,0 +1,4 @@
+# Base config for goob omega
+
+[atmos]
+max_explosion_range = 10220
