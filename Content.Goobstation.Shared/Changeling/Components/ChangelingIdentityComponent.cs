@@ -9,12 +9,10 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -83,24 +81,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
-    ///     Amount of biomass changeling currently has.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float Biomass = 60f;
-
-    /// <summary>
-    ///     Maximum amount of biomass a changeling can have.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MaxBiomass = 30f;
-
-    /// <summary>
-    ///     How much biomass should be removed per cycle.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float BiomassDrain = 1f;
-
-    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -129,9 +109,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
-
-    public float BiomassUpdateTimer = 0f;
-    public float BiomassUpdateCooldown = 60f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
