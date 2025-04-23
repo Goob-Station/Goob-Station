@@ -50,7 +50,7 @@ public partial class DelayedDeathSystem : EntitySystem
 
                 if (ev.Cancelled)
                 {
-                    RemComp<DelayedDeathComponent>(ent);
+                    RemCompDeferred<DelayedDeathComponent>(ent);
                     continue;
                 }
 

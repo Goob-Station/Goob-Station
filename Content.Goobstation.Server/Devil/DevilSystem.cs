@@ -73,12 +73,7 @@ public sealed partial class DevilSystem : EntitySystem
 
 
     // Ten. Thousand. EntProtoIds.
-    private readonly EntProtoId _contractPrototype = "PaperDevilContract";
-    private readonly EntProtoId _revivalContractPrototype = "PaperDevilContractRevival";
-    private readonly EntProtoId _pentagramEffectProto = "Pentagram";
-    private readonly EntProtoId _jauntAnimationProto = "PolymorphShadowJauntAnimation";
-    private readonly ProtoId<PolymorphPrototype> _jauntEntityProto = "ShadowJaunt";
-    private readonly ProtoId<DamageModifierSetPrototype> _devilDamageModifierSet = "DevilDealPositive";
+
 
     private static readonly TimeSpan BasePossessionDuration = TimeSpan.FromSeconds(30);
 
@@ -124,7 +119,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Change damage modifier
         if (TryComp<DamageableComponent>(uid, out var damageableComp))
-            _damageable.SetDamageModifierSetId(uid, _devilDamageModifierSet, damageableComp);
+            _damageable.SetDamageModifierSetId(uid, comp.DevilDamageModifierSet, damageableComp);
 
         // Add base actions
         foreach (var actionId in comp.BaseDevilActions)

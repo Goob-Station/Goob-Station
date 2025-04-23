@@ -4,6 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Polymorph;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Shared.Devil.Condemned;
 
 /// <summary>
@@ -72,6 +76,18 @@ public sealed partial class CondemnedComponent : Component
     /// </summary>
     [DataField]
     public CondemnedBehavior CondemnedBehavior = CondemnedBehavior.Delete;
+
+    [DataField]
+    public EntProtoId PentagramProto = "Pentagram";
+
+    [DataField]
+    public EntProtoId HandProto = "HellHand";
+
+    [DataField]
+    public SoundPathSpecifier SoundEffect = new("/Audio/_Goobstation/Effects/earth_quake.ogg");
+
+    [DataField]
+    public ProtoId<PolymorphPrototype> BanishProto = "ShadowJaunt180";
 }
 
 public enum CondemnedPhase : byte

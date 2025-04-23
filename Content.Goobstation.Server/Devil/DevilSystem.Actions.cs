@@ -28,7 +28,7 @@ public sealed partial class DevilSystem
 
         args.Handled = true;
 
-        var contract = Spawn(_contractPrototype, Transform(uid).Coordinates);
+        var contract = Spawn(comp.ContractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
 
         if (!TryComp<DevilContractComponent>(contract, out var contractComponent))
@@ -46,7 +46,7 @@ public sealed partial class DevilSystem
 
         args.Handled = true;
 
-        var contract = Spawn(_revivalContractPrototype, Transform(uid).Coordinates);
+        var contract = Spawn(comp.RevivalContractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
 
         if (!TryComp<RevivalContractComponent>(contract, out var contractComponent))
@@ -64,9 +64,9 @@ public sealed partial class DevilSystem
 
         args.Handled = true;
 
-        Spawn(_jauntAnimationProto, Transform(uid).Coordinates);
-        Spawn(_pentagramEffectProto, Transform(uid).Coordinates);
-        _poly.PolymorphEntity(uid, _jauntEntityProto);
+        Spawn(comp.JauntAnimationProto, Transform(uid).Coordinates);
+        Spawn(comp.PentagramEffectProto, Transform(uid).Coordinates);
+        _poly.PolymorphEntity(uid, comp.JauntEntityProto);
     }
 
     private void OnPossess(EntityUid uid, DevilComponent comp, ref DevilPossessionEvent args)
@@ -82,8 +82,8 @@ public sealed partial class DevilSystem
 
         if (_possession.TryPossessTarget(args.Target, args.Performer, GetPossessionDuration(comp), true))
         {
-            Spawn(_jauntAnimationProto, Transform(args.Performer).Coordinates);
-            Spawn(_pentagramEffectProto, Transform(args.Performer).Coordinates);
+            Spawn(comp.JauntAnimationProto, Transform(args.Performer).Coordinates);
+            Spawn(comp.PentagramEffectProto, Transform(args.Performer).Coordinates);
             _poly.PolymorphEntity(args.Performer, GetJauntEntity(comp));
         }
 

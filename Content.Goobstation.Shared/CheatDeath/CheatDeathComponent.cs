@@ -5,6 +5,7 @@
 
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.CheatDeath;
 
@@ -25,6 +26,9 @@ public sealed partial class CheatDeathComponent : Component
     /// </summary>
     [DataField]
     public bool CanCheatStanding;
+
+    [DataField]
+    public EntProtoId ActionCheatDeath = "ActionCheatDeath";
 
 }
 

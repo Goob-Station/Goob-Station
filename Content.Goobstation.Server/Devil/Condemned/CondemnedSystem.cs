@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.Religion;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Movement.Events;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -24,17 +25,13 @@ public sealed partial class CondemnedSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
-    private readonly EntProtoId _defaultPentagramProto = "Pentagram";
-    private readonly EntProtoId _defaultHandProto = "HellHand";
-    private readonly SoundPathSpecifier _defaultSoundPath = new("/Audio/_Goobstation/Effects/earth_quake.ogg");
-    private readonly ProtoId<PolymorphPrototype> _banishProto = "ShadowJaunt180";
-
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<CondemnedComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<CondemnedComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CondemnedComponent, ComponentRemove>(OnRemoved);
+        SubscribeLocalEvent<CondemnedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         InitializeOnDeath();
     }
 
@@ -67,10 +64,18 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     }
 
-    private void OnRemoved(EntityUid uid, CondemnedComponent comp, ComponentRemove  args)
+    private void OnRemoved(EntityUid uid, CondemnedComponent comp, ComponentRemove args)
     {
         if (comp.WasWeakToHoly)
             RemComp<WeakToHolyComponent>(uid);
+    }
+
+    private void OnMoveAttempt(EntityUid uid, CondemnedComponent comp, ref UpdateCanMoveEvent args)
+    {
+        if (!comp.FreezeDuringCondemnation || comp.CurrentPhase != CondemnedPhase.Waiting)
+            return;
+
+        args.Cancel();
     }
 
     public void StartCondemnation(
@@ -87,14 +92,11 @@ public sealed partial class CondemnedSystem : EntitySystem
 
 
         if (freezeEntity)
-        {
             comp.FreezeDuringCondemnation = true;
-            EnsureComp<BlockMovementComponent>(uid);
-        }
 
         var coords = Transform(uid).Coordinates;
-        Spawn(_defaultPentagramProto, coords);
-        _audio.PlayPvs(_defaultSoundPath, coords);
+        Spawn(comp.PentagramProto, coords);
+        _audio.PlayPvs(comp.SoundEffect, coords);
 
         if (comp.CondemnedBehavior == CondemnedBehavior.Delete)
             _popup.PopupCoordinates(Loc.GetString("condemned-start", ("target", Name(uid))), coords, PopupType.LargeCaution);
@@ -112,7 +114,7 @@ public sealed partial class CondemnedSystem : EntitySystem
             return;
 
         var coords = Transform(uid).Coordinates;
-        var handEntity = Spawn(_defaultHandProto, coords);
+        var handEntity = Spawn(comp.HandProto, coords);
 
         comp.HandDuration = TryComp<TimedDespawnComponent>(handEntity, out var timedDespawn)
             ? timedDespawn.Lifetime
@@ -129,13 +131,10 @@ public sealed partial class CondemnedSystem : EntitySystem
         if (comp.PhaseTimer < comp.HandDuration)
             return;
 
-        if (comp.FreezeDuringCondemnation)
-            RemComp<BlockMovementComponent>(uid);
-
         TryDoCondemnedBehavior(uid, comp);
 
         comp.CurrentPhase = CondemnedPhase.Complete;
-        RemComp<CondemnedComponent>(uid);
+        RemComp(uid, comp);
     }
 
     private void TryDoCondemnedBehavior(EntityUid uid, CondemnedComponent comp)
@@ -146,7 +145,7 @@ public sealed partial class CondemnedSystem : EntitySystem
                 QueueDel(uid);
                 break;
             case { CondemnedBehavior: CondemnedBehavior.Banish }:
-                _poly.PolymorphEntity(uid, _banishProto);
+                _poly.PolymorphEntity(uid, comp.BanishProto);
                 break;
         }
     }

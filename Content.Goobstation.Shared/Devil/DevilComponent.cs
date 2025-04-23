@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
 using Content.Shared.Polymorph;
@@ -87,4 +88,24 @@ public sealed partial class DevilComponent : Component
         { 2, new ProtoId<PolymorphPrototype>("ShadowJaunt60") },
         { 3, new ProtoId<PolymorphPrototype>("ShadowJaunt90") },
     };
+
+    // abandom all hope, all ye who enter
+
+    [DataField]
+    public EntProtoId ContractPrototype = "PaperDevilContract";
+
+    [DataField]
+    public EntProtoId RevivalContractPrototype = "PaperDevilContractRevival";
+
+    [DataField]
+    public EntProtoId PentagramEffectProto = "Pentagram";
+
+    [DataField]
+    public EntProtoId JauntAnimationProto = "PolymorphShadowJauntAnimation";
+
+    [DataField]
+    public ProtoId<PolymorphPrototype> JauntEntityProto = "ShadowJaunt";
+
+    [DataField]
+    public ProtoId<DamageModifierSetPrototype> DevilDamageModifierSet = "DevilDealPositive";
 }

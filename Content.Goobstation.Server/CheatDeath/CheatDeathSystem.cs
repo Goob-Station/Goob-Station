@@ -24,7 +24,6 @@ public sealed partial class CheatDeathSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -35,23 +34,23 @@ public sealed partial class CheatDeathSystem : EntitySystem
         SubscribeLocalEvent<CheatDeathComponent, DelayedDeathEvent>(OnDelayedDeath);
     }
 
-    private void OnStartup(Entity<CheatDeathComponent> ent, ref ComponentStartup args)
+    private void OnStartup(EntityUid uid, CheatDeathComponent comp, ref ComponentStartup args)
     {
-        _actionsSystem.AddAction(ent, "ActionCheatDeath");
+        _actionsSystem.AddAction(uid, comp.ActionCheatDeath);
     }
 
     private void OnExamined(Entity<CheatDeathComponent> ent, ref ExaminedEvent args)
     {
-        if (args.Examined == args.Examiner && !_net.IsClient)
+        if (args.Examined == args.Examiner)
             args.PushMarkup(Loc.GetString("cheat-death-component-remaining-revives", ("amount", ent.Comp.ReviveAmount)));
     }
 
-    private void OnDelayedDeath(Entity<CheatDeathComponent> ent, ref DelayedDeathEvent args)
+    private void OnDelayedDeath(EntityUid uid, CheatDeathComponent comp, ref DelayedDeathEvent args)
     {
         if (args.Cancelled)
             return;
 
-        RemComp<CheatDeathComponent>(ent);
+        RemComp(uid, comp);
     }
 
     private void OnDeathCheatAttempt(Entity<CheatDeathComponent> ent, ref CheatDeathEvent args)
