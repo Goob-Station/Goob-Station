@@ -71,6 +71,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
         InitializeGridFills();
         InitializeIFF();
         InitializeImpact();
+        InitializePod();    // Goobstation droppod
 
         SubscribeLocalEvent<ShuttleComponent, ComponentStartup>(OnShuttleStartup);
         SubscribeLocalEvent<ShuttleComponent, ComponentShutdown>(OnShuttleShutdown);
