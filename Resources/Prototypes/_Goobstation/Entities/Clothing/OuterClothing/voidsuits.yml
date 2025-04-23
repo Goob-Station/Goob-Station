@@ -20,7 +20,7 @@
 
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitChronolegioneer # hardsuit > voidsuit later, dont forget loadouts/roles that spawn with these
+  id: ClothingOuterHardsuitChronolegioneer
   name: futuristic voidsuit
   description: A voidsuit covered in an unknown material that protects against most material and temporal damage
   components:
@@ -251,39 +251,39 @@
   - type: ModifyDelayedKnockdown
     cancel: true
 
-# paramedic voidsuit
-- type: entity
-  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
-  id: ClothingOuterVoidsuitParamedic
-  name: paramedic voidsuit
-  description: A voidsuit made for paramedics.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
-  - type: HeldSpeedModifier
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.90
-        Radiation: 0.75
-        Caustic: 0.5
-  - type: GroupExamine
-  - type: StealTarget
-    stealGroup: ClothingOuterVoidsuitParamedic
-  - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
-      head: ClothingHeadHelmetVoidParamed
+## paramedic voidsuit
+#- type: entity
+#  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
+#  id: ClothingOuterVoidsuitParamedic
+#  name: paramedic voidsuit
+#  description: A voidsuit made for paramedics.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.5
+#    lowPressureMultiplier: 1000
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.9
+#    sprintModifier: 0.9
+#  - type: HeldSpeedModifier
+#  - type: TemperatureProtection
+#    heatingCoefficient: 0.1
+#    coolingCoefficient: 0.1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Heat: 0.90
+#        Radiation: 0.75
+#        Caustic: 0.5
+#  - type: GroupExamine
+#  - type: StealTarget
+#    stealGroup: ClothingOuterVoidsuitParamedic
+#  - type: ToggleableClothing # Goobstation - Modsuits change
+#    clothingPrototypes: 
+#      head: ClothingHeadHelmetVoidParamed
 
 # Security voidsuit
 - type: entity
@@ -323,70 +323,70 @@
   - type: StaminaDamageResistance
     coefficient: 0.6
 
-# Heady of security voidsuit
-- type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
-  id: ClothingOuterVoidsuitHeadOfSecurity
-  name: head of security's voidsuit
-  description: Lighter and more protective than the standard security voidsuit, but not by much.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.45
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.6
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.7
-        Radiation: 0.5
-        Caustic: 0.5
-  - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitSecurityRed
-  - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 3
-    knockdownTimeDelta: -3
-  - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.5
-
-# Engineer
-- type: entity
-  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
-  id: ClothingOuterVoidsuitEngineer
-  name: engineering voidsuit
-  description: A special voidsuit that protects against hazardous, low pressure environments. Has radiation shielding.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.04
-    lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
-  - type: Armor
-    modifiers:
-      coefficients:
-        Shock: 0.5
-        Caustic: 0.7
-        Radiation: 0.35
-  - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitEngineering
+## Heady of security voidsuit
+#- type: entity
+#  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+#  id: ClothingOuterVoidsuitHeadOfSecurity
+#  name: head of security's voidsuit
+#  description: Lighter and more protective than the standard security voidsuit, but not by much.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.45
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.6
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.65
+#        Slash: 0.65
+#        Piercing: 0.65
+#        Heat: 0.7
+#        Radiation: 0.5
+#        Caustic: 0.5
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.9
+#    sprintModifier: 0.9
+#  - type: HeldSpeedModifier
+#  - type: ToggleableClothing
+#    clothingPrototypes:
+#      head: ClothingHeadHelmetHardsuitSecurityRed
+#  - type: ModifyDelayedKnockdown # Goobstation
+#    delayDelta: 3
+#    knockdownTimeDelta: -3
+#  - type: StaminaDamageResistance # Goobstation
+#    coefficient: 0.5
+#
+## Engineer
+#- type: entity
+#  parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
+#  id: ClothingOuterVoidsuitEngineer
+#  name: engineering voidsuit
+#  description: A special voidsuit that protects against hazardous, low pressure environments. Has radiation shielding.
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+#  - type: PressureProtection
+#    highPressureMultiplier: 0.04
+#    lowPressureMultiplier: 1000
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.5
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Shock: 0.5
+#        Caustic: 0.7
+#        Radiation: 0.35
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.85
+#    sprintModifier: 0.85
+#  - type: HeldSpeedModifier
+#  - type: ToggleableClothing # Goobstation - Modsuits change
+#    clothingPrototypes:
+#      head: ClothingHeadHelmetHardsuitEngineering

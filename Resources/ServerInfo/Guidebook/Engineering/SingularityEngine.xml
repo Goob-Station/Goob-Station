@@ -81,7 +81,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   This won't completely negate the radiation, but it will reduce the damage you take.
 
   <Box>
-    <GuideEntityEmbed Entity="ClothingOuterVoidsuitEngineer"/>
+    <GuideEntityEmbed Entity="ClothingOuterHardsuitEngineering"/>
   </Box>
 
   <Box>

@@ -176,7 +176,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/security-red.rsi
     state: icon
   content:
-  - ClothingOuterVoidsuitHeadOfSecurity
+  - ClothingOuterHardsuitSecurityRed
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorHeadOfSecurityHardsuit
@@ -198,7 +198,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
     state: icon
   content:
-  - ClothingOuterVoidsuitEngineer
+  - ClothingOuterHardsuitEngineering
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorEngineerHardsuit

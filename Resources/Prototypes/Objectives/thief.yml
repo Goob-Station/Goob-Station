@@ -87,8 +87,6 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -292,12 +290,12 @@
 
 - type: entity                                      #Medical subgroup
   parent: BaseThiefStealObjective
-  id: ClothingOuterVoidsuitParamedicStealObjective # Goob edit
+  id: ClothingOuterHardsuitVoidParamedStealObjective
   components:
   - type: NotJobRequirement
     job: Paramedic
   - type: StealCondition
-    stealGroup: ClothingOuterVoidsuitParamedic # Goob edit
+    stealGroup: ClothingOuterHardsuitVoidParamed
   - type: Objective
     difficulty: 1
 
