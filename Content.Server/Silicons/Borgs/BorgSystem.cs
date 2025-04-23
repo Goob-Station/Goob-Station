@@ -247,7 +247,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             _metaData.SetEntityName(args.Container.Owner, "pOrg");
         }
-        CleanupInstrument(uid);
+        if (HasComp<ActiveInstrumentComponent>(uid))
+            _instrumentSystem.ToggleInstrumentUi(uid, uid);
+        if (TryComp<InstrumentComponent>(uid, out var instrument))
+            _instrumentSystem.Clean(uid, instrument);
     }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
@@ -420,7 +423,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
                 }
             }
         }
-        CleanupInstrument(uid);
+        if (HasComp<ActiveInstrumentComponent>(uid))
+            _instrumentSystem.ToggleInstrumentUi(uid, uid);
+        if (TryComp<InstrumentComponent>(uid, out var instrument))
+            _instrumentSystem.Clean(uid, instrument);
     }
 
     /// <summary>
@@ -433,15 +439,5 @@ public sealed partial class BorgSystem : SharedBorgSystem
             return false;
 
         return true;
-    }
-
-    private void CleanupInstrument(EntityUid uid)
-    {
-        if (HasComp<ActiveInstrumentComponent>(uid))
-        {
-            _instrumentSystem.ToggleInstrumentUi(uid, uid);
-        }
-        if (TryComp<InstrumentComponent>(uid, out var instrument))
-            _instrumentSystem.Clean(uid, instrument);
     }
 }
