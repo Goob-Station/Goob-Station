@@ -568,6 +568,18 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_kury
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/howl.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_EinsteinEngines/Voice/Vulpkanin/vulpscream1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/howl.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_DV/Voice/Vulpkanin/howl.ogg
 
 - type: entity
   parent: PlushieSlime
@@ -682,6 +694,12 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_byrrne
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Slime/slime_scream_m1.ogg
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -711,6 +729,21 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_byrrne_gibbed
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/desecration-01.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/desecration-01.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
 
 - type: entity
   parent: BasePlushie
