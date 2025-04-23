@@ -10,13 +10,16 @@
 // SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -243,14 +246,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public void Cycle(EntityUid uid, ChangelingIdentityComponent comp)
     {
         UpdateChemicals(uid, comp);
-
-        comp.BiomassUpdateTimer += 1;
-        if (comp.BiomassUpdateTimer >= comp.BiomassUpdateCooldown)
-        {
-            comp.BiomassUpdateTimer = 0;
-            UpdateBiomass(uid, comp);
-        }
-
         UpdateAbilities(uid, comp);
     }
 
@@ -262,65 +257,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingChemicals");
-    }
-    private void UpdateBiomass(EntityUid uid, ChangelingIdentityComponent comp, float? amount = null)
-    {
-        float amt = amount ?? -1f;
-        comp.Biomass += amt;
-        comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
-        Dirty(uid, comp);
-        _alerts.ShowAlert(uid, "ChangelingBiomass");
-
-        var random = _rand.Next(1, 3);
-
-        bool doEffects = amt < 0; // no vomiting blood if you gained biomass
-
-        if (comp.Biomass <= 0 && doEffects)
-            // game over, man
-            _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
-
-        if (comp.Biomass <= comp.MaxBiomass / 10)
-        {
-            // THE FUNNY ITCH IS REAL!!
-            comp.BonusChemicalRegen = 3f;
-            if (doEffects)
-            {
-                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
-                _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
-            }
-        }
-        else if (comp.Biomass <= comp.MaxBiomass / 3)
-        {
-            // vomit blood
-            if (random == 1 && doEffects)
-            {
-                if (TryComp<StatusEffectsComponent>(uid, out var status))
-                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
-
-                var solution = new Solution();
-
-                var vomitAmount = 15f;
-                _blood.TryModifyBloodLevel(uid, -vomitAmount);
-                solution.AddReagent("Blood", vomitAmount);
-
-                _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, solution, out _);
-
-                _popup.PopupEntity(Loc.GetString("disease-vomit", ("person", Identity.Entity(uid, EntityManager))), uid);
-            }
-
-            // the funny itch is not real
-            if (random == 3 && doEffects)
-            {
-                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid, PopupType.MediumCaution);
-                _jitter.DoJitter(uid, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
-            }
-        }
-        else if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
-        {
-            if (random == 1 && doEffects)
-                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
-        }
-        else comp.BonusChemicalRegen = 0f;
     }
     private void UpdateAbilities(EntityUid uid, ChangelingIdentityComponent comp)
     {
@@ -401,12 +337,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
 
-        if (comp.Biomass < 1 && lingAction.RequireBiomass)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-biomass-deficit"), uid, uid);
-            return false;
-        }
-
         if ((!lingAction.UseInLesserForm && comp.IsInLesserForm) || (!lingAction.UseInLastResort && comp.IsInLastResort))
         {
             _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
@@ -429,7 +359,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
 
         UpdateChemicals(uid, comp, -chemCost);
-        UpdateBiomass(uid, comp, -lingAction.BiomassCost);
 
         action.Handled = true;
 
@@ -596,9 +525,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         newComp.Chemicals = comp.Chemicals;
         newComp.MaxChemicals = comp.MaxChemicals;
-
-        newComp.Biomass = comp.Biomass;
-        newComp.MaxBiomass = comp.MaxBiomass;
 
         newComp.IsInLesserForm = comp.IsInLesserForm;
         newComp.IsInLastResort = comp.IsInLastResort;
@@ -779,11 +705,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         // making sure things are right in this world
         comp.Chemicals = comp.MaxChemicals;
-        comp.Biomass = comp.MaxBiomass;
 
         // show alerts
         UpdateChemicals(uid, comp, 0);
-        UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
 
