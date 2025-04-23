@@ -745,6 +745,7 @@
     sound:
       path: /Audio/_Floofstation/Voice/Avali/avali_scream.ogg
 
+
 - type: entity
   parent: BasePlushie
   id: PlushieHaleigh
@@ -900,8 +901,32 @@
   parent: PlushieLizard
   id: PlushieDumbLizard
   name: stupid dumb blue lizard plushie
-  description: Unfortunately this plushie won't thump their tail
+  description: Unfortunately this plushie won't thump their tail.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_dumb_lizard
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSqueaks
+  name: squeaks d'cheeseh plushie
+  description: Cheesed to meet you?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_squeaks
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/mouse_squeak.ogg
+    useSound:
+      path: /Audio/Animals/mouse_squeak.ogg

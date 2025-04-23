@@ -232,6 +232,8 @@
         weight: 0.65
       - id: PlushieDumbLizard
         weight: 0.65
+      - id: PlushieSqueaks
+        weight: 0.65
 
 - type: entity
   id: CrateFunPlushie
@@ -601,3 +603,9 @@
       - id: PlushieAhti
       - id: PlushieSparkle
       - id: PlushieGrub
+      - id: PlushieFern
+      - id: PlushieFlint
+      - id: PlushiePistachio
+      - id: PlushieSeesTheStars
+      - id: PlushieDumbLizard
+      - id: PlushieSqueaks
