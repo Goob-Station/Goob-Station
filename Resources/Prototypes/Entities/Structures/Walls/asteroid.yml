@@ -139,15 +139,15 @@
   - type: Sprite
     sprite: Structures/Walls/rock.rsi
     layers:
-      - state: rock_asteroid
-      - map: [ "enum.EdgeLayer.South" ]
-        state: rock_asteroid_south
-      - map: [ "enum.EdgeLayer.East" ]
-        state: rock_asteroid_east
-      - map: [ "enum.EdgeLayer.North" ]
-        state: rock_asteroid_north
-      - map: [ "enum.EdgeLayer.West" ]
-        state: rock_asteroid_west
+    - state: rock_asteroid
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_asteroid_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_asteroid_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_asteroid_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_asteroid_west
   - type: MiningScannerViewable
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -192,26 +192,11 @@
 
 - type: entity
   id: AsteroidRockCoalCrab
-  parent: AsteroidRock
-  description: An ore vein rich with coal.
+  parent: AsteroidRockCoal
   suffix: Coal Crab
   components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreCoalCrab
-    - type: Sprite
-      layers:
-        - state: rock_asteroid
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_asteroid_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_asteroid_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_asteroid_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_asteroid_west
-        - state: rock_coal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+  - type: OreVein
+    currentOre: OreCoalCrab
 
 - type: entity
   id: AsteroidRockGold
@@ -238,26 +223,11 @@
 
 - type: entity
   id: AsteroidRockGoldCrab
-  parent: AsteroidRock
-  description: An ore vein rich with gold.
+  parent: AsteroidRockGold
   suffix: Gold Crab
   components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreGoldCrab
-    - type: Sprite
-      layers:
-        - state: rock_asteroid
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_asteroid_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_asteroid_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_asteroid_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_asteroid_west
-        - state: rock_gold
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+  - type: OreVein
+    currentOre: OreGoldCrab
 
 - type: entity
   id: AsteroidRockDiamond
@@ -330,7 +300,7 @@
 
 - type: entity
   id: AsteroidRockQuartzCrab
-  parent: AsteroidRock
+  parent: AsteroidRockQuartz
   suffix: Quartz Crab
   components:
     - type: OreVein
@@ -379,9 +349,8 @@
   parent: AsteroidRockSilver
   suffix: Silver Crab
   components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreSilverCrab
+  - type: OreVein
+    currentOre: OreSilverCrab
 
 # Yes I know it drops steel but we may get smelting at some point
 - type: entity
@@ -412,9 +381,8 @@
   parent: AsteroidRockTin
   suffix: Iron Crab
   components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreIronCrab
+  - type: OreVein
+    currentOre: OreIronCrab
 
 - type: entity
   id: AsteroidRockUranium
@@ -444,9 +412,8 @@
   parent: AsteroidRockUranium
   suffix: Uranium Crab
   components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreUraniumCrab
+  - type: OreVein
+    currentOre: OreUraniumCrab
 
 - type: entity
   id: AsteroidRockBananium
@@ -546,15 +513,15 @@
   - type: Sprite
     sprite: Structures/Walls/rock.rsi
     layers:
-      - state: ironrock
-      - map: [ "enum.EdgeLayer.South" ]
-        state: ironrock_south
-      - map: [ "enum.EdgeLayer.East" ]
-        state: ironrock_east
-      - map: [ "enum.EdgeLayer.North" ]
-        state: ironrock_north
-      - map: [ "enum.EdgeLayer.West" ]
-        state: ironrock_west
+    - state: ironrock
+    - map: [ "enum.EdgeLayer.South" ]
+      state: ironrock_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: ironrock_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: ironrock_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: ironrock_west
 
 - type: entity
   id: IronRockMining
@@ -1203,21 +1170,21 @@
   name: basalt
   parent: WallRock
   components:
-    - type: Icon
-      sprite: Structures/Walls/rock.rsi
-      state: rock_wall
-    - type: Sprite
-      sprite: Structures/Walls/rock.rsi
-      layers:
-        - state: rock_wall
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_wall_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_wall_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_wall_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_wall_west
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_wall
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+    - state: rock_wall
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_wall_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_wall_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_wall_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_wall_west
 
 - type: entity
   id: WallRockBasaltCoal
@@ -1480,21 +1447,21 @@
   name: snowdrift
   parent: WallRock
   components:
-    - type: Icon
-      sprite: Structures/Walls/rock.rsi
-      state: rock_snow
-    - type: Sprite
-      sprite: Structures/Walls/rock.rsi
-      layers:
-        - state: rock_snow
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_snow_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_snow_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_snow_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_snow_west
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_snow
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+    - state: rock_snow
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_snow_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_snow_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_snow_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_snow_west
 
 - type: entity
   id: WallRockSnowCoal
@@ -1757,21 +1724,21 @@
   name: sandstone
   parent: WallRock
   components:
-    - type: Icon
-      sprite: Structures/Walls/rock.rsi
-      state: rock_sand
-    - type: Sprite
-      sprite: Structures/Walls/rock.rsi
-      layers:
-        - state: rock_sand
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_sand_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_sand_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_sand_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_sand_west
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_sand
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+    - state: rock_sand
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_sand_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_sand_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_sand_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_sand_west
 
 - type: entity
   id: WallRockSandCoal
@@ -2033,21 +2000,21 @@
   name: chromite
   parent: WallRock
   components:
-    - type: Icon
-      sprite: Structures/Walls/rock.rsi
-      state: rock_chromite
-    - type: Sprite
-      sprite: Structures/Walls/rock.rsi
-      layers:
-        - state: rock_chromite
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_chromite_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_chromite_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_chromite_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_chromite_west
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_chromite
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+    - state: rock_chromite
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_chromite_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_chromite_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_chromite_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_chromite_west
 
 - type: entity
   id: WallRockChromiteCoal
@@ -2310,21 +2277,21 @@
   name: andesite
   parent: WallRock
   components:
-    - type: Icon
-      sprite: Structures/Walls/rock.rsi
-      state: rock_andesite
-    - type: Sprite
-      sprite: Structures/Walls/rock.rsi
-      layers:
-        - state: rock_andesite
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_andesite_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_andesite_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_andesite_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_andesite_west
+  - type: Icon
+    sprite: Structures/Walls/rock.rsi
+    state: rock_andesite
+  - type: Sprite
+    sprite: Structures/Walls/rock.rsi
+    layers:
+    - state: rock_andesite
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rock_andesite_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rock_andesite_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rock_andesite_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rock_andesite_west
 
 - type: entity
   id: WallRockAndesiteCoal
