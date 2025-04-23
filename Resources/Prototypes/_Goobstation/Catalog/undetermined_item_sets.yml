@@ -134,7 +134,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
   content:
-  - ClothingOuterVoidsuitParamedic
+  - ClothingOuterHardsuitVoidParamed
 
 - type: thiefBackpackSet
   id: VoidsuitSelectorParamedicHardsuit
