@@ -364,9 +364,8 @@
             variation: 0.03
             volume: 3
   - type: KnockdownOnHit
-    duration: 0.1
+    duration: 0.2
     dropHeldItemsBehavior: DropIfStanding
-  - type: HonkmotherBaptism
   - type: UseDelay
     delay: 0.5
   - type: EmitSoundOnUse
