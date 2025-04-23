@@ -379,17 +379,17 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             foreach (var containedEntity in brainContainer.ContainedEntities)
             {
-                if (!TryComp<PAIComponent>(containedEntity, out var paiComponent))
-                { return; }
-                string? pAIName = null;
-                if (paiComponent.LastUser != null)
+                if (TryComp<PAIComponent>(containedEntity, out var paiComponent))
+                {
+                    string? pAIName = null;
                     if (paiComponent.LastUser != null)
                     {
                         var userName = Name(paiComponent.LastUser.Value);
                         if (!string.IsNullOrWhiteSpace(userName))
                             pAIName = $" ({userName}'s pAI)";
                     }
-                _metaData.SetEntityName(uid, $"pOrg{pAIName}");
+                    _metaData.SetEntityName(uid, $"pOrg{pAIName}");
+                }
             }
         }
 
@@ -420,6 +420,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
                 if (HasComp<PAIComponent>(containedEntity))
                 {
                     _metaData.SetEntityName(uid, $"pOrg (personal ai device)");
+                    break;
                 }
             }
         }
