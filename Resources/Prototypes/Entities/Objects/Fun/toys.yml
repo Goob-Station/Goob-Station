@@ -1725,8 +1725,6 @@
   description: New Sandy-Cat plastic sword! Comes with realistic sound and full color! Looks almost like the real thing!
   components:
     - type: EnergySword
-      colorOptions:
-        - DodgerBlue
     - type: ItemToggle
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg
