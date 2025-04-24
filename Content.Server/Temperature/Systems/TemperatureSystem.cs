@@ -226,7 +226,6 @@ public sealed class TemperatureSystem : EntitySystem
             return;
 
         float lastTemp = temperature.CurrentTemperature;
-        float delta = temperature.CurrentTemperature - temp;
         temperature.CurrentTemperature = temp;
 
         // Goob start
@@ -235,6 +234,8 @@ public sealed class TemperatureSystem : EntitySystem
         temperature.CurrentTemperature = tempEv.CurrentTemperature;
         // Goob end
 
+        float delta = temperature.CurrentTemperature - temp;
+        
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta),
             true);
     }
