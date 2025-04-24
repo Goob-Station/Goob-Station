@@ -39,6 +39,9 @@
     },
     {
       "name": "battery10"
+    },
+    {
+      "name": "ubercharge"
     }
   ]
 }

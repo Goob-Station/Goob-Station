@@ -89,7 +89,9 @@
     state: battery9
   - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
     state: battery10
+  - sprite: /Textures/_Goobstation/Interface/Alerts/medigun.rsi
+    state: ubercharge
   name: alerts-medigun-uber-name
   description: alerts-medigun-uber-desc
   minSeverity: 0
-  maxSeverity: 10
+  maxSeverity: 11

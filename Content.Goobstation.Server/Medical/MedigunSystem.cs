@@ -8,7 +8,6 @@ using Content.Goobstation.Shared.Medical;
 using Content.Goobstation.Shared.Medical.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Hands.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
@@ -21,7 +20,6 @@ using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Medical;
@@ -30,13 +28,11 @@ namespace Content.Goobstation.Server.Medical;
 public sealed class MedigunSystem : SharedMedigunSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerMan = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly AlertsSystem _alert = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -177,7 +173,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
     {
         var (uid, comp) = ent;
 
-        if (args.Handled || args.Target == null || args.Target.Value == args.User)
+        if (args.Target == null || args.Target.Value == args.User)
             return;
 
         if (_useDelay.IsDelayed(uid))
@@ -185,11 +181,6 @@ public sealed class MedigunSystem : SharedMedigunSystem
 
         if (comp.HealedEntities.Count >= comp.MaxLinksAmount)
             return;
-
-        if (!_toggle.TryActivate(uid, args.User))
-        {
-            return;
-        }
 
         var target = args.Target.Value;
 
@@ -205,6 +196,11 @@ public sealed class MedigunSystem : SharedMedigunSystem
             return;
         }
 
+        if (!_toggle.TryActivate(uid, args.User))
+        {
+            return;
+        }
+
         comp.HealedEntities.Add(target);
         comp.IsActive = true;
         comp.ParentEntity = args.User;
@@ -217,11 +213,11 @@ public sealed class MedigunSystem : SharedMedigunSystem
         var mediGunned = EnsureComp<MediGunHealedComponent>(target);
         mediGunned.DummyEntity = dummyBeamVisual;
         mediGunned.Source = uid;
-        mediGunned.LineColor = comp.DefaultLineColor;
+        mediGunned.LineColor = comp.UberActivated ? comp.UberLineColor : comp.DefaultLineColor;
         Dirty(target, mediGunned);
 
         var visuals = EnsureComp<JointVisualsComponent>(uid);
-        visuals.Sprite = comp.BeamSprite;
+        visuals.Sprite = comp.UberActivated ? comp.UberBeamSprite : comp.BeamSprite;
         visuals.OffsetA = new Vector2(0f, 0f);
         visuals.Target = GetNetEntity(dummyBeamVisual);
         Dirty(uid, visuals);
@@ -236,7 +232,10 @@ public sealed class MedigunSystem : SharedMedigunSystem
     private void UpdateAlert(EntityUid target, Entity<MediGunComponent> medigun)
     {
         var comp = medigun.Comp;
-        if (comp.ParentEntity == null || !_hands.IsHolding(target, medigun))
+        var parent = Transform(medigun).ParentUid;
+
+        if (parent != comp.ParentEntity ||
+            !_toggle.IsActivated(medigun.Owner))
         {
             _alert.ClearAlert(target, "MedigunUberBattery");
             return;
@@ -246,16 +245,23 @@ public sealed class MedigunSystem : SharedMedigunSystem
         const short minSeverity = 0;
         const short maxSeverity = 10;
         severity = Math.Clamp(severity, minSeverity, maxSeverity);
+
+        if (comp.UberActivated)
+            severity = 11;
+
         _alert.ShowAlert(target, "MedigunUberBattery", severity);
     }
 
-    private void OnParentChanged(EntityUid uid, MediGunComponent component, ref EntParentChangedMessage args)
+    private void OnParentChanged(Entity<MediGunComponent> ent, ref EntParentChangedMessage args)
     {
-        if (args.Transform.ParentUid == component.ParentEntity)
+        if (args.Transform.ParentUid == ent.Comp.ParentEntity)
             return;
 
+        if (args.OldParent != null)
+            UpdateAlert(args.OldParent.Value, ent);
+
         // Disable our gun
-        DisableAllConnections((uid, component));
+        DisableAllConnections(ent);
     }
 
     private void OnUber(EntityUid uid, MediGunComponent component, MediGunUberActivateActionEvent args)
