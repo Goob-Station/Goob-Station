@@ -49,6 +49,8 @@
         - id: Narcotic
         - id: Alcohol
           rateModifier: 0.25
+    - type: Extractable # goob edit
+      grindableSolutionName: organ # goob edit
     - type: SolutionContainerManager
       solutions:
         stomach:
@@ -62,6 +64,8 @@
           reagents:
           - ReagentId: Slime
             Quantity: 10
+          - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
     - type: Item
       size: Small
       heldPrefix: brain
