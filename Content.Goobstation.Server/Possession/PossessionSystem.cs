@@ -74,6 +74,8 @@ public sealed partial class PossessionSystem : EntitySystem
     }
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
     {
+        MapCoordinates? coordinates = null;
+
         // Remove associated components.
         if (comp.WasPacified)
             RemComp<PacifiedComponent>(comp.OriginalEntity);
@@ -83,8 +85,10 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
             _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
         if (!TerminatingOrDeleted(comp.OriginalEntity))
+        {
+            coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
             _mind.TransferTo(comp.OriginalMindId, comp.OriginalEntity);
-
+        }
         // Uncross those beams. This shit is jank yo!
         if (TryComp<ActorComponent>(comp.PossessorOriginalEntity, out var possessorActorComponent))
             _mind.SetUserId(comp.PossessorMindId, possessorActorComponent.PlayerSession.UserId);
@@ -94,10 +98,8 @@ public sealed partial class PossessionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
 
         // Teleport to the entity, kinda like you're popping out of their head!
-        var coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
-
-        if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
-            _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates);
+        if (!TerminatingOrDeleted(comp.PossessorOriginalEntity) && coordinates is not null)
+            _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates.Value);
 
         _container.CleanContainer(comp.PossessedContainer);
     }
