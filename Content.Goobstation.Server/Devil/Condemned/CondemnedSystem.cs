@@ -99,7 +99,7 @@ public sealed partial class CondemnedSystem : EntitySystem
         _audio.PlayPvs(comp.SoundEffect, coords);
 
         if (comp.CondemnedBehavior == CondemnedBehavior.Delete && doFlavor)
-            _popup.PopupCoordinates(Loc.GetString("condemned-start", ("target", Name(uid))), coords, PopupType.LargeCaution);
+            _popup.PopupCoordinates(Loc.GetString("condemned-start", ("target", uid)), coords, PopupType.LargeCaution);
 
         comp.CurrentPhase = CondemnedPhase.PentagramActive;
         comp.PhaseTimer = 0f;

@@ -39,7 +39,7 @@ public sealed partial class GoobBibleSystem : EntitySystem
 
         if (!_mobStateSystem.IsIncapacitated(target))
         {
-            var popup = Loc.GetString("devil-component-bible-sizzle", ("target", Name(target)));
+            var popup = Loc.GetString("weaktoholy-component-bible-sizzle", ("target", target), ("item", args.Used));
             _popupSystem.PopupEntity(popup, target, PopupType.LargeCaution);
             _audio.PlayPvs(component.SizzleSoundPath, args.Target.Value);
 
@@ -64,7 +64,7 @@ public sealed partial class GoobBibleSystem : EntitySystem
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
-            var popup = Loc.GetString("devil-banish-begin", ("target", Name(target)), ("user", Name(target)));
+            var popup = Loc.GetString("devil-banish-begin", ("target", target), ("user", target));
             _popupSystem.PopupEntity(popup, target, PopupType.LargeCaution);
         }
     }

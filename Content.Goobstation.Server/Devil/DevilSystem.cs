@@ -200,7 +200,7 @@ public sealed partial class DevilSystem : EntitySystem
             _damageable.TryChangeDamage(uid, comp.DamageOnTrueName * comp.BibleUserDamageMultiplier, true);
             _stun.TryParalyze(uid, comp.ParalyzeDurationOnTrueName * comp.BibleUserDamageMultiplier, false);
 
-            var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", Name(args.Source)), ("target", Name(uid)));
+            var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", uid));
             _popup.PopupEntity(popup, uid, PopupType.LargeCaution);
         }
         else
@@ -208,7 +208,7 @@ public sealed partial class DevilSystem : EntitySystem
             _stun.TryParalyze(uid, comp.ParalyzeDurationOnTrueName, false);
             _damageable.TryChangeDamage(uid, comp.DamageOnTrueName, true);
 
-            var popup = Loc.GetString("devil-true-name-heard", ("speaker", Name(args.Source)), ("target", Name(uid)));
+            var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", uid));
             _popup.PopupEntity(popup, uid, PopupType.LargeCaution);
         }
     }

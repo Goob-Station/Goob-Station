@@ -15,7 +15,6 @@ public sealed partial class DevilComponent : Component
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
-        "ActionDevilPossess", // testing
     };
 
     /// <summary>
