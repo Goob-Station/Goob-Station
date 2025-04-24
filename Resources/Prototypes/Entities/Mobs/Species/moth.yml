@@ -214,7 +214,7 @@
         state: "creampie_moth"
         visible: false
   - type: Inventory
-    speciesId: moth 
+    speciesId: moth
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -233,6 +233,8 @@
         - MobMask
         layer:
         - MobLayer
+  - type: DashAction
+    actionProto: ActionDashMoth
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -242,7 +244,7 @@
   - type: HumanoidAppearance
     species: Moth
   - type: Inventory
-    speciesId: moth 
+    speciesId: moth
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

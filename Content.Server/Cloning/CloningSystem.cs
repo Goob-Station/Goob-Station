@@ -49,6 +49,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cloning;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning.Components;
@@ -56,7 +57,6 @@ using Content.Server.DeviceLinking.Systems;
 using Content.Server.EUI;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Humanoid;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
@@ -102,8 +102,8 @@ public sealed class CloningSystem : EntitySystem
         if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
-        if (HasComp<SiliconComponent>(original))
-            return false; // Goobstation: Don't clone IPCs. It could be argued it should be in the CloningPodSystem instead
+        if (HasComp<UncloneableComponent>(original))
+            return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
 
         var attemptEv = new CloningAttemptEvent(settings);
         RaiseLocalEvent(original, ref attemptEv);

@@ -147,6 +147,7 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: Uncloneable
 
 - type: entity
   save: false
