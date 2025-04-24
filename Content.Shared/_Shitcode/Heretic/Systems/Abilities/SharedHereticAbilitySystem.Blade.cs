@@ -21,6 +21,16 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<RealignmentComponent, BeforeStatusEffectAddedEvent>(OnBeforeBladeStatusEffect);
         SubscribeLocalEvent<RealignmentComponent, SlipAttemptEvent>(OnBladeSlipAttempt);
         SubscribeLocalEvent<RealignmentComponent, BeforeHarmfulActionEvent>(OnBladeHarmfulAction);
+        SubscribeLocalEvent<RealignmentComponent, StatusEffectEndedEvent>(OnStatusEnded);
+    }
+
+    private void OnStatusEnded(Entity<RealignmentComponent> ent, ref StatusEffectEndedEvent args)
+    {
+        if (args.Key != "Pacified")
+            return;
+
+        if (!_status.TryRemoveStatusEffect(ent, "Realignment"))
+            RemCompDeferred(ent.Owner, ent.Comp);
     }
 
     private void OnBladeHarmfulAction(EntityUid uid, Component component, BeforeHarmfulActionEvent args)

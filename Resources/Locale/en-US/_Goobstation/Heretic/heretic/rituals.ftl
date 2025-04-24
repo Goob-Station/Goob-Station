@@ -31,6 +31,9 @@ heretic-ritual-basic-codex-desc =
     Allows you to transmute a book, any pen, and any piece of meat or non-silicon organ to create a Codex Cicatrix.
     The Codex Cicatrix can be used when draining influences to gain additional knowledge, but comes at greater risk of being noticed. It can also be used to draw and remove transmutation runes easier, and as a spell focus in a pinch.
 
+heretic-ritual-basic-remeniscence = Remeniscence
+heretic-ritual-basic-remeniscence-desc = Transmute a chair to instantly return one of your lost blades.
+
 heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
 heretic-ritual-fail-sacrifice-ineligible = The rune refuses to accept this sacrifice.
 heretic-ritual-fail-reagentpuddle = There is no {$reagentname} present.
@@ -39,6 +42,8 @@ heretic-ritual-fail-temperature-cold = It is not cold enough here.
 heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or burning.
 heretic-ritual-fail-sacrifice-blade = Some of them are still having a head on their shoulders.
 heretic-ritual-fail-sacrifice-rust = Not enough rotting or silicon corpses.
+heretic-ritual-fail-limit = You have reached a limit of items that this ritual provides.
+heretic-ritual-fail-no-lost-blades = No lost blades can be found.
 
 ## side quests
 heretic-ritual-side-knowledge = Ritual of Knowledge

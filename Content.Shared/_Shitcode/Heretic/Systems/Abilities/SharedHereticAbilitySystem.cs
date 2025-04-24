@@ -2,6 +2,7 @@ using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 
@@ -15,6 +16,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 

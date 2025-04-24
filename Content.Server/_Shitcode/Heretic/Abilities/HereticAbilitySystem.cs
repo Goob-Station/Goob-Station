@@ -46,6 +46,7 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server.Actions;
 using Content.Server.Body.Systems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
@@ -53,9 +54,11 @@ using Content.Server.Heretic.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Hands.Components;
+using Content.Shared.Heretic.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Tag;
+using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -72,7 +75,6 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly FlammableSystem _flammable = default!;
     [Dependency] private readonly DamageableSystem _dmg = default!;
     [Dependency] private readonly StaminaSystem _stam = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
@@ -93,6 +95,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
@@ -100,6 +103,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly RespiratorSystem _respirator = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -175,9 +180,24 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             return;
         }
 
+        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
+        {
+            // Empowered blades - infuse all of our blades that are currently in our inventory
+            if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
+            {
+                if (!InfuseOurBlades())
+                    return;
+
+                _actions.SetCooldown(args.Action, MansusGraspSystem.DefaultCooldown);
+                _mansusGrasp.InvokeGrasp(ent, null);
+            }
+
+            return;
+        }
+
         var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
 
-        if (!_hands.TryForcePickupAnyHand(ent, st))
+        if (!_hands.TryPickup(ent, st, emptyHand, animate: false))
         {
             Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             QueueDel(st);
@@ -186,6 +206,42 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         ent.Comp.MansusGrasp = args.Action.Owner;
         args.Handled = true;
+
+        return;
+
+        bool InfuseOurBlades()
+        {
+            var xformQuery = GetEntityQuery<TransformComponent>();
+            var containerEnt = ent.Owner;
+            if (_container.TryGetOuterContainer(ent, xformQuery.Comp(ent), out var container, xformQuery))
+                containerEnt = container.Owner;
+
+            var success = false;
+            foreach (var blade in ent.Comp.OurBlades)
+            {
+                if (!EntityManager.EntityExists(blade))
+                    continue;
+
+                if (!_tag.HasTag(blade, "HereticBladeBlade"))
+                    continue;
+
+                if (TryComp(blade, out MansusInfusedComponent? infused) &&
+                    infused.AvailableCharges >= infused.MaxCharges)
+                    continue;
+
+                if (!_container.TryGetOuterContainer(blade, xformQuery.Comp(blade), out var bladeContainer, xformQuery))
+                    continue;
+
+                if (bladeContainer.Owner != containerEnt)
+                    continue;
+
+                var newInfused = EnsureComp<MansusInfusedComponent>(blade);
+                newInfused.AvailableCharges = newInfused.MaxCharges;
+                success = true;
+            }
+
+            return success;
+        }
     }
 
     private string GetMansusGraspProto(Entity<HereticComponent> ent)

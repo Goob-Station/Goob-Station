@@ -14,7 +14,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Shitcode.Heretic;
 
-public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
+public sealed class VoidCurseSystem : SharedVoidCurseSystem
 {
     public override void Initialize()
     {
@@ -41,7 +41,7 @@ public sealed partial class VoidCurseSystem : SharedVoidCurseSystem
                 continue;
 
             var state = _overlayStateNormal;
-            if (comp.Stacks >= comp.MaxStacks / 1.5f)
+            if (comp.Stacks >= comp.MaxStacks)
                 state = _overlayStateMax;
 
             sprite.LayerSetState(layer, state);

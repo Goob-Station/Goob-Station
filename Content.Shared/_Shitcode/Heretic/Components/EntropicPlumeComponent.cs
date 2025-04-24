@@ -15,12 +15,12 @@ namespace Content.Shared._Goobstation.Heretic.Components;
 public sealed partial class EntropicPlumeComponent : Component
 {
     [DataField]
-    public float Duration = 10f;
+    public float Duration = 7.5f;
 
     [DataField]
     public Dictionary<string, FixedPoint2> Reagents = new()
     {
-        { "Mold", 10f },
+        { "Mold", 7.5f },
     };
 
     [DataField]

@@ -84,6 +84,9 @@
   id: CartridgeAntiMaterielHeavy
 
 - type: Tag
+  id: Chair
+
+- type: Tag
   id: Clarke
 
 - type: Tag

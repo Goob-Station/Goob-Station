@@ -54,5 +54,5 @@ public sealed partial class EnchanterComponent : Component
     /// Sound played when enchanting an item.
     /// </summary>
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/repulse.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/repulse.ogg");
 }

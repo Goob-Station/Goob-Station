@@ -214,6 +214,14 @@ public sealed class TemperatureSystem : EntitySystem
 
         float lastTemp = temperature.CurrentTemperature;
         float delta = temperature.CurrentTemperature - temp;
+
+        // Goobstation start
+        var attemptEv = new TemperatureChangeAttemptEvent(temp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+        // Goobstation end
+
         temperature.CurrentTemperature = temp;
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta),
             true);
@@ -232,9 +240,19 @@ public sealed class TemperatureSystem : EntitySystem
             heatAmount = ev.TemperatureDelta;
         }
 
+
+        // Goobstation start
         float lastTemp = temperature.CurrentTemperature;
-        temperature.CurrentTemperature += heatAmount / GetHeatCapacity(uid, temperature);
+        float newTemp = temperature.CurrentTemperature + heatAmount / GetHeatCapacity(uid, temperature);
         float delta = temperature.CurrentTemperature - lastTemp;
+
+        var attemptEv = new TemperatureChangeAttemptEvent(newTemp, lastTemp, delta);
+        RaiseLocalEvent(uid, attemptEv);
+        if (attemptEv.Cancelled)
+            return;
+
+        temperature.CurrentTemperature = newTemp;
+        // Goobstation end
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), true);
     }

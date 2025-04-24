@@ -104,3 +104,18 @@ public sealed class OnTemperatureChangeEvent : EntityEventArgs
         TemperatureDelta = delta;
     }
 }
+
+// Goobstation
+public sealed class TemperatureChangeAttemptEvent : CancellableEntityEventArgs
+{
+    public readonly float CurrentTemperature;
+    public readonly float LastTemperature;
+    public readonly float TemperatureDelta;
+
+    public TemperatureChangeAttemptEvent(float current, float last, float delta)
+    {
+        CurrentTemperature = current;
+        LastTemperature = last;
+        TemperatureDelta = delta;
+    }
+}

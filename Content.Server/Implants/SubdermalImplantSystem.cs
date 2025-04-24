@@ -112,6 +112,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
 using Content.Shared.Store.Components;
+using Content.Shared.Teleportation;
 
 namespace Content.Server.Implants;
 

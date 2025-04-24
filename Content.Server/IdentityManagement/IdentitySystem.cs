@@ -182,13 +182,17 @@ public sealed class IdentitySystem : SharedIdentitySystem
     /// </summary>
     private IdentityRepresentation GetIdentityRepresentation(EntityUid target,
         InventoryComponent? inventory=null,
-        HumanoidAppearanceComponent? appearance=null)
+        HumanoidAppearanceComponent? appearance=null,
+        bool raiseIdentityRepresentationEntityEvent = true)
     {
         // Goobstation start
-        var ev = new GetIdentityRepresentationEntityEvent();
-        RaiseLocalEvent(target, ref ev);
-        if (ev.Uid != null)
-            return GetIdentityRepresentation(ev.Uid.Value);
+        if (raiseIdentityRepresentationEntityEvent)
+        {
+            var ev = new GetIdentityRepresentationEntityEvent();
+            RaiseLocalEvent(target, ref ev);
+            if (ev.Uid != null)
+                return GetIdentityRepresentation(ev.Uid.Value, raiseIdentityRepresentationEntityEvent: false);
+        }
         // Goobstation end
 
         int age = 18;

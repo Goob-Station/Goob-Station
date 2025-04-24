@@ -65,8 +65,8 @@ public sealed partial class HereticAbilitySystem
         _standing.Stand(ent);
         RemCompDeferred<DelayedKnockdownComponent>(ent);
         _pulling.StopAllPulls(ent, stopPuller: false);
-        _statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
-        _statusEffect.TryAddStatusEffect<RealignmentComponent>(ent, "Realignment", TimeSpan.FromSeconds(10f), true);
+        if (_statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true))
+            _statusEffect.TryAddStatusEffect<RealignmentComponent>(ent, "Realignment", TimeSpan.FromSeconds(10f), true);
 
         args.Handled = true;
     }

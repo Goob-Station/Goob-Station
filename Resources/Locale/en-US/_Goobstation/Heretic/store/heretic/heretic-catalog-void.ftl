@@ -28,7 +28,7 @@ knowledge-path-void-s1-desc =
     I start to realize the emptiness of existence. Something's watching me.
 
     Opens up the Path of Void to you.
-    Allows you to transmute a knife in sub-zero temperatures into a Void Blade.
+    Allows you to transmute a knife in sub-zero temperatures into a Void Blade. Limit of two at a time.
 
 knowledge-path-void-s2-name = Grasp of Void
 knowledge-path-void-s2-desc =

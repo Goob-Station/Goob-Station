@@ -58,6 +58,11 @@
   actionPrototypes:
   - ActionHereticShadowCloak
 
+- type: hereticKnowledge
+  id: Reminiscence
+  ritualPrototypes:
+  - Reminiscence
+
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret

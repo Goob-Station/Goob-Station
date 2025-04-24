@@ -93,15 +93,19 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        // delete all and reset
         foreach (var ent in _toDelete)
+        {
             args.EntityManager.QueueDeleteEntity(ent);
+        }
         _toDelete.Clear();
 
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
             return;
 
         _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
-        _heretic.GenerateRequiredKnowledgeTags((args.Performer, hereticComp));
+        hereticComp.ChosenRitual = null;
+        hereticComp.KnowledgeRequiredTags.Clear();
+        hereticComp.KnownRituals.Remove(args.RitualId);
+        args.EntityManager.Dirty(args.Performer, hereticComp);
     }
 }

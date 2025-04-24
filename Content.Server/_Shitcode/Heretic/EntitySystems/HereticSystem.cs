@@ -170,7 +170,8 @@ public sealed class HereticSystem : EntitySystem
                 continue;
 
             // pick and take
-            var picked = _rand.PickAndTake(list);
+            var picked = _rand.Pick(list);
+            targets.Remove(picked);
             pickedTargets.Add(picked);
         }
 
