@@ -121,6 +121,9 @@
   - type: Input
     context: human
   - type: MMI
+  - type: Organ
+    slotId: posbrain
+  - type: Brain
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
@@ -140,8 +143,6 @@
     proto: robot
   - type: Speech
     speechSounds: Pai
-  - type: Organ
-    slotId: posbrain
   - type: ItemSlots
     slots:
       brain_slot:
