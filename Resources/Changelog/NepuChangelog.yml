@@ -7,3 +7,9 @@ Entries:
       message: "Fun"
   id: 3
   time: '2025-04-17T02:30:44.0000000+00:00'
+- author: ChainXyle
+  changes:
+    - type: Tweak
+      message: "Allowed MMIs to be compatible with IPCs. Now your captain can be normal after getting gibbed."
+  id: 4
+  time: '2025-04-24T11:32:44.0000000+00:00'
