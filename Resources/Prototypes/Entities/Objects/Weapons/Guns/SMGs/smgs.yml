@@ -251,7 +251,7 @@
   name: WT550 autorifle # Goobstation
   parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunWt550
-  description: A cheaply made, mass produced auto-rifle produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo. # Goobstation
+  description: A cheaply made, mass produced, auto-rifle created by NanoTrasens Small Arms Division. Uses .35 auto ammo. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
@@ -270,16 +270,14 @@
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  - type: Gun
-    fireRate: 2.5 # Goobstation - down from 5.5 I am the one who knocks.
-    minAngle: 1
-    maxAngle: 6
-    angleIncrease: 1.5
-    angleDecay: 6
+  - type: Gun # Goobstation - I am the one who nerfs the WT.
+    minAngle: 2
+    maxAngle: 16
+    fireRate: 5
+    burstFireRate: 8
+    angleIncrease: 3
+    angleDecay: 16
     selectedMode: FullAuto
-    shotsPerBurst: 5
-    burstCooldown: 0.2
-    burstFireRate: 7
     availableModes:
     - FullAuto
     - SemiAuto
