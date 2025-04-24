@@ -804,7 +804,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: IDCardStandard
+  parent: [ IDCardStandard, BaseSyndicateContraband ]
   id: SyndicateIDCard
   name: syndicate ID card
   components:
@@ -819,7 +819,7 @@
     listNumber: false
 
 - type: entity
-  parent: IDCardStandard
+  parent: [ IDCardStandard, BaseMajorContraband ]
   id: PirateIDCard
   name: pirate ID card
   components:
