@@ -205,3 +205,67 @@ chatsan-replacement-66 = something
 
 chatsan-word-67 = allg
 chatsan-replacement-67 = all good
+
+#Nepu Station Censorship
+
+chatsan-word-68 = anal
+chatsan-word-69 = anus
+chatsan-replacement-butthole = butthole
+
+chatsan-word-70 = ass
+chatsan-replacement-70 = butt
+
+chatsan-word-71 = ballsack
+chatsan-replacement-71 = bag 
+
+chatsan-word-72 = bastard
+chatsan-replacement-72 = buddy
+
+chatsan-word-73 = bitch
+chatsan-word-74 = biatch
+chatsan-replacement-bench = bench
+
+chatsan-word-75 = blowjob
+chatsan-word-76 = "blow job"
+chatsan-replacement-sucker = sucker
+
+chatsan-word-77 = clitoris
+chatsan-word-78 = cock
+chatsan-word-79 = dildo
+chatsan-word-80 = knobend
+chatsan-word-81 = "knob end"
+chatsan-word-82 = labia
+chatsan-word-83 = penis
+chatsan-word-84 = scrotum
+chatsan-word-85 = vagina
+chatsan-replacement-part = part
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 
+
+chatsan-word- = 
+chatsan-replacement- = 

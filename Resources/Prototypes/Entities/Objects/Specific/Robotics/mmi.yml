@@ -140,6 +140,8 @@
     proto: robot
   - type: Speech
     speechSounds: Pai
+  - type: Organ
+    slotId: posbrain
   - type: ItemSlots
     slots:
       brain_slot:
