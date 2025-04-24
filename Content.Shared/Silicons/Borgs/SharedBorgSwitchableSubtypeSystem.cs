@@ -15,7 +15,7 @@ public abstract class SharedBorgSwitchableSubtypeSystem : EntitySystem
 
     private void OnComponentInit(Entity<BorgSwitchableSubtypeComponent> ent, ref ComponentInit args)
     {
-        if(ent.Comp.BorgSubtype == null)
+        if (ent.Comp.BorgSubtype == null)
             return;
 
         SetAppearanceFromSubtype(ent, ent.Comp.BorgSubtype.Value);

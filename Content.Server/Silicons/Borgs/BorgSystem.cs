@@ -174,7 +174,11 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         BorgActivate(uid, component);
 
-        _ui.TryOpenUi(uid, BorgSwitchableTypeUiKey.SelectBorgType, uid);
+        if (TryComp<BorgSwitchableTypeComponent>(uid, out var switchable))
+        {
+            if (switchable.SelectedBorgType == null)
+                _ui.TryOpenUi(uid, BorgSwitchableTypeUiKey.SelectBorgType, uid);
+        }
     }
 
     private void OnMindRemoved(EntityUid uid, BorgChassisComponent component, MindRemovedMessage args)

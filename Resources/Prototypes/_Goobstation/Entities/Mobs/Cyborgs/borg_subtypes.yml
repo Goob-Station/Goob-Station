@@ -95,7 +95,6 @@
   spritePath: _Goobstation/Mobs/Silicon/Service/rover.rsi
   dummyPrototype: BorgChassisServiceRover
 
-
 ###
 # Medical
 - type: entity
