@@ -56,6 +56,7 @@ public sealed partial class ToggleOrganicShieldEvent : InstantActionEvent { }
 public sealed partial class ShriekDissonantEvent : InstantActionEvent { }
 public sealed partial class ShriekResonantEvent : InstantActionEvent { }
 public sealed partial class ToggleStrainedMusclesEvent : InstantActionEvent { }
+public sealed partial class ToggleHorrorFormEvent : InstantActionEvent { }
 
 #endregion
 

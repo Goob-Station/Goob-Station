@@ -335,6 +335,24 @@
     chemicalCost: 0
     useInLesserForm: true
 
+- type: entity
+  id: ActionToggleHorrorForm
+  name: Horror Form
+  description: Become something much more powerful.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: horror_form
+    event: !type:ToggleHorrorFormEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: false
+
 # stings
 - type: entity
   id: ActionStingBlind

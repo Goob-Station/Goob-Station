@@ -43,8 +43,6 @@
         Blunt: 10
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  - type: HeatResistance
-    damageCoefficient: 1.5
   - type: NoSlip
   - type: Sprite
     drawdepth: Mobs
