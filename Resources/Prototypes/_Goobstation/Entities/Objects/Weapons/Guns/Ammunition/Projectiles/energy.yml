@@ -170,7 +170,7 @@
       collection: MeatLaserImpact
 
 - type: entity 
-  name: Overcharge Rifle energy bolt #nukie killer projectile part uh i lost count
+  name: Overcharge rifle energy bolt #nukie killer projectile part uh i lost count
   id: RifleBulletEnergyGunOverchargeLethal
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
