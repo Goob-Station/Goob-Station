@@ -95,6 +95,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
             TryReviveAndTransferSoul(contractee, ent.Comp);
             _mind.UnVisit(ent.Comp.MindId);
         }
+
         RemComp<PendingRevivalContractComponent>(args.Actor);
     }
 

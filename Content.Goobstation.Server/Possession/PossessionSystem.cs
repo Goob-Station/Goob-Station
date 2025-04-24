@@ -40,7 +40,6 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -99,9 +98,6 @@ public sealed partial class PossessionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("possession-end-popup", ("target", uid)), uid, PopupType.LargeCaution);
 
         // Teleport to the entity, kinda like you're popping out of their head!
-        if (TerminatingOrDeleted(comp.OriginalEntity))
-            return;
-
         var coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
 
         if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
@@ -110,7 +106,7 @@ public sealed partial class PossessionSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || _net.IsClient || comp.PossessorMindId == args.Examiner)
+        if (!args.IsInDetailsRange || comp.PossessorMindId == args.Examiner)
             return;
 
         var timeRemaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds);
@@ -171,7 +167,7 @@ public sealed partial class PossessionSystem : EntitySystem
         return true;
     }
 
-    public void DoPossess(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, EntityUid possessorMind, MindComponent possessorMindComp)
+    private void DoPossess(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, EntityUid possessorMind, MindComponent possessorMindComp)
     {
         _mind.TryGetMind(possessed, out var possessedMind, out var possessedMindComp);
 
