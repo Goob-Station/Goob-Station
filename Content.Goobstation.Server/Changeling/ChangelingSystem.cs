@@ -97,6 +97,7 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Content.Goobstation.Server.Flashbang;
 using static Content.Shared.Inventory.InventorySystem;
+using Content.Goobstation.Shared.Flashbang;
 
 namespace Content.Goobstation.Server.Changeling;
 
@@ -173,8 +174,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingIdentityComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
 
-        SubscribeLocalEvent<InventoryComponent, SoundSuppressionPresenceEvent>(CheckSoundSuppression);
-
         SubscribeAbilities();
     }
 
@@ -223,7 +222,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     private void OnRefreshSpeed(Entity<ChangelingIdentityComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (ent.Comp.StrainedMusclesActive)
-            args.ModifySpeed(1.5f, 2.0f);
+            args.ModifySpeed(1.25f, 1.5f);
         else
             args.ModifySpeed(1f, 1f);
     }
@@ -277,7 +276,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 15f, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false, immediate: false);
             if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
@@ -329,10 +328,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             if (HasComp<ChangelingIdentityComponent>(player))
                 continue;
 
-            var soundEv = new SoundSuppressionPresenceEvent();
+            var soundEv = new GetFlashbangedEvent(float.MaxValue);
             RaiseLocalEvent(player, soundEv);
 
-            if (soundEv.SoundProtected)
+            if (soundEv.ProtectionRange < float.MaxValue)
             {
                 _stun.TryStun(player, TimeSpan.FromSeconds(stunTime / 2f), true);
                 _stun.TryKnockdown(player, TimeSpan.FromSeconds(knockdownTime / 2f), true);
@@ -367,23 +366,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     public float? GetEquipmentChemCostOverride(ChangelingIdentityComponent comp, EntProtoId proto)
     {
         return comp.Equipment.ContainsKey(proto) ? 0f : null;
-    }
-
-    /// <summary>
-    ///     Check if target has sound suppression
-    /// </summary>
-    private void CheckSoundSuppression(EntityUid uid, InventoryComponent comp, ref SoundSuppressionPresenceEvent args)
-    {
-        var slots = new InventorySlotEnumerator(comp);
-
-        while (slots.MoveNext(out var slot))
-        {
-            if (slot.ContainedEntity != null && HasComp<FlashSoundSuppressionComponent>(slot.ContainedEntity.Value))
-            {
-                args.SoundProtected = true;
-                return;
-            }
-        }
     }
 
     public bool CheckFireStatus(EntityUid uid)
