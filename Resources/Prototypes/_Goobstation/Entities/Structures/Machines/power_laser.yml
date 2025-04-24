@@ -1,0 +1,104 @@
+- type: entity
+  id: MachinePowerTransmissionLaser
+  parent: [ BaseMachinePowered ]
+  name: power transmission laser
+  description: Sends power over a giant laser beam to an NT power processing facility. Simply plug it in and come back tomorrow for a big stack of cash, that is if you have power running. Also don't step in front of the firing line please.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: PTL
+  - type: Appearance
+  - type: Battery
+    startingCharge: 0
+    maxCharge: 1000000000 # should be 1gj. i think. i hope. i pray.
+    pricePerJoule: .00095
+  - type: ExaminableBattery
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableTerminalPortNode
+        nodeGroupID: HVPower
+      output:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerMonitoringDevice
+    group: SMES
+    sourceNode: input
+    loadNode: output
+    collectionName: specific
+    sprite: Structures/Power/smes.rsi
+    state: static
+  - type: StationInfiniteBatteryTarget
+  - type: Electrified
+    onHandInteract: false
+    onInteractUsing: false
+    onBump: false
+    requirePower: true
+    highVoltageNode: input
+    mediumVoltageNode: output
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: BatterySensor
+  - type: Gun
+    showExamineText: false
+    fireRate: 10
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: PTL
+    fireCost: 1000
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/PTL/pt_laser.rsi
+    layers:
+    - state: base
+    - state: charge
+      shader: unshaded
+      visible: false
+      map: ["enum.EmitterVisualLayers.Lights"]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 3125
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: StationAiWhitelist
+  - type: ActivatableUI
+    key: enum.PTLUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.PTLUiKey.Key:
+        type: PTLBoundUserInterface  
+  - type: AmbientSound
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/engine_hum.ogg
+
+- type: hitscan
+  id: PTL
+  damage:
+    types:
+      Heat: 30
+  muzzleFlash:
+    sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
+    state: ptl_beam
+  travelFlash:
+    sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
+    state: ptl_beam
+  impactFlash:
+    sprite: _Goobstation/Structures/Machines/PTL/pt_beam.rsi
+    state: ptl_beam
