@@ -124,6 +124,7 @@
   - type: Organ
     slotId: posbrain
   - type: Brain
+    Active: false
   - type: BorgBrain
   - type: BlockMovement
   - type: Examiner
