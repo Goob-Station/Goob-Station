@@ -25,6 +25,10 @@
 // SPDX-FileCopyrightText: 2024 Patrik Caes-Sayrs <heartofgoldfish@gmail.com>
 // SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -35,18 +39,20 @@ using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
+using Content.Server.Roles;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Cloning;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
@@ -68,7 +74,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly EmoteOnDamageSystem _emoteOnDamage = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly NameModifierSystem _nameMod = default!;
+        [Dependency] private readonly SharedRoleSystem _role = default!;
 
         public const SlotFlags ProtectiveSlots =
             SlotFlags.FEET |
@@ -93,6 +99,8 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, CloningEvent>(OnZombieCloning);
             SubscribeLocalEvent<ZombieComponent, TryingToSleepEvent>(OnSleepAttempt);
             SubscribeLocalEvent<ZombieComponent, GetCharactedDeadIcEvent>(OnGetCharacterDeadIC);
+            SubscribeLocalEvent<ZombieComponent, MindAddedMessage>(OnMindAdded);
+            SubscribeLocalEvent<ZombieComponent, MindRemovedMessage>(OnMindRemoved);
 
             SubscribeLocalEvent<PendingZombieComponent, MapInitEvent>(OnPendingMapInit);
             SubscribeLocalEvent<PendingZombieComponent, BeforeRemoveAnomalyOnDeathEvent>(OnBeforeRemoveAnomalyOnDeath);
@@ -270,7 +278,7 @@ namespace Content.Server.Zombies
                 if (!TryComp<MobStateComponent>(entity, out var mobState))
                     continue;
 
-                if (HasComp<ZombieComponent>(entity))
+                if (HasComp<ZombieComponent>(entity) || HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
                 {
                     args.BonusDamage = -args.BaseDamage;
                 }
@@ -283,7 +291,7 @@ namespace Content.Server.Zombies
                     }
                 }
 
-                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity))
+                if (_mobState.IsIncapacitated(entity, mobState) && !HasComp<ZombieComponent>(entity) && !HasComp<ZombieImmuneComponent>(entity) && !HasComp<InitialInfectedComponent>(entity)) // Goobstation edit - prevent zombies from damaging IIs
                 {
                     ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
@@ -302,7 +310,7 @@ namespace Content.Server.Zombies
         /// <param name="target">the entity you want to unzombify (different from source in case of cloning, for example)</param>
         /// <param name="zombiecomp"></param>
         /// <remarks>
-        ///     this currently only restore the name and skin/eye color from before zombified
+        ///     this currently only restore the skin/eye color from before zombified
         ///     TODO: completely rethink how zombies are done to allow reversal.
         /// </remarks>
         public bool UnZombify(EntityUid source, EntityUid target, ZombieComponent? zombiecomp)
@@ -322,14 +330,25 @@ namespace Content.Server.Zombies
             _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
             _bloodstream.ChangeBloodReagent(target, zombiecomp.BeforeZombifiedBloodReagent);
 
-            _nameMod.RefreshNameModifiers(target);
             return true;
         }
 
-        private void OnZombieCloning(EntityUid uid, ZombieComponent zombiecomp, ref CloningEvent args)
+        private void OnZombieCloning(Entity<ZombieComponent> ent, ref CloningEvent args)
         {
-            if (UnZombify(args.Source, args.Target, zombiecomp))
-                args.NameHandled = true;
+            UnZombify(ent.Owner, args.CloneUid, ent.Comp);
+        }
+
+        // Make sure players that enter a zombie (for example via a ghost role or the mind swap spell) count as an antagonist.
+        private void OnMindAdded(Entity<ZombieComponent> ent, ref MindAddedMessage args)
+        {
+            if (!_role.MindHasRole<ZombieRoleComponent>(args.Mind))
+                _role.MindAddRole(args.Mind, "MindRoleZombie", mind: args.Mind.Comp);
+        }
+
+        // Remove the role when getting cloned, getting gibbed and borged, or leaving the body via any other method.
+        private void OnMindRemoved(Entity<ZombieComponent> ent, ref MindRemovedMessage args)
+        {
+            _role.MindTryRemoveRole<ZombieRoleComponent>(args.Mind);
         }
     }
 }

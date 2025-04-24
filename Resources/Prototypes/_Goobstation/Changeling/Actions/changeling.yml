@@ -24,7 +24,9 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -44,7 +46,6 @@
       state: evolution_menu
     event: !type:OpenEvolutionMenuEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true
 
@@ -68,7 +69,6 @@
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -107,7 +107,6 @@
       state: transform_cycle
     event: !type:ChangelingTransformCycleEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -143,7 +142,6 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    biomassCost: 1
     useInLesserForm: true
     useInLastResort: true
 
@@ -703,6 +701,5 @@
     event: !type:AbsorbBiomatterEvent {}
   - type: ChangelingAction
     chemicalCost: 0
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true
