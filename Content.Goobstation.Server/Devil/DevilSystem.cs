@@ -4,12 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
-using Content.Goobstation.Shared;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.CrematorImmune;
@@ -34,7 +32,6 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
@@ -70,6 +67,8 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly PossessionSystem _possession = default!;
     [Dependency] private readonly Condemned.CondemnedSystem _condemned = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
+
+    private static readonly Regex WhitespaceAndNonWordRegex = new(@"[\s\W]+", RegexOptions.Compiled);
 
     public override void Initialize()
     {
@@ -188,8 +187,8 @@ public sealed partial class DevilSystem : EntitySystem
         if (HasComp<DevilComponent>(args.Source) || HasComp<CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source) || args.Source == uid)
             return;
 
-        var message = Regex.Replace(args.Message.ToLowerInvariant(), @"[\s\W]+", "");
-        var trueName = Regex.Replace(comp.TrueName.ToLowerInvariant(), @"[\s\W]+", "");
+        var message = WhitespaceAndNonWordRegex.Replace(args.Message.ToLowerInvariant(), "");
+        var trueName = WhitespaceAndNonWordRegex.Replace(comp.TrueName.ToLowerInvariant(), "");
 
         if (!message.Contains(trueName) || _timing.CurTime < comp.LastTriggeredTime + comp.CooldownDuration)
             return;
