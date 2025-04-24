@@ -216,7 +216,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
 
         if (component.Open)
         {
-            TryCloseStorage(target);
+            TryCloseStorage(target, user);
         }
         else
         {
@@ -395,9 +395,9 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         return true;
     }
 
-    public bool TryCloseStorage(EntityUid target)
+    public bool TryCloseStorage(EntityUid target, EntityUid? user = null)
     {
-        if (!CanClose(target))
+        if (!CanClose(target, user))
         {
             return false;
         }
@@ -448,9 +448,9 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         return !ev.Cancelled;
     }
 
-    public bool CanClose(EntityUid target, bool silent = false)
+    public bool CanClose(EntityUid target, EntityUid? user = null, bool silent = false)
     {
-        var ev = new StorageCloseAttemptEvent();
+        var ev = new StorageCloseAttemptEvent(user);
         RaiseLocalEvent(target, ref ev, silent);
 
         return !ev.Cancelled;
