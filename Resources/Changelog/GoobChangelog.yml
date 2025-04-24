@@ -7739,3 +7739,52 @@ Entries:
       message: You can have 3 chest markings
   id: 903
   time: '2025-04-20T18:32:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Armor-piercing values are now shown on examine.
+    - type: Tweak
+      message: Reworked M7S. Meet the Ventilator.
+    - type: Tweak
+      message: Caseless Magnum is now hollow-point.
+    - type: Fix
+      message: Disablers no longer deal double the damage.
+  id: 904
+  time: '2025-04-22T04:40:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed carp scroll being unbuyable.
+  id: 905
+  time: '2025-04-22T05:52:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Changeling biomass.
+    - type: Tweak
+      message: Changeling steal DNA objective changed to absorb objective.
+  id: 906
+  time: '2025-04-23T01:21:47.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added metrics to game director, doesn't actually do anything player
+        facing, but this means it should be easier for us to make game director
+        suck less now.
+  id: 907
+  time: '2025-04-23T20:02:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Resomi are now immune to cold, slightly more vulnarable to blunt, slash
+        and heat, unable to fit into duffelbags and fly.
+  id: 908
+  time: '2025-04-23T20:08:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token spawns spawning by themselves.
+  id: 909
+  time: '2025-04-24T02:24:21.0000000+00:00'
