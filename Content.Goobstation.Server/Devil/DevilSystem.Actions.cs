@@ -8,6 +8,7 @@ using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Contract.Revival;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Devil.Contract;
 
 namespace Content.Goobstation.Server.Devil;
 
@@ -26,8 +27,6 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
-
         var contract = Spawn(comp.ContractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
 
@@ -43,8 +42,6 @@ public sealed partial class DevilSystem
     {
         if (!TryUseAbility(args))
             return;
-
-        args.Handled = true;
 
         var contract = Spawn(comp.RevivalContractPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, contract);
@@ -62,8 +59,6 @@ public sealed partial class DevilSystem
         if (!TryUseAbility(args))
             return;
 
-        args.Handled = true;
-
         Spawn(comp.JauntAnimationProto, Transform(uid).Coordinates);
         Spawn(comp.PentagramEffectProto, Transform(uid).Coordinates);
         _poly.PolymorphEntity(uid, comp.JauntEntityProto);
@@ -78,16 +73,11 @@ public sealed partial class DevilSystem
             return;
         }
 
-        args.Handled = true;
-
-        if (_possession.TryPossessTarget(args.Target, args.Performer, GetPossessionDuration(comp), true))
+        if (_possession.TryPossessTarget(args.Target, args.Performer, comp.BasePossessionDuration * comp.PowerLevel, true))
         {
             Spawn(comp.JauntAnimationProto, Transform(args.Performer).Coordinates);
             Spawn(comp.PentagramEffectProto, Transform(args.Performer).Coordinates);
             _poly.PolymorphEntity(args.Performer, GetJauntEntity(comp));
         }
-
     }
-
-
 }

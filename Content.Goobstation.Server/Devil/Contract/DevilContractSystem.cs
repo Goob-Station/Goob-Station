@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
+using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server.Body.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Body.Components;
@@ -21,18 +22,16 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil.Contract;
 
-public sealed class DevilContractSystem : EntitySystem
+public sealed partial class DevilContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
@@ -46,14 +45,14 @@ public sealed class DevilContractSystem : EntitySystem
     {
         base.Initialize();
         InitializeRegex();
-
-        _sawmill = Logger.GetSawmill("Contract");
+        InitializeSpecialActions();
 
         SubscribeLocalEvent<DevilContractComponent, BeingSignedAttemptEvent>(OnContractSignAttempt);
         SubscribeLocalEvent<DevilContractComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<DevilContractComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
-
         SubscribeLocalEvent<DevilContractComponent, SignSuccessfulEvent>(OnSignStep);
+
+        _sawmill = Logger.GetSawmill("devil-contract");
     }
 
     private readonly Dictionary<LocId, Func<DevilContractComponent, EntityUid?>> _targetResolvers = new()
@@ -80,7 +79,6 @@ public sealed class DevilContractSystem : EntitySystem
         var targetPattern = string.Join("|", escapedPatterns);
         _clauseRegex = new Regex($@"^\s*(?<target>{targetPattern})\s*:\s*(?<clause>.+?)\s*$",
             RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline);
-
     }
 
     private void OnGetVerbs(EntityUid uid, DevilContractComponent comp, GetVerbsEvent<AlternativeVerb> args)
@@ -200,15 +198,14 @@ public sealed class DevilContractSystem : EntitySystem
 
         comp.Signer = args.User;
         comp.IsVictimSigned = true;
-        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), args.Paper, args.User);
 
+        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), args.Paper, args.User);
     }
 
     private void HandleDevilSign(EntityUid uid, DevilContractComponent comp, SignSuccessfulEvent args)
     {
         comp.IsDevilSigned = true;
         _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), args.Paper, args.User);
-
     }
 
     private void HandleBothPartiesSigned(EntityUid uid, DevilContractComponent comp)
@@ -313,93 +310,45 @@ public sealed class DevilContractSystem : EntitySystem
 
     private void ApplyEffectToTarget(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
     {
-        TryAddComponents(target, clause);
-        TryRemoveComponents(target, clause);
-        TryChangeDamageModifier(target, clause);
-        TrySpecialActions(target, contract, clause);
+        AddComponents(target, clause);
+        RemoveComponents(target, clause);
+        ChangeDamageModifier(target, clause);
+        DoSpecialActions(target, contract, clause);
     }
 
-    private bool TryChangeDamageModifier(EntityUid target, DevilClausePrototype clause)
+    private void ChangeDamageModifier(EntityUid target, DevilClausePrototype clause)
     {
         if (clause.DamageModifierSet == null)
-            return false;
+            return;
 
         _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet);
-
-        return true;
     }
 
-    private bool TryRemoveComponents(EntityUid target, DevilClausePrototype clause)
+    private void RemoveComponents(EntityUid target, DevilClausePrototype clause)
     {
         if (clause.RemovedComponents == null)
-            return false;
+            return;
 
-        foreach (var component in clause.RemovedComponents.Select(component => component.Value.Component))
-            EntityManager.RemoveComponent(target, component);
-
-        return true;
+        EntityManager.RemoveComponents(target, clause.RemovedComponents);
     }
 
-    private bool TryAddComponents(EntityUid target, DevilClausePrototype clause)
+    private void AddComponents(EntityUid target, DevilClausePrototype clause)
     {
         if (clause.AddedComponents == null)
-            return false;
+            return;
 
-        foreach (var comp in clause.AddedComponents.Select(component => component.Value)) // im linqing it
-            EntityManager.AddComponent(target, comp);
-
-        return true;
+        EntityManager.AddComponents(target, clause.AddedComponents);
     }
 
-    private bool TrySpecialActions(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
+    private void DoSpecialActions(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
     {
-        if (clause.SpecialActions == null)
-            return false;
+        if (clause.Event == null || contract.Signer is not { } signer)
+            return;
 
-        foreach (var specialAction in clause.SpecialActions)
-        {
-            switch (specialAction)
-            {
-                case SpecialCase.SoulOwnership:
-                    if (contract.ContractOwner != null)
-                        TryTransferSouls(contract.ContractOwner.Value, target, 1);
-                    break;
-
-                case SpecialCase.RemoveHand:
-                    TryComp<BodyComponent>(target, out var body);
-                    var hands = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Hand, body).ToList();
-                    if (hands.Count > 0)
-                    {
-                        var pick = _random.Pick(hands);
-                        _transform.AttachToGridOrMap(pick.Id);
-                        QueueDel(pick.Id);
-                    }
-                    break;
-
-                case SpecialCase.RemoveLeg:
-                    TryComp<BodyComponent>(target, out var bodyLeg);
-                    var legs = _bodySystem.GetBodyChildrenOfType(target, BodyPartType.Leg, bodyLeg).ToList();
-                    if (legs.Count > 0)
-                    {
-                        var pick = _random.Pick(legs);
-                        _transform.AttachToGridOrMap(pick.Id);
-                        QueueDel(pick.Id);
-                    }
-                    break;
-
-                case SpecialCase.RemoveOrgan:
-                    var organs = _bodySystem.GetBodyOrgans(target).ToList();
-                    if (organs.Count > 0)
-                    {
-                        var pick = _random.Pick(organs);
-                        _transform.AttachToGridOrMap(pick.Id);
-                        QueueDel(pick.Id);
-                    }
-                    break;
-            }
-        }
-
-        return true;
+        var ev = clause.Event;
+        ev.Contract = contract;
+        ev.Target = signer;
+        RaiseLocalEvent(target, (object)ev, true);
     }
 
     #endregion

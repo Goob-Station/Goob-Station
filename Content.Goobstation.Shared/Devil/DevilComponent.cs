@@ -92,6 +92,9 @@ public sealed partial class DevilComponent : Component
     // abandom all hope, all ye who enter
 
     [DataField]
+    public TimeSpan BasePossessionDuration = TimeSpan.FromSeconds(30);
+
+    [DataField]
     public EntProtoId ContractPrototype = "PaperDevilContract";
 
     [DataField]

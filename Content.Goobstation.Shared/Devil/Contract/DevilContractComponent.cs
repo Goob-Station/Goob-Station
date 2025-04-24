@@ -3,10 +3,7 @@
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
-using Content.Goobstation.Shared.Devil;
-
-namespace Content.Goobstation.Server.Devil.Contract;
+namespace Content.Goobstation.Shared.Devil.Contract;
 
 [RegisterComponent]
 public sealed partial class DevilContractComponent : Component
@@ -27,19 +24,19 @@ public sealed partial class DevilContractComponent : Component
     /// All current clauses.
     /// </summary>
     [DataField]
-    public List<DevilClausePrototype> CurrentClauses = new();
+    public List<DevilClausePrototype> CurrentClauses = [];
 
     /// <summary>
     /// Has the contract been signed by the signer?
     /// </summary>
     [DataField]
-    public bool IsVictimSigned = false;
+    public bool IsVictimSigned;
 
     /// <summary>
     /// Has the contract been signed by the devil?
     /// </summary>
     [DataField]
-    public bool IsDevilSigned = false;
+    public bool IsDevilSigned;
 
     /// <summary>
     /// Has the contract been signed by both the devil and the victim?
@@ -57,5 +54,5 @@ public sealed partial class DevilContractComponent : Component
     /// The higher it is, the more the cons.
     /// </remarks>
     [DataField]
-    public int ContractWeight = 0;
+    public int ContractWeight;
 }

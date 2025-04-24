@@ -71,12 +71,6 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly Condemned.CondemnedSystem _condemned = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
 
-
-    // Ten. Thousand. EntProtoIds.
-
-
-    private static readonly TimeSpan BasePossessionDuration = TimeSpan.FromSeconds(30);
-
     public override void Initialize()
     {
         base.Initialize();
@@ -197,10 +191,7 @@ public sealed partial class DevilSystem : EntitySystem
         var message = Regex.Replace(args.Message.ToLowerInvariant(), @"[\s\W]+", "");
         var trueName = Regex.Replace(comp.TrueName.ToLowerInvariant(), @"[\s\W]+", "");
 
-        if (!message.Contains(trueName))
-            return;
-
-        if (_timing.CurTime < comp.LastTriggeredTime + comp.CooldownDuration)
+        if (!message.Contains(trueName) || _timing.CurTime < comp.LastTriggeredTime + comp.CooldownDuration)
             return;
 
         comp.LastTriggeredTime = _timing.CurTime;
@@ -260,12 +251,6 @@ public sealed partial class DevilSystem : EntitySystem
         var flavor = Loc.GetString("contract-summon-flavor", ("name", name));
         _popup.PopupEntity(flavor, devil, PopupType.Medium);
     }
-
-    private static TimeSpan GetPossessionDuration(DevilComponent comp)
-    {
-        return BasePossessionDuration * comp.PowerLevel;
-    }
-
     private void GenerateTrueName(DevilComponent comp)
     {
         // Generate true name.

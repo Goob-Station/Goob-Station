@@ -1,12 +1,10 @@
 # The ID is what is searched for on the paper, coming after the target identifier.
 # Any spaces on the written portion will be removed, so keep it all lowercase and one word.
-# Special actions can be defined in DevilContractSystem.cs
 
 - type: clause
   id: soulownership
   clauseWeight: 25
-  specialActions:
-  - SoulOwnership
+  event: !type:DevilContractSoulOwnershipEvent
 
 - type: clause
   id: weakness
@@ -77,26 +75,17 @@
 - type: clause
   id: aleg
   clauseWeight: 30
-  specialActions:
-  - RemoveLeg
+  event: !type:DevilContractLoseLegEvent
 
 - type: clause
   id: ahand
   clauseWeight: 30
-  specialActions:
-  - RemoveHand
-
-- type: clause
-  id: sanity
-  clauseWeight: 35
-  addedComponents:
-  - type: Insanity
+  event: !type:DevilContractLoseHandEvent
 
 - type: clause
   id: anorgan
   clauseWeight: 45
-  specialActions:
-  - RemoveOrgan
+  event: !type:DevilContractLoseOrganEvent
 
 - type: clause
   id: legs

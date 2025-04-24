@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Devil;
+namespace Content.Goobstation.Shared.Devil.Contract;
 
 [Prototype("clause")]
 public sealed class DevilClausePrototype : IPrototype
@@ -25,7 +25,7 @@ public sealed class DevilClausePrototype : IPrototype
     public string? DamageModifierSet;
 
     [DataField]
-    public List<SpecialCase>? SpecialActions;
+    public BaseDevilContractEvent? Event;
 
 }
 
