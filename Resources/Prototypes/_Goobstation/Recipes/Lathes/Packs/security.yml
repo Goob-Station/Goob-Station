@@ -40,10 +40,13 @@
   - Terminus
   - WeaponSubMachineSmart
   - WeaponEnergyRifle
+  - WeaponEnergyIonRifle
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
   recipes:
+  - EnergyMagRifleSelfRechargeLethal
+  - EnergyMagRifleOverchargeLethal
   - EnergyMagRifleIon
   - EnergyMagRifleDisabler
   - EnergyMagRifleLethal

@@ -126,6 +126,7 @@
   - WeaponLaserCarbine
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
+  - WeaponEnergyIonRifle # Goobstation - CR second energy bolt update(and ion)
   # Goobstation R&D Console rework start
   position: 4,0
   technologyPrerequisites:
@@ -294,6 +295,8 @@
   - WeaponAdvancedLaser
   - PortableRecharger
   - WeaponMechCombatImmolationGun # Goobstation
+  - EnergyMagRifleSelfRechargeLethal # Goobstation - CR second energy bolt update(and ion)
+  - EnergyMagRifleOverchargeLethal # Goobstation - CR second energy bolt update(and ion)
   # Goobstation R&D Console rework start
   position: 6,0
   technologyPrerequisites:

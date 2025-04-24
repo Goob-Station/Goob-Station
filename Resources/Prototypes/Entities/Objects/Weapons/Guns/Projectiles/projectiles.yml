@@ -364,7 +364,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 10 #Goobstation
+        Ion: 0 # Goobstation - CR second energy bolt update(and ion)
     soundHit:
       collection: WeakHit
     forceSound: true
