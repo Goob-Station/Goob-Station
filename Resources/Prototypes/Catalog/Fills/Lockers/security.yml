@@ -333,4 +333,6 @@
     - id: WeaponLaserCarbine
       amount: 3
     - id: WeaponTemperatureGun # Goobstation
-      amount: 2
+      amount: 2 
+    - id: WeaponEnergyIonRifle # Goobstation
+      amount: 2 
