@@ -14,6 +14,7 @@ public sealed partial class SplitPersonalityComponent : Component
     /// Should the entity do startup flavor when receiving the component?
     /// This means the whole popup and falling to the ground.
     /// </summary>
+    [DataField]
     public bool DoStartFlavor = true;
 
     /// <summary>
@@ -53,6 +54,7 @@ public sealed partial class SplitPersonalityComponent : Component
     /// <summary>
     /// When the next swap attempt will take place.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextSwapAttempt = TimeSpan.Zero;
 
     /// <summary>
@@ -66,7 +68,7 @@ public sealed partial class SplitPersonalityComponent : Component
     /// 1 being 100%, 0 being 0%
     /// </summary>
     [DataField]
-    public float SwapProbability = 10;
+    public float SwapProbability = 0.30f; // probably a good amount? idk tweak this if yo uwant
 
     /// <summary>
     /// The amount of seconds between every swap attempt
@@ -80,5 +82,6 @@ public sealed partial class SplitPersonalityComponent : Component
 [RegisterComponent]
 public sealed partial class SplitPersonalityDummyComponent : Component
 {
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? Host;
 }
