@@ -1,0 +1,17 @@
+# Turn any shoes into noslips
+- type: entity
+  parent: BaseEnchant
+  id: EnchantUnslippable
+  name: Unslippable
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - ProtectedFromStepTriggers # only go on shoes/hardsuit
+      - MobState # noslip mouse !?
+    blacklist:
+      components:
+      - Magboots # it would get bulldozed when turned off because no RefCount :(
+  - type: ComponentsEnchant
+    added:
+    - type: NoSlip

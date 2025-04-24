@@ -43,3 +43,11 @@
 - type: statusEffect
   id: MansusGraspAffected
   alwaysAllowed: true
+
+- type: statusEffect
+  id: Realignment
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: BlockProtectiveBladeShoot
+  alwaysAllowed: true
