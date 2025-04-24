@@ -7567,3 +7567,224 @@ Entries:
         Big Boss. It allows you to dual wield any firearms effectively 
   id: 881
   time: '2025-04-16T08:44:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix fishing breaking the game.
+  id: 882
+  time: '2025-04-16T13:32:58.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: >-
+        Wizard *should be* fairly rare (1%), please report wizard sightings to
+        corroborate if its working well :trollface:.
+    - type: Tweak
+      message: High tier antag tokens cannot be exchanged for wizard.
+  id: 883
+  time: '2025-04-16T13:34:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Fix
+      message: No more roundstart SM activations
+  id: 884
+  time: '2025-04-16T19:05:16.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed protection enchant not working.
+  id: 885
+  time: '2025-04-16T19:05:38.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Syringes are no longer explosion-proof.
+  id: 886
+  time: '2025-04-16T19:09:05.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: NTR's scarf is now in their loadout.
+  id: 887
+  time: '2025-04-16T19:16:59.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added alien tourist shuttle event.
+  id: 888
+  time: '2025-04-16T19:17:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Heretic blades, .45 AP, .50 antimaterial and .60 bullets now have 35%,
+        40%, 50% and 50% armor pierce respectively.
+    - type: Tweak
+      message: Burrner and hristov ammo is slightly more expensive.
+  id: 889
+  time: '2025-04-16T19:18:22.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Bingle plushies now make binglepit sounds when used.
+  id: 890
+  time: '2025-04-16T19:19:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: CCV4!!
+    - type: Add
+      message: Added a plushie of a specific Blueshield Officer.
+    - type: Add
+      message: Added the Nanotrasen Career Trainer.
+    - type: Add
+      message: Added the Inspector Ghostrole for admins.
+    - type: Add
+      message: >-
+        Added Token Gamerules for mins. Use these instead of the normal ones for
+        antag tokens!!
+    - type: Add
+      message: >-
+        Added a new implant to the uplink, the Nutriment Pump Implant. It allows
+        you to not require food or water.
+    - type: Tweak
+      message: Edited ERT loadouts. No more annies for the non-combat roles.
+  id: 891
+  time: '2025-04-17T06:22:53.0000000+00:00'
+- author: teneketaro
+  changes:
+    - type: Add
+      message: Cryostatis syringes can now be fired from the syringe gun!
+  id: 892
+  time: '2025-04-17T18:03:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Thieves should now appear in game director!
+  id: 893
+  time: '2025-04-17T18:04:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Syndicate stealth suit heat and pierce protection was decreased.
+    - type: Tweak
+      message: >-
+        Syndicate stealth suit now requires 3 second of no-stealth loss to start
+        accumulating stealth.
+  id: 894
+  time: '2025-04-17T18:07:56.0000000+00:00'
+- author: BombasterDS, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Tape recorders and cassettes can be found as security and reporter
+        equipment! They also can be made in autolathe and service techfab.
+  id: 895
+  time: '2025-04-17T18:08:47.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Cheap sunglasses are now in the loadout.
+  id: 896
+  time: '2025-04-17T18:11:08.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: pAIs can now be found in loadouts
+    - type: Add
+      message: Working golden pAI in loadouts
+  id: 897
+  time: '2025-04-17T18:13:17.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Syringe Pistol, previously known as Dart Syringe Gun, is no longer
+        armor-piercing, but is available to every traitor and is cheaper.
+    - type: Tweak
+      message: >-
+        Chemists now start with their chembags filled, and chembags provide 75%
+        explosion resistance to their contents.
+  id: 898
+  time: '2025-04-17T18:16:08.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Only heretic, wizard and chaplain have ability to enchant items now.
+  id: 899
+  time: '2025-04-18T22:48:25.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Brought back disposal unit speed flush.
+  id: 900
+  time: '2025-04-19T02:12:44.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Ghost bar arena portal was temporarily removed.
+  id: 901
+  time: '2025-04-20T00:33:44.0000000+00:00'
+- author: The Independent State of Chemlabia
+  changes:
+    - type: Fix
+      message: Fixed syringes being breakable.
+  id: 902
+  time: '2025-04-20T06:21:21.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Buff and tattoo to markings...and a hair style
+    - type: Tweak
+      message: You can have 3 chest markings
+  id: 903
+  time: '2025-04-20T18:32:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Armor-piercing values are now shown on examine.
+    - type: Tweak
+      message: Reworked M7S. Meet the Ventilator.
+    - type: Tweak
+      message: Caseless Magnum is now hollow-point.
+    - type: Fix
+      message: Disablers no longer deal double the damage.
+  id: 904
+  time: '2025-04-22T04:40:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed carp scroll being unbuyable.
+  id: 905
+  time: '2025-04-22T05:52:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Changeling biomass.
+    - type: Tweak
+      message: Changeling steal DNA objective changed to absorb objective.
+  id: 906
+  time: '2025-04-23T01:21:47.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added metrics to game director, doesn't actually do anything player
+        facing, but this means it should be easier for us to make game director
+        suck less now.
+  id: 907
+  time: '2025-04-23T20:02:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Resomi are now immune to cold, slightly more vulnarable to blunt, slash
+        and heat, unable to fit into duffelbags and fly.
+  id: 908
+  time: '2025-04-23T20:08:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token spawns spawning by themselves.
+  id: 909
+  time: '2025-04-24T02:24:21.0000000+00:00'

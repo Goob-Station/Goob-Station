@@ -70,19 +70,13 @@
   id: CartridgeHighCaliber
 
 - type: Tag
+  id: CartridgeLowCaliber
+
+- type: Tag
   id: CartridgeMagicBullet
 
 - type: Tag
   id: CartridgeSmart
-
-- type: Tag
-  id: CartridgeCaselessMagnum95
-
-- type: Tag
-  id: CartridgeCaselessMagnum95MinusP
-
-- type: Tag
-  id: CartridgeCaselessMagnum95SAPHE
 
 - type: Tag
   id: CartridgeAntiMaterielHeavy
@@ -172,7 +166,7 @@
   id: EnergySpeedloaderLethal
 
 - type: Tag
-  id: EnergySpeedloaderTerminate
+  id: EnergySpeedloaderPulse
 
 - type: Tag
   id: ExtendedEmergencyOxygenTank
@@ -286,19 +280,13 @@
   id: MagazineHighCaliber
 
 - type: Tag
+  id: MagazineLowCaliberM7S
+
+- type: Tag
   id: MagazineMagnumLeverRifle
 
 - type: Tag
   id: MagazineSmart
-
-- type: Tag
-  id: MagazineCaselessM7S
-
-- type: Tag
-  id: MagazineCaselessMagnum95
-
-- type: Tag
-  id: MagazineCaselessMagnum95Pistol
 
 - type: Tag
   id: Mask

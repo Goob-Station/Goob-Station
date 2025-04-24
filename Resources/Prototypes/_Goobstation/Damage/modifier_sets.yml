@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -52,6 +53,7 @@
     Bloodloss: 0.9
     Poison: 0.0 # Yea, heroin is heaps good for ya
     Radiation : 0.7 # Engie yowies need some help against anti-rads
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Tajaran
@@ -61,6 +63,7 @@
     Piercing: 1.15
     Heat: 1.20
     Cold: 0.80
+  ignoreArmorPierceFlags: All # Goobstation
 
 # Mech armor
 - type: damageModifierSet
@@ -149,6 +152,7 @@
     Slash: 0.25
     Piercing: 0.25
     Heat: 2.00
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: ElectromagneticWebBlob # Explosive Lattice
@@ -158,6 +162,7 @@
     Piercing: 0.50
     Heat: 2.50
     Shock: 0.50
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: ExplosiveLatticeBlob # Explosive Lattice
@@ -167,6 +172,7 @@
     Piercing: 0.25
     Heat: 3.00
     Shock: 1.50
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: BlobMob # Blob mobs
@@ -175,6 +181,7 @@
     Slash: 0.5
     Piercing: 0.5
     Heat: 1.5
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: BlobReflective # If it reflects lasers, then it must be fragile?
@@ -183,6 +190,7 @@
     Slash: 0.9
     Piercing: 0.9
     Heat: 1.5
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Bingle
@@ -193,6 +201,7 @@
     Shock: 0.9
     Heat: 0.9
     Ion: 2.0 # double damage from ion
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: BingleUpgraded
@@ -235,3 +244,4 @@
     Piercing: 0.85
     Slash: 0.8
     Ion: 2.0 # double damage from ion
+  ignoreArmorPierceFlags: All # Goobstation
