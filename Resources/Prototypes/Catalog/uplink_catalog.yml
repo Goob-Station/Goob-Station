@@ -233,10 +233,6 @@
     Telecrystal: 4 # goob
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni # goob
 
 - type: listing
   id: UplinkEsword
@@ -324,10 +320,6 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni # goob
 
 
 - type: listing
@@ -340,6 +332,10 @@
     Telecrystal: 50 # goob unbunde update
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni # goob
 
 
 - type: listing

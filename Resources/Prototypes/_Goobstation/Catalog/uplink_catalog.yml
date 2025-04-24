@@ -132,9 +132,6 @@
       - NukeOpsUplink
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni # goob
 
 - type: listing
   id: UplinkM90
@@ -176,9 +173,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni # goob
 
 - type: listing
   id: UplinkWSPR
@@ -224,9 +218,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni # goob
 
 - type: listing
   id: UplinkDualettaBundle
