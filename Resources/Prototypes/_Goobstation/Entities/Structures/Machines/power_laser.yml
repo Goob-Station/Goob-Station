@@ -1,6 +1,6 @@
 - type: entity
   id: MachinePowerTransmissionLaser
-  parent: [ BaseMachinePowered ]
+  parent: [ BaseMachine ]
   name: power transmission laser
   description: Sends power over a giant laser beam to an NT power processing facility. Simply plug it in and come back tomorrow for a big stack of cash, that is if you have power running. Also don't step in front of the firing line please.
   placement:
@@ -9,36 +9,25 @@
   - type: Transform
     anchored: true
   - type: PTL
+    active: true
   - type: Appearance
+  - type: PowerNetworkBattery
+    maxChargeRate: 1000000000 # yeah
   - type: Battery
     startingCharge: 0
     maxCharge: 1000000000 # should be 1gj. i think. i hope. i pray.
     pricePerJoule: .00095
   - type: ExaminableBattery
+  - type: BatteryCharger
+    voltage: High
+    node: input
   - type: NodeContainer
     examinable: true
     nodes:
       input:
-        !type:CableTerminalPortNode
-        nodeGroupID: HVPower
-      output:
         !type:CableDeviceNode
         nodeGroupID: HVPower
-  - type: PowerMonitoringDevice
-    group: SMES
-    sourceNode: input
-    loadNode: output
-    collectionName: specific
-    sprite: Structures/Power/smes.rsi
-    state: static
   - type: StationInfiniteBatteryTarget
-  - type: Electrified
-    onHandInteract: false
-    onInteractUsing: false
-    onBump: false
-    requirePower: true
-    highVoltageNode: input
-    mediumVoltageNode: output
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
@@ -58,7 +47,7 @@
     sprite: _Goobstation/Structures/Machines/PTL/pt_laser.rsi
     layers:
     - state: base
-    - state: charge
+    - state: charge_full
       shader: unshaded
       visible: false
       map: ["enum.EmitterVisualLayers.Lights"]
@@ -76,13 +65,14 @@
         layer:
         - WallLayer
   - type: StationAiWhitelist
-  - type: ActivatableUI
-    key: enum.PTLUiKey.Key
-  - type: ActivatableUIRequiresPower
-  - type: UserInterface
-    interfaces:
-      enum.PTLUiKey.Key:
-        type: PTLBoundUserInterface  
+  # ui todo
+  #- type: ActivatableUI
+  #  key: enum.PTLUiKey.Key
+  #- type: ActivatableUIRequiresPower
+  #- type: UserInterface
+  #  interfaces:
+  #    enum.PTLUiKey.Key:
+  #      type: PTLBoundUserInterface  
   - type: AmbientSound
     range: 5
     sound:

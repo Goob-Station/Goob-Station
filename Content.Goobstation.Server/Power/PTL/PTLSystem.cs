@@ -1,3 +1,4 @@
+using Content.Server.GameTicking;
 using Content.Server.Power.Components;
 using Content.Server.Power.SMES;
 using Content.Server.Weapons.Ranged.Systems;
@@ -18,10 +19,10 @@ namespace Content.Goobstation.Server.Power.PTL;
 
 public sealed partial class PTLSystem : EntitySystem
 {
-    private readonly GunSystem _gun = default!;
-    private readonly GameTiming _time = default!;
-    private readonly TransformSystem _xform = default!;
-    private readonly IPrototypeManager _protMan = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly IPrototypeManager _protMan = default!;
 
     public override void Initialize()
     {
@@ -67,7 +68,7 @@ public sealed partial class PTLSystem : EntitySystem
         {
             charge = battery.CurrentCharge / 1000000; // in mj
             // taken from paradise wiki
-            spesos = 40 * charge / (4 * charge + 800);
+            spesos = (int)(40 * charge / (4 * charge + 800));
         }
 
         if (charge < 1f) return;
@@ -86,6 +87,7 @@ public sealed partial class PTLSystem : EntitySystem
         {
             var forward = new EntityCoordinates(ent, new Vector2(0, -1));
             _gun.AttemptShoot(ent, ent, gun, forward);
+            ent.Comp.SpesosHeld += spesos;
         }
     }
 
@@ -101,6 +103,6 @@ public sealed partial class PTLSystem : EntitySystem
 
     private void OnExamine(Entity<PTLComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup($"It holds [color=yellow]{ent.Comp.SpesosHeld}[/color] spesos. Alt-click to collect!");
+        args.PushMarkup($"It holds [color=yellow]{ent.Comp.SpesosHeld} spesos[/color]. Alt-click to collect!");
     }
 }
