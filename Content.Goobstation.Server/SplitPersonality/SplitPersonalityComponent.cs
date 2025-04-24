@@ -66,13 +66,13 @@ public sealed partial class SplitPersonalityComponent : Component
     /// 1 being 100%, 0 being 0%
     /// </summary>
     [DataField]
-    public float SwapProbability = 1; // guaranteed for testing
+    public float SwapProbability = 10;
 
     /// <summary>
     /// The amount of seconds between every swap attempt
     /// </summary>
     [DataField]
-    public TimeSpan SwapAttemptDelay = TimeSpan.FromSeconds(10); // low for testing
+    public TimeSpan SwapAttemptDelay = TimeSpan.FromSeconds(25);
 
 
 }

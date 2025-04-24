@@ -82,9 +82,7 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         if (comp.OriginalMind is { } originalMind)
             _mind.TransferTo(originalMind, uid);
 
-        foreach (var dummy in comp.GhostRoleDummies.Where(dummy => !TerminatingOrDeleted(dummy)))
-            QueueDel(dummy);
-
+        _container.CleanContainer(comp.MindsContainer);
         comp.GhostRoleDummies.Clear();
     }
     private bool TryAlternateMind(SplitPersonalityComponent comp)
@@ -92,8 +90,7 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
         if (!_random.Prob(comp.SwapProbability))
             return false;
 
-        var eligibleDummies = // linq monstrosity
-            comp.GhostRoleDummies.Where
+        var eligibleDummies = comp.GhostRoleDummies.Where // linq monstrosity
             (dummy => !TerminatingOrDeleted(dummy)
             && dummy is { } dummyResolved
             && _mind.TryGetMind(dummyResolved, out _, out _))
