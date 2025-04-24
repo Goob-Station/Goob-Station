@@ -98,7 +98,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg
   - type: BasicEntityAmmoProvider
-    proto: BulletAnaconda
+    proto: BulletCaselessRifle
     capacity: 7
     count: 7
   - type: RechargeBasicEntityAmmo
