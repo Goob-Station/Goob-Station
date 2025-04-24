@@ -1,7 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -133,13 +135,9 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // This deletes all existing metrics and sets them up again.
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
-        {
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);
-        }
         else
-        {
             SetupEvents(scheduler, CountActivePlayers());
-        }
     }
 
     /// <summary>
@@ -150,13 +148,10 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         scheduler.PossibleEvents.Clear();
 
         if (selectedRules != null)
-        {
             SelectFromTable(scheduler, count, selectedRules);
-        }
         else
-        {
             SelectFromAllEvents(scheduler, count);
-        }
+
         LogMessage($"All possible events added");
     }
 
@@ -164,7 +159,8 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     {
         foreach (var proto in GameTicker.GetAllGameRulePrototypes())
         {
-            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
+            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory)
+            || stationEvent is not { } || !stationEvent.IsSelectable) // dont select inelligable statio events
                 continue;
 
             // Gate here on players, but not on round runtime. The story will probably last long enough for the
