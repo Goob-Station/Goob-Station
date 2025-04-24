@@ -502,13 +502,13 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (antagEnt is not { } player)
         {
             // Goob edit start
-            if (session == null && !ent.Comp.RemoveUponFailedSpawn)
-                return;
+            if (session != null && ent.Comp.RemoveUponFailedSpawn)
+            {
+                ent.Comp.AssignedSessions.Remove(session);
+                ent.Comp.PreSelectedSessions[def].Remove(session);
 
-            ent.Comp.AssignedSessions.Remove(session);
-            ent.Comp.PreSelectedSessions[def].Remove(session);
-
-            _adminLogger.Add(LogType.AntagSelection, $"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+                _adminLogger.Add(LogType.AntagSelection, $"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+            }
             // goob edit end
 
             return;
