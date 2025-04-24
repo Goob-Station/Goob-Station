@@ -293,7 +293,7 @@
 - type: entity
   name: ion rifle
   id: WeaponEnergyIonRifle
-  description: an energy rifle that shoot ionize energy bolt design to destroy mechanical target. 
+  description: An energy rifle that shoots ionized energy bolts designed to destroy mechanical targets.
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   components:
   - type: Sprite
