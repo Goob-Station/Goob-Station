@@ -19,7 +19,7 @@ public sealed class FingerprintReaderSystem : EntitySystem
     /// <param name="user">User trying to gain access.</param>
     /// <returns>True if access was granted, otherwise false.</returns>
     [PublicAPI]
-    public bool IsAllowed(Entity<FingerprintReaderComponent?> target, EntityUid user)
+    public bool IsAllowed(Entity<FingerprintReaderComponent?> target, EntityUid user, bool showPopup = true)
     {
         if (!Resolve(target, ref target.Comp, false))
             return true;
