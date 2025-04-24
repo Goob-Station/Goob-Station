@@ -69,6 +69,8 @@
     name: abductor-lone-ghost-role-name-token
     description: ghost-role-information-description-token-generic
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
