@@ -64,7 +64,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     };
 
     private Regex _clauseRegex = null!;
-    private readonly Dictionary<string, LocId> _localizedTargetToLocId = new (StringComparer.OrdinalIgnoreCase);
 
     private void InitializeRegex()
     {
@@ -73,7 +72,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         {
             var localized = Loc.GetString(locId);
             escapedPatterns.Add(localized);
-            _localizedTargetToLocId[localized] = locId;
         }
 
         var targetPattern = string.Join("|", escapedPatterns);

@@ -82,6 +82,7 @@ public sealed partial class CondemnedSystem : EntitySystem
         EntityUid uid,
         CondemnedComponent? comp = null,
         bool freezeEntity = true,
+        bool doFlavor = true,
         CondemnedBehavior behavior = CondemnedBehavior.Delete)
     {
         EnsureComp<CondemnedComponent>(uid);
@@ -90,7 +91,6 @@ public sealed partial class CondemnedSystem : EntitySystem
 
         comp.CondemnOnDeath = false;
 
-
         if (freezeEntity)
             comp.FreezeDuringCondemnation = true;
 
@@ -98,7 +98,7 @@ public sealed partial class CondemnedSystem : EntitySystem
         Spawn(comp.PentagramProto, coords);
         _audio.PlayPvs(comp.SoundEffect, coords);
 
-        if (comp.CondemnedBehavior == CondemnedBehavior.Delete)
+        if (comp.CondemnedBehavior == CondemnedBehavior.Delete && doFlavor)
             _popup.PopupCoordinates(Loc.GetString("condemned-start", ("target", Name(uid))), coords, PopupType.LargeCaution);
 
         comp.CurrentPhase = CondemnedPhase.PentagramActive;

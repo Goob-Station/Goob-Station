@@ -1,21 +1,15 @@
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Contract;
 using Content.Goobstation.Shared.Exorcism;
 using Content.Goobstation.Shared.Religion;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Actions;
-using Content.Shared.Bible;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Goobstation.Shared.Bible;
 
@@ -29,31 +23,39 @@ public sealed partial class GoobBibleSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
-    public void TryDoSmite(EntityUid uid, BibleComponent component, AfterInteractEvent args, UseDelayComponent useDelay)
+    public void TryDoSmite(EntityUid uid, BibleComponent component, AfterInteractUsingEvent args, UseDelayComponent useDelay)
     {
-        if (!HasComp<WeakToHolyComponent>(args.Target) || !HasComp<BibleUserComponent>(args.User))
+        if (args.Target is not { } target || !HasComp<WeakToHolyComponent>(args.Target) || !HasComp<BibleUserComponent>(args.User))
             return;
 
-        if (!_mobStateSystem.IsIncapacitated(args.Target.Value))
+        var multiplier = 1f;
+        var isDevil = false;
+
+        if (TryComp<DevilComponent>(target, out var devil))
         {
-            _popupSystem.PopupEntity(Loc.GetString("devil-component-bible-sizzle", ("target", args.Target.Value)),
-                args.Target.Value,
-                PopupType.LargeCaution);
+            isDevil = true;
+            multiplier = devil.BibleUserDamageMultiplier;
+        }
+
+        if (!_mobStateSystem.IsIncapacitated(target))
+        {
+            var popup = Loc.GetString("devil-component-bible-sizzle", ("target", Name(target)));
+            _popupSystem.PopupEntity(popup, target, PopupType.LargeCaution);
             _audio.PlayPvs(component.SizzleSoundPath, args.Target.Value);
 
-            _damageableSystem.TryChangeDamage(args.Target, component.SmiteDamage, true, origin: uid);
-            _stun.TryParalyze(args.Target.Value, component.SmiteStunDuration, false);
-            _delay.TryResetDelay((uid, useDelay));
+            _damageableSystem.TryChangeDamage(target, component.SmiteDamage * multiplier, true, origin: uid);
+            _stun.TryParalyze(target, component.SmiteStunDuration * multiplier, false);
+            _delay.TryResetDelay((args.Used, useDelay));
         }
-        else if (HasComp<DevilComponent>(args.Target) && HasComp<BibleUserComponent>(args.User))
+        else if (isDevil && HasComp<BibleUserComponent>(args.User))
         {
             var doAfterArgs = new DoAfterArgs(
                 EntityManager,
                 args.User,
                 10f,
                 new ExorcismDoAfterEvent(),
-                eventTarget: args.Target.Value,
-                target: args.Target.Value)
+                eventTarget: target,
+                target: target)
             {
                 BreakOnMove = true,
                 NeedHand = true,
@@ -62,10 +64,8 @@ public sealed partial class GoobBibleSystem : EntitySystem
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
-            _popupSystem.PopupEntity(
-                Loc.GetString("devil-banish-begin", ("target", args.Target.Value), ("user", args.User)),
-                args.Target.Value,
-                PopupType.LargeCaution);
+            var popup = Loc.GetString("devil-banish-begin", ("target", Name(target)), ("user", Name(target)));
+            _popupSystem.PopupEntity(popup, target, PopupType.LargeCaution);
         }
     }
 }

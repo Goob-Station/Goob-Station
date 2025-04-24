@@ -24,26 +24,15 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 {
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
-
-    private readonly SoundSpecifier _briefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/devil_start.ogg");
-
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string DevilFaction = "DevilFaction";
-
-    private readonly EntProtoId _devilMindRole = "DevilMindRole";
-
-    [ValidatePrototypeId<NpcFactionPrototype>]
-    private const string NanotrasenFaction = "NanoTrasen";
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<DevilRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
         SubscribeLocalEvent<DevilRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
+        SubscribeLocalEvent<DevilRoleComponent, GetBriefingEvent>(OnGetBrief);
     }
 
     private void OnSelectAntag(EntityUid uid, DevilRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
@@ -53,50 +42,51 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
     private bool MakeDevil(EntityUid target, DevilRuleComponent rule)
     {
-        if (!_mind.TryGetMind(target, out var mindId, out var mind))
-            return false;
-
-        _role.MindAddRole(mindId, _devilMindRole.Id, mind, true);
-
         var devilComp = EnsureComp<DevilComponent>(target);
 
-        var meta = MetaData(target);
+        var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", Name(target)));
+        _antag.SendBriefing(target, briefing, Color.DarkRed, rule.BriefingSound);
 
-        var briefing = Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", meta.EntityName));
-
-        _antag.SendBriefing(target, briefing, Color.DarkRed, _briefingSound);
-
-        if (_role.MindHasRole<DevilRoleComponent>(mindId, out var mr))
-            AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefing }, overwrite: true);
-
-        _npcFaction.RemoveFaction(target, NanotrasenFaction);
-        _npcFaction.AddFaction(target, DevilFaction);
+        _npcFaction.RemoveFaction(target, rule.NanotrasenFaction);
+        _npcFaction.AddFaction(target, rule.DevilFaction);
 
         return true;
     }
 
+    private void OnGetBrief(Entity<DevilRoleComponent> role, ref GetBriefingEvent args)
+    {
+        var ent = args.Mind.Comp.OwnedEntity;
+
+        if (ent is null)
+            return;
+        args.Append(MakeBriefing(ent.Value));
+    }
+
+    private string MakeBriefing(EntityUid ent)
+    {
+        return !TryComp<DevilComponent>(ent, out var devilComp)
+            ? default!
+            : Loc.GetString("devil-role-greeting", ("trueName", devilComp.TrueName), ("playerName", Name(ent)));
+    }
+
     private void OnTextPrepend(EntityUid uid, DevilRuleComponent comp, ref ObjectivesTextPrependEvent args)
+
     {
         var mostContractsName = string.Empty;
         var mostContracts = 0f;
-
         foreach (var devil in EntityQuery<DevilComponent>())
         {
             if (!_mind.TryGetMind(devil.Owner, out var mindId, out var mind))
                 continue;
-
             var metaData = MetaData(devil.Owner);
-
             if (devil.Souls > mostContracts)
             {
                 mostContracts = devil.Souls;
                 mostContractsName = _objective.GetTitle((mindId, mind), metaData.EntityName);
             }
         }
-
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString($"roundend-prepend-devil-contracts{(!string.IsNullOrWhiteSpace(mostContractsName) ? "-named" : "")}", ("name", mostContractsName), ("number", mostContracts)));
-
         args.Text = sb.ToString();
     }
 }

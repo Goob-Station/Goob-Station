@@ -43,25 +43,13 @@ public abstract partial class BaseDevilContractEvent : EntityEventArgs
 }
 
 [DataDefinition, Serializable]
-public sealed partial class DevilContractSoulOwnershipEvent : BaseDevilContractEvent
-{
-
-}
+public sealed partial class DevilContractSoulOwnershipEvent : BaseDevilContractEvent;
 
 [DataDefinition, Serializable]
-public sealed partial class DevilContractLoseHandEvent : BaseDevilContractEvent
-{
-
-}
+public sealed partial class DevilContractLoseHandEvent : BaseDevilContractEvent;
 
 [DataDefinition, Serializable]
-public sealed partial class DevilContractLoseLegEvent : BaseDevilContractEvent
-{
-
-}
+public sealed partial class DevilContractLoseLegEvent : BaseDevilContractEvent;
 
 [DataDefinition, Serializable]
-public sealed partial class DevilContractLoseOrganEvent : BaseDevilContractEvent
-{
-
-}
+public sealed partial class DevilContractLoseOrganEvent : BaseDevilContractEvent;

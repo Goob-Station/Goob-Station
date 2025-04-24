@@ -15,6 +15,7 @@ public sealed partial class DevilComponent : Component
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
+        "ActionDevilPossess", // testing
     };
 
     /// <summary>
@@ -37,7 +38,7 @@ public sealed partial class DevilComponent : Component
     /// This is auto-generated from a list in the system.
     /// </summary>
     [DataField]
-    public string TrueName;
+    public string TrueName = string.Empty;
 
     /// <summary>
     /// The current power level of the devil.
@@ -76,6 +77,12 @@ public sealed partial class DevilComponent : Component
     public DamageSpecifier DamageOnTrueName = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 15 }}};
 
     /// <summary>
+    /// Holy action damage multiplier if done by the chaplain. Also effects stums.
+    /// </summary>
+    [DataField]
+    public float BibleUserDamageMultiplier = 2f;
+
+    /// <summary>
     /// How long the Devil is stunned when their true name is spoken. Doubled if spoken by the chaplain.
     /// </summary>
     [DataField]
@@ -92,7 +99,7 @@ public sealed partial class DevilComponent : Component
     // abandom all hope, all ye who enter
 
     [DataField]
-    public TimeSpan BasePossessionDuration = TimeSpan.FromSeconds(30);
+    public TimeSpan PossessionDuration = TimeSpan.FromSeconds(30);
 
     [DataField]
     public EntProtoId ContractPrototype = "PaperDevilContract";

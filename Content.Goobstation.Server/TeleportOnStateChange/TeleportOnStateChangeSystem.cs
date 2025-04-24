@@ -20,10 +20,10 @@ public sealed partial class TeleportOnStateChangeSystem : EntitySystem
         if (comp.Coordinates == null)
             return;
 
-        var mapCoordinates = _transformSystem.ToMapCoordinates((EntityCoordinates)comp.Coordinates);
+        var mapCoordinates = _transformSystem.ToMapCoordinates(comp.Coordinates.Value);
         _transformSystem.SetMapCoordinates(uid, mapCoordinates);
 
         if (comp.RemoveOnTrigger)
-            RemComp<TeleportOnStateChangeComponent>(uid);
+            RemComp(uid, comp);
     }
 }

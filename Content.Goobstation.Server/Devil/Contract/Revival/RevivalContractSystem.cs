@@ -111,7 +111,7 @@ public sealed partial class PendingRevivalContractSystem : EntitySystem
             _contract.TryTransferSouls(contractOwner, signer, 1);
         }
 
-        RemComp<PendingRevivalContractComponent>(target);
+        RemComp(target, pending);
         return true;
     }
 

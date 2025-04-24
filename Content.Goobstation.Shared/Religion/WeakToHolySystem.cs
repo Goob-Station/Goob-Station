@@ -4,71 +4,83 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Bible;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
+using Content.Shared.Interaction;
+using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Religion;
 
-public sealed partial class WeakToHolySystem : EntitySystem
+public sealed partial class SharedWeakToHolySystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly GoobBibleSystem _goobBible = default!;
+    [Dependency] private readonly UseDelaySystem _delay = default!;
 
-    private readonly Dictionary<EntityUid, FixedPoint2> _originalDamageCaps = new();
-
-    public const string ContainerId = "Biological";
-    public const string TransformedContainerId = "BiologicalMetaphysical";
-    public const string PassiveDamageType = "Holy";
+    private const string ContainerId = "Biological";
+    private const string TransformedContainerId = "BiologicalMetaphysical";
 
     public override void Initialize()
     {
         base.Initialize();
-
-        SubscribeLocalEvent<WeakToHolyComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<WeakToHolyComponent, MapInitEvent>(OnStartup);
+        SubscribeLocalEvent<WeakToHolyComponent, AfterInteractUsingEvent>(AfterBibleUse);
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
     }
-
-    private void OnStartup(Entity<WeakToHolyComponent> ent, ref ComponentStartup args)
+    private void OnStartup(Entity<WeakToHolyComponent> ent, ref MapInitEvent args)
     {
         // Only change to "BiologicalMetaphysical" if the original damage container was "Biological"
         if (TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == ContainerId)
             _damageableSystem.ChangeDamageContainer(ent, TransformedContainerId);
     }
 
+    private void AfterBibleUse(Entity<WeakToHolyComponent> ent, ref AfterInteractUsingEvent args)
+    {
+        if (!TryComp<BibleComponent>(args.Used, out var bibleComp)
+            || !TryComp(args.Used, out UseDelayComponent? useDelay)
+            || _delay.IsDelayed((args.Used, useDelay))
+            || !HasComp<BibleUserComponent>(args.User)
+            || args.Target is not { } target)
+            return;
+
+        _goobBible.TryDoSmite(target, bibleComp, args, useDelay);
+    }
+
     // Passively heal
     private void OnCollide(Entity<HereticRitualRuneComponent> ent, ref StartCollideEvent args)
     {
-        var entityDamageComp = EnsureComp<PassiveDamageComponent>(args.OtherEntity);
-
-        if (!HasComp<WeakToHolyComponent>(args.OtherEntity) && entityDamageComp.Damage.DamageDict.TryGetValue(PassiveDamageType, out _))
+        if (!TryComp<WeakToHolyComponent>(args.OtherEntity, out var weak))
             return;
 
-        // Store the original DamageCap if it hasn't already been stored
-        if (!_originalDamageCaps.ContainsKey(args.OtherEntity))
-            _originalDamageCaps[args.OtherEntity] = entityDamageComp.DamageCap;
-
-        entityDamageComp.Damage.DamageDict.TryAdd(PassiveDamageType, ent.Comp.RuneHealing);
-        entityDamageComp.DamageCap = FixedPoint2.New(0);
-        DirtyEntity(args.OtherEntity);
-
+        weak.IsColliding = true;
     }
 
     private void OnCollideEnd(Entity<HereticRitualRuneComponent> ent, ref EndCollideEvent args)
     {
-        if (!TryComp<PassiveDamageComponent>(args.OtherEntity, out var heretic))
-                return;
+        if (!TryComp<WeakToHolyComponent>(args.OtherEntity, out var weak))
+            return;
 
-        // Restore the original DamageCap if it was stored
-        if (_originalDamageCaps.TryGetValue(args.OtherEntity, out var originalCap))
+        weak.IsColliding = false;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<WeakToHolyComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            heretic.DamageCap = originalCap;
-            _originalDamageCaps.Remove(args.OtherEntity); // Clean up after restoring
-        }
+            if (comp.NextHealTick > _timing.CurTime || !comp.IsColliding)
+                continue;
 
-        heretic.Damage.DamageDict.Remove("Holy");
-        DirtyEntity(args.OtherEntity);
+            _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
+
+            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
+        }
     }
 }

@@ -73,7 +73,10 @@ public sealed partial class DevilSystem
             return;
         }
 
-        if (_possession.TryPossessTarget(args.Target, args.Performer, comp.BasePossessionDuration * comp.PowerLevel, true))
+        if (comp.PowerLevel != 0)
+            comp.PossessionDuration *= comp.PowerLevel;
+
+        if (_possession.TryPossessTarget(args.Target, args.Performer, comp.PossessionDuration, true))
         {
             Spawn(comp.JauntAnimationProto, Transform(args.Performer).Coordinates);
             Spawn(comp.PentagramEffectProto, Transform(args.Performer).Coordinates);

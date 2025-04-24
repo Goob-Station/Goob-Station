@@ -5,14 +5,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Religion;
-using Content.Server.Ghost;
-using Content.Server.Polymorph.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared.Actions;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
 using Content.Shared.Examine;
@@ -21,14 +16,13 @@ using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Zombies;
-using Robust.Shared.Audio;
+using Robust.Server.Containers;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
+using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
@@ -43,11 +37,12 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PossessedComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<PossessedComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<PossessedComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeLocalEvent<PossessedComponent, ExaminedEvent>(OnExamined);
     }
@@ -72,9 +67,10 @@ public sealed partial class PossessionSystem : EntitySystem
         }
     }
 
-    private void OnStartup(EntityUid uid, PossessedComponent comp, ComponentStartup args)
+    private void OnInit(EntityUid uid, PossessedComponent comp, MapInitEvent args)
     {
         EnsureComp<WeakToHolyComponent>(uid);
+        comp.PossessedContainer = _container.EnsureContainer<Container>(uid, "PossessedContainer");
     }
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
     {
@@ -102,6 +98,8 @@ public sealed partial class PossessionSystem : EntitySystem
 
         if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
             _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates);
+
+        _container.CleanContainer(comp.PossessedContainer);
     }
 
     private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)
@@ -191,8 +189,10 @@ public sealed partial class PossessionSystem : EntitySystem
         if (possessedMindComp != null)
             possessedComp.OriginalMindComponent = possessedMindComp;
 
-        // Detach target
-        _mind.TransferTo(possessedMind, null);
+        // Nobodies gonna know.
+        var dummy = Spawn("FoodSnackLollypop", MapCoordinates.Nullspace);
+        _container.Insert(dummy, possessedComp.PossessedContainer);
+        _mind.TransferTo(possessedMind, dummy);
 
         // Transfer into target
         _mind.TransferTo(possessorMind, possessed);

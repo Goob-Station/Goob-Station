@@ -6,6 +6,7 @@
 
 using Content.Shared.Mind;
 using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 
 namespace Content.Goobstation.Server.Possession;
 
@@ -42,6 +43,9 @@ public sealed partial class PossessedComponent : Component
 
     [ViewVariables]
     public bool DoPacify;
+
+    [ViewVariables]
+    public Container PossessedContainer;
 
     [ViewVariables]
     public SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");

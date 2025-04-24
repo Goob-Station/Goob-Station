@@ -34,6 +34,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
@@ -128,13 +129,11 @@ public sealed partial class DevilSystem : EntitySystem
 
     private void OnSoulAmountChanged(EntityUid uid, DevilComponent comp, ref SoulAmountChangedEvent args)
     {
-        // Add souls to internal souls tracker.
-        comp.Souls += args.Amount;
-
-        _popup.PopupEntity(Loc.GetString("contract-soul-added"), args.User, args.User, PopupType.MediumCaution);
-
         if (!_mind.TryGetMind(args.User, out var mindId, out var mind))
             return;
+
+        comp.Souls += args.Amount;
+        _popup.PopupEntity(Loc.GetString("contract-soul-added"), args.User, args.User, PopupType.MediumCaution);
 
         if (comp.Souls is > 1 and < 7 && comp.Souls % 2 == 0)
         {
@@ -146,8 +145,6 @@ public sealed partial class DevilSystem : EntitySystem
             RaiseLocalEvent(args.User, ref ev);
         }
 
-
-        // Add souls to objective tracker.
         if (_mind.TryGetObjectiveComp<SignContractConditionComponent>(mindId, out var objectiveComp, mind))
             objectiveComp.ContractsSigned += args.Amount;
     }
@@ -184,7 +181,10 @@ public sealed partial class DevilSystem : EntitySystem
     private void OnListen(EntityUid uid, DevilComponent comp, ListenEvent args)
     {
         // Other Devils and entities without souls have no authority over you.
-        if (HasComp<DevilComponent>(args.Source) || HasComp<CondemnedComponent>(args.Source) || HasComp<SiliconComponent>(args.Source) || args.Source == uid)
+        if (HasComp<DevilComponent>(args.Source)
+        || HasComp<CondemnedComponent>(args.Source)
+        || HasComp<SiliconComponent>(args.Source)
+        || args.Source == uid)
             return;
 
         var message = WhitespaceAndNonWordRegex.Replace(args.Message.ToLowerInvariant(), "");
@@ -197,29 +197,29 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (HasComp<BibleUserComponent>(args.Source))
         {
-            _damageable.TryChangeDamage(uid, comp.DamageOnTrueName * 2, true);
-            _stun.TryParalyze(uid, comp.ParalyzeDurationOnTrueName * 2, false);
+            _damageable.TryChangeDamage(uid, comp.DamageOnTrueName * comp.BibleUserDamageMultiplier, true);
+            _stun.TryParalyze(uid, comp.ParalyzeDurationOnTrueName * comp.BibleUserDamageMultiplier, false);
 
-            var popupHoly = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", uid));
-            _popup.PopupEntity(popupHoly, uid, PopupType.LargeCaution);
+            var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", Name(args.Source)), ("target", Name(uid)));
+            _popup.PopupEntity(popup, uid, PopupType.LargeCaution);
         }
         else
         {
             _stun.TryParalyze(uid, comp.ParalyzeDurationOnTrueName, false);
             _damageable.TryChangeDamage(uid, comp.DamageOnTrueName, true);
 
-            var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", uid));
+            var popup = Loc.GetString("devil-true-name-heard", ("speaker", Name(args.Source)), ("target", Name(uid)));
             _popup.PopupEntity(popup, uid, PopupType.LargeCaution);
         }
     }
 
     private void OnExorcismDoAfter(Entity<DevilComponent> devil, ref ExorcismDoAfterEvent args)
     {
-        if (!args.Target.HasValue || args.Cancelled || args.Handled)
+        if (args.Target is not { } target || args.Cancelled || args.Handled)
             return;
 
         _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", devil.Comp.TrueName)), devil, PopupType.LargeCaution);
-        _condemned.StartCondemnation(args.Target.Value, behavior: CondemnedBehavior.Banish);
+        _condemned.StartCondemnation(target, behavior: CondemnedBehavior.Banish, doFlavor: false);
     }
 
     #endregion
@@ -237,7 +237,9 @@ public sealed partial class DevilSystem : EntitySystem
 
     private static ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
     {
-        return comp.PowerLevelToJauntPrototypeMap.TryGetValue(comp.PowerLevel, out var value) ? value : new ProtoId<PolymorphPrototype>("ShadowJaunt30");
+        return comp.PowerLevelToJauntPrototypeMap.TryGetValue(comp.PowerLevel, out var value)
+            ? value
+            : new ProtoId<PolymorphPrototype>("ShadowJaunt30");
     }
 
     private void PlayFwooshSound(EntityUid uid, DevilComponent comp)
