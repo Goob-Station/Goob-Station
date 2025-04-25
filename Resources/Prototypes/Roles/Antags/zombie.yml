@@ -21,9 +21,6 @@
     species:
     - IPC
   guides: [ Zombies ]
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 3600 # 1h
 
 - type: antag
   id: Zombie
