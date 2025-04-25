@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltCorpsmanWebbing
+  name: corpsman webbing
+  description: A set of security webbing with blue corpsman highlights.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Belt/corpsman.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Belt/corpsman.rsi
