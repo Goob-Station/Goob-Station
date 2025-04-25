@@ -318,6 +318,8 @@
   components:
   - type: StealCondition
     stealGroup: WeaponLauncherSingularityBuster
+  - type: Objective
+    difficulty: 4 # This thing is large af
 
 ## qm
 

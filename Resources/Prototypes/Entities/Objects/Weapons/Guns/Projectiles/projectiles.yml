@@ -589,7 +589,7 @@
   - type: GatheringProjectile
 
 - type: entity
-  parent: BaseBulletTrigger
+  parent: BulletRocket
   id: BulletSingularityBusterRocket
   categories: [ HideSpawnMenu ]
   name: singularity buster rocket
@@ -598,17 +598,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: buster
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    totalIntensity: 200
-    intensitySlope: 6
-    maxIntensity: 40
-    maxTileBreak: 1
-  - type: PointLight
-    radius: 3.5
-    color: orange
-    energy: 0.5
   - type: SinguloFood
     energy: -500
 
