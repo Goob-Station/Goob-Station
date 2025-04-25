@@ -791,7 +791,7 @@
   description: uplink-cigarettes-desc
   productEntity: CigPackSyndicate
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkChemicals
 
