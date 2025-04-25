@@ -6,10 +6,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      min: 18000 # 4 hrs
+      time: 18000 # 4 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      min: 18000 # 4 hrs
+      time: 18000 # 4 hrs
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-hos
