@@ -10,6 +10,7 @@ internal sealed partial class SpyUplinkBoundUserInterface : BoundUserInterface
 {
     private SpyUplinkMenu? _menu;
     private List<SpyBountyData> _bounties = [];
+    private TimeSpan _refreshTime;
 
     public SpyUplinkBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -20,6 +21,7 @@ internal sealed partial class SpyUplinkBoundUserInterface : BoundUserInterface
         base.Open();
 
         _menu = this.CreateWindow<SpyUplinkMenu>();
+        _menu.OnRefresh += RequestNewState;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -30,7 +32,7 @@ internal sealed partial class SpyUplinkBoundUserInterface : BoundUserInterface
         {
             case SpyUplinkUpdateState msg:
                 _bounties = msg.Listings;
-
+                _refreshTime = msg.Time;
                 UpdateBounties();
                 break;
         }
@@ -38,6 +40,12 @@ internal sealed partial class SpyUplinkBoundUserInterface : BoundUserInterface
 
     private void UpdateBounties()
     {
-        _menu?.UpdateBounty(_bounties.ToList());
+        _menu?.UpdateBounty(_bounties.ToList(), _refreshTime);
+    }
+
+    private void RequestNewState()
+    {
+        SendMessage(new SpyRequestUpdateInterfaceMessage());
+        UpdateBounties();
     }
 }

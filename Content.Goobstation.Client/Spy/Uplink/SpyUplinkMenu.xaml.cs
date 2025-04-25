@@ -4,6 +4,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Spy.Uplink;
 
@@ -12,6 +13,8 @@ public sealed partial class SpyUplinkMenu : DefaultWindow
 {
 
     private List<SpyBountyData> _cachedBounties = new();
+    private TimeSpan _refreshTime;
+    public Action? OnRefresh;
 
     public SpyUplinkMenu()
     {
@@ -19,10 +22,10 @@ public sealed partial class SpyUplinkMenu : DefaultWindow
         IoCManager.InjectDependencies(this);
     }
 
-    public void UpdateBounty(List<SpyBountyData> bounties)
+    public void UpdateBounty(List<SpyBountyData> bounties, TimeSpan time)
     {
         _cachedBounties = bounties;
-
+        _refreshTime = time;
         UpdateBounty();
     }
 
@@ -44,5 +47,23 @@ public sealed partial class SpyUplinkMenu : DefaultWindow
     private void ClearBounties()
     {
         UplinkBountyContainer.Children.Clear();
+    }
+
+    private void UpdateCountdown(float deltaSeconds)
+    {
+        _refreshTime -= TimeSpan.FromSeconds(deltaSeconds);
+        if (_refreshTime > TimeSpan.Zero)
+        {
+            RefreshTimeLabel.Text = _refreshTime.ToString("mm\\:ss");
+            return;
+        }
+        //request an update
+    }
+
+    protected override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+        UpdateCountdown(args.DeltaSeconds);
+        OnRefresh?.Invoke();
     }
 }

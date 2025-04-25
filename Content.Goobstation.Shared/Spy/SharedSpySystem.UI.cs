@@ -42,8 +42,8 @@ public abstract partial class SharedSpySystem
         if (!TryGetSpyDatabaseEntity(out var dbNullEnt)
             || dbNullEnt is not {} dbEnt)
             return;
-
-        var state = new SpyUplinkUpdateState(dbEnt.Comp.Bounties);
+        var untilNextSkip = dbEnt.Comp.NextReset - _timing.CurTime;
+        var state = new SpyUplinkUpdateState(dbEnt.Comp.Bounties, untilNextSkip);
         _ui.SetUiState(uplink, SpyUiKey.Key, state);
     }
 }

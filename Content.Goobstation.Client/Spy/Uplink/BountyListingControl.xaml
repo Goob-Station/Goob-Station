@@ -3,7 +3,7 @@
     <!-- Main container with overlay capability -->
     <PanelContainer Name="MainContainer"
                    HorizontalExpand="True"
-                   VerticalExpand="True">
+                   VerticalExpand="True" Margin="0 2">
 
         <!-- Content container -->
         <BoxContainer Orientation="Vertical" Name="ContentContainer" Margin="5">
@@ -20,14 +20,16 @@
             <RichTextLabel Name="BountyDesc"
                          Text="Steal PLACEHOLDER found in the PLACEHOLDER."/>
             <BoxContainer Orientation="Horizontal">
-                <Label FontColorOverride="#32CD32"
+                <Label FontColorOverride="#2ECC71"
                        Text="Reward:"/>
-                <Label FontColorOverride="#32CD32"
+                <Label FontColorOverride="#2ECC71"
                        Name="RewardLabel"
                        Text="PLACEHOLDER"/>
             </BoxContainer>
         </BoxContainer>
-
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#2c3e50"></gfx:StyleBoxFlat>
+        </PanelContainer.PanelOverride>
         <!-- Overlay panel -->
         <PanelContainer Name="ClaimedOverlay"
                       Visible="False"

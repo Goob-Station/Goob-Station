@@ -12,10 +12,12 @@ public enum SpyUiKey : byte
 public sealed class SpyUplinkUpdateState : BoundUserInterfaceState
 {
     public readonly List<SpyBountyData> Listings;
+    public readonly TimeSpan Time;
 
-    public SpyUplinkUpdateState(List<SpyBountyData> listings)
+    public SpyUplinkUpdateState(List<SpyBountyData> listings, TimeSpan time)
     {
         Listings = listings;
+        Time = time;
     }
 }
 

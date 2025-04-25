@@ -17,6 +17,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Spy;
 
@@ -32,6 +33,7 @@ public sealed partial class SpySystem : SharedSpySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly ProtoId<WeightedRandomPrototype> _easyObjectives = "SpyBountyObjectiveGroupEasy"; // TC 0-25
     private readonly ProtoId<WeightedRandomPrototype> _mediumObjectives = "SpyBountyObjectiveGroupMedium"; // TC 25-50
@@ -75,5 +77,11 @@ public sealed partial class SpySystem : SharedSpySystem
     {
         base.Initialize();
         InitializeUplink();
+    }
+
+    public override void Update(float frameDelta)
+    {
+        base.Update(frameDelta);
+        BountyUpdate();
     }
 }

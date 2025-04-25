@@ -31,7 +31,8 @@ public sealed partial class BountyListingControl : Control
 
         BountyTitle.Text = Loc.GetString("objective-condition-steal-title-alive-no-owner", ("itemName", Loc.GetString(targetGroup.Name)));
         BountyDesc.Text = Loc.GetString(targetGroup.Name);
-        RewardLabel.Text = _data.RewardListing.Name != null ? Loc.GetString(_data.RewardListing.Name) : productProto.Name;
+        var rewardText = _data.RewardListing.Name != null ? Loc.GetString(_data.RewardListing.Name) : productProto.Name;
+        RewardLabel.Text = $" {rewardText}"; // pad it with a space
 
         if (_data.Claimed == false)
             return;

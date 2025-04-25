@@ -31,9 +31,12 @@ public sealed partial class SpySystem
         var target = args.Args.Target.Value;
         var user = args.Args.User;
         _audio.Stop(GetEntity(args.Sound));
-        if(!TrySetBountyClaimed(GetNetEntity(target),out var bountyData))
+
+        if(!TrySetBountyClaimed(ent, user, GetNetEntity(target), out var bountyData))
             return;
+
         QueueDel(args.Args.Target);
+
         // spawn an entity
         var reward = Spawn(bountyData.RewardListing.ProductEntity, Transform(user).Coordinates);
         _hands.PickupOrDrop(user, reward);
@@ -48,11 +51,10 @@ public sealed partial class SpySystem
         if (args.Handled
             || !args.CanReach
             || args.Target is not { } target
-            || dbEnt.Comp.Bounties.Any(bounty => bounty.TargetEntity != GetNetEntity(target)))
+            || dbEnt.Comp.Bounties.All(bounty => bounty.TargetEntity != GetNetEntity(target)))
             return;
 
-        Log.Info(target.Id.ToString());
-
+        Log.Info(target.ToString());
         var ev = new SpyStartStealEvent(GetNetEntity(target));
         //RaiseNetworkEvent(ev);
 

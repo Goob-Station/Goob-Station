@@ -8,11 +8,11 @@
     <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True">
         <!-- Title -->
         <BoxContainer Orientation="Horizontal">
-            <Label FontColorOverride="#FFD700" Text="Spy Bounties" Margin="0 0 200 0" />
-            <Label FontColorOverride="#FFD700" Text="Time until refresh: " />
-            <Label FontColorOverride="#FFD700" Name="RefreshTimeLabel" Text="10:00" />
+            <Label FontColorOverride="#F1C40F" Text="Spy Bounties" Margin="0 0 200 0" />
+            <Label FontColorOverride="#F1C40F" Text="Time until refresh: " />
+            <Label FontColorOverride="#F1C40f" Name="RefreshTimeLabel" Text="10:00" />
         </BoxContainer>
-        <PanelContainer Modulate="#FFD700" StyleClasses="HighDivider" />
+        <PanelContainer Modulate="#F1C40F" StyleClasses="HighDivider" />
         <PanelContainer VerticalExpand="True">
             <ScrollContainer
                 HScrollEnabled="False"

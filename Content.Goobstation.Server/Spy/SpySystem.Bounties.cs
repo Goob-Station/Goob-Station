@@ -22,11 +22,28 @@ public sealed partial class SpySystem
 
         // spawn "database" entity
         var dbEnt = Spawn(null, MapCoordinates.Nullspace);
-        EnsureComp<SpyBountyDatabaseComponent>(dbEnt);
+        var comp = EnsureComp<SpyBountyDatabaseComponent>(dbEnt);
+        comp.NextReset = _timing.CurTime + comp.ResetTime; // unhardcode
         Log.Info("Spy DB Entity Created at UID: " + dbEnt.Id);
     }
 
-    private bool TrySetBountyClaimed(NetEntity bountyEntity, [NotNullWhen(true)] out SpyBountyData? bountyData)
+    private void BountyUpdate()
+    {
+        if (!TryGetSpyDatabaseEntity(out var nullableEnt)
+            || nullableEnt is not { } dbEnt)
+            return;
+
+        if (_timing.CurTime < dbEnt.Comp.NextReset)
+            return;
+
+        if(!TryPickBounties(out var bounties))
+            return;
+
+        dbEnt.Comp.Bounties = bounties;
+        dbEnt.Comp.NextReset = _timing.CurTime + dbEnt.Comp.ResetTime;
+    }
+
+    private bool TrySetBountyClaimed(EntityUid uplink, EntityUid user, NetEntity bountyEntity, [NotNullWhen(true)] out SpyBountyData? bountyData)
     {
         bountyData = null;
         if (!TryGetSpyDatabaseEntity(out var nullableEnt)
@@ -40,6 +57,7 @@ public sealed partial class SpySystem
 
         bounty.Claimed = true;
         bountyData = bounty;
+        UpdateUserInterface(uplink, user);
         return true;
     }
 
@@ -49,15 +67,8 @@ public sealed partial class SpySystem
             || nullableEnt is not { } dbEnt
             || !TryPickBounties(out var bounties))
             return;
+
         dbEnt.Comp.Bounties = bounties.ToList();
-
-        foreach (var bounty in dbEnt.Comp.Bounties)
-        {
-            if (!_protoMan.TryIndex(bounty.TargetGroup, out var prototype))
-                return;
-
-            Log.Info(Loc.GetString(prototype.Name));
-        }
     }
 
     private bool TryPickBounties([NotNullWhen(true)] out List<SpyBountyData>? bounties)
@@ -122,7 +133,7 @@ public sealed partial class SpySystem
             })
             .ToList();
 
-        // durkle randomize
+        // durk randomize
         for (var i = bountyList.Count - 1; i > 0; i--)
         {
             var j = _random.Next(i + 1);
