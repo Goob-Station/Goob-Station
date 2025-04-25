@@ -133,7 +133,7 @@ public sealed partial class PTLSystem : EntitySystem
         var enloc = ent.Comp.Active ? Loc.GetString("ptl-enabled") : Loc.GetString("ptl-disabled");
         var enabled = Loc.GetString("ptl-interact-enabled", ("enabled", enloc));
         _popup.PopupEntity(enabled, ent, Content.Shared.Popups.PopupType.SmallCaution);
-        _aud.PlayPvs(_soundPower, ent);
+        _aud.PlayPvs(_soundPower, args.User);
 
         Dirty(ent);
     }
@@ -149,7 +149,7 @@ public sealed partial class PTLSystem : EntitySystem
                 delay = ent.Comp.ShootDelayThreshold.Min;
             ent.Comp.ShootDelay = delay;
             _popup.PopupEntity(Loc.GetString("ptl-interact-screwdriver", ("delay", ent.Comp.ShootDelay)), ent);
-            _aud.PlayPvs(_soundSparks, ent);
+            _aud.PlayPvs(_soundSparks, args.User);
         }
 
         if (_tag.HasTag(held, _tagMultitool))
@@ -158,7 +158,7 @@ public sealed partial class PTLSystem : EntitySystem
             _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
             ent.Comp.SpesosHeld = 0;
             _popup.PopupEntity(Loc.GetString("ptl-interact-spesos"), ent);
-            _aud.PlayPvs(_soundKaching, ent);
+            _aud.PlayPvs(_soundKaching, args.User);
         }
 
         Dirty(ent);
