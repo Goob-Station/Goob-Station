@@ -14,6 +14,8 @@ using Content.Server.Stunnable;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
@@ -64,6 +66,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         SubscribeLocalEvent<HisGraceComponent, HisGraceHungerChangedEvent>(OnHungerChanged);
         SubscribeLocalEvent<HisGraceComponent, HisGraceEntityConsumedEvent>(OnEntityConsumed);
         SubscribeLocalEvent<HisGraceUserComponent, RefreshMovementSpeedModifiersEvent>(OnModifierRefresh);
+        SubscribeLocalEvent<HisGraceUserComponent, AttackedEvent>(OnAttacked);
     }
 
     private void OnInit(EntityUid uid, HisGraceComponent component, MapInitEvent args)
@@ -95,6 +98,19 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             TryDevour(comp, hitEntity);
     }
 
+    private void OnAttacked(Entity<HisGraceUserComponent> ent, ref AttackedEvent args)
+    {
+        if (!TryComp<HisGraceComponent>(ent.Comp.HisGrace, out var hisGrace))
+            return;
+
+        /*
+        if (hisGrace.CurrentState == HisGraceState.Ascended)
+            args.Damage *= ent.Comp.AscensionDamageCoefficient
+        else
+            args.Damage *= ent.Comp.DefaultDamageCoefficient
+        */
+    }
+
     private void OnModifierRefresh(EntityUid uid, HisGraceUserComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
         args.ModifySpeed(comp.SpeedMultiplier);
@@ -106,7 +122,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             return;
 
         comp.User = args.User;
-        EnsureComp<HisGraceUserComponent>(args.User);
+        EnsureComp<HisGraceUserComponent>(args.User).HisGrace = uid;
         _speedModifier.RefreshMovementSpeedModifiers(args.User);
 
         var popUp = Loc.GetString("hisgrace-use-start");
@@ -300,7 +316,12 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
                 continue;
 
             if (!TerminatingOrDeleted(hisGrace.User))
+            {
                 _damageable.TryChangeDamage(hisGrace.User, hisGrace.Healing);
+                var stam = EnsureComp<StaminaComponent>(uid);
+                stam.StaminaDamage = 0; // fuck your stun meta
+            }
+
 
             hisGrace.Hunger = Math.Clamp(hisGrace.Hunger + hisGrace.HungerIncrement, 0, 200);
             hisGrace.NextHungerTick = _timing.CurTime + hisGrace.TickDelay;
@@ -323,8 +344,6 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         EnsureComp<ThermalVisionComponent>(user);
         EnsureComp<PressureImmunityComponent>(user);
         EnsureComp<BreathingImmunityComponent>(user);
-
-        _damageable.SetDamageModifierSetId(user, comp.AscensionDamageSet);
 
     }
 

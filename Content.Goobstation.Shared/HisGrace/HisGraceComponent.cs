@@ -164,7 +164,10 @@ public sealed partial class HisGraceComponent : Component
     /// The damage set the user is set to when ascended.
     /// </summary>
     [DataField]
-    public ProtoId<DamageModifierSetPrototype> AscensionDamageSet = new("HisGraceAscended");
+    public float AscensionDamageCoefficient = 0.4f;
+
+    [DataField]
+    public float DefaultDamageCoefficient = 0.7f;
 }
 
 public enum HisGraceState : byte

@@ -19,4 +19,10 @@ public sealed partial class HisGraceUserComponent : Component
     /// </summary>
     [DataField]
     public float BaseSpeedMultiplier = 1.2f;
+
+    /// <summary>
+    /// The UID of the His Grace this entity is linked to.
+    /// </summary>
+    [DataField]
+    public EntityUid? HisGrace;
 }
