@@ -5,7 +5,7 @@
   parent: Handcuffs
   components:
   - type: Item
-    size: 30
+    size: Huge
   - type: Handcuff
     CuffTime: 5
     breakoutTime: 30
@@ -13,7 +13,7 @@
     cuffedRSI: _NF/Objects/Misc/webcocoon.rsi
     bodyIconState: body-overlay
     breakOnRemove: true
-    brokenPrototype: WebSilk
+    brokenPrototype: MaterialWebSilk1
     startCuffSound:
       path: /Audio/Items/Handcuffs/rope_start.ogg
     endCuffSound:
@@ -25,8 +25,8 @@
     startBreakoutSound:
       path: /Audio/Items/Handcuffs/rope_takeoff.ogg
   - type: Construction
-    graph: WebObjects
-    node: cocoon
+    graph: WebCocoon
+    node: end
   - type: Sprite
     sprite: _NF/Objects/Misc/webcocoon.rsi
     state: cocoon

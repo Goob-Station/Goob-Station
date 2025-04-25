@@ -1,11 +1,14 @@
 - type: construction
   name: web cocoon
   id: WebCocoon
-  graph: WebObjects
+  graph: WebCocoon
   startNode: start
-  targetNode: cocoon
+  targetNode: end
   category: construction-category-tools
   description: "Strong web cocoon used to restrain preys or just criminals."
+  entityWhitelist:
+    tags:
+    - SpiderCraft
   icon:
     sprite: _NF/Objects/Misc/webcocoon.rsi
     state: cocoon
@@ -13,10 +16,10 @@
 
 - type: construction
   name: classic web poncho
-  id: ClothingNeckClassicPonchoWebRecipe
-  graph: ClothingNeckClassicPonchoWebGraph
+  id: ClothingNeckClassicPonchoWeb
+  graph: ClothingNeckClassicPonchoWeb
   startNode: start
-  targetNode: ClothingNeckClassicPonchoWebNode
+  targetNode: end
   category: construction-category-clothing
   description: Take your glands in one hand, channel the idea of two triangles in the other.
   entityWhitelist:
@@ -29,10 +32,10 @@
 
 - type: construction
   name: web poncho
-  id: ClothingNeckPonchoWebRecipe
-  graph: ClothingNeckPonchoWebGraph
+  id: ClothingNeckPonchoWeb
+  graph: ClothingNeckPonchoWeb
   startNode: start
-  targetNode: ClothingNeckPonchoWebNode
+  targetNode: end
   category: construction-category-clothing
   description: Imagine wrapping your prey in a cocoon. Now, forget to add the bottom and make it decorative. A cozy treat.
   entityWhitelist:
@@ -45,10 +48,10 @@
 
 - type: construction
   name: web cloak
-  id: ClothingNeckCloakWebRecipe
-  graph: ClothingNeckCloakWebGraph
+  id: ClothingNeckCloakWeb
+  graph: ClothingNeckCloakWeb
   startNode: start
-  targetNode: ClothingNeckCloakWebNode
+  targetNode: end
   category: construction-category-clothing
   description: A decorative adornment to celebrate the cunning craftsmanship of spider kind. It is silky! Does not ward off spider attacks.
   entityWhitelist:

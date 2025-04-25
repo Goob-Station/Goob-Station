@@ -42,7 +42,7 @@
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightArm ]
-  id: RightArmHarpy # Wings included
+  id: RightArmHarpy
   name: "right harpy arm"
   components:
   - type: BodyPart

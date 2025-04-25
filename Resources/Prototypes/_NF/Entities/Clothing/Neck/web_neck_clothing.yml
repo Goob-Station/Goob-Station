@@ -7,10 +7,10 @@
   - type: Sprite
     sprite: _NF/Clothing/Neck/Misc/classic_poncho_web.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Misc/classic_poncho_web.rsi    
+    sprite: _NF/Clothing/Neck/Misc/classic_poncho_web.rsi
   - type: Construction
-    graph: ClothingNeckClassicPonchoWebGraph
-    node: ClothingNeckClassicPonchoWebNode
+    graph: ClothingNeckClassicPonchoWeb
+    node: end
 
 - type: entity
   parent: ClothingNeckBase # Frontier - Change to neck
@@ -21,10 +21,10 @@
   - type: Sprite
     sprite: _NF/Clothing/Neck/Misc/poncho_web.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Misc/poncho_web.rsi    
+    sprite: _NF/Clothing/Neck/Misc/poncho_web.rsi
   - type: Construction
-    graph: ClothingNeckPonchoWebGraph
-    node: ClothingNeckPonchoWebNode
+    graph: ClothingNeckPonchoWeb
+    node: end
 
 - type: entity
   parent: ClothingNeckBase # Frontier - Change to neck
@@ -35,7 +35,7 @@
   - type: Sprite
     sprite: _NF/Clothing/Neck/Cloaks/cloak_web.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Neck/Cloaks/cloak_web.rsi    
+    sprite: _NF/Clothing/Neck/Cloaks/cloak_web.rsi
   - type: Construction
-    graph: ClothingNeckCloakWebGraph
-    node: ClothingNeckCloakWebNode
+    graph: ClothingNeckCloakWeb
+    node: end

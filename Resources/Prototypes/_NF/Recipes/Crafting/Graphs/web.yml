@@ -1,47 +1,55 @@
-- to: cocoon
-  steps:
-  - material: WebSilk
-    amount: 8
-    doAfter: 6
-
 - type: constructionGraph
-  id: ClothingNeckClassicPonchoWebGraph
+  id: WebCocoon
   start: start
   graph:
   - node: start
     edges:
-    - to: ClothingNeckClassicPonchoWebNode
+    - to: end
+      steps:
+      - material: WebSilk
+        amount: 8
+        doAfter: 6
+  - node: end
+    entity: WebCocoon
+
+- type: constructionGraph
+  id: ClothingNeckClassicPonchoWeb
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: end
       steps:
       - material: WebSilk
         amount: 12
         doAfter: 15
-  - node: ClothingNeckClassicPonchoWebNode
+  - node: end
     entity: ClothingNeckClassicPonchoWeb
 
 - type: constructionGraph
-  id: ClothingNeckPonchoWebGraph
+  id: ClothingNeckPonchoWeb
   start: start
   graph:
   - node: start
     edges:
-    - to: ClothingNeckPonchoWebNode
+    - to: end
       steps:
       - material: WebSilk
         amount: 12
         doAfter: 15
-  - node: ClothingNeckPonchoWebNode
+  - node: end
     entity: ClothingNeckPonchoWeb
 
 - type: constructionGraph
-  id: ClothingNeckCloakWebGraph
+  id: ClothingNeckCloakWeb
   start: start
   graph:
   - node: start
     edges:
-    - to: ClothingNeckCloakWebNode
+    - to: end
       steps:
       - material: WebSilk
         amount: 12
         doAfter: 15
-  - node: ClothingNeckCloakWebNode
+  - node: end
     entity: ClothingNeckCloakWeb
