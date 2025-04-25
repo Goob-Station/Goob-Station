@@ -18,6 +18,7 @@ using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -37,6 +38,7 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly AudioSystem _aud = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
 
     [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
     [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";

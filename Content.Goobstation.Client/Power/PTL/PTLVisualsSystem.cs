@@ -9,23 +9,30 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Power.PTL;
 
-public sealed partial class PTLVisualsSystem : VisualizerSystem<PTLVisualsComponent>
+public sealed partial class PTLVisualsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _time = default!;
 
-    protected override void OnAppearanceChange(EntityUid uid, PTLVisualsComponent component, ref AppearanceChangeEvent args)
+    public override void Update(float frameTime)
     {
-        base.OnAppearanceChange(uid, component, ref args);
+        base.Update(frameTime);
 
-        if (!TryComp<SpriteComponent>(uid, out var sprite)
-        || !TryComp<PTLComponent>(uid, out var ptl))
+        var eqe = EntityQueryEnumerator<PTLVisualsComponent>();
+        while (eqe.MoveNext(out var uid, out var ptlv))
+            UpdateVisuals((uid, ptlv));
+    }
+
+    private void UpdateVisuals(Entity<PTLVisualsComponent> ent)
+    {
+        if (!TryComp<SpriteComponent>(ent, out var sprite)
+        || !TryComp<PTLComponent>(ent, out var ptl))
             return;
 
         sprite.LayerSetVisible(PTLVisualLayers.Unpowered, !ptl.Active);
 
         var delta = (ptl.NextShotAt - _time.CurTime).Seconds;
-        var norm = (delta / ptl.ShootDelay) * component.MaxChargeStates;
-        sprite.LayerSetState(PTLVisualLayers.Charge, $"{component.ChargePrefix}{(int) norm}");
+        var norm = (delta / ptl.ShootDelay) * ent.Comp.MaxChargeStates;
+        sprite.LayerSetState(PTLVisualLayers.Charge, $"{ent.Comp.ChargePrefix}{(int) norm}");
     }
 }
 
