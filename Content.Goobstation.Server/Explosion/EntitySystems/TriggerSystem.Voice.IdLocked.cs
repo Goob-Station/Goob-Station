@@ -27,29 +27,26 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void OnVoiceInit(EntityUid uid, TriggerOnVoiceIdLockedComponent comp, MapInitEvent args)
         {
-            // Set the access levels.
             EnsureComp<AccessReaderComponent>(uid, out var accessReader);
-            // Allow the item to listen.
             EnsureComp<ActiveListenerComponent>(uid).Range = comp.ListenRange;
             _accessReader.SetAccesses(uid, accessReader, comp.AccessLists);
-
         }
 
         private void OnListen(Entity<TriggerOnVoiceIdLockedComponent> ent, ref ListenEvent args)
         {
-            var comp = ent.Comp;
             var message = args.Message.Trim();
 
-            if (!string.IsNullOrWhiteSpace(comp.KeyPhrase) && message.Contains(comp.KeyPhrase, StringComparison.InvariantCultureIgnoreCase))
-            {
-                if (_accessReader.IsAllowed(args.Source, comp.Owner ))
-                    return;
+            if (string.IsNullOrWhiteSpace(ent.Comp.KeyPhrase) ||
+                !message.Contains(ent.Comp.KeyPhrase, StringComparison.InvariantCultureIgnoreCase))
+                return;
 
-                _adminLogger.Add(LogType.Trigger, LogImpact.High,
-                        $"An ID locked voice-trigger on {ToPrettyString(ent):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {comp.KeyPhrase}.");
+            if (_accessReader.IsAllowed(args.Source, ent ))
+                return;
 
-                _triggerSystem.Trigger(ent, comp.Owner);
-            }
+            _adminLogger.Add(LogType.Trigger, LogImpact.High,
+                $"An ID locked voice-trigger on {ToPrettyString(ent):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {ent.Comp.KeyPhrase}.");
+
+            _triggerSystem.Trigger(ent, ent);
         }
     }
 }

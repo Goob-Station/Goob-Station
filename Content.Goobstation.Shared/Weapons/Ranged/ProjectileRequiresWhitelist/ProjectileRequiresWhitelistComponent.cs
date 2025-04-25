@@ -19,9 +19,14 @@ public sealed partial class ProjectileRequireWhitelistComponent : Component
     /// <summary>
     /// The whitelist for what the projectile can affect.
     /// </summary>
-    [DataField]
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// Should the projectile hit walls?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CollideWithWalls = true;
 
     /// <summary>
     /// Whether the whitelist should be inverted.
@@ -29,7 +34,6 @@ public sealed partial class ProjectileRequireWhitelistComponent : Component
     /// <remarks>
     /// If this is true, and the whitelist is set to clumsy, the projectile will affect anyone that does *not* have the clumsy component.
     /// </remarks>
-    [DataField]
-    [AutoNetworkedField]
-    public bool Invert = false;
+    [DataField, AutoNetworkedField]
+    public bool Invert;
 }

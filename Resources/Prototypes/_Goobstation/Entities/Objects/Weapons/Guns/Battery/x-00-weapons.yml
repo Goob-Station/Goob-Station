@@ -2,7 +2,7 @@
 
 - type: entity
   name: X-8 "Station Sweeper"
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityRifle
   description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
   components:
@@ -16,10 +16,10 @@
     - Back
     - suitStorage
   - type: Battery
-    maxCharge: 800
-    startingCharge: 800
+    maxCharge: 600
+    startingCharge: 600
   - type: Gun
-    fireRate: 0.95
+    fireRate: 1.2
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -30,6 +30,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+    autoRechargePause: true
+    autoRechargePauseTime: 20
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumSplitLaser
     fireCost: 60
@@ -38,7 +40,7 @@
 
 - type: entity
   name: X-6 "Threadripper"
-  parent: BaseWeaponBattery
+  parent: [BaseWeaponBattery, BaseCommandContraband]
   id: WeaponHeadOfSecuritySMG
   description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
   components:
@@ -52,12 +54,12 @@
     - Back
     - suitStorage
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 350
+    startingCharge: 350
   - type: Gun
     minAngle: 2
     maxAngle: 10
-    fireRate: 4
+    fireRate: 3.8
     burstFireRate: 6
     angleIncrease: 3
     angleDecay: 10
@@ -71,6 +73,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 7
+    autoRechargePause: true
+    autoRechargePauseTime: 20
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserHeavy
     fireCost: 30
@@ -79,7 +83,7 @@
 
 - type: entity
   name: X-12 "Flamberge"
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityShotgun
   description: An elaborately designed shotgun, firing shots of pure phoron. Built to break down defenses, and it does that job well.
   components:
@@ -98,6 +102,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+    autoRechargePause: true
+    autoRechargePauseTime: 20
   - type: Gun
     fireRate: 0.75
     soundGunshot:
@@ -113,7 +119,7 @@
 
 - type: entity
   name: X-18 "Ranought"
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecuritySniper
   description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
   components:
@@ -130,6 +136,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
+    autoRechargePause: true
+    autoRechargePauseTime: 20
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -147,5 +155,5 @@
     sprintModifier: 0.80
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 3
-    pvsIncrease: 0.3
+    maxOffset: 8
+    pvsIncrease: 0.8

@@ -27,10 +27,4 @@ public sealed class AutoInjectorPrototype : IPrototype
     [DataField(required: true)]
     public Dictionary<string, FixedPoint2> Reagents = new();
 
-    /// <summary>
-    /// How long between each injection?
-    /// </summary>
-    [DataField]
-    public TimeSpan Cooldown = TimeSpan.FromSeconds(70);
-
 }

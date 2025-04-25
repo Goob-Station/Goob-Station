@@ -33,12 +33,6 @@ public sealed partial class ClothingAutoInjectComponent : Component
     [DataField]
     public SoundSpecifier InjectSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
 
-    /// <summary>
-    /// The UID of the action, stored here so it can be safely removed.
-    /// </summary>
     [ViewVariables]
     public EntityUid? ActionEntity;
-
-    [ViewVariables]
-    public TimeSpan NextAvailableTime;
 }

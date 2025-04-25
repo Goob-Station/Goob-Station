@@ -3,12 +3,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Enchanting.Components;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Clothing;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Inventory;
+using Content.Shared.Inventory.Events;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -25,15 +28,14 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<ClothingAutoInjectComponent, ActionActivateAutoInjectorEvent>(OnInjectorActivated);
-        SubscribeLocalEvent<ClothingAutoInjectComponent, ComponentInit>(OnCompInit);
-        SubscribeLocalEvent<ClothingAutoInjectComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<ClothingAutoInjectComponent, GetItemActionsEvent>(OnEquipped);
+        SubscribeLocalEvent<ClothingAutoInjectComponent, GotUnequippedEvent>(OnUnequipped);
     }
 
     private void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ref ActionActivateAutoInjectorEvent args)
@@ -44,21 +46,11 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         if (!_proto.TryIndex(component.Proto, out var proto))
             return;
 
-        if (_timing.CurTime < component.NextAvailableTime)
-        {
-            var time = component.NextAvailableTime - _timing.CurTime;
-            _popup.PopupEntity(Loc.GetString(component.FailPopup, ("time", time.TotalSeconds)), args.Performer, args.Performer);
-            args.Handled = true;
-            return;
-        }
-
         if (!TryInjectReagents(args.Performer, proto.Reagents))
             return;
 
-        component.NextAvailableTime = _timing.CurTime + proto.Cooldown;
-
-        _audio.PlayPvs(component.InjectSound, uid);
-        _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), uid, uid);
+        _audio.PlayPvs(component.InjectSound, args.Performer);
+        _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), args.Performer, args.Performer);
         args.Handled = true;
     }
 
@@ -68,22 +60,22 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         foreach (var reagent in reagents)
             solution.AddReagent(reagent.Key, reagent.Value);
 
-        if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
+        if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out _))
             return false;
 
-        if (!_solution.TryAddSolution(targetSolution.Value, solution))
-            return false;
-
-        return true;
+        return _solution.TryAddSolution(targetSolution.Value, solution);
     }
 
-    private void OnCompInit(Entity<ClothingAutoInjectComponent> ent, ref ComponentInit args)
+    private void OnEquipped(EntityUid uid, ClothingAutoInjectComponent component, ref GetItemActionsEvent args)
     {
-        ent.Comp.ActionEntity = _actions.AddAction(ent.Owner, ent.Comp.Action);
+        if (args.InHands)
+            return;
+
+        args.AddAction(ref component.ActionEntity, component.Action);
     }
 
-    private void OnShutdown(Entity<ClothingAutoInjectComponent> ent, ref ComponentShutdown args)
+    private void OnUnequipped(EntityUid uid, ClothingAutoInjectComponent component, ref GotUnequippedEvent args)
     {
-        _actions.RemoveAction(ent.Owner, ent.Comp.ActionEntity);
+        _actions.RemoveProvidedActions(args.Equipee, uid);
     }
 }

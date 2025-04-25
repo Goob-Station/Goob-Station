@@ -9,6 +9,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Restriction.RestrictById
 {
@@ -17,6 +18,7 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Initialize()
         {
@@ -42,7 +44,6 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
             ent.Comp.IsEmagged = true;
             args.Handled = true;
             args.Repeatable = false;
-
         }
 
         private void OnAttemptShoot(Entity<RestrictByIdComponent> ent, ref AttemptShootEvent args)
@@ -55,8 +56,6 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
 
             args.Cancelled = true;
             args.Message = Loc.GetString(ent.Comp.FailText);
-            _popupSystem.PopupClient(args.Message, ent, args.User, PopupType.Medium);
-
         }
 
         private void OnAttemptMelee(Entity<RestrictByIdComponent> ent, ref AttemptMeleeEvent args)
@@ -69,7 +68,6 @@ namespace Content.Goobstation.Shared.Restriction.RestrictById
 
             args.Cancelled = true;
             args.Message = Loc.GetString(ent.Comp.FailText);
-            _popupSystem.PopupClient(args.Message, ent, args.User, PopupType.Medium);
         }
     }
 }

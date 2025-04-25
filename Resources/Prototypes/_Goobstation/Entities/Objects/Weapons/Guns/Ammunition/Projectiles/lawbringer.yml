@@ -58,7 +58,8 @@
     speed: 3
   - type: BlurOnCollide
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 10
+    overtime: 20
 
 - type: entity
   id: BulletDetain
@@ -85,7 +86,8 @@
         Heat: 2
   - type: BlurOnCollide
   - type: StaminaDamageOnCollide
-    damage: 45
+    damage: 15
+    overtime: 30
 
 - type: entity
   id: BulletExecute
@@ -109,8 +111,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 25
-        Radiation: 5
+        Heat: 20
+        Radiation: 5 # 13 parity
 
 - type: entity
   id: BulletHotshot

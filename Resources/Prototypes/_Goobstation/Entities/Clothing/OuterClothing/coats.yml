@@ -15,8 +15,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ModifyDelayedKnockdown
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.7
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/hos_experimental_jacket.rsi
   - type: Clothing
