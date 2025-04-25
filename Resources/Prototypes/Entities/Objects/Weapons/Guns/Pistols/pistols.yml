@@ -96,6 +96,7 @@
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -243,7 +244,7 @@
   name: cobra
   parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
   id: WeaponPistolCobra
-  description: A rugged, robust operator handgun with inbuilt silencer. Uses 9.5mm caseless ammo. # Goobstation
+  description: A rugged, robust operator handgun with inbuilt silencer. Uses 9.5mm caseless magnum ammo. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
@@ -269,23 +270,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistolCaselessMagnumMinusP  # Goobstation
+        startingItem: MagazinePistolCaselessRifle
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineCaselessMagnum95Pistol  # Goobstation
+            - MagazinePistolCaselessRifle
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessMagnum95MinusP # Goobstation
+        startingItem: CartridgeCaselessRifle
         priority: 1
         whitelist:
           tags:
-            - CartridgeCaselessMagnum95 # Goobstation V
-            - CartridgeCaselessMagnum95MinusP
-            - CartridgeCaselessMagnum95SAPHE # Goobstation ^
+            - CartridgeCaselessRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot

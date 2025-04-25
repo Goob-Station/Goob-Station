@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by XcenLegend(discord:xcenlegend)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "welder_sword"
+    },
+    {
+      "name": "icon_industrial"
+    },
+    {
+      "name": "welder_sword_industrial"
+    },
+    {
+      "name": "icon_experimental"
+    },
+    {
+      "name": "welder_sword_experimental"
+    },
+    {
+      "name": "icon_mini"
+    },
+	{
+      "name": "welder_sword_blade",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+	{
+      "name": "welder_sword_blade_simple",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+	{
+      "name": "welder_sword_blade_industrial",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+	{
+      "name": "welder_sword_blade_experimental",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
