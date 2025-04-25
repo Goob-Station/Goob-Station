@@ -130,7 +130,8 @@ public sealed partial class PTLSystem : EntitySystem
     private void OnInteractHand(Entity<PTLComponent> ent, ref InteractHandEvent args)
     {
         ent.Comp.Active = !ent.Comp.Active;
-        var enabled = Loc.GetString("ptl-interact-enabled", ("enabled", ent.Comp.Active));
+        var enloc = ent.Comp.Active ? Loc.GetString("ptl-enabled") : Loc.GetString("ptl-disabled");
+        var enabled = Loc.GetString("ptl-interact-enabled", ("enabled", enloc));
         _popup.PopupEntity(enabled, ent, Content.Shared.Popups.PopupType.SmallCaution);
         _aud.PlayPvs(_soundPower, ent);
 
@@ -166,7 +167,8 @@ public sealed partial class PTLSystem : EntitySystem
     private void OnExamine(Entity<PTLComponent> ent, ref ExaminedEvent args)
     {
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString("ptl-examine-enabled", ("enabled", ent.Comp.Active)));
+        var enloc = ent.Comp.Active ? Loc.GetString("ptl-enabled") : Loc.GetString("ptl-disabled");
+        sb.AppendLine(Loc.GetString("ptl-examine-enabled", ("enabled", enloc)));
         sb.AppendLine(Loc.GetString("ptl-examine-spesos", ("spesos", ent.Comp.SpesosHeld)));
         sb.AppendLine(Loc.GetString("ptl-examine-screwdriver"));
         args.PushMarkup(sb.ToString());
