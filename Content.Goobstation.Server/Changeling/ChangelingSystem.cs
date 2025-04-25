@@ -34,8 +34,7 @@ using Content.Goobstation.Common.Actions;
 using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Server.Changeling.Objectives.Components;
-using Content.Goobstation.Server.Flashbang;
-using Content.Goobstation.Shared.Changeling;
+using Content.Goobstation.Shared.Flashbang;
 using Content.Goobstation.Shared.Changeling.Actions;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.Changeling.Systems;
@@ -100,8 +99,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
-using static Content.Shared.Inventory.InventorySystem;
-using Content.Goobstation.Shared.Flashbang;
 
 namespace Content.Goobstation.Server.Changeling;
 
