@@ -37,11 +37,12 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.TheManWhoSoldTheWorld;
+using Content.Goobstation.Common.Weapons.NoWieldNeeded;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -66,7 +67,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Content.Shared.Item.ItemToggle;
-using Content.Shared._Goobstation.Weapons.Ranged; // GoobStation - NoWieldNeeded
 // Lavaland Change
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -113,7 +113,6 @@ public abstract class SharedWieldableSystem : EntitySystem
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, ItemWieldedEvent>(OnSpeedModifierWielded);
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, ItemUnwieldedEvent>(OnSpeedModifierUnwielded);
         SubscribeLocalEvent<SpeedModifiedOnWieldComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshSpeedWielded);
-        SubscribeLocalEvent<GunWieldBonusComponent, GotEquippedHandEvent>(OnItemInHand); // GoobStation change - OnItemInHand for NoWieldNeeded
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
@@ -142,16 +141,9 @@ public abstract class SharedWieldableSystem : EntitySystem
 
     private void OnShootAttempt(EntityUid uid, GunRequiresWieldComponent component, ref ShotAttemptedEvent args)
     {
-        if (TryComp<NoWieldNeededComponent>(args.User, out var noWieldNeeded) && noWieldNeeded.GetBonus) { // GoobStation change - check for NoWieldNeeded
-            _gun.RefreshModifiers(uid, args.User);
-        }
-
-        if(HasComp<TheManWhoSoldTheWorldComponent>(args.User))
-            return;
-
         if (TryComp<WieldableComponent>(uid, out var wieldable) &&
             !wieldable.Wielded &&
-            noWieldNeeded is null
+            !HasComp<NoWieldNeededComponent>(args.User) // Goobstation - Yowies
             )
         {
             args.Cancel();
@@ -166,11 +158,6 @@ public abstract class SharedWieldableSystem : EntitySystem
                 _popup.PopupClient(message, args.Used, args.User);
             }
         }
-    }
-
-    private void OnItemInHand(EntityUid uid, GunWieldBonusComponent component, GotEquippedHandEvent args)  // GoobStation change - OnItemInHand for NoWieldNeeded
-    {
-        _gun.RefreshModifiers(uid, args.User);
     }
 
     private void OnGunUnwielded(EntityUid uid, GunWieldBonusComponent component, ItemUnwieldedEvent args)
@@ -195,9 +182,7 @@ public abstract class SharedWieldableSystem : EntitySystem
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
-            (wield.Wielded) ||
-            (args.User != null && TryComp<NoWieldNeededComponent>(args.User.Value, out var noWieldNeeded) &&  // GoobStation change - Check for NoWieldNeeded and GetBonus
-            noWieldNeeded.GetBonus)
+            (wield.Wielded)
             )
         {
             args.MinAngle += bonus.Comp.MinAngle;
