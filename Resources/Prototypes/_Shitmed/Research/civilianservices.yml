@@ -26,8 +26,6 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  # - BorgModuleDefibrillator # Goobstation, medical cyborgs start with this
   - EnergyScalpel
   - EnergyCautery
   - AdvancedRetractor
