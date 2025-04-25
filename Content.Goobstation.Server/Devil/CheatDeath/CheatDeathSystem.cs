@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.CheatDeath;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
+using Content.Server.Jittering;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
@@ -16,7 +17,7 @@ using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Server.CheatDeath;
+namespace Content.Goobstation.Server.Devil.CheatDeath;
 
 public sealed partial class CheatDeathSystem : EntitySystem
 {
@@ -24,6 +25,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
 
     public override void Initialize()
     {
@@ -55,24 +57,41 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
     private void OnDeathCheatAttempt(Entity<CheatDeathComponent> ent, ref CheatDeathEvent args)
     {
-        if (args.Handled || (!_mobStateSystem.IsDead(ent) && !ent.Comp.CanCheatStanding))
+        if (args.Handled)
             return;
 
-        // If the entity is out of revives, or if they are unrevivable, return.
-        if (ent.Comp.ReviveAmount == 0 || HasComp<UnrevivableComponent>(args.Performer))
+        if (!_mobStateSystem.IsDead(ent) && !ent.Comp.CanCheatStanding)
         {
-            var failPopup = Loc.GetString("action-cheat-death-fail");
+            var failPopup = Loc.GetString("action-cheat-death-fail-not-dead");
             _popupSystem.PopupEntity(failPopup, ent, PopupType.LargeCaution);
 
             return;
         }
 
-        // Revive entity
-        _rejuvenateSystem.PerformRejuvenate(ent);
+        // If the entity is out of revives, or if they are unrevivable, return.
+        if (ent.Comp.ReviveAmount == 0 || HasComp<UnrevivableComponent>(ent))
+        {
+            var failPopup = Loc.GetString("action-cheat-death-fail-no-lives");
+            _popupSystem.PopupEntity(failPopup, ent, PopupType.LargeCaution);
+
+            return;
+        }
 
         // Show popup
-        var popup = Loc.GetString("action-cheated-death", ("name", Name(ent)));
-        _popupSystem.PopupEntity(popup, ent, PopupType.LargeCaution);
+        if (_mobStateSystem.IsDead(ent) && !ent.Comp.CanCheatStanding)
+        {
+            var popup = Loc.GetString("action-cheated-death-dead", ("name", Name(ent)));
+            _popupSystem.PopupEntity(popup, ent, PopupType.LargeCaution);
+        }
+        else
+        {
+            var popup = Loc.GetString("action-cheated-death-alive", ("name", Name(ent)));
+            _popupSystem.PopupEntity(popup, ent, PopupType.LargeCaution);
+        }
+
+        // Revive entity
+        _rejuvenateSystem.PerformRejuvenate(ent);
+        _jitter.DoJitter(ent, TimeSpan.FromSeconds(5), true);
 
         // Decrement remaining revives.
         if (ent.Comp.ReviveAmount != -1)
