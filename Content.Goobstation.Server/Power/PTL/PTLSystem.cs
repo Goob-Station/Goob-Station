@@ -21,6 +21,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
+using System.Text;
 
 namespace Content.Goobstation.Server.Power.PTL;
 
@@ -30,19 +31,20 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IPrototypeManager _protMan = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StackSystem _stack = default!;
 
-    [ValidatePrototypeId<StackPrototype>] private readonly string _cretidsProt = "Credit";
+    [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
+    [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
+    [ValidatePrototypeId<TagPrototype>] private readonly string _tagMultitool = "Multitool";
 
     public override void Initialize()
     {
         base.Initialize();
 
         UpdatesAfter.Add(typeof(SmesSystem));
-        SubscribeLocalEvent<PTLComponent, AfterInteractEvent>(OnAfterInteract);
+        SubscribeLocalEvent<PTLComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<PTLComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<PTLComponent, ExaminedEvent>(OnExamine);
     }
@@ -83,8 +85,8 @@ public sealed partial class PTLSystem : EntitySystem
         if (TryComp<BatteryComponent>(ent, out var battery))
         {
             charge = battery.CurrentCharge / megajoule;
-            // taken from paradise wiki. i don't know what these numbers are doing either just take it as given
-            spesos = (int) (40 * charge / (4 * charge + 800));
+            // some random formula i found in bounty thread i popped it into desmos i think it looks good
+            spesos = (int) (charge / (Math.Log(charge * 2) + 1));
         }
         if (charge < 1f) return;
 
@@ -116,10 +118,10 @@ public sealed partial class PTLSystem : EntitySystem
         ent.Comp.SpesosHeld += spesos;
     }
 
-    private void OnAfterInteract(Entity<PTLComponent> ent, ref AfterInteractEvent args)
+    private void OnInteractHand(Entity<PTLComponent> ent, ref InteractHandEvent args)
     {
         ent.Comp.Active = !ent.Comp.Active;
-        var enabled = $"The laser is now {(ent.Comp.Active ? "enabled" : "disabled")}.";
+        var enabled = Loc.GetString("ptl-interact-enabled", ("enabled", ent.Comp.Active));
         _popup.PopupEntity(enabled, ent, Content.Shared.Popups.PopupType.SmallCaution);
 
         Dirty(ent);
@@ -129,21 +131,21 @@ public sealed partial class PTLSystem : EntitySystem
     {
         var held = args.Used;
 
-        // if holding a screwdriver set firing frequency
-        if (_tag.HasTag(held, "Screwdriver"))
+        if (_tag.HasTag(held, _tagScrewdriver))
         {
             var delay = ent.Comp.ShootDelay + 1;
             if (delay > ent.Comp.ShootDelayThreshold.Max)
                 delay = ent.Comp.ShootDelayThreshold.Min;
             ent.Comp.ShootDelay = delay;
-            _popup.PopupEntity($"Set firing frequency to {delay} seconds.", ent);
+            _popup.PopupEntity(Loc.GetString("ptl-interact-screwdriver", ("delay", ent.Comp.ShootDelay)), ent);
         }
 
-        if (_tag.HasTag(held, "Multitool"))
+        if (_tag.HasTag(held, _tagMultitool))
         {
-            var stackPrototype = _protMan.Index<StackPrototype>(_cretidsProt);
+            var stackPrototype = _protMan.Index<StackPrototype>(_stackCredits);
             _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
             ent.Comp.SpesosHeld = 0;
+            _popup.PopupEntity(Loc.GetString("ptl-interact-spesos"), ent);
         }
 
         Dirty(ent);
@@ -151,9 +153,10 @@ public sealed partial class PTLSystem : EntitySystem
 
     private void OnExamine(Entity<PTLComponent> ent, ref ExaminedEvent args)
     {
-        var enabled = $"The laser is now [color=red]{(ent.Comp.Active ? "enabled" : "disabled")}[/color].";
-        var spesos = $"It holds [color=yellow]{ent.Comp.SpesosHeld} spesos[/color]. Use [color=green]multitool[/color] to collect.";
-        var screw = $"You can use a [color=green]screwdriver[/color] to change it's [color=green]firing frequency[/color].";
-        args.PushMarkup($"{screw}\n{spesos}");
+        var sb = new StringBuilder();
+        sb.AppendLine(Loc.GetString("ptl-examine-enabled", ("enabled", ent.Comp.Active)));
+        sb.AppendLine(Loc.GetString("ptl-examine-spesos", ("spesos", ent.Comp.SpesosHeld)));
+        sb.AppendLine(Loc.GetString("ptl-examine-screwdriver"));
+        args.PushMarkup(sb.ToString());
     }
 }
