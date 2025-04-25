@@ -7651,3 +7651,168 @@ Entries:
       message: Edited ERT loadouts. No more annies for the non-combat roles.
   id: 891
   time: '2025-04-17T06:22:53.0000000+00:00'
+- author: teneketaro
+  changes:
+    - type: Add
+      message: Cryostatis syringes can now be fired from the syringe gun!
+  id: 892
+  time: '2025-04-17T18:03:25.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Fix
+      message: Thieves should now appear in game director!
+  id: 893
+  time: '2025-04-17T18:04:37.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Syndicate stealth suit heat and pierce protection was decreased.
+    - type: Tweak
+      message: >-
+        Syndicate stealth suit now requires 3 second of no-stealth loss to start
+        accumulating stealth.
+  id: 894
+  time: '2025-04-17T18:07:56.0000000+00:00'
+- author: BombasterDS, deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Tape recorders and cassettes can be found as security and reporter
+        equipment! They also can be made in autolathe and service techfab.
+  id: 895
+  time: '2025-04-17T18:08:47.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: Cheap sunglasses are now in the loadout.
+  id: 896
+  time: '2025-04-17T18:11:08.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: pAIs can now be found in loadouts
+    - type: Add
+      message: Working golden pAI in loadouts
+  id: 897
+  time: '2025-04-17T18:13:17.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Syringe Pistol, previously known as Dart Syringe Gun, is no longer
+        armor-piercing, but is available to every traitor and is cheaper.
+    - type: Tweak
+      message: >-
+        Chemists now start with their chembags filled, and chembags provide 75%
+        explosion resistance to their contents.
+  id: 898
+  time: '2025-04-17T18:16:08.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Only heretic, wizard and chaplain have ability to enchant items now.
+  id: 899
+  time: '2025-04-18T22:48:25.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Brought back disposal unit speed flush.
+  id: 900
+  time: '2025-04-19T02:12:44.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Ghost bar arena portal was temporarily removed.
+  id: 901
+  time: '2025-04-20T00:33:44.0000000+00:00'
+- author: The Independent State of Chemlabia
+  changes:
+    - type: Fix
+      message: Fixed syringes being breakable.
+  id: 902
+  time: '2025-04-20T06:21:21.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Buff and tattoo to markings...and a hair style
+    - type: Tweak
+      message: You can have 3 chest markings
+  id: 903
+  time: '2025-04-20T18:32:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Armor-piercing values are now shown on examine.
+    - type: Tweak
+      message: Reworked M7S. Meet the Ventilator.
+    - type: Tweak
+      message: Caseless Magnum is now hollow-point.
+    - type: Fix
+      message: Disablers no longer deal double the damage.
+  id: 904
+  time: '2025-04-22T04:40:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed carp scroll being unbuyable.
+  id: 905
+  time: '2025-04-22T05:52:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Changeling biomass.
+    - type: Tweak
+      message: Changeling steal DNA objective changed to absorb objective.
+  id: 906
+  time: '2025-04-23T01:21:47.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added metrics to game director, doesn't actually do anything player
+        facing, but this means it should be easier for us to make game director
+        suck less now.
+  id: 907
+  time: '2025-04-23T20:02:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Resomi are now immune to cold, slightly more vulnarable to blunt, slash
+        and heat, unable to fit into duffelbags and fly.
+  id: 908
+  time: '2025-04-23T20:08:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token spawns spawning by themselves.
+  id: 909
+  time: '2025-04-24T02:24:21.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token abductors. Maybe.
+  id: 910
+  time: '2025-04-25T02:02:59.0000000+00:00'
+- author: BombaserDS2, pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Dual-wielded weapons no longer shoot slower, but they will have a chance
+        to miss their shots.
+    - type: Fix
+      message: Dual-wielded weapons now actually respect firerate of each other.
+    - type: Fix
+      message: Yowies now correctly get all gun wielding bonuses without wielding.
+  id: 911
+  time: '2025-04-25T02:25:48.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: 'All enchantments now related to anomaly cores. '
+    - type: Tweak
+      message: >-
+        Protection enchant max level decreased to 2. It also requires equipment
+        to have any armor to be applied.
+  id: 912
+  time: '2025-04-25T06:35:47.0000000+00:00'
