@@ -677,7 +677,7 @@
   parent: [BasePlushie, BaseMajorContraband]
   id: PlushieByrrne
   name: despised resomi plushie
-  description: Depending on who you ask, Byrrne is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
+  description: Depending on who you ask, this resomi is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
@@ -746,7 +746,7 @@
 - type: entity
   parent: PlushieSlime
   id: PlushieGrub
-  name: ugly slime plushie
+  name: ugly rat plushie
   description: An ugly stuffed toy that resembles a green goblin.
   components:
   - type: Sprite
