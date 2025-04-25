@@ -235,6 +235,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant # Goobstation
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
@@ -253,6 +256,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant # Goobstation
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
@@ -273,6 +279,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant # Goobstation
       mindRoles:
       - MindRoleNukeops
 

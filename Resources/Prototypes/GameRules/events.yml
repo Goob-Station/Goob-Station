@@ -393,7 +393,7 @@
         - Syndicate
       - type: AutoImplant
         implants:
-        - DeathAcidifierImplant
+        - MicroBombImplant # Goobstation
       - type: RandomMetadata
         nameSegments:
         - NamesNinjaTitle
@@ -756,6 +756,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant # Goobstation
       mindRoles:
       - MindRoleNukeops
   - type: AntagLoadProfileRule # Goobstation

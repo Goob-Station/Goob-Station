@@ -99,8 +99,9 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10h Goobstation
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -110,13 +111,13 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 10800 # 3h
   guides: [ NuclearOperatives ]
-
 - type: antag
   id: NukeopsCommander
   name: roles-antag-nuclear-operative-commander-name
@@ -124,11 +125,12 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 18000 # 5h
+    time: 36000 # 10h Goobstation
+  - !type:DepartmentTimeRequirement
+    department: Command # Goobstation
+    time: 10800 # 3h
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
@@ -138,19 +140,19 @@
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicate
     mask: ClothingMaskGasSyndicate
-    eyes: ClothingEyesHudSyndicate
+    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDA
+    id: NukieAgentIDCard # Goobstation
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:
     back:
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    - DeathAcidifierImplanter
+#    - DeathAcidifierImplanter # Goobstation
 
 #Nuclear Operative Gear
 - type: startingGear
@@ -176,7 +178,7 @@
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
     back: ClothingBackpackDuffelSyndicateMedical # Goobstation
-    eyes: ClothingEyesHudSyndicateAgent
+    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
@@ -192,7 +194,7 @@
     - PinpointerSyndicateNuclear
     #- HandheldHealthAnalyzer # Goobstation
     - CombatMedipen
-    - DeathAcidifierImplanter
+#    - DeathAcidifierImplanter - Goobstation
     - MedkitCombatFilled # Goobstation
 
 #Lone Operative Gear
