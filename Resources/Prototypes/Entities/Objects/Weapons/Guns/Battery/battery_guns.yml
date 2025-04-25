@@ -664,6 +664,7 @@
     - Taser
     - Sidearm
   - type: PacifismAllowedGun
+  - type: OniAllowedGun # Goobstation
 
 
 - type: entity
