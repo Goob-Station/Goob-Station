@@ -100,6 +100,8 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-objective
   requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 90000 # 25 hours - Goobstation
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
@@ -112,6 +114,8 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 90000 # 25 hours - Goobstation
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
@@ -119,6 +123,7 @@
     role: JobChemist
     time: 10800 # 3h
   guides: [ NuclearOperatives ]
+
 - type: antag
   id: NukeopsCommander
   name: roles-antag-nuclear-operative-commander-name
@@ -126,6 +131,8 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 90000 # 25 hours - Goobstation
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
