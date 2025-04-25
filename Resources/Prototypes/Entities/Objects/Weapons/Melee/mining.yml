@@ -99,6 +99,7 @@
     damage:
       groups:
         Brute: 5
+    armorPenetration: -0.5 # Goobstation
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:

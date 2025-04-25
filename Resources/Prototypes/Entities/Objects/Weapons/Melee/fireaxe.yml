@@ -66,10 +66,13 @@
       types:
         # axes are kinda like sharp hammers, you know?
         Blunt: 5
-        Slash: 10
+        Slash: 5
         Structural: 10
     soundHit:
       collection: MetalThud
+    armorPenetration: .25 # Goobstation
+    clickPartDamageMultiplier: 2 # Goobstation
+    heavyPartDamageMultiplier: 1 # Goobstation
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -109,6 +112,9 @@
     enchants:
     - EnchantFireAspect
     - EnchantSharpness
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.6 # goob edit
+    sprintModifier: 0.6 # goob edit
 
 - type: entity
   id: FireAxeFlaming
@@ -120,6 +126,11 @@
     wideAnimationRotation: 90
     heavyStaminaCost: 35 # goob edit
     attackRate: 0.5  # goob edit
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+        Structural: 60
   - type: IgniteOnMeleeHit
     fireStacks: 5 #Goobchange
   - type: Sprite
@@ -134,3 +145,6 @@
   - type: Tool
     qualities:
       - Prying
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8 # goob edit
+    sprintModifier: 0.8 # goob edit

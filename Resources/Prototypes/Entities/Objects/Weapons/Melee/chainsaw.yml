@@ -39,13 +39,15 @@
     attackRate: 4
     damage:
       types:
-        Slash: 2
-        Blunt: 2
+        Slash: 1 #Goob
+        Blunt: 1 #Goob
         Structural: 4
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
         volume: -3
+    clickPartDamageMultiplier: 2 # Goobstation
+    heavyPartDamageMultiplier: 1 # Goobstation
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -73,3 +75,6 @@
       path: /Audio/Weapons/chainsawwield.ogg
     endSound:
       path: /Audio/Weapons/chainsaw.ogg
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8 # goob edit
+    sprintModifier: 0.8 # goob edit

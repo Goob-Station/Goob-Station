@@ -43,6 +43,8 @@
     damage:
       types:
         Slash: 6
+    clickPartDamageMultiplier: .25 # Goobstation
+    heavyPartDamageMultiplier: .25 # Goobstation
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
 
@@ -63,6 +65,8 @@
     damage:
       types:
         Slash: 7
+    clickPartDamageMultiplier: .25 # Goobstation
+    heavyPartDamageMultiplier: .25 # Goobstation
   - type: Item
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     storedRotation: -90
@@ -91,6 +95,8 @@
     damage:
       types:
         Slash: 10
+    armorPenetration: -.75
+    clickPartDamageMultiplier: 1.5 # Goobstation
   - type: Item
     size: Normal
   - type: Clothing
@@ -120,6 +126,8 @@
       types:
         Slash: 8
         Piercing: 2
+    armorPenetration: -.75
+    clickPartDamageMultiplier: 1.5 # Goobstation
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
   - type: BoneSaw # Shitmed
@@ -146,6 +154,9 @@
       types:
         Blunt: 8
         Piercing: 2 # I guess you can stab it into them?
+    armorPenetration: -.75
+    clickPartDamageMultiplier: .25 # Goobstation
+    heavyPartDamageMultiplier: .25 # Goobstation
     soundHit:
       collection: MetalThud
   - type: Item

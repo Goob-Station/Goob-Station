@@ -25,6 +25,9 @@
         Structural: 10
     soundHit:
       collection: MetalThud
+    armorPenetration: .1 # Goobstation
+    clickPartDamageMultiplier: 0.25 # Goobstation
+    heavyPartDamageMultiplier: 0.25 # Goobstation
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -33,6 +36,9 @@
         Structural: 10
   - type: Item
     size: Large
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.6 # goob edit
+    sprintModifier: 0.6 # goob edit
 
 - type: entity
   id: Mjollnir

@@ -466,12 +466,12 @@
     price: 100
   - type: MeleeWeapon
     wideAnimationRotation: -90
-    attackRate: 1.5
+    attackRate: 1 #Goob
     animationRotation: 90 # WWDP
     range: 1.4
     damage:
       types:
-        Piercing: 10
+        Piercing: 8 #Goob
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
   - type: Tending # Shitmed
@@ -707,7 +707,7 @@
     wideAnimationRotation: 45
     damage:
       types:
-        Blunt: 14
+        Blunt: 10 #Goob
     soundHit:
       collection: MetalThud
   - type: Item

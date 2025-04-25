@@ -28,6 +28,8 @@
     attackRate: 1.5
     damage:
       types:
-        Blunt: 20
+        Blunt: 12
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
+    clickPartDamageMultiplier: .25 #Goob
+    heavyPartDamageMultiplier: .25 #Goob

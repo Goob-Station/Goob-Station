@@ -24,6 +24,9 @@
         Slash: 10
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
+    armorPenetration: -.5 # Goobstation
+    clickPartDamageMultiplier: 2.5 # Goobstation
+    heavyPartDamageMultiplier: 1 # Goobstation
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/cane_blade.rsi

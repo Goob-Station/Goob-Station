@@ -25,16 +25,17 @@
     attackRate: 0.75
     damage:
       types:
-        Blunt: 10
-        Slash: 5
+        Blunt: 1
         Structural: 10
     soundHit:
       collection: MetalThud
+    clickPartDamageMultiplier: .25
+    heavyPartDamageMultiplier: .25
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10
+        Blunt: 1
         Structural: 40
   - type: Item
     size: Huge
@@ -71,5 +72,8 @@
       - ReagentId: Amatoxin
         Quantity: 5
   - type: MeleeChemicalInjector
-    transferAmount: 5
+    transferAmount: 2.5
     solution: melee
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.8 # goob edit
+    sprintModifier: 0.8 # goob edit

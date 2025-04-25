@@ -55,10 +55,13 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10
+        Blunt: 7 #Goob
         Structural: 5
     soundHit:
       collection: MetalThud
+    armorPenetration: 0.2
+    clickPartDamageMultiplier: .25 # Goobstation
+    heavyPartDamageMultiplier: .25 # Goobstation
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -68,7 +71,9 @@
   - type: StaminaDamageOnHit # goob - bat makes you hurt and tired (but not as much as the real stun stick)
     damage: 7.5 # goob - 9 hits to stamcrit someone with armor vest + helmet
   - type: Item
-    size: Normal
+    size: Large # goobstation
+    shape:
+      - 0,0,4,1
   - type: Tool
     qualities:
     - Rolling
@@ -89,6 +94,12 @@
     tags:
     - BaseballBat
   - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9 # goob edit
+    sprintModifier: 0.9 # goob edit
+  - type: MeleeThrowOnHit
+    distance: 1 # Goobstation
+    speed: 2
 
 - type: entity
   name: incomplete baseball bat

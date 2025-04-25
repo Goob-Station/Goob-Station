@@ -194,6 +194,7 @@
       types:
         Blunt: 4.5
     clickPartDamageMultiplier: 4 #goob content
+    armorPenetration: -.5 # Goobstation
   - type: Item
     size: Small
   - type: UseDelay
@@ -354,6 +355,9 @@
       types:
         Slash: 10
         Heat: 10
+    armorPenetration: -.75 # Goobstation
+    clickPartDamageMultiplier: 1.5 # Goobstation
+    heavyPartDamageMultiplier: 1 # Goobstation
   - type: ComponentToggler
     components:
     - type: Sharp

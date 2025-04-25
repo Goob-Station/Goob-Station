@@ -152,7 +152,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
+        Blunt: 5 #Goob
     soundHit:
       collection: MetalThud
   - type: Spillable
@@ -161,7 +161,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 5
+        Blunt: 7 # Goob
   - type: Item
     size: Large
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -184,6 +184,9 @@
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9 # goob edit
+    sprintModifier: 0.9 # goob edit
 
 - type: entity
   parent: BaseItem
@@ -207,7 +210,7 @@
     - type: MeleeWeapon
       damage:
         types:
-          Blunt: 10
+          Blunt: 5 #Goob
       soundHit:
          collection: MetalThud
     - type: Spillable
@@ -216,7 +219,7 @@
     - type: IncreaseDamageOnWield
       damage:
         types:
-          Blunt: 5
+          Blunt: 7 #Goob
     - type: Item
       size: Large
       sprite: Objects/Specific/Janitorial/advmop.rsi

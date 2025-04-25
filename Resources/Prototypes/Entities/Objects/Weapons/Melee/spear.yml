@@ -107,7 +107,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 12
+        Piercing: 8
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -118,6 +118,8 @@
         Piercing: 15
   - type: Item
     size: Large # goobstation
+    shape:
+      - 0,0,7,0
   - type: Clothing
     quickEquip: false
     slots:
@@ -189,7 +191,9 @@
     equippedMaxFillLevels: 1
   - type: ThrowableBlocked # Goobstation
   - type: UndetectableContraband #Goobstation-Contraband detector
-
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.9 # goob edit
+    sprintModifier: 0.9 # goob edit
 
 - type: entity
   name: reinforced spear
@@ -204,7 +208,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 15
+        Piercing: 9
   - type: DamageOtherOnHit
     damage:
       types:
@@ -225,7 +229,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 18
+        Piercing: 10
   - type: DamageOtherOnHit
     damage:
       types:
@@ -246,7 +250,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 10
+        Piercing: 2
         Radiation: 8
   - type: DamageOtherOnHit
     damage:
