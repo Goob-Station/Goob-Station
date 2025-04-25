@@ -13,6 +13,7 @@
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -47,6 +48,7 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -75,6 +77,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleHorrorFormEvent>(OnToggleHorrorForm);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, StingReagentEvent>(OnStingReagent);
         SubscribeLocalEvent<ChangelingIdentityComponent, StingTransformEvent>(OnStingTransform);
@@ -529,6 +532,17 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
         _speed.RefreshMovementSpeedModifiers(uid);
+    }
+
+    private void OnToggleHorrorForm(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleHorrorFormEvent args)
+    {
+        if (!TryUseAbility(uid, comp, args))
+            return;
+
+        var abomination = _polymorph.PolymorphEntity(uid, "MobChangelingShamblingAbomination");
+        if (abomination == null)
+            return;
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/sound_voice_creepyshriek.ogg"), abomination.Value, AudioParams.Default.WithVolume(2f));
     }
 
     #endregion

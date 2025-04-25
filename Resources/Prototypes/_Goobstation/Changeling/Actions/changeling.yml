@@ -27,6 +27,7 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -334,6 +335,24 @@
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+
+- type: entity
+  id: ActionToggleHorrorForm
+  name: Horror Form
+  description: Become something much more powerful.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: horror_form
+    event: !type:ToggleHorrorFormEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: false
 
 # stings
 - type: entity

@@ -50,6 +50,11 @@ changeling-stasis-exit = You exit regenerative stasis
 changeling-stasis-exit-fail = We're not in a stasis!
 changeling-stasis-exit-fail-dead = Can't exit stasis!
 
+changeling-horrorform-enter = You feel your flesh twisting and tearing as you unleash your true form.
+changeling-horrorform-enter-fail = Can't transform into your true form!
+changeling-horrorform-exit = Your flesh mends itself together as you go back into hiding.
+
+
 changeling-fail-hands = Need to drop something beforehand
 
 changeling-muscles-start = Your body feels a lot lighter
