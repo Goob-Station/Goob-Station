@@ -57,6 +57,13 @@ public sealed partial class ToolComponent : Component
 
     [DataField]
     public SoundSpecifier? UseSound;
+
+    // Goobstation
+    /// <summary>
+    ///     Whether to check doafter validity every tick even if we don't satisfy the usual conditions.
+    /// </summary>
+    [DataField]
+    public bool AlwaysCheckDoAfter = false;
 }
 
 /// <summary>

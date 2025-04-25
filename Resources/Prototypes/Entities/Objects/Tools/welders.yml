@@ -188,6 +188,7 @@
           Quantity: 100
         maxVol: 100
   - type: Tool
+    alwaysCheckDoAfter: true # Goobstation
     useSound:
       collection: Welder
     qualities:
