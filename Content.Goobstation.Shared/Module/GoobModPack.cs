@@ -10,6 +10,5 @@ public sealed class GoobModPack : ModulePack
     {
         RequiredAssembly.ForClient("Content.Goobstation.Client"),
         RequiredAssembly.ForServer("Content.Goobstation.Server"),
-        RequiredAssembly.ForBoth("Content.Goobstation.Common"),
     };
 }
