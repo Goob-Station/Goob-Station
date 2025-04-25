@@ -240,12 +240,11 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
-        if (!TryDoRitual(args.User, ent, (ProtoId<HereticRitualPrototype>) heretic.ChosenRitual))
+        if (!TryDoRitual(args.User, ent, heretic.ChosenRitual.Value))
             return;
 
-        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
-        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, args.User);
-        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+        if (_proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation)
+            RitualSuccess(ent, args.User);
     }
 
     private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)
@@ -256,5 +255,12 @@ public sealed partial class HereticRitualSystem : EntitySystem
         var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;
         var name = ritual != null ? Loc.GetString(ritual) : "None";
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
+    }
+
+    public void RitualSuccess(EntityUid ent, EntityUid user)
+    {
+        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
+        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
     }
 }

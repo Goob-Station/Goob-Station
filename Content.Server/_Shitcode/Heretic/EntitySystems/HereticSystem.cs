@@ -28,6 +28,7 @@ using Content.Server.Actions;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
+using Content.Shared.GameTicking;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Random.Helpers;
@@ -53,8 +54,8 @@ public sealed class HereticSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
-    private float _timer = 0f;
-    private float _passivePointCooldown = 20f * 60f;
+    private float _timer;
+    private const float PassivePointCooldown = 20f * 60f;
 
     public override void Initialize()
     {
@@ -65,6 +66,13 @@ public sealed class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
+
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
+    }
+
+    private void OnRestart(RoundRestartCleanupEvent ev)
+    {
+        _timer = 0f;
     }
 
     public override void Update(float frameTime)
@@ -73,7 +81,7 @@ public sealed class HereticSystem : EntitySystem
 
         _timer += frameTime;
 
-        if (_timer < _passivePointCooldown)
+        if (_timer < PassivePointCooldown)
             return;
 
         _timer = 0f;
@@ -85,9 +93,9 @@ public sealed class HereticSystem : EntitySystem
         }
     }
 
-    public void UpdateKnowledge(EntityUid uid, HereticComponent comp, float amount)
+    public void UpdateKnowledge(EntityUid uid, HereticComponent comp, float amount, StoreComponent? store = null)
     {
-        if (TryComp<StoreComponent>(uid, out var store))
+        if (Resolve(uid, ref store, false))
         {
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "KnowledgePoint", amount } }, uid, store);
             _store.UpdateUserInterface(uid, uid, store);
@@ -251,10 +259,13 @@ public sealed class HereticSystem : EntitySystem
     private void OnAscension(Entity<HereticComponent> ent, ref EventHereticAscension args)
     {
         // you've already ascended, man.
-        if (ent.Comp.Ascended)
+        if (ent.Comp.Ascended || !ent.Comp.CanAscend)
             return;
 
         ent.Comp.Ascended = true;
+        ent.Comp.KnownRituals.Remove("FeastOfOwls");
+        ent.Comp.ChosenRitual = null;
+        Dirty(ent);
 
         // how???
         if (ent.Comp.CurrentPath == null)

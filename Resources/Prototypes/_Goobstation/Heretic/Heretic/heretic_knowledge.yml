@@ -63,6 +63,11 @@
   ritualPrototypes:
   - Reminiscence
 
+- type: hereticKnowledge
+  id: FeastOfOwls
+  ritualPrototypes:
+  - FeastOfOwls
+
 ### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret

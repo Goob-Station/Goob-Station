@@ -34,6 +34,7 @@ public sealed partial class HereticComponent : Component
         "CodexCicatrix",
         "CloakOfShadow",
         "Reminiscence",
+        "FeastOfOwls",
     };
 
     [DataField, AutoNetworkedField]
@@ -70,6 +71,9 @@ public sealed partial class HereticComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Ascended;
+
+    [DataField, AutoNetworkedField]
+    public bool CanAscend = true;
 
     [DataField]
     public ProtoId<DatasetPrototype> KnowledgeDataset = "EligibleTags";

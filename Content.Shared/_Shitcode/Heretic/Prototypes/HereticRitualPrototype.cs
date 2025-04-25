@@ -67,6 +67,12 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// </summary>
     [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon");
 
+    /// <summary>
+    ///     Whether rune should play success animation on ritual success.
+    /// </summary>
+    [DataField]
+    public bool RuneSuccessAnimation = true;
+
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
     public object Clone()
     {

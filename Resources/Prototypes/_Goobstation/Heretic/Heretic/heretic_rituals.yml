@@ -77,6 +77,18 @@
   requiredTags:
     Chair: 1
 
+- type: hereticRitual
+  id: FeastOfOwls
+  locName: heretic-ritual-basic-owls
+  locDesc: heretic-ritual-basic-owls-desc
+  runeSuccessAnimation: false
+  icon:
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: god_transmit
+  customBehaviors:
+  - !type:RitualCanAscend
+  - !type:RitualFeastOfOwlsBehavior
+
 ### ash path
 - type: hereticRitual
   id: BladeAsh
@@ -114,6 +126,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: ashlord_rite2
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualAshAscendBehavior
     min: 3
     max: 3
@@ -142,6 +155,7 @@
     sprite: _Goobstation/Heretic/items.rsi
     state: protective_blade
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualBladeAscendBehavior
     min: 3
     max: 3
@@ -218,6 +232,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: final_hymn
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
     min: 4
     max: 4
@@ -250,6 +265,7 @@
     sprite: Interface/Alerts/temperature.rsi
     state: cold3
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualSacrificeBehavior
     min: 3
     max: 3
@@ -281,6 +297,7 @@
     sprite: _Goobstation/Heretic/abilities_heretic.rsi
     state: ascension_rust
   customBehaviors:
+  - !type:RitualCanAscend
   - !type:RitualRustAscendBehavior
     min: 3
     max: 3

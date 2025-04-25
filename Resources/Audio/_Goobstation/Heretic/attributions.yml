@@ -39,6 +39,11 @@
   copyright: "Taken from /tg/station"
   source: "https://github.com/tgstation/tgstation/tree/master/sound/items/sheath.ogg"
 
+- files: ["eatfood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/tree/master/sound/items/eatfood.ogg"
+
 - files: ["parry.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from /tg/station"
