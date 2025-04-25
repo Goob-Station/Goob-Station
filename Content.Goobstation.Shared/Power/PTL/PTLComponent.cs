@@ -28,5 +28,5 @@ public sealed partial class PTLComponent : Component
     /// <summary>
     ///     Amount of power required to start emitting radiation and blinding people that come nearby
     /// </summary>
-    [DataField] public double PowerEvilThreshold = (50 * 1e6); // 50 MJ;
+    [DataField] public double PowerEvilThreshold = 50; // 50 MJ;
 }
