@@ -33,10 +33,17 @@ public sealed partial class HisGraceComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public int EntitiesAbsorbed;
 
+    public int Hunger
+    {
+        get => _hunger;
+        set => _hunger = Math.Max(value, 0);
+    }
+
     /// <summary>
     /// The current hunger of His Grace.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)] public int Hunger;
+    [ViewVariables(VVAccess.ReadWrite)]
+    private int _hunger;
 
     /// <summary>
     /// When the next hunger tick is.
@@ -60,7 +67,7 @@ public sealed partial class HisGraceComponent : Component
     /// The hunger given by an entity is their critical state threshold times this number.
     /// </summary>
     [DataField]
-    public FixedPoint2 HungerOnDevourMultiplier = 0.2;
+    public float HungerOnDevourMultiplier = 0.2f;
 
     /// <summary>
     /// The default hunger given, if no state can be found.
@@ -75,8 +82,11 @@ public sealed partial class HisGraceComponent : Component
     [DataField]
     public float SpeedAddition = 0.2f;
 
+    /// <summary>
+    /// How many entities do you need to consume to ascend?
+    /// </summary>
     [DataField]
-    public int AscensionThreshold = 25;
+    public int AscensionThreshold = 2; // testing
 
     /// <summary>
     /// How much the damage is currently increased by.
@@ -161,13 +171,22 @@ public sealed partial class HisGraceComponent : Component
     public List<KeyValuePair<HisGraceState,(int Threshold, int Increment)>> OrderedStates = [];
 
     /// <summary>
-    /// The damage set the user is set to when ascended.
+    /// The damage coeficcient the user uses when ascended.
     /// </summary>
     [DataField]
     public float AscensionDamageCoefficient = 0.4f;
 
+    /// <summary>
+    /// The damage coeficcient the user uses when not ascended.
+    /// </summary>
     [DataField]
     public float DefaultDamageCoefficient = 0.7f;
+
+    [DataField]
+    public SoundSpecifier AscendSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/hisgrace_ascension.ogg")
+    {
+        Params = AudioParams.Default.WithVolume(2f),
+    };
 }
 
 public enum HisGraceState : byte

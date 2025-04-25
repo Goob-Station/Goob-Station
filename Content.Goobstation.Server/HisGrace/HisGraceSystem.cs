@@ -7,6 +7,7 @@ using System.Linq;
 using Content.Goobstation.Shared.HisGrace;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.Components;
+using Content.Server.Chat.Systems;
 using Content.Server.Item;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -33,6 +34,7 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -53,6 +55,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     [Dependency] private readonly MindSystem _mind = null!;
     [Dependency] private readonly StunSystem _stun = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
+    [Dependency] private readonly ChatSystem _chat = null!;
 
     public override void Initialize()
     {
@@ -156,7 +159,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (!TryComp<HisGraceUserComponent>(comp.User, out var userComp))
             return;
 
-        if (args.NewState == HisGraceState.Ascended && args.OldState != HisGraceState.Ascended && TryComp<AppearanceComponent>(uid, out var appearanceComponent))
+        if (args.NewState == HisGraceState.Ascended && args.OldState != HisGraceState.Ascended)
         {
             EnsureComp<UnremoveableComponent>(uid);
             DoAscension(comp);
@@ -247,7 +250,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             if (hisGrace.CurrentState is HisGraceState.Dormant or HisGraceState.Death or HisGraceState.Ascended)
                 continue;
 
-            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(hisGrace.User))
+            if (TerminatingOrDeleted(uid) || hisGrace.User is not { } user)
             {
                 hisGrace.CurrentState = HisGraceState.Dormant;
                 continue;
@@ -256,11 +259,11 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             var nearbyEnts = _lookup.GetEntitiesInRange(uid, 1f);
 
             // Handle damaging user if too far away.
-            if (hisGrace.User != null && !nearbyEnts.Contains(hisGrace.User.Value) && _timing.CurTime > hisGrace.NextUserAttack)
+            if (!nearbyEnts.Contains(hisGrace.User.Value) && _timing.CurTime > hisGrace.NextUserAttack)
             {
                 var popUp = Loc.GetString("hisgrace-too-far");
-                _popup.PopupEntity(popUp, hisGrace.User.Value, hisGrace.User.Value, PopupType.LargeCaution);
-                _damageable.TryChangeDamage(hisGrace.User.Value, hisGrace.BaseDamage, targetPart: TargetBodyPart.Head, ignoreResistances: true);
+                _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
+                _damageable.TryChangeDamage(user, hisGrace.BaseDamage, targetPart: TargetBodyPart.Head, ignoreResistances: true);
 
                 hisGrace.NextUserAttack = _timing.CurTime + hisGrace.TickDelay;
             }
@@ -268,7 +271,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             // Handle attacking when not held
             if (!hisGrace.IsHeld || hisGrace.Holder != hisGrace.User)
             {
-                foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity) && entity != hisGrace.User
+                foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity) && entity != user
                              &&  _timing.CurTime > hisGrace.NextGroundAttack
                              && !TerminatingOrDeleted(entity)
                              && !_containerSystem.IsEntityOrParentInContainer(entity)))
@@ -315,15 +318,11 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             if (hisGrace.NextHungerTick > _timing.CurTime)
                 continue;
 
-            if (!TerminatingOrDeleted(hisGrace.User))
-            {
-                _damageable.TryChangeDamage(hisGrace.User, hisGrace.Healing);
-                var stam = EnsureComp<StaminaComponent>(uid);
-                stam.StaminaDamage = 0; // fuck your stun meta
-            }
+            _damageable.TryChangeDamage(user, hisGrace.Healing);
+            var stam = EnsureComp<StaminaComponent>(user);
+            stam.StaminaDamage = 1; // fuck your stun meta
 
-
-            hisGrace.Hunger = Math.Clamp(hisGrace.Hunger + hisGrace.HungerIncrement, 0, 200);
+            hisGrace.Hunger += hisGrace.HungerIncrement;
             hisGrace.NextHungerTick = _timing.CurTime + hisGrace.TickDelay;
         }
 
@@ -345,6 +344,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         EnsureComp<PressureImmunityComponent>(user);
         EnsureComp<BreathingImmunityComponent>(user);
 
+        _chat.DispatchGlobalAnnouncement(Loc.GetString("hisgrace-ascension-announcement"), Name(user), true, comp.AscendSound, Color.PaleGoldenrod);
     }
 
     private void ChangeState(HisGraceComponent comp, HisGraceState newState)
@@ -391,7 +391,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
         // hunger value is equal to the mutiplier times the crit threshold.
         // this is twenty for humans
-        return comp.HungerOnDevourMultiplier * criticalThreshold.Value;
+        return comp.HungerOnDevourMultiplier * criticalThreshold;
     }
 
     #endregion
