@@ -218,9 +218,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
         /* Goobstation
            Save the name of the pAI.*/
         if (HasComp<PAIComponent>(args.Entity))
-        {
             pAIName = $" ({Name(args.Entity)})";
-        }
         if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind) && args.Container == component.BrainContainer)
         {
             _mind.TransferTo(mindId, uid, mind: mind);
@@ -230,9 +228,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
              */
         }
         if (pAIName != null)
-        {
             _metaData.SetEntityName(args.Container.Owner, $"pOrg{pAIName}");
-        }
     }
 
     protected override void OnRemoved(EntityUid uid, BorgChassisComponent component, EntRemovedFromContainerMessage args)
@@ -244,9 +240,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
         if (HasComp<PAIComponent>(args.Entity)) // GoobStation (again, pOrg specific due to no reason to change it)
-        {
             _metaData.SetEntityName(args.Container.Owner, "pOrg");
-        }
         if (HasComp<ActiveInstrumentComponent>(uid))
             _instrumentSystem.ToggleInstrumentUi(uid, uid);
         if (TryComp<InstrumentComponent>(uid, out var instrument))
@@ -375,22 +369,20 @@ public sealed partial class BorgSystem : SharedBorgSystem
     public void BorgActivate(EntityUid uid, BorgChassisComponent component)
     {
         // Goobstation set pOrg name if a pAI wakes up inside it
-        if (_container.TryGetContainer(uid, component.BrainContainerId, out var brainContainer))
+        if (!_container.TryGetContainer(uid, component.BrainContainerId, out var brainContainer))
+            return;
+        foreach (var containedEntity in brainContainer.ContainedEntities)
         {
-            foreach (var containedEntity in brainContainer.ContainedEntities)
+            if (!TryComp<PAIComponent>(containedEntity, out var paiComponent))
+                return;
+            string? pAIName = null;
+            if (paiComponent.LastUser != null)
             {
-                if (TryComp<PAIComponent>(containedEntity, out var paiComponent))
-                {
-                    string? pAIName = null;
-                    if (paiComponent.LastUser != null)
-                    {
-                        var userName = Name(paiComponent.LastUser.Value);
-                        if (!string.IsNullOrWhiteSpace(userName))
-                            pAIName = $" ({userName}'s pAI)";
-                    }
-                    _metaData.SetEntityName(uid, $"pOrg{pAIName}");
-                }
+                var userName = Name(paiComponent.LastUser.Value);
+                if (!string.IsNullOrWhiteSpace(userName))
+                    pAIName = $" ({userName}'s pAI)";
             }
+            _metaData.SetEntityName(uid, $"pOrg{pAIName}");
         }
 
 
@@ -417,11 +409,10 @@ public sealed partial class BorgSystem : SharedBorgSystem
         {
             foreach (var containedEntity in brainContainer.ContainedEntities)
             {
-                if (HasComp<PAIComponent>(containedEntity))
-                {
-                    _metaData.SetEntityName(uid, $"pOrg (personal ai device)");
-                    break;
-                }
+                if (!HasComp<PAIComponent>(containedEntity))
+                    return;
+                _metaData.SetEntityName(uid, $"pOrg (personal ai device)");
+                break;
             }
         }
         if (HasComp<ActiveInstrumentComponent>(uid))
