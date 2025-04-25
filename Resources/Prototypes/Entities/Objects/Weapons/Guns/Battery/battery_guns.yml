@@ -138,6 +138,7 @@
 # SPDX-FileCopyrightText: 2025 gaussiarson-admin <stephenkitchens0306@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -271,6 +272,7 @@
     steps: 5
     zeroVisible: true
   - type: Multishot # Goobstation
+    spreadAddition: 10
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 500
@@ -299,6 +301,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: makeshift laser pistol
@@ -328,6 +331,7 @@
     maxCharge: 500
     startingCharge: 500
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: tesla gun
@@ -440,6 +444,7 @@
     maxCharge: 2000
     startingCharge: 2000
   - type: Multishot # Goobstation
+    spreadAddition: 10
   - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
     autoRecharge: true
     autoRechargeRate: 40
@@ -648,12 +653,12 @@
     price: 100
   - type: Gun
     fireRate: 2
-    projectileSpeed: 35 # any higher and this causes issues in lag
+    #projectileSpeed: 35 # Goobstation - nuh uh
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 25 # Goob edit
+    fireCost: 25 # Goobstation - billions must troll with practice disabler
   - type: Tag
     tags:
     - Taser
@@ -812,6 +817,8 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
+  - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: advanced laser pistol
@@ -848,6 +855,7 @@
   - type: StaticPrice
     price: 63
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: C.H.I.M.P. handcannon
