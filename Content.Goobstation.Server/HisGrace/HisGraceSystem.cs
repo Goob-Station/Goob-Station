@@ -52,9 +52,6 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     [Dependency] private readonly StunSystem _stun = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
 
-    private readonly ProtoId<DamageModifierSetPrototype> _ascensionDamageSet = new("HisGraceAscended");
-    private List<KeyValuePair<HisGraceState,(int Threshold, int Increment)>> _orderedStates = []; // states ordered ascending
-
     public override void Initialize()
     {
         base.Initialize();
@@ -77,8 +74,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             return;
 
         component.BaseDamage = melee.Damage;
-
-        _orderedStates = component.StateThresholds.OrderBy(t => t.Value.Threshold).ToList();
+        component.OrderedStates = component.StateThresholds.OrderBy(t => t.Value.Threshold).ToList();
     }
 
     private void OnEquipped(EntityUid uid, HisGraceComponent component, ref GotEquippedHandEvent args)
@@ -123,7 +119,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     {
         comp.EntitiesAbsorbed++;
 
-        if (comp.EntitiesAbsorbed >= 25)
+        if (comp.EntitiesAbsorbed >= comp.AscensionThreshold)
             ChangeState(comp, HisGraceState.Ascended);
 
         if (!TryComp<MeleeWeaponComponent>(uid, out var melee))
@@ -192,7 +188,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             {
                 RemComp<UnremoveableComponent>(uid);
                 RemComp<JitteringComponent>(uid);
-                userComp.SpeedMultiplier = 1.2f;
+                userComp.SpeedMultiplier = userComp.BaseSpeedMultiplier;
+                userComp.SpeedMultiplier += comp.SpeedAddition;
 
                 break;
             }
@@ -202,7 +199,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             {
                 EnsureComp<UnremoveableComponent>(uid);
                 EnsureComp<JitteringComponent>(uid);
-                userComp.SpeedMultiplier = 1.4f;
+                userComp.SpeedMultiplier = userComp.BaseSpeedMultiplier;
+                userComp.SpeedMultiplier += comp.SpeedAddition * 2;
                 break;
             }
 
@@ -234,7 +232,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
                 continue;
 
             if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(hisGrace.User))
+            {
+                hisGrace.CurrentState = HisGraceState.Dormant;
                 continue;
+            }
 
             var nearbyEnts = _lookup.GetEntitiesInRange(uid, 1f);
 
@@ -272,11 +273,12 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             }
 
             // Update hunger based on threshold.
+            var downgradeNeeded = hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold)
+                                  && hisGrace.Hunger < currentThreshold.Threshold;
 
-            var downgradeNeeded = hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold) && hisGrace.Hunger < currentThreshold.Threshold;
-            for (var i = _orderedStates.Count - 1; i >= 0; i--)
+            for (var i = hisGrace.OrderedStates.Count - 1; i >= 0; i--)
             {
-                var threshold = _orderedStates[i];
+                var threshold = hisGrace.OrderedStates[i];
                 if (threshold.Key > hisGrace.CurrentState)
                 {
                     if (hisGrace.Hunger >= threshold.Value.Threshold)
@@ -322,7 +324,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         EnsureComp<PressureImmunityComponent>(user);
         EnsureComp<BreathingImmunityComponent>(user);
 
-        _damageable.SetDamageModifierSetId(user, _ascensionDamageSet);
+        _damageable.SetDamageModifierSetId(user, comp.AscensionDamageSet);
 
     }
 
@@ -341,7 +343,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             return false;
 
         // Hunger gained from eating an entity is 20% of their
-        comp.Hunger -= GetHungerValue(target, comp).Int();
+        comp.Hunger -= GetHungerValue(target, comp).Value;
 
         var devourPopup = Loc.GetString("hisgrace-devour", ("target", Name(target)));
         _audio.PlayPvs(comp.SoundDevour, target);
@@ -350,31 +352,27 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         // don't apply bonuses for enities consumed that don't have minds or aren't human (no farming sentient mice)
         if (_mind.TryGetMind(target, out _, out _) && HasComp<HumanoidAppearanceComponent>(target))
         {
-            // ignored for testing
+            var ev = new HisGraceEntityConsumedEvent();
+            RaiseLocalEvent(comp.Owner, ref ev);
         }
-
-        var ev = new HisGraceEntityConsumedEvent();
-        RaiseLocalEvent(comp.Owner, ref ev);
 
         return true;
     }
 
     private FixedPoint2 GetHungerValue(EntityUid target, HisGraceComponent comp)
     {
-        FixedPoint2 hungerValue = 5;
-
         if (!TryComp<MobThresholdsComponent>(target, out var mobThresholds))
-            return hungerValue;
+            return comp.HungerOnDevourDefault;
 
         var thresholds = mobThresholds.Thresholds;
         var (criticalThreshold, value) = thresholds.FirstOrDefault(kvp => kvp.Value == MobState.Critical);
 
         if (value != MobState.Critical)
-            return hungerValue;
+            return comp.HungerOnDevourDefault;
 
-        hungerValue = comp.HungerOnDevourMultiplier * criticalThreshold;
-
-        return hungerValue;
+        // hunger value is equal to the mutiplier times the crit threshold.
+        // this is twenty for humans
+        return comp.HungerOnDevourMultiplier * criticalThreshold.Value;
     }
 
     #endregion

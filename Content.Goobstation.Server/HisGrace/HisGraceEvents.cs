@@ -18,4 +18,4 @@ public record struct HisGraceHungerChangedEvent(HisGraceState NewState, HisGrace
 /// Raised on His Grace when an entity is consumed
 /// </summary>
 [ByRefEvent]
-public record struct HisGraceEntityConsumedEvent();
+public record struct HisGraceEntityConsumedEvent;

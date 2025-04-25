@@ -5,8 +5,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.HisGrace;
 
@@ -59,6 +61,22 @@ public sealed partial class HisGraceComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 HungerOnDevourMultiplier = 0.2;
+
+    /// <summary>
+    /// The default hunger given, if no state can be found.
+    /// </summary>
+    [DataField]
+    public int HungerOnDevourDefault = 5;
+
+    /// <summary>
+    /// This amount of speed is added to the target for every level of hunger they gain.
+    /// The hungrier, the faster.
+    /// </summary>
+    [DataField]
+    public float SpeedAddition = 0.2f;
+
+    [DataField]
+    public int AscensionThreshold = 25;
 
     /// <summary>
     /// How much the damage is currently increased by.
@@ -135,6 +153,18 @@ public sealed partial class HisGraceComponent : Component
     {
         Params = AudioParams.Default.WithVolume(-3f),
     };
+
+    /// <summary>
+    /// The states ordered in ascending order.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public List<KeyValuePair<HisGraceState,(int Threshold, int Increment)>> OrderedStates = [];
+
+    /// <summary>
+    /// The damage set the user is set to when ascended.
+    /// </summary>
+    [DataField]
+    public ProtoId<DamageModifierSetPrototype> AscensionDamageSet = new("HisGraceAscended");
 }
 
 public enum HisGraceState : byte

@@ -9,9 +9,14 @@ namespace Content.Goobstation.Server.HisGrace;
 public sealed partial class HisGraceUserComponent : Component
 {
     /// <summary>
-    ///  The speed multiplier of His Grace.
+    ///  The current speed modifier of His Grace.
     /// </summary>
     [DataField]
     public float SpeedMultiplier = 1.2f;
 
+    /// <summary>
+    /// The initial speed modifier of His Grace.
+    /// </summary>
+    [DataField]
+    public float BaseSpeedMultiplier = 1.2f;
 }
