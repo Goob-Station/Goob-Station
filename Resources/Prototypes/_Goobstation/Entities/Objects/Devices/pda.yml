@@ -156,6 +156,9 @@
     state: pda-deathsquad
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
+  - type: PdaBorderColor
+    borderColor: "#04040a"
+    accentVColor: "#16bab5"
 
 - type: entity
   parent: CentcomPDA
