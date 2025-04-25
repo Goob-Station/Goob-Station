@@ -40,3 +40,4 @@ public sealed class JohnSystem : EntitySystem
             _tag.AddTag(uid, tag);
     }
 }
+
