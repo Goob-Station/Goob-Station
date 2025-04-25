@@ -24,7 +24,7 @@ public sealed class ClientBloodtrakSystem : SharedBloodtrakSystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<BloodtrakComponent, SpriteComponent>();
-        while (query.MoveNext(out var uid, out var pinpointer, out var sprite))
+        while (query.MoveNext(out var pinpointer, out var sprite))
         {
             if (!pinpointer.HasTarget)
                 continue;
