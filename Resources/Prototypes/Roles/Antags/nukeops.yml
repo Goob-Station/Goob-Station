@@ -121,7 +121,10 @@
     time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 10800 # 3h
+    time: 36000 # 10h Goobstation
+  - !type:RoleTimeRequirement
+    role: JobParamedic
+    time: 18000 # 5h Goobstation
   guides: [ NuclearOperatives ]
 
 - type: antag
