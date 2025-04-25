@@ -64,6 +64,8 @@ public sealed partial class PTLSystem : EntitySystem
 
         while (eqe.MoveNext(out var uid, out var ptl))
         {
+            if (!ptl.Active) continue;
+
             if (_time.CurTime > ptl.NextShotAt)
             {
                 ptl.NextShotAt = _time.CurTime + TimeSpan.FromSeconds(ptl.ShootDelay);
