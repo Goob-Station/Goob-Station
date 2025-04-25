@@ -7806,3 +7806,13 @@ Entries:
       message: Yowies now correctly get all gun wielding bonuses without wielding.
   id: 911
   time: '2025-04-25T02:25:48.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: 'All enchantments now related to anomaly cores. '
+    - type: Tweak
+      message: >-
+        Protection enchant max level decreased to 2. It also requires equipment
+        to have any armor to be applied.
+  id: 912
+  time: '2025-04-25T06:35:47.0000000+00:00'
