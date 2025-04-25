@@ -86,7 +86,7 @@ public sealed partial class HisGraceComponent : Component
     /// How many entities do you need to consume to ascend?
     /// </summary>
     [DataField]
-    public int AscensionThreshold = 2; // testing
+    public int AscensionThreshold = 25;
 
     /// <summary>
     /// How much the damage is currently increased by.
