@@ -7794,3 +7794,15 @@ Entries:
       message: Fixed token abductors. Maybe.
   id: 910
   time: '2025-04-25T02:02:59.0000000+00:00'
+- author: BombaserDS2, pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Dual-wielded weapons no longer shoot slower, but they will have a chance
+        to miss their shots.
+    - type: Fix
+      message: Dual-wielded weapons now actually respect firerate of each other.
+    - type: Fix
+      message: Yowies now correctly get all gun wielding bonuses without wielding.
+  id: 911
+  time: '2025-04-25T02:25:48.0000000+00:00'
