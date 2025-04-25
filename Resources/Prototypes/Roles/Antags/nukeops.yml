@@ -124,7 +124,7 @@
     time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
     role: JobParamedic
-    time: 18000 # 5h Goobstation
+    time: 7200 # 2h Goobstation
   guides: [ NuclearOperatives ]
 
 - type: antag
