@@ -22,6 +22,7 @@
     layers:
     - state: base
     - state: unpowered
+      shader: unshaded
       visible: true
     - state: charge_1
       shader: unshaded
