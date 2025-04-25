@@ -89,9 +89,6 @@ public sealed partial class PossessionSystem : EntitySystem
             coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
             _mind.TransferTo(comp.OriginalMindId, comp.OriginalEntity);
         }
-        // Uncross those beams. This shit is jank yo!
-        if (TryComp<ActorComponent>(comp.PossessorOriginalEntity, out var possessorActorComponent))
-            _mind.SetUserId(comp.PossessorMindId, possessorActorComponent.PlayerSession.UserId);
 
         // Paralyze, so you can't just magdump them.
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(10), false);
