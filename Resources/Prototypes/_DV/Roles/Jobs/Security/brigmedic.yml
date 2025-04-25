@@ -1,0 +1,56 @@
+- type: job
+  id: Brigmedic
+  name: job-name-brigmedic
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      min: 18000 # 4 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      min: 18000 # 4 hrs
+  startingGear: BrigmedicGear
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  goobcoins: 30 #Goob content
+  access:
+  - Medical
+  - Security
+  - Brig
+  - Maintenance
+  - External
+  - Brigmedic
+  extendedAccess:
+  - Chemistry
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial # goobstation
+    components:
+      - type: SecurityStaff
+  - !type:GiveItemOnHolidaySpecial
+    holiday: DoctorDay
+    prototype: WehMedipen
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      speedModifier: 2.0
+
+- type: startingGear
+  id: BrigmedicGear
+  equipment:
+    belt: ClothingBeltCorpsmanWebbingFilled
+    shoes: ClothingShoesColorRed
+    gloves: ClothingHandsGlovesNitrile
+    eyes: ClothingEyesGlassesMedSec
+    id: BrigmedicPDA
+    ears: ClothingHeadsetBrigmedic
+    pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+    - ClothingMaskGasSecurity # Goobstation
+    - HandheldCrewMonitor
