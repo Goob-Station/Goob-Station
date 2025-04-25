@@ -105,6 +105,7 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
+  goobcoins: 150 #Goob content
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -120,11 +121,9 @@
     department: Security
     time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
-    role: JobChemist
-    time: 36000 # 10h Goobstation
-  - !type:RoleTimeRequirement
-    role: JobParamedic
+    role: JobChiefMedicalOfficer
     time: 7200 # 2h Goobstation
+  goobcoins: 200 #Goob content
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -139,9 +138,10 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
-  - !type:DepartmentTimeRequirement
-    department: Command # Goobstation
-    time: 10800 # 3h
+  - !type:RoleTimeRequirement
+    role: JobCaptain
+    time: 3600 # 1h Goobstation
+  goobcoins: 200 #Goob content
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
