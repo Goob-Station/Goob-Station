@@ -8,8 +8,8 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitHawaiBlack
     eyes: ClothingEyesGlassesCheapSunglasses
-    shoes: ClothingShoesColorBrown
+    shoes: ClothingShoesFakeJordans
     head: ClothingHeadHatStrawHat
     id: VisitorPDA
-    back: ClothingBackpack
+    waist: ClothingBeltStorageWaistbag
     ears: ClothingHeadsetGrey
