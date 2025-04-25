@@ -598,6 +598,12 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_command_human
+  - type: GibThisGuy
+    requireBoth: false
+    icNames:
+    - Mike Saylor
+    ocNames:
+    - Mikedyne
 
 - type: entity
   parent: BasePlushie
@@ -756,3 +762,9 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Effects/pop_high.ogg
+  - type: GibThisGuy
+    requireBoth: false
+    icNames:
+    - Grub
+    ocNames:
+    - Muppet
