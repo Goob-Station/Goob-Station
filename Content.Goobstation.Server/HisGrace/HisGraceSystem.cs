@@ -18,6 +18,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
@@ -56,6 +57,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     [Dependency] private readonly StunSystem _stun = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
     [Dependency] private readonly ChatSystem _chat = null!;
+    [Dependency] private readonly StaminaSystem _stam = null!;
 
     public override void Initialize()
     {
@@ -87,12 +89,22 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     {
         component.IsHeld = true;
         component.Holder = args.User;
+
+        if (TryComp<StaminaComponent>(args.User, out var stamina))
+        {
+            component.BaseStamCritThreshold = stamina.CritThreshold;
+            stamina.CritThreshold = component.HoldingStamCritThreshold;
+        }
+
     }
 
     private void OnUnequipped(EntityUid uid, HisGraceComponent component, ref GotUnequippedHandEvent args)
     {
         component.IsHeld = false;
         component.Holder = null;
+
+        if (TryComp<StaminaComponent>(args.User, out var stamina))
+            stamina.CritThreshold = component.BaseStamCritThreshold;
     }
 
     private void OnMeleeHit(EntityUid uid, HisGraceComponent comp, ref MeleeHitEvent args)
@@ -319,8 +331,6 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
                 continue;
 
             _damageable.TryChangeDamage(user, hisGrace.Healing);
-            var stam = EnsureComp<StaminaComponent>(user);
-            stam.StaminaDamage = 1; // fuck your stun meta
 
             hisGrace.Hunger += hisGrace.HungerIncrement;
             hisGrace.NextHungerTick = _timing.CurTime + hisGrace.TickDelay;
