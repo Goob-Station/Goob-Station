@@ -3,17 +3,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Power.PTL;
 using Content.Server.Flash;
+using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.SMES;
+using Content.Server.Stack;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Radiation.Components;
+using Content.Shared.Stacks;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -25,17 +28,21 @@ public sealed partial class PTLSystem : EntitySystem
 {
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly TransformSystem _xform = default!;
     [Dependency] private readonly IPrototypeManager _protMan = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
+
+    [ValidatePrototypeId<StackPrototype>] private readonly string _cretidsProt = "Credit";
 
     public override void Initialize()
     {
         base.Initialize();
 
         UpdatesAfter.Add(typeof(SmesSystem));
-        SubscribeLocalEvent<PTLComponent, ChargeChangedEvent>(OnChargeChanged);
+        SubscribeLocalEvent<PTLComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<PTLComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<PTLComponent, ExaminedEvent>(OnExamine);
     }
@@ -50,7 +57,7 @@ public sealed partial class PTLSystem : EntitySystem
         {
             if (_time.CurTime > ptl.NextShotAt)
             {
-                ptl.NextShotAt = _time.CurTime + ptl.ShootDelay;
+                ptl.NextShotAt = _time.CurTime + TimeSpan.FromSeconds(ptl.ShootDelay);
                 Tick((uid, ptl));
             }
         }
@@ -63,6 +70,7 @@ public sealed partial class PTLSystem : EntitySystem
             return;
 
         Shoot(ent);
+        Dirty(ent);
     }
 
     private void Shoot(Entity<PTLComponent> ent)
@@ -108,18 +116,44 @@ public sealed partial class PTLSystem : EntitySystem
         ent.Comp.SpesosHeld += spesos;
     }
 
-    private void OnChargeChanged(Entity<PTLComponent> ent, ref ChargeChangedEvent args)
+    private void OnAfterInteract(Entity<PTLComponent> ent, ref AfterInteractEvent args)
     {
+        ent.Comp.Active = !ent.Comp.Active;
+        var enabled = $"The laser is now {(ent.Comp.Active ? "enabled" : "disabled")}.";
+        _popup.PopupEntity(enabled, ent, Content.Shared.Popups.PopupType.SmallCaution);
 
+        Dirty(ent);
     }
 
     private void OnAfterInteractUsing(Entity<PTLComponent> ent, ref AfterInteractUsingEvent args)
     {
-        // if holding a wrench rotate it
+        var held = args.Used;
+
+        // if holding a screwdriver set firing frequency
+        if (_tag.HasTag(held, "Screwdriver"))
+        {
+            var delay = ent.Comp.ShootDelay + 1;
+            if (delay > ent.Comp.ShootDelayThreshold.Max)
+                delay = ent.Comp.ShootDelayThreshold.Min;
+            ent.Comp.ShootDelay = delay;
+            _popup.PopupEntity($"Set firing frequency to {delay} seconds.", ent);
+        }
+
+        if (_tag.HasTag(held, "Multitool"))
+        {
+            var stackPrototype = _protMan.Index<StackPrototype>(_cretidsProt);
+            _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
+            ent.Comp.SpesosHeld = 0;
+        }
+
+        Dirty(ent);
     }
 
     private void OnExamine(Entity<PTLComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup($"It holds [color=yellow]{ent.Comp.SpesosHeld} spesos[/color]. Alt-click to collect!");
+        var enabled = $"The laser is now [color=red]{(ent.Comp.Active ? "enabled" : "disabled")}[/color].";
+        var spesos = $"It holds [color=yellow]{ent.Comp.SpesosHeld} spesos[/color]. Use [color=green]multitool[/color] to collect.";
+        var screw = $"You can use a [color=green]screwdriver[/color] to change it's [color=green]firing frequency[/color].";
+        args.PushMarkup($"{screw}\n{spesos}");
     }
 }

@@ -1,23 +1,21 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Content.Shared.Damage;
+using Content.Shared.Destructible.Thresholds;
+using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Server.Power.PTL;
+namespace Content.Goobstation.Shared.Power.PTL;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PTLComponent : Component
 {
-    [DataField] public bool Active = false;
+    [DataField, AutoNetworkedField] public bool Active = false;
 
-    [DataField] public double SpesosHeld = 0f;
+    [DataField, AutoNetworkedField] public double SpesosHeld = 0f;
 
     [DataField] public double MinShootPower = 1e6; // 1 MJ
     [DataField] public double MaxEnergyPerShot = 1e9; // 1 GJ
 
-    [DataField] public TimeSpan ShootDelay = TimeSpan.FromSeconds(10);
+    [DataField, AutoNetworkedField] public float ShootDelay = 10f;
+    [DataField, AutoNetworkedField] public MinMax ShootDelayThreshold = new MinMax(2, 10);
     [ViewVariables(VVAccess.ReadOnly)] public TimeSpan NextShotAt = TimeSpan.Zero;
 
     [DataField] public DamageSpecifier BaseBeamDamage;
