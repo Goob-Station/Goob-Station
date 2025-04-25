@@ -11,5 +11,5 @@
     shoes: ClothingShoesFakeJordans
     head: ClothingHeadHatStrawHat
     id: VisitorPDA
-    waist: ClothingBeltStorageWaistbag
+    belt: ClothingBeltStorageWaistbag
     ears: ClothingHeadsetGrey
