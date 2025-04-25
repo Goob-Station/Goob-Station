@@ -10,6 +10,8 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Movement;
+using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Server.Body.Components;
 using Content.Server.Flash;
@@ -17,18 +19,28 @@ using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Shuttles.Components;
 using Content.Server.Spreader;
 using Content.Server.Temperature.Components;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Tag;
 using Content.Shared.Tiles;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
@@ -68,6 +80,42 @@ public sealed partial class HereticAbilitySystem
         SubscribeLocalEvent<SpriteRandomOffsetComponent, ComponentStartup>(OnRandomOffsetStartup);
 
         SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
+
+        SubscribeLocalEvent<MobStateComponent, MoverControllerCantMoveEvent>(OnCantMove);
+        SubscribeLocalEvent<MobStateComponent, MoverControllerGetTileEvent>(OnGetTile);
+
+        SubscribeLocalEvent<DisgustComponent, RejuvenateEvent>(OnRejuvenate);
+    }
+
+    private void OnRejuvenate(Entity<DisgustComponent> ent, ref RejuvenateEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
+    private void OnGetTile(Entity<MobStateComponent> ent, ref MoverControllerGetTileEvent args)
+    {
+        if (ent.Comp.CurrentState == MobState.Dead)
+            return;
+
+        if (args.Tile is not { ID: RustTile })
+            return;
+
+        if (HasComp<HereticComponent>(ent) || HasComp<GhoulComponent>(ent) || HasComp<GodmodeComponent>(ent))
+            return;
+
+        EnsureComp<DisgustComponent>(ent);
+    }
+
+    private void OnCantMove(Entity<MobStateComponent> ent, ref MoverControllerCantMoveEvent args)
+    {
+        if (ent.Comp.CurrentState == MobState.Dead)
+            return;
+
+        if (HasComp<HereticComponent>(ent) || HasComp<GhoulComponent>(ent) || HasComp<GodmodeComponent>(ent))
+            return;
+
+        if (IsTileRust(Transform(ent).Coordinates, out _))
+            EnsureComp<DisgustComponent>(ent);
     }
 
     private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)
@@ -118,7 +166,8 @@ public sealed partial class HereticAbilitySystem
                 xformQuery.TryGetComponent(dock.DockedWith, out var dockedXform) &&
                 TryComp<MapGridComponent>(dockedXform.GridUid, out var dockedGrid))
             {
-                neighborTiles.Add((dockedXform.GridUid.Value, dockedGrid, _map.CoordinatesToTile(dockedXform.GridUid.Value, dockedGrid, dockedXform.Coordinates)));
+                neighborTiles.Add((dockedXform.GridUid.Value, dockedGrid,
+                    _map.CoordinatesToTile(dockedXform.GridUid.Value, dockedGrid, dockedXform.Coordinates)));
             }
         }
 
@@ -187,10 +236,7 @@ public sealed partial class HereticAbilitySystem
         var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId];
 
         if (!CanRustTile(tileDef))
-        {
-            EnsureComp<RequiresTileComponent>(uid);
             return;
-        }
 
         MakeRustTile(gridUid, mapGrid, tileRef, comp.TileRune);
 
@@ -198,8 +244,6 @@ public sealed partial class HereticAbilitySystem
         {
             TryMakeRustWall(toRust);
         }
-
-        EnsureComp<RequiresTileComponent>(uid);
     }
 
     private void OnHereticAggressiveSpread(Entity<HereticComponent> ent, ref EventHereticAggressiveSpread args)
@@ -474,9 +518,11 @@ public sealed partial class HereticAbilitySystem
         var rustbringerQuery = GetEntityQuery<RustbringerComponent>();
         var resiratorQuery = GetEntityQuery<RespiratorComponent>();
 
-        var query = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var leech, out var xform))
+        var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
+        while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
         {
+            RemCompDeferred<DisgustComponent>(uid);
+
             if (!IsTileRust(xform.Coordinates, out _))
                 continue;
 
@@ -543,6 +589,105 @@ public sealed partial class HereticAbilitySystem
                 _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "TemporaryBlindness", status);
                 _statusEffect.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
+            }
+        }
+
+        var siliconQuery = GetEntityQuery<SiliconComponent>();
+        var borgChassisQuery = GetEntityQuery<BorgChassisComponent>();
+        var godmodeQuery = GetEntityQuery<GodmodeComponent>();
+        var hereticQuery = GetEntityQuery<HereticComponent>();
+        var ghoulQuery = GetEntityQuery<GhoulComponent>();
+
+        var siliconDamage = new DamageSpecifier(_prot.Index<DamageGroupPrototype>("Brute"), 10);
+
+        var disgustQuery = EntityQueryEnumerator<DisgustComponent, MobStateComponent, TransformComponent>();
+        while (disgustQuery.MoveNext(out var uid, out var disgust, out var mobState, out var xform))
+        {
+            if (godmodeQuery.HasComp(uid) || hereticQuery.HasComp(uid) || ghoulQuery.HasComp(uid))
+            {
+                RemCompDeferred(uid, disgust);
+                continue;
+            }
+
+            var isSilicon = siliconQuery.HasComp(uid) || borgChassisQuery.HasComp(uid) || _tag.HasTag(uid, "Bot");
+            if (mobState.CurrentState != MobState.Dead && IsTileRust(xform.Coordinates, out _))
+            {
+                // Apply rust corruption
+                if (isSilicon)
+                {
+                    _dmg.TryChangeDamage(uid,
+                        siliconDamage,
+                        ignoreResistances: true,
+                        targetPart: TargetBodyPart.Torso);
+
+                    Popup.PopupEntity(Loc.GetString("rust-corruption-silicon-damage"),
+                        uid,
+                        uid,
+                        PopupType.MediumCaution);
+
+                    continue;
+                }
+
+                disgust.CurrentLevel += disgust.ModifierPerUpdate;
+            }
+            else
+            {
+                if (isSilicon)
+                {
+                    RemCompDeferred(uid, disgust);
+                    continue;
+                }
+
+                disgust.CurrentLevel -= disgust.PassiveReduction;
+
+                if (disgust.CurrentLevel <= 0f)
+                {
+                    RemCompDeferred(uid, disgust);
+                    continue;
+                }
+            }
+
+            if (!statusQuery.TryComp(uid, out var status))
+                continue;
+
+            if (disgust.CurrentLevel >= disgust.NegativeThreshold)
+            {
+                if (_random.Prob(disgust.NegativeEffectProb))
+                {
+                    _jitter.DoJitter(uid, disgust.NegativeTime, true, 10f, 10f, true, status);
+                    _stutter.DoStutter(uid, disgust.NegativeTime, true, status);
+                    Popup.PopupEntity(Loc.GetString("disgust-effect-warning"), uid, uid, PopupType.SmallCaution);
+                }
+            }
+
+            if (disgust.CurrentLevel >= disgust.VomitThreshold)
+            {
+                var vomitProb = Math.Clamp(0.025f + 0.00025f * disgust.VomitThreshold, 0f, 1f);
+                if (_random.Prob(vomitProb))
+                {
+                    _vomit.Vomit(uid);
+                    _stun.KnockdownOrStun(uid, disgust.VomitKnockdownTime, true, status);
+                    disgust.CurrentLevel -= disgust.VomitThreshold;
+                }
+            }
+
+            if (disgust.CurrentLevel >= disgust.BadNegativeThreshold)
+            {
+                if (_random.Prob(disgust.BadNegativeEffectProb))
+                {
+                    _statusEffect.TryAddStatusEffect<BlurryVisionComponent>(uid,
+                        "BlurryVision",
+                        disgust.BadNegativeTime,
+                        true,
+                        status);
+
+                    _stun.TrySlowdown(uid,
+                        disgust.BadNegativeTime,
+                        true,
+                        disgust.SlowdownMultiplier,
+                        disgust.SlowdownMultiplier,
+                        status);
+                }
             }
         }
     }

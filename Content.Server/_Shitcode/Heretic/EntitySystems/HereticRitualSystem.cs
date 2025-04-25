@@ -240,10 +240,12 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
+        var successAnimation = _proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation;
+
         if (!TryDoRitual(args.User, ent, heretic.ChosenRitual.Value))
             return;
 
-        if (_proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation)
+        if (successAnimation)
             RitualSuccess(ent, args.User);
     }
 

@@ -100,6 +100,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Goobstation.Common.Movement;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -275,6 +276,10 @@ public abstract partial class SharedMoverController : VirtualController
             || physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid)
             || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled)
         {
+            // Goobstation start
+            var cantMoveEvent = new MoverControllerCantMoveEvent();
+            RaiseLocalEvent(uid, ref cantMoveEvent);
+            // Goobstation end
             UsedMobMovement[uid] = false;
             return;
         }
@@ -315,6 +320,11 @@ public abstract partial class SharedMoverController : VirtualController
         {
             tileDef = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
         }
+
+        // Goobstation start
+        var getTileEvent = new MoverControllerGetTileEvent(tileDef);
+        RaiseLocalEvent(uid, ref getTileEvent);
+        // Goobstation end
 
         // Tile Movement Change
         // Try doing tile movement.

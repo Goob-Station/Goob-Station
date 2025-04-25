@@ -51,6 +51,8 @@ using Content.Server.Body.Systems;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
+using Content.Server.Jittering;
+using Content.Server.Speech.EntitySystems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.Hands.Components;
@@ -105,6 +107,8 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
+    [Dependency] private readonly StutteringSystem _stutter = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {

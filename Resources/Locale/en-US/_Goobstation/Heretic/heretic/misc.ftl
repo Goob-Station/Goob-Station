@@ -17,3 +17,7 @@ heretic-knowledge-loss = You're forgotten something
 heretic-clothing-component-fail = Cannot wear this!
 
 heretic-protective-blade-component-no-targets = No targets!
+
+rust-corruption-silicon-damage = You are being corrupted by the rust!
+
+disgust-effect-warning = You feel kind of iffy...
