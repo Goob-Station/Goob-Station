@@ -77,3 +77,12 @@
   color: "#c18851"
   requiredTags:
   - MouseMind
+
+- type: collectiveMind
+  id: Johnmind
+  name: collective-mind-johnmind
+  keycode: 'j'
+  color: "#8C8C8C"
+  showNames: false
+  requiredTags:
+  - JohnMind
