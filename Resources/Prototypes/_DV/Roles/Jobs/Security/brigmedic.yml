@@ -42,7 +42,6 @@
   id: BrigmedicGear
   equipment:
     belt: ClothingBeltCorpsmanWebbingFilled
-    shoes: ClothingShoesColorRed
     gloves: ClothingHandsGlovesNitrile
     eyes: ClothingEyesGlassesMedSec
     id: BrigmedicPDA
