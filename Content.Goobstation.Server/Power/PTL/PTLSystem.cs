@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.GameTicking;
+using Content.Server.Flash;
 using Content.Server.Power.Components;
 using Content.Server.Power.SMES;
 using Content.Server.Weapons.Ranged.Systems;
@@ -67,23 +67,23 @@ public sealed partial class PTLSystem : EntitySystem
 
     private void Shoot(Entity<PTLComponent> ent)
     {
-        var megajoule = 1000000;
+        var megajoule = 1e6;
 
-        var charge = 0f;
-        var spesos = 0f;
+        var charge = 0d;
+        var spesos = 0d;
 
         if (TryComp<BatteryComponent>(ent, out var battery))
         {
             charge = battery.CurrentCharge / megajoule;
             // taken from paradise wiki. i don't know what these numbers are doing either just take it as given
-            spesos = (int) (2 * charge / (2 * charge + 50)); // 50 is minimum credits earned
+            spesos = (int) (40 * charge / (4 * charge + 800));
         }
         if (charge < 1f) return;
 
         // scale damage from energy
         if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
         {
-            hitscan.FireCost = charge;
+            hitscan.FireCost = (float) (charge * megajoule);
             var prot = _protMan.Index<HitscanPrototype>(hitscan.Prototype);
             prot.Damage = ent.Comp.BaseBeamDamage * charge * 2f;
         }
@@ -97,15 +97,12 @@ public sealed partial class PTLSystem : EntitySystem
         // EVIL behavior......
         if (charge >= ent.Comp.PowerEvilThreshold)
         {
-            var evil = charge / ent.Comp.PowerEvilThreshold;
+            var evil = (float) (charge / ent.Comp.PowerEvilThreshold);
 
             if (TryComp<RadiationSourceComponent>(ent, out var rad))
                 rad.Intensity = evil;
 
-            var lookup = _lookup.GetEntitiesInRange<MobStateComponent>(Transform(ent).Coordinates, evil * 2.5f);
-            foreach (var bozo in lookup)
-                // flashing through walls? no biggie. only the sound of the laser firing should discombobulate nearby people...
-                _flash.FlashArea((ent, null), ent, evil, evil);
+            _flash.FlashArea((ent, null), ent, evil, evil);
         }
 
         ent.Comp.SpesosHeld += spesos;
