@@ -251,7 +251,11 @@
   coefficients:
     Cold: 0.7
     Heat: 1.3
-  ignoreArmorPierceFlags: All # Goobstation
+  # Goobstation
+    Brute: 1.065
+    Slash: 1.065
+    Piercing: 1.065
+  ignoreArmorPierceFlags: All
 
 - type: damageModifierSet
   id: Vox

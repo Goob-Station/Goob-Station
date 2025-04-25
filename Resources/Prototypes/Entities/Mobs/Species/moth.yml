@@ -148,7 +148,7 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 2.5 # Goobstation - Frictionless Space, move around more easily in space.
+    weightlessAcceleration: 3 # Goobstation value
   - type: Flammable
     damage:
       types:
@@ -233,7 +233,7 @@
         - MobMask
         layer:
         - MobLayer
-  - type: DashAction
+  - type: DashAction # Goobstation - dark souls moths
     actionProto: ActionDashMoth
 
 - type: entity

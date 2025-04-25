@@ -42,7 +42,7 @@
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightArm ]
-  id: RightArmHarpy
+  id: RightArmHarpy # Wings included
   name: "right harpy arm"
   components:
   - type: BodyPart
@@ -66,11 +66,17 @@
   parent: [ PartHarpyBase, BaseLeftLeg ]
   id: LeftLegHarpy
   name: "left harpy leg"
+  components:
+  - type: MovementBodyPart # Goobstation
+    sprintSpeed: 5
 
 - type: entity
   parent: [ PartHarpyBase, BaseRightLeg ]
   id: RightLegHarpy
   name: "right harpy leg"
+  components:
+  - type: MovementBodyPart # Goobstation
+    sprintSpeed: 5
 
 - type: entity
   parent: [ PartHarpyBase, BaseLeftFoot ]

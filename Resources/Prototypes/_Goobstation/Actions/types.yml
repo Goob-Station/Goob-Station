@@ -65,7 +65,7 @@
   - type: WorldTargetAction
     checkCanAccess: false
     range: 0
-    useDelay: 20
+    useDelay: 6.5
     icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
     itemIconStyle: NoItem
     sound: !type:SoundPathSpecifier
@@ -73,4 +73,3 @@
       params:
         volume: 6.5
     event: !type:DashActionEvent
-      throwSpeed: 4

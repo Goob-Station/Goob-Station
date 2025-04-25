@@ -15,5 +15,11 @@ public sealed partial class DashActionComponent : Component
 public sealed partial class DashActionEvent : WorldTargetActionEvent
 {
     [DataField]
-    public float ThrowSpeed = 10.0f;
+    public float Force = 2065;
+
+    [DataField]
+    public bool NeedsGravity = true; // I highly recommend not to change this
+
+    [DataField]
+    public bool MultiplyByMovementSpeed = true;
 }

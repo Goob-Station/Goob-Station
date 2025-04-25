@@ -154,8 +154,6 @@
           False:  {visible: false}
           True:  {visible: true}
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 5.0
     weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy

@@ -102,6 +102,8 @@
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "l_leg"
+  - type: MovementBodyPart # Goobstation - dark souls moths
+    sprintSpeed: 4.2
 
 - type: entity
   id: RightLegMoth
@@ -111,6 +113,8 @@
   - type: Sprite
     sprite: Mobs/Species/Moth/parts.rsi
     state: "r_leg"
+  - type: MovementBodyPart # Goobstation - dark souls moths
+    sprintSpeed: 4.2
 
 - type: entity
   id: LeftFootMoth
