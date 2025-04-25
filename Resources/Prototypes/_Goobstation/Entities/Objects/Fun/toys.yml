@@ -663,7 +663,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieWehWinter
-  name: cold lizard plushie
+  name: mythical lizard plushie
   description: A cute stuffed toy that resembles a funky lizard. She looks better with glasses.
   components:
   - type: Sprite
