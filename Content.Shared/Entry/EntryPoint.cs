@@ -27,6 +27,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using Content.Goobstation.Common.Module;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.IoC;
 using Content.Shared.Maps;
@@ -35,6 +36,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Reflection;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
@@ -47,6 +49,7 @@ namespace Content.Shared.Entry
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly IResourceManager _resMan = default!;
+        [Dependency] private readonly IReflectionManager _refMan = default!; // Goobstation - Module Throws
 
         private readonly ResPath _ignoreFileDirectory = new("/IgnoredPrototypes/");
 
@@ -54,6 +57,7 @@ namespace Content.Shared.Entry
         {
             IoCManager.InjectDependencies(this);
             SharedContentIoC.Register();
+            VerifyModules(); // Goobstation - Module Throws
         }
 
         public override void Shutdown()
@@ -169,7 +173,20 @@ namespace Content.Shared.Entry
 
                 sequence.Add((SequenceDataNode) documents.Root);
             }
+
             return true;
         }
+
+        // Goobstation - GoobMod Throws Start
+        private void VerifyModules()
+        {
+            var moduleCheckTypes = _refMan.GetAllChildren<ModuleCheck>().ToList();
+
+            if (moduleCheckTypes.Count >= 1)
+                return;
+
+            throw new InvalidOperationException("Missing goobmod in appdomain! Try deleting your bin folder, running dotnet clean, and building the solution again.");
+        }
+        // Goobstation - GoobMod Throws Start End
     }
 }
