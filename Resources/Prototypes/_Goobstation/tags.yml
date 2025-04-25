@@ -422,6 +422,15 @@
   id: WeaponPistolDualetta
 
 - type: Tag
+  id: Welder
+
+- type: Tag
+  id: WelderExperimental
+
+- type: Tag
+  id: WelderIndustrial
+
+- type: Tag
   id: WinterCoat
 
 - type: Tag
