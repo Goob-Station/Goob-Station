@@ -1,6 +1,6 @@
 using Content.Shared.Actions;
+using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Goobstation.Shared.Dash;
@@ -10,6 +10,8 @@ public sealed class DashActionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -25,8 +27,7 @@ public sealed class DashActionSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (args.NeedsGravity && TryComp<PhysicsComponent>(args.Performer, out var physics)
-                              && physics.BodyStatus == BodyStatus.InAir)
+        if (args.NeedsGravity && _gravity.IsWeightless(args.Performer))
             return;
 
         var vec = (_transform.ToMapCoordinates(args.Target).Position
