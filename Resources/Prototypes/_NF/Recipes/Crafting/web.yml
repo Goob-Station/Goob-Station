@@ -1,0 +1,12 @@
+- type: construction
+  name: web cocoon
+  id: WebCocoon
+  graph: WebObjects
+  startNode: start
+  targetNode: cocoon
+  category: construction-category-tools
+  description: "Strong web cocoon used to restrain preys or just criminals."
+  icon:
+    sprite: _NF/Objects/Misc/webcocoon.rsi
+    state: cocoon
+  objectType: Item

@@ -1,0 +1,5 @@
+- to: cocoon
+  steps:
+  - material: WebSilk
+    amount: 8
+    doAfter: 6

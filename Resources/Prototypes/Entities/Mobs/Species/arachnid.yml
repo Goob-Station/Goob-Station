@@ -148,6 +148,7 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+  - type: IgnoreSpiderWeb # Goobstation
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -157,7 +158,7 @@
   - type: HumanoidAppearance
     species: Arachnid
   - type: Inventory
-    speciesId: arachnid 
+    speciesId: arachnid
 
 
 #>88w88<
