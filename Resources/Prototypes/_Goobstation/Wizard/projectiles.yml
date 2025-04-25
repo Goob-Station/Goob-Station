@@ -297,8 +297,9 @@
     damage:
       types:
         Heat: 0
-  - type: PolymorphOnCollide
+  - type: PolymorphOnTrigger
     polymorph: WizardWabbajack
+  - type: TriggerWhitelist
     whitelist:
       components:
       - Body

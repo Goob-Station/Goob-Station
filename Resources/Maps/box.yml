@@ -140144,7 +140144,7 @@ entities:
     - type: Transform
       pos: 3.4364183,-14.443886
       parent: 8364
-- proto: RobustHarvestChemistryBottle
+- proto: ChemistryBottleRobustHarvest
   entities:
   - uid: 13505
     components:
