@@ -74450,9 +74450,6 @@ entities:
     - type: Transform
       pos: -34.51708,2.124221
       parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
   - uid: 11379
     components:
     - type: Transform
@@ -74465,9 +74462,6 @@ entities:
     - type: Transform
       pos: -25.884321,-13.146505
       parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: FoodBreadMoldySlice
   entities:
   - uid: 11381
