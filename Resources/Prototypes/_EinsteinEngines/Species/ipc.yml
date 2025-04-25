@@ -7,7 +7,7 @@
 - type: species
   id: IPC
   name: species-name-ipc
-  roundStart: true
+  roundStart: false # goob
   prototype: MobIPC
   sprites: MobIPCSprites
   markingLimits: MobIPCMarkingLimits
