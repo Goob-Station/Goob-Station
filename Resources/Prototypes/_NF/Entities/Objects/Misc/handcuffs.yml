@@ -7,9 +7,9 @@
   - type: Item
     size: Huge
   - type: Handcuff
-    CuffTime: 5
+    cuffTime: 5
     breakoutTime: 30
-    UncuffTime: 10
+    uncuffTime: 10
     cuffedRSI: _NF/Objects/Misc/webcocoon.rsi
     bodyIconState: body-overlay
     breakOnRemove: true
