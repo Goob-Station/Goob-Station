@@ -7788,3 +7788,9 @@ Entries:
       message: Fixed token spawns spawning by themselves.
   id: 909
   time: '2025-04-24T02:24:21.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token abductors. Maybe.
+  id: 910
+  time: '2025-04-25T02:02:59.0000000+00:00'
