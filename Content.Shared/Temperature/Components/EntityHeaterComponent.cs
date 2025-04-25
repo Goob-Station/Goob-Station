@@ -5,8 +5,6 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Temperature.Systems;
-using Content.Shared.Temperature;
 using Content.Shared.Temperature.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
