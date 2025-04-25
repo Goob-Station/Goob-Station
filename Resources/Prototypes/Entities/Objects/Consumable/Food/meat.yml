@@ -1757,9 +1757,14 @@
     graph: DragonSteak
     node: dragon steak
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: dragon-cooked
     entries:
-      Burger: DragonSteak
-      Taco: DragonSteak
+      burger:
+        name: food-sequence-content-dragon
+      taco:
+        name: food-sequence-content-dragon
 
 # Cutlets
 
@@ -2457,10 +2462,6 @@
   - type: Construction
     graph: XenoCutlet
     node: xeno cutlet
-  - type: FoodSequenceElement
-    entries:
-      Burger: XenoCutlet
-      Taco: XenoCutlet
 
 - type: entity
   name: dragon cutlet
@@ -2489,6 +2490,9 @@
     graph: DragonCutlet
     node: dragon cutlet
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: dragoncutlet-cooked
     entries:
-      Burger: DragonCutlet
-      Taco: DragonCutlet
+      burger:
+        name: food-sequence-content-dragon

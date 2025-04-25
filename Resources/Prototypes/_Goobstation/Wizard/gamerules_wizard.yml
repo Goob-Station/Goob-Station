@@ -40,8 +40,9 @@
       - type: Wizard
       - type: RandomMetadata
         nameSegments:
-        - wizard_first
-        - wizard_last
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Wizard
@@ -93,8 +94,9 @@
       - type: Wizard
       - type: RandomMetadata
         nameSegments:
-        - wizard_first
-        - wizard_last
+        - WizardFirst
+        - WizardLast
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Wizard

@@ -50,7 +50,7 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - names_death_commando
+        - NamesDeathCommando
   - type: Tag
     tags:
     - MidroundAntag

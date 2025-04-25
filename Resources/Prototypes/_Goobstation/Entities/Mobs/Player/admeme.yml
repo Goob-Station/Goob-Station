@@ -14,7 +14,8 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: full
   - type: RandomMetadata
-    nameSegments: [ names_borer ]
+    nameSegments: [ NamesBorer ]
+    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: ChronoLegionnaire
 
@@ -95,7 +96,7 @@
   - type: Loadout
     prototypes: [GovernmentManGear]
   - type: RandomMetadata
-    nameSegments: [ names_gman ]
+    nameSegments: [ NamesGman ]
   - type: Tag
     tags:
     - InstantDoAfters

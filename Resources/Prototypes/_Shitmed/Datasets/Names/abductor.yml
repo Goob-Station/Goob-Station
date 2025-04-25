@@ -3,63 +3,20 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
+- type: localizedDataset
   id: AbductorNames
   values:
-  - Nnarp
-  - Nlarp
-  - Nlorp
-  - Nleeb
-  - Norp
-  - Norple
-  - Nip
-  - Nop
-  - Neegle
-  - Xnarp
-  - Xlarp
-  - Xlorp
-  - Xleeb
-  - Xorp
-  - Xorple
-  - Xip
-  - Xop
-  - Xeegle
-  - Znarp
-  - Zlarp
-  - Zlorp
-  - Zleeb
-  - Zorp
-  - Zorple
-  - Zip
-  - Zop
-  - Zeegle
-  - Vnarp
-  - Vlarp
-  - Vlorp
-  - Vleeb
-  - Vorp
-  - Vorple
-  - Vip
-  - Vop
-  - Veegle
-  - Gnarp
-  - Glarp
-  - Glorp
-  - Gleeb
-  - Gorp
-  - Gorple
-  - Gip
-  - Gop
-  - Geegle
+    prefix: abductor-names-dataset-
+    count: 45
 
-- type: dataset
+- type: localizedDataset
   id: AbductorScientistPrefix
   values:
-  - Dr.
-  - Professor
+    prefix: abductor-scientist-prefix-dataset-
+    count: 2
 
-- type: dataset
+- type: localizedDataset
   id: AbductorAgentPrefix
   values:
-  - Assistant
-  - Officer
+    prefix: abductor-agent-prefix-dataset-
+    count: 2

@@ -41,8 +41,6 @@ public sealed class MagicSystem : SharedMagicSystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
 
-    private static readonly ProtoId<TagPrototype> InvalidForSurvivorAntagTag = "InvalidForSurvivorAntag";
-
     public override void Initialize()
     {
         base.Initialize();

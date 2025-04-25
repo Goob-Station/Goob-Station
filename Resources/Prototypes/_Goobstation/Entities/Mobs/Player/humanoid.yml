@@ -61,8 +61,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard 
 
 - type: entity
   parent: MobDiona
@@ -73,8 +74,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - DionaFirst
-    - DionaLast
+    - NamesDionaFirst
+    - NamesDionaLast
+    nameFormat: name-format-standard 
 
 - type: entity
   parent: MobFelinid
@@ -85,8 +87,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobTajaran
@@ -99,6 +102,7 @@
     nameSegments:
     - NamesTajaranFirst
     - NamesTajaranLast
+    nameFormat: name-format-standard
 
 
 - type: entity
@@ -110,8 +114,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobMoth
@@ -122,8 +127,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_moth_first_female
-    - names_moth_last
+    - NamesMothFirstFemale
+    - NamesMothLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobDwarf
@@ -134,8 +140,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard 
 
 - type: entity
   parent: MobHarpy
@@ -146,8 +153,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard 
 
 - type: entity
   parent: MobRodentia
@@ -160,6 +168,7 @@
     nameSegments:
     - NamesRodentiaMale
     - NamesRodentiaLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobReptilian
@@ -170,7 +179,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_reptilian_male
+    - NamesReptilianMale
 
 - type: entity
   parent: MobVulpkanin
@@ -183,6 +192,7 @@
     nameSegments:
     - NamesVulpakinMale
     - NamesVulpakinLast
+    nameFormat: name-format-standard 
 
 - type: entity
   parent: MobSlimePerson
@@ -193,8 +203,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard 
 
 - type: entity
   parent: MobYowie
@@ -216,7 +227,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_vox
+    - NamesVox
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVAAnnie
