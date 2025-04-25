@@ -8,19 +8,19 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Free
 
-- type: trait
-  id: Accentless
-  name: trait-accentless-name
-  description: trait-accentless-desc
-  category: SpeechTraits
-  cost: 2
-  components:
-  - type: Accentless
-    removes:
-    - type: LizardAccent
-    - type: MothAccent
-    - type: ReplacementAccent
-      accent: dwarf
+#- type: trait #Goob - comment out
+  #id: Accentless
+  #name: trait-accentless-name
+  #description: trait-accentless-desc
+  #category: SpeechTraits
+  #cost: 2
+  #components:
+  #- type: Accentless
+    #removes:
+    #- type: LizardAccent
+    #- type: MothAccent
+    #- type: ReplacementAccent
+      #accent: dwarf
 
 # 1 Cost
 
