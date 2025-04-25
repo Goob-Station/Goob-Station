@@ -1,4 +1,9 @@
-using Content.Server.Flash;
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.GameTicking;
 using Content.Server.Power.Components;
 using Content.Server.Power.SMES;
 using Content.Server.Weapons.Ranged.Systems;
