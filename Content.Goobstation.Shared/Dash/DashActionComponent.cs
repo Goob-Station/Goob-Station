@@ -4,6 +4,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.Chat.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Dash;
 
@@ -20,11 +22,27 @@ public sealed partial class DashActionComponent : Component
 public sealed partial class DashActionEvent : WorldTargetActionEvent
 {
     [DataField]
-    public float Force = 2065;
+    public float Distance = 5.65f;
 
     [DataField]
-    public bool NeedsGravity = true; // I highly recommend not to change this
+    public float Speed = 9.65f;
 
+    /// <summary>
+    /// Whether you need gravity to perform the dash. Keep in mind there's no friction without gravity so if this
+    /// is false, the performer gets every chance to be launched straight to Ohio on dashing without gravity.
+    /// </summary>
     [DataField]
-    public bool MultiplyByMovementSpeed = true;
+    public bool NeedsGravity = true;
+
+    /// <summary>
+    /// Whether dash distance and speed are affected by performer's speed modifiers. Should be true most of the time.
+    /// </summary>
+    [DataField]
+    public bool AffectedBySpeed = true;
+
+    /// <summary>
+    /// Animated emote to play on successful dash.
+    /// </summary>
+    [DataField]
+    public ProtoId<EmotePrototype>? Emote = "Flip";
 }

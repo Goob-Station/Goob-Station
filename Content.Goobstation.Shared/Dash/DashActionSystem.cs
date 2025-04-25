@@ -3,19 +3,20 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Emoting;
 using Content.Shared.Actions;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
-using Robust.Shared.Physics.Systems;
+using Content.Shared.Throwing;
 
 namespace Content.Goobstation.Shared.Dash;
 
 public sealed class DashActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -35,13 +36,25 @@ public sealed class DashActionSystem : EntitySystem
         if (args.NeedsGravity && _gravity.IsWeightless(args.Performer))
             return;
 
-        var vec = (_transform.ToMapCoordinates(args.Target).Position
-                   - _transform.GetMapCoordinates(args.Performer).Position).Normalized();
+        var vec = (_transform.ToMapCoordinates(args.Target).Position -
+                   _transform.GetMapCoordinates(args.Performer).Position).Normalized() *
+                   args.Distance;
 
-        if (args.MultiplyByMovementSpeed && TryComp<MovementSpeedModifierComponent>(args.Performer, out var speed))
-            vec *= speed.CurrentSprintSpeed;
+        var speed = args.Speed;
 
-        _physics.ApplyLinearImpulse(args.Performer, vec * args.Force);
+        if (args.AffectedBySpeed && TryComp<MovementSpeedModifierComponent>(args.Performer, out var speedcomp))
+        {
+            vec *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
+            speed *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
+        }
+
+        _throwing.TryThrow(args.Performer, vec * args.Distance, speed, default, default, default, default, default, false);
+
+        if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
+        {
+            emotes.Emote = args.Emote;
+            Dirty(args.Performer, emotes);
+        }
 
         args.Handled = true;
     }
