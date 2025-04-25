@@ -17,6 +17,8 @@ using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -34,10 +36,15 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly AudioSystem _aud = default!;
 
     [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
     [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
     [ValidatePrototypeId<TagPrototype>] private readonly string _tagMultitool = "Multitool";
+
+    private readonly SoundPathSpecifier _soundKaching = new("/Audio/Effects/kaching.ogg");
+    private readonly SoundPathSpecifier _soundSparks = new("/Audio/Effects/sparks4.ogg");
+    private readonly SoundPathSpecifier _soundPower = new("/Audio/Effects/tesla_consume.ogg");
 
     public override void Initialize()
     {
@@ -123,6 +130,7 @@ public sealed partial class PTLSystem : EntitySystem
         ent.Comp.Active = !ent.Comp.Active;
         var enabled = Loc.GetString("ptl-interact-enabled", ("enabled", ent.Comp.Active));
         _popup.PopupEntity(enabled, ent, Content.Shared.Popups.PopupType.SmallCaution);
+        _aud.PlayPvs(_soundPower, ent);
 
         Dirty(ent);
     }
@@ -138,6 +146,7 @@ public sealed partial class PTLSystem : EntitySystem
                 delay = ent.Comp.ShootDelayThreshold.Min;
             ent.Comp.ShootDelay = delay;
             _popup.PopupEntity(Loc.GetString("ptl-interact-screwdriver", ("delay", ent.Comp.ShootDelay)), ent);
+            _aud.PlayPvs(_soundSparks, ent);
         }
 
         if (_tag.HasTag(held, _tagMultitool))
@@ -146,6 +155,7 @@ public sealed partial class PTLSystem : EntitySystem
             _stack.Spawn((int) ent.Comp.SpesosHeld, stackPrototype, Transform(args.User).Coordinates);
             ent.Comp.SpesosHeld = 0;
             _popup.PopupEntity(Loc.GetString("ptl-interact-spesos"), ent);
+            _aud.PlayPvs(_soundKaching, ent);
         }
 
         Dirty(ent);

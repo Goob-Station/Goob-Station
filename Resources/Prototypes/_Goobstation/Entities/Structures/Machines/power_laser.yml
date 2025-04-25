@@ -11,13 +11,24 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: Transform
-    anchored: true
   - type: PTL
-    active: true
+    active: false
     baseBeamDamage:
       types:
         Heat: 5
+  - type: PTLVisuals
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/PTL/pt_laser.rsi
+    layers:
+    - state: base
+    - state: unpowered
+      visible: true
+    - state: charge_1
+      shader: unshaded
+      visible: false
+      map: ["enum.EmitterVisualLayers.Lights"]
+  - type: Transform
+    anchored: true
   - type: RadiationSource
   - type: Appearance
   - type: PowerNetworkBattery
@@ -52,14 +63,6 @@
     examinable: false
     proto: PTL
     fireCost: 1000
-  - type: Sprite
-    sprite: _Goobstation/Structures/Machines/PTL/pt_laser.rsi
-    layers:
-    - state: base
-    - state: charge_full
-      shader: unshaded
-      visible: false
-      map: ["enum.EmitterVisualLayers.Lights"]
   - type: Physics
     bodyType: Static
   - type: Fixtures

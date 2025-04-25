@@ -1,11 +1,32 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Content.Goobstation.Shared.Power.PTL;
+using Robust.Client.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Power.PTL;
 
-internal class PTLVisualsSystem
+public sealed partial class PTLVisualsSystem : VisualizerSystem<PTLVisualsComponent>
 {
+    [Dependency] private readonly IGameTiming _time = default!;
+
+    protected override void OnAppearanceChange(EntityUid uid, PTLVisualsComponent component, ref AppearanceChangeEvent args)
+    {
+        base.OnAppearanceChange(uid, component, ref args);
+
+        if (!TryComp<SpriteComponent>(uid, out var sprite)
+        || !TryComp<PTLComponent>(uid, out var ptl))
+            return;
+
+        sprite.LayerSetVisible(PTLVisualLayers.Unpowered, !ptl.Active);
+
+        var delta = (ptl.NextShotAt - _time.CurTime).Seconds;
+        var norm = (delta / ptl.ShootDelay) * component.MaxChargeStates;
+        sprite.LayerSetState(PTLVisualLayers.Charge, $"{component.ChargePrefix}{(int) norm}");
+    }
+}
+
+enum PTLVisualLayers : byte
+{
+    Base,
+    Unpowered,
+    Charge
 }
