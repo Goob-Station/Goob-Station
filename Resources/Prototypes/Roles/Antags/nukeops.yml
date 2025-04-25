@@ -120,8 +120,8 @@
     department: Security
     time: 36000 # 10h Goobstation
   - !type:RoleTimeRequirement
-    role: JobChiefMedicalOfficer
-    time: 7200 # 2h Goobstation
+    role: JobChemist
+    time: 18000 # 5h Goobstation
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -136,9 +136,9 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
-  - !type:RoleTimeRequirement
-    role: JobCaptain
-    time: 3600 # 1h Goobstation
+  - !type:DepartmentTimeRequirement
+    role: Command
+    time: 18000 # 5h Goobstation
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
