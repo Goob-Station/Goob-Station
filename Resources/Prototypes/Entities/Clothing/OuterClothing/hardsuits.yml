@@ -399,7 +399,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.7
   - type: Armor
     coverage:
     - Chest
@@ -412,7 +412,7 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.4
+        Piercing: 0.6
         Heat: 0.5
         Radiation: 0.4
         Caustic: 0.7
@@ -907,7 +907,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.9
   - type: Armor
     coverage:
     - Chest
@@ -920,7 +920,7 @@
       coefficients:
         Blunt: 0.4
         Slash: 0.4
-        Piercing: 0.5
+        Piercing: 0.6
         Radiation: 0.5
         Caustic: 0.5
   - type: ClothingSpeedModifier
