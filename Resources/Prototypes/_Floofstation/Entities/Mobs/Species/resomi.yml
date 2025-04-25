@@ -207,8 +207,6 @@
       272: 1
       242: 1
       196: 1
-  - type: MovementSpeedModifier
-    weightlessAcceleration: 2.5 # Goobstation - Birb move fast in zero-g
   - type: PseudoItem # Goobstation - Baggable; certified smol ops
     storedOffset: -10,0
     shape:
