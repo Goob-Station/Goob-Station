@@ -15,7 +15,6 @@
     state: full
   - type: RandomMetadata
     nameSegments: [ NamesBorer ]
-    nameFormat: name-format-standard
   - type: RandomHumanoidSpawner
     settings: ChronoLegionnaire
 
