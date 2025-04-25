@@ -28,4 +28,6 @@ public abstract partial class BatteryAmmoProviderComponent : AmmoProviderCompone
 
     [ViewVariables(VVAccess.ReadWrite)]
     public int Capacity;
+
+    [DataField] public bool Examinable = true; // goob edit
 }

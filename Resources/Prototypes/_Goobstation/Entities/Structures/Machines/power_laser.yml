@@ -10,6 +10,10 @@
     anchored: true
   - type: PTL
     active: true
+    baseBeamDamage:
+      types:
+        Heat: 5
+  - type: RadiationSource
   - type: Appearance
   - type: PowerNetworkBattery
     maxChargeRate: 1000000000 # yeah
@@ -41,6 +45,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
+    examinable: false
     proto: PTL
     fireCost: 1000
   - type: Sprite
