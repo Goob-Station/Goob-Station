@@ -80,7 +80,7 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 247.2.0
+  engineVersion: 250.0.0
   forkId: ""
   forkVersion: ""
   time: 03/09/2025 08:51:02
@@ -74443,6 +74443,9 @@ entities:
     - type: Transform
       pos: -14.52124,-43.447884
       parent: 2
+    - type: CollisionWake
+      enabled: false
+    - type: Conveyed
 - proto: FoodBoxDonkpocketPizza
   entities:
   - uid: 11378
