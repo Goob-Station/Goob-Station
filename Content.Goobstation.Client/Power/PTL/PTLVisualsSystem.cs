@@ -31,7 +31,7 @@ public sealed partial class PTLVisualsSystem : EntitySystem
         sprite.LayerSetVisible(PTLVisualLayers.Unpowered, !ptl.Active);
 
         var delta = (ptl.NextShotAt - _time.CurTime).Seconds;
-        var norm = (delta / ptl.ShootDelay) * ent.Comp.MaxChargeStates;
+        var norm = Math.Clamp(delta / ptl.ShootDelay * ent.Comp.MaxChargeStates, 1, ent.Comp.MaxChargeStates);
         sprite.LayerSetState(PTLVisualLayers.Charge, $"{ent.Comp.ChargePrefix}{(int) norm}");
     }
 }
