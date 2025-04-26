@@ -100,24 +100,3 @@
       enum.ThiefBackpackUIKey.Key:
         type: ThiefBackpackBoundUserInterface
 
-- type: entity
-  id: HeadOfSecurityArmorUndetermined
-  name: experimental equipment box
-  description: A small remote utilizing bluespace technology to drop in an experimental equipment set to you. Choose wisely.
-  parent: [ BaseItem, BaseCommandContraband ]
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/hosundetermined.rsi # Todo - Change This
-    state: icon
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
-    possibleSets:
-    - StationSet
-    - SpaceSet
-    maxSelectedSets: 1
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
-

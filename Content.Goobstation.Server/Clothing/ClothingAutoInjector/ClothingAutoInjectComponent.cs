@@ -47,9 +47,6 @@ public sealed partial class ClothingAutoInjectComponent : Component
     public EntProtoId Action = "ActionActivateAutoinjector";
 
     [DataField]
-    public LocId FailPopup = "clothing-auto-inject-fail";
-
-    [DataField]
     public SoundSpecifier InjectSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
 
     [ViewVariables]
