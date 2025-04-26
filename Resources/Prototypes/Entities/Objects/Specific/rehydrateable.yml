@@ -237,6 +237,12 @@
     handle: false
     sound:
       path: /Audio/Effects/bite.ogg
+  - type: GibThisGuy  # Goobstation
+    requireBoth: true
+    icNames:
+    - Audrey White
+    ocNames:
+    - Rosef
 
 - type: entity #why is this all redefined down here as a parent of base object instead of just being parented to monkeycube?? TODO: Fix this shit
   parent: BaseItem
