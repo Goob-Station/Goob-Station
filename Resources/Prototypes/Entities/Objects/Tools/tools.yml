@@ -566,6 +566,7 @@
     - SignalValve
     - CanisterPort
     - FilterGas
+    - FilterInline # Goobstation
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45
