@@ -21,6 +21,8 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: MIT
 
@@ -30,15 +32,20 @@ using System.Linq;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.IoC;
 using Content.Shared.Maps;
+using Content.Shared.Module;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Reflection;
+using Robust.Shared.Sandboxing;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Utility;
+using Serilog;
 
 namespace Content.Shared.Entry
 {
@@ -47,6 +54,9 @@ namespace Content.Shared.Entry
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly IResourceManager _resMan = default!;
+        [Dependency] private readonly IReflectionManager _refMan = default!; // Goobstation - Module Throws
+        [Dependency] private readonly ISandboxHelper _sandbox = default!; // Goobstation - Module Throws
+        [Dependency] private readonly INetManager _net = default!; // Goobstation - Module Throws
 
         private readonly ResPath _ignoreFileDirectory = new("/IgnoredPrototypes/");
 
@@ -54,6 +64,7 @@ namespace Content.Shared.Entry
         {
             IoCManager.InjectDependencies(this);
             SharedContentIoC.Register();
+            VerifyModules(); // Goobstation - Module Throws
         }
 
         public override void Shutdown()
@@ -169,7 +180,36 @@ namespace Content.Shared.Entry
 
                 sequence.Add((SequenceDataNode) documents.Root);
             }
+
             return true;
         }
+
+        // Goobstation - GoobMod Throws Start
+        private void VerifyModules()
+        {
+            var loadedAssemblies = _refMan.Assemblies
+                .Select(assembly => assembly.GetName().Name)
+                .ToHashSet();
+
+            var packs = _refMan.GetAllChildren<ModulePack>()
+                .Select(type => _sandbox.CreateInstance(type))
+                .OfType<ModulePack>();
+
+            foreach (var module in packs)
+            {
+                var missing = module.RequiredAssemblies
+                    .Where(req =>
+                        (_net.IsClient && req.Client || _net.IsServer && req.Server) &&
+                        !loadedAssemblies.Contains(req.AssemblyName))
+                    .ToList();
+
+                if (missing.Count <= 0)
+                    continue;
+
+                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.");
+            }
+        }
+
+        // Goobstation - GoobMod Throws Start End
     }
 }
