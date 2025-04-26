@@ -12,11 +12,11 @@ namespace Content.Goobstation.Client.Voice;
 /// </summary>
 public sealed class VoiceChatClientManager : IVoiceChatManager
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IAudioManager _audioManager = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
+    private IConfigurationManager _cfg = default!;
+    private IAudioManager _audioManager = default!;
+    private AudioSystem _audioSystem = default!;
+    private IEntityManager _entityManager = default!;
+    private INetManager _netManager = default!;
 
     private ISawmill _sawmill = default!;
     private readonly Dictionary<EntityUid, VoiceStreamManager> _activeStreams = new();
@@ -26,6 +26,12 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
 
     public void Initialize()
     {
+        _cfg = IoCManager.Resolve<IConfigurationManager>();
+        _audioManager = IoCManager.Resolve<IAudioManager>();
+        _audioSystem = IoCManager.Resolve<AudioSystem>();
+        _entityManager = IoCManager.Resolve<IEntityManager>();
+        _netManager = IoCManager.Resolve<INetManager>();
+
         _sawmill = Logger.GetSawmill("voiceclient");
 
         _cfg.OnValueChanged(GoobCVars.VoiceChatVolume, OnVolumeChanged, true);

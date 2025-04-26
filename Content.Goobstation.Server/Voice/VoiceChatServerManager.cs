@@ -21,11 +21,11 @@ namespace Content.Goobstation.Server.Voice;
 /// </summary>
 public sealed class VoiceChatServerManager : IVoiceChatServerManager
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    private IConfigurationManager _cfg = default!;
+    private IPlayerManager _playerManager = default!;
+    private IEntityManager _entityManager = default!;
+    private INetManager _netManager = default!;
+    private IGameTiming _gameTiming = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -44,6 +44,12 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager
 
     public void Initialize()
     {
+        _cfg = IoCManager.Resolve<IConfigurationManager>();
+        _playerManager = IoCManager.Resolve<IPlayerManager>();
+        _entityManager = IoCManager.Resolve<IEntityManager>();
+        _netManager = IoCManager.Resolve<INetManager>();
+        _gameTiming = IoCManager.Resolve<IGameTiming>();
+
         _sawmill = Logger.GetSawmill("voiceserver");
 
         _cfg.OnValueChanged(GoobCVars.VoiceChatEnabled, OnVoiceChatEnabledChanged, true);
