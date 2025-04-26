@@ -21,10 +21,10 @@
   description: A ragged, dusty set of robes. Strange eyes line the inside.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -45,18 +45,74 @@
     coefficient: 0.5
 
 - type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticVoid
+  suffix: Void
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticVoid
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticAsh
+  suffix: Ash
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/ashen_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticAsh
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticFlesh
+  suffix: Flesh
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/flesh_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticFlesh
+
+- type: entity
+  parent: ClothingOuterArmorHeretic
+  id: ClothingOuterArmorHereticBlade
+  suffix: Blade
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/blade_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHereticBlade
+
+- type: entity
   parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseMagicContraband ]
   id: ClothingOuterArmorCloakVoid
   name: void cloak
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
     layers:
     - state: icon
       map: [ "base" ]
   - type: Clothing
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothibg/OuterClothing/void_cloak.rsi
   - type: Armor
     modifiers:
       coefficients:

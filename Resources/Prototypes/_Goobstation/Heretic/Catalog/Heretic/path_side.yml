@@ -13,7 +13,7 @@
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/eldritch_armor.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
     KnowledgePoint: 1
@@ -61,7 +61,7 @@
   id: HereticSidePath3VoidCloak
   name: knowledge-path-side-s3-void-cloak-name
   description: knowledge-path-side-s3-void-cloak-desc
-  icon: { sprite: _Goobstation/Heretic/void_cloak.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi, state: icon }
   productHereticKnowledge: VoidCloak
   cost:
     KnowledgePoint: 1
