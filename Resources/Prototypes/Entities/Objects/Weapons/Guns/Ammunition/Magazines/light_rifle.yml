@@ -62,6 +62,7 @@
   id: MagazineLightRifleBox
   name: "L6 SAW magazine box (.30 rifle)"
   parent: BaseMagazineLightRifle
+  description: Box containing a 100-round belt of linked .30 rifle rounds, used by light machine guns such as the L6. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: Tag
     tags:
@@ -90,6 +91,7 @@
   id: MagazineLightRifle
   name: "magazine (.30 rifle)"
   parent: BaseMagazineLightRifle
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifle
@@ -105,6 +107,7 @@
   name: "magazine (.30 rifle any)"
   suffix: empty
   parent: MagazineLightRifle
+  description: Curved 30-round double stack magazine for combat rifles.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -119,6 +122,7 @@
   id: MagazineLightRiflePractice
   name: "magazine (.30 rifle practice)"
   parent: BaseMagazineLightRifle
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRiflePractice
@@ -133,6 +137,7 @@
   id: MagazineLightRifleUranium
   name: "magazine (.30 rifle uranium)"
   parent: BaseMagazineLightRifle
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleUranium
@@ -147,6 +152,7 @@
   id: MagazineLightRifleIncendiary
   name: "magazine (.30 rifle incendiary)"
   parent: MagazineLightRifle
+  description: Curved 30-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLightRifleIncendiary
