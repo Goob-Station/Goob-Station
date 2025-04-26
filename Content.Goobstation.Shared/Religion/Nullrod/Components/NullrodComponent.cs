@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -54,12 +55,15 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         public TimeSpan? NextPopupTime;
 
         /// <summary>
-        ///     The last entity attacked, used for popup purposes (avoid spam)
+        /// The last entity attacked, used for popup purposes (avoid spam)
         /// </summary>
         [DataField]
         public EntityUid? LastAttackedEntity;
 
+        /// <summary>
+        /// How much holy-damage does this nullrod do?
+        /// </summary>
         [DataField]
-        public DamageSpecifier? HolyDamage { get; private set; }
+        public DamageSpecifier? HolyDamage;
 
     }

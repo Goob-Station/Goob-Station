@@ -19,7 +19,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
 
-public sealed partial class SharedNullRodSystem : EntitySystem
+public abstract partial class SharedNullRodSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;

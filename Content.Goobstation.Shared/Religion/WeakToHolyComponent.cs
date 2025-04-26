@@ -5,13 +5,51 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Religion;
 
-[RegisterComponent] [NetworkedComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class WeakToHolyComponent : Component
 {
+    /// <summary>
+    /// Should this entity take holy damage no matter what?
+    /// </summary>
     [DataField]
-    public bool RoundStart { get; set; }
+    public bool AlwaysTakeHoly;
+
+    /// <summary>
+    /// Is the entity currently standing on a rune?
+    /// </summary>
+    [ViewVariables]
+    public bool IsColliding;
+
+    /// <summary>
+    /// Duration between each heal tick while standing on a rune.
+    /// </summary>
+    [DataField]
+    public TimeSpan HealTickDelay = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public TimeSpan NextHealTick;
+
+    /// <summary>
+    /// How much the entity is healed by each tick.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier HealAmount = new() {DamageDict = new Dictionary<string, FixedPoint2> {{ "Holy", -4 }}};
+
+    /// <summary>
+    /// The biological container.
+    /// </summary>
+    [ViewVariables]
+    public readonly string BiologicalContainerId = "Biological";
+
+    /// <summary>
+    /// The biological metaphysical container.
+    /// </summary>
+    [ViewVariables]
+    public readonly string MetaphysicalContainerId = "BiologicalMetaphysical";
 }
