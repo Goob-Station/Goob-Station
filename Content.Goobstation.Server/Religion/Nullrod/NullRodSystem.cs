@@ -7,14 +7,18 @@
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
+using Content.Goobstation.Shared.Religion.Nullrod.Systems;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Religion.Nullrod;
 
-public sealed partial class NullRodSystem : EntitySystem
+public sealed partial class NullRodSystem : SharedNullRodSystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;

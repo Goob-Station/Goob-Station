@@ -5,7 +5,7 @@
   components:
   - type: DivineIntervention
   - type: Nullrod
-    holyDamage:
+    damage:
       types:
         Holy: 5
   - type: Sprite
@@ -19,6 +19,7 @@
     damage:
       types:
         Blunt: 12
+        Holy: 5
     soundHit:
       collection: MetalThud
   - type: Reflect
@@ -316,6 +317,7 @@
     damage:
       types:
         Slash: 8
+        Holy: 5
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -479,6 +481,9 @@
       types:
         Slash: 50
     UntrainedUseString: nullrod-chainsaw-untrained-usage-popup
+    damage:
+      types:
+        Holy: 2
   - type: Unremoveable
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier
