@@ -15,6 +15,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly EntitySystemManager _entSysManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     private AudioSystem _audioSystem = default!;
 
@@ -26,7 +27,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
 
     public void PostInject()
     {
-        _audioSystem = _entityManager.System<AudioSystem>();
+        _audioSystem = _entSysManager.GetEntitySystem<AudioSystem>();
         _sawmill = Logger.GetSawmill("voiceclient");
 
         _cfg.OnValueChanged(GoobCVars.VoiceChatVolume, OnVolumeChanged, true);
