@@ -153,7 +153,7 @@
     gloves: ClothingHandsGlovesCombat
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
-    id: NukieAgentIDCard # Goobstation
+    id: SyndiPDANukie # Goobstation
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:

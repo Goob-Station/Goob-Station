@@ -1606,7 +1606,7 @@
   description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
   components:
   - type: Pda
-    id: SyndicateIDCard
+    id: NukieAgentIDCard # Goobstation
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
