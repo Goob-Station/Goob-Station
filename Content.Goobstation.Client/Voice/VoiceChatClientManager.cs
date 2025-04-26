@@ -10,14 +10,12 @@ namespace Content.Goobstation.Client.Voice;
 /// Client-side manager for voice chat functionality.
 /// Handles network messages and manages voice streams.
 /// </summary>
-public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
+public sealed class VoiceChatClientManager : IVoiceChatManager
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entSysManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    private AudioSystem _audioSystem = default!;
 
     private ISawmill _sawmill = default!;
     private readonly Dictionary<EntityUid, VoiceStreamManager> _activeStreams = new();
@@ -25,10 +23,9 @@ public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
     private int _sampleRate = 48000;
     private float _volume = 0.5f;
 
-    void IPostInjectInit.PostInject() { }
     public void Initalize()
     {
-        _audioSystem = _entSysManager.GetEntitySystem<AudioSystem>();
+        IoCManager.InjectDependencies(this);
         _sawmill = Logger.GetSawmill("voiceclient");
 
         _cfg.OnValueChanged(GoobCVars.VoiceChatVolume, OnVolumeChanged, true);
@@ -80,7 +77,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
         if (!TryGetStreamManager(sourceEntity, out var streamManager))
         {
             _sawmill.Debug($"Creating new voice stream for entity {sourceEntity}");
-            streamManager = new VoiceStreamManager(_audioManager, _audioSystem, sourceEntity, _sampleRate);
+            streamManager = new VoiceStreamManager(_audioManager, _entityManager.System<AudioSystem>(), sourceEntity, _sampleRate);
             streamManager.SetVolume(_volume);
             AddStreamManager(sourceEntity, streamManager);
         }
