@@ -26,6 +26,13 @@
         amount: 2
         doAfter: 1
 
+    # Goobstation
+    - to: inline_filter
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
     # Mixer
     - to: mixer
       steps:
@@ -64,6 +71,23 @@
 
   - node: filterflipped
     entity: GasFilterFlipped
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  # Goobstation - inline filter
+  - node: inline_filter
+    entity: GasFilterInline
     edges:
     - to: start
       conditions:
