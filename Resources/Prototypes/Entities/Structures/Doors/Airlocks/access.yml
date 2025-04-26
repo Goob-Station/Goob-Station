@@ -430,6 +430,15 @@
 
 - type: entity
   parent: AirlockSecurity
+  id: AirlockBrigmedicLocked
+  suffix: Brigmedic, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrigmedic ]
+
+- type: entity
+  parent: AirlockSecurity
   id: AirlockDetectiveLocked
   suffix: Detective, Locked
   components:
@@ -821,6 +830,15 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSecurity ]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockBrigmedicGlassLocked
+  suffix: Brigmedic, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBrigmedic ]
 
 - type: entity
   parent: AirlockSecurityGlass

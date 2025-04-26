@@ -234,6 +234,14 @@
 
 - type: entity
   parent: DoorElectronics
+  id: DoorElectronicsBrigmedic
+  suffix: Brigmedic, Locked
+  components:
+  - type: AccessReader
+    access: [["Brigmedic"]]
+
+- type: entity
+  parent: DoorElectronics
   id: DoorElectronicsSecurityLawyer
   suffix: Security/Lawyer, Locked
   components:
