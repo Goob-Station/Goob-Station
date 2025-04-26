@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Body parts by @Kilath | bunnyearsalt taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e modified by Skubman",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bullishhorns",
+            "directions": 4
+        },
+        {
+            "name": "bunnyearstone1",
+            "directions": 4
+        },
+        {
+            "name": "bunnyearstone2",
+            "directions": 4
+        },
+        {
+            "name": "bunnyearsalt",
+            "directions": 4
+        },
+        {
+            "name": "foxears",
+            "directions": 4
+        },
+        {
+            "name": "goathornstone1",
+            "directions": 4
+        },
+        {
+            "name": "goathornstone2",
+            "directions": 4
+        }
+    ]
+}

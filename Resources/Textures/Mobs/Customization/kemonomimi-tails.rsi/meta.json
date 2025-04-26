@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Body parts by @Kilath | bunnytailalt taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e modified by Skubman",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bunnytail",
+            "directions": 4
+        },
+        {
+            "name": "bunnytailalt",
+            "directions": 4
+        },
+        {
+            "name": "doblefurtailtone1",
+            "directions": 4
+        },
+        {
+            "name": "doblefurtailtone2",
+            "directions": 4
+        },
+        {
+            "name": "fluffytail",
+            "directions": 4
+        },
+        {
+            "name": "foxninetailstone1",
+            "directions": 4
+        },
+        {
+            "name": "foxninetailstone2",
+            "directions": 4
+        },
+        {
+            "name": "foxthreetailstone1",
+            "directions": 4
+        },
+        {
+            "name": "foxthreetailstone2",
+            "directions": 4
+        },
+        {
+            "name": "foxtwotailstone1",
+            "directions": 4
+        },
+        {
+            "name": "foxtwotailstone2",
+            "directions": 4
+        },
+        {
+            "name": "horsetailculty",
+            "directions": 4
+        },
+        {
+            "name": "horsetaillong",
+            "directions": 4
+        },
+        {
+            "name": "sharktail",
+            "directions": 4
+        },
+        {
+            "name": "tasseltailtone1",
+            "directions": 4
+        },
+        {
+            "name": "tasseltailtone2",
+            "directions": 4
+        }
+    ]
+}
