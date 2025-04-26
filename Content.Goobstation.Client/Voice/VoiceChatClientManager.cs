@@ -15,7 +15,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly EntitySystemManager _entSysManager = default!;
+    [Dependency] private readonly IEntitySystemManager _entSysManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     private AudioSystem _audioSystem = default!;
 
