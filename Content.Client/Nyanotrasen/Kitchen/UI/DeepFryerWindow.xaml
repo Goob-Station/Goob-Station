@@ -1,0 +1,67 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="{Loc 'deep-fryer-window-title'}"
+            MinSize="600 400"
+            >
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+        <BoxContainer
+            Orientation="Vertical"
+            HorizontalExpand="True"
+        >
+            <Label
+                Text="{Loc 'deep-fryer-label-baskets'}"
+                Align="Left"/>
+            <ItemList Name="ItemList"
+                      Access="Public"
+                      VerticalExpand="True"
+                      HorizontalExpand="True"
+                      SelectMode="Button">
+            </ItemList>
+        </BoxContainer>
+        <BoxContainer
+            Orientation="Vertical"
+            Margin="8 0"
+            MinSize="200 0"
+        >
+            <Label Text="{Loc 'deep-fryer-label-oil-level'}"/>
+            <ProgressBar Name="OilLevel"
+                         HorizontalExpand="True"
+                         MinValue="0"
+                         MaxValue="1"
+                         Page="0"
+                         Value="1">
+            </ProgressBar>
+            <Label Text="{Loc 'deep-fryer-label-oil-purity'}"/>
+            <ProgressBar Name="OilPurity"
+                         HorizontalExpand="True"
+                         MinValue="0"
+                         MaxValue="1"
+                         Page="0"
+                         Value="1">
+            </ProgressBar>
+            <Button Name="InsertItem"
+                Access="Public"
+                TextAlign="Center"
+                HorizontalExpand="True"
+                Text="{Loc 'deep-fryer-button-insert-item'}"
+                ToolTip="{Loc 'deep-fryer-button-insert-item-tooltip'}"/>
+            <Button Name="ScoopVat"
+                Access="Public"
+                TextAlign="Center"
+                HorizontalExpand="True"
+                Text="{Loc 'deep-fryer-button-scoop-vat'}"
+                ToolTip="{Loc 'deep-fryer-button-scoop-vat-tooltip'}"/>
+            <Button Name="ClearSlag"
+                Access="Public"
+                TextAlign="Center"
+                HorizontalExpand="True"
+                Text="{Loc 'deep-fryer-button-clear-slag'}"
+                ToolTip="{Loc 'deep-fryer-button-clear-slag-tooltip'}"/>
+            <Button Name="RemoveAllItems"
+                Access="Public"
+                TextAlign="Center"
+                HorizontalExpand="True"
+                Text="{Loc 'deep-fryer-button-remove-all-items'}"
+                ToolTip="{Loc 'deep-fryer-button-remove-all-items-tooltip'}"/>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>
