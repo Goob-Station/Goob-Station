@@ -449,8 +449,6 @@
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: StealTarget
-    stealGroup: WeaponLauncherSingularityBuster
   - type: Appearance
   - type: StaticPrice
     price: 1000

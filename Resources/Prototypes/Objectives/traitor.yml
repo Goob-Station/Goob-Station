@@ -314,15 +314,6 @@
   - type: StealCondition
     stealGroup: ClothingShoesBootsMagAdv
 
-- type: entity
-  parent: BaseCEStealObjective
-  id: CERocketLauncherStealObjective
-  components:
-  - type: StealCondition
-    stealGroup: WeaponLauncherSingularityBuster
-  - type: Objective
-    difficulty: 4 # This thing is large af
-
 ## qm
 
 - type: entity
