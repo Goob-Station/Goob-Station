@@ -100,7 +100,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatPropeller
   name: propeller hat hat
   description: Aw gee willickers!
@@ -109,6 +109,16 @@
     sprite: _Goobstation/Clothing/Head/Hats/propeller.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/propeller.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHeadHatPropeller, ClothingHeadHeadHatBaseFlipped]
+  id: ClothingHeadHatPropellerFlipped
+  name: propeller hat hat
+  components:
   - type: Tag
     tags:
     - ClothMade
