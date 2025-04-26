@@ -101,6 +101,7 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
+  - type: ShowContrabandDetails
 
 - type: entity
   id: ShowMedicalIcons
