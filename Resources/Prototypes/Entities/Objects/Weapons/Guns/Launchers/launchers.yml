@@ -418,7 +418,7 @@
     - type: PacifismAllowedGun
 
 - type: entity
-  parent: [BaseWeaponLauncher, BaseGrandTheftContraband]
+  parent: [BaseWeaponLauncher, BaseSecurityEngineeringContraband]
   id: WeaponLauncherSingularityBuster
   name: singularity buster rocket launcher
   description: An experimental rocket launcher designed to fire rockets capable of decomposing a singularity or tesla.
