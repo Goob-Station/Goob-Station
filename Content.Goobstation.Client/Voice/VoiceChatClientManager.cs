@@ -10,7 +10,7 @@ namespace Content.Goobstation.Client.Voice;
 /// Client-side manager for voice chat functionality.
 /// Handles network messages and manages voice streams.
 /// </summary>
-public sealed class VoiceChatClientManager : IVoiceChatManager
+public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
 {
     private IConfigurationManager _cfg = default!;
     private IAudioManager _audioManager = default!;
@@ -24,7 +24,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
     private int _sampleRate = 48000;
     private float _volume = 0.5f;
 
-    public void Initialize()
+    public void PostInject()
     {
         _cfg = IoCManager.Resolve<IConfigurationManager>();
         _audioManager = IoCManager.Resolve<IAudioManager>();

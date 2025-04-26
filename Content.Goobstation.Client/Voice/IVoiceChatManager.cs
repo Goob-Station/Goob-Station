@@ -27,6 +27,5 @@ public interface IVoiceChatManager : IDisposable
     /// <param name="streamManager">The stream manager to add.</param>
     void AddStreamManager(EntityUid sourceEntity, VoiceStreamManager streamManager);
 
-    void Initialize();
     void Update();
 }

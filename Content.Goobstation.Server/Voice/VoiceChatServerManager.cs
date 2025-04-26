@@ -19,7 +19,7 @@ namespace Content.Goobstation.Server.Voice;
 /// Server-side manager for voice chat functionality.
 /// Handles Lidgren UDP connections and decodes Opus audio.
 /// </summary>
-public sealed class VoiceChatServerManager : IVoiceChatServerManager
+public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjectInit
 {
     private IConfigurationManager _cfg = default!;
     private IPlayerManager _playerManager = default!;
@@ -42,7 +42,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager
     private const int FrameSamplesPerChannel = SampleRate / 1000 * FrameSizeMs; // 960
     private const int BytesPerSample = 2; // 16-bit audio
 
-    public void Initialize()
+    public void PostInject()
     {
         _cfg = IoCManager.Resolve<IConfigurationManager>();
         _playerManager = IoCManager.Resolve<IPlayerManager>();

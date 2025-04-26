@@ -32,8 +32,6 @@ public sealed class EntryPoint : GameClient
     public override void PostInit()
     {
         base.PostInit();
-
-        _voiceManager.Initialize();
     }
 
     public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
