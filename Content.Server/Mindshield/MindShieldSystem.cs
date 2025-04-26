@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 EmoGarbage404 <retron404@gmail.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 coolmankid12345 <coolmankid12345@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -10,7 +24,7 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
-using Content.Shared.Mindcontrol;  //Goobstation - Mindcontrol Implant
+using Robust.Shared.Containers;
 
 namespace Content.Server.Mindshield;
 
@@ -33,7 +47,7 @@ public sealed class MindShieldSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(ImplantCheck);
-        SubscribeLocalEvent<MindShieldComponent, ImplantRemovedFromEvent>(OnMindShieldRemoved); // GoobStation
+        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
     }
 
     /// <summary>
@@ -72,24 +86,21 @@ public sealed class MindShieldSystem : EntitySystem
         {
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }
-        if (HasComp<MindcontrolledComponent>(implanted))   //Goobstation - Mindcontrol Implant
-            RemComp<MindcontrolledComponent>(implanted);
+        if (HasComp<Goobstation.Shared.Mindcontrol.MindcontrolledComponent>(implanted))   //Goobstation - Mindcontrol Implant
+            RemComp<Goobstation.Shared.Mindcontrol.MindcontrolledComponent>(implanted);
     }
 
-    // GoobStation
-    /// <summary>
-    /// Removes mindshield comp if mindshield implant was ejected
-    /// </summary>
-    public void OnMindShieldRemoved(Entity<MindShieldComponent> mindshielded, ref ImplantRemovedFromEvent args)
+    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
-        if (!_tag.HasTag(args.Implant, MindShieldTag))
+        if (!_tag.HasTag(ent, MindShieldTag))
             return;
 
-        _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), mindshielded, mindshielded);
+        _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), args.Container.Owner, args.Container.Owner);
 
-        if (TryComp<HeadRevolutionaryComponent>(mindshielded, out var headRevComp))
-            _revolutionarySystem.ToggleConvertAbility((mindshielded, headRevComp), true);
+        if (TryComp<HeadRevolutionaryComponent>(args.Container.Owner, out var headRevComp))
+            _revolutionarySystem.ToggleConvertAbility((args.Container.Owner, headRevComp), true);
 
-        RemComp<MindShieldComponent>(mindshielded);
+        RemComp<MindShieldComponent>(args.Container.Owner);
     }
 }
+

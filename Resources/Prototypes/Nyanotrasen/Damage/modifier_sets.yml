@@ -1,12 +1,23 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: damageModifierSet
   id: Oni
   coefficients:
     Blunt: 0.85
     Slash: 0.85
     Piercing: 0.85
+  ignoreArmorPierceFlags: All # Goobstation
+
 - type: damageModifierSet
   id: Felinid
   coefficients:
     Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
+  ignoreArmorPierceFlags: All # Goobstation

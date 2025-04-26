@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: startingGear
   id: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
@@ -7,7 +15,6 @@
     eyes: ClothingEyesHudSyndicate
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesClownLarge
     id: SyndiPDA
     pocket1: BikeHorn
@@ -23,7 +30,7 @@
   id: SyndicateOperativeGearFullHonkops
   parent: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
-    pocket2: BaseUplinkRadio225TC # Goobstation - Telecrystal rework
+    pocket2: BaseUplinkRadio225TC
 
 #Nuclear Operative Commander Gear
 - type: startingGear
@@ -31,8 +38,7 @@
   parent: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
     neck: SyndicateWhistle
-    pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
-    #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
+    pocket2: BaseUplinkRadio350TC
   inhand:
   - NukeOpsDeclarationOfWar
 
@@ -41,21 +47,17 @@
   id: SyndicateOperativeMedicFullHonkops
   parent: SyndicateOperativeGearFullNoUplinkHonkops
   equipment:
+    back: ClothingBackpackDuffelSyndicateMedical
     eyes: ClothingEyesHudSyndicateAgent
-    #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
-    # shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
-    belt: ClothingBeltMilitaryWebbingMedFilled
+    belt: ClothingBeltChemBagSyndiFilled
     pocket2: BaseUplinkRadio225TCMedic
   storage:
     back:
     - SyndiHypo
-    - SawAdvanced
-    - Cautery
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    - HandheldHealthAnalyzer
     - CombatMedipen
     - DeathAcidifierImplanter
-    - OmnimedToolSyndie # Shitmed
+    - MedkitCombatFilled

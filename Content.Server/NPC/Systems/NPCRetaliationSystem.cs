@@ -1,4 +1,15 @@
+// SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.NPC.Components;
+using Content.Server.NPC.Events; // Goobstation
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
@@ -40,7 +51,8 @@ public sealed class NPCRetaliationSystem : EntitySystem
         TryRetaliate(ent, args.Source);
     }
 
-    public bool TryRetaliate(Entity<NPCRetaliationComponent> ent, EntityUid target)
+    public bool TryRetaliate(Entity<NPCRetaliationComponent> ent, EntityUid target,
+                             bool secondary = false) // Goobstation - whether this should trigger group retaliation
     {
         // don't retaliate against inanimate objects.
         if (!HasComp<MobStateComponent>(target))
@@ -53,6 +65,10 @@ public sealed class NPCRetaliationSystem : EntitySystem
         _npcFaction.AggroEntity(ent.Owner, target);
         if (ent.Comp.AttackMemoryLength is {} memoryLength)
             ent.Comp.AttackMemories[target] = _timing.CurTime + memoryLength;
+
+        // Goobstation
+        var ev = new NPCRetaliatedEvent(ent, target, secondary);
+        RaiseLocalEvent(ent, ev);
 
         return true;
     }

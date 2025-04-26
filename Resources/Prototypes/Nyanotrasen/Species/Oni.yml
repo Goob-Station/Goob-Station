@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: species
   id: Oni
   name: species-name-oni
@@ -7,9 +16,9 @@
   markingLimits: MobOniMarkingLimits
   sprites: MobHumanSprites
   skinColoration: Hues
-  maleFirstNames: names_oni_male
-  femaleFirstNames: names_oni_female
-  lastNames: names_oni_location
+  maleFirstNames: NamesOniFirstMale
+  femaleFirstNames: NamesOniFirstFemale
+  lastNames: NamesOniLast
   naming: LastNoFirst
 
 - type: markingPoints
@@ -33,7 +42,7 @@
       points: 2
       required: false
     Chest:
-      points: 1
+      points: 3
       required: false
     Legs:
       points: 6

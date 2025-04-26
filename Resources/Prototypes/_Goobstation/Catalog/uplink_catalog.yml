@@ -1,3 +1,48 @@
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Remuchi <72476615+Remuchi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ScyronX <166930367+ScyronX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tristan <traynor123123@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tryded <139474617+Tryded@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Disruption
 
 - type: listing
@@ -87,6 +132,17 @@
     stock: 1
 
 - type: listing
+  id: UplinkGlovesKnuckleDusters
+  name: uplink-gloves-knuckleduster-name
+  description: uplink-gloves-knuckleduster-desc
+  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: ClothingHandsKnuckleDustersSyndicate
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkM90
   name: uplink-m90-name
   description: uplink-m90-desc
@@ -129,7 +185,7 @@
   description: uplink-WSPR-desc
   productEntity: WeaponRifleWSPR
   cost:
-    Telecrystal: 60
+    Telecrystal: 65
   categories:
   - UplinkWeaponry
 
@@ -172,23 +228,12 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkDualettaKit
-  name: uplink-dualetta-kit-name
-  description: uplink-dualetta-kit-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
-  productEntity: BoxDualettaKit
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkPistolAnaconda
   name: uplink-anaconda-name
   description: uplink-anaconda-desc
   productEntity: WeaponPistolAnaconda
   cost:
-    Telecrystal: 40
+    Telecrystal: 38 # This + esword = 75 TC
   categories:
   - UplinkWeaponry
 
@@ -201,6 +246,31 @@
     Telecrystal: 25
   categories:
     - UplinkWeaponry
+
+- type: listing
+  id: UplinkWeaponM7S
+  name: uplink-m7s-name
+  description: uplink-m7s-desc
+  productEntity: WeaponSubMachineGunM7S
+  cost:
+    Telecrystal: 60
+  categories:
+    -  UplinkWeaponry
+
+- type: listing
+  id: UplinkWeaponHeavensgate
+  name: uplink-heavensgate-name
+  description: uplink-heavensgate-desc
+  productEntity: WeaponSniperHeavensGate
+  cost:
+    Telecrystal: 100
+  categories:
+  -  UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Wearables
 
@@ -405,6 +475,34 @@
     - Zookeeper
   saleLimit: 1
 
+- type: listing
+  id: uplinkBeeNades    #goob - bee update
+  name: uplink-beenades-name
+  description: uplink-beenades-desc
+  productEntity: BeeGrenade
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+    - Zookeeper
+
+- type: listing
+  id: UplinkDartGun
+  name: uplink-dart-gun-name
+  description: uplink-dart-gun-desc
+  productEntity: DartGun
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Medical
 
 # chemicals
 
@@ -423,6 +521,16 @@
   name: uplink-lollypop-bundle-name
   description: uplink-lollypop-bundle-desc
   productEntity: SyndicateLollypopBundle
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkSyringePistol
+  name: uplink-syringe-pistol-name
+  description: uplink-syringe-pistol-desc
+  productEntity: SyringePistol
   cost:
     Telecrystal: 15
   categories:
@@ -456,6 +564,7 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+          - ContravendUplink
 
 - type: listing
   id: UplinkSmokeImplanter
@@ -468,6 +577,29 @@
   categories:
     - UplinkImplants
 
+- type: listing
+  id: UplinkNutrimentImplanter
+  name: uplink-nutriment-implant-name
+  description: uplink-nutriment-implant-desc
+  icon: { sprite: Objects/Consumable/Food/burger.rsi, state: bacon }
+  productEntity: NutrimentImplanter
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkImplants
+
+# I don't know if this is balanced, so i'm just going to leave it commented out.
+# If you want to add this in the future, feel free. - Sol
+#- type: listing
+#  id: UplinkStypticStimulatorImplanter
+#  name: uplink-styptic-stimulator-implant-name
+#  description: uplink-styptic-stimulator-implant-desc
+#  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
+#  productEntity: StypticStimulatorImplanter
+#  cost:
+#    Telecrystal: 40
+#  categories:
+#  - UplinkImplants
 
 - type: listing
   id: UplinkKravMagaImplanter
@@ -567,7 +699,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 6 # Slightly more total damage compared to C20 mags
+    Telecrystal: 10 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
   categories:
   - UplinkAmmo
 
@@ -578,7 +710,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
+    Telecrystal: 20 # 2x as much compared to regular mags.
   categories:
   - UplinkAmmo
 
@@ -653,6 +785,60 @@
   categories:
   - UplinkDisruption
 
+- type: listing
+  id: UplinkMagazinePistolCaselessRifleSAPHE
+  name: uplink-pistol-magazine-caseless-saphe-name
+  description: uplink-pistol-magazine-caseless-saphe-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: practice }
+  productEntity: MagazinePistolCaselessRifleSAPHE
+  cost:
+    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 12 pierce 11 explosive
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineM7S
+  name: uplink-m7s-mag-name
+  description: uplink-m7s-mag-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
+  productEntity: MagazineLowCaliberM7S
+  cost:
+    Telecrystal: 8 # 48 rounds of .25 rifle, 19 damage a shot but half the velocity of other weapons
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBox92AP
+  name: uplink-92-AP-name
+  description: uplink-92-AP-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  cost:
+    Telecrystal: 10 # 100 AP damage, don't blame me
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBox92AT
+  name: uplink-92-AT-name
+  description: uplink-92-AT-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
 # Mechs
 
 - type: listing
@@ -681,6 +867,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
+      - ContravendUplink
 
 # Martial Arts
 - type: listing
@@ -691,12 +878,13 @@
   cost:
     Telecrystal: 60
   categories:
-  - UplinkDeception
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
       - NukeOpsUplink
+      - ContravendUplink
 
 - type: listing
   id: UplinkMysteriousScroll
@@ -747,16 +935,15 @@
   - UplinkDeception
 
 - type: listing
-  id: NukieMysteriousScroll
-  name: uplink-sleeping-carp-name
-  description: uplink-sleeping-carp-desc
-  productEntity: SleepingCarpScroll
+  id: UplinkHoloCigar
+  name: uplink-holo-cigar-name
+  description: uplink-holo-cigar-desc
+  productEntity: HoloCigar
   cost:
-    Telecrystal: 70
+    Telecrystal: 35
   categories:
-  - UplinkWeaponry
+  - UplinkWearables
   conditions:
-  - !type:StoreWhitelistCondition
+  - !type:BuyerSpeciesCondition
     whitelist:
-      tags:
-      - LoneOpsUplink
+    - Human

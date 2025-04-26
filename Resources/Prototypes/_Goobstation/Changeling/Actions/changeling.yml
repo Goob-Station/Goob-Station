@@ -1,3 +1,39 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Visne <vincefvanwijk@gmail.com>
+# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 RemberBL <timmermanrembrandt@gmail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # abilities
 
 # starting
@@ -14,7 +50,6 @@
       state: evolution_menu
     event: !type:OpenEvolutionMenuEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true
 
@@ -38,7 +73,6 @@
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -77,7 +111,6 @@
       state: transform_cycle
     event: !type:ChangelingTransformCycleEvent {}
   - type: ChangelingAction
-    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -113,7 +146,6 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    biomassCost: 1
     useInLesserForm: true
     useInLastResort: true
 
@@ -481,7 +513,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 20
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -545,20 +577,40 @@
     chemicalCost: 20
 
 - type: entity
-  id: ActionEphedrineOverdose
-  name: Ephedrine Overdose
-  description: Inject some stimulants into yourself. Costs 30 chemicals.
+  id: ActionVoidAdapt
+  name: Toggle Void Adaption
+  description: Adapt to the harsh environment of space, removing the need for oxygen or a suit. Cost free.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 10
+    useDelay: 1
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: void_adaptation
+    event: !type:ActionVoidAdaptEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: true
+    requireAbsorbed: 2
+
+- type: entity
+  id: ActionAdrenalineReserves
+  name: Adrenaline Reserves
+  description: Release powerful adrenaline from your glands. Costs 30 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: epinephrine_overdose
-    event: !type:ActionEphedrineOverdoseEvent {}
+    event: !type:ActionAdrenalineReservesEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
@@ -570,7 +622,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 10
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -621,22 +673,6 @@
     chemicalCost: 20
 
 - type: entity
-  id: ActionToggleSpacesuit
-  name: Toggle Space Suit
-  description: Make your body space proof. Costs 20 chemicals.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    useDelay: 2
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: space_adaptation
-    event: !type:ActionSpacesuitEvent {}
-  - type: ChangelingAction
-    chemicalCost: 20
-
-- type: entity
   id: ActionHivemindAccess
   name: Hivemind Access
   description: Tune your chemical receptors for hivemind communication.
@@ -673,6 +709,5 @@
     event: !type:AbsorbBiomatterEvent {}
   - type: ChangelingAction
     chemicalCost: 0
-    requireBiomass: false
     useInLesserForm: true
     useInLastResort: true

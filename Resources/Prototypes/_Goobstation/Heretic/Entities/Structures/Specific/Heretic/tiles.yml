@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: HereticFireAA # AA in ash ascension
   name: fire
@@ -121,12 +132,11 @@
           small_rune_12: ""
   - type: Transform
     anchored: true
-  - type: Physics
-    canCollide: false
-    bodyType: Static
   - type: RequiresTile
   - type: SpriteRandomOffset
   - type: Appearance
+  - type: TimedDespawn
+    lifetime: 0.7
   - type: Tag
     tags:
       - HideContextMenu
@@ -139,13 +149,12 @@
   components:
   - type: Transform
     anchored: true
-  - type: Physics
-    canCollide: false
-    bodyType: Static
   - type: ActiveEdgeSpreader
   - type: EdgeSpreader
     id: Rust
   - type: RustSpreader
+  - type: Visibility
+    layer: 0
   - type: Tag
     tags:
       - HideContextMenu

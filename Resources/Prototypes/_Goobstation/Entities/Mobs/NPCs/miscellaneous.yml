@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@proton.me>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: Skibidi Toilet
   id: MobSkibidiToilet
@@ -71,6 +80,8 @@
       name: ghost-role-information-skibidi-toilet-name
       description: ghost-role-information-skibidi-toilet-description
       rules: ghost-role-information-skibidi-toilet-rules
+      mindRoles:
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
     - type: GhostTakeoverAvailable
@@ -374,3 +385,20 @@
   - type: Grammar
     attributes:
       gender: female
+
+- type: entity
+  id: MobRevenantToken
+  parent: MobRevenant
+  name: revenant
+  description: A spooky ghostie.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-revenant-name-token
+    description: ghost-role-information-description-token-generic
+    rules: ghost-role-information-antagonist-rules
+    raffle:
+      settings: default
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000

@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: AmmoProviderShotgunShell
   id: BaseMagazineBoxShotgunHighCaliber
@@ -13,7 +22,7 @@
 
 # Carpshot
 - type: entity
-  name: shell box (.75 carpshot)
+  name: shell box (8 Gauge carpshot)
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunHighCaliber
   components:
@@ -29,7 +38,7 @@
 
 # Normal Slug
 - type: entity
-  name: shell box (.75 slug)
+  name: shell box (8 Gauge slug)
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunSlugHighCaliber
   components:
@@ -49,7 +58,7 @@
 
 # Incendiary
 - type: entity
-  name: shell box (.75 incendiary)
+  name: shell box (8 Gauge incendiary)
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunIncendiaryHighCaliber
   components:
@@ -65,7 +74,7 @@
 
 # Uranium
 - type: entity
-  name: shell box (.75 uranium)
+  name: shell box (8 Gauge uranium)
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunUraniumHighCaliber
   components:
@@ -88,7 +97,7 @@
 - type: entity
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunBeanbagHighCaliber
-  name: shell box (.75 beanbag)
+  name: shell box (8 Gauge beanbag)
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbagHighCaliber
@@ -103,7 +112,7 @@
 # Practice
 
 - type: entity
-  name: shell box (.75 practice)
+  name: shell box (8 Gauge practice)
   parent: BaseMagazineBoxShotgunHighCaliber
   id: MagazineBoxShotgunPracticeHighCaliber
   components:
@@ -122,7 +131,7 @@
 - type: entity
   id: MagazineBoxShotgunHighCaliberEnsnaring
   parent: BaseMagazineBoxShotgunHighCaliber
-  name: shell box (.75 slug ensnaring)
+  name: shell box (8 Gauge slug ensnaring)
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlugEnsnaring
@@ -139,7 +148,7 @@
 - type: entity
   id: MagazineBoxShotgunHighCaliberEMP
   parent: BaseMagazineBoxShotgunHighCaliber
-  name: shell box (.75 slug EMP)
+  name: shell box (8 Gauge slug EMP)
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlugEMP
@@ -156,7 +165,7 @@
 - type: entity
   id: MagazineBoxShotgunHighCaliberFlash
   parent: BaseMagazineBoxShotgunHighCaliber
-  name: shell box (.75 slug flash)
+  name: shell box (8 Gauge slug flash)
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlugFlash
