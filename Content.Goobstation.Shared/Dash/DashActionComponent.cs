@@ -22,7 +22,7 @@ public sealed partial class DashActionComponent : Component
 public sealed partial class DashActionEvent : WorldTargetActionEvent
 {
     [DataField]
-    public float Distance = 5.65f;
+    public float Distance = 4.65f;
 
     [DataField]
     public float Speed = 9.65f;
