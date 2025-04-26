@@ -5,9 +5,9 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Obsessed;
+namespace Content.Server._Goobstation.Obsessed;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class ObsessedComponent : Component
 {
     public const float MaxSanity = 100f;
@@ -16,9 +16,9 @@ public sealed partial class ObsessedComponent : Component
     /// Identifier of the obsession target
     /// </summary>
     /// <remarks>
-    /// We are using integer to avoid storing NetEntities in a networked field.
+    /// We are using integer to for proper photos work
     /// </remarks>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public int Target = 0;
 
     public float Sanity

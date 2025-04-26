@@ -5,9 +5,9 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Obsessed;
+namespace Content.Server._Goobstation.Obsessed;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class ObsessionTargetComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
