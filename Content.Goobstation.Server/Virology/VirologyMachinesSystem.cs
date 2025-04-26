@@ -7,30 +7,60 @@ using Content.Shared.Paper;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using System.Text;
 
 namespace Content.Goobstation.Server.Virology;
 
-public sealed partial class DiseaseAnalyzerSystem : EntitySystem
+public sealed partial class VirologyMachinesSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly DiseaseSystem _disease = default!;
-    [Dependency] private readonly PowerReceiverSystem _power = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly DiseaseSystem _disease = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<DiseaseAnalyzerComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<DiseaseAnalyzerComponent, EntInsertedIntoContainerMessage>(OnSwabInserted);
-        SubscribeLocalEvent<DiseaseAnalyzerComponent, EntRemovedFromContainerMessage>(OnSwabRemoved);
     }
 
-    private void OnComponentInit(Entity<DiseaseAnalyzerComponent> ent, ref ComponentInit args)
+    public override void Update(float frameTime)
     {
-        _itemSlots.AddItemSlot(ent, DiseaseAnalyzerComponent.SwabSlotId, ent.Comp.SwabSlot);
+        var query = EntityQueryEnumerator<DiseaseAnalyzerComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.EndTime == null)
+                return;
+
+            if (!_itemSlots.TryGetSlot(uid, DiseaseAnalyzerComponent.SwabSlotId, out var slot) || slot.Item == null)
+            {
+                EndAnalysis(uid, comp);
+                return;
+            }
+
+            if (!_power.IsPowered(uid))
+            {
+                SetAppearance(uid, false);
+                comp.EndTime += TimeSpan.FromSeconds(frameTime);
+                return;
+            }
+            else
+            {
+                SetAppearance(uid, true);
+            }
+
+            if (_timing.CurTime > comp.EndTime)
+            {
+                AnalyzeSwab((uid, comp), (slot.Item.Value, null));
+                EndAnalysis(uid, comp);
+            }
+        }
     }
 
     private void OnSwabInserted(Entity<DiseaseAnalyzerComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -38,18 +68,17 @@ public sealed partial class DiseaseAnalyzerSystem : EntitySystem
         if (args.Container.ID != DiseaseAnalyzerComponent.SwabSlotId)
             return;
 
-        if (!_power.IsPowered(ent))
-            return;
-
         if (!TryComp<DiseaseSwabComponent>(args.Entity, out var swab))
             return;
 
-        AnalyzeSwab((ent.Owner, ent.Comp), (args.Entity, swab));
+        SetAppearance(ent.Owner, true);
+        ent.Comp.EndTime = _timing.CurTime + ent.Comp.AnalysisDuration;
     }
 
-    private void OnSwabRemoved(Entity<DiseaseAnalyzerComponent> ent, ref EntRemovedFromContainerMessage args)
+    private void OnComponentInit(Entity<DiseaseAnalyzerComponent> ent, ref ComponentInit args)
     {
-       // Clear any pending analysis? Stop DoAfter? Depends on implementation.
+        if (!_itemSlots.TryGetSlot(ent, DiseaseAnalyzerComponent.SwabSlotId, out ent.Comp.SwabSlot))
+            _itemSlots.AddItemSlot(ent, DiseaseAnalyzerComponent.SwabSlotId, ent.Comp.SwabSlot);
     }
 
     private void AnalyzeSwab(Entity<DiseaseAnalyzerComponent?> analyzer, Entity<DiseaseSwabComponent?> swab)
@@ -96,5 +125,16 @@ public sealed partial class DiseaseAnalyzerSystem : EntitySystem
 
         _itemSlots.TryEject(analyzer, analyzer.Comp.SwabSlot, null, out _);
         _audio.PlayPvs(analyzer.Comp.AnalyzedSound, analyzer);
+    }
+
+    private void EndAnalysis(EntityUid uid, DiseaseAnalyzerComponent comp)
+    {
+        SetAppearance(uid, false);
+        comp.EndTime = null;
+    }
+
+    private void SetAppearance(EntityUid uid, bool state)
+    {
+        _appearance.SetData(uid, DiseaseMachineVisuals.IsRunning, state);
     }
 }
