@@ -452,9 +452,6 @@
   - type: Appearance
   - type: StaticPrice
     price: 1000
-  - type: Tag
-    tags:
-    - HighRiskItem
 
 # Admeme
 - type: entity
