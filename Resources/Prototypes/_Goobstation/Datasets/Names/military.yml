@@ -16,3 +16,9 @@
   values:
     prefix: names-military-first-political-dataset-
     count: 3
+
+- type: localizedDataset
+  id: NamesFirstInspector
+  values:
+    prefix: names-first-inspector-dataset-
+    count: 4
