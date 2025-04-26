@@ -396,7 +396,8 @@
   # Goobstation
   - type: Item
     size: Large
-
+  - type: RestrictGunshotsByUserTag
+    doesntContain: [] # Ignore Oni tag
 
 - type: entity
   name: laser rifle
@@ -664,6 +665,7 @@
     - Taser
     - Sidearm
   - type: PacifismAllowedGun
+  - type: OniAllowedGun # Goobstation
 
 
 - type: entity
