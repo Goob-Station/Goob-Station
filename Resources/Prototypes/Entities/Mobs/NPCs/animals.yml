@@ -524,10 +524,11 @@
     position: Stand
     buckleOffset: "0,0.15"
     needHands: false
+    northDrawOver: false
   - type: Vehicle
     requiredHands: 0
     engineRunning: true
-    renderOver: North, NorthEast, NorthWest
+    renderOver: South, SouthWest, SouthEast
   # </Goobstation>
 
 - type: entity

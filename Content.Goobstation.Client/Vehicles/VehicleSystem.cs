@@ -59,7 +59,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
             return;
 
         var eye = _eye.CurrentEye;
-        Direction vehicleDir = (Transform(uid).LocalRotation + eye.Rotation).GetCardinalDir();
+        Direction vehicleDir = (Transform(uid).WorldRotation + eye.Rotation).GetCardinalDir(); // Goobstation - fix
 
         VehicleRenderOver renderOver = (VehicleRenderOver)(1 << (int)vehicleDir);
 

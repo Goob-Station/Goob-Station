@@ -224,6 +224,12 @@ public sealed partial class StrapComponent : Component
     [DataField]
     public bool NeedHands = true;
 
+    /// <summary>
+    /// Whether to draw this over the buckled entity when facing north
+    /// </summary>
+    [DataField]
+    public bool NorthDrawOver = true;
+
     // </Goobstation>
 }
 

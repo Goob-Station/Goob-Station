@@ -82,6 +82,10 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         if (args.NewRotation == args.OldRotation)
             return;
 
+        // Goobstation
+        if (!component.NorthDrawOver)
+            return;
+
         if (!TryComp<SpriteComponent>(uid, out var strapSprite))
             return;
 

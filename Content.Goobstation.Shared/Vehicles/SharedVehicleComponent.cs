@@ -88,13 +88,14 @@ public enum VehicleState : byte
 [Serializable, NetSerializable, Flags]
 public enum VehicleRenderOver
 {
+    // Goobstation - fix
     None = 0,
-    North = 1,
-    NorthEast = 2,
-    East = 4,
-    SouthEast = 8,
-    South = 16,
-    SouthWest = 32,
-    West = 64,
-    NorthWest = 128,
+    South = 1,
+    SouthEast = 2,
+    West = 4,
+    NorthWest = 8,
+    North = 16,
+    NorthEast = 32,
+    East = 64,
+    SouthWest = 128,
 }
