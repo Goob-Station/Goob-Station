@@ -137,7 +137,7 @@
     department: Security
     time: 36000 # 10h Goobstation
   - !type:DepartmentTimeRequirement
-    role: Command
+    department: Command
     time: 18000 # 5h Goobstation
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
