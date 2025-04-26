@@ -13,7 +13,7 @@ namespace Content.Goobstation.Shared.Disease;
 /// <summary>
 /// Component for disease behaviors
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [EntityCategory("Diseases")]
 public sealed partial class DiseaseEffectComponent : Component
 {
@@ -21,7 +21,7 @@ public sealed partial class DiseaseEffectComponent : Component
     /// Strength of this effect
     /// Changes on disease mutation
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Severity = 1f; // don't bring this outside of expected bounds or viro will probably choke and die
 
     /// <summary>

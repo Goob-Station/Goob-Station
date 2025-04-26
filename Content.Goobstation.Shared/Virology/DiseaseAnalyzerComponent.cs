@@ -1,6 +1,6 @@
 using Content.Shared.Containers.ItemSlots;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Virology;
 
@@ -17,5 +17,17 @@ public sealed partial class DiseaseAnalyzerComponent : Component
     public EntProtoId PaperPrototype = "DiagnosisReportPaper";
 
     [DataField]
-    public SoundSpecifier AnalyzedSound = new SoundPathSpecifier("/Audio/Machines/ding.ogg");
+    public SoundSpecifier AnalyzedSound = new SoundPathSpecifier("/Audio/Machines/diagnoser_printing.ogg");
+
+    [ViewVariables]
+    public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(5);
+
+    [ViewVariables]
+    public TimeSpan? EndTime = null;
+
+    [DataField]
+    public string? IdleState;
+
+    [DataField]
+    public string? RunningState;
 }
