@@ -25,7 +25,8 @@ public sealed class VoiceChatClientManager : IVoiceChatManager, IPostInjectInit
     private int _sampleRate = 48000;
     private float _volume = 0.5f;
 
-    public void PostInject()
+    void IPostInjectInit.PostInject() { }
+    public void Initalize()
     {
         _audioSystem = _entSysManager.GetEntitySystem<AudioSystem>();
         _sawmill = Logger.GetSawmill("voiceclient");
