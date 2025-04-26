@@ -2076,6 +2076,7 @@
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
   - type: MeleeWeapon
+    altDisarm: false # Sorry mouse shove lovers.
     soundHit:
       path: /Audio/Effects/bite.ogg
     angle: 0
