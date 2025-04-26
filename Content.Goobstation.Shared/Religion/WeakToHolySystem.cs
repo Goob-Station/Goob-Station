@@ -21,22 +21,19 @@ public sealed partial class SharedWeakToHolySystem : EntitySystem
     [Dependency] private readonly GoobBibleSystem _goobBible = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
 
-    private const string ContainerId = "Biological";
-    private const string TransformedContainerId = "BiologicalMetaphysical";
-
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<WeakToHolyComponent, MapInitEvent>(OnStartup);
+        SubscribeLocalEvent<WeakToHolyComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<WeakToHolyComponent, AfterInteractUsingEvent>(AfterBibleUse);
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
     }
-    private void OnStartup(Entity<WeakToHolyComponent> ent, ref MapInitEvent args)
+    private void OnInit(EntityUid uid, WeakToHolyComponent comp, ref MapInitEvent args)
     {
         // Only change to "BiologicalMetaphysical" if the original damage container was "Biological"
-        if (TryComp<DamageableComponent>(ent, out var damageable) && damageable.DamageContainerID == ContainerId)
-            _damageableSystem.ChangeDamageContainer(ent, TransformedContainerId);
+        if (TryComp<DamageableComponent>(uid, out var damageable) && damageable.DamageContainerID == comp.BiologicalContainerId)
+            _damageableSystem.ChangeDamageContainer(uid, comp.MetaphysicalContainerId);
     }
 
     private void AfterBibleUse(Entity<WeakToHolyComponent> ent, ref AfterInteractUsingEvent args)
