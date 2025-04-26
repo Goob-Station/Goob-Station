@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Clothing;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -16,10 +17,28 @@ namespace Content.Goobstation.Server.Clothing;
 public sealed partial class ClothingAutoInjectComponent : Component
 {
     /// <summary>
-    /// The YAML prototype defining which chemicals and how much to inject.
+    /// Dictionary of reagents and their quantities to be injected.
+    /// Key: Reagent ID, Value: Quantity to inject.
     /// </summary>
     [DataField(required: true)]
-    public ProtoId<AutoInjectorPrototype> Proto;
+    public Dictionary<string, FixedPoint2> Reagents = new();
+
+    [DataField]
+    public bool AutoInjectOnCrit = true;
+
+    /// <summary>
+    /// Can this autoinjector be activated manually?
+    /// </summary>
+    [DataField]
+    public bool AutoInjectOnAbility;
+
+    [DataField]
+    public TimeSpan AutoInjectInterval = TimeSpan.FromSeconds(120);
+
+    /// <summary>
+    /// When the auto-injector can activate again.
+    /// </summary>
+    public TimeSpan NextAutoInjectTime;
 
     /// <summary>
     /// The ID of the action used to activate the auto-injector.

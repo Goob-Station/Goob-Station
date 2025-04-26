@@ -21,15 +21,7 @@ namespace Content.Server.Explosion.EntitySystems
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, MapInitEvent>(OnVoiceInit);
             SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, ListenEvent>(OnListen);
-        }
-
-        private void OnVoiceInit(EntityUid uid, TriggerOnVoiceIdLockedComponent comp, MapInitEvent args)
-        {
-            EnsureComp<AccessReaderComponent>(uid, out var accessReader);
-            EnsureComp<ActiveListenerComponent>(uid).Range = comp.ListenRange;
-            _accessReader.SetAccesses(uid, accessReader, comp.AccessLists);
         }
 
         private void OnListen(Entity<TriggerOnVoiceIdLockedComponent> ent, ref ListenEvent args)

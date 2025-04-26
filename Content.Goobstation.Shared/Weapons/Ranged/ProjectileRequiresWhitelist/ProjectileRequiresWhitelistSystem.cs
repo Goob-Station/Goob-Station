@@ -7,6 +7,7 @@
 
 using Content.Shared.Physics;
 using Content.Shared.Whitelist;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
 
@@ -45,7 +46,7 @@ public sealed class ProjectileRequireWhitelistSystem : EntitySystem
             return;
 
         // stop when a wall is hit
-        if (comp.CollideWithWalls && args.OtherFixture.CollisionLayer == (int)CollisionGroup.WallLayer)
+        if (comp.CollideWithWalls && args.OtherFixture.Hard && args.OtherBody.BodyType is BodyType.Static or BodyType.Dynamic)
             return;
 
         // Prevent collision in all other cases

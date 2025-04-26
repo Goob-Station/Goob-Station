@@ -356,7 +356,6 @@
   - type: StealTarget
     stealGroup: WeaponEnergyGunLawbringer
   - type: RestrictById
-    access: [ "HeadOfSecurity" ]
     restrictMelee: true
     restrictRanged: true
     isEmaggable: true
@@ -364,7 +363,9 @@
     price: 750
   - type: TriggerOnVoiceIdLocked
     keyPhrase: "I AM THE LAW"
-    access: [ "HeadOfSecurity" ]
+  - type: AccessReader
+    access: [['HeadOfSecurity']]
+  - type: ActiveListener
   - type: ExplodeOnTrigger
   - type: DropOnTrigger
   - type: Explosive

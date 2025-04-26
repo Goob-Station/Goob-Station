@@ -126,8 +126,8 @@
 
 - type: thiefBackpackSet
   id: SmgSet
-  name: hos-box-category-smg-name
-  description: hos-box-category-smg-description
+  name: selectable-set-hos-smg-name
+  description: selectable-set-hos-smg-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
     state: icon
@@ -136,8 +136,8 @@
 
 - type: thiefBackpackSet
   id: ShotgunSet
-  name: hos-box-category-shotgun-name
-  description: hos-box-category-shotgun-description
+  name: selectable-set-hos-shotgun-name
+  description: selectable-set-hos-shotgun-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
     state: icon
@@ -146,8 +146,8 @@
 
 - type: thiefBackpackSet
   id: SniperSet
-  name: hos-box-category-sniper-name
-  description: hos-box-category-sniper-description
+  name: selectable-set-hos-sniper-name
+  description: selectable-set-hos-sniper-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
     state: icon
@@ -156,50 +156,10 @@
 
 - type: thiefBackpackSet
   id: RifleSet
-  name: hos-box-category-rifle-name
-  description: hos-box-category-rifle-description
+  name: selectable-set-hos-rifle-name
+  description: selectable-set-hos-rifle-description
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     state: icon
   content:
   - WeaponHeadOfSecurityRifle
-
-# Yeah not happening.
-# Come back when you're a little mmm richer? (when you make a custom martial art)
-#- type: thiefBackpackSet
-#  id: CQCSet
-#  name: hos-box-category-cqc-name
-#  description: hos-box-category-cqc-description
-#  sprite:
-#    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
-#    state: icon-hos
-#  content:
-#  - HOSManual
-
-## Armor
-
-- type: thiefBackpackSet
-  id: StationSet
-  name: hos-box-category-station-name
-  description: hos-box-category-station-description
-  sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Armor/hos_experimental_jacket.rsi
-    state: icon
-  content:
-  - ClothingOuterArmorHoSExperimental
-  - ClothingShoesBootsJackAdvanced
-  - ClothingEyesGlassesSecurityAdvanced
-  - ClothingHeadHatBeretHeadOfSecurityAdvanced
-  - ClothingOuterHardsuitSecurityRed # This replaces the other hardsuit, so I want it obtainable.
-
-- type: thiefBackpackSet
-  id: SpaceSet
-  name: hos-box-category-space-name
-  description: hos-box-category-space-description
-  sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
-    state: icon
-  content:
-  - ClothingOuterHardsuitHeadOfSecurityExperimental
-  - ClothingShoesBootsJackAdvanced
-  - ClothingEyesGlassesSecurityAdvanced

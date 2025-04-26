@@ -12,6 +12,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Pinpointer;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Timing;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Bloodtrak;
@@ -24,8 +25,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-
-    private readonly Dictionary<string, EntityUid> _dnaMap = new();
+    [Dependency] private readonly UseDelaySystem _delaySystem = default!;
 
     public override void Initialize()
     {
@@ -59,7 +59,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
         foreach (var dna in solutionsDna)
         {
             if (!targetDna.TryGetValue(dna, out var uid))
-                return null;
+                continue;
 
             _popupSystem.PopupEntity(Loc.GetString("bloodtrak-dna-saved"), user, user);
             return uid;
@@ -85,7 +85,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
     private void OnAfterInteract(EntityUid uid, BloodtrakComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Target is not { } target || component.IsActive)
+        if (!args.CanReach || args.Target is not { } target || component.IsActive || _delaySystem.IsDelayed(uid))
             return;
 
         args.Handled = true;
@@ -101,26 +101,15 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
         if (isActive)
         {
-            // Allow activation only if BOTH conditions are met:
-            // 1. Not in cooldown
-            // 2. Has valid target
-            if (_gameTiming.CurTime < pinpointer.CooldownEndTime)
-            {
-                var remaining = pinpointer.CooldownEndTime - _gameTiming.CurTime;
-                var secondsLeft = (int)Math.Max(0, remaining.TotalSeconds);
-
-                var popUp = Loc.GetString("bloodtrak-cooldown-active", ("num", secondsLeft));
-
-                _popupSystem.PopupEntity(popUp, uid);
-                return false;
-            }
-
             // If the targrt does not exist anymore (deleted, etc), display no target.
             if (pinpointer.Target == null || !Exists(pinpointer.Target.Value))
             {
                 _popupSystem.PopupEntity(Loc.GetString("bloodtrak-no-target"), uid);
                 return false;
             }
+
+            if (_delaySystem.IsDelayed(uid))
+                return false;
 
             pinpointer.ExpirationTime = _gameTiming.CurTime + pinpointer.TrackingDuration;
         }
@@ -141,7 +130,7 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
 
     private void OnActivate(EntityUid uid, BloodtrakComponent component, ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex)
+        if (args.Handled || !args.Complex || _delaySystem.IsDelayed(uid))
             return;
 
         TogglePinpointer(uid, component);
@@ -169,7 +158,9 @@ public sealed class BloodtrakSystem : SharedBloodtrakSystem
                 _popupSystem.PopupEntity(Loc.GetString(targetValid ? "bloodtrak-tracking-expired" : "bloodtrak-target-lost"), uid);
                 TogglePinpointer(uid, tracker);
                 tracker.Target = null;
-                tracker.CooldownEndTime = currentTime + tracker.CooldownDuration;
+
+                _delaySystem.SetLength(uid, tracker.CooldownDuration);
+
                 Dirty(uid, tracker);
             }
             else

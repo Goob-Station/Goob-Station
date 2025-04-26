@@ -290,6 +290,7 @@
   - type: StaminaDamageResistance
     coefficient: 0.5
   - type: ClothingAutoInject
-    proto: Stimulants
-
+    reagents:
+      Epinephrine: 10
+      Bicaridine: 10
 

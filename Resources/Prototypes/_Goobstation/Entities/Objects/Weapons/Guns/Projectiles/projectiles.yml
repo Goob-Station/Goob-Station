@@ -223,8 +223,8 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 13
-        Shock: 5
+        Heat: 14
+        Shock: 2
         Structural: 20
 
 - type: entity

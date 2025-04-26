@@ -7,7 +7,7 @@
 
 using Content.Server.Explosion.EntitySystems;
 
-namespace Content.Goobstation.Server.Explosion.Components;
+namespace Content.Server.Explosion.Components;
 
 /// <summary>
 /// Deletes entity parent on <see cref="TriggerEvent"/>

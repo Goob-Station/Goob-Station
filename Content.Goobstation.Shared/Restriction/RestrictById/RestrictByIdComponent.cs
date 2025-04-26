@@ -40,12 +40,6 @@ public sealed partial class RestrictByIdComponent : Component
     public bool IsEmaggable;
 
     /// <summary>
-    ///     Whether the item is currently emagged.
-    /// </summary>
-    [ViewVariables]
-    public bool IsEmagged;
-
-    /// <summary>
     ///     Whether ranged attacks should be restricted. True by default.
     /// </summary>
     [ViewVariables]

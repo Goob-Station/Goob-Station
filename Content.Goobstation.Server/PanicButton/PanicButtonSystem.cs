@@ -79,19 +79,12 @@ namespace Content.Goobstation.Server.PanicButton
 
             _useDelaySystem.TryResetDelay((uid, useDelay));
 
-
-
             // Gets location of the implant
             var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
             var distressMessage = Loc.GetString(comp.DistressMessage, ("position", posText));
 
             _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(comp.RadioChannel), uid);
             args.Handled = true;
-
-
-
-
-
         }
     }
 }

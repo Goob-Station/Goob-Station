@@ -168,7 +168,7 @@
   - type: DrainableSolution
     solution: ammo
   - type: SolutionInjectOnProjectileHit
-    transferAmount: 7
+    transferAmount: 2
     solution: ammo
   - type: InjectableSolution
     solution: ammo
@@ -177,7 +177,7 @@
       ammo:
         reagents:
         - ReagentId: Haloperidol
-          Quantity: 7
+          Quantity: 2
 
 - type: entity
   id: BulletBigshot
