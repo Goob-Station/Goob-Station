@@ -1,8 +1,0 @@
-- type: latheRecipe
-  id: DeepFryerMachineCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
-  result: DeepFryerMachineCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 700
