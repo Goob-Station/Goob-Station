@@ -592,8 +592,14 @@
       - ClothMade
       - RawMaterial
       - DroneUsable # Goobstation
+      - Boll
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Cotton: 100
   - type: Item
     heldPrefix: cotton
+
 
 - type: entity
   parent: MaterialCotton
