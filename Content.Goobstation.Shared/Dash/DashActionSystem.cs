@@ -48,7 +48,7 @@ public sealed class DashActionSystem : EntitySystem
             speed *= speedcomp.CurrentSprintSpeed / speedcomp.BaseSprintSpeed;
         }
 
-        _throwing.TryThrow(args.Performer, vec, speed, default, default, default, default, default, false);
+        _throwing.TryThrow(args.Performer, vec, speed, null, 0, null, false, false, false);
 
         if (args.Emote != null && TryComp<AnimatedEmotesComponent>(args.Performer, out var emotes))
         {
