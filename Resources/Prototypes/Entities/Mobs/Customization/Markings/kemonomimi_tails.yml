@@ -1,0 +1,187 @@
+- type: marking
+  id: BunnyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: bunnytail
+
+- type: marking
+  id: BunnyTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: bunnytailalt
+
+- type: marking
+  id: DobleFur
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: doblefurtailtone1
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: doblefurtailtone2
+
+- type: marking
+  id: FluffyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: fluffytail
+
+- type: marking
+  id: FoxNineTails
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: foxninetailstone1
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: foxninetailstone2
+
+- type: marking
+  id: FoxThreeTails
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: foxthreetailstone1
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: foxthreetailstone2
+
+- type: marking
+  id: HorseTailCulty
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: horsetailculty
+
+- type: marking
+  id: HorseTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: horsetaillong
+
+- type: marking
+  id: SharkTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: sharktail
+
+- type: marking
+  id: TasselTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, IPC]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: tasseltailtone1
+  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+    state: tasseltailtone2
