@@ -81,6 +81,7 @@ holiday-name-boxing-day = Boxing Day
 holiday-name-friday-thirteenth = Friday the 13th
 holiday-name-national-coming-out-day = National Coming Out Day
 holiday-name-pride-month = Pride Month
+holiday-name-ena-day = ENA Day
 
 ## Custom congrats
 
