@@ -185,6 +185,6 @@
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ClothingModifyStunTime
-    modifier: 0.5
+    modifier: 0.75 # Nobodies gonna know it's just slightly better than normal ones. The main advantage is drip.
   - type: ModifyStandingUpTime
     multiplier: 0.5

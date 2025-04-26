@@ -495,7 +495,7 @@
    # - id: ClothingOuterCoatHoSTrench
     - id: ClothingOuterArmorHoSExperimental
    # - id: ClothingShoesBootsJack
-    - id: ClothingShoesBootsJackAdvance
+    - id: ClothingShoesBootsJackAdvanced
     - id: DoorRemoteSecurity
    # - id: HoloprojectorSecurity
     - id: HoloprojectorSecurityAdvanced
