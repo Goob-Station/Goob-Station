@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.EntityEffects.Effects;
 using Content.Shared.Atmos;
@@ -19,9 +25,9 @@ public sealed partial class PluoxiumProductionReaction : IGasReactionEffect
         var initCO2 = mixture.GetMoles(Gas.CarbonDioxide);
         var initTrit = mixture.GetMoles(Gas.Tritium);
 
-        float[] efficiencyList = {5f, initCO2, initO2 * 2f, initTrit * 100f};
-        Array.Sort(efficiencyList);
-        var producedAmount = efficiencyList[0];
+        float[] efficiencies = {5f, initCO2, initO2 * 2f, initTrit * 100f};
+        Array.Sort(efficiencies);
+        var producedAmount = efficiencies[0];
 
         var co2Removed = producedAmount;
         var oxyRemoved = producedAmount * 0.5f;
@@ -42,7 +48,7 @@ public sealed partial class PluoxiumProductionReaction : IGasReactionEffect
         mixture.AdjustMoles(Gas.Pluoxium, pluoxProduced);
         mixture.AdjustMoles(Gas.WaterVapor, hydroProduced);
 
-        var energyReleased = producedAmount * 250;
+        var energyReleased = producedAmount * Atmospherics.PluoxiumProductionEnergy;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
         if (heatCap > Atmospherics.MinimumHeatCapacity)
             mixture.Temperature = Math.Max((mixture.Temperature * heatCap + energyReleased) / heatCap, Atmospherics.TCMB);

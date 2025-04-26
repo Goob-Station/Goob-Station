@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: PartModsuit
   parent: BaseItem
@@ -141,6 +151,146 @@
     tags:
     - ModsuitPart
     - ModsuitPlatingExternal
+
+- type: entity
+  id: ModsuitPlatingParamedic
+  parent: PartModsuit
+  name: MOD standard paramedic 'sanitater' plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal # Change this when they become obtainable
+
+- type: entity
+  id: ModsuitPlatingEngineer
+  parent: PartModsuit
+  name: MOD standard engineer 'sapper' plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal # Change this when they become obtainable
+
+- type: entity
+  id: ModsuitPlatingSecurity
+  parent: PartModsuit
+  name: MOD standard security 'dragoon' plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal # Change this when they become obtainable
+
+- type: entity
+  id: ModsuitPlatingHeadOfSecurity
+  parent: PartModsuit
+  name: MOD standard head of security 'bulwark' plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal # Change this when they become obtainable
+
+- type: entity
+  id: ModsuitPlatingCaptain
+  parent: PartModsuit
+  name: MOD standard captain's magnate plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal # Change this when they become obtainable
+
+- type: entity
+  id: ModsuitPlatingRD
+  parent: PartModsuit
+  name: MOD standard RD's 'minerva' plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal # Change this when they become obtainable
+
+- type: entity
+  id: ModsuitPlatingAtmostech
+  parent: PartModsuit
+  name: MOD standard atmospheric technician's 'aeolus' plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal # Change this when they become obtainable
 
 - type: entity
   id: ModsuitCoreStandard

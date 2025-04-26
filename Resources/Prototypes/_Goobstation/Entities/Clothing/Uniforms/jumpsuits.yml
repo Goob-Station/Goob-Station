@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 JoeHammad1844 <finiansalas2@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # durathread jumpsuit
 - type: entity
   parent: ClothingUniformBase
@@ -133,7 +148,7 @@
         Heat: 0.75
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCentcommContraband]
+  parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitSpecOps
   name: special operations officer's jumpsuit
   description: A suit worn by high-ranking spec ops officers. The rest is classified.
@@ -142,16 +157,9 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.65
-        Heat: 0.70
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCentcommContraband]
+  parent: ClothingUniformJumpsuitNavyGold
   id: ClothingUniformJumpsuitDiplomat
   name: diplomat's jumpsuit
   description: A suit worn by diplomacy focused Central Command workers.
@@ -160,13 +168,6 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.75
 
 - type: entity
   parent: ClothingUniformBase
@@ -178,3 +179,33 @@
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
   - type: Clothing
     sprite: _Shitmed/Clothing/Uniforms/Jumpsuit/abductor.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitNavyGold
+  id: ClothingUniformJumpsuitTrainer
+  name: NCT Jumpsuit
+  description: A jumpsuit issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/trainer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/trainer.rsi
+
+
+- type: entity
+  parent: [ClothingUniformJumpsuitLawyerBlack, BaseMagicContraband]
+  id: ClothingUniformJumpsuitDevil
+  name: devilish suit
+  description: A stylish black suit made of materials not from this dimension. Warm to the touch.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/lawyerblack.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.75

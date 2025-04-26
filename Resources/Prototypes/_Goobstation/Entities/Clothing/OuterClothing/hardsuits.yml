@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Chronolegioneer Hardsuit
 
 - type: entity
@@ -37,8 +53,10 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitChronolegioneer
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     cancel: true
+  - type: StaminaDamageResistance
+    coefficient: 0
 
 - type: entity
   parent: ClothingOuterHardsuitChronolegioneer
@@ -81,8 +99,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1.5
-    knockdownTimeDelta: -1.5
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
@@ -116,8 +136,10 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
   - type: ModifyDelayedKnockdown
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance
+    coefficient: 0.5
 
 # Cybersun Stealth
 
@@ -144,8 +166,8 @@
       coefficients:
         Blunt: 0.65
         Slash: 0.65
-        Piercing: 0.6
-        Heat: 0.6
+        Piercing: 0.65
+        Heat: 0.75
         Radiation: 0.55
         Caustic: 0.7
   - type: ClothingSpeedModifier
@@ -164,9 +186,12 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
+      noMoveTime: 3 
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance
+    coefficient: 0.5
 
 # cybersun dreadnought suit
 
@@ -220,7 +245,6 @@
       interval: 1.0
       ignoreResistances: true
   - type: StaminaDamageResistance
-    coefficient: 0.10 # 90% stamdgm resist
+    coefficient: 0
   - type: ModifyDelayedKnockdown
-    delayDelta: 6
-    knockdownTimeDelta: -4
+    cancel: true

@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ghost-role-information-nukie-reinforcement-name = Nuclear Operative
 ghost-role-information-nukie-reinforcement-description = The nuclear operatives need reinforcements. You, a reserve agent, will help them.
 ghost-role-information-nukie-reinforcement-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the nuclear operatives who summoned you.
@@ -16,6 +29,9 @@ ghost-role-information-Hecu-rules = You are required to obey orders given by you
 
 ghost-role-information-lootbug-name = LootBug
 ghost-role-information-lootbug-description = Try not to be butchered by tiders.
+
+ghost-role-information-homunculus-name = homunculus
+ghost-role-information-homunculus-description = Obey the one who has created you, if there are nowhere to be found, do as you will.
 
 ghost-role-information-c4-name = Composition C-4
 ghost-role-information-c4-description = Assist your user with bombing things.
@@ -42,6 +58,9 @@ ghost-role-information-navy-officer-undercover-rules = Follow the orders of the 
 ghost-role-information-diplomat-name = Diplomat
 ghost-role-information-diplomat-description = Represent Central Command, managing relationships with other factions aboard the station. Cleanup the issues the captain has likely caused.
 
+ghost-role-information-inspector-name = Central Command Auditor
+ghost-role-information-inspector-description = Perform inspections on the stations assets and its crew. Probably die in a horrific accident and get a deathsquad called.
+
 ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 
 # Half Life
@@ -49,3 +68,28 @@ ghost-role-information-sentient-shark-name = Sentient Sharkminnow
 ghost-role-information-Gman-name = The G-Man
 ghost-role-information-Gman-description = The right man in the wrong place can make all the difference in the world.
 ghost-role-information-Gman-rules = You are beholden to no rules or boundaries. Death cannot hold you, and neither can Nanotrasen.
+
+# shuttle roles
+
+ghost-role-information-alien-tourist-name = Alien Tourist
+ghost-role-information-alien-tourist-description = Look around the station. Glorp at people. Get shot by a trigger-happy officer.
+
+# Conquest?
+
+ghost-role-information-conquest-name = Conquest
+ghost-role-information-conquest-description = This station was given orders, they were given time. They were given more leeway than most.
+ghost-role-information-conquest-rules = Prepare this station for the arrival of the Viltrum Empire.
+
+# Token Roles
+
+ghost-role-information-description-token-generic = Don't take this role unless you redeemed the token!
+
+ghost-role-information-space-ninja-name-token = Space Ninja (Token)
+ghost-role-information-space-dragon-name-token = Space Dragon (Token)
+ghost-role-information-revenant-name-token = Revenant (Token)
+ghost-role-information-loneop-name-token = Lone Operative (Token)
+ghost-role-information-derelict-cyborg-syndicate-name-token = Derelict Assault Cyborg (Token)
+ghost-role-information-bingle-name-token = Bingle (Token)
+blob-carrier-role-name-token = Blob Carrier (Token)
+abductor-lone-ghost-role-name-token = Lone Abductor (Token)
+roles-wizard-name-token = Wizard (Token)

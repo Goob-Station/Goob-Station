@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeAntiMaterielHeavyArmourPiercing
+  name: cartridge (.92 anti-materiel AP)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeAntiMaterielHeavy
+  - type: CartridgeAmmo
+    proto: BulletAntiMaterielHeavyAP
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeAntiMaterielHeavyAntiTank
+  name: cartridge (.92 anti-tank)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeAntiMaterielHeavy
+  - type: CartridgeAmmo
+    proto: BulletAntiMaterielHeavyAT
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20

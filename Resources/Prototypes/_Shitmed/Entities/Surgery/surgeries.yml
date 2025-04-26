@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: SurgeryBase
   categories: [ HideSpawnMenu ]
@@ -380,6 +390,25 @@
 
 - type: entity
   parent: SurgeryBase
+  id: SurgeryRemoveBorgBrain
+  name: Remove Positronic Brain
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    # TODO: ipc surgery steps
+    - SurgeryStepSawBones
+    - SurgeryStepClampInternalBleeders
+    - SurgeryStepRemoveOrgan
+  - type: SurgeryPartCondition
+    part: Torso
+  - type: SurgeryOrganCondition
+    organ:
+    - type: BorgBrain
+
+- type: entity
+  parent: SurgeryBase
   id: SurgeryInsertBrain
   name: Insert Brain
   categories: [ HideSpawnMenu ]
@@ -390,13 +419,25 @@
     - SurgeryStepSawBones
     - SurgeryStepInsertOrgan
     - SurgeryStepSealOrganWound
-  - type: SurgeryPartCondition
-    part: Head
+  - type: SurgeryOrganSlotCondition
+    organSlot: brain
   - type: SurgeryOrganCondition
     organ:
     - type: Brain
     inverse: true
     reattaching: true
+
+- type: entity
+  parent: SurgeryInsertBrain
+  id: SurgeryInsertBorgBrain
+  name: Insert Positronic Brain
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryOrganSlotCondition
+    organSlot: posbrain
+  - type: SurgeryOrganCondition
+    organ:
+    - type: BorgBrain
 
 - type: entity
   parent: SurgeryBase
@@ -428,8 +469,8 @@
     - SurgeryStepSawBones
     - SurgeryStepInsertHeart
     - SurgeryStepSealOrganWound
-  - type: SurgeryPartCondition
-    part: Torso
+  - type: SurgeryOrganSlotCondition
+    organSlot: heart
   - type: SurgeryOrganCondition
     organ:
     - type: Heart
@@ -466,8 +507,8 @@
     - SurgeryStepSawBones
     - SurgeryStepInsertLiver
     - SurgeryStepSealOrganWound
-  - type: SurgeryPartCondition
-    part: Torso
+  - type: SurgeryOrganSlotCondition
+    organSlot: liver
   - type: SurgeryOrganCondition
     organ:
     - type: Liver
@@ -504,8 +545,8 @@
     - SurgeryStepSawBones
     - SurgeryStepInsertLungs
     - SurgeryStepSealOrganWound
-  - type: SurgeryPartCondition
-    part: Torso
+  - type: SurgeryOrganSlotCondition
+    organSlot: lungs
   - type: SurgeryOrganCondition
     organ:
     - type: Lung
@@ -542,8 +583,8 @@
     - SurgeryStepSawBones
     - SurgeryStepInsertStomach
     - SurgeryStepSealOrganWound
-  - type: SurgeryPartCondition
-    part: Torso
+  - type: SurgeryOrganSlotCondition
+    organSlot: stomach
   - type: SurgeryOrganCondition
     organ:
     - type: Stomach
@@ -580,8 +621,8 @@
     - SurgeryStepSawBones
     - SurgeryStepInsertEyes
     - SurgeryStepSealOrganWound
-  - type: SurgeryPartCondition
-    part: Head
+  - type: SurgeryOrganSlotCondition
+    organSlot: eyes
   - type: SurgeryOrganCondition
     organ:
     - type: Eyes

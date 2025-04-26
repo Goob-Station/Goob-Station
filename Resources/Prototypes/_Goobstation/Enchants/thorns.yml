@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Deals damage to melee attackers, scaling linearly with level
+- type: entity
+  parent: BaseEnchant
+  id: EnchantThorns
+  name: Thorns
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - Armor # have to use it on real armour not a scarf
+    maxLevel: 3
+  - type: ThornsEnchant
+  - type: DamageOnAttacked
+    damage:
+      types:
+        Slash: 4
