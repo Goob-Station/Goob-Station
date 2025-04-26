@@ -112,7 +112,7 @@
     - state: icon
       map: [ "base" ]
   - type: Clothing
-    sprite: _Goobstation/Heretic/Clothibg/OuterClothing/void_cloak.rsi
+    sprite: _Goobstation/Heretic/Clothing/OuterClothing/void_cloak.rsi
   - type: Armor
     modifiers:
       coefficients:

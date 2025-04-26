@@ -73,10 +73,10 @@
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Head/void_cloak_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/void_cloak_hood.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/Head/void_cloak_hood.rsi
+    sprite: _Goobstation/Heretic/Clothing/Head/void_cloak_hood.rsi
   - type: Tag
     tags: []
   - type: StripMenuInvisible
