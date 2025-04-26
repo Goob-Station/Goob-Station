@@ -16,6 +16,7 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
     [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
+    private AudioSystem? _audioSystem = default!;
 
     private ISawmill _sawmill = default!;
     private readonly Dictionary<EntityUid, VoiceStreamManager> _activeStreams = new();
@@ -74,10 +75,12 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
     /// <inheritdoc/>
     public void AddPacket(EntityUid sourceEntity, byte[] pcmData)
     {
+        _audioSystem ??= _entityManager.System<AudioSystem>();
+
         if (!TryGetStreamManager(sourceEntity, out var streamManager))
         {
             _sawmill.Debug($"Creating new voice stream for entity {sourceEntity}");
-            streamManager = new VoiceStreamManager(_audioManager, _entityManager.System<AudioSystem>(), sourceEntity, _sampleRate);
+            streamManager = new VoiceStreamManager(_audioManager, _audioSystem, sourceEntity, _sampleRate);
             streamManager.SetVolume(_volume);
             AddStreamManager(sourceEntity, streamManager);
         }
@@ -125,6 +128,8 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
 
         foreach (var (uid, stream) in _activeStreams)
         {
+            stream.Update();
+
             if (!_entityManager.EntityExists(uid))
             {
                 toRemove ??= new List<EntityUid>();

@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Robust.Client.Audio;
 using Robust.Shared.Audio;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.Voice;
 
@@ -13,15 +14,17 @@ public sealed class VoiceStreamManager : IDisposable
     private readonly object _queueLock = new();
     private bool _isPlaying;
     private bool _isDisposed;
+    private TimeSpan? _expectedChunkEndTime;
 
     private readonly int _sampleRate;
     private readonly IAudioManager _audioManager;
     private readonly AudioSystem _audioSystem;
     private readonly EntityUid _sourceEntity;
     private readonly ISawmill _sawmill;
+    private readonly IGameTiming _gameTiming;
 
     private readonly int _initialBufferPackets = 3;
-    private readonly int _maxQueuedPackets = 25;
+    private readonly int _maxQueuedPackets = 50;
     private float _volume = 0.5f;
 
     public VoiceStreamManager(IAudioManager audioManager, AudioSystem audioSystem,
@@ -32,6 +35,7 @@ public sealed class VoiceStreamManager : IDisposable
         _sourceEntity = sourceEntity;
         _sampleRate = sampleRate;
         _sawmill = Logger.GetSawmill("voiceclient");
+        _gameTiming = IoCManager.Resolve<IGameTiming>(); // Only for testing purposes
     }
 
     /// <summary>
@@ -46,7 +50,7 @@ public sealed class VoiceStreamManager : IDisposable
         {
             if (_packetQueue.Count >= _maxQueuedPackets)
             {
-                _sawmill.Warning($"Voice buffer full for {_sourceEntity}, dropping packet");
+                _sawmill.Warning($"[{_gameTiming.CurTime.TotalSeconds:F3}] Voice buffer full for {_sourceEntity} (Queue: {_packetQueue.Count}/{_maxQueuedPackets}). Dropping packet ({pcmData.Length} bytes).");
                 return;
             }
 
@@ -57,6 +61,7 @@ public sealed class VoiceStreamManager : IDisposable
             }
 
             _packetQueue.Enqueue(dataCopy);
+            _sawmill.Debug($"[{_gameTiming.CurTime.TotalSeconds:F3}] Packet received for {_sourceEntity} ({pcmData.Length} bytes). Queue size: {_packetQueue.Count}/{_maxQueuedPackets}");
 
             if (!_isPlaying && _packetQueue.Count >= _initialBufferPackets)
             {
@@ -83,6 +88,7 @@ public sealed class VoiceStreamManager : IDisposable
             }
 
             pcmData = _packetQueue.Dequeue();
+            _sawmill.Debug($"[{_gameTiming.CurTime.TotalSeconds:F3}] Dequeuing packet for {_sourceEntity} ({pcmData.Length} bytes). Queue size: {_packetQueue.Count}/{_maxQueuedPackets}");
         }
 
         try
@@ -102,11 +108,7 @@ public sealed class VoiceStreamManager : IDisposable
 
                 if (playResult != null)
                 {
-                    Task.Run(async () =>
-                    {
-                        await Task.Delay(TimeSpan.FromMilliseconds(20));
-                        PlayNextChunk();
-                    });
+                    _expectedChunkEndTime = _gameTiming.CurTime + TimeSpan.FromMilliseconds(20);
                 }
                 else
                 {
@@ -168,5 +170,17 @@ public sealed class VoiceStreamManager : IDisposable
         }
 
         _sawmill.Debug($"Disposed voice stream for entity {_sourceEntity}");
+    }
+
+    public void Update()
+    {
+        if (_isDisposed || !_isPlaying || _expectedChunkEndTime == null)
+            return;
+
+        if (_gameTiming.CurTime >= _expectedChunkEndTime)
+        {
+            _expectedChunkEndTime = null;
+            PlayNextChunk();
+        }
     }
 }
