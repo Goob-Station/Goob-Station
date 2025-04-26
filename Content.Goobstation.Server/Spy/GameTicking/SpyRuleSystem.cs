@@ -54,16 +54,14 @@ public sealed class SpyRuleSystem : GameRuleSystem<SpyRuleComponent>
         component.SpyMinds.Add(mindId);
         var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
 
-
         _roleSystem.MindHasRole<SpyRoleComponent>(mindId, out var spyRole);
 
-        Note[]? code;
         var pdaNullable = _uplink.FindUplinkTarget(spy);
         if (pdaNullable is not { } pda || !_uplink.AddUplink(spy, 0))
             return false;
 
         // Give traitors their codewords and uplink code to keep in their character info menu
-        code = EnsureComp<RingerUplinkComponent>(pda).Code;
+        var code = EnsureComp<RingerUplinkComponent>(pda).Code;
         EnsureComp<SpyUplinkComponent>(pda);
 
         _antag.SendBriefing(spy, GenerateSpyBriefing(code, issuer), Color.Crimson, component.GreetSoundNotification);
@@ -91,6 +89,7 @@ public sealed class SpyRuleSystem : GameRuleSystem<SpyRuleComponent>
             sb.AppendLine(Loc.GetString($"traitor-role-uplink-code-short",
                 ("code", string.Join("-", code).Replace("sharp", "#"))));
         }
+
         sb.AppendLine("\n" + Loc.GetString($"spy-briefing-rob"));
         return sb.ToString();
     }

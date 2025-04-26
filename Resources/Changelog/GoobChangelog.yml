@@ -7707,3 +7707,183 @@ Entries:
         explosion resistance to their contents.
   id: 898
   time: '2025-04-17T18:16:08.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Only heretic, wizard and chaplain have ability to enchant items now.
+  id: 899
+  time: '2025-04-18T22:48:25.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Brought back disposal unit speed flush.
+  id: 900
+  time: '2025-04-19T02:12:44.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Ghost bar arena portal was temporarily removed.
+  id: 901
+  time: '2025-04-20T00:33:44.0000000+00:00'
+- author: The Independent State of Chemlabia
+  changes:
+    - type: Fix
+      message: Fixed syringes being breakable.
+  id: 902
+  time: '2025-04-20T06:21:21.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Buff and tattoo to markings...and a hair style
+    - type: Tweak
+      message: You can have 3 chest markings
+  id: 903
+  time: '2025-04-20T18:32:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Armor-piercing values are now shown on examine.
+    - type: Tweak
+      message: Reworked M7S. Meet the Ventilator.
+    - type: Tweak
+      message: Caseless Magnum is now hollow-point.
+    - type: Fix
+      message: Disablers no longer deal double the damage.
+  id: 904
+  time: '2025-04-22T04:40:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed carp scroll being unbuyable.
+  id: 905
+  time: '2025-04-22T05:52:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Changeling biomass.
+    - type: Tweak
+      message: Changeling steal DNA objective changed to absorb objective.
+  id: 906
+  time: '2025-04-23T01:21:47.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added metrics to game director, doesn't actually do anything player
+        facing, but this means it should be easier for us to make game director
+        suck less now.
+  id: 907
+  time: '2025-04-23T20:02:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Resomi are now immune to cold, slightly more vulnarable to blunt, slash
+        and heat, unable to fit into duffelbags and fly.
+  id: 908
+  time: '2025-04-23T20:08:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token spawns spawning by themselves.
+  id: 909
+  time: '2025-04-24T02:24:21.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token abductors. Maybe.
+  id: 910
+  time: '2025-04-25T02:02:59.0000000+00:00'
+- author: BombaserDS2, pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Dual-wielded weapons no longer shoot slower, but they will have a chance
+        to miss their shots.
+    - type: Fix
+      message: Dual-wielded weapons now actually respect firerate of each other.
+    - type: Fix
+      message: Yowies now correctly get all gun wielding bonuses without wielding.
+  id: 911
+  time: '2025-04-25T02:25:48.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: 'All enchantments now related to anomaly cores. '
+    - type: Tweak
+      message: >-
+        Protection enchant max level decreased to 2. It also requires equipment
+        to have any armor to be applied.
+  id: 912
+  time: '2025-04-25T06:35:47.0000000+00:00'
+- author: be1bright
+  changes:
+    - type: Add
+      message: Added welder energy swords.
+  id: 913
+  time: '2025-04-25T14:33:25.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Changelings received a new ability, Void adaption - which grants them
+        total immunity to the effects of space. Costs 4 points and requires 2
+        absorptions. Applies a 25% penalty to chem regen.
+    - type: Add
+      message: >-
+        Ephedrine overdose changed to Adrenaline Reserves - which uses a unique
+        chemical.
+    - type: Add
+      message: >-
+        Changelings are now unable to use most abilities while on fire, along
+        with suffering a major chem regen penalty!
+    - type: Add
+      message: >-
+        Some changeling abilities will now apply a reduction multiplier to the
+        amount of chemicals that are regenerated.
+    - type: Remove
+      message: Space adaption (replaced by Void adaption).
+    - type: Tweak
+      message: >-
+        Resonant shriek has been reworked, now stuns everybody nearby
+        (changelings ignore this, and sound protection reduces the duration by
+        half).
+    - type: Tweak
+      message: >-
+        Fleshmend heals twice as fast, heals more brute and treats asphyxiation
+        but is half as effective with burns. Cooldown now lasts for as long as
+        it takes effect.
+    - type: Tweak
+      message: >-
+        Panacea clears more pax, clears BZ, heals eye damage and also removes
+        any disabilities. Cooldown now lasts for as long as it takes effect.
+    - type: Tweak
+      message: >-
+        Biodegrade blinds and knocks down anyone who is grabbing you. Leaving
+        stasis will knockdown people grabbing you.
+    - type: Tweak
+      message: >-
+        Transforming identities as a Changeling will no longer show up a massive
+        red text prompt (only the sound remains).
+    - type: Tweak
+      message: >-
+        Chitinous Armour now provides resistance to weaker fires, has no
+        slowdown and no has radiation protection.
+    - type: Tweak
+      message: Chitinous Armour and Chameleon Skin apply a 25% penalty to chem regen.
+    - type: Tweak
+      message: >-
+        Arm-hammer and Arm-claw have new sprites, matching the style of the
+        arm-blade.
+    - type: Tweak
+      message: Changelings can no longer use martial arts or have a holo-parasite.
+  id: 914
+  time: '2025-04-25T23:53:39.0000000+00:00'
+- author: PunishedJoe
+  changes:
+    - type: Tweak
+      message: resomi's now take 30% more brute damage
+    - type: Tweak
+      message: resomi fit in bags again
+  id: 915
+  time: '2025-04-26T18:31:32.0000000+00:00'

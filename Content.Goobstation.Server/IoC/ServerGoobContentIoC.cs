@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Server.Redial;
-using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Server.IoC;
 

@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.MartialArts;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Weapons.Melee.Events;
 

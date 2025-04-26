@@ -10,9 +10,11 @@ namespace Content.Goobstation.Server.Spy.GameTicking;
 /// This is used for...
 /// </summary>
 [RegisterComponent]
+[Access(typeof(SpyRuleSystem))]
 public sealed partial class SpyRuleComponent : Component
 {
-    public readonly List<EntityUid> SpyMinds = new();
+    [ViewVariables]
+    public readonly List<EntityUid> SpyMinds = [];
 
     [DataField]
     public ProtoId<AntagPrototype> TraitorPrototypeId = "Spy";
