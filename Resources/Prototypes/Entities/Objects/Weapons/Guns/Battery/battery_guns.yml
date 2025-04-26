@@ -397,9 +397,7 @@
   - type: Item
     size: Large
   - type: RestrictGunshotsByUserTag
-    doesntContain:
-    - Mouse # Mouse nerf real, Ilya246 mald incoming. Actually this is just a random tag so it overwrites Oni
-
+    doesntContain: [] # Ignore Oni tag
 
 - type: entity
   name: laser rifle
