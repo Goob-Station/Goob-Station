@@ -289,6 +289,20 @@ public abstract class SharedDeliverySystem : EntitySystem
         return totalMultiplier;
     }
 
+    /// <summary>
+    /// Gathers the total multiplier for a delivery.
+    /// This is done by components having subscribed to GetDeliveryMultiplierEvent and having added onto it.
+    /// </summary>
+    /// <param name="ent">The delivery for which to get the multiplier.</param>
+    /// <returns>Total multiplier.</returns>
+    protected float GetDeliveryMultiplier(Entity<DeliveryComponent> ent)
+    {
+        var ev = new GetDeliveryMultiplierEvent();
+        RaiseLocalEvent(ent, ref ev);
+
+        return ev.AdditiveMultiplier * ev.MultiplicativeMultiplier;
+    }
+
     protected virtual void GrantSpesoReward(Entity<DeliveryComponent?> ent) { }
 
     protected virtual void HandlePenalty(Entity<DeliveryComponent> ent, string? reason = null) { }
