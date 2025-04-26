@@ -3,10 +3,12 @@ using System.Linq;
 using Content.Goobstation.Shared.Spy;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
+using Content.Server.Station.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Objectives;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Station.Components;
 using Content.Shared.Store;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -43,20 +45,21 @@ public sealed partial class SpySystem
         dbEnt.Comp.NextReset = _timing.CurTime + dbEnt.Comp.ResetTime;
     }
 
-    private bool TrySetBountyClaimed(EntityUid uplink, EntityUid user, NetEntity bountyEntity, [NotNullWhen(true)] out SpyBountyData? bountyData)
+    private bool TrySetBountyClaimed(EntityUid uplink, EntityUid user, ProtoId<StealTargetGroupPrototype> stealGroup, [NotNullWhen(true)] out SpyBountyData? bountyData)
     {
         bountyData = null;
-        if (!TryGetSpyDatabaseEntity(out var nullableEnt)
-            || nullableEnt is not { } dbEnt)
+        if (!TryGetSpyDatabaseEntity(out var nullableEnt) || nullableEnt is not { } dbEnt)
             return false;
 
-        var bounty = dbEnt.Comp.Bounties.FirstOrDefault(b => b.TargetEntity == bountyEntity);
-        if (bounty == null)
-            return false;
-        // goida event
+        // Find first unclaimed bounty matching the steal group
+        bountyData = dbEnt.Comp.Bounties.FirstOrDefault(b =>
+            b.StealGroup == stealGroup &&
+            !b.Claimed);
 
-        bounty.Claimed = true;
-        bountyData = bounty;
+        if (bountyData == null)
+            return false;
+
+        bountyData.Claimed = true;
         UpdateUserInterface(uplink, user);
         return true;
     }
@@ -81,42 +84,34 @@ public sealed partial class SpySystem
             return false;
 
         var finalObjectives = GenerateObjectives(easyObjectives, mediumObjectives, hardObjectives);
-        // find there related uids.
-        var targetQuery = EntityQueryEnumerator<StealTargetComponent>();
 
-        List<PossibleBounty> possibleBounties = [];
+        // Get all unique steal groups from objectives
+        var stealGroups = finalObjectives
+            .Select(o => o.Condition.StealGroup)
+            .Distinct()
+            .Where(StealTargetExists)
+            .ToList();
 
-        while (targetQuery.MoveNext(out var stealTarget, out var comp))
-        {
-            ProtoId<StealTargetGroupPrototype> stealGroup = comp.StealGroup;
+        // Shuffle for randomness
+        _random.Shuffle(stealGroups);
 
-            var match = finalObjectives.FirstOrDefault(item => item.Condition.StealGroup == stealGroup);
-
-            if (match == default)
-                continue;
-            possibleBounties.Add(new PossibleBounty((stealTarget, comp), match.Diff));
-        }
-
-        // select a random reward
+        // Get possible rewards
         var listings = GetPossibleBountyRewards(out var easyObjects, out var mediumObjects, out var hardObjects);
-
         if (listings.Count == 0)
         {
             bounties = [];
             return false;
         }
 
-        var seenStealGroups = new HashSet<ProtoId<StealTargetGroupPrototype>>();
-        var seenOwners = new HashSet<EntityUid>();
-
-        var bountyList = possibleBounties
-            .Where(ent =>
-                seenStealGroups.Add((ProtoId<StealTargetGroupPrototype>) ent.Ent.Comp.StealGroup) &&
-                seenOwners.Add(ent.Ent.Owner))
+        // Create bounties for each steal group
+        bounties = stealGroups
             .Take(GlobalBountyAmount)
-            .Select(ent =>
+            .Select(stealGroup =>
             {
-                var targetList = ent.Diff switch
+                // Find the original objective to get difficulty
+                var objective = finalObjectives.First(o => o.Condition.StealGroup == stealGroup);
+
+                var targetList = objective.Diff switch
                 {
                     SpyBountyDifficulty.Easy => easyObjects,
                     SpyBountyDifficulty.Medium => mediumObjects,
@@ -125,24 +120,39 @@ public sealed partial class SpySystem
                 };
 
                 var randomListing = targetList[_random.Next(targetList.Count)];
-                return new SpyBountyData(
-                    GetNetEntity(ent.Ent),
-                    new ProtoId<StealTargetGroupPrototype>(ent.Ent.Comp.StealGroup),
-                    randomListing,
-                    ent.Diff);
+                return new SpyBountyData(stealGroup, randomListing, objective.Diff);
             })
             .ToList();
 
-        // durk randomize
-        for (var i = bountyList.Count - 1; i > 0; i--)
-        {
-            var j = _random.Next(i + 1);
-            (bountyList[i], bountyList[j]) = (bountyList[j], bountyList[i]);
-        }
-
-        bounties = bountyList;
-
+        // Final shuffle
+        _random.Shuffle(bounties);
         return true;
+    }
+
+    private bool TryGetMainStation([NotNullWhen(true)] out EntityUid? mainStation)
+    {
+        mainStation = null;
+        AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
+        var station = _station.GetOwningStation(eqData);
+        if (station is null)
+            return false;
+
+        mainStation = station;
+        return true;
+    }
+
+    private bool StealTargetExists(ProtoId<StealTargetGroupPrototype> stealGroup)
+    {
+        if (!TryGetMainStation(out var mainStation))
+            return false;
+
+        var query = EntityQueryEnumerator<StealTargetComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.StealGroup == stealGroup && _station.GetOwningStation(uid) == mainStation.Value)
+                return true;
+        }
+        return false;
     }
 
     private List<ListingData> GetPossibleBountyRewards(out List<ListingData> easyObjects, out List<ListingData> mediumObjects, out List<ListingData> hardObjects)
@@ -164,37 +174,39 @@ public sealed partial class SpySystem
         hardObjects = listings
             .Where(p => p.Cost.Values.Sum() > 50)
             .ToList();
+
         return listings;
     }
 
     private List<StealTarget> GenerateObjectives(WeightedRandomPrototype easyObjectives, WeightedRandomPrototype mediumObjectives, WeightedRandomPrototype hardObjectives)
     {
-        List<StealTargetId> weightedPickedObjectives = [];
+        var weightedPickedObjectives = new List<StealTargetId>();
 
-        weightedPickedObjectives.AddRange(
-            Enumerable.Repeat(SpyBountyDifficulty.Easy, 5)
-                .Concat(Enumerable.Repeat(SpyBountyDifficulty.Medium, 4))
-                .Concat(Enumerable.Repeat(SpyBountyDifficulty.Hard, 3))
-                .Select((difficulty, _) =>
-                    new StealTargetId(
-                        (EntProtoId) (difficulty == SpyBountyDifficulty.Easy ? easyObjectives :
-                            difficulty == SpyBountyDifficulty.Medium ? mediumObjectives : hardObjectives).Pick(_random),
-                        difficulty)
-                )
-        );
+        foreach (var (difficulty, weight) in _difficultyWeights)
+        {
+            var prototype = difficulty switch
+            {
+                SpyBountyDifficulty.Easy => easyObjectives,
+                SpyBountyDifficulty.Medium => mediumObjectives,
+                SpyBountyDifficulty.Hard => hardObjectives,
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
-        // randomize them turn them inall uniqueto protoids and make sure they're .
+            for (var i = 0; i < weight; i++)
+            {
+                weightedPickedObjectives.Add(new StealTargetId(
+                     new EntProtoId(prototype.Pick(_random)),
+                    difficulty
+                ));
+            }
+        }
+
         List<(EntityPrototype proto, SpyBountyDifficulty diff)> randomizeTargets = weightedPickedObjectives
             .Distinct()
             .Select(obj => (_protoMan.Index(obj.Proto), obj.Diff))
             .ToList();
 
-        // durkle randomize
-        for (var i = randomizeTargets.Count - 1; i > 0; i--)
-        {
-            var j = _random.Next(i + 1);
-            (randomizeTargets[i], randomizeTargets[j]) = (randomizeTargets[j], randomizeTargets[i]);
-        }
+        _random.Shuffle(randomizeTargets);
 
         // make there StealConditionComponent easily accessible.
         List<StealTarget> finalObjectives = [];
@@ -207,6 +219,7 @@ public sealed partial class SpySystem
             var stealTarget = new StealTarget(target.proto, stealCondition, target.diff);
             finalObjectives.Add(stealTarget);
         }
+        _random.Shuffle(finalObjectives);
 
         return finalObjectives;
     }

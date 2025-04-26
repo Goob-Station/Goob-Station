@@ -1,4 +1,6 @@
 using Content.Shared.DoAfter;
+using Content.Shared.Objectives;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Spy;
@@ -7,10 +9,12 @@ namespace Content.Goobstation.Shared.Spy;
 public sealed partial class SpyStealDoAfterEvent : DoAfterEvent
 {
     public NetEntity Sound;
+    public ProtoId<StealTargetGroupPrototype> StealGroup;
 
-    public SpyStealDoAfterEvent(NetEntity sound)
+    public SpyStealDoAfterEvent(NetEntity sound, ProtoId<StealTargetGroupPrototype> stealGroup)
     {
         Sound = sound;
+        StealGroup = stealGroup;
     }
 
     public override DoAfterEvent Clone() => this;

@@ -26,7 +26,6 @@ public sealed partial class SpyRuleComponent : Component
     [DataField]
     public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor";
 
-
     [DataField]
-    public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/traitor_start.ogg");
+    public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/spy_start.ogg");
 }

@@ -428,6 +428,8 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  - type: StealTarget # Goobstation
+    stealGroup: InsulatedGeneral
   - type: Enchanter # Goobstation
     enchants:
     - EnchantInsulated

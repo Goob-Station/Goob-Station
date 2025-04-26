@@ -6,6 +6,7 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Components.Targets;
+using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
@@ -34,44 +35,7 @@ public sealed partial class SpySystem : SharedSpySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-
-    private readonly ProtoId<WeightedRandomPrototype> _easyObjectives = "SpyBountyObjectiveGroupEasy"; // TC 0-25
-    private readonly ProtoId<WeightedRandomPrototype> _mediumObjectives = "SpyBountyObjectiveGroupMedium"; // TC 25-50
-    private readonly ProtoId<WeightedRandomPrototype> _hardObjectives = "SpyBountyObjectiveGroupHard"; // TC 50+
-
-    private readonly HashSet<ProtoId<StoreCategoryPrototype>> _categories =
-    [
-        "UplinkWeaponry",
-        "UplinkAmmo",
-        "UplinkExplosives",
-        "UplinkChemicals",
-        "UplinkDeception",
-        "UplinkDisruption",
-        "UplinkImplants",
-        "UplinkAllies",
-        "UplinkWearables",
-        "UplinkJob",
-        "UplinkPointless",
-        "UplinkSales",
-    ];
-
-    public readonly record struct StealTarget(
-        EntityPrototype Proto,
-        StealConditionComponent Condition,
-        SpyBountyDifficulty Diff
-    );
-
-    public readonly record struct PossibleBounty(
-        Entity<StealTargetComponent> Ent,
-        SpyBountyDifficulty Diff
-    );
-
-    public readonly record struct StealTargetId(
-        EntProtoId Proto,
-        SpyBountyDifficulty Diff
-    );
-
-    private const int GlobalBountyAmount = 10;
+    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
     {

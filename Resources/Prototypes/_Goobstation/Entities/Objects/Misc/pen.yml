@@ -1,0 +1,23 @@
+- type: entity
+  id: BaseAdvancedPenNoScrew
+  # Goobstation - Return pen embeddability
+  parent: Pen
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - Write
+    - WriteIgnoreStamps
+    - Pickaxe
+    - Pen
+  - type: MeleeWeapon
+    wideAnimationRotation: -45
+    damage:
+      types:
+        Piercing: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: [BaseAdvancedPenNoScrew, AccessBreaker, OmnimedTool]
+  id: SpyPen

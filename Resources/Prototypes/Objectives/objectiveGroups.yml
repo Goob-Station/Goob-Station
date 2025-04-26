@@ -223,8 +223,3 @@
   weights:
     EscapeThiefShuttleObjective: 1
 #Changeling, crew, wizard, when you code it...
-- type: weightedRandom
-  id: SpyObjectiveGroups
-  weights:
-    ThiefObjectiveGroupItem: 1
-    ThiefObjectiveGroupStructure: 1

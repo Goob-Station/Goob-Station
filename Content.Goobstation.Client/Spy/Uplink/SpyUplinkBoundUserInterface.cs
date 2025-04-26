@@ -6,15 +6,11 @@ using Robust.Client.UserInterface;
 namespace Content.Goobstation.Client.Spy.Uplink;
 
 [UsedImplicitly]
-internal sealed partial class SpyUplinkBoundUserInterface : BoundUserInterface
+internal sealed partial class SpyUplinkBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     private SpyUplinkMenu? _menu;
     private List<SpyBountyData> _bounties = [];
     private TimeSpan _refreshTime;
-
-    public SpyUplinkBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-    }
 
     protected override void Open()
     {

@@ -3,7 +3,9 @@ using Content.Goobstation.Shared.Spy;
 using Content.Server.Objectives.Components.Targets;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Objectives;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Spy;
 
@@ -12,9 +14,11 @@ namespace Content.Goobstation.Server.Spy;
 /// </summary>
 public sealed partial class SpySystem
 {
-    private static readonly SoundSpecifier StealSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/wewewew.ogg");
+    private static readonly SoundSpecifier StealSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Machines/wewewew.ogg");
+
     private static readonly SoundSpecifier StealSuccessSound = new SoundPathSpecifier("/Audio/Effects/kaching.ogg");
-    private static readonly TimeSpan StealTime = TimeSpan.FromSeconds(15);
+    private static readonly TimeSpan StealTime = TimeSpan.FromSeconds(5);
 
     /// <inheritdoc/>
     private void InitializeUplink()
@@ -23,53 +27,57 @@ public sealed partial class SpySystem
         SubscribeLocalEvent<SpyUplinkComponent, SpyStealDoAfterEvent>(OnSpyAttemptSteal);
     }
 
-    private void OnSpyAttemptSteal(Entity<SpyUplinkComponent> ent, ref SpyStealDoAfterEvent args)
-    {
-        if (args.Handled || args.Cancelled || args.Args.Target is null)
-            return;
-
-        var target = args.Args.Target.Value;
-        var user = args.Args.User;
-        _audio.Stop(GetEntity(args.Sound));
-
-        if(!TrySetBountyClaimed(ent, user, GetNetEntity(target), out var bountyData))
-            return;
-
-        QueueDel(args.Args.Target);
-
-        // spawn an entity
-        var reward = Spawn(bountyData.RewardListing.ProductEntity, Transform(user).Coordinates);
-        _hands.PickupOrDrop(user, reward);
-        _audio.PlayLocal(StealSuccessSound, ent, user);
-    }
-
     private void OnInteractEvent(Entity<SpyUplinkComponent> ent, ref AfterInteractEvent args)
     {
         if (!TryGetSpyDatabaseEntity(out var nullableEnt) || nullableEnt is not { } dbEnt)
             return;
 
-        if (args.Handled
-            || !args.CanReach
-            || args.Target is not { } target
-            || dbEnt.Comp.Bounties.All(bounty => bounty.TargetEntity != GetNetEntity(target)))
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
-        Log.Info(target.ToString());
-        var ev = new SpyStartStealEvent(GetNetEntity(target));
-        //RaiseNetworkEvent(ev);
+        if (!TryComp<StealTargetComponent>(target, out var stealComp))
+            return;
+
+        // Find matching bounty
+        var matchingBounty = dbEnt.Comp.Bounties.FirstOrDefault(b =>
+            b.StealGroup == stealComp.StealGroup &&
+            !b.Claimed);
+
+        if(!_protoMan.TryIndex<StealTargetGroupPrototype>(stealComp.StealGroup, out var prototype)) // store steal time here
+            return;
+
+        if (matchingBounty == null)
+            return;
 
         var sound = _audio.PlayPvs(StealSound, ent, AudioParams.Default.WithLoop(true));
-
         if (sound is null)
             return;
 
         var doAfterArgs = new DoAfterArgs(_entityManager,
             args.User,
             StealTime,
-            new SpyStealDoAfterEvent(GetNetEntity(sound.Value.Entity)),
+            new SpyStealDoAfterEvent(GetNetEntity(sound.Value.Entity), stealComp.StealGroup), // Now passing steal group instead of entity
             ent,
-            target: args.Target);
+            target: target);
 
         _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+
+    private void OnSpyAttemptSteal(Entity<SpyUplinkComponent> ent, ref SpyStealDoAfterEvent args)
+    {
+        _audio.Stop(GetEntity(args.Sound));
+
+        if (args.Handled || args.Cancelled)
+            return;
+
+        if (!TrySetBountyClaimed(ent, args.Args.User, args.StealGroup, out var bountyData))
+            return;
+
+        if (args.Args.Target != null)
+            QueueDel(args.Args.Target.Value);
+
+        var reward = Spawn(bountyData.RewardListing.ProductEntity, Transform(args.Args.User).Coordinates);
+        _hands.PickupOrDrop(args.Args.User, reward);
+        _audio.PlayLocal(StealSuccessSound, ent, args.Args.User);
     }
 }

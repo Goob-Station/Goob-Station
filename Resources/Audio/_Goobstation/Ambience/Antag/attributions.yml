@@ -21,3 +21,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station"
   source: "https://github.com/tgstation/tgstation/tree/master"
+
+  - files: ["spy_start.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Fast Talkin Kevin MacLeod"
+  source: "https://github.com/tgstation/tgstation/tree/master"

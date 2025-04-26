@@ -9,28 +9,17 @@ public enum SpyUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class SpyUplinkUpdateState : BoundUserInterfaceState
+public sealed class SpyUplinkUpdateState(List<SpyBountyData> listings, TimeSpan time) : BoundUserInterfaceState
 {
-    public readonly List<SpyBountyData> Listings;
-    public readonly TimeSpan Time;
-
-    public SpyUplinkUpdateState(List<SpyBountyData> listings, TimeSpan time)
-    {
-        Listings = listings;
-        Time = time;
-    }
+    public readonly List<SpyBountyData> Listings = listings;
+    public readonly TimeSpan Time = time;
 }
 
 [Serializable, NetSerializable]
 public sealed class SpyRequestUpdateInterfaceMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class SpyClaimBountyMessage : BoundUserInterfaceMessage
+public sealed class SpyClaimBountyMessage(SpyBountyData bounty) : BoundUserInterfaceMessage
 {
-    public SpyBountyData Bounty;
-
-    public SpyClaimBountyMessage(SpyBountyData bounty)
-    {
-        Bounty = bounty;
-    }
+    public SpyBountyData Bounty = bounty;
 }

@@ -20,18 +20,16 @@ public sealed class SpyBountyRewardPrototype : IPrototype // beyond any syndie u
 [Virtual, DataDefinition]
 public sealed partial class SpyBountyData
 {
-    public NetEntity TargetEntity;
-    public ProtoId<StealTargetGroupPrototype> TargetGroup;
+    public ProtoId<StealTargetGroupPrototype> StealGroup;
     public bool Claimed;
     public TimeSpan TimeAssigned;
     public TimeSpan? TimeCompleted;
     public ListingData RewardListing;
     public SpyBountyDifficulty Difficulty;
 
-    public SpyBountyData(NetEntity targetEntity, ProtoId<StealTargetGroupPrototype> targetGroup, ListingData rewardListing, SpyBountyDifficulty difficulty)
+    public SpyBountyData(ProtoId<StealTargetGroupPrototype> stealGroup, ListingData rewardListing, SpyBountyDifficulty difficulty)
     {
-        TargetEntity = targetEntity;
-        TargetGroup = targetGroup;
+        StealGroup = stealGroup;
         RewardListing = rewardListing;
         Difficulty = difficulty;
     }

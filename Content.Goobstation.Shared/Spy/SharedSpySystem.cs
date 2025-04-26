@@ -16,5 +16,6 @@ public abstract partial class SharedSpySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeUI();
     }
 }

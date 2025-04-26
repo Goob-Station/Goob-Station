@@ -10,6 +10,7 @@
     ExpeditionsCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1
     BibleStealObjective: 1
+    InsulatedGlovesStealObjective: 1
 
 - type: weightedRandom
   id: SpyBountyObjectiveGroupMedium

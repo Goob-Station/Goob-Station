@@ -305,9 +305,9 @@
   - type: SpyRule
   # TODO: codewords in yml
   # TODO: uplink in yml
-  #- type: AntagRandomObjectives
-  #  sets:
-  #  - groups: TraitorObjectiveGroups
+  - type: AntagRandomObjectives
+    sets:
+    - groups: SpyObjectiveGroups
     maxDifficulty: 5
   - type: AntagSelection
     agentName: traitor-round-end-agent-name

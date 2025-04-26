@@ -31,3 +31,10 @@
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
     state: icon
+
+- type: stealTargetGroup
+  id: InsulatedGeneral
+  name: steal-target-groups-rapid-insulated-gloves
+  sprite:
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+    state: icon

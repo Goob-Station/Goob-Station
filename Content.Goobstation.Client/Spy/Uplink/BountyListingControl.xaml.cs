@@ -24,7 +24,7 @@ public sealed partial class BountyListingControl : Control
 
         _data = data;
 
-        if (!_prototype.TryIndex(_data.TargetGroup, out var targetGroup)
+        if (!_prototype.TryIndex(_data.StealGroup, out var targetGroup)
             || _data.RewardListing.ProductEntity is not { } productProtoId
             ||  !_prototype.TryIndex(productProtoId, out var productProto))
             return;
@@ -42,7 +42,7 @@ public sealed partial class BountyListingControl : Control
 
     public void SetTexture()
     {
-        if (_data is not { } data || !_prototype.TryIndex(data.TargetGroup, out var targetGroup))
+        if (_data is not { } data || !_prototype.TryIndex(data.StealGroup, out var targetGroup))
             return;
 
         var spriteSys = _entity.EntitySysManager.GetEntitySystem<SpriteSystem>();

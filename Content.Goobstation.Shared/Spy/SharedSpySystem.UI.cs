@@ -9,13 +9,22 @@ namespace Content.Goobstation.Shared.Spy;
 /// </summary>
 public abstract partial class SharedSpySystem
 {
+    public void InitializeUI()
+    {
+        SubscribeLocalEvent<SpyUplinkComponent, SpyRequestUpdateInterfaceMessage>(OnRequestUpdate);
+    }
+
+    private void OnRequestUpdate(Entity<SpyUplinkComponent> ent, ref SpyRequestUpdateInterfaceMessage ev)
+    {
+        UpdateUserInterface(ent, user: ev.Actor);
+    }
+
     /// <summary>
     /// Toggles the user interface for spies uplink
     /// </summary>
     /// <param name="user">The person who is opening the spy uplink ui.</param>
     /// <param name="uplink">The uplink entity itself</param>
     /// <param name="component">The uplink component being refreshed.</param>
-    ///
     public void ToggleUi(EntityUid user, EntityUid uplink, SpyUplinkComponent? component = null)
     {
         if (!Resolve(uplink, ref component) || !_net.IsServer)
