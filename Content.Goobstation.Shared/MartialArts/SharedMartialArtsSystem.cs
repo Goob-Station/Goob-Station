@@ -3,13 +3,17 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
@@ -187,6 +191,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     {
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
+
+        if (HasComp<ChangelingIdentityComponent>(user))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), user, user);
+            return false;
+        }
 
         if (HasComp<KravMagaComponent>(user))
         {

@@ -7822,3 +7822,60 @@ Entries:
       message: Added welder energy swords.
   id: 913
   time: '2025-04-25T14:33:25.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Changelings received a new ability, Void adaption - which grants them
+        total immunity to the effects of space. Costs 4 points and requires 2
+        absorptions. Applies a 25% penalty to chem regen.
+    - type: Add
+      message: >-
+        Ephedrine overdose changed to Adrenaline Reserves - which uses a unique
+        chemical.
+    - type: Add
+      message: >-
+        Changelings are now unable to use most abilities while on fire, along
+        with suffering a major chem regen penalty!
+    - type: Add
+      message: >-
+        Some changeling abilities will now apply a reduction multiplier to the
+        amount of chemicals that are regenerated.
+    - type: Remove
+      message: Space adaption (replaced by Void adaption).
+    - type: Tweak
+      message: >-
+        Resonant shriek has been reworked, now stuns everybody nearby
+        (changelings ignore this, and sound protection reduces the duration by
+        half).
+    - type: Tweak
+      message: >-
+        Fleshmend heals twice as fast, heals more brute and treats asphyxiation
+        but is half as effective with burns. Cooldown now lasts for as long as
+        it takes effect.
+    - type: Tweak
+      message: >-
+        Panacea clears more pax, clears BZ, heals eye damage and also removes
+        any disabilities. Cooldown now lasts for as long as it takes effect.
+    - type: Tweak
+      message: >-
+        Biodegrade blinds and knocks down anyone who is grabbing you. Leaving
+        stasis will knockdown people grabbing you.
+    - type: Tweak
+      message: >-
+        Transforming identities as a Changeling will no longer show up a massive
+        red text prompt (only the sound remains).
+    - type: Tweak
+      message: >-
+        Chitinous Armour now provides resistance to weaker fires, has no
+        slowdown and no has radiation protection.
+    - type: Tweak
+      message: Chitinous Armour and Chameleon Skin apply a 25% penalty to chem regen.
+    - type: Tweak
+      message: >-
+        Arm-hammer and Arm-claw have new sprites, matching the style of the
+        arm-blade.
+    - type: Tweak
+      message: Changelings can no longer use martial arts or have a holo-parasite.
+  id: 914
+  time: '2025-04-25T23:53:39.0000000+00:00'
