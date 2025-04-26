@@ -231,7 +231,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 160 # fluff
+        density: 173 # fluff
         restitution: 0.0
         mask:
         - MobMask
