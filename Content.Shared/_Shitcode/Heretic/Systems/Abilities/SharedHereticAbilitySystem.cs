@@ -32,19 +32,24 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
     private void OnShadowCloak(Entity<HereticComponent> ent, ref EventHereticShadowCloak args)
     {
+        if (!TryComp(ent, out StatusEffectsComponent? status))
+            return;
+
         if (TryComp(ent, out ShadowCloakedComponent? shadowCloaked))
         {
+            _status.TryRemoveStatusEffect(ent, args.Status, status, false);
             RemCompDeferred(ent.Owner, shadowCloaked);
             args.Handled = true;
             return;
         }
 
-        // Try use ability only if we are not cloaked so that we can uncloak without focus
+        // TryUseAbility only if we are not cloaked so that we can uncloak without focus
+        // Ideally you should uncloak when losing focus but whatever
         if (!TryUseAbility(ent, args))
             return;
 
         args.Handled = true;
-        AddComp<ShadowCloakedComponent>(ent);
+        _status.TryAddStatusEffect<ShadowCloakedComponent>(ent, args.Status, args.Lifetime, true, status);
     }
 
     protected bool TryUseAbility(EntityUid ent, BaseActionEvent args)

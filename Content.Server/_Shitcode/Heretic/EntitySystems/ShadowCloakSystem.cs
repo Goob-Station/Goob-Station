@@ -78,18 +78,10 @@ public sealed class ShadowCloakSystem : SharedShadowCloakSystem
         _accumulator = 0f;
 
         var shadowCloakedQuery = EntityQueryEnumerator<ShadowCloakedComponent>();
-        while (shadowCloakedQuery.MoveNext(out var uid, out var comp))
+        while (shadowCloakedQuery.MoveNext(out _, out var comp))
         {
-            comp.LifeTime -= SustainedDamageReductionInterval;
-
-            if (comp.LifeTime > 0)
-            {
-                comp.SustainedDamage = FixedPoint2.Max(comp.SustainedDamage - comp.SustainedDamageReductionRate,
-                    FixedPoint2.Zero);
-                return;
-            }
-
-            RemCompDeferred(uid, comp);
+            comp.SustainedDamage =
+                FixedPoint2.Max(comp.SustainedDamage - comp.SustainedDamageReductionRate, FixedPoint2.Zero);
         }
     }
 }

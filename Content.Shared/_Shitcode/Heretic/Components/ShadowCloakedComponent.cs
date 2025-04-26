@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.FixedPoint;
 using Content.Shared.Speech;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -12,6 +13,9 @@ public sealed partial class ShadowCloakedComponent : Component
 {
     [ViewVariables]
     public bool WasVisible = true;
+
+    [DataField]
+    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
 
     [DataField]
     public ProtoId<SpeechVerbPrototype> SpeechVerb = "Default";
@@ -54,7 +58,4 @@ public sealed partial class ShadowCloakedComponent : Component
 
     [DataField]
     public FixedPoint2 SustainedDamageReductionRate = 1;
-
-    [DataField]
-    public float LifeTime = 180f;
 }

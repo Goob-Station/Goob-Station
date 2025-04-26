@@ -32,6 +32,7 @@ public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
         if (GetLostBlade(args.Platform, args.Performer, heretic, args.EntityManager, transform) is not { } blade)
             return;
 
+        transform.AttachToGridOrMap(blade);
         transform.SetMapCoordinates(blade, transform.GetMapCoordinates(args.Platform));
     }
 

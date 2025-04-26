@@ -2,7 +2,6 @@ using Content.Goobstation.Common.Identity;
 using Content.Goobstation.Common.Projectiles;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.DoAfter;
-using Content.Shared._White.Standing;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
@@ -11,6 +10,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rotation;
 using Content.Shared.Standing;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
@@ -28,7 +28,7 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedRotationVisualsSystem _rotationVisuals = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -128,15 +128,15 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         }
 
         ResetAbilityCooldown(ent, ent.Comp.ForceRevealCooldown);
-        RemCompDeferred(ent.Owner, ent.Comp);
+        RemoveShadowCloak(ent);
     }
 
     private void OnCloakShutdown(Entity<ShadowCloakEntityComponent> ent, ref ComponentShutdown args)
     {
         var parent = Transform(ent).ParentUid;
 
-        if (!TerminatingOrDeleted(parent))
-            RemCompDeferred<ShadowCloakedComponent>(parent);
+        if (!TerminatingOrDeleted(parent) && TryComp(parent, out ShadowCloakedComponent? shadowCloaked))
+            RemoveShadowCloak((parent, shadowCloaked));
         else if (_net.IsServer && !TerminatingOrDeleted(ent))
             QueueDel(ent);
     }
@@ -179,8 +179,9 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     {
         if (TerminatingOrDeleted(ent) || ent.Comp.DeletionAccumulator != null)
         {
-            if (args.OldParent != null && !TerminatingOrDeleted(args.OldParent.Value))
-                RemCompDeferred<ShadowCloakedComponent>(args.OldParent.Value);
+            if (args.OldParent != null && !TerminatingOrDeleted(args.OldParent.Value) &&
+                TryComp(args.OldParent.Value, out ShadowCloakedComponent? shadowCloaked))
+                RemoveShadowCloak((args.OldParent.Value, shadowCloaked));
             return;
         }
 
@@ -300,6 +301,12 @@ public abstract class SharedShadowCloakSystem : EntitySystem
             return;
 
         _transform.DetachEntity(ent, xform);
+    }
+
+    private void RemoveShadowCloak(Entity<ShadowCloakedComponent> ent)
+    {
+        _status.TryRemoveStatusEffect(ent, ent.Comp.Status, remComp: false);
+        RemCompDeferred(ent.Owner, ent.Comp);
     }
 
     protected virtual void Startup(Entity<ShadowCloakedComponent> ent) { }

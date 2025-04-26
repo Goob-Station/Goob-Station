@@ -163,6 +163,7 @@
     - category: Thirst
     - alertType: Magboots
     - alertType: Pacified
+    - alertType: ShadowCloak # Goobstation
 
 - type: entity
   id: AlertSpriteView

@@ -16,6 +16,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -87,7 +88,14 @@ public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // opens ui
 
-public sealed partial class EventHereticShadowCloak : InstantActionEvent;
+public sealed partial class EventHereticShadowCloak : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
+
+    [DataField]
+    public TimeSpan Lifetime = TimeSpan.FromSeconds(180);
+}
 
 // living heart
 [Serializable, NetSerializable] public sealed partial class EventHereticLivingHeartActivate : BoundUserInterfaceMessage // triggers the logic
