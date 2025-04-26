@@ -80,11 +80,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 250.0.0
+  engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
-  time: 03/09/2025 08:51:02
-  entityCount: 25273
+  time: 04/26/2025 08:26:36
+  entityCount: 25194
 maps:
 - 1
 grids:
@@ -11234,7 +11234,7 @@ entities:
       pos: -29.5,37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -23285.125
+      secondsUntilStateChange: -23333.31
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -74438,14 +74438,6 @@ entities:
     - type: Transform
       pos: -19.411674,-42.528496
       parent: 2
-  - uid: 11377
-    components:
-    - type: Transform
-      pos: -14.52124,-43.447884
-      parent: 2
-    - type: CollisionWake
-      enabled: false
-    - type: Conveyed
 - proto: FoodBoxDonkpocketPizza
   entities:
   - uid: 11378
@@ -112037,15 +112029,11 @@ entities:
     - type: Transform
       pos: 51.5,17.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: False
   - uid: 16740
     components:
     - type: Transform
       pos: 51.5,16.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: False
   - uid: 16741
     components:
     - type: Transform
