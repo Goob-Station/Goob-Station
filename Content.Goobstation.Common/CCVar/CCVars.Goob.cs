@@ -118,7 +118,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Set a max drunk time in seconds to prevent permanent drunkeness. 
+    ///     Set a max drunk time in seconds to prevent permanent drunkeness.
     /// </summary>
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
@@ -399,6 +399,25 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> CoalesceIdenticalMessages =
          CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    #endregion
+
+    #region Voicechat
+
+    /// <summary>
+    /// Controls whether the Lidgren voice chat server is enabled and running.
+    /// </summary>
+    public static readonly CVarDef<bool> VoiceChatEnabled =
+        CVarDef.Create("voice.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE, "Is the voice chat server enabled?");
+
+    /// <summary>
+    /// The UDP port the Lidgren voice chat server will listen on.
+    /// </summary>
+    public static readonly CVarDef<int> VoiceChatPort =
+        CVarDef.Create("voice.port", 1213, CVar.SERVER | CVar.REPLICATED, "Port for the voice chat server.");
+
+    public static readonly CVarDef<float> VoiceChatVolume =
+        CVarDef.Create("voice.volume", 0.5f * 24, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     #endregion
 

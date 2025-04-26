@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Client.Redial;
+using Content.Goobstation.Client.Voice;
 using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Client.IoC;
@@ -16,5 +17,6 @@ internal static class ContentGoobClientIoC
         var collection = IoCManager.Instance!;
 
         collection.Register<RedialManager>();
+        collection.Register<IVoiceChatManager, VoiceChatClientManager>();
     }
 }
