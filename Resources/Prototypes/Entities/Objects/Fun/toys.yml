@@ -905,13 +905,11 @@
       path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite # Rrrr!
-  - type: GibThisGuy  #Goobstation
-    requireBoth: true
+  - type: GibThisGuy  # Goobstation
+    requireBoth: false
     icNames:
-    - Audrey White
     - Aubrey White
     ocNames:
-    - rosef
     - SolsticeOfTheWinter
   - type: Tag
     tags:
