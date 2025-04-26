@@ -12,6 +12,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Doors.Components;
 using Content.Shared.FixedPoint;
+using Prometheus; // Added for Prometheus metrics
 
 namespace Content.Goobstation.Server.StationEvents.Metric;
 
@@ -26,21 +27,60 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 {
     [Dependency] private readonly StationSystem _stationSystem = default!;
 
+    private static readonly Gauge DoorsTotal = Metrics.CreateGauge(
+        "game_director_metric_door_total",
+        "Total number of doors counted on station grids.");
+
+    private static readonly Gauge FirelocksTotal = Metrics.CreateGauge(
+        "game_director_metric_door_firelocks_total",
+        "Total number of firelocks counted.");
+
+    private static readonly Gauge AirlocksTotal = Metrics.CreateGauge(
+        "game_director_metric_door_airlocks_total",
+        "Total number of airlocks counted.");
+
+    private static readonly Gauge FirelocksHoldingFire = Metrics.CreateGauge(
+        "game_director_metric_door_firelocks_holding_fire",
+        "Number of firelocks currently holding back fire.");
+
+    private static readonly Gauge FirelocksHoldingPressure = Metrics.CreateGauge(
+        "game_director_metric_door_firelocks_holding_pressure",
+        "Number of firelocks currently holding back pressure.");
+
+    private static readonly Gauge EmaggedAirlocksWeighted = Metrics.CreateGauge(
+        "game_director_metric_door_emagged_airlocks_weighted",
+        "Weighted count of emagged airlocks (higher value for higher access).");
+
+    private static readonly Gauge UnpoweredDoors = Metrics.CreateGauge(
+        "game_director_metric_door_unpowered_total",
+        "Number of doors or firelocks currently without power.");
+
+    private static readonly Gauge SecurityChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_door_security_chaos_calculated",
+        "Calculated chaos value contributed by security status (emagged doors).");
+
+    private static readonly Gauge AtmosChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_door_atmos_chaos_calculated",
+        "Calculated chaos value contributed by atmospheric status (fire/pressure).");
+
+    private static readonly Gauge PowerChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_door_power_chaos_calculated",
+        "Calculated chaos value contributed by power status.");
+
+
     public override ChaosMetrics CalculateChaos(EntityUid metric_uid, DoorMetricComponent component,
         CalculateChaosEvent args)
     {
         var firelockQ = GetEntityQuery<FirelockComponent>();
         var airlockQ = GetEntityQuery<AirlockComponent>();
 
-        // Keep counters to calculate average at the end.
-        double doorCounter = 0;
-        double firelockCounter = 0;
-        double airlockCounter = 0;
-
-        double fireCount = 0;
-        double pressureCount = 0;
-        double emagCount = 0;
-        double powerCount = 0;
+        int doorCounter = 0;
+        int firelockCounter = 0;
+        int airlockCounter = 0;
+        int fireCount = 0;
+        int pressureCount = 0;
+        double emagWeightedCount = 0;
+        int powerCount = 0;
 
         // Add up the pain of all the doors
         // Restrict to just doors on the main station
@@ -71,7 +111,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
                 if (door.State == DoorState.Emagging)
                 {
                     var modifier = GetAccessLevelModifier(uid);
-                    emagCount += 1 + modifier;
+                    emagWeightedCount += 1 + modifier;
                 }
 
                 airlockCounter += 1;
@@ -92,7 +132,7 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
         //   That way the metrics do not "scale up"  on large stations.
 
         if (airlockCounter > 0)
-            emagChaos = Math.Round((emagCount / airlockCounter) * component.EmagCost);
+            emagChaos = Math.Round((emagWeightedCount / airlockCounter) * component.EmagCost);
 
         if (firelockCounter > 0)
             atmosChaos = Math.Round((fireCount / firelockCounter) * component.FireCost +
@@ -100,6 +140,17 @@ public sealed class DoorMetricSystem : ChaosMetricSystem<DoorMetricComponent>
 
         if (doorCounter > 0)
             powerChaos = Math.Round((powerCount / doorCounter) * component.PowerCost);
+
+        DoorsTotal.Set(doorCounter);
+        FirelocksTotal.Set(firelockCounter);
+        AirlocksTotal.Set(airlockCounter);
+        FirelocksHoldingFire.Set(fireCount);
+        FirelocksHoldingPressure.Set(pressureCount);
+        EmaggedAirlocksWeighted.Set(emagWeightedCount);
+        UnpoweredDoors.Set(powerCount);
+        SecurityChaosCalculated.Set(emagChaos);
+        AtmosChaosCalculated.Set(atmosChaos);
+        PowerChaosCalculated.Set(powerChaos);
 
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
