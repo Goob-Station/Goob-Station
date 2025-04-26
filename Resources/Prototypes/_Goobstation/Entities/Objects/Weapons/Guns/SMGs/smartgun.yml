@@ -93,10 +93,3 @@
   - type: EyeCursorOffset
     maxOffset: 1.5
     pvsIncrease: 0.15
-  - type: RestrictGunshotsByUserTag
-    doesntContain:
-    - Oni
-    messages:
-    - oni-cannot-shoot-guns-1
-    - oni-cannot-shoot-guns-2
-    - oni-cannot-shoot-guns-3
