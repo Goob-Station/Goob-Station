@@ -140,7 +140,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // Get all the label values currently in use
         var labelValues = gauge.GetAllLabelValues().ToList();
 
-        // For each set of label values, either:
+        // For each set of label values, remove that shit.
         foreach (var labelSet in labelValues)
             gauge.RemoveLabelled(labelSet);
     }
