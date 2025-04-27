@@ -39,7 +39,7 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 5d
+            Slash: 5
             Heat: 10
   - type: ItemToggle
     predictable: false
