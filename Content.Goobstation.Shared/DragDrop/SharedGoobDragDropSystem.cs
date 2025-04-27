@@ -1,0 +1,20 @@
+using Content.Shared.DragDrop;
+using Content.Shared.Item;
+
+namespace Content.Goobstation.Shared.DragDrop;
+
+public abstract partial class SharedGoobDragDropSystem : EntitySystem
+{
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<ItemComponent, CanDragEvent>(CanDragItem);
+    }
+
+    // needed for drag-and-drop construction
+    private void CanDragItem(Entity<ItemComponent> ent, ref CanDragEvent args)
+    {
+        args.Handled = true;
+    }
+}
