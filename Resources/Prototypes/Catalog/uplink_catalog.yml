@@ -165,6 +165,7 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+iamvelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -2177,3 +2178,13 @@
     whitelist:
     - Chef
     - Mime
+
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  cost:
+    Telecrystal: 10 # Goobstation
+  categories:
+  - UplinkDeception

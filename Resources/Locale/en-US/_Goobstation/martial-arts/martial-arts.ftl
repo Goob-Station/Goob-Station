@@ -7,6 +7,7 @@
 cqc-fail-used = {CAPITALIZE(THE($manual))} is already used.
 cqc-fail-notself = You can't teach anyone with {CAPITALIZE(THE($manual))}.
 
+cqc-fail-changeling = We are beyond using this.
 cqc-fail-knowanother = You already know another martial art.
 cqc-fail-already = You already know everything about a Martial art.
 cqc-success-unblocked = Your CQC skills are not bound to kitchen anymore.
