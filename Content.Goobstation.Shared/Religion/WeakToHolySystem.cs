@@ -5,19 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Common.Religion.Events;
 using Content.Goobstation.Shared.Religion.Nullrod;
-using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Religion;
@@ -56,7 +49,7 @@ public sealed class WeakToHolySystem : EntitySystem
 
         DamageModifierSet modifierSet = new()
         {
-            Coefficients = new Dictionary<string, float>()
+            Coefficients = new Dictionary<string, float>
             {
                 { "Holy", holyCoefficient },
             },
@@ -73,14 +66,13 @@ public sealed class WeakToHolySystem : EntitySystem
             return;
         }
 
-        foreach (var item in
-                 _inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.All & ~SlotFlags.POCKET))
+        foreach (var item in _inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.All & ~SlotFlags.POCKET))
         {
-            if (HasComp<UnholyItemComponent>(item))
-            {
-                args.ShouldTakeHoly = true;
-                return;
-            }
+            if (!HasComp<UnholyItemComponent>(item))
+                continue;
+
+            args.ShouldTakeHoly = true;
+            return;
         }
     }
 

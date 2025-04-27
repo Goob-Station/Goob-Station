@@ -15,9 +15,8 @@ namespace Content.Goobstation.Shared.Religion.Nullrod;
 /// </summary>
 /// <param name="User">The entity praying at the nullrod.</param>
 /// <param name="NullrodComponent">The nullrod comp of the nullrod being prayed at.</param>
-/// <param name="Nullrod">The nullrod being prayed at.</param>
 [ByRefEvent]
-public record struct NullrodPrayEvent(EntityUid User, NullrodComponent NullrodComponent, EntityUid? Nullrod);
+public record struct NullrodPrayEvent(EntityUid User, NullrodComponent NullrodComponent);
 
 [Serializable, NetSerializable]
 public sealed partial class NullrodPrayDoAfterEvent : SimpleDoAfterEvent;

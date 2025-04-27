@@ -76,11 +76,11 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
 
     private void OnPrayDoAfter(EntityUid uid, NullrodComponent comp, ref NullrodPrayDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || !args.User.IsValid() || args.Used == null)
+        if (args.Cancelled || args.Handled || !args.User.IsValid())
             return;
 
-        var ev = new NullrodPrayEvent(args.User, comp, args.Used);
-        RaiseLocalEvent((EntityUid)args.Used, ref ev);
+        var ev = new NullrodPrayEvent(args.User, comp);
+        RaiseLocalEvent(uid, ref ev);
 
         args.Repeat = comp.RepeatPrayer;
     }

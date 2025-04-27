@@ -22,14 +22,10 @@ public sealed partial class ReloadOnPraySystem : EntitySystem
 
     private void OnPray(EntityUid uid, ReloadOnPrayComponent comp, ref NullrodPrayEvent args)
     {
-        if (!TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammoProvider))
+        if (!TryComp<BasicEntityAmmoProviderComponent>(uid, out var ammoProvider) || ammoProvider.Capacity == null)
             return;
 
-        if (ammoProvider.Capacity == null)
-            return;
-
-        if (_gun.UpdateBasicEntityAmmoCount(uid, (int) ammoProvider.Capacity, ammoProvider))
+        if (_gun.UpdateBasicEntityAmmoCount(uid, ammoProvider.Capacity.Value, ammoProvider))
             _audioSystem.PlayPvs(comp.ReloadSoundPath, uid);
     }
-
 }

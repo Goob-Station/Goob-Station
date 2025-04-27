@@ -30,12 +30,10 @@ public sealed class NullrodTransformSystem : EntitySystem
     private void OnInteractUsing(EntityUid uid, AltarSourceComponent component, InteractUsingEvent args)
     {
         if (args.Handled
-            || !_netManager.IsServer
-            || HasComp<StorageComponent>(args
-                .Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
-            || !_tagSystem.HasTag(args.Used, "Nullrod") // Checks used entity for the tag we need.
-           )
-            return;
+        || _netManager.IsClient
+        || HasComp<StorageComponent>(args.Target) // If it's a storage component like a bag, we ignore usage so it can be stored.
+        || !_tagSystem.HasTag(args.Used, "Nullrod")) // Checks used entity for the tag we need.
+        return;
 
         // *flaaavor*
         Spawn(component.EffectProto, Transform(uid).Coordinates);
