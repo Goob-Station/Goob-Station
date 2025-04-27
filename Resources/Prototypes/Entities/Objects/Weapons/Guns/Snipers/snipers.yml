@@ -134,7 +134,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.6
+    fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
