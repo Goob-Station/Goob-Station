@@ -27,6 +27,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Guidebook.Components;
+using Content.Client.UserInterface.Controls;
 using Content.Shared.Chemistry;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
@@ -58,8 +59,7 @@ namespace Content.Client.Chemistry.UI
 
             // Setup window layout/elements
             _window = this.CreateWindow<ReagentDispenserWindow>();
-            _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
-            _window.HelpGuidebookIds = EntMan.GetComponent<GuideHelpComponent>(Owner).Guides;
+            _window.SetInfoFromEntity(EntMan, Owner);
 
             // Setup static button actions.
             _window.EjectButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(SharedReagentDispenser.OutputSlotName));
