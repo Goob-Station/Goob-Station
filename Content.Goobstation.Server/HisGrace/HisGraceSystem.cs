@@ -8,7 +8,6 @@ using Content.Goobstation.Shared.HisGrace;
 using Content.Goobstation.Shared.Overlays;
 using Content.Server.Atmos.Components;
 using Content.Server.Chat.Systems;
-using Content.Server.Item;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
@@ -16,9 +15,6 @@ using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.Humanoid;
@@ -30,14 +26,11 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Toggleable;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.HisGrace;
@@ -57,7 +50,6 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     [Dependency] private readonly StunSystem _stun = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
     [Dependency] private readonly ChatSystem _chat = null!;
-    [Dependency] private readonly StaminaSystem _stam = null!;
 
     public override void Initialize()
     {
@@ -90,11 +82,11 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         component.IsHeld = true;
         component.Holder = args.User;
 
-        if (TryComp<StaminaComponent>(args.User, out var stamina))
-        {
-            component.BaseStamCritThreshold = stamina.CritThreshold;
-            stamina.CritThreshold = component.HoldingStamCritThreshold;
-        }
+        if (!TryComp<StaminaComponent>(args.User, out var stamina))
+            return;
+
+        component.BaseStamCritThreshold = stamina.CritThreshold;
+        stamina.CritThreshold = component.HoldingStamCritThreshold;
 
     }
 
@@ -118,6 +110,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (!TryComp<HisGraceComponent>(ent.Comp.HisGrace, out var hisGrace))
             return;
 
+        // awaiting aviu code
         /*
         if (hisGrace.CurrentState == HisGraceState.Ascended)
             args.Damage *= ent.Comp.AscensionDamageCoefficient
@@ -163,13 +156,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void OnHungerChanged(EntityUid uid, HisGraceComponent comp, ref HisGraceHungerChangedEvent args)
     {
-        if (comp.User is not { } user)
+        if (comp.User is not { } user|| !TryComp<HisGraceUserComponent>(comp.User, out var userComp))
             return;
 
         _speedModifier.RefreshMovementSpeedModifiers(user);
-
-        if (!TryComp<HisGraceUserComponent>(comp.User, out var userComp))
-            return;
 
         if (args.NewState == HisGraceState.Ascended && args.OldState != HisGraceState.Ascended)
         {
@@ -242,7 +232,6 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
                 var popUp = Loc.GetString("hisgrace-death", ("target", Name(user)));
                 _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
 
-
                 ChangeState(comp, HisGraceState.Dormant);
                 break;
             }
@@ -258,84 +247,103 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         var query = EntityQueryEnumerator<HisGraceComponent, MeleeWeaponComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var hisGrace, out var melee, out var xform))
         {
-            // Don't update anything if it's dormant
-            if (hisGrace.CurrentState is HisGraceState.Dormant or HisGraceState.Death or HisGraceState.Ascended)
-                continue;
+            UpdateHisGrace(uid, hisGrace, melee, xform);
+        }
+    }
 
-            if (TerminatingOrDeleted(uid) || hisGrace.User is not { } user)
+    private void UpdateHisGrace(EntityUid uid, HisGraceComponent hisGrace, MeleeWeaponComponent melee, TransformComponent xform)
+    {
+        if (hisGrace.CurrentState is HisGraceState.Dormant or HisGraceState.Death or HisGraceState.Ascended)
+            return;
+
+        if (TerminatingOrDeleted(uid) || hisGrace.User is not { } user)
+        {
+            hisGrace.CurrentState = HisGraceState.Dormant;
+            return;
+        }
+
+        HandleUserDistance(uid, hisGrace, user);
+        HandleGroundAttacks(uid, hisGrace, melee, xform);
+        UpdateHungerState(hisGrace);
+        ProcessHungerTick(hisGrace, user);
+    }
+
+    private void HandleUserDistance(EntityUid uid, HisGraceComponent hisGrace, EntityUid user)
+    {
+        if (_timing.CurTime <= hisGrace.NextUserAttack || _lookup.GetEntitiesInRange(uid, 1f).Contains(user))
+            return;
+
+        var popUp = Loc.GetString("hisgrace-too-far");
+        _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
+        _damageable.TryChangeDamage(user, hisGrace.BaseDamage, targetPart: TargetBodyPart.Head, ignoreResistances: true);
+
+        hisGrace.NextUserAttack = _timing.CurTime + hisGrace.TickDelay;
+    }
+
+    private void HandleGroundAttacks(EntityUid uid, HisGraceComponent hisGrace, MeleeWeaponComponent melee, TransformComponent xform)
+    {
+        if (hisGrace.IsHeld
+            && hisGrace.Holder == hisGrace.User
+            || _timing.CurTime > hisGrace.NextGroundAttack)
+            return;
+
+        var nearbyEnts = _lookup.GetEntitiesInRange(uid, 1f);
+
+        foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity)
+        && entity != hisGrace.User
+        && !TerminatingOrDeleted(entity)
+        && !_containerSystem.IsEntityOrParentInContainer(entity)))
+        {
+            var coordinates = _transform.GetMapCoordinates(uid);
+            var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
+
+            _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Head, origin: uid);
+            _audio.PlayPvs(melee.HitSound, uid);
+            _popup.PopupEntity(Loc.GetString("hisgrace-attack-popup", ("target", Name(entity))), uid, PopupType.LargeCaution);
+            _melee.DoLunge(uid, uid, angle, coordinates.Position, null, angle, false, false);
+
+            TryDevour(hisGrace, entity);
+            hisGrace.NextGroundAttack = _timing.CurTime + hisGrace.TickDelay;
+
+            break;
+        }
+    }
+
+    private void UpdateHungerState(HisGraceComponent hisGrace)
+    {
+        var downgradeNeeded = hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold)
+                              && hisGrace.Hunger < currentThreshold.Threshold;
+
+        for (var i = hisGrace.OrderedStates.Count - 1; i >= 0; i--)
+        {
+            var threshold = hisGrace.OrderedStates[i];
+            if (threshold.Key > hisGrace.CurrentState)
             {
-                hisGrace.CurrentState = HisGraceState.Dormant;
-                continue;
-            }
-
-            var nearbyEnts = _lookup.GetEntitiesInRange(uid, 1f);
-
-            // Handle damaging user if too far away.
-            if (!nearbyEnts.Contains(hisGrace.User.Value) && _timing.CurTime > hisGrace.NextUserAttack)
-            {
-                var popUp = Loc.GetString("hisgrace-too-far");
-                _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
-                _damageable.TryChangeDamage(user, hisGrace.BaseDamage, targetPart: TargetBodyPart.Head, ignoreResistances: true);
-
-                hisGrace.NextUserAttack = _timing.CurTime + hisGrace.TickDelay;
-            }
-
-            // Handle attacking when not held
-            if (!hisGrace.IsHeld || hisGrace.Holder != hisGrace.User)
-            {
-                foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity) && entity != user
-                             &&  _timing.CurTime > hisGrace.NextGroundAttack
-                             && !TerminatingOrDeleted(entity)
-                             && !_containerSystem.IsEntityOrParentInContainer(entity)))
-                {
-                    var coordinates = _transform.GetMapCoordinates(uid);
-                    var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
-
-                    _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Head, origin: uid);
-                    _audio.PlayPvs(melee.HitSound, uid);
-                    _popup.PopupEntity(Loc.GetString("hisgrace-attack-popup", ("target", Name(entity))), uid, PopupType.LargeCaution);
-                    _melee.DoLunge(uid, uid, angle, coordinates.Position, null, angle, false, false);
-
-                    TryDevour(hisGrace, entity);
-                    hisGrace.NextGroundAttack = _timing.CurTime + hisGrace.TickDelay;
-
-                    break;
-                }
-            }
-
-            // Update hunger based on threshold.
-            var downgradeNeeded = hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold)
-                                  && hisGrace.Hunger < currentThreshold.Threshold;
-
-            for (var i = hisGrace.OrderedStates.Count - 1; i >= 0; i--)
-            {
-                var threshold = hisGrace.OrderedStates[i];
-                if (threshold.Key > hisGrace.CurrentState)
-                {
-                    if (hisGrace.Hunger >= threshold.Value.Threshold)
-                    {
-                        hisGrace.HungerIncrement = threshold.Value.Increment;
-                        ChangeState(hisGrace, threshold.Key);
-                        break;
-                    }
-                }
-                else if (downgradeNeeded && hisGrace.Hunger >= threshold.Value.Threshold)
+                if (hisGrace.Hunger >= threshold.Value.Threshold)
                 {
                     hisGrace.HungerIncrement = threshold.Value.Increment;
                     ChangeState(hisGrace, threshold.Key);
                     break;
                 }
             }
-
-            if (hisGrace.NextHungerTick > _timing.CurTime)
-                continue;
-
-            _damageable.TryChangeDamage(user, hisGrace.Healing);
-
-            hisGrace.Hunger += hisGrace.HungerIncrement;
-            hisGrace.NextHungerTick = _timing.CurTime + hisGrace.TickDelay;
+            else if (downgradeNeeded && hisGrace.Hunger >= threshold.Value.Threshold)
+            {
+                hisGrace.HungerIncrement = threshold.Value.Increment;
+                ChangeState(hisGrace, threshold.Key);
+                break;
+            }
         }
+    }
 
+    private void ProcessHungerTick(HisGraceComponent hisGrace, EntityUid user)
+    {
+        if (hisGrace.NextHungerTick > _timing.CurTime)
+            return;
+
+        _damageable.TryChangeDamage(user, hisGrace.Healing);
+
+        hisGrace.Hunger += hisGrace.HungerIncrement;
+        hisGrace.NextHungerTick = _timing.CurTime + hisGrace.TickDelay;
     }
 
     #endregion
