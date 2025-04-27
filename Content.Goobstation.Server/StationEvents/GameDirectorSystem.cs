@@ -130,9 +130,43 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         component.TimeNextEvent += args.PausedTime;
     }
 
+    /// <summary>
+    /// Removes all labels from a gauge.
+    /// </summary>
+    /// <typeparam name="TChild"></typeparam>
+    /// <param name="gauge"></param>
+    public static void ResetGaugeLabels<TChild>(Collector<TChild> gauge) where TChild : ChildBase
+    {
+        // Get all the label values currently in use
+        var labelValues = gauge.GetAllLabelValues().ToList();
+
+        // For each set of label values, either:
+        foreach (var labelSet in labelValues)
+            gauge.RemoveLabelled(labelSet);
+    }
+
+    /// <summary>
+    /// Lists all the label values of a gauge. Useful for debugging!
+    /// </summary>
+    /// <typeparam name="TChild"></typeparam>
+    /// <param name="gauge"></param>
+    public static void ListAllLabelValues<TChild>(Collector<TChild> gauge) where TChild : ChildBase
+    {
+        var labelValues = gauge.GetAllLabelValues();
+        foreach (var labelSet in labelValues)
+            foreach (var label in labelSet)
+                Logger.Warning($"Label: {label}");
+    }
+
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // This deletes all existing metrics and sets them up again.
+        ActivePlayers.Set(0);
+        ActiveGhosts.Set(0);
+        ResetGaugeLabels(EventsRunTotal);
+        ResetGaugeLabels(StoryBeatChangesTotal);
+        ResetGaugeLabels(RoundstartAntagsSelectedTotal);
+
         TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);
