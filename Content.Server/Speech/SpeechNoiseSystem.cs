@@ -43,9 +43,12 @@ namespace Content.Server.Speech
             RaiseLocalEvent(ent, ref getSpeechSoundEv);
             if (getSpeechSoundEv.SpeechSoundProtoId == null ||
                 !_protoManager.TryIndex<SpeechSoundsPrototype>(getSpeechSoundEv.SpeechSoundProtoId, out var prototype))
+            {
+                if (ent.Comp.SpeechSounds == null)
+                    return null;
+
                 prototype = _protoManager.Index<SpeechSoundsPrototype>(ent.Comp.SpeechSounds);
-            else if (ent.Comp.SpeechSounds == null)
-                return null;
+            }
             // Goobstation end
 
             // Play speech sound

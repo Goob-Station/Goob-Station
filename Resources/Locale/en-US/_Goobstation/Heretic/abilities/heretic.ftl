@@ -13,6 +13,7 @@ heretic-ability-fail-magicitem = You cannot cast it without a focus!
 heretic-ability-fail-notarget = Couldn't find a valid target!
 heretic-ability-fail-lowhealth = This spell deals {$damage} damage, it would put you in critical condition if you casted it!
 heretic-ability-fail-tile-not-rusted = Targeted tile must be rusted to use this ability!
+heretic-ability-fail-tile-underneath-not-rusted = Tile that you are standing on must be rusted to use this ability!
 heretic-ability-fail-tile-occupied = Targeted tile is occupied!
 heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this surface!
 

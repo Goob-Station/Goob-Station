@@ -11,36 +11,22 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Movement;
-using Content.Goobstation.Common.Standing;
-using Content.Goobstation.Common.Weapons.DelayedKnockdown;
-using Content.Server.Body.Components;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Shuttles.Components;
 using Content.Server.Spreader;
-using Content.Server.Temperature.Components;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
-using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.StatusEffect;
-using Content.Shared.Tag;
 using Content.Shared.Tiles;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
@@ -54,9 +40,6 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    private const float LeechingWalkUpdateInterval = 1f;
-    private float _accumulator;
-
     public static readonly Dictionary<EntProtoId, EntProtoId> Transformations = new()
     {
         { "WallSolid", "WallSolidRust" },
@@ -277,9 +260,17 @@ public sealed partial class HereticAbilitySystem
 
         var plume = Spawn(args.Proto, mapPos);
 
-        var circle = new Circle(mapPos.Position, args.Radius);
+        RustObjectsInRadius(mapPos, args.Radius, args.TileRune, args.LookupRange);
+
+        _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, args.Speed);
+        _gun.SetTarget(plume, null, out _);
+    }
+
+    private void RustObjectsInRadius(MapCoordinates mapPos, float radius, string tileRune, float lookupRange)
+    {
+        var circle = new Circle(mapPos.Position, radius);
         var grids = new List<Entity<MapGridComponent>>();
-        var box = Box2.CenteredAround(mapPos.Position, new Vector2(args.Radius, args.Radius));
+        var box = Box2.CenteredAround(mapPos.Position, new Vector2(radius, radius));
         _mapMan.FindGridsIntersecting(mapPos.MapId, box, ref grids);
 
         var tiles = new List<(EntityCoordinates, TileRef, EntityUid, MapGridComponent)>();
@@ -292,16 +283,13 @@ public sealed partial class HereticAbilitySystem
         foreach (var (coords, tileRef, gridUid, mapGrid) in tiles)
         {
             if (CanRustTile((ContentTileDefinition) _tileDefinitionManager[tileRef.Tile.TypeId]))
-                MakeRustTile(gridUid, mapGrid, tileRef, args.TileRune);
+                MakeRustTile(gridUid, mapGrid, tileRef, tileRune);
 
-            foreach (var toRust in _lookup.GetEntitiesInRange(coords, args.LookupRange, LookupFlags.Static))
+            foreach (var toRust in _lookup.GetEntitiesInRange(coords, lookupRange, LookupFlags.Static))
             {
                 TryMakeRustWall(toRust);
             }
         }
-
-        _gun.ShootProjectile(plume, dir, Vector2.Zero, uid, uid, args.Speed);
-        _gun.SetTarget(plume, null, out _);
     }
 
     private void OnRandomOffsetStartup(Entity<SpriteRandomOffsetComponent> ent, ref ComponentStartup args)
@@ -496,199 +484,5 @@ public sealed partial class HereticAbilitySystem
     private void OnLeechingWalk(Entity<HereticComponent> ent, ref HereticLeechingWalkEvent args)
     {
         EnsureComp<LeechingWalkComponent>(ent);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        _accumulator += frameTime;
-
-        if (_accumulator < LeechingWalkUpdateInterval)
-            return;
-
-        _accumulator = 0f;
-
-        var damageableQuery = GetEntityQuery<DamageableComponent>();
-        var bloodQuery = GetEntityQuery<BloodstreamComponent>();
-        var solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
-        var temperatureQuery = GetEntityQuery<TemperatureComponent>();
-        var staminaQuery = GetEntityQuery<StaminaComponent>();
-        var statusQuery = GetEntityQuery<StatusEffectsComponent>();
-        var rustbringerQuery = GetEntityQuery<RustbringerComponent>();
-        var resiratorQuery = GetEntityQuery<RespiratorComponent>();
-
-        var leechQuery = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
-        while (leechQuery.MoveNext(out var uid, out var leech, out var xform))
-        {
-            RemCompDeferred<DisgustComponent>(uid);
-
-            if (!IsTileRust(xform.Coordinates, out _))
-                continue;
-
-            var multiplier = 1f;
-
-            if (rustbringerQuery.HasComp(uid))
-            {
-                multiplier = leech.AscensuionMultiplier;
-
-                if (resiratorQuery.TryComp(uid, out var respirator))
-                    _respirator.UpdateSaturation(uid, respirator.MaxSaturation - respirator.MinSaturation, respirator);
-            }
-
-            RemCompDeferred<DelayedKnockdownComponent>(uid);
-
-            if (damageableQuery.TryComp(uid, out var damageable))
-            {
-                _dmg.TryChangeDamage(uid,
-                    leech.ToHeal * multiplier,
-                    true,
-                    false,
-                    damageable,
-                    null,
-                    false,
-                    targetPart: TargetBodyPart.All);
-            }
-
-            if (bloodQuery.TryComp(uid, out var blood))
-            {
-                if (blood.BleedAmount > 0f)
-                    _blood.TryModifyBleedAmount(uid, -blood.BleedAmount, blood);
-
-                if (solutionQuery.TryComp(uid, out var sol) &&
-                    _solution.ResolveSolution((uid, sol), blood.BloodSolutionName, ref blood.BloodSolution) &&
-                    blood.BloodSolution.Value.Comp.Solution.Volume < blood.BloodMaxVolume)
-                {
-                    _blood.TryModifyBloodLevel(uid,
-                        FixedPoint2.Min(leech.BloodHeal * multiplier,
-                            blood.BloodMaxVolume - blood.BloodSolution.Value.Comp.Solution.Volume),
-                        blood);
-                }
-            }
-
-            if (temperatureQuery.TryComp(uid, out var temperature))
-                _temperature.ForceChangeTemperature(uid, leech.TargetTemperature, temperature);
-
-            if (staminaQuery.TryComp(uid, out var stamina) && stamina.StaminaDamage > 0)
-            {
-                _stam.TakeStaminaDamage(uid,
-                    -float.Min(leech.StaminaHeal * multiplier, stamina.StaminaDamage),
-                    stamina,
-                    visual: false);
-            }
-
-            if (statusQuery.TryComp(uid, out var status))
-            {
-                var reduction = leech.StunReduction * multiplier;
-                _statusEffect.TryRemoveTime(uid, "Stun", reduction, status);
-                _statusEffect.TryRemoveTime(uid, "KnockedDown", reduction, status);
-
-                _statusEffect.TryRemoveStatusEffect(uid, "Pacified", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "ForcedSleep", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "SlowedDown", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "BlurryVision", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "TemporaryBlindness", status);
-                _statusEffect.TryRemoveStatusEffect(uid, "SeeingRainbows", status);
-            }
-        }
-
-        var siliconQuery = GetEntityQuery<SiliconComponent>();
-        var borgChassisQuery = GetEntityQuery<BorgChassisComponent>();
-        var godmodeQuery = GetEntityQuery<GodmodeComponent>();
-        var hereticQuery = GetEntityQuery<HereticComponent>();
-        var ghoulQuery = GetEntityQuery<GhoulComponent>();
-
-        var siliconDamage = new DamageSpecifier(_prot.Index<DamageGroupPrototype>("Brute"), 10);
-
-        var disgustQuery = EntityQueryEnumerator<DisgustComponent, MobStateComponent, TransformComponent>();
-        while (disgustQuery.MoveNext(out var uid, out var disgust, out var mobState, out var xform))
-        {
-            if (godmodeQuery.HasComp(uid) || hereticQuery.HasComp(uid) || ghoulQuery.HasComp(uid))
-            {
-                RemCompDeferred(uid, disgust);
-                continue;
-            }
-
-            var isSilicon = siliconQuery.HasComp(uid) || borgChassisQuery.HasComp(uid) || _tag.HasTag(uid, "Bot");
-            if (mobState.CurrentState != MobState.Dead && IsTileRust(xform.Coordinates, out _))
-            {
-                // Apply rust corruption
-                if (isSilicon)
-                {
-                    _dmg.TryChangeDamage(uid,
-                        siliconDamage,
-                        ignoreResistances: true,
-                        targetPart: TargetBodyPart.Torso);
-
-                    Popup.PopupEntity(Loc.GetString("rust-corruption-silicon-damage"),
-                        uid,
-                        uid,
-                        PopupType.MediumCaution);
-
-                    continue;
-                }
-
-                disgust.CurrentLevel += disgust.ModifierPerUpdate;
-            }
-            else
-            {
-                if (isSilicon)
-                {
-                    RemCompDeferred(uid, disgust);
-                    continue;
-                }
-
-                disgust.CurrentLevel -= disgust.PassiveReduction;
-
-                if (disgust.CurrentLevel <= 0f)
-                {
-                    RemCompDeferred(uid, disgust);
-                    continue;
-                }
-            }
-
-            if (!statusQuery.TryComp(uid, out var status))
-                continue;
-
-            if (disgust.CurrentLevel >= disgust.NegativeThreshold)
-            {
-                if (_random.Prob(disgust.NegativeEffectProb))
-                {
-                    _jitter.DoJitter(uid, disgust.NegativeTime, true, 10f, 10f, true, status);
-                    _stutter.DoStutter(uid, disgust.NegativeTime, true, status);
-                    Popup.PopupEntity(Loc.GetString("disgust-effect-warning"), uid, uid, PopupType.SmallCaution);
-                }
-            }
-
-            if (disgust.CurrentLevel >= disgust.VomitThreshold)
-            {
-                var vomitProb = Math.Clamp(0.025f + 0.00025f * disgust.VomitThreshold, 0f, 1f);
-                if (_random.Prob(vomitProb))
-                {
-                    _vomit.Vomit(uid);
-                    _stun.KnockdownOrStun(uid, disgust.VomitKnockdownTime, true, status);
-                    disgust.CurrentLevel -= disgust.VomitThreshold;
-                }
-            }
-
-            if (disgust.CurrentLevel >= disgust.BadNegativeThreshold)
-            {
-                if (_random.Prob(disgust.BadNegativeEffectProb))
-                {
-                    _statusEffect.TryAddStatusEffect<BlurryVisionComponent>(uid,
-                        "BlurryVision",
-                        disgust.BadNegativeTime,
-                        true,
-                        status);
-
-                    _stun.TrySlowdown(uid,
-                        disgust.BadNegativeTime,
-                        true,
-                        disgust.SlowdownMultiplier,
-                        disgust.SlowdownMultiplier,
-                        status);
-                }
-            }
-        }
     }
 }

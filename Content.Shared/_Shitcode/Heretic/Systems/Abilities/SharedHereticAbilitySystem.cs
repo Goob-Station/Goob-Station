@@ -1,10 +1,17 @@
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions;
+using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
+using Content.Shared.Tag;
+using Content.Shared.Throwing;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
@@ -14,9 +21,17 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly INetManager _net = default!;
 
+    [Dependency] protected readonly IGameTiming Timing = default!;
+
+    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly ThrowingSystem _throw = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -26,6 +41,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
         SubscribeBlade();
         SubscribeRust();
+        SubscribeSide();
 
         SubscribeLocalEvent<HereticComponent, EventHereticShadowCloak>(OnShadowCloak);
     }
@@ -55,6 +71,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     protected bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
         if (args.Handled)
+            return false;
+
+        // No using abilities while charging
+        if (HasComp<RustChargeComponent>(ent))
             return false;
 
         if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))

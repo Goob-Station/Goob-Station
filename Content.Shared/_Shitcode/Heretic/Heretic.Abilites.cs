@@ -236,6 +236,15 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
 }
 
+public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
+{
+    [DataField]
+    public float Distance = 10f;
+
+    [DataField]
+    public float Speed = 10f;
+}
+
 // ascensions
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionAshEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }

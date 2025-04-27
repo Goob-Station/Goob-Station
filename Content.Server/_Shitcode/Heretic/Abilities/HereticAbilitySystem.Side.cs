@@ -14,8 +14,10 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    private void SubscribeSide()
+    protected override void SubscribeSide()
     {
+        base.SubscribeSide();
+
         SubscribeLocalEvent<HereticComponent, EventHereticCleave>(OnCleave);
     }
 
