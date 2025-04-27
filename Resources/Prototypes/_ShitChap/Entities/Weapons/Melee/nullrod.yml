@@ -337,7 +337,7 @@
     - AthiestsFedora
 
 - type: entity
-  name: Honkermother's Maw
+  name: Honkmother's Maw
   parent: BaseNullrod
   id: HonkmotherMaw
   description: a-HEAD of you lies a path most hilarious.
