@@ -175,7 +175,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
             var requirementsManager = IoCManager.Resolve<JobRequirementsManager>();
 
-            // TODO: role.Requirements value doesn't work at all as an equality key, this must be fixed
+            // Ghost roles with the same name and description but different requirement instances
++           // should be grouped together. We only use the name and description for grouping,
++           // and take the requirements from the first role in each group
             // Grouping roles
             var groupedRoles = ghostState.GhostRoles.GroupBy(
                 role => (role.Name, role.Description)); //goobstation edit, less polluted ghost spawners menu
@@ -185,9 +187,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             {
                 var name = group.Key.Name;
                 var description = group.Key.Description;
-                var group_req = group.First(); //goobstation edit - since reqs can't be grouped fuckery
+                var groupReq = group.First(); //goobstation edit - since reqs can't be grouped fuckery
                 var hasAccess = requirementsManager.CheckRoleRequirements(
-                    group_req.Requirements, //goobstation edit, less polluted ghost spawners menu
+                    groupReq.Requirements, //goobstation edit, less polluted ghost spawners menu
                     null,
                     out var reason);
 
