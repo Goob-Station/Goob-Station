@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: miniature energy crossbow
   parent: [ BaseWeaponBatterySmall, BaseSyndicateContraband ]
@@ -184,3 +203,87 @@
     magState: mag
     steps: 5
     zeroVisible: true
+
+- type: entity
+  name: centcomm disabler
+  parent: [ WeaponDisablerPractice, BaseCentcommContraband ]
+  id: WeaponDisablerAdvanced
+  description: A non-lethal self-defense weapon for agents not trustable with traditional lethals. Recharges over time.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 50
+  - type: PacifismAllowedGun
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+
+- type: entity
+  name: advanced pulse carbine
+  parent: WeaponPulseCarbine
+  id: WeaponPulseCarbineAdvanced
+  description: A state-of-the-art pulse carbine. This particular one has an experimental recharging cell.
+  components:
+  - type: Tag
+    tags:
+    - Rifle
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 80
+
+- type: entity
+  name: CR-2 energy assault rifle
+  parent: [ BaseWeaponPowerCell, BaseGunWieldable, BaseSecurityContraband ]
+  id: WeaponEnergyRifle
+  description: An advanced energy rifle capable of firing various bolts depending on the powercell magazine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    size: Large
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: EnergyMagRifleLethal
+        insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+        whitelist:
+          tags:
+            - EnergyMagAmmo

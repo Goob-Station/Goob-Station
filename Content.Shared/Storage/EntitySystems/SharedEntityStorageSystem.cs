@@ -1,3 +1,37 @@
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2022 Bright0 <55061890+Bright0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Lucas <luc4s.rib3iro@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 zero <ribeirolucasdev@gmail.com>
+// SPDX-FileCopyrightText: 2023 Christopher Thirtle <29220292+ChrisThirtle@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
@@ -242,26 +276,27 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         component.Open = false;
         Dirty(uid, component);
 
-        var targetCoordinates = new EntityCoordinates(uid, component.EnteringOffset);
+        var entities = _lookup.GetEntitiesInRange(
+            new EntityCoordinates(uid, component.EnteringOffset),
+            component.EnteringRange,
+            LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sundries
+        );
 
-        var entities = _lookup.GetEntitiesInRange(targetCoordinates, component.EnteringRange, LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Sundries);
+        // Don't insert the container into itself.
+        entities.Remove(uid);
 
-        var ev = new StorageBeforeCloseEvent(entities, new());
+        var ev = new StorageBeforeCloseEvent(entities, []);
         RaiseLocalEvent(uid, ref ev);
-        var count = 0;
+
         foreach (var entity in ev.Contents)
         {
-            if (!ev.BypassChecks.Contains(entity))
-            {
-                if (!CanInsert(entity, uid, component))
-                    continue;
-            }
+            if (!ev.BypassChecks.Contains(entity) && !CanInsert(entity, uid, component))
+                continue;
 
             if (!AddToContents(entity, uid, component))
                 continue;
 
-            count++;
-            if (count >= component.Capacity)
+            if (component.Contents.ContainedEntities.Count >= component.Capacity)
                 break;
         }
 
@@ -332,7 +367,23 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (component.Contents.ContainedEntities.Count >= component.Capacity)
             return false;
 
-        return CanFit(toInsert, container, component);
+        var aabb = _lookup.GetAABBNoContainer(toInsert, Vector2.Zero, 0);
+        if (component.MaxSize < aabb.Size.X || component.MaxSize < aabb.Size.Y)
+            return false;
+
+        // Allow other systems to prevent inserting the item: e.g. the item is actually a ghost.
+        var attemptEvent = new InsertIntoEntityStorageAttemptEvent(toInsert);
+        RaiseLocalEvent(toInsert, ref attemptEvent);
+
+        if (attemptEvent.Cancelled)
+            return false;
+
+        // Consult the whitelist. The whitelist ignores the default assumption about how entity storage works.
+        if (component.Whitelist != null)
+            return _whitelistSystem.IsValid(component.Whitelist, toInsert);
+
+        // The inserted entity must be a mob or an item.
+        return HasComp<BodyComponent>(toInsert) || HasComp<ItemComponent>(toInsert);
     }
 
     public bool TryOpenStorage(EntityUid user, EntityUid target, bool silent = false)
@@ -413,58 +464,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         if (toAdd == container)
             return false;
 
-        var aabb = _lookup.GetAABBNoContainer(toAdd, Vector2.Zero, 0);
-        if (component.MaxSize < aabb.Size.X || component.MaxSize < aabb.Size.Y)
-            return false;
-
         return Insert(toAdd, container, component);
-    }
-
-    private bool CanFit(EntityUid toInsert, EntityUid container, SharedEntityStorageComponent? component = null)
-    {
-        if (!Resolve(container, ref component))
-            return false;
-
-        // conditions are complicated because of pizzabox-related issues, so follow this guide
-        // 0. Accomplish your goals at all costs.
-        // 1. AddToContents can block anything
-        // 2. maximum item count can block anything
-        // 3. ghosts can NEVER be eaten
-        // 4. items can always be eaten unless a previous law prevents it
-        // 5. if this is NOT AN ITEM, then mobs can always be eaten unless a previous
-        // law prevents it
-        // 6. if this is an item, then mobs must only be eaten if some other component prevents
-        // pick-up interactions while a mob is inside (e.g. foldable)
-        var attemptEvent = new InsertIntoEntityStorageAttemptEvent();
-        RaiseLocalEvent(toInsert, ref attemptEvent);
-        if (attemptEvent.Cancelled)
-            return false;
-
-        var targetIsMob = HasComp<BodyComponent>(toInsert);
-        var storageIsItem = HasComp<ItemComponent>(container);
-        var allowedToEat = component.Whitelist == null ? HasComp<ItemComponent>(toInsert) : _whitelistSystem.IsValid(component.Whitelist, toInsert);
-
-        // BEFORE REPLACING THIS WITH, I.E. A PROPERTY:
-        // Make absolutely 100% sure you have worked out how to stop people ending up in backpacks.
-        // Seriously, it is insanely hacky and weird to get someone out of a backpack once they end up in there.
-        // And to be clear, they should NOT be in there.
-        // For the record, what you need to do is empty the backpack onto a PlacableSurface (table, rack)
-        if (targetIsMob)
-        {
-            if (!storageIsItem)
-                allowedToEat = true;
-            else
-            {
-                var storeEv = new StoreMobInItemContainerAttemptEvent();
-                RaiseLocalEvent(container, ref storeEv);
-                allowedToEat = storeEv is { Handled: true, Cancelled: false };
-
-                if (component.ItemCanStoreMobs)
-                    allowedToEat = true;
-            }
-        }
-
-        return allowedToEat;
     }
 
     private void ModifyComponents(EntityUid uid, SharedEntityStorageComponent? component = null)

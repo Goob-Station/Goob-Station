@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <142914808+Aineias1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: gondola
   parent:
@@ -135,6 +151,8 @@
     allowMovement: true
     description: ghost-role-information-SyndiRoach-description
     rules: ghost-role-information-SyndiRoach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -209,6 +227,8 @@
     name: ghost-role-information-lootbug-name
     description: ghost-role-information-lootbug-description
     rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: SmallMob
@@ -361,3 +381,82 @@
     damage:
       types:
         Piercing: 5
+
+- type: entity
+  name: homunculus
+  id: MobHomunculus
+  parent: SimpleMobBase
+  description: What a wretched beast...
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Mobs/Animals/homunculus.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: homunculus
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-homunculus-name
+    description: ghost-role-information-homunculus-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechSounds: Alto
+  - type: MobState
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: homunculus
+      Dead:
+        Base: homunculus_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Bloodstream
+    bloodReagent: Blood
+    bloodMaxVolume: 40
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: VentCrawler
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Slash: 10
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: MobMouse
+  id: MouseMenace
+  name: menace
+  components:
+  - type: EnchantFill
+    enchants:
+      EnchantInsulated: 1 # eat ALL the wires
+      EnchantUnbreaking: 3 # very hard to kill
+      EnchantSharpness: 5 # hit hard ye

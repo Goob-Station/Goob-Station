@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+// SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Text.Json.Serialization;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
@@ -306,6 +327,48 @@ namespace Content.Shared.Damage
                 if (TryGetDamageInGroup(group, out var value))
                     dict.Add(group.ID, value);
             }
+        }
+
+        // Goobstation - partial AP. Returns new armor modifier set.
+        public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet, float penetration)
+        {
+            if (penetration == 0f ||
+                penetration > 0f && (modifierSet.IgnoreArmorPierceFlags & (int) PartialArmorPierceFlags.Positive) != 0 ||
+                penetration < 0f && (modifierSet.IgnoreArmorPierceFlags & (int) PartialArmorPierceFlags.Negative) != 0)
+                return modifierSet;
+
+            var result = new DamageModifierSet();
+            if (penetration >= 1f)
+                return result;
+
+            var inversePen = 1f - penetration;
+
+            foreach (var (type, coef) in modifierSet.Coefficients)
+            {
+                // Negative coefficients are not modified by this,
+                // coefficients above 1 will actually be lowered which is not desired
+                if (coef is <= 0 or >= 1)
+                {
+                    result.Coefficients.Add(type, coef);
+                    continue;
+                }
+
+                result.Coefficients.Add(type, MathF.Pow(coef, inversePen));
+            }
+
+            foreach (var (type, flat) in modifierSet.FlatReduction)
+            {
+                // Negative flat reductions are not modified by this
+                if (flat <= 0)
+                {
+                    result.FlatReduction.Add(type, flat);
+                    continue;
+                }
+
+                result.FlatReduction.Add(type, flat * inversePen);
+            }
+
+            return result;
         }
 
         #region Operators

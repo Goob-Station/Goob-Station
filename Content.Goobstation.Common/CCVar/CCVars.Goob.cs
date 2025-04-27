@@ -1,3 +1,42 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Panela <107573283+AgentePanela@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
+// SPDX-FileCopyrightText: 2025 PuroSlavKing <103608145+PuroSlavKing@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+// SPDX-FileCopyrightText: 2025 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 blobadoodle <me@bloba.dev>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 kamkoi <poiiiple1@gmail.com>
+// SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 tetra <169831122+Foralemes@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Configuration;
 
 namespace Content.Goobstation.Common.CCVar;
@@ -77,6 +116,12 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> SiloEnabled =
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Set a max drunk time in seconds to prevent permanent drunkeness. 
+    /// </summary>
+    public static readonly CVarDef<float> MaxDrunkTime =
+        CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
     #region Player Listener
 
@@ -249,15 +294,50 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MinimumTimeUntilFirstEvent =
         CVarDef.Create("gamedirector.minimumtimeuntilfirstevent", 300f, CVar.SERVERONLY);
 
+    public static readonly CVarDef<int> GameDirectorDebugPlayerCount =
+        CVarDef.Create("gamedirector.debug_player_count", 80, CVar.SERVERONLY);
+
     #endregion
 
-    #region Mass Contests
+    #region Contests System
+
     /// <summary>
-    ///
+    ///     The MASTER TOGGLE for the entire Contests System.
+    ///     ALL CONTESTS BELOW, regardless of type or setting will output 1f when false.
+    /// </summary>
+    public static readonly CVarDef<bool> DoContestsSystem =
+        CVarDef.Create("contests.do_contests_system", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     Contest functions normally include an optional override to bypass the clamp set by max_percentage.
+    ///     This CVar disables the bypass when false, forcing all implementations to comply with max_percentage.
+    /// </summary>
+    public static readonly CVarDef<bool> AllowClampOverride =
+        CVarDef.Create("contests.allow_clamp_override", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
     ///     Toggles all MassContest functions. All mass contests output 1f when false
     /// </summary>
     public static readonly CVarDef<bool> DoMassContests =
         CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     Toggles all StaminaContest functions. All stamina contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoStaminaContests =
+        CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     Toggles all HealthContest functions. All health contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoHealthContests =
+        CVarDef.Create("contests.do_health_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     Toggles all MindContest functions. All mind contests output 1f when false.
+    ///     MindContests are not currently implemented, and are awaiting completion of the Psionic Refactor
+    /// </summary>
+    public static readonly CVarDef<bool> DoMindContests =
+        CVarDef.Create("contests.do_mind_contests", true, CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
@@ -266,10 +346,29 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MassContestsMaxPercentage =
         CVarDef.Create("contests.max_percentage", 1f, CVar.REPLICATED | CVar.SERVER);
 
-
     #endregion
 
-    #region Chat highlights
+    #region Shoving - WD Port
+    /// <summary>
+    /// Shove range multiplier.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveRange =
+        CVarDef.Create("game.shove_range", 3f, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    /// Shove speed multiplier, does not affect range.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveSpeed =
+        CVarDef.Create("game.shove_speed", 4f, CVar.SERVER | CVar.ARCHIVE);
+
+    /// <summary>
+    /// How much should the mass difference affect shove range & speed.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveMassFactor =
+        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+    #endregion
+
+    #region Chat
 
     /// <summary>
     /// A string containing a list of newline-separated words to be highlighted in the chat.
@@ -289,6 +388,27 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> ChatHighlightsColor =
         CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
+    /// <summary>
+    /// Whether or not to log actions in the chat.
+    /// </summary>
+    public static readonly CVarDef<bool> LogInChat =
+        CVarDef.Create("chat.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether or not to coalesce identical messages in the chat.
+    /// </summary>
+    public static readonly CVarDef<bool> CoalesceIdenticalMessages =
+         CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
     #endregion
 
+    #region Misc
+
+    /// <summary>
+    /// Whether or not to show detailed examine text.
+    /// </summary>
+    public static readonly CVarDef<bool> DetailedExamine =
+        CVarDef.Create("misc.detailed_examine", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    #endregion
 }

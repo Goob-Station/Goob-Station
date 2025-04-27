@@ -1,3 +1,53 @@
+# SPDX-FileCopyrightText: 2019 Swept <49448379+SweptWasTaken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Fouin <jfouin2@protonmail.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 L.E.D <10257081+unusualcrow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 moneyl <8206401+Moneyl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 py01 <pyronetics01@gmail.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 notquitehadouken <1isthisameme>
+# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 DarkDanss14 <156617183+DarkDanss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <108604614+PoTeletubby@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
+# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.co>
+# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   id: BikeHorn
@@ -47,6 +97,7 @@
     - BikeHorn
     - VehicleKey #Goobstatiuon - Clowncar
   - type: MeleeWeapon
+    animationRotation: 135 # WWDP
     wideAnimationRotation: 135
     soundHit:
       collection: BikeHorn
@@ -108,6 +159,7 @@
       params:
         variation: 0.125
   - type: MeleeWeapon
+    animationRotation: 135 # WWDP
     wideAnimationRotation: 135
     soundHit:
       collection: CluwneHorn

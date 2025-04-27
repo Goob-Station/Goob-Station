@@ -1,3 +1,72 @@
+# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Stanislav4ix <124695665+Stanislav4ix@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alex Pavlenko <diraven@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2024 neutrino <67447925+neutrino-laser@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 redfire1331 <Redfire1331@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Tier 1
 
 - type: technology
@@ -14,6 +83,7 @@
   - ShuttleGunKineticCircuitboard
   - MechEquipmentKineticAccelerator # Goobstation
   # These are roundstart but not replenishable for salvage
+  position: 1,0 # Goobstation R&D Console rework
 
 - type: technology
   id: DraconicMunitions
@@ -29,14 +99,19 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
+  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
-  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  # Goobstation R&D Console rework start
+  position: 2,2
+  technologyPrerequisites:
+  - SalvageWeapons
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -51,6 +126,11 @@
   - WeaponLaserCarbine
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
+  # Goobstation R&D Console rework start
+  position: 4,0
+  technologyPrerequisites:
+  - WeaponPlasmaRifleTech
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: NonlethalAmmunition
@@ -68,6 +148,11 @@
   - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
   - WeaponDisabler
   - WeaponMechCombatDisabler # Goobstation
+  # Goobstation R&D Console rework start
+  position: 2,3
+  technologyPrerequisites:
+  - SalvageWeapons
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: UraniumMunitions
@@ -90,6 +175,11 @@
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
   - MagazineBoxShotgunUraniumHighCaliber # Goobstation
+  # Goobstation R&D Console rework start
+  position: 3,2
+  technologyPrerequisites:
+  - DraconicMunitions
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: AdvancedRiotControl
@@ -105,24 +195,12 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
-
-- type: technology
-  id: ExplosiveTechnology
-  name: research-technology-explosive-technology
-  icon:
-    sprite: Objects/Devices/payload.rsi
-    state: payload-explosive-armed
-  discipline: Arsenal
-  tier: 1
-  cost: 10000
-  recipeUnlocks:
-  - SignallerAdvanced
-  - SignalTrigger
-  - VoiceTrigger
-  - TimerTrigger
-  - FlashPayload
-  - ExplosivePayload
-  - ChemicalPayload
+  # Goobstation R&D Console rework start
+  - Terminus
+  position: 3,3
+  technologyPrerequisites:
+  - NonlethalAmmunition
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: SpecialMeans
@@ -135,6 +213,11 @@
   cost: 5000
   recipeUnlocks:
   - ClothingBackpackElectropack
+  # Goobstation R&D Console rework start
+  position: 4,3
+  technologyPrerequisites:
+  - AdvancedRiotControl
+  # Goobstation R&D Console rework end
 
 # Tier 2
 
@@ -150,19 +233,28 @@
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
+  # Goobstation R&D Console rework start
+  position: 5,0
+  technologyPrerequisites:
+  - WeaponizedLaserManipulation
+  # Goobstation R&D Console rework end
 
-# Goobstation - Consolidated ( AGAIN !!! )
-#- type: technology
-#  id: WaveParticleHarnessing
-#  name: research-technology-wave-particle-harnessing
-#  icon:
-#    sprite: Objects/Weapons/Guns/Battery/xray.rsi
-#    state: icon
-#  discipline: Arsenal
-#  tier: 2
-#  cost: 10000
-#  recipeUnlocks:
-#  - WeaponXrayCannon
+- type: technology
+  id: WaveParticleHarnessing
+  name: research-technology-wave-particle-harnessing
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - WeaponXrayCannon
+  # Goobstation R&D Console rework start
+  technologyPrerequisites:
+  - WeaponizedLaserManipulation
+  position: 5,1
+  # Goobstation R&D Console rework end
 
 - type: technology
   id: BasicShuttleArmament
@@ -184,7 +276,8 @@
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
-  - SalvageWeapons
+  - Shuttlecraft  # Goobstation R&D Console rework
+  position: 3,-4  # Goobstation R&D Console rework
 
 # Tier 3
 
@@ -196,23 +289,29 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
   - WeaponMechCombatImmolationGun # Goobstation
+  # Goobstation R&D Console rework start
+  position: 6,0
+  technologyPrerequisites:
+  - ConcentratedLaserWeaponry
+  # Goobstation R&D Console rework end
 
-- type: technology
-  id: ExperimentalBatteryAmmo
-  name: research-technology-experimental-battery-ammo
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  recipeUnlocks:
-  - WeaponLaserSvalinn
+# Goobstation commented
+# - type: technology
+#   id: ExperimentalBatteryAmmo
+#   name: research-technology-experimental-battery-ammo
+#   icon:
+#     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+#     state: icon
+#   discipline: Arsenal
+#   tier: 3
+#   cost: 20000
+#   recipeUnlocks:
+#   - WeaponLaserSvalinn
 
 - type: technology
   id: AdvancedShuttleWeapon
@@ -222,10 +321,12 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 20000 # Goobstation 15000 -> 20000
   recipeUnlocks:
   - GrenadeEMP
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
+  - Shuttlecraft  # Goobstation R&D Console rework
+  position: 4,-4  # Goobstation R&D Console rework

@@ -1,8 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: Chester
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: An improved lever-action rifle designed to fire specialized .75 gauge ammunition for rapid threat removal.
+  description: An improved lever-action rifle designed to fire specialized 8 gauge ammunition for rapid threat removal.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi

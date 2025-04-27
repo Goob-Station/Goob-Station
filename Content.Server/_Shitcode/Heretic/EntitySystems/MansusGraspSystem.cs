@@ -1,9 +1,30 @@
+// SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 github-actions <github-actions@github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Abilities;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
+using Content.Server.Item;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
@@ -24,7 +45,6 @@ using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
-using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
@@ -36,11 +56,11 @@ using Content.Shared.Tag;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -48,8 +68,6 @@ public sealed class MansusGraspSystem : EntitySystem
 {
     [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -71,6 +89,8 @@ public sealed class MansusGraspSystem : EntitySystem
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly ItemSystem _item = default!;
 
     public override void Initialize()
     {
@@ -80,15 +100,16 @@ public sealed class MansusGraspSystem : EntitySystem
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<RustGraspComponent, AfterInteractEvent>(OnRustInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
-        SubscribeLocalEvent<MansusGraspBlockTriggerComponent, TriggerAttemptEvent>(OnTriggerAttempt);
+        SubscribeLocalEvent<MansusGraspBlockTriggerComponent, BeforeTriggerEvent>(OnTriggerAttempt);
 
         SubscribeLocalEvent<MansusInfusedComponent, ExaminedEvent>(OnInfusedExamine);
         SubscribeLocalEvent<MansusInfusedComponent, InteractHandEvent>(OnInfusedInteract);
         SubscribeLocalEvent<MansusInfusedComponent, MeleeHitEvent>(OnInfusedMeleeHit);
-        // todo add more mansus infused item interactions
+        SubscribeLocalEvent<MansusInfusedComponent, ComponentStartup>(OnInfusedStartup);
+        SubscribeLocalEvent<MansusInfusedComponent, ComponentShutdown>(OnInfusedShutdown);
     }
 
-    private void OnTriggerAttempt(Entity<MansusGraspBlockTriggerComponent> ent, ref TriggerAttemptEvent args)
+    private void OnTriggerAttempt(Entity<MansusGraspBlockTriggerComponent> ent, ref BeforeTriggerEvent args)
     {
         if (HasComp<MansusGraspAffectedComponent>(args.User))
         {
@@ -203,20 +224,8 @@ public sealed class MansusGraspSystem : EntitySystem
             return;
 
         // upgraded grasp
-        if (hereticComp.CurrentPath != null)
-        {
-            if (hereticComp.PathStage >= 2)
-            {
-                if (!ApplyGraspEffect((args.User, hereticComp), target, ent))
-                    return;
-            }
-
-            if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
-            {
-                var markComp = EnsureComp<HereticCombatMarkComponent>(target);
-                markComp.Path = hereticComp.CurrentPath;
-            }
-        }
+        if (!TryApplyGraspEffectAndMark( args.User, hereticComp, target, ent))
+            return;
 
         if (TryComp(target, out StatusEffectsComponent? status))
         {
@@ -235,6 +244,30 @@ public sealed class MansusGraspSystem : EntitySystem
         InvokeGrasp(args.User, ent);
         QueueDel(ent);
         args.Handled = true;
+    }
+
+    public bool TryApplyGraspEffectAndMark( EntityUid user,
+        HereticComponent hereticComp,
+        EntityUid target,
+        EntityUid? grasp)
+    {
+        if (hereticComp.CurrentPath == null)
+            return false;
+
+        if (hereticComp.PathStage >= 2)
+        {
+            if (!ApplyGraspEffect((user, hereticComp), target, grasp))
+                return false;
+        }
+
+        if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
+        {
+            var markComp = EnsureComp<HereticCombatMarkComponent>(target);
+            markComp.Path = hereticComp.CurrentPath;
+            markComp.Repetitions = hereticComp.CurrentPath == "Ash" ? 5 : 1;
+        }
+
+        return true;
     }
 
     private void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent> ent)
@@ -297,7 +330,7 @@ public sealed class MansusGraspSystem : EntitySystem
             _transform.AttachToGridOrMap(Spawn("HereticRuneRitual", ev.Coords));
     }
 
-    public bool ApplyGraspEffect(Entity<HereticComponent> user, EntityUid target, EntityUid grasp)
+    public bool ApplyGraspEffect(Entity<HereticComponent> user, EntityUid target, EntityUid? grasp)
     {
         var (performer, heretic) = user;
 
@@ -312,7 +345,7 @@ public sealed class MansusGraspSystem : EntitySystem
 
             case "Blade":
                 {
-                    if (heretic.PathStage >= 7 && HasComp<ItemComponent>(target))
+                    if (grasp != null && heretic.PathStage >= 7 && _tag.HasTag(target, "HereticBladeBlade"))
                     {
                         // empowering blades and shit
                         var infusion = EnsureComp<MansusInfusedComponent>(target);
@@ -326,6 +359,7 @@ public sealed class MansusGraspSystem : EntitySystem
                         _stun.TryParalyze(target, TimeSpan.FromSeconds(1.5f), true);
                         _damage.TryChangeDamage(target,
                             new DamageSpecifier(_proto.Index<DamageTypePrototype>("Slash"), 10),
+                            ignoreResistances: true,
                             origin: performer,
                             targetPart: TargetBodyPart.Torso);
                     }
@@ -415,20 +449,60 @@ public sealed class MansusGraspSystem : EntitySystem
         if (TryComp<HandsComponent>(target, out var hands))
             _hands.TryDrop(target, Transform(target).Coordinates, handsComp: hands);
 
-        SpendInfusionCharges(ent, charges: ent.Comp.MaxCharges); // spend all because RCHTHTRTH
+        SpendInfusionCharges(ent);
     }
     private void OnInfusedMeleeHit(Entity<MansusInfusedComponent> ent, ref MeleeHitEvent args)
     {
-        args.BonusDamage += args.BaseDamage; // double it.
-        SpendInfusionCharges(ent);
+        if (!args.IsHit || args.HitEntities.Count == 0)
+            return;
+
+        if (!TryComp(args.User, out HereticComponent? heretic))
+            return;
+
+        var success = false;
+        foreach (var target in args.HitEntities)
+        {
+            if (target == args.User)
+                continue;
+
+            if (!HasComp<StatusEffectsComponent>(target) && !HasComp<MobStateComponent>(target))
+                continue;
+
+            if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == heretic.CurrentPath))
+                continue;
+
+            if (!TryApplyGraspEffectAndMark(args.User, heretic, target, null))
+                continue;
+
+            success = true;
+        }
+
+        if (success)
+            SpendInfusionCharges(ent);
     }
 
-    private void SpendInfusionCharges(Entity<MansusInfusedComponent> ent, float charges = -1)
+    private void SpendInfusionCharges(Entity<MansusInfusedComponent> ent)
     {
         ent.Comp.AvailableCharges -= 1;
         if (ent.Comp.AvailableCharges <= 0)
             RemComp<MansusInfusedComponent>(ent);
     }
+
+    private void OnInfusedStartup(Entity<MansusInfusedComponent> ent, ref ComponentStartup args)
+    {
+        _appearance.SetData(ent, InfusedBladeVisuals.Infused, true);
+        _item.SetHeldPrefix(ent, ent.Comp.HeldPrefix);
+    }
+
+    private void OnInfusedShutdown(Entity<MansusInfusedComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        _appearance.SetData(ent, InfusedBladeVisuals.Infused, false);
+        _item.SetHeldPrefix(ent, null);
+    }
+
 
     #endregion
 }

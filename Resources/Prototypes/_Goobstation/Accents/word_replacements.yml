@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeeRobynn <robynthewarcrime@proton.me>
+# SPDX-FileCopyrightText: 2025 Cattowo <2spoopy4u2handle@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 smudge <138918973+Cerise-Cattowo@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Accents that work off of word replacements.
 - type: accent #(Goobstation) New Yowie Accent, to whoever ends up reading this, remember to spell each word exactly
   id: bogan
@@ -651,3 +665,65 @@
     accent-medieval-words-236: accent-medieval-words-replace-236
     accent-medieval-words-237: accent-medieval-words-replace-237
     accent-medieval-words-238: accent-medieval-words-replace-238
+
+- type: accent
+  id: cheese
+  wordReplacements:
+    accent-cheese-words-1: accent-cheese-words-replace-1
+    accent-cheese-words-2: accent-cheese-words-replace-2
+    accent-cheese-words-3: accent-cheese-words-replace-3
+    accent-cheese-words-4: accent-cheese-words-replace-4
+    accent-cheese-words-5: accent-cheese-words-replace-5
+    accent-cheese-words-6: accent-cheese-words-replace-6
+    accent-cheese-words-7: accent-cheese-words-replace-7
+    accent-cheese-words-8: accent-cheese-words-replace-8
+    accent-cheese-words-9: accent-cheese-words-replace-9
+    accent-cheese-words-10: accent-cheese-words-replace-10
+    accent-cheese-words-11: accent-cheese-words-replace-11
+    accent-cheese-words-12: accent-cheese-words-replace-12
+    accent-cheese-words-13: accent-cheese-words-replace-13
+    accent-cheese-words-14: accent-cheese-words-replace-14
+    accent-cheese-words-15: accent-cheese-words-replace-15
+    accent-cheese-words-16: accent-cheese-words-replace-16
+
+- type: accent
+  id: tide
+  wordReplacements:
+    accent-tide-words-1: accent-tide-words-replace-1
+    accent-tide-words-2: accent-tide-words-replace-2
+    accent-tide-words-3: accent-tide-words-replace-3
+    accent-tide-words-4: accent-tide-words-replace-4
+    accent-tide-words-5: accent-tide-words-replace-5
+    accent-tide-words-6: accent-tide-words-replace-6
+    accent-tide-words-7: accent-tide-words-replace-7
+    accent-tide-words-8: accent-tide-words-replace-8
+    accent-tide-words-9: accent-tide-words-replace-9
+    accent-tide-words-10: accent-tide-words-replace-10
+    accent-tide-words-11: accent-tide-words-replace-11
+    accent-tide-words-12: accent-tide-words-replace-12
+    accent-tide-words-13: accent-tide-words-replace-13
+    accent-tide-words-14: accent-tide-words-replace-14
+    accent-tide-words-15: accent-tide-words-replace-15
+    accent-tide-words-16: accent-tide-words-replace-16
+    accent-tide-words-17: accent-tide-words-replace-17
+    accent-tide-words-18: accent-tide-words-replace-18
+    accent-tide-words-19: accent-tide-words-replace-19
+    accent-tide-words-20: accent-tide-words-replace-20
+    accent-tide-words-21: accent-tide-words-replace-21
+    accent-tide-words-22: accent-tide-words-replace-22
+    accent-tide-words-23: accent-tide-words-replace-23
+    accent-tide-words-24: accent-tide-words-replace-24
+    accent-tide-words-25: accent-tide-words-replace-25
+    accent-tide-words-26: accent-tide-words-replace-26
+    accent-tide-words-27: accent-tide-words-replace-27
+    accent-tide-words-28: accent-tide-words-replace-28
+    accent-tide-words-29: accent-tide-words-replace-29
+    accent-tide-words-30: accent-tide-words-replace-30
+    accent-tide-words-31: accent-tide-words-replace-31
+    accent-tide-words-32: accent-tide-words-replace-32
+    accent-tide-words-33: accent-tide-words-replace-33
+    accent-tide-words-34: accent-tide-words-replace-34
+    accent-tide-words-35: accent-tide-words-replace-35
+    accent-tide-words-36: accent-tide-words-replace-36
+    accent-tide-words-37: accent-tide-words-replace-37
+    accent-tide-words-38: accent-tide-words-replace-38

@@ -1,7 +1,19 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Server.StationEvents.Components;
 using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goobstation.Shared.StationEvents;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
@@ -21,6 +33,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Prometheus;
 
 namespace Content.Goobstation.Server.StationEvents;
 
@@ -80,6 +93,30 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
 
     private ISawmill _sawmill = default!;
 
+    private static readonly Gauge EventsRunTotal = Metrics.CreateGauge(
+        "game_director_events_run_total",
+        "Total number of station events run by the Game Director.",
+        "event_name");
+
+    private static readonly Gauge StoryBeatChangesTotal = Metrics.CreateGauge(
+        "game_director_story_beat_changes_total",
+        "Total number of story beat changes.",
+        "story_name", "beat_name");
+
+    private static readonly Gauge ActivePlayers = Metrics.CreateGauge(
+        "game_director_active_players",
+        "Current number of active players counted by the Game Director.");
+
+    private static readonly Gauge ActiveGhosts = Metrics.CreateGauge(
+        "game_director_active_ghosts",
+        "Current number of active ghosts counted by the Game Director.");
+
+    private static readonly Gauge RoundstartAntagsSelectedTotal = Metrics.CreateGauge(
+        "game_director_roundstart_antags_selected_total",
+        "Total number of roundstart antagonists selected.",
+        "antag_name");
+
+
     public override void Initialize()
     {
         base.Initialize();
@@ -96,15 +133,11 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     protected override void Added(EntityUid uid, GameDirectorComponent scheduler, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         // This deletes all existing metrics and sets them up again.
-        TrySpawnRoundstartAntags(scheduler, GetTotalPlayerCount(_playerManager.Sessions)); // Roundstart antags need to be selected in the lobby
+        TrySpawnRoundstartAntags(scheduler); // Roundstart antags need to be selected in the lobby
         if(TryComp<SelectedGameRulesComponent>(uid,out var selectedRules))
-        {
             SetupEvents(scheduler, CountActivePlayers(), selectedRules);
-        }
         else
-        {
             SetupEvents(scheduler, CountActivePlayers());
-        }
     }
 
     /// <summary>
@@ -115,13 +148,10 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         scheduler.PossibleEvents.Clear();
 
         if (selectedRules != null)
-        {
             SelectFromTable(scheduler, count, selectedRules);
-        }
         else
-        {
             SelectFromAllEvents(scheduler, count);
-        }
+
         LogMessage($"All possible events added");
     }
 
@@ -129,7 +159,8 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     {
         foreach (var proto in GameTicker.GetAllGameRulePrototypes())
         {
-            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory))
+            if (!proto.TryGetComponent<StationEventComponent>(out var stationEvent, _factory)
+            || stationEvent is not { } || !stationEvent.IsSelectable) // dont select inelligable statio events
                 continue;
 
             // Gate here on players, but not on round runtime. The story will probably last long enough for the
@@ -180,6 +211,9 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         }
         // Decide what story beat to work with (which sets chaos goals)
         var count = CountActivePlayers();
+        ActivePlayers.Set(count.Players);
+        ActiveGhosts.Set(count.Ghosts);
+
         var beat = DetermineNextBeat(scheduler, chaos, count);
 
         // This is the first event, add an automatic delay
@@ -191,6 +225,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             return;
         }
 
+        RankedEvent? chosenEvent = null;
         // Pick the best events (which move the station towards the chaos desired by the beat)
         var bestEvents = ChooseEvents(scheduler, beat, chaos, count);
 
@@ -200,10 +235,14 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             // Sorts the possible events and then picks semi-randomly.
             // when beat.RandomEventLimit is 1 it's always the "best" event picked. Higher values
             // allow more events to be randomly selected.
-            var chosenEvent = SelectBest(bestEvents, beat.RandomEventLimit);
+            chosenEvent = SelectBest(bestEvents, beat.RandomEventLimit);
 
             _event.RunNamedEvent(chosenEvent.PossibleEvent.StationEvent);
+        }
 
+        if (chosenEvent != null)
+        {
+            EventsRunTotal.WithLabels(chosenEvent.PossibleEvent.StationEvent).Inc();
             // 2 - 6 minutes until the next event is considered, can vary per beat
             scheduler.TimeNextEvent = currTime + TimeSpan.FromSeconds(_random.NextFloat(beat.EventDelayMin, beat.EventDelayMax));
         }
@@ -218,7 +257,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
     /// <summary>
     /// Tries to spawn roundstart antags at the beginning of the round.
     /// </summary>
-    private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler, int count)
+    private void TrySpawnRoundstartAntags(GameDirectorComponent scheduler)
     {
         if (scheduler.NoRoundstartAntags)
             return;
@@ -226,24 +265,33 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // Spawn antags based on GameDirectorComponent
         var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
+#if DEBUG
+        var count = _configManager.GetCVar(GoobCVars.GameDirectorDebugPlayerCount);
+#else
+        var count = GetTotalPlayerCount(_playerManager.Sessions);
+#endif
+        LogMessage($"Total player count: {count}", false);
+
         if (!scheduler.DualAntags)
         {
             var pick = weightList.Pick(_random);
-            var pickProto = _prototypeManager.Index(pick);
-            if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
-               pickGameRule.MinPlayers > count)
-            {
-                LogMessage("Not enough players for roundstart antags selected...");
-                return;
-            }
-            LogMessage("Choosing roundstart antag");
-            LogMessage($"Roundstart antag chosen: {pick}");
-            GameTicker.AddGameRule(pick);
+            IndexAndStartGameMode(pick);
         }
         else
         {
             var pick = weightList.Pick(_random);
-            var pick2 = weightList.Pick(_random);
+            var weights = weightList.Weights;
+
+            if (_prototypeManager.TryIndex(pick, out IncompatibleGameModesPrototype? incompModes))
+                weights = weights.Where(w => !incompModes.Modes.Contains(w.Key)).ToDictionary();
+
+            if (weights.Count == 0)
+            {
+                IndexAndStartGameMode(pick);
+                return;
+            }
+
+            var pick2 = _random.Pick(weights);
             var pick1Proto = _prototypeManager.Index(pick);
             var pick2Proto = _prototypeManager.Index(pick2);
             if (!pick2Proto.TryGetComponent<GameRuleComponent>(out var pick2GameRule, _factory) ||
@@ -257,8 +305,27 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             LogMessage($"Roundstart antag chosen: {pick}");
             LogMessage($"Roundstart antag chosen: {pick2}");
 
+            RoundstartAntagsSelectedTotal.WithLabels(pick).Inc();
             GameTicker.AddGameRule(pick);
+            RoundstartAntagsSelectedTotal.WithLabels(pick2).Inc();
             GameTicker.AddGameRule(pick2);
+        }
+
+        return;
+
+        void IndexAndStartGameMode(string pick)
+        {
+            var pickProto = _prototypeManager.Index(pick);
+            if(!pickProto.TryGetComponent<GameRuleComponent>(out var pickGameRule, _factory) ||
+               pickGameRule.MinPlayers > count)
+            {
+                LogMessage("Not enough players for roundstart antags selected...");
+                return;
+            }
+            LogMessage("Choosing roundstart antag");
+            LogMessage($"Roundstart antag chosen: {pick}");
+            RoundstartAntagsSelectedTotal.WithLabels(pick).Inc();
+            GameTicker.AddGameRule(pick);
         }
     }
 
@@ -389,6 +456,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
             var beatName = scheduler.RemainingBeats[0];
             var beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
 
+            StoryBeatChangesTotal.WithLabels(scheduler.CurrentStoryName.ToString() ?? "Unknown", beatName).Inc();
             LogMessage($"New StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
             return beat;
         }
@@ -421,6 +489,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
                 var beatName = scheduler.RemainingBeats[0];
                 var beat = _prototypeManager.Index<StoryBeatPrototype>(beatName);
 
+                StoryBeatChangesTotal.WithLabels(storyName.ToString() ?? "Unknown", beatName).Inc();
                 LogMessage($"First StoryBeat {beatName}: {beat.Description}. Goal is {beat.Goal}");
                 return beat;
             }

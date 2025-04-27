@@ -1,18 +1,31 @@
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.Weapons.DelayedKnockdown;
 using Content.Server.Heretic.Components.PathSpecific;
+using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
-using Content.Shared.Slippery;
-using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.CombatMode.Pacification;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.Abilities;
 
-public sealed partial class HereticAbilitySystem : EntitySystem
+public sealed partial class HereticAbilitySystem
 {
-    private void SubscribeBlade()
+    protected override void SubscribeBlade()
     {
-        SubscribeLocalEvent<HereticComponent, HereticCuttingEdgeEvent>(OnCuttingEdge);
-        SubscribeLocalEvent<HereticComponent, ShotAttemptedEvent>(OnShootAttempt);
+        base.SubscribeBlade();
 
         SubscribeLocalEvent<HereticComponent, HereticDanceOfTheBrandEvent>(OnDanceOfTheBrand);
         SubscribeLocalEvent<HereticComponent, EventHereticRealignment>(OnRealignment);
@@ -22,25 +35,11 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, HereticAscensionBladeEvent>(OnAscensionBlade);
     }
 
-    private void OnCuttingEdge(Entity<HereticComponent> ent, ref HereticCuttingEdgeEvent args)
-    {
-        ent.Comp.CanShootGuns = false;
-    }
-
-    private void OnShootAttempt(Entity<HereticComponent> ent, ref ShotAttemptedEvent args)
-    {
-        if (ent.Comp.CanShootGuns == false)
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-cant-shoot", ("entity", args.Used)), ent, ent);
-            args.Cancel();
-        }
-    }
-
     private void OnDanceOfTheBrand(Entity<HereticComponent> ent, ref HereticDanceOfTheBrandEvent args)
     {
         EnsureComp<RiposteeComponent>(ent);
     }
-    
+
     private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
     {
         if (!TryUseAbility(ent, args))
@@ -63,7 +62,11 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             Dirty(ent, stam);
         }
 
+        _standing.Stand(ent);
+        RemCompDeferred<DelayedKnockdownComponent>(ent);
+        _pulling.StopAllPulls(ent, stopPuller: false);
         _statusEffect.TryAddStatusEffect<PacifiedComponent>(ent, "Pacified", TimeSpan.FromSeconds(10f), true);
+        _statusEffect.TryAddStatusEffect<RealignmentComponent>(ent, "Realignment", TimeSpan.FromSeconds(10f), true);
 
         args.Handled = true;
     }
@@ -81,17 +84,24 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        for (int i = 0; i < 3; i++)
-            _pblade.AddProtectiveBlade(ent);
+        _pblade.AddProtectiveBlade(ent);
+        for (var i = 1; i < 3; i++)
+        {
+            Timer.Spawn(TimeSpan.FromSeconds(0.5f * i),
+                () =>
+                {
+                    if (TerminatingOrDeleted(ent))
+                        return;
+
+                    _pblade.AddProtectiveBlade(ent);
+                });
+        }
 
         args.Handled = true;
     }
 
     private void OnAscensionBlade(Entity<HereticComponent> ent, ref HereticAscensionBladeEvent args)
     {
-        EnsureComp<NoSlipComponent>(ent); // epic gamer move
-        RemComp<StaminaComponent>(ent); // no stun
-
         EnsureComp<SilverMaelstromComponent>(ent);
     }
 }

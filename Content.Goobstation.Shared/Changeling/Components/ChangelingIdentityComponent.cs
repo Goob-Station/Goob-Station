@@ -1,3 +1,21 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
+// SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Humanoid;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
@@ -59,24 +77,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     public Dictionary<string, EntityUid?> Equipment = new();
 
     /// <summary>
-    ///     Amount of biomass changeling currently has.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float Biomass = 60f;
-
-    /// <summary>
-    ///     Maximum amount of biomass a changeling can have.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float MaxBiomass = 30f;
-
-    /// <summary>
-    ///     How much biomass should be removed per cycle.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float BiomassDrain = 1f;
-
-    /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -99,9 +99,6 @@ public sealed partial class ChangelingIdentityComponent : Component
     /// </summary>
     public TimeSpan UpdateTimer = TimeSpan.Zero;
     public float UpdateCooldown = 1f;
-
-    public float BiomassUpdateTimer = 0f;
-    public float BiomassUpdateCooldown = 60f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();

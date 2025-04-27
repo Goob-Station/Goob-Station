@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Durathred web vest
 - type: entity
   parent: ClothingOuterVestWeb
@@ -19,8 +38,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 # Durathread plated vest
 - type: entity
@@ -43,8 +64,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ModifyDelayedKnockdown # Goobstation
-    delayDelta: 1
-    knockdownTimeDelta: -1
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.7
 
 # Helldiver
 - type: entity
@@ -117,7 +140,7 @@
 - type: entity
   parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband]
   id: ClothingOuterArmourInvisible # I'll be real, this is just invisible armor so it doesn't ruin how fucking AWESOME navy officers look. Bite me.
-  name: covert armor
+  name: bluespace assisted armor
   description: An armored vest that utilizes bluespace technology, bending light and becoming invisible to the naked eye when worn.
   components:
   - type: Sprite
@@ -133,9 +156,14 @@
         Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.2
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.5
+  - type: TemperatureProtection
+    heatingCoefficient: 0.8 # Blame it on bluespace.
+    coolingCoefficient: 0.1
 
 - type: entity
   parent: ClothingOuterArmourInvisible

@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ BaseItem, BaseMagicContraband ]
   id: HereticBladeBase
@@ -14,10 +29,11 @@
     slots:
     - Belt
   - type: MeleeWeapon
+    armorPenetration: 0.35
     wideAnimationRotation: -125
     damage:
       types:
-        Slash: 17.5
+        Slash: 20
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -34,6 +50,11 @@
   - type: Tag
     tags:
     - HereticItem
+    - HereticBlade
+  - type: Enchanter
+    # only level 1 as you can easily mass produce these
+    enchants:
+    - EnchantSharpness
 
 - type: entity
   parent: HereticBladeBase
@@ -53,7 +74,9 @@
     damage:
       types:
         Heat: 10
-        Slash: 7.5
+        Slash: 10
+  - type: Cautery
+    speed: 1.5
 
 - type: entity
   parent: HereticBladeBase
@@ -66,9 +89,32 @@
     path: Blade
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
-    state: icon
+    layers:
+    - state: icon
+      map: [ "base" ]
   - type: Item
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
+  - type: Tag
+    tags:
+    - HereticItem
+    - HereticBlade
+    - HereticBladeBlade
+  - type: Multihit
+    damageMultiplier: 0.75
+    multihitWhitelist:
+      tags:
+      - HereticBladeBlade
+    conditions:
+    - !type:MultihitUserHereticEvent
+      requiredPath: Blade
+      minPathStage: 7
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.InfusedBladeVisuals.Infused:
+        base:
+          False: { state: icon }
+          True: { state: infused }
 
 - type: entity
   parent: HereticBladeBase
@@ -133,4 +179,4 @@
     damage:
       types:
         Cold: 10
-        Slash: 7.5
+        Slash: 10

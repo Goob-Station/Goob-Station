@@ -1,3 +1,106 @@
+# SPDX-FileCopyrightText: 2019 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2019 L.E.D <10257081+unusualcrow@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2020 GlassEclipse <tsymall5@gmail.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
+# SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+leonsfriedrich@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+# SPDX-FileCopyrightText: 2021 cyclowns <cyclowns@protonmail.ch>
+# SPDX-FileCopyrightText: 2021 drongood12 <73915636+drongood12@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
+# SPDX-FileCopyrightText: 2022 Charlese2 <knightside@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 AJCM <AJCM@tutanota.com>
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Stanislav4ix <124695665+Stanislav4ix@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 vanx <vanx#5477>
+# SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Dae <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 MaloTV <70515562+MaloTV@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.co>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 shibe <95730644+shibechef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: MuzzleFlashEffect
   categories: [ HideSpawnMenu ]
@@ -486,6 +589,30 @@
   - type: GatheringProjectile
 
 - type: entity
+  parent: BaseBulletTrigger
+  id: BulletSingularityBusterRocket
+  categories: [ HideSpawnMenu ]
+  name: singularity buster rocket
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: buster
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 200
+    intensitySlope: 6
+    maxIntensity: 40
+    maxTileBreak: 1
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: SinguloFood
+    energy: -500
+
+- type: entity
   id: BulletCharge
   name: charge bolt
   parent: BaseBullet
@@ -789,6 +916,7 @@
   - type: ActiveTimerTrigger
     timeRemaining: 0.3
   - type: DeleteOnTrigger
+  - type: Flashbang # Goobstation
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity

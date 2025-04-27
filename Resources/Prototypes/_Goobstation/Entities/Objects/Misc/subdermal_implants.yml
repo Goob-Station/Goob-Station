@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseSubdermalImplant
   id: BluespaceLifelineImplant
@@ -59,6 +77,33 @@
   components:
   - type: KravMagaImplant
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: NutrimentPumpImplant
+  name: nutriment pump implant
+  description: This implant allows prevents the user from getting hungry or thirsty.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: NutrimentPumpImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: SpaceProofImplant
+  name: space proofing implant
+  description: This implant allows the user to survive in space and without air.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpaceProofImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: StypticStimulatorImplant
+  name: styptic stimulator implant
+  description: This implant sends the users regeneration into overdrive.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StypticStimulatorImplant
+
 # Admeme
 
 - type: entity
@@ -101,3 +146,31 @@
   - type: SubdermalImplant
     implantAction: ActionStopTimeFreeman
 
+# Antag Planet
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AntagImplantChangeling
+  name: antag implant
+  description: This implant allows the user to shift their bodies like a changeling
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ChangelingImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AntagImplantHeretic
+  name: antag implant
+  description: This implant allows the user to connect to the powers of the mansus.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HereticImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AntagImplantSpaceNinja
+  name: antag implant
+  description: This implant allows the user to gain the skills of a space ninja.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpaceNinjaImplant

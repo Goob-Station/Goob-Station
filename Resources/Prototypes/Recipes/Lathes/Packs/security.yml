@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static recipes
 
 - type: latheRecipePack
@@ -49,6 +58,7 @@
   - MagazineShotgunSlug
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
+  - ExplosivePayload
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
@@ -80,11 +90,8 @@
   - ShuttleGunSvalinnMachineGunCircuitboard
 
 - type: latheRecipePack
-  parent:
-  - ScienceExplosives # sec gets everything for modular grenade making that sci does
   id: SecurityExplosives
   recipes:
-  - ExplosivePayload
   - GrenadeBlast
   - GrenadeEMP
   - GrenadeFlash

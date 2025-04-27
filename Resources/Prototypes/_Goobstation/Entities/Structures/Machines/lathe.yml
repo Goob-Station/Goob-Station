@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: EngineeringTechFab
   parent: [BaseLatheLube, BaseSiloUtilizer]
@@ -48,6 +58,10 @@
     - ShuttleBoards
     - BluespaceTheory
     - ScienceClothing
+  - type: EmagLatheRecipes
+    emagDynamicPacks:
+    - SecurityBoards # TF2 reference, go build fucking turrets
+    - MiningBoards
   - type: MaterialStorage
     whitelist:
       tags:
@@ -93,14 +107,21 @@
     - Equipment
     - ServiceWeapons
     - MiningWeapons
+    - MiningBoards
     - MiningUpgrades
+    - MechBoardsCargo
+    - MechWeaponsSalvage
     - SpecOpsGoogles
     - CargoBoards
     - SharedBoards
     - ShuttleBoards
-    - CargoMechElectronicsGoob
     - BluespaceTheory
     - ScienceClothing
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SalvageExplosivesStatic # Seismic charges - they're pretty cheap in salvage vendor anyway so why not
+    emagDynamicPacks:
+    - SecurityExplosives
   - type: MaterialStorage
     whitelist:
       tags:
@@ -149,10 +170,11 @@
     - ElectronicsStatic
     - SurgeryStatic
     - ScienceBoardsStatic
+    - ScienceExplosives # Goobstation - Roundstart Grenade Tech
+    - GrenadeTriggersStatic # Goobstation - Roundstart Grenade Tech
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
-    - ScienceExplosives
     - ScienceClothing
     - ScienceWeapons
     - AtmosTools
@@ -169,10 +191,13 @@
     - ScienceBoards
     - ShuttleBoards
     - MedicalBoardsGoob
-    - MechBoards
-    - MechElectronicsGoob
-    - CargoMechElectronicsGoob
     - BluespaceTheory
+    - MechBoardsScience
+  - type: EmagLatheRecipes
+    emagDynamicPacks:
+    - MechBoardsSecurity
+    - MechBoardsCargo
+    - MechBoardsCivilian # Evil ass traitor scientist in a honker... with a rocket launcher because the honker is emagged too.
   - type: MaterialStorage
     whitelist:
       tags:
@@ -212,15 +237,21 @@
     - PowerCellsStatic
     - LatheMiscStatic
     - ChemistryStatic
+    - TapeRecorderStatic
     dynamicPacks:
     - Janitor
     - Instruments
     - FauxTiles
     - ServiceWeapons
     - MedicalMisc
+    - MechBoardsCivilian
+    - MechWeaponsCivilian
     - ServiceBoards
     - SharedBoards
     - CameraBoards
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - ServiceBoardsEvilStatic # Donk Co microwave circiutboard
   - type: MaterialStorage
     whitelist:
       tags:

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Blueshield
+
 - type: entity
   id: BlueshieldUndeterminedWeapon
   name: blueshield weaponry pack
@@ -9,11 +19,11 @@
     state: icon
   - type: ThiefUndeterminedBackpack # Someone should rename this.
     possibleSets:
-    - BlueshieldSet
-    - RevolverSet
-    - CQCSet
-    - ChesterSet
-    - SyringeSet
+    - BSOBlueshieldSet
+    - BSORevolverSet
+    - BSOCQCSet
+    - BSOChesterSet
+    - BSOSyringeSet
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
@@ -32,8 +42,31 @@
     state: icon-alt
   - type: ThiefUndeterminedBackpack # Someone should rename this.
     possibleSets:
-    - LightSet
-    - HeavySet
+    - BSOLightSet
+    - BSOHeavySet
+    maxSelectedSets: 1
+  - type: ActivatableUI
+    key: enum.ThiefBackpackUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ThiefBackpackUIKey.Key:
+        type: ThiefBackpackBoundUserInterface
+
+# ERT
+
+- type: entity
+  id: ERTSecurityUndeterminedWeapon
+  name: emergency response weaponry pack
+  description: A small remote utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/ertundetermined.rsi
+    state: icon
+  - type: ThiefUndeterminedBackpack # Someone should rename this.
+    possibleSets:
+    - ERTBallisticsSet
+    - ERTPulseSet
     maxSelectedSets: 1
   - type: ActivatableUI
     key: enum.ThiefBackpackUIKey.Key
