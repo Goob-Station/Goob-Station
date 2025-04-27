@@ -7907,3 +7907,16 @@ Entries:
         Other values changed accordingly, this is only a cosmetic change.
   id: 918
   time: '2025-04-27T15:29:05.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Welder energy swords now have 10% chance of reflecting lasers, deal 5/10
+        damage instead of 4/11, and are half as effective in damaging limbs as
+        the real eswords.
+    - type: Fix
+      message: >-
+        You can no longer use welder energy swords to craft a real double energy
+        sword.
+  id: 919
+  time: '2025-04-27T16:12:11.0000000+00:00'
