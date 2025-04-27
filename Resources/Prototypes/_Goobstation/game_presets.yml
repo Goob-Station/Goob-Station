@@ -167,7 +167,7 @@
   name: sleeper-title
   description: sleeper-description
   showInVote: true
-  minPlayers: 1
+  minPlayers: 5
   rules:
     - CalmDynamic
     - LavalandStormScheduler
@@ -182,7 +182,7 @@
   name: guide-title
   description: guide-description
   showInVote: true
-  minPlayers: 1
+  minPlayers: 25
   rules:
     - CombatDynamic
     - LavalandStormScheduler

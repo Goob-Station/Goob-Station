@@ -23,7 +23,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
-    minPlayers: 1
+    minPlayers: 25
   - type: GameDirector
     dualAntags: true
     stories:
@@ -56,7 +56,7 @@
 - type: story
   id: Science
   description: Science and engineering issues
-  minPlayers: 1
+  minPlayers: 30
   beats:
     - Peace
     - MadScience
@@ -75,7 +75,7 @@
 - type: story
   id: ScienceAttack
   description: Science, minor attack and then engineering issues
-  minPlayers: 1
+  minPlayers: 30
   beats:
     - Peace
     - MadScience
@@ -87,7 +87,7 @@
 - type: story
   id: MajorCombat
   description: A minor and then major attack
-  minPlayers: 1
+  minPlayers: 40
   beats:
     - Peace
     - AttackMild
