@@ -67,9 +67,9 @@
   parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/hosundetermined.rsi # Todo - Change This
+    sprite: _Goobstation/Objects/Specific/Security/hosundetermined.rsi
     state: icon
-  - type: SetSelecto
+  - type: SetSelector
     possibleSets:
     - SmgSet
     - RifleSet

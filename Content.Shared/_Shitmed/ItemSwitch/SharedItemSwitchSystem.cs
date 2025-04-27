@@ -168,11 +168,11 @@ public abstract class SharedItemSwitchSystem : EntitySystem
         var attempt = new ItemSwitchAttemptEvent
         {
             User = user,
-            State = key
+            State = key,
         };
         RaiseLocalEvent(uid, ref attempt);
 
-        TimeSpan nextAttack = new TimeSpan(0);
+        var nextAttack = new TimeSpan(0);
         if (TryComp<MeleeWeaponComponent>(ent, out var meleeComp))
             nextAttack = meleeComp.NextAttack;
 

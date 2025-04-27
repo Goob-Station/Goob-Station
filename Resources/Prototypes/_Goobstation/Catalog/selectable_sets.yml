@@ -396,3 +396,45 @@
     - EnergySpeedloaderPulse
     - EnergySpeedloaderPulse
     - EnergySpeedloaderDisabler
+
+# Head Of Security
+
+- type: selectableSet
+  id: SmgSet
+  name: selectable-set-hos-smg-name
+  description: selectable-set-hos-smg-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySMG
+
+- type: selectableSet
+  id: ShotgunSet
+  name: selectable-set-hos-shotgun-name
+  description: selectable-set-hos-shotgun-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityShotgun
+
+- type: selectableSet
+  id: SniperSet
+  name: selectable-set-hos-sniper-name
+  description: selectable-set-hos-sniper-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySniper
+
+- type: selectableSet
+  id: RifleSet
+  name: selectable-set-hos-rifle-name
+  description: selectable-set-hos-rifle-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityRifle
