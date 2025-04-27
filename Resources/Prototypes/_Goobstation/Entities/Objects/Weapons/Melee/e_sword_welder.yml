@@ -38,8 +38,8 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 4
-            Heat: 11
+            Slash: 5
+            Heat: 10
   - type: ItemToggle
     predictable: false
     soundActivate:
