@@ -27,5 +27,11 @@ namespace Content.Server._Goobstation.Explosion.Components
         [DataField]
         public int ListenRange { get; private set; } = 2;
 
+        [DataField]
+        public TimeSpan ActivationCooldown = TimeSpan.FromSeconds(5);
+
+        [DataField]
+        public TimeSpan NextActivationTime;
+
     }
 }

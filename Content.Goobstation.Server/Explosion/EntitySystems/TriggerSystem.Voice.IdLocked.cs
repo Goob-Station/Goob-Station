@@ -10,6 +10,7 @@ using Content.Server.Speech.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -18,6 +19,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly AccessReaderSystem _accessReader = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly TriggerSystem _triggerSystem = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Initialize()
         {
@@ -26,6 +28,9 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void OnListen(Entity<TriggerOnVoiceIdLockedComponent> ent, ref ListenEvent args)
         {
+            if (ent.Comp.NextActivationTime > _timing.CurTime)
+                return;
+
             var message = args.Message.Trim();
 
             if (string.IsNullOrWhiteSpace(ent.Comp.KeyPhrase) ||
@@ -39,6 +44,8 @@ namespace Content.Server.Explosion.EntitySystems
                 $"An ID locked voice-trigger on {ToPrettyString(ent):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {ent.Comp.KeyPhrase}.");
 
             _triggerSystem.Trigger(ent, ent);
+
+            ent.Comp.NextActivationTime = _timing.CurTime + ent.Comp.ActivationCooldown;
         }
     }
 }
