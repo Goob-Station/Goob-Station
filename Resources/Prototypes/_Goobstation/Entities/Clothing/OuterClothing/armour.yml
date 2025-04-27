@@ -240,3 +240,22 @@
   - type: PressureProtection
     lowPressureMultiplier: 1000
   # Intentionally no temperature or high pressure protection
+
+- type: entity
+  parent: [BaseSyndicateContraband, ClothingOuterArmourInvisible]
+  id: ClothingOuterArmourInvisibleSyndie
+  name: bluespace assisted armor
+  description: An armored vest that utilizes redspace technology to appear invisible and not mess with your business style.
+  components:
+  - type: Sprite
+    state: icon-evil
+  - type: ExplosionResistance # Nerfed
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown # Nerfed
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.5
+  - type: TemperatureProtection # No
+    heatingCoefficient: 1
+    coolingCoefficient: 1
