@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -20,6 +21,8 @@
       map: [ "blade" ]
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+  - type: MeleeWeapon
+    clickPartDamageMultiplier: 2 #goob content
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
@@ -36,8 +39,8 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 4
-            Heat: 11
+            Slash: 5
+            Heat: 10
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -50,12 +53,14 @@
   - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      params:
+        volume: -3
     endSound:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
   - type: Reflect
-    reflectProb: 0
+    reflectProb: 0.1
     otherTypeReflectProb: 0
     reflects:
       - Energy
@@ -71,15 +76,6 @@
   - type: EnergySword
     activatedColor: LightSalmon
     colorOptions: []
-  - type: Tag # WD EDIT
-    tags:
-    - EnergySword
-  - type: ThrowableBlocker
-    blockSound:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
-      params:
-        variation: 0.250
-        volume: -2
   - type: RefillableSolution
     solution: Welder
   - type: Construction
