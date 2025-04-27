@@ -8,6 +8,27 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
+  id: ActionHereticIceSpear
+  name: Mysteries of Creation
+  description: Activate to create the Madrugad Spear or summon already existing spear.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 5
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Heretic/ice_shovel.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: ice_spear
+    event: !type:EventHereticIceSpear
+    checkCanInteract: true
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-ice-spear
+  - type: IceSpearAction
+
+- type: entity
   id: ActionHereticCleave
   name: Cleave
   description: Causes severe bleeding on a target and several targets around them.

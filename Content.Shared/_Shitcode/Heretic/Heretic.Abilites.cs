@@ -211,6 +211,8 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
 }
 
 // side
+public sealed partial class EventHereticIceSpear : InstantActionEvent;
+
 public sealed partial class EventHereticCleave : WorldTargetActionEvent
 {
     [DataField]

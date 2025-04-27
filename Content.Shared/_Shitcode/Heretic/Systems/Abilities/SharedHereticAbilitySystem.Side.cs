@@ -1,13 +1,7 @@
 using Content.Shared._Shitcode.Heretic.Components;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Damage;
+using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
-using Content.Shared.Throwing;
-using Robust.Shared.Physics.Events;
+using Content.Shared.Projectiles;
 
 namespace Content.Shared._Shitcode.Heretic.Systems.Abilities;
 
@@ -16,93 +10,52 @@ public abstract partial class SharedHereticAbilitySystem
     protected virtual void SubscribeSide()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticRustCharge>(OnRustCharge);
-
-        SubscribeLocalEvent<RustChargeComponent, StartCollideEvent>(OnCollide);
-        SubscribeLocalEvent<RustChargeComponent, PreventCollideEvent>(OnPreventCollide);
-        SubscribeLocalEvent<RustChargeComponent, LandEvent>(OnLand);
-        SubscribeLocalEvent<RustChargeComponent, DownAttemptEvent>(OnDownAttempt);
-        SubscribeLocalEvent<RustChargeComponent, InteractionAttemptEvent>(OnInteractAttempt);
-        SubscribeLocalEvent<RustChargeComponent, BeforeStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
-        SubscribeLocalEvent<RustChargeComponent, ComponentShutdown>(OnRustChargeShutdown);
+        SubscribeLocalEvent<HereticComponent, EventHereticIceSpear>(OnIceSpear);
     }
 
-    private void OnRustChargeShutdown(Entity<RustChargeComponent> ent, ref ComponentShutdown args)
+    private void OnIceSpear(Entity<HereticComponent> ent, ref EventHereticIceSpear args)
     {
-        if (TerminatingOrDeleted(ent))
+        if (!TryComp(args.Action, out IceSpearActionComponent? spearAction))
             return;
 
-        RemCompDeferred<RustObjectsInRadiusComponent>(ent);
-    }
-
-    private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref BeforeStatusEffectAddedEvent args)
-    {
-        if (args.Key == "KnockedDown")
-            args.Cancelled = true;
-    }
-
-    private void OnInteractAttempt(Entity<RustChargeComponent> ent, ref InteractionAttemptEvent args)
-    {
-        args.Cancelled = true;
-    }
-
-    private void OnDownAttempt(Entity<RustChargeComponent> ent, ref DownAttemptEvent args)
-    {
-        args.Cancel();
-    }
-
-    private void OnPreventCollide(Entity<RustChargeComponent> ent, ref PreventCollideEvent args)
-    {
-        if (!args.OtherFixture.Hard)
+        if (!TryComp(ent, out HandsComponent? hands))
             return;
 
-        var other = args.OtherEntity;
-
-        if (!HasComp<DamageableComponent>(other) || _tag.HasTag(other, "IgnoreImmovableRod") ||
-            ent.Comp.DamagedEntities.Contains(other))
-            args.Cancelled = true;
-    }
-
-    private void OnLand(Entity<RustChargeComponent> ent, ref LandEvent args)
-    {
-        RemCompDeferred(ent.Owner, ent.Comp);
-    }
-
-    private void OnCollide(Entity<RustChargeComponent> ent, ref StartCollideEvent args)
-    {
-        if (!args.OtherFixture.Hard)
+        if (!TryUseAbility(ent, args))
             return;
 
-        var other = args.OtherEntity;
+        args.Handled = true;
 
-        if (ent.Comp.DamagedEntities.Contains(other))
+        if (_net.IsClient)
             return;
 
-        _audio.PlayPredicted(ent.Comp.HitSound, ent, ent);
-
-        ent.Comp.DamagedEntities.Add(other);
-
-        // I would check for DamageableComponent but it is in server for whatever reason, also prevent collide handles that
-        if (!TryComp(other, out DamageableComponent? damageable) || _tag.HasTag(other, "IgnoreImmovableRod"))
-            return;
-
-        // Damage mobs
-        if (HasComp<MobStateComponent>(other))
+        if (Exists(spearAction.CreatedSpear))
         {
-            _stun.KnockdownOrStun(other, ent.Comp.KnockdownTime, true);
+            var spear = spearAction.CreatedSpear.Value;
 
-            _damageable.TryChangeDamage(other,
-                ent.Comp.Damage,
-                false,
-                true,
-                damageable,
-                targetPart: TargetBodyPart.Torso);
+            // TODO: When heretic spells are made the way wizard spell works don't handle this action if we can't pick it up.
+            // It is handled now because it always speaks invocation no matter what.
+            if (_hands.IsHolding((ent.Owner, hands), spear) || !_hands.TryGetEmptyHand(ent, out var hand, hands))
+                return;
 
+            if (TryComp(spear, out EmbeddableProjectileComponent? embeddable) && embeddable.EmbeddedIntoUid != null)
+                _projectile.EmbedDetach(spear, embeddable);
+
+            _transform.AttachToGridOrMap(spear);
+            _transform.SetCoordinates(spear, Transform(ent).Coordinates);
+            _hands.TryPickup(ent, spear, hand, false, false, hands);
             return;
         }
 
-        // Delete structures
-        if (_net.IsServer)
-            Del(other);
+        var newSpear = Spawn(spearAction.SpearProto, Transform(ent).Coordinates);
+        if (!_hands.TryForcePickupAnyHand(ent, newSpear, false, hands))
+        {
+            QueueDel(newSpear);
+            return;
+        }
+
+        spearAction.CreatedSpear = newSpear;
+        EnsureComp<IceSpearComponent>(newSpear).ActionId = args.Action;
     }
 
     private void OnRustCharge(Entity<HereticComponent> ent, ref EventHereticRustCharge args)

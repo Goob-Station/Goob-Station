@@ -59,6 +59,12 @@ knowledge-path-side-s3-void-cloak-desc =
     While the hood is down, the cloak functions as a focus and provides low pressure protection, and while the hood is up, the cloak is completely invisible.
     It also provide decent armor and has pockets which can hold one of your blades, various ritual components (such as organs), and small heretical trinkets.
 
+knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
+knowledge-path-side-s3-ice-spear-desc =
+    Madrugad - is one of the gods-from-Light. Winter dawn - is one of her works. I have discovered a spell, that will help me praise the dawn.
+
+    Grants you Mysteries of Creation, a spell that allows you to summon the Madrugad Spear at will. This magical spear chills victims upon hit, but more importantly, it shatters upon throwing, dealing a significant amount of damage and temporarily freezing the target into an ice cube. If the spear is destroyed, activating this ability will create a new one, otherwise it will summon the existing spear into your hand.
+
 ## stage 6
 knowledge-path-side-s6-rustwalker-name = Rusted Ritual
 knowledge-path-side-s6-rustwalker-desc =

@@ -9,10 +9,9 @@
 
 using Content.Shared.Examine;
 using Content.Shared.Hands;
-using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Shared.Heretic.Systems;
 
 public sealed partial class HereticMagicItemSystem : EntitySystem
 {

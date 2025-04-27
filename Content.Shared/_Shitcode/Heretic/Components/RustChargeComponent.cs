@@ -23,5 +23,5 @@ public sealed partial class RustChargeComponent : Component
     public List<EntityUid> DamagedEntities = new();
 
     [DataField]
-    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(5);
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(2);
 }

@@ -73,3 +73,4 @@ heretic-speech-bloodsiphon = FL'MS O'ET'RN'ITY!
 heretic-speech-mansuslink = PI'RC' TH' M'ND!
 heretic-speech-realignment = R'S'T!
 heretic-speech-fuckoff = F'K 'FF!!
+heretic-speech-ice-spear = D'WN 'F TH'CE!

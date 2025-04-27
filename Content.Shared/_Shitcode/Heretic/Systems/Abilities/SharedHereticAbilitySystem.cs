@@ -1,8 +1,10 @@
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -23,11 +25,9 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
 
     [Dependency] protected readonly IGameTiming Timing = default!;
 
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
