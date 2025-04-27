@@ -13,4 +13,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Goobstation.Common.Religion;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class HolyResistanceComponent : Component;
+public sealed partial class HolyResistanceComponent : Component
+{
+    [DataField]
+    public float Modifier = 0f; //Default value
+}

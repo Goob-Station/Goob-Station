@@ -20,10 +20,3 @@ public struct BeforeCastTouchSpellEvent(EntityUid target)
     /// </summary>
     public bool Cancelled = false;
 }
-
-[Serializable, NetSerializable]
-public sealed class AdjustDamageResistanceEvent(EntityUid target, string damageType, float newCoefficient)
-    : EntityEventArgs
-{
-    public EntityUid Target { get; set; } = target;
-}

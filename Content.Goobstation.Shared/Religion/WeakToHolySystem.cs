@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Religion;
 using Content.Goobstation.Common.Religion.Events;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
@@ -37,26 +38,36 @@ public sealed class WeakToHolySystem : EntitySystem
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
 
-        SubscribeLocalEvent<WeakToHolyComponent, DamageModifyEvent>(OnDamageTaken);
+        SubscribeLocalEvent<HolyResistanceComponent, DamageModifyEvent>(OnDamageModify);
 
     }
 
     #region Holy Damage Dealing
 
-    private static Dictionary<string, float> _resistanceCoefficientDict = new()
+    private void OnDamageModify(EntityUid uid, HolyResistanceComponent component, DamageModifyEvent args)
     {
-        { "Holy", 1 },
-    };
+        var unholyEvent = new DamageUnholyEvent(args.Target, args.Origin);
+        RaiseLocalEvent(args.Target, unholyEvent);
 
-    // Create a modifier set
-    DamageModifierSetPrototype holymodifierSet = new()
-    {
-        Coefficients = _resistanceCoefficientDict
-    };
+        var holyCoefficient = component.Modifier; // Default resistance
 
-    private void OnUnholyItemDamage(EntityUid uid, WeakToHolyComponent comp, ref DamageUnholyEvent args)
+        if (unholyEvent.ShouldTakeHoly)
+            holyCoefficient = 1f; //Allow holy damage
+
+        DamageModifierSet modifierSet = new()
+        {
+            Coefficients = new Dictionary<string, float>()
+            {
+                { "Holy", holyCoefficient },
+            },
+        };
+
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifierSet);
+    }
+
+    private void OnUnholyItemDamage(Entity<WeakToHolyComponent> uid, ref DamageUnholyEvent args)
     {
-        if (comp.AlwaysTakeHoly)
+        if (uid.Comp.AlwaysTakeHoly)
         {
             args.ShouldTakeHoly = true;
             return;
@@ -64,15 +75,6 @@ public sealed class WeakToHolySystem : EntitySystem
 
         if (_inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.All & SlotFlags.POCKET).Any(HasComp<UnholyItemComponent>))
             args.ShouldTakeHoly = true; // may allah forgive me for this linq :pray:
-    }
-
-    private void OnDamageTaken(EntityUid uid, WeakToHolyComponent comp, DamageModifyEvent args)
-    {
-        var unholyEvent = new DamageUnholyEvent(args.Target, args.Origin);
-        RaiseLocalEvent(args.Target, unholyEvent);
-
-        if (unholyEvent.ShouldTakeHoly)
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, holymodifierSet);
     }
 
     #endregion
