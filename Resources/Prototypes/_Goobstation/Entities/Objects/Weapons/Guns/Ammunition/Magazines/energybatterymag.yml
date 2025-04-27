@@ -71,8 +71,8 @@
   components:
   - type: Sprite
     layers:
-    - state: erifle_lethal
+    - state: erifle_overcharge
       map: [ "enum.GunVisualLayers.Base" ]
   - type: ProjectileBatteryAmmoProvider
     proto: RifleBulletEnergyGunOverchargeLethal
-    fireCost: 100
+    fireCost: 66 #15 shot hopefully
