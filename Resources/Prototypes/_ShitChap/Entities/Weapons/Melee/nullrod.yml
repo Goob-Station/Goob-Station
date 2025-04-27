@@ -249,9 +249,6 @@
   description: A long, tall staff made of polished wood. Traditionally used in ancient old-Earth martial arts, now used to harass the clown. #Can parry blows - cqc update
   components:
   - type: Nullrod
-    holyDamage:
-      types:
-        Holy: 1
     DamageOnUntrainedUse:
       types:
         Blunt: 20
@@ -477,9 +474,6 @@
       types:
         Slash: 50
     UntrainedUseString: nullrod-chainsaw-untrained-usage-popup
-    damage:
-      types:
-        Holy: 2
   - type: Unremoveable
   - type: Wieldable
     wieldSound: !type:SoundPathSpecifier

@@ -8,6 +8,7 @@ using Content.Shared.Damage;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod;
 
+[ByRefEvent]
 public sealed class DamageUnholyEvent(EntityUid target, EntityUid? origin = null) : EntityEventArgs
 {
     public readonly EntityUid Target = target;

@@ -47,7 +47,7 @@ public sealed class WeakToHolySystem : EntitySystem
     private void OnDamageModify(EntityUid uid, HolyResistanceComponent component, DamageModifyEvent args)
     {
         var unholyEvent = new DamageUnholyEvent(args.Target, args.Origin);
-        RaiseLocalEvent(args.Target, unholyEvent);
+        RaiseLocalEvent(args.Target, ref unholyEvent);
 
         var holyCoefficient = component.Modifier; // Default resistance
 
@@ -73,8 +73,15 @@ public sealed class WeakToHolySystem : EntitySystem
             return;
         }
 
-        if (_inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.All & SlotFlags.POCKET).Any(HasComp<UnholyItemComponent>))
-            args.ShouldTakeHoly = true; // may allah forgive me for this linq :pray:
+        foreach (var item in
+                 _inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.All & ~SlotFlags.POCKET))
+        {
+            if (HasComp<UnholyItemComponent>(item))
+            {
+                args.ShouldTakeHoly = true;
+                return;
+            }
+        }
     }
 
     #endregion

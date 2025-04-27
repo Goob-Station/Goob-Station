@@ -18,7 +18,6 @@
   abstract: true
   components:
   - type: WeakToHoly
-    roundStart: true
   - type: Ghoul
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.00
@@ -78,7 +77,6 @@
     - MindRoleGhostRoleFamiliar
     components:
     - type: WeakToHoly
-      roundStart: true
     raffle:
       settings: short
   - type: Tag

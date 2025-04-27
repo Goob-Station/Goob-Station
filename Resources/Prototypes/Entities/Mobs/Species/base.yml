@@ -479,6 +479,7 @@
   abstract: true
   components:
   - type: HolyResistance
+    modifier: 0
   - type: Absorbable # Goobstation - changelings
   - type: Barotrauma
     damage:
