@@ -38,7 +38,7 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 5
+            Slash: 5d
             Heat: 10
   - type: ItemToggle
     predictable: false
@@ -52,6 +52,8 @@
   - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      params:
+        volume: -3
     endSound:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
       params:
@@ -73,12 +75,6 @@
   - type: EnergySword
     activatedColor: LightSalmon
     colorOptions: []
-  - type: ThrowableBlocker
-    blockSound:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
-      params:
-        variation: 0.250
-        volume: -2
   - type: RefillableSolution
     solution: Welder
   - type: Construction
