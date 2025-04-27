@@ -43,8 +43,9 @@ public sealed class SetSelectorSystem : EntitySystem
             return;
         }
 
+        // Randomize sets available for selection
         var sets = selector.Comp.PossibleSets.ToArray();
-        new Random().Shuffle(sets);
+        new System.Random().Shuffle(sets);
         selector.Comp.AvailableSets = sets.Take(selector.Comp.SetsToSelect).ToList();
     }
 
