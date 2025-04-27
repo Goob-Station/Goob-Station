@@ -16,8 +16,8 @@
     - Back
     - suitStorage
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 1000
+    startingCharge: 1000
   - type: Gun
     fireRate: 1.2
     selectedMode: FullAuto
@@ -25,16 +25,16 @@
     - FullAuto
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     defaultDirection: 1, 0
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
+    autoRechargeRate: 15
     autoRechargePause: true
     autoRechargePauseTime: 20
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumSplitLaser
-    fireCost: 60
+    fireCost: 100
   - type: StaticPrice
     price: 2500
 
@@ -54,12 +54,12 @@
     - Back
     - suitStorage
   - type: Battery
-    maxCharge: 350
-    startingCharge: 350
+    maxCharge: 1000
+    startingCharge: 1000
   - type: Gun
     minAngle: 2
     maxAngle: 10
-    fireRate: 3.8
+    fireRate: 7
     burstFireRate: 6
     angleIncrease: 3
     angleDecay: 10
@@ -68,11 +68,11 @@
     - FullAuto
     - Burst
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     defaultDirection: 1, 0
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 7
+    autoRechargeRate: 25
     autoRechargePause: true
     autoRechargePauseTime: 20
   - type: ProjectileBatteryAmmoProvider
@@ -101,19 +101,22 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
+    autoRechargeRate: 15
     autoRechargePause: true
     autoRechargePauseTime: 20
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
   - type: Gun
     fireRate: 0.75
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpreadHeavy
-    fireCost: 100
+    fireCost: 125
   - type: StaticPrice
     price: 2500
 
@@ -135,12 +138,12 @@
     - suitStorage
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
+    autoRechargeRate: 15
     autoRechargePause: true
     autoRechargePauseTime: 20
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     fireRate: 0.70
     selectedMode: SemiAuto
     availableModes:
@@ -148,6 +151,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: LaserSniper
     fireCost: 100
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
   - type: StaticPrice
     price: 2500
   - type: SpeedModifiedOnWield

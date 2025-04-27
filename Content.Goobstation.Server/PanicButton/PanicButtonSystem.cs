@@ -20,7 +20,6 @@ namespace Content.Goobstation.Server.PanicButton
     {
         [Dependency] private readonly NavMapSystem _navMap = default!;
         [Dependency] private readonly RadioSystem _radioSystem = default!;
-        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly UseDelaySystem _useDelaySystem = default!;
 
@@ -28,7 +27,6 @@ namespace Content.Goobstation.Server.PanicButton
         {
             base.Initialize();
             SubscribeLocalEvent<PanicButtonComponent, UseInHandEvent>(OnButtonPressed);
-            SubscribeLocalEvent<PanicButtonComponent, PanicButtonDoAfterEvent>(OnDoAfterComplete);
         }
 
         private void OnButtonPressed(Entity<PanicButtonComponent> ent, ref UseInHandEvent args)
@@ -41,38 +39,7 @@ namespace Content.Goobstation.Server.PanicButton
                 return;
 
             var comp = ent.Comp;
-            var uid = args.User;
-
-            var doAfterArgs = new DoAfterArgs(
-                EntityManager,
-                uid,
-                comp.DoAfterDuration,
-                new PanicButtonDoAfterEvent(),
-                ent.Owner,
-                ent.Owner,
-                ent.Owner)
-            {
-                BreakOnMove = true,
-                NeedHand = true,
-                BlockDuplicate = true
-            };
-
-            if (_doAfterSystem.TryStartDoAfter(doAfterArgs))
-                return;
-
-            args.Handled = true;
-        }
-
-        private void OnDoAfterComplete(Entity<PanicButtonComponent> ent, ref PanicButtonDoAfterEvent args)
-        {
-            if (args.Handled || args.Cancelled || !args.Target.HasValue)
-                return;
-
-            var comp = ent.Comp;
             var uid = ent.Owner;
-
-            if (!TryComp(ent.Owner, out UseDelayComponent? useDelay))
-                return;
 
             if (_useDelaySystem.IsDelayed((ent.Owner, useDelay)))
                 return;
@@ -84,6 +51,7 @@ namespace Content.Goobstation.Server.PanicButton
             var distressMessage = Loc.GetString(comp.DistressMessage, ("position", posText));
 
             _radioSystem.SendRadioMessage(uid, distressMessage, _prototypeManager.Index<RadioChannelPrototype>(comp.RadioChannel), uid);
+
             args.Handled = true;
         }
     }

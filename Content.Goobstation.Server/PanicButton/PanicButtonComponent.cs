@@ -18,12 +18,6 @@ namespace Content.Goobstation.Server.PanicButton
         public LocId DistressMessage = "panic-button-distress";
 
         /// <summary>
-        /// How long is the do-after before the message is sent.
-        /// </summary>
-        [DataField]
-        public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(4);
-
-        /// <summary>
         /// How long is the cooldown before you can send another message.
         /// </summary>
         [DataField]
@@ -34,11 +28,5 @@ namespace Content.Goobstation.Server.PanicButton
         /// </summary>
         [DataField]
         public ProtoId<RadioChannelPrototype> RadioChannel = "Security";
-
-        /// <summary>
-        ///     ID of the cooldown use delay.
-        /// </summary>
-        [DataField]
-        public string DelayId = "button-delay";
     }
 }

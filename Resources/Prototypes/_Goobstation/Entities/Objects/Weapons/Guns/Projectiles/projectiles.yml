@@ -223,9 +223,22 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
+        Heat: 7
+        Shock: 1
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavyStructural
+  parent: BulletLaserHeavy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
         Heat: 14
         Shock: 2
-        Structural: 20
+        Structural: 10
 
 - type: entity
   name: heavy laser barrage
@@ -234,9 +247,9 @@
   parent: BulletLaserHeavy
   components:
   - type: ProjectileSpread
-    proto: BulletLaserHeavy
+    proto: BulletLaserHeavyStructural
     count: 5
-    spread: 20
+    spread: 30
 
 - type: entity
   id: BulletTemperatureCold
