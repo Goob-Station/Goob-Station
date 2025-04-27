@@ -7920,3 +7920,11 @@ Entries:
         sword.
   id: 919
   time: '2025-04-27T16:12:11.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Syndicate agents can now purchase undeterminated crates, allowing them
+        to choose one of three random bundles!
+  id: 920
+  time: '2025-04-27T19:39:50.0000000+00:00'
