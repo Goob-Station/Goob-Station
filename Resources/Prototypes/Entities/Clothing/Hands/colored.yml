@@ -436,7 +436,6 @@
     enchants:
     - EnchantInsulated
 
-
 # Budget Insulated Gloves
 - type: entity
   parent: ClothingHandsGlovesColorYellow
