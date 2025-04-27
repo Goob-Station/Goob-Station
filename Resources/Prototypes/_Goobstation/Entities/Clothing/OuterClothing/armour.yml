@@ -205,3 +205,57 @@
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 0.8
+
+- type: entity
+  parent: [ ClothingOuterBaseMedium, ClothingOuterStorageToggleableBase, AllowSuitStorageClothing, BaseSyndicateContraband ]
+  id: ClothingOuterArmorCloakSith
+  name: dark lord cloak
+  description: What began as a simple cosplay cloak was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/void_cloak.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Clothing
+    sprite: _Goobstation/Heretic/void_cloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.65 # 65% damage received
+  - type: ToggleableClothing
+    stripDelay: null
+    clothingPrototypes:
+      head: ClothingHeadHatHoodCloakSith
+  - type: ModifyDelayedKnockdown
+    delayDelta: 2.5
+    knockdownTimeDelta: -2.5
+  - type: StaminaDamageResistance
+    coefficient: 0.55
+  - type: PressureProtection
+    lowPressureMultiplier: 1000
+  # Intentionally no temperature or high pressure protection
+
+- type: entity
+  parent: [BaseSyndicateContraband, ClothingOuterArmourInvisible]
+  id: ClothingOuterArmourInvisibleSyndie
+  name: bluespace assisted armor
+  description: An armored vest that utilizes redspace technology to appear invisible and not mess with your business style.
+  components:
+  - type: Sprite
+    state: icon-evil
+  - type: ExplosionResistance # Nerfed
+    damageCoefficient: 0.5
+  - type: ModifyDelayedKnockdown # Nerfed
+    delayDelta: 2
+    knockdownTimeDelta: -2
+  - type: StaminaDamageResistance
+    coefficient: 0.5
+  - type: TemperatureProtection # No
+    heatingCoefficient: 1
+    coolingCoefficient: 1
