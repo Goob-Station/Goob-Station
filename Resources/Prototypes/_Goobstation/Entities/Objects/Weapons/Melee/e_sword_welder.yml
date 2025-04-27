@@ -20,6 +20,8 @@
       map: [ "blade" ]
   - type: Item
     sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+  - type: MeleeWeapon
+    clickPartDamageMultiplier: 2 #goob content
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
@@ -55,7 +57,7 @@
       params:
         variation: 0.250
   - type: Reflect
-    reflectProb: 0
+    reflectProb: 0.1
     otherTypeReflectProb: 0
     reflects:
       - Energy
@@ -71,9 +73,6 @@
   - type: EnergySword
     activatedColor: LightSalmon
     colorOptions: []
-  - type: Tag # WD EDIT
-    tags:
-    - EnergySword
   - type: ThrowableBlocker
     blockSound:
       path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
