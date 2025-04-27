@@ -18,3 +18,9 @@ public struct BeforeCastTouchSpellEvent(EntityUid target)
     /// </summary>
     public bool Cancelled = false;
 }
+
+[ByRefEvent]
+public record struct GetHolyDamageMultiplierEvent(EntityUid Unholy, float Multiplier)
+{
+    public float Multiplier = Multiplier;
+}

@@ -52,7 +52,7 @@
       90: Critical
       100: Dead
   - type: Damageable
-    damageContainer: BiologicalMetaphysical
+    damageContainer: Biological
   - type: MeleeWeapon
     altDisarm: false
     soundHit:

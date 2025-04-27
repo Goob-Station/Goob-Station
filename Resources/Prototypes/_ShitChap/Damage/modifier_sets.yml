@@ -1,0 +1,4 @@
+- type: damageModifierSet
+  id: ImmuneToHoly
+  coefficients:
+    Holy: 0

@@ -22,6 +22,8 @@
     - Toxin
     - Airloss
     - Genetic
+  supportedTypes:
+    - Holy #GOOBSTATION
 
 - type: damageContainer
   id: Inorganic
