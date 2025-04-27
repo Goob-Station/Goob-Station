@@ -615,17 +615,6 @@
 # Deception
 
 - type: listing
-  id: UplinkSmugglerSatchel
-  name: smuggler's satchel
-  description: uplink-smugglers-satchel-desc
-  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
-  productEntity: ClothingSatchelSmuggler
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkDeception
-
-- type: listing
   id: UplinkClothingExplosiveGloves
   name: uplink-clothing-explosive-gloves-name
   description: uplink-clothing-explosive-gloves-desc
@@ -947,3 +936,22 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Human
+
+- type: listing
+  id: UplinkUndeterminedBundle
+  name: uplink-undetermined-bundle-name
+  description: uplink-undetermined-bundle-desc
+  productEntity: CrateSyndicateUndetermined
+  cost:
+    Telecrystal: 99 # :trollface:
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
