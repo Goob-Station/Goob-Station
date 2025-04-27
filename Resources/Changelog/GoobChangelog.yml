@@ -7899,3 +7899,11 @@ Entries:
       message: fixed deathsquad PDA colors
   id: 917
   time: '2025-04-27T14:43:07.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Instead of having 20% more health, IPCs now take 20% less brute damage.
+        Other values changed accordingly, this is only a cosmetic change.
+  id: 918
+  time: '2025-04-27T15:29:05.0000000+00:00'
