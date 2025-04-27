@@ -7893,3 +7893,9 @@ Entries:
       message: Advanced pens (e.g. cybersun pen) now do 3 -> 20 embed damage.
   id: 916
   time: '2025-04-27T14:42:25.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Fix
+      message: fixed deathsquad PDA colors
+  id: 917
+  time: '2025-04-27T14:43:07.0000000+00:00'
