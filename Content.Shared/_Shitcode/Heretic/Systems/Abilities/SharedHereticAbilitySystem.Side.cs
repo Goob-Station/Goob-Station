@@ -119,9 +119,11 @@ public abstract partial class SharedHereticAbilitySystem
         if (dir.LengthSquared() < 0.001f)
             return;
 
-        _standing.Stand(ent);
-        EnsureComp<RustChargeComponent>(ent);
-        _throw.TryThrow(ent, dir.Normalized() * args.Distance, args.Speed, playSound: false, doSpin: false);
+        if (_throw.TryThrow(ent, dir.Normalized() * args.Distance, args.Speed, playSound: false, doSpin: false))
+        {
+            _standing.Stand(ent);
+            EnsureComp<RustChargeComponent>(ent);
+        }
 
         args.Handled = true;
     }
