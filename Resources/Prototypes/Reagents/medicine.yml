@@ -419,7 +419,7 @@
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
-        amount: 1.7
+        amount: 3.4
         time: 12
 
 - type: reagent
@@ -468,7 +468,7 @@
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
-        amount: 4
+        amount: 6
         time: 12
       - !type:AdjustConsciousness
         allowNewModifiers: true
@@ -502,7 +502,7 @@
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
-        amount: 2 # Does not let the entity suffocate while the pain is suppressed
+        amount: 5 # Does not let the entity suffocate while the pain is suppressed
         time: 10
       - !type:HealthChange
         conditions:
@@ -570,9 +570,9 @@
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
-        amount: -1.2
+        amount: -2.4
         time: 12
-  
+
 - type: reagent
   id: Hyronalin
   name: reagent-name-hyronalin
@@ -654,7 +654,7 @@
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
-        amount: 6
+        amount: 8
         time: 20
 
 - type: reagent
@@ -850,7 +850,7 @@
         allowNewModifiers: false
         modifierType: Pain
         identifier: Suffocation
-        amount: 4
+        amount: 6
         time: 12
       - !type:AdjustConsciousness
         conditions:
@@ -859,7 +859,7 @@
         allowNewModifiers: true
         modifierType: Pain
         identifier: Suffocation
-        amount: 4
+        amount: 6
         time: 12
 
 - type: reagent

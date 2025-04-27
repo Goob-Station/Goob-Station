@@ -73,7 +73,7 @@ public sealed class WoundVisualizerGroupData : ICloneable
 public record struct WoundAddedEvent(WoundComponent Component, WoundableComponent Woundable, WoundableComponent RootWoundable);
 
 [ByRefEvent]
-public record struct WoundAddedOnBodyEvent(EntityUid WoundEntity, WoundComponent Component, WoundableComponent Woundable, WoundableComponent RootWoundable);
+public record struct WoundAddedOnBodyEvent(Entity<WoundComponent> Wound, WoundableComponent Woundable, WoundableComponent RootWoundable);
 
 [ByRefEvent]
 public record struct WoundRemovedEvent(WoundComponent Component, WoundableComponent OldWoundable, WoundableComponent OldRootWoundable);
@@ -88,16 +88,19 @@ public record struct WoundableDetachedEvent(EntityUid ParentWoundableEntity, Wou
 public record struct WoundSeverityPointChangedEvent(WoundComponent Component, FixedPoint2 OldSeverity, FixedPoint2 NewSeverity, FixedPoint2? Overflow = null);
 
 [ByRefEvent]
-public record struct WoundSeverityPointChangedOnBodyEvent(EntityUid WoundEntity, WoundComponent Component, FixedPoint2 OldSeverity, FixedPoint2 NewSeverity);
+public record struct WoundSeverityPointChangedOnBodyEvent(Entity<WoundComponent> Wound, FixedPoint2 OldSeverity, FixedPoint2 NewSeverity);
 
 [ByRefEvent]
-public record struct WoundSeverityChangedEvent(WoundSeverity NewSeverity);
+public record struct WoundSeverityChangedEvent(WoundSeverity OldSeverity, WoundSeverity NewSeverity);
 
 [ByRefEvent]
-public record struct WoundableIntegrityChangedEvent(FixedPoint2 CurrentIntegrity);
+public record struct WoundableIntegrityChangedEvent(FixedPoint2 OldIntegrity, FixedPoint2 NewIntegrity);
 
 [ByRefEvent]
-public record struct WoundableSeverityChangedEvent(WoundableSeverity NewSeverity);
+public record struct WoundableIntegrityChangedOnBodyEvent(Entity<WoundableComponent> Woundable, FixedPoint2 OldIntegrity, FixedPoint2 NewIntegrity);
+
+[ByRefEvent]
+public record struct WoundableSeverityChangedEvent(WoundableSeverity OldSeverity, WoundableSeverity NewSeverity);
 
 [ByRefEvent]
 public record struct WoundHealAttemptEvent(Entity<WoundableComponent> Woundable, bool Cancelled = false);

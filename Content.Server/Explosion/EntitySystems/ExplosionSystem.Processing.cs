@@ -579,6 +579,31 @@ public sealed partial class ExplosionSystem
                 if (TryComp<BodyComponent>(entity, out var body) && HasComp<ConsciousnessComponent>(entity))
                 {
                     var bodyParts = _body.GetBodyChildren(entity, body).ToList();
+                                        _robustRandom.Shuffle(bodyParts);
+
+                    var prioritisedParts = new List<EntityUid>();
+                    var chosenPart = bodyParts.First();
+
+                    prioritisedParts.Add(chosenPart.Id);
+                    bodyParts.Remove(chosenPart);
+
+                    if (_body.TryGetParentBodyPart(chosenPart.Id, out var parent, out var parentComponent))
+                    {
+                        prioritisedParts.Add(parent.Value);
+                        bodyParts.Remove((parent.Value, parentComponent));
+                    }
+
+                    var children = _body.GetBodyPartChildren(chosenPart.Id, chosenPart.Component).ToList();
+                    _robustRandom.Shuffle(children);
+
+                    prioritisedParts.Add(children.First().Id);
+                    bodyParts.Remove(children.First());
+
+                    foreach (var part in prioritisedParts)
+                    {
+                        _damageableSystem.TryChangeDamage(part, damage / prioritisedParts.Count, ignoreResistances: true);
+                    }
+
                     foreach (var bodyPart in bodyParts)
                     {
                         // Distribute the last damage on the other parts... for the cinematic effect :3

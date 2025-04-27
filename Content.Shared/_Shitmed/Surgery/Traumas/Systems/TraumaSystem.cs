@@ -11,6 +11,7 @@ using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -18,12 +19,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
-[Virtual]
 public sealed partial class TraumaSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -39,14 +40,10 @@ public sealed partial class TraumaSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AlertsSystem _alert = default!;
 
-    private ISawmill _sawmill = default!;
     private string _brokenBonesAlertId = "BrokenBones";
     public override void Initialize()
     {
         base.Initialize();
-
-        _sawmill = Logger.GetSawmill("traumas");
-
         InitProcess();
         InitBones();
         InitOrgans();

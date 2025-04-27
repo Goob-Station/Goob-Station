@@ -117,7 +117,7 @@ public partial class ConsciousnessSystem
             return;
 
         if (consciousness.RequiredConsciousnessParts.TryGetValue(component.Identifier, out var value) && value.Item1 != null && value.Item1 != uid)
-            _sawmill.Warning($"ConsciousnessRequirementPart with duplicate Identifier {component.Identifier}:{uid} added to a body:" +
+            Log.Warning($"ConsciousnessRequirementPart with duplicate Identifier {component.Identifier}:{uid} added to a body:" +
                         $" {args.Part.Comp.Body} this will result in unexpected behaviour!");
 
         consciousness.RequiredConsciousnessParts[component.Identifier] = (uid, component.CausesDeath, false);
@@ -133,7 +133,7 @@ public partial class ConsciousnessSystem
 
         if (!consciousness.RequiredConsciousnessParts.TryGetValue(component.Identifier, out var value))
         {
-            _sawmill.Warning($"ConsciousnessRequirementPart with identifier {component.Identifier}:{uid} not found on body:{args.Part.Comp.Body}");
+            Log.Warning($"ConsciousnessRequirementPart with identifier {component.Identifier}:{uid} not found on body:{args.Part.Comp.Body}");
             return;
         }
 
@@ -148,7 +148,7 @@ public partial class ConsciousnessSystem
             return;
 
         if (consciousness.RequiredConsciousnessParts.TryGetValue(component.Identifier, out var value) && value.Item1 != null && value.Item1 != uid)
-            _sawmill.Warning($"ConsciousnessRequirementPart with duplicate Identifier {component.Identifier}:{uid} added to a body:" +
+            Log.Warning($"ConsciousnessRequirementPart with duplicate Identifier {component.Identifier}:{uid} added to a body:" +
                              $" {args.Body} this will result in unexpected behaviour! Old {component.Identifier} wielder: {value.Item1}");
 
         consciousness.RequiredConsciousnessParts[component.Identifier] = (uid, component.CausesDeath, false);
@@ -167,7 +167,7 @@ public partial class ConsciousnessSystem
 
         if (!consciousness.RequiredConsciousnessParts.TryGetValue(component.Identifier, out var value))
         {
-            _sawmill.Warning($"ConsciousnessRequirementPart with identifier {component.Identifier}:{uid} not found on body:{args.OldBody}");
+            Log.Warning($"ConsciousnessRequirementPart with identifier {component.Identifier}:{uid} not found on body:{args.OldBody}");
             return;
         }
 

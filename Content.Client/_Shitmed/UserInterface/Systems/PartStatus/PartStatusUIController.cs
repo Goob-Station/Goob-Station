@@ -6,13 +6,15 @@
 
 using Content.Client.Gameplay;
 using Content.Client._Shitmed.UserInterface.Systems.PartStatus.Widgets;
+using Content.Shared._Shitmed.PartStatus.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Client._Shitmed.Targeting;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controllers;
+using Robust.Client.Player;
 using Robust.Shared.Utility;
 using Robust.Client.Graphics;
-
+using Robust.Shared.Timing;
 
 namespace Content.Client._Shitmed.UserInterface.Systems.PartStatus;
 
@@ -20,6 +22,8 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     private SpriteSystem _spriteSystem = default!;
     private TargetingComponent? _targetingComponent;
     private PartStatusControl? PartStatusControl => UIManager.GetActiveUIWidgetOrNull<PartStatusControl>();
@@ -83,5 +87,17 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
             _spriteSystem = _entManager.System<SpriteSystem>();
 
         return _spriteSystem.Frame0(specifier);
+    }
+
+    public void GetPartStatusMessage()
+    {
+        if (_playerManager.LocalEntity is not { } user
+            || _entManager.GetComponent<TargetingComponent>(user) is not { } targetingComponent
+            || PartStatusControl == null
+            || !_timing.IsFirstTimePredicted)
+            return;
+
+        var player = _entManager.GetNetEntity(user);
+        _net.SendSystemNetworkMessage(new GetPartStatusEvent(player));
     }
 }

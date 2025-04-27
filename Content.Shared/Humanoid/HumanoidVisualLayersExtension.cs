@@ -81,8 +81,13 @@ namespace Content.Shared.Humanoid
                     yield return HumanoidVisualLayers.Chest;
                     yield return HumanoidVisualLayers.Wings; // for IPC wings port from SimpleStation
                     yield return HumanoidVisualLayers.Tail;
-                    break;
                 // Shitmed Change Start
+                    yield return HumanoidVisualLayers.Groin;
+                    break;
+                case HumanoidVisualLayers.Groin:
+                    yield return HumanoidVisualLayers.Groin;
+                    yield return HumanoidVisualLayers.Tail;
+                    break;
                 case HumanoidVisualLayers.LHand:
                     yield return HumanoidVisualLayers.LHand;
                     break;

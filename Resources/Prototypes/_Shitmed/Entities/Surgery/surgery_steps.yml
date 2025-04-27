@@ -35,8 +35,10 @@
         Bloodloss: 10
     sleepModifier: 0.5
   - type: SurgeryStepPainInflicter
-    amount: 9
-    sleepModifier: 0.34
+    painDuration: 30
+    painType: TraumaticPain
+    amount: 34
+    sleepModifier: 0.12
 
 - type: entity
   parent: SurgeryStepBase
@@ -73,8 +75,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/stitches.rsi
     state: stitches
   - type: SurgeryStepPainInflicter
-    amount: 9
-    sleepModifier: 0.34
+    painDuration: 30
+    painType: TraumaticPain
+    amount: 34
+    sleepModifier: 0.12
 
 - type: entity
   parent: SurgeryStepBase
@@ -108,8 +112,9 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryStepPainInflicter
-    amount: 21
-    sleepModifier: 0.1
+    painDuration: 60
+    amount: 45
+    sleepModifier: 0.07
 
 - type: entity
   parent: SurgeryStepBase
@@ -128,8 +133,8 @@
     state: circular-saw
   - type: SurgeryStepPainInflicter
     painType: TraumaticPain
-    painDuration: 21
-    amount: 21
+    painDuration: 40
+    amount: 34
     sleepModifier: 0
 
 - type: entity
@@ -169,7 +174,7 @@
   - type: SurgeryRepeatableStep
   - type: SurgeryTraumaTreatmentStep
     traumaType: BoneDamage
-    amount: 12
+    amount: 17
 
 - type: entity
   parent: SurgeryStepBase
@@ -186,13 +191,13 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryStepPainInflicter
-    amount: 12
+    amount: 24
     painType: TraumaticPain
     sleepModifier: 0
   - type: SurgeryRepeatableStep
   - type: SurgeryTraumaTreatmentStep
     traumaType: OrganDamage
-    amount: 12
+    amount: 17
 
 - type: entity
   parent: SurgeryStepBase
@@ -345,6 +350,7 @@
     state: cautery
   - type: SurgeryStepPainInflicter
     amount: 12
+    painDuration: 60
     sleepModifier: 0.34
   - type: SurgeryDamageChangeEffect
     damage:
@@ -370,9 +376,10 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
     state: circular-saw
   - type: SurgeryStepPainInflicter
-    amount: 12
+    amount: 26
+    painDuration: 40
     painType: TraumaticPain
-    sleepModifier: 0.5
+    sleepModifier: 0.0
 
 - type: entity
   parent: SurgeryStepBase
@@ -416,9 +423,10 @@
     state: circular-saw
   - type: SurgeryRemovePartStep
   - type: SurgeryStepPainInflicter
-    amount: 21
+    amount: 50
+    painDuration: 60
     painType: TraumaticPain
-    sleepModifier: 0.25
+    sleepModifier: 0.14
 
 # Tend Wounds
 
@@ -438,7 +446,8 @@
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryStepPainInflicter
-    amount: 9
+    amount: 17
+    painDuration: 30
     sleepModifier: 0
 
 - type: entity
@@ -501,7 +510,8 @@
         Heat: -5
     sleepModifier: 2
   - type: SurgeryStepPainInflicter
-    amount: 9
+    amount: 21
+    painDuration: 40
     sleepModifier: 0.34
 
 - type: entity
@@ -522,9 +532,10 @@
   - type: SurgeryTraumaTreatmentStep
     traumaType: Dismemberment
   - type: SurgeryStepPainInflicter
-    amount: 12
+    amount: 34
+    painDuration: 60
     painType: TraumaticPain
-    sleepModifier: 0.5
+    sleepModifier: 0.25
 
 # Cavity Implanting
 
@@ -543,6 +554,7 @@
     action: Insert
   - type: SurgeryStepPainInflicter
     amount: 34
+    painDuration: 60
     painType: TraumaticPain
     sleepModifier: 0
 
@@ -561,6 +573,7 @@
     action: Remove
   - type: SurgeryStepPainInflicter
     amount: 34
+    painDuration: 60
     painType: TraumaticPain
     sleepModifier: 0
 
@@ -581,7 +594,8 @@
     state: hemostat
   - type: SurgeryRemoveOrganStep
   - type: SurgeryStepPainInflicter
-    amount: 52
+    amount: 90
+    painDuration: 60
     painType: TraumaticPain
     sleepModifier: 0
 
@@ -600,7 +614,8 @@
     state: insertion
   - type: SurgeryAddOrganStep
   - type: SurgeryStepPainInflicter
-    amount: 52
+    amount: 90
+    painDuration: 60
     painType: TraumaticPain
     sleepModifier: 0
 
@@ -689,7 +704,8 @@
         Heat: -5
     sleepModifier: 2
   - type: SurgeryStepPainInflicter
-    amount: 9
+    amount: 21
+    painDuration: 60
     sleepModifier: 0.34
 
 

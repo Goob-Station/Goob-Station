@@ -4,35 +4,35 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class WoundableComponent : Component
 {
     /// <summary>
     /// UID of the parent woundable entity. Can be null.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public EntityUid? ParentWoundable;
 
     /// <summary>
     /// UID of the root woundable entity.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public EntityUid? RootWoundable;
+    [ViewVariables]
+    public EntityUid RootWoundable;
 
     /// <summary>
     /// Set of UIDs representing child woundable entities.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public HashSet<EntityUid> ChildWoundables = [];
 
     /// <summary>
     /// Indicates whether wounds are allowed.
     /// </summary>
     [DataField]
-    [ViewVariables, AutoNetworkedField]
     public bool AllowWounds = true;
 
     /// <summary>
@@ -41,25 +41,25 @@ public sealed partial class WoundableComponent : Component
     [DataField("damageContainer")]
     public ProtoId<DamageContainerPrototype>? DamageContainerID;
 
+    [DataField]
+    public EntProtoId BoneEntity = "Bone";
+
     /// <summary>
     /// Integrity points of this woundable.
     /// </summary>
     [DataField]
-    [ViewVariables, AutoNetworkedField]
     public FixedPoint2 IntegrityCap;
 
     /// <summary>
     /// How big is the Woundable Entity, mostly used for trauma calculation, dodging and targeting
     /// </summary>
     [DataField]
-    [ViewVariables, AutoNetworkedField]
     public FixedPoint2 DodgeChance = 0.1;
 
     /// <summary>
     /// Integrity points of this woundable.
     /// </summary>
     [DataField("integrity")]
-    [ViewVariables, AutoNetworkedField]
     public FixedPoint2 WoundableIntegrity;
 
     /// <summary>
@@ -73,7 +73,6 @@ public sealed partial class WoundableComponent : Component
     /// Healing will be shared across those 2 wounds.
     /// </summary>
     [DataField]
-    [ViewVariables, AutoNetworkedField]
     public FixedPoint2 HealAbility = 0.1;
 
     /// <summary>
@@ -96,13 +95,12 @@ public sealed partial class WoundableComponent : Component
     /// State of the woundable. Severity basically.
     /// </summary>
     [DataField]
-    [ViewVariables, AutoNetworkedField]
     public WoundableSeverity WoundableSeverity;
 
     /// <summary>
     /// How much time in seconds had this woundable accumulated from the last healing tick.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public float HealingRateAccumulated;
 
     /// <summary>
@@ -120,14 +118,37 @@ public sealed partial class WoundableComponent : Component
     /// <summary>
     /// Whether this woundable can be removed from a body..
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public bool CanRemove = true;
 
     /// <summary>
     /// Whether this woundable's bone is exposed
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public bool IsBoneExposed = false;
+}
 
+[Serializable, NetSerializable]
+public sealed class WoundableComponentState : ComponentState
+{
+    public NetEntity? ParentWoundable;
+    public NetEntity RootWoundable;
 
+    public HashSet<NetEntity> ChildWoundables = [];
+
+    public bool AllowWounds = true;
+
+    public ProtoId<DamageContainerPrototype>? DamageContainerID;
+
+    public FixedPoint2 DodgeChance;
+
+    public FixedPoint2 WoundableIntegrity;
+    public FixedPoint2 HealAbility;
+
+    public Dictionary<NetEntity, WoundableSeverityMultiplier> SeverityMultipliers = new();
+    public Dictionary<NetEntity, WoundableHealingMultiplier> HealingMultipliers = new();
+
+    public WoundableSeverity WoundableSeverity;
+
+    public float HealingRateAccumulated;
 }

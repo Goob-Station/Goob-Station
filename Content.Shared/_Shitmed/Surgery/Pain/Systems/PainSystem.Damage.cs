@@ -495,34 +495,75 @@ public partial class PainSystem
         return true;
     }
 
-    public Entity<AudioComponent>? PlayPainSoundWithCleanup(EntityUid body, NerveSystemComponent nerveSys, SoundSpecifier specifier, AudioParams? audioParams = null)
+    public Entity<AudioComponent>? PlayPainSoundWithCleanup(EntityUid body,
+        NerveSystemComponent nerveSys,
+        SoundSpecifier specifier,
+        AudioParams? audioParams = null,
+        string? screamString = null)
     {
+        if (!_screamsEnabled
+            || !_random.Prob(_screamChance))
+            return null;
+
         CleanupSounds(nerveSys);
         var sound = _IHaveNoMouthAndIMustScream.PlayPvs(specifier, body, audioParams);
         if (!sound.HasValue)
             return null;
 
+        if (screamString != null)
+            _popup.PopupPredicted(screamString, body, null, PopupType.MediumCaution);
+
         nerveSys.PlayedPainSounds.Add(sound.Value.Entity, sound.Value.Component);
         return sound.Value;
     }
 
-    public Entity<AudioComponent>? PlayPainSound(EntityUid body, SoundSpecifier specifier, AudioParams? audioParams = null)
+    public Entity<AudioComponent>? PlayPainSound(EntityUid body, SoundSpecifier specifier, AudioParams? audioParams = null, string? screamString = null)
     {
+        if (!_screamsEnabled
+            || !_random.Prob(_screamChance))
+            return null;
+
+        if (screamString != null)
+            _popup.PopupPredicted(screamString, body, null, PopupType.MediumCaution);
+
         return _IHaveNoMouthAndIMustScream.PlayPvs(specifier, body, audioParams);
     }
 
-    public Entity<AudioComponent>? PlayPainSound(EntityUid body, NerveSystemComponent nerveSys, SoundSpecifier specifier, AudioParams? audioParams = null)
+    public Entity<AudioComponent>? PlayPainSound(EntityUid body,
+        NerveSystemComponent nerveSys,
+        SoundSpecifier specifier,
+        AudioParams? audioParams = null,
+        string? screamString = null)
     {
+        if (!_screamsEnabled
+            || !_random.Prob(_screamChance))
+            return null;
+
         var sound = _IHaveNoMouthAndIMustScream.PlayPvs(specifier, body, audioParams);
         if (!sound.HasValue)
             return null;
 
+        if (screamString != null)
+            _popup.PopupPredicted(screamString, body, null, PopupType.MediumCaution);
+
         nerveSys.PlayedPainSounds.Add(sound.Value.Entity, sound.Value.Component);
         return sound.Value;
     }
 
-    public void PlayPainSound(EntityUid body, NerveSystemComponent nerveSys, SoundSpecifier specifier, TimeSpan delay, AudioParams? audioParams = null)
+    public void PlayPainSound(EntityUid body,
+        NerveSystemComponent nerveSys,
+        SoundSpecifier specifier,
+        TimeSpan delay,
+        AudioParams? audioParams = null,
+        string? screamString = null)
     {
+        if (!_screamsEnabled
+            || !_random.Prob(_screamChance))
+            return;
+
+        if (screamString != null)
+            _popup.PopupPredicted(screamString, body, null, PopupType.MediumCaution);
+
         nerveSys.PainSoundsToPlay.Add(body, (specifier, audioParams, _timing.CurTime + delay));
     }
 
@@ -578,17 +619,21 @@ public partial class PainSystem
     private void UpdateDamage(EntityUid nerveSysEnt, NerveSystemComponent nerveSys)
     {
         if (!_timing.IsFirstTimePredicted
-            || TerminatingOrDeleted(nerveSysEnt))
+            || TerminatingOrDeleted(nerveSysEnt)
+            || !TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan))
             return;
 
-        if (nerveSys.LastPainThreshold != nerveSys.Pain && _timing.CurTime > nerveSys.UpdateTime)
-            nerveSys.LastPainThreshold = nerveSys.Pain;
+        if (nerveSys.LastPainThreshold != nerveSys.Pain)
+        {
+            if (_timing.CurTime > nerveSys.UpdateTime)
+                nerveSys.LastPainThreshold = nerveSys.Pain;
+
+            if (_timing.CurTime > nerveSys.ReactionUpdateTime)
+                UpdatePainThreshold(nerveSysEnt, nerveSys);
+        }
 
         if (_timing.CurTime > nerveSys.NextCritScream)
         {
-            if (!TryComp<OrganComponent>(nerveSysEnt, out var nerveSysOrgan))
-                return;
-
             var body = nerveSysOrgan.Body;
             if (body != null && _mobState.IsCritical(body.Value))
             {
@@ -605,7 +650,7 @@ public partial class PainSystem
                         nerveSys.OrganDamageWhimpersSounds[sex],
                         AudioParams.Default.WithVolume(-12f));
                 }
-                else if (_random.Prob(0.22f))
+                else
                 {
                     // Play screaming with less chance
                     if (_random.Prob(0.34f))
@@ -653,8 +698,8 @@ public partial class PainSystem
             || organ.Body == null)
             return;
 
-        var totalPain = (FixedPoint2) 0;
-        var woundPain = (FixedPoint2) 0;
+        var totalPain = FixedPoint2.Zero;
+        var woundPain = FixedPoint2.Zero;
 
         foreach (var modifier in nerveSys.Modifiers)
         {
@@ -664,9 +709,13 @@ public partial class PainSystem
             totalPain += ApplyModifiersToPain(modifier.Key.Item1, modifier.Value.Change, nerveSys, modifier.Value.PainDamageType);
         }
 
-        nerveSys.Pain = FixedPoint2.Clamp(woundPain, 0, nerveSys.SoftPainCap) + totalPain - woundPain;
+        var newPain = FixedPoint2.Clamp(woundPain, 0, nerveSys.SoftPainCap) + totalPain - woundPain;
 
-        UpdatePainThreshold(uid, nerveSys);
+        nerveSys.UpdateTime = _timing.CurTime + nerveSys.ThresholdUpdateTime;
+        if (nerveSys.Pain != newPain)
+            nerveSys.ReactionUpdateTime = _timing.CurTime + nerveSys.PainReactionTime;
+        nerveSys.Pain = newPain;
+
         if (!_consciousness.SetConsciousnessModifier(
                 organ.Body.Value,
                 uid,
@@ -699,7 +748,7 @@ public partial class PainSystem
 
     private void ApplyPainReflexesEffects(EntityUid body, Entity<NerveSystemComponent> nerveSys, PainThresholdTypes reaction)
     {
-        if (!_net.IsServer || _random.Prob(0.60f)) // I HATE THE CONSTANT SCREAMING.
+        if (!_net.IsServer)
             return;
 
         var sex = Sex.Unsexed;
@@ -710,48 +759,40 @@ public partial class PainSystem
         {
             case PainThresholdTypes.PainFlinch:
                 CleanupSounds(nerveSys.Comp);
-                PlayPainSound(body, nerveSys.Comp, nerveSys.Comp.PainScreams[sex]);
+                var screamString = Loc.GetString("screams-and-flinches-pain", ("entity", body));
+                PlayPainSound(body, nerveSys.Comp, nerveSys.Comp.PainScreams[sex], screamString: screamString);
 
-                _popup.PopupPredicted(Loc.GetString("screams-and-flinches-pain", ("entity", body)), body, null, PopupType.MediumCaution);
                 _jitter.DoJitter(body, TimeSpan.FromSeconds(0.9f), true, 24f, 1f);
 
                 break;
             case PainThresholdTypes.Agony:
                 CleanupSounds(nerveSys);
-                PlayPainSound(body, nerveSys, nerveSys.Comp.AgonyScreams[sex], AudioParams.Default.WithVolume(12f));
-
-                // We love violence, don't we?
-
-                _popup.PopupPredicted(Loc.GetString("screams-in-agony", ("entity", body)), body, null, PopupType.MediumCaution);
+                var agonyString = Loc.GetString("screams-in-agony", ("entity", body));
+                PlayPainSound(body, nerveSys, nerveSys.Comp.AgonyScreams[sex], AudioParams.Default.WithVolume(12f), screamString: agonyString);
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime / 1.4, true, 30f, 12f);
+
+                // They aren't put into Pain Sounds, because they aren't supposed to stop after an entity finishes jerking around in pain
+                _IHaveNoMouthAndIMustScream.PlayPvs(
+                    nerveSys.Comp.PainRattles,
+                    body,
+                    AudioParams.Default.WithVolume(-12f));
 
                 break;
             case PainThresholdTypes.PainShock:
                 CleanupSounds(nerveSys);
-
+                var shockString = _standing.IsDown(body)
+                    ? Loc.GetString("screams-in-pain", ("entity", body))
+                    : Loc.GetString("screams-and-falls-pain", ("entity", body));
                 var screamSpecifier = nerveSys.Comp.PainShockScreams[sex];
-                var scream = PlayPainSound(body, nerveSys, screamSpecifier, AudioParams.Default.WithVolume(12f));
-                if (scream.HasValue)
-                {
-                    var sound = nerveSys.Comp.PainShockWhimpers[sex];
-                    PlayPainSound(body,
-                        nerveSys,
-                        sound,
-                        _IHaveNoMouthAndIMustScream.GetAudioLength(_IHaveNoMouthAndIMustScream.ResolveSound(screamSpecifier)) - TimeSpan.FromSeconds(2),
-                        AudioParams.Default.WithVolume(-12f));
-                }
+                PlayPainSound(body, nerveSys, screamSpecifier, AudioParams.Default.WithVolume(12f), screamString: shockString);
 
-                // This shit is NOT helpful. It breaks the multipliers, and every 21 seconds the multiplier ends, you fall into fucking crit
-                // and stand up AGAIN due to adrenaline. Thus trapping you in an endless cycle of pain, not funny
-                // TryAddPainMultiplier(nerveSys, "PainShockAdrenaline", 0.5f, nerveSys, TimeSpan.FromSeconds(21f));
-
-                _popup.PopupPredicted(
-                    _standing.IsDown(body)
-                        ? Loc.GetString("screams-in-pain", ("entity", body))
-                        : Loc.GetString("screams-and-falls-pain", ("entity", body)),
-                    body,
-                    null,
-                    PopupType.MediumCaution);
+                TryAddPainMultiplier(
+                    nerveSys,
+                    PainAdrenalineIdentifier,
+                    0.7f,
+                    PainDamageTypes.WoundPain,
+                    nerveSys,
+                    nerveSys.Comp.PainShockAdrenalineTime);
 
                 _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime, true);
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime, true, 20f, 7f);
@@ -763,25 +804,11 @@ public partial class PainSystem
             case PainThresholdTypes.PainShockAndAgony:
                 CleanupSounds(nerveSys);
 
+                var shockAgonyString = _standing.IsDown(body)
+                    ? Loc.GetString("screams-in-pain", ("entity", body))
+                    : Loc.GetString("screams-and-falls-pain", ("entity", body));
                 var agonySpecifier = nerveSys.Comp.AgonyScreams[sex];
-                var agony = PlayPainSound(body, nerveSys, agonySpecifier, AudioParams.Default.WithVolume(12f));
-                if (agony.HasValue)
-                {
-                    var sound = nerveSys.Comp.PainShockWhimpers[sex];
-                    PlayPainSound(body,
-                        nerveSys,
-                        sound,
-                        _IHaveNoMouthAndIMustScream.GetAudioLength(_IHaveNoMouthAndIMustScream.ResolveSound(agonySpecifier)) - TimeSpan.FromSeconds(2),
-                        AudioParams.Default.WithVolume(-12f));
-                }
-
-                _popup.PopupPredicted(
-                    _standing.IsDown(body)
-                        ? Loc.GetString("screams-in-pain", ("entity", body))
-                        : Loc.GetString("screams-and-falls-pain", ("entity", body)),
-                    body,
-                    null,
-                    PopupType.MediumCaution);
+                PlayPainSound(body, nerveSys, agonySpecifier, AudioParams.Default.WithVolume(12f), screamString: shockAgonyString);
 
                 _stun.TryParalyze(body, nerveSys.Comp.PainShockStunTime * 1.4, true);
                 _jitter.DoJitter(body, nerveSys.Comp.PainShockStunTime * 1.4, true, 20f, 7f);
@@ -826,7 +853,6 @@ public partial class PainSystem
         var ev2 = new PainThresholdEffected((uid, nerveSys), nearestReflex, painInput);
         RaiseLocalEvent(organ.Body.Value, ref ev2);
 
-        nerveSys.UpdateTime = _timing.CurTime + nerveSys.ThresholdUpdateTime;
         nerveSys.LastThresholdType = nearestReflex;
 
         ApplyPainReflexesEffects(organ.Body.Value, (uid, nerveSys), nearestReflex);
@@ -849,7 +875,7 @@ public partial class PainSystem
         var toMultiply =
             nerveSys.Multipliers
                 .Where(markiplier => markiplier.Value.PainDamageType == painType)
-                .Aggregate((FixedPoint2) 0, (current, markiplier) => current + markiplier.Value.Change);
+                .Aggregate(FixedPoint2.Zero, (current, markiplier) => current + markiplier.Value.Change);
 
         return modifiedPain * toMultiply / nerveSys.Multipliers.Count; // o(*^＠^*)o
     }

@@ -1,4 +1,5 @@
-﻿using Content.Shared._Shitmed.Body.Events;
+﻿using Content.Shared._Shitmed.CCVar;
+using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -14,6 +15,7 @@ using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -27,6 +29,7 @@ public sealed partial class PainSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
 
@@ -42,6 +45,9 @@ public sealed partial class PainSystem : EntitySystem
     [Dependency] private readonly WoundSystem _wound = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
+
+    private bool _screamsEnabled = false;
+    private float _screamChance = 0.20f;
     public override void Initialize()
     {
         base.Initialize();
@@ -53,6 +59,9 @@ public sealed partial class PainSystem : EntitySystem
         SubscribeLocalEvent<NerveComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
 
         SubscribeLocalEvent<NerveSystemComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+        _screamsEnabled = _cfg.GetCVar(SurgeryCVars.PainScreams);
+        _screamChance = _cfg.GetCVar(SurgeryCVars.PainScreamChance);
 
         InitAffliction();
     }
@@ -116,7 +125,6 @@ public sealed partial class PainSystem : EntitySystem
         if (!_consciousness.TryGetNerveSystem(bodyPart.Body.Value, out var brainUid) || TerminatingOrDeleted(brainUid.Value))
             return;
 
-        TryRemovePainMultiplier(brainUid.Value, MetaData(args.Part.Owner).EntityPrototype!.ID + "Loss");
         UpdateNerveSystemNerves(brainUid.Value, bodyPart.Body.Value, Comp<NerveSystemComponent>(brainUid.Value));
     }
 

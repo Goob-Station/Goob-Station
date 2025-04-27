@@ -48,6 +48,12 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared.Body.Components;
+using System.Linq;
+
 namespace Content.Server.Atmos.EntitySystems
 {
     public sealed class BarotraumaSystem : EntitySystem
@@ -58,7 +64,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly IAdminLogManager _adminLogger= default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
-
+        [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
         private const float UpdateTimer = 1f;
         private float _timer;
 
@@ -273,13 +279,32 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             _timer -= UpdateTimer;
-
-            var enumerator = EntityQueryEnumerator<BarotraumaComponent>();
-            while (enumerator.MoveNext(out var uid, out var barotrauma))
+            // Shitmed Change Start
+            var enumerator = EntityQueryEnumerator<BarotraumaComponent, DamageableComponent>();
+            while (enumerator.MoveNext(out var uid, out var barotrauma, out var damageable))
             {
-                // TODO: bring it back. might be bad, but well
-                //if (totalDamage >= barotrauma.MaxDamage)
-                //    continue;
+                var totalDamage = FixedPoint2.Zero;
+                foreach (var (damageType, _) in barotrauma.Damage.DamageDict)
+                {
+                    if (!damageable.Damage.DamageDict.TryGetValue(damageType, out var damage))
+                        continue;
+
+                    totalDamage += damage;
+                }
+
+                if (TryComp<BodyComponent>(uid, out var body)
+                    && HasComp<ConsciousnessComponent>(uid)
+                    && body.RootContainer.ContainedEntity.HasValue)
+                {
+                    totalDamage =
+                        _wound.GetAllWounds(body.RootContainer.ContainedEntity.Value)
+                            .Where(woundEnt => barotrauma.Damage.DamageDict.ContainsKey(woundEnt.Comp.DamageType))
+                            .Aggregate(totalDamage, (current, woundEnt) => current + woundEnt.Comp.WoundIntegrityDamage);
+                }
+
+                if (totalDamage >= barotrauma.MaxDamage)
+                    continue;
+            // Shitmed Change End
 
                 var pressure = 1f;
 

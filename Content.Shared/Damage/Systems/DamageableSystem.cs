@@ -617,8 +617,7 @@ namespace Content.Shared.Damage
                 // Create wounds if damage was applied
                 if (newValue > 0 && woundable.AllowWounds)
                     foreach (var (type, value) in component.Damage.DamageDict)
-                        if (!_wounds.TryContinueWound(uid, type, value, woundable))
-                            _wounds.TryCreateWound(uid, type, value, GetDamageGroupByType(type), woundable);
+                        _wounds.TryInduceWound(uid, type, value, out _, woundable);
             }
         }
 
@@ -679,11 +678,6 @@ namespace Content.Shared.Damage
 
             comp.DamageModifierSetId = damageModifierSetId;
             Dirty(uid, comp);
-        }
-
-        private string GetDamageGroupByType(string id)
-        {
-            return (from @group in _prototypeManager.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault()!;
         }
 
         private void DamageableGetState(EntityUid uid, DamageableComponent component, ref ComponentGetState args)

@@ -17,11 +17,20 @@
       - RawMaterial
   - type: Damageable
     damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+
+- type: entity
+  id: BoneNeck
+  parent: Bone
+  name: neck bone
+  description: A bone from the neck. Contains a lot of calcium.
+  components:
+  - type: Bone
+    integrityCap: 120
+    boneIntegrity: 120
+  - type: Sprite
+    sprite: Objects/Materials/materials.rsi
+    state: bones
+  - type: Appearance
+  
+  
+

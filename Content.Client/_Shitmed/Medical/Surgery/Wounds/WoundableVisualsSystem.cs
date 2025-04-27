@@ -31,18 +31,20 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
+    [Dependency] private readonly WoundSystem _wound = default!;
     private const float AltBleedingSpriteChance = 0.15f;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WoundableVisualsComponent, ComponentInit>(InitializeEntity, after:[typeof(WoundSystem)]);
+        SubscribeLocalEvent<WoundableVisualsComponent, ComponentInit>(InitializeEntity, after: [typeof(WoundSystem)]);
         SubscribeLocalEvent<WoundableVisualsComponent, BodyPartRemovedEvent>(WoundableRemoved);
         SubscribeLocalEvent<WoundableVisualsComponent, BodyPartAddedEvent>(WoundableConnected);
+        SubscribeLocalEvent<WoundableVisualsComponent, WoundableIntegrityChangedEvent>(OnWoundableIntegrityChanged);
     }
 
-    private void InitializeEntity(EntityUid uid, WoundableVisualsComponent component, ComponentInit args)
+    private void InitializeEntity(EntityUid uid, WoundableVisualsComponent component, ref ComponentInit args)
     {
         if (!TryComp(uid, out SpriteComponent? partSprite))
             return;
@@ -63,11 +65,9 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
                 $"{component.OccupiedLayer}_Minor",
                 $"{component.OccupiedLayer}Bleeding");
         }
-
-        UpdateWoundableVisuals(uid, component, partSprite);
     }
 
-    private void WoundableConnected(EntityUid uid, WoundableVisualsComponent component, BodyPartAddedEvent args)
+    private void WoundableConnected(EntityUid uid, WoundableVisualsComponent component, ref BodyPartAddedEvent args)
     {
         var bodyPart = args.Part.Comp;
         if (!bodyPart.Body.HasValue || !TryComp(bodyPart.Body.Value, out SpriteComponent? bodySprite))
@@ -92,11 +92,9 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
                 $"{component.OccupiedLayer}_Minor",
                 $"{component.OccupiedLayer}Bleeding");
         }
-
-        UpdateWoundableVisuals(uid, component, bodySprite);
     }
 
-    private void WoundableRemoved(EntityUid uid, WoundableVisualsComponent component, BodyPartRemovedEvent args)
+    private void WoundableRemoved(EntityUid uid, WoundableVisualsComponent component, ref BodyPartRemovedEvent args)
     {
         var body = args.Part.Comp.Body;
         if (!TryComp(body, out SpriteComponent? bodySprite))
@@ -127,7 +125,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
         }
     }
 
-    protected override void OnAppearanceChange(EntityUid uid, WoundableVisualsComponent component, ref AppearanceChangeEvent args)
+    private void OnWoundableIntegrityChanged(EntityUid uid, WoundableVisualsComponent component, ref WoundableIntegrityChangedEvent args)
     {
         var bodyPart = Comp<BodyPartComponent>(uid);
         if (!bodyPart.Body.HasValue)
@@ -137,7 +135,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
             return;
         }
 
-        if (TryComp(bodyPart.Body.Value, out SpriteComponent? bodySprite))
+        if (TryComp(bodyPart.Body, out SpriteComponent? bodySprite))
             UpdateWoundableVisuals(uid, component, bodySprite);
     }
 
@@ -156,32 +154,17 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
     private void UpdateWoundableVisuals(EntityUid uid, WoundableVisualsComponent visuals, SpriteComponent sprite)
     {
-        if (!HasComp<AppearanceComponent>(uid)
-            || !_appearance.TryGetData<WoundVisualizerGroupData>(uid, WoundableVisualizerKeys.Wounds, out var wounds))
-            return;
-
-        var damagePerGroup = new Dictionary<string, FixedPoint2>();
-        foreach (var woundEnt in wounds.GroupList.Select(GetEntity))
+        foreach (var group in visuals.DamageOverlayGroups!)
         {
-            if (TerminatingOrDeleted(woundEnt)
-                || !TryComp(woundEnt, out WoundComponent? comp)
-                || comp.DamageGroup == null
-                || !visuals.DamageOverlayGroups!.ContainsKey(comp.DamageGroup))
+            if (!sprite.LayerMapTryGet($"{visuals.OccupiedLayer}{group.Key}", out var damageLayer))
                 continue;
 
-            if (!damagePerGroup.TryAdd(comp.DamageGroup, comp.WoundSeverityPoint))
-                damagePerGroup[comp.DamageGroup] += comp.WoundSeverityPoint;
+            var severityPoint = _wound.GetWoundableSeverityPoint(uid, damageGroup: group.Key);
+            UpdateDamageLayerState(sprite,
+                damageLayer,
+                $"{visuals.OccupiedLayer}_{group.Key}",
+                severityPoint <= visuals.Thresholds.First() ? 0 : GetThreshold(severityPoint, visuals));
         }
-
-        if (damagePerGroup.Count == 0 && visuals.DamageOverlayGroups != null)
-            foreach (var damage in visuals.DamageOverlayGroups!)
-                if (sprite.LayerMapTryGet($"{visuals.OccupiedLayer}{damage.Key}", out var damageLayer))
-                    UpdateDamageLayerState(sprite, damageLayer, $"{visuals.OccupiedLayer}_{damage.Key}", 0);
-
-        foreach (var (type, damage) in damagePerGroup)
-            if (sprite.LayerMapTryGet($"{visuals.OccupiedLayer}{type}", out var damageLayer))
-                UpdateDamageLayerState(sprite, damageLayer, $"{visuals.OccupiedLayer}_{type}", GetThreshold(damage, visuals));
-
         UpdateBleeding(uid, visuals, visuals.OccupiedLayer, sprite);
     }
 
@@ -246,7 +229,7 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
 
     private FixedPoint2 GetThreshold(FixedPoint2 threshold, WoundableVisualsComponent comp)
     {
-        var nearestSeverity = (FixedPoint2) 0;
+        var nearestSeverity = FixedPoint2.Zero;
 
         foreach (var value in comp.Thresholds.OrderByDescending(kv => kv.Value))
         {

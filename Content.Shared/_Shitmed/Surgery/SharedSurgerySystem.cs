@@ -174,7 +174,11 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     private void OnWoundedValid(Entity<SurgeryWoundedConditionComponent> ent, ref SurgeryValidEvent args)
     {
         if (!TryComp(args.Part, out WoundableComponent? partWoundable)
-            || _wounds.GetWoundableSeverityPoint(args.Part, partWoundable, healable: true) <= 0)
+            || _wounds.GetWoundableSeverityPoint(
+                args.Part,
+                partWoundable,
+                ent.Comp.DamageGroup,
+                healable: true) <= 0)
             args.Cancelled = true;
     }
 

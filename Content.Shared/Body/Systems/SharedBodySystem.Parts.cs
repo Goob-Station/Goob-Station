@@ -870,21 +870,21 @@ public partial class SharedBodySystem
     /// <param name="uid">The part entity id to check on.</param>
     /// <param name="part">The part to check for organs on.</param>
     /// <typeparam name="T">The component to check for.</typeparam>
-    public List<(T Comp, OrganComponent Organ)> GetBodyPartOrganComponents<T>(
+    public List<(EntityUid Owner, T Comp, OrganComponent Organ)> GetBodyPartOrganComponents<T>(
         EntityUid uid,
         BodyPartComponent? part = null)
         where T : IComponent
     {
         if (!Resolve(uid, ref part))
-            return new List<(T Comp, OrganComponent Organ)>();
+            return new List<(EntityUid owner, T Comp, OrganComponent Organ)>();
 
         var query = GetEntityQuery<T>();
-        var list = new List<(T Comp, OrganComponent Organ)>();
+        var list = new List<(EntityUid Owner, T Comp, OrganComponent Organ)>();
 
         foreach (var organ in GetPartOrgans(uid, part))
         {
             if (query.TryGetComponent(organ.Id, out var comp))
-                list.Add((comp, organ.Component));
+                list.Add((organ.Id, comp, organ.Component));
         }
 
         return list;
@@ -901,7 +901,7 @@ public partial class SharedBodySystem
     /// <returns>Whether any were found.</returns>
     public bool TryGetBodyPartOrganComponents<T>(
         EntityUid uid,
-        [NotNullWhen(true)] out List<(T Comp, OrganComponent Organ)>? comps,
+        [NotNullWhen(true)] out List<(EntityUid Owner, T Comp, OrganComponent Organ)>? comps,
         BodyPartComponent? part = null)
         where T : IComponent
     {

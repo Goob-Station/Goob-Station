@@ -111,7 +111,6 @@ public sealed class TargetingSystem : SharedTargetingSystem
             || !TryComp<TargetingComponent>(uid, out var targeting))
             return;
 
-        Logger.Debug($"HandleTargetChange from {targeting.Target} to {target}");
         TargetChange?.Invoke(target);
     }
 }

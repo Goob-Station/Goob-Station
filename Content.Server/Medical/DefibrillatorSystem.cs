@@ -296,14 +296,9 @@ public sealed class DefibrillatorSystem : EntitySystem
             // Shitmed Change Start
             if (_mobState.IsDead(target, mob))
             {
-                if (HasComp<ConsciousnessComponent>(target) && _consciousness.TryGetNerveSystem(target, out var nerveSys))
+                if (HasComp<ConsciousnessComponent>(target) && _consciousness.TryGetNerveSystem(target, out _))
                 {
-                    _consciousness.EditConsciousnessModifier(
-                        target,
-                        nerveSys.Value,
-                        component.ZapHeal.GetTotal(),
-                        "Suffocation");
-
+                    _consciousness.RemoveConsciousnessModifier(target, target, "Suffocation");
                     _consciousness.RemoveConsciousnessModifier(target, target, "DeathThreshold");
                 }
 

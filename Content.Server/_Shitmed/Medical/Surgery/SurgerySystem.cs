@@ -85,9 +85,9 @@ public sealed class SurgerySystem : SharedSurgerySystem
         _ui.ServerSendUiMessage(body, SurgeryUIKey.Key, new SurgeryBuiRefreshMessage());
     }
 
-    private string GetDamageGroupByType(string id)
+    private DamageGroupPrototype? GetDamageGroupByType(string id)
     {
-        return (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault()!;
+        return (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group).FirstOrDefault();
     }
 
     private void SetDamage(EntityUid body,
@@ -106,18 +106,11 @@ public sealed class SurgerySystem : SharedSurgerySystem
             {
                 // TODO: Also the scar treating surgery too, fuck. I hate this system and by every second I have to spend working with THIS I want to kill myself more and more
                 _wounds.TryHaltAllBleeding(part, force: true);
-                _wounds.TryHealWoundsOnWoundable(part, -amount, out _, damageGroup: GetDamageGroupByType(type));
+                _wounds.TryHealWoundsOnWoundable(part, -amount, type, out _, ignoreMultipliers: true);
             }
         }
-        else
-        {
-            _damageable.TryChangeDamage(body,
-                damage,
-                true,
-                origin: user,
-                partMultiplier: partMultiplier,
-                targetPart: _body.GetTargetBodyPart(partComp));
-        }
+
+        _damageable.TryChangeDamage(part, damage, true, origin: user, partMultiplier: partMultiplier, targetPart: _body.GetTargetBodyPart(partComp));
     }
 
     private void AttemptStartSurgery(Entity<SurgeryToolComponent> ent, EntityUid user, EntityUid target)

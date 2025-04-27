@@ -824,18 +824,15 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
-            Logger.Debug($"entity: {ToPrettyString(entity)}, modifiedDamage: {modifiedDamage.GetTotal()}, origin: {ToPrettyString(user)}, partMultiplier: {component.HeavyPartDamageMultiplier}, heavyAttack: true");
             var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, partMultiplier: component.HeavyPartDamageMultiplier, heavyAttack: true); // Shitmed Change
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);
 
             if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
             {
-                Logger.Debug($"Part 1 works");
                 // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
                 if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
                 {
-                    Logger.Debug($"Part 1.1 works");
                     _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid);
                 }
 
@@ -858,14 +855,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         if (entities.Count != 0)
         {
-            Logger.Debug($"Part 2 works");
             var target = entities.First();
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
         {
-            Logger.Debug($"Part 3 works");
             DoDamageEffect(targets, user, Transform(targets[0]));
         }
 

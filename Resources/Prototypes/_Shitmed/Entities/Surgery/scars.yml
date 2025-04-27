@@ -4,11 +4,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
+    damageType: Blunt
     woundType: External
     woundVisibility: Always
     canBeHealed: false
     isScar: true
   - type: PainInflicter
+    multiplier: 0
 
 - type: entity
   id: PiercingScar
@@ -16,11 +18,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
+    damageType: Piercing
     woundType: External
     woundVisibility: Always
     canBeHealed: false
     isScar: true
   - type: PainInflicter
+    multiplier: 0
 
 - type: entity
   id: SlashScar
@@ -28,11 +32,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
+    damageType: Slash
     woundType: External
     woundVisibility: Always
     canBeHealed: false
     isScar: true
   - type: PainInflicter
+    multiplier: 0
 
 - type: entity
   id: BurnScar
@@ -40,11 +46,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
+    damageType: Heat
     woundType: External
     woundVisibility: Always
     canBeHealed: false
     isScar: true
   - type: PainInflicter
+    multiplier: 0
 
 - type: entity
   id: RadiationScar
@@ -52,6 +60,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Wound
+    damageType: Radiation
     woundType: External
     woundVisibility: Always
     canBeHealed: false

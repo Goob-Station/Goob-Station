@@ -7,7 +7,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 [RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
 public sealed partial class BoneComponent : Component
 {
-    [DataField, AutoNetworkedField, ViewVariables]
+    [AutoNetworkedField, ViewVariables]
     public EntityUid? BoneWoundable;
 
     [DataField, AutoNetworkedField, ViewVariables]
@@ -16,7 +16,7 @@ public sealed partial class BoneComponent : Component
     [DataField, AutoNetworkedField, ViewVariables]
     public FixedPoint2 BoneIntegrity = 60f;
 
-    [DataField, AutoNetworkedField, ViewVariables]
+    [AutoNetworkedField, ViewVariables]
     public BoneSeverity BoneSeverity = BoneSeverity.Normal;
 
     [DataField]

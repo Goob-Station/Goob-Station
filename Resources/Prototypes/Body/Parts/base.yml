@@ -150,7 +150,7 @@
     bleedingOverlay: Mobs/Effects/bleeding_damage.rsi
   - type: ConsciousnessRequired
     identifier: "groin"
-    causesDeath: true
+    causesDeath: false
   - type: ContainerContainer
     containers:
       groin_slot: !type:ContainerSlot {}
@@ -180,6 +180,7 @@
     tags:
       - Head
   - type: Woundable
+    boneEntity: BoneNeck
     integrity: 65
     integrityCap: 65
     thresholds:

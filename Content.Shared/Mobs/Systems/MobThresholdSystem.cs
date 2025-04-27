@@ -32,7 +32,9 @@ using Robust.Shared.GameStates;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Network;
 
@@ -43,6 +45,7 @@ public sealed class MobThresholdSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly WoundSystem _wound = default!; // Shitmed Change
+    [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
     [Dependency] private readonly INetManager _net = default!;
     public override void Initialize()
     {
@@ -54,7 +57,7 @@ public sealed class MobThresholdSystem : EntitySystem
         SubscribeLocalEvent<MobThresholdsComponent, DamageChangedEvent>(OnDamaged);
         SubscribeLocalEvent<MobThresholdsComponent, UpdateMobStateEvent>(OnUpdateMobState);
         SubscribeLocalEvent<MobThresholdsComponent, MobStateChangedEvent>(OnThresholdsMobState);
-        SubscribeLocalEvent<MobThresholdsComponent, WoundSeverityPointChangedOnBodyEvent>(OnWoundableDamage); // Shitmed Change
+        SubscribeLocalEvent<MobThresholdsComponent, WoundableIntegrityChangedOnBodyEvent>(OnWoundableDamage); // Shitmed Change
     }
 
     private void OnGetState(EntityUid uid, MobThresholdsComponent component, ref ComponentGetState args)
@@ -289,6 +292,33 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!TryComp<DamageableComponent>(target1, out var oldDamage))
             return false;
 
+        // Shitmed Change Start
+        var entDamage = oldDamage.Damage;
+        if (TryComp<BodyComponent>(target1, out var body) && HasComp<ConsciousnessComponent>(target1))
+        {
+            var damageDict = new Dictionary<string, FixedPoint2>();
+            foreach (var bodyPart in _body.GetBodyChildren(target1, body))
+            {
+                if (!TryComp<WoundableComponent>(bodyPart.Id, out var woundable))
+                    continue;
+
+                foreach (var woundEnt in _wound.GetWoundableWounds(bodyPart.Id, woundable))
+                {
+                    if (!damageDict.TryAdd(woundEnt.Comp.DamageType, woundEnt.Comp.WoundSeverityPoint))
+                    {
+                        damageDict[woundEnt.Comp.DamageType] = woundEnt.Comp.WoundSeverityPoint;
+                    }
+                }
+            }
+
+            entDamage = new DamageSpecifier
+            {
+                DamageDict = damageDict,
+            };
+        }
+
+        // Shitmed Change End
+
         if (!TryComp<MobThresholdsComponent>(target1, out var threshold1) ||
             !TryComp<MobThresholdsComponent>(target2, out var threshold2))
             return false;
@@ -299,7 +329,7 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!TryGetThresholdForState(target2, MobState.Dead, out var ent2DeadThreshold, threshold2))
             ent2DeadThreshold = 0;
 
-        damage = (oldDamage.Damage / ent1DeadThreshold.Value) * ent2DeadThreshold.Value;
+        damage = (entDamage / ent1DeadThreshold.Value) * ent2DeadThreshold.Value;
         return true;
     }
 
@@ -467,7 +497,7 @@ public sealed class MobThresholdSystem : EntitySystem
     }
 
     // Shitmed Change Start
-    private void OnWoundableDamage(EntityUid body, MobThresholdsComponent thresholds, WoundSeverityPointChangedOnBodyEvent args)
+    private void OnWoundableDamage(EntityUid body, MobThresholdsComponent thresholds, WoundableIntegrityChangedOnBodyEvent args)
     {
         if (!TryComp<MobStateComponent>(body, out var mobState))
             return;

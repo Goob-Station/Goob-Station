@@ -325,6 +325,12 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0.13
+      BoneDamage: 0.13
+      VeinsDamage: 0
+      NerveDamage: 0
 
 - type: entity
   parent: [ClothingEyesBase, BaseCommandContraband]
@@ -363,6 +369,12 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: Armor # the same as SEC
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0.13
+      BoneDamage: 0.13
+      VeinsDamage: 0
+      NerveDamage: 0
     coverage:
     - Head
     modifiers:
@@ -392,6 +404,12 @@
         Blunt: 0.95
         Slash: 0.95
         Piercing: 0.95
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0.13
+      BoneDamage: 0.13
+      VeinsDamage: 0
+      NerveDamage: 0
   - type: GroupExamine
   - type: IdentityBlocker
     coverage: EYES
@@ -439,3 +457,9 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.9
+    traumaDeductions:
+      Dismemberment: 0
+      OrganDamage: 0.07
+      BoneDamage: 0.07
+      VeinsDamage: 0
+      NerveDamage: 0

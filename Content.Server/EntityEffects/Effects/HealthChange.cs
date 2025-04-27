@@ -243,8 +243,7 @@ namespace Content.Server.EntityEffects.Effects
                     IgnoreResistances,
                     interruptsDoAfters: false,
             // Shitmed Change Start
-                    targetPart: TargetBodyPart.All,
-                    partMultiplier: 0.5f);
+                    targetPart: TargetBodyPart.All);
 
             args.EntityManager.System<WoundSystem>()
                 .TryHealWoundsOnWoundable(

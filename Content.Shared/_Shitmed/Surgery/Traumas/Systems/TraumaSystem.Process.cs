@@ -24,7 +24,7 @@ public partial class TraumaSystem
 
     private void InitProcess()
     {
-        SubscribeLocalEvent<TraumaInflicterComponent, MapInitEvent>(OnTraumaInflicterInit);
+        SubscribeLocalEvent<TraumaInflicterComponent, ComponentInit>(OnTraumaInflicterInit);
         SubscribeLocalEvent<TraumaComponent, ComponentGetState>(OnComponentGet);
         SubscribeLocalEvent<TraumaComponent, ComponentHandleState>(OnComponentHandleState);
         SubscribeLocalEvent<TraumaInflicterComponent, WoundSeverityPointChangedEvent>(OnWoundSeverityPointChanged);
@@ -33,7 +33,7 @@ public partial class TraumaSystem
 
     private void OnTraumaInflicterInit(
         Entity<TraumaInflicterComponent> woundEnt,
-        ref MapInitEvent args)
+        ref ComponentInit args)
     {
         woundEnt.Comp.TraumaContainer = _container.EnsureContainer<Container>(woundEnt, TraumaContainerId);
     }
@@ -44,7 +44,7 @@ public partial class TraumaSystem
         {
             TraumaTarget = GetNetEntity(comp.TraumaTarget),
             HoldingWoundable = GetNetEntity(comp.HoldingWoundable),
-
+            TargetType = comp.TargetType,
             TraumaType = comp.TraumaType,
             TraumaSeverity = comp.TraumaSeverity,
         };
@@ -59,7 +59,7 @@ public partial class TraumaSystem
 
         component.TraumaTarget = GetEntity(state.TraumaTarget);
         component.HoldingWoundable = GetEntity(state.HoldingWoundable);
-
+        component.TargetType = state.TargetType;
         component.TraumaType = state.TraumaType;
         component.TraumaSeverity = state.TraumaSeverity;
     }
@@ -262,7 +262,7 @@ public partial class TraumaSystem
 
     public FixedPoint2 GetArmourChanceDeduction(EntityUid body, Entity<TraumaInflicterComponent> inflicter, TraumaType traumaType, BodyPartType coverage)
     {
-        var deduction = (FixedPoint2) 0;
+        var deduction = FixedPoint2.Zero;
 
         foreach (var ent in _inventory.GetHandOrInventoryEntities(body, SlotFlags.WITHOUT_POCKET))
         {
@@ -289,7 +289,7 @@ public partial class TraumaSystem
         TraumaType traumaType,
         BodyPartType coverage)
     {
-        var deduction = (FixedPoint2) 0;
+        var deduction = FixedPoint2.Zero;
         deduction += GetArmourChanceDeduction(body, inflicter, traumaType, coverage);
 
         var traumaDeductionEvent = new TraumaChanceDeductionEvent(severity, traumaType, 0);
@@ -414,7 +414,7 @@ public partial class TraumaSystem
 
         var totalIntegrity =
             _body.GetPartOrgans(target, bodyPart)
-                .Aggregate((FixedPoint2) 0, (current, organ) => current + organ.Component.OrganIntegrity);
+                .Aggregate(FixedPoint2.Zero, (current, organ) => current + organ.Component.OrganIntegrity);
 
         if (totalIntegrity <= 0) // No surviving organs
             return false;
@@ -466,7 +466,7 @@ public partial class TraumaSystem
             TraumaType.Dismemberment,
             bodyPart.PartType);
 
-        var bonePenalty = (FixedPoint2) 0f;
+        var bonePenalty = FixedPoint2.New(0.1);
 
         // Broken bones increase the chance of your limb getting delimbed
         var bone = target.Comp.Bone.ContainedEntities.FirstOrNull();
@@ -494,7 +494,8 @@ public partial class TraumaSystem
         Entity<WoundableComponent> holdingWoundable,
         Entity<TraumaInflicterComponent> inflicter,
         TraumaType traumaType,
-        FixedPoint2 severity)
+        FixedPoint2 severity,
+        (BodyPartType, BodyPartSymmetry)? targetType = null)
     {
         foreach (var trauma in inflicter.Comp.TraumaContainer.ContainedEntities)
         {
@@ -514,6 +515,10 @@ public partial class TraumaSystem
         traumaComp.TraumaSeverity = severity;
 
         traumaComp.TraumaTarget = target;
+
+        if (targetType.HasValue)
+            traumaComp.TargetType = targetType.Value;
+
         traumaComp.HoldingWoundable = holdingWoundable;
 
         _container.Insert(traumaEnt, inflicter.Comp.TraumaContainer);
@@ -656,7 +661,6 @@ public partial class TraumaSystem
                         target,
                         -0.28f,
                         time: time);
-
                     foreach (var child in _wound.GetAllWoundableChildren(target))
                     {
                         // Funner! Very unlucky of you if your torso gets hit. Rest in pieces
@@ -670,28 +674,23 @@ public partial class TraumaSystem
                     break;
 
                 case TraumaType.Dismemberment:
-                    if (!_wound.IsWoundableRoot(target))
+                    if (!_wound.IsWoundableRoot(target)
+                        && _wound.TryInduceWound(targetChosen.Value, "Blunt", 10f, out var woundInduced))
                     {
-                        foreach (var woundEnt in _wound.GetWoundableWounds(targetChosen.Value))
-                        {
-                            if (MetaData(woundEnt).EntityPrototype!.ID != "Blunt")
-                                continue;
-
-                            // Stored in the parent woundable because if the child one gets destroyed it is over
-                            AddTrauma(
-                                targetChosen.Value,
-                                (targetChosen.Value, Comp<WoundableComponent>(targetChosen.Value)),
-                                (woundEnt, EnsureComp<TraumaInflicterComponent>(woundEnt)),
-                                TraumaType.Dismemberment,
-                                severity);
-                        }
+                        AddTrauma(
+                            targetChosen.Value,
+                            (targetChosen.Value, Comp<WoundableComponent>(targetChosen.Value)),
+                            (woundInduced.Value.Owner, EnsureComp<TraumaInflicterComponent>(woundInduced.Value.Owner)),
+                            TraumaType.Dismemberment,
+                            severity,
+                            (bodyPart.PartType, bodyPart.Symmetry));
 
                         _wound.AmputateWoundable(targetChosen.Value, target, target);
                     }
                     break;
             }
 
-            _sawmill.Debug($"A new trauma (Raw Severity: {severity}) was created on target: {target}. Type: {trauma}.");
+            Log.Debug($"A new trauma (Raw Severity: {severity}) was created on target: {ToPrettyString(target)}. Type: {trauma}.");
         }
 
         // TODO: veins, would have been very lovely to integrate this into vascular system

@@ -873,7 +873,7 @@
         allowNewModifiers: true
         modifierType: Pain
         identifier: Suffocation
-        amount: -1.2
+        amount: -2.4
         time: 12
 
 # Externally applied meds

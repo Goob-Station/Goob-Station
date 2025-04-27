@@ -22,7 +22,6 @@ public sealed class FumbleOnDamageSystem : EntitySystem
     private void OnAttemptMeleeEvent(EntityUid uid, HandsComponent hands, ref AttemptMeleeEvent ev)
     {
         bool raiseOnAll = false;
-        Logger.Debug("Attempting a melee attack!");
         // This might get messy with furry species that have more than two hands, but who cares.
         if (ev.WeaponComponent.MustBeEquippedToUse
             || TryComp(ev.Weapon, out WieldableComponent? wieldable)
@@ -38,7 +37,7 @@ public sealed class FumbleOnDamageSystem : EntitySystem
         {
             foreach (var part in _body.GetBodyChildrenOfType(uid, BodyPartType.Hand))
             {
-                // Holy shit I need to add slotId assingment to each part this is so ass :wilted_flower:
+                // Holy shit I need to add slotId assignment to each part this is so ass :wilted_rose:
                 if (SharedBodySystem.GetPartSlotContainerId(part.Component.ParentSlot?.Id ?? "") == hands.ActiveHand.Name)
                 {
                     ev2 = new AttemptHandsMeleeEvent(part.Component.Symmetry);
@@ -49,7 +48,6 @@ public sealed class FumbleOnDamageSystem : EntitySystem
 
         if (ev2.Cancelled)
         {
-            Logger.Debug("Cancelled the attempt!");
             ev.Cancelled = true;
             return;
         }
@@ -57,7 +55,6 @@ public sealed class FumbleOnDamageSystem : EntitySystem
 
     private void OnAttemptShootEvent(EntityUid uid, HandsComponent hands, GunShotBodyEvent ev)
     {
-        Logger.Debug("Attempting a shoot attack!");
         if (ev.GunUid == uid) // If the gun is the same user with a component e.g. laser eyes, dont bother.
             return;
 

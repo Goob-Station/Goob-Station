@@ -45,23 +45,28 @@ public sealed partial class NerveSystemComponent : Component
     public PainThresholdTypes LastThresholdType = PainThresholdTypes.None;
 
     [DataField("thresholdUpdate")]
-    public TimeSpan ThresholdUpdateTime = TimeSpan.FromSeconds(1.2f);
+    public TimeSpan ThresholdUpdateTime = TimeSpan.FromSeconds(1.6f);
 
-    [DataField("accumulated")]
-    public TimeSpan UpdateTime;
+    [DataField("reactionTime")]
+    public TimeSpan PainReactionTime = TimeSpan.FromSeconds(0.07f);
 
-    [DataField("painShockStun")]
-    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(7f);
-
-    [DataField("organDamageStun")]
-    public TimeSpan OrganDamageStunTime = TimeSpan.FromSeconds(12f);
-    public TimeSpan NextCritScream;
+    [DataField("adrenalineTime")]
+    public TimeSpan PainShockAdrenalineTime = TimeSpan.FromSeconds(40f);
 
     [DataField]
     public TimeSpan CritScreamsIntervalMin = TimeSpan.FromSeconds(13f);
 
     [DataField]
     public TimeSpan CritScreamsIntervalMax = TimeSpan.FromSeconds(32f);
+    public TimeSpan UpdateTime;
+    public TimeSpan ReactionUpdateTime;
+    public TimeSpan NextCritScream;
+
+    [DataField("painShockStun")]
+    public TimeSpan PainShockStunTime = TimeSpan.FromSeconds(7f);
+
+    [DataField("organDamageStun")]
+    public TimeSpan OrganDamageStunTime = TimeSpan.FromSeconds(12f);
 
     [DataField]
     public SoundSpecifier PainRattles = new SoundCollectionSpecifier("PainRattles");

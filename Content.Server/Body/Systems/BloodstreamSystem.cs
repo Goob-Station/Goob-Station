@@ -156,11 +156,14 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
+using Content.Shared._Shitmed.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Body.Systems;
 
 public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Change: Shared bloodstream
 {
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Shitmed Change
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -349,7 +352,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             if (!_consciousness.TryGetNerveSystem(uid, out var nerveSys))
                 continue;
 
-            var total = (FixedPoint2) 0;
+            var total = FixedPoint2.Zero;
             foreach (var (bodyPart, _) in _body.GetBodyChildren(uid))
             {
                 foreach (var (wound, _) in _wound.GetWoundableWounds(bodyPart))
@@ -361,9 +364,22 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 }
             }
 
-            if (!_consciousness.SetConsciousnessModifier(uid, nerveSys.Value, -total, identifier: "Bleeding", type: ConsciousnessModType.Pain))
+            var missingBlood = bloodstream.BloodMaxVolume - bloodstream.BloodSolution.Value.Comp.Solution.Volume;
+
+            bloodstream.BleedAmount = (float) total / 4;
+            if (!_consciousness.SetConsciousnessModifier(
+                    uid,
+                    nerveSys.Value,
+                    -missingBlood / 4,
+                    identifier: "Bleeding",
+                    type: ConsciousnessModType.Pain))
             {
-                _consciousness.AddConsciousnessModifier(uid, nerveSys.Value, -total, identifier: "Bleeding", type: ConsciousnessModType.Pain);
+                _consciousness.AddConsciousnessModifier(
+                    uid,
+                    nerveSys.Value,
+                    -missingBlood / 4,
+                    identifier: "Bleeding",
+                    type: ConsciousnessModType.Pain);
             }
         }
         // Shitmed Change End
@@ -707,7 +723,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
     }
     private void OnWoundSeverityChanged(Entity<BloodstreamComponent> ent, ref WoundSeverityPointChangedOnBodyEvent args)
     {
-        if (!TryComp<BleedInflicterComponent>(args.WoundEntity, out var bleeds)
+        if (!TryComp<BleedInflicterComponent>(args.Wound, out var bleeds)
             || !bleeds.IsBleeding)
             return;
 
@@ -719,7 +735,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             return;
 
         // Convert severity change to bleed amount (using similar logic as in SharedBloodstreamSystem)
-        var bleedChange = deltaBleed * BleedsSeverityTrade;
+        var bleedChange = deltaBleed * _cfg.GetCVar(SurgeryCVars.BleedingSeverityTrade);
         TryModifyBleedAmount(ent, bleedChange.Float(), ent);
     }
 }

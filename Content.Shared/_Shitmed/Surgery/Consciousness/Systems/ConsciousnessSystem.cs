@@ -14,14 +14,9 @@ public sealed partial class ConsciousnessSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PainSystem _pain = default!;
 
-    private ISawmill _sawmill = default!;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _sawmill = Logger.GetSawmill("consciousness");
-
         InitProcess();
         InitNet();
     }

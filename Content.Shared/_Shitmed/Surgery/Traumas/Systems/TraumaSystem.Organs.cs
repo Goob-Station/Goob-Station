@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Shared._Shitmed.CCVar;
 using Content.Shared._Shitmed.Medical.Surgery.Pain;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
@@ -11,6 +12,8 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 
 public partial class TraumaSystem
 {
+    private const string OrganDamagePainIdentifier = "OrganDamage";
+
     private void InitOrgans()
     {
         SubscribeLocalEvent<WoundableComponent, OrganIntegrityChangedEventOnWoundable>(OnOrganIntegrityOnWoundableChanged);
@@ -29,24 +32,24 @@ public partial class TraumaSystem
             return;
 
         var organs = _body.GetPartOrgans(args.Organ.Comp.Body.Value).ToList();
-        var totalIntegrity = organs.Aggregate((FixedPoint2) 0, (current, organ) => current + organ.Component.OrganIntegrity);
-        var totalIntegrityCap = organs.Aggregate((FixedPoint2) 0, (current, organ) => current + organ.Component.IntegrityCap);
+        var totalIntegrity = organs.Aggregate(FixedPoint2.Zero, (current, organ) => current + organ.Component.OrganIntegrity);
+        var totalIntegrityCap = organs.Aggregate(FixedPoint2.Zero, (current, organ) => current + organ.Component.IntegrityCap);
         // Getting your organ turned into a blood mush inside you applies a LOT of internal pain, that can get you dead.
         if (!_pain.TryChangePainModifier(
                 nerveSys.Value,
                 bodyPart.Owner,
-                "OrganDamage",
+                OrganDamagePainIdentifier,
                 (totalIntegrityCap - totalIntegrity) / 2,
                 nerveSys.Value.Comp))
         {
             _pain.TryAddPainModifier(
                 nerveSys.Value,
                 bodyPart.Owner,
-                "OrganDamage",
+                OrganDamagePainIdentifier,
                 (totalIntegrityCap - totalIntegrity) / 2,
                 PainDamageTypes.TraumaticPain,
                 nerveSys.Value.Comp);
-        }        
+        }
     }
 
     private void OnOrganIntegrityChanged(Entity<OrganComponent> organ, ref OrganIntegrityChangedEvent args)
@@ -86,7 +89,12 @@ public partial class TraumaSystem
                 AudioParams.Default.WithVolume(6f));
 
             _stun.TryParalyze(body.Value, nerveSys.Value.Comp.OrganDamageStunTime, true);
-            _stun.TrySlowdown(body.Value, nerveSys.Value.Comp.OrganDamageStunTime * 2, true, 0.6f, 0.6f); // haha dumbass
+            _stun.TrySlowdown(
+                body.Value,
+                nerveSys.Value.Comp.OrganDamageStunTime * _cfg.GetCVar(SurgeryCVars.OrganTraumaSlowdownTimeMultiplier),
+                true,
+                _cfg.GetCVar(SurgeryCVars.OrganTraumaWalkSpeedSlowdown),
+                _cfg.GetCVar(SurgeryCVars.OrganTraumaRunSpeedSlowdown));
         }
 
         if (TryGetWoundableTrauma(bodyPart, out var traumas, TraumaType.OrganDamage, bodyPart))
@@ -120,7 +128,9 @@ public partial class TraumaSystem
             || !Resolve(uid, ref organ))
             return false;
 
-        organ.IntegrityModifiers.Add((identifier, effectOwner), severity);
+        if (!organ.IntegrityModifiers.TryAdd((identifier, effectOwner), severity))
+            return false;
+
         UpdateOrganIntegrity(uid, organ);
 
         return true;
@@ -189,7 +199,7 @@ public partial class TraumaSystem
 
         if (organ.IntegrityModifiers.Count > 0)
             organ.OrganIntegrity = FixedPoint2.Clamp(organ.IntegrityModifiers
-                .Aggregate((FixedPoint2) 0, (current, modifier) => current + modifier.Value),
+                .Aggregate(FixedPoint2.Zero, (current, modifier) => current + modifier.Value),
                 0,
                 organ.IntegrityCap);
 

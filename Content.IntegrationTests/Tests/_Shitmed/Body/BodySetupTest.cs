@@ -11,6 +11,8 @@ using Content.Server.Hands.Systems;
 using Content.Server.Tools.Innate;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Components;
@@ -20,6 +22,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.IntegrationTests.Tests._Shitmed.Body;
 
@@ -206,13 +209,12 @@ public sealed class BodySetupTest
                     Assert.That(dummy, Is.Not.EqualTo(EntityUid.Invalid), $"Failed species to pass the test: {speciesPrototype.ID}");
                     Assert.That(entMan.TryGetComponent(dummy, out ConsciousnessComponent consciousness), $"Failed species to pass the test: {speciesPrototype.ID}");
 
-                    Assert.That(consciousnessSystem.TryGetNerveSystem(dummy, out var dummyNerveSys), Is.True);
+                    Assert.That(consciousnessSystem.TryGetNerveSystem(dummy, out var dummyNerveSys));
 
                     Assert.That(entMan.HasComponent<OrganComponent>(dummyNerveSys), $"Failed species to pass the test: {speciesPrototype.ID}, organ {dummyNerveSys}");
                     Assert.That(entMan.HasComponent<ConsciousnessRequiredComponent>(dummyNerveSys), $"Failed species to pass the test: {speciesPrototype.ID}");
 
-                    Assert.That(consciousness.Consciousness, Is.GreaterThan(consciousness.Threshold), $"Failed species to pass the test: {speciesPrototype.ID}");
-                    Assert.That(consciousnessSystem.CheckConscious(dummy), $"Failed species to pass the test: {speciesPrototype.ID}");
+                    Assert.That(consciousnessSystem.CheckConscious(dummy, consciousness), $"Failed species to pass the test: {speciesPrototype.ID}");
                 });
             }
         });
@@ -256,11 +258,12 @@ public sealed class BodySetupTest
                     Assert.That(bodySystem.TryGetParentBodyPart(headEntity.Id, out var parentPart, out _), $"Failed species to pass the test: {speciesPrototype.ID}");
                     Assert.That(parentPart, Is.Not.Null, $"Failed species to pass the test: {speciesPrototype.ID}");
 
-                    Assert.That(entMan.TryGetComponent(headEntity.Id, out WoundableComponent woundable));
+                    Assert.That(entMan.TryGetComponent(headEntity.Id, out WoundableComponent woundable), $"Failed species to pass the test: {speciesPrototype.ID}");
+                    Assert.That(entMan.TryGetComponent(groinEntity.Id, out WoundableComponent groinWoundable), $"Failed species to pass the test: {speciesPrototype.ID}");
 
                     // Destroy the head, and damage the groin so we can check.
                     woundSystem.DestroyWoundable(parentPart.Value, headEntity.Id, woundable);
-                    woundSystem.TryCreateWound(groinEntity.Id, "Blunt", 25f, "Brute");
+                    woundSystem.TryInduceWound(groinEntity.Id, "Blunt", 25f, out _, groinWoundable);
 
                     rejuvenateSystem.PerformRejuvenate(dummy);
 
@@ -269,8 +272,49 @@ public sealed class BodySetupTest
                     Assert.That(woundSystem.GetWoundableSeverityPoint(parentPart.Value), Is.GreaterThanOrEqualTo(FixedPoint2.Zero), $"Failed species to pass the test: {speciesPrototype.ID}");
                     Assert.That(woundSystem.GetWoundableSeverityPoint(groinEntity.Id), Is.GreaterThanOrEqualTo(FixedPoint2.Zero), $"Failed species to pass the test: {speciesPrototype.ID}");
 
-                    Assert.That(consciousnessSystem.CheckConscious(dummy), Is.True, $"Species not conscious upon test: {speciesPrototype.ID}");
+                    Assert.That(consciousnessSystem.CheckConscious(dummy), $"Failed species to pass the test: {speciesPrototype.ID}");
                 });
+            }
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task AllSpeciesHaveValidWoundables()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Dirty = true,
+            Connected = true,
+            InLobby = false,
+        });
+
+        var server = pair.Server;
+
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var bodySystem = entMan.System<BodySystem>();
+
+        await server.WaitAssertion(() =>
+        {
+            foreach (var speciesPrototype in server.ProtoMan.EnumeratePrototypes<SpeciesPrototype>())
+            {
+                if (_ignoredPrototypes.Contains(speciesPrototype.ID))
+                    continue;
+
+                var dummy = entMan.Spawn(speciesPrototype.Prototype);
+                foreach (var bodyPart in bodySystem.GetBodyChildren(dummy))
+                {
+                    Assert.Multiple(() =>
+                    {
+                        Assert.That(entMan.HasComponent<NerveComponent>(bodyPart.Id));
+                        Assert.That(entMan.TryGetComponent(bodyPart.Id, out WoundableComponent woundable));
+
+                        var bone = woundable.Bone.ContainedEntities.FirstOrNull();
+                        Assert.That(bone, Is.Not.Null);
+                        Assert.That(entMan.HasComponent<BoneComponent>(bone));
+                    });
+                }
             }
         });
 

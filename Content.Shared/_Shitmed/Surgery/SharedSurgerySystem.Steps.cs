@@ -51,8 +51,6 @@ namespace Content.Shared._Shitmed.Medical.Surgery;
 
 public abstract partial class SharedSurgerySystem
 {
-    private static readonly string[] BruteDamageTypes = { "Slash", "Blunt", "Piercing" };
-    private static readonly string[] BurnDamageTypes = { "Heat", "Shock", "Cold", "Caustic" };
     private void InitializeSteps()
     {
         SubscribeLocalEvent<SurgeryStepComponent, SurgeryStepEvent>(OnToolStep);
@@ -186,32 +184,12 @@ public abstract partial class SharedSurgerySystem
         return (from @group in _prototypes.EnumeratePrototypes<DamageGroupPrototype>() where @group.DamageTypes.Contains(id) select @group.ID).FirstOrDefault()!;
     }
 
-    // I wonder if theres not a function that can do this already.
-    private bool HasDamageGroup(EntityUid entity, string group, [NotNullWhen(true)] out DamageableComponent? damageable)
-    {
-        if (!TryComp<DamageableComponent>(entity, out var damageableComp))
-        {
-            damageable = null;
-            return false;
-        }
-
-        damageable = damageableComp;
-
-        if (TryComp<WoundableComponent>(entity, out var woundable))
-        {
-            return _wounds.GetWoundableWounds(entity, woundable)
-                    .Where(wound => _wounds.CanHealWound(wound))
-                    .Any(wound => wound.Comp.DamageGroup == group);
-        }
-
-        return false;
-    }
-
     private void OnTendWoundsStep(Entity<SurgeryTendWoundsEffectComponent> ent, ref SurgeryStepEvent args)
     {
-        var group = ent.Comp.MainGroup == "Brute" ? BruteDamageTypes : BurnDamageTypes;
-
-        if (!HasDamageGroup(args.Part, ent.Comp.MainGroup, out _))
+        if (_wounds.GetWoundableSeverityPoint(
+                args.Part,
+                damageGroup: ent.Comp.MainGroup,
+                healable: true) <= 0)
             return;
 
         // Right now the bonus is based off the body's total damage, maybe we could make it based off each part in the future.
@@ -222,7 +200,8 @@ public abstract partial class SharedSurgerySystem
 
         var adjustedDamage = new DamageSpecifier(ent.Comp.Damage);
 
-        foreach (var type in group)
+        var group = _prototypes.Index<DamageGroupPrototype>(ent.Comp.MainGroup);
+        foreach (var type in group.DamageTypes)
             adjustedDamage.DamageDict[type] -= bonus;
 
         var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, adjustedDamage, 0.5f);
@@ -231,8 +210,7 @@ public abstract partial class SharedSurgerySystem
 
     private void OnTendWoundsCheck(Entity<SurgeryTendWoundsEffectComponent> ent, ref SurgeryStepCompleteCheckEvent args)
     {
-        if (HasDamageGroup(args.Body, ent.Comp.MainGroup, out var _)
-            || HasDamageGroup(args.Part, ent.Comp.MainGroup, out var _))
+        if (_wounds.HasDamageOfGroup(args.Part, ent.Comp.MainGroup, true))
             args.Cancelled = true;
     }
 
@@ -333,7 +311,7 @@ public abstract partial class SharedSurgerySystem
         if (targetPart != default)
         {
             // We reward players for properly affixing the parts by healing a little bit of damage, and enabling the part temporarily.
-            _wounds.TryHealWoundsOnWoundable(targetPart.Id, 12f, out _, damageGroup: "Brute");
+            _wounds.TryHealWoundsOnWoundable(targetPart.Id, 12f, out _, damageGroup: _prototypes.Index<DamageGroupPrototype>("Brute"));
             RemComp<BodyPartReattachedComponent>(targetPart.Id);
         }
     }
