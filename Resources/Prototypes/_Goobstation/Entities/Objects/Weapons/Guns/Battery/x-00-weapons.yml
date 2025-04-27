@@ -152,7 +152,7 @@
   - type: Item
     shape:
     - 0,0,6,1
-    storedOffset: 45
+    storedRotation: 45
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
