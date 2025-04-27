@@ -124,7 +124,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly ReactiveSystem _reactive = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly GoobVaporSystem _goobVapor = default!; // Goobstation
 
         private const float ReactTime = 0.125f;
 
