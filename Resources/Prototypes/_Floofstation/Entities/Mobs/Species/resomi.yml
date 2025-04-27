@@ -4,8 +4,8 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -194,7 +194,7 @@
   - type: Damageable # Goobstation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature
-    coldDamageThreshold: 0 # Goobstation - they don't care
+    coldDamageThreshold: 0 # Goobstation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
     heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:
       types:
@@ -207,6 +207,16 @@
       272: 1
       242: 1
       196: 1
+  - type: PseudoItem
+    storedOffset: 20,0
+    shape:
+    - 0,3,0,2
+    - 1,3,2,3
+    - 3,3,3,2
+    - 4,4,5,0
+    - 6,3,6,0
+    - 7,1,7,0
+
 
 - type: entity
   parent: BaseSpeciesDummy

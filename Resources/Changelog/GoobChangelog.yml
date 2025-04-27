@@ -7879,3 +7879,11 @@ Entries:
       message: Changelings can no longer use martial arts or have a holo-parasite.
   id: 914
   time: '2025-04-25T23:53:39.0000000+00:00'
+- author: PunishedJoe
+  changes:
+    - type: Tweak
+      message: resomi's now take 30% more brute damage
+    - type: Tweak
+      message: resomi fit in bags again
+  id: 915
+  time: '2025-04-26T18:31:32.0000000+00:00'
