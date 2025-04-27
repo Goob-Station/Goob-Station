@@ -6,7 +6,7 @@ namespace Content.Goobstation.Shared.VoiceChat;
 
 public sealed class MsgVoiceChat : NetMessage
 {
-    public override MsgGroups MsgGroup => MsgGroups.Entity;
+    public override MsgGroups MsgGroup => MsgGroups.Core;
 
     public byte[]? PcmData;
     public NetEntity? SourceEntity;

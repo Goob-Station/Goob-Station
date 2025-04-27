@@ -23,11 +23,11 @@ public sealed class VoiceStreamManager : IDisposable
 
     private const int BytesPerSample = 2;
     private const int Channels = 1;
-    private const int PacketsPerChunk = 5;
+    private const int PacketsPerChunk = 2;
     private readonly int _maxQueuedPackets = 50;
     private readonly int _mergeThresholdPackets = 30;
     private readonly int _stretchEnterThreshold = 6;
-    private readonly int _stretchExitThreshold = 10;
+    private readonly int _stretchExitThreshold = 14;
     private const float CompressRatio = 0.75f;
     private const float StretchRatio = 1.25f;
     private float _volume = 0.5f;
