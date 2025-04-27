@@ -414,7 +414,7 @@ public sealed partial class GoobCVars
     /// The UDP port the Lidgren voice chat server will listen on.
     /// </summary>
     public static readonly CVarDef<int> VoiceChatPort =
-        CVarDef.Create("voice.port", 1213, CVar.SERVER | CVar.REPLICATED, "Port for the voice chat server.");
+        CVarDef.Create("voice.vc_server_port", 1213, CVar.SERVER | CVar.REPLICATED, "Port for the voice chat server.");
 
     public static readonly CVarDef<float> VoiceChatVolume =
         CVarDef.Create("voice.volume", 0.5f * 24, CVar.CLIENTONLY | CVar.ARCHIVE);
