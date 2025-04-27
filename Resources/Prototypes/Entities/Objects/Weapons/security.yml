@@ -166,7 +166,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Blunt: 0
+        Ion: 10 # Goob edit
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
