@@ -16,12 +16,22 @@ public abstract partial class SharedHereticAbilitySystem
     protected virtual void SubscribeSide()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticRustCharge>(OnRustCharge);
+
         SubscribeLocalEvent<RustChargeComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<RustChargeComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<RustChargeComponent, LandEvent>(OnLand);
         SubscribeLocalEvent<RustChargeComponent, DownAttemptEvent>(OnDownAttempt);
         SubscribeLocalEvent<RustChargeComponent, InteractionAttemptEvent>(OnInteractAttempt);
         SubscribeLocalEvent<RustChargeComponent, BeforeStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
+        SubscribeLocalEvent<RustChargeComponent, ComponentShutdown>(OnRustChargeShutdown);
+    }
+
+    private void OnRustChargeShutdown(Entity<RustChargeComponent> ent, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        RemCompDeferred<RustObjectsInRadiusComponent>(ent);
     }
 
     private void OnBeforeRustChargeStatusEffect(Entity<RustChargeComponent> ent, ref BeforeStatusEffectAddedEvent args)
@@ -119,11 +129,10 @@ public abstract partial class SharedHereticAbilitySystem
         if (dir.LengthSquared() < 0.001f)
             return;
 
-        if (_throw.TryThrow(ent, dir.Normalized() * args.Distance, args.Speed, playSound: false, doSpin: false))
-        {
-            _standing.Stand(ent);
-            EnsureComp<RustChargeComponent>(ent);
-        }
+        _standing.Stand(ent);
+        EnsureComp<RustChargeComponent>(ent);
+        EnsureComp<RustObjectsInRadiusComponent>(ent);
+        _throw.TryThrow(ent, dir.Normalized() * args.Distance, args.Speed, playSound: false, doSpin: false);
 
         args.Handled = true;
     }

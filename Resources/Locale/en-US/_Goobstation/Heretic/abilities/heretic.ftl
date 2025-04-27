@@ -61,6 +61,7 @@ heretic-speech-flesh-surgery = CL'M M'N!
 heretic-speech-flesh-worm = REALITY UNCOIL!!
 
 heretic-speech-rust-spread = A'GRSV SPR'D!
+heretic-speech-rust-wave = SPR'D TH' WO'D!
 heretic-speech-rust-plume = 'NTR'P'C PL'M'!
 
 heretic-speech-void-blast = F'RZ'E!

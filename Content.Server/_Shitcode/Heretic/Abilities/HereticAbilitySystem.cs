@@ -379,17 +379,17 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
     {
         base.Update(frameTime);
 
-        var rustChargeQuery = EntityQueryEnumerator<RustChargeComponent, TransformComponent>();
-        while (rustChargeQuery.MoveNext(out var uid, out var charge, out var xform))
+        var rustChargeQuery = EntityQueryEnumerator<RustObjectsInRadiusComponent, TransformComponent>();
+        while (rustChargeQuery.MoveNext(out var uid, out var rust, out var xform))
         {
-            if (charge.NextRustTime > Timing.CurTime)
+            if (rust.NextRustTime > Timing.CurTime)
                 continue;
 
-            charge.NextRustTime = Timing.CurTime + charge.RustPeriod;
+            rust.NextRustTime = Timing.CurTime + rust.RustPeriod;
             RustObjectsInRadius(_transform.GetMapCoordinates(uid, xform),
-                charge.RustRadius,
-                charge.TileRune,
-                charge.LookupRange);
+                rust.RustRadius,
+                rust.TileRune,
+                rust.LookupRange);
         }
 
         _accumulator += frameTime;
