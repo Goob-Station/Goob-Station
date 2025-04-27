@@ -6,13 +6,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Religion.Events;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Religion;
@@ -23,27 +27,32 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<WeakToHolyComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<WeakToHolyComponent, DamageUnholyEvent>(OnUnholyItemDamage);
 
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
 
-        SubscribeLocalEvent<WeakToHolyComponent, AttackedEvent>(OnDamageTaken);
-    }
+        SubscribeLocalEvent<WeakToHolyComponent, DamageModifyEvent>(OnDamageTaken);
 
-    private void OnStartup(EntityUid uid, WeakToHolyComponent comp, ref MapInitEvent args)
-    {
-        // Only change to "BiologicalMetaphysical" if the original damage container was "Biological"
-        if (TryComp<DamageableComponent>(uid, out var damageable) && damageable.DamageContainerID == comp.BiologicalContainerId)
-            _damageableSystem.ChangeDamageContainer(uid, comp.MetaphysicalContainerId);
     }
 
     #region Holy Damage Dealing
+
+    private static Dictionary<string, float> _resistanceCoefficientDict = new()
+    {
+        { "Holy", 1 },
+    };
+
+    // Create a modifier set
+    DamageModifierSetPrototype holymodifierSet = new()
+    {
+        Coefficients = _resistanceCoefficientDict
+    };
 
     private void OnUnholyItemDamage(EntityUid uid, WeakToHolyComponent comp, ref DamageUnholyEvent args)
     {
@@ -57,16 +66,13 @@ public sealed class WeakToHolySystem : EntitySystem
             args.ShouldTakeHoly = true; // may allah forgive me for this linq :pray:
     }
 
-    private void OnDamageTaken(Entity<WeakToHolyComponent> ent, ref AttackedEvent args)
+    private void OnDamageTaken(EntityUid uid, WeakToHolyComponent comp, DamageModifyEvent args)
     {
-        if (!TryComp<NullrodComponent>(args.Used, out var weapon) || weapon.HolyDamage is null)
-            return;
-
-        var unholyEvent = new DamageUnholyEvent(ent, weapon.HolyDamage, args.Used);
-        RaiseLocalEvent(ent, unholyEvent);
+        var unholyEvent = new DamageUnholyEvent(args.Target, args.Origin);
+        RaiseLocalEvent(args.Target, unholyEvent);
 
         if (unholyEvent.ShouldTakeHoly)
-            _damageableSystem.TryChangeDamage(unholyEvent.Target, unholyEvent.Damage, origin: unholyEvent.Origin);
+            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, holymodifierSet);
     }
 
     #endregion

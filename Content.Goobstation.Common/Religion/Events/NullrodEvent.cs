@@ -3,6 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Robust.Shared.Serialization;
+
 namespace Content.Goobstation.Common.Religion.Events;
 
 [ByRefEvent]
@@ -19,8 +21,9 @@ public struct BeforeCastTouchSpellEvent(EntityUid target)
     public bool Cancelled = false;
 }
 
-[ByRefEvent]
-public record struct GetHolyDamageMultiplierEvent(EntityUid Unholy, float Multiplier)
+[Serializable, NetSerializable]
+public sealed class AdjustDamageResistanceEvent(EntityUid target, string damageType, float newCoefficient)
+    : EntityEventArgs
 {
-    public float Multiplier = Multiplier;
+    public EntityUid Target { get; set; } = target;
 }

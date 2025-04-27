@@ -60,10 +60,4 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         [DataField]
         public EntityUid? LastAttackedEntity;
 
-        /// <summary>
-        /// How much holy-damage does this nullrod do?
-        /// </summary>
-        [DataField]
-        public DamageSpecifier? HolyDamage;
-
     }

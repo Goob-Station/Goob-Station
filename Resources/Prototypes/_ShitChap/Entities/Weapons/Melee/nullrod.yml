@@ -4,10 +4,6 @@
   abstract: true
   components:
   - type: DivineIntervention
-  - type: Nullrod
-    damage:
-      types:
-        Holy: 5
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/nullrod.rsi
     state: icon

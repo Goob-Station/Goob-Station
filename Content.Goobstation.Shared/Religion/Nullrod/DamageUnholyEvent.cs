@@ -8,11 +8,9 @@ using Content.Shared.Damage;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod;
 
-public sealed class DamageUnholyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null) : EntityEventArgs
+public sealed class DamageUnholyEvent(EntityUid target, EntityUid? origin = null) : EntityEventArgs
 {
     public readonly EntityUid Target = target;
-
-    public DamageSpecifier Damage = damage;
 
     public bool ShouldTakeHoly = false;
 
