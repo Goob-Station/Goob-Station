@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Speech;
 using Content.Shared.StatusEffect;
@@ -18,7 +19,13 @@ public sealed partial class ShadowCloakedComponent : Component
     public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
 
     [DataField]
-    public ProtoId<SpeechVerbPrototype> SpeechVerb = "Default";
+    public ProtoId<EmoteSoundsPrototype> EmoteSounds = "ShadowCloak";
+
+    [DataField]
+    public ProtoId<SpeechSoundsPrototype> SpeechSounds = "ShadowCloak";
+
+    [DataField]
+    public ProtoId<SpeechVerbPrototype> SpeechVerb = "Hiss";
 
     [DataField]
     public EntProtoId ShadowCloakEntity = "ShadowCloakEntity";

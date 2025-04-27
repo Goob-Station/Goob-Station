@@ -1,5 +1,6 @@
 using Content.Goobstation.Common.Identity;
 using Content.Goobstation.Common.Projectiles;
+using Content.Goobstation.Common.Speech;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Actions;
@@ -56,6 +57,8 @@ public abstract class SharedShadowCloakSystem : EntitySystem
         SubscribeLocalEvent<ShadowCloakedComponent, DownedEvent>(OnDowned);
         SubscribeLocalEvent<ShadowCloakedComponent, StoodEvent>(OnStood);
         SubscribeLocalEvent<ShadowCloakedComponent, ShouldTargetedProjectileCollideEvent>(OnShouldTarget);
+        SubscribeLocalEvent<ShadowCloakedComponent, GetSpeechSoundEvent>(OnGetSpeechSound);
+        SubscribeLocalEvent<ShadowCloakedComponent, GetEmoteSoundsEvent>(OnGetEmoteSound);
 
         SubscribeLocalEvent<ShadowCloakEntityComponent, EntParentChangedMessage>(OnEntParentChanged);
         SubscribeLocalEvent<ShadowCloakEntityComponent, DamageChangedEvent>(OnCloakDamaged);
@@ -66,6 +69,20 @@ public abstract class SharedShadowCloakSystem : EntitySystem
     {
         if (args.Target == GetShadowCloakEntity(ent))
             args.Handled = true;
+    }
+
+    private void OnGetEmoteSound(Entity<ShadowCloakedComponent> ent, ref GetEmoteSoundsEvent args)
+    {
+        var uid = GetShadowCloakEntity(ent);
+        if (uid != null)
+            args.EmoteSoundProtoId = ent.Comp.EmoteSounds;
+    }
+
+    private void OnGetSpeechSound(Entity<ShadowCloakedComponent> ent, ref GetSpeechSoundEvent args)
+    {
+        var uid = GetShadowCloakEntity(ent);
+        if (uid != null)
+            args.SpeechSoundProtoId = ent.Comp.SpeechSounds;
     }
 
     private void OnStood(Entity<ShadowCloakedComponent> ent, ref StoodEvent args)

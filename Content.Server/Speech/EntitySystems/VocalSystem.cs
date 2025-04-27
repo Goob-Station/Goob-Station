@@ -10,6 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Speech;
 using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat.Prototypes;
@@ -74,6 +75,17 @@ public sealed class VocalSystem : EntitySystem
             return;
         }
 
+        // Goobstation start
+        var getSoundEv = new GetEmoteSoundsEvent();
+        RaiseLocalEvent(uid, ref getSoundEv);
+        if (getSoundEv.EmoteSoundProtoId != null &&
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
+        {
+            args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
+            return;
+        }
+        // Goobstation end
+
         // just play regular sound based on emote proto
         args.Handled = _chat.TryPlayEmoteSound(uid, component.EmoteSounds, args.Emote);
     }
@@ -89,6 +101,14 @@ public sealed class VocalSystem : EntitySystem
 
     private bool TryPlayScreamSound(EntityUid uid, VocalComponent component)
     {
+        // Goobstation start
+        var getSoundEv = new GetEmoteSoundsEvent();
+        RaiseLocalEvent(uid, ref getSoundEv);
+        if (getSoundEv.EmoteSoundProtoId != null &&
+            _proto.TryIndex(getSoundEv.EmoteSoundProtoId, out EmoteSoundsPrototype? sounds))
+            return _chat.TryPlayEmoteSound(uid, sounds, component.ScreamId);
+        // Goobstation end
+
         if (_random.Prob(component.WilhelmProbability))
         {
             _audio.PlayPvs(component.Wilhelm, uid, component.Wilhelm.Params);

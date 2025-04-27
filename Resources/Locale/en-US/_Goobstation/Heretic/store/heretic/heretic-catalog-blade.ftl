@@ -60,7 +60,7 @@ knowledge-path-blade-s6-name = Stance of the Torn Champion
 knowledge-path-blade-s6-desc =
     In time, it was he who stood alone among the bodies of his former comrades, awash in blood, none of it his own. He was without rival, equal, or purpose.
 
-    Grants immunity to having your limbs dismembered, as well ass resistance to bloodloss and damage slowdown.
+    Grants immunity to having your limbs dismembered, as well as resistance to bloodloss and damage slowdown.
     Additionally, when damaged below 50% of your maximum health, you gain increased resistance to gaining wounds and resistance to batons.
 
 knowledge-path-blade-s7-name = Empowered Blades
