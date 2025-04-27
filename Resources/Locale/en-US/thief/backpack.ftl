@@ -12,7 +12,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-thief-backpack-window-title = thief toolbox
+thief-backpack-window-title = thieving kit
 
 thief-backpack-window-description =
     Inside are your tools of the trade, which will dissolve when you're ready.
@@ -47,7 +47,7 @@ thief-backpack-category-chemistry-name = anatomy kit
 thief-backpack-category-chemistry-description =
     You've reached peak physical performance... with a little help.
     Includes: Storage implanter, DNA scrambler implanter,
-    ephedrine bottle, syringe, empty shaker, Donk co. lollypop, and omega soap
+    ephedrine bottle, syringe, empty shaker, and omega soap
 
 thief-backpack-category-syndie-name = syndie kit
 thief-backpack-category-syndie-description =
@@ -75,4 +75,4 @@ thief-backpack-category-smuggler-description =
     All thieves need somewhere to stash their goods in the dark.
     Don't forget to link your fulton.
     Includes: Fulton beacon, 10 fultons, 3 smoke grenades,
-    a Smuggler's Satchel, and an invisible crate to hide valuable loot.
+    and an invisible crate to hide valuable loot.
