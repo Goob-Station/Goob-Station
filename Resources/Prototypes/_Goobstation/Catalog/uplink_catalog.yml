@@ -53,7 +53,7 @@
   cost:
     Telecrystal: 30
   categories:
-    -  UplinkDisruption
+  - UplinkDisruption
 
 - type: listing
   id: UplinkBoxReagentGrenades
@@ -63,7 +63,7 @@
   cost:
     Telecrystal: 30
   categories:
-    -  UplinkDisruption
+  - UplinkDisruption
 
 - type: listing
   id: UplinkRemoteSignallerAdvanced
@@ -73,7 +73,7 @@
   cost:
     Telecrystal: 8
   categories:
-    -  UplinkDisruption
+  - UplinkDisruption
 
 - type: listing
   id: UplinkBoxSkibidiRizz
@@ -83,7 +83,7 @@
   cost:
     Telecrystal: 30
   categories:
-    - UplinkDisruption
+  - UplinkDisruption
 
 - type: listing
   id: UplinkSarinGasGrenade
@@ -93,7 +93,7 @@
   cost:
     Telecrystal: 12
   categories:
-    -  UplinkDisruption
+  - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -167,7 +167,7 @@
   id: UplinkMiniatureEnergyCrossbow
   name: uplink-miniature-energy-crossbow-name
   description: uplink-miniature-energy-crossbow-desc
-  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
   productEntity: MiniatureEnergyCrossbow
   cost:
     Telecrystal: 50
@@ -204,7 +204,7 @@
   id: UplinkBowHardlight
   name: uplink-hardlight-bow-name
   description: uplink-hardlight-bow-desc
-  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
     Telecrystal: 75
@@ -226,6 +226,7 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  - UplinkWeaponryBundles
 
 - type: listing
   id: UplinkPistolAnaconda
@@ -245,7 +246,7 @@
   cost:
     Telecrystal: 25
   categories:
-    - UplinkWeaponry
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponM7S
@@ -255,7 +256,7 @@
   cost:
     Telecrystal: 60
   categories:
-    -  UplinkWeaponry
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponHeavensgate
@@ -265,7 +266,7 @@
   cost:
     Telecrystal: 100
   categories:
-  -  UplinkWeaponry
+  - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -395,7 +396,7 @@
   cost:
     Telecrystal: 14
   categories:
-    -  UplinkJob
+  - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -411,7 +412,7 @@
   cost:
     Telecrystal: 5
   categories:
-    -  UplinkJob
+  - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -442,7 +443,7 @@
   cost:
     Telecrystal: 30
   categories:
-    - UplinkAllies
+  - UplinkAllies
 
 
 - type: listing
@@ -453,7 +454,7 @@
   cost:
     Telecrystal: 15
   categories:
-    -  UplinkJob
+  - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -468,7 +469,7 @@
   cost:
     Telecrystal: 15
   categories:
-    -  UplinkJob
+  - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
@@ -558,13 +559,13 @@
   cost:
     Telecrystal: 50 # Half the budget
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-          - ContravendUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+      - ContravendUplink
 
 - type: listing
   id: UplinkSmokeImplanter
@@ -575,7 +576,7 @@
   cost:
     Telecrystal: 10
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 - type: listing
   id: UplinkNutrimentImplanter
@@ -610,7 +611,7 @@
   cost:
     Telecrystal: 40
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 # Deception
 
@@ -879,6 +880,7 @@
     Telecrystal: 60
   categories:
   - UplinkWeaponry
+  - UplinkWeaponryBundles
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -895,11 +897,80 @@
     Telecrystal: 70
   categories:
   - UplinkWeaponry
+  - UplinkWeaponryBundles
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
       - NukeOpsUplink
+
+# Spy Bundles
+
+- type: listing
+  id: UplinkC20RBundle
+  name: uplink-c20r-bundle-name
+  description: uplink-c20r-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+  cost:
+    Telecrystal: 25 # price effects weight when seen in spy uplink bounty
+  categories:
+  - UplinkWeaponryBundles
+
+- type: listing
+  id: UplinkM90Bundle
+  name: uplink-m90-bundle-name
+  description: uplink-m90-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateM90Bundle
+  cost:
+    Telecrystal: 25 # price effects how often seen in spy uplink bounty
+  categories:
+  - UplinkWeaponryBundles
+
+- type: listing
+  id: UplinkWSPRBundle
+  name: uplink-wspr-bundle-name
+  description: uplink-wspr-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledWSPR
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponryBundles
+
+- type: listing
+  id: UplinkBulldogBundle
+  name: uplink-buldog-bundle-name
+  description: uplink-buldog-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  cost:
+    Telecrystal: 65 #
+  categories:
+  - UplinkWeaponryBundles
+
+- type: listing
+  id: UplinkPythonBundle
+  name: uplink-revolver-python-name
+  description: uplink-buldog-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateFilledRevolver
+  cost:
+    Telecrystal: 25 #
+  categories:
+  - UplinkWeaponryBundles
+
+- type: listing
+  id: UplinkM7SBundle
+  productEntity: ClothingBackpackDuffelSyndicateFilledM7S
+  cost:
+    Telecrystal: 50 #
+  categories:
+  - UplinkWeaponryBundles
+
+- type: listing
+  id: UplinkCobraBundle # leave name/desc empty reverts it to the productEntity name, cause fuck writing more locale
+  productEntity: ClothingBackpackDuffelSyndicateFilledRevolver
+  cost:
+    Telecrystal: 15 #
+  categories:
+  - UplinkWeaponryBundles
 
 # Explosives
 

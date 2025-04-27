@@ -197,7 +197,6 @@
   categories:
   - UplinkWeaponry
 
-
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
   id: UplinkPistolCobra
@@ -208,7 +207,6 @@
     Telecrystal: 15 # goob - this +1 mag = 18 TC
   categories:
   - UplinkWeaponry
-
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -232,7 +230,7 @@
   saleLimit: 2 # Goob - 2 eswords = desword
   categories:
   - UplinkWeaponry
-
+  - UplinkWeaponryBundles # Goob - Spies melee weapons go into bundles since they dont require ammo
 
 - type: listing
   id: UplinkEnergyDagger
@@ -244,7 +242,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkWeaponry
-
+  - UplinkWeaponryBundles # Goob - Spies melee weapons go into bundles since they dont require ammo
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -255,8 +253,8 @@
   cost:
     Telecrystal: 20 # goob - Pretty weak, but resusable ranged crit potential shouldn't be less.
   categories:
-    - UplinkWeaponry
-
+  - UplinkWeaponry
+  - UplinkWeaponryBundles # Goob - Spies melee weapons go into bundles since they dont require ammo
 
 - type: listing
   id: UplinkGlovesNorthStar
@@ -267,7 +265,7 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkWeaponry
-
+  - UplinkWeaponryBundles # # Goob - Spies melee weapons go into bundles since they dont require ammo
 
 - type: listing
   id: UplinkDisposableTurret
@@ -278,11 +276,12 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkWeaponry
+  - UplinkWeaponryBundles # # Goob - Spies melee weapons go into bundles since they dont require ammo
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 
 - type: listing
@@ -295,7 +294,7 @@
     Telecrystal: 15 # goob
   categories:
   - UplinkWeaponry
-
+  - UplinkWeaponryBundles # Goob - Spies
 
 - type: listing
   id: UplinkSniperBundle
@@ -307,7 +306,7 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWeaponry
-
+  - UplinkWeaponryBundles # Goob - Spies
 
 - type: listing
   id: UplinkC20R #goob
@@ -342,8 +341,7 @@
   cost:
     Telecrystal: 150 # goob
   categories:
-  - UplinkWeaponry
-
+  - UplinkWeaponry # dont give this to spies please they are meant to be sneaky
 
 - type: listing
   id: UplinkL6Saw #goob
@@ -355,7 +353,6 @@
     Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
-
 
 # Explosives
 
@@ -400,7 +397,7 @@
   cost:
     Telecrystal: 32 # goob
   categories:
-    - UplinkExplosives
+  - UplinkExplosives
 
 
 - type: listing
@@ -411,7 +408,7 @@
   cost:
     Telecrystal: 28 # goob
   categories:
-    - UplinkExplosives
+  - UplinkExplosives
 
 
 - type: listing
@@ -422,7 +419,7 @@
   cost:
     Telecrystal: 8 # goob - it's an emergency escape tool and distraction, not a real nade.
   categories:
-    - UplinkExplosives
+  - UplinkExplosives
 
 
 - type: listing
@@ -433,7 +430,7 @@
   cost:
     Telecrystal: 25 # goob
   categories:
-    - UplinkExplosives
+  - UplinkExplosives
   conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
@@ -510,7 +507,7 @@
   cost:
     Telecrystal: 55 # goob
   categories:
-    - UplinkExplosives
+  - UplinkExplosives
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
@@ -526,7 +523,7 @@
   cost:
     Telecrystal: 60 # goob - the no restock tax of 5tc... devastating to the economy...
   categories:
-    - UplinkExplosives
+  - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -574,7 +571,7 @@
   cost:
     Telecrystal: 20 # goob
   categories:
-    - UplinkExplosives
+  - UplinkExplosives
 
 
 # Ammo
@@ -801,14 +798,14 @@
   categories:
   - UplinkChemicals
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 
 # Deception
@@ -918,7 +915,7 @@
   cost:
     Telecrystal: 20 # goob
   categories:
-    - UplinkDeception
+  - UplinkDeception
 
 
 # - type: listing
@@ -1007,7 +1004,7 @@
   cost:
     Telecrystal: 20 # goob
   categories:
-    - UplinkDisruption
+  - UplinkDisruption
 
 
 - type: listing
@@ -1076,9 +1073,9 @@
   - UplinkDisruption
   conditions:
   - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+    blacklist:
+      components:
+      - SurplusBundle
 
 
 - type: listing
@@ -1092,9 +1089,9 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
-     blacklist:
-       tags:
-       - NukeOpsUplink
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkNukieAntimovCircuitBoard
@@ -1157,7 +1154,7 @@
   cost:
     Telecrystal: 60 # goob
   categories:
-    - UplinkDisruption
+  - UplinkDisruption
 
 
 - type: listing
@@ -1200,11 +1197,11 @@
   categories:
   - UplinkAllies
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
-          - ContravendUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+      - ContravendUplink
 
 
 # Goobstation - Nukeop reinforcement
@@ -1219,33 +1216,33 @@
   categories:
   - UplinkAllies
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-      blacklist:
-        tags:
-          - ContravendUplink
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+    blacklist:
+      tags:
+      - ContravendUplink
 
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateCyborgAssault
-  name:  uplink-reinforcement-radio-cyborg-assault-name
+  name: uplink-reinforcement-radio-cyborg-assault-name
   description: uplink-reinforcement-radio-cyborg-assault-desc
   productEntity: ReinforcementRadioSyndicateCyborgAssault
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-borg-assault }
   cost:
     Telecrystal: 375 # goob
   categories:
-    - UplinkAllies
+  - UplinkAllies
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-      blacklist:
-        tags:
-        - ContravendUplink
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+    blacklist:
+      tags:
+      - ContravendUplink
 
 
 - type: listing
@@ -1259,11 +1256,11 @@
   categories:
   - UplinkAllies
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
-          - ContravendUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+      - ContravendUplink
 
 
 - type: listing
@@ -1277,13 +1274,13 @@
   categories:
   - UplinkAllies
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-      blacklist:
-        tags:
-        - ContravendUplink
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+    blacklist:
+      tags:
+      - ContravendUplink
 
 
 - type: listing
@@ -1311,12 +1308,12 @@
   cost:
     Telecrystal: 30 # goob
   categories:
-    - UplinkAllies
+  - UplinkAllies
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-        - ContravendUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - ContravendUplink
 
 
 - type: listing
@@ -1328,7 +1325,7 @@
   cost:
     Telecrystal: 5 # goob
   categories:
-    - UplinkAllies
+  - UplinkAllies
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -1349,12 +1346,12 @@
   cost:
     Telecrystal: 40 # goob
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 
 - type: listing
@@ -1366,7 +1363,7 @@
   cost:
     Telecrystal: 25 # goob
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 
 - type: listing
@@ -1378,7 +1375,7 @@
   cost:
     Telecrystal: 20 # goob - it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 
 - type: listing
@@ -1390,7 +1387,7 @@
   cost:
     Telecrystal: 25 # goob
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 
 - type: listing
@@ -1402,7 +1399,7 @@
   cost:
     Telecrystal: 10 # goob
   categories:
-    - UplinkImplants
+  - UplinkImplants
 
 - type: listing
   id: UplinkRadioImplanter
@@ -1451,13 +1448,13 @@
   cost:
     Telecrystal: 65 # goob
   categories:
-    - UplinkImplants
+  - UplinkImplants
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
-        - NukeOpsUplink
+      - NukeOpsUplink
 
 # Goobstation - Fix nukeops macrobomb restock
 - type: listing
@@ -1469,13 +1466,13 @@
   cost:
     Telecrystal: 65
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
-        - NukeOpsUplink
-        - ContravendUplink
+      - NukeOpsUplink
+      - ContravendUplink
 
 - type: listing
   id: UplinkDeathAcidifierImplanter
@@ -1486,7 +1483,7 @@
   cost:
     Telecrystal: 20 # goob # goob - traitor suicide implants
   categories:
-    - UplinkImplants
+  - UplinkImplants
   # goob - traitor suicide implants
   #conditions:
   #  - !type:StoreWhitelistCondition
@@ -1505,10 +1502,10 @@
   categories:
   - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 
 - type: listing
@@ -1521,15 +1518,15 @@
   categories:
   - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
-          - ContravendUplink
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+      - ContravendUplink
 
 - type: listing
   id: UplinkFakeMindshield
@@ -1598,7 +1595,7 @@
   cost:
     Telecrystal: 15 # goob
   categories:
-    - UplinkWearables
+  - UplinkWearables
 
 
 - type: listing
@@ -1730,12 +1727,12 @@
   cost:
     Telecrystal: 10 # goob
   categories:
-    - UplinkWearables
+  - UplinkWearables
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # Goobstation - Explosive gloves
 #- type: listing
@@ -1757,10 +1754,10 @@
   cost:
     Telecrystal: 4 # goob - Pointless valid item.
   categories:
-    - UplinkWearables
+  - UplinkWearables
 
 
- # Pointless
+# Pointless
 
 - type: listing
   id: UplinkBarberScissors
@@ -1914,7 +1911,7 @@
   cost:
     Telecrystal: 2 # goob
   categories:
-    - UplinkPointless
+  - UplinkPointless
 
 - type: listing
   id: UplinkSyndicateBusinessCard
@@ -1922,7 +1919,7 @@
   description: uplink-business-card-desc
   productEntity: SyndicateBusinessCard
   categories:
-    - UplinkPointless
+  - UplinkPointless
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
@@ -1952,11 +1949,11 @@
   cost:
     Telecrystal: 30 # goob
   categories:
-    - UplinkJob
+  - UplinkJob
   conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-        - Passenger
+  - !type:BuyerJobCondition
+    whitelist:
+    - Passenger
 
 
 - type: listing
@@ -1967,11 +1964,11 @@
   cost:
     Telecrystal: 20 # goob
   categories:
-    - UplinkJob
+  - UplinkJob
   conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-        - Boxer
+  - !type:BuyerJobCondition
+    whitelist:
+    - Boxer
 
 
 - type: listing
@@ -2099,9 +2096,9 @@
   categories:
   - UplinkJob
   conditions:
-    - !type:BuyerDepartmentCondition
-      whitelist:
-      - Science
+  - !type:BuyerDepartmentCondition
+    whitelist:
+    - Science
 
 
 - type: listing
@@ -2127,7 +2124,7 @@
   id: UplinkSyndicateSpongeBox
   name: uplink-syndicate-sponge-box-name
   description: uplink-syndicate-sponge-box-desc
-  icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
+  icon: { sprite: Objects/Misc/monkeycube.rsi, state: box }
   productEntity: SyndicateSpongeBox
   cost:
     Telecrystal: 35 # goob
@@ -2146,7 +2143,7 @@
   id: UplinkCaneBlade
   name: uplink-cane-blade-name
   description: uplink-cane-blade-desc
-  icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
+  icon: { sprite: Objects/Weapons/Melee/cane.rsi, state: cane }
   productEntity: CaneSheathFilled
   cost:
     Telecrystal: 40 # E-sword sidegrade - goob
@@ -2166,7 +2163,7 @@
   id: UplinkCombatBakery
   name: uplink-combat-bakery-name
   description: uplink-combat-bakery-desc
-  icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
+  icon: { sprite: Objects/Consumable/Food/Baked/bread.rsi, state: baguette }
   productEntity: CombatBakeryKit
   cost:
     Telecrystal: 20 # goob

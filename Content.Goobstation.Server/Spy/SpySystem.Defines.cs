@@ -22,7 +22,7 @@ public sealed partial class SpySystem
 
     private readonly HashSet<ProtoId<StoreCategoryPrototype>> _categories =
     [
-        "UplinkWeaponry",
+        "UplinkWeaponryBundles",
         "UplinkExplosives",
         "UplinkChemicals",
         "UplinkDeception",

@@ -7,10 +7,12 @@
     WantedListCartridgeStealObjective: 1
     ClothingHeadsetAltMedicalStealObjective: 1
     AmePartFlatpackStealObjective: 1
-    ExpeditionsCircuitboardStealObjective: 1
     ClothingEyesHudBeerStealObjective: 1
     BibleStealObjective: 1
     InsulatedGlovesStealObjective: 1
+    CorgiMeatStealObjective: 1
+    ClipboardStealObjective: 1
+    CargoShuttleCircuitboardStealObjective: 1
 
 - type: weightedRandom
   id: SpyBountyObjectiveGroupMedium
@@ -27,6 +29,9 @@
     PlantRDStealObjective: 1
     ToiletGoldenStealObjective: 1
     BingusStealObjective: 1
+    CMOHyposprayStealObjective: 1
+    MagbootsStealObjective: 1
+    CERocketLauncherStealObjective: 1
 
 - type: weightedRandom
   id: SpyBountyObjectiveGroupHard
@@ -35,10 +40,18 @@
     ClothingNeckGoldmedalStealObjective: 1
     FlippoEngravedLighterStealObjective: 0.5
     NuclearBombStealObjective: 0.5
-    CargoShuttleCircuitboardStealObjective: 1
     IanStealObjective: 1
     McGriffStealObjective: 1
     RenaultStealObjective: 1
     ShivaStealObjective: 1
     TropicoStealObjective: 1
     ClothingNeckClownmedalStealObjective: 0.5
+    CaptainIDStealObjective: 1
+    CMORapidSyringeGunStealObjective: 1
+    RDHardsuitStealObjective: 1
+    CaptainGunStealObjective: 0.5
+    CaptainJetpackStealObjective: 0.5
+    HandTeleporterStealObjective: 0.5
+    EnergyShotgunStealObjective: 0.5
+    StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
+    MultiphaseStealObjective: 0.5 # Goobstation

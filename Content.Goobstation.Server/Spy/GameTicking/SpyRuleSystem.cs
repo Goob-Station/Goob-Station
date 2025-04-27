@@ -106,7 +106,7 @@ public sealed class SpyRuleSystem : GameRuleSystem<SpyRuleComponent>
         if (code is not null)
         {
             sb.AppendLine("\n" + Loc.GetString($"traitor-{issuer}-uplink"));
-            sb.AppendLine(Loc.GetString($"traitor-role-uplink-code",
+            sb.AppendLine(Loc.GetString($"traitor-role-uplink-code-short",
                 ("code", string.Join("-", code).Replace("sharp", "#"))));
         }
 

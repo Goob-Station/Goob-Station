@@ -138,3 +138,9 @@
   id: DiscountedItems
   name: store-discounted-items
   priority: 200
+
+# spies (hidden)
+- type: storeCategory
+  id: UplinkWeaponryBundles
+  name: store-category-weapons
+  priority: 999

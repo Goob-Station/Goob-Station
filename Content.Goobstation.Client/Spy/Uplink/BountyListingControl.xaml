@@ -21,7 +21,7 @@
                          Text="Steal PLACEHOLDER found in the PLACEHOLDER."/>
             <BoxContainer Orientation="Horizontal">
                 <Label FontColorOverride="#2ECC71"
-                       Text="Reward:"/>
+                       Text="{Loc spy-reward-label}"/>
                 <Label FontColorOverride="#2ECC71"
                        Name="RewardLabel"
                        Text="PLACEHOLDER"/>

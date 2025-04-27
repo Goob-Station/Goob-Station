@@ -24,7 +24,6 @@
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
 
-
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
@@ -75,6 +74,30 @@
       - id: WeaponRifleWSPR
       - id: MagazineCaselessRifle
         amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledCobra
+  name: cobra bundle
+  description: "A bundle carrying the syndicate's cobra pistol, packed with 2 spare magazines."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolCobra
+    - id: MagazineCaselessRifle
+      amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledM7S
+  name: M7S bundle
+  description: "A bundle carrying the syndicate's M7S sub-machine gun, packed with 2 spare magazines."
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunM7S
+    - id: MagazineLowCaliberM7S
+      amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
