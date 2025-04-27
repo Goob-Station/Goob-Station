@@ -124,7 +124,7 @@
   - type: CollectiveMind # Goobstation - Starlight collective mind port
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
-    damagePenalty: 0.05 
+    damagePenalty: 0.05
 
 - type: entity
   save: false
@@ -139,6 +139,8 @@
   id: MobDamageable
   abstract: true
   components:
+  - type: HolyResistance
+    modifier: 0
   - type: Damageable
     damageContainer: Biological
   - type: Destructible
