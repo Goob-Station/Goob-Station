@@ -430,14 +430,11 @@
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
-<<<<<<< HEAD
   - type: StealTarget # Goobstation
     stealGroup: InsulatedGeneral
   - type: Enchanter # Goobstation
     enchants:
     - EnchantInsulated
-=======
->>>>>>> 6a72790faf7ecc33a213ada428ed2a7081dd338c
 
 # Budget Insulated Gloves
 - type: entity
