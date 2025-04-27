@@ -10,9 +10,14 @@
   - type: Item
     size: Small
   - type: MeleeWeapon
+    heavyStaminaCost: 2.5
+    attackRate: 1.4
     damage:
       types:
+        Blunt: 12
         Holy: 5
+    soundHit:
+      collection: MetalThud
   - type: Reflect
     reflectProb: 1
     reflects:
@@ -38,14 +43,6 @@
   id: Nullrod
   description: The old classic. Does nothing special, really.
   components:
-  - type: MeleeWeapon
-    heavyStaminaCost: 2.5
-    attackRate: 1.4
-    damage:
-      types:
-        Blunt: 12
-    soundHit:
-      collection: MetalThud
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
