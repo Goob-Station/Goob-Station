@@ -111,8 +111,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
 using Content.Goobstation.Shared.Chemistry;
-using Content.Server.Flash.Components;
-using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
