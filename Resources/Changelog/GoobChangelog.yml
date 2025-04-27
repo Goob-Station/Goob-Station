@@ -7887,3 +7887,9 @@ Entries:
       message: resomi fit in bags again
   id: 915
   time: '2025-04-26T18:31:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Advanced pens (e.g. cybersun pen) now do 3 -> 20 embed damage.
+  id: 916
+  time: '2025-04-27T14:42:25.0000000+00:00'
