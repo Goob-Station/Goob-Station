@@ -176,16 +176,16 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             // TODO: role.Requirements value doesn't work at all as an equality key, this must be fixed
             // Grouping roles
             var groupedRoles = ghostState.GhostRoles.GroupBy(
-                role => (role.Name, role.Description));
+                role => (role.Name, role.Description)); //goobstation edit, less polluted ghost spawners menu
 
             // Add a new entry for each role group
             foreach (var group in groupedRoles)
             {
                 var name = group.Key.Name;
                 var description = group.Key.Description;
-                var group_req = group.First(); //since reqs can't be grouped fuckery
+                var group_req = group.First(); //goobstation edit - since reqs can't be grouped fuckery
                 var hasAccess = requirementsManager.CheckRoleRequirements(
-                    group_req.Requirements,
+                    group_req.Requirements, //goobstation edit, less polluted ghost spawners menu
                     null,
                     out var reason);
 
