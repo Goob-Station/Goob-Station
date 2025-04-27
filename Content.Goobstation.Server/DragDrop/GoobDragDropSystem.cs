@@ -7,6 +7,7 @@ namespace Content.Goobstation.Server.DragDrop;
 
 public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
 {
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
 
     public override void Initialize()
     {
@@ -17,9 +18,8 @@ public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
 
     // this is cursed but making construction system code handle DragDropTargetEvent would be even more cursed
     // if it works it works
-    private void OnDragDropConstruction(EntityUid uid, ConstructionComponent comp, ref DragDropTargetEvent args)
+    private void OnDragDropConstruction(Entity<ConstructionComponent> ent, ref DragDropTargetEvent args)
     {
-        var ev = new InteractUsingEvent(args.User, args.Dragged, uid, Transform(uid).Coordinates);
-        RaiseLocalEvent(uid, ev);
+        _interaction.InteractUsing(args.User, args.Dragged, ent, Transform(ent).Coordinates);
     }
 }

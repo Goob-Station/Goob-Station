@@ -4,12 +4,15 @@ using Content.Goobstation.Shared.DragDrop;
 using Content.Shared.DragDrop;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Client.DragDrop;
 
 public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
 {
     [Dependency] private readonly ConstructionSystem _construction = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -18,19 +21,21 @@ public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
         SubscribeLocalEvent<ConstructionComponent, DragDropTargetEvent>(OnDragDropConstruction);
         SubscribeLocalEvent<ConstructionComponent, CanDropTargetEvent>(CanDropTargetConstruction);
 
-        SubscribeLocalEvent<ConstructionGhostComponent, DragDropTargetEvent>(OnDragDrop);
-        SubscribeLocalEvent<ConstructionGhostComponent, CanDropTargetEvent>(CanDropTarget);
+        SubscribeLocalEvent<ConstructionGhostComponent, DragDropTargetEvent>(OnDragDropGhost);
+        SubscribeLocalEvent<ConstructionGhostComponent, CanDropTargetEvent>(CanDropTargetGhost);
     }
 
     // this is cursed but making construction system code handle DragDropTargetEvent would be even more cursed
     // if it works it works
-    private void OnDragDropConstruction(EntityUid uid, ConstructionComponent comp, ref DragDropTargetEvent args)
+    private void OnDragDropConstruction(Entity<ConstructionComponent> ent, ref DragDropTargetEvent args)
     {
-        var ev = new InteractUsingEvent(args.User, args.Dragged, uid, Transform(uid).Coordinates);
-        RaiseLocalEvent(uid, ev);
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        _interaction.InteractUsing(args.User, args.Dragged, ent, Transform(ent).Coordinates);
     }
 
-    private void CanDropTargetConstruction(EntityUid uid, ConstructionComponent comp, ref CanDropTargetEvent args)
+    private void CanDropTargetConstruction(Entity<ConstructionComponent> ent, ref CanDropTargetEvent args)
     {
         if (HasComp<ItemComponent>(args.Dragged))
         {
@@ -39,12 +44,15 @@ public sealed partial class GoobDragDropSystem : SharedGoobDragDropSystem
         }
     }
 
-    private void OnDragDrop(Entity<ConstructionGhostComponent> ent, ref DragDropTargetEvent args)
+    private void OnDragDropGhost(Entity<ConstructionGhostComponent> ent, ref DragDropTargetEvent args)
     {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         _construction.TryStartConstruction(ent, ent.Comp, args.Dragged);
     }
 
-    private void CanDropTarget(Entity<ConstructionGhostComponent> ent, ref CanDropTargetEvent args)
+    private void CanDropTargetGhost(Entity<ConstructionGhostComponent> ent, ref CanDropTargetEvent args)
     {
         if (HasComp<ItemComponent>(args.Dragged))
         {
