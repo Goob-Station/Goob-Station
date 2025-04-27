@@ -76,20 +76,3 @@
   - type: ProjectileBatteryAmmoProvider
     proto: RifleBulletEnergyGunOverchargeLethal
     fireCost: 100
-
-- type: entity
-  id: EnergyMagRifleSelfRechargeLethal
-  parent: [ EnergyRifleMagBase, BaseSecurityContraband ]
-  name: energy rifle magazine (Self rechargeable)
-  description: The powercell of this magazine has been changed to allow self recharging. It come with the cost of small energy capacity.
-  components:
-  - type: Sprite
-    layers:
-    - state: erifle_lethal
-      map: [ "enum.GunVisualLayers.Base" ]
-  - type: ProjectileBatteryAmmoProvider
-    proto: RifleBulletEnergyGunLethal
-    fireCost: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 10

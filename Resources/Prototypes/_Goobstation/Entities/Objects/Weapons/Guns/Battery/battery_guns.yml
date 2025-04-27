@@ -327,7 +327,7 @@
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: RifleBulletEnergyGunIon # yes i just copy cr-2 ion bullet
-    fireCost: 40
+    fireCost: 30
   - type: Battery
-    maxCharge: 1200
-    startingCharge: 1200
+    maxCharge: 900
+    startingCharge: 900

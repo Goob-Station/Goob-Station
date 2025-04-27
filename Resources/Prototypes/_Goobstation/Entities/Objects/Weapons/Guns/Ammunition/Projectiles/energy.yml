@@ -172,7 +172,7 @@
 - type: entity 
   name: Overcharge rifle energy bolt #nukie killer projectile part uh i lost count
   id: RifleBulletEnergyGunOverchargeLethal
-  parent: BaseBullet
+  parent: BaseBulletIncendiary
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
@@ -204,7 +204,6 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 20
-        Caustic: 10 
+        Heat: 25
     soundHit:
       collection: MeatLaserImpact

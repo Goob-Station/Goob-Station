@@ -333,17 +333,6 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: EnergyMagRifleSelfRechargeLethal
-  result: EnergyMagRifleSelfRechargeLethal
-  materials:
-    Steel: 400
-    Gold: 300
-    Glass: 300
-    Plasma: 500
-    Uranium: 300
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
   id: MagazinePistolCaselessRifle
   result: MagazinePistolCaselessRifle
   materials:
