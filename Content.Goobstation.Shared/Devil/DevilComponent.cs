@@ -11,17 +11,24 @@ namespace Content.Goobstation.Shared.Devil;
 [RegisterComponent]
 public sealed partial class DevilComponent : Component
 {
-    public readonly List<EntProtoId> BaseDevilActions = new()
+    [DataField]
+    public List<EntProtoId> BaseDevilActions = new()
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
     };
+
+    [DataField]
+    public List<EntityUid> ActionEntities;
 
     /// <summary>
     /// The amount of souls or successful contracts the entity has.
     /// </summary>
     [DataField]
     public int Souls = 0;
+
+    [DataField]
+    public ProtoId<DevilBranchPrototype> DevilBranchPrototype = "BaseDevilBranch";
 
     /// <summary>
     /// Should it perform startup tasks and apply items?
@@ -30,7 +37,7 @@ public sealed partial class DevilComponent : Component
     /// False by default so possession doesn't bork.
     /// Run the gamerule if you want to make someone a devil silly.
     /// </remarks>
-    public bool DoStartup = false;
+    public bool DoStartup;
 
     /// <summary>
     /// The true name of the devil.
@@ -43,13 +50,13 @@ public sealed partial class DevilComponent : Component
     /// The current power level of the devil.
     /// </summary>
     [DataField]
-    public int PowerLevel = 0;
+    public DevilPowerLevel PowerLevel = 0;
 
     /// <summary>
     /// Sound effect played when summoning a contract.
     /// </summary>
     [DataField]
-    public SoundPathSpecifier FwooshPath = new SoundPathSpecifier("/Audio/_Goobstation/Effects/fwoosh.ogg");
+    public SoundPathSpecifier FwooshPath = new ("/Audio/_Goobstation/Effects/fwoosh.ogg");
 
     /// <summary>
     /// When the true-name stun was last triggered
@@ -88,11 +95,11 @@ public sealed partial class DevilComponent : Component
     public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
 
     [ViewVariables]
-    public Dictionary<int, ProtoId<PolymorphPrototype>> PowerLevelToJauntPrototypeMap = new()
+    public Dictionary<DevilPowerLevel, ProtoId<PolymorphPrototype>> PowerLevelToJauntPrototypeMap = new()
     {
-        { 1, new ProtoId<PolymorphPrototype>("ShadowJaunt30") },
-        { 2, new ProtoId<PolymorphPrototype>("ShadowJaunt60") },
-        { 3, new ProtoId<PolymorphPrototype>("ShadowJaunt90") },
+        { DevilPowerLevel.Weak, new ProtoId<PolymorphPrototype>("ShadowJaunt30") },
+        { DevilPowerLevel.Moderate, new ProtoId<PolymorphPrototype>("ShadowJaunt60") },
+        { DevilPowerLevel.Powerful, new ProtoId<PolymorphPrototype>("ShadowJaunt90") },
     };
 
     // abandom all hope, all ye who enter

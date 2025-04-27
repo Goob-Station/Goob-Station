@@ -56,17 +56,13 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, CondemnedComponent comp, ComponentStartup args)
     {
-        if (HasComp<WeakToHolyComponent>(uid))
-            return;
-
         EnsureComp<WeakToHolyComponent>(uid);
         comp.WasWeakToHoly = true;
-
     }
 
     private void OnRemoved(EntityUid uid, CondemnedComponent comp, ComponentRemove args)
     {
-        if (comp.WasWeakToHoly)
+        if (!comp.WasWeakToHoly)
             RemComp<WeakToHolyComponent>(uid);
     }
 
@@ -80,15 +76,11 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     public void StartCondemnation(
         EntityUid uid,
-        CondemnedComponent? comp = null,
         bool freezeEntity = true,
         bool doFlavor = true,
         CondemnedBehavior behavior = CondemnedBehavior.Delete)
     {
-        EnsureComp<CondemnedComponent>(uid);
-        if (!Resolve(uid, ref comp))
-            return;
-
+        var comp = EnsureComp<CondemnedComponent>(uid);
         comp.CondemnOnDeath = false;
 
         if (freezeEntity)

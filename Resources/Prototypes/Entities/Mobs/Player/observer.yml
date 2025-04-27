@@ -191,6 +191,11 @@
   - type: CollectiveMind
     hearAll: true
     seeAllNames: true
+  - type: UserInterface
+    interfaces:
+      enum.RevivalContractUiKey.Key: # Goobstation - Devil
+        type: RevivalContractBoundUserInterface
+        requireInputValidation: false
 
 # proto for player ghosts specifically
 - type: entity

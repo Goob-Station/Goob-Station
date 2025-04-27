@@ -81,10 +81,10 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     private void OnGetVerbs(EntityUid uid, DevilContractComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess || !TryComp<DevilComponent>(args.User, out var devilComp))
-            return;
-
-        if (!TryComp<DevilContractComponent>(uid, out var contractComp))
+        if (!args.CanInteract
+            || !args.CanAccess
+            || !TryComp<DevilComponent>(args.User, out var devilComp)
+            || !TryComp<DevilContractComponent>(uid, out var contractComp))
             return;
 
         AlternativeVerb burnVerb = new()
@@ -300,18 +300,20 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             var targetEntity = resolver(comp);
             if (targetEntity != null && !TerminatingOrDeleted(targetEntity.Value))
-                ApplyEffectToTarget(targetEntity.Value, comp, clause);
+                ApplyEffectToTarget(targetEntity.Value, clause, comp);
             else
                 _sawmill.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {uid}");
         }
     }
 
-    private void ApplyEffectToTarget(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
+    public void ApplyEffectToTarget(EntityUid target, DevilClausePrototype clause, DevilContractComponent? contract)
     {
         AddComponents(target, clause);
         RemoveComponents(target, clause);
         ChangeDamageModifier(target, clause);
-        DoSpecialActions(target, contract, clause);
+
+        if (contract is not null)
+            DoSpecialActions(target, contract, clause);
     }
 
     private void ChangeDamageModifier(EntityUid target, DevilClausePrototype clause)

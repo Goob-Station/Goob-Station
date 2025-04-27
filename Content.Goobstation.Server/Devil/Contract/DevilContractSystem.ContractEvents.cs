@@ -22,7 +22,7 @@ public sealed partial class DevilContractSystem
     }
     private void OnSoulOwnership(DevilContractSoulOwnershipEvent args)
     {
-        if (args.Contract.ContractOwner is not { } contractOwner)
+        if (args.Contract?.ContractOwner is not { } contractOwner)
             return;
 
         TryTransferSouls(contractOwner, args.Target, 1);

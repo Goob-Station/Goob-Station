@@ -5,12 +5,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Server.Devil.HandShake;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
-using Content.Shared.Interaction;
+using Content.Goobstation.Shared.Devil.Contract;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil;
@@ -19,17 +21,17 @@ public sealed partial class DevilSystem
 {
     private void InitializeHandshakeSystem()
     {
-        SubscribeLocalEvent<DevilComponent, InteractHandEvent>(OnDevilHandInteract);
         SubscribeLocalEvent<DevilComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<PendingHandshakeComponent, GetVerbsEvent<InnateVerb>>(OnGetVerbsPending);
     }
     private void OnGetVerbs(EntityUid uid, DevilComponent comp, GetVerbsEvent<InnateVerb> args)
     {
         // Can't shake your own hand, and you can't shake from a distance
-        if (!args.CanAccess || !args.CanInteract || args.User == args.Target || _state.IsIncapacitated(args.Target))
-            return;
-
-        // Only allow offering to living entities that can interact
-        if (!HasComp<MobStateComponent>(args.Target))
+        if (!args.CanAccess
+        || !args.CanInteract
+        || _state.IsIncapacitated(args.Target)
+        || !HasComp<MobStateComponent>(args.Target)
+        || args.Target == args.User)
             return;
 
         InnateVerb handshakeVerb = new()
@@ -39,28 +41,26 @@ public sealed partial class DevilSystem
             Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
             Priority = 1 // Higher priority than default verbs
         };
-
         args.Verbs.Add(handshakeVerb);
     }
 
-    private void OnDevilHandInteract(Entity<DevilComponent> ent, ref InteractHandEvent args)
+    private void OnGetVerbsPending(EntityUid uid, PendingHandshakeComponent comp, GetVerbsEvent<InnateVerb> args)
     {
-        if (args.Handled || !TryComp<PendingHandshakeComponent>(args.User, out var pending) || pending.Offerer != ent)
+        if (!args.CanAccess
+            || !args.CanInteract
+            || _state.IsIncapacitated(args.Target)
+            || !HasComp<MobStateComponent>(args.Target)
+            || args.Target != comp.Offerer)
             return;
 
-        args.Handled = true;
-
-        if (_timing.CurTime > pending.ExpiryTime)
+        InnateVerb handshakeVerb = new()
         {
-            var expiredMessage = Loc.GetString("handshake-expired");
-            _popup.PopupEntity(expiredMessage, args.User, args.User);
-            RemComp<PendingHandshakeComponent>(args.User);
-            return;
-        }
-
-        // Accept the handshake
-        HandleHandshake(ent, args.User);
-        RemComp<PendingHandshakeComponent>(args.User);
+            Act = () => HandleHandshake(args.Target, args.User),
+            Text = Loc.GetString("hand-shake-accept-verb", ("target", args.Target)),
+            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
+            Priority = 1 // Higher priority than default verbs
+        };
+        args.Verbs.Add(handshakeVerb);
     }
 
     private void OfferHandshake(EntityUid user, EntityUid target)
@@ -70,7 +70,7 @@ public sealed partial class DevilSystem
 
         var pending = AddComp<PendingHandshakeComponent>(target);
         pending.Offerer = user;
-        pending.ExpiryTime = _timing.CurTime + TimeSpan.FromSeconds(10); // 10-second window
+        pending.ExpiryTime = _timing.CurTime + TimeSpan.FromSeconds(15);
 
         // Notify target
         var popupMessage = Loc.GetString("handshake-offer-popup", ("user", user));
@@ -92,7 +92,37 @@ public sealed partial class DevilSystem
         var handshakeSucess = Loc.GetString("handshake-success", ("user", user));
         _popup.PopupEntity(handshakeSucess, target, target);
         _rejuvenate.PerformRejuvenate(target);
+
         var cheatdeath = EnsureComp<CheatDeathComponent>(target);
         cheatdeath.ReviveAmount = 1;
+
+        AddRandomNegativeClause(target);
+    }
+
+    private void AddRandomNegativeClause(EntityUid target)
+    {
+        var negativeClauses = _prototype.EnumeratePrototypes<DevilClausePrototype>()
+            .Where(c => c.ClauseWeight >= 0)
+            .ToList();
+
+        if (negativeClauses.Count == 0)
+            return;
+
+        var selectedClause = _random.Pick(negativeClauses);
+        _contract.ApplyEffectToTarget(target, selectedClause, null);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<PendingHandshakeComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.ExpiryTime > _timing.CurTime)
+                continue;
+
+            RemCompDeferred(uid, comp);
+        }
     }
 }

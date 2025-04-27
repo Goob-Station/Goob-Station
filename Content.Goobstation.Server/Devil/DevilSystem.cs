@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text.RegularExpressions;
+using Content.Goobstation.Server.Devil.Condemned;
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
@@ -18,7 +19,9 @@ using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
+using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
+using Content.Server.Jittering;
 using Content.Server.Mind;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
@@ -66,8 +69,9 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly DevilContractSystem _contract = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PossessionSystem _possession = default!;
-    [Dependency] private readonly Condemned.CondemnedSystem _condemned = default!;
+    [Dependency] private readonly CondemnedSystem _condemned = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
+    [Dependency] private readonly JitteringSystem _jittering = default!;
 
     private static readonly Regex WhitespaceAndNonWordRegex = new(@"[\s\W]+", RegexOptions.Compiled);
 
@@ -137,8 +141,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (comp.Souls is > 1 and < 7 && comp.Souls % 2 == 0)
         {
-            // Set new power level (1 at 2, 2 at 4, 3 at 6)
-            comp.PowerLevel = comp.Souls / 2;
+            comp.PowerLevel = (DevilPowerLevel)(comp.Souls / 2); // malicious casting to enum
 
             // Raise event
             var ev = new PowerLevelChangedEvent(args.User, comp.PowerLevel);
@@ -151,31 +154,31 @@ public sealed partial class DevilSystem : EntitySystem
 
     private void OnPowerLevelChanged(EntityUid uid, DevilComponent comp, ref PowerLevelChangedEvent args)
     {
-        switch (args.NewLevel)
+        var popup = Loc.GetString($"devil-power-level-increase-{args.NewLevel.ToString().ToLowerInvariant()}");
+        _popup.PopupEntity(popup, args.User, args.User, PopupType.Large);
+
+        if (!_prototype.TryIndex(comp.DevilBranchPrototype, out var proto))
+            return;
+
+        foreach (var ability in proto.PowerActions)
         {
-            case 1:
+            if (args.NewLevel != ability.Key)
+                continue;
+
+            foreach (var actionId in ability.Value)
             {
-                _popup.PopupEntity(Loc.GetString("devil-power-level-increase-one"), args.User, args.User, PopupType.Large);
-                _actions.AddAction(args.User, "ActionCreateRevivalContract");
-                break;
-            }
-            case 2:
-            {
-                _popup.PopupEntity(Loc.GetString("devil-power-level-increase-two"), args.User, args.User, PopupType.Large);
-                _actions.AddAction(args.User, "ActionDevilPossess");
-                break;
-            }
-            case 3:
-            {
-                _popup.PopupEntity(Loc.GetString("devil-power-level-increase-three"), args.User, args.User, PopupType.Large);
-                break;
+                EntityUid? actionEnt = null;
+                _actions.AddAction(uid, ref actionEnt, actionId);
+
+                if (actionEnt != null)
+                    comp.ActionEntities.Add(actionEnt.Value);
             }
         }
     }
 
     private void OnExamined(Entity<DevilComponent> comp, ref ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient && comp.Comp.PowerLevel >= 1)
+        if (args.IsInDetailsRange && !_net.IsClient && comp.Comp.PowerLevel >= DevilPowerLevel.Weak)
             args.PushMarkup(Loc.GetString("devil-component-examined", ("target", Identity.Entity(comp, EntityManager))));
     }
     private void OnListen(EntityUid uid, DevilComponent comp, ListenEvent args)
@@ -190,7 +193,13 @@ public sealed partial class DevilSystem : EntitySystem
         var message = WhitespaceAndNonWordRegex.Replace(args.Message.ToLowerInvariant(), "");
         var trueName = WhitespaceAndNonWordRegex.Replace(comp.TrueName.ToLowerInvariant(), "");
 
-        if (!message.Contains(trueName) || _timing.CurTime < comp.LastTriggeredTime + comp.CooldownDuration)
+        if (!message.Contains(trueName))
+            return;
+
+        // hardcoded, but this is just flavor so who cares :godo:
+        _jittering.DoJitter(uid, TimeSpan.FromSeconds(4), true);
+
+        if (_timing.CurTime < comp.LastTriggeredTime + comp.CooldownDuration)
             return;
 
         comp.LastTriggeredTime = _timing.CurTime;

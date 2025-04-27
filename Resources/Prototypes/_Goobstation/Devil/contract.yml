@@ -43,30 +43,8 @@
   parent: BaseDevilContract
   components:
   - type: DevilContract
-  - type: Paper # Not localized because FTL doesn't support formatting. Or at least I don't know how.
-    content: |2
-
-       [color=red]
-                    [head=2]--- Contract from below ---[/head]
-      This binding contract made this day between:
-      - The Infernal Party (Hereinafter "Contractor")
-      - The Mortal Party (Hereinafter "Contractee")
-
-      [bold]Clauses of Binding:[/bold]
-
-      [italic] The following parties give up the following possessions [/italic]
-
-      Article I: Soul
-      Contractee: Soul Ownership
-
-      Article II: Mortality
-      Contractee: Death
-
-
-      [italic]All clauses come into effect upon signing of this paper by both parties.[/italic]
-      [italic][color=#ac3a0d]Clauses may not be broken. Ever.[/italic][/color]
-
-      Sign Below:
+  - type: Paper
+    content: default-contract-content
 
 - type: entity
   id: PaperDevilContractRevival
@@ -78,24 +56,4 @@
   - type: RevivalContract
   - type: Paper
     editingDisabled: true
-    content: |2
-
-                    [head=2]--- Contract from below ---[/head]
-      This binding contract made this day between:
-      - The Infernal Party (Hereinafter "Contractor")
-      - The Mortal Party (Hereinafter "Contractee")
-
-      [bold]Clauses of Binding:[/bold]
-
-      [italic] The following parties give up the following possessions [/italic]
-
-      Article I: Soul Transfership
-      Contractee: Soul Ownership
-
-      Article II: Mortality
-      Contractee: Death
-
-      [italic]The Contractee agrees to give up possession of their soul to the Contractor in
-      exchange for being revived. [/italic]
-
-
+    content: default-contract-content

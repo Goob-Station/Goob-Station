@@ -125,11 +125,6 @@
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
-  - type: UserInterface # Goobstation - Devil
-    interfaces:
-      enum.RevivalContractUiKey.Key:
-        type: RevivalContractBoundUserInterface
-        requireInputValidation: false
 
 - type: entity
   save: false

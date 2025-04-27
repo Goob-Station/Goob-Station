@@ -1,6 +1,5 @@
 devil-contract-contractee = contractee
 devil-contract-contractor = contractor
-devil-contract-both = both
 
 devil-contract-early-sign-failed = The contractor must wait for the contractee to sign first!
 devil-contract-no-soul-sign-failed = You do not have a soul to sell!
@@ -23,7 +22,7 @@ devil-deal-time-ran-out = Your vision goes black as your muscles fail you. You'v
 revival-contract-accepted = You feel your connection to your body strengthen...
 revival-contract-rejected = You reject the unholy offer.
 revival-contract-expired = Times up.
-revival-contract-prompt = {$offerer} offers to restore your life for a price... Do you accept? (Return to your body and check verbs.)
+revival-contract-prompt = {$offerer} offers to restore your life for a price... Do you accept?
 revival-contract-use-success = You offer {$target} a deal no man could refuse...
 revival-contract-use-failed = You cannot offer {$target} two deals at once.
 
@@ -32,3 +31,20 @@ revival-contract-prompt-accept = Accept Offer
 
 revival-contract-menu-title = Contract From the Depths
 revival-contract-menu-prompt = Sell your soul for a second chance?
+
+default-contract-content = This binding contract made this day between:
+
+            - The Infernal Party (Hereinafter "Contractor")
+            - The Mortal Party (Hereinafter "Contractee")
+
+            {"["}bold]Clauses of Binding:{"["}/bold]
+            {"["}italic]The following parties give up the following possessions{"["}/italic{"]"}
+
+            Article I: Soul
+            Contractee: Soul Ownership
+
+            Article II: Mortality
+            Contractee: Death
+
+            {"["}italic]All clauses come into effect upon signing of this paper by both parties.{"["}/italic]
+            {"["}italic]{"["}color=#ac3a0d]Clauses may not be broken. Ever.{"["}/color]{"["}/italic]

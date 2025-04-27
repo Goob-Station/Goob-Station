@@ -73,8 +73,8 @@ public sealed partial class DevilSystem
             return;
         }
 
-        if (comp.PowerLevel != 0)
-            comp.PossessionDuration *= comp.PowerLevel;
+        if (comp.PowerLevel != DevilPowerLevel.None)
+            comp.PossessionDuration *= (int)comp.PowerLevel;
 
         if (_possession.TryPossessTarget(args.Target, args.Performer, comp.PossessionDuration, true))
         {

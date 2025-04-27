@@ -19,6 +19,7 @@ objective-condition-contract-title = Collect Souls
 objective-condition-contract-description = Collect as many souls as possible.
 
 hand-shake-prompt-verb = Offer handshake to {$target}
+hand-shake-accept-verb = Shake {$target}'s hand
 
 handshake-offer-popup = {$user} offers {POSS-ADJ($user)} hand to you, a sly grin on {POSS-ADJ($user)} face.
 handshake-offer-popup-self = You outstretch your hand to {$target}, a sly grin on your face.
@@ -37,8 +38,6 @@ devil-exorcised = The ground cracks and splinters beneath {$target} as they are 
 
 invalid-possession-target = You cannot possess this target!
 
-devil-power-level-increase-one = Bits of flame flare out from your fingertips. Your connection with hell has strengthened.
-devil-power-level-increase-two = You feel your power surge. Your connection with hell has strengthened.
-devil-power-level-increase-three = You've almost completed your tasks here. Just a few more souls.
-
-
+devil-power-level-increase-weak = Bits of flame flare out from your fingertips. Your connection with hell has strengthened.
+devil-power-level-increase-moderate = You feel your power surge. Your connection with hell has strengthened.
+devil-power-level-increase-powerful = You've almost completed your tasks here. Just a few more souls.

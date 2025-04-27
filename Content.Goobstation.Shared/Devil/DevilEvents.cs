@@ -15,7 +15,7 @@ namespace Content.Goobstation.Shared.Devil;
 /// <param name="User">The Devil whos power level is changing</param>
 /// <param name="NewLevel">The new level they are reaching.</param>
 [ByRefEvent]
-public record struct PowerLevelChangedEvent(EntityUid User, int NewLevel);
+public record struct PowerLevelChangedEvent(EntityUid User, DevilPowerLevel NewLevel);
 
 /// <summary>
 /// Raised on a devil when the amount of souls in their storage changes.
@@ -34,7 +34,7 @@ public abstract partial class BaseDevilContractEvent : EntityEventArgs
     /// <summary>
     /// The contract using this event.
     /// </summary>
-    public DevilContractComponent Contract;
+    public DevilContractComponent? Contract;
 
     /// <summary>
     /// The target affected by this contract.
