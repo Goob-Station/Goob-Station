@@ -31,3 +31,13 @@
   - type: Item
     size: Small
   - type: PreventChasmFalling
+
+- type: entity
+  parent: LavalandJaunter
+  id: LavalandJaunterRecharging
+  name: experimental jaunter
+  components:
+  - type: PreventChasmFalling
+    deleteOnUse: false
+  - type: UseDelay
+    delay: 120
