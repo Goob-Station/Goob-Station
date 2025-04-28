@@ -69,6 +69,7 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
             BreakOnHandChange = true,
             NeedHand = true,
             BlockDuplicate = true,
+            MultiplyDelay = false,
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);

@@ -43,6 +43,12 @@ public sealed partial class ItemRandomizeMovementspeedComponent : Component
     public TimeSpan NextExecutionTime;
 
     /// <summary>
+    /// The execution interval.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
+
+    /// <summary>
     /// Smooth!
     /// </summary>
     [DataField, AutoNetworkedField]

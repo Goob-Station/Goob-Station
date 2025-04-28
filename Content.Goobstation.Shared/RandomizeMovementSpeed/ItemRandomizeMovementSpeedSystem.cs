@@ -22,8 +22,6 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
 
-    private static readonly TimeSpan ExecutionInterval = TimeSpan.FromSeconds(3);
-
     public override void Initialize()
     {
         base.Initialize();
@@ -67,7 +65,7 @@ public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
             comp.TargetModifier = _random.NextFloat(comp.Min, comp.Max);
 
             Dirty(uid, comp);
-            comp.NextExecutionTime = _timing.CurTime + ExecutionInterval;
+            comp.NextExecutionTime = _timing.CurTime + comp.ExecutionInterval;
         }
 
     }

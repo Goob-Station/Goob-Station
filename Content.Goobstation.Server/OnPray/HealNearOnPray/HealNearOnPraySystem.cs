@@ -7,6 +7,7 @@ using System.Linq;
 using Content.Goobstation.Shared.Religion;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
+using Content.Shared.Mobs.Components;
 
 namespace Content.Goobstation.Server.OnPray.HealNearOnPray;
 
@@ -26,6 +27,9 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(args.User, comp.Range);
 
         foreach (var entity in lookup.Where(entity => !HasComp<WeakToHolyComponent>(entity))) // im linqing it
-            _damageable.TryChangeDamage(entity, comp.Damage);
+        {
+            if (HasComp<MobStateComponent>(entity)) //god forgive me I don't know linq
+                _damageable.TryChangeDamage(entity, comp.Damage);
+        }
     }
 }
