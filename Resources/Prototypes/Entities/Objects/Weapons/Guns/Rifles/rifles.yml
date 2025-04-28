@@ -75,6 +75,7 @@
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -131,9 +132,9 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation
-    spreadMultiplier: 1.6
-  - type: AltFireMelee # Goobstation V
+  - type: Multishot # Goobstation V
+    missChance: 0.3
+  - type: AltFireMelee
     attackType: Heavy
   - type: MeleeWeapon
     damage:
@@ -142,7 +143,7 @@
     angle: 0
     wideAnimationRotation: 90 # when/if bayonets get added (to rifles) set this to -90
     soundHit:
-      collection: MetalThud # Goobstation ^ 
+      collection: MetalThud # Goobstation ^
 
 - type: entity
   name: AKM
