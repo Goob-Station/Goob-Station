@@ -299,7 +299,8 @@ public sealed partial class DevilContractSystem : EntitySystem
             }
 
             var targetEntity = resolver(comp);
-            if (targetEntity != null && !TerminatingOrDeleted(targetEntity.Value))
+
+            if (targetEntity is not null)
                 ApplyEffectToTarget(targetEntity.Value, clause, comp);
             else
                 _sawmill.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {uid}");
@@ -311,9 +312,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         AddComponents(target, clause);
         RemoveComponents(target, clause);
         ChangeDamageModifier(target, clause);
-
-        if (contract is not null)
-            DoSpecialActions(target, contract, clause);
+        DoSpecialActions(target, contract, clause);
     }
 
     private void ChangeDamageModifier(EntityUid target, DevilClausePrototype clause)
@@ -340,14 +339,19 @@ public sealed partial class DevilContractSystem : EntitySystem
         EntityManager.AddComponents(target, clause.AddedComponents);
     }
 
-    private void DoSpecialActions(EntityUid target, DevilContractComponent contract, DevilClausePrototype clause)
+    private void DoSpecialActions(EntityUid target, DevilContractComponent? contract, DevilClausePrototype clause)
     {
-        if (clause.Event == null || contract.Signer is not { } signer)
+        if (clause.Event == null)
             return;
 
         var ev = clause.Event;
-        ev.Contract = contract;
-        ev.Target = signer;
+
+        if (contract?.Signer is { } signer)
+        {
+            ev.Contract = contract;
+            ev.Target = signer;
+        }
+
         RaiseLocalEvent(target, (object)ev, true);
     }
 
