@@ -400,7 +400,7 @@
 # Head Of Security
 
 - type: selectableSet
-  id: SmgSet
+  id: HosSmgSet
   name: selectable-set-hos-smg-name
   description: selectable-set-hos-smg-description
   sprite:
@@ -410,7 +410,7 @@
   - WeaponHeadOfSecuritySMG
 
 - type: selectableSet
-  id: ShotgunSet
+  id: HosShotgunSet
   name: selectable-set-hos-shotgun-name
   description: selectable-set-hos-shotgun-description
   sprite:
@@ -420,7 +420,7 @@
   - WeaponHeadOfSecurityShotgun
 
 - type: selectableSet
-  id: SniperSet
+  id: HosSniperSet
   name: selectable-set-hos-sniper-name
   description: selectable-set-hos-sniper-description
   sprite:
@@ -430,7 +430,7 @@
   - WeaponHeadOfSecuritySniper
 
 - type: selectableSet
-  id: RifleSet
+  id: HosRifleSet
   name: selectable-set-hos-rifle-name
   description: selectable-set-hos-rifle-description
   sprite:
