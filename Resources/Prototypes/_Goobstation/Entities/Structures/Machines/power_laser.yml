@@ -32,6 +32,7 @@
       map: ["enum.PTLVisualLayers.Charge"]
   - type: Transform
     anchored: true
+    noRot: false
   - type: RadiationSource
   - type: Appearance
   - type: PowerNetworkBattery
@@ -87,7 +88,7 @@
   #- type: UserInterface
   #  interfaces:
   #    enum.PTLUiKey.Key:
-  #      type: PTLBoundUserInterface  
+  #      type: PTLBoundUserInterface
   - type: AmbientSound
     range: 5
     sound:

@@ -10,6 +10,8 @@ using Content.Server.Power.Components;
 using Content.Server.Power.SMES;
 using Content.Server.Stack;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Radiation.Components;
@@ -17,6 +19,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -38,7 +41,7 @@ public sealed partial class PTLSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly AudioSystem _aud = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     [ValidatePrototypeId<StackPrototype>] private readonly string _stackCredits = "Credit";
     [ValidatePrototypeId<TagPrototype>] private readonly string _tagScrewdriver = "Screwdriver";
@@ -56,6 +59,7 @@ public sealed partial class PTLSystem : EntitySystem
         SubscribeLocalEvent<PTLComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<PTLComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<PTLComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<PTLComponent, GotEmaggedEvent>(OnEmagged);
     }
 
     public override void Update(float frameTime)
@@ -111,8 +115,18 @@ public sealed partial class PTLSystem : EntitySystem
 
         if (TryComp<GunComponent>(ent, out var gun))
         {
-            var forward = new EntityCoordinates(ent, new Vector2(0, -1));
-            _gun.AttemptShoot(ent, ent, gun, forward);
+            if (!TryComp<TransformComponent>(ent, out var xform))
+                return;
+
+            var localDirectionVector = Vector2.UnitY * -1;
+            if (ent.Comp.ReversedFiring)
+                localDirectionVector *= -1f;
+
+            var directionInParentSpace = xform.LocalRotation.RotateVec(localDirectionVector);
+
+            var targetCoords = xform.Coordinates.Offset(directionInParentSpace);
+
+            _gun.AttemptShoot(ent, ent, gun, targetCoords);
         }
 
         // EVIL behavior......
@@ -174,5 +188,20 @@ public sealed partial class PTLSystem : EntitySystem
         sb.AppendLine(Loc.GetString("ptl-examine-spesos", ("spesos", ent.Comp.SpesosHeld)));
         sb.AppendLine(Loc.GetString("ptl-examine-screwdriver"));
         args.PushMarkup(sb.ToString());
+    }
+
+    private void OnEmagged(EntityUid uid, PTLComponent component, ref GotEmaggedEvent args)
+    {
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
+            return;
+
+        if (component.ReversedFiring)
+            return;
+
+        component.ReversedFiring = true;
+        args.Handled = true;
     }
 }

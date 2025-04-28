@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.GameStates;
@@ -21,6 +22,7 @@ public sealed partial class PTLComponent : Component
 
     [DataField, AutoNetworkedField] public float ShootDelay = 10f;
     [DataField, AutoNetworkedField] public MinMax ShootDelayThreshold = new MinMax(2, 10);
+    [DataField, AutoNetworkedField] public bool ReversedFiring = false;
     [ViewVariables(VVAccess.ReadOnly)] public TimeSpan NextShotAt = TimeSpan.Zero;
 
     [DataField] public DamageSpecifier BaseBeamDamage;
