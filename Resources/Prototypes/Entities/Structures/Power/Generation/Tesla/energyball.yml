@@ -59,7 +59,7 @@
           !type:PhysShapeCircle
             radius: 0.55
         hard: true
-        restitution: 1.1 # Goobstation - fun
+        restitution: 1.0 # Goobstation - fun
         density: 99999
         mask:
         - Opaque
