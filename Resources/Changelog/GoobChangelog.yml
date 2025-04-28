@@ -7887,3 +7887,56 @@ Entries:
       message: resomi fit in bags again
   id: 915
   time: '2025-04-26T18:31:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Advanced pens (e.g. cybersun pen) now do 3 -> 20 embed damage.
+  id: 916
+  time: '2025-04-27T14:42:25.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Fix
+      message: fixed deathsquad PDA colors
+  id: 917
+  time: '2025-04-27T14:43:07.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Instead of having 20% more health, IPCs now take 20% less brute damage.
+        Other values changed accordingly, this is only a cosmetic change.
+  id: 918
+  time: '2025-04-27T15:29:05.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Welder energy swords now have 10% chance of reflecting lasers, deal 5/10
+        damage instead of 4/11, and are half as effective in damaging limbs as
+        the real eswords.
+    - type: Fix
+      message: >-
+        You can no longer use welder energy swords to craft a real double energy
+        sword.
+  id: 919
+  time: '2025-04-27T16:12:11.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Syndicate agents can now purchase undeterminated crates, allowing them
+        to choose one of three random bundles!
+  id: 920
+  time: '2025-04-27T19:39:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new syndicate faction - Neulithiv Visionary Federation
+  id: 921
+  time: '2025-04-28T03:28:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Removed copyrighted songs. (R.I.P Holocigar & Mariah)
+  id: 922
+  time: '2025-04-28T05:07:20.0000000+00:00'
