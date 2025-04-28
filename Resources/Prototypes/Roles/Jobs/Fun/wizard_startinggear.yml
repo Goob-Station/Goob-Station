@@ -59,7 +59,7 @@
     id: WizardPDA
     ears: ClothingHeadsetAltWizard
     belt: ClothingBeltWand
-    # pocket1: TODO: Include wizard teleport scroll
+    pocket1: WizardTeleportScroll
     pocket2: WizardsGrimoire
   storage:
     back:
