@@ -174,7 +174,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: CanLightCigarette # Goobstation
+  - type: AlwaysHot # Goobstation
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -215,7 +215,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: CanLightCigarette # Goobstation
+  - type: AlwaysHot # Goobstation
 
 - type: entity
   id: BaseWeaponBatterySmall
