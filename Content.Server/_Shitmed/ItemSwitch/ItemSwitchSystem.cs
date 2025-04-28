@@ -23,6 +23,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     {
         base.Initialize();
         SubscribeLocalEvent<ItemSwitchComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<ItemSwitchComponent, ChargeChangedEvent>(OnBatteryChanged);
         SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack);
     }
 
@@ -51,17 +52,32 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         args.PushMarkup(Loc.GetString("melee-battery-examine", ("color", "yellow"), ("count", count)));
     }
 
-    /// <summary>
-    /// Handles removing charge from the item on melee attack.
-    /// </summary>
+    private void CheckPowerAndSwitchState(EntityUid uid, ItemSwitchComponent component)
+    {
+        if (!component.NeedsPower
+            || !TryComp<BatteryComponent>(uid, out var battery)
+            || !component.States.TryGetValue(component.State, out var state))
+            return;
+
+        component.IsPowered = battery.CurrentCharge >= state.EnergyPerUse;
+
+        if (component is { IsPowered: false, DefaultState: { } defaultState } && component.State != defaultState)
+            _itemSwitch.Switch((uid, component), defaultState);
+    }
+
     private void OnMeleeAttack(Entity<ItemSwitchComponent> ent, ref MeleeHitEvent args)
     {
         if (!ent.Comp.NeedsPower
-        || !TryComp<BatteryComponent>(ent, out var battery)
-        || !ent.Comp.States.TryGetValue(ent.Comp.State, out var state))
-        return;
+            || !TryComp<BatteryComponent>(ent, out var battery)
+            || !ent.Comp.States.TryGetValue(ent.Comp.State, out var state))
+            return;
 
         _battery.TryUseCharge(ent, state.EnergyPerUse, battery);
+    }
+
+    private void OnBatteryChanged(EntityUid uid, ItemSwitchComponent component, ref ChargeChangedEvent args)
+    {
+        CheckPowerAndSwitchState(uid, component);
     }
 
     public override void Update(float frameTime)
@@ -71,13 +87,8 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         var query = EntityQueryEnumerator<ItemSwitchComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (!comp.NeedsPower
-                || !TryComp<BatteryComponent>(uid, out var battery)
-                || !comp.States.TryGetValue(comp.State, out var state))
-                continue;
-
-            if (state.EnergyPerUse > battery.CurrentCharge && comp.DefaultState is { } defaultState)
-                _itemSwitch.Switch((uid, comp), defaultState);
+            CheckPowerAndSwitchState(uid, comp);
         }
     }
+
 }
