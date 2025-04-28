@@ -31,18 +31,18 @@ public sealed class WeakToHolySystem : EntitySystem
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
 
-        SubscribeLocalEvent<HolyResistanceComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<DamageableComponent, DamageModifyEvent>(OnDamageModify);
 
     }
 
     #region Holy Damage Dealing
 
-    private void OnDamageModify(EntityUid uid, HolyResistanceComponent component, DamageModifyEvent args)
+    private void OnDamageModify(EntityUid uid, DamageableComponent component, DamageModifyEvent args)
     {
         var unholyEvent = new DamageUnholyEvent(args.Target, args.Origin);
         RaiseLocalEvent(args.Target, ref unholyEvent);
 
-        var holyCoefficient = component.Modifier; // Default resistance
+        var holyCoefficient = 0f; // Default resistance
 
         if (unholyEvent.ShouldTakeHoly)
             holyCoefficient = 1f; //Allow holy damage

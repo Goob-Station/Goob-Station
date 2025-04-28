@@ -139,8 +139,6 @@
   id: MobDamageable
   abstract: true
   components:
-  - type: HolyResistance
-    modifier: 0
   - type: Damageable
     damageContainer: Biological
   - type: Destructible
