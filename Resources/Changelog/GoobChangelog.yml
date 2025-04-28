@@ -7934,3 +7934,9 @@ Entries:
       message: Added new syndicate faction - Neulithiv Visionary Federation
   id: 921
   time: '2025-04-28T03:28:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Removed copyrighted songs. (R.I.P Holocigar & Mariah)
+  id: 922
+  time: '2025-04-28T05:07:20.0000000+00:00'
