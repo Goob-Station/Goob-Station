@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Shared.Spy;
 using Content.Server.Objectives.Components;
 using Content.Shared.Random;
@@ -33,7 +34,7 @@ public sealed partial class SpySystem
         "UplinkJob", // <-- funny
     ];
 
-    private readonly (SpyBountyDifficulty Difficulty, int Weight)[] _difficultyWeights =
+    private static readonly (SpyBountyDifficulty Difficulty, int Weight)[] DifficultyWeights =
     [
         (SpyBountyDifficulty.Easy, 5),
         (SpyBountyDifficulty.Medium, 4),
@@ -51,5 +52,7 @@ public sealed partial class SpySystem
         SpyBountyDifficulty Diff
     );
 
-    private const int GlobalBountyAmount = 10;
+    private const int RetryAttempts = 3;
+
+    private static readonly int GlobalBountyAmount = DifficultyWeights.Select(t => t.Weight).Sum();
 }

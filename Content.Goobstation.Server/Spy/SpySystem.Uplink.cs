@@ -4,9 +4,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Hologram;
 using Content.Goobstation.Shared.Spy;
 using Content.Server.Objectives.Components.Targets;
 using Content.Shared.DoAfter;
+using Content.Shared.Holopad;
 using Content.Shared.Interaction;
 using Content.Shared.Objectives;
 using Robust.Shared.Audio;
@@ -56,6 +58,8 @@ public sealed partial class SpySystem
         var sound = _audio.PlayPvs(StealSound, ent, AudioParams.Default.WithLoop(true));
         if (sound is null)
             return;
+
+        var comp = EnsureComp<HologramComponent>(args.Target.Value);
 
         var doAfterArgs = new DoAfterArgs(_entityManager,
             args.User,

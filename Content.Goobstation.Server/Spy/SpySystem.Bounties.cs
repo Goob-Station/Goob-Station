@@ -88,17 +88,35 @@ public sealed partial class SpySystem
             || !_protoMan.TryIndex(_hardObjectives, out var hardObjectives))
             return false;
 
-        var finalObjectives = GenerateObjectives(easyObjectives, mediumObjectives, hardObjectives);
+        var currentAttempt = 0;
+        var allStealGroups = new HashSet<ProtoId<StealTargetGroupPrototype>>();
+        List<StealTarget> finalObjectives = [];
 
-        // Get all unique steal groups from objectives
-        var stealGroups = finalObjectives
-            .Select(o => o.Condition.StealGroup)
-            .Distinct()
-            .Where(StealTargetExists)
-            .ToList();
+        // Attempt to gather enough steal groups across multiple tries
+        while (currentAttempt < RetryAttempts && allStealGroups.Count < GlobalBountyAmount)
+        {
+            finalObjectives = GenerateObjectives(easyObjectives, mediumObjectives, hardObjectives);
+            var currentStealGroups = finalObjectives
+                .Select(o => o.Condition.StealGroup)
+                .Distinct()
+                .Where(StealTargetExists)
+                .ToList();
 
-        // Shuffle for randomness
+            foreach (var group in currentStealGroups)
+                allStealGroups.Add(group);
+
+
+            currentAttempt++;
+        }
+
+        var stealGroups = allStealGroups.ToList();
         _random.Shuffle(stealGroups);
+        var selectedStealGroups = stealGroups.Take(GlobalBountyAmount).ToList();
+        if (selectedStealGroups.Count == 0)
+        {
+            bounties = [];
+            return false;
+        }
 
         // Get possible rewards
         var listings = GetPossibleBountyRewards(out var easyObjects, out var mediumObjects, out var hardObjects);
@@ -109,13 +127,10 @@ public sealed partial class SpySystem
         }
 
         // Create bounties for each steal group
-        bounties = stealGroups
-            .Take(GlobalBountyAmount)
+        bounties = selectedStealGroups
             .Select(stealGroup =>
             {
-                // Find the original objective to get difficulty
                 var objective = finalObjectives.First(o => o.Condition.StealGroup == stealGroup);
-
                 var targetList = objective.Diff switch
                 {
                     SpyBountyDifficulty.Easy => easyObjects,
@@ -129,7 +144,6 @@ public sealed partial class SpySystem
             })
             .ToList();
 
-        // Final shuffle
         _random.Shuffle(bounties);
         return true;
     }
@@ -177,7 +191,7 @@ public sealed partial class SpySystem
             .Where(p => p.Cost.Values.Sum() > 25 && p.Cost.Values.Sum() <= 50)
             .ToList();
         hardObjects = listings
-            .Where(p => p.Cost.Values.Sum() > 50)
+            .Where(p => p.Cost.Values.Sum() > 50 && p.Cost.Values.Sum() < 250)
             .ToList();
 
         return listings;
@@ -187,7 +201,7 @@ public sealed partial class SpySystem
     {
         var weightedPickedObjectives = new List<StealTargetId>();
 
-        foreach (var (difficulty, weight) in _difficultyWeights)
+        foreach (var (difficulty, weight) in DifficultyWeights)
         {
             var prototype = difficulty switch
             {

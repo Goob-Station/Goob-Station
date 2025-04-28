@@ -8,6 +8,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -29,6 +30,7 @@ public sealed partial class SpySystem : SharedSpySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
