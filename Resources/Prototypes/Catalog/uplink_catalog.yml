@@ -852,9 +852,9 @@
   name: uplink-encryption-key-name
   description: uplink-encryption-key-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+  productEntity: EncryptionKeySyndie # Two for the price of one
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 3 # goob
   categories:
   - UplinkDeception
   conditions:
@@ -1412,7 +1412,7 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 7 # goob - Syndicate Radio Price Adjust
   categories:
   - UplinkImplants
   conditions:
