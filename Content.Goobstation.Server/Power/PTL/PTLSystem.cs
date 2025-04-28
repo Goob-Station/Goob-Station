@@ -86,31 +86,26 @@ public sealed partial class PTLSystem : EntitySystem
         || battery.CurrentCharge < ent.Comp.MinShootPower)
             return;
 
-        Shoot(ent);
+        Shoot((ent, ent.Comp, battery));
         Dirty(ent);
     }
 
-    private void Shoot(Entity<PTLComponent> ent)
+    private void Shoot(Entity<PTLComponent, BatteryComponent> ent)
     {
         var megajoule = 1e6;
 
-        var charge = 0d;
-        var spesos = 0d;
+        var charge = ent.Comp2.CurrentCharge / megajoule;
+        // some random formula i found in bounty thread i popped it into desmos i think it looks good
+        var spesos = (int) (charge / (Math.Log(charge * 2) + 1));
 
-        if (TryComp<BatteryComponent>(ent, out var battery))
-        {
-            charge = battery.CurrentCharge / megajoule;
-            // some random formula i found in bounty thread i popped it into desmos i think it looks good
-            spesos = (int) (charge / (Math.Log(charge * 2) + 1));
-        }
-        if (charge < 1f) return;
+        if (charge <= 0 || !double.IsFinite(spesos) || spesos < 0) return;
 
         // scale damage from energy
         if (TryComp<HitscanBatteryAmmoProviderComponent>(ent, out var hitscan))
         {
             hitscan.FireCost = (float) (charge * megajoule);
             var prot = _protMan.Index<HitscanPrototype>(hitscan.Prototype);
-            prot.Damage = ent.Comp.BaseBeamDamage * charge * 2f;
+            prot.Damage = ent.Comp1.BaseBeamDamage * charge * 2f;
         }
 
         if (TryComp<GunComponent>(ent, out var gun))
@@ -119,7 +114,7 @@ public sealed partial class PTLSystem : EntitySystem
                 return;
 
             var localDirectionVector = Vector2.UnitY * -1;
-            if (ent.Comp.ReversedFiring)
+            if (ent.Comp1.ReversedFiring)
                 localDirectionVector *= -1f;
 
             var directionInParentSpace = xform.LocalRotation.RotateVec(localDirectionVector);
@@ -130,9 +125,9 @@ public sealed partial class PTLSystem : EntitySystem
         }
 
         // EVIL behavior......
-        if (charge >= ent.Comp.PowerEvilThreshold)
+        if (charge >= ent.Comp1.PowerEvilThreshold)
         {
-            var evil = (float) (charge / ent.Comp.PowerEvilThreshold);
+            var evil = (float) (charge / ent.Comp1.PowerEvilThreshold);
 
             if (TryComp<RadiationSourceComponent>(ent, out var rad))
                 rad.Intensity = evil;
@@ -140,7 +135,7 @@ public sealed partial class PTLSystem : EntitySystem
             _flash.FlashArea((ent, null), ent, evil, evil);
         }
 
-        ent.Comp.SpesosHeld += spesos;
+        ent.Comp1.SpesosHeld += spesos;
     }
 
     private void OnInteractHand(Entity<PTLComponent> ent, ref InteractHandEvent args)
