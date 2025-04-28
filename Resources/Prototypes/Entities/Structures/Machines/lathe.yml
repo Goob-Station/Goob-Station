@@ -625,6 +625,10 @@
     - BorgModulesGoob
     - Cybernetics
     - PowerCells
+    - MechBoardsScience
+    - MechBoardsSecurity
+    - MechBoardsCargo
+    - MechBoardsCivilian
   - type: EmagLatheRecipes # Goobstation
     emagStaticPacks:
     - MechWeaponsSecurityStatic

@@ -191,10 +191,6 @@
     - ShuttleBoards
     - MedicalBoardsGoob
     - BluespaceTheory
-    - MechBoardsScience
-    - MechBoardsSecurity
-    - MechBoardsCargo
-    - MechBoardsCivilian
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ScienceBoardsEvilStatic # Omega CHIMP chip
