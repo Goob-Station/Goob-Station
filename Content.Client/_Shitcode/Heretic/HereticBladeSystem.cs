@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Shitcode.Heretic.Systems;
 
 namespace Content.Client._Shitcode.Heretic;
