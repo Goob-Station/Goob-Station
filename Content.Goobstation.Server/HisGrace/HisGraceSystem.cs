@@ -124,6 +124,11 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         args.ModifySpeed(comp.SpeedMultiplier);
     }
 
+    private void UpdateSpeedMultiplier(HisGraceUserComponent userComp, float bonus)
+    {
+        userComp.SpeedMultiplier = userComp.BaseSpeedMultiplier + bonus;
+    }
+
     private void OnUse(EntityUid uid, HisGraceComponent comp, ref UseInHandEvent args)
     {
         if (comp.CurrentState != HisGraceState.Dormant)
@@ -156,87 +161,99 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void OnHungerChanged(EntityUid uid, HisGraceComponent comp, ref HisGraceHungerChangedEvent args)
     {
-        if (comp.User is not { } user|| !TryComp<HisGraceUserComponent>(comp.User, out var userComp))
+        if (comp.User is not { } user
+        || !TryComp<HisGraceUserComponent>(user, out var userComp))
             return;
 
         _speedModifier.RefreshMovementSpeedModifiers(user);
 
-        if (args.NewState == HisGraceState.Ascended && args.OldState != HisGraceState.Ascended)
-        {
-            EnsureComp<UnremoveableComponent>(uid);
-            DoAscension(comp);
-            DoAscensionVisuals((uid, comp), "ascended");
-
+        if (HandleAscendedState(uid, comp, args, user))
             return;
-        }
 
-        if (args.NewState > args.OldState && args.OldState is not HisGraceState.Dormant && args.NewState is not HisGraceState.Ascended)
-        {
-            var increasePopup = Loc.GetString("hisgrace-hunger-increased");
-            _popup.PopupEntity(increasePopup, uid, PopupType.MediumCaution);
-        }
+        ShowHungerChangePopup(uid, args);
+        HandleHungerState(uid, comp, user, userComp, args.NewState);
+    }
 
-        if (args.NewState < args.OldState)
-        {
-            var decreasePopup = Loc.GetString("hisgrace-hunger-decreased");
-            _popup.PopupEntity(decreasePopup, uid, PopupType.Medium);
-        }
+    private bool HandleAscendedState(EntityUid uid, HisGraceComponent comp, HisGraceHungerChangedEvent args, EntityUid user)
+    {
+        if (args.NewState != HisGraceState.Ascended
+        || args.OldState == HisGraceState.Ascended)
+            return false;
 
-        switch (args.NewState)
+        EnsureComp<UnremoveableComponent>(uid);
+        DoAscension(comp);
+        DoAscensionVisuals((uid, comp), "ascended");
+        return true;
+    }
+
+    private void ShowHungerChangePopup(EntityUid uid, HisGraceHungerChangedEvent args)
+    {
+        // Prevents pop-up clutter.
+        if (args.OldState == HisGraceState.Dormant)
+            return;
+
+        var (messageKey, popupType) = args.NewState > args.OldState &&
+         args.NewState != HisGraceState.Ascended
+         ? ("hisgrace-hunger-increased", PopupType.MediumCaution)
+         : ("hisgrace-hunger-decreased", PopupType.Medium);
+
+        _popup.PopupEntity(Loc.GetString(messageKey), uid, popupType);
+    }
+
+    private void HandleHungerState(EntityUid uid, HisGraceComponent comp, EntityUid user, HisGraceUserComponent userComp, HisGraceState newState)
+    {
+        switch (newState)
         {
             case HisGraceState.Dormant:
-            {
-                RemComp<UnremoveableComponent>(uid);
-                RemComp<JitteringComponent>(uid);
-
-                var dormantPopup = Loc.GetString("hisgrace-hunger-sated");
-                _popup.PopupEntity(dormantPopup, uid, PopupType.MediumCaution);
-
-                // reset user to null
-                comp.User = null;
-
-                // free all eaten entities
-                var toRelease = new List<EntityUid>(comp.Stomach.ContainedEntities);
-                foreach (var ent in toRelease)
-                {
-                    _containerSystem.TryRemoveFromContainer(ent);
-                    _stun.TryParalyze(ent, TimeSpan.FromSeconds(8), true);
-                }
-
+                HandleDormantState(uid, comp, user);
                 break;
-            }
             case HisGraceState.Peckish:
-            {
-                RemComp<UnremoveableComponent>(uid);
-                RemComp<JitteringComponent>(uid);
-                userComp.SpeedMultiplier = userComp.BaseSpeedMultiplier;
-                userComp.SpeedMultiplier += comp.SpeedAddition;
-
+                HandlePeckishState(uid, comp, userComp);
                 break;
-            }
-
             case HisGraceState.Ravenous:
             case HisGraceState.Starving:
-            {
-                EnsureComp<UnremoveableComponent>(uid);
-                EnsureComp<JitteringComponent>(uid);
-                userComp.SpeedMultiplier = userComp.BaseSpeedMultiplier;
-                userComp.SpeedMultiplier += comp.SpeedAddition * 2;
+                HandleRavenousState(uid, comp, userComp);
                 break;
-            }
-
             case HisGraceState.Death:
-            {
-                _damageable.TryChangeDamage(user, comp.DamageOnFail, targetPart: TargetBodyPart.Head,  origin: uid, ignoreResistances: true);
-
-                var popUp = Loc.GetString("hisgrace-death", ("target", Name(user)));
-                _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
-
-                ChangeState(comp, HisGraceState.Dormant);
+                HandleDeathState(uid, comp, user);
                 break;
-            }
         }
     }
+    private void HandleDormantState(EntityUid uid, HisGraceComponent comp, EntityUid user)
+    {
+        SetUnremovable(uid, false);
+        _popup.PopupEntity(Loc.GetString("hisgrace-hunger-sated"), uid, PopupType.MediumCaution);
+        comp.User = null;
+        ReleaseContainedEntities(comp);
+    }
+
+    private void HandlePeckishState(EntityUid uid, HisGraceComponent comp, HisGraceUserComponent userComp)
+    {
+        SetUnremovable(uid, false);
+        UpdateSpeedMultiplier(userComp, comp.SpeedAddition);
+    }
+
+    private void HandleRavenousState(EntityUid uid, HisGraceComponent comp, HisGraceUserComponent userComp)
+    {
+        SetUnremovable(uid, true);
+        UpdateSpeedMultiplier(userComp, comp.SpeedAddition * 2);
+    }
+
+    private void HandleDeathState(EntityUid uid, HisGraceComponent comp, EntityUid user)
+    {
+        SetUnremovable(uid, true);
+        _damageable.TryChangeDamage(user,
+            comp.DamageOnFail,
+            targetPart: TargetBodyPart.Head,
+            origin: uid,
+            ignoreResistances: true);
+
+        var popup = Loc.GetString("hisgrace-death", ("target", Name(user)));
+        _popup.PopupEntity(popup, user, user, PopupType.LargeCaution);
+
+        ChangeState(comp, HisGraceState.Dormant);
+    }
+
 
     #region Update Loop
 
@@ -270,7 +287,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void HandleUserDistance(EntityUid uid, HisGraceComponent hisGrace, EntityUid user)
     {
-        if (_timing.CurTime <= hisGrace.NextUserAttack || _lookup.GetEntitiesInRange(uid, 1f).Contains(user))
+        if (_timing.CurTime <= hisGrace.NextUserAttack
+        || _lookup.GetEntitiesInRange(uid, 1f).Contains(user))
             return;
 
         var popUp = Loc.GetString("hisgrace-too-far");
@@ -282,9 +300,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void HandleGroundAttacks(EntityUid uid, HisGraceComponent hisGrace, MeleeWeaponComponent melee, TransformComponent xform)
     {
-        if (hisGrace.IsHeld
-            && hisGrace.Holder == hisGrace.User
-            || _timing.CurTime > hisGrace.NextGroundAttack)
+        if (hisGrace.IsHeld && hisGrace.Holder == hisGrace.User
+            || _timing.CurTime < hisGrace.NextGroundAttack)
             return;
 
         var nearbyEnts = _lookup.GetEntitiesInRange(uid, 1f);
@@ -311,8 +328,9 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void UpdateHungerState(HisGraceComponent hisGrace)
     {
-        var downgradeNeeded = hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold)
-                              && hisGrace.Hunger < currentThreshold.Threshold;
+        var downgradeNeeded =
+        hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold)
+        && hisGrace.Hunger < currentThreshold.Threshold;
 
         for (var i = hisGrace.OrderedStates.Count - 1; i >= 0; i--)
         {
@@ -410,6 +428,30 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         // hunger value is equal to the mutiplier times the crit threshold.
         // this is twenty for humans
         return comp.HungerOnDevourMultiplier * criticalThreshold;
+    }
+
+    private void SetUnremovable(EntityUid uid, bool enabled)
+    {
+        if (enabled)
+        {
+            EnsureComp<UnremoveableComponent>(uid);
+            EnsureComp<JitteringComponent>(uid);
+        }
+        else
+        {
+            RemComp<UnremoveableComponent>(uid);
+            RemComp<JitteringComponent>(uid);
+        }
+    }
+
+    private void ReleaseContainedEntities(HisGraceComponent hisGrace)
+    {
+        var toRelease = hisGrace.Stomach.ContainedEntities;
+        foreach (var ent in toRelease)
+        {
+            _containerSystem.TryRemoveFromContainer(ent);
+            _stun.TryParalyze(ent, TimeSpan.FromSeconds(8), true);
+        }
     }
 
     #endregion
