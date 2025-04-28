@@ -5,5 +5,16 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
-
+  
+  <ItemGroup>
+    <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
+    <ProjectReference Include="..\RobustToolbox\Lidgren.Network\Lidgren.Network.csproj" />
+    <ProjectReference Include="..\RobustToolbox\Robust.Shared.Maths\Robust.Shared.Maths.csproj" />
+    <ProjectReference Include="..\RobustToolbox\Robust.Client\Robust.Client.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
+  </ItemGroup>
+  
 </Project>
