@@ -28,7 +28,7 @@ public sealed partial class PTLVisualsSystem : EntitySystem
         || !TryComp<PTLComponent>(ent, out var ptl))
             return;
 
-        sprite.LayerSetVisible(PTLVisualLayers.Unpowered, !ptl.Active);
+        sprite.LayerSetVisible(PTLVisualLayers.Unpowered, ptl.Active);
 
         var delta = (ptl.NextShotAt - _time.CurTime).Seconds;
         var norm = Math.Clamp(delta / ptl.ShootDelay * ent.Comp.MaxChargeStates, 1, ent.Comp.MaxChargeStates);
