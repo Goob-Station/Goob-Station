@@ -311,8 +311,8 @@
     soundEmpty:
       path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 800
-    startingCharge: 800
+    maxCharge: 1000
+    startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDetain
     fireCost: 80

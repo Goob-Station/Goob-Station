@@ -52,7 +52,7 @@
 - type: entity
   name: pepperspray
   id: PepperSpray
-  parent: [BaseItem, BaseSecurityScienceCommandContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   suffix: Filled
   description: A small 50u canister of Oleoresin Capsaicin. Capable of blinding and stunning targets who aren't wearing protective gear.
   components:

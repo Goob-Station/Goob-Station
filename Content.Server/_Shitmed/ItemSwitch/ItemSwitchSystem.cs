@@ -79,10 +79,6 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     /// </summary>
     private void OnMeleeAttack(Entity<ItemSwitchComponent> ent, ref MeleeHitEvent args)
     {
-        // TODO: MeleeHitEvent is weird. Why is this even raised if we don't hit something?
-        if (!args.IsHit || args.HitEntities.Count == 0)
-            return;
-
         var uid = ent.Owner;
         var comp = ent.Comp;
         var batteryComponent = GetBatteryComponent(ent);
