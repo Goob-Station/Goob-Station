@@ -12,45 +12,34 @@
   id: BlueshieldUndeterminedWeapon
   name: blueshield weaponry pack
   description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
-  parent: [ BaseItem, BaseCentcommContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
     state: icon
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
+  - type: SetSelector
     possibleSets:
     - BSOBlueshieldSet
     - BSORevolverSet
     - BSOCQCSet
     - BSOChesterSet
     - BSOSyringeSet
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
+    maxSelectedSets: 2
 
 - type: entity
   id: BlueshieldUndeterminedHardsuit
   name: blueshield hardsuit pack
   description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
-  parent: [ BaseItem, BaseCentcommContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
     state: icon-alt
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
+  - type: SetSelector
     possibleSets:
-    - BSOLightSet
-    - BSOHeavySet
+    - BSOHardsuitLightSet
+    - BSOHardsuitHeavySet
     maxSelectedSets: 1
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
 
 # ERT
 
@@ -58,19 +47,13 @@
   id: ERTSecurityUndeterminedWeapon
   name: emergency response weaponry pack
   description: A small remote utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
-  parent: [ BaseItem, BaseCentcommContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Security/ertundetermined.rsi
     state: icon
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
+  - type: SetSelector
     possibleSets:
     - ERTBallisticsSet
     - ERTPulseSet
     maxSelectedSets: 1
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
