@@ -8,8 +8,8 @@
     <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True">
         <!-- Title -->
         <BoxContainer Orientation="Horizontal">
-            <Label FontColorOverride="#F1C40F" Text="{Loc spy-bounty-label}" Margin="0 0 200 0" />
-            <Label FontColorOverride="#F1C40F" Text="spy-time-label" />
+            <RichTextLabel Text="{Loc spy-bounty-label}" Margin="0 0 190 0" />
+            <RichTextLabel Text="{Loc spy-time-label} " />
             <Label FontColorOverride="#F1C40f" Name="RefreshTimeLabel" Text="10:00" />
         </BoxContainer>
         <PanelContainer Modulate="#F1C40F" StyleClasses="HighDivider" />
