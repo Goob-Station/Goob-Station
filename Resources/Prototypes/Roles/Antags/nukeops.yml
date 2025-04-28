@@ -101,7 +101,7 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 90000 # 25 hours - Goobstation
+    time: 36000 # 10 hours - Goobstation
   - !type:DepartmentTimeRequirement
     department: Security
     time: 36000 # 10h Goobstation
@@ -160,7 +160,7 @@
     back:
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-#    - DeathAcidifierImplanter # Goobstation
+    - DeathAcidifierImplanter
 
 #Nuclear Operative Gear
 - type: startingGear
@@ -202,7 +202,7 @@
     - PinpointerSyndicateNuclear
     #- HandheldHealthAnalyzer # Goobstation
     - CombatMedipen
-#    - DeathAcidifierImplanter - Goobstation
+    - DeathAcidifierImplanter
     - MedkitCombatFilled # Goobstation
 
 #Lone Operative Gear
