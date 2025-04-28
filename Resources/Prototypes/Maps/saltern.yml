@@ -45,10 +45,10 @@
           availableJobs:
             #service
             # Goobstation - TODO: add bso and ntr
-            # Goobstation - Me did it, Icepick
+            # Goobstation - Me did it, Icepick - Erm, if you did it, it isn't a todo!!!!
             StationAi: [ 1, 1 ]
-            NanotrasenRepresentative: [ 1, 1 ]
-            BlueshieldOfficer: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ] # Goobstation
+            BlueshieldOfficer: [ 1, 1 ] # Goobstation
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]

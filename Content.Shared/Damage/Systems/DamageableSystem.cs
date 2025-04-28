@@ -34,6 +34,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -42,6 +43,7 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -238,6 +240,7 @@ namespace Content.Shared.Damage
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
             bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null,
+            float armorPenetration = 0f,
             // Goobstation
             bool heavyAttack = false)
         {
@@ -259,7 +262,7 @@ namespace Content.Shared.Damage
                 return null;
 
             // Shitmed Change Start
-            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, armorPenetration, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
             RaiseLocalEvent(uid.Value, ref partDamage);
 
             if (partDamage.Evaded || partDamage.Cancelled)
@@ -276,10 +279,11 @@ namespace Content.Shared.Damage
                     // TODO DAMAGE PERFORMANCE
                     // use a local private field instead of creating a new dictionary here..
                     // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
-                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                    damage = DamageSpecifier.ApplyModifierSet(damage,
+                        DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goob edit
                 }
 
-                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart); // Shitmed + Goobstation Change
+                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration); // Shitmed + Goobstation Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -475,6 +479,7 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null,
         bool IgnoreResistances = false,
+        float ArmorPenetration = 0f,
         bool CanSever = true,
         bool CanEvade = false,
         float PartMultiplier = 1.00f,
@@ -498,14 +503,16 @@ namespace Content.Shared.Damage
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
+        public float ArmorPenetration; // Goobstation
 
-        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed + Goobstation Change
+        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0) // Shitmed + Goobstation Change
         {
             Target = target; // Goobstation
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
             TargetPart = targetPart; // Shitmed Change
+            ArmorPenetration = armorPenetration; // Goobstation
         }
     }
 

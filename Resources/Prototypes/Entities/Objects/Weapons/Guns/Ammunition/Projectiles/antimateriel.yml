@@ -24,7 +24,9 @@
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
@@ -39,10 +41,10 @@
   name: bullet (.60 anti-materiel)
   components:
   - type: Projectile
+    armorPenetration: 0.5 # Goobstation
     damage:
       types:
-        Piercing: 100 # Goobstation - AWP is real
-        Ion: 20 # Goobstation - IPC won't escape AWP
+        Piercing: 75
     penetrationThreshold: 100 # Goobstation - This count as penetration health
   - type: StaminaDamageOnCollide
-    damage: 50
+    damage: 115 # Goob edit

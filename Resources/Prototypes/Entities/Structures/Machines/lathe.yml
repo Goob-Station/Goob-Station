@@ -413,6 +413,7 @@
     - LatheMiscStatic
     - MedicalVehiclesStatic
     - GrenadeTriggersStatic
+    - TapeRecorderStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic

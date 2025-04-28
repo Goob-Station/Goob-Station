@@ -39,13 +39,15 @@
 # SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
@@ -214,6 +216,7 @@
     Piercing: 1.2
     Cold: 1.5
     Poison: 0.8
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Infernal
@@ -226,11 +229,13 @@
     Holy: 1.5
   flatReductions:
     Heat: 3
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Scale # Skin tougher, bones weaker, strong stomachs, cold-blooded (kindof)
   coefficients:
     Cold: 1.3
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Diona
@@ -239,17 +244,20 @@
     Slash: 0.8
     Heat: 1.5
     Shock: 1.2
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Moth # Slightly worse at everything but cold
   coefficients:
     Cold: 0.7
     Heat: 1.3
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Vox
   coefficients: # To be decided
     Poison: 1
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Zombie #Blunt resistant and immune to biological threats, but can be hacked apart and burned
@@ -260,6 +268,7 @@
     Heat: 1.25
     Poison: 0.0
     Radiation: 0.0
+  ignoreArmorPierceFlags: All # Goobstation
 
 # immune to everything except physical and heat damage
 # Goob edit
@@ -272,6 +281,7 @@
     Asphyxiation: 0.0
     Bloodloss: 0.0
     Cellular: 0.0
+  ignoreArmorPierceFlags: All # Goobstation
 
 # hurt a lot by blunt, immune to a good amount of other stuff because they're a cookie
 - type: damageModifierSet
@@ -283,6 +293,7 @@
     Asphyxiation: 0.0
     Bloodloss: 0.0
     # Cellular: 0.0 # Goobstation - changelings
+  ignoreArmorPierceFlags: All # Goobstation
 
 # Represents which damage types should be modified
 # in relation to how they cause bleed rate.
@@ -313,6 +324,7 @@
     Cellular: 0.0
     Radiation: 0.2
     Caustic: 0.0
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: HellSpawn
@@ -322,6 +334,7 @@
     Shock: 0.8
     Bloodloss: 0.4
     Holy: 1
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Cockroach
@@ -334,6 +347,7 @@
     Cellular: 1.0
     Radiation: 0.0 # hehe funny cockroach immune to rads
     Caustic: 1.0
+  ignoreArmorPierceFlags: All # Goobstation
 
 # Massive heat damage, presumably to kill with lasers
 - type: damageModifierSet
@@ -349,6 +363,7 @@
     Cellular: 0.0
     Heat: 2.5
     Caustic: 0.0
+  ignoreArmorPierceFlags: All # Goobstation
 
 # protects against radiation
 - type: damageModifierSet

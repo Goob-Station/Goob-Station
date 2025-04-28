@@ -1,20 +1,23 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Fishing.Components;
 using Content.Goobstation.Shared.Fishing.Events;
+using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
+using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Actions;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Fishing.Systems;
 
@@ -24,6 +27,7 @@ namespace Content.Goobstation.Shared.Fishing.Systems;
 public abstract class SharedFishingSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly INetManager Net = default!;
     [Dependency] protected readonly ThrowingSystem Throwing = default!;
     [Dependency] protected readonly SharedTransformSystem Xform = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -73,8 +77,11 @@ public abstract class SharedFishingSystem : EntitySystem
         while (activeFishers.MoveNext(out var fisher, out var fisherComp))
         {
             // Get fishing rod, then float, then spot... ReCurse.
-            if (!FishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp) ||
+            if (TerminatingOrDeleted(fisherComp.FishingRod) ||
+                !FishRodQuery.TryComp(fisherComp.FishingRod, out var fishingRodComp) ||
+                TerminatingOrDeleted(fishingRodComp.FishingLure) ||
                 !FishLureQuery.TryComp(fishingRodComp.FishingLure, out var fishingFloatComp) ||
+                TerminatingOrDeleted(fishingFloatComp.AttachedEntity) ||
                 !ActiveFishSpotQuery.TryComp(fishingFloatComp.AttachedEntity, out var activeSpotComp))
                 continue;
 
@@ -85,7 +92,7 @@ public abstract class SharedFishingSystem : EntitySystem
             fisherComp.NextStruggle ??= Timing.CurTime + TimeSpan.FromSeconds(fishingRodComp.StartingStruggleTime);
 
             // Fish fighting logic
-            CalculateFightingTimings((fisher ,fisherComp), activeSpotComp);
+            CalculateFightingTimings((fisher, fisherComp), activeSpotComp);
 
             switch (fisherComp.TotalProgress)
             {
@@ -119,11 +126,19 @@ public abstract class SharedFishingSystem : EntitySystem
 
             // Get fishing lure, then rod, then player... ReCurse.
             if (!FishLureQuery.TryComp(activeSpotComp.AttachedFishingLure, out var fishingFloatComp) ||
+                TerminatingOrDeleted(fishingFloatComp.FishingRod) ||
                 !FishRodQuery.TryComp(fishingFloatComp.FishingRod, out var fishRodComp))
                 continue;
 
             var fishRod = fishingFloatComp.FishingRod;
+
+            if (TerminatingOrDeleted(fishingFloatComp.FishingRod))
+                continue;
+
             var fisher = Transform(fishingFloatComp.FishingRod).ParentUid;
+
+            if (!Exists(fisher) || TerminatingOrDeleted(fisher))
+                continue;
 
             var activeFisher = EnsureComp<ActiveFisherComponent>(fisher);
             activeFisher.FishingRod = fishRod;
@@ -136,23 +151,25 @@ public abstract class SharedFishingSystem : EntitySystem
             activeSpotComp.IsActive = true;
         }
 
-        var fishingLures = EntityQueryEnumerator<FishingLureComponent>();
-        while (fishingLures.MoveNext(out var fishingLure, out var lureComp))
+        var fishingLures = EntityQueryEnumerator<FishingLureComponent, TransformComponent>();
+        while (fishingLures.MoveNext(out var fishingLure, out var lureComp, out var xform))
         {
             if (lureComp.NextUpdate > Timing.CurTime)
                 continue;
 
             lureComp.NextUpdate = Timing.CurTime + TimeSpan.FromSeconds(lureComp.UpdateInterval);
 
-            if (!FishRodQuery.TryComp(lureComp.FishingRod, out var fishingRodComp))
+            if (TerminatingOrDeleted(lureComp.FishingRod) ||
+                !FishRodQuery.TryComp(lureComp.FishingRod, out var fishingRodComp))
                 continue;
 
-            var lurePos = Xform.GetMapCoordinates(fishingLure);
+            var lurePos = Xform.GetMapCoordinates(fishingLure, xform);
             var rodPos = Xform.GetMapCoordinates(lureComp.FishingRod);
             var distance = lurePos.Position - rodPos.Position;
             var fisher = Transform(lureComp.FishingRod).ParentUid;
 
-            if (distance.Length() > fishingRodComp.BreakOnDistance ||
+            if (!Exists(fisher) || TerminatingOrDeleted(fisher) ||
+                distance.Length() > fishingRodComp.BreakOnDistance ||
                 lurePos.MapId != rodPos.MapId ||
                 !_hands.IsHolding(fisher, lureComp.FishingRod) ||
                 !HasComp<ActorComponent>(fisher))
@@ -170,6 +187,9 @@ public abstract class SharedFishingSystem : EntitySystem
     /// </summary>
     private void ToggleFishingActions(Entity<FishingRodComponent> ent, EntityUid fisher, bool addPulling)
     {
+        if (TerminatingOrDeleted(ent) || !Exists(fisher) || TerminatingOrDeleted(fisher))
+            return;
+
         if (addPulling)
         {
             _actions.RemoveAction(ent.Comp.ThrowLureActionEntity);
@@ -196,26 +216,25 @@ public abstract class SharedFishingSystem : EntitySystem
 
     /// <summary>
     /// Reels the fishing rod back and stops fishing progress if arguments are passed to it.
-    /// Server also deletes Fishing Lure
     /// </summary>
-    protected virtual void StopFishing(
+    private void StopFishing(
         Entity<FishingRodComponent> fishingRod,
         EntityUid? fisher)
     {
-        if (fishingRod.Comp.FishingLure == null)
-            return;
+        var nullOrDeleted =
+            fishingRod.Comp.FishingLure == null || TerminatingOrDeleted(fishingRod.Comp.FishingLure.Value);
 
-        var lureComp = FishLureQuery.Comp(fishingRod.Comp.FishingLure.Value);
-        ActiveFishSpotQuery.TryComp(lureComp.AttachedEntity, out var activeSpotComp);
-        FisherQuery.TryComp(fisher, out var fisherComp);
-
-        if (lureComp.AttachedEntity != null && activeSpotComp != null)
+        if (!nullOrDeleted && FishLureQuery.TryComp(fishingRod.Comp.FishingLure, out var lureComp) &&
+            !TerminatingOrDeleted(lureComp.AttachedEntity) &&
+            ActiveFishSpotQuery.TryComp(lureComp.AttachedEntity, out var activeSpotComp))
             RemCompDeferred(lureComp.AttachedEntity.Value, activeSpotComp);
 
-        if (fisher != null)
+        if (!nullOrDeleted && Net.IsServer)
+            QueueDel(fishingRod.Comp.FishingLure);
+
+        if (Exists(fisher) && !TerminatingOrDeleted(fisher) && FisherQuery.TryComp(fisher, out var fisherComp))
         {
-            if (fisherComp != null)
-                RemCompDeferred(fisher.Value, fisherComp);
+            RemCompDeferred(fisher.Value, fisherComp);
 
             ToggleFishingActions(fishingRod, fisher.Value, false);
         }
@@ -349,6 +368,9 @@ public abstract class SharedFishingSystem : EntitySystem
 
     private void OnRodParentChanged(Entity<FishingRodComponent> ent, ref EntParentChangedMessage args)
     {
+        if (TerminatingOrDeleted(ent) || !Exists(args.Transform.ParentUid))
+            return;
+
         // Anything that is an active fisher should be fine.
         if (!FisherQuery.HasComp(args.Transform.ParentUid))
         {

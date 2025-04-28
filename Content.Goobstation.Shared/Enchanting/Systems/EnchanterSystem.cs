@@ -1,4 +1,6 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -31,10 +33,13 @@ public sealed class EnchanterSystem : EntitySystem
     [Dependency] private readonly SharedStackSystem _stack = default!;
 
     private List<EntProtoId<EnchantComponent>> _pool = new();
+    private EntityQuery<CanEnchantComponent> _userQuery;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _userQuery = GetEntityQuery<CanEnchantComponent>();
 
         SubscribeLocalEvent<EnchanterComponent, ExaminedEvent>(OnExamined);
 
@@ -74,6 +79,12 @@ public sealed class EnchanterSystem : EntitySystem
         if (_enchanting.FindEnchanter(item) is not {} enchanter)
         {
             _popup.PopupClient(Loc.GetString("enchanting-tool-no-enchanter"), user, user);
+            return;
+        }
+
+        if (_userQuery.HasComp(user) == false)
+        {
+            _popup.PopupClient(Loc.GetString("enchanter-disallowed-enchant"), user, user);
             return;
         }
 

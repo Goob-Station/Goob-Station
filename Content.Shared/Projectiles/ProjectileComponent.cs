@@ -16,7 +16,9 @@
 // SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
@@ -112,7 +114,7 @@ public sealed partial class ProjectileComponent : Component
     ///     When a projectile has this threshold set, it will continue to penetrate entities until the damage dealt reaches this threshold.
     /// </summary>
     [DataField]
-    public FixedPoint2 PenetrationThreshold = FixedPoint2.Zero;
+    public FixedPoint2 PenetrationThreshold = 10f;
 
     /// <summary>
     ///     If set, the projectile will not penetrate objects that lack the ability to take these damage types.
@@ -127,6 +129,9 @@ public sealed partial class ProjectileComponent : Component
     public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
 
     // Goobstation start
+    [DataField]
+    public float ArmorPenetration;
+
     [DataField]
     public bool Penetrate;
 

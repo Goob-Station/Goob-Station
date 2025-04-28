@@ -88,6 +88,7 @@
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -656,7 +657,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         RaiseLocalEvent(target.Value, attackedEvent);
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
-        var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.ClickPartDamageMultiplier); // Shitmed Change
+        var damageResult = Damageable.TryChangeDamage(target, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.ClickPartDamageMultiplier, armorPenetration: component.ArmorPenetration); // Shitmed Change
         var comboEv = new ComboAttackPerformedEvent(user, target.Value, meleeUid, ComboAttackType.Harm);
         RaiseLocalEvent(user, comboEv);
 
@@ -820,7 +821,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.HeavyPartDamageMultiplier, heavyAttack: true); // Shitmed Change // Goobstation
+            var damageResult = Damageable.TryChangeDamage(entity, modifiedDamage, origin: user, canEvade: true, partMultiplier: component.HeavyPartDamageMultiplier, armorPenetration: component.ArmorPenetration, heavyAttack: true); // Shitmed Change // Goobstation
 
             var comboEv = new ComboAttackPerformedEvent(user, entity, meleeUid, ComboAttackType.HarmLight);
             RaiseLocalEvent(user, comboEv);
