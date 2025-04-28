@@ -29,6 +29,7 @@ using Content.Goobstation.Shared.Changeling.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -76,7 +77,7 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekDissonantEvent>(OnShriekDissonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ShriekResonantEvent>(OnShriekResonant);
         SubscribeLocalEvent<ChangelingIdentityComponent, ToggleStrainedMusclesEvent>(OnToggleStrainedMuscles);
-        SubscribeLocalEvent<ChangelingIdentityComponent, ToggleHorrorFormEvent>(OnToggleHorrorForm);
+        SubscribeLocalEvent<ChangelingIdentityComponent, ActionHorrorFormEvent>(OnHorrorForm);
 
         SubscribeLocalEvent<ChangelingIdentityComponent, StingReagentEvent>(OnStingReagent);
         SubscribeLocalEvent<ChangelingIdentityComponent, StingTransformEvent>(OnStingTransform);
@@ -533,15 +534,31 @@ public sealed partial class ChangelingSystem
         _speed.RefreshMovementSpeedModifiers(uid);
     }
 
-    private void OnToggleHorrorForm(EntityUid uid, ChangelingIdentityComponent comp, ref ToggleHorrorFormEvent args)
+    private void OnHorrorForm(EntityUid uid, ChangelingIdentityComponent comp, ref ActionHorrorFormEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var abomination = _polymorph.PolymorphEntity(uid, "MobChangelingShamblingAbomination");
-        if (abomination == null)
-            return;
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/sound_voice_creepyshriek.ogg"), abomination.Value, AudioParams.Default.WithVolume(2f));
+        comp.IsInHorrorForm = true;
+        comp.StoredBaseForm = uid; // Stores original form, unsure if needed
+
+        var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) uid, EntityManager)));
+        _popup.PopupEntity(loc, (EntityUid) uid, PopupType.LargeCaution);
+
+        var ev = new PolymorphSpellEvent
+        {
+            Performer = uid,
+            ProtoId = new("MobChangelingShamblingAbomination"),
+            Speech = null,
+            Sound = null,
+            LoadActions = true,
+            MakeWizard = false
+        };
+
+        args.Handled = _polymorph.Polymorph(ev);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/sound_voice_creepyshriek.ogg"), newUid.Value, AudioParams.Default.WithVolume(2f));
+
+      
     }
 
     #endregion

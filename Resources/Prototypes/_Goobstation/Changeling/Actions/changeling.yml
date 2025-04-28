@@ -342,15 +342,17 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+    raiseOnUser: true
     useDelay: 1
-    itemIconStyle: NoItem
+    itemIconStyle: BigAction
     checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: horror_form
-    event: !type:ToggleHorrorFormEvent {}
+    event: !type:ActionHorrorFormEvent {}
   - type: ChangelingAction
     chemicalCost: 0
+    requireAbsorbed: 0 # change to 4 once done testing
     useInLesserForm: false
 
 # stings

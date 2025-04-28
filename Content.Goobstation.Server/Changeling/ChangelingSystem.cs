@@ -342,6 +342,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
             return false;
         }
+        if ((!lingAction.UseInHorrorForm && comp.IsInHorrorForm))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-action-fail-horrorform"), uid, uid);
+            return false;
+        }
 
         var chemCost = chemCostOverride ?? lingAction.ChemicalCost;
 

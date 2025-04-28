@@ -70,6 +70,8 @@ public sealed partial class ChangelingIdentityComponent : Component
 
     public bool IsInLesserForm = false;
 
+    public bool IsInHorrorForm = false;
+
     public bool IsInLastResort = false;
 
     public List<EntityUid>? ActiveArmor = null;
