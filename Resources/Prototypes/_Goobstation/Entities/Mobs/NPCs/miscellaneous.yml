@@ -4,6 +4,10 @@
 # SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@proton.me>
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -373,12 +377,12 @@
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: alive
-  - type: AmbientSound
-    volume: 0
-    range: 10
-    enabled: true
-    sound:
-      path: /Audio/StationEvents/mariah.ogg
+#  - type: AmbientSound # licensing chud 1984
+#    volume: 0
+#    range: 10
+#    enabled: true
+#    sound:
+#      path: /Audio/StationEvents/mariah.ogg
   - type: Bloodstream
     bloodMaxVolume: 1500000
     bloodReagent: Sugar # jolly essence
