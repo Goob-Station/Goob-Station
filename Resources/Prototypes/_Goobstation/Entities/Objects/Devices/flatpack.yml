@@ -82,3 +82,12 @@
   components:
   - type: Flatpack
     entity: MedicalBiofabricator
+
+- type: entity
+  parent: BaseFlatpack
+  id: MachinePowerTransmissionLaserFlatpack
+  name: power transmision laser flatpack
+  description: A flatpack used for constructing a power transmission laser
+  components:
+  - type: Flatpack
+    entity: MachinePowerTransmissionLaser

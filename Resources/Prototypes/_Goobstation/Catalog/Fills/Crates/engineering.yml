@@ -1,0 +1,8 @@
+- type: entity
+  id: MachinePowerTransmissionLaserCrate
+  parent: CrateGenericSteel
+  name: power transmission laser crate
+  components:
+  - type: StorageFill
+    contents:
+    - id: MachinePowerTransmissionLaserFlatpack
