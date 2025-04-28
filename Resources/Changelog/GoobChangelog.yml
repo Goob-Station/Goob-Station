@@ -7928,3 +7928,65 @@ Entries:
         to choose one of three random bundles!
   id: 920
   time: '2025-04-27T19:39:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new syndicate faction - Neulithiv Visionary Federation
+  id: 921
+  time: '2025-04-28T03:28:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Removed copyrighted songs. (R.I.P Holocigar & Mariah)
+  id: 922
+  time: '2025-04-28T05:07:20.0000000+00:00'
+- author: yahay505
+  changes:
+    - type: Add
+      message: RADIATION OVERHAUL!
+    - type: Remove
+      message: Nerfed Richard Turk
+    - type: Tweak
+      message: >-
+        Radiation now uses 2D propagation system, standing on top of or holding
+        radiation sources in your hand is extremely ill advised. doubly more so
+        than before. 
+    - type: Tweak
+      message: >-
+        Radiation propagation now takes into account distance traveled through
+        blockers
+    - type: Tweak
+      message: >-
+        Radiation now uses a percentage based blocking, large radiation sources
+        are blocked more.
+    - type: Tweak
+      message: >-
+        Radiation propagation max distance removed, huge rad sources can now
+        travel way further.
+    - type: Fix
+      message: Engi can no longer accidentally insta-kill their 100 tile radius
+    - type: Add
+      message: >-
+        *reinforced* uranium or *reinforced* plasma windows, plasma walls and
+        uranium walls are excellent radiation blockers, engineers should set
+        them up before making experimental SM setups.
+    - type: Remove
+      message: normal walls, windows and doors no longer block radiation
+  id: 923
+  time: '2025-04-28T19:26:55.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Radiation collectors are now more efficient at higher radiation. Also
+        removed them being bad if you use cold plasma.
+  id: 924
+  time: '2025-04-28T19:27:29.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Add
+      message: >-
+        New toy for engineering: Power Transmission Laser. Turking it made
+        legal. Convert cancer into money!
+  id: 925
+  time: '2025-04-28T19:27:42.0000000+00:00'
