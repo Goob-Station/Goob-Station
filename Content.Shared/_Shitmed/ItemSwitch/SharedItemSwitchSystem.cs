@@ -63,14 +63,14 @@ public abstract class SharedItemSwitchSystem : EntitySystem
             Switch((ent, ent.Comp), state, predicted: ent.Comp.Predictable);
     }
 
-    private void OnSwitchAttempt(Entity<ItemSwitchComponent> ent, ref ItemSwitchAttemptEvent args)
+    private void OnSwitchAttempt(EntityUid uid, ItemSwitchComponent comp, ref ItemSwitchAttemptEvent args)
     {
-        if (ent.Comp is { IsPowered: false, NeedsPower: true } && ent.Comp.State == ent.Comp.DefaultState)
-        {
-            args.Popup = Loc.GetString("item-switch-failed-no-power");
-            args.Cancelled = true;
-            Dirty(ent);
-        }
+        if (comp.IsPowered || !comp.NeedsPower || comp.State != comp.DefaultState)
+            return;
+
+        args.Popup = Loc.GetString("item-switch-failed-no-power");
+        args.Cancelled = true;
+        Dirty(uid, comp);
     }
 
     private void OnUseInHand(Entity<ItemSwitchComponent> ent, ref UseInHandEvent args)
@@ -90,15 +90,13 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnActivateVerb(Entity<ItemSwitchComponent> ent, ref GetVerbsEvent<ActivationVerb> args)
     {
-        var comp = ent.Comp;
-
-        if (!args.CanAccess || !args.CanInteract || !comp.OnActivate || comp.States.Count == 0)
+        if (!args.CanAccess || !args.CanInteract || !ent.Comp.OnActivate || ent.Comp.States.Count == 0)
             return;
 
         var user = args.User;
         var addedVerbs = 0;
 
-        foreach (var state in comp.States.Where(state => !state.Value.Hidden)) // I'm linq-ing all over the place.
+        foreach (var state in ent.Comp.States.Where(state => !state.Value.Hidden)) // I'm linq-ing all over the place.
         {
             args.Verbs.Add(new ActivationVerb()
             {
@@ -115,20 +113,15 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
     private void OnActivate(Entity<ItemSwitchComponent> ent, ref ActivateInWorldEvent args)
     {
-        var comp = ent.Comp;
-
-        if (args.Handled || !comp.OnActivate)
-            return;
-
-        if (comp is { IsPowered: false, NeedsPower: true })
+        if (args.Handled || !ent.Comp.OnActivate || ent.Comp is { IsPowered: false, NeedsPower: true })
             return;
 
         args.Handled = true;
 
-        if (comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
+        if (ent.Comp.States.TryGetValue(Next(ent), out var state) && state.Hidden)
             return;
 
-        Switch((ent.Owner, comp), Next(ent), args.User, predicted: comp.Predictable);
+        Switch((ent.Owner, ent.Comp), Next(ent), args.User, predicted: ent.Comp.Predictable);
     }
 
     private static string Next(Entity<ItemSwitchComponent> ent)
