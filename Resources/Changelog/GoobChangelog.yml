@@ -7974,3 +7974,11 @@ Entries:
       message: normal walls, windows and doors no longer block radiation
   id: 923
   time: '2025-04-28T19:26:55.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Radiation collectors are now more efficient at higher radiation. Also
+        removed them being bad if you use cold plasma.
+  id: 924
+  time: '2025-04-28T19:27:29.0000000+00:00'
