@@ -31,14 +31,14 @@
     jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackDuffelCBURN
     mask: ClothingMaskGasERT
-    neck: ExecutiveIDCard # Executive Access! - Todo: Add more to this card.
+    neck: ExecutiveIDCard # Executive Access!
     eyes: ClothingEyesGlassesMedSec # Better glasses
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
     shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
     id: CBURNPDA # Todo - Replace it.
-    pocket1: RadioHandheld # Todo - Replace this probably. Have never seen it used.
+    pocket1: InfectionScannerCburn # Goob
     pocket2: WeaponPulsePistol
     belt: ClothingBeltSecurityFilled # No shotgun, no bandolier.
   storage:

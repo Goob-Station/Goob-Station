@@ -306,14 +306,20 @@
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]
   id: ClothingBackpackDuffelCBURN
-  name: CBURN duffel bag
+  name: biohazard containment duffel bag # Goobstation
   description: A duffel bag containing a variety of biological containment equipment.
   components:
   - type: Storage
     maxItemSize: Huge
+    grid: # Goobstation
+    - 0,0,8,4
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Clothing/Back/Duffels/cburn.rsi # Goobstation
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
   - type: HeldSpeedModifier
-  - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.1
+  #- type: Tag # Goobstation - Fuck you
+  #  tags: [] # ignore "WhitelistChameleon" tag
