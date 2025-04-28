@@ -7928,3 +7928,9 @@ Entries:
         to choose one of three random bundles!
   id: 920
   time: '2025-04-27T19:39:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new syndicate faction - Neulithiv Visionary Federation
+  id: 921
+  time: '2025-04-28T03:28:13.0000000+00:00'
