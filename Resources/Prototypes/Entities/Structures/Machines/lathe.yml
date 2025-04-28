@@ -732,7 +732,6 @@
     - SecurityDisablers
     # Goobstation
     - SecurityWeaponsGoob
-    - MechBoardsSecurity
     - MechWeaponsSecurityLight
     - MechWeaponsSecurityHeavy
     - SecurityAmmoGoob

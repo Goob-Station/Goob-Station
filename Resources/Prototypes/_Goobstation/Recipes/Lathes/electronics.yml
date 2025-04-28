@@ -49,3 +49,8 @@
   parent: BaseGoldCircuitboardRecipe
   id: SyndicateMicrowaveMachineCircuitboard
   result: SyndicateMicrowaveMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseSilverCircuitboardRecipe
+  id: WeaponPistolCHIMPUpgradeKit
+  result: WeaponPistolCHIMPUpgradeKit

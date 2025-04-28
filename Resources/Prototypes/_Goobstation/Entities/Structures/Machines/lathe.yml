@@ -109,7 +109,6 @@
     - MiningWeapons
     - MiningBoards
     - MiningUpgrades
-    - MechBoardsCargo
     - MechWeaponsSalvage
     - SpecOpsGoogles
     - CargoBoards
@@ -193,11 +192,12 @@
     - MedicalBoardsGoob
     - BluespaceTheory
     - MechBoardsScience
-  - type: EmagLatheRecipes
-    emagDynamicPacks:
     - MechBoardsSecurity
     - MechBoardsCargo
-    - MechBoardsCivilian # Evil ass traitor scientist in a honker... with a rocket launcher because the honker is emagged too.
+    - MechBoardsCivilian
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - ScienceBoardsEvilStatic # Omega CHIMP chip
   - type: MaterialStorage
     whitelist:
       tags:
@@ -244,7 +244,6 @@
     - FauxTiles
     - ServiceWeapons
     - MedicalMisc
-    - MechBoardsCivilian
     - MechWeaponsCivilian
     - ServiceBoards
     - SharedBoards
