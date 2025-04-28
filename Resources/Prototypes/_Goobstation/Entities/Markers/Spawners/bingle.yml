@@ -22,7 +22,7 @@
     description: ghost-role-information-bingle-description
     rules: ghost-role-information-bingle-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgent
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
