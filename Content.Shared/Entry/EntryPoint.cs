@@ -189,7 +189,7 @@ namespace Content.Shared.Entry
         private void VerifyModules()
         {
             var loadedAssemblies = _refMan.Assemblies
-                .Select(assembly => assembly.GetName().Name)
+                .Select(assembly => assembly.GetName().Name?.ToLower())
                 .ToHashSet();
 
             var packs = _refMan.GetAllChildren<ModulePack>()
@@ -201,7 +201,7 @@ namespace Content.Shared.Entry
                 var missing = module.RequiredAssemblies
                     .Where(req =>
                         (_net.IsClient && req.Client || _net.IsServer && req.Server) &&
-                        !loadedAssemblies.Contains(req.AssemblyName))
+                        !loadedAssemblies.Contains(req.AssemblyName.ToLower()))
                     .ToList();
 
                 if (missing.Count <= 0)
