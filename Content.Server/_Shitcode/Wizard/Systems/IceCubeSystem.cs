@@ -70,9 +70,9 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 
         var probability = Math.Clamp(ent.Comp.SustainedDamage * ent.Comp.SustainedDamageMeltProbabilityMultiplier /
             100f * InverseLerp(ent.Comp.FrozenTemperature,
-            ent.Comp.UnfreezeTemperatureThreshold,
+            ent.Comp.UnfrozenTemperature,
             temperature.CurrentTemperature),
-            0.1f, // At least 10%
+            0.2f, // At least 20%
             1f);
 
         if (_random.Prob(probability))

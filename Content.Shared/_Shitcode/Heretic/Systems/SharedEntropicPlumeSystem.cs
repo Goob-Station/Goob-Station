@@ -177,20 +177,15 @@ public abstract class SharedEntropicPlumeSystem : EntitySystem
             }
         }
 
-        if (_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
-        // Prevent it from
+        // Prevent it from behaving weirdly on moving shuttles
         var plumeQuery = EntityQueryEnumerator<EntropicPlumeComponent, PhysicsComponent>();
         while (plumeQuery.MoveNext(out var uid, out _, out var physics))
         {
-            if (physics.BodyStatus == BodyStatus.OnGround)
-                continue;
-
-            if (physics.LinearVelocity.LengthSquared() > 0.0001f)
-                continue;
-
-            _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
+            if (physics.BodyStatus != BodyStatus.OnGround)
+                _physics.SetBodyStatus(uid, physics, BodyStatus.OnGround);
         }
     }
 

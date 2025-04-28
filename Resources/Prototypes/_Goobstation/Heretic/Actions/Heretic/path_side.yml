@@ -14,7 +14,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 3
     itemIconStyle: NoItem
     sound:
       path: /Audio/_Goobstation/Heretic/ice_shovel.ogg

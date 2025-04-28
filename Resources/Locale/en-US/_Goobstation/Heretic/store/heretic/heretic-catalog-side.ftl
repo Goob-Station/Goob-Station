@@ -61,7 +61,7 @@ knowledge-path-side-s3-void-cloak-desc =
 
 knowledge-path-side-s3-ice-spear-name = Mysteries of Creation
 knowledge-path-side-s3-ice-spear-desc =
-    Madrugad - is one of the gods-from-Light. Winter dawn - is one of her works. I have discovered a spell, that will help me praise the dawn.
+    Madrugad - is one of the Gods of Light. Winter Dawn - is one of her works. I have discovered a spell that will help me praise the dawn.
 
     Grants you Mysteries of Creation, a spell that allows you to summon the Madrugad Spear at will. This magical spear chills victims upon hit, but more importantly, it shatters upon throwing, dealing a significant amount of damage and temporarily freezing the target into an ice cube. If the spear is destroyed, activating this ability will create a new one, otherwise it will summon the existing spear into your hand.
 

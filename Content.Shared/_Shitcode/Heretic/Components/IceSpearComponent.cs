@@ -13,5 +13,5 @@ public sealed partial class IceSpearComponent : Component
     public SoundSpecifier ShatterSound = new SoundCollectionSpecifier("GlassBreak");
 
     [DataField]
-    public TimeSpan ShatterCooldown = TimeSpan.FromSeconds(60);
+    public TimeSpan ShatterCooldown = TimeSpan.FromSeconds(45);
 }
