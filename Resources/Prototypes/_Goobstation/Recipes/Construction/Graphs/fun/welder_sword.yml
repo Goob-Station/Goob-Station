@@ -1,0 +1,84 @@
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: WelderSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: welderSword
+      steps:
+      - tag: Welder
+        name: welding tool
+        icon:
+          sprite: Objects/Tools/welder.rsi
+          state: icon
+        doAfter: 2
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: welderSword
+    entity: EnergySwordWelder
+
+- type: constructionGraph
+  id: WelderSwordIndustrial
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: welderSwordIndustrial
+      steps:
+      - tag: WelderIndustrial
+        name: industrial welding tool
+        icon:
+          sprite: Objects/Tools/welder_industrial.rsi
+          state: icon
+        doAfter: 2
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: welderSwordIndustrial
+    entity: EnergySwordWelderIndustrial
+
+- type: constructionGraph
+  id: WelderSwordExperimental
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: welderSwordExperimental
+      steps:
+      - tag: WelderExperimental
+        name: experimental welding tool
+        icon:
+          sprite: Objects/Tools/welder_experimental.rsi
+          state: icon
+        doAfter: 2
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 2
+      - material: Cable
+        amount: 5
+        doAfter: 2
+  - node: welderSwordExperimental
+    entity: EnergySwordWelderExperimental
+
