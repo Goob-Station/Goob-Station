@@ -8,85 +8,57 @@
   id: UndeterminedVoidsuitParamedic
   name: paramedic voidsuit selector
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
-  parent: [ BaseItem, BaseMedicalContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseMedicalContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
     state: standard
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
+  - type: SetSelector
     possibleSets:
     - VoidsuitSelectorParamedicVoidsuit
     - VoidsuitSelectorParamedicHardsuit
-    maxSelectedSets: 1
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
 
 # security
 - type: entity
   id: UndeterminedVoidsuitSecurity
   name: security voidsuit selector
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
-  parent: [ BaseItem, BaseSecurityContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
     state: standard
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
+  - type: SetSelector
     possibleSets:
     - VoidsuitSelectorSecurityVoidsuit
     - VoidsuitSelectorSecurityHardsuit
-    maxSelectedSets: 1
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
 
 # head of security
 - type: entity
   id: UndeterminedVoidsuitHeadOfSecurity
   name: head of security voidsuit selector
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
-  parent: [ BaseItem, BaseSecurityContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
     state: standard
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
+  - type: SetSelector
     possibleSets:
     - VoidsuitSelectorHeadOfSecurityVoidsuit
     - VoidsuitSelectorHeadOfSecurityHardsuit
-    maxSelectedSets: 1
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
 
 # engineer
 - type: entity
   id: UndeterminedVoidsuitEngineer
   name: engineer voidsuit selector
   description: A small remote utilizing bluespace technology to drop in a voidsuit or hardsuit of your choosing.
-  parent: [ BaseItem, BaseSecurityContraband ]
+  parent: [ BaseItem, BaseSetSelector, BaseSecurityContraband ]
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
     state: standard
-  - type: ThiefUndeterminedBackpack # Someone should rename this.
+  - type: SetSelector
     possibleSets:
     - VoidsuitSelectorEngineerVoidsuit
     - VoidsuitSelectorEngineerHardsuit
-    maxSelectedSets: 1
-  - type: ActivatableUI
-    key: enum.ThiefBackpackUIKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.ThiefBackpackUIKey.Key:
-        type: ThiefBackpackBoundUserInterface
