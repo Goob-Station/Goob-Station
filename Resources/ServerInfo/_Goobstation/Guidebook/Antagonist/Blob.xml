@@ -87,7 +87,7 @@ No, not the chemistry kind of chemicals, instead, you can change what your tiles
 
 As the blob grows, the station will pass through several stages.
 
-- 1. [color=#a4885c]Silent stage[/color] - The blob is still undetected, and you can (probably) grow and prepare while the crew still has no idea about your existance.
+- 1. [color=#a4885c]Silent stage[/color] - The blob is still undetected, and you can (probably) grow and prepare while the crew still has no idea about your existence.
 - 2. [color=#a4885c]Biohazard detection[/color] - As soon as the blob grows a little, the station is automatically set to red, and complete isolation of the station is declared. The evacuation shuttle cannot be called at this point. If it was called, it will automatically be recalled.
 - 3. [color=#a4885c]Delta Alert[/color] - If the blob captures a significant part of the station, Delta Alert is triggered. The main goal of the station now is to detonate the nuke, and the nuke codes will be sent to a fax machine. Defeating a blob at this point is most likely impossible.
 - 4. [color=#a4885c]Critical Mass[/color] - If the blob captures a majority of the station, it reaches critical mass, causing the round to end with the blob winning.
