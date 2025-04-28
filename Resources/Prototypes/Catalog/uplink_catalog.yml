@@ -853,7 +853,7 @@
   name: uplink-encryption-key-name
   description: uplink-encryption-key-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: EncryptionKeySyndie # Two for the price of one
+  productEntity: EncryptionKeySyndie # One for the price of one, but cheaper
   cost:
     Telecrystal: 3 # goob
   categories:
