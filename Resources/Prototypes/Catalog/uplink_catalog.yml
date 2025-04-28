@@ -1126,10 +1126,11 @@
     blacklist:
       tags:
       - ContravendUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # Goobstation
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -1145,10 +1146,11 @@
     blacklist:
       tags:
       - ContravendUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # Goobstation
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
 
 - type: listing
   id: UplinkSingarityBeacon
