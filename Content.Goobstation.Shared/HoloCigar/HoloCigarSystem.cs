@@ -37,8 +37,6 @@ public sealed class HoloCigarSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _items = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
     private const string LitPrefix = "lit";
@@ -56,7 +54,6 @@ public sealed class HoloCigarSystem : EntitySystem
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
     }
 
     private void OnAddInteractVerb(Entity<HoloCigarComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -82,24 +79,11 @@ public sealed class HoloCigarSystem : EntitySystem
 
     #region Event Methods
 
-    private void OnMobStateChangedEvent(Entity<TheManWhoSoldTheWorldComponent> ent, ref MobStateChangedEvent args)
-    {
-        if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
-            return;
-
-        if (args.NewMobState == MobState.Dead)
-            _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
-
-        if (_net.IsServer)
-            _audio.PlayPvs(ent.Comp.DeathAudio, ent, AudioParams.Default.WithVolume(3f));
-    }
-
     private void OnComponentShutdown(Entity<TheManWhoSoldTheWorldComponent> ent, ref ComponentShutdown args)
     {
         if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
             return;
 
-        _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
         ShutDownEnumerateRemoval(ent);
 
         if (!ent.Comp.AddedNoWieldNeeded)
@@ -112,8 +96,7 @@ public sealed class HoloCigarSystem : EntitySystem
     private void ShutDownEnumerateRemoval(Entity<TheManWhoSoldTheWorldComponent> ent)
     {
         var query = EntityQueryEnumerator<HoloCigarAffectedGunComponent>();
-        while
-            (query.MoveNext(out var gun, out var comp))
+        while (query.MoveNext(out var gun, out var comp))
         {
             if (comp.GunOwner != ent.Owner)
                 continue;
@@ -182,21 +165,6 @@ public sealed class HoloCigarSystem : EntitySystem
         _appearance.SetData(ent, SmokingVisuals.Smoking, state, appearance);
         _clothing.SetEquippedPrefix(ent, prefix, clothing);
         _items.SetHeldPrefix(ent, prefix);
-
-        if (!_net.IsServer) // mary copium right here
-            return;
-
-        if (ent.Comp.Lit == false)
-        {
-            var audio = _audio.PlayPvs(ent.Comp.Music, ent);
-
-            if (audio is null)
-                return;
-            ent.Comp.MusicEntity = audio.Value.Entity;
-            return;
-        }
-
-        _audio.Stop(ent.Comp.MusicEntity);
     }
 
     private void OnComponentHandleState(Entity<HoloCigarComponent> ent, ref ComponentHandleState args)
