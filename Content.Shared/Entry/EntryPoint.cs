@@ -188,7 +188,7 @@ namespace Content.Shared.Entry
         private void VerifyModules()
         {
             var loadedAssemblies = _refMan.Assemblies
-                .Select(assembly => assembly.GetName().Name)
+                .Select(assembly => assembly.GetName().Name!.ToLower())
                 .ToHashSet();
 
             var packs = _refMan.GetAllChildren<ModulePack>()
@@ -200,13 +200,13 @@ namespace Content.Shared.Entry
                 var missing = module.RequiredAssemblies
                     .Where(req =>
                         (_net.IsClient && req.IsClient || _net.IsServer && req.IsServer) &&
-                        !loadedAssemblies.Contains(req.AssemblyName))
+                        !loadedAssemblies.Contains(req.AssemblyName.ToLower()))
                     .ToList();
 
                 if (missing.Count <= 0)
                     continue;
 
-                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.");
+                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.\nMissing Modules:\n {string.Join("\n",missing.Select(a => a.AssemblyName))}");
             }
         }
 
