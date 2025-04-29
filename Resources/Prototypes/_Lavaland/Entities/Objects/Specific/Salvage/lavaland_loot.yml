@@ -31,6 +31,11 @@
   - type: Item
     size: Small
   - type: CursedHeartGrant
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - CursedHeart
 
 - type: entity
   id: LavalandVampirismCrystal

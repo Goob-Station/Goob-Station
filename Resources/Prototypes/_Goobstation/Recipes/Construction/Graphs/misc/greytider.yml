@@ -41,5 +41,11 @@
                 sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
                 state: icon
               doAfter: 2
+            - tag: CursedHeart
+              name: cursed heart
+              icon:
+                sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+                state: cursed_heart
+              doAfter: 2
     - node: greyTider
       entity: RandomHumanoidGreyTider
