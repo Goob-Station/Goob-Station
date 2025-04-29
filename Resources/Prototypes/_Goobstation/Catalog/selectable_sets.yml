@@ -1,6 +1,4 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
-# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -402,7 +400,7 @@
 ## voidsuit selectors
 
 # paramedic
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorParamedicVoidsuit
   name: selectable-set-paramedic-voidsuit-name
   description: selectable-set-paramedic-voidsuit-desc
@@ -412,7 +410,7 @@
   content:
   - ClothingOuterHardsuitVoidParamed
 
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorParamedicHardsuit
   name: selectable-set-paramedic-modsuit-name
   description: selectable-set-paramedic-modsuit-desc
@@ -423,7 +421,7 @@
   - ClothingModsuitParamedicPowerCell
 
 # security
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorSecurityVoidsuit
   name: selectable-set-security-voidsuit-name
   description: selectable-set-security-voidsuit-desc
@@ -433,7 +431,7 @@
   content:
   - ClothingOuterVoidsuitSecurity
 
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorSecurityHardsuit
   name: selectable-set-security-modsuit-name
   description: selectable-set-security-modsuit-desc
@@ -444,7 +442,7 @@
   - ClothingModsuitSecurityPowerCell
 
 # head of security
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorHeadOfSecurityVoidsuit
   name: selectable-set-headofsecurity-voidsuit-name
   description: selectable-set-headofsecurity-voidsuit-desc
@@ -454,7 +452,7 @@
   content:
   - ClothingOuterHardsuitSecurityRed
 
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorHeadOfSecurityHardsuit
   name: selectable-set-headofsecurity-modsuit-name
   description: selectable-set-headofsecurity-modsuit-desc
@@ -466,7 +464,7 @@
 
 # engineer
 
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorEngineerVoidsuit
   name: selectable-set-engineering-voidsuit-name
   description: selectable-set-engineering-voidsuit-desc
@@ -476,7 +474,7 @@
   content:
   - ClothingOuterHardsuitEngineering
 
-- type: thiefBackpackSet
+- type: selectableSet
   id: VoidsuitSelectorEngineerHardsuit
   name: selectable-set-engineering-modsuit-name
   description: selectable-set-engineering-modsuit-desc
