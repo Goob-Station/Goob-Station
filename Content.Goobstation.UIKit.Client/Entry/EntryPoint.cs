@@ -8,6 +8,6 @@
 
 using Robust.Shared.ContentPack;
 
-namespace Content.Goobstation.UiKit.Entry;
+namespace Content.Goobstation.UIKit.Entry;
 
 public sealed class EntryPoint : GameClient;
