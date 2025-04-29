@@ -48,7 +48,8 @@
     steps: 2
     zeroVisible: true
   - type: Multishot
-    spreadMultiplier: 1.2
+    missChance: 0
+    spreadAddition: 10
 
 - type: entity
   name: plasma rifle
