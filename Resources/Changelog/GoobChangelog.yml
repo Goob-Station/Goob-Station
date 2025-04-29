@@ -7990,3 +7990,11 @@ Entries:
         legal. Convert cancer into money!
   id: 925
   time: '2025-04-28T19:27:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        The NTRs handheld fax now drops paper on the ground when printing inside
+        of a container, instead of sticking it to the bag.
+  id: 926
+  time: '2025-04-29T07:57:58.0000000+00:00'
