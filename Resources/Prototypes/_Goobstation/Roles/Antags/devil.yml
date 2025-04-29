@@ -10,7 +10,7 @@
     time: 72000 #20 hrs
   - !type:RoleTimeRequirement
     role: JobLawyer
-    time: 18000 #5 hrs
+    time: 3600 #1 hour. I'm not THAT evil.
 
 - type: startingGear
   id: DevilStartingGear
