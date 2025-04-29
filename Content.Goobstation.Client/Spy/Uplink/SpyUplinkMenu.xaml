@@ -1,7 +1,5 @@
 <DefaultWindow
-    xmlns:uplink="clr-namespace:Content.Goobstation.Client.Spy.Uplink"
     xmlns="https://spacestation14.io"
-    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
     Title="Spy Uplink"
     MinSize="512 512"
     SetSize="512 512">
