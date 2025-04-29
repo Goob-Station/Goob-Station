@@ -4,30 +4,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: M7S submachine gun
-  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  name: M7S "Ventilator" submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSubMachineGunM7S
-  description: You may or may not be green, but you are still very very mean. Takes proprietary side-loading .25 rifle magazines.
+  description: You may or may not be green, but you are still very very mean. Takes proprietary side-loading 5x23mm rifle magazines.
   components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineCaselessRifleM7S
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazineCaselessM7S
-        whitelistFailPopup: gun-magazine-whitelist-fail
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeCaselessRifle
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgeCaselessRifle
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
     layers:
@@ -37,25 +18,41 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/SMGs/M7S.rsi
-  - type: Wieldable
-    unwieldOnUse: false
-  - type: GunWieldBonus
-    minAngle: -29
-    maxAngle: -26
+  - type: Item
+    shape:
+    - 0,0,2,1
   - type: Gun
+    fireRate: 15
     projectileSpeed: 20 # half regular bullet speed
-    minAngle: 31
-    maxAngle: 42
-    shotsPerBurst: 5
+    minAngle: 23
+    maxAngle: 66
+    angleDecay: -8 # Intentionally negative, loses accuracy while not shooting
+    angleIncrease: -1.15 # Intentionally negative, gains accuracy while shooting
     availableModes:
-    - Burst
     - FullAuto
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/suppressed_smg.ogg
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
       params:
-        volume: -14
-  - type: ChamberMagazineAmmoProvider
-    autoEject: false
+        volume: -10
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLowCaliberM7S
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineLowCaliberM7S
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLowCaliber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLowCaliber
   - type: MagazineVisuals
     magState: mag
     steps: 1

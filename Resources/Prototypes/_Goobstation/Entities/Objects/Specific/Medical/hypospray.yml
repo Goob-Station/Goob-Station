@@ -80,6 +80,44 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
 
+- type: entity # This ones weird.
+  name: amnestic spray
+  parent: [BaseItem, BaseCentcommContraband]
+  id: AmnestizineHypospray
+  suffix: DO NOT MAP
+  description: A specialized cartridge injector intended for Central Command personnel. Primarily used to inject amnestics.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+  - type: UseDelay
+    delay: 3
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: HyposprayBlockNonMobInjection
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      item:
+        name: Cartridge
+        whitelist:
+          tags:
+          - AutoinjectorCartridge
+
 # Autoinjector Cartridges
 
 - type: entity
@@ -279,6 +317,49 @@
       - ReagentId: Haloperidol
         Quantity: 3
 
+# Q - Why is this edible?
+# A - Because the dispenser reminded me of a pez dispenser, and it'd be funny if you could eat them.
+- type: entity
+  name: amnestic autoinjector cartridge
+  parent: [ BaseCentcommContraband , BaseAutoinjectorCartridge, EdibleBase ]
+  description: Contains 10u of dimtremethic-neuramincyl acid, used in a cartridge autoinjector.
+  id: CartridgeAmnestic
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: filling
+      color: "#FAF9F6"
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Amnestizine
+        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Amnestizine
+          Quantity: 10
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Amnestizine
+        Quantity: 10
+  - type: Food
+    delay: 0.2
+    forceFeedDelay: 1.5
+    transferAmount: null
+    eatMessage: food-swallow
+    useSound: /Audio/Items/pill.ogg
+  - type: BadFood
+  - type: FlavorProfile
+    ignoreReagents: [ ]
+
 # Medipens
 
 - type: entity
@@ -309,7 +390,6 @@
           Quantity: 10
   - type: Tag
     tags: []
-
 
 - type: entity
   name: centcomm advanced stimulant
@@ -403,36 +483,6 @@
     - EmergencyMedipen
 
 # Actual hyposprays
-
-- type: entity
-  name: amnestic spray
-  parent: [BaseItem, BaseCentcommContraband]
-  id: AmnestizineHypospray # Technically this is rather multi-use medipen but I'll put it here
-  suffix: DO NOT MAP
-  description: Prevents the subject from remembering anything prior or during the injection.
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
-    state: icon
-  - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
-  - type: SolutionContainerManager
-    solutions:
-      hypospray:
-        maxVol: 100
-        reagents:
-        - ReagentId: Amnestizine
-          Quantity: 100
-  - type: ExaminableSolution
-    solution: hypospray
-  - type: Hypospray
-    solutionName: hypospray
-    transferAmount: 5
-    onlyAffectsMobs: false
-    injectOnly: true
-  - type: HyposprayBlockNonMobInjection
-  - type: UseDelay
-    delay: 0.1 # UseDelays are for LOSERs
 
 - type: entity
   name: centcomm hypospray

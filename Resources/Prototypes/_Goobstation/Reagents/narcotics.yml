@@ -139,7 +139,7 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         key: TemporaryBlindness
@@ -164,6 +164,16 @@
       - !type:GenericStatusEffect
         key: Dementia
         component: DementiaAccent
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        amount: 7
+        immediate: false
       - !type:PopupMessage
         visualType: MediumCaution
         type: Local
@@ -196,11 +206,13 @@
           min: 4
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
-      - !type:GenericStatusEffect # It's all... blurry...
+      - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
+        - !type:ReagentThreshold
+          min: 10
         key: TemporaryBlindness
         component: TemporaryBlindness
         type: Add
@@ -210,6 +222,43 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.25
+            Asphyxiation: 0.25
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 15
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 1
+            Asphyxiation: 1
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 30
+      - !type:FlammableReaction
+        multiplier: 0.3
+      - !type:Paralyze
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.05
+        paralyzeTime: 2
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:FlammableReaction
+        multiplier: 0.4
 
 # Homemade hyperzine, should be worse than it and harder to make, but
 # doesn't require vestine. Should NOT be addictive when we get addictions

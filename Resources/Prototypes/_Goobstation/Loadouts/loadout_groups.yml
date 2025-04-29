@@ -125,6 +125,58 @@
   - JackBoots
   - BlackCowboyBoots
 
+# Career Trainer
+
+- type: loadoutGroup
+  id: NanotrasenTrainerHead
+  name: loadout-group-nct-head
+  minLimit: 0
+  loadouts:
+  - NanotrasenTrainerHat
+  - NanotrasenTrainerBeret
+
+- type: loadoutGroup
+  id: NanotrasenTrainerBackpack
+  name: loadout-group-nct-backpack
+  loadouts:
+  - NanotrasenTrainerSatchel
+  - NanotrasenTrainerBackpack
+  - NanotrasenTrainerDuffel
+
+- type: loadoutGroup
+  id: NanotrasenTrainerJumpsuit
+  name: loadout-group-nct-jumpsuit
+  loadouts:
+  - NanotrasenTrainerJumpsuit
+  - NanotrasenTrainerJumpskirt
+
+- type: loadoutGroup
+  id: NanotrasenTrainerOuterClothing
+  name: loadout-group-nct-outerclothing
+  minLimit: 0
+  loadouts:
+  - NanotrasenTrainerCoat
+
+- type: loadoutGroup
+  id: NanotrasenTrainerGloves
+  name: loadout-group-nct-gloves
+  loadouts:
+  - NanotrasenTrainerGloves
+
+- type: loadoutGroup
+  id: NanotrasenTrainerBelt
+  name: loadout-group-nct-belt
+  minLimit: 0
+  loadouts:
+  - NanotrasenTrainerClipboard
+
+- type: loadoutGroup
+  id: NanotrasenTrainerShoes
+  name: loadout-group-nct-shoes
+  loadouts:
+  - NanotrasenTrainerBoots
+  - NanotrasenTrainerShoes
+
 # Reporter
 
 - type: loadoutGroup

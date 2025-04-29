@@ -55,3 +55,4 @@ marking-HumanHairStarFro = Star Fro
 marking-HumanHairStyledCurls = Styled Curls
 marking-HumanHairUnkemptScientist = Unkempt Scientist
 marking-HumanHairWispy = Wispy
+marking-HumanHairSpikeHawk = Spikey Mohawk
