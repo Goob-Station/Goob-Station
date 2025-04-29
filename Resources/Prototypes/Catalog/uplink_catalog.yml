@@ -1365,7 +1365,7 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: freedom }
   productEntity: FreedomImplanter
   cost:
-    Telecrystal: 25 # goob
+    Telecrystal: 20 # goob - it is worse than scram
   categories:
     - UplinkImplants
 
@@ -1377,7 +1377,7 @@
   icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
   productEntity: ScramImplanter
   cost:
-    Telecrystal: 20 # goob - it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
+    Telecrystal: 25 # goob - incredibly useful implant, but doesn't give much on its own, 25 TC make sense.
   categories:
     - UplinkImplants
 

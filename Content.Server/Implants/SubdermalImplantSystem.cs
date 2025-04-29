@@ -112,6 +112,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
 using Content.Shared.Store.Components;
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Implants;
 
@@ -128,6 +129,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly TeleportSystem _teleportSys = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {
@@ -163,13 +165,20 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         _popup.PopupEntity(msg, args.User, args.User);
     }
 
+    // Edited by goobstation to make freedom useful
     private void OnFreedomImplant(EntityUid uid, SubdermalImplantComponent component, UseFreedomImplantEvent args)
     {
-        if (!TryComp<CuffableComponent>(component.ImplantedEntity, out var cuffs) || cuffs.Container.ContainedEntities.Count < 1)
-            return;
+        if (TryComp<CuffableComponent>(component.ImplantedEntity, out var cuffs) && cuffs.Container.ContainedEntities.Count >= 1)
+        {
+            _cuffable.Uncuff(component.ImplantedEntity.Value, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
+            args.Handled = true;
+        }
 
-        _cuffable.Uncuff(component.ImplantedEntity.Value, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
-        args.Handled = true;
+        if (TryComp<PullableComponent>(component.ImplantedEntity, out var pullable) && pullable.Puller.HasValue)
+        {
+            _stun.TryParalyze(pullable.Puller.Value, TimeSpan.FromSeconds(args.StunTime), true);
+            args.Handled = true;
+        }
     }
 
     private void OnActivateImplantEvent(EntityUid uid, SubdermalImplantComponent component, ActivateImplantEvent args)
