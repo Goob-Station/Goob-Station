@@ -86,14 +86,17 @@
       roleLoadout: [ RoleSurvivalStandard ]
     - type: RandomMetadata
       nameSegments:
-        - TiderNamesFirst
-        - TiderNamesLast
+      - TiderNamesFirst
+      - TiderNamesLast
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound # do salvager AI while not taken by anyone
     - type: FactionException
     - type: NPCRetaliation
       attackMemoryLength: 20 # the tide remembers
+    - type: NpcFactionMember
+      factions:
+      - Greytide
     - type: GroupRetaliation
       range: 15 # the tide hears
 

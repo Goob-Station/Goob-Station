@@ -1,0 +1,10 @@
+- type: npcFaction
+  id: Greytide
+  hostile:
+  - SimpleHostile
+  - Xeno
+  - Zombie
+  - Dragon
+  - AllHostile
+  - Blob
+  - Mouse
