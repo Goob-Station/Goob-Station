@@ -62,7 +62,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     private bool _isEnabled = true;
     private bool _patreonIsEnabled = true;
 
-    public int PlayerInQueueCount => _queue.Count;
+    public int PlayerInQueueCount => _queue.Count + _patronQueue.Count;
     public int ActualPlayersCount => _player.PlayerCount - PlayerInQueueCount; // Now it's only real value with actual players count that in game
 
 
@@ -81,8 +81,12 @@ public sealed class JoinQueueManager : IJoinQueueManager
         _isEnabled = value;
 
         if (!value)
+        {
             foreach (var session in _queue)
                 session.Channel.Disconnect("Queue was disabled");
+            foreach (var session in _patronQueue)
+                session.Channel.Disconnect("Queue was disabled");
+        }
     }
 
     private void OnPatronCvarChanged(bool value)
@@ -103,8 +107,42 @@ public sealed class JoinQueueManager : IJoinQueueManager
             if (wasInQueue)
                 QueueTimings.WithLabels("Unwaited").Observe((DateTime.UtcNow - e.Session.ConnectedTime).TotalSeconds);
         }
+        else if (e.NewStatus != SessionStatus.Connected)
+        {
+            OnPlayerConnected(e.Session);
+        }
     }
 
+
+    private async void OnPlayerConnected(ICommonSession session)
+    {
+        if (!_isEnabled)
+        {
+            SendToGame(session);
+            return;
+        }
+
+        var isPrivileged = await _connection.HasPrivilegedJoin(session.UserId);
+        var isPatron = _linkAccount.GetPatron(session)?.Tier != null;
+        var currentOnline = _player.PlayerCount - 1; // Do not count current session in general online, because we are still deciding her fate
+        var haveFreeSlot = currentOnline < _configuration.GetCVar(CCVars.SoftMaxPlayers);
+        if (isPrivileged || haveFreeSlot)
+        {
+            SendToGame(session);
+
+            if (isPrivileged && !haveFreeSlot)
+                QueueBypassCount.Inc();
+
+            return;
+        }
+
+        if (isPatron && _patreonIsEnabled)
+            _patronQueue.Add(session);
+        else
+            _queue.Add(session);
+
+        ProcessQueue(false, session.ConnectedTime);
+    }
 
     /// <summary>
     ///     If possible, takes the first player in the queue and sends him into the game
