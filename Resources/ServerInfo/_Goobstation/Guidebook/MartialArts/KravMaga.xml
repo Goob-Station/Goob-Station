@@ -12,16 +12,12 @@
 
   ## Action Combat
 
-  Krav Maga combos aren't like the combos of most martial arts. The user must instead ready the attack they
+  Krav Maga attacks aren't like the combos of most martial arts. The user must instead ready the attack they
   wish to use in the action bar, then follow it up by performing Harm action on the opponent as normal.
-
-  ### No action selected
 
   <Box>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
-
-  A regular Harm attack, however its damage would be increased, and more if the opponent is downed.
 
   ### Leg Sweep
 
