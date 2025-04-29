@@ -14,7 +14,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.Standing;
 using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
@@ -120,7 +119,7 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnKravMagaShutdown(Entity<KravMagaComponent> ent, ref ComponentShutdown args)
     {
-        if (!TryComp<KravMagaComponent>(ent, out var kravMaga))
+        if (HasComp<KravMagaComponent>(ent))
             return;
 
         foreach (var action in ent.Comp.KravMagaMoveEntities)

@@ -45,7 +45,7 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
+        if (ent.Comp.MaximumUses <= ent.Comp.CurrentUses)
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-used", ("manual", Identity.Entity(ent, EntityManager))),
             args.User,
@@ -98,9 +98,6 @@ public partial class SharedMartialArtsSystem
                 ent.Comp.CurrentUses++;
                 break;
         }
-
-        if (ent.Comp.MaximumUses == ent.Comp.CurrentUses)
-            return;
     }
 
     private void CarpScrollDelay(Entity<SleepingCarpStudentComponent> ent)
@@ -133,14 +130,14 @@ public partial class SharedMartialArtsSystem
         if (!downed)
         {
             var saying =
-                Enumerable.ElementAt<LocId>(martialArtProto.RandomSayings, (int)_random.Next(martialArtProto.RandomSayings.Count));
+                Enumerable.ElementAt(martialArtProto.RandomSayings, _random.Next(martialArtProto.RandomSayings.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
         else
         {
             var saying =
-                Enumerable.ElementAt<LocId>(martialArtProto.RandomSayingsDowned, (int)_random.Next(martialArtProto.RandomSayingsDowned.Count));
+                Enumerable.ElementAt(martialArtProto.RandomSayingsDowned, _random.Next(martialArtProto.RandomSayingsDowned.Count));
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }

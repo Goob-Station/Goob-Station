@@ -61,12 +61,3 @@ alerts-sneak-attack-desc = To a true shinobi, the first strike and the last stri
 
 alerts-loss-of-surprise-name = Loss Of Surprise
 alerts-loss-of-surprise-desc = Your intentions are known! It will take you a few moments to sneak attack again.
-
-uplink-cqc-name = CQC Manual
-uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. CQC is primarily an aggressive fighting style that focuses on dealing stamina damage to targets - designed to quickly subdue opponents and overpower them with pressure technique and crushing blows.
-
-uplink-capoeira-name = Capoeira Manual
-uplink-capoeira-desc = A manual that teaches a single user Capoeira before self-destructing. Capoeira focuses on swift attacks that link into flowing combos, with each move faster and harder than the last one, fueled by relentless momentum.
-
-uplink-sleeping-carp-name = Martial Arts Scroll
-uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by vampire and changeling agents.
