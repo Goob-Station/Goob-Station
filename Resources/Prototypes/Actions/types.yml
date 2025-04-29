@@ -191,9 +191,9 @@
   description: Randomly teleports you within a large distance.
   components:
   - type: InstantAction
-    checkCanInteract: false
-    # charges: 2 # Goobstation - Scrambler buff
-    useDelay: 180 # Goobstation - Scrambler buff, Goobstation - Fix scram
+    # checkCanInteract: false # Goobstation - scrambler rework - start
+    # charges: 2
+    useDelay: 60 # Goobstation - scrambler rework - end
     itemIconStyle: BigAction
     priority: -20
     icon:
