@@ -24,8 +24,8 @@
 # SPDX-FileCopyrightText: 2024 reverie collection <revsys413@gmail.com>
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -35,7 +35,7 @@
 - type: stealTargetGroup
   id: Hypospray
   name: steal-target-groups-hypospray
-  stealtip: hypospray-steal-tip
+  stealTip: hypospray-steal-tip
   sprite:
     sprite: Objects/Specific/Medical/hypospray.rsi
     state: hypo
@@ -50,7 +50,7 @@
 - type: stealTargetGroup
   id: ClothingOuterHardsuitRd
   name: steal-target-groups-clothing-outer-hardsuit-rd
-  stealtip: rd-hardsuit-steal-tip
+  stealTip: rd-hardsuit-steal-tip
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/rd.rsi
     state: icon
@@ -58,7 +58,7 @@
 - type: stealTargetGroup
   id: HandTeleporter
   name: steal-target-groups-hand-teleporter
-  stealtip: hand-teleporter-steal-tip
+  stealTip: hand-teleporter-steal-tip
   sprite:
     sprite: Objects/Devices/hand_teleporter.rsi
     state: icon
@@ -66,7 +66,7 @@
 - type: stealTargetGroup
   id: ClothingShoesBootsMagAdv
   name: steal-target-groups-clothing-shoes-boots-mag-adv
-  stealtip: adv-magboots-steal-tip
+  stealTip: adv-magboots-steal-tip
   sprite:
     sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
     state: icon
@@ -74,7 +74,7 @@
 - type: stealTargetGroup
   id: WeaponLauncherSingularityBuster
   name: steal-target-groups-weapon-launcher-singularity-buster
-  stealtip: singularity-buster-steal-tip
+  stealTip: singularity-buster-steal-tip
   sprite:
     sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
     state: base
@@ -82,7 +82,7 @@
 - type: stealTargetGroup
   id: BoxFolderQmClipboard
   name: steal-target-groups-box-folder-qm-clipboard
-  stealtip: qm-clipboard-steal-tip
+  stealTip: qm-clipboard-steal-tip
   sprite:
     sprite: Objects/Misc/qm_clipboard.rsi
     state: qm_clipboard
@@ -104,7 +104,7 @@
 - type: stealTargetGroup
   id: CaptainIDCard
   name: steal-target-groups-captain-id-card
-  stealtip: captain-id-card-steal-tip
+  stealTip: captain-id-card-steal-tip
   sprite:
     sprite: Objects/Misc/id_cards.rsi
     state: ert_commander #no one will know the difference.
@@ -112,7 +112,7 @@
 - type: stealTargetGroup
   id: JetpackCaptainFilled
   name: steal-target-groups-jetpack-captain-filled
-  stealtip: captain-jetpack-steal-tip
+  stealTip: captain-jetpack-steal-tip
   sprite:
     sprite: Objects/Tanks/Jetpacks/captain.rsi
     state: icon
@@ -120,7 +120,7 @@
 - type: stealTargetGroup
   id: WeaponAntiqueLaser
   name: steal-target-groups-weapon-antique-laser
-  stealtip: captain-laser-steal-tip
+  stealTip: captain-laser-steal-tip
   sprite:
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
     state: base
@@ -128,7 +128,7 @@
 - type: stealTargetGroup
   id: NukeDisk
   name: steal-target-groups-nuke-disk
-  stealtip: nuke-disk-steal-tip
+  stealTip: nuke-disk-steal-tip
   sprite:
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
@@ -136,7 +136,7 @@
 - type: stealTargetGroup
   id: WeaponEnergyShotgun
   name: steal-target-groups-weapon-energy-shot-gun
-  stealtip: energy-shotgun-steal-tip
+  stealTip: energy-shotgun-steal-tip
   sprite:
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
     state: base
@@ -211,14 +211,14 @@
 - type: stealTargetGroup
   id: ForensicScanner
   name: steal-target-groups-forensic-scanner
-  stealtip: forensic-scanner-steal-tip
+  stealTip: forensic-scanner-steal-tip
   sprite:
     sprite: Objects/Devices/forensic_scanner.rsi
     state: forensicnew
 
 - type: stealTargetGroup
   id: FlippoEngravedLighter
-  stealtip: engraved-lighter-steal-tip
+  stealTip: engraved-lighter-steal-tip
   name: steal-target-groups-flippo-engraved-lighter
   sprite:
     sprite: Objects/Tools/lighters.rsi
@@ -233,7 +233,7 @@
 
 - type: stealTargetGroup
   id: ClothingHeadHatWarden
-  stealtip: warden-hat-steal-tip
+  stealTip: warden-hat-steal-tip
   name: steal-target-groups-clothing-head-hat-warden
   sprite:
     sprite: Clothing/Head/Hats/warden.rsi
@@ -242,7 +242,7 @@
 - type: stealTargetGroup
   id: ClothingOuterHardsuitVoidParamed
   name: steal-target-groups-clothing-outer-hardsuit-void-paramed
-  stealtip: paramed-voidsuit-steal-tip
+  stealTip: paramed-voidsuit-steal-tip
   sprite:
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
     state: icon
@@ -271,7 +271,7 @@
 - type: stealTargetGroup
   id: FireAxe
   name: steal-target-groups-fire-axe
-  stealtip: fire-axe-steal-tip
+  stealTip: fire-axe-steal-tip
   sprite:
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
@@ -279,7 +279,7 @@
 - type: stealTargetGroup
   id: AmePartFlatpack
   name: steal-target-groups-ame-part-flatpack
-  stealtip:
+  stealTip:
   sprite:
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
@@ -301,7 +301,7 @@
 - type: stealTargetGroup
   id: ClothingEyesHudBeer
   name: steal-target-groups-clothing-eyes-hud-beer
-  stealtip: beer-glasses-steal-tip
+  stealTip: beer-glasses-steal-tip
   sprite:
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
     state: icon
@@ -309,7 +309,7 @@
 - type: stealTargetGroup
   id: Bible
   name: steal-target-groups-bible
-  stealtip: bible-steal-tip
+  stealTip: bible-steal-tip
   sprite:
     sprite: Objects/Specific/Chapel/bible.rsi
     state: icon
@@ -340,7 +340,7 @@
 - type: stealTargetGroup
   id: NuclearBomb
   name: steal-target-groups-nuclear-bomb
-  stealtip: nuclear-bomb-steal-tip
+  stealTip: nuclear-bomb-steal-tip
   sprite:
     sprite: Objects/Devices/nuke.rsi
     state: nuclearbomb_base
@@ -348,7 +348,7 @@
 - type: stealTargetGroup
   id: FaxMachineCaptain
   name: steal-target-groups-fax-machine-captain
-  stealtip: captain-fax-steal-tip
+  stealTip: captain-fax-steal-tip
   sprite:
     sprite: Structures/Machines/fax_machine.rsi
     state: icon
@@ -356,7 +356,7 @@
 - type: stealTargetGroup
   id: ChemDispenser
   name: steal-target-groups-chem-dispenser
-  stealtip: chem-dispenser-steal-tip
+  stealTip: chem-dispenser-steal-tip
   sprite:
     sprite: Structures/dispensers.rsi
     state: industrial-working
@@ -364,7 +364,7 @@
 - type: stealTargetGroup
   id: XenoArtifact
   name: steal-target-groups-xeno-artifact
-  stealtip: xeno-artifact-steal-tip
+  stealTip: xeno-artifact-steal-tip
   sprite:
     sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
     state: ano28
@@ -372,7 +372,7 @@
 - type: stealTargetGroup
   id: FreezerHeater
   name: steal-target-groups-freezer-heater
-  stealtip: freezer-heater-steal-tip
+  stealTip: freezer-heater-steal-tip
   sprite:
     sprite: Structures/Piping/Atmospherics/thermomachine.rsi
     state: heaterOff
@@ -380,7 +380,7 @@
 - type: stealTargetGroup
   id: Teg
   name: steal-target-groups-teg
-  stealtip: teg-steal-tip
+  stealTip: teg-steal-tip
   sprite:
     sprite: Structures/Power/Generation/teg.rsi
     state: teg
@@ -388,7 +388,7 @@
 - type: stealTargetGroup
   id: BoozeDispenser
   name: steal-target-groups-booze-dispenser
-  stealtip: booze-dispenser-steal-tip
+  stealTip: booze-dispenser-steal-tip
   sprite:
     sprite: Structures/smalldispensers.rsi
     state: booze
@@ -396,7 +396,7 @@
 - type: stealTargetGroup
   id: AltarNanotrasen
   name: steal-target-groups-altar-nanotrasen
-  stealtip: altar-steal-tip
+  stealTip: altar-steal-tip
   sprite:
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: nanotrasen
@@ -404,7 +404,7 @@
 - type: stealTargetGroup
   id: PlantRD
   name: steal-target-groups-plant-rd
-  stealtip: rd-plant-steal-tip
+  stealTip: rd-plant-steal-tip
   sprite:
     sprite: Structures/Furniture/potted_plants.rsi
     state: plant-25
@@ -421,6 +421,7 @@
 - type: stealTargetGroup
   id: AnimalIan
   name: steal-target-groups-animal-ian
+  stealTip: ian-steal-tip
   sprite:
     sprite: Mobs/Pets/corgi.rsi
     state: ian
@@ -449,6 +450,7 @@
 - type: stealTargetGroup
   id: AnimalMorty
   name: steal-target-groups-animal-morty
+  stealTip: morty-steal-tip
   sprite:
     sprite: Mobs/Animals/possum.rsi
     state: possum

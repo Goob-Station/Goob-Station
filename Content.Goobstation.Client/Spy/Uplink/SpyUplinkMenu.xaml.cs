@@ -63,12 +63,12 @@ public sealed partial class SpyUplinkMenu : DefaultWindow
             return;
         }
         //request an update
+        OnRefresh?.Invoke();
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
         UpdateCountdown(args.DeltaSeconds);
-        OnRefresh?.Invoke();
     }
 }

@@ -1,28 +1,32 @@
-hypospray-steal-tip = The Chief Medical Officer's personal medical injector. Usually found amongst their medical supplies on their person, in their belt, or otherwise in their locker.
-rd-hardsuit-steal-tip = A bulky Hardsuit commonly worn by the Research Director to protect themselves from the hazards of their work.
-hand-teleporter-steal-tip = Only one of device of this kind exists on the station, being in the possession of the Research Director.
-singularity-buster-steal-tip = The Chief Engineer's personal rocket launcher. Usually found amongst their engineering supplies on their person, in their bag, or otherwise in their locker..
-qm-clipboard-steal-tip = The Quartermaster's personal clipboard. Usually found on their person, in their belt, or otherwise in their locker.
-captain-id-card-steal-tip = The ID of the High Lord himself. If there's no official Captain around, you may find it pinned to the chest of the Acting Captain - one of the Heads of Staff. Otherwise, you'll have to bust open the captains locker in the bridge with explosives or pure might to get to it.
-nuke-disk-steal-tip = THAT disk - you know the one. Carried by the Captain at all times (hopefully). Difficult to miss, but if you can't find it, the Head of Security and Captain both have devices to track its precise location.
-captain-laser-steal-tip = The Captain's self-charging laser gun, Usually found on their person.
-captain-jetpack-steal-tip = The Captain's self-charging laser gun, Usually found in their locker
-energy-shotgun-steal-tip = The Warden's personal shotgun. Usually found strapped to their back.
-adv-magboots-steal-tip = A pair of magnetic boots may be found in the Chief Engineer's locker. Will Usually be found on their feet.
-forensic-scanner-steal-tip = The Detective's personal forensic scanner. Usually found on their person, otherwise in their locker.
-nuclear-bomb-steal-tip = The core of the station's self-destruct device, found in the vault.
-captain-fax-steal-tip = The Chief Medical Officer's personal medical injector. Usually found in there personal room.
-chem-dispenser-steal-tip = Usually found in chemistry. Used by chemists to make drugs!
-xeno-artifact-steal-tip = Usually found in science.
-teg-steal-tip = Can be found in atmospherics or engineering. Big turbine used to generate power for the station. Be careful atmospherics doesn't like trespassers.
-booze-dispenser-steal-tip = Usually found at the bar.
-altar-steal-tip = Can be found inside maintenace or the chapel.
-rd-plant-steal-tip = Only one of these can be found on the station, in the Research Director's office.
-freezer-heater-steal-tip = Can be found inside atmospherics. Be careful atmospherics doesn't like trespassers.
-engraved-lighter-steal-tip = The Detective's personal lighter. Usually found inside their trench-coat.
-warden-hat-steal-tip = The Warden's personal hat. Usually found on their head or in their locker.
-paramed-voidsuit-steal-tip = A lightweight Void-suit commonly worn by any Paramedic to protect themselves from the hazards of their work.
-fire-axe-steal-tip = Only two of these exist on the station - one in the bridge, and one in atmospherics. You can use a multitool to hack open the case, or break it open the hard way.
-ame-flat-pack-steal-tip = These only are around for a little bit in engineering grab them fast!
-beer-glasses-steal-tip = These can be found in the possession of the bartender, in the BarDrobe or in their locker.
-bible-steal-tip = Only one of these can be found on the station, in possession of the Chaplain.
+hypospray-steal-tip = [font size={10}][italic]The Chief Medical Officer's personal medical injector. Usually found amongst their medical supplies on their person, in their belt, or otherwise in their locker.[/italic][/font]
+rd-hardsuit-steal-tip = [font size={10}][italic]A bulky Hardsuit commonly worn by the Research Director to protect themselves from the hazards of their work.[/italic][/font]
+hand-teleporter-steal-tip = [font size={10}][italic]Only one of device of this kind exists on the station, being in the possession of the Research Director.[/italic][/font]
+singularity-buster-steal-tip = [font size={10}][italic]The Chief Engineer's personal rocket launcher. Usually found amongst their engineering supplies on their person, in their bag, or otherwise in their locker..[/italic][/font]
+qm-clipboard-steal-tip = [font size={10}][italic]The Quartermaster's personal clipboard. Usually found on their person, in their belt, or otherwise in their locker.[/italic][/font]
+captain-id-card-steal-tip = [font size={10}][italic]The ID of the High Lord himself. If there's no official Captain around, you may find it pinned to the chest of the Acting Captain - one of the Heads of Staff. Otherwise, you'll have to bust open the captains locker in the bridge with explosives or pure might to get to it.[/italic][/font]
+nuke-disk-steal-tip = [font size={10}][italic]THAT disk - you know the one. Carried by the Captain at all times (hopefully). Difficult to miss, but if you can't find it, the Head of Security and Captain both have devices to track its precise location.[/italic][/font]
+captain-laser-steal-tip = [font size={10}][italic]The Captain's self-charging laser gun, Usually found on their person.[/italic][/font]
+captain-jetpack-steal-tip = [font size={10}][italic]The Captain's self-charging laser gun, Usually found in their locker[/italic][/font]
+energy-shotgun-steal-tip = [font size={10}][italic]The Warden's personal shotgun. Usually found strapped to their back.[/italic][/font]
+adv-magboots-steal-tip = [font size={10}][italic]A pair of magnetic boots may be found in the Chief Engineer's locker. Will Usually be found on their feet.[/italic][/font]
+forensic-scanner-steal-tip = [font size={10}][italic]The Detective's personal forensic scanner. Usually found on their person, otherwise in their locker.[/italic][/font]
+nuclear-bomb-steal-tip = [font size={10}][italic]The core of the station's self-destruct device, found in the vault.[/italic][/font]
+captain-fax-steal-tip = [font size={10}][italic]The Chief Medical Officer's personal medical injector. Usually found in there personal room.[/italic][/font]
+chem-dispenser-steal-tip = [font size={10}][italic]Usually found in chemistry. Used by chemists to make drugs![/italic][/font]
+xeno-artifact-steal-tip = [font size={10}][italic]Usually found in science.[/italic][/font]
+teg-steal-tip = [font size={10}][italic]Can be found in atmospherics or engineering. Big turbine used to generate power for the station. Be careful atmospherics doesn't like trespassers.[/italic][/font]
+booze-dispenser-steal-tip =[font size={10}][italic]Usually found at the bar.[/italic][/font]
+altar-steal-tip = [font size={10}][italic]Can be found inside maintenace or the chapel.[/italic][/font]
+rd-plant-steal-tip = [font size={10}][italic]Only one of these can be found on the station, in the Research Director's office.[/italic][/font]
+freezer-heater-steal-tip = [font size={10}][italic]Can be found inside atmospherics. Be careful atmospherics doesn't like trespassers.[/italic][/font]
+engraved-lighter-steal-tip = [font size={10}][italic]The Detective's personal lighter. Usually found inside their trench-coat.[/italic][/font]
+warden-hat-steal-tip = [font size={10}][italic]The Warden's personal hat. Usually found on their head or in their locker.[/italic][/font]
+paramed-voidsuit-steal-tip = [font size={10}][italic]A lightweight Void-suit commonly worn by any Paramedic to protect themselves from the hazards of their work.[/italic][/font]
+fire-axe-steal-tip = [font size={10}][italic]Only two of these exist on the station - one in the bridge, and one in atmospherics. You can use a multitool to hack open the case, or break it open the hard way.[/italic][/font]
+ame-flat-pack-steal-tip = [font size={10}][italic]These only are around for a little bit in engineering grab them fast![/italic][/font]
+beer-glasses-steal-tip = [font size={10}][italic]These can be found in the possession of the bartender, in the BarDrobe or in their locker.[/italic][/font]
+bible-steal-tip = [font size={10}][italic]Only one of these can be found on the station, in possession of the Chaplain.[/italic][/font]
+ian-steal-tip = [font size={10}][italic]The Head Of Personnel's corgi, usaully found in his office.[/italic][/font]
+bingus-steal-tip = [font size={10}][italic]The Head Of Personnel's corgi, usaully found in his office.[/italic][/font]
+morty-steal-tip = [font size={10}][italic]The mourge possum. Self explanatory.[/italic][/font]
+

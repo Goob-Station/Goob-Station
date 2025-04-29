@@ -12,7 +12,7 @@
             <RichTextLabel Text="{Loc spy-time-label} " />
             <Label FontColorOverride="#F1C40f" Name="RefreshTimeLabel" Text="10:00" />
         </BoxContainer>
-        <PanelContainer Modulate="#F1C40F" StyleClasses="HighDivider" />
+        <PanelContainer Modulate="#34495E" StyleClasses="HighDivider" />
         <PanelContainer VerticalExpand="True">
             <ScrollContainer
                 HScrollEnabled="False"

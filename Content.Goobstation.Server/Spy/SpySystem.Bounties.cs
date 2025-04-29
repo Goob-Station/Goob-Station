@@ -90,13 +90,11 @@ private bool TryPickBounties([NotNullWhen(true)] out List<SpyBountyData>? bounti
         return false;
     }
 
-    const int maxAttempts = 3;
-    int currentAttempt = 0;
+    var currentAttempt = 0;
     var allStealGroups = new HashSet<ProtoId<StealTargetGroupPrototype>>();
-    List<StealTarget> finalObjectives = new();
-
+    List<StealTarget> finalObjectives = [];
     // Attempt to gather enough valid steal groups
-    while (currentAttempt < maxAttempts && allStealGroups.Count < GlobalBountyAmount)
+    while (currentAttempt < RetryAttempts && allStealGroups.Count < GlobalBountyAmount)
     {
         var newObjectives = GenerateObjectives(easyObjectives, mediumObjectives, hardObjectives);
         var currentStealGroups = newObjectives

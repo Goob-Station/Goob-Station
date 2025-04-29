@@ -1,10 +1,10 @@
 <Control xmlns="https://spacestation14.io"
-         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client">
     <!-- Main container with overlay capability -->
     <PanelContainer Name="MainContainer"
                    HorizontalExpand="True"
                    VerticalExpand="True" Margin="0 2">
-
         <!-- Content container -->
         <BoxContainer Orientation="Vertical" Name="ContentContainer" Margin="5">
             <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
@@ -17,6 +17,7 @@
                      Name="BountyTitle"
                      Text="Bounty PLACEHOLDER Title"/>
             </BoxContainer>
+            <PanelContainer Modulate="#2ECC71" Margin="0 5" StyleClasses="HighDivider" />
             <RichTextLabel Name="BountyDesc"/>
             <BoxContainer Orientation="Horizontal">
                 <Label FontColorOverride="#2ECC71"

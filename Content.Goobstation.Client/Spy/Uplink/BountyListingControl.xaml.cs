@@ -9,6 +9,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using Serilog;
 
 namespace Content.Goobstation.Client.Spy.Uplink;
@@ -43,11 +44,14 @@ public sealed partial class BountyListingControl : Control
             _ => BountyTitle.FontColorOverride,
         };
 
-        Logger.Debug(targetGroup.StealTip); // WHY DO YOU NOT WORK?
         BountyTitle.Text = Loc.GetString("objective-condition-steal-title-alive-no-owner", ("itemName", Loc.GetString(targetGroup.Name)));
         var rewardText = _data.RewardListing.Name != null ? Loc.GetString(_data.RewardListing.Name) : productProto.Name;
         RewardLabel.Text = $" {rewardText}"; // pad it with a space
-        BountyDesc.Text = Loc.GetString(targetGroup.StealTip);
+
+        var msg = new FormattedMessage();
+        msg.TryAddMarkup(Loc.GetString(targetGroup.StealTip), out _);
+        BountyDesc.SetMessage(msg);
+
         if (_data.Claimed == false)
             return;
         ClaimedOverlay.Visible = true;
