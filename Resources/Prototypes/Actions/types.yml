@@ -193,7 +193,7 @@
   - type: InstantAction
     # checkCanInteract: false # Goobstation - scrambler rework - start
     # charges: 2
-    useDelay: 60 # Goobstation - scrambler rework - end
+    useDelay: 120 # Goobstation - scrambler rework - end
     itemIconStyle: BigAction
     priority: -20
     icon:
