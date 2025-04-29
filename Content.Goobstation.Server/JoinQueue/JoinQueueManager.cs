@@ -216,13 +216,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     /// <param name="session">Player session that will be sent to game</param>
     private void SendToGame(ICommonSession session)
     {
-        try
-        {
-            _player.JoinGame(session);
-        }
-        catch (Exception ex)
-        {
-            session.Channel.Disconnect("Failed to join game: Internal server error");
-        }
+
+        Timer.Spawn(0, () => _player.JoinGame(session));
     }
 }
