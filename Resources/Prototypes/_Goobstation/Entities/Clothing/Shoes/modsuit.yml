@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: ClothingShoesBase
   id: ClothingModsuitBootsStandard
@@ -30,3 +40,239 @@
       shoes:
       - state: equipped-FEET-sealed
         shader: unshaded
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsSecurity
+  name: dragoon modsuit boots
+  description: THE IRON BOOTS OF THE LAW.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/security.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.5
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsHeadOfSecurity
+  name: bulwark modsuit boots
+  description: I call these my commie stompers.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/headofsecurity.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
+  - type: ModifyStandingUpTime # Goobstation
+    multiplier: 0.5
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsParamedic
+  name: sanitater modsuit boots
+  description: Made to get bloody.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/paramedic.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsEngineer
+  name: sapper modsuit boots
+  description: Made to get oily.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/engineer.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsAtmostech
+  name: aeolus modsuit boots
+  description: Made to get burnt.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/atmostech.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsResearchDirector
+  name: minerva modsuit boots
+  description: Wont stop you slipping on your own blood when the holocarp gets to you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/researchdirector.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsCaptain
+  name: magnate modsuit boots
+  description: These boots were designed by THE Michael Jordan and crafted with ancient alloys, man.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/captain.rsi
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed

@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   abstract: true
   parent: [ BaseItem, BaseSyndicateContraband ]
@@ -41,3 +49,21 @@
   - type: BallisticAmmoProvider
     capacity: 30
     proto: CartridgeHighCaliberExplosive
+
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxAntiMaterielHeavyArmourPiercing
+  name: ammunition box (.92 AP)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: CartridgeAntiMaterielHeavyArmourPiercing
+
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxAntiMaterielHeavyAntiTank
+  name: ammunition box (.92 AT)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: CartridgeAntiMaterielHeavyAntiTank

@@ -1,4 +1,10 @@
-﻿using System.Text.Json.Nodes;
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 c4llv07e <igor@c4llv07e.xyz>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Text.Json.Nodes;
 using Content.Shared.CCVar;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;

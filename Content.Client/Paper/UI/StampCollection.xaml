@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
 <paper:StampCollection xmlns="https://spacestation14.io"
     xmlns:paper="clr-namespace:Content.Client.Paper.UI"
     MinSize="150 150">

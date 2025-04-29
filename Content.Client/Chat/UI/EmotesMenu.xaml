@@ -1,3 +1,13 @@
+<!--
+SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Ty Ashley <42426760+TyAshley@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <ui:RadialMenu xmlns="https://spacestation14.io"
                 xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
                 BackButtonStyleClass="RadialMenuBackButton"

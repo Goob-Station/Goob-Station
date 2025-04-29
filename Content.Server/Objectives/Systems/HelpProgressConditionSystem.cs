@@ -1,30 +1,33 @@
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 psykana <36602558+psykana@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.GameTicking.Rules;
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
-using Robust.Shared.Random;
-using System.Linq;
 
 namespace Content.Server.Objectives.Systems;
 
 /// <summary>
-/// Handles help progress condition logic and picking random help targets.
+/// Handles help progress condition logic.
 /// </summary>
 public sealed class HelpProgressConditionSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRule = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HelpProgressConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
-
-        SubscribeLocalEvent<RandomTraitorProgressComponent, ObjectiveAssignedEvent>(OnTraitorAssigned);
     }
 
     private void OnGetProgress(EntityUid uid, HelpProgressConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -33,55 +36,6 @@ public sealed class HelpProgressConditionSystem : EntitySystem
             return;
 
         args.Progress = GetProgress(target.Value);
-    }
-
-    private void OnTraitorAssigned(EntityUid uid, RandomTraitorProgressComponent comp, ref ObjectiveAssignedEvent args)
-    {
-        // invalid prototype
-        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        var traitors = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind).ToHashSet();
-
-        // cant help anyone who is tasked with helping:
-        // 1. thats boring
-        // 2. no cyclic progress dependencies!!!
-        foreach (var traitor in traitors)
-        {
-            // TODO: replace this with TryComp<ObjectivesComponent>(traitor) or something when objectives are moved out of mind
-            if (!TryComp<MindComponent>(traitor.Id, out var mind))
-                continue;
-
-            foreach (var objective in mind.Objectives)
-            {
-                if (HasComp<HelpProgressConditionComponent>(objective))
-                    traitors.RemoveWhere(x => x.Mind == mind);
-            }
-        }
-
-        // Can't have multiple objectives to help/save the same person
-        foreach (var objective in args.Mind.Objectives)
-        {
-            if (HasComp<RandomTraitorAliveComponent>(objective) || HasComp<RandomTraitorProgressComponent>(objective))
-            {
-                if (TryComp<TargetObjectiveComponent>(objective, out var help))
-                {
-                    traitors.RemoveWhere(x => x.Id == help.Target);
-                }
-            }
-        }
-
-        // no more helpable traitors
-        if (traitors.Count == 0)
-        {
-            args.Cancelled = true;
-            return;
-        }
-
-        _target.SetTarget(uid, _random.Pick(traitors).Id, target);
     }
 
     private float GetProgress(EntityUid target)

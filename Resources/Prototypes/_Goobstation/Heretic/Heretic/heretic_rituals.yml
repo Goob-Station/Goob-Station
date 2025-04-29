@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 ### basic
 # Heartbeat of the Mansus (sacrifice)
 - type: hereticRitual
@@ -102,7 +116,7 @@
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
     state: icon
   requiredTags:
-    Knife: 4
+    Knife: 2
   output:
     HereticBladeBlade: 1
 
@@ -146,7 +160,7 @@
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
   requiredTags:
-    Poppy: 1
+    Muzzle: 1
 
 - type: hereticRitual
   id: RawRitual

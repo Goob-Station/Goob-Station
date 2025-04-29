@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Icepick <122653407+Icepicked@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons, BaseSecurityContraband, ClothingEyesGlassesSunglasses]
   id: ClothingEyesGlassesMedSec
@@ -115,13 +132,15 @@
   - type: ClothingGrantComponent
     component:
     - type: KravMaga # Silly
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: [ClothingEyesHudOmni, BaseCentcommContraband]
   id: ClothingEyesGlassesCentComm
   suffix: DO NOT MAP
   name: central command shades
-  description: A pair of shades designed for central command personnel. Comes with more features than you could imagine.
+  description: A pair of shades designed for central command personnel. It's nothing personal. # *teleports behind you*, Nothing personnel, kid.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
@@ -137,7 +156,7 @@
     coverage: EYES
   - type: ThermalVision
     isEquipment: true
-    color: "#98EEFB"
+    color: "#2ebf40"
     lightRadius: 15
 
 - type: entity
@@ -165,4 +184,3 @@
   - type: Construction
     graph: GlassesMedDiagHUD
     node: glassesMedDiag
-

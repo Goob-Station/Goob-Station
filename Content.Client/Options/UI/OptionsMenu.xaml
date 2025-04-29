@@ -1,3 +1,20 @@
+<!--
+SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Leeroy <97187620+elthundercloud@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Miro Kavaliou <miraslauk@gmail.com>
+SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <DefaultWindow xmlns="https://spacestation14.io"
             xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs"
             Title="{Loc 'ui-options-title'}"
@@ -8,6 +25,7 @@
         <tabs:KeyRebindTab Name="KeyRebindTab" />
         <tabs:AudioTab Name="AudioTab" />
         <tabs:AccessibilityTab Name="AccessibilityTab" />
+        <tabs:AdminOptionsTab Name="AdminOptionsTab" />
         <tabs:NetworkTab Name="NetworkTab" />
     </TabContainer>
 </DefaultWindow>

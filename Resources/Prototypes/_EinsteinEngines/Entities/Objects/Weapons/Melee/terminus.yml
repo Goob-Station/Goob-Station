@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: DT-8 "Terminus"
   parent: BaseItem
@@ -8,51 +18,34 @@
     sprite: /Textures/_EinsteinEngines/Objects/Weapons/Melee/terminus.rsi
     state: icon
   - type: AmmoCounter
-  - type: UseDelayOnShoot
   - type: UseDelay
-    delay: 0.9
+    delay: 1
   - type: Gun
-    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
-    fireRate: 1
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    fireRate: 1.5
     useKey: false
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 1
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
-  - type: BasicEntityAmmoProvider
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerSmgSpread
-    capacity: 1
-    count: 1
+    fireCost: 100
   - type: MeleeWeapon
-    attackRate: 0.65
-    range: 1.65
-    wideAnimationRotation: -135
+    attackRate: 0.75
     damage:
       types:
         Blunt: 15
-        Slash: 5
-    bluntStaminaDamageFactor: 2.0
-    heavyStaminaCost: 7.5
-    angle: 120
+        Slash: 15
     soundHit:
       collection: MetalThud
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 5
-        Slash: 10
-  - type: StaminaDamageOnHit # I stole the baseball bat code and thought it'd be funny to leave this.
-    damage: 10
+  - type: StaminaDamageOnHit
+    damage: 20
   - type: Wieldable
   - type: GunRequiresWield
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
   - type: Item
-    size: Ginormous
+    size: Huge
+    shape:
+    - 0,0,4,2
   - type: DisarmMalus
-  - type: Tool
-    qualities:
-    - Prying
-  - type: Prying
-#  - type: RestrictedMelee - Lets add a really cool weapon and only make it usable by a single species, abysmal dogshit.
-#    whitelist:
-#      tags:
-#        - Oni

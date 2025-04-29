@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2021 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 Jeff <velcroboy333@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 DieselMohawk <173439801+DieselMohawk@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: Joint
   parent: BaseCigar
@@ -29,7 +47,7 @@
           - ReagentId: THC
             Quantity: 20
   - type: RandomMetadata
-    nameSegments: [names_rollie]
+    nameSegments: [NamesRollie]
 
 - type: entity
   id: JointRainbow
@@ -90,7 +108,7 @@
           - ReagentId: THC
             Quantity: 20
   - type: RandomMetadata
-    nameSegments: [names_rollie]
+    nameSegments: [NamesRollie]
 
 - type: entity
   id: BluntRainbow

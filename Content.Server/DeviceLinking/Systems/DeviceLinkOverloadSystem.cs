@@ -1,4 +1,12 @@
-﻿using Content.Server.DeviceLinking.Components.Overload;
+// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Server.DeviceLinking.Components.Overload;
 using Content.Server.DeviceLinking.Events;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;

@@ -1,3 +1,31 @@
+# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 ninruB <38016303+asperger-sind@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 wrexbe <wrexbe@protonmail.com>
+# SPDX-FileCopyrightText: 2023 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kilk <142771861+TheKilk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LinkUyx <131011403+LinkUyx@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DieselMohawk <gavin.drinka@gmail.com>
+# SPDX-FileCopyrightText: 2024 Golden Can <greentopcan@gmail.com>
+# SPDX-FileCopyrightText: 2024 Speebro <100388782+Speebr0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: vendingMachineInventory
   id: SecDrobeInventory
   startingInventory:

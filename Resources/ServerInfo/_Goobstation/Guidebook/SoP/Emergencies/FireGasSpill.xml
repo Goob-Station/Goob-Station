@@ -1,3 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2024 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <Document>
 # Fire/Gas Spill Procedures
 In the event of a fire or gas spill (namely anything considered station-wide dangerous), Command should set the alert to [color=#c8a404]Yellow Alert[/color] until Engineering personnel can deal with the problem.

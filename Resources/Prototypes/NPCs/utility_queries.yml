@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: utilityQuery
   id: InventoryGuns
   query:
@@ -189,6 +201,10 @@
     - !type:NearbyHostilesQuery
   considerations:
     - !type:TargetIsAliveCon
+      curve: !type:BoolCurve
+    - !type:TargetIsCritCon
+      curve: !type:InverseBoolCurve
+    - !type:TurretTargetingCon
       curve: !type:BoolCurve
     - !type:TargetDistanceCon
       curve: !type:PresetCurve

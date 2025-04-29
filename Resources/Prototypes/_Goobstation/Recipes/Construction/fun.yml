@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: construction
   name: bananium sword
   id: BananiumSword
@@ -8,3 +17,37 @@
   description: An extremely slippery toy sword made from bananium.
   icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_bananium.rsi, state: icon }
   objectType: Item
+
+- type: construction
+  name: welder energy sword
+  id: WelderSword
+  graph: WelderSword
+  startNode: start
+  targetNode: welderSword
+  category: construction-category-weapons
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: industrial welder energy sword
+  id: WelderSwordIndustrial
+  graph: WelderSwordIndustrial
+  startNode: start
+  targetNode: welderSwordIndustrial
+  category: construction-category-weapons
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi, state: icon }
+  objectType: Item
+
+- type: construction
+  name: experimental welder energy sword
+  id: WelderSwordExperimental
+  graph: WelderSwordExperimental
+  startNode: start
+  targetNode: welderSwordExperimental
+  category: construction-category-weapons
+  description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi, state: icon }
+  objectType: Item
+

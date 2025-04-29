@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: construction
   name: disposal blocker
   description: A pipe that allows movement of objects on one side and blocks it on the other.

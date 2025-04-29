@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Offensive
 - type: listing
   id: SpellbookMimeMalaiseUpgrade
@@ -302,6 +310,10 @@
     - SpellbookRodForm
   - !type:ListingLimitedStockCondition
     stock: 4
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - GrimoireGhost
 
 - type: listing
   id: SpellbookSpellCardsUpgrade
@@ -526,6 +538,10 @@
     - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - GrimoireGhost
 
 - type: listing
   id: SpellbookSwapUpgrade

@@ -1,10 +1,34 @@
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
-using Content.Server._Goobstation.PendingAntag;
 using Content.Server.Administration.Managers;
+using Content.Server.Antag;
+using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -17,7 +41,8 @@ public sealed partial class StationJobsSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly PendingAntagSystem _pendingAntag = default!; // Goobstation
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     private Dictionary<int, HashSet<string>> _jobsByWeight = default!;
     private List<int> _orderedWeights = default!;
@@ -293,7 +318,6 @@ public sealed partial class StationJobsSystem
             var profile = profiles[player];
             if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow)
             {
-                _pendingAntag.PendingAntags.Remove(player); // Goobstation
                 assignedJobs.Add(player, (null, EntityUid.Invalid));
                 continue;
             }
@@ -347,13 +371,12 @@ public sealed partial class StationJobsSystem
         foreach (var (player, profile) in profiles)
         {
             var roleBans = _banManager.GetJobBans(player);
+            var antagBlocked = _antag.GetPreSelectedAntagSessions();
             var profileJobs = profile.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
             var ev = new StationJobsGetCandidatesEvent(player, profileJobs);
             RaiseLocalEvent(ref ev);
 
             List<string>? availableJobs = null;
-
-            var pendingAntag = _pendingAntag.PendingAntags.ContainsKey(player); // Goobstation
 
             foreach (var jobId in profileJobs)
             {
@@ -365,7 +388,7 @@ public sealed partial class StationJobsSystem
                 if (!_prototypeManager.TryIndex(jobId, out var job))
                     continue;
 
-                if (!job.CanBeAntag && pendingAntag) // Goobstation
+                if (!job.CanBeAntag && (!_playerManager.TryGetSessionById(player, out var session) || antagBlocked.Contains(session)))
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)

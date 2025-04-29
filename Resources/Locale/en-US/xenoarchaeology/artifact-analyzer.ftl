@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2023 Guillaume E <262623+quatre@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vasilis <vascreeper@yahoo.com>
+# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 analysis-console-menu-title = analysis console
 analysis-console-server-list-button = Server List
 analysis-console-scan-button = Scan

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 names-borer-dataset-1 = Alcyonium
 names-borer-dataset-2 = Anomia
 names-borer-dataset-3 = Aphrodita

@@ -1,6 +1,39 @@
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Metal Gear Sloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2022 ElectroJr <leonsfriedrich@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseMagazineShotgun
-  name: ammo drum (.50 shells)
+  name: ammo drum (12 Gauge shells) # Goobstation
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -35,7 +68,7 @@
 
 - type: entity
   id: MagazineShotgunEmpty
-  name: ammo drum (.50 shells any)
+  name: ammo drum (12 Gauge shells any) # Goobstation
   suffix: empty
   parent: BaseMagazineShotgun
   components:
@@ -44,7 +77,7 @@
 
 - type: entity
   id: MagazineShotgun
-  name: ammo drum (.50 pellet)
+  name: ammo drum (12 Gauge pellet) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -58,7 +91,7 @@
 
 - type: entity
   id: MagazineShotgunBeanbag
-  name: ammo drum (.50 beanbags)
+  name: ammo drum (12 Gauge beanbags) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -72,7 +105,7 @@
 
 - type: entity
   id: MagazineShotgunSlug
-  name: ammo drum (.50 slug)
+  name: ammo drum (12 Gauge slug) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -86,14 +119,14 @@
 
 - type: entity
   id: MagazineShotgunIncendiary
-  name: ammo drum (.50 incendiary)
+  name: ammo drum (12 Gauge incendiary) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunIncendiary
   - type: Sprite
     layers:
-    - state: slug
+    - state: base # Goobstation
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

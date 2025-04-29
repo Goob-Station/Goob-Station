@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: TouchSpellMansus
   name: mansus grasp
@@ -29,12 +40,25 @@
       path: /Audio/_Goobstation/Heretic/crack2.ogg
     endSound:
       path: /Audio/Items/welder.ogg
+  # Used for extracting organs
   - type: Hemostat
     speed: 1.5
   - type: Retractor
     speed: 1.5
   - type: Tweezers
     speed: 1.5
+  # Not used for extracting organs
+  - type: Drill
+    speed: 0.75
+  - type: BoneSetter
+    speed: 0.75
+  - type: Cautery
+    speed: 0.75
+  - type: BoneGel
+    speed: 0.75
+  - type: Tending
+    speed: 0.75
+  # Saw and scalpel surgery qualities are on heretic blades
 
 - type: entity
   id: TouchSpellMansusRust
@@ -42,3 +66,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: RustGrasp
+  - type: MansusGrasp
+    # No HereticRitualRune in blaacklist because otherwise it would rust tiles when attempting to interact with it.
+    # Rune is ignored anyway when applying rust grasp special effect in c#.
+    blacklist:
+      components:
+      - Puddle

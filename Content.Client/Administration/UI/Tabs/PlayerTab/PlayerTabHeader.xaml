@@ -1,4 +1,16 @@
-﻿<Control xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2022 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Control xmlns="https://spacestation14.io"
                  xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls">
     <PanelContainer Name="BackgroundColorPanel" Access="Public"/>
     <BoxContainer Orientation="Horizontal"
@@ -30,6 +42,13 @@
                HorizontalExpand="True"
                ClipText="True"
                Text="{Loc player-tab-antagonist}"
+               MouseFilter="Pass"/>
+        <cc:VSeparator/>
+        <Label Name="RoleTypeLabel"
+               SizeFlagsStretchRatio="2"
+               HorizontalExpand="True"
+               ClipText="True"
+               Text="{Loc player-tab-roletype}"
                MouseFilter="Pass"/>
         <cc:VSeparator/>
         <Label Name="PlaytimeLabel"

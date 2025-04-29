@@ -1,5 +1,21 @@
+# SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
-  parent: [ ClothingBeltStorageBase, BaseCommandContraband ]
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCommandContraband ]
   id: ClothingBeltMilitaryWebbingCMO
   name: chief medical officer's chest rig
   description: A medical chest rig with deep pockets, for use by health professionals.
@@ -37,10 +53,12 @@
         - HandLabeler
         - SurgeryTool # Shitmed Change
         - Defibrillator # Goobstation
-
+        - GunApplySolution # Goobstation - Syndicate dart gun
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
 
 - type: entity
-  parent: [ ClothingBeltStorageBase, BaseCentcommContraband ]
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltDeathsquadWebbing
   suffix: DO NOT MAP
   name: deathsquad operative chestrig
@@ -50,10 +68,12 @@
     sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
 
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ]
   id: ClothingBeltSecurityWebbingMedical
   name: ert doctor's chest rig
   description: "A medical chest rig with deep pockets, for use by ERT operatives."
@@ -62,12 +82,12 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
-  - type: Item
-    size: Large
   - type: Storage
     maxItemSize: Normal
     grid:
     - 0,0,6,2
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
 
 - type: entity
   parent: ClothingBeltSecurity
@@ -103,3 +123,35 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+
+- type: entity
+  parent: [ ChemBag, BaseSyndicateContraband ]
+  id: ClothingBeltChemBagSyndi
+  name: syndicate medical pouch
+  description: A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.01
+  - type: Storage
+    whitelist:
+      tags:
+        - PillCanister
+        - Syringe
+        - Dropper
+        - MedicalPatch
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+      components:
+        - Pill
+        - Hypospray
+        - SyringeGun
+        - SurgeryTool
+        - Defibrillator
+        - SolutionTransfer
+        - GunApplySolution # Dart gun

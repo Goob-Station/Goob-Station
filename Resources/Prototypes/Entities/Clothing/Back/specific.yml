@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2025 Terraspark4941 <terraspark4941@gmail.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackChameleon
@@ -82,3 +101,52 @@
       Glass: 250
   - type: StaticPrice #Goobstation - Recycle update
     price: 50
+
+# Assmos - Extinguisher Nozzle
+- type: entity
+  parent: Clothing
+  id: ClothingBackpackFirefighterTank
+  name: firefighter water tank backpack
+  description: A refrigerated water tank backpack that can switch modes to launch ATMOS resin or work as a high pressure extinguisher. 
+  components:
+  - type: Tag
+    tags:
+    - AtmosBackTank
+    - WhitelistChameleon
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: Clothing
+    slots: BACK
+    sprite: Clothing/Back/Backpacks/atmosbackpacktank.rsi
+  - type: SolutionAmmoProvider
+    solutionId: tank
+    proto: AtmosResin
+    fireCost: 25
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1200
+        reagents:
+        - ReagentId: Water
+          Quantity: 1200
+  - type: DrawableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+  - type: ItemSlots
+    slots:
+      nozzle_slot:
+        name: FirefighterNozzle
+        startingItem: FirefighterNozzle
+        whitelist:
+          tags:
+          - Nozzle
+  - type: FirefighterTankRefillable
+  - type: ContainerContainer
+    containers:
+      nozzle_slot: !type:ContainerSlot

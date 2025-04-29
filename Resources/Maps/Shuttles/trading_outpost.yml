@@ -1,6 +1,67 @@
+# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PuceTint <69696513+PuceTint@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ubaser <ubaserblueknight2@gmail.com>
+# SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Dimastra <65184747+Dimastra@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Dimastra <dimastra@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
+# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
+# SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
+# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Saphire Lattice <lattice@saphi.re>
+# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Spanky <scott@wearejacob.com>
+# SPDX-FileCopyrightText: 2024 Spessmann <156740760+Spessmann@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Grid
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 02/26/2025 19:50:56
+  entityCount: 926
+maps: []
+grids:
+- 2
+orphans:
+- 2
+nullspace: []
 tilemap:
   0: Space
   31: FloorDark
@@ -435,45 +496,45 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,1.5
       parent: 2
-- proto: AirlockExternalGlass
+- proto: AirlockExternalGlassCargoLocked
   entities:
   - uid: 84
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: 11.5,-5.5
       parent: 2
   - uid: 86
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: -0.5,-5.5
       parent: 2
+  - uid: 94
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,-3.5
+      parent: 2
+  - uid: 99
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-3.5
+      parent: 2
+- proto: AirlockExternalGlassShuttleLocked
+  entities:
   - uid: 134
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 11.5,-3.5
+      pos: -2.5,-3.5
       parent: 2
   - uid: 139
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -0.5,-3.5
-      parent: 2
-- proto: AirlockGlassShuttle
-  entities:
-  - uid: 94
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -2.5,-5.5
-      parent: 2
-  - uid: 99
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -2.5,-3.5
       parent: 2
   - uid: 226
     components:
@@ -2753,6 +2814,116 @@ entities:
       rot: 3.141592653589793 rad
       pos: 5.5,-9.5
       parent: 2
+- proto: FireAlarm
+  entities:
+  - uid: 585
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,-8.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 569
+      - 562
+      - 558
+      - 555
+      - 583
+      - 584
+  - uid: 586
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,-8.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 562
+      - 569
+      - 558
+      - 555
+      - 572
+      - 582
+- proto: FirelockEdge
+  entities:
+  - uid: 572
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,-3.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 586
+  - uid: 582
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,-5.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 586
+  - uid: 583
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,-3.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 585
+  - uid: 584
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,-5.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 585
+- proto: FirelockGlass
+  entities:
+  - uid: 555
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,2.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 586
+      - 585
+  - uid: 558
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,1.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 586
+      - 585
+  - uid: 562
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,-10.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 586
+      - 585
+  - uid: 569
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,-11.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 586
+      - 585
 - proto: GasOutletInjector
   entities:
   - uid: 386
@@ -4334,7 +4505,7 @@ entities:
   - uid: 546
     components:
     - type: Transform
-      pos: 5.5,2.5
+      pos: 4.5,2.5
       parent: 2
 - proto: NewtonCradle
   entities:

@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2023 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: CrystalGreen
   parent: BaseStructure
@@ -141,6 +149,34 @@
                   max: 2
 
 - type: entity
+  id: CrystalBlack
+  parent: CrystalGreen
+  suffix: black
+  components:
+    - type: Sprite
+      color: "#363636"
+    - type: PointLight
+      radius: 3
+      energy: 3
+      color: "#363636"
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: GlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                ShardCrystalBlack:
+                  min: 1
+                  max: 2
+
+- type: entity
   id: CrystalBlue
   parent: CrystalGreen
   suffix: blue
@@ -165,6 +201,34 @@
             - !type:SpawnEntitiesBehavior
               spawn:
                 ShardCrystalBlue:
+                  min: 1
+                  max: 2
+
+- type: entity
+  id: CrystalYellow
+  parent: CrystalGreen
+  suffix: yellow
+  components:
+    - type: Sprite
+      color: "#ffde46"
+    - type: PointLight
+      radius: 3
+      energy: 3
+      color: "#ffde46"
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: GlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                ShardCrystalYellow:
                   min: 1
                   max: 2
 

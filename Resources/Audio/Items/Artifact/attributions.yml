@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["artifact1.ogg", "artifact2.ogg", "artifact3.ogg", "artifact4.ogg", "artifact5.ogg", "artifact6.ogg", "artifact7.ogg"]
   license: "CC-BY-4.0"
   copyright: "Created by Garuda1982, split into individual files and converted to OGG and Mono by EmoGarbage404 (github)"

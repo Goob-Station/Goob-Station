@@ -1,4 +1,18 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PoTeletubby <ajcraigaz@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+// SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Research.Prototypes;
@@ -45,4 +59,11 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// </summary>
     [DataField("lockoutTier")]
     public int LockoutTier = 3;
+
+    /// <summary>
+    /// Goobstation R&D console rework field
+    /// Name that appears on this discipline's button in console
+    /// </summary>
+    [DataField(required: true)]
+    public string UiName = string.Empty;
 }

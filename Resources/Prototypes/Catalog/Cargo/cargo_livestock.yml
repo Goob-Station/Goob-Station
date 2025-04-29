@@ -1,3 +1,28 @@
+# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Henry <sigma1198@gmail.com>
+# SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2023 MouseHatsForAll <110046450+MouseHatsForAll@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Naive817 <31364560+Naive817@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Dae <60460608+ZeroDayDaemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: cargoProduct
   id: LivestockBee
   icon:

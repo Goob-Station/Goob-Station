@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: npcFaction
   id: Blob
   hostile:
@@ -46,6 +57,8 @@
       name: blob-carrier-role-name
       description: blob-carrier-role-desc
       rules: blob-carrier-role-rules
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
       raffle:
         settings: default
       requirements:
@@ -68,6 +81,7 @@
   - type: MindRole
     antagPrototype: Blob
     exclusiveAntag: true
+    roleType: SoloAntagonist
   - type: BlobRole
 
 - type: factionIcon

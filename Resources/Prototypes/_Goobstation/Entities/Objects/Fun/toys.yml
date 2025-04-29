@@ -1,3 +1,27 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BasePlushie
   id: PlushieLouie
@@ -197,6 +221,32 @@
 
 - type: entity
   parent: BasePlushie
+  id: BaseBinglePlushie
+  abstract: true
+  components:
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/falling.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/falling.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/falling.ogg
+
+- type: entity
+  parent: BaseBinglePlushie
   id: PlushieBingle
   name: full size bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
@@ -206,8 +256,10 @@
     sprite: _Goobstation/Mobs/Bingle/bingle.rsi
     state: alive
 
+
+
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBingleSmall
   name: bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
@@ -217,8 +269,9 @@
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingleing
 
+
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBingleYakub
   name: yakub bingle plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
@@ -227,6 +280,7 @@
     norot: true
     sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
     state: yakubbingle
+
 
 - type: entity
   parent: BasePlushie
@@ -240,7 +294,7 @@
     state: bongle
 
 - type: entity
-  parent: BasePlushie
+  parent: BaseBinglePlushie
   id: PlushieBinglePony
   name: bingle pony plushie
   description: A cute stuffed toy that resembles a blue alien. You feel a strange compulsion to say bingle
@@ -249,6 +303,41 @@
     norot: true
     sprite: _Goobstation/Objects/Fun/toys.rsi
     state: bingle_pony
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAbductor
+  name: alien plush
+  description: Glorp Zap Zeeble Glarp "Plush" Bleeble
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_abductor
+  - type: UseDelay
+    delay: 15
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Shitmed/Misc/abductor.ogg
+  - type: MeleeWeapon
+    attackRate: 0.5
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/taser_hit.ogg
 
 - type: entity
   id: GrenadeToy
@@ -327,3 +416,341 @@
     proto: GrenadeToy
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+## I was here first :3
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSamantha
+  name: samantha plushie
+  description: A cute stuffed toy that resembles a certain blueshield officer. You feel a sudden urge for lollypops while holding it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_samantha
+  - type: Item
+    heldPrefix: plushiesamantha
+  - type: Clothing
+    quickEquip: false
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    equippedPrefix: plushiesamantha
+    slots:
+    - HEAD
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+    soundNoDamage:
+      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+  - type: GibThisGuy # Death to myself. It'd be funny.
+    requireBoth: false
+    icNames:
+    - Samantha Withers
+    ocNames:
+    - SolsticeOfTheWinter
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: TableSalt # .... get it?
+        Quantity: 10
+      - ReagentId: Ice
+        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Ice
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 5
+
+
+## Self-Insert Squad
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBenny
+  name: Benny plushie
+  description: A cute stuffed toy that resembles a yowie. Smells like meth and unethical surgery.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_benny
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieCairo
+  name: Cairo plushie
+  description: A cute stuffed toy that resembles a white lizard.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_cairo
+
+- type: entity
+  parent: PlushieVox
+  id: PlushiePash
+  name: tired vox plushie
+  description: A cute stuffed toy that resembles an overworked vox. Smells strongly of alcohol.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_pash
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDelta
+  name: Delta plushie
+  description: A cute stuffed toy that resembles a purple resomi. You may not know it, but the Deltas are free, and you can take them home.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_delta
+
+- type: entity
+  parent: ToyMouse
+  id: PlushieRaki
+  name: Raki plushie
+  description: A cute stuffed toy that resembles a specific rat. Reeks with the smell of dirty water.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_raki
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieTina
+  name: Tina-Le-Plush
+  description: A cute stuffed toy that resembles a white lizard. Who the fuck put this on station?!?! Violet, red, hit all the alerts!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_tina
+
+- type: entity
+  parent: PlushieMoth
+  id: PlushieKnott
+  name: Knott plushie
+  description: A cute stuffed toy that resembles a blue moth.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_knott
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieKury
+  name: Kury plushie
+  description: A cute stuffed toy that resembles a specific vulpkanin.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_kury
+
+- type: entity
+  parent: PlushieSlime
+  id: PlushieZlorb
+  name: Zlorb plushie
+  description: A cute stuffed toy that resembles a slime wearing fancy clothes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_zlorb
+
+- type: entity
+  parent: PlushieMoth
+  id: PlushieTiderMoth
+  name: tider moth plushie
+  description: A cute stuffed toy that resembles a moth wearing grey clothes. Bagel maints survivor.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_tider_moth
+
+- type: entity
+  parent: PlushieHuman # Change to baseplushie if too annoying
+  id: PlushieCommandHuman
+  name: command human plushie
+  description: A cute stuffed toy that resembles a human wearing blue cowboy clothes.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_command_human
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieRanork
+  name: maroon lizard plushie
+  description: A cute stuffed toy that resembles a maroon lizard. Smells like the fresh ores of off lavaland and a hint of ash.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_ranork
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/lizard_happy.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/lizard_happy.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/lizard_happy.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+    #SPECIAL LIZARD SOUNDS
+
+- type: entity
+  parent: PlushieMoth
+  id: PlushieSparkle
+  name: sparkling moth plushie
+  description: A cute stuffed toy that resembles a sparkly purple moth. Has a sweet floral scent, like it’s been frolicking in a meadow.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_sparkle
+
+- type: entity
+  parent: PlushieVox
+  id: PlushieAhti
+  name: stinky vox plushie
+  description: A cute stuffed toy that resembles a visibly dirty vox. Something smells pungent..
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_ahti
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieStoop
+  name: Stoop plushie
+  description: A cute stuffed toy that resembles a blue lizard. Somehow keeps getting promoted.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_stoop
+
+- type: entity
+  parent: PlushieLizard
+  id: PlushieWehWinter
+  name: Weh-of-Winter plushie
+  description: A cute stuffed toy that resembles a funky lizard. She looks better with glasses.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_weh_winter
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
+
+- type: entity
+  parent: [BasePlushie, BaseMajorContraband]
+  id: PlushieByrrne
+  name: Byrrne plushie
+  description: Depending on who you ask, Byrrne is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_byrrne
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib1.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PlushieByrrneGibbed:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieByrrneGibbed # special gib mechanic
+  name: gibbed Byrrne plushie
+  suffix: gibbed
+  description: No... it can't be... IT SHOULD'VE BEEN ME THAT DID IT.. But was it worth it..? Deep inside, you feel like it cared about your coins... your goob coins.. even.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_byrrne_gibbed
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHaleigh
+  name: violet slime plushie
+  description: A unique slime plushie. You feel an unwanted rage to hit Haleigh Pryocraft with an baguette by looking at it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_violet_slime
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Slime/slime_scream_m1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Slime/slime_scream_m1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Slime/slime_scream_m1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Slime/slime_scream_m1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Slime/slime_scream_m1.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Slime/slime_scream_m1.ogg
+    #SPECIAL SLIME SOUNDS
+
+- type: entity
+  parent: PlushieSlime
+  id: PlushieGrub
+  name: grub plushie
+  description: An ugly stuffed toy that resembles a green goblin.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    state: plushie_grub
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/pop_high.ogg

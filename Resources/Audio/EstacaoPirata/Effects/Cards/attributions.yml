@@ -1,6 +1,12 @@
-﻿- files: [  "cardFan1.ogg", "cardFan2.ogg", "cardOpenPackage1.ogg", "cardOpenPackage2.ogg", "cardPlace1.ogg", "cardPlace2.ogg", "cardPlace3.ogg", "cardPlace4.ogg", "cardShove1.ogg", "cardShove2.ogg", "cardShove3.ogg", "cardShove4.ogg", "cardShuffle.ogg", "cardSlide1.ogg", "cardSlide2.ogg", "cardSlide3.ogg", "cardSlide4.ogg", "cardSlide5.ogg", "cardSlide6.ogg", "cardSlide7.ogg", "cardSlide8.ogg", "cardTakeOutPackage1.ogg", "cardTakeOutPackage2.ogg"]
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 RadsammyT <32146976+RadsammyT@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: [  "cardFan1.ogg", "cardFan2.ogg", "cardOpenPackage1.ogg", "cardOpenPackage2.ogg", "cardPlace1.ogg", "cardPlace2.ogg", "cardPlace3.ogg", "cardPlace4.ogg", "cardShove1.ogg", "cardShove2.ogg", "cardShove3.ogg", "cardShove4.ogg", "cardShuffle.ogg", "cardSlide1.ogg", "cardSlide2.ogg", "cardSlide3.ogg", "cardSlide4.ogg", "cardSlide5.ogg", "cardSlide6.ogg", "cardSlide7.ogg", "cardSlide8.ogg", "cardTakeOutPackage1.ogg", "cardTakeOutPackage2.ogg"]
   license: "CC0-1.0"
   copyright: "Kenney.nl"
   source: "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips"
-
 

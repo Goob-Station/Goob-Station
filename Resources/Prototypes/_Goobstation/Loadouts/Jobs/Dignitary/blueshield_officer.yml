@@ -1,0 +1,110 @@
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DarkenedSynergy <70016079+DarkenedSynergy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: loadoutEffectGroup
+  id: SeniorBlueshieldOfficer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobBlueshieldOfficer
+      time: 187200
+
+# Hats
+- type: loadout
+  id: BlueshieldOfficerHeadSwatHelmet
+  equipment:
+    head: ClothingHeadHelmetSwat
+
+- type: loadout
+  id: BlueshieldOfficerBeret
+  equipment:
+    head: ClothingHeadHatBeretBlueshield # Here's your beret back Gallagin.
+
+- type: loadout
+  id: BlueshieldOfficerHeadCowboy
+  equipment:
+    head: ClothingHeadHatCowboyBlueshield
+
+# Jumpsuits
+- type: loadout
+  id: BlueshieldOfficerInnerBlueshieldSkirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBlueshieldOfficer
+
+- type: loadout
+  id: BlueshieldOfficerInnerBlueshieldSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+
+- type: loadout
+  id: BlueshieldOfficerInnerBlueshieldShirt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
+
+# Outer
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldArmorVest
+  equipment:
+    outerClothing: ClothingBlueshieldArmourVest
+
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldArmoredJacket
+  equipment:
+    outerClothing: ClothingBlueshieldArmoredJacket
+
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldCowboyVest
+  equipment:
+    outerClothing: ClothingBlueshieldArmoredCowboyJacket
+
+# Neck
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldMantle
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    neck: ClothingNeckMantleBlueshield
+
+# Mask
+- type: loadout
+  id: BlueshieldOfficerMaskLollypop
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorBlueshieldOfficer
+  equipment:
+    mask: FoodSnackLollypopBlueshield
+
+# Back
+- type: loadout
+  id: BlueshieldOfficerBackpack
+  equipment:
+    back: ClothingBackpackBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerSatchel
+  equipment:
+    back: ClothingBackpackSatchelBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerDuffel
+  equipment:
+    back: ClothingBackpackDuffelBlueshield
+
+# Shoes
+- type: loadout
+  id: BlackCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyBlackFilled

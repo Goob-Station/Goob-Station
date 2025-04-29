@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # BASE
 - type: entity
   parent: ClothingBackpack
@@ -498,3 +504,10 @@
         color: "#c60200"
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,8,0
+    - 0,2,8,3
+    - 0,5,8,5
+    - 0,0,0,5
+    - 8,0,8,5

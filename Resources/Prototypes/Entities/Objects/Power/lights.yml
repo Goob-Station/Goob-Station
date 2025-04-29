@@ -1,3 +1,53 @@
+# SPDX-FileCopyrightText: 2019 Swept <49448379+SweptWasTaken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
+# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
+# SPDX-FileCopyrightText: 2020 lajolico <55922029+lajolico@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
+# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 ZeWaka <zewakagamer@gmail.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
+# SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Matz05 <Matz05@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   id: BaseLightbulb
@@ -354,6 +404,21 @@
 
 - type: entity
   parent: BaseLightTubeCrystal
+  name: yellow crystal light tube
+  id: LightTubeCrystalYellow
+  components:
+  - type: LightBulb
+    color: "#ffde46"
+  - type: Construction
+    graph: YellowLight
+    node: icon
+  - type: ToolRefinable
+    refineResult:
+    - id: SheetGlass1
+    - id: ShardCrystalYellow
+
+- type: entity
+  parent: BaseLightTubeCrystal
   name: pink crystal light tube
   id: LightTubeCrystalPink
   components:
@@ -381,6 +446,24 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalOrange
+
+- type: entity
+  parent: BaseLightTubeCrystal
+  name: black crystal light tube
+  description: A high power high energy bulb which has a small colored crystal inside. It isn't very bright.
+  id: LightTubeCrystalBlack
+  components:
+  - type: LightBulb
+    color: "#363636"
+    lightEnergy: 1
+    lightRadius: 8
+  - type: Construction
+    graph: BlackLight
+    node: icon
+  - type: ToolRefinable
+    refineResult:
+    - id: SheetGlass1
+    - id: ShardCrystalBlack
 
 - type: entity
   parent: BaseLightTubeCrystal
@@ -461,6 +544,21 @@
 
 - type: entity
   parent: BaseLightbulbCrystal
+  name: yellow crystal light bulb
+  id: LightBulbCrystalYellow
+  components:
+  - type: LightBulb
+    color: "#ffde46"
+  - type: Construction
+    graph: YellowLightBulb
+    node: icon
+  - type: ToolRefinable
+    refineResult:
+    - id: SheetGlass1
+    - id: ShardCrystalYellow
+
+- type: entity
+  parent: BaseLightbulbCrystal
   name: pink crystal light bulb
   id: LightBulbCrystalPink
   components:
@@ -488,6 +586,24 @@
     refineResult:
     - id: SheetGlass1
     - id: ShardCrystalOrange
+
+- type: entity
+  parent: BaseLightbulbCrystal
+  name: black crystal light bulb
+  description: A high power high energy bulb which has a small colored crystal inside. It isn't very bright.
+  id: LightBulbCrystalBlack
+  components:
+  - type: LightBulb
+    color: "#363636"
+    lightEnergy: 1
+    lightRadius: 8
+  - type: Construction
+    graph: BlackLightBulb
+    node: icon
+  - type: ToolRefinable
+    refineResult:
+    - id: SheetGlass1
+    - id: ShardCrystalBlack
 
 - type: entity
   parent: BaseLightbulbCrystal

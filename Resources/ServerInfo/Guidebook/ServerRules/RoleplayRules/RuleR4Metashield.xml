@@ -1,4 +1,14 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 basic pack <159909786+packmore@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
   # Roleplay Rule 4 - Do not metagame, obey the Metashield
   Something that is "shielded" cannot be known by your character during a round until the "revealing condition" happens. This also means that your character cannot do things based on "shielded" information. Knowing or acting on something that is shielded before the revealing condition is met is referred to as metagaming.
 
@@ -20,12 +30,12 @@
 
   ## Nuclear Operatives
 
-  The existence of Nuclear Operatives beyond a myth that no one would act on is shielded.
+  Nukies are considered propaganda by Nanotrasen, and crew isn't informed on them at all.
+  Posters seen on-station are ignored and called syndicate propaganda.
 
   The fact that the nuke disk must be protected and could be used by a bad actor to try to destroy the station is not shielded.
 
   The revealing condition for this shield is any of the following:
-  - discovering a blood red hardsuit
   - discovering a nuclear operative's shuttle
   - an operative name
   - a War Ops announcement
@@ -56,6 +66,42 @@
   - witnessing a crewmember drawing a rune  
   - witnessing a crewmember harvesting a reality fracture 
   - witnessing a crewmember using their powers
+
+  ## Zombies
+
+  Zombies are known galaxy-wide, but not as real-life, instead, as fiction.
+  Nuclear Operatives and Syndicate Agents are aware of Romerol and what it can do, but are prohibited of speaking about it publicly - unless they want their families to die. 
+
+  Revealing conditions to the "Zombie" Shield:
+  - You are a Nuclear Operative
+  - You are a Syndicate Agent
+  - You are a Zombie
+  - You have seen Zombies on the station
+
+  ## Infections
+
+  Zombies are known as extinct, they previously ravaged humanity hundreds of years ago in medieval times.
+  A cure was made, and is still held onto by chemists and Chief Medical Officers as a show of how long your family has been in the field.
+
+  Revealing conditions to the "Infections" Shield:
+  - You are a Chemist
+  - You are a Chief Medical Officer
+  - Zombies are announced to be real and station-wide
+
+  ## Deathsquad
+
+  Deathsquad is known to exist - per the posters on the station, but they are not known as a crew killsquad, instead known as an elite team sent into stations to handle extreme threats even the best of ERT Security leaders could handle.
+  The station's Nanotrasen Representative and Blueshield Officer are aware that Deathsquad is a crew killsquad, but are heavily prohibited to mention it, and will be dealt with after, or during, the shift.
+   
+  In private conversations, faxes, or phone calls, both BSO & NTR are advised to use the term 'Janitor Squad' to refer to the Deathsquad.
+  Crew can also choose to roleplay as if they've seen deathsquad movies, knowing limited aspects of their gear one would reasonably know watching an action-movie.
+
+  Revealing conditions to the "Deathsquad" Shield:
+  - Code Omicron is called, nuking the station
+  - Code Epsilon is called, terminating contracts
+  - You are the Nanotrasen Representative (NTR)
+  - You are the Blueshield Officer (BSO)
+  - A Central Command Official (Non-NTR/BSO) mentions Deathsquad as a [bold]Killsquad[/bold]
    
   ## Implanted Implants
 

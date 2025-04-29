@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
+# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2023 SpaceCat <99134830+Verslebas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 dragonryan06 <71857681+dragonryan06@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 reagent-name-absinthe = absinthe
 reagent-desc-absinthe = A anise-flavoured spirit derived from botanicals.
 
@@ -285,6 +304,39 @@ reagent-desc-watermelon-wakeup = If you want to be awake, this will do it... Als
 
 reagent-name-rubberneck = rubberneck
 reagent-desc-rubberneck = A popular drink amongst those adhering to an all synthetic diet.
+
+reagent-name-caipirinha = caipirinha
+reagent-desc-caipirinha = The São Paulo special, straight from old Brazil.
+
+reagent-name-daiquiri = daiquiri
+reagent-desc-daiquiri = A classic rum cocktail which remains popular even in the cold reaches of space.
+
+reagent-name-death-in-the-afternoon = death in the afternoon
+reagent-desc-death-in-the-afternoon = "Pour one jigger absinthe into a Champagne glass. Add iced Champagne until it attains the proper opalescent milkiness. Drink three to five of these slowly." - Ernest Hemingway
+
+reagent-name-empress-75 = empress 75
+reagent-desc-empress-75 = A more refined take on the mimosa. Just the thing Marie Antoinette might've sipped on before the revolution.
+
+reagent-name-espresso-martini = espresso martini
+reagent-desc-espresso-martini = To wake you up and wind you down. Garnished with coffee beans and icy-cold.
+
+reagent-name-mayojito = mayojito
+reagent-desc-mayojito = An affront to god and man. Do not drink it.
+
+reagent-name-mimeosa = mimeosa 
+reagent-desc-mimeosa = It has an orange tang so sour you just can't describe it.
+
+reagent-name-mimosa = mimosa
+reagent-desc-mimosa = Perfect for a lively brunch out with the girls.
+
+reagent-name-moscow-mule = moscow mule 
+reagent-desc-moscow-mule = A surpsingly strong and refreshing mixed drink, served in an iconic copper mug.
+
+reagent-name-the-sun-also-rises = the sun also rises
+reagent-desc-the-sun-also-rises = A strong cocktail mixed into a murky blend. A secret favorite of tortured authors.
+
+reagent-name-whiskey-sour = whiskey sour 
+reagent-desc-whiskey-sour = What's the secret ingredient? Eggs. It's eggs.
 
 reagent-name-zombiecocktail = Zombie
 reagent-desc-zombiecocktail = It gets in your head. Your he-eyeh-ead.

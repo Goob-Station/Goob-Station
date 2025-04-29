@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponAlien
@@ -20,10 +31,7 @@
     - proto: BulletDisabler
       fireCost: 50
     - proto: BulletDeclone
-      fireCost: 100
-  - type: Battery
-    maxCharge: 500
-    startingCharge: 500
+      fireCost: 125
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
@@ -48,4 +56,7 @@
       shader: unshaded
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDeclone
-    fireCost: 100
+    fireCost: 125
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000

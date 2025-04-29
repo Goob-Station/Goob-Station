@@ -1,68 +1,17 @@
-- type: dataset
-  id: NamesFirstMilitaryLeader
+- type: localizedDataset
+  id: NamesMilitaryFirstLeader
   values:
-  - Colonel
-  - Commander
-  - Lieutenant
-  - Major
+    prefix: names-military-leader-first-dataset-
+    count: 4
 
-- type: dataset
-  id: NamesFirstMilitary
+- type: localizedDataset
+  id: NamesMilitaryFirst
   values:
-  - Corporal
-  - Sergeant
-  - Specialist
+    prefix: names-military-first-dataset-
+    count: 3
 
-- type: dataset
-  id: NamesLastMilitary
+- type: localizedDataset
+  id: NamesMilitaryLast
   values:
-  - Agena
-  - Andromeda
-  - Antares
-  - Aquarius
-  - Ara
-  - Aries
-  - Beid
-  - Betelgeuse
-  - Canopus
-  - Cetus
-  - Capricorn
-  - Celaeno
-  - Centaur
-  - Chamaeleon
-  - Chau
-  - Cygnus
-  - Deneb
-  - Dragon
-  - Electra
-  - Fomalhaut
-  - Ginan
-  - Hercules
-  - Labr
-  - Leonis
-  - Lupis
-  - Lepus
-  - Matar
-  - Microscopium
-  - Nihal
-  - Ophiuchus
-  - Oculus
-  - Orion
-  - Perseus
-  - Phoenix
-  - Procyon
-  - Pyxis
-  - Regulus
-  - Rigel
-  - Sargas
-  - Schedar
-  - Shaula
-  - Sirius
-  - Tabit
-  - Taurus
-  - Ukdah
-  - Vega
-  - Voltaire # Goobstation - I spent a lot of time on this PR, I might as well add myself to it :godo:
-  - Winterwing # Goobstation - Friend asked me to add this. :godo:
-  - Yildun
-  - Zosma
+    prefix: names-military-last-dataset-
+    count: 44

@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 advertisement-medibot-1 = What kind of medbay is this? Everyone's dropping like dead flies.
 advertisement-medibot-2 = I knew it, I should've been a plastic surgeon.
 advertisement-medibot-3 = There's always a catch, and I'm the best there is.
