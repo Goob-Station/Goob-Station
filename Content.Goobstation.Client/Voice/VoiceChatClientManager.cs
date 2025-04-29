@@ -1,33 +1,25 @@
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
-using Robust.Client.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Client.Voice;
 
-/// <summary>
-/// Client-side manager for voice chat functionality.
-/// Handles network messages and manages voice streams.
-/// </summary>
-public sealed class VoiceChatClientManager : IVoiceChatManager
+public sealed class VoiceChatClientManager : IVoiceChatManager, IDisposable
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IAudioManager _audioManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    private AudioSystem? _audioSystem = default!;
 
     private ISawmill _sawmill = default!;
     private readonly Dictionary<EntityUid, VoiceStreamManager> _activeStreams = new();
 
-    private int _sampleRate = 48000;
-    private float _volume = 0.5f;
+    private float _volumeCVarValue = 0.5f;
 
     public void Initalize()
     {
         IoCManager.InjectDependencies(this);
-        _sawmill = Logger.GetSawmill("voiceclient");
+        _sawmill = Logger.GetSawmill("voice.client");
 
         _cfg.OnValueChanged(GoobCVars.VoiceChatVolume, OnVolumeChanged, true);
 
@@ -36,24 +28,16 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
         _sawmill.Info("VoiceChatClientManager initialized");
     }
 
-    /// <summary>
-    /// Handle volume changes from CVars.
-    /// </summary>
     private void OnVolumeChanged(float volume)
     {
-        _volume = volume;
 
+        _volumeCVarValue = volume;
+        _sawmill.Debug($"Voice chat base volume CVar changed to {volume}. This affects newly created streams.");
         foreach (var stream in _activeStreams.Values)
-        {
-            stream.SetVolume(_volume);
-        }
+            stream.SetVolume(volume);
 
-        _sawmill.Debug($"Voice chat volume changed to {volume}");
     }
 
-    /// <summary>
-    /// Handle incoming voice chat network messages.
-    /// </summary>
     private void OnVoiceMessageReceived(MsgVoiceChat message)
     {
         if (message.PcmData == null || message.SourceEntity == null)
@@ -63,9 +47,9 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
         }
 
         var sourceUid = _entityManager.GetEntity(message.SourceEntity.Value);
-        if (!sourceUid.IsValid())
+        if (!sourceUid.IsValid() || !_entityManager.EntityExists(sourceUid))
         {
-            _sawmill.Warning($"Received voice chat message for invalid entity: {message.SourceEntity}");
+            _sawmill.Debug($"Received voice chat message for invalid or non-existent entity: {message.SourceEntity}");
             return;
         }
 
@@ -75,13 +59,12 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
     /// <inheritdoc/>
     public void AddPacket(EntityUid sourceEntity, byte[] pcmData)
     {
-        _audioSystem ??= _entityManager.System<AudioSystem>();
-
         if (!TryGetStreamManager(sourceEntity, out var streamManager))
         {
             _sawmill.Debug($"Creating new voice stream for entity {sourceEntity}");
-            streamManager = new VoiceStreamManager(_audioManager, _audioSystem, sourceEntity, _sampleRate);
-            streamManager.SetVolume(_volume);
+
+            streamManager = new VoiceStreamManager(sourceEntity);
+            streamManager.SetVolume(_volumeCVarValue);
             AddStreamManager(sourceEntity, streamManager);
         }
 
@@ -113,9 +96,8 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
         _cfg.UnsubValueChanged(GoobCVars.VoiceChatVolume, OnVolumeChanged);
 
         foreach (var stream in _activeStreams.Values)
-        {
             stream.Dispose();
-        }
+
         _activeStreams.Clear();
 
         _sawmill.Info("VoiceChatClientManager disposed");
@@ -126,9 +108,8 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
     {
         List<EntityUid>? toRemove = null;
 
-        foreach (var (uid, stream) in _activeStreams)
+        foreach (var uid in _activeStreams.Keys)
         {
-            stream.Update();
 
             if (!_entityManager.EntityExists(uid))
             {
@@ -141,11 +122,10 @@ public sealed class VoiceChatClientManager : IVoiceChatManager
         {
             foreach (var uid in toRemove)
             {
-                if (_activeStreams.TryGetValue(uid, out var stream))
+                if (_activeStreams.Remove(uid, out var stream))
                 {
                     _sawmill.Debug($"Removing voice stream for deleted entity {uid}");
                     stream.Dispose();
-                    _activeStreams.Remove(uid);
                 }
             }
         }

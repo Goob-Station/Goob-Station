@@ -1,5 +1,4 @@
 using System.Linq;
-using Concentus;
 using Concentus.Structs;
 using Content.Goobstation.Common.CCVar;
 using Content.Goobstation.Shared.VoiceChat;
@@ -11,40 +10,37 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+using System.Threading.Tasks;
+using System.Net;
+using Concentus;
 
 namespace Content.Goobstation.Server.Voice;
-
-/// <summary>
-/// Server-side manager for voice chat functionality.
-/// Handles Lidgren UDP connections and decodes Opus audio.
-/// </summary>
-public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjectInit
+public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjectInit, IDisposable
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private ISawmill _sawmill = default!;
 
     private NetServer? _server;
     private bool _running;
-    private int _port;
+    private int _port = GoobCVars.VoiceChatPort.DefaultValue;
     private string _appIdentifier = "SS14VoiceChat";
 
     private readonly Dictionary<NetConnection, VoiceClientData> _clients = new();
 
     private const int SampleRate = 48000;
-    private const int Channels = 1; // Mono
+    private const int Channels = 1;
     private const int FrameSizeMs = 20;
-    private const int FrameSamplesPerChannel = SampleRate / 1000 * FrameSizeMs; // 960
-    private const int BytesPerSample = 2; // 16-bit audio
+    private const int FrameSamplesPerChannel = SampleRate / 1000 * FrameSizeMs;
+    private const int BytesPerSample = 2;
 
     public void PostInject()
     {
-        _sawmill = Logger.GetSawmill("voiceserver");
+        _sawmill = Logger.GetSawmill("voice.server");
 
         _cfg.OnValueChanged(GoobCVars.VoiceChatEnabled, OnVoiceChatEnabledChanged, true);
         _cfg.OnValueChanged(GoobCVars.VoiceChatPort, OnVoiceChatPortChanged, true);
@@ -66,6 +62,9 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
 
     private void OnVoiceChatPortChanged(int port)
     {
+        if (_port == port)
+            return;
+
         _port = port;
         if (_running)
         {
@@ -75,22 +74,26 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
         }
     }
 
-    /// <summary>
-    /// Start the Lidgren UDP server for voice chat.
-    /// </summary>
     private void StartServer()
     {
         if (_running) return;
+
+        if (_port <= 0 || _port > 65535)
+        {
+            _sawmill.Error($"Invalid voice chat port configured: {_port}. Voice server not started.");
+            return;
+        }
 
         var config = new NetPeerConfiguration(_appIdentifier)
         {
             Port = _port,
             MaximumConnections = _cfg.GetCVar(CCVars.SoftMaxPlayers),
-            ConnectionTimeout = 30.0f
+            ConnectionTimeout = 20.0f,
+            UseMessageRecycling = true,
         };
         config.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
         config.EnableMessageType(NetIncomingMessageType.StatusChanged);
-        config.EnableMessageType(NetIncomingMessageType.Data); // For voice data
+        config.EnableMessageType(NetIncomingMessageType.Data);
         config.EnableMessageType(NetIncomingMessageType.WarningMessage);
         config.EnableMessageType(NetIncomingMessageType.ErrorMessage);
         config.EnableMessageType(NetIncomingMessageType.DebugMessage);
@@ -101,63 +104,62 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
             _server.Start();
             _running = true;
             _sawmill.Info($"Voice server started on port {_port}");
+            Task.Run(NetworkLoop);
         }
         catch (Exception e)
         {
-            _sawmill.Error($"Failed to start voice server: {e.Message}");
+            _sawmill.Error($"Failed to start voice server on port {_port}: {e.Message}");
             _running = false;
             _server = null;
         }
     }
 
-    /// <summary>
-    /// Stop the Lidgren UDP server for voice chat.
-    /// </summary>
     private void StopServer()
     {
         if (!_running || _server == null) return;
 
         _sawmill.Info("Stopping voice server...");
+        _running = false;
 
-        var connectionsToDisconnect = new List<NetConnection>(_clients.Keys);
+        var connectionsToDisconnect = _clients.Keys.ToList();
+        _clients.Clear();
         foreach (var conn in connectionsToDisconnect)
         {
-            conn.Disconnect("Server shutting down.");
+            try { conn.Disconnect("Server shutting down."); } catch { /* Ignore */ }
         }
-        _clients.Clear();
 
         _server.Shutdown("Server shutting down.");
         _server = null;
-        _running = false;
         _sawmill.Info("Voice server stopped.");
     }
 
-    public void Update()
+    private async Task NetworkLoop()
     {
-        if (!_running || _server == null) return;
-
-        NetIncomingMessage? msg;
-        while ((msg = _server.ReadMessage()) != null)
+        _sawmill.Debug("Voice server network loop started.");
+        while (_running && _server != null && _server.Status == NetPeerStatus.Running)
         {
-            try
+            NetIncomingMessage? msg;
+            while ((msg = _server.ReadMessage()) != null)
             {
-                ProcessMessage(msg);
+                try
+                {
+                    ProcessMessageInternal(msg);
+                }
+                catch (Exception e)
+                {
+                    _sawmill.Error($"Error processing Lidgren message in network loop: {e.Message}\n{e.StackTrace}");
+                }
+                finally
+                {
+                    _server.Recycle(msg);
+                }
             }
-            catch (Exception e)
-            {
-                _sawmill.Error($"Error processing Lidgren message: {e.Message}\n{e.StackTrace}");
-            }
-            finally
-            {
-                _server.Recycle(msg);
-            }
+            await Task.Yield();
         }
+        _sawmill.Debug("Voice server network loop stopped.");
     }
 
-    /// <summary>
-    /// Process incoming Lidgren messages.
-    /// </summary>
-    private void ProcessMessage(NetIncomingMessage msg)
+    private void ProcessMessageInternal(NetIncomingMessage msg)
     {
         switch (msg.MessageType)
         {
@@ -176,11 +178,11 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
                     break;
                 }
 
-                _sawmill.Debug($"Voice client {connection.RemoteEndPoint.Address} status changed: {status}. Reason: {reason}");
+                _sawmill.Debug($"Voice client {connection.RemoteEndPoint} status changed: {status}. Reason: {reason}");
 
                 if (status == NetConnectionStatus.Connected)
                 {
-                    HandleClientConnected(connection);
+                    AssociateConnectionToPlayer(connection);
                 }
                 else if (status == NetConnectionStatus.Disconnected)
                 {
@@ -193,135 +195,142 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
                 break;
 
             case NetIncomingMessageType.WarningMessage:
-                _sawmill.Warning($"Lidgren Warning: {msg.ReadString()} from {msg.SenderEndPoint?.Address}");
+                _sawmill.Warning($"Lidgren Warning: {msg.ReadString()} from {msg.SenderEndPoint}");
                 break;
-
             case NetIncomingMessageType.ErrorMessage:
-                _sawmill.Error($"Lidgren Error: {msg.ReadString()} from {msg.SenderEndPoint?.Address}");
+                _sawmill.Error($"Lidgren Error: {msg.ReadString()} from {msg.SenderEndPoint}");
                 break;
-
             case NetIncomingMessageType.DebugMessage:
-                _sawmill.Debug($"Lidgren Debug: {msg.ReadString()} from {msg.SenderEndPoint?.Address}");
+                _sawmill.Debug($"Lidgren Debug: {msg.ReadString()} from {msg.SenderEndPoint}");
                 break;
-
             default:
-                _sawmill.Debug($"Unhandled Lidgren message type: {msg.MessageType} from {msg.SenderEndPoint?.Address}");
+                _sawmill.Debug($"Unhandled Lidgren message type: {msg.MessageType} from {msg.SenderEndPoint}");
                 break;
         }
     }
 
-    /// <summary>
-    /// Handle connection approval requests.
-    /// </summary>
     private void HandleConnectionApproval(NetIncomingMessage msg)
     {
-        ICommonSession? matchedSession = null;
-
-        foreach (var commonSession in _playerManager.Sessions)
-        {
-            if (commonSession is ICommonSession session &&
-                session.Channel.RemoteEndPoint.Address.Equals(msg.SenderEndPoint?.Address) &&
-                session.Status == SessionStatus.InGame)
-            {
-                matchedSession = session;
-                break;
-            }
-        }
-
-        if (matchedSession != null)
-        {
-            _sawmill.Debug($"Approving voice connection from {msg.SenderEndPoint?.Address} for player {matchedSession.Name}");
-            msg.SenderConnection?.Approve();
-        }
-        else
-        {
-            _sawmill.Warning($"Denying voice connection from {msg.SenderEndPoint?.Address}: No matching active player session found or player not in game.");
-            msg.SenderConnection?.Deny("No matching player session.");
-        }
+        _sawmill.Debug($"Approving voice connection from {msg.SenderEndPoint}");
+        msg.SenderConnection?.Approve();
     }
 
-    /// <summary>
-    /// Handle client connection.
-    /// </summary>
-    private void HandleClientConnected(NetConnection connection)
-    {
-        if (_clients.ContainsKey(connection))
-        {
-            _sawmill.Warning($"Received Connected status for already tracked client {connection.RemoteEndPoint.Address}. Ignoring.");
-            return;
-        }
-
-        ICommonSession? session = null;
-
-        foreach (var commonSession in _playerManager.Sessions)
-        {
-            if (commonSession is ICommonSession playerSession &&
-                playerSession.Channel.RemoteEndPoint.Address.Equals(connection.RemoteEndPoint.Address))
-            {
-                session = playerSession;
-                break;
-            }
-        }
-
-        if (session == null)
-        {
-            _sawmill.Error($"Voice client {connection.RemoteEndPoint.Address} connected, but corresponding session object is null. Disconnecting.");
-            connection.Disconnect("Failed to find player session object. Are you in-game?");
-            return;
-        }
-
-        _sawmill.Debug($"Found session for {connection.RemoteEndPoint.Address}: Player={session.Name}, Status={session.Status}, AttachedEntity={session.AttachedEntity}");
-
-        if (session.AttachedEntity is not { Valid: true } entityUid)
-        {
-            _sawmill.Error($"Voice client {connection.RemoteEndPoint.Address} connected for player {session.Name}, but attached entity is null or invalid ({session.AttachedEntity}). Disconnecting.");
-            connection.Disconnect("Failed to find valid player entity. Are you in round?");
-            return;
-        }
-
-        _sawmill.Info($"Successfully associated voice client {connection.RemoteEndPoint.Address} with player {session.Name} (Entity: {entityUid}). Adding to tracked clients.");
-
-        var clientData = new VoiceClientData(connection, entityUid, SampleRate, Channels);
-
-        if (!_clients.TryAdd(connection, clientData))
-        {
-            _sawmill.Warning($"Failed to add voice client {connection.RemoteEndPoint.Address} to dictionary, already exists? Disconnecting.");
-            clientData.Dispose();
-            connection.Disconnect("Internal server error adding client.");
-        }
-    }
-
-    /// <summary>
-    /// Handle client disconnection.
-    /// </summary>
     private void HandleClientDisconnected(NetConnection connection, string reason)
     {
-        if (_clients.TryGetValue(connection, out var clientData))
+        if (_clients.Remove(connection, out var clientData))
         {
-            _sawmill.Info($"Voice client {connection.RemoteEndPoint.Address} (Player Entity: {clientData.PlayerEntity}) disconnected. Reason: {reason}");
+            _sawmill.Info($"Voice client {connection.RemoteEndPoint} (Player: {clientData.Session.Name}) disconnected. Reason: {reason}");
             clientData.Dispose();
-            _clients.Remove(connection);
         }
         else
         {
-            _sawmill.Debug($"Received Disconnected status for untracked or already removed client {connection.RemoteEndPoint.Address}. Reason: {reason}");
+            _sawmill.Debug($"Received Disconnected status for untracked client {connection.RemoteEndPoint}. Reason: {reason}");
         }
     }
 
-    /// <summary>
-    /// Handle incoming voice data.
-    /// </summary>
+    private ICommonSession? FindPlayerSessionByEndpoint(IPEndPoint endpoint)
+    {
+        foreach (var session in _playerManager.Sessions)
+            if (session.Channel.RemoteEndPoint.Address.Equals(endpoint.Address))
+                return session;
+        return null;
+    }
+
+    private void AssociateConnectionToPlayer(NetConnection connection)
+    {
+        if (_clients.ContainsKey(connection)) return;
+
+        var session = FindPlayerSessionByEndpoint(connection.RemoteEndPoint);
+
+        if (session != null && session.Status == SessionStatus.InGame && session.AttachedEntity.HasValue)
+        {
+            var entityUid = session.AttachedEntity.Value;
+            if (!_entityManager.EntityExists(entityUid))
+            {
+                _sawmill.Warning($"Voice connection {connection.RemoteEndPoint} matched player {session.Name}, but attached entity {entityUid} does not exist. Association deferred.");
+                return;
+            }
+
+            var clientData = new VoiceClientData(connection, session, entityUid, SampleRate, Channels);
+            if (clientData.Decoder == null)
+            {
+                _sawmill.Error($"Failed to create Opus decoder for player {session.Name}. Disconnecting voice connection {connection.RemoteEndPoint}.");
+                clientData.Dispose();
+                connection.Disconnect("Server error: Could not initialize voice decoder.");
+                return;
+            }
+
+            if (_clients.TryAdd(connection, clientData))
+            {
+                _sawmill.Info($"Associated player {session.Name} (Entity: {entityUid}) with voice connection {connection.RemoteEndPoint}");
+            }
+            else
+            {
+                _sawmill.Warning($"Failed to add voice connection {connection.RemoteEndPoint} to dictionary for player {session.Name}, already exists?");
+                clientData.Dispose();
+            }
+        }
+        else
+        {
+            _sawmill.Warning($"Voice connection {connection.RemoteEndPoint} established, but no matching *InGame* player session with valid entity found. Association deferred.");
+        }
+    }
+
+    private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
+    {
+        var session = e.Session;
+
+        if (e.NewStatus == SessionStatus.InGame)
+        {
+            var voiceConnection = FindVoiceConnectionForSession(session);
+            if (voiceConnection != null && !_clients.ContainsKey(voiceConnection))
+            {
+                AssociateConnectionToPlayer(voiceConnection);
+            }
+        }
+        else if (e.OldStatus == SessionStatus.InGame && e.NewStatus != SessionStatus.InGame)
+        {
+            NetConnection? connToRemove = null;
+            foreach (var kvp in _clients)
+            {
+                if (kvp.Value.Session == session)
+                {
+                    connToRemove = kvp.Key;
+                    break;
+                }
+            }
+            if (connToRemove != null)
+            {
+                _sawmill.Info($"Player {session.Name} left game (Status: {e.NewStatus}). Disconnecting associated voice client {connToRemove.RemoteEndPoint}.");
+                HandleClientDisconnected(connToRemove, $"Player left game (Status: {e.NewStatus}).");
+                try { connToRemove.Disconnect($"Player left game (Status: {e.NewStatus})."); } catch {/* Ignore */}
+            }
+        }
+    }
+
+    private NetConnection? FindVoiceConnectionForSession(ICommonSession session)
+    {
+        var sessionEndpoint = session.Channel.RemoteEndPoint;
+        if (_server == null) return null;
+
+        foreach (var connection in _server.Connections)
+        {
+            if (connection.RemoteEndPoint.Address.Equals(sessionEndpoint.Address))
+            {
+                return connection;
+            }
+        }
+        return null;
+    }
+
     private void HandleVoiceData(NetIncomingMessage msg)
     {
-        if (msg.SenderConnection == null)
-        {
-            _sawmill.Warning($"Received voice data message with null SenderConnection. Discarding.");
-            return;
-        }
+        var senderConnection = msg.SenderConnection;
+        if (senderConnection == null) return;
 
-        if (!_clients.TryGetValue(msg.SenderConnection, out var clientData))
+        if (!_clients.TryGetValue(senderConnection, out var clientData))
         {
-            _sawmill.Warning($"Received voice data from unknown connection: {msg.SenderConnection.RemoteEndPoint.Address}. Discarding.");
+            _sawmill.Warning($"Received voice data from unassociated connection: {senderConnection.RemoteEndPoint}. Discarding.");
             return;
         }
 
@@ -329,141 +338,86 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
             transform.MapID == MapId.Nullspace ||
             !_entityManager.EntityExists(clientData.PlayerEntity))
         {
-            _sawmill.Debug($"Voice data received for invalid, non-existent, or nullspace entity {clientData.PlayerEntity}. Discarding.");
+            _sawmill.Debug($"Voice data received for invalid/nullspace entity {clientData.PlayerEntity}. Discarding.");
             return;
         }
 
-        var startTime = _gameTiming.RealTime;
-        TimeSpan decodeTime, pvsTime, raiseTime;
+        var dataLength = msg.LengthBytes;
+        if (dataLength <= 0) return;
 
+        byte[] opusDataBuffer = clientData.GetOpusBuffer(dataLength);
+
+        if (!msg.TryReadBytes(opusDataBuffer.AsSpan(0, dataLength)))
+        {
+            _sawmill.Warning($"Failed to read {dataLength} bytes of voice data from {clientData.Connection.RemoteEndPoint}.");
+            return;
+        }
+
+        if (clientData.Decoder == null)
+        {
+            _sawmill.Error($"Decoder is null for client {clientData.Connection.RemoteEndPoint}. Cannot process audio.");
+            return;
+        }
+
+        short[] pcmBuffer = clientData.GetPcmBuffer();
+        var opusSpan = opusDataBuffer.AsSpan(0, dataLength);
+        var pcmSpan = pcmBuffer.AsSpan();
+        int decodedSamples = 0;
         try
         {
-            int frameSize = FrameSamplesPerChannel;
-            short[] pcmBuffer = clientData.GetPcmBuffer();
-            int dataLength = msg.LengthBytes;
-
-            if (clientData.Decoder == null)
-            {
-                _sawmill.Error($"Decoder is null for client {clientData.Connection.RemoteEndPoint.Address}. Cannot process audio.");
-                return;
-            }
-
-            byte[] opusDataBuffer = clientData.GetOpusBuffer(dataLength);
-
-            if (msg.LengthBytes < dataLength)
-            {
-                _sawmill.Warning($"Voice data message length ({msg.LengthBytes}) is less than expected ({dataLength}). Discarding.");
-                return;
-            }
-
-            msg.ReadBytes(opusDataBuffer, 0, dataLength);
-
-            var decodeStartTime = _gameTiming.RealTime;
-
-            var opusSpan = opusDataBuffer.AsSpan(0, dataLength);
-            var pcmSpan = pcmBuffer.AsSpan();
-            int decodedSamples = clientData.Decoder.Decode(opusSpan, pcmSpan, frameSize, false);
-            decodeTime = _gameTiming.RealTime - decodeStartTime;
-
-            if (decodedSamples > 0)
-            {
-                int byteCount = decodedSamples * Channels * BytesPerSample;
-                byte[] pcmBytes = clientData.GetByteBuffer(byteCount);
-                Buffer.BlockCopy(pcmBuffer, 0, pcmBytes, 0, byteCount);
-
-                var pvsStartTime = _gameTiming.RealTime;
-                var filter = Filter.Pvs(clientData.PlayerEntity);
-                pvsTime = _gameTiming.RealTime - pvsStartTime;
-
-                var raiseStartTime = _gameTiming.RealTime;
-
-                // Send as NetMessage instead of EntityEvent
-                var netMsg = new MsgVoiceChat
-                {
-                    PcmData = pcmBytes,
-                    SourceEntity = _entityManager.GetNetEntity(clientData.PlayerEntity)
-                };
-
-                var channels = filter.Recipients
-                    .Where(s => s.Channel != null)
-                    .Select(s => s.Channel)
-                    .ToList();
-
-                _netManager.ServerSendToMany(netMsg, channels);
-                raiseTime = _gameTiming.RealTime - raiseStartTime;
-
-                var totalTime = _gameTiming.RealTime - startTime;
-                _sawmill.Debug(
-                    $"VoiceData Handled: Src={clientData.PlayerEntity}, Bytes={byteCount}, " +
-                    $"Decode={decodeTime.TotalMilliseconds:F1}ms, " +
-                    $"PVS={pvsTime.TotalMilliseconds:F1}ms, " +
-                    $"Raise={raiseTime.TotalMilliseconds:F1}ms, " +
-                    $"Total={totalTime.TotalMilliseconds:F1}ms");
-            }
-            else
-            {
-                _sawmill.Warning($"Opus decoding failed or produced 0 samples for client {clientData.Connection.RemoteEndPoint.Address}. Code: {decodedSamples}");
-            }
+            decodedSamples = clientData.Decoder.Decode(opusSpan, pcmSpan, FrameSamplesPerChannel, false);
         }
         catch (Exception e)
         {
-            _sawmill.Error($"Error processing voice data from {msg.SenderConnection.RemoteEndPoint.Address}: {e.Message}\n{e.StackTrace}");
+            _sawmill.Error($"Opus decoding error for {clientData.Connection.RemoteEndPoint}: {e.Message}");
+            return;
         }
-    }
 
-    /// <summary>
-    /// Handle player status changes.
-    /// </summary>
-    private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
-    {
-        if (e.NewStatus == SessionStatus.Disconnected || e.OldStatus == SessionStatus.InGame && e.NewStatus != SessionStatus.InGame)
+        if (decodedSamples <= 0)
         {
-            NetConnection? connectionToDrop = null;
-            VoiceClientData? dataToDrop = null;
+            _sawmill.Warning($"Opus decoding failed or produced 0 samples for client {clientData.Connection.RemoteEndPoint}. Code: {decodedSamples}");
+            return;
+        }
 
-            if (e.Session is not ICommonSession playerSession)
-                return;
+        int byteCount = decodedSamples * Channels * BytesPerSample;
+        byte[] pcmBytesToSend = clientData.GetByteBuffer(byteCount);
+        Buffer.BlockCopy(pcmBuffer, 0, pcmBytesToSend, 0, byteCount);
 
-            var playerEndpoint = playerSession.Channel.RemoteEndPoint.Address;
+        var filter = Filter.Pvs(clientData.PlayerEntity, entityManager: _entityManager);
 
-            foreach (var conn in _clients.Keys.ToList())
-            {
-                if (conn.RemoteEndPoint.Address.Equals(playerEndpoint))
-                {
-                    connectionToDrop = conn;
-                    dataToDrop = _clients[conn];
-                    break;
-                }
-            }
+        var netMsg = new MsgVoiceChat
+        {
+            PcmData = pcmBytesToSend.AsSpan(0, byteCount).ToArray(),
+            SourceEntity = _entityManager.GetNetEntity(clientData.PlayerEntity)
+        };
 
-            if (connectionToDrop != null && dataToDrop != null)
-            {
-                _sawmill.Info($"Player {e.Session.Name} status changed from {e.OldStatus} to {e.NewStatus}. Disconnecting associated voice client {connectionToDrop.RemoteEndPoint.Address} (Entity: {dataToDrop.PlayerEntity}).");
-                connectionToDrop.Disconnect($"Player session ended (Status: {e.NewStatus}).");
-            }
+        var recipients = filter.Recipients
+            .Where(s => s != null && s.AttachedEntity != clientData.PlayerEntity)
+            .Select(s => s.Channel)
+            .Where(c => c != null)
+            .Cast<INetChannel>()
+            .ToList();
+
+        if (recipients.Count > 0)
+        {
+            _netManager.ServerSendToMany(netMsg, recipients);
+            _sawmill.Debug($"Sent voice PCM data ({byteCount} bytes) from {clientData.PlayerEntity} to {recipients.Count} clients.");
         }
     }
 
-    /// <summary>
-    /// Dispose the voice chat server manager.
-    /// </summary>
     public void Dispose()
     {
         _cfg.UnsubValueChanged(GoobCVars.VoiceChatEnabled, OnVoiceChatEnabledChanged);
         _cfg.UnsubValueChanged(GoobCVars.VoiceChatPort, OnVoiceChatPortChanged);
         _playerManager.PlayerStatusChanged -= OnPlayerStatusChanged;
-
         StopServer();
-
         _sawmill.Info("VoiceChatServerManager disposed");
     }
 
-    /// <summary>
-    /// Helper class to store state associated with a connected voice client.
-    /// </summary>
     private sealed class VoiceClientData : IDisposable
     {
         public NetConnection Connection { get; }
+        public ICommonSession Session { get; }
         public EntityUid PlayerEntity { get; }
         public OpusDecoder? Decoder { get; private set; }
 
@@ -471,15 +425,16 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
         private byte[] _opusReadBuffer;
         private byte[] _byteBuffer;
 
-        private static readonly ISawmill _sawmill = Logger.GetSawmill("voiceserver");
+        private static readonly ISawmill _sawmill = Logger.GetSawmill("voice.server.clientdata");
 
-        public VoiceClientData(NetConnection connection, EntityUid playerEntity, int sampleRate, int channels)
+        public VoiceClientData(NetConnection connection, ICommonSession session, EntityUid playerEntity, int sampleRate, int channels)
         {
             Connection = connection;
+            Session = session;
             PlayerEntity = playerEntity;
 
             _pcmBuffer = new short[FrameSamplesPerChannel * channels];
-            _opusReadBuffer = new byte[4000];
+            _opusReadBuffer = new byte[4096];
             _byteBuffer = new byte[FrameSamplesPerChannel * channels * BytesPerSample];
 
             try
@@ -488,7 +443,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
             }
             catch (Exception e)
             {
-                _sawmill.Error($"Failed to create OpusDecoder for {connection.RemoteEndPoint.Address}: {e.Message}");
+                _sawmill.Error($"Failed to create OpusDecoder for {connection.RemoteEndPoint}: {e.Message}");
                 Decoder = null;
             }
         }
@@ -499,10 +454,9 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
         {
             if (_opusReadBuffer.Length < requiredSize)
             {
-                _sawmill.Warning($"Resizing Opus read buffer from {_opusReadBuffer.Length} to {requiredSize}. This might indicate unusually large voice packets.");
-                _opusReadBuffer = new byte[requiredSize];
+                _sawmill.Warning($"Resizing Opus read buffer from {_opusReadBuffer.Length} to {requiredSize} for {Connection.RemoteEndPoint}.");
+                Array.Resize(ref _opusReadBuffer, requiredSize);
             }
-
             return _opusReadBuffer;
         }
 
@@ -510,7 +464,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
         {
             if (_byteBuffer.Length < requiredSize)
             {
-                _byteBuffer = new byte[requiredSize];
+                Array.Resize(ref _byteBuffer, requiredSize);
             }
             return _byteBuffer;
         }
@@ -518,7 +472,7 @@ public sealed class VoiceChatServerManager : IVoiceChatServerManager, IPostInjec
         public void Dispose()
         {
             Decoder = null;
-            _sawmill.Debug($"Disposed VoiceClientData for {Connection.RemoteEndPoint.Address}");
+            _sawmill.Debug($"Disposed VoiceClientData for {Connection.RemoteEndPoint}");
         }
     }
 }

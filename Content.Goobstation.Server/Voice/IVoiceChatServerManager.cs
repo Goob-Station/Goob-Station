@@ -5,5 +5,4 @@ namespace Content.Goobstation.Server.Voice;
 /// </summary>
 public interface IVoiceChatServerManager : IDisposable
 {
-    void Update();
 }

@@ -14,7 +14,6 @@ namespace Content.Goobstation.Server.Entry;
 
 public sealed class EntryPoint : GameServer
 {
-    private IVoiceChatServerManager _voiceManager = default!;
 
     public override void Init()
     {
@@ -23,8 +22,6 @@ public sealed class EntryPoint : GameServer
         ServerGoobContentIoC.Register();
 
         IoCManager.BuildGraph();
-
-        _voiceManager = IoCManager.Resolve<IVoiceChatServerManager>();
     }
 
     public override void PostInit()
@@ -32,16 +29,4 @@ public sealed class EntryPoint : GameServer
         base.PostInit();
     }
 
-    public override void Update(ModUpdateLevel level, FrameEventArgs frameEventArgs)
-    {
-        base.Update(level, frameEventArgs);
-
-        switch (level)
-        {
-            case ModUpdateLevel.PreEngine:
-                _voiceManager.Update();
-                break;
-
-        }
-    }
 }
