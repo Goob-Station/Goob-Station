@@ -207,7 +207,7 @@ namespace Content.Shared.Entry
                 if (missing.Count <= 0)
                     continue;
 
-                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.");
+                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.\nMissing Modules:\n{string.Join("\n", missing.Select(t => t.AssemblyName))}");
             }
         }
 
