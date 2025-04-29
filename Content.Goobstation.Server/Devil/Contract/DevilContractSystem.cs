@@ -345,13 +345,12 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         var ev = clause.Event;
+        ev.Target = target;
 
-        if (contract?.Signer is { } signer)
-        {
+        if (contract is not null)
             ev.Contract = contract;
-            ev.Target = signer;
-        }
 
+        // you gotta cast this shit to object, don't ask me vro idk either
         RaiseLocalEvent(target, (object)ev, true);
     }
 

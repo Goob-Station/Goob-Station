@@ -43,6 +43,8 @@ public sealed partial class DevilContractSystem
 
         var ev = new AmputateAttemptEvent(pick.Id);
         RaiseLocalEvent(pick.Id, ref ev);
+
+        Dirty(args.Target, body);
     }
 
     private void OnLoseLeg(DevilContractLoseLegEvent args)
@@ -59,6 +61,8 @@ public sealed partial class DevilContractSystem
 
         var ev = new AmputateAttemptEvent(pick.Id);
         RaiseLocalEvent(pick.Id, ref ev);
+
+        Dirty(args.Target, body);
     }
 
     private void OnLoseOrgan(DevilContractLoseOrganEvent args)
