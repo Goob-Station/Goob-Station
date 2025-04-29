@@ -14,6 +14,10 @@
 
   ### Dragon Power
 
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDragonPower" Caption=""/>
+  </Box>
+
   A moment of staying still unarmed turns the warrior into a living mountain, greatly lowering
   the force of incoming melee strikes and boosting their own attacks, both armed and not.
 

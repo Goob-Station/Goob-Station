@@ -7,6 +7,7 @@
 cqc-fail-used = {CAPITALIZE(THE($manual))} is already used.
 cqc-fail-notself = You can't teach anyone with {CAPITALIZE(THE($manual))}.
 
+cqc-fail-changeling = We are beyond using this.
 cqc-fail-knowanother = You already know another martial art.
 cqc-fail-already = You already know everything about a Martial art.
 cqc-success-unblocked = Your CQC skills are not bound to kitchen anymore.
@@ -53,19 +54,10 @@ capoeira-fail-low-velocity = You are too slow to perform this combo!
 ninjutsu-fail-loss-of-surprise = Your intentions are known! Cannot perform this move!
 
 alerts-dragon-power-name = Dragon Power
-alerts-dragon-power-desc = You take a moment to reflect on battles past and to come.  This insight will protect you from future harm.
+alerts-dragon-power-desc = You take a moment to reflect on battles past and to come. This insight will protect you from future harm.
 
 alerts-sneak-attack-name = Sneak Attack
 alerts-sneak-attack-desc = To a true shinobi, the first strike and the last strike are one and the same.
 
 alerts-loss-of-surprise-name = Loss Of Surprise
 alerts-loss-of-surprise-desc = Your intentions are known! It will take you a few moments to sneak attack again.
-
-uplink-cqc-name = CQC Manual
-uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. Does not restrict weapon usage. Your disarms will inflict some stamina damage while making people temporarily slur their words, your grabs will immobilize for a second making it easier to reinforce them, your harm attacks will deal moderate stamina damage, and you will get a set of combos that allow you to efficiently knockdown, disarm or stun your opponent.
-
-uplink-capoeira-name = Capoeira Manual
-uplink-capoeira-desc = A manual that teaches a single user Capoeira, a dance-like Brazilian traditional martial art style, Capoeira is focused on fluid movement and sweeping kicks. Does not restrict weapon usage. Your combos are the stronger the faster you are moving. Hitting or disarming someone increases your attack speed temporarily based on your current speed.
-
-uplink-sleeping-carp-name = Martial Arts Scroll
-uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by vampire and changeling agents.

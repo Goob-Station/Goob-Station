@@ -5,13 +5,16 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.Standing;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Damage.Components;
@@ -103,8 +106,9 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnMapInit(Entity<KravMagaComponent> ent, ref MapInitEvent args)
     {
-        if (HasComp<MartialArtsKnowledgeComponent>(ent))
+        if (HasComp<MartialArtsKnowledgeComponent>(ent) || HasComp<ChangelingIdentityComponent>(ent))
             return;
+
         foreach (var actionId in ent.Comp.BaseKravMagaMoves)
         {
             var actions = _actions.AddAction(ent, actionId);
@@ -115,7 +119,7 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnKravMagaShutdown(Entity<KravMagaComponent> ent, ref ComponentShutdown args)
     {
-        if (!TryComp<KravMagaComponent>(ent, out var kravMaga))
+        if (HasComp<KravMagaComponent>(ent))
             return;
 
         foreach (var action in ent.Comp.KravMagaMoveEntities)

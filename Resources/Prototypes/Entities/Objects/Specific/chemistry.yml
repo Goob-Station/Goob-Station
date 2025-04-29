@@ -154,6 +154,7 @@
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -540,7 +541,7 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
-    # GoobStation Start - Added embeddable properties for syringe gun
+    # Goobstation Start - Added embeddable properties for syringe gun
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -586,24 +587,7 @@
   - type: ThrowableBlocked
   - type: Ammo
     muzzleFlash: null
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -4
-      - !type:SpillBehavior
-        solution: injector
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    # GoobStation End
+    # Goobstation End
   - type: ExaminableSolution
     solution: injector
   - type: Spillable

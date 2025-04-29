@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # Makes anything slippery, multiplies how slippery things are. Scales linearly with level.
 - type: entity
   parent: BaseEnchant
@@ -5,6 +11,11 @@
   name: Slippery
   components:
   - type: Enchant
+    blacklist:
+      components:
+      - ProtectedFromStepTriggers # Player won't like their boots to get slippery instead of unslippable
+    incompatible:
+    - EnchantUnslippable
     maxLevel: 4
   - type: SlipperyEnchant
   - type: ComponentsEnchant
