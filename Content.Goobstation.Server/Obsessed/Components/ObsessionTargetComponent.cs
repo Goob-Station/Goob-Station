@@ -5,7 +5,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Server._Goobstation.Obsessed;
+namespace Content.Goobstation.Server.Obsessed;
 
 [RegisterComponent]
 public sealed partial class ObsessionTargetComponent : Component

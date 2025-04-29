@@ -1,4 +1,4 @@
-namespace Content.Server._Goobstation.Obsessed;
+namespace Content.Goobstation.Server.Obsessed;
 
 public enum ObsessionInteraction
 {
