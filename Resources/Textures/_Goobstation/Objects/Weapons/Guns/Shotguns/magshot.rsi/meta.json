@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from baystation12 at https://github.com/Baystation12/Baystation12/commit/2cc55fe15fc304ccccb835eb7aeff6ddc31e0e94",
+  "copyright": "Taken from baystation12 at https://github.com/Baystation12/Baystation12/commit/2cc55fe15fc304ccccb835eb7aeff6ddc31e0e94. Equipped sprite made by Aviu00.",
   "size": {
     "x": 32,
     "y": 32
@@ -54,6 +54,14 @@
     },
     {
       "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK",
       "directions": 4
     }
   ]

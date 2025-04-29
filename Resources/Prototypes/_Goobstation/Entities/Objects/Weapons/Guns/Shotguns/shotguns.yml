@@ -73,7 +73,7 @@
   name: NZ CSG-242
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunHeavy
-  description: A 3-round burst magazine-fed heavy shotgun for total extermination. Uses .75 gauge ammunition.
+  description: A 3-round burst magazine-fed heavy shotgun for total extermination. Uses 2 gauge ammunition.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi
@@ -93,7 +93,7 @@
     shape:
     - 0,0,4,3
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi
     quickEquip: false
     slots:
     - Back
@@ -139,3 +139,4 @@
   - type: StaticPrice
     price: 500
   - type: GunRecoil
+    refreshKnockdown: false

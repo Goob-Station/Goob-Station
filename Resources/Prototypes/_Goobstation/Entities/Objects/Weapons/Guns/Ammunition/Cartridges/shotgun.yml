@@ -179,3 +179,45 @@
     state: "beanbag"
 
 
+
+# Heavy shotgun
+
+# Pellet
+- type: entity
+  id: ShellShotgunHeavyHighExplosive
+  name: shell (2 Gauge pellet)
+  parent: BaseShellShotgun
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavier
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/magshot.rsi
+    layers:
+    - state: gshell
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: HeavyPelletShotgunSpread
+  - type: SpentAmmoVisuals
+    state: "gshell"
+
+# Slug
+- type: entity
+  id: ShellShotgunSlugHeavyHighExplosive
+  name: shell (2 Gauge slug)
+  parent: BaseShellShotgun
+  components:
+  - type: Tag
+    tags:
+     - Cartridge
+     - ShellShotgunHeavier
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/magshot.rsi
+    layers:
+    - state: fshell
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletSlugHeavyHighExplosive
+  - type: SpentAmmoVisuals
+    state: "fshell"

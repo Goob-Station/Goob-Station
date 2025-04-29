@@ -8,31 +8,16 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "gshell"
     },
     {
-      "name": "base"
+      "name": "gshell-spent"
     },
     {
-      "name": "icon2"
+      "name": "fshell"
     },
     {
-      "name": "base2"
-    },
-    {
-      "name": "mag-1"
-    },
-    {
-      "name": "mag-2"
-    },
-    {
-      "name": "mag-3"
-    },
-    {
-      "name": "mag-4"
-    },
-    {
-      "name": "mag-5"
+      "name": "fshell-spent"
     }
   ]
 }

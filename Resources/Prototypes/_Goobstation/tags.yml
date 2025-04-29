@@ -385,6 +385,9 @@
   id: SyndicateBreathMask
 
 - type: Tag
+  id: ShellShotgunHeavier
+
+- type: Tag
   id: ShellShotgunHeavy
 
 - type: Tag

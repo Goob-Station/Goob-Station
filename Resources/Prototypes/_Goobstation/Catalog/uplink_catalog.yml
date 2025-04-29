@@ -207,7 +207,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Shotguns/magshot.rsi, state: icon }
   productEntity: WeaponShotgunHeavy
   cost:
-    Telecrystal: 100
+    Telecrystal: 150
   categories:
   - UplinkWeaponry
 
@@ -732,7 +732,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
   productEntity: MagazineShotgunHeavy
   cost:
-    Telecrystal: 16
+    Telecrystal: 30
   categories:
   - UplinkAmmo
 
@@ -740,10 +740,10 @@
   id: UplinkMagazineShotgunHeavySlug
   name: uplink-heavy-shotgun-magazine-slug-name
   description: uplink-heavy-shotgun-magazine-slug-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon }
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_shotgun.rsi, state: icon2 }
   productEntity: MagazineShotgunHeavySlug
   cost:
-    Telecrystal: 16
+    Telecrystal: 40
   categories:
   - UplinkAmmo
 

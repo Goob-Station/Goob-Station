@@ -85,7 +85,7 @@ uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
 uplink-weapon-heavy-shotgun-name = NZ CSG-242 Heavy Shotgun
-uplink-weapon-heavy-shotgun-desc = Merciless weapon. The recoil when firing it is so extreme that it can knock you off your feet.
+uplink-weapon-heavy-shotgun-desc = Merciless heavy explosive weapon. The recoil when firing it is so extreme that it can knock you off your feet.
 
 uplink-WSPR-name = WSPR
 uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets.
@@ -140,10 +140,10 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 gauge pellet)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 gauge slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
@@ -158,13 +158,12 @@ uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 uplink-highcap-pistol-mag-name = High Capacity Pistol Magazine (.35 auto)
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
-<<<<<<< HEAD
-uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (.75 carpshot)
-uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 carpshot shells. Compatible with the NZ CSG-242.
+uplink-heavy-shotgun-magazine-name = Heavy Shotgun Drum (2 gauge HE pellet)
+uplink-heavy-shotgun-magazine-desc = Shotgun magazine with 15 high-explosive pellet shells. Compatible with the NZ CSG-242.
 
-uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (.75 slug)
-uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 slug shells. Compatible with the NZ CSG-242.
-=======
+uplink-heavy-shotgun-magazine-slug-name = Heavy Shotgun Drum (2 gauge HE slug)
+uplink-heavy-shotgun-magazine-slug-desc = Shotgun magazine with 15 high-eplosive shrapnel slug shells. Compatible with the NZ CSG-242.
+
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
 
@@ -173,7 +172,6 @@ uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper r
 
 uplink-92-AT-name = box of .92 anti-tank rounds
 uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
->>>>>>> master
 
 # Grenades
 

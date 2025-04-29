@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMagazineShotgunHeavy
-  name: ammo drum (.75 shells)
+  name: ammo drum (2 gauge shells)
   parent: [ BaseItem, BaseSyndicateContraband ]
   abstract: true
   components:
@@ -11,7 +11,7 @@
     mayTransfer: true
     whitelist:
       tags:
-        - ShellShotgunHeavy
+        - ShellShotgunHeavier
     capacity: 15
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
@@ -35,16 +35,22 @@
 
 - type: entity
   id: MagazineShotgunHeavy
-  name: ammo drum (.75 carpshot)
+  name: ammo drum (2 gauge HE pellet)
   parent: BaseMagazineShotgunHeavy
   components:
   - type: BallisticAmmoProvider
-    proto: ShellShotgunHighCaliber
+    proto: ShellShotgunHeavyHighExplosive
 
 - type: entity
   id: MagazineShotgunHeavySlug
-  name: ammo drum (.75 slug)
+  name: ammo drum (2 gauge HE slug)
   parent: BaseMagazineShotgunHeavy
   components:
   - type: BallisticAmmoProvider
-    proto: ShellShotgunSlugHighCaliber
+    proto: ShellShotgunSlugHeavyHighExplosive
+  - type: Sprite
+    layers:
+    - state: base2
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-5
+      map: ["enum.GunVisualLayers.Mag"]

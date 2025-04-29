@@ -19,7 +19,7 @@ public sealed partial class GunRecoilComponent : Component
     public float MassMultiplier = 70f;
 
     [DataField]
-    public float BaseKnockdownTime = 1.5f;
+    public float BaseKnockdownTime = 1f;
 
     [DataField]
     public bool RefreshKnockdown = true;
