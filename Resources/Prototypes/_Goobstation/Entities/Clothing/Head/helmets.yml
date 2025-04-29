@@ -3,8 +3,10 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -81,3 +83,24 @@
     damage:
       types:
         Blunt: 5
+
+- type: entity
+  parent: [ ClothingHeadBase, BaseSyndicateContraband ]
+  id: ClothingHeadHatHoodCloakSith
+  name: dark lord hood
+  description: What began as a simple cosplay hood was illegally reinforced with armored plates, transforming it into a functional piece of armor. Looks like it's even capable of protecting the user from the lack of pressure in space.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hoods/voidcloak.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Head/Hoods/voidcloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: PressureProtection
+    lowPressureMultiplier: 1000

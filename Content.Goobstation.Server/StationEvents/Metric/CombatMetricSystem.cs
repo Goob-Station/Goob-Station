@@ -16,6 +16,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Roles;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
+using Prometheus;
 
 namespace Content.Goobstation.Server.StationEvents.Metric;
 
@@ -38,6 +39,47 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+
+    private static readonly Gauge HostileEntitiesTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_hostile_entities_total",
+        "Total number of hostile entities counted.");
+
+    private static readonly Gauge FriendlyEntitiesTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_friendly_entities_total",
+        "Total number of alive friendly entities counted.");
+
+    private static readonly Gauge DeadFriendlyEntitiesTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_dead_friendly_entities_total",
+        "Total number of dead friendly entities counted.");
+
+    private static readonly Gauge CritFriendlyEntitiesTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_crit_friendly_entities_total",
+        "Total number of critical friendly entities counted.");
+
+    private static readonly Gauge HostileInventoryThreatTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_hostile_inventory_threat_total",
+        "Total calculated inventory threat for hostile entities.");
+
+    private static readonly Gauge FriendlyInventoryThreatTotal = Metrics.CreateGauge(
+        "game_director_metric_combat_friendly_inventory_threat_total",
+        "Total calculated inventory threat for friendly entities.");
+
+    private static readonly Gauge HostileChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_combat_hostile_chaos_calculated",
+        "Calculated chaos value contributed by hostiles.");
+
+    private static readonly Gauge FriendChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_combat_friend_chaos_calculated",
+        "Calculated chaos value contributed by friendlies (positive value).");
+
+    private static readonly Gauge MedicalChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_combat_medical_chaos_calculated",
+        "Calculated chaos value contributed by medical state.");
+
+    private static readonly Gauge DeathChaosCalculated = Metrics.CreateGauge(
+        "game_director_metric_combat_death_chaos_calculated",
+        "Calculated chaos value contributed by deaths.");
+
 
     public double InventoryPower(EntityUid uid, CombatMetricComponent component)
     {
@@ -72,11 +114,18 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
     {
         // Add up the pain of all the puddles
         var query = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, DamageableComponent, TransformComponent>();
-        double hostiles = 0;
-        double friendlies = 0;
+        double hostilesChaos = 0;
+        double friendliesChaos = 0;
+        double medicalChaos = 0;
+        double deathChaos = 0;
 
-        double medical = 0;
-        double death = 0;
+        // Prometheus Metric Accumulators
+        int hostileCount = 0;
+        int friendlyCount = 0;
+        int deadFriendlyCount = 0;
+        int critFriendlyCount = 0;
+        double hostileInventoryThreat = 0;
+        double friendlyInventoryThreat = 0;
 
         var powerQ = GetEntityQuery<CombatPowerComponent>();
 
@@ -106,41 +155,65 @@ public sealed class CombatMetricSystem : ChaosMetricSystem<CombatMetricComponent
             {
                 if (mobState.CurrentState != MobState.Alive)
                     continue;
+
+                hostileCount++;
             }
             else
             {
                 // This is a friendly
                 if (mobState.CurrentState == MobState.Dead)
                 {
-                    death += combatMetric.DeadScore;
+                    deadFriendlyCount++;
+                    deathChaos += combatMetric.DeadScore;
                     continue;
                 }
                 else
                 {
-                    medical += damage.Damage.GetTotal().Double() * combatMetric.MedicalMultiplier;
+                    friendlyCount++;
+                    var totalDamage = damage.Damage.GetTotal().Double();
+                    medicalChaos += totalDamage * combatMetric.MedicalMultiplier;
                     if (mobState.CurrentState == MobState.Critical)
                     {
-                        medical += combatMetric.CritScore;
-                        continue;
+                        critFriendlyCount++;
+                        medicalChaos += combatMetric.CritScore;
                     }
                 }
             }
 
             // Iterate through items to determine how powerful the entity is
             entityThreat += InventoryPower(uid, combatMetric);
+
             if (antag)
-                hostiles += (entityThreat + combatMetric.HostileScore) * threatMultiple;
+            {
+                hostileInventoryThreat += entityThreat;
+                hostilesChaos += (entityThreat + combatMetric.HostileScore) * threatMultiple;
+            }
             else
-                friendlies += (entityThreat + combatMetric.FriendlyScore) * threatMultiple;
+            {
+                friendlyInventoryThreat += entityThreat;
+                friendliesChaos += (entityThreat + combatMetric.FriendlyScore) * threatMultiple;
+            }
         }
+
+        HostileEntitiesTotal.Set(hostileCount);
+        FriendlyEntitiesTotal.Set(friendlyCount);
+        DeadFriendlyEntitiesTotal.Set(deadFriendlyCount);
+        CritFriendlyEntitiesTotal.Set(critFriendlyCount);
+        HostileInventoryThreatTotal.Set(hostileInventoryThreat);
+        FriendlyInventoryThreatTotal.Set(friendlyInventoryThreat);
+        HostileChaosCalculated.Set(hostilesChaos);
+        FriendChaosCalculated.Set(friendliesChaos);
+        MedicalChaosCalculated.Set(medicalChaos);
+        DeathChaosCalculated.Set(deathChaos);
+
 
         var chaos = new ChaosMetrics(new Dictionary<ChaosMetric, double>()
         {
-            {ChaosMetric.Friend, -friendlies}, // Friendlies are good, so make a negative chaos score
-            {ChaosMetric.Hostile, hostiles},
+            {ChaosMetric.Friend, -friendliesChaos}, // Friendlies are good, so make a negative chaos score
+            {ChaosMetric.Hostile, hostilesChaos},
 
-            {ChaosMetric.Death, death},
-            {ChaosMetric.Medical, medical},
+            {ChaosMetric.Death, deathChaos},
+            {ChaosMetric.Medical, medicalChaos},
         });
         return chaos;
     }

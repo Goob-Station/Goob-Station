@@ -165,6 +165,7 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+iamvelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -184,17 +185,6 @@
   productEntity: WeaponPistolViper
   cost:
     Telecrystal: 14 # goob - this +1 mag = 16 TC
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkGlovesKnuckleDusters
-  name: uplink-gloves-knuckleduster-name
-  description: uplink-gloves-knuckleduster-desc
-  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster } # Goobstation
-  productEntity: ClothingHandsKnuckleDustersSyndicate
-  cost:
-    Telecrystal: 15 # Goobstation
   categories:
   - UplinkWeaponry
 
@@ -614,16 +604,16 @@
   - UplinkAmmo
 
 # For the Cobra
-#- type: listing
-#  id: UplinkMagazinePistolCaselessMagnumMinusP
-#  name: uplink-caseless-magnum-pistol-mag-minusp-name
-#  description: uplink-caseless-magnum-pistol-mag-minusp-desc
-#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: rubber }
-#  productEntity: MagazinePistolCaselessMagnumMinusP
-#  cost:
-#    Telecrystal: 3 # goob - 5 shots to crit
-#  categories:
-#  - UplinkAmmo
+- type: listing
+  id: UplinkMagazinePistolCaselessRifle
+  name: uplink-pistol-magazine-caseless-name
+  description: uplink-pistol-magazine-caseless-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolCaselessRifle
+  cost:
+    Telecrystal: 3 # goob
+  categories:
+  - UplinkAmmo
 
 # For the Python
 - type: listing
@@ -2188,3 +2178,13 @@
     whitelist:
     - Chef
     - Mime
+
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
+  cost:
+    Telecrystal: 10 # Goobstation
+  categories:
+  - UplinkDeception
