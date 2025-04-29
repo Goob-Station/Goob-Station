@@ -140,7 +140,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Goobstation", "Goobstation"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Goobstation.Common", "Content.Goobstation.Common\Content.Goobstation.Common.csproj", "{0844F01A-BCC6-417A-8CC4-08C9B7395445}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Goobstation.UiKit", "Content.Goobstation.UiKit\Content.Goobstation.UiKit.csproj", "{E575399B-774D-4DA0-950C-A78F4C7B14D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Goobstation.UIKit", "Content.Goobstation.UIKit\Content.Goobstation.UIKit.csproj", "{E575399B-774D-4DA0-950C-A78F4C7B14D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
