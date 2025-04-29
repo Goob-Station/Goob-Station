@@ -1640,11 +1640,8 @@
   name: uplink-clothing-outer-vest-web-elite-name
   description: uplink-clothing-outer-vest-web-elite-desc
   productEntity: ClothingOuterVestWebElite
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
-    Telecrystal: 5
+    Telecrystal: 25 # goob
   categories:
   - UplinkWearables
 
@@ -1722,11 +1719,11 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+  #conditions: # Goobstation - no fuck you
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 
 - type: listing
@@ -1739,11 +1736,11 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+  #conditions: # Goobstation - no fuck you
+  #- !type:StoreWhitelistCondition
+  # whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 
 - type: listing

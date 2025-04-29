@@ -83,6 +83,11 @@
     damageCoefficient: 0.5
   - type: FireProtection
     reduction: 0.85
+  - type: ModifyDelayedKnockdown # Goobstation
+    delayDelta: 3
+    knockdownTimeDelta: -3
+  - type: StaminaDamageResistance # Goobstation
+    coefficient: 0.4
 
 #Mercenary web vest
 - type: entity
