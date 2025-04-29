@@ -178,6 +178,9 @@
   id: FelinidEmotes
 
 - type: Tag
+  id: FingerlessInsulatedGloves
+
+- type: Tag
   id: FlashIgnoreResistances
 
 - type: Tag

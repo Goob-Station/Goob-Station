@@ -1,0 +1,25 @@
+- type: dataset
+  id: TiderNamesFirst
+  values:
+  - Grey
+  - Maint
+  - Robust
+  - Crawling
+  - Tunnel
+  - John
+  - Insulated
+  - Bashing
+
+- type: dataset
+  id: TiderNamesLast
+  values:
+  - Tide
+  - Crawler
+  - King
+  - Toolbox
+  - Breaker
+  - Stealer
+  - Wrench
+  - Crowbar
+  - Shitter
+  - Belt

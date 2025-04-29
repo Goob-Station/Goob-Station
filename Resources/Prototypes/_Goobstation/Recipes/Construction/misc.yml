@@ -15,3 +15,16 @@
     sprite: _Goobstation/Objects/Specific/Fishing/makeshift_rod.rsi
     state: icon
   objectType: Item
+
+- type: construction
+  name: grey tider
+  id: GreyTider
+  graph: GreyTider
+  startNode: start
+  targetNode: greyTider
+  category: construction-category-misc
+  description: Greytide worldwide.
+  icon:
+    sprite: Markers/jobs.rsi
+    state: passenger
+  objectType: Item

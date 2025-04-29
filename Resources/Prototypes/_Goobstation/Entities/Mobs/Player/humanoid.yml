@@ -53,6 +53,59 @@
       roleLoadout: [ RoleSurvivalStandard ]
 
 - type: entity
+  id: RandomHumanoidGreyTider
+  name: greytider
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: passenger
+    - type: RandomHumanoidSpawner
+      settings: GreyTider
+
+- type: randomHumanoidSettings
+  id: GreyTider
+  speciesWhitelist: Human # lore accurate
+  parent: EventHumanoid
+  components:
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-greytider-name
+      description: ghost-role-information-greytider-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      hair: HairBald
+    - type: Loadout
+      prototypes: [ GreyTiderGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomMetadata
+      nameSegments:
+        - TiderNamesFirst
+        - TiderNamesLast
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound # do salvager AI while not taken by anyone
+    - type: FactionException
+    - type: NPCRetaliation
+      attackMemoryLength: 20 # the tide remembers
+    - type: GroupRetaliation
+      range: 15 # the tide hears
+
+- type: startingGear
+  id: GreyTiderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAncient
+    back: ClothingBackpackSatchel
+    shoes: ClothingShoesBootsWinter
+    mask: ClothingMaskGas
+    gloves: ClothingHandsGlovesFingerlessInsulated
+    outerClothing: ClothingOuterWinterCoat
+  inhand:
+    - ToolboxMechanical
+
+- type: entity
   parent: MobHuman
   id: MobHumanRandom
   name: Urist McHuman

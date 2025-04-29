@@ -457,6 +457,12 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
+  # Goobstation
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - FingerlessInsulatedGloves
 
 - type: entity
   parent: ClothingHandsButcherable
