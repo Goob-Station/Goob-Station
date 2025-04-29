@@ -84,6 +84,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
   ## Ninjutsu
 
+  <Box>
+    <GuideEntityEmbed Entity="NinjutsuScroll"/>
+  </Box>
+
   As a true warrior of the Spider Clan, you are a master of [textlink="Ninjutsu" link="Ninjutsu"], a martial art honed over centuries by your teachers.
   The art is not simply about strength or speed; it is about becoming one with the shadows and striking with deadly precision.
 

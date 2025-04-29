@@ -6,10 +6,9 @@
     <GuideEntityEmbed Entity="SleepingCarpScroll" Caption=""/>
   </Box>
 
-  The Way of The Sleeping Carp, or simply the Sleeping Carp, is an ancient art learned through intense study and
-  meditation. It is modeled after the graceful movement, combat, and flow of Space Carp. Ancient masters of this art
-  are rumored to have studied among great schools of space carp and survived, some have even befriended the
-  aggressive creatures. This art is often utilized by zealots and extremists especially among The Syndicate.
+  The Way of The Sleeping Carp, or simply the Sleeping Carp, is an ancient [textlink="martial art" link="MartialArts"] learned through intense study and meditation.
+  It is modeled after the graceful movement, combat, and flow of Space Carp. Ancient masters of this art are rumored to have studied among great schools of space carp
+  and survived, some have even befriended the aggressive creatures. This art is often utilized by zealots and extremists especially among The Syndicate.
 
   ## Special abilities
 
@@ -37,16 +36,31 @@
 
   ## Combo attacks
 
-  ### Keelhaul (Harm + Grab)
+  ### Keelhaul
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
 
   Kicks an opponent in the head, knocking them down and dealing both Slash and Stamina damage to them,
   unless they are already stunned. In that case, it will as well completely disarm the opponent.
 
-  ### Crashing Waves Kick (Harm + Disarm)
+  ### Crashing Waves Kick
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+  </Box>
 
   Kicks the opponent square in the chest, sending them flying and dealing Slash damage. Only works on standing opponents.
 
-  ### Gnashing Teeth (Harm + Harm)
+  ### Gnashing Teeth
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
 
   Deals extra Slash damage, and makes the user shout to strike fear into their opponent's heart.
 

@@ -1,0 +1,31 @@
+- type: entity
+  id: GuidebookHelp
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: help
+
+- type: entity
+  id: GuidebookHarm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: harm
+
+- type: entity
+  id: GuidebookDisarm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: disarm
+
+- type: entity
+  id: GuidebookGrab
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Interface/Misc/intents.rsi
+    state: grab
