@@ -59,7 +59,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
     /// </summary>
     private readonly List<ICommonSession> _patronQueue = new();
 
-    private bool _isEnabled = true;
+    private bool _isEnabled = false;
     private bool _patreonIsEnabled = true;
 
     public int PlayerInQueueCount => _queue.Count + _patronQueue.Count;
