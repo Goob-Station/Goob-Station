@@ -23,6 +23,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -188,7 +189,7 @@ namespace Content.Shared.Entry
         private void VerifyModules()
         {
             var loadedAssemblies = _refMan.Assemblies
-                .Select(assembly => assembly.GetName().Name!.ToLower())
+                .Select(assembly => assembly.GetName().Name?.ToLower())
                 .ToHashSet();
 
             var packs = _refMan.GetAllChildren<ModulePack>()
