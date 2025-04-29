@@ -688,7 +688,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 10 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
+    Telecrystal: 9 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
   categories:
   - UplinkAmmo
 
@@ -699,7 +699,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 20 # 2x as much compared to regular mags.
+    Telecrystal: 15
   categories:
   - UplinkAmmo
 
@@ -722,7 +722,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
   productEntity: MagazineRifle
   cost:
-    Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
+    Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage (550, 92 damage per TC)
   categories:
   - UplinkAmmo
 
@@ -733,7 +733,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
   productEntity: MagazineCaselessRifle
   cost:
-    Telecrystal: 6
+    Telecrystal: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
   categories:
   - UplinkAmmo
 
@@ -792,7 +792,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
   productEntity: MagazineLowCaliberM7S
   cost:
-    Telecrystal: 8 # 48 rounds of .25 rifle, 19 damage a shot but half the velocity of other weapons
+    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
   categories:
   - UplinkAmmo
 
