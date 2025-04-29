@@ -27,8 +27,10 @@ namespace Content.Server.Actions;
 [RegisterComponent]
 public sealed partial class ActionOnInteractComponent : Component
 {
-    [DataField(required:true)]
+    [DataField(required: true)]
     public List<EntProtoId>? Actions;
 
     [DataField] public List<EntityUid>? ActionEntities;
+
+    [DataField] public bool RequiresCharge;
 }
