@@ -28,5 +28,9 @@ beer-glasses-steal-tip = [font size={10}][italic]These can be found in the posse
 bible-steal-tip = [font size={10}][italic]Only one of these can be found on the station, in possession of the Chaplain.[/italic][/font]
 ian-steal-tip = [font size={10}][italic]The Head Of Personnel's corgi, usaully found in his office.[/italic][/font]
 bingus-steal-tip = [font size={10}][italic]The Head Of Personnel's corgi, usaully found in his office.[/italic][/font]
-morty-steal-tip = [font size={10}][italic]The mourge possum. Self explanatory.[/italic][/font]
-
+morty-steal-tip = [font size={10}][italic]The mourge's possum. Self explanatory.[/italic][/font]
+insulated-gloves-steal-tip = [font size={10}][italic]Steal any pair from Engineering.[/italic][/font]
+stun-baton-steal-tip =  [font size={10}][italic]Steal any stun baton from Security.[/italic][/font]
+rapid-syringe-gun-steal-tip = [font size={10}][italic]The Chief Medical Officer's personal syringe gun. Usually found amongst their medical supplies on their person, in their bag, or otherwise in their locker.[/italic][/font]
+hos-laser-steal-tip = [font size={10}][italic]The Head of Security's laser gun, Usually found on their person.[/italic][/font]
+sliver-steal-tip = [font size={10}][italic]A small shard of the station's supermatter crystal engine.[/italic][/font]

@@ -13,6 +13,7 @@
 
 - type: stealTargetGroup
   id: SupermatterSliver
+  stealTip: sliver-steal-tip
   name: steal-target-groups-cargo-supermatter-sliver
   sprite:
     sprite: _Goobstation/Supermatter/supermatter_sliver.rsi
@@ -20,6 +21,7 @@
 
 - type: stealTargetGroup
   id: WeaponEnergyGunMultiphase
+  stealTip: hos-laser-steal-tip
   name: steal-target-groups-weapon-multiphase
   sprite:
     sprite: _DV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
@@ -28,6 +30,7 @@
 - type: stealTargetGroup
   id: RapidSyringeGun
   name: steal-target-groups-rapid-syringe-gun
+  stealTip: rapid-syringe-gun-steal-tip
   sprite:
     sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
     state: icon
@@ -35,6 +38,7 @@
 - type: stealTargetGroup
   id: InsulatedGeneral
   name: steal-target-groups-rapid-insulated-gloves
+  stealTip: insulated-gloves-steal-tip
   sprite:
     sprite: Clothing/Hands/Gloves/Color/yellow.rsi
     state: icon
