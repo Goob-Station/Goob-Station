@@ -8,7 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.HealthExaminable;

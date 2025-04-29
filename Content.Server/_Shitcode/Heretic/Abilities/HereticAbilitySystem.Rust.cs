@@ -24,7 +24,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Physics;

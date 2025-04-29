@@ -11,7 +11,7 @@ using Content.Client.Message;
 using Content.Client.Stylesheets;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Chemistry.UI;

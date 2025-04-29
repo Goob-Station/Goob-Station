@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Client.Damage;
 

@@ -9,7 +9,7 @@ using Content.Goobstation.Server.Implants.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Implants;
 using Content.Shared.Mobs;
 using Robust.Shared.Containers;
