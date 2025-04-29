@@ -118,7 +118,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
-    ///     Set a max drunk time in seconds to prevent permanent drunkeness. 
+    ///     Set a max drunk time in seconds to prevent permanent drunkeness.
     /// </summary>
     public static readonly CVarDef<float> MaxDrunkTime =
         CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
@@ -399,6 +399,23 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> CoalesceIdenticalMessages =
          CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    #endregion
+
+    #region Queue
+
+    /// <summary>
+    ///     Controls if the connections queue is enabled
+    ///     If enabled plyaers will be added to a queue instead of being kicked after SoftMaxPlayers is reached
+    /// </summary>
+    public static readonly CVarDef<bool>
+    QueueEnabled = CVarDef.Create("queue.enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If enabled patrons will be sent to the front of the queue.
+    /// </summary>
+    public static readonly CVarDef<bool> PatreonSkip =
+        CVarDef.Create("queue.patreon_skip", true, CVar.SERVERONLY);
 
     #endregion
 
