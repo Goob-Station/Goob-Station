@@ -17,8 +17,7 @@
                      Name="BountyTitle"
                      Text="Bounty PLACEHOLDER Title"/>
             </BoxContainer>
-            <RichTextLabel Name="BountyDesc"
-                         Text="Steal PLACEHOLDER found in the PLACEHOLDER."/>
+            <RichTextLabel Name="BountyDesc"/>
             <BoxContainer Orientation="Horizontal">
                 <Label FontColorOverride="#2ECC71"
                        Text="{Loc spy-reward-label}"/>

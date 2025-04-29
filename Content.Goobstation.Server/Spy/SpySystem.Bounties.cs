@@ -79,74 +79,82 @@ public sealed partial class SpySystem
         dbEnt.Comp.Bounties = bounties.ToList();
     }
 
-    private bool TryPickBounties([NotNullWhen(true)] out List<SpyBountyData>? bounties)
+private bool TryPickBounties([NotNullWhen(true)] out List<SpyBountyData>? bounties)
+{
+    bounties = null;
+
+    if (!_protoMan.TryIndex(_easyObjectives, out var easyObjectives)
+        || !_protoMan.TryIndex(_mediumObjectives, out var mediumObjectives)
+        || !_protoMan.TryIndex(_hardObjectives, out var hardObjectives))
     {
-        bounties = null;
+        return false;
+    }
 
-        if (!_protoMan.TryIndex(_easyObjectives, out var easyObjectives)
-            || !_protoMan.TryIndex(_mediumObjectives, out var mediumObjectives)
-            || !_protoMan.TryIndex(_hardObjectives, out var hardObjectives))
-            return false;
+    const int maxAttempts = 3;
+    int currentAttempt = 0;
+    var allStealGroups = new HashSet<ProtoId<StealTargetGroupPrototype>>();
+    List<StealTarget> finalObjectives = new();
 
-        var currentAttempt = 0;
-        var allStealGroups = new HashSet<ProtoId<StealTargetGroupPrototype>>();
-        List<StealTarget> finalObjectives = [];
-
-        // Attempt to gather enough steal groups across multiple tries
-        while (currentAttempt < RetryAttempts && allStealGroups.Count < GlobalBountyAmount)
-        {
-            finalObjectives = GenerateObjectives(easyObjectives, mediumObjectives, hardObjectives);
-            var currentStealGroups = finalObjectives
-                .Select(o => o.Condition.StealGroup)
-                .Distinct()
-                .Where(StealTargetExists)
-                .ToList();
-
-            foreach (var group in currentStealGroups)
-                allStealGroups.Add(group);
-
-
-            currentAttempt++;
-        }
-
-        var stealGroups = allStealGroups.ToList();
-        _random.Shuffle(stealGroups);
-        var selectedStealGroups = stealGroups.Take(GlobalBountyAmount).ToList();
-        if (selectedStealGroups.Count == 0)
-        {
-            bounties = [];
-            return false;
-        }
-
-        // Get possible rewards
-        var listings = GetPossibleBountyRewards(out var easyObjects, out var mediumObjects, out var hardObjects);
-        if (listings.Count == 0)
-        {
-            bounties = [];
-            return false;
-        }
-
-        // Create bounties for each steal group
-        bounties = selectedStealGroups
-            .Select(stealGroup =>
-            {
-                var objective = finalObjectives.First(o => o.Condition.StealGroup == stealGroup);
-                var targetList = objective.Diff switch
-                {
-                    SpyBountyDifficulty.Easy => easyObjects,
-                    SpyBountyDifficulty.Medium => mediumObjects,
-                    SpyBountyDifficulty.Hard => hardObjects,
-                    _ => throw new ArgumentOutOfRangeException(),
-                };
-
-                var randomListing = targetList[_random.Next(targetList.Count)];
-                return new SpyBountyData(stealGroup, randomListing, objective.Diff);
-            })
+    // Attempt to gather enough valid steal groups
+    while (currentAttempt < maxAttempts && allStealGroups.Count < GlobalBountyAmount)
+    {
+        var newObjectives = GenerateObjectives(easyObjectives, mediumObjectives, hardObjectives);
+        var currentStealGroups = newObjectives
+            .Select(o => o.Condition.StealGroup)
+            .Where(StealTargetExists)
+            .Distinct()
             .ToList();
 
-        _random.Shuffle(bounties);
-        return true;
+        foreach (var group in currentStealGroups)
+        {
+            allStealGroups.Add(group);
+        }
+
+        // Preserve the objectives used to generate the groups
+        finalObjectives.AddRange(newObjectives);
+        currentAttempt++;
     }
+
+    var stealGroups = allStealGroups.ToList();
+    _random.Shuffle(stealGroups);
+    var selectedStealGroups = stealGroups.Take(GlobalBountyAmount).ToList();
+
+    if (selectedStealGroups.Count == 0)
+    {
+        bounties = [];
+        return false;
+    }
+
+    // Get possible rewards
+    var listings = GetPossibleBountyRewards(out var easyObjects, out var mediumObjects, out var hardObjects);
+    if (listings.Count == 0)
+    {
+        bounties = [];
+        return false;
+    }
+
+    // Create bounties only for groups that have matching objectives
+    bounties = selectedStealGroups
+        .Select(stealGroup =>
+        {
+            var objective = finalObjectives.FirstOrDefault(o => o.Condition.StealGroup == stealGroup);
+
+            var targetList = objective.Diff switch
+            {
+                SpyBountyDifficulty.Easy => easyObjects,
+                SpyBountyDifficulty.Medium => mediumObjects,
+                SpyBountyDifficulty.Hard => hardObjects,
+                _ => throw new ArgumentOutOfRangeException(),
+            };
+
+            var randomListing = targetList[_random.Next(targetList.Count)];
+            return new SpyBountyData(stealGroup, randomListing, objective.Diff);
+        })
+        .ToList();
+
+    _random.Shuffle(bounties);
+    return bounties.Count > 0;
+}
 
     private bool TryGetMainStation([NotNullWhen(true)] out EntityUid? mainStation)
     {

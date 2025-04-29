@@ -5,16 +5,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Spy;
 
-[Prototype]
-public sealed class SpyBountyRewardPrototype : IPrototype // beyond any syndie uplink item 🧌
-{
-    [IdDataField]
-    public string ID { get; } = default!;
-
-    [DataField]
-    public EntProtoId Reward;
-}
-
 // Active bounty instance
 [Serializable, NetSerializable]
 [Virtual, DataDefinition]
