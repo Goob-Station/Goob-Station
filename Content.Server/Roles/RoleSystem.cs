@@ -21,13 +21,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Server.Chat.Managers;
+using Content.Shared.Chat;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Roles;
 
 public sealed class RoleSystem : SharedRoleSystem
 {
+    [Dependency] private readonly IChatManager _chat = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
     public string? MindGetBriefing(EntityUid? mindId)
     {
         if (mindId == null)
@@ -59,6 +65,32 @@ public sealed class RoleSystem : SharedRoleSystem
         }
 
         return ev.Briefing;
+    }
+
+    public void RoleUpdateMessage(MindComponent mind)
+    {
+        if (mind.Session is null)
+            return;
+
+        if (!_proto.TryIndex(mind.RoleType, out var proto))
+            return;
+
+        var roleText = Loc.GetString(proto.Name);
+        var color = proto.Color;
+
+        var session = mind.Session;
+
+        //TODO add audio? Would need to be optional so it does not play on role changes that already come with their own audio
+        // _audio.PlayGlobal(Sound, session);
+
+        var message = Loc.GetString("role-type-update-message", ("color", color), ("role", roleText));
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        _chat.ChatMessageToOne(ChatChannel.Server,
+            message,
+            wrappedMessage,
+            default,
+            false,
+            session.Channel);
     }
 }
 

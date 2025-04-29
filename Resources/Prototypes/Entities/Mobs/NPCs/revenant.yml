@@ -135,6 +135,8 @@
     name: ghost-role-information-revenant-name
     description: ghost-role-information-revenant-description
     rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
     requirements: # Goobstation - ghost roles requirements
@@ -171,10 +173,10 @@
   - type: RandomMetadata
     nameSegments:
     - The
-    - RevenantType
+    - NamesRevenantType
     - of
-    - RevenantAdjective
-    - RevenantTheme
+    - NamesRevenantAdjective
+    - NamesRevenantTheme
   - type: Speech
     speechVerb: Ghost
   - type: Reactive

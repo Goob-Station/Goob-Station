@@ -30,7 +30,7 @@ public enum AntagAcceptability
     /// <summary>
     /// Choose anyone
     /// </summary>
-    All
+    All,
 }
 
 public enum AntagSelectionTime : byte
@@ -42,13 +42,13 @@ public enum AntagSelectionTime : byte
     PrePlayerSpawn,
 
     /// <summary>
-    /// Goobstation
-    /// Antag roles are assigned before jobs are assigned and during midround when player latejoins.
+    /// Antag roles are selected to the player session before job assignment and spawning.
+    /// Unlike PrePlayerSpawn, this does not remove you from the job spawn pool.
     /// </summary>
-    BeforeJobs,
+    IntraPlayerSpawn,
 
     /// <summary>
     /// Antag roles get assigned after players have been assigned jobs and have spawned in.
     /// </summary>
-    PostPlayerSpawn
+    PostPlayerSpawn,
 }

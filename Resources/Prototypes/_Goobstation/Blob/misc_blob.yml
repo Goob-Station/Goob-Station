@@ -57,6 +57,8 @@
       name: blob-carrier-role-name
       description: blob-carrier-role-desc
       rules: blob-carrier-role-rules
+      mindRoles:
+      - MindRoleGhostRoleSoloAntagonist
       raffle:
         settings: default
       requirements:
@@ -79,6 +81,7 @@
   - type: MindRole
     antagPrototype: Blob
     exclusiveAntag: true
+    roleType: SoloAntagonist
   - type: BlobRole
 
 - type: factionIcon

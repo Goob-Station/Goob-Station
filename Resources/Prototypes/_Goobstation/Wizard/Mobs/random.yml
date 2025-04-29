@@ -35,7 +35,7 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_oni_location
+    - NamesOniLast
 
 - type: entity
   parent: MobCluwne

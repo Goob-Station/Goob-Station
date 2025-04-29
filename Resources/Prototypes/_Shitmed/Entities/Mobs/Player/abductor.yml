@@ -44,6 +44,8 @@
   - type: GhostRole
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -70,6 +72,8 @@
   - type: GhostRole
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -93,6 +97,8 @@
   - type: GhostRole
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -181,6 +187,8 @@
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
     requirements:
@@ -221,6 +229,8 @@
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
     requirements:
@@ -258,6 +268,8 @@
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
     requirements:

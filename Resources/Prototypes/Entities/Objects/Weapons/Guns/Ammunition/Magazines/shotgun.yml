@@ -24,14 +24,16 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: BaseMagazineShotgun
-  name: ammo drum (.50 shells)
+  name: ammo drum (12 Gauge shells) # Goobstation
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -66,7 +68,7 @@
 
 - type: entity
   id: MagazineShotgunEmpty
-  name: ammo drum (.50 shells any)
+  name: ammo drum (12 Gauge shells any) # Goobstation
   suffix: empty
   parent: BaseMagazineShotgun
   components:
@@ -75,7 +77,7 @@
 
 - type: entity
   id: MagazineShotgun
-  name: ammo drum (.50 pellet)
+  name: ammo drum (12 Gauge pellet) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -89,7 +91,7 @@
 
 - type: entity
   id: MagazineShotgunBeanbag
-  name: ammo drum (.50 beanbags)
+  name: ammo drum (12 Gauge beanbags) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -103,7 +105,7 @@
 
 - type: entity
   id: MagazineShotgunSlug
-  name: ammo drum (.50 slug)
+  name: ammo drum (12 Gauge slug) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
@@ -117,14 +119,14 @@
 
 - type: entity
   id: MagazineShotgunIncendiary
-  name: ammo drum (.50 incendiary)
+  name: ammo drum (12 Gauge incendiary) # Goobstation
   parent: BaseMagazineShotgun
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunIncendiary
   - type: Sprite
     layers:
-    - state: slug
+    - state: base # Goobstation
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

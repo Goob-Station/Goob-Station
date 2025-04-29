@@ -14,8 +14,14 @@ namespace Content.Shared.Heretic;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticCombatMarkComponent : Component
 {
-    [DataField, AutoNetworkedField] public string Path = "Blade";
+    [DataField, AutoNetworkedField]
+    public string Path = "Blade";
 
-    [DataField] public float DisappearTime = 5f;
+    [DataField]
+    public float DisappearTime = 15f;
+
+    [DataField]
+    public int Repetitions = 1;
+
     public TimeSpan Timer = TimeSpan.Zero;
 }

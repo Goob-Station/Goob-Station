@@ -25,7 +25,7 @@
 knowledge-path-flesh-s1-name = Principle of Hunger
 knowledge-path-flesh-s1-desc =
     Hundreds of us starved, but not me... I found strength in my greed.
-    
+
     Opens up the Path of Flesh to you.
     Allows you to transmute a knife and a pool of blood into a Bloody Blade.
 
@@ -40,7 +40,7 @@ knowledge-path-flesh-s3-name = Imperfect Ritual
 knowledge-path-flesh-s3-desc =
     I found notes of a dark ritual, unfinished... yet still, I pushed forward.
 
-    Allows you to transmute a corpse and a poppy to create a Voiceless Dead.
+    Allows you to transmute a corpse and a muzzle to create a Voiceless Dead.
     The corpse does not need to have a soul.
     Voiceless Dead are mute ghouls and only have 100 health, but can use Bloody Blades effectively.
 

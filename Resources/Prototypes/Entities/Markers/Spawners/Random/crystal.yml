@@ -21,5 +21,7 @@
         - CrystalOrange
         - CrystalBlue
         - CrystalCyan
+        - CrystalYellow
+        - CrystalBlack
         - CrystalGrey
       chance: 0.7

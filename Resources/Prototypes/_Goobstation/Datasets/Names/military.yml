@@ -6,15 +6,24 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: dataset
-  id: NamesFirstMilitaryHighRank
+  id: NamesMilitaryFirstHighRank
   values:
   - Admiral
   - Fleet Admiral
   - Captain
 
 - type: dataset
-  id: NamesFirstMilitaryPolitical
+  id: NamesMilitaryFirstPolitical
   values:
   - Ambassador
   - Counsellor
   - Minister Counsellor
+
+- type: dataset
+  id: NamesFirstInspector
+  values:
+  - Auditor
+  - Senior Auditor
+  - Inspector
+  - Senior Inspector
+

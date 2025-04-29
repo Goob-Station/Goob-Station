@@ -13,10 +13,6 @@ on:
     branches:
       - 'stable'
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   add_label:
     runs-on: ubuntu-latest

@@ -149,6 +149,9 @@
     whitelist:
       components:
       - Artifact
+      tags:
+      - CanPilot # People
+      - VimPilot # Pets
   - type: Appearance
   - type: GenericVisualizer
     visuals:
