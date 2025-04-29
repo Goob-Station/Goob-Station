@@ -159,6 +159,8 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-viscous
   viscosity: 0.25
+  tileReactions:
+    - !type:SpillTileReaction
   metabolisms:
     Food:
       # Delicious!
@@ -180,6 +182,8 @@
   recognizable: true
   physicalDesc: reagent-physical-desc-sticky
   viscosity: 0.10
+  tileReactions:
+    - !type:SpillTileReaction
   metabolisms:
     Food:
       # Sweet!
