@@ -1,0 +1,47 @@
+- type: guideEntry
+  id: MartialArts
+  name: guide-entry-martial-arts
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/MartialArts.xml"
+  children:
+  - CQC
+  - SleepingCarp
+  - KravMaga
+  - CorporateJudo
+  - Capoeira
+  - Ninjutsu
+  - DragonKungFu
+
+- type: guideEntry
+  id: CQC
+  name: guide-entry-cqc
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/CQC.xml"
+
+- type: guideEntry
+  id: SleepingCarp
+  name: guide-entry-sleeping-carp
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/SleepingCarp.xml"
+
+- type: guideEntry
+  id: KravMaga
+  name: guide-entry-krav-maga
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/KravMaga.xml"
+
+- type: guideEntry
+  id: CorporateJudo
+  name: guide-entry-corporate-judo
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/CorporateJudo.xml"
+
+- type: guideEntry
+  id: Capoeira
+  name: guide-entry-capoeira
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/Capoeira.xml"
+
+- type: guideEntry
+  id: Ninjutsu
+  name: guide-entry-ninjutsu
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/Ninjutsu.xml"
+
+- type: guideEntry
+  id: DragonKungFu
+  name: guide-entry-dragon-kung-fu
+  text: "/ServerInfo/_Goobstation/Guidebook/MartialArts/DragonKungFu.xml"

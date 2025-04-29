@@ -1,0 +1,54 @@
+<Document>
+
+  # Capoeira
+
+  <Box>
+    <GuideEntityEmbed Entity="CapoeiraManual" Caption=""/>
+  </Box>
+
+  Capoeira, the Syndicate's dance of war originating in Brazil, is a martial art that disguises violence as beauty.
+  Swift attacks link into flowing combos, each move faster and harder than the last one, fueled by relentless momentum.
+
+  ## Special abilities
+
+  Capoeira users are better at Grab intent, as successfully grabbing an opponent grants them a brief speed boost.
+
+  ### Momentum Mastery
+
+  Through swift motion, Capoeira masters channel speed into energy, with combos being more deadly the faster they run.
+  Halt their flow, and their strength will vanish. Their combos, powered by movement, falter when they are knocked down.
+
+  ### Rapid Recovery
+
+  Through the flowing, relentless motion of Capoeira, each successful combo restores the user's stamina.
+  Every connected strike fuels their endurance, allowing them to fight longer, faster, and harder without pause.
+
+  ### Furious Followup
+
+  A missed attack sharpens the next, reducing its recovery and increasing the damage.
+
+  ## Combo attacks
+
+  ### Push Kick (Grab + Harm + Harm)
+
+  Knocks down and pushes opponent away from the user. Doesn't force to drop held items.
+
+  ### Circle Kick (Disarm + Disarm + Harm)
+
+  Deals Blunt damage and also slows down the opponent significantly.
+
+  ### Sweep Kick (Harm + Harm + Disarm)
+
+  Knocks down and deals Blunt and Stamina damage. Temporarily increases user's attack speed by a bit.
+  Cannot be performed if the user is moving too slow.
+
+  ### Spin Kick (Grab + Harm + Disarm + Harm)
+
+  Deals a lot of Blunt damage and knocks the opponent down. Also makes the user flip. Only works on standing opponents.
+  Cannot be performed if the user is moving too slow.
+
+  ### Kick Up (Disarm + Disarm on yourself)
+
+  Can be performed while knocked down. Removes knock down status effect and forces the user to stand up instantly.
+
+</Document>

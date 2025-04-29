@@ -1,0 +1,36 @@
+<Document>
+
+  # Corporate Judo
+
+  <Box>
+    <GuideEntityEmbed Entity="ClothingBeltCorporateJudo" Caption=""/>
+  </Box>
+
+  Corporate Judo, or simply Judo, is a fighting style that focuses on restraining your opponent with more complex but
+  effective moves. You will see this style most used by Security Officers, as they get access to the belts in their
+  department. Harness the art and strike any tider that gets in your way. A good understanding of intents is required.
+
+  ## Special abilities
+
+  Judo users are better at Harm intent, as their unarmed attacks will deal extra damage to the opponent.
+
+  ### Stunbaton Scorn
+
+  A Judo user is unable to use stunbatons. A true master relies on technique, using the
+  body’s leverage and strength to subdue, leaving the need for electrified force behind.
+
+  ## Combo attacks
+
+  ### Eye Poke (Disarm + Harm)
+
+  Blinds the opponent and blurs their vision, regardless of eye protection, and deals some Blunt damage.
+
+  ### Judo Throw (Grab + Disarm)
+
+  Only works on standing opponents, dealing Stamina damage, knocking then down and disarming them.
+
+  ### Armbar (Disarm + Disarm + Grab)
+
+  If the opponent is downed, inflicts Stamina damage, otherwise disarms them.
+
+</Document>

@@ -1,0 +1,46 @@
+<Document>
+
+  # Ninjutsu
+
+  <Box>
+    <GuideEntityEmbed Entity="EnergyKatana" Caption=""/>
+  </Box>
+
+  Ninjutsu is a martial art thoroughly developed by the Spider Clan. Space Ninjas are true masters
+  of this technique, yet Space Wizards may also unravel its secrets. Remember your four teachings.
+  Never move around loud. Only strike when unseen. Patience prevails, haste fails. Death comes in silence.
+
+  ## Special abilities
+
+  # Sneaking Strike
+
+  In the shadow of stillness, the Ninja's strike shall echo with the force of two. Works in armored combat
+  or Left Mouse Button attacks with a Slash damage weapon. Works worse against armored opponents.
+  Once harm is dealt, the sneakiness fades, retreating into swiftness, waiting for the next chance to rise.
+
+  ### Swift Strike
+
+  The opposite of Sneaking Strike. In the silence of an opening, the ninja moves like a whisper in the wind.
+  When the foe is knocked down, the Katana strike comes faster than the eye can follow. And unarmed, each attack will
+  drain the opponent's stamina. Speed is their weapon, and the moment to strike is fleeting, like a shadow in the dark.
+
+  ### Shadow Surge
+
+  After a successful kill, the ninja's spirit sharpens and quickens. Their movement speed increases temporally,
+  gliding through shadow and blood alike — unseen, unstoppable, and already gone before the next breath is drawn.
+
+  ## Combo attacks
+
+  ### Ninjutsu Takedown (Help while the Sneaking Strike is active)
+
+  Not really a combo, but still. Knocks the opponent down. Works better if performed from behind.
+
+  ### Bite The Dust (Harm + Grab)
+
+  Temporarily knocks the opponent down.
+
+  ### Dirty Kill (Disarm + Disarm)
+
+  Temporarily stuns a knocked down opponent.
+
+</Document>
