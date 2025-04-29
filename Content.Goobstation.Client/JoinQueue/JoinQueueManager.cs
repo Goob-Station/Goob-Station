@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.JoinQueue;
 using Robust.Client.State;
 using Robust.Shared.Network;
