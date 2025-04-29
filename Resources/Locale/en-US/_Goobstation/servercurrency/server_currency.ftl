@@ -81,6 +81,6 @@ gs-balanceui-admin-add-value = Value
 
 gs-balanceui-remark-token-antag = Bought an antag token.
 gs-balanceui-remark-token-admin-abuse = Bought an admin abuse token.
-gs-balanceui-remark-token-hate = Bought a hat token.
+gs-balanceui-remark-token-hat = Bought a hat token.
 gs-balanceui-shop-click-confirm = Click again to confirm
 gs-balanceui-shop-purchased = Purchased {$item}
