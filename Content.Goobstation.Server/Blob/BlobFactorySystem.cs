@@ -8,6 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Goobstation.Server.Blob.Components;
 using Content.Goobstation.Shared.Blob.Components;
 using Content.Server.Popups;
@@ -17,6 +18,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Prototypes;
 
@@ -26,6 +28,7 @@ public sealed class BlobFactorySystem : EntitySystem
 {
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
 
     public override void Initialize()
@@ -144,16 +147,19 @@ public sealed class BlobFactorySystem : EntitySystem
         if (!TryComp<BlobCoreComponent>(blobTileComponent.Core, out var blobCoreComponent))
             return;
 
-        if (component.SpawnedCount >= component.SpawnLimit)
-            return;
+        // forget dead pods
+        component.BlobPods = component.BlobPods.Where(b => !TerminatingOrDeleted(b) && _mobState.IsAlive(b)).ToList();
 
-        var xform = Transform(uid);
+        if (component.BlobPods.Count >= component.SpawnLimit)
+            return;
 
         if (component.Accumulator < component.AccumulateToSpawn)
         {
             component.Accumulator++;
             return;
         }
+
+        var xform = Transform(uid);
 
         var pod = Spawn(component.Pod, xform.Coordinates);
         component.BlobPods.Add(pod);
@@ -162,7 +168,6 @@ public sealed class BlobFactorySystem : EntitySystem
         FillSmokeGas((pod,blobPod), blobCoreComponent.CurrentChem);
 
         //smokeOnTrigger.SmokeColor = blobCoreComponent.ChemСolors[blobCoreComponent.CurrentChem];
-        component.SpawnedCount += 1;
         component.Accumulator = 0;
     }
 }
