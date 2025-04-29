@@ -107,7 +107,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
             if (wasInQueue)
                 QueueTimings.WithLabels("Unwaited").Observe((DateTime.UtcNow - e.Session.ConnectedTime).TotalSeconds);
         }
-        else if (e.NewStatus != SessionStatus.Connected)
+        else if (e.NewStatus == SessionStatus.Connecting)
         {
             OnPlayerConnected(e.Session);
         }
@@ -124,7 +124,7 @@ public sealed class JoinQueueManager : IJoinQueueManager
 
         var isPrivileged = await _connection.HasPrivilegedJoin(session.UserId);
         var isPatron = _linkAccount.GetPatron(session)?.Tier != null;
-        var currentOnline = _player.PlayerCount - 1; // Do not count current session in general online, because we are still deciding her fate
+        var currentOnline = _player.PlayerCount - 1;
         var haveFreeSlot = currentOnline < _configuration.GetCVar(CCVars.SoftMaxPlayers);
         if (isPrivileged || haveFreeSlot)
         {
