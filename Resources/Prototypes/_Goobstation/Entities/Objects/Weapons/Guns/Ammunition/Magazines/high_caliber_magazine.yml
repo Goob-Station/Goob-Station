@@ -60,7 +60,7 @@
 
 - type: entity
   id: MagazineHighCaliberExplosive
-  name: "magazine (.50 flamexplosive)"
+  name: "magazine (.50 high-explosive incendiary)"
   parent: BaseMagazineHighCaliber
   components:
   - type: BallisticAmmoProvider

@@ -121,7 +121,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletHighCaliberExplosive
-  name: bullet (.50 flamexplosive)
+  name: bullet (.50 high-explosive incendiary)
   components:
   - type: Projectile
     damage:

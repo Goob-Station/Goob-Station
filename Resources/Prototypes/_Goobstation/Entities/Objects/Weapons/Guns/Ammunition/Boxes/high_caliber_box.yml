@@ -45,7 +45,7 @@
 - type: entity
   parent: BaseMagazineBoxHighCaliber
   id: MagazineBoxHighCaliberExplosive
-  name: ammunition box (.50 flamexplosive)
+  name: ammunition box (.50 high-explosive incendiary)
   components:
   - type: BallisticAmmoProvider
     capacity: 30
