@@ -7998,3 +7998,22 @@ Entries:
         of a container, instead of sticking it to the bag.
   id: 926
   time: '2025-04-29T07:57:58.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Queue system now exists, if the server is full and you try joining,
+        you'll be put in a queue. (Patrons get priority queue 😄 )
+    - type: Tweak
+      message: >-
+        Goobflation has ruined the antag token economy (as of writing there are
+        3,676,072 coins in circulation), antag tokens have risen in price to
+        combat this.
+    - type: Remove
+      message: >-
+        Mid tier, low tier, and ghost role tokens have been nuked in favor of
+        one central antag token.
+    - type: Tweak
+      message: Patrons get double goob coins now.
+  id: 927
+  time: '2025-04-29T23:37:06.0000000+00:00'

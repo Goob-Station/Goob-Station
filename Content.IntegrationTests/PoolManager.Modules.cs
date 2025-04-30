@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -21,7 +22,7 @@ public static partial class PoolManager
     // So, Content.Shared, Content.Client, Content.Server are "core" modules
     // Content.Common is not a thing by default but will be considered a core module if found.
     private static readonly string ContentPrefix = "Content.";
-    private static readonly string[] Suffixes = [".Shared", ".Client", ".Server", ".Common"];
+    private static readonly string[] Suffixes = [".Shared", ".Client", ".Server", ".Common", ".UIKit"]; // GoobMod - UIKit
 
     private static readonly Assembly CurrentAssembly = typeof(PoolManager).Assembly;
 
