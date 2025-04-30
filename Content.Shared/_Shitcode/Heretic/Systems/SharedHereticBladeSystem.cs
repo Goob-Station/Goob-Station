@@ -119,11 +119,19 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.Examiner, out var heretic))
             return;
 
-        var isUpgradedVoid = heretic.CurrentPath == "Void" && heretic.PathStage >= 7;
+        var isUpgradedVoid = heretic is { CurrentPath: "Void", PathStage: >= 7 };
+        var canBreak = HasComp<RandomTeleportComponent>(ent);
+
+        if (!isUpgradedVoid && !canBreak)
+            return;
 
         var sb = new StringBuilder();
-        sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-        if (isUpgradedVoid) sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
+
+        if (canBreak)
+            sb.AppendLine(Loc.GetString("heretic-blade-examine"));
+
+        if (isUpgradedVoid)
+            sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
 
         args.PushMarkup(sb.ToString());
     }
@@ -134,7 +142,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
             return;
 
         if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
-            args.BonusDamage += args.BaseDamage; // "ghouls can use bloody blades effectively... so real..."
+            args.BonusDamage += args.BaseDamage * 0.5f; // "ghouls can use bloody blades effectively... so real..."
 
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
             return;

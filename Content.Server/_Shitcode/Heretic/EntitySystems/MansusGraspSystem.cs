@@ -77,7 +77,6 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;

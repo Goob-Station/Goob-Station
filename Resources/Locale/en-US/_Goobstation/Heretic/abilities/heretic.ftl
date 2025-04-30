@@ -16,6 +16,8 @@ heretic-ability-fail-tile-not-rusted = Targeted tile must be rusted to use this 
 heretic-ability-fail-tile-underneath-not-rusted = Tile that you are standing on must be rusted to use this ability!
 heretic-ability-fail-tile-occupied = Targeted tile is occupied!
 heretic-ability-fail-rust-stage-low = You are not powerful enough to rust this surface!
+heretic-ability-fail-target-ghoul = Target is ghoul already!
+heretic-ability-fail-target-no-mind = Target has no soul!
 
 heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while held or equipped.[/color]
 

@@ -10,8 +10,10 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
+using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StatusEffect;
@@ -19,6 +21,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Shitcode.Heretic.Systems;
@@ -26,6 +29,8 @@ namespace Content.Shared._Shitcode.Heretic.Systems;
 public abstract class SharedMansusGraspSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -35,6 +40,8 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly BackStabSystem _backstab = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
@@ -122,8 +129,25 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             {
                 if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == MobState.Dead)
                 {
-                    var ghoul = EnsureComp<GhoulComponent>(target);
+                    if (HasComp<GhoulComponent>(target))
+                    {
+                        if (_net.IsServer)
+                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-ghoul"), user, user);
+                        break;
+                    }
+
+                    if (!_mind.TryGetMind(target, out _, out _))
+                    {
+                        if (_net.IsServer)
+                            _popup.PopupEntity(Loc.GetString("heretic-ability-fail-target-no-mind"), user, user);
+                        break;
+                    }
+
+                    var ghoul = _compFactory.GetComponent<GhoulComponent>();
                     ghoul.BoundHeretic = GetNetEntity(performer);
+                    ghoul.GiveBlade = true;
+
+                    AddComp(target, ghoul);
                 }
 
                 break;

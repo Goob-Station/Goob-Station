@@ -96,7 +96,6 @@ public sealed partial class HereticComponent : Component
     public int MaxBlades => CurrentPath switch
     {
         "Blade" => 4,
-        "Flesh" => 3,
         _ => 2,
     };
 }
