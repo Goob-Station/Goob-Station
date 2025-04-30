@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Client.JoinQueue;
 using Content.Goobstation.Client.Redial;
 using Robust.Shared.IoC;
 
@@ -16,5 +17,6 @@ internal static class ContentGoobClientIoC
         var collection = IoCManager.Instance!;
 
         collection.Register<RedialManager>();
+        collection.Register<JoinQueueManager>();
     }
 }
