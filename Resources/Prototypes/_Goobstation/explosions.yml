@@ -48,3 +48,8 @@
   fireColor: Red
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
+
+- type: explosion
+  parent: FireBomb
+  id: FireBombWeak
+  fireStacks: 1

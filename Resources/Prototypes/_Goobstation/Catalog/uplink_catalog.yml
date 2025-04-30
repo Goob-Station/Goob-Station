@@ -688,7 +688,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 9 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
+    Telecrystal: 8 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
   categories:
   - UplinkAmmo
 
@@ -699,7 +699,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 15
+    Telecrystal: 12
   categories:
   - UplinkAmmo
 
