@@ -19,6 +19,8 @@
     state: icon
   - type: Clothing
     sprite: _Goobstation/Heretic/eldritch_hood.rsi
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
   - type: Tag
     tags:
     - WhitelistChameleon
