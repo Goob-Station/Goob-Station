@@ -110,6 +110,7 @@
     back: ClothingBackpackSatchel
     shoes: ClothingShoesBootsWinter
     mask: ClothingMaskGas
+    id: PassengerPDA
     gloves: ClothingHandsGlovesFingerlessInsulated
     outerClothing: ClothingOuterWinterCoat
   inhand:
