@@ -187,3 +187,4 @@
   - type: SpeedModifiedOnWield # heavy stuff leh
     walkModifier: 0.85
     sprintModifier: 0.85
+
