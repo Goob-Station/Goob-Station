@@ -466,7 +466,7 @@
     penetrateDamage: 50
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
-  
+
 - type: entity
   save: false
   parent:
@@ -537,7 +537,7 @@
     alternateState: Standing
   - type: FootprintOwner # Corvax-Next-Footprints
   - type: Carriable # Goobstation
-  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
+  - type: CanDoCpr # Goobstation - Just give to everyone! This ain't MRP.
 
 - type: entity
   save: false
