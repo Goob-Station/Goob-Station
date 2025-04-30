@@ -213,6 +213,10 @@
         type: PaperBoundUserInterface
   - type: FaxableObject
   - type: PaperVisuals
+  # Goobstation - needed so you can click with spray painter
+  - type: Construction
+    graph: SpesosCounterfeit
+    node: paper
 
 - type: entity
   name: paper scrap

@@ -1,0 +1,15 @@
+- type: constructionGraph
+  id: SpesosCounterfeit
+  start: paper
+  graph:
+    - node: paper
+      edges:
+        - to: spesos
+          completed:
+            - !type:PlaySound
+              sound: /Audio/Effects/spray2.ogg
+          steps:
+            - tool: Painting
+              doAfter: 5
+    - node: spesos
+      entity: SpaceCash10

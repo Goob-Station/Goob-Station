@@ -48,3 +48,7 @@
     materialComposition:
       Steel: 75
       Plastic: 25
+  # Goobstation
+  - type: Tool
+    qualities:
+    - Painting

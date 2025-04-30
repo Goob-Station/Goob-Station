@@ -10,3 +10,10 @@
   toolName: tool-quality-axing-tool-name
   spawn: FireAxe
   icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
+
+- type: tool
+  id: Painting
+  name: tool-quality-painting-name
+  toolName: tool-quality-painting-tool-name
+  spawn: SprayPainter
+  icon: { sprite: Objects/Tools/spray_painter.rsi, state: icon }
