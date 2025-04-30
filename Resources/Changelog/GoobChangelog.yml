@@ -8046,3 +8046,9 @@ Entries:
       message: Mice can no longer shove (sorry).
   id: 930
   time: '2025-04-30T22:31:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Abductor pinchers can now be used as barber scissors.
+  id: 931
+  time: '2025-04-30T23:05:36.0000000+00:00'
