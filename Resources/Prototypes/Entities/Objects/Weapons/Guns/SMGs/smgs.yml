@@ -180,6 +180,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: Item # Goobstation
+    shape:
+    - 0,0,2,1
 
 - type: entity
   name: Drozd
@@ -308,5 +311,9 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
-  - type: Multishot # Goobstation
+  # Goobstation
+  - type: Multishot
     missChance: 0.3
+  - type: Item
+    shape:
+    - 0,0,2,1
