@@ -59,7 +59,7 @@
   - id: MedkitBurnFilled
     cost: 600
   - id: LavalandJaunter
-    cost: 750
+    cost: 300
   - id: WeaponCrusher
     cost: 750
   - id: WeaponProtoKineticAccelerator
