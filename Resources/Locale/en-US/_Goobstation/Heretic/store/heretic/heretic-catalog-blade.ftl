@@ -85,5 +85,5 @@ knowledge-path-blade-s9-desc =
     When completed, you will be surrounded in a constant, regenerating orbit of blades.
     These blades will protect you from all attacks, but are consumed on use.
     Your Furious Steel spell will also have a shorter cooldown.
-    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces and shrug off stuns.
+    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces.
     Your Sundered Blades will deal bonus damage and heal you on attack for a portion of the damage dealt.

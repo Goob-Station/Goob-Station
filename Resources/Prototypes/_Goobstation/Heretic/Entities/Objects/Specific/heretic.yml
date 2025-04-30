@@ -100,7 +100,7 @@
     - FollowerStayOnPolymorph
   - type: Reflect
     reflectProb: 1
-    spread: 5
+    spread: 360
 
 - type: entity
   parent: BaseBullet

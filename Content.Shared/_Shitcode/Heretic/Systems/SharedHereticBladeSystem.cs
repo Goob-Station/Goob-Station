@@ -199,11 +199,11 @@ public abstract class SharedHereticBladeSystem : EntitySystem
         // blade path exclusive.
         if (HasComp<SilverMaelstromComponent>(args.User))
         {
-            args.BonusDamage += args.BaseDamage; // double it.
+            args.BonusDamage += args.BaseDamage * 0.5f;
             if (aliveMobsCount > 0 && TryComp<DamageableComponent>(args.User, out var dmg))
             {
                 var baseHeal = args.BaseDamage.GetTotal();
-                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal : baseHeal / 3f;
+                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? baseHeal / 2f : baseHeal / 4f;
                 bonusHeal *= aliveMobsCount;
 
                 _sanguine.LifeSteal(args.User, bonusHeal, dmg);
