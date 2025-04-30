@@ -109,9 +109,6 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 1
-  - type: Construction
-    graph: SpesosCounterfeit
-    node: spesos
   # </Goobstation>
 
 - type: material
