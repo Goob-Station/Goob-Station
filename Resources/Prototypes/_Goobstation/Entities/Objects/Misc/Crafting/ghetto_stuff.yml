@@ -15,6 +15,15 @@
     - WoodenHandle
 
 - type: entity
+  parent: WoodenHandle
+  id: WoodenHandleBat # shitcode
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MetalBaseballBatGraph
+    node: Metaling
+
+- type: entity
   id: HeatedMadeKitchenKnife
   parent: KitchenKnife
   name: heated kitchen knife
@@ -154,3 +163,27 @@
     graph: TideFlipperZeroGraph
     node: screwing
 
+- type: entity
+  id: MetalBaseballBat
+  parent: BaseBallBat
+  name: metal baseball bat
+  description: A very robust and heavy metal baseball bat to kick asses. Has a nice wooden handle.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
+  - type: MeleeWeapon # the difference? +2 damage compared to a normal bat, shoudlnt be an op weapon
+    damage:
+      types:
+        Blunt: 12
+        Structural: 7
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7
+        Structural: 12
+  - type: Construction
+    graph: MetalBaseballBatGraph
+    node: final
+  - type: SpeedModifiedOnWield # heavy stuff leh
+    walkModifier: 0.85
+    sprintModifier: 0.85

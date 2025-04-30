@@ -400,11 +400,77 @@
 - type: construction
   id: TideFlipperCraft
   name: makeshift tide flipper
-  description: Makeshift hand remote that can be used to hack non-access doors with ease.
+  description: Makeshift hand remote that can be used to hack doors without access.
   graph: TideFlipperZeroGraph
   startNode: start
   targetNode: final
   icon:
     sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    state: icon
+  objectType: Item
+
+# metal baseball bat
+
+- type: constructionGraph
+  id: MetalBaseballBatGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: Metaling
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 5
+  - node: Metaling
+    entity: WoodenHandleBat
+    edges:
+    - to: screwing
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 4
+      - tool: Welding
+        doAfter: 8
+  - node: screwing
+    edges:
+    - to: morescrewing
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: morescrewing
+    edges:
+    - to: moremetal
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: moremetal
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 4
+      - tool: Welding
+        doAfter: 8
+  - node: final
+    edges: []
+    entity: MetalBaseballBat
+
+- type: construction
+  id: MetalBaseballBatCrafting
+  name: makeshift metal baseball bat
+  description: Makeshift hard and robust metal baseball bat with a wooden handle.
+  graph: MetalBaseballBatGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
     state: icon
   objectType: Item
