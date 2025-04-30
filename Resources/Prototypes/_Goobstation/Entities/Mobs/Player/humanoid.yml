@@ -65,6 +65,9 @@
       state: passenger
     - type: RandomHumanoidSpawner
       settings: GreyTider
+    - type: Construction
+      graph: GreyTider
+      node: greyTider
 
 - type: randomHumanoidSettings
   id: GreyTider
