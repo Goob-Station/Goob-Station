@@ -78,3 +78,48 @@
   - type: Construction
     graph: ContrabandSatchelGraph
     node: welding
+
+- type: entity
+  id: MakeshiftDefib
+  parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
+  name: makeshift defibrillator
+  description: Rusty looking defibrillator, made out of scrap. Are you sure this is a good idea?
+  components:
+  - type: MultiHandedItem
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    useRate: 200 # twice the normal amount
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/defib.rsi
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Items/Defib/defib_zap.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Items/Defib/defib_zap.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedDamage:
+      types:
+        Blunt: 3
+        Shock: 7 # slightly better than a crowbar, but why
+  - type: Construction
+    graph: MakeshiftDefibGraph
+    node: final
+
+- type: entity
+  id: MakeshiftDefibUnfinished
+  parent: BaseItem
+  name: makeshift something
+  description: Something complex out of steel. You are not quite sure what is this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/defib.rsi
+    state: icon_unfinished
+  - type: Construction
+    graph: MakeshiftDefibGraph
+    node: screwing
+  - type: Item
+    size: Large

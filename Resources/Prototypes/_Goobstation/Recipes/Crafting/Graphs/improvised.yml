@@ -170,3 +170,145 @@
     sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
     state: icon
   objectType: Item
+
+# stupidly over complicated makeshift defib craft:
+- type: constructionGraph
+  id: MakeshiftDefibGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: screwing
+      steps:
+      - material: Steel
+        amount: 10
+        doAfter: 5
+      - material: Cable
+        amount: 2
+        doAfter: 5
+  - node: screwing
+    entity: MakeshiftDefibUnfinished
+    edges:
+    - to: hexing
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: hexing
+    edges:
+    - to: screwingmore
+      steps:
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 2
+  - node: screwingmore
+    edges:
+    - to: hexingmore
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: hexingmore
+    edges:
+    - to: cabling
+      steps:
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 2
+  - node: cabling
+    edges:
+    - to: welding
+      steps:
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 2
+  - node: welding
+    edges:
+    - to: evenmorescrewing
+      steps:
+      - tool: Welding
+        doAfter: 5
+  - node: evenmorescrewing
+    edges:
+    - to: battery
+      steps:
+      - material: Screw
+        amount: 4
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: battery
+    edges:
+    - to: defibhands
+      steps:
+      - tag: PowerCell
+        name: power cell
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: o2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: defibhands
+    edges:
+    - to: insulation
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Cable
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 5
+  - node: insulation
+    edges:
+    - to: MORESCREWING
+      steps:
+      - material: Cloth
+        amount: 4
+        doAfter: 3
+      - material: Screw
+        amount: 8
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 2
+  - node: MORESCREWING
+    edges:
+    - to: final
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: final
+    edges: []
+    entity: MakeshiftDefib
+
+- type: construction
+  id: MakeshiftDefibCraft
+  name: makeshift defibrillator
+  description: Stupidly complex makeshift defibrillator for all your needs.
+  graph: MakeshiftDefibGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Devices/defib.rsi
+    state: icon
+  objectType: Item
