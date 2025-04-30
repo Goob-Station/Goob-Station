@@ -12,7 +12,6 @@ using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
-
 using Content.Shared.Medical.CPR;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -23,7 +22,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Medical.CPR;
+namespace Content.Server._EinsteinEngines.Medical.CPR;
 
 public sealed class CPRSystem : EntitySystem
 {
@@ -40,14 +39,17 @@ public sealed class CPRSystem : EntitySystem
 
     public override void Initialize()
     {
-        base.Initialize(); SubscribeLocalEvent<CPRTrainingComponent, GetVerbsEvent<InnateVerb>>(AddCPRVerb);
-        SubscribeLocalEvent<CPRTrainingComponent, CPRDoAfterEvent>(OnCPRDoAfter);
+        base.Initialize();
+        SubscribeLocalEvent<CanDoCprComponent, GetVerbsEvent<InnateVerb>>(AddCPRVerb);
+        SubscribeLocalEvent<CanDoCprComponent, CPRDoAfterEvent>(OnCPRDoAfter);
     }
 
-    private void AddCPRVerb(Entity<CPRTrainingComponent> performer, ref GetVerbsEvent<InnateVerb> args)
+    private void AddCPRVerb(Entity<CanDoCprComponent> performer, ref GetVerbsEvent<InnateVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess || !TryComp<MobStateComponent>(args.Target, out var targetState)
-            || targetState.CurrentState == MobState.Alive)
+        if (!args.CanInteract
+        || !args.CanAccess
+        || !TryComp<MobStateComponent>(args.Target, out var targetState)
+        || targetState.CurrentState == MobState.Alive)
             return;
 
         var target = args.Target;
@@ -56,45 +58,57 @@ public sealed class CPRSystem : EntitySystem
             Act = () => { StartCPR(performer, target); },
             Text = Loc.GetString("cpr-verb"),
             Icon = new SpriteSpecifier.Rsi(new("Interface/Alerts/human_alive.rsi"), "health4"),
-            Priority = 2
+            Priority = 2,
         };
 
         args.Verbs.Add(verb);
     }
 
-    private void StartCPR(Entity<CPRTrainingComponent> performer, EntityUid target)
+    private void StartCPR(Entity<CanDoCprComponent> performer, EntityUid target)
     {
         if (HasComp<RottingComponent>(target))
         {
-            _popupSystem.PopupEntity(Loc.GetString("cpr-target-rotting", ("entity", target)), performer, performer);
+            var rottingPopup = Loc.GetString("cpr-target-rotting", ("entity", target)); // Goobstation
+            _popupSystem.PopupEntity(rottingPopup, performer, performer);
+
             return;
         }
 
         if (!HasComp<RespiratorComponent>(target) || !HasComp<RespiratorComponent>(performer))
         {
-            _popupSystem.PopupEntity(Loc.GetString("cpr-target-cantbreathe", ("entity", target)), performer, performer);
+            var cantBreathePopup = Loc.GetString("cpr-target-cantbreathe", ("entity", target)); // Goobstation
+            _popupSystem.PopupEntity(cantBreathePopup, performer, performer);
+
             return;
         }
 
         if (_inventory.TryGetSlotEntity(target, "outerClothing", out var outer))
         {
-            _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", outer)), performer, performer);
+            var mustRemovePopup = Loc.GetString("cpr-must-remove", ("clothing", outer)); // Goobstation
+            _popupSystem.PopupEntity(mustRemovePopup, performer, performer);
+
             return;
         }
 
-        if (_foodSystem.IsMouthBlocked(performer, performer) || _foodSystem.IsMouthBlocked(target, performer))
+        if (_foodSystem.IsMouthBlocked(performer, performer)
+        || _foodSystem.IsMouthBlocked(target, performer))
             return;
 
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", performer)), target, target);
 
         var doAfterArgs = new DoAfterArgs(
-            EntityManager, performer, performer.Comp.DoAfterDuration, new CPRDoAfterEvent(), performer, target,
+            EntityManager,
+            performer,
+            performer.Comp.DoAfterDuration,
+            new CPRDoAfterEvent(),
+            performer,
+            target,
             performer)
         {
             BreakOnMove = true,
             NeedHand = true,
-            BlockDuplicate = true
+            BlockDuplicate = true,
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
@@ -106,9 +120,13 @@ public sealed class CPRSystem : EntitySystem
         performer.Comp.CPRPlayingStream = playingStream.Value.Entity;
     }
 
-    private void OnCPRDoAfter(Entity<CPRTrainingComponent> performer, ref CPRDoAfterEvent args)
+    private void OnCPRDoAfter(Entity<CanDoCprComponent> performer, ref CPRDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || !args.Target.HasValue)
+        if (args.Cancelled // Goobstation - Start
+        || args.Handled
+        || !args.Target.HasValue
+        || !TryComp<DamageableComponent>(args.Target, out var damageableComponent)
+        || !TryComp<MobStateComponent>(args.Target, out var state))
         {
             performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
             return;
@@ -118,19 +136,21 @@ public sealed class CPRSystem : EntitySystem
             _damageable.TryChangeDamage(args.Target, performer.Comp.CPRHealing, true, origin: performer);
 
         if (performer.Comp.RotReductionMultiplier > 0)
-            _rottingSystem.ReduceAccumulator(
-                (EntityUid)args.Target, performer.Comp.DoAfterDuration * performer.Comp.RotReductionMultiplier);
+        {
+            var time = performer.Comp.DoAfterDuration * performer.Comp.RotReductionMultiplier;
+            _rottingSystem.ReduceAccumulator(args.Target.Value, time);
+        }
+
 
         if (_robustRandom.Prob(performer.Comp.ResuscitationChance)
-            && _mobThreshold.TryGetThresholdForState((EntityUid)args.Target, MobState.Dead, out var threshold)
-            && TryComp<DamageableComponent>(args.Target, out var damageableComponent)
-            && TryComp<MobStateComponent>(args.Target, out var state)
-            && damageableComponent.TotalDamage < threshold)
+        && _mobThreshold.TryGetThresholdForState(args.Target.Value, MobState.Dead, out var threshold)
+        && damageableComponent.TotalDamage < threshold)
             _mobStateSystem.ChangeMobState(args.Target.Value, MobState.Critical, state, performer);
 
         var isAlive = _mobStateSystem.IsAlive(args.Target.Value);
         args.Repeat = !isAlive;
+
         if (isAlive)
-            performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream);
+            performer.Comp.CPRPlayingStream = _audio.Stop(performer.Comp.CPRPlayingStream); // Goobstation - End
     }
 }
