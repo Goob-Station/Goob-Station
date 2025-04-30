@@ -160,7 +160,6 @@
 
 - type: roleLoadout
   id: JobClown
-  canCustomizeName: true
   groups:
   - GroupTankHarness
   - ClownHead
@@ -174,7 +173,6 @@
 
 - type: roleLoadout
   id: JobMime
-  canCustomizeName: true
   groups:
   - GroupTankHarness
   - MimeHead

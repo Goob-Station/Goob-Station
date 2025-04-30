@@ -15,6 +15,7 @@ namespace Content.Client.Lobby.UI.Loadouts;
 public sealed partial class LoadoutWindow : FancyWindow
 {
     public event Action<string>? OnNameChanged;
+    public event Action? OnNameRandomize;
     public event Action<ProtoId<LoadoutGroupPrototype>, ProtoId<LoadoutPrototype>>? OnLoadoutPressed;
     public event Action<ProtoId<LoadoutGroupPrototype>, ProtoId<LoadoutPrototype>>? OnLoadoutUnpressed;
 

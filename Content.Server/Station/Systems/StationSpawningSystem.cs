@@ -137,7 +137,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             if (profile != null && (prototype.ID == "Borg" || prototype.ID == "StationAi"))
             {
                 var name = profile.BorgName;
-                if ((TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier)) && (prototype.ID !="StationAi"))
+                if ((TryComp<NameIdentifierComponent>(jobEntity, out var nameIdentifier)) && (prototype.ID != "StationAi"))
                     name = $"{name} {nameIdentifier.FullIdentifier}";
 
                 _metaSystem.SetEntityName(jobEntity, name);

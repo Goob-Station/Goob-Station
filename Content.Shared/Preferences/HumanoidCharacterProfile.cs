@@ -751,9 +751,8 @@ namespace Content.Shared.Preferences
         {
             var random = IoCManager.Resolve<IRobustRandom>();
             var prototypeSystem = IoCManager.Resolve<IPrototypeManager>();
-            var prototype = prototypeSystem.Index<DatasetPrototype>("names_borg");
+            var prototype = prototypeSystem.Index<LocalizedDatasetPrototype>("NamesBorg");
             return random.Pick(prototype);
-
         }
 
         public override bool Equals(object? obj)
