@@ -1,3 +1,16 @@
+<!--
+SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
+SPDX-FileCopyrightText: 2023 Justin Trotter <trotter.justin@gmail.com>
+SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <windows:CharacterWindow
     xmlns="https://spacestation14.io"
     xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls"
@@ -7,6 +20,7 @@
     MinHeight="545">
     <ScrollContainer>
         <BoxContainer Orientation="Vertical">
+            <Label Name="RoleType" VerticalAlignment="Top" Margin="0 6 0 10" HorizontalAlignment="Center" StyleClasses="LabelHeading" Access="Public"/>
             <BoxContainer Orientation="Horizontal">
                 <SpriteView OverrideDirection="South" Scale="2 2" Name="SpriteView" Access="Public" SetSize="64 64"/>
                 <BoxContainer Orientation="Vertical" VerticalAlignment="Top">

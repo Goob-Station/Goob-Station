@@ -1,4 +1,15 @@
-﻿<PanelContainer xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<PanelContainer xmlns="https://spacestation14.io"
                 xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
                 Name="BackgroundColorPanel">
     <BoxContainer Orientation="Horizontal"
@@ -21,6 +32,11 @@
         <customControls:VSeparator/>
         <Label Name="AntagonistLabel"
                SizeFlagsStretchRatio="1"
+               HorizontalExpand="True"
+               ClipText="True"/>
+        <customControls:VSeparator/>
+        <Label Name="RoleTypeLabel"
+               SizeFlagsStretchRatio="2"
                HorizontalExpand="True"
                ClipText="True"/>
         <customControls:VSeparator/>

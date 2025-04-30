@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 ike709 <sparebytes@protonmail.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@gmail.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
+# SPDX-FileCopyrightText: 2024 Myra <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 name: RSI Validator
 
 on:
@@ -5,6 +19,10 @@ on:
     branches: [ master, staging, stable ]
   merge_group:
   pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate_rsis:

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2021 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: Punch
   files:

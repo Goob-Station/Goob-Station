@@ -1,4 +1,11 @@
-﻿<Document>
+<!--
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<Document>
   # Atmospheric Upsets
   Atmospheric upsets are deviations from the normal atmospheric conditions that should be maintained on the station.
 

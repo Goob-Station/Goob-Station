@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Entity Prototypes
 
 - type: entity
@@ -37,6 +44,8 @@
   - type: GhostRole
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -63,6 +72,8 @@
   - type: GhostRole
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -86,6 +97,8 @@
   - type: GhostRole
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     requirements:
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
@@ -174,6 +187,8 @@
     name: abductor-lone-ghost-role-name
     description: abductor-lone-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
     requirements:
@@ -214,6 +229,8 @@
     name: abductor-agent-ghost-role-name
     description: abductor-agent-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
     requirements:
@@ -251,6 +268,8 @@
     name: abductor-scientist-ghost-role-name
     description: abductor-scientist-ghost-role-desc
     rules: abductors-ghost-role-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
     requirements:

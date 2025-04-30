@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # This is the only way I could get it to work, but its still broken
 # The right foot always takes priority over the left foot no matter what I do so I'm just leaving it like this
 # The players can make weird monstrosities with their feet if they really want to

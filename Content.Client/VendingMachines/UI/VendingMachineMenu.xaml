@@ -1,3 +1,19 @@
+<!--
+SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 ike709 <ike709@users.noreply.github.com>
+SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 James Simonson <jamessimo89@gmail.com>
+SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 scrivoy <179060466+scrivoy@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
 <controls:FancyWindow
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

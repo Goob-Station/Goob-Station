@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
@@ -26,13 +36,12 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem
 {
-    public const string RustTile = "PlatingRust";
-
     private const float LeechingWalkUpdateInterval = 1f;
     private float _accumulator;
 
@@ -42,8 +51,10 @@ public sealed partial class HereticAbilitySystem
         { "WallReinforced", "WallReinforcedRust" },
     };
 
-    private void SubscribeRust()
+    protected override void SubscribeRust()
     {
+        base.SubscribeRust();
+
         SubscribeLocalEvent<HereticComponent, HereticLeechingWalkEvent>(OnLeechingWalk);
         SubscribeLocalEvent<HereticComponent, EventHereticRustConstruction>(OnRustConstruction);
         SubscribeLocalEvent<GhoulComponent, EventHereticAggressiveSpread>(OnGhoulAggressiveSpread);
@@ -61,7 +72,7 @@ public sealed partial class HereticAbilitySystem
 
     private void OnFlashAttempt(Entity<RustbringerComponent> ent, ref FlashAttemptEvent args)
     {
-        if (!_rustbringer.IsTileRust(Transform(ent).Coordinates, out _))
+        if (!IsTileRust(Transform(ent).Coordinates, out _))
             return;
 
         args.Cancel();
@@ -361,12 +372,9 @@ public sealed partial class HereticAbilitySystem
 
         EnsureComp<RustedWallComponent>(targetEntity);
 
-        var rune = EnsureComp<RustRuneComponent>(targetEntity);
-        rune.RuneIndex = _random.Next(rune.RuneSprites.Count);
-        rune.RuneOffset = _random.NextVector2Box(0.25f, 0.25f);
+        var rune = AddRustRune(targetEntity);
         // If targetEntity is target (which means no transformations were performed) - we add rust overlay
         rune.RustOverlay = targetEntity == target;
-        Dirty(targetEntity, rune);
 
         return true;
     }
@@ -376,7 +384,7 @@ public sealed partial class HereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (!_rustbringer.IsTileRust(args.Target, out var pos))
+        if (!IsTileRust(args.Target, out var pos))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail-tile-not-rusted"), ent, ent);
             return;
@@ -416,12 +424,29 @@ public sealed partial class HereticAbilitySystem
 
         var coords = new EntityCoordinates(args.Target.EntityId, pos.Value);
         var wall = Spawn(args.RustedWall, coords);
+        AddRustRune(wall);
+
+        _aud.PlayPvs(args.Sound, args.Target);
+    }
+
+    private RustRuneComponent AddRustRune(EntityUid wall)
+    {
         var rune = EnsureComp<RustRuneComponent>(wall);
         rune.RuneIndex = _random.Next(rune.RuneSprites.Count);
         rune.RuneOffset = _random.NextVector2Box(0.25f, 0.25f);
         Dirty(wall, rune);
 
-        _aud.PlayPvs(args.Sound, args.Target);
+        Timer.Spawn(TimeSpan.FromSeconds(0.7f),
+            () =>
+            {
+                if (TerminatingOrDeleted(wall) || !Resolve(wall, ref rune, false))
+                    return;
+
+                rune.AnimationEnded = true;
+                Dirty(wall, rune);
+            });
+
+        return rune;
     }
 
     private void OnLeechingWalk(Entity<HereticComponent> ent, ref HereticLeechingWalkEvent args)
@@ -446,14 +471,13 @@ public sealed partial class HereticAbilitySystem
         var temperatureQuery = GetEntityQuery<TemperatureComponent>();
         var staminaQuery = GetEntityQuery<StaminaComponent>();
         var statusQuery = GetEntityQuery<StatusEffectsComponent>();
-        var hereticQuery = GetEntityQuery<HereticComponent>();
         var rustbringerQuery = GetEntityQuery<RustbringerComponent>();
         var resiratorQuery = GetEntityQuery<RespiratorComponent>();
 
         var query = EntityQueryEnumerator<LeechingWalkComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var leech, out var xform))
         {
-            if (!_rustbringer.IsTileRust(xform.Coordinates, out _))
+            if (!IsTileRust(xform.Coordinates, out _))
                 continue;
 
             var multiplier = 1f;

@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2022 ShuttleEnjoyer <100040020+youarereadingthis@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 youarereadingthis <100040020+youarereadingthis@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: ShuttleThruster
   icon:

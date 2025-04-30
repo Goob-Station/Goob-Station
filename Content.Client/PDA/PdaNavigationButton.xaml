@@ -1,4 +1,12 @@
-﻿<pda:PdaNavigationButton xmlns="https://spacestation14.io" xmlns:pda="clr-namespace:Content.Client.PDA">
+<!--
+SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
+SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+
+SPDX-License-Identifier: MIT
+-->
+
+<pda:PdaNavigationButton xmlns="https://spacestation14.io" xmlns:pda="clr-namespace:Content.Client.PDA">
     <PanelContainer Name="Background"/>
     <AnimatedTextureRect Margin="0 0 0 2" Visible="False" Name="Icon" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     <Label Visible="True" Name="Label" Margin="8 0 8 2" HorizontalAlignment="Center" VerticalAlignment="Center"/>

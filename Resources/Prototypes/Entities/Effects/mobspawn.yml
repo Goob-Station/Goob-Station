@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: MobSpawnCrabQuartz
   name: mobspawner quartzcrab
@@ -40,6 +52,18 @@
     prototype: MobIronCrab
 
 - type: entity
+  id: MobSpawnCrabCoal
+  parent: MobSpawnCrabQuartz
+  name: mobspawner coalcrab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Effects/mobspawn.rsi
+    state: crab_coal
+  - type: SpawnOnDespawn
+    prototype: MobCoalCrab
+
+- type: entity
   id: MobSpawnCrabSilver
   parent: MobSpawnCrabQuartz
   name: mobspawner silvercrab
@@ -50,6 +74,18 @@
     state: crab_silver
   - type: SpawnOnDespawn
     prototype: MobSilverCrab
+
+- type: entity
+  id: MobSpawnCrabGold
+  parent: MobSpawnCrabQuartz
+  name: mobspawner goldcrab
+  categories: [ HideSpawnMenu, Spawner ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Effects/mobspawn.rsi
+    state: crab_gold
+  - type: SpawnOnDespawn
+    prototype: MobGoldCrab
 
 - type: entity
   id: MobSpawnCrabUranium

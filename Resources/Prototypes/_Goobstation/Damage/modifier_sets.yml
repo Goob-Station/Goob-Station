@@ -1,3 +1,26 @@
+# SPDX-FileCopyrightText: 2024 Ashley Woodiss-Field <ash@DESKTOP-H64M4AI.localdomain>
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ColesMagnum <98577947+AW-FulCode@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 unknown <Administrator@DESKTOP-PMRIVVA.kommune.indresogn.no>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: damageModifierSet
   id: Silicon
   coefficients:
@@ -29,6 +52,7 @@
     Bloodloss: 0.9
     Poison: 0.0 # Yea, heroin is heaps good for ya
     Radiation : 0.7 # Engie yowies need some help against anti-rads
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Tajaran
@@ -38,6 +62,7 @@
     Piercing: 1.15
     Heat: 1.20
     Cold: 0.80
+  ignoreArmorPierceFlags: All # Goobstation
 
 # Mech armor
 - type: damageModifierSet
@@ -126,6 +151,7 @@
     Slash: 0.25
     Piercing: 0.25
     Heat: 2.00
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: ElectromagneticWebBlob # Explosive Lattice
@@ -135,6 +161,7 @@
     Piercing: 0.50
     Heat: 2.50
     Shock: 0.50
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: ExplosiveLatticeBlob # Explosive Lattice
@@ -144,6 +171,7 @@
     Piercing: 0.25
     Heat: 3.00
     Shock: 1.50
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: BlobMob # Blob mobs
@@ -152,6 +180,7 @@
     Slash: 0.5
     Piercing: 0.5
     Heat: 1.5
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: BlobReflective # If it reflects lasers, then it must be fragile?
@@ -160,6 +189,7 @@
     Slash: 0.9
     Piercing: 0.9
     Heat: 1.5
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: Bingle
@@ -170,6 +200,7 @@
     Shock: 0.9
     Heat: 0.9
     Ion: 2.0 # double damage from ion
+  ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
   id: BingleUpgraded
@@ -180,3 +211,4 @@
     Shock: 0.8
     Heat: 0.8
     Ion: 2.0 # double damage from ion
+  ignoreArmorPierceFlags: All # Goobstation

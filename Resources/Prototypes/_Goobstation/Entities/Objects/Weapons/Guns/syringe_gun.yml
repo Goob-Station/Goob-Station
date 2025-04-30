@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseStorageItem
   id: BaseSyringeGun
@@ -78,20 +85,19 @@
     - HighRiskItem
 
 - type: entity
-  name: dart syringe gun
+  name: syringe pistol
   parent: [ BaseSyringeGun, BaseSyndicateContraband ]
-  id: DartSyringeGun
-  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor. Also pierces skin better, resulting in faster injection.
+  id: SyringePistol
+  description: An illegally modified syringe gun that pierces the skin better and can fit in pockets.
   components:
   - type: Sprite
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     layers:
-    - state: icon-dart
+    - state: syringe_gun
   - type: Item
     size: Small
     shape:
     - 0,0,1,0
+    - 0,1,0,1
   - type: SyringeGun
-    pierceArmor: true
     injectionSpeedMultiplier: 2
-
-# TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir

@@ -1,3 +1,264 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+## Navy Shit
+
+# Central Command!
+
+- type: randomHumanoidSettings
+  id: CentcommHumanoid
+  speciesBlacklist:
+  - Monkey
+  - Kobold
+  - Abductor
+  - Yowie
+  - IPC
+  - Diona
+  - Harpy
+  - Tajaran # Specism.
+  - Resomi # Sprites look shit on them.
+  - Oni # Same as above, plus it fucks over ERTs.
+  - Gingerbread # Soecusn
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: GhostTakeoverAvailable
+  - type: MindShield
+  - type: AntagImmune
+
+# Navy Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyOfficer
+  name: Navy Officer
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyOfficer
+
+- type: randomHumanoidSettings
+  id: NavyOfficer
+  parent: CentcommHumanoid
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StypticStimulatorImplant]
+  - type: GhostRole
+    name: ghost-role-information-navy-officer-name
+    description: ghost-role-information-navy-officer-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+
+# Navy Captain
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyCaptain
+  name: Navy Captain
+  suffix: ADMIN ONLY, DO FUCKING NOT
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryHighRank
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyCaptain
+
+- type: randomHumanoidSettings
+  id: NavyCaptain
+  parent: CentcommHumanoid
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+  - type: GhostRole
+    name: ghost-role-information-navy-captain-name
+    description: ghost-role-information-navy-captain-description
+    rules: ghost-role-information-navy-captain-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ NavyCaptainGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryHighRank
+    - NamesLastMilitary
+
+# Navy Undercover Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerNavyOfficerUndercover
+  name: Undercover Navy Officer
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: NavyOfficerUndercover
+
+- type: randomHumanoidSettings
+  id: NavyOfficerUndercover
+  parent: CentcommHumanoid
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+  - type: GhostRole
+    name: ghost-role-information-navy-officer-undercover-name
+    description: ghost-role-information-navy-officer-undercover-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [  NavyOfficerUndercoverGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryLeader
+    - NamesLastMilitary
+
+# Special Operations Officer
+
+- type: entity
+  id: RandomHumanoidSpawnerSpecialOperationsOfficers
+  name: Special Operations Officer
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryHighRank
+    - NamesLastMilitary
+  - type: RandomHumanoidSpawner
+    settings: SpecialOperationsOfficer
+
+- type: randomHumanoidSettings
+  id: SpecialOperationsOfficer
+  parent: CentcommHumanoid
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+  - type: GhostRole
+    name: ghost-role-information-special-operations-officer-name
+    description: ghost-role-information-special-operations-officer-description
+    rules: ghost-role-information-special-operations-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ SpecialOperationsOfficerGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryHighRank
+    - NamesLastMilitary
+
+# Diplomat
+
+- type: entity
+  id: RandomHumanoidSpawnerDiplomat
+  name: Diplomat
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryPolitical
+    - names_last
+  - type: RandomHumanoidSpawner
+    settings: DiplomatGear
+
+- type: randomHumanoidSettings
+  id: DiplomatGear
+  parent: CentcommHumanoid
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+  - type: GhostRole
+    name: ghost-role-information-diplomat-name
+    description: ghost-role-information-diplomat-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ DiplomatGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstMilitaryPolitical
+    - names_last
+
+# Inspector
+
+- type: entity
+  id: RandomHumanoidSpawnerInspector
+  name: Inspector
+  suffix: CentComm
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    state: icon
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstInspector
+    - names_last
+  - type: RandomHumanoidSpawner
+    settings: InspectorGear
+
+- type: randomHumanoidSettings
+  id: InspectorGear
+  parent: CentcommHumanoid
+  randomizeName: false
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant]
+  - type: GhostRole
+    name: ghost-role-information-inspector-name
+    description: ghost-role-information-inspector-description
+    rules: ghost-role-information-navy-officer-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ InspectorGear ]
+    roleLoadout: [ RoleSurvivalEVA ]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstInspector
+    - names_last
+
+## Other Shit
+
 # Chrono Legioneer
 
 - type: entity
@@ -20,8 +281,8 @@
     prototypes: [ ChronoLegionnaireGear ]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
 
 # HECU
 
@@ -35,8 +296,8 @@
     state: full
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitary
-    - NamesLastMilitary
+    - NamesMilitaryFirst
+    - NamesMilitaryLast
   - type: RandomHumanoidSpawner
     settings: HecuSoldier
 
@@ -44,7 +305,7 @@
   id: HecuSoldier
   parent: EventHumanMindShielded
   components:
-  - type: GrantImplant
+  - type: AutoImplant
     implants: [ FreedomImplant ]
   - type: GhostRole
     name: ghost-role-information-Hecu-name
@@ -56,8 +317,8 @@
     prototypes: [HECUOperativeGear]
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstMilitaryLeader
-    - NamesLastMilitary
+    - NamesMilitaryFirstLeader
+    - NamesMilitaryLast
 
 # G-Man
 
@@ -76,8 +337,8 @@
   id: Gman
   parent: EventHumanMindShielded
   components:
-  - type: GrantImplant
-    implants: [ VaporizeImplant, ShiftImplant, BlinkImplant, FreedomImplant, ScramImplant, StopTimeImplant ]
+  - type: AutoImplant
+    implants: [ VaporizeImplant, ShiftImplant, BlinkImplant, FreedomImplant, ScramImplant, StopTimeImplant, NutrimentPumpImplant, SpaceProofImplant, StypticStimulatorImplant ]
   - type: RandomHumanoidAppearance
     randomizeName: false
   - type: GhostRole
@@ -97,6 +358,8 @@
     - BypassInteractionRangeChecks
     - BypassDropChecks
     - NoConsoleSound
+    - FootstepSound
+    - DoorBumpOpener
   - type: Puller
     needsHands: false
   - type: Thieving
@@ -104,5 +367,112 @@
     stealthy: true
   - type: BypassInteractionChecks
   - type: SupermatterImmune
+  - type: MovementIgnoreGravity
 
+# ... Conquest? What the fuck.
+# STAND READY FOR MY ARRIVAL WORM.
+# YOU WERE GIVEN ORDERS, YOU WERE GIVEN TIME, YOU WERE GIVEN MORE LEEWAY THAN MOST
+# AND YET I FIND THIS PLANET UNPREPARED FOR THE ARRIVAL OF OUR VILTRUM EMPIRE!
 
+- type: entity
+  id: ConquestSpawner
+  name: Conquest
+  suffix: Admeme
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: RandomHumanoidSpawner
+    settings: Conquest
+
+- type: randomHumanoidSettings
+  id: Conquest
+  parent: EventHumanMindShielded
+  components:
+  - type: AutoImplant
+    implants: [ FreedomImplant, NutrimentPumpImplant, SpaceProofImplant ]
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+    hair: HairBald
+  - type: GhostRole
+    name: ghost-role-information-conquest-name
+    description: ghost-role-information-conquest-description
+    rules: ghost-role-information-conquest-rules
+    raffle:
+      settings: short
+  - type: Loadout
+    prototypes: [ConquestGear]
+  - type: RandomMetadata
+    nameSegments: [ names_conquest ]
+  - type: Puller
+    needsHands: false
+    throwCooldown: 0.1
+    stageChangeCooldown: 0.1
+    grabThrowDamageModifier: 100
+    grabThrownSpeed: 50
+    softGrabSpeedModifier: 4
+    hardGrabSpeedModifier: 4
+    chokeGrabSpeedModifier: 4
+  - type: MeleeWeapon
+    altDisarm: false
+    heavyStaminaCost: 1.5
+    damage:
+      types:
+        Blunt: 15
+  - type: NoWieldNeeded
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 10000 # Lol. Lmao even.
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1500: Critical
+      2000: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 60000
+      behaviors:
+      - !type:GibBehavior { }
+  - type: NoSlip
+  - type: Temperature
+    heatDamageThreshold: 5000
+    currentTemperature: 310.15
+    specificHeat: 42
+    heatDamage:
+      types:
+        Heat: -1
+  - type: MovementIgnoreGravity
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      500: 1.2
+      1000: 1.5
+      1500: 2
+  - type: Stamina
+    critThreshold: 100000
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+    damageCap: 0
+    damage:
+      types:
+        Heat: -3
+      groups:
+        Brute: -3
+  - type: StatusEffects
+    allowed:
+    - PressureImmunity
+    - Adrenaline

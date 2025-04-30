@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseMagazineHighCaliber
   name: "magazine (.50 caliber)"
@@ -62,3 +70,53 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: BaseMagazineAntiMateriel
+  name: "magazine (.60 caliber)"
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MagazineAntiMateriel
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - CartridgeAntiMateriel
+    proto: CartridgeAntiMateriel
+    capacity: 5
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/sniper_rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineAntiMaterielEmpty
+  name: "magazine (.60 empty)"
+  parent: BaseMagazineAntiMateriel
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
+- type: entity
+  id: MagazineAntiMateriel
+  name: "magazine (.60 anti-materiel)"
+  parent: BaseMagazineAntiMateriel
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeAntiMateriel

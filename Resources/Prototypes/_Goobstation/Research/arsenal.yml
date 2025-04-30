@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Tier 1
 - type: technology
   id: WeaponPlasmaRifleTech
@@ -40,24 +58,7 @@
   - WeaponMechCombatUltraRifle
   technologyPrerequisites:
   - RipleyAPLU
-  - ExplosiveTechnology
-  position: 3,-1
-
-- type: technology
-  id: AdvancedWeaponry
-  name: research-technology-advancedweaponry
-  icon:
-    sprite: Objects/Weapons/Guns/Battery/xray.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - Terminus
-  - WeaponXrayCannon
-  technologyPrerequisites:
-  - WeaponizedLaserManipulation
-  position: 5,1
+  position: 2,-1
 
 - type: technology
   id: EnergyBoltBasedWeaponry # for future energy bolt weapon
@@ -74,7 +75,7 @@
   - EnergyMagRifleDisabler
   - EnergyMagRifleLethal
   technologyPrerequisites:
-  - AdvancedWeaponry
+  - WaveParticleHarnessing
   position: 6,1
 
 # Tier 3
@@ -92,7 +93,7 @@
   - WeaponMechCombatMissileRack8
   technologyPrerequisites:
   - Gygax
-  position: 4,-2
+  position: 3,-2
 
 - type: technology
   id: Durand
@@ -118,7 +119,7 @@
   - WeaponMechCombatShotgunIncendiary
   technologyPrerequisites:
   - Gygax
-  position: 4,-1
+  position: 3,-1
 
 - type: technology
   id: SmartWeaponry

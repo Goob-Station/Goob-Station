@@ -1,19 +1,18 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: BaseEnergySpeedloader
   abstract: true
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi # We're awaiting new textures for this, and for the projectiles.
-    layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: base-3
-        map: [ "enum.GunVisualLayers.Mag" ]
-  - type: MagazineVisuals
-    magState: base
-    steps: 4
-    zeroVisible: false
+    sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energy_speedloader.rsi
+    state: icon-lethal
   - type: Battery
     maxCharge: 600
     startingCharge: 600
@@ -47,17 +46,9 @@
   description: A rather volatile powercell utilizing phoron to charge disabling bolts over time. Phoron will make us all rich.
   components:
   - type: Sprite
-    layers:
-      - state: base
-        map: [ "enum.GunVisualLayers.Base" ]
-      - state: disabling-3
-        map: [ "enum.GunVisualLayers.Mag" ]
-  - type: MagazineVisuals
-    magState: disabling
-    steps: 4
-    zeroVisible: false
+    state: icon-disabling
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
+    proto: BulletEnergyGunDisabler
     fireCost: 50
   - type: Tag
     tags:
@@ -65,20 +56,15 @@
       - EnergySpeedloaderDisabler
 
 - type: entity
-  id: EnergySpeedloaderTerminate
+  id: EnergySpeedloaderPulse
   parent: [ BaseEnergySpeedloader, BaseCentcommContraband ]
-  name: energy speedloader (terminatus)
-  suffix: Admeme
-  description: A rather volatile powercell utilizing phoron to charge horrifyingly destructive bolts over time. Phoron will make us all rich.
+  name: energy speedloader (pulse)
+  description: A rather volatile powercell utilizing phoron to charge destructive energy pulses over time. Phoron will make us all rich.
   components:
-  - type: MagazineVisuals
-    magState: disabling
-    steps: 4
-    zeroVisible: false
   - type: HitscanBatteryAmmoProvider
-    proto: HeavyPulse
+    proto: LightPulse
     fireCost: 50
   - type: Tag
     tags:
     - EnergySpeedloader
-    - EnergySpeedloaderTerminate
+    - EnergySpeedloaderPulse

@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 fishfish458 <fishfish458>
+# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vasilis <vascreeper@yahoo.com>
+# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ## UI
 cloning-console-window-title = Cloning Console
 cloning-console-window-clone-button-text = Clone
@@ -26,5 +38,5 @@ cloning-console-component-msg-no-cloner = Not Ready: No Cloner Detected
 cloning-console-component-msg-no-mind = Not Ready: No Soul Activity Detected
 
 cloning-console-chat-error = ERROR: INSUFFICIENT BIOMASS. CLONING THIS BODY REQUIRES {$units} UNITS OF BIOMASS.
-cloning-console-uncloneable-trait-error = ERROR: SOUL IS ABSENT, CLONING IS IMPOSSIBLE.
+cloning-console-uncloneable-trait-error = ERROR: CLONING IS IMPOSSIBLE DUE TO ABNORMAL BODY COMPOSITION.
 cloning-console-cellular-warning = WARNING: GENEFSCK CONFIDENCE SCORE IS {$percent}%. CLONING MAY HAVE UNEXPECTED RESULTS.

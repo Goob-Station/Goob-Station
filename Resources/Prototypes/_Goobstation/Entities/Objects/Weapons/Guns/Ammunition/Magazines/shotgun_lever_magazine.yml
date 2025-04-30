@@ -1,7 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Empty mags
 - type: entity
   id: BaseMagazineShotgunLeverRifle
-  name: "magazine (.75 caliber)"
+  name: "magazine (8 Gauge)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -35,7 +48,7 @@
 
 - type: entity
   id: MagazineShotgunLeverRifle
-  name: "lever rifle magazine (.75 caliber)"
+  name: "lever rifle magazine (8 Gauge)"
   parent: BaseMagazineShotgunLeverRifle
   components:
   - type: Tag

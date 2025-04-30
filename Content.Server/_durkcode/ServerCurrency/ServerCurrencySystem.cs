@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.CCVar;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
@@ -10,6 +19,7 @@ using Content.Shared.Roles.Jobs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Content.Server._RMC14.LinkAccount;
 
 namespace Content.Server._durkcode.ServerCurrency
 {
@@ -24,6 +34,7 @@ namespace Content.Server._durkcode.ServerCurrency
         [Dependency] private readonly SharedJobSystem _jobs = default!;
         [Dependency] private readonly IPlayerManager _players = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly LinkAccountManager _linkAccount = default!;
 
         private int _goobcoinsPerPlayer = 10;
         private int _goobcoinsNonAntagMultiplier = 1;
@@ -82,6 +93,9 @@ namespace Content.Server._durkcode.ServerCurrency
                         if (_goobcoinsServerMultiplier != 1)
                             money *= _goobcoinsServerMultiplier;
 
+                        if (session != null && _linkAccount.GetPatron(session)?.Tier != null)
+                            money *= 2;
+
                         _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, money);
                     }
                 }
@@ -105,7 +119,8 @@ namespace Content.Server._durkcode.ServerCurrency
             RaiseNetworkEvent(new PlayerBalanceUpdateEvent(ev.NewBalance, ev.OldBalance), ev.UserSes);
 
 
-            if(ev.UserSes.AttachedEntity.HasValue){
+            if (ev.UserSes.AttachedEntity.HasValue)
+            {
                 var userEnt = ev.UserSes.AttachedEntity.Value;
                 if (ev.NewBalance > ev.OldBalance)
                     _popupSystem.PopupEntity("+" + _currencyMan.Stringify(ev.NewBalance - ev.OldBalance), userEnt, userEnt, PopupType.Medium);

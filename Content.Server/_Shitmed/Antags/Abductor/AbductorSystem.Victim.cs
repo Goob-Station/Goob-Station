@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._Shitmed.GameTicking.Rules.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
@@ -36,7 +42,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
             return;
 
         if (mindId == default
-            || !_role.MindHasRole<AbductorVictimRoleComponent>(mindId, out _, out var role))
+            || !_role.MindHasRole<AbductorVictimRoleComponent>(mindId, out _))
         {
             _role.MindAddRole(mindId, "MindRoleAbductorVictim");
             victimComp.Implanted = true;

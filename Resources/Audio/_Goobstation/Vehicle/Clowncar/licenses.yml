@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
   "files": ["clowncar_activate_cannon.ogg", "clowncar_crash2.ogg", "clowncar_load1.ogg", "clowncar_ram2.ogg", "clowncar_deactivate_cannon.ogg", "clowncar_crashpins.ogg", "clowncar_load2.ogg", "clowncar_ram3.ogg", "clowncar_crash1.ogg", "clowncar_fart.ogg", "clowncar_ram1.ogg", "clowncar_cannonfire1.ogg", "clowncar_cannonfire2.ogg", "clowncar_cannonfire3.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by Floyd/Qustinnus for tgstation, converted to mono"

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # This is such a fucking ass way to do this, but who cares.
 - type: entity
   parent: CandyBowl
@@ -24,3 +29,15 @@
     whitelist:
       tags:
       - FoodSnack
+
+- type: entity
+  id: DeterrentCaseFilled
+  parent: DeterrentCase
+  suffix: Filled, CentComm
+  components:
+  - type: StorageFill
+    contents:
+    - id: AmnestizineHypospray
+    - id: BoxAmnestizineCartridge
+    - id: TelescopicBatonAdvanced
+    - id: HyperFlash

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -55,10 +65,10 @@ public abstract class SharedVoidCloakSystem : EntitySystem
         if (!TryComp(attached.AttachedUid, out VoidCloakComponent? comp))
             return;
 
-        if (args.OldParent == attached.AttachedUid) // If we equip the hood
-            MakeCloakTransparent(attached.AttachedUid, comp);
-        else // If we unequip hood (old parent is heretic in this case)
+        if (args.Transform.ParentUid == attached.AttachedUid) // If we unequip hood (new parent is cloak)
             MakeCloakVisible(attached.AttachedUid, comp);
+        else // If we equip the hood (mew parent is heretic)
+            MakeCloakTransparent(attached.AttachedUid, comp);
     }
 
     private void MakeCloakTransparent(EntityUid cloak, VoidCloakComponent comp)

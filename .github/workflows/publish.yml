@@ -1,12 +1,28 @@
-name: Publish
+# SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+# SPDX-FileCopyrightText: 2024 Matt <psykzz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
-concurrency:
-  group: publish
+name: Publish
 
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 10 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -15,7 +31,7 @@ jobs:
     steps:
     - name: Install dependencies
       run: sudo apt-get install -y python3-paramiko python3-lxml
-      
+
     - name: Check .NET Installation
       id: check-dotnet
       run: |
@@ -60,7 +76,7 @@ jobs:
     - name: Publish changelog (Discord)
       run: Tools/actions_changelogs_since_last_run.py
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
 
     - name: Publish changelog (RSS)

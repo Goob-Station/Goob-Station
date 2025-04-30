@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Reduces incoming damage to this item
+- type: entity
+  parent: BaseEnchant
+  id: EnchantUnbreaking
+  name: Unbreaking
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - Damageable
+    maxLevel: 3
+  - type: DamageModifyEnchant
+    factor: 0.5 # 87.5% resistance at III

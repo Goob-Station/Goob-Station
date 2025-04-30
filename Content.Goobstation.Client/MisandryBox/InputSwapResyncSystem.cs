@@ -1,4 +1,10 @@
-﻿using Content.Shared.Movement.Systems;
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Movement.Systems;
 using Robust.Client.GameStates;
 using Robust.Client.Timing;
 using Robust.Shared.GameObjects;

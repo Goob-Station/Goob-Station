@@ -1,4 +1,18 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 botanySupremist <160211017+botanySupremist@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 botanySupremist <definitelyrealBotSupremist@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
   id: RandomAnomalySpawner
   name: random anomaly spawner
   parent: MarkerBase
@@ -47,7 +61,9 @@
   - type: RandomSpawner
     prototypes:
     - AnomalyRockIron
+    - AnomalyRockCoal
     - AnomalyRockSilver
+    - AnomalyRockGold
     - AnomalyRockQuartz
     - AnomalyRockUranium
     chance: 1

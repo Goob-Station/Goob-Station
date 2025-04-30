@@ -1,18 +1,53 @@
+// SPDX-FileCopyrightText: 2017 PJB3005 <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2018 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
+// SPDX-FileCopyrightText: 2020 DTanxxx <55208219+DTanxxx@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
+// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
+// SPDX-FileCopyrightText: 2020 PrPleGoo <felix.leeuwen@gmail.com>
+// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <comedian_vs_clown@hotmail.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.IoC;
 using Content.Shared.Maps;
+using Content.Shared.Module;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Reflection;
+using Robust.Shared.Sandboxing;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Utility;
+using Serilog;
 
 namespace Content.Shared.Entry
 {
@@ -21,6 +56,9 @@ namespace Content.Shared.Entry
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly IResourceManager _resMan = default!;
+        [Dependency] private readonly IReflectionManager _refMan = default!; // Goobstation - Module Throws
+        [Dependency] private readonly ISandboxHelper _sandbox = default!; // Goobstation - Module Throws
+        [Dependency] private readonly INetManager _net = default!; // Goobstation - Module Throws
 
         private readonly ResPath _ignoreFileDirectory = new("/IgnoredPrototypes/");
 
@@ -28,6 +66,7 @@ namespace Content.Shared.Entry
         {
             IoCManager.InjectDependencies(this);
             SharedContentIoC.Register();
+            VerifyModules(); // Goobstation - Module Throws
         }
 
         public override void Shutdown()
@@ -143,7 +182,36 @@ namespace Content.Shared.Entry
 
                 sequence.Add((SequenceDataNode) documents.Root);
             }
+
             return true;
         }
+
+        // Goobstation - GoobMod Throws Start
+        private void VerifyModules()
+        {
+            var loadedAssemblies = _refMan.Assemblies
+                .Select(assembly => assembly.GetName().Name)
+                .ToHashSet();
+
+            var packs = _refMan.GetAllChildren<ModulePack>()
+                .Select(type => _sandbox.CreateInstance(type))
+                .OfType<ModulePack>();
+
+            foreach (var module in packs)
+            {
+                var missing = module.RequiredAssemblies
+                    .Where(req =>
+                        (_net.IsClient && req.Client || _net.IsServer && req.Server) &&
+                        !loadedAssemblies.Contains(req.AssemblyName))
+                    .ToList();
+
+                if (missing.Count <= 0)
+                    continue;
+
+                throw new InvalidOperationException($"Missing required assemblies to build. Try deleting your bin folder, running dotnet clean, and rebuilding the {module.PackName} solution.\nMissing Modules:\n{string.Join("\n", missing.Select(t => t.AssemblyName))}");
+            }
+        }
+
+        // Goobstation - GoobMod Throws Start End
     }
 }

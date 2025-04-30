@@ -1,6 +1,16 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Actions;
+using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
@@ -85,11 +95,25 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Initialize();
 
         SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscension);
+        SubscribeLocalEvent<BloodlossDamageMultiplierComponent, StoppedTakingBloodlossDamageEvent>(OnBloodlossStopped);
+        SubscribeLocalEvent<BloodlossDamageMultiplierComponent, GetBloodlossDamageMultiplierEvent>(OnGetBloodlossMultiplier);
+    }
+
+    private void OnGetBloodlossMultiplier(Entity<BloodlossDamageMultiplierComponent> ent,
+        ref GetBloodlossDamageMultiplierEvent args)
+    {
+        args.Multiplier *= ent.Comp.Multiplier;
     }
 
     protected override void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev)
     {
         RaiseNetworkEvent(ev, Filter.PvsExcept(uid));
+    }
+
+    private void OnBloodlossStopped(Entity<BloodlossDamageMultiplierComponent> ent,
+        ref StoppedTakingBloodlossDamageEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
     }
 
     private void OnMonkeyAscension(Entity<MindContainerComponent> ent, ref SummonSimiansMaxedOutEvent args)

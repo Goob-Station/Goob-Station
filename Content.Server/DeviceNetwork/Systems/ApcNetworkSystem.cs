@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2021 Julian Giebel <j.giebel@netrocks.info>
+// SPDX-FileCopyrightText: 2021 Julian Giebel <juliangiebel@live.de>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;

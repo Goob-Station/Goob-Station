@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared._Shitmed.Body.Events;
@@ -152,7 +165,7 @@ public partial class SharedBodySystem
             if (targetPart == null)
                 return;
 
-            if (!TryChangePartDamage(ent, args.Damage, args.IgnoreResistances, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value, out var evaded)
+            if (!TryChangePartDamage(ent, args.Damage, args.IgnoreResistances, args.ArmorPenetration, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value, out var evaded)
                 && args.CanEvade && evaded)
             {
                 if (_net.IsServer)
@@ -179,7 +192,8 @@ public partial class SharedBodySystem
             _inventory.RelayEvent((partEnt.Comp.Body.Value, inventory), ref args);
 
         if (Prototypes.TryIndex<DamageModifierSetPrototype>("PartDamage", out var partModifierSet))
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, partModifierSet);
+            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
+                DamageSpecifier.PenetrateArmor(partModifierSet, args.ArmorPenetration));
 
         args.Damage *= GetPartDamageModifier(partEnt.Comp.PartType);
     }
@@ -187,6 +201,7 @@ public partial class SharedBodySystem
     private bool TryChangePartDamage(EntityUid entity,
         DamageSpecifier damage,
         bool ignoreResistances,
+        float armorPenetration,
         bool canSever,
         bool canEvade,
         float partMultiplier,
@@ -214,7 +229,7 @@ public partial class SharedBodySystem
                     continue;
                 }
 
-                var damageResult = _damageable.TryChangeDamage(part.FirstOrDefault().Id, damage * partMultiplier, ignoreResistances, canSever: canSever);
+                var damageResult = _damageable.TryChangeDamage(part.FirstOrDefault().Id, damage * partMultiplier, ignoreResistances, canSever: canSever, armorPenetration: armorPenetration);
                 if (damageResult != null && damageResult.GetTotal() != 0)
                     landed = true;
             }

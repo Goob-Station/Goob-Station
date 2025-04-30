@@ -1,24 +1,7 @@
-- type: startingGear
-  id: ERTSecurityGearEVAAnnie
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitERTSecurity
-    back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
-    mask: ClothingMaskGasERT
-    eyes: ClothingEyesGlassesSecurity
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitERTSecurity
-    id: ERTSecurityPDA
-    ears: ClothingHeadsetAltCentCom
-    belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPulsePistol # Death to Crew aligned Ballistics
-    pocket2: FlashlightSeclite
-  inhand:
-    - WeaponRifleAnnie
-  storage:
-    back:
-    - MedkitCombatFilled # Goobstation - No reason not to.
-    - BoxZiptie
-    - CrowbarRed
-    - MagazineLightRifle
-    - MagazineLightRifle
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Blank for now.
