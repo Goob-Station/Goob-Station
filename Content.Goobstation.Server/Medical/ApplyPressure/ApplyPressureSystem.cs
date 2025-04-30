@@ -1,19 +1,11 @@
 using Content.Goobstation.Shared.Medical;
-using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
-using Content.Shared.Medical.CPR;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
-using Robust.Server.Audio;
-using Robust.Shared.Audio;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Medical.ApplyPressure;
@@ -22,15 +14,8 @@ public sealed partial class ApplyPressureSystem : EntitySystem
 {
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly FoodSystem _foodSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly RottingSystem _rottingSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
     public override void Initialize()
     {
         base.Initialize();
