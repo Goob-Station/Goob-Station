@@ -105,9 +105,3 @@ public enum BorgVisualLayers : byte
     LightStatus,
 }
 
-[Serializable, NetSerializable]
-public enum SiliconSpritePreferenceUiKey : byte
-{
-    Key
-}
-
