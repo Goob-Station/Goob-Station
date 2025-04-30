@@ -75,8 +75,7 @@
     - to: reinforcedFrameInd
       steps:
       - component: GasTank
-        amount: 2
-        name: 2 gas tanks
+        name: gas tank
         icon:
           sprite: Objects/Tanks/oxygen.rsi
           state: icon
@@ -140,8 +139,7 @@
     - to: plasmaFrame
       steps:
       - component: GasTank
-        amount: 3
-        name: 3 gas tanks
+        name: gas tank
         icon:
           sprite: Objects/Tanks/oxygen.rsi
           state: icon

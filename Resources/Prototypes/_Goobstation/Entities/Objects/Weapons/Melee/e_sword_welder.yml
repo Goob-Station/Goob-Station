@@ -166,10 +166,6 @@
   - type: Construction
     graph: WelderSword
     node: frameAssembly
-  - type: PhysicalComposition
-    materialComposition:
-      Steel: 200
-      Cable: 50
 
 - type: entity
   name: unfinished industrial welder sword
