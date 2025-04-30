@@ -5,18 +5,18 @@
 
 - type: constructionGraph
   id: SpesosCounterfeit
-  start: paper
+  start: start
   graph:
-    - node: paper
+    - node: start
       edges:
         - to: spesos
           completed:
             - !type:PlaySound
               sound: /Audio/Effects/spray2.ogg
           steps:
-            - tool: Painting
-              doAfter: 2
             - tool: Slicing
+              doAfter: 2
+            - tool: Painting
               doAfter: 2
     - node: spesos
       entity: SpaceCashCounterfeit10

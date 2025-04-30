@@ -219,7 +219,7 @@
   # Goobstation - needed so you can click with spray painter
   - type: Construction
     graph: SpesosCounterfeit
-    node: paper
+    node: start
 
 - type: entity
   name: paper scrap
