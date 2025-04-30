@@ -1,0 +1,37 @@
+- type: entity
+  id: WoodenHandle
+  parent: BaseItem
+  name: wooden handle
+  description: A normal wooden handle, that can be used in crafting.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/Crafting/wooden_handle.rsi
+    state: icon
+  - type: Construction
+    graph: HeatedKnifeGraph
+    node: incompleteKnife
+  - type: Tag
+    tags:
+    - WoodenHandle
+
+- type: entity
+  id: HeatedMadeKitchenKnife
+  parent: KitchenKnife
+  name: heated kitchen knife
+  description: A handmade knife, looks hot! You probably have a few minutes before it cools off.
+  components:
+  - type: Construction
+    graph: HeatedKnifeGraph
+    node: BladeForged
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/heated_knife.rsi
+    state: icon
+  - type: TimedDespawn
+    lifetime: 180.0 # 3 minutes to cool off is fine leh
+  - type: SpawnOnDespawn
+    prototype: KitchenKnife
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 7 # heated knifes are not that sharp yknow
+        Heat: 5

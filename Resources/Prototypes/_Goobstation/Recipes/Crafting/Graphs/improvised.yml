@@ -1,0 +1,88 @@
+# hex nut
+- type: constructionGraph
+  id: HexNutDoubleGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: HexNutStack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+  - node: HexNutStack
+    entity: MaterialHexNutSingle
+
+- type: construction
+  id: HexNutDouble
+  name: Hex Nut
+  description: Two hex nuts handcrafted from one steel.
+  graph: HexNutDoubleGraph
+  startNode: start
+  targetNode: HexNutStack
+  icon:
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: hex_1
+  objectType: Item
+
+# screw
+
+- type: constructionGraph
+  id: ScrewGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: ScrewStack
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 1
+  - node: ScrewStack
+    entity: MaterialScrewSingle
+
+- type: construction
+  id: Screw
+  name: Screw
+  description: Two screws crafted from one steel.
+  graph: ScrewGraph
+  startNode: start
+  targetNode: ScrewStack
+  icon:
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: screw_1
+  objectType: Item
+
+# wooden handle
+
+#- type: constructionGraph
+#  id: WoodenHandleGraph
+#  start: start
+#  graph:
+#  - node: start
+#    edges:
+#    - to: Handle
+#      steps:
+#      - material: WoodPlank
+#        amount: 5
+#        doAfter: 6
+#  - node: Handle
+#    entity: WoodenHandle
+#
+#
+#- type: construction
+#  id: WoodenHandleCraft
+#  name: Wooden Handle
+#  description: A simple wooden handle for tools.
+#  graph: WoodenHandleGraph
+#  startNode: start
+#  targetNode: Handle
+#  icon:
+#    sprite: _Goobstation/Objects/Misc/Crafting/wooden_handle.rsi
+#    state: icon
+#  objectType: Item
+#  hide: true
