@@ -16,4 +16,4 @@
   name: tool-quality-painting-name
   toolName: tool-quality-painting-tool-name
   spawn: SprayPainter
-  icon: { sprite: Objects/Tools/spray_painter.rsi, state: icon }
+  icon: { sprite: Objects/Tools/spray_painter.rsi, state: spray_painter }
