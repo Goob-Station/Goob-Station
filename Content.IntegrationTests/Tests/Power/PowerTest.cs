@@ -333,6 +333,7 @@ namespace Content.IntegrationTests.Tests.Power
                 supplier.MaxSupply = 400;
                 supplier.SupplyRampRate = 400;
                 supplier.SupplyRampTolerance = 100;
+                supplier.SupplyRampScaling = 1; // Goobstation - test bandaid
                 consumer.DrawRate = 400;
             });
 

@@ -44,6 +44,14 @@ namespace Content.Server.Power.Components
             set => NetworkSupply.SupplyRampRate = value;
         }
 
+        // Goobstation
+        [DataField]
+        public float SupplyRampScaling
+        {
+            get => NetworkSupply.SupplyRampScaling;
+            set => NetworkSupply.SupplyRampScaling = value;
+        }
+
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("supplyRampPosition")]
         public float SupplyRampPosition
