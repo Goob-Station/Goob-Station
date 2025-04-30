@@ -1296,11 +1296,12 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+# Goobstation
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#      - NukeOpsUplink
 
 
 - type: listing
