@@ -52,7 +52,10 @@
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -452,8 +455,7 @@
   components:
   - type: Sprite
     state: box
-  - type: RadiationBlockingContainer
-    resistance: 2
+
 
 - type: entity
   name: candle box

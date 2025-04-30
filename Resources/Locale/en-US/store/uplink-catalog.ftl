@@ -204,7 +204,7 @@ uplink-sniper-ammo-desc = A box of 10 cartridges for the Hristov sniper rifle.
 # Utility
 uplink-holopara-kit-name = Holoparasite Kit
 uplink-holopara-kit-desc = The pride and joy of Cybersun. Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active.
-    The guardian can punch rapidly and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user.
+    The guardian can punch rapidly and is immune to hazardous environments while being resistant to direct trauma, but shares any damage it takes with the user. Unable to be used by changelings.
 
 uplink-holoclown-kit-name = Holoclown Kit
 uplink-holoclown-kit-desc = A joint venture between Cybersun and Honk.co. Contains an injector that hosts a sentient metaphysical clown made of hard light which resides in the user's body when not active.
@@ -563,3 +563,6 @@ uplink-business-card-desc = A business card that you can give to someone to demo
 
 uplink-fake-mindshield-name = Fake Mindshield
 uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
+
+uplink-smuggler-satchel-name = Smuggler's Satchel
+uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
