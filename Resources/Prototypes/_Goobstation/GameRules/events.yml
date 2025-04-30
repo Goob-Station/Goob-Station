@@ -12,7 +12,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 3 # rare
+    weight: 0 # rare to changed to not happen
     duration: 1
     # no occurences limit so newly arriving tiders can also get it
   - type: JobAddTagsRule
