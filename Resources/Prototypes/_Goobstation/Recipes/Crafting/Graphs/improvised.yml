@@ -312,3 +312,99 @@
     sprite: _Goobstation/Objects/Devices/defib.rsi
     state: icon
   objectType: Item
+
+# tide flipper zero
+
+- type: constructionGraph
+  id: TideFlipperZeroGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: screwing
+      steps:
+      - tag: Payload
+        name: remote signaller
+        icon:
+          sprite: Objects/Devices/signaller.rsi
+          state: signaller
+        doAfter: 5
+      - tag: Multitool
+        name: multitool
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        doAfter: 5
+  - node: screwing
+    entity: TideFlipperZeroUnfinished
+    edges:
+    - to: screwing2
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: screwing2
+    edges:
+    - to: cableing
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: cableing
+    edges:
+    - to: connecting
+      steps:
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 2
+  - node: connecting
+    edges:
+    - to: connecting2
+      steps:
+      - component: IdCard
+        doAfter: 2
+        name: id card
+        icon:
+          sprite: Objects/Misc/id_cards.rsi
+          state: idpassenger
+      - tool: Pulsing
+        doAfter: 8
+  - node: connecting2 # duh it was too easy to make, go ask hop or steal more id cards you son of a bih'
+    edges:
+    - to: welding
+      steps:
+      - component: IdCard
+        doAfter: 2
+        name: id card
+        icon:
+          sprite: Objects/Misc/id_cards.rsi
+          state: idpassenger
+      - tool: Pulsing
+        doAfter: 8
+  - node: welding
+    edges:
+    - to: final
+      steps:
+      - tool: Welding
+        doAfter: 8
+  - node: final
+    edges: []
+    entity: TideFlipperZero
+
+- type: construction
+  id: TideFlipperCraft
+  name: makeshift tide flipper
+  description: Makeshift hand remote that can be used to hack non-access doors with ease.
+  graph: TideFlipperZeroGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    state: icon
+  objectType: Item

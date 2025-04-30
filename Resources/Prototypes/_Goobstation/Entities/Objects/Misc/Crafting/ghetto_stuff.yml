@@ -103,8 +103,12 @@
         volume: -10
     activatedDamage:
       types:
-        Blunt: 3
-        Shock: 7 # slightly better than a crowbar, but why
+        Blunt: 2
+        Shock: 8 # slightly better than a crowbar, but why
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
   - type: Construction
     graph: MakeshiftDefibGraph
     node: final
@@ -123,3 +127,30 @@
     node: screwing
   - type: Item
     size: Large
+
+- type: entity
+  id: TideFlipperZero
+  parent: [ DoorRemoteDefault, BaseMinorContraband ]
+  name: tide flipper
+  description: A makeshift device that can hack doors without access.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    state: icon
+  - type: Construction
+    graph: TideFlipperZeroGraph
+    node: final
+
+- type: entity
+  id: TideFlipperZeroUnfinished
+  parent: BaseItem
+  name: makeshift something
+  description: A remote controller strapped to a multitool, you gotta be a genius to figure what it does.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    state: icon_unfinished
+  - type: Construction
+    graph: TideFlipperZeroGraph
+    node: screwing
+
