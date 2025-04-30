@@ -73,6 +73,8 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -124,7 +126,7 @@
   - type: Singularity
     energy: 180
     level: 1
-    radsPerLevel: 2
+    radsPerLevel: 6
     energyLoss: 1
   - type: RandomWalk # To make the singularity move around.
     maxSpeed: 2.5
@@ -134,7 +136,7 @@
     intensity: 3645
   - type: RadiationSource
     slope: 0.2 # its emit really far away
-    intensity: 2
+    intensity: 6
   - type: PointLight
     enabled: true
     radius: 10

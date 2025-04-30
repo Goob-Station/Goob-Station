@@ -85,10 +85,6 @@ namespace Content.Server.GameTicking
                         session.Data.ContentDataUncast = data;
                     }
 
-                    // Make the player actually join the game.
-                    // timer time must be > tick length
-                    Timer.Spawn(0, () => _playerManager.JoinGame(args.Session));
-
                     var record = await _db.GetPlayerRecordByUserId(args.Session.UserId);
                     var firstConnection = record != null &&
                                           Math.Abs((record.FirstSeenTime - record.LastSeenTime).TotalMinutes) < 1;
@@ -162,7 +158,8 @@ namespace Content.Server.GameTicking
                         mind.Session = null;
                     }
 
-                    _userDb.ClientDisconnected(session);
+                    if (_playerGameStatuses.ContainsKey(session.UserId)) // Goobstation - Queue
+                        _userDb.ClientDisconnected(session);
                     break;
                 }
             }
