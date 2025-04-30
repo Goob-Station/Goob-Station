@@ -50,6 +50,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     [Dependency] private readonly StunSystem _stun = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
     [Dependency] private readonly ChatSystem _chat = null!;
+    [Dependency] private readonly MobThresholdSystem _threshold = null!;
 
     public override void Initialize()
     {
@@ -416,18 +417,12 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private FixedPoint2 GetHungerValue(EntityUid target, HisGraceComponent comp)
     {
-        if (!TryComp<MobThresholdsComponent>(target, out var mobThresholds))
-            return comp.HungerOnDevourDefault;
-
-        var thresholds = mobThresholds.Thresholds;
-        var (criticalThreshold, value) = thresholds.FirstOrDefault(kvp => kvp.Value == MobState.Critical);
-
-        if (value != MobState.Critical)
+        if (!_threshold.TryGetThresholdForState(target, MobState.Critical, out var criticalThreshold))
             return comp.HungerOnDevourDefault;
 
         // hunger value is equal to the mutiplier times the crit threshold.
         // this is twenty for humans
-        return comp.HungerOnDevourMultiplier * criticalThreshold;
+        return (FixedPoint2)(comp.HungerOnDevourMultiplier * criticalThreshold);
     }
 
     private void SetUnremovable(EntityUid uid, bool enabled)
