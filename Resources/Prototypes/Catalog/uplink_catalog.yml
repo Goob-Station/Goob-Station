@@ -1574,7 +1574,7 @@
   description: uplink-holster-desc
   productEntity: ClothingBeltSyndieHolster
   cost:
-    Telecrystal: 2 # goob - Pointless and valid.
+    Telecrystal: 8 # goob - holster rework
   categories:
   - UplinkWearables
 

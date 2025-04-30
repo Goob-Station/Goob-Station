@@ -7990,3 +7990,45 @@ Entries:
         legal. Convert cancer into money!
   id: 925
   time: '2025-04-28T19:27:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        The NTRs handheld fax now drops paper on the ground when printing inside
+        of a container, instead of sticking it to the bag.
+  id: 926
+  time: '2025-04-29T07:57:58.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Queue system now exists, if the server is full and you try joining,
+        you'll be put in a queue. (Patrons get priority queue 😄 )
+    - type: Tweak
+      message: >-
+        Goobflation has ruined the antag token economy (as of writing there are
+        3,676,072 coins in circulation), antag tokens have risen in price to
+        combat this.
+    - type: Remove
+      message: >-
+        Mid tier, low tier, and ghost role tokens have been nuked in favor of
+        one central antag token.
+    - type: Tweak
+      message: Patrons get double goob coins now.
+  id: 927
+  time: '2025-04-29T23:37:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Changed sizes of most weapons.
+    - type: Tweak
+      message: >-
+        Reworked shoulder holsters. Detective's holster now stores a handgun and
+        syndicate holster stores any gun, and on top of that they both have 4x2
+        pocket for ammo.
+    - type: Tweak
+      message: Syndicate shoulder holster now costs 8 TC.
+    - type: Tweak
+      message: Blueshield Officer EG-4 pack now comes with a shoulder holster.
+  id: 928
+  time: '2025-04-30T07:20:54.0000000+00:00'
