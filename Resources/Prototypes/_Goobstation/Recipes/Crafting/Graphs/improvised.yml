@@ -86,3 +86,87 @@
 #    state: icon
 #  objectType: Item
 #  hide: true
+
+# contra bag
+# graph made by a program that mades graphs easier to make so lets hope it works
+- type: constructionGraph
+  id: ContrabandSatchelGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: welding
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+      - material: Plastic
+        amount: 3
+        doAfter: 5
+
+  - node: welding
+    entity: ContrabandBagUnfinished
+    edges:
+    - to: screwing
+      steps:
+      - tool: Welding
+        doAfter: 5
+
+  - node: screwing
+    edges:
+    - to: hexing
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+
+  - node: hexing
+    edges:
+    - to: cabling
+      steps:
+      - material: HexNut
+        amount: 2
+        doAfter: 3
+      - tool: Anchoring
+        doAfter: 2
+
+  - node: cabling
+    edges:
+    - to: morecutting
+      steps:
+      - material: Cable
+        amount: 10
+        doAfter: 2
+      - tool: Cutting
+        doAfter: 2
+
+  - node: morecutting
+    edges:
+    - to: finalcutting
+      steps:
+      - tool: Cutting
+        doAfter: 2
+
+  - node: finalcutting
+    edges:
+    - to: final
+      steps:
+      - tool: Cutting
+        doAfter: 2
+
+  - node: final
+    entity: ContrabandBag
+
+- type: construction
+  id: ContrabandSatchelCraft
+  name: contraband bag
+  description: A steel bag for hiding from metal detectors.
+  graph: ContrabandSatchelGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    state: icon
+  objectType: Item

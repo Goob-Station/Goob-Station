@@ -35,3 +35,46 @@
       types:
         Slash: 7 # heated knifes are not that sharp yknow
         Heat: 5
+
+- type: entity
+  id: ContrabandBag
+  parent: [ BaseStorageItem, BaseBagOpenClose, BaseMinorContraband ]
+  name: makeshift bag
+  description: A makeshift bag, made out of steel and cables in such way, to block contraband scanners.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    state: icon
+  - type: HideContrabandContent
+  - type: UndetectableContraband
+  - type: Storage
+    grid:
+    - 0,0,1,2
+  - type: Item
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    size: Normal
+    shape:
+    - 0,0,2,1
+    storedRotation: 90
+  - type: Construction
+    graph: ContrabandSatchelGraph
+    node: final
+
+- type: entity
+  id: ContrabandBagUnfinished
+  parent: [ BaseItem, BaseMinorContraband ]
+  name: makeshift something
+  description: Something made out of steel and plastic, you are not sure what is this supposed to be.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    state: icon_unfinished
+  - type: Item
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    size: Normal
+    shape:
+    - 0,0,2,1
+    storedRotation: 90
+  - type: Construction
+    graph: ContrabandSatchelGraph
+    node: welding
