@@ -20,5 +20,5 @@ public sealed partial class CanApplyPressureComponent : Component
     /// The amount bleed is modified by per pressure application.
     /// </summary>
     [DataField]
-    public float BleedModifier;
+    public float BleedModifier = -1.6f;
 }
