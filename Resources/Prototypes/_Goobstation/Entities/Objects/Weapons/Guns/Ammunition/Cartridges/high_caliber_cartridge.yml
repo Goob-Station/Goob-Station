@@ -28,7 +28,7 @@
 - type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
   id: CartridgeHighCaliberExplosive
-  name: cartridge (.50 high-flamexplosive)
+  name: cartridge (.50 flamexplosive)
   components:
   - type: Tag
     tags:

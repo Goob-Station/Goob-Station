@@ -49,7 +49,15 @@
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
 
+  # Used by BulletHighCaliberExplosive
 - type: explosion
-  parent: FireBomb
   id: FireBombWeak
-  fireStacks: 1
+  damagePerIntensity:
+    types:
+      Heat: 1
+      Blunt: 2
+      Piercing: 3
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 6
+  fireStacks: 1.3

@@ -121,7 +121,7 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletHighCaliberExplosive
-  name: bullet (.50 high-flamexplosive)
+  name: bullet (.50 flamexplosive)
   components:
   - type: Projectile
     damage:
@@ -131,7 +131,7 @@
         Piercing: 3
         Structural: 10
   - type: ExplodeOnTrigger
-  - type: Explosives
+  - type: Explosive
     explosionType: FireBombWeak # 1 firestack
     totalIntensity: 10.8 # 3x3 explosion
     intensitySlope: 1.4 # 14 damage at the center tile
