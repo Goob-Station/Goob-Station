@@ -10,7 +10,7 @@
 - type: entity
   id: ActionHereticIceSpear
   name: Mysteries of Creation
-  description: Activate to create the Madrugad Spear or summon already existing spear.
+  description: Activate to create the Glacier Spear or summon already existing spear.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
