@@ -31,7 +31,7 @@
                     </BoxContainer>
                 </Control>
 
-                <subtype:ChassisSpriteSelection Name="ChassisSpriteSelection"/>
+                <subtype:SubtypeSelection Name="SubtypeSelection"/>
 
                 <controls:ConfirmButton Name="ConfirmTypeButton" Text="{Loc 'borg-select-type-menu-confirm'}"
                                         Disabled="True" HorizontalAlignment="Right"

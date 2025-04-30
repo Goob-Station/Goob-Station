@@ -39,3 +39,368 @@
     tags:
     - NuclearOperative
     - SyndicateAgent
+
+# Mining
+- type: entity
+  id: BorgChassisMiningBasic
+  parent: BorgChassisMining
+  name: basic mining cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_basic
+
+- type: entity
+  id: BorgChassisMiningAdvanced
+  parent: BorgChassisMining
+  name: advanced mining cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_advanced
+
+- type: entity
+  id: BorgChassisMiningCoffin
+  parent: BorgChassisMining
+  name: coffin cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_coffin
+
+- type: entity
+  id: BorgChassisMiningLavaland
+  parent: BorgChassisMining
+  name: lavaland cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_lavaland
+
+- type: entity
+  id: BorgChassisMiningCricket
+  parent: BorgChassisMining
+  name: cricket mining cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_cricket
+
+- type: entity
+  id: BorgChassisMiningSquat
+  parent: BorgChassisMining
+  name: squat cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_squat
+
+- type: entity
+  id: BorgChassisMiningNoble
+  parent: BorgChassisMining
+  name: noble mining cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: mining
+  - type: BorgSwitchableSubtype
+    borgSubtype: mining_noble
+
+# Engineer
+- type: entity
+  id: BorgChassisEngineerBasic
+  parent: BorgChassisEngineer
+  name: basic engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_basic
+
+- type: entity
+  id: BorgChassisEngineerAntique
+  parent: BorgChassisEngineer
+  name: antique engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_antique
+
+- type: entity
+  id: BorgChassisEngineerStandart
+  parent: BorgChassisEngineer
+  name: standart engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_standart
+
+- type: entity
+  id: BorgChassisEngineerNoble
+  parent: BorgChassisEngineer
+  name: noble engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_noble
+
+- type: entity
+  id: BorgChassisEngineerCricket
+  parent: BorgChassisEngineer
+  name: cricket engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_cricket
+
+- type: entity
+  id: BorgChassisEngineerRover
+  parent: BorgChassisEngineer
+  name: rover engineer cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: engineering
+  - type: BorgSwitchableSubtype
+    borgSubtype: engineer_rover
+
+# Janitor
+- type: entity
+  id: BorgChassisJanitorBasic
+  parent: BorgChassisJanitor
+  name: basic janitor cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_basic
+
+- type: entity
+  id: BorgChassisJanitorMopbot
+  parent: BorgChassisJanitor
+  name: mopbot cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_mopbot
+
+- type: entity
+  id: BorgChassisJanitorStandart
+  parent: BorgChassisJanitor
+  name: standart janitor cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_standart
+
+- type: entity
+  id: BorgChassisJanitorCustodi
+  parent: BorgChassisJanitor
+  name: custodi cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_custodi
+
+- type: entity
+  id: BorgChassisJanitorNoble
+  parent: BorgChassisJanitor
+  name: noble janitor cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_noble
+
+- type: entity
+  id: BorgChassisJanitorCricket
+  parent: BorgChassisJanitor
+  name: cricket janitor cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_cricket
+
+- type: entity
+  id: BorgChassisJanitorRover
+  parent: BorgChassisJanitor
+  name: rover janitor cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: janitor
+  - type: BorgSwitchableSubtype
+    borgSubtype: janitor_rover
+
+# Medical
+- type: entity
+  id: BorgChassisMedicalStandart
+  parent: BorgChassisMedical
+  name: medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_standart
+
+- type: entity
+  id: BorgChassisMedicalMedbot
+  parent: BorgChassisMedical
+  name: medbot cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_medbot
+
+- type: entity
+  id: BorgChassisMedicalNeedles
+  parent: BorgChassisMedical
+  name: needles cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_needles
+
+- type: entity
+  id: BorgChassisMedicalAdvanced
+  parent: BorgChassisMedical
+  name: advanced medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_advanced
+
+- type: entity
+  id: BorgChassisMedicalQualified
+  parent: BorgChassisMedical
+  name: qualified medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_qualified
+
+- type: entity
+  id: BorgChassisMedicalNoble
+  parent: BorgChassisMedical
+  name: noble medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_noble
+
+- type: entity
+  id: BorgChassisMedicalCricket
+  parent: BorgChassisMedical
+  name: cricket medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_cricket
+
+- type: entity
+  id: BorgChassisMedicalRover
+  parent: BorgChassisMedical
+  name: rover medical cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: medical
+  - type: BorgSwitchableSubtype
+    borgSubtype: medical_rover
+
+# Service
+- type: entity
+  id: BorgChassisServiceStandart
+  parent: BorgChassisService
+  name: standart service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_standart
+
+- type: entity
+  id: BorgChassisServiceBrobot
+  parent: BorgChassisService
+  name: brobot cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_brobot
+
+- type: entity
+  id: BorgChassisServiceWaitress
+  parent: BorgChassisService
+  name: waitress cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_waitress
+
+- type: entity
+  id: BorgChassisServiceCricket
+  parent: BorgChassisService
+  name: cricket service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_cricket
+
+- type: entity
+  id: BorgChassisServiceKent
+  parent: BorgChassisService
+  name: kent cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_kent
+
+- type: entity
+  id: BorgChassisServiceNoble
+  parent: BorgChassisService
+  name: noble service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_noble
+
+- type: entity
+  id: BorgChassisServiceRich
+  parent: BorgChassisService
+  name: rich cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_rich
+
+- type: entity
+  id: BorgChassisServiceRover
+  parent: BorgChassisService
+  name: rover service cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: service
+  - type: BorgSwitchableSubtype
+    borgSubtype: service_rover

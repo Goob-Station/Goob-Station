@@ -59,7 +59,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         HelpGuidebookIds = GuidebookEntries;
 
 
-        ChassisSpriteSelection.SubtypeSelected += () =>
+        SubtypeSelection.SubtypeSelected += () =>
             ConfirmTypeButton.Disabled = false;
     }
 
@@ -75,7 +75,7 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
         DescriptionLabel.Text = Loc.GetString($"borg-type-{prototype.ID}-desc");
         ChassisView.SetPrototype(prototype.DummyPrototype);
 
-        ChassisSpriteSelection.FillContainer(prototype);
+        SubtypeSelection.FillContainer(prototype);
         ConfirmTypeButton.Disabled = true;
     }
 
@@ -86,10 +86,10 @@ public sealed partial class BorgSelectTypeMenu : FancyWindow
 
         ConfirmedBorgType?.Invoke(_selectedBorgType);
 
-        if (ChassisSpriteSelection.SelectedBorgSubtype == null)
+        if (SubtypeSelection.SelectedBorgSubtype == null || SubtypeSelection.SelectedBorgSubtype.ParentBorgType != _selectedBorgType)
             return;
 
-        ConfirmedBorgSubtype?.Invoke(ChassisSpriteSelection.SelectedBorgSubtype);
+        ConfirmedBorgSubtype?.Invoke(SubtypeSelection.SelectedBorgSubtype);
     }
 
     private static string PrototypeName(BorgTypePrototype prototype)

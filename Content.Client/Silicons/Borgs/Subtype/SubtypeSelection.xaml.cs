@@ -11,14 +11,14 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.Silicons.Borgs.Subtype;
 
 [GenerateTypedNameReferences]
-public partial class ChassisSpriteSelection : Control
+public partial class SubtypeSelection : Control
 {
     public event Action? SubtypeSelected;
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     public BorgSubtypePrototype? SelectedBorgSubtype;
 
-    public ChassisSpriteSelection()
+    public SubtypeSelection()
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
