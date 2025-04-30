@@ -95,7 +95,7 @@
   graph:
   - node: start
     edges:
-    - to: welding
+    - to: mid
       steps:
       - material: Steel
         amount: 5
@@ -103,59 +103,32 @@
       - material: Plastic
         amount: 3
         doAfter: 5
-
-  - node: welding
+  - node: mid
     entity: ContrabandBagUnfinished
     edges:
-    - to: screwing
+    - to: final
       steps:
       - tool: Welding
         doAfter: 5
-
-  - node: screwing
-    edges:
-    - to: hexing
-      steps:
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-
-  - node: hexing
-    edges:
-    - to: cabling
-      steps:
       - material: HexNut
         amount: 2
         doAfter: 3
       - tool: Anchoring
         doAfter: 2
-
-  - node: cabling
-    edges:
-    - to: morecutting
-      steps:
       - material: Cable
         amount: 10
         doAfter: 2
       - tool: Cutting
         doAfter: 2
-
-  - node: morecutting
-    edges:
-    - to: finalcutting
-      steps:
       - tool: Cutting
         doAfter: 2
-
-  - node: finalcutting
-    edges:
-    - to: final
-      steps:
       - tool: Cutting
         doAfter: 2
-
   - node: final
     entity: ContrabandBag
 
@@ -189,59 +162,35 @@
   - node: screwing
     entity: MakeshiftDefibUnfinished
     edges:
-    - to: hexing
+    - to: final
       steps:
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: hexing
-    edges:
-    - to: screwingmore
-      steps:
       - material: HexNut
         amount: 2
         doAfter: 2
       - tool: Anchoring
         doAfter: 2
-  - node: screwingmore
-    edges:
-    - to: hexingmore
-      steps:
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: hexingmore
-    edges:
-    - to: cabling
-      steps:
       - material: HexNut
         amount: 2
         doAfter: 2
       - tool: Anchoring
         doAfter: 2
-  - node: cabling
-    edges:
-    - to: welding
-      steps:
       - material: Cable
         amount: 8
         doAfter: 4
       - tool: Cutting
         doAfter: 2
-  - node: welding
-    edges:
-    - to: evenmorescrewing
-      steps:
       - tool: Welding
         doAfter: 5
-  - node: evenmorescrewing
-    edges:
-    - to: battery
-      steps:
       - material: Screw
         amount: 4
         doAfter: 4
@@ -249,10 +198,6 @@
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: battery
-    edges:
-    - to: defibhands
-      steps:
       - tag: PowerCell
         name: power cell
         icon:
@@ -261,10 +206,6 @@
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: defibhands
-    edges:
-    - to: insulation
-      steps:
       - material: Steel
         amount: 2
         doAfter: 2
@@ -273,10 +214,6 @@
         doAfter: 2
       - tool: Welding
         doAfter: 5
-  - node: insulation
-    edges:
-    - to: MORESCREWING
-      steps:
       - material: Cloth
         amount: 4
         doAfter: 3
@@ -285,10 +222,6 @@
         doAfter: 4
       - tool: Screwing
         doAfter: 2
-  - node: MORESCREWING
-    edges:
-    - to: final
-      steps:
       - tool: Screwing
         doAfter: 2
       - tool: Screwing
@@ -338,35 +271,23 @@
   - node: screwing
     entity: TideFlipperZeroUnfinished
     edges:
-    - to: screwing2
+    - to: final
       steps:
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: screwing2
-    edges:
-    - to: cableing
-      steps:
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: cableing
-    edges:
-    - to: connecting
-      steps:
       - material: Cable
         amount: 8
         doAfter: 4
       - tool: Cutting
         doAfter: 2
-  - node: connecting
-    edges:
-    - to: connecting2
-      steps:
       - component: IdCard
         doAfter: 2
         name: id card
@@ -375,11 +296,7 @@
           state: idpassenger
       - tool: Pulsing
         doAfter: 8
-  - node: connecting2 # duh it was too easy to make, go ask hop or steal more id cards you son of a bih'
-    edges:
-    - to: welding
-      steps:
-      - component: IdCard
+      - component: IdCard # go rob someone for this
         doAfter: 2
         name: id card
         icon:
@@ -387,10 +304,6 @@
           state: idpassenger
       - tool: Pulsing
         doAfter: 8
-  - node: welding
-    edges:
-    - to: final
-      steps:
       - tool: Welding
         doAfter: 8
   - node: final
@@ -425,35 +338,23 @@
   - node: Metaling
     entity: WoodenHandleBat
     edges:
-    - to: screwing
+    - to: final
       steps:
       - material: Steel
         amount: 5
         doAfter: 4
       - tool: Welding
         doAfter: 8
-  - node: screwing
-    edges:
-    - to: morescrewing
-      steps:
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: morescrewing
-    edges:
-    - to: moremetal
-      steps:
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
         doAfter: 2
-  - node: moremetal
-    edges:
-    - to: final
-      steps:
       - material: Steel
         amount: 5
         doAfter: 4

@@ -86,7 +86,7 @@
     storedRotation: 90
   - type: Construction
     graph: ContrabandSatchelGraph
-    node: welding
+    node: mid
 
 - type: entity
   id: MakeshiftDefib
