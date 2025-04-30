@@ -538,6 +538,9 @@
   - type: FootprintOwner # Corvax-Next-Footprints
   - type: Carriable # Goobstation
   - type: CanDoCpr # Goobstation - Just give to everyone! This ain't MRP.
+  - type: CanApplyPressure
+    bleedModifier: -1.6
+    doAfterDuration: 4
 
 - type: entity
   save: false

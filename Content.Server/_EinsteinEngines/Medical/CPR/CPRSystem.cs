@@ -96,8 +96,11 @@ public sealed class CPRSystem : EntitySystem
         || _foodSystem.IsMouthBlocked(target, performer))
             return;
 
-        _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);
-        _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", performer)), target, target);
+        var cprPerformerMessage = Loc.GetString("cpr-start-second-person", ("target", target)); // Goobstation - Stop in-lining localization!
+        var cprTargetMessage = Loc.GetString("cpr-start-second-person-patient", ("user", performer));
+
+        _popupSystem.PopupEntity(cprPerformerMessage, target, performer);
+        _popupSystem.PopupEntity(cprTargetMessage, target, target);
 
         var doAfterArgs = new DoAfterArgs(
             EntityManager,
