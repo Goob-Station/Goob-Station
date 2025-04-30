@@ -76,7 +76,7 @@ public abstract partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
 
         if (downed)
-            _stun.TryParalyze(target, args.DownedParalyzeTime, true);
+            _stun.TryStun(target, args.DownedParalyzeTime, true); // No stunlocks
         else
         {
             _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);

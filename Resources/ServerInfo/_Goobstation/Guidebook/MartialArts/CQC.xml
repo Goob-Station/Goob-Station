@@ -79,7 +79,6 @@
   ### Leg Sweep
 
   <Box>
-    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 

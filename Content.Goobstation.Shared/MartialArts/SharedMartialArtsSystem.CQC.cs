@@ -140,6 +140,7 @@ public partial class SharedMartialArtsSystem
                         dmg,
                         true,
                         canSever: false,
+                        partMultiplier: 0.1f, // Prevent head from gibbing
                         origin: ent,
                         targetPart: TargetBodyPart.Head);
 

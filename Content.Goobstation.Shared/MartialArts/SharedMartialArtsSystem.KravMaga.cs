@@ -120,9 +120,6 @@ public abstract partial class SharedMartialArtsSystem
 
     private void OnKravMagaShutdown(Entity<KravMagaComponent> ent, ref ComponentShutdown args)
     {
-        if (HasComp<KravMagaComponent>(ent))
-            return;
-
         foreach (var action in ent.Comp.KravMagaMoveEntities)
         {
             _actions.RemoveAction(action);

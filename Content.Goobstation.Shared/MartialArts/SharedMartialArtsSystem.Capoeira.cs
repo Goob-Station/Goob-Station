@@ -54,6 +54,9 @@ public abstract partial class SharedMartialArtsSystem
     private void OnCapoeiraAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent,
         ref ComboAttackPerformedEvent args)
     {
+        if (args.Performer == args.Target)
+            return;
+
         if (args.Type == ComboAttackType.Grab)
         {
             ApplyMultiplier(ent, 1.2f, 0f, TimeSpan.FromSeconds(4), MartialArtModifierType.MoveSpeed);

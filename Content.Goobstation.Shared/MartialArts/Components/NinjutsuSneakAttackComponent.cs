@@ -26,10 +26,16 @@ public sealed partial class NinjutsuSneakAttackComponent : Component
     public float AssassinateArmorPierce = -2.5f;
 
     [DataField]
-    public float TakedownKnockdownTime = 2f;
+    public float TakedownSlowdownTime = 5f;
 
     [DataField]
-    public float TakedownBackstabMultiplier = 2.5f;
+    public float TakedownMuteTime = 10f;
+
+    [DataField]
+    public float TakedownSpeedModifier = 0.2f;
+
+    [DataField]
+    public float TakedownBackstabMultiplier = 1.5f;
 
     [DataField]
     public SoundSpecifier AssassinateSoundUnarmed = new SoundPathSpecifier("/Audio/Weapons/genhit1.ogg");

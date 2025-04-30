@@ -16,6 +16,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
@@ -111,11 +112,17 @@ public abstract partial class SharedMartialArtsSystem
             return;
         }
 
-        var time = sneakAttack.TakedownKnockdownTime;
+        var (slowdownTime, muteTime) = (sneakAttack.TakedownSlowdownTime, sneakAttack.TakedownMuteTime);
         if (_backstab.TryBackstab(target, ent, Angle.FromDegrees(45d), true, false, false))
-            time *= sneakAttack.TakedownBackstabMultiplier;
+        {
+            slowdownTime *= sneakAttack.TakedownBackstabMultiplier;
+            muteTime *= sneakAttack.TakedownBackstabMultiplier;
+        }
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(time), true);
+        var modifier = sneakAttack.TakedownSpeedModifier;
+
+        _stun.TrySlowdown(target, TimeSpan.FromSeconds(slowdownTime), true, modifier, modifier);
+        _status.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(muteTime), true);
 
         _audio.PlayPvs(sneakAttack.AssassinateSoundUnarmed, target);
         ComboPopup(ent, target, sneakAttack.TakedownComboName);
@@ -222,7 +229,20 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         // Paralyze, not knockdown
-        _stun.TryParalyze(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true);
+        var time = TimeSpan.FromSeconds(proto.ParalyzeTime);
+        if (_status.TryGetTime(target, "KnockedDown", out var knockdownStartEnd))
+        {
+            var knockdownTime = knockdownStartEnd.Value.Item2 - _timing.CurTime;
+            if (knockdownTime > TimeSpan.Zero)
+            {
+                if (time > knockdownTime)
+                    time = knockdownTime;
+
+                 // We do not want to knockdown because it will stunlock the target
+                _stun.TryStun(target, time, true);
+            }
+        }
+
         DoDamage(ent,
             target,
             proto.DamageType,
@@ -247,7 +267,6 @@ public abstract partial class SharedMartialArtsSystem
 
         if (TryComp<PullableComponent>(target, out var pullable))
             _pulling.TryStopPull(target, pullable, ent, true);
-
 
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
         DoDamage(ent,

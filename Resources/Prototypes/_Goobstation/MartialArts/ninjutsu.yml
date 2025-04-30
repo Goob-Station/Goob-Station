@@ -33,7 +33,7 @@
     sound:
       path: /Audio/Weapons/genhit3.ogg
   extraDamage: 10
-  paralyzeTime: 5
+  paralyzeTime: 9
 
 - type: combo
   id: DirtyKill
@@ -46,4 +46,4 @@
     sound:
       path: /Audio/Weapons/genhit2.ogg
   extraDamage: 20
-  paralyzeTime: 5 # Actual paralyze
+  paralyzeTime: 7
