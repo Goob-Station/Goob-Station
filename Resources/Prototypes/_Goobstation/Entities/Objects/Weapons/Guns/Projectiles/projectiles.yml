@@ -132,7 +132,7 @@
         Structural: 10
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: FireBombWeak # 1 firestack
+    explosionType: FireBombWeak # 1.3 firestacks
     totalIntensity: 10.8 # 3x3 explosion
     intensitySlope: 1.4 # 14 damage at the center tile
     maxIntensity: 2.4 # 8 damage at the edges
