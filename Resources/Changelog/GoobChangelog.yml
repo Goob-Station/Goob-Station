@@ -8017,3 +8017,18 @@ Entries:
       message: Patrons get double goob coins now.
   id: 927
   time: '2025-04-29T23:37:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Changed sizes of most weapons.
+    - type: Tweak
+      message: >-
+        Reworked shoulder holsters. Detective's holster now stores a handgun and
+        syndicate holster stores any gun, and on top of that they both have 4x2
+        pocket for ammo.
+    - type: Tweak
+      message: Syndicate shoulder holster now costs 8 TC.
+    - type: Tweak
+      message: Blueshield Officer EG-4 pack now comes with a shoulder holster.
+  id: 928
+  time: '2025-04-30T07:20:54.0000000+00:00'
