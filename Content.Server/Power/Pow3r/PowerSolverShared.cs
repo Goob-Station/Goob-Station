@@ -35,14 +35,14 @@ namespace Content.Server.Power.Pow3r
                         // Position below target, go up.
                         newPos = Math.Min(
                             supply.SupplyRampTarget,
-                            supply.SupplyRampPosition * (1 + (supply.SupplyRampScaling - 1) * frameTime) + supply.SupplyRampRate * frameTime); // Goobstation
+                            supply.SupplyRampPosition * MathF.Pow(supply.SupplyRampScaling, frameTime) + supply.SupplyRampRate * frameTime); // Goobstation
                     }
                     else
                     {
                         // Other way around, go down
                         newPos = Math.Max(
                             supply.SupplyRampTarget,
-                            supply.SupplyRampPosition / (1 + (supply.SupplyRampScaling - 1) * frameTime) - supply.SupplyRampRate * frameTime); // Goobstation
+                            supply.SupplyRampPosition / MathF.Pow(supply.SupplyRampScaling, frameTime) - supply.SupplyRampRate * frameTime); // Goobstation
                     }
 
                     supply.SupplyRampPosition = Math.Clamp(newPos, 0, supply.MaxSupply);
