@@ -221,6 +221,15 @@
     node: screwing
 
 - type: entity
+  parent: TideFlipperZeroUnfinished
+  id: MakeshiftJammerUnfinished
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftJammerGraph
+    node: mid
+
+- type: entity
   id: MetalBaseballBat
   parent: BaseBallBat
   name: metal baseball bat
@@ -245,6 +254,43 @@
     walkModifier: 0.85
     sprintModifier: 0.85
 
+- type: entity
+  id: MakeshiftJammer
+  parent: [ BaseItem, BaseMajorContraband ]
+  name: makeshift radio jammer
+  description: A cheap looking device that can spam radio waves, essentially blocking all signal. Yeah its not effective.
+  components:
+  - type: RadioJammer
+    settings:
+    - wattage: 10
+      range: 1
+      message: radio-jammer-component-set-message-low
+      name: radio-jammer-component-setting-low
+    - wattage: 20
+      range: 3
+      message: radio-jammer-component-set-message-medium
+      name: radio-jammer-component-setting-medium
+    - wattage: 40
+      range: 8
+      message: radio-jammer-component-set-message-high
+      name: radio-jammer-component-setting-high
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
+    state: jammer
+  - type: Construction
+    graph: MakeshiftJammerGraph
+    node: final
 # clothing
 
 # heavy boots

@@ -485,6 +485,86 @@
     state: icon
   objectType: Item
 
+# makeshift jammer
+
+- type: constructionGraph
+  id: MakeshiftJammerGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - tag: Payload
+        name: remote signaller
+        icon:
+          sprite: Objects/Devices/signaller.rsi
+          state: signaller
+        doAfter: 10
+      - tag: Multitool
+        name: multitool
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        doAfter: 5
+  - node: mid
+    entity: MakeshiftJammerUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Pulsing
+        doAfter: 4
+      - component: EncryptionKey # 3 keys because i can already smell people malding
+        doAfter: 5
+        name: encryption key
+        icon:
+          sprite: Objects/Devices/encryption_keys.rsi
+          state: crypt_gray
+      - component: EncryptionKey
+        doAfter: 5
+        name: encryption key
+        icon:
+          sprite: Objects/Devices/encryption_keys.rsi
+          state: crypt_gray
+      - component: EncryptionKey
+        doAfter: 5
+        name: encryption key
+        icon:
+          sprite: Objects/Devices/encryption_keys.rsi
+          state: crypt_gray
+      - tool: Screwing
+        doAfter: 2
+      - tag: PowerCell
+        name: power cell
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: o2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+  - node: final
+    entity: MakeshiftJammer
+    edges: []
+
+- type: construction
+  id: MakeshiftJammerCrafting
+  name: makeshift jammer
+  category: construction-category-misc
+  description: Makeshift jammer, not efficient, but it does its job.
+  graph: MakeshiftJammerGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
+    state: jammer
+  objectType: Item
 # clothing
 
 # heavy boots
