@@ -8,9 +8,9 @@
 using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
-using Robust.Server.Containers;
+using Robust.Shared.Containers;
 
-namespace Content.Server.Construction.NodeEntities;
+namespace Content.Shared.Construction.NodeEntities;
 
 /// <summary>
 ///     Works for both <see cref="ComputerBoardComponent"/> and <see cref="MachineBoardComponent"/>
@@ -27,7 +27,7 @@ public sealed partial class BoardNodeEntity : IGraphNodeEntity
         if (uid == null)
             return null;
 
-        var containerSystem = args.EntityManager.EntitySysManager.GetEntitySystem<ContainerSystem>();
+        var containerSystem = args.EntityManager.EntitySysManager.GetEntitySystem<SharedContainerSystem>();
 
         if (!containerSystem.TryGetContainer(uid.Value, Container, out var container)
             || container.ContainedEntities.Count == 0)
@@ -39,7 +39,7 @@ public sealed partial class BoardNodeEntity : IGraphNodeEntity
         if (args.EntityManager.TryGetComponent(board, out MachineBoardComponent? machine))
             return machine.Prototype;
 
-        if(args.EntityManager.TryGetComponent(board, out ComputerBoardComponent? computer))
+        if (args.EntityManager.TryGetComponent(board, out ComputerBoardComponent? computer))
             return computer.Prototype;
 
         return null;
