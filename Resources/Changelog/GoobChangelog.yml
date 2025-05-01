@@ -8088,3 +8088,18 @@ Entries:
       message: 'Reduced the price of Syndicate Radio Implanter uplink purchase. '
   id: 936
   time: '2025-05-01T09:13:19.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Nukeops role timers increased, 10 overall hours + 10 sec hours for
+        troopa, 25 overall hours +5 chemist hours for agent and 25 overall hours
+        +5 hours of command for commander (LEADERSHIP SKILLS)
+    - type: Tweak
+      message: Nukeops now spawn with agent IDs in their PDA
+    - type: Tweak
+      message: Nukeops now spawn with NVGs, pop those lights buddy
+    - type: Tweak
+      message: Ninjas now have a microbomb instead of a death acidifier
+  id: 937
+  time: '2025-05-01T10:09:48.0000000+00:00'
