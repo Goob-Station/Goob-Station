@@ -86,8 +86,8 @@
         Heat: 2
   - type: BlurOnCollide
   - type: StaminaDamageOnCollide
-    damage: 15
-    overtime: 30
+    damage: 30
+    overtime: 15
 
 - type: entity
   id: BulletExecute
@@ -138,7 +138,7 @@
       types:
         Heat: 15
   - type: IgniteOnCollide
-    fireStacks: 1.5
+    fireStacks: 2
 
 - type: entity
   id: BulletSleepshot
@@ -178,6 +178,9 @@
         reagents:
         - ReagentId: Haloperidol
           Quantity: 2
+  - type: StunOnCollide
+    walkSpeedMultiplier: 0.6
+    runSpeedMultiplier: 0.6
 
 - type: entity
   id: BulletBigshot

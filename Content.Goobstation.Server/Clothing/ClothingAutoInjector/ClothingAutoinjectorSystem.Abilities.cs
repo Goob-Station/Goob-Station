@@ -12,6 +12,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -39,7 +40,7 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         SubscribeLocalEvent<ClothingAutoInjectComponent, GetItemActionsEvent>(OnEquipped);
         SubscribeLocalEvent<ClothingAutoInjectComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<ClothingAutoInjectComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<AutoInjectOnStateChangeComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<ClothingAutoInjectComponent, InventoryRelayedEvent<MobStateChangedEvent>>(OnMobStateChange);
     }
 
     private void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ref ActionActivateAutoInjectorEvent args)
@@ -67,27 +68,23 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         return _solution.TryAddSolution(targetSolution.Value, solution);
     }
 
-    private void OnMobStateChange(EntityUid uid, AutoInjectOnStateChangeComponent comp, ref MobStateChangedEvent args)
+    private void OnMobStateChange(EntityUid uid, ClothingAutoInjectComponent comp, InventoryRelayedEvent<MobStateChangedEvent> args)
     {
-        if (args.NewMobState != MobState.Critical
-        || !TryComp<ClothingAutoInjectComponent>(comp.ClothingAutoInjector, out var injector)
-        || injector.NextAutoInjectTime > _timing.CurTime)
+        if (args.Args.NewMobState != MobState.Critical
+        || comp.NextAutoInjectTime > _timing.CurTime)
             return;
 
-        TryInjectReagents(args.Target, injector.Reagents);
-        _audio.PlayPvs(injector.InjectSound, args.Target);
-        _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), args.Target, args.Target);
+        TryInjectReagents(args.Args.Target, comp.Reagents);
+        _audio.PlayPvs(comp.InjectSound, args.Args.Target);
+        _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), args.Args.Target, args.Args.Target);
 
-        injector.NextAutoInjectTime = _timing.CurTime + injector.AutoInjectInterval;
+        comp.NextAutoInjectTime = _timing.CurTime + comp.AutoInjectInterval;
     }
 
     private void OnEquipped(EntityUid uid, ClothingAutoInjectComponent component, ref GetItemActionsEvent args)
     {
         if (args.InHands)
             return;
-
-        if (component.AutoInjectOnCrit)
-            EnsureComp<AutoInjectOnStateChangeComponent>(args.User).ClothingAutoInjector = uid;
 
         if (component.AutoInjectOnAbility)
             args.AddAction(ref component.ActionEntity, component.Action);
@@ -97,9 +94,6 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
     {
         if (component.AutoInjectOnAbility)
             _actions.RemoveProvidedActions(args.Equipee, uid);
-
-        if (component.AutoInjectOnCrit)
-            RemComp<AutoInjectOnStateChangeComponent>(args.Equipee);
     }
 
     private void OnExamined(EntityUid uid, ClothingAutoInjectComponent component, ref ExaminedEvent args)

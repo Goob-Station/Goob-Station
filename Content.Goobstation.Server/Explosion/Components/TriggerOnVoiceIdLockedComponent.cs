@@ -19,7 +19,7 @@ namespace Content.Server._Goobstation.Explosion.Components
         ///     The keyphrase that the trigger listens for.
         /// </summary>
         [DataField]
-        public string? KeyPhrase;
+        public LocId KeyPhrase;
 
         /// <summary>
         ///     The range at which it listens for keywords.

@@ -492,8 +492,7 @@
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
     - id: ClothingHeadHatBeretHeadOfSecurityAdvanced
-   # - id: ClothingOuterCoatHoSTrench
-    - id: ClothingOuterArmorHoSExperimental
+    - id: ClothingOuterCoatHoSTrench
    # - id: ClothingShoesBootsJack
     - id: ClothingShoesBootsJackAdvanced
     - id: DoorRemoteSecurity

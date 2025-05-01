@@ -33,11 +33,8 @@ namespace Content.Server.Explosion.EntitySystems
 
             var message = args.Message.Trim();
 
-            if (string.IsNullOrWhiteSpace(ent.Comp.KeyPhrase) ||
-                !message.Contains(ent.Comp.KeyPhrase, StringComparison.InvariantCultureIgnoreCase))
-                return;
-
-            if (_accessReader.IsAllowed(args.Source, ent ))
+            if (!message.Contains(Loc.GetString(ent.Comp.KeyPhrase), StringComparison.InvariantCultureIgnoreCase)
+            || _accessReader.IsAllowed(args.Source, ent ))
                 return;
 
             _adminLogger.Add(LogType.Trigger, LogImpact.High,

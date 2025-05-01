@@ -362,7 +362,7 @@
   - type: StaticPrice
     price: 750
   - type: TriggerOnVoiceIdLocked
-    keyPhrase: "I AM THE LAW"
+    keyPhrase: "lawbringer-phrase"
     listenRange: 0 # only the holder
   - type: AccessReader
     access: [['HeadOfSecurity']]

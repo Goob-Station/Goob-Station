@@ -1,24 +1,9 @@
 - type: entity
-  parent: [AllowSuitStorageClothing, ClothingOuterStorageBase, BaseSecurityCommandContraband]
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterArmorHoSExperimental
   name: head of security's experimental armored trenchcoat
   description: A greatcoat enhanced with an experimental bluespace assisted alloy for some extra protection and style for those with a commanding presence.
   components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
-        Caustic: 0.70
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-  - type: ModifyDelayedKnockdown
-    delayDelta: 2
-    knockdownTimeDelta: -2
-  - type: StaminaDamageResistance
-    coefficient: 0.7
   - type: Sprite
     sprite: _Goobstation/Clothing/OuterClothing/Armor/hos_experimental_jacket.rsi
   - type: Clothing
