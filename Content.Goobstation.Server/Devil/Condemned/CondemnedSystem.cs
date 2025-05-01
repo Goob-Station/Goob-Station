@@ -56,12 +56,20 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, CondemnedComponent comp, ComponentStartup args)
     {
-        EnsureComp<WeakToHolyComponent>(uid);
-        comp.WasWeakToHoly = true;
+        if (comp.SoulOwnedNotDevil)
+            return;
+
+        if (HasComp<WeakToHolyComponent>(uid))
+            comp.WasWeakToHoly = true;
+        else
+            EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
     }
 
     private void OnRemoved(EntityUid uid, CondemnedComponent comp, ComponentRemove args)
     {
+        if (comp.SoulOwnedNotDevil)
+            return;
+
         if (!comp.WasWeakToHoly)
             RemComp<WeakToHolyComponent>(uid);
     }

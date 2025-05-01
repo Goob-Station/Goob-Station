@@ -51,13 +51,13 @@ public sealed partial class CondemnedComponent : Component
     /// Is this entities soul owned, but not by a devil?
     /// </summary>
     [DataField]
-    public bool SoulOwnedNotDevil = true;
+    public bool SoulOwnedNotDevil;
 
     /// <summary>
     /// Should this entity be sent to hell on death?
     /// </summary>
     [DataField]
-    public bool CondemnOnDeath = false;
+    public bool CondemnOnDeath;
 
     /// <summary>
     /// Was this target already weak to holy before becoming condemned?

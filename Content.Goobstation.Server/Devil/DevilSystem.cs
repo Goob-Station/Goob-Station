@@ -107,7 +107,7 @@ public sealed partial class DevilSystem : EntitySystem
         EnsureComp<BreathingImmunityComponent>(uid);
         EnsureComp<PressureImmunityComponent>(uid);
         EnsureComp<ActiveListenerComponent>(uid);
-        EnsureComp<WeakToHolyComponent>(uid);
+        EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
         EnsureComp<CrematoriumImmuneComponent>(uid);
 
         // Allow infinite revival
