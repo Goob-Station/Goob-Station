@@ -8078,3 +8078,13 @@ Entries:
       message: Added the Devil. But actually this time.
   id: 935
   time: '2025-05-01T06:43:51.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced Syndicate Encryption Key box uplink purchase, which contained
+        two keys, with a singular cheaper key.
+    - type: Tweak
+      message: 'Reduced the price of Syndicate Radio Implanter uplink purchase. '
+  id: 936
+  time: '2025-05-01T09:13:19.0000000+00:00'
