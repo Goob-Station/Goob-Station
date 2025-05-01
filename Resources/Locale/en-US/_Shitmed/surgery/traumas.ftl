@@ -8,6 +8,3 @@ inspect-trauma-BoneDamage = It looks dislocated.
 popup-trauma-OrganDamage-Damaged = Your {$part} feels very wrong...
 popup-trauma-OrganDamage-Destroyed = You feel a very sharp pain in your {$part}!
 self-inspect-trauma-OrganDamage = Your {$part} feels tight, and breathing hurts.
-
-
-

@@ -19,7 +19,6 @@ using Content.Shared.Body.Part;
 using Content.Shared.Chat;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Shitmed.PartStatus;
@@ -29,7 +28,6 @@ public sealed class PartStatusSystem : EntitySystem
     [Dependency] private readonly WoundSystem _woundSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly IChatManager _chat = default!;
 
@@ -69,8 +67,8 @@ public sealed class PartStatusSystem : EntitySystem
 
         _chat.ChatMessageToOne(
             ChatChannel.Emotes,
-            text.ToString(),
-            text.ToString(),
+            text.ToMarkup(),
+            text.ToMarkup(),
             EntityUid.Invalid,
             false,
             actor.PlayerSession.Channel,
@@ -127,21 +125,11 @@ public sealed class PartStatusSystem : EntitySystem
     private FormattedMessage GetExamineText(EntityUid entity, EntityUid examiner, HashSet<PartStatus> partStatusSet)
     {
         var message = new FormattedMessage();
-        message.PushColor(Color.DarkGray);
-
+        message.AddText(Loc.GetString("inspect-part-status-title"));
+        message.PushNewline();
         CreateBodyPartMessage(partStatusSet, entity == examiner, ref message);
 
-        var examinedEvent = new PartStatusExaminedEvent(message, examiner, entity);
-        RaiseLocalEvent(entity, examinedEvent);
-
-        var newMessage = examinedEvent.GetTotalMessage();
-        // Goobstation Change: I dont seem to have a way to get the event of examination to happen after EVERYTHING else, so fuck it.
-        //var examineCompletedEvent = new ExamineCompletedEvent(newMessage, entity, examiner);
-        //RaiseLocalEvent(entity, examineCompletedEvent);
-        // pop color tag
-        newMessage.Pop(); // pop color tag
-
-        return newMessage;
+        return message;
     }
 
     private void CreateBodyPartMessage(HashSet<PartStatus> partStatusSet,
@@ -157,8 +145,7 @@ public sealed class PartStatusSystem : EntitySystem
             var statusDescription = BuildStatusDescription(partStatus, inspectingSelf);
             var possessive = inspectingSelf ? Loc.GetString("inspect-part-status-you") : Loc.GetString("inspect-part-status-their");
 
-            message.AddMarkupOrThrow(
-               Loc.GetString("inspect-part-status-line", ("possessive",possessive),("part",partStatus.PartType),("status", statusDescription)));
+            message.AddText("    " + Loc.GetString("inspect-part-status-line", ("possessive",possessive),("part",partStatus.PartType),("status", statusDescription)));
             message.PushNewline();
         }
     }
