@@ -18,6 +18,7 @@
 - type: construction
   id: HexNutDouble
   name: Hex Nut
+  category: construction-category-misc
   description: Two hex nuts handcrafted from one steel.
   graph: HexNutDoubleGraph
   startNode: start
@@ -48,6 +49,7 @@
 - type: construction
   id: Screw
   name: Screw
+  category: construction-category-misc
   description: Two screws crafted from one steel.
   graph: ScrewGraph
   startNode: start
@@ -110,6 +112,10 @@
       steps:
       - tool: Welding
         doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
       - material: Screw
         amount: 2
         doAfter: 2
@@ -119,7 +125,9 @@
         amount: 2
         doAfter: 3
       - tool: Anchoring
-        doAfter: 2
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
       - material: Cable
         amount: 10
         doAfter: 2
@@ -137,6 +145,7 @@
   name: contraband bag
   description: A steel bag for hiding from metal detectors.
   graph: ContrabandSatchelGraph
+  category: construction-category-misc
   startNode: start
   targetNode: final
   icon:
@@ -168,22 +177,30 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
       - material: HexNut
         amount: 2
         doAfter: 2
       - tool: Anchoring
-        doAfter: 2
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
       - material: HexNut
         amount: 2
         doAfter: 2
       - tool: Anchoring
-        doAfter: 2
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
       - material: Cable
         amount: 8
         doAfter: 4
@@ -191,13 +208,17 @@
         doAfter: 2
       - tool: Welding
         doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
       - material: Screw
         amount: 4
         doAfter: 4
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
       - tag: PowerCell
         name: power cell
         icon:
@@ -214,6 +235,10 @@
         doAfter: 2
       - tool: Welding
         doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
       - material: Cloth
         amount: 4
         doAfter: 3
@@ -221,15 +246,13 @@
         amount: 8
         doAfter: 4
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
       - tool: Screwing
-        doAfter: 2
-      - tool: Screwing
-        doAfter: 2
+        doAfter: 1
   - node: final
     edges: []
     entity: MakeshiftDefib
@@ -237,6 +260,7 @@
 - type: construction
   id: MakeshiftDefibCraft
   name: makeshift defibrillator
+  category: construction-category-misc
   description: Stupidly complex makeshift defibrillator for all your needs.
   graph: MakeshiftDefibGraph
   startNode: start
@@ -277,17 +301,23 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
       - material: Cable
         amount: 8
         doAfter: 4
       - tool: Cutting
-        doAfter: 2
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
       - component: IdCard
         doAfter: 2
         name: id card
@@ -306,6 +336,8 @@
         doAfter: 8
       - tool: Welding
         doAfter: 8
+      - tool: Hammering
+        doAfter: 1
   - node: final
     edges: []
     entity: TideFlipperZero
@@ -313,6 +345,7 @@
 - type: construction
   id: TideFlipperCraft
   name: makeshift tide flipper
+  category: construction-category-misc
   description: Makeshift hand remote that can be used to hack doors without access.
   graph: TideFlipperZeroGraph
   startNode: start
@@ -345,11 +378,17 @@
         doAfter: 4
       - tool: Welding
         doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 2
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
       - material: Screw
         amount: 2
         doAfter: 2
@@ -360,6 +399,10 @@
         doAfter: 4
       - tool: Welding
         doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
   - node: final
     edges: []
     entity: MetalBaseballBat
@@ -367,11 +410,153 @@
 - type: construction
   id: MetalBaseballBatCrafting
   name: makeshift metal baseball bat
+  category: construction-category-weapons
   description: Makeshift hard and robust metal baseball bat with a wooden handle.
   graph: MetalBaseballBatGraph
   startNode: start
   targetNode: final
   icon:
     sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
+    state: icon
+  objectType: Item
+
+# makeshift hammer
+- type: constructionGraph
+  id: HammerConstructionGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: WoodenHandleHammer
+    edges:
+    - to: final
+      steps:
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: MeleeHammer
+
+- type: construction
+  id: HandmadeHammerCrafting
+  name: handmade hammer
+  category: construction-category-weapons
+  description: A normal handmade hammer.
+  graph: HammerConstructionGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi
+    state: icon
+  objectType: Item
+
+# clothing
+
+# heavy boots
+- type: constructionGraph
+  id: HeavyBootsGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ScrapBoots
+    edges:
+    - to: final
+      steps:
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 2
+  - node: final
+    entity: ClothingShoesHeavyBoots
+    edges: []
+
+- type: construction
+  id: HeavyBootsCrafting
+  name: makeshift metal boots
+  category: construction-category-clothing
+  description: Makeshift heavy metal boots.
+  graph: HeavyBootsGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
     state: icon
   objectType: Item

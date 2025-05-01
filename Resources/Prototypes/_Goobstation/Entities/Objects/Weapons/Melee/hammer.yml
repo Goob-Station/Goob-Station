@@ -36,3 +36,11 @@
       whitelist:
         components:
         - EngineeringStaff
+  - type: Tool
+    qualities:
+      - Hammering
+    useSound:
+      path: /Audio/Items/trayhit2.ogg
+  - type: Construction
+    graph: HammerConstructionGraph
+    node: final

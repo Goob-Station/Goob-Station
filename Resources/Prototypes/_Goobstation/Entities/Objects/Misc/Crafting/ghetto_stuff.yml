@@ -24,6 +24,34 @@
     node: Metaling
 
 - type: entity
+  parent: WoodenHandle
+  id: WoodenHandleHammer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: HammerConstructionGraph
+    node: mid
+
+- type: entity
+  parent: BaseItem
+  id: ScrapBase
+  name: metal scrap
+  abstract: true
+  description: Some metal being prepared for crafting.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/Crafting/scrap.rsi
+    state: scrap
+
+- type: entity
+  parent: ScrapBase
+  id: ScrapBoots
+  components:
+  - type: Construction
+    graph: HeavyBootsGraph
+    node: mid
+
+- type: entity
   id: HeatedMadeKitchenKnife
   parent: KitchenKnife
   name: heated kitchen knife
@@ -188,3 +216,24 @@
     walkModifier: 0.85
     sprintModifier: 0.85
 
+# clothing
+
+# heavy boots
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseMinorContraband]
+  id: ClothingShoesHeavyBoots
+  name: heavy steel boots
+  description: Metal is scraping through the floor as you walk with them, who thought this was a good idea?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 # what are you even trying to protect with them
+  - type: Construction
+    graph: HeavyBootsGraph
+    node: final

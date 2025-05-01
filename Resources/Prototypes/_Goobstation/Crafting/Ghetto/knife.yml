@@ -48,6 +48,12 @@
       - tool: Welding
         fuel: 30
         doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
 
   - node: BladeForged
     entity: HeatedMadeKitchenKnife

@@ -4,9 +4,17 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+# btw who tf named this file tool-qualities instead of tool_qualities broo
 - type: tool
   id: Axing
   name: tool-quality-axing-name
   toolName: tool-quality-axing-tool-name
   spawn: FireAxe
   icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
+
+- type: tool
+  id: Hammering
+  name: tool-quality-hammering-name
+  toolName: tool-quality-hammering-tool-name
+  spawn: MeleeHammer
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi, state: icon }
