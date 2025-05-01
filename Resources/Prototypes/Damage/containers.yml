@@ -24,7 +24,8 @@
     - Toxin
     - Airloss
     - Genetic
-    - Metaphysical # Goobstation - Father forgive me.
+  supportedTypes:
+    - Holy
 
 - type: damageContainer
   id: Inorganic
@@ -91,4 +92,5 @@
   - Toxin
   - Airloss
   - Genetic
-  - Metaphysical
+  supportedTypes:
+  - Holy
