@@ -16,6 +16,8 @@
 // SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -86,15 +88,6 @@ public sealed class RandomGiftSystem : EntitySystem
         _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(handsEnt)}");
         if (component.Wrapper is not null)
             Spawn(component.Wrapper, coords);
-
-        if (component.SelectedEntity == "WeaponPistolDebug" // Goobstation
-            || component.SelectedEntity == "MeleeDebugGib"
-            || component.SelectedEntity == "MeleeDebug100"
-            || component.SelectedEntity == "MeleeDebug200"
-            || component.SelectedEntity == "MeleeDebugSever"
-            || component.SelectedEntity == "MeleeDebugSever100"
-            || component.SelectedEntity == "MeleeDebugSever200")
-            _audio.PlayGlobal("/Audio/StationEvents/mariah.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
 
         _audio.PlayPvs(component.Sound, args.User);
 

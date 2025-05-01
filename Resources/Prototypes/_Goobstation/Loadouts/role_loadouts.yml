@@ -116,6 +116,21 @@
   - SurvivalSecurity
 
 - type: roleLoadout
+  id: JobNanotrasenCareerTrainer
+  groups:
+  - GroupTankHarness
+  - NanotrasenTrainerHead
+  - NanotrasenTrainerJumpsuit
+  - NanotrasenTrainerOuterClothing
+  - NanotrasenTrainerBackpack
+  - NanotrasenTrainerShoes
+  - NanotrasenTrainerGloves
+  - NanotrasenTrainerBelt
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - Survival
+
+- type: roleLoadout
   id: RoleSurvivalNukieHonkops
   groups:
   - SurvivalSyndicate

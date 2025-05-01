@@ -119,6 +119,38 @@
     implant: StorageImplant
 
 - type: entity
+  id: CentcommMindShieldImplanter
+  suffix: mindshield
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: MindShieldImplant
+
+- type: entity
+  id: CentcommNutrimentImplanter
+  suffix: nutriment pump
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: NutrimentPumpImplant
+
+- type: entity
+  id: CentcommSpaceproofImplanter
+  suffix: space proofing
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: SpaceProofImplant
+
+- type: entity
+  id: CentcommStypticStimulatorImplanter
+  suffix: styptic stimulator
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: StypticStimulatorImplant
+
+- type: entity
   parent: BaseImplantOnlyImplanter
   id: PacifismImplanter
   suffix: pacifism
@@ -133,6 +165,22 @@
   components:
   - type: Implanter
     implant: SmokeImplant
+
+- type: entity
+  id: NutrimentImplanter
+  suffix: nutriment pump
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: NutrimentPumpImplant
+
+- type: entity
+  id: StypticStimulatorImplanter
+  suffix: styptic stimulator
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: StypticStimulatorImplant
 
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi

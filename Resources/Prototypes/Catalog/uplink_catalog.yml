@@ -87,7 +87,6 @@
 # SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Avalon <148660190+BYONDFuckery@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 BeeRobynn <166929042+BeeRobynn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
@@ -105,7 +104,6 @@
 # SPDX-FileCopyrightText: 2024 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 # SPDX-FileCopyrightText: 2024 Kira Bridgeton <161087999+Verbalase@users.noreply.github.com>
@@ -150,11 +148,13 @@
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -165,8 +165,11 @@
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+iamvelcroboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 terminatorbo <kovalevb059@gmail.com>
 #
@@ -183,17 +186,6 @@
   productEntity: WeaponPistolViper
   cost:
     Telecrystal: 14 # goob - this +1 mag = 16 TC
-  categories:
-  - UplinkWeaponry
-
-- type: listing
-  id: UplinkGlovesKnuckleDusters
-  name: uplink-gloves-knuckleduster-name
-  description: uplink-gloves-knuckleduster-desc
-  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster } # Goobstation
-  productEntity: ClothingHandsKnuckleDustersSyndicate
-  cost:
-    Telecrystal: 15 # Goobstation
   categories:
   - UplinkWeaponry
 
@@ -613,16 +605,16 @@
   - UplinkAmmo
 
 # For the Cobra
-#- type: listing
-#  id: UplinkMagazinePistolCaselessMagnumMinusP
-#  name: uplink-caseless-magnum-pistol-mag-minusp-name
-#  description: uplink-caseless-magnum-pistol-mag-minusp-desc
-#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: rubber }
-#  productEntity: MagazinePistolCaselessMagnumMinusP
-#  cost:
-#    Telecrystal: 3 # goob - 5 shots to crit
-#  categories:
-#  - UplinkAmmo
+- type: listing
+  id: UplinkMagazinePistolCaselessRifle
+  name: uplink-pistol-magazine-caseless-name
+  description: uplink-pistol-magazine-caseless-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: MagazinePistolCaselessRifle
+  cost:
+    Telecrystal: 3 # goob
+  categories:
+  - UplinkAmmo
 
 # For the Python
 - type: listing
@@ -861,9 +853,9 @@
   name: uplink-encryption-key-name
   description: uplink-encryption-key-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
-  productEntity: BoxEncryptionKeySyndie # Two for the price of one
+  productEntity: EncryptionKeySyndie # One for the price of one, but cheaper
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 3 # goob
   categories:
   - UplinkDeception
   conditions:
@@ -1135,10 +1127,11 @@
     blacklist:
       tags:
       - ContravendUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # Goobstation
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -1154,10 +1147,11 @@
     blacklist:
       tags:
       - ContravendUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # Goobstation
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
 
 - type: listing
   id: UplinkSingarityBeacon
@@ -1421,7 +1415,7 @@
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: RadioImplanter
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 7 # goob - Syndicate Radio Price Adjust
   categories:
   - UplinkImplants
   conditions:
@@ -1583,7 +1577,7 @@
   description: uplink-holster-desc
   productEntity: ClothingBeltSyndieHolster
   cost:
-    Telecrystal: 2 # goob - Pointless and valid.
+    Telecrystal: 8 # goob - holster rework
   categories:
   - UplinkWearables
 
@@ -2188,33 +2182,12 @@
     - Chef
     - Mime
 
-
 - type: listing
-  id: uplinkBeeNades    #goob - bee update
-  name: uplink-beenades-name
-  description: uplink-beenades-desc
-  productEntity: BeeGrenade
+  id: UplinkSmugglerSatchel
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmugglerUnanchored
   cost:
-    Telecrystal: 16
+    Telecrystal: 10 # Goobstation
   categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Botanist
-    - Zookeeper
-
-- type: listing
-  id: UplinkDartSyringeGun
-  name: uplink-dart-syringe-gun-name
-  description: uplink-dart-syringe-gun-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: icon-dart }
-  productEntity: DartSyringeGun
-  cost:
-    Telecrystal: 20 # Hypopen is better
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerDepartmentCondition
-    whitelist:
-    - Medical
+  - UplinkDeception
