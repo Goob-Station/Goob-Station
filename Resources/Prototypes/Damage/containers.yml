@@ -24,7 +24,7 @@
     - Toxin
     - Airloss
     - Genetic
-  supportedTypes:
+  supportedTypes: # Goobstation
     - Holy
 
 - type: damageContainer
@@ -92,5 +92,5 @@
   - Toxin
   - Airloss
   - Genetic
-  supportedTypes:
+  supportedTypes: # Goobstation
   - Holy
