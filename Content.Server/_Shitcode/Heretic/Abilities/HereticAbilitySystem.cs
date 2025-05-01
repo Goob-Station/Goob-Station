@@ -69,6 +69,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic.Components;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Silicons.Borgs.Components;
@@ -487,11 +488,13 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         var godmodeQuery = GetEntityQuery<GodmodeComponent>();
         var hereticQuery = GetEntityQuery<HereticComponent>();
         var ghoulQuery = GetEntityQuery<GhoulComponent>();
+        var mobQuery = GetEntityQuery<MobStateComponent>();
+        var mechQuery = GetEntityQuery<MechComponent>();
 
         var siliconDamage = new DamageSpecifier(_prot.Index<DamageGroupPrototype>("Brute"), 10);
 
-        var disgustQuery = EntityQueryEnumerator<DisgustComponent, MobStateComponent, TransformComponent>();
-        while (disgustQuery.MoveNext(out var uid, out var disgust, out var mobState, out var xform))
+        var disgustQuery = EntityQueryEnumerator<DisgustComponent, TransformComponent>();
+        while (disgustQuery.MoveNext(out var uid, out var disgust, out var xform))
         {
             if (godmodeQuery.HasComp(uid) || hereticQuery.HasComp(uid) || ghoulQuery.HasComp(uid))
             {
@@ -499,16 +502,25 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 continue;
             }
 
+            var isNotDead = mobQuery.TryComp(uid, out var mobState) && mobState.CurrentState != MobState.Dead;
+            var isMech = mechQuery.HasComp(uid);
             var isSilicon = siliconQuery.HasComp(uid) || borgChassisQuery.HasComp(uid) || _tag.HasTag(uid, "Bot");
-            if (mobState.CurrentState != MobState.Dead && IsTileRust(xform.Coordinates, out _))
+
+            // If we are standing on rusted tile while we are a mech or not dead - apply/accumulate rust effects,
+            // Else we stop damaging the entity if we are silicon or mech or reduce disgust level.
+            if ((isNotDead || isMech) && IsTileRust(xform.Coordinates, out _))
             {
                 // Apply rust corruption
-                if (isSilicon)
+                if (isSilicon || isMech)
                 {
                     _dmg.TryChangeDamage(uid,
                         siliconDamage,
                         ignoreResistances: true,
                         targetPart: TargetBodyPart.Torso);
+
+                    // Don't popup to mech
+                    if (isMech)
+                        continue;
 
                     Popup.PopupEntity(Loc.GetString("rust-corruption-silicon-damage"),
                         uid,
@@ -522,7 +534,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             }
             else
             {
-                if (isSilicon)
+                if (isSilicon || isMech)
                 {
                     RemCompDeferred(uid, disgust);
                     continue;
@@ -540,6 +552,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             if (!statusQuery.TryComp(uid, out var status))
                 continue;
 
+            // First level: Visual effects. Jitter stutter and popups.
             if (disgust.CurrentLevel >= disgust.NegativeThreshold)
             {
                 if (_random.Prob(disgust.NegativeEffectProb))
@@ -550,6 +563,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 }
             }
 
+            // Second level: Chance to vomit which knocks down for a long time and reduces disgust level
             if (disgust.CurrentLevel >= disgust.VomitThreshold)
             {
                 var vomitProb = Math.Clamp(0.025f + 0.00025f * disgust.VomitThreshold, 0f, 1f);
@@ -561,6 +575,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
                 }
             }
 
+            // Third level: Harmful negative effects: eyeblur and slowdown.
             if (disgust.CurrentLevel >= disgust.BadNegativeThreshold)
             {
                 if (_random.Prob(disgust.BadNegativeEffectProb))

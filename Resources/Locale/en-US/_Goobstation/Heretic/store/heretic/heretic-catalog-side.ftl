@@ -27,7 +27,7 @@ knowledge-path-side-knowledge-name = Ritual of Knowledge
 knowledge-path-side-knowledge-desc =
     Everything can be a key to unlocking the secrets behind the Gates. I must be wary and wise.
 
-    You learn a special, one-time-only ritual that requires 4 different items. Performing this ritual instantly grants you 4 knowledge points.
+    You learn a special, one-time-only ritual that requires 4 different items. Performing this ritual instantly grants you 5 knowledge points.
 
 ## stage 3
 knowledge-path-side-s3-armor-name = Armorer’s Ritual

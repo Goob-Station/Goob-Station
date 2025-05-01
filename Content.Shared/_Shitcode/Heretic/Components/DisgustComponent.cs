@@ -33,7 +33,7 @@ public sealed partial class DisgustComponent : Component
     public TimeSpan VomitKnockdownTime = TimeSpan.FromSeconds(20);
 
     [DataField]
-    public float SlowdownMultiplier = 0.8f;
+    public float SlowdownMultiplier = 0.5f;
 
     [DataField]
     public float NegativeThreshold = 25f;

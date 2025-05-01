@@ -23,6 +23,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
+using Content.Shared.Mech.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
@@ -64,6 +65,8 @@ public sealed partial class HereticAbilitySystem
 
         SubscribeLocalEvent<RustbringerComponent, FlashAttemptEvent>(OnFlashAttempt);
 
+        SubscribeLocalEvent<MechComponent, MoverControllerCantMoveEvent>(OnMechCantMove);
+        SubscribeLocalEvent<MechComponent, MoverControllerGetTileEvent>(OnMechGetTile);
         SubscribeLocalEvent<MobStateComponent, MoverControllerCantMoveEvent>(OnCantMove);
         SubscribeLocalEvent<MobStateComponent, MoverControllerGetTileEvent>(OnGetTile);
 
@@ -73,6 +76,20 @@ public sealed partial class HereticAbilitySystem
     private void OnRejuvenate(Entity<DisgustComponent> ent, ref RejuvenateEvent args)
     {
         RemCompDeferred(ent.Owner, ent.Comp);
+    }
+
+    private void OnMechGetTile(Entity<MechComponent> ent, ref MoverControllerGetTileEvent args)
+    {
+        if (args.Tile is not { ID: RustTile })
+            return;
+
+        EnsureComp<DisgustComponent>(ent);
+    }
+
+    private void OnMechCantMove(Entity<MechComponent> ent, ref MoverControllerCantMoveEvent args)
+    {
+        if (IsTileRust(Transform(ent).Coordinates, out _))
+            EnsureComp<DisgustComponent>(ent);
     }
 
     private void OnGetTile(Entity<MobStateComponent> ent, ref MoverControllerGetTileEvent args)
