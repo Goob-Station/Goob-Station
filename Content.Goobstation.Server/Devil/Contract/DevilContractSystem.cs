@@ -13,8 +13,6 @@ using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server.Body.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Paper;
@@ -32,7 +30,6 @@ public sealed partial class DevilContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
     [Dependency] private readonly BodySystem _bodySystem = null!;
@@ -258,8 +255,10 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             if (_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto))
             {
+                if (!contract.CurrentClauses.Add(clauseProto))
+                    continue;
+
                 newWeight += clauseProto.ClauseWeight;
-                contract.CurrentClauses.Add(clauseProto);
             }
             else
                 _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
@@ -274,6 +273,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         var matches = _clauseRegex.Matches(paper.Content);
+        var processedClauses = new HashSet<string>();
 
         foreach (Match match in matches)
         {
@@ -297,6 +297,10 @@ public sealed partial class DevilContractSystem : EntitySystem
                 _sawmill.Warning($"Unknown contract clause: {clauseKey}");
                 continue;
             }
+
+            // no duplicates
+            if (!processedClauses.Add(clauseKey))
+                continue;
 
             var targetEntity = resolver(comp);
 
