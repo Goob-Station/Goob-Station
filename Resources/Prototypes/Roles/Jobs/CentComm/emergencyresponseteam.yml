@@ -127,6 +127,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: ERTLeaderGear
@@ -201,6 +204,8 @@
     components:
     - type: BibleUser #Lets them heal with bibles
     - type: CanEnchant #GoobStation
+  - !type:AddImplantSpecial
+     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: ERTChaplainGear
@@ -284,6 +289,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: ERTEngineerGear
@@ -361,6 +369,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: ERTSecurityGear
@@ -457,6 +468,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: ERTMedicalGear
@@ -511,6 +525,9 @@
     - ParamedHypo
     - CartridgeAtropine
     - CartridgeAtropine
+    special: # Goobstation
+    - !type:AddImplantSpecial
+      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 # Janitor
 - type: job
@@ -530,6 +547,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special: # Goobstation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: ERTJanitorGear

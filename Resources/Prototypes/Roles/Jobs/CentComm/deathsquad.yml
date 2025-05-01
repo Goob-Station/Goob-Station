@@ -26,8 +26,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
-
-  # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
+  special: # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 - type: startingGear
   id: DeathSquadGear

@@ -43,7 +43,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         RemCompDeferred<TransferMindOnGibComponent>(ent);
         EnsureComp<WizardComponent>(ent);
 
-        SetOutfitCommand.SetOutfit(ent, LichGear, EntityManager);
+        SetOutfitCommand.SetOutfit(ent, LichGear, false, EntityManager); // Goobstation
 
         if (soulBound.Name != string.Empty)
             Meta.SetEntityName(ent, soulBound.Name);

@@ -119,6 +119,7 @@ namespace Content.Client.Administration.UI.SetOutfit
 
         public NetEntity? TargetEntityId { get; set; }
         private StartingGearPrototype? _selectedOutfit;
+        public bool DoSpecial; // Goobstation
 
         public SetOutfitMenu()
         {
@@ -129,7 +130,9 @@ namespace Content.Client.Administration.UI.SetOutfit
             Title = Loc.GetString("set-outfit-menu-title");
 
             ConfirmButton.Text = Loc.GetString("set-outfit-menu-confirm-button");
+            ToggleSpecial.Text = Loc.GetString("set-outfit-menu-toggle-special"); // Goobstation
             ConfirmButton.OnPressed += ConfirmButtonOnOnPressed;
+            ToggleSpecial.OnToggled += OnToggleSpecialPressed; // Goobstation
             SearchBar.OnTextChanged += SearchBarOnOnTextChanged;
             OutfitList.OnItemSelected += OutfitListOnOnItemSelected;
             OutfitList.OnItemDeselected += OutfitListOnOnItemDeselected;
@@ -140,9 +143,15 @@ namespace Content.Client.Administration.UI.SetOutfit
         {
             if (TargetEntityId == null || _selectedOutfit == null)
                 return;
-            var command = $"setoutfit {TargetEntityId} {_selectedOutfit.ID}";
+            var command = $"setoutfit {TargetEntityId} {_selectedOutfit.ID} {DoSpecial}"; // Goobstation
             _consoleHost.ExecuteCommand(command);
             Close();
+        }
+
+        // Goobstation
+        private void OnToggleSpecialPressed(BaseButton.ButtonToggledEventArgs obj)
+        {
+            DoSpecial = obj.Pressed;
         }
 
         private void OutfitListOnOnItemSelected(ItemList.ItemListSelectedEventArgs obj)

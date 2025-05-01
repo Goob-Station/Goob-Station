@@ -90,7 +90,7 @@ public sealed class CluwneSystem : EntitySystem
 
         _nameMod.RefreshNameModifiers(uid);
 
-        SetOutfitCommand.SetOutfit(uid, "CluwneGear", EntityManager);
+        SetOutfitCommand.SetOutfit(uid, "CluwneGear", false, EntityManager); // Goobstation
     }
 
     /// <summary>

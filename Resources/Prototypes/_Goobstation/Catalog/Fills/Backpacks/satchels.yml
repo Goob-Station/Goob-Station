@@ -14,8 +14,6 @@
     - id: WeaponPulsePistol
     - id: CentralCommandBusinessCard
     - id: BoxFolderCentCom
-    - id: CentcommMindShieldImplanter # SetOutfit doesn't apply implants.
-    - id: BluespaceLifelineImplanter # As much as i hate cramming bags with implants...
     - id: DeterrentCaseFilled
 
 - type: entity
@@ -31,8 +29,6 @@
     - id: MagazineLightRifleUranium
     - id: DeterrentCaseFilled
     - id: CentralCommandBusinessCard
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -46,8 +42,6 @@
     - id: MagazinePistolNeurotoxin
     - id: DeterrentCaseFilled
     - id: CentralCommandBusinessCard
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter
 
 - type: entity
   parent: ClothingBackpackSatchelLeather
@@ -60,5 +54,3 @@
     - id: DeterrentCaseFilled
     - id: CentralCommandBusinessCard
     - id: BoxFolderCentCom
-    - id: CentcommMindShieldImplanter
-    - id: BluespaceLifelineImplanter

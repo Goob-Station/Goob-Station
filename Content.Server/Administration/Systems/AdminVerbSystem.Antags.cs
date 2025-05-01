@@ -198,7 +198,7 @@ public sealed partial class AdminVerbSystem
             Act = () =>
             {
                 // pirates just get an outfit because they don't really have logic associated with them
-                SetOutfitCommand.SetOutfit(args.Target, PirateGearId, EntityManager);
+                SetOutfitCommand.SetOutfit(args.Target, PirateGearId, false, EntityManager);
             },
             Impact = LogImpact.High,
             Message = string.Join(": ", pirateName, Loc.GetString("admin-verb-make-pirate")),
