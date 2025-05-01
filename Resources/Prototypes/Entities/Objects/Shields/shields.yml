@@ -497,7 +497,6 @@
   description: Exotic energy shield, when folded, can even fit in your pocket.
   components:
     - type: ItemToggle
-      predictable: false # WD EDIT
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg
       soundDeactivate:
@@ -513,10 +512,8 @@
         path: /Audio/Weapons/ebladehum.ogg
     - type: ItemToggleSize
       activatedSize: Huge
-    - type: ComponentToggler
-      components:
-      - type: DisarmMalus
-        malus: 0.6
+    - type: DisarmMalus # Goobstation
+      malus: 1
     - type: Sprite
       sprite: Objects/Weapons/Melee/e_shield.rsi
       layers:
@@ -574,13 +571,14 @@
       damageContainer: Shield
     - type: StaticPrice
       price: 350
+    - type: HeldItemNoDrop # Goobstation
       # WD EDIT START
     - type: Battery
-      maxCharge: 20
-      startingCharge: 20
+      maxCharge: 40
+      startingCharge: 40
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 2
+      autoRechargeRate: 4
     - type: RechargeableBlocking
       # WD EDIT END
 

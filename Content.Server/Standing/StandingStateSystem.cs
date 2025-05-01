@@ -20,6 +20,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Common.Items;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Standing;
@@ -51,6 +52,11 @@ public sealed class StandingStateSystem : EntitySystem
         foreach (var hand in handsComp.Hands.Values)
         {
             if (hand.HeldEntity is not EntityUid held)
+                continue;
+
+            var attemptEv = new AttemptDropHeldItemEvent();
+            RaiseLocalEvent(held, attemptEv);
+            if (attemptEv.Cancelled)
                 continue;
 
             if (!_handsSystem.TryDrop(uid, hand, null, checkActionBlocker: false, handsComp: handsComp))

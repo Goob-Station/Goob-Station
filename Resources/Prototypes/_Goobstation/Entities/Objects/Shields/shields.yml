@@ -18,7 +18,6 @@
   components:
     - type: ContainerContainer
     - type: ItemToggle
-      predictable: false
       soundActivate:
         path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
       soundDeactivate:

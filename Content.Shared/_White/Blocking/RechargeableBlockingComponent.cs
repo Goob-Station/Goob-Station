@@ -4,17 +4,19 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._White.Blocking;
+using Robust.Shared.GameStates;
 
-[RegisterComponent]
+namespace Content.Shared._White.Blocking;
+
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class RechargeableBlockingComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float DischargedRechargeRate = 1.33f;
+    public float DischargedRechargeRate = 2.66f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ChargedRechargeRate = 2f;
+    public float ChargedRechargeRate = 4f;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public bool Discharged;
 }
