@@ -560,3 +560,454 @@
     sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
     state: icon
   objectType: Item
+
+# helmet
+
+- type: constructionGraph
+  id: MakeshiftHelmetGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapHelmet
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Glass
+        amount: 4
+        doAfter: 4
+      - tool: Welding
+        doAfter: 8
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: ClothingHeadMakeshiftHelmet
+    edges: []
+
+- type: construction
+  id: MakeshiftHelmetCraft
+  name: makeshift light helmet
+  category: construction-category-clothing
+  description: Makeshift light helmet for protection.
+  graph: MakeshiftHelmetGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
+    state: icon
+  objectType: Item
+
+# light vest
+
+- type: constructionGraph
+  id: MakeshiftLightVestGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapLightVest
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 8
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 8
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 2
+  - node: final
+    entity: ClothingOuterArmorMakeshiftVestLight
+
+- type: construction
+  id: MakeshiftLightVestCraft
+  name: makeshift light vest
+  category: construction-category-clothing
+  description: Complex makeshift light vest for protection. Open a blacksmith man.
+  graph: MakeshiftLightVestGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+    state: icon
+  objectType: Item
+
+# heavy vest
+# gab forgive me for making these crafts so long
+# its for the balance i swear
+- type: constructionGraph
+  id: MakeshiftHeavyVestGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 5
+  - node: mid
+    entity: ScrapHeavyVest
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Anchoring
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Cable
+        amount: 8
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+  - node: final
+    entity: ClothingOuterArmorMakeshiftVestHeavy
+    edges: []
+
+- type: construction
+  id: MakeshiftHeavyVestCraft
+  name: makeshift heavy vest
+  category: construction-category-clothing
+  description: A complex heavy armor vest, made with steel, plasteel, and nails.
+  graph: MakeshiftHeavyVestGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+    state: icon
+  objectType: Item

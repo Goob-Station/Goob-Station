@@ -45,7 +45,36 @@
 
 - type: entity
   parent: ScrapBase
+  id: ScrapHelmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftHelmetGraph
+    node: mid
+
+- type: entity
+  parent: ScrapBase
+  id: ScrapLightVest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftLightVestGraph
+    node: mid
+
+
+- type: entity
+  parent: ScrapBase
+  id: ScrapHeavyVest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftHeavyVestGraph
+    node: mid
+
+- type: entity
+  parent: ScrapBase
   id: ScrapBoots
+  categories: [ HideSpawnMenu ]
   components:
   - type: Construction
     graph: HeavyBootsGraph
@@ -236,4 +265,82 @@
         Blunt: 0.95 # what are you even trying to protect with them
   - type: Construction
     graph: HeavyBootsGraph
+    node: final
+
+# helmet
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseMinorContraband ]
+  id: ClothingHeadMakeshiftHelmet
+  name: makeshift light helmet
+  description: A bunch of steel connected with wires, surprisingly durable, and stylish.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 # worse than a sec helmet
+        Piercing: 0.95
+  - type: Construction
+    graph: MakeshiftHelmetGraph
+    node: final
+
+# light armor
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, BaseMinorContraband ]
+  id: ClothingOuterArmorMakeshiftVestLight
+  name: makeshift light vest
+  description: A light handmade vest made with steel and cables. Durable, but not that efficient.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # counter to the tide armor: disablers.
+    delayDelta: 1.25
+    knockdownTimeDelta: -1.25
+  - type: StaminaDamageResistance
+    coefficient: 1.2 # stun meta go wild
+  - type: Construction
+    graph: MakeshiftLightVestGraph
+    node: final
+
+# heavy armor
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, BaseMinorContraband ]
+  id: ClothingOuterArmorMakeshiftVestHeavy
+  name: makeshift heavy vest
+  description: A heavy makeshift vest, made to withstand bullets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6
+        Heat: 0.9
+  - type: ModifyDelayedKnockdown
+    delayDelta: -1.25
+    knockdownTimeDelta: 1.25
+  - type: StaminaDamageResistance
+    coefficient: 1.2
+  - type: Construction
+    graph: MakeshiftHeavyVestGraph
     node: final
