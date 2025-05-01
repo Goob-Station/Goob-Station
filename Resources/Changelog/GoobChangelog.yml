@@ -8103,3 +8103,9 @@ Entries:
       message: Ninjas now have a microbomb instead of a death acidifier
   id: 937
   time: '2025-05-01T10:09:48.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Remove
+      message: Blobs no longer emit light.
+  id: 938
+  time: '2025-05-01T16:34:16.0000000+00:00'
