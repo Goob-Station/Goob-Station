@@ -607,7 +607,7 @@
     - BorgLimbsStatic
     # Goobstation Packs
     - MechPartsStatic
-    - BorgModulesStaticGoob
+    # - BorgModulesStaticGoob #Removes surgery module, medical cyborgs start with them
     - IPCPartsStatic
     - PowerCagesStatic
     - PartsStatic

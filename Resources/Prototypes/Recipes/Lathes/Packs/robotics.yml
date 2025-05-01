@@ -50,7 +50,7 @@
   - BorgModuleAnomaly
   - BorgModuleGardening
   - BorgModuleHarvesting
-  - BorgModuleDefibrillator
+  # - BorgModuleDefibrillator # Goobstation, medical cyborgs start with this
   - BorgModuleAdvancedTreatment
 
 - type: latheRecipePack

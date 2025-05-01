@@ -25,7 +25,7 @@
   cost: 10000
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
+  # - BorgModuleDefibrillator # Goobstation, medical cyborgs start with this
   - EnergyScalpel
   - EnergyCautery
   - AdvancedRetractor
