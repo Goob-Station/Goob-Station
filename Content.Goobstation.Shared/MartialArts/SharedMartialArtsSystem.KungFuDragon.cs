@@ -64,6 +64,7 @@ public abstract partial class SharedMartialArtsSystem
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Torso);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnDragonTail(Entity<CanPerformComboComponent> ent, ref DragonTailPerformedEvent args)
@@ -86,6 +87,7 @@ public abstract partial class SharedMartialArtsSystem
 
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
 
@@ -100,5 +102,6 @@ public abstract partial class SharedMartialArtsSystem
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage, out _, TargetBodyPart.Torso);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 }

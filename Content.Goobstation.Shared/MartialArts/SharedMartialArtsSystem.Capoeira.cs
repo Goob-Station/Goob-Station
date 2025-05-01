@@ -84,6 +84,7 @@ public abstract partial class SharedMartialArtsSystem
         _status.TryRemoveStatusEffect(ent, "KnockedDown");
         _standingState.Stand(ent);
         _stamina.TryTakeStamina(ent, args.StaminaToHeal);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnSpinKick(Entity<CanPerformComboComponent> ent, ref SpinKickPerformedEvent args)
@@ -123,6 +124,7 @@ public abstract partial class SharedMartialArtsSystem
         }
 
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnSweepKick(Entity<CanPerformComboComponent> ent, ref SweepKickPerformedEvent args)
@@ -146,6 +148,7 @@ public abstract partial class SharedMartialArtsSystem
         _audio.PlayPvs(args.Sound, target);
         ApplyMultiplier(ent, args.AttackSpeedMultiplier, 0f, args.AttackSpeedMultiplierTime);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnCircleKick(Entity<CanPerformComboComponent> ent, ref CircleKickPerformedEvent args)
@@ -165,6 +168,7 @@ public abstract partial class SharedMartialArtsSystem
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Head);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnPushKick(Entity<CanPerformComboComponent> ent, ref PushKickPerformedEvent args)
@@ -195,6 +199,7 @@ public abstract partial class SharedMartialArtsSystem
         DoDamage(ent, target, proto.DamageType, proto.ExtraDamage * power, out _, TargetBodyPart.Torso);
         _grabThrowing.Throw(target, ent, dir.Normalized() * args.ThrowRange * power, proto.ThrownSpeed, behavior: proto.DropHeldItemsBehavior);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void ApplyMultiplier(EntityUid uid,

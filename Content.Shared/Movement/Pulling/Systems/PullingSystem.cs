@@ -176,7 +176,6 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
-    [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -976,7 +975,12 @@ public sealed class PullingSystem : EntitySystem
         // It's blocking stage update, maybe better UX?
         if (puller.Comp.GrabStage == GrabStage.Suffocate)
         {
-            _stamina.TakeStaminaDamage(pullable, puller.Comp.SuffocateGrabStaminaDamage);
+            _stamina.TakeStaminaDamage(pullable, puller.Comp.SuffocateGrabStaminaDamage, applyResistances: true);
+
+            var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
+            RaiseLocalEvent(puller.Owner, comboEv);
+            if (_netManager.IsServer)
+                _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
             Dirty(pullable);
             Dirty(puller);
@@ -1015,7 +1019,7 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
-    private bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
+    public bool TrySetGrabStages(Entity<PullerComponent> puller, Entity<PullableComponent> pullable, GrabStage stage, float escapeAttemptModifier = 1f)
     {
         puller.Comp.GrabStage = stage;
         pullable.Comp.GrabStage = stage;

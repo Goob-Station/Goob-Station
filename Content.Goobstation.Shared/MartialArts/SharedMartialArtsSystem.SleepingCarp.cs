@@ -142,6 +142,7 @@ public partial class SharedMartialArtsSystem
             var ev = new SleepingCarpSaying(saying);
             RaiseLocalEvent(ent, ev);
         }
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnSleepingCarpKneeHaul(Entity<CanPerformComboComponent> ent,
@@ -167,6 +168,7 @@ public partial class SharedMartialArtsSystem
             _pulling.TryStopPull(target, pullable, ent, true);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnSleepingCarpCrashingWaves(Entity<CanPerformComboComponent> ent,
@@ -186,6 +188,7 @@ public partial class SharedMartialArtsSystem
         _grabThrowing.Throw(target, ent, dir, proto.ThrownSpeed, damage);
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit2.ogg"), target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     #endregion

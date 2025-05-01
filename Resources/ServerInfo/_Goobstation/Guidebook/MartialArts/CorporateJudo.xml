@@ -21,6 +21,15 @@
 
   ## Combo attacks
 
+  ### Discombobulate
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+  </Box>
+
+  Slows the opponent down and deals some Stamina damage.
+
   ### Eye Poke
 
   <Box>
@@ -37,7 +46,7 @@
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Only works on standing opponents, dealing Stamina damage, knocking then down and disarming them.
+  Only works on standing opponents, dealing Stamina damage and knocking them down.
 
   ### Armbar
 
@@ -47,6 +56,18 @@
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  If the opponent is downed, inflicts Stamina damage, otherwise disarms them.
+  Only works on downed opponents. Inflicts Stamina damage and locks the opponent in a choke grab.
+  If performed while standing, further knocks the opponent down and disarms them.
+
+  ### Wheel Throw
+
+  <Box>
+    <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
+    <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
+  </Box>
+
+  Only works on downed opponents locked in a choke grab.
+  Flips the opponent over the shoulder, inflicting massive Stamina damage.
 
 </Document>
