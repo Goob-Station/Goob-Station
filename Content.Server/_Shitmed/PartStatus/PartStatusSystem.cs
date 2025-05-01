@@ -59,10 +59,10 @@ public sealed class PartStatusSystem : EntitySystem
 
         if (_mobStateSystem.IsIncapacitated(entity) ||
             !TryComp<ActorComponent>(entity, out var actor) ||
-            _bodySystem.GetRootPartOrNull(entity) is not { } rootPart)
+            !_bodySystem.TryGetRootPart(entity, out var rootPart))
             return;
 
-        var partStatusSet = CollectPartStatuses(rootPart);
+        var partStatusSet = CollectPartStatuses(rootPart.Value);
         var text = GetExamineText(entity, entity, partStatusSet);
 
         _chat.ChatMessageToOne(
@@ -84,7 +84,6 @@ public sealed class PartStatusSystem : EntitySystem
             if (!TryComp<BodyPartComponent>(woundable, out var bodyPartComponent) ||
                 !TryComp<BoneComponent>(woundable.Comp.Bone.ContainedEntities.FirstOrNull(), out var bone))
                 continue;
-
 
             var partName = bodyPartComponent.ParentSlot?.Id ?? bodyPartComponent.PartType.ToString().ToLower();
             var (damageSeverities, isBleeding) = AnalyzeWounds(woundable);
