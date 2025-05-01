@@ -47,6 +47,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
@@ -161,6 +162,7 @@ public sealed partial class ChangelingSystem
         _doAfter.TryStartDoAfter(dargs);
     }
     public ProtoId<DamageGroupPrototype> AbsorbedDamageGroup = "Genetic";
+    public EntProtoId FakeMindShieldAction = "FakeMindShieldToggleAction";
     private void OnAbsorbDoAfter(EntityUid uid, ChangelingIdentityComponent comp, ref AbsorbDNADoAfterEvent args)
     {
         if (args.Args.Target == null)
@@ -200,6 +202,13 @@ public sealed partial class ChangelingSystem
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
+
+        // if eating a seccoid or whoever give fake mindshield to the ling
+        if (HasComp<MindShieldComponent>(target) && !HasComp<FakeMindShieldComponent>(args.User))
+        {
+            EnsureComp<FakeMindShieldComponent>(args.User);
+            _actions.AddAction(args.User, FakeMindShieldAction);
+        }
 
         if (TryComp<StoreComponent>(args.User, out var store))
         {
