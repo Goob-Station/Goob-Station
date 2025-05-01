@@ -518,21 +518,24 @@ public partial class SharedBodySystem
             && bodyId != part.Body;
     }
 
+
     /// <summary>
     /// Returns the root part of this body if it exists.
     /// </summary>
-    public (EntityUid Entity, BodyPartComponent BodyPart)? GetRootPartOrNull(EntityUid bodyId, BodyComponent? body = null)
+    // ShitMed - WoundMed Start # didnt use Entity<T> pattern and ignored
+    public bool TryGetRootPart(EntityUid bodyId, [NotNullWhen(true)] out Entity<BodyPartComponent>? rootPart, BodyComponent? body = null)
     {
+        rootPart = null;
         if (!Resolve(bodyId, ref body)
-            || body.RootContainer is null // A test fails because of this so :shrug:
-            || body.RootContainer.ContainedEntity is null)
-        {
-            return null;
-        }
+            || body.RootContainer?.ContainedEntity is not { } rootContainedEntity
+            || !TryComp<BodyPartComponent>(rootContainedEntity, out var bodyPartComponent))
+            return false;
 
-        return (body.RootContainer.ContainedEntity.Value,
-            Comp<BodyPartComponent>(body.RootContainer.ContainedEntity.Value));
+        rootPart = (rootContainedEntity, bodyPartComponent);
+        return true;
+
     }
+    // ShitMed - WoundMed End
 
     /// <summary>
     /// Returns true if the partId can be attached to the parentId in the specified slot.

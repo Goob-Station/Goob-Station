@@ -62,7 +62,6 @@ public sealed class PartStatusUIController : UIController, IOnStateEntered<Gamep
         if (PartStatusControl != null)
         {
             PartStatusControl.SetVisible(_targetingComponent != null);
-
             if (_targetingComponent != null)
                 PartStatusControl.SetTextures(_targetingComponent.BodyStatus);
         }

@@ -392,11 +392,10 @@ public partial class SharedBodySystem
         if (!Resolve(bodyId, ref body, logMissing: false))
             return gibs;
 
-        var root = GetRootPartOrNull(bodyId, body);
-        if (root != null && TryComp(root.Value.Entity, out GibbableComponent? gibbable))
-        {
+        if (TryGetRootPart(bodyId, out var root) && TryComp(root.Value.Owner, out GibbableComponent? gibbable)) // ShitMed - TryGet
             gibSoundOverride ??= gibbable.GibSound;
-        }
+
+
         var parts = GetBodyChildren(bodyId, body).ToArray();
         gibs.EnsureCapacity(parts.Length);
         foreach (var part in parts)
@@ -547,31 +546,30 @@ public partial class SharedBodySystem
 
         var prototype = Prototypes.Index(body.Prototype.Value);
 
-        var rootPart = GetRootPartOrNull(ent, body);
-        if (rootPart == null)
+        if (!TryGetRootPart(ent, out var rootPart))
             return;
 
         var rootSlot = prototype.Root;
         foreach (var organ in prototype.Slots[rootSlot].Organs)
         {
-            if (Containers.TryGetContainer(rootPart.Value.Entity, GetOrganContainerId(organ.Key), out var organContainer))
+            if (!Containers.TryGetContainer(rootPart.Value.Owner, GetOrganContainerId(organ.Key), out var organContainer))
+                continue;
+
+            var organEnt = organContainer.ContainedEntities.FirstOrNull();
+            if (organEnt != null)
             {
-                var organEnt = organContainer.ContainedEntities.FirstOrNull();
-                if (organEnt != null)
+                foreach (var modifier in Comp<OrganComponent>(organEnt.Value).IntegrityModifiers)
                 {
-                    foreach (var modifier in Comp<OrganComponent>(organEnt.Value).IntegrityModifiers)
-                    {
-                        _trauma.TryRemoveOrganDamageModifier(organEnt.Value, modifier.Key.Item2, modifier.Key.Item1);
-                    }
+                    _trauma.TryRemoveOrganDamageModifier(organEnt.Value, modifier.Key.Item2, modifier.Key.Item1);
                 }
-                else
-                {
-                    SpawnInContainerOrDrop(organ.Value, rootPart.Value.Entity, GetOrganContainerId(organ.Key));
-                }
+            }
+            else
+            {
+                SpawnInContainerOrDrop(organ.Value, rootPart.Value.Owner, GetOrganContainerId(organ.Key));
             }
         }
 
-        Dirty(rootPart.Value.Entity, rootPart.Value.BodyPart);
+        Dirty(rootPart.Value.Owner, rootPart.Value.Comp);
 
         var frontier = new Queue<string>();
         frontier.Enqueue(rootSlot);
@@ -580,7 +578,7 @@ public partial class SharedBodySystem
         cameFrom[rootSlot] = rootSlot;
 
         var cameFromEntities = new Dictionary<string, EntityUid>();
-        cameFromEntities[rootSlot] = rootPart.Value.Entity;
+        cameFromEntities[rootSlot] = rootPart.Value.Owner;
 
         while (frontier.TryDequeue(out var currentSlotId))
         {

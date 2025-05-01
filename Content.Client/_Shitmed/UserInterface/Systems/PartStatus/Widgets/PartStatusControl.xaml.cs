@@ -19,17 +19,21 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
+using Robust.Shared.Input;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Shitmed.UserInterface.Systems.PartStatus.Widgets;
 
 [GenerateTypedNameReferences]
 public sealed partial class PartStatusControl : UIWidget
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     private readonly Dictionary<TargetBodyPart, TextureRect> _partStatusControls;
     private readonly PartStatusUIController _controller;
     public event Action<GUIBoundKeyEventArgs>? OnMouseDown;
     public PartStatusControl()
     {
+        IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
         _controller = UserInterfaceManager.GetUIController<PartStatusUIController>();
@@ -48,7 +52,7 @@ public sealed partial class PartStatusControl : UIWidget
             { TargetBodyPart.RightFoot, DollRightFoot },
         };
         MouseFilter = MouseFilterMode.Stop;
-        OnKeyBindDown += (args) => OnClicked(args);
+        OnKeyBindDown += OnClicked;
     }
 
     public void SetTextures(Dictionary<TargetBodyPart, WoundableSeverity> state)
@@ -62,7 +66,11 @@ public sealed partial class PartStatusControl : UIWidget
         }
     }
 
-    private void OnClicked(GUIBoundKeyEventArgs args) => _controller.GetPartStatusMessage();
+    private void OnClicked(GUIBoundKeyEventArgs args)
+    {
+        if (_timing.IsFirstTimePredicted && args.Function == EngineKeyFunctions.Use)
+            _controller.GetPartStatusMessage();
+    }
 
     public void SetVisible(bool visible) => this.Visible = visible;
 
