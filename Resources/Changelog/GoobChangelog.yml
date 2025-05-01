@@ -8139,3 +8139,9 @@ Entries:
       message: Disabler no longer do ion damage ipc rejoice
   id: 941
   time: '2025-05-01T21:01:14.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed several issues with devil.
+  id: 942
+  time: '2025-05-01T22:46:00.0000000+00:00'
