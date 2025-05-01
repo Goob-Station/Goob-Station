@@ -15,9 +15,12 @@ using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Events;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
@@ -38,6 +41,9 @@ public partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotEquippedEvent>(OnGrantCorporateJudo);
         SubscribeLocalEvent<GrantCorporateJudoComponent, ClothingGotUnequippedEvent>(OnRemoveCorporateJudo);
+
+        SubscribeLocalEvent<ArmbarredComponent, StoodEvent>(OnArmbarredStood);
+        SubscribeLocalEvent<ArmbarredComponent, PullStoppedMessage>(OnArmbarStopped);
     }
 
     #region Generic Methods
@@ -60,11 +66,12 @@ public partial class SharedMartialArtsSystem
         if (martialArtsKnowledge.MartialArtsForm != MartialArtsForms.CorporateJudo)
             return;
 
-        if(!TryComp<MeleeWeaponComponent>(args.Wearer, out var meleeWeaponComponent))
+        if (!TryComp<MeleeWeaponComponent>(args.Wearer, out var meleeWeaponComponent))
             return;
 
         var originalDamage = new DamageSpecifier();
-        originalDamage.DamageDict[martialArtsKnowledge.OriginalFistDamageType] = FixedPoint2.New(martialArtsKnowledge.OriginalFistDamage);
+        originalDamage.DamageDict[martialArtsKnowledge.OriginalFistDamageType]
+            = FixedPoint2.New(martialArtsKnowledge.OriginalFistDamage);
         meleeWeaponComponent.Damage = originalDamage;
 
         RemComp<MartialArtsKnowledgeComponent>(user);
@@ -125,7 +132,20 @@ public partial class SharedMartialArtsSystem
         || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
+
+        if (TryComp<StaminaComponent>(target, out var stamina))
+        {
+            var ev = new TakeStaminaDamageEvent((target, stamina));
+            RaiseLocalEvent(target, ev);
+
+            if (ev.Handled)
+                return;
+
+            knockdownTime *= ev.Multiplier;
+        }
+
+        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
@@ -145,13 +165,26 @@ public partial class SharedMartialArtsSystem
         || !TryComp<PullableComponent>(target, out var pullable))
             return;
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        var knockdownTime = TimeSpan.FromSeconds(proto.ParalyzeTime);
 
-        // Taking someone in an armbar should be an equivalent of taking them in a choke grab
+        if (TryComp<StaminaComponent>(target, out var stamina))
+        {
+            var ev = new TakeStaminaDamageEvent((target, stamina));
+            RaiseLocalEvent(target, ev);
+
+            if (ev.Handled)
+                return;
+
+            knockdownTime *= ev.Multiplier;
+        }
+
+        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+
+        // Taking someone in an armbar is an equivalent of taking them in a choke grab
         _pulling.TrySetGrabStages((ent, puller), (target, pullable), GrabStage.Suffocate);
+        EnsureComp<ArmbarredComponent>(target).Puller = ent;
 
-        if (TryComp<StandingStateComponent>(ent, out var standing) && standing.Standing)
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(proto.ParalyzeTime), true, proto.DropHeldItemsBehavior);
+        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
@@ -164,14 +197,17 @@ public partial class SharedMartialArtsSystem
         || !TryUseMartialArt(ent, proto, out var target, out var downed)
         || !downed
         || !TryComp<PullableComponent>(target, out var pullable)
-        || pullable.Puller != ent
-        || pullable.GrabStage != GrabStage.Suffocate)
+        || !TryComp<ArmbarredComponent>(target, out var armbarred)
+        || armbarred.Puller != ent.Owner)
             return;
 
         _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
 
         _pulling.TryStopPull(target, pullable, ent, true);
-        _grabThrowing.Throw(target, ent, _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position, 7.5f);
+        _grabThrowing.Throw(target, ent, _transform.GetMapCoordinates(ent).Position - _transform.GetMapCoordinates(target).Position, 5);
+
+        _status.TryRemoveStatusEffect(ent, "KnockedDown");
+        _standingState.Stand(ent);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
@@ -194,6 +230,30 @@ public partial class SharedMartialArtsSystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
         ent.Comp.LastAttacks.Clear();
+    }
+
+    #endregion
+
+    #region Armbar
+
+    private void OnArmbarredStood(Entity<ArmbarredComponent> ent, ref StoodEvent args)
+    {
+        if (!TryComp<PullableComponent>(ent, out var pullable))
+            return;
+
+        _pulling.TryStopPull(ent, pullable, ent.Comp.Puller, true);
+        RemComp<ArmbarredComponent>(ent);
+    }
+
+    private void OnArmbarStopped(Entity<ArmbarredComponent> ent, ref PullStoppedMessage args)
+    {
+        if (args.PullerUid != ent.Comp.Puller)
+            return;
+
+        if (!_status.HasStatusEffect(ent, "Stun"))
+            _status.TryRemoveStatusEffect(ent, "KnockedDown");
+
+        RemComp<ArmbarredComponent>(ent);
     }
 
     #endregion

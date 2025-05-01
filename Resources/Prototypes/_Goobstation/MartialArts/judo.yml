@@ -52,9 +52,10 @@
   - Grab
   - Disarm
   event: !type:JudoThrowPerformedEvent
-  paralyzeTime: 4
+  paralyzeTime: 7
   staminaDamage: 15
   dropHeldItemsBehavior: NoDrop
+  canDoWhileProne: false
 
 - type: combo
   id: JudoArmbar
@@ -65,7 +66,7 @@
   - Disarm
   - Grab
   event: !type:JudoArmbarPerformedEvent
-  paralyzeTime: 3
+  paralyzeTime: 5
   staminaDamage: 25
   dropHeldItemsBehavior: AlwaysDrop
 

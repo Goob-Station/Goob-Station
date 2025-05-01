@@ -46,7 +46,8 @@
     <GuideEntityEmbed Entity="GuidebookDisarm" Caption=""/>
   </Box>
 
-  Only works on standing opponents, dealing Stamina damage and knocking them down.
+  Can only be perfomed while standing. Only works on standing opponents, dealing Stamina damage and knocking them down.
+  Knockdown duration is affected by their Stamina resistance.
 
   ### Armbar
 
@@ -56,8 +57,8 @@
     <GuideEntityEmbed Entity="GuidebookGrab" Caption=""/>
   </Box>
 
-  Only works on downed opponents. Inflicts Stamina damage and locks the opponent in a choke grab.
-  If performed while standing, further knocks the opponent down and disarms them.
+  Only works on downed opponents. Inflicts Stamina damage, disarms them, and locks them in an armbar until they manage to stand up.
+  Armbar works similarly to a knockdown and choke grab, and its duration is affected by their Stamina resistance.
 
   ### Wheel Throw
 
@@ -67,7 +68,7 @@
     <GuideEntityEmbed Entity="GuidebookHarm" Caption=""/>
   </Box>
 
-  Only works on downed opponents locked in a choke grab.
-  Flips the opponent over the shoulder, inflicting massive Stamina damage.
+  Only works on opponents locked in an armbar. Flips the opponent over the shoulder,
+  inflicting massive Stamina damage, and forces the user back on their feet.
 
 </Document>
