@@ -18,4 +18,10 @@ public sealed partial class DelayedDeathComponent : Component
     /// How long it has been since the delayed death timer started.
     /// </summary>
     public float DeathTimer;
+
+    /// <summary>
+    /// What message is displayed when the time runs out - Goobstation
+    /// </summary>
+    [DataField]
+    public LocId DeathMessageId;
 }
