@@ -81,8 +81,10 @@ public sealed partial class PossessionSystem : EntitySystem
             RemComp<WeakToHolyComponent>(comp.OriginalEntity);
 
         // Return the possessors mind to their body, and the target to theirs.
-        _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
-        _mind.TransferTo(comp.OriginalMindId, comp.OriginalEntity);
+        if (!TerminatingOrDeleted(comp.PossessorMindId))
+            _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
+        if (!TerminatingOrDeleted(comp.OriginalMindId))
+            _mind.TransferTo(comp.OriginalMindId, comp.OriginalEntity);
 
         if (!TerminatingOrDeleted(comp.OriginalEntity))
             coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());

@@ -6,4 +6,5 @@
   - type: MindRole
     antagPrototype: Devil
     exclusiveAntag: true
+    roleType: SoloAntagonist
   - type: DevilRole
