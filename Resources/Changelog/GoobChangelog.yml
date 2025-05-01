@@ -8127,3 +8127,15 @@ Entries:
         painter to paper. Law enforcement might not be happy, though.
   id: 940
   time: '2025-05-01T18:43:54.0000000+00:00'
+- author: Creatorbot01
+  changes:
+    - type: Add
+      message: Added 1 mag type for cr-2
+    - type: Add
+      message: Added Ion rifle
+    - type: Tweak
+      message: small buff to cr-2 to actually be deadly against nukie(15>17 damage)
+    - type: Tweak
+      message: Disabler no longer do ion damage ipc rejoice
+  id: 941
+  time: '2025-05-01T21:01:14.0000000+00:00'
