@@ -246,8 +246,8 @@ uplink-stealth-box-desc = A box outfitted with stealth technology. Sneak around 
 uplink-headset-name = Syndicate Over-ear Headset
 uplink-headset-desc = A headset that allows you to communicate with other syndicate operatives. Has 4 slots for encryption keys.
 
-uplink-encryption-key-name = Syndicate Encryption Keys
-uplink-encryption-key-desc = Two encryption keys for access to the secret frequency of our special agents. Give the spare to a friend, but make sure it doesn't fall into enemy hands.
+uplink-encryption-key-name = Syndicate Encryption Key
+uplink-encryption-key-desc = An encryption key for access to the secret frequency of our special agents but make sure it doesn't fall into enemy hands.
 
 uplink-binary-translator-key-name = Binary Translator Key
 uplink-binary-translator-key-desc = Lets you tap into the silicons' binary channel. Don't talk on it though, at least not without a voice mask.
@@ -563,3 +563,6 @@ uplink-business-card-desc = A business card that you can give to someone to demo
 
 uplink-fake-mindshield-name = Fake Mindshield
 uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
+
+uplink-smuggler-satchel-name = Smuggler's Satchel
+uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
