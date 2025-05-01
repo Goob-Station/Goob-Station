@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Clothing.ClothingAutoInjector;
-using Content.Server.Chat.Systems;
+using Content.Goobstation.Shared.Clothing;
+using Content.Goobstation.Shared.Clothing.Components;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.Clothing;
 using Content.Shared.Actions;
@@ -15,7 +15,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Robust.Server.Audio;
 using Robust.Shared.Timing;
 
@@ -40,7 +39,8 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         SubscribeLocalEvent<ClothingAutoInjectComponent, GetItemActionsEvent>(OnEquipped);
         SubscribeLocalEvent<ClothingAutoInjectComponent, GotUnequippedEvent>(OnUnequipped);
         SubscribeLocalEvent<ClothingAutoInjectComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<ClothingAutoInjectComponent, InventoryRelayedEvent<MobStateChangedEvent>>(OnMobStateChange);
+        SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<ClothingAutoInjectComponent, InventoryRelayedEvent<ClothingAutoInjectRelayedEvent>>(OnInject);
     }
 
     private void OnInjectorActivated(EntityUid uid, ClothingAutoInjectComponent component, ref ActionActivateAutoInjectorEvent args)
@@ -68,15 +68,20 @@ public sealed partial class ClothingAutoinjectorSystem : EntitySystem
         return _solution.TryAddSolution(targetSolution.Value, solution);
     }
 
-    private void OnMobStateChange(EntityUid uid, ClothingAutoInjectComponent comp, InventoryRelayedEvent<MobStateChangedEvent> args)
+    private void OnMobStateChange(MobStateChangedEvent args)
     {
-        if (args.Args.NewMobState != MobState.Critical
+        RaiseLocalEvent(args.Target, new ClothingAutoInjectRelayedEvent(args.Target, args.NewMobState));
+    }
+
+    private void OnInject(EntityUid uid, ClothingAutoInjectComponent comp, InventoryRelayedEvent<ClothingAutoInjectRelayedEvent> args)
+    {
+        if (args.Args.NewState != MobState.Critical
         || comp.NextAutoInjectTime > _timing.CurTime)
-            return;
+        return;
 
         TryInjectReagents(args.Args.Target, comp.Reagents);
         _audio.PlayPvs(comp.InjectSound, args.Args.Target);
-        _popup.PopupEntity(Loc.GetString("autoinjector-injection-hardsuit"), args.Args.Target, args.Args.Target);
+        _popup.PopupEntity(Loc.GetString(comp.Popup), args.Args.Target, args.Args.Target);
 
         comp.NextAutoInjectTime = _timing.CurTime + comp.AutoInjectInterval;
     }

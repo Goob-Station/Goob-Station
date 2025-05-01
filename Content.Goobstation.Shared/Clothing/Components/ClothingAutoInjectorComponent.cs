@@ -8,7 +8,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Clothing;
+namespace Content.Goobstation.Shared.Clothing.Components;
 /// <summary>
 /// Component applied by clothing that allows the wearer to inject themselves with a reagent on a cooldown.
 /// Used for auto-injection mechanisms like emergency epi-pens or stimulants. Possible uses for a modsuit in the future.
@@ -48,6 +48,9 @@ public sealed partial class ClothingAutoInjectComponent : Component
 
     [DataField]
     public SoundSpecifier InjectSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");
+
+    [DataField]
+    public LocId Popup = "autoinjector-injection-hardsuit";
 
     [ViewVariables]
     public EntityUid? ActionEntity;

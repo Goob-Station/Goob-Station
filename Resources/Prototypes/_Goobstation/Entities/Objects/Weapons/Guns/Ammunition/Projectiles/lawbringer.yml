@@ -179,8 +179,9 @@
         - ReagentId: Haloperidol
           Quantity: 2
   - type: StunOnCollide
-    walkSpeedMultiplier: 0.6
-    runSpeedMultiplier: 0.6
+    walkSpeedMultiplier: 0.8
+    runSpeedMultiplier: 0.8
+    slowDownAmount: 2
 
 - type: entity
   id: BulletBigshot
