@@ -175,10 +175,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
             var requirementsManager = IoCManager.Resolve<JobRequirementsManager>();
 
-            // Ghost roles with the same name and description but different requirement instances
-+           // should be grouped together. We only use the name and description for grouping,
-+           // and take the requirements from the first role in each group
-            // Grouping roles
+            // We only use the name and description for grouping,
+            // and take the requirements from the first role in each group.
+            // TLDR: DON'T USE THE SAME NAME AND DESC FOR DIFFERENT ROLE REQUIREMENTS OR I WILL BEAT YOU WITH HAMMERS (PLURAL)
             var groupedRoles = ghostState.GhostRoles.GroupBy(
                 role => (role.Name, role.Description)); //goobstation edit, less polluted ghost spawners menu
 
