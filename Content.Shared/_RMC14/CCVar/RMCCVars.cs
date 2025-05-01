@@ -1,4 +1,8 @@
-﻿using Robust.Shared;
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Robust.Shared;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared._RMC14.CCVar;

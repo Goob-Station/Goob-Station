@@ -1,4 +1,8 @@
-﻿namespace Content.Shared._RMC14.Random;
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+namespace Content.Shared._RMC14.Random;
 
 /// <summary>
 /// Seed initializer PRNG (splitmix64).

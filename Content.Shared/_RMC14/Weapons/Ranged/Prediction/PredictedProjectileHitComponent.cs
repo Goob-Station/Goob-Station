@@ -1,4 +1,8 @@
-﻿using Content.Shared.Projectiles;
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared.Projectiles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 

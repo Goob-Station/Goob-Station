@@ -1,4 +1,9 @@
-﻿using Content.Shared._RMC14.CCVar;
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Shared._RMC14.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Configuration;
