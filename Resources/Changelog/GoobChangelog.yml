@@ -8109,3 +8109,13 @@ Entries:
       message: Blobs no longer emit light.
   id: 938
   time: '2025-05-01T16:34:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: China lake is back to 1 firerate. Still pump action.
+    - type: Tweak
+      message: >-
+        Singularity buster is greatly increased in size and is no longer a steal
+        target.
+  id: 939
+  time: '2025-05-01T18:13:31.0000000+00:00'
