@@ -322,7 +322,9 @@
   components:
     - type: Storage
       grid:
-      - 0,0,7,6
+      - 0,0,10,7 # Goobstation
+    - type: ExplosionResistance # Goobstation
+      damageCoefficient: 0.1
     - type: Tag
       tags: [] # ignore "WhitelistChameleon" tag
 

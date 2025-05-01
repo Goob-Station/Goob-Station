@@ -29,6 +29,9 @@
   special: # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: DeathSquadMember # Goobstation
 
 - type: startingGear
   id: DeathSquadGear

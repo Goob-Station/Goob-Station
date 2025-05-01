@@ -174,6 +174,8 @@
       types:
         Slash: 25
         Structural: 60
+    soundHit:
+      path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
     mustBeEquippedToUse: true
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
@@ -195,6 +197,8 @@
                 Blunt: 32
                 Structural: 80
             mustBeEquippedToUse: true
+            soundHit:
+              path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
           - type: StaminaDamageOnHit
             damage: 45
             overtime: 80
@@ -219,6 +223,8 @@
                 Structural: 50
                 Cellular: 15 # Rip and tear until it is done.
             mustBeEquippedToUse: true
+            soundHit:
+              path: /Audio/Weapons/bladeslice.ogg
         soundStateActivate:
           collection: sparks
           params:
