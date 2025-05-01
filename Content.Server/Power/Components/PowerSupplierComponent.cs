@@ -48,7 +48,7 @@ namespace Content.Server.Power.Components
 
         // Goobstation
         [DataField]
-        public float SupplyRampScaling
+        public float SupplyRampScaling // if you want to set this below 1, you're very likely doing something wrong
         {
             get => NetworkSupply.SupplyRampScaling;
             set => NetworkSupply.SupplyRampScaling = value;

@@ -370,7 +370,7 @@ namespace Content.Server.Power.Pow3r
             [ViewVariables(VVAccess.ReadWrite)] public float SupplyRampRate = 5000;
             [ViewVariables(VVAccess.ReadWrite)] public float SupplyRampTolerance = 5000;
             // Goobstation
-            [ViewVariables] public float SupplyRampScaling = 1.2f;
+            [ViewVariables] public float SupplyRampScaling = 1.2f; // if you want to set this below 1, you're very likely doing something wrong
 
             // == Runtime parameters ==
 
