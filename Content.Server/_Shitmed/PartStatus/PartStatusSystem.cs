@@ -212,7 +212,7 @@ private string BuildStatusDescription(PartStatus partStatus, bool inspectingSelf
                 continue;
 
             if (hasStatus)
-                sb.Append(type.Contains(Loc.GetString("inspect-part-status-conjunction"), StringComparison.CurrentCultureIgnoreCase) ? $"{Loc.GetString("inspect-part-status-conjunction")} " : $"{Loc.GetString("inspect-part-status-comma")} ");
+                sb.Append(!type.Contains(Loc.GetString("inspect-part-status-conjunction"), StringComparison.CurrentCultureIgnoreCase) ? $" {Loc.GetString("inspect-part-status-conjunction")} " : $"{Loc.GetString("inspect-part-status-comma")} ");
 
             var cappedSeverity = severity > WoundSeverity.Severe ? WoundSeverity.Severe : severity;
             var localeText = $"inspect-wound-{type}-{cappedSeverity.ToString().ToLower()}";
