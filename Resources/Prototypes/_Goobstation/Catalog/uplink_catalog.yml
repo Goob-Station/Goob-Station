@@ -185,7 +185,7 @@
   description: uplink-WSPR-desc
   productEntity: WeaponRifleWSPR
   cost:
-    Telecrystal: 65
+    Telecrystal: 65 # fire
   categories:
   - UplinkWeaponry
 
@@ -265,7 +265,7 @@
   cost:
     Telecrystal: 100
   categories:
-  -  UplinkWeaponry
+    -  UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -743,7 +743,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
   productEntity: MagazineCaselessRifle
   cost:
-    Telecrystal: 6
+    Telecrystal: 8
   categories:
   - UplinkAmmo
 
@@ -791,7 +791,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: practice }
   productEntity: MagazinePistolCaselessRifleSAPHE
   cost:
-    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 12 pierce 11 explosive
+    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10.5 explosive
   categories:
   - UplinkAmmo
 
@@ -867,7 +867,7 @@
   icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
   productEntity: MagazineBoxShotgunHighCaliberFlash
   cost:
-    Telecrystal: 5
+    Telecrystal: 1
   categories:
   - UplinkAmmo
 
