@@ -16,6 +16,7 @@
       - right arm
       - right arm 2
       - right arm 3 # Goobstation
+      - right arm 4 # Goobstation
       - left arm
       - left arm 2
     right arm:
@@ -30,6 +31,10 @@
       part: RightArmBorg
       connections:
       - right hand 3
+    right arm 4: # Goobstation
+      part: RightArmBorg
+      connections:
+      - right hand 4
     left arm:
       part: LeftArmBorg
       connections:
@@ -43,6 +48,8 @@
     right hand 2:
       part: RightHandHuman
     right hand 3: # Goobstation
+      part: RightHandHuman
+    right hand 4: # Goobstation
       part: RightHandHuman
     left hand:
       part: LeftHandHuman
