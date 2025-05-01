@@ -27,12 +27,15 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NullrodComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
-        SubscribeLocalEvent<NullrodComponent, NullrodPrayDoAfterEvent>(OnPrayDoAfter);
+        SubscribeLocalEvent<AlternatePrayableComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<AlternatePrayableComponent, NullrodPrayDoAfterEvent>(OnPrayDoAfter);
     }
-    private void OnGetVerbs(Entity<NullrodComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
+    private void OnGetVerbs(Entity<AlternatePrayableComponent> ent, ref GetVerbsEvent<InteractionVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || !HasComp<BibleUserComponent>(args.User))
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        if (ent.Comp.RequireBibleUser && !HasComp<BibleUserComponent>(args.User))
             return;
 
         var user = args.User;
@@ -51,7 +54,7 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
     }
 
     #region Doafter
-    private void StartPrayDoAfter(EntityUid user, EntityUid nullRod, NullrodComponent comp)
+    private void StartPrayDoAfter(EntityUid user, EntityUid nullRod, AlternatePrayableComponent comp)
     {
         var popup = Loc.GetString("nullrod-pray-start", ("user", Name(user)), ("nullrod", Name(nullRod)));
         _popupSystem.PopupEntity(popup, user);
@@ -75,12 +78,12 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
     }
 
-    private void OnPrayDoAfter(EntityUid uid, NullrodComponent comp, ref NullrodPrayDoAfterEvent args)
+    private void OnPrayDoAfter(EntityUid uid, AlternatePrayableComponent comp, ref NullrodPrayDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled || !args.User.IsValid())
+        if (args.Cancelled || args.Handled || TerminatingOrDeleted(args.User))
             return;
 
-        var ev = new NullrodPrayEvent(args.User, comp);
+        var ev = new NullrodPrayEvent(args.User);
         RaiseLocalEvent(uid, ref ev);
 
         args.Repeat = comp.RepeatPrayer;

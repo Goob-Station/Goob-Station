@@ -4,6 +4,7 @@
   abstract: true
   components:
   - type: DivineIntervention
+  - type: AlternatePrayable
   - type: Sprite
     sprite: _ShitChap/Objects/Weapons/Nullrod/nullrod.rsi
     state: icon
@@ -145,11 +146,12 @@
     slots:
     - Belt
   - type: Nullrod
-    repeatPrayer: true
     DamageOnUntrainedUse:
       types:
         Blunt: 20
     UntrainedUseString: nullrod-rosary-untrained-usage-popup
+  - type: AlternatePrayable
+    repeatPrayer: true
   - type: HealNearOnPray
     damage:
       groups:
