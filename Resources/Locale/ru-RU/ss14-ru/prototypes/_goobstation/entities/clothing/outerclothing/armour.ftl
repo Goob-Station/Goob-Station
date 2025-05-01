@@ -1,0 +1,12 @@
+ent-ClothingOuterVestWebDurathread = тактический бронежелет из дюраткани
+    .desc = Самодельный бронежелет из дюраткани и пластали. Он удивительно лёгкий и гибкий, несмотря на внушительную броню.
+ent-ClothingOuterArmourDurathread = броня из дюраткани
+    .desc = Самодельный бронежелет из дюраткани и пластали. Он удивительно лёгкий и гибкий, несмотря на внушительную броню.
+ent-ClothingOuterArmorHelldiver = тактический скафандр NT-01
+    .desc = Эта броня - стандарт выдаваемый элитным утилизаторам NanoTrasen, изготовленную из того же титанового сплава, что и корпус Дюранда.
+ent-ClothingBlueshieldArmourVest = бронежелет офицера синего щита
+    .desc = Бронежелет с символикой Синего Щита.
+ent-ClothingBlueshieldArmoredJacket = бронекуртка офицера синего щита
+    .desc = Куртка с вшитыми слоями брони.
+ent-ClothingBlueshieldArmoredCowboyJacket = blueshield's armored cowboy jacket
+    .desc = A jacket to protect important people in wild areas.

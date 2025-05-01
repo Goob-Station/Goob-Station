@@ -1,0 +1,11 @@
+ent-ClothingBackpackStasisBattery = Стазис хранилище
+    .desc = Хранит энергию, чтобы заморозить течение времени, искажая пространство внутри для увеличения емкости.
+ent-ClothingBackpackStasisBatteryUnremoveable = { ent-ClothingBackpackStasisBattery }
+    .suffix = Unremoveable
+    .desc = { ent-ClothingBackpackStasisBattery.desc }
+ent-ClothingBackpackStasisBatteryUnremoveableFilled = { ent-ClothingBackpackStasisBatteryUnremoveable }
+    .suffix = Filled, Unremoveable
+    .desc = { ent-ClothingBackpackStasisBatteryUnremoveable.desc }
+ent-ClothingBackpackMercFilledHECU = { ent-ClothingBackpackMerc }
+    .suffix = Filled, HECU
+    .desc = { ent-ClothingBackpackMerc.desc }

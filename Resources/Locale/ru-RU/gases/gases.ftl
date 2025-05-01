@@ -1,0 +1,13 @@
+gases-oxygen = Кислород
+gases-nitrogen = Азот
+gases-co2 = Диоксид углерода
+gases-plasma = Плазма
+gases-tritium = Тритий
+gases-water-vapor = Водяной пар
+gases-ammonia = Аммиак
+gases-n2o = Оксид азота
+gases-frezon = Фрезон
+gases-bz = BZ
+gases-healium = Хилиум
+gases-nitrium = Нитриум
+gases-pluoxium = Плюксиум

@@ -1,0 +1,16 @@
+ent-PartModsuit = MOD part
+    .desc = A part used in MOD construction.
+ent-ModsuitChestplate = MOD chestplate
+    .desc = { ent-PartModsuit.desc }
+ent-ModsuitBoots = MOD boots
+    .desc = { ent-PartModsuit.desc }
+ent-ModsuitHelmet = MOD helmet
+    .desc = { ent-PartModsuit.desc }
+ent-ModsuitGauntlets = MOD gauntlets
+    .desc = { ent-PartModsuit.desc }
+ent-ModsuitShell = MOD shell
+    .desc = { ent-PartModsuit.desc }
+ent-ModsuitPlatingExternal = MOD standard external plating
+    .desc = A part used in MOD construction.
+ent-ModsuitCoreStandard = MOD standard core
+    .desc = Growing in the most lush, fertile areas of the planet Sprout, there is a crystal known as the Heartbloom. These rare, organic piezoelectric crystals are of incredible cultural significance to the artist castes of the Ethereals, owing to their appearance; which is exactly similar to that of an Ethereal's heart. Which one you have in your suit is unclear, but either way, it's been repurposed to be an internal power source for a Modular Outerwear Device.
