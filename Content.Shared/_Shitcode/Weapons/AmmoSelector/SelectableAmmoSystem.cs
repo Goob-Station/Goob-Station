@@ -100,6 +100,9 @@ public sealed class SelectableAmmoSystem : EntitySystem
         if (TryComp(uid, out BasicEntityAmmoProviderComponent? basic) && basic.Proto != null)
             return _protoManager.TryIndex(basic.Proto, out var index) ? index.Name : null;
 
+        if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))
+            return _protoManager.TryIndex(hitscanBattery.Prototype, out var index) ? index.Name : null;
+
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBattery))
             return _protoManager.TryIndex(projectileBattery.Prototype, out var index) ? index.Name : null;
 
@@ -116,6 +119,24 @@ public sealed class SelectableAmmoSystem : EntitySystem
         if (TryComp(uid, out BasicEntityAmmoProviderComponent? basic))
         {
             basic.Proto = proto.ProtoId;
+            return true;
+        }
+
+        // this entire system makes me want to sob but im not touching this shit more than i have to
+        if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBattery))
+        {
+            hitscanBattery.Prototype = proto.ProtoId;
+            if (!ShouldSetFireCost(proto))
+                return true;
+
+            var oldFireCost = hitscanBattery.FireCost;
+            hitscanBattery.FireCost = proto.FireCost;
+            var fireCostDiff = proto.FireCost / oldFireCost;
+            hitscanBattery.Shots = (int) Math.Round(hitscanBattery.Shots / fireCostDiff);
+            hitscanBattery.Capacity = (int) Math.Round(hitscanBattery.Capacity / fireCostDiff);
+            Dirty(uid, hitscanBattery);
+            var updateClientAmmoEvent = new UpdateClientAmmoEvent();
+            RaiseLocalEvent(uid, ref updateClientAmmoEvent);
             return true;
         }
 
