@@ -8058,3 +8058,9 @@ Entries:
       message: You can now use welders to deconstruct plating.
   id: 932
   time: '2025-05-01T03:29:56.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Atmos temperature limit effectively removed.
+  id: 933
+  time: '2025-05-01T05:11:03.0000000+00:00'
