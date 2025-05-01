@@ -6,3 +6,6 @@
 
 tool-quality-axing-name = Axing
 tool-quality-axing-tool-name = Fireaxe
+
+tool-quality-painting-name = Painting
+tool-quality-painting-tool-name = Spray Painter

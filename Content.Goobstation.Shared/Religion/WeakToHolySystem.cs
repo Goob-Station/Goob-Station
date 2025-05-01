@@ -5,11 +5,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Religion;
+using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
+using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
@@ -20,6 +22,8 @@ public sealed class WeakToHolySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly GoobBibleSystem _goobBible = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
 
     public override void Initialize()
@@ -27,12 +31,25 @@ public sealed class WeakToHolySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<WeakToHolyComponent, DamageUnholyEvent>(OnUnholyItemDamage);
+        SubscribeLocalEvent<WeakToHolyComponent, AfterInteractUsingEvent>(AfterBibleUse);
 
         SubscribeLocalEvent<HereticRitualRuneComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<HereticRitualRuneComponent, EndCollideEvent>(OnCollideEnd);
 
         SubscribeLocalEvent<DamageableComponent, DamageModifyEvent>(OnDamageModify);
 
+    }
+
+    private void AfterBibleUse(Entity<WeakToHolyComponent> ent, ref AfterInteractUsingEvent args)
+    {
+        if (!TryComp<BibleComponent>(args.Used, out var bibleComp)
+            || !TryComp(args.Used, out UseDelayComponent? useDelay)
+            || _useDelay.IsDelayed((args.Used, useDelay))
+            || !HasComp<BibleUserComponent>(args.User)
+            || args.Target is not { } target)
+            return;
+
+        _goobBible.TryDoSmite(target, bibleComp, args, useDelay);
     }
 
     #region Holy Damage Dealing
@@ -66,7 +83,7 @@ public sealed class WeakToHolySystem : EntitySystem
             return;
         }
 
-        foreach (var item in _inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.All & ~SlotFlags.POCKET))
+        foreach (var item in _inventorySystem.GetHandOrInventoryEntities(args.Target, SlotFlags.WITHOUT_POCKET))
         {
             if (!HasComp<UnholyItemComponent>(item))
                 continue;
