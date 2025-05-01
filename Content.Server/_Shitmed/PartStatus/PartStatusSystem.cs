@@ -12,6 +12,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared._Shitmed.PartStatus.Events;
 using Content.Shared.Body.Part;
@@ -22,6 +23,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Shitmed.PartStatus;
+
 public sealed class PartStatusSystem : EntitySystem
 {
     [Dependency] private readonly WoundSystem _woundSystem = default!;
@@ -31,7 +33,7 @@ public sealed class PartStatusSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly IChatManager _chat = default!;
 
-    private static readonly List<string> _bodyPartOrder = new()
+    private static readonly IReadOnlyList<string> BodyPartOrder = new List<string>
     {
         "head",
         "chest",
@@ -41,8 +43,11 @@ public sealed class PartStatusSystem : EntitySystem
         "left leg",
         "left foot",
         "right leg",
-        "right foot"
-    };
+        "right foot",
+    }.AsReadOnly();
+
+    private const string BleedLocaleStr = "inspect-wound-Bleeding-moderate";
+    private const string BoneLocaleStr = "inspect-trauma-BoneDamage";
 
     public override void Initialize()
     {
@@ -53,126 +58,166 @@ public sealed class PartStatusSystem : EntitySystem
     private void OnGetPartStatus(GetPartStatusEvent message, EntitySessionEventArgs args)
     {
         var entity = GetEntity(message.Uid);
-        if (_mobStateSystem.IsIncapacitated(entity))
+
+        if (_mobStateSystem.IsIncapacitated(entity) ||
+            !TryComp<ActorComponent>(entity, out var actor) ||
+            _bodySystem.GetRootPartOrNull(entity) is not { } rootPart)
             return;
 
-        if (!TryComp<ActorComponent>(entity, out var actor))
-            return;
+        var partStatusSet = CollectPartStatuses(rootPart);
+        var text = GetExamineText(entity, entity, partStatusSet);
 
-        if (_bodySystem.GetRootPartOrNull(entity) is not { } rootPart)
-            return;
+        _chat.ChatMessageToOne(
+            ChatChannel.Emotes,
+            text.ToString(),
+            text.ToString(),
+            EntityUid.Invalid,
+            false,
+            actor.PlayerSession.Channel,
+            recordReplay: false);
+    }
 
-        HashSet<PartStatus> partStatusSet = [];
-        foreach (var woundable in _woundSystem.GetAllWoundableChildren(rootPart.Entity)) // honestly nuke part status at somepoint
+    private HashSet<PartStatus> CollectPartStatuses(Entity<BodyPartComponent> rootPart)
+    {
+        var partStatusSet = new HashSet<PartStatus>();
+
+        foreach (var woundable in _woundSystem.GetAllWoundableChildren(rootPart))
         {
-            // TODO: ADD ORGAN and TRAUMA STATUS. For chest and head. headaches migraines, sharp pains, tightness in chest.
-
-            if (!TryComp<BodyPartComponent>(woundable, out var bodyPartComponent)
-                || !TryComp<BoneComponent>(woundable.Comp.Bone.ContainedEntities.FirstOrNull(), out var bone))
+            if (!TryComp<BodyPartComponent>(woundable, out var bodyPartComponent) ||
+                !TryComp<BoneComponent>(woundable.Comp.Bone.ContainedEntities.FirstOrNull(), out var bone))
                 continue;
 
-            var isBleeding = false;
-            var boneSeverity = bone.BoneSeverity;
-            var name = bodyPartComponent.ParentSlot is null ? bodyPartComponent.PartType.ToString().ToLower() : bodyPartComponent.ParentSlot.Value.Id;
 
-            var damageSeverities = new Dictionary<string, WoundSeverity>();
-
-            foreach (var wound in _woundSystem.GetWoundableWounds(woundable))
-            {
-                if (wound.Comp.DamageGroup == null)
-                    return;
-
-                if (!damageSeverities.TryGetValue(wound.Comp.DamageType, out var existingSeverity) ||
-                    wound.Comp.WoundSeverity > existingSeverity)
-                    damageSeverities[wound.Comp.DamageGroup.LocalizedName] = wound.Comp.WoundSeverity;
-
-                if (!TryComp<BleedInflicterComponent>(wound, out var bleeds))
-                    continue;
-
-                if(bleeds.IsBleeding)
-                    isBleeding = true;
-                Logger.Debug($"Added status: {name} Bleeding={isBleeding}");
-            }
+            var partName = bodyPartComponent.ParentSlot?.Id ?? bodyPartComponent.PartType.ToString().ToLower();
+            var (damageSeverities, isBleeding) = AnalyzeWounds(woundable);
 
             partStatusSet.Add(new PartStatus(
-                name,
+                partName,
                 woundable.Comp.WoundableSeverity,
                 damageSeverities,
-                boneSeverity,
+                bone.BoneSeverity,
                 isBleeding));
         }
 
-        var text = GetExamineText(entity, entity, partStatusSet);
-        _chat.ChatMessageToOne(ChatChannel.Emotes, text.ToString(), text.ToString(), EntityUid.Invalid, false, actor.PlayerSession.Channel, recordReplay: false);
+        return partStatusSet;
+    }
+
+    private (Dictionary<string, WoundSeverity> DamageSeverities, bool IsBleeding) AnalyzeWounds(
+        Entity<WoundableComponent> woundable)
+    {
+        var damageSeverities = new Dictionary<string, WoundSeverity>();
+        var isBleeding = false;
+
+        foreach (var wound in _woundSystem.GetWoundableWounds(woundable))
+        {
+            if (wound.Comp.DamageGroup == null)
+                continue;
+
+            if (!damageSeverities.TryGetValue(wound.Comp.DamageType, out var existingSeverity) ||
+                wound.Comp.WoundSeverity > existingSeverity)
+                damageSeverities[wound.Comp.DamageGroup.LocalizedName] = wound.Comp.WoundSeverity;
+
+            if (TryComp<BleedInflicterComponent>(wound, out var bleeds) && bleeds.IsBleeding)
+                isBleeding = true;
+        }
+
+        return (damageSeverities, isBleeding);
     }
 
     private FormattedMessage GetExamineText(EntityUid entity, EntityUid examiner, HashSet<PartStatus> partStatusSet)
     {
-        var inspectingSelf = entity == examiner;
         var message = new FormattedMessage();
         message.PushColor(Color.DarkGray);
 
-        CreateBodyPartMessage(partStatusSet, inspectingSelf, ref message);
+        CreateBodyPartMessage(partStatusSet, entity == examiner, ref message);
 
-        var examinedEvent = new PartStatusExaminedEvent(message,
-            examiner,
-            entity);
-
+        var examinedEvent = new PartStatusExaminedEvent(message, examiner, entity);
         RaiseLocalEvent(entity, examinedEvent);
 
         var newMessage = examinedEvent.GetTotalMessage();
-
         // Goobstation Change: I dont seem to have a way to get the event of examination to happen after EVERYTHING else, so fuck it.
         //var examineCompletedEvent = new ExamineCompletedEvent(newMessage, entity, examiner);
         //RaiseLocalEvent(entity, examineCompletedEvent);
         // pop color tag
-        newMessage.Pop();
+        newMessage.Pop(); // pop color tag
 
         return newMessage;
     }
 
-    private void CreateBodyPartMessage(HashSet<PartStatus> partStatusSet, bool inspectingSelf, ref FormattedMessage message)
+    private void CreateBodyPartMessage(HashSet<PartStatus> partStatusSet,
+        bool inspectingSelf,
+        ref FormattedMessage message)
     {
-        foreach (var partStatus in _bodyPartOrder.Select(bodyPart => partStatusSet.FirstOrDefault(t => t.PartType == bodyPart)).OfType<PartStatus>())
+        foreach (var partStatus in BodyPartOrder
+                     .Select(bodyPart => partStatusSet.FirstOrDefault(t => t.PartType == bodyPart)))
         {
-            const string bleedLocaleStr = "inspect-wound-Bleeding-moderate";
-            const string boneLocaleStr = "inspect-trauma-BoneDamage";
+            if (partStatus == null)
+                continue;
 
-            var sb = new StringBuilder();
-            var hasStatus = false;
+            var statusDescription = BuildStatusDescription(partStatus, inspectingSelf);
+            var possessive = inspectingSelf ? Loc.GetString("inspect-part-status-you") : Loc.GetString("inspect-part-status-their");
 
-            if (partStatus.Bleeding)
-            {
-                sb.Append($"{Loc.GetString(inspectingSelf ? "self-" + bleedLocaleStr : bleedLocaleStr)}");
-                sb.Append(partStatus.BoneSeverity > BoneSeverity.Normal ? ", " : " ");
-                hasStatus = true;
-            }
-
-            if (partStatus.BoneSeverity > BoneSeverity.Normal)
-            {
-                sb.Append($"{Loc.GetString(inspectingSelf ? "self-" + boneLocaleStr : boneLocaleStr)}, ");
-                hasStatus = true;
-            }
-
-            foreach (var (type, severity) in partStatus.DamageSeverities)
-            {
-                if (type is not ("Brute" or "Burn"))
-                    continue;
-
-                var newSev = severity > WoundSeverity.Severe ? WoundSeverity.Severe : severity;
-                var localeText = $"inspect-wound-{type}-{newSev.ToString().ToLower()}";
-                var text = $"{Loc.GetString(inspectingSelf ? "self-" + localeText : localeText)}";
-                if (hasStatus && !text.Contains("and", StringComparison.CurrentCultureIgnoreCase))
-                    sb.Append("and ");
-                sb.Append(text);
-                hasStatus = true;
-            }
-
-            if (!hasStatus)
-                sb.Append("fine");
-
-            message.AddMarkupOrThrow($"[font size=10]{(inspectingSelf ? "Your" : "Their")} [bold]{partStatus.PartType}[/bold] is {sb}.[/font]");
+            message.AddMarkupOrThrow(
+               Loc.GetString("inspect-part-status-line", ("possessive",possessive),("part",partStatus.PartType),("status", statusDescription)));
             message.PushNewline();
+        }
+    }
+
+    private string BuildStatusDescription(PartStatus partStatus, bool inspectingSelf)
+    {
+        var sb = new StringBuilder();
+        var hasStatus = false;
+
+        AppendBleedingStatus(sb, partStatus.Bleeding, inspectingSelf, ref hasStatus);
+        AppendBoneStatus(sb, partStatus.BoneSeverity, inspectingSelf, ref hasStatus);
+        AppendDamageStatuses(sb, partStatus.DamageSeverities, inspectingSelf, ref hasStatus);
+
+        if (!hasStatus)
+            sb.Append(Loc.GetString("inspect-part-status-fine"));
+
+        return sb.ToString();
+    }
+
+    private void AppendBleedingStatus(StringBuilder sb, bool isBleeding, bool inspectingSelf, ref bool hasStatus)
+    {
+        if (!isBleeding)
+            return;
+
+        sb.Append(Loc.GetString(inspectingSelf ? $"self-{BleedLocaleStr}" : BleedLocaleStr));
+        hasStatus = true;
+    }
+
+    private void AppendBoneStatus(StringBuilder sb, BoneSeverity boneSeverity, bool inspectingSelf, ref bool hasStatus)
+    {
+        if (boneSeverity <= BoneSeverity.Normal)
+            return;
+
+        if (hasStatus)
+            sb.Append($"{Loc.GetString("inspect-part-status-comma")} ");
+
+
+        sb.Append(Loc.GetString(inspectingSelf ? $"self-{BoneLocaleStr}" : BoneLocaleStr));
+        hasStatus = true;
+    }
+
+    private void AppendDamageStatuses(
+        StringBuilder sb,
+        Dictionary<string, WoundSeverity> damageSeverities,
+        bool inspectingSelf,
+        ref bool hasStatus)
+    {
+        foreach (var (type, severity) in damageSeverities)
+        {
+            if (type is not ("Brute" or "Burn"))
+                continue;
+
+            if (hasStatus)
+                sb.Append(type.Contains(Loc.GetString("inspect-part-status-conjunction"), StringComparison.CurrentCultureIgnoreCase) ? $"{Loc.GetString("inspect-part-status-conjunction")} " : $"{Loc.GetString("inspect-part-status-comma")} ");
+
+            var cappedSeverity = severity > WoundSeverity.Severe ? WoundSeverity.Severe : severity;
+            var localeText = $"inspect-wound-{type}-{cappedSeverity.ToString().ToLower()}";
+            sb.Append(Loc.GetString(inspectingSelf ? $"self-{localeText}" : localeText));
+            hasStatus = true;
         }
     }
 }
