@@ -20,6 +20,7 @@ changeling-gamemode-description =
 changeling-role-greeting =
     You are a changeling who has absorbed and taken the form of {$name}!
     Your objectives are listed in the character menu.
+    You must grow your power as much as you see fit and trough any means, even beyond your goals.
     Absorb, shapeshift and evolve to complete them!
 
 changeling-role-greeting-short =
