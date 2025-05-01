@@ -8064,3 +8064,9 @@ Entries:
       message: Atmos temperature limit effectively removed.
   id: 933
   time: '2025-05-01T05:11:03.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Energy guns can now light cigarettes. Blueshield is 10x cooler.
+  id: 934
+  time: '2025-05-01T06:02:31.0000000+00:00'
