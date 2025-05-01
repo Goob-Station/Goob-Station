@@ -29,11 +29,17 @@ public abstract class SharedRechargeableBlockingSystem : EntitySystem
         if (_net.IsClient || args.User == null)
             return;
 
-        _popup.PopupEntity(Loc.GetString("rechargeable-blocking-remaining-time-popup",
-                ("remainingTime", GetRemainingTime(uid))),
+        if (!TryGetRemainingTime(uid, out var time))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("rechargeable-blocking-remaining-time-popup", ("remainingTime", time)),
             args.User.Value,
             args.User.Value);
     }
 
-    protected virtual int GetRemainingTime(EntityUid uid) { }
+    protected virtual bool TryGetRemainingTime(EntityUid uid, out int time)
+    {
+        time = 0;
+        return false;
+    }
 }

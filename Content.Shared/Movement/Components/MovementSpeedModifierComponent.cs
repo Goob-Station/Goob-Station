@@ -123,6 +123,11 @@ namespace Content.Shared.Movement.Components
         [AutoNetworkedField, ViewVariables]
         public float SprintSpeedModifier = 1.0f;
 
+        // Goobstation start
+        public const float DefaultMaxWalkSpeedModifier = 1.5f;
+        public const float DefaultMaxSprintSpeedModifier = 1.5f;
+        // Goobstation end
+
         [ViewVariables(VVAccess.ReadWrite)]
         private float _baseWalkSpeedVV
         {
@@ -205,6 +210,14 @@ namespace Content.Shared.Movement.Components
 
         [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
         public float BaseSprintSpeed { get; set; } = DefaultBaseSprintSpeed;
+
+        // Goobstation start
+        [DataField, AutoNetworkedField]
+        public float MaxWalkSpeedModifier { get; set; } = DefaultMaxWalkSpeedModifier;
+
+        [DataField, AutoNetworkedField]
+        public float MaxSprintSpeedModifier { get; set; } = DefaultMaxSprintSpeedModifier;
+        // Goobstation end
 
         [ViewVariables]
         public float CurrentWalkSpeed => WalkSpeedModifier * BaseWalkSpeed;

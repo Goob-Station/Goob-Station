@@ -259,10 +259,10 @@
     reflectingInHands: false
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSyndicateContraband ]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSyndicateContraband, PowerCellSlotMediumItem, BaseToggleClothing ]
   id: ClothingOuterArmorRaid
   name: syndicate raid suit
-  description: A somewhat flexible and well-armored suit with a powerful shoulder mounted flashlight manufactured in the Gorlex Marauder's iconic blood-red color scheme, it does not protect its wearer from space.
+  description: A somewhat flexible and well-armored suit with a powerful shoulder mounted flashlight manufactured in the Gorlex Marauder's iconic blood-red color scheme, it does not protect its wearer from space, however, it speeds up the user while active.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
@@ -275,17 +275,17 @@
     sprite: Clothing/OuterClothing/Armor/syndie-raid.rsi
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.35
-        Slash: 0.35
-        Piercing: 0.35
-        Heat: 0.35
-        Caustic: 0.5
+      coefficients: # Goob edit
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Caustic: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.35
+    damageCoefficient: 0.6
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 1.3
+    sprintModifier: 1.3
   #Shoulder mounted flashlight
   - type: ToggleableLightVisuals
     spriteLayer: light
@@ -326,17 +326,37 @@
       minValue: 0.1
       maxValue: 2.0
       isLooped: true
-  - type: Battery
-    maxCharge: 600
-    startingCharge: 600
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
+  # Goobstation start
+  - type: ToggleClothing
+    action: ActionToggleRaidSuit
+  - type: PowerCellDraw
+    drawRate: 3
+  - type: ToggleCellDraw
+  - type: FireProtection
+    reduction: 0.5
+  #- type: Battery
+  #  maxCharge: 600
+  #  startingCharge: 600
+  #- type: BatterySelfRecharger
+  #  autoRecharge: true
+  #  autoRechargeRate: 2
+  # Goobstation end
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance # Goobstation
-    coefficient: 0.4
+    coefficient: 0.5
+
+# Goobstation
+- type: entity
+  id: ActionToggleRaidSuit
+  name: Toggle Raid Suit
+  description: Toggles the raid suit on and off.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    event: !type:ToggleActionEvent
+      type: Clothing
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMajorContraband, AllowSuitStorageClothing ]

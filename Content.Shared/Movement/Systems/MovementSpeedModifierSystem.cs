@@ -100,12 +100,17 @@ namespace Content.Shared.Movement.Systems
             var ev = new RefreshMovementSpeedModifiersEvent();
             RaiseLocalEvent(uid, ev);
 
-            if (MathHelper.CloseTo(ev.WalkSpeedModifier, move.WalkSpeedModifier) &&
-                MathHelper.CloseTo(ev.SprintSpeedModifier, move.SprintSpeedModifier))
+            // Goobstation start - limit modifiers
+            var walkSpeedModifier = Math.Min(ev.WalkSpeedModifier, move.MaxWalkSpeedModifier);
+            var sprintSpeedModifier = Math.Min(ev.SprintSpeedModifier, move.MaxSprintSpeedModifier);
+
+            if (MathHelper.CloseTo(walkSpeedModifier, move.WalkSpeedModifier) &&
+                MathHelper.CloseTo(sprintSpeedModifier, move.SprintSpeedModifier))
                 return;
 
-            move.WalkSpeedModifier = ev.WalkSpeedModifier;
-            move.SprintSpeedModifier = ev.SprintSpeedModifier;
+            move.WalkSpeedModifier = walkSpeedModifier;
+            move.SprintSpeedModifier = sprintSpeedModifier;
+            // Goobstation end
             Dirty(uid, move);
         }
 

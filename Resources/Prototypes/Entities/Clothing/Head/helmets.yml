@@ -508,6 +508,9 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.85
+  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goobstation
+  - type: EyeProtection # Goobstation
 
 #Bone Helmet
 - type: entity

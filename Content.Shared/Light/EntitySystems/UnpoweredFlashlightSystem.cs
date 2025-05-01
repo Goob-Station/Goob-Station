@@ -91,6 +91,9 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
         if (args.Handled)
             return;
 
+        if (args.Type != ToggleType.None && (args.Type & ToggleType.Light) == 0) // Goobstation
+            return;
+
         TryToggleLight((uid, component), args.Performer);
         args.Handled = true;
     }

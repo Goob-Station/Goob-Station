@@ -189,8 +189,8 @@
   - type: ToggleClothing
     action: ActionToggleSpeedBoots
   - type: ClothingSpeedModifier
-    walkModifier: 1.5
-    sprintModifier: 1.5
+    walkModifier: 1.25 # goob
+    sprintModifier: 1.25 # goob
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -201,7 +201,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 4
+    drawRate: 3 # goob
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:

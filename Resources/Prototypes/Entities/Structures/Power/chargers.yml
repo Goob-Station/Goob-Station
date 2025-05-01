@@ -208,6 +208,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          - RechargeableBlocking
         blacklist:  # Goobstation
           tags:
           - WizardWand

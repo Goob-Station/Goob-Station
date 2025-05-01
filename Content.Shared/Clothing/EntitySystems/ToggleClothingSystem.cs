@@ -57,6 +57,9 @@ public sealed class ToggleClothingSystem : EntitySystem
 
     private void OnToggleAction(Entity<ToggleClothingComponent> ent, ref ToggleActionEvent args)
     {
+        if (args.Type != ToggleType.None && (args.Type & ToggleType.Clothing) == 0) // Goobstation
+            return;
+
         args.Handled = _toggle.Toggle(ent.Owner, args.Performer);
     }
 

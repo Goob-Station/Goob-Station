@@ -524,7 +524,7 @@
           shader: unshaded
           map: [ "shield" ]
     - type: Item
-      size: Small
+      size: Tiny # Goob
       sprite: Objects/Weapons/Melee/e_shield.rsi
       heldPrefix: eshield
     - type: UseDelay
@@ -574,8 +574,8 @@
     - type: HeldItemNoDrop # Goobstation
       # WD EDIT START
     - type: Battery
-      maxCharge: 40
-      startingCharge: 40
+      maxCharge: 30
+      startingCharge: 30
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 4
@@ -593,7 +593,7 @@
       state: eshield-icon
     - type: Item
       sprite: Objects/Weapons/Melee/e_shield.rsi
-      size: Small
+      size: Tiny # Goob
       heldPrefix: eshield
 
 - type: entity

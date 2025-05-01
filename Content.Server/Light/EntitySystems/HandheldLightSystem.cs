@@ -100,6 +100,9 @@ namespace Content.Server.Light.EntitySystems
             if (args.Handled)
                 return;
 
+            if (args.Type != ToggleType.None && (args.Type & ToggleType.Light) == 0) // Goobstation
+                return;
+
             if (ent.Comp.Activated)
                 TurnOff(ent);
             else

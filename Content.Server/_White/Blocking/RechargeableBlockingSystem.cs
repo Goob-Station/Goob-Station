@@ -40,18 +40,26 @@ public sealed class RechargeableBlockingSystem : SharedRechargeableBlockingSyste
         }
 
         args.PushMarkup(Loc.GetString("rechargeable-blocking-discharged"));
-        args.PushMarkup(Loc.GetString("rechargeable-blocking-remaining-time", ("remainingTime", GetRemainingTime(uid))));
+
+        if (!TryGetRemainingTime(uid, out var time))
+            return;
+
+        args.PushMarkup(Loc.GetString("rechargeable-blocking-remaining-time", ("remainingTime", time)));
     }
 
-    protected override int GetRemainingTime(EntityUid uid)
+    protected override bool TryGetRemainingTime(EntityUid uid, out int time)
     {
+        time = 0;
+
         if (!_battery.TryGetBatteryComponent(uid, out var batteryComponent, out var batteryUid)
             || !TryComp<BatterySelfRechargerComponent>(batteryUid, out var recharger)
             || recharger is not { AutoRechargeRate: > 0, AutoRecharge: true })
-            return 0;
+            return false;
 
-        return (int) MathF.Round((batteryComponent.MaxCharge - batteryComponent.CurrentCharge) /
-                                 recharger.AutoRechargeRate);
+        time = (int) MathF.Round((batteryComponent.MaxCharge - batteryComponent.CurrentCharge) /
+                recharger.AutoRechargeRate);
+
+        return true;
     }
 
     private void OnDamageChanged(EntityUid uid, RechargeableBlockingComponent component, DamageChangedEvent args)
@@ -93,6 +101,7 @@ public sealed class RechargeableBlockingSystem : SharedRechargeableBlockingSyste
             Dirty(uid, component);
 
             _itemToggle.TryDeactivate(uid, predicted: false);
+            RaiseNetworkEvent(new ForceTurnOffToggleActiveSound(GetNetEntity(uid)));
             return;
         }
 

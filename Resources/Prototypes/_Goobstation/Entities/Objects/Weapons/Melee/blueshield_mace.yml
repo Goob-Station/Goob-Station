@@ -52,7 +52,7 @@
       types:
         Heat: 5
   - type: Stunbaton
-    energyPerUse: 100
+    energyPerUse: 25
     lightAttackEnergyMultiplier: 2
   - type: MeleeWeapon
     angle: 0
@@ -69,7 +69,7 @@
     damage: 40
     overtime: 40
     lightAttackDamageMultiplier: 2
-    lightAttackOvertimeDamageMultiplier: 0.5
+    lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
     damage: 15
@@ -77,12 +77,12 @@
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 20
+    maxCharge: 500
+    startingCharge: 500
   - type: UseDelay
+    delays:
+      stunbaton:
+        length: 2.5
   - type: Item
     heldPrefix: off
     size: Normal

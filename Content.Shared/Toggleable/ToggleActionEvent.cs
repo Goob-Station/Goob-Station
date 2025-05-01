@@ -17,7 +17,27 @@ namespace Content.Shared.Toggleable;
 /// <remarks>
 /// If you are using <c>ItemToggleComponent</c> subscribe to <c>ItemToggledEvent</c> instead.
 /// </remarks>
-public sealed partial class ToggleActionEvent : InstantActionEvent;
+public sealed partial class ToggleActionEvent : InstantActionEvent
+{
+    /// <summary>
+    /// Goobstation.
+    /// Prevents conflicts from multiple systems subscribing to this event allowing, for example,
+    /// to have both flashlight and clothing toggle on the same item.
+    /// None type means conflicts will not be checked and every system will manage this according to Handled variable.
+    /// This variable doesn't have to be changed for toggling to work.
+    /// </summary>
+    [DataField]
+    public ToggleType Type = ToggleType.None;
+}
+
+[Flags]
+public enum ToggleType : byte // Goobstation
+{
+    None = 0,
+    Light = 1 << 0,
+    Clothing = 1 << 1,
+    // Add more if needed
+}
 
 /// <summary>
 ///     Generic enum keys for toggle-visualizer appearance data & sprite layers.
