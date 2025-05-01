@@ -251,6 +251,7 @@ public abstract partial class SharedMartialArtsSystem
             TargetBodyPart.Torso);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private void OnBiteTheDust(Entity<CanPerformComboComponent> ent, ref BiteTheDustPerformedEvent args)
@@ -277,6 +278,7 @@ public abstract partial class SharedMartialArtsSystem
             TargetBodyPart.Torso);
         _audio.PlayPvs(args.Sound, target);
         ComboPopup(ent, target, proto.Name);
+        ent.Comp.LastAttacks.Clear();
     }
 
     private float GetDamageMultiplier(EntityUid uid)

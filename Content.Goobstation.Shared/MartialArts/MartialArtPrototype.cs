@@ -9,7 +9,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 

@@ -56,7 +56,7 @@
   To perform disarm, press [bold] Right Mouse Button [/bold] with [color=Red] Harm Mode [/color] turned ON.
 
   If you are unarmed, you will try to shove at the place of your cursor. Shoving will push affected characters,
-  and has some chance to deal some [color=Cyan] Stamina [/color] damage and knock an item out of the opponent's hands.
+  dealing some [color=Cyan] Stamina [/color] damage, and it has a chance to knock an item out of the opponent's hands.
   If you are armed with a melee weapon, you will swing it, attacking everyone you hit and taking some stamina damage yourself.
   Swinging a weapon is not a real "Disarm", and does not count as a successful Disarm action for combo purposes.
 
