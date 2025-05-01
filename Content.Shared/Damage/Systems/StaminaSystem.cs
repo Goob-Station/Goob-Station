@@ -58,6 +58,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.Effects;
+using Content.Shared.FixedPoint;
 using Content.Shared.Jittering;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
@@ -172,6 +173,7 @@ public sealed partial class StaminaSystem : EntitySystem
         }
 
         component.StaminaDamage = 0;
+        AdjustSlowdown(uid);
         RemComp<ActiveStaminaComponent>(uid);
         SetStaminaAlert(uid, component);
         Dirty(uid, component);
@@ -393,23 +395,30 @@ public sealed partial class StaminaSystem : EntitySystem
                 component.NextUpdate = nextUpdate;
         }
 
-        var slowdownThreshold = component.CritThreshold / 2f;
-
-        // If we go above n% then apply effects
-        if (component.StaminaDamage > slowdownThreshold)
-        {
-            // goob edit - stunmeta
-            // no slowdown because funny
-            _jitter.DoJitter(uid, TimeSpan.FromSeconds(10f), true);
-            _stutter.DoStutter(uid, TimeSpan.FromSeconds(10f), true);
-        }
+        AdjustSlowdown(uid);
 
         SetStaminaAlert(uid, component);
 
-        if (!component.Critical && component.StaminaDamage >= component.CritThreshold && value > 0) // goob edit
-            EnterStamCrit(uid, component, immediate);
-        else if (component.StaminaDamage < component.CritThreshold)
-            ExitStamCrit(uid, component);
+        // Checking if the stamina damage has decreased to zero after exiting the stamcrit
+        if (component.AfterCritical && oldDamage > component.StaminaDamage && component.StaminaDamage <= 0f)
+        {
+            component.AfterCritical = false; // Since the recovery from the crit has been completed, we are no longer 'after crit'
+        }
+
+        if (!component.Critical)
+        {
+            if (component.StaminaDamage >= component.CritThreshold && value > 0) // goob edit
+            {
+                EnterStamCrit(uid, component, immediate);
+            }
+        }
+        else
+        {
+            if (component.StaminaDamage < component.CritThreshold)
+            {
+                ExitStamCrit(uid, component);
+            }
+        }
 
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
@@ -458,8 +467,6 @@ public sealed partial class StaminaSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (!_timing.IsFirstTimePredicted)
-            return;
 
         var stamQuery = GetEntityQuery<StaminaComponent>();
         var query = EntityQueryEnumerator<ActiveStaminaComponent>();
@@ -486,17 +493,15 @@ public sealed partial class StaminaSystem : EntitySystem
             if (nextUpdate > curTime)
                 continue;
 
-            // We were in crit so come out of it and continue.
+            // Handle exiting critical condition and restoring stamina damage
             if (comp.Critical)
-            {
                 ExitStamCrit(uid, comp);
-                continue;
-            }
-
-            comp.NextUpdate += TimeSpan.FromSeconds(1f);
-            // If theres no active drains, recover stamina.
+            // Goob - If theres no active drains, recover stamina.
             if (comp.ActiveDrains.Count == 0)
-                TakeStaminaDamage(uid, -comp.Decay, comp);
+                TakeStaminaDamage(
+                    uid,
+                    comp.AfterCritical ? -comp.Decay * comp.AfterCritDecayMultiplier : -comp.Decay, // Recover faster after crit
+                    comp);
 
             Dirty(uid, comp);
         }
@@ -553,11 +558,38 @@ public sealed partial class StaminaSystem : EntitySystem
         }
 
         component.Critical = false;
-        component.StaminaDamage = 0f;
+        component.AfterCritical = true;  // Set to true to indicate that stamina will be restored after exiting stamcrit
         component.NextUpdate = _timing.CurTime;
+
         SetStaminaAlert(uid, component);
-        RemComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
         _adminLogger.Add(LogType.Stamina, LogImpact.Low, $"{ToPrettyString(uid):user} recovered from stamina crit");
+    }
+
+    /// <summary>
+    /// Adjusts the movement speed of an entity based on its current <see cref="StaminaComponent.StaminaDamage"/> value.
+    /// If the entity has a <see cref="SlowOnDamageComponent"/>, its custom damage-to-speed thresholds are used,
+    /// otherwise, a default set of thresholds is applied.
+    /// The method determines the closest applicable damage threshold below the crit limit and applies the corresponding
+    /// speed modifier using the stun system. If no threshold is met then the entity's speed is restored to normal.
+    /// </summary>
+    /// <param name="ent">Entity to update</param>
+    private void AdjustSlowdown(Entity<StaminaComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        var closest = FixedPoint2.Zero;
+
+        // Iterate through the dictionary in the similar way as in Damage.SlowOnDamageSystem.OnRefreshMovespeed
+        foreach (var thres in ent.Comp.StunModifierThresholds)
+        {
+            var key = thres.Key.Float();
+
+            if (ent.Comp.StaminaDamage >= key && key > closest && closest < ent.Comp.CritThreshold)
+                closest = thres.Key;
+        }
+
+        _stunSystem.UpdateStunModifiers(ent, ent.Comp.StunModifierThresholds[closest]);
     }
 }
