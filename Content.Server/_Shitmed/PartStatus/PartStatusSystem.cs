@@ -31,18 +31,23 @@ public sealed class PartStatusSystem : EntitySystem
     [Dependency] private readonly TraumaSystem _trauma = default!;
     [Dependency] private readonly IChatManager _chat = default!;
 
-    private static readonly IReadOnlyList<string> BodyPartOrder = new List<string>
+    private static readonly IReadOnlyList<BodyPartType> BodyPartOrder = new List<BodyPartType>
     {
-        "head",
-        "chest",
-        "left arm",
-        "left hand",
-        "right arm",
-        "left leg",
-        "left foot",
-        "right leg",
-        "right foot",
+        BodyPartType.Head,
+        BodyPartType.Chest,
+        BodyPartType.Arm,
+        BodyPartType.Hand,
+        BodyPartType.Groin,
+        BodyPartType.Leg,
+        BodyPartType.Foot,
     }.AsReadOnly();
+
+    private static List<BodyPartSymmetry> SymmetryPriority =
+    [
+        BodyPartSymmetry.Left,
+        BodyPartSymmetry.Right,
+        BodyPartSymmetry.None,
+    ];
 
     private const string BleedLocaleStr = "inspect-wound-Bleeding-moderate";
     private const string BoneLocaleStr = "inspect-trauma-BoneDamage";
@@ -89,6 +94,8 @@ public sealed class PartStatusSystem : EntitySystem
             var (damageSeverities, isBleeding) = AnalyzeWounds(woundable);
 
             partStatusSet.Add(new PartStatus(
+                bodyPartComponent.PartType,
+                bodyPartComponent.Symmetry,
                 partName,
                 woundable.Comp.WoundableSeverity,
                 damageSeverities,
@@ -135,21 +142,28 @@ public sealed class PartStatusSystem : EntitySystem
         bool inspectingSelf,
         ref FormattedMessage message)
     {
-        foreach (var partStatus in BodyPartOrder
-                     .Select(bodyPart => partStatusSet.FirstOrDefault(t => t.PartType == bodyPart)))
+        var orderedParts = BodyPartOrder
+            .SelectMany(partType => partStatusSet.Where(p => p.PartType == partType)
+                .ToList()
+                .OrderBy(p => SymmetryPriority.IndexOf(p.PartSymmetry)))
+            .ToList();
+
+        foreach (var partStatus in orderedParts)
         {
-            if (partStatus == null)
-                continue;
-
             var statusDescription = BuildStatusDescription(partStatus, inspectingSelf);
-            var possessive = inspectingSelf ? Loc.GetString("inspect-part-status-you") : Loc.GetString("inspect-part-status-their");
+            var possessive = inspectingSelf
+                ? Loc.GetString("inspect-part-status-you")
+                : Loc.GetString("inspect-part-status-their");
 
-            message.AddText("    " + Loc.GetString("inspect-part-status-line", ("possessive",possessive),("part",partStatus.PartType),("status", statusDescription)));
+            message.AddText("    " + Loc.GetString("inspect-part-status-line",
+                ("possessive", possessive),
+                ("part", partStatus.PartName),
+                ("status", statusDescription)));
             message.PushNewline();
         }
     }
 
-    private string BuildStatusDescription(PartStatus partStatus, bool inspectingSelf)
+private string BuildStatusDescription(PartStatus partStatus, bool inspectingSelf)
     {
         var sb = new StringBuilder();
         var hasStatus = false;

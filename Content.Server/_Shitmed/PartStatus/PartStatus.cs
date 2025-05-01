@@ -10,13 +10,19 @@ namespace Content.Server._Shitmed.PartStatus;
 // collecting a body parts information together
 // ik its another bs level of abstraction but i think it helps for now..
 public sealed class PartStatus(
-    string partType,
+    BodyPartType partType,
+    BodyPartSymmetry partSymmetry,
+    string partName,
     WoundableSeverity partSverity,
     Dictionary<string, WoundSeverity> damageSeverities,
     BoneSeverity boneSeverity,
     bool bleeding)
 {
-    public string PartType = partType;
+    public BodyPartType PartType = partType;
+
+    public BodyPartSymmetry PartSymmetry = partSymmetry;
+
+    public string PartName = partName;
 
     public WoundableSeverity PartSeverity = partSverity;
 
