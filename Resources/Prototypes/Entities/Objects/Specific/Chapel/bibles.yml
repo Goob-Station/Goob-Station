@@ -112,9 +112,13 @@
       collection: Punch
     damage:
       types:
-        Blunt: 3
-  - type: Prayable
-    bibleUserOnly: true
+        Holy: 5 # Goobstation - bro wtf
+        Blunt: 1
+  #- type: Prayable - no, use the altar
+  #  bibleUserOnly: true
+  - type: AlternatePrayable # Goobstation
+    requireBibleUser: false
+  - type: HealUserOnPray # Goobstation - Heal that holy damage
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
   - type: ReactionMixer
