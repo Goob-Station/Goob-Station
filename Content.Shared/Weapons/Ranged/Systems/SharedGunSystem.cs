@@ -330,7 +330,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.ShotCounter = 0;
     }
 
-    private List<EntityUid>? AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, List<int>? predictedProjectiles = null, ICommonSession? userSession = null)
+    public List<EntityUid>? AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, List<int>? predictedProjectiles = null, ICommonSession? userSession = null)
     {
         if (gun.FireRateModified <= 0f ||
             !_actionBlockerSystem.CanAttack(user))
@@ -468,18 +468,16 @@ public abstract partial class SharedGunSystem : EntitySystem
 
             // Play empty gun sounds if relevant
             // If they're firing an existing clip then don't play anything.
-            if (shots > 0)
-            {
-                PopupSystem.PopupCursor(ev.Reason ?? Loc.GetString("gun-magazine-fired-empty"));
-
-                // Don't spam safety sounds at gun fire rate, play it at a reduced rate.
-                // May cause prediction issues? Needs more tweaking
-                gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
-                Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+            if (shots <= 0)
                 return null;
-            }
+            PopupSystem.PopupCursor(ev.Reason ?? Loc.GetString("gun-magazine-fired-empty"));
 
+            // Don't spam safety sounds at gun fire rate, play it at a reduced rate.
+            // May cause prediction issues? Needs more tweaking
+            gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
+            Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
             return null;
+
         }
 
         // Handle burstfire
@@ -500,6 +498,12 @@ public abstract partial class SharedGunSystem : EntitySystem
             }
         }
 
+        if (!Timing.IsFirstTimePredicted)
+        {
+            CleanupClient();
+            return null;
+        }
+
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
         var projectiles = Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems, predictedProjectiles, userSession);
         var shotEv = new GunShotEvent(user, ev.Ammo);
@@ -511,10 +515,23 @@ public abstract partial class SharedGunSystem : EntitySystem
                 CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
         }
 
+        DirtyField(gunUid, gun, nameof(GunComponent.BurstActivated));
         Dirty(gunUid, gun);
-        UpdateAmmoCount(gunUid); //GoobStation - Multishot
+        //UpdateAmmoCount(gunUid); //GoobStation - Multishot
         return projectiles;
         //Dirty(gunUid, gun);
+
+        void CleanupClient()
+        {
+            foreach (var (ent, _) in ev.Ammo)
+            {
+                if (ent == null)
+                    continue;
+
+                if (_netManager.IsServer || IsClientSide(ent.Value))
+                    Del(ent);
+            }
+        }
     }
 
     public void Shoot(
@@ -543,8 +560,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         List<int>? predictedProjectiles = null,
         ICommonSession? userSession = null)
     {
+
         userImpulse = true;
 
+        if (user != null)
+        {
+            var selfEvent = new SelfBeforeGunShotEvent(user.Value, (gunUid, gun), ammo);
+            RaiseLocalEvent(user.Value, selfEvent);
+            if (selfEvent.Cancelled)
+            {
+                userImpulse = false;
+                return null;
+            }
+        }
 
         var fromMap = fromCoordinates.ToMap(EntityManager, TransformSystem);
         var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
@@ -711,7 +739,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
                             FireEffects(fromEffect, result.Distance, dir.Normalized().ToAngle(), hitscan, hit);
 
-                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
+                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false, hitscan.Damage);
                             RaiseLocalEvent(hit, ref ev);
 
                             if (!ev.Reflected)
@@ -926,7 +954,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <param name="start">Start angle in degrees</param>
     /// <param name="end">End angle in degrees</param>
     /// <param name="intervals">How many shots there are</param>
-    private Angle[] LinearSpread(Angle start, Angle end, int intervals)
+    public Angle[] LinearSpread(Angle start, Angle end, int intervals)
     {
         var angles = new Angle[intervals];
         DebugTools.Assert(intervals > 1);
@@ -1007,25 +1035,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         TransformSystem.SetWorldRotationNoLerp(uid, direction.ToWorldAngle());
     }
 
-    public List<EntityUid>? ShootRequested(NetEntity netGun, NetCoordinates coordinates, NetEntity? target, List<int>? projectiles, ICommonSession session)
-    {
-        var user = session.AttachedEntity;
-
-        if (user == null ||
-            !_combatMode.IsInCombatMode(user) ||
-            !TryGetGun(user.Value, out var ent, out var gun))
-        {
-            return null;
-        }
-
-        if (ent != GetEntity(netGun))
-            return null;
-
-        gun.ShootCoordinates = GetCoordinates(coordinates);
-        gun.Target = GetEntity(target);
-        return AttemptShoot(user.Value, ent, gun, projectiles, session);
-    }
-
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
 
     /// <summary>
@@ -1063,7 +1072,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         // decides direction the casing ejects and only when not cycling
         if (angle != null)
         {
-            Angle ejectAngle = angle.Value;
+            var ejectAngle = angle.Value;
             ejectAngle += 3.7f; // 212 degrees; casings should eject slightly to the right and behind of a gun
             ThrowingSystem.TryThrow(entity, ejectAngle.ToVec().Normalized() / 100, 5f);
         }

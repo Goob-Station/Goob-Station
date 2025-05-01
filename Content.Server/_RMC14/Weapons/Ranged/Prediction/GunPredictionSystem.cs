@@ -1,4 +1,4 @@
-﻿using Content.Server.Movement.Components;
+﻿﻿using Content.Server.Movement.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
@@ -76,7 +76,7 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
 
     private void OnShootRequest(RequestShootEvent ev, EntitySessionEventArgs args)
     {
-        _gun.ShootRequested(ev.Gun, ev.Coordinates, ev.Target, ev.Shot, args.SenderSession);
+        ShootRequested(ev.Gun, ev.Coordinates, ev.Target, ev.Shot, args.SenderSession);
     }
 
     private void OnPredictedMapInit(Entity<PredictedProjectileServerComponent> ent, ref MapInitEvent args)

@@ -75,7 +75,7 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
         if (_timing.IsFirstTimePredicted)
             return;
 
-        _gun.ShootRequested(ev.Gun, ev.Coordinates, ev.Target, null, args.SenderSession);
+        ShootRequested(ev.Gun, ev.Coordinates, ev.Target, null, args.SenderSession);
     }
 
     private void OnClientProjectileUpdateIsPredicted(Entity<PredictedProjectileClientComponent> ent, ref UpdateIsPredictedEvent args)
@@ -90,9 +90,7 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
 
         if (!TryComp(ent, out ProjectileComponent? projectile) ||
             !TryComp(ent, out PhysicsComponent? physics))
-        {
             return;
-        }
 
         var netEnt = GetNetEntity(args.OtherEntity);
         var pos = _transform.GetMapCoordinates(args.OtherEntity);
