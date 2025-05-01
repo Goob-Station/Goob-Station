@@ -8058,3 +8058,54 @@ Entries:
       message: You can now use welders to deconstruct plating.
   id: 932
   time: '2025-05-01T03:29:56.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Atmos temperature limit effectively removed.
+  id: 933
+  time: '2025-05-01T05:11:03.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Energy guns can now light cigarettes. Blueshield is 10x cooler.
+  id: 934
+  time: '2025-05-01T06:02:31.0000000+00:00'
+- author: >-
+    SolsticeOfTheWinter, Rosef, The Chinese Communist Party, The Friends I Made
+    Along the Way
+  changes:
+    - type: Add
+      message: Added the Devil. But actually this time.
+  id: 935
+  time: '2025-05-01T06:43:51.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced Syndicate Encryption Key box uplink purchase, which contained
+        two keys, with a singular cheaper key.
+    - type: Tweak
+      message: 'Reduced the price of Syndicate Radio Implanter uplink purchase. '
+  id: 936
+  time: '2025-05-01T09:13:19.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Nukeops role timers increased, 10 overall hours + 10 sec hours for
+        troopa, 25 overall hours +5 chemist hours for agent and 25 overall hours
+        +5 hours of command for commander (LEADERSHIP SKILLS)
+    - type: Tweak
+      message: Nukeops now spawn with agent IDs in their PDA
+    - type: Tweak
+      message: Nukeops now spawn with NVGs, pop those lights buddy
+    - type: Tweak
+      message: Ninjas now have a microbomb instead of a death acidifier
+  id: 937
+  time: '2025-05-01T10:09:48.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Remove
+      message: Blobs no longer emit light.
+  id: 938
+  time: '2025-05-01T16:34:16.0000000+00:00'
