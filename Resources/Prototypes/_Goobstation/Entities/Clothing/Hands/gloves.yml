@@ -177,6 +177,7 @@
     soundHit:
       path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
     mustBeEquippedToUse: true
+    canWideSwing: false
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 
@@ -199,6 +200,7 @@
             mustBeEquippedToUse: true
             soundHit:
               path: /Audio/_Goobstation/Weapons/Effects/metalcrush.ogg
+            canWideSwing: false
           - type: StaminaDamageOnHit
             damage: 45
             overtime: 80
@@ -225,6 +227,7 @@
             mustBeEquippedToUse: true
             soundHit:
               path: /Audio/Weapons/bladeslice.ogg
+            canWideSwing: false
         soundStateActivate:
           collection: sparks
           params:
