@@ -40,18 +40,25 @@ public partial class TraumaSystem
         if (!bodyComp.Body.HasValue)
             return;
 
+        var part = bodyComp.ParentSlot is null
+            ? bodyComp.PartType.ToString().ToLower()
+            : bodyComp.ParentSlot.Value.Id;
+
         switch (args.NewSeverity)
         {
             case BoneSeverity.Damaged:
                 _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(-8f));
+                _popup.PopupEntity(Loc.GetString("popup-trauma-BoneDamage-Damaged", ("part", part)), bodyComp.Body.Value, PopupType.SmallCaution);
                 break;
 
             case BoneSeverity.Cracked:
                 _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(1f));
+                _popup.PopupEntity(Loc.GetString("popup-trauma-BoneDamage-Cracked", ("part", part)), bodyComp.Body.Value, PopupType.MediumCaution);
                 break;
 
             case BoneSeverity.Broken:
                 _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(6f));
+                _popup.PopupEntity(Loc.GetString("popup-trauma-BoneDamage-Broken", ("part", part)), bodyComp.Body.Value, PopupType.LargeCaution);
                 break;
         }
     }
