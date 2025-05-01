@@ -8052,3 +8052,9 @@ Entries:
       message: Abductor pinchers can now be used as barber scissors.
   id: 931
   time: '2025-04-30T23:05:36.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now use welders to deconstruct plating.
+  id: 932
+  time: '2025-05-01T03:29:56.0000000+00:00'
