@@ -1129,7 +1129,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Ion: 4 #Goobstation
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
