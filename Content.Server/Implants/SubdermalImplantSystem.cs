@@ -113,6 +113,9 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.DetailExaminable;
+using Content.Shared.DoAfter;
+using Content.Shared.Ensnaring;
+using Content.Shared.Ensnaring.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 
@@ -132,6 +135,9 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly TeleportSystem _teleportSys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+
 
     public override void Initialize()
     {
@@ -167,18 +173,32 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         _popup.PopupEntity(msg, args.User, args.User);
     }
 
-    // Edited by goobstation to make freedom useful
+    // Heavily edited by goobstation to make freedom useful
     private void OnFreedomImplant(EntityUid uid, SubdermalImplantComponent component, UseFreedomImplantEvent args)
     {
-        if (TryComp<CuffableComponent>(component.ImplantedEntity, out var cuffs) && cuffs.Container.ContainedEntities.Count >= 1)
+        if (component.ImplantedEntity == null)
+            return;
+
+        var user = component.ImplantedEntity.Value;
+
+        if (TryComp<CuffableComponent>(user, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            _cuffable.Uncuff(component.ImplantedEntity.Value, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
+            _cuffable.Uncuff(user, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
             args.Handled = true;
         }
 
-        if (TryComp<PullableComponent>(component.ImplantedEntity, out var pullable) && pullable.Puller.HasValue)
+        if (TryComp<PullableComponent>(user, out var pullable) && pullable.Puller.HasValue)
         {
             _stun.TryParalyze(pullable.Puller.Value, TimeSpan.FromSeconds(args.StunTime), true);
+            args.Handled = true;
+        }
+
+        if (TryComp<EnsnareableComponent>(user, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0)
+        {
+            var bola = ensnareable.Container.ContainedEntities[0];
+            // Yes this is dumb, but trust me this is the best way to do this. Bola code is fucking awful.
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, 0, new EnsnareableDoAfterEvent(), user, user, bola));
+            _transform.DropNextTo(bola, user);
             args.Handled = true;
         }
     }
