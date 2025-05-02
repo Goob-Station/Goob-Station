@@ -4,8 +4,8 @@ meta:
   engineVersion: 248.0.2
   forkId: ""
   forkVersion: ""
-  time: 04/28/2025 21:29:49
-  entityCount: 22484
+  time: 05/02/2025 09:16:03
+  entityCount: 22485
 maps:
 - 17546
 grids:
@@ -102260,6 +102260,13 @@ entities:
     - type: Transform
       pos: 16.5,-58.5
       parent: 2
+- proto: GunSafeLauncherNonLethal
+  entities:
+  - uid: 1335
+    components:
+    - type: Transform
+      pos: 7.5,30.5
+      parent: 2
 - proto: GunSafePistolMk58
   entities:
   - uid: 1956
@@ -116837,10 +116844,10 @@ entities:
       parent: 2
 - proto: SecurityTechFab
   entities:
-  - uid: 5043
+  - uid: 1336
     components:
     - type: Transform
-      pos: 7.5,30.5
+      pos: -5.5,34.5
       parent: 2
 - proto: SeedExtractor
   entities:
