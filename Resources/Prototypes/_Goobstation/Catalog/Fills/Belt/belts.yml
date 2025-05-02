@@ -142,8 +142,8 @@
     sprite: Clothing/Belt/holster.rsi
   - type: ContainerContainer
     containers:
-      Item: !type:Container
-      Item2: !type:Container
+      item: !type:ContainerSlot
+      item2: !type:ContainerSlot
   - type: ItemSlots
     slots:
       item:
