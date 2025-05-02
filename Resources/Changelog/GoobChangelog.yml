@@ -8151,3 +8151,13 @@ Entries:
       message: Changed floor tile decals texture
   id: 943
   time: '2025-05-02T05:27:23.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Generalized plushie names.
+    - type: Add
+      message: >-
+        You can now gib Mikedyne and Muppet with a plushie that resembles them.
+        This will not have consequences unless an admin says otherwise.
+  id: 944
+  time: '2025-05-02T05:29:51.0000000+00:00'
