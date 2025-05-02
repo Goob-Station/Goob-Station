@@ -193,6 +193,7 @@ selectable-set-headofsecurity-voidsuit-desc =
 selectable-set-headofsecurity-modsuit-name = Head of security's 'bulwark' hardsuit
 selectable-set-headofsecurity-modsuit-desc =
     A modular hardsuit with expensive plastitanium armour for the head of security's use.
+    Comes equipped with a manually operated on-board intravenous stim injector
 
 selectable-set-engineering-voidsuit-name = Engineering voidsuit
 selectable-set-engineering-voidsuit-desc =
