@@ -136,9 +136,11 @@
   parent: LoneAbductorSpawn
   id: TokenLoneAbductorSpawn
   components:
+  - type: StationEvent
+    isSelectable: false
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: LoneAbductorSpawnerToken # idk why this shit is defined twice, but i dont want to mess with it so... *shrugs
+    - spawnerPrototype: LoneAbductorSpawnerToken
       min: 1
       max: 1
       pickPlayer: false
@@ -148,22 +150,37 @@
         color: Green
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
+      - type: Abductor
+      - type: ActionGrant
+        actions:
+        - ActionReturnToShip
       - type: GhostRole
         name: abductor-lone-ghost-role-name-token
         description: ghost-role-information-description-token-generic
         rules: abductors-ghost-role-rules
+      - type: GhostTakeoverAvailable
+      - type: NpcFactionMember
+        factions:
+        - SimpleHostile
+      - type: RandomMetadata
+        nameSegments:
+        - AbductorScientistPrefix
+        - AbductorNames
       - type: Tag
         tags:
-        - Abductor
-        - AbductorScientist
-        - CanPilot
-        - FootstepSound
-        - DoorBumpOpener
-        - AbductorMind
+         - Abductor
+         - AbductorScientist
+         - CanPilot
+         - FootstepSound
+         - DoorBumpOpener
+         - AbductorMind
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: Sanitized
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
       mindRoles:
       - MindRoleLoneAbductor
-  - type: StationEvent
-    isSelectable: false
 
 - type: entity
   parent: WizardMidround
