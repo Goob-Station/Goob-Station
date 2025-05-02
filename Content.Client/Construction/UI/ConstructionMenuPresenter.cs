@@ -555,6 +555,11 @@ namespace Content.Client.Construction.UI
 
         private void SystemOnToggleMenu(object? sender, EventArgs eventArgs)
         {
+            ToggleMenu();
+        }
+
+        public void ToggleMenu()
+        {
             if (!CraftingAvailable)
                 return;
 
