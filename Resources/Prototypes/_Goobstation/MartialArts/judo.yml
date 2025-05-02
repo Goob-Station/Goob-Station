@@ -79,7 +79,7 @@
   - Disarm
   - Harm
   event: !type:JudoWheelThrowPerformedEvent
-  staminaDamage: 65 # 65 real
+  staminaDamage: 100
 
 # Conflicts with armbar + hugs don't seem to count?, to be implemented later
 #- type: combo

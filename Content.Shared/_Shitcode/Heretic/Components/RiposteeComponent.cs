@@ -30,7 +30,7 @@ public sealed partial class RiposteData(
     bool canRiposte,
     SoundSpecifier? riposteSound,
     TimeSpan knockdownTime,
-    bool paralyze,
+    TimeSpan stunTime,
     bool canRiposteWhileProne,
     float riposteChance,
     LocId? riposteUsedMessage,
@@ -44,7 +44,7 @@ public sealed partial class RiposteData(
         true,
         new SoundPathSpecifier("/Audio/_Goobstation/Heretic/parry.ogg"),
         TimeSpan.FromSeconds(1),
-        false,
+        TimeSpan.Zero,
         true,
         1f,
         "heretic-riposte-used",
@@ -72,7 +72,7 @@ public sealed partial class RiposteData(
     public SoundSpecifier? RiposteSound = riposteSound;
 
     [DataField]
-    public bool Paralyze = paralyze;
+    public TimeSpan StunTime = stunTime;
 
     [DataField]
     public TimeSpan KnockdownTime = knockdownTime;

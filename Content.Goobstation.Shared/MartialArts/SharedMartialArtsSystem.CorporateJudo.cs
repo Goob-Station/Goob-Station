@@ -179,13 +179,17 @@ public partial class SharedMartialArtsSystem
             knockdownTime *= ev.Multiplier;
         }
 
-        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
+        if (!HasComp<ArmbarredComponent>(target))
+        {
+            _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+            AddComp<ArmbarredComponent>(target).Puller = ent;
+        }
 
         // Taking someone in an armbar is an equivalent of taking them in a choke grab
-        _pulling.TrySetGrabStages((ent, puller), (target, pullable), GrabStage.Suffocate);
-        EnsureComp<ArmbarredComponent>(target).Puller = ent;
+        if (puller.GrabStage != GrabStage.Suffocate || pullable.GrabStage != GrabStage.Suffocate)
+            _pulling.TrySetGrabStages((ent, puller), (target, pullable), GrabStage.Suffocate);
 
-        _stamina.TakeStaminaDamage(target, proto.StaminaDamage, applyResistances: true);
+        _stun.TryKnockdown(target, knockdownTime, true, proto.DropHeldItemsBehavior);
 
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Weapons/genhit3.ogg"), target);
         ComboPopup(ent, target, proto.Name);
