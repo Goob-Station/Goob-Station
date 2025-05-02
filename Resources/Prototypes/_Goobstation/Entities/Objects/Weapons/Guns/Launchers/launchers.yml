@@ -14,7 +14,7 @@
     slots:
     - Back
     - suitStorage
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: GunRequiresWield
   - type: Item
     size: Huge
     sprite: _Goobstation/Objects/Weapons/Guns/Launchers/riotlauncher.rsi
