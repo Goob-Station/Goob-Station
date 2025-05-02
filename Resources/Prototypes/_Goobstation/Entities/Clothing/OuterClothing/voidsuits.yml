@@ -390,8 +390,6 @@
 #  - type: ToggleableClothing # Goobstation - Modsuits change
 #    clothingPrototypes:
 #      head: ClothingHeadHelmetHardsuitEngineering
-    delayDelta: 6
-    knockdownTimeDelta: -4
 
 #Head of Security's Voidsuit
 - type: entity
@@ -426,8 +424,8 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
   - type: ModifyDelayedKnockdown
-    delayDelta: 2
-    knockdownTimeDelta: -2
+    delayDelta: 6
+    knockdownTimeDelta: -4
   - type: StaminaDamageResistance
     coefficient: 0.5
   - type: ClothingAutoInject
@@ -435,4 +433,3 @@
       Epinephrine: 10
       Bicaridine: 10
       TranexamicAcid: 5
-
