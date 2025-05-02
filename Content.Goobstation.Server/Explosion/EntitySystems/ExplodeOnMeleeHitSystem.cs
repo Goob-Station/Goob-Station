@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server._Goobstation.Explosion.Components;
 using Content.Server._Shitmed.ItemSwitch;
 using Content.Server.Explosion.EntitySystems;
