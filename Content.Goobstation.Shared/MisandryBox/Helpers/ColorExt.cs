@@ -1,4 +1,8 @@
-﻿namespace Content.Goobstation.Shared.MisandryBox.Helpers;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MPL-2.0
+
+namespace Content.Goobstation.Shared.MisandryBox.Helpers;
 
 public static class ColorExt
 {

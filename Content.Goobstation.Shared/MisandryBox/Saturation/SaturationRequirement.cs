@@ -1,4 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2025 Conchelle <mary@thughunt.ing>
+//
+// SPDX-License-Identifier: MPL-2.0
+
+using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Shared.MisandryBox.Helpers;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
