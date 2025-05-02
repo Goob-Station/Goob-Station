@@ -25,9 +25,6 @@
       types:
         Blunt: 10
         Piercing: 5
-    soundHit:
-      path: /Audio/Nyanotrasen/Weapons/club.ogg
-    bluntStaminaDamageFactor: 1.5
   - type: Item
     size: Normal
   - type: Tag
