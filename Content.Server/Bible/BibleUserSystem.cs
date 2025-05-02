@@ -129,9 +129,7 @@ namespace Content.Server.Bible
                 return;
 
             if (args.Target == null || args.Target == args.User || !_mobStateSystem.IsAlive(args.Target.Value))
-            {
-                return;
-            }
+                return; // STOP WITH USELESS BRACES!! - Goobstation
 
             if (!HasComp<BibleUserComponent>(args.User))
             {
@@ -276,5 +274,7 @@ namespace Content.Server.Bible
             component.AlreadySummoned = true;
             _actionsSystem.RemoveAction(user, component.SummonActionEntity);
         }
+
+
     }
 }

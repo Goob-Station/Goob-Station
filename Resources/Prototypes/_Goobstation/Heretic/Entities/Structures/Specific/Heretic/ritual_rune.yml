@@ -40,12 +40,12 @@
       rune:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.8,-0.8,0.8,0.8"
+           bounds: "-0.8,-0.8,0.8,0.8"
         hard: false
         mask:
-          - ItemMask
+         - ItemMask
         layer:
-          - SlipLayer
+         - SlipLayer
   - type: Physics
   - type: Destructible
     thresholds:
@@ -61,7 +61,7 @@
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
-  - type: EnchantingTable # Goobstation
+  - type: EnchantingTable
 
 - type: entity
   id: HereticRuneRitualDrawAnimation

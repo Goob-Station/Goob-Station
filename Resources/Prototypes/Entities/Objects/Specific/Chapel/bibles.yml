@@ -112,7 +112,8 @@
       collection: Punch
     damage:
       types:
-        Blunt: 3
+        Holy: 5 # Goobstation - bro wtf
+        Blunt: 1
   - type: Prayable
     bibleUserOnly: true
   - type: Summonable

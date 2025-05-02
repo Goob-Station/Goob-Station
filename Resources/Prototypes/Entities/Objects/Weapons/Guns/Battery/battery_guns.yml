@@ -131,6 +131,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -174,6 +175,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: AlwaysHot # Goobstation
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -214,6 +216,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: AlwaysHot # Goobstation
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -242,6 +245,9 @@
   components:
   - type: Item
     size: Small
+    shape: # Goobstation
+    - 0,0,1,0
+    - 0,1,0,1
   - type: Tag
     tags:
     - Sidearm
@@ -484,9 +490,14 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: pulse rifle
@@ -519,9 +530,14 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -551,9 +567,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: portable particle decelerator
@@ -621,9 +642,14 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: practice disabler
@@ -827,7 +853,7 @@
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
   - type: Item
-    size: Normal  # Intentionally larger than other pistols
+    # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     layers:
@@ -1004,11 +1030,11 @@
     verbOnly: true
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key
-  # Goob edit end
   - type: Item
     size: Large
     shape:
-    - 0,0,3,1
+    - 0,0,4,1
+  # Goob edit end
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: Tag
