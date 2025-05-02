@@ -172,7 +172,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
     [UISystemDependency] private readonly TransformSystem _transform = default!; // Goobstation
     [UISystemDependency] private readonly SharedSpellsSystem? _spells = default!; // Goobstation
-    [UISystemDependency] private readonly IActionTargetMarkSystem? _mark = default!; // Goobstation - fix this
+    [UISystemDependency] private readonly SharedActionTargetMarkSystem? _mark = default!; // Goobstation - fix this
     [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
     private ActionButtonContainer? _container;
@@ -416,9 +416,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var coords = args.Coordinates;
 
         // Goobstation start
-        if (_entMan.HasComponent<LockOnMarkActionComponent>(actionId) && _mark != null &&
-            _entMan.EntityExists(_mark.Target))
-            entity = _mark.Target.Value;
+        if (_entMan.HasComponent<LockOnMarkActionComponent>(actionId) &&
+            _entMan.TryGetComponent<ActionTargetMarkComponent>(actionId, out var actionTargetMarkComponent) &&
+            _entMan.EntityExists(actionTargetMarkComponent.Target))
+            entity = actionTargetMarkComponent.Target.Value;
         // Goobstation end
 
         if (!_actionsSystem.ValidateEntityWorldTarget(user, entity, coords, (actionId, action)))
@@ -1151,17 +1152,16 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         _menuDragHelper.Update(args.DeltaSeconds);
         if (_window is {UpdateNeeded: true})
             SearchAndDisplay();
-
         // Goobstation start
-        if (_entMan.HasComponent<SwapSpellComponent>(SelectingTargetFor))
+        if (_entMan.HasComponent<SwapSpellComponent>(SelectingTargetFor) || _playerManager.LocalEntity is not { } user)
             return;
 
-        if (_mark == null)
+        if(_mark is null)
             return;
 
         if (!_entMan.TryGetComponent(SelectingTargetFor, out LockOnMarkActionComponent? lockOnMark))
         {
-            _mark.SetMark(null);
+            _mark.SetMark(user,null);
             return;
         }
 
@@ -1174,7 +1174,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         List<(float range, EntityUid target)> selectedTargets = new();
         foreach (var (target, _) in targets)
         {
-            if (target == _playerManager.LocalEntity)
+            if (target == user)
                 continue;
 
             if (!damageableQuery.HasComp(target))
@@ -1189,11 +1189,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (selectedTargets.Count == 0)
         {
-            _mark.SetMark(null);
+            _mark.SetMark(user, null);
             return;
         }
 
-        _mark.SetMark(selectedTargets.MinBy(x => x.range).target);
+        _mark.SetMark(user, selectedTargets.MinBy(x => x.range).target);
         // Goobstation end
     }
 
@@ -1310,7 +1310,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     /// </summary>
     private void StopTargeting()
     {
-        _mark?.SetMark(null); // Goobstation
+        if (_playerManager.LocalEntity is not { } user)
+            return;
+
+        _mark?.SetMark(user, null); // Goobstation
 
         if (SelectingTargetFor == null)
             return;
@@ -1324,7 +1327,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // Goobstation
         if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value); // fix
+            _spells?.SetSwapSecondaryTarget(user, null, oldAction.Value); // fix
 
         SelectingTargetFor = null;
 

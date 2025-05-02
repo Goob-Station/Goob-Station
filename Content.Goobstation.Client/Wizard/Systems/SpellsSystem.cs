@@ -65,12 +65,12 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         if (target == null || user == target)
         {
-            _mark.SetMark(null);
+            _mark.SetMark(user, null);
             RaisePredictiveEvent(new SetSwapSecondaryTarget(GetNetEntity(action), null));
             return;
         }
 
-        _mark.SetMark(target);
+        _mark.SetMark(user, target);
         RaisePredictiveEvent(new SetSwapSecondaryTarget(GetNetEntity(action), GetNetEntity(target.Value)));
     }
 

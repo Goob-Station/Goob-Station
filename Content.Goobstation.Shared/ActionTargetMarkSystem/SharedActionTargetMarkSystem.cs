@@ -1,13 +1,12 @@
+using Content.Shared.GameTicking;
+using Robust.Shared.Prototypes;
+
 namespace Content.Goobstation.Shared.ActionTargetMarkSystem;
 
 /// <summary>
 /// This handles...
 /// </summary>
-public abstract class SharedActionTargetMarkSystem : EntitySystem, IActionTargetMarkSystem
+public abstract class SharedActionTargetMarkSystem : EntitySystem
 {
-    public EntityUid? Target { get; protected set; }
-    public EntityUid? Mark { get; protected set; }
-    public virtual void SetMark(EntityUid? uid)
-    {
-    }
+    public abstract void SetMark(EntityUid user, EntityUid? target, ActionTargetMarkComponent? actionTargetMarkComponent = null);
 }

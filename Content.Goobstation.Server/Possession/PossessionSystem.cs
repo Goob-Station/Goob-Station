@@ -5,9 +5,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Common.Wizard.FadingTimedDespawn;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Stunnable;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
 using Content.Shared.Examine;
