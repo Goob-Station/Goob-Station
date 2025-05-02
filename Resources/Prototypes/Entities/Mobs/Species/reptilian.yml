@@ -173,8 +173,9 @@
       types:
         Slash: 5
   - type: Temperature
-    heatDamageThreshold: 400
+    heatDamageThreshold: 450 # Goobstation
     coldDamageThreshold: 285
+    atmosTemperatureTransferEfficiency: 0.4 # Goobstation - Coldblooded lizards.
     currentTemperature: 310.15
     specificHeat: 42
     coldDamage:
@@ -185,10 +186,18 @@
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      301: 0.8
+      289: 0.7 # Toss em a bone, since they're so easily freezable. # Goobstation
       295: 0.6
       285: 0.4
   - type: Wagging
+  - type: ThermalRegulator # Goobstation - Start
+    metabolismHeat: 0
+    radiatedHeat: 0
+    implicitHeatRegulation: 0
+    sweatHeatRegulation: 0
+    shiveringHeatRegulation: 0
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 500 # Goobstation - End
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
