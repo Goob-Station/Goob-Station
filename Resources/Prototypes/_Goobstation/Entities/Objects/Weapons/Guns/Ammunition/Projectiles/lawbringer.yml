@@ -181,7 +181,7 @@
   - type: StunOnCollide
     walkSpeedMultiplier: 0.8
     runSpeedMultiplier: 0.8
-    slowDownAmount: 2
+    slowdownAmount: 2
 
 - type: entity
   id: BulletBigshot
