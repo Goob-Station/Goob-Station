@@ -8145,3 +8145,9 @@ Entries:
       message: Fixed several issues with devil.
   id: 942
   time: '2025-05-01T22:46:00.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Changed floor tile decals texture
+  id: 943
+  time: '2025-05-02T05:27:23.0000000+00:00'
