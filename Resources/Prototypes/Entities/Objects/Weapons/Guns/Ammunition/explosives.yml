@@ -186,7 +186,7 @@
 
 - type: entity
   id: GrenadeBaton
-  name: baton grenade
+  name: baton grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -199,11 +199,15 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: baton
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
     suffix: false
 
 - type: entity
   id: GrenadeBlast
-  name: blast grenade
+  name: blast grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -220,7 +224,7 @@
 
 - type: entity
   id: GrenadeFlash
-  name: flash grenade
+  name: flash grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -233,11 +237,15 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: flash
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
     suffix: false
 
 - type: entity
   id: GrenadeFrag
-  name: frag grenade
+  name: frag grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -254,7 +262,7 @@
 
 - type: entity
   id: GrenadeEMP
-  name: EMP grenade
+  name: EMP grenade (40mm) # Goobstation
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -266,7 +274,11 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
-    state: frag
+    state: emp
+  - type: Tag
+    tags:
+     - Grenade # Goobstation
+     - NonLethalGrenade # Goobstation
     suffix: false
 
 # Cannon Balls

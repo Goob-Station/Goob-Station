@@ -1,0 +1,16 @@
+- type: entity
+  id: GrenadeMPAPERS
+  name: MP-APERS shell (40mm)
+  parent: BaseGrenade
+  components:
+  - type: CartridgeAmmo
+    proto: HighCaliberPelletGrenadeSpread
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: apers
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: apers
+    suffix: false

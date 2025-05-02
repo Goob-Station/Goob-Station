@@ -325,6 +325,9 @@
   id: Muzzle
 
 - type: Tag
+  id: NonLethalGrenade
+
+- type: Tag
   id: NukeOpsCommanderUplink
 
 - type: Tag

@@ -881,6 +881,7 @@
       path: /Audio/Effects/gen_hit.ogg
   - type: StaminaDamageOnCollide
     damage: 80
+    overtime: 40 # Goobstation
 
 - type: entity
   id: BulletGrenadeBlast

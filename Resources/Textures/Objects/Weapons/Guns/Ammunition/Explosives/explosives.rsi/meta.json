@@ -35,10 +35,19 @@
             "name": "glassshot"
         },
         {
+            "name": "buster"
+        },
+        {
             "name": "spent"
 	    },
         {
-            "name": "buster"
-        }
+            "name": "baton-spent"
+	    },
+        {
+            "name": "emp-spent"
+	    },
+        {
+            "name": "flash-spent"
+	    }
     ]
 }

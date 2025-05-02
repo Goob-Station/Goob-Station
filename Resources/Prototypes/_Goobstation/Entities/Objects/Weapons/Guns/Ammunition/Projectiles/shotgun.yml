@@ -223,3 +223,29 @@
         Blunt: 20 # ye-OUCH
   - type: StaminaDamageOnCollide
     damage: 80 # ye-OW
+
+# MP-APERS
+
+- type: entity
+  id: HighCaliberPelletGrenade
+  name: pellet (MP-APERS)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 5
+
+- type: entity
+  id: HighCaliberPelletGrenadeSpread
+  categories: [ HideSpawnMenu ]
+  parent: HighCaliberPelletGrenade
+  components:
+  - type: ProjectileSpread
+    proto: HighCaliberPelletGrenade
+    count: 20
+    spread: 15
