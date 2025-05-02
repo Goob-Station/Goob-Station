@@ -12,13 +12,25 @@ public sealed class ActionTargetMarkSystem : SharedActionTargetMarkSystem
 
     private static readonly EntProtoId MarkProto = "ActionTargetMark";
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<ActionTargetMarkComponent, SetActionTargetMarkEvent>(SetActionTargetMark);
+    }
+
+    private void SetActionTargetMark(Entity<ActionTargetMarkComponent> ent, ref SetActionTargetMarkEvent args)
+    {
+        SetMark(ent, args.Target);
+    }
+
     public override void SetMark(EntityUid user, EntityUid? target, ActionTargetMarkComponent? actionTargetMarkComponent = null)
     {
         if(!Resolve(user, ref actionTargetMarkComponent) || actionTargetMarkComponent.Target == target)
             return;
 
+        Log.Info("Handling marking");
         actionTargetMarkComponent.Target = target;
-        if (actionTargetMarkComponent.Target == null)
+        if (target == null)
         {
             QueueDel(actionTargetMarkComponent.Mark);
             actionTargetMarkComponent.Mark = null;

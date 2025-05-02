@@ -8,5 +8,12 @@ namespace Content.Goobstation.Shared.ActionTargetMarkSystem;
 /// </summary>
 public abstract class SharedActionTargetMarkSystem : EntitySystem
 {
-    public abstract void SetMark(EntityUid user, EntityUid? target, ActionTargetMarkComponent? actionTargetMarkComponent = null);
+    public override void Initialize()
+    {
+        base.Initialize();
+    }
+
+    public abstract void SetMark(EntityUid user,
+        EntityUid? target,
+        ActionTargetMarkComponent? actionTargetMarkComponent = null);
 }
