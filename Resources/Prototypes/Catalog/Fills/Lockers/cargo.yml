@@ -117,10 +117,12 @@
   components:
   - type: StorageFill
     contents: 
-    - id: SurvivalKnife
+    - id: ClothingEyesGlassesMeson
+    - id: KukriKnife
     - id: HandheldGPSBasic
     - id: RadioHandheld
     - id: OreBag
+    - id: Pickaxe
     - id: ClothingBeltUtilityFilled
     - id: LavalandJaunter
     - id: ShelterCapsule
@@ -129,3 +131,7 @@
     - id: ClothingShoesBootsJack
     - id: ClothingOuterHardsuitMercenary
     - id: ClothingShoesBootsMagMercenary
+    - id: ClothingMaskGasExplorer
+    - id: MineralScanner
+    - id: FlashlightSeclite
+    - id: WeaponProtoKineticAccelerator

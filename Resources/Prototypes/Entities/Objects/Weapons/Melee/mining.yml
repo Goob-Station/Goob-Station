@@ -90,6 +90,7 @@
     state: pickaxe
   - type: MeleeWeapon
     attackRate: 0.7
+    heavyStaminaCost: 0
     animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     soundHit:

@@ -108,6 +108,7 @@
   - Medical
   - Research
   - Cargo
+  - Salvage
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

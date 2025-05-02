@@ -853,10 +853,7 @@
   - type: GreytideVirusRule
     accessGroups:
     - Cargo
-    - Command
-    - Engineering
     - Research
-    - Security
     - Service
     blacklist:
     - External # don't space everything

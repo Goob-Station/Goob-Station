@@ -14,8 +14,23 @@
   - type: BreathMask
   - type: Sprite
     sprite: _NF/Clothing/Head/Hardsuits/mercenary.rsi
+    layers:
+    - state: icon
+    - state: on-equipped-HELMET
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableLightVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+        shader: unshaded
   - type: Clothing
-    sprite: _NF/Clothing/Head\Hardsuits/mercenary.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
