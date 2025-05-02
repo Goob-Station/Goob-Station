@@ -8177,3 +8177,11 @@ Entries:
       message: Harpies now move slightly faster, as they should.
   id: 945
   time: '2025-05-02T05:31:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Removed Heaven's Gate!
+    - type: Add
+      message: Added HE1S-G8!
+  id: 946
+  time: '2025-05-02T05:35:45.0000000+00:00'
