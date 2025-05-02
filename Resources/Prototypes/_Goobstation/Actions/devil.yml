@@ -13,7 +13,6 @@
       sprite: _Goobstation/Actions/devil.rsi
       state: summon-contract
     event: !type:CreateContractEvent {}
-  - type: DevilAction
 
 - type: entity
   id: ActionCreateRevivalContract
@@ -28,7 +27,6 @@
       sprite: _Goobstation/Actions/devil.rsi
       state: summon-contract-revival
     event: !type:CreateRevivalContractEvent {}
-  - type: DevilAction
 
 - type: entity
   id: ActionShadowJaunt
@@ -37,13 +35,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 25 # 1984
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi
       state: shadow-jaunt
     event: !type:ShadowJauntEvent {}
-  - type: DevilAction
 
 - type: entity
   id: ActionDevilPossess
@@ -63,8 +60,6 @@
       sprite: _Goobstation/Actions/devil.rsi
       state: possess
     event: !type:DevilPossessionEvent {}
-  - type: DevilAction
-    soulsRequired: 2
 
 # Deals
 

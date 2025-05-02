@@ -60,7 +60,7 @@
 
 - type: clause
   id: pain
-  clauseWeight: -10
+  clauseWeight: -5
   addedComponents:
   - type: PainNumbness
   - type: SlowOnDamage
@@ -125,6 +125,8 @@
   clauseWeight: 40
   addedComponents:
   - type: Narcolepsy
+    timeBetweenIncidents: 300, 600
+    durationOfIncident: 10, 30
 
 - type: clause
   id: anorgan
