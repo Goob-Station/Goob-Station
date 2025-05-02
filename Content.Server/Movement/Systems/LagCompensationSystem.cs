@@ -1,9 +1,11 @@
 // SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -78,7 +80,7 @@ public sealed class LagCompensationSystem : EntitySystem
 
         var angle = Angle.Zero;
         var coordinates = EntityCoordinates.Invalid;
-        var ping = pSession.Ping;
+        var ping = pSession.Channel.Ping;
         // Use 1.5 due to the trip buffer.
         var sentTime = _timing.CurTime - TimeSpan.FromMilliseconds(ping * 1.5);
 

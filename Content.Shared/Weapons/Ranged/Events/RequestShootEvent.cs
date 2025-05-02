@@ -4,8 +4,10 @@
 // SPDX-FileCopyrightText: 2022 T-Stalker <le0nel_1van@hotmail.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -23,4 +25,5 @@ public sealed class RequestShootEvent : EntityEventArgs
     public NetEntity Gun;
     public NetCoordinates Coordinates;
     public NetEntity? Target;
+    public List<int>? Shot;
 }
