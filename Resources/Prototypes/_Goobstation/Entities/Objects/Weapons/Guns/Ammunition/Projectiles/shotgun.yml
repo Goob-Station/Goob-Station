@@ -10,7 +10,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgun
-  name: pellet (.75 carpshot)
+  name: pellet (8 Gauge carpshot)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -36,7 +36,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgunIncendiary
-  name: pellet (.75 incendiary)
+  name: pellet (8 Gauge incendiary)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
@@ -65,7 +65,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgunPractice
-  name: pellet (.75 practice)
+  name: pellet (8 Gauge practice)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
@@ -91,7 +91,7 @@
 
 - type: entity
   id: HighCaliberPelletShotgunUranium
-  name: pellet (.75 uranium)
+  name: pellet (8 Gauge uranium)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -118,7 +118,7 @@
 
 - type: entity
   id: PelletShotgunSlugHighCaliber
-  name: pellet (.75 slug)
+  name: pellet (8 Gauge slug)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -132,7 +132,7 @@
 
 - type: entity
   id: BulletSlugEnsnaring
-  name: bullet (.75 caliber ensnaring slug)
+  name: bullet (8 Gauge ensnaring slug)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -156,7 +156,7 @@
 
 - type: entity
   id: BulletSlugEMP
-  name: bullet (.75 caliber EMP slug)
+  name: bullet (8 Gauge EMP slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -183,7 +183,7 @@
 
 - type: entity
   id: BulletSlugFlash
-  name: bullet (.75 caliber flash slug)
+  name: bullet (8 Gauge flash slug)
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
   components:
@@ -210,7 +210,7 @@
 
 - type: entity
   id: BulletSlugBeanbagHighCaliber
-  name: beanbag (.75)
+  name: beanbag (8 Gauge)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
@@ -238,7 +238,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 5
+        Piercing: 6 # Total 120 damage
 
 - type: entity
   id: HighCaliberPelletGrenadeSpread

@@ -11,6 +11,12 @@
             "name": "apers"
         },
         {
+            "name": "teargas"
+        },
+        {
+            "name": "teargas-spent"
+        },
+        {
             "name": "spent"
         }
     ]

@@ -272,3 +272,29 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  id: BulletGrenadeTeargas
+  name: tear gas grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: SmokeOnTrigger
+    duration: 10
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 20
+    spreadAmount: 5
+  - type: ActiveTimerTrigger
+    timeRemaining: 5
+  - type: DeleteOnTrigger
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
