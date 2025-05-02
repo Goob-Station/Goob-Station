@@ -70,6 +70,9 @@
       behaviors:
       - !type:TriggerBehavior
   - type: DeleteOnTrigger
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: ProjectileGrenade # Should be worse than the syndicate one
     fillPrototype: PelletClusterLethalWeak
     capacity: 20
