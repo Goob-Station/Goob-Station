@@ -130,7 +130,7 @@ namespace Content.Shared.Friction
                 PhysicsSystem.SetAngularDamping(uid, body, friction);
 
                 if (body.BodyType != BodyType.KinematicController)
-                    return;
+                    continue;
 
                 // Physics engine doesn't apply damping to Kinematic Controllers so we have to do it here.
                 // BEWARE YE TRAVELLER:
