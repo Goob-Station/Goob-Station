@@ -8145,3 +8145,43 @@ Entries:
       message: Fixed several issues with devil.
   id: 942
   time: '2025-05-01T22:46:00.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Changed floor tile decals texture
+  id: 943
+  time: '2025-05-02T05:27:23.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Generalized plushie names.
+    - type: Add
+      message: >-
+        You can now gib Mikedyne and Muppet with a plushie that resembles them.
+        This will not have consequences unless an admin says otherwise.
+  id: 944
+  time: '2025-05-02T05:29:51.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Moths move slightly slower but can dash with their wings with 65%
+        chance. 
+    - type: Tweak
+      message: Voxes now do not rot, but you can't clone them.
+    - type: Tweak
+      message: Onis are now able to shoot one-handed SMGs with two hands.
+    - type: Add
+      message: Added some more things for arachnids to craft.
+    - type: Fix
+      message: Harpies now move slightly faster, as they should.
+  id: 945
+  time: '2025-05-02T05:31:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Removed Heaven's Gate!
+    - type: Add
+      message: Added HE1S-G8!
+  id: 946
+  time: '2025-05-02T05:35:45.0000000+00:00'

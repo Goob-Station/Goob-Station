@@ -119,13 +119,6 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-  - type: RestrictGunshotsByUserTag # Goobstation
-    doesntContain:
-    - Oni
-    messages:
-    - oni-cannot-shoot-guns-1
-    - oni-cannot-shoot-guns-2
-    - oni-cannot-shoot-guns-3
 
 - type: entity
   name: Atreides
@@ -249,6 +242,13 @@
       steps: 1
       zeroVisible: true
     - type: Appearance
+    - type: RestrictGunshotsByUserTag # Goobstation
+      doesntContain:
+      - Oni
+      messages:
+      - oni-cannot-shoot-guns-1
+      - oni-cannot-shoot-guns-2
+      - oni-cannot-shoot-guns-3
 
 - type: entity
   name: WT550 autorifle # Goobstation
