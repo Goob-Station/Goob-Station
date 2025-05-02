@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Common.StationEvents.SecretPlus;
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
