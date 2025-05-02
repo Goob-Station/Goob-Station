@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
@@ -17,9 +18,9 @@ public sealed partial class HealUserOnPraySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HealUserOnPrayComponent, NullrodPrayEvent>(OnPray);
+        SubscribeLocalEvent<HealNearOnPrayComponent, NullrodPrayEvent>(OnPray);
     }
-    private void OnPray(EntityUid uid, HealUserOnPrayComponent comp, ref NullrodPrayEvent args)
+    private void OnPray(EntityUid uid, HealNearOnPrayComponent comp, ref NullrodPrayEvent args)
     {
         _damageable.TryChangeDamage(uid, comp.Damage);
     }
