@@ -982,7 +982,7 @@
   description: uplink-radio-jammer-desc
   productEntity: RadioJammer
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkDisruption
 

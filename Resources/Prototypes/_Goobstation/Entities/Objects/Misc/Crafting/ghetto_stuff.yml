@@ -195,7 +195,7 @@
     graph: TideFlipperZeroGraph
     node: final
   - type: Access
-    groups:
+    tags:
     - Maintenance # TIDE flipper without maints access?
 
 - type: entity
@@ -236,7 +236,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 5 # 17 weld damage is the damage that cap saber has
+        Blunt: 7 # 19 weld dmage is the damage that cap saber has
         Structural: 12
   - type: Construction
     graph: MetalBaseballBatGraph
@@ -252,9 +252,10 @@
   description: A cheap looking device that can spam radio waves, essentially blocking all signal. Yeah its not effective.
   components:
   - type: RadioJammer
+    selectedPowerLevel: 0
     settings:
-    - wattage: 20
-      range: 3
+    - wattage: 8
+      range: 4
       message: radio-jammer-component-set-message-medium
       name: radio-jammer-component-setting-medium
   - type: PowerCellSlot
@@ -281,17 +282,19 @@
 - type: entity
   parent: [ClothingShoesMilitaryBase, BaseMinorContraband]
   id: ClothingShoesHeavyBoots
-  name: heavy steel boots
+  name: tide boots
   description: Metal is scraping through the floor as you walk with them, who thought this was a good idea?
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Slash: 0.95 # what are you even trying to protect with them
+  - type: ClothingSlowOnDamageModifier # 2 times the jackboots
+    modifier: 0.75
+  - type: ClothingModifyStunTime
+    modifier: 0.9
+  - type: ModifyStandingUpTime
+    multiplier: 0.75
   - type: Construction
     graph: HeavyBootsGraph
     node: final

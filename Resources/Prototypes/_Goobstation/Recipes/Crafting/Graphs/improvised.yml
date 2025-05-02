@@ -15,19 +15,6 @@
   - node: HexNutStack
     entity: MaterialHexNutSingle
 
-- type: construction
-  id: HexNutDouble
-  name: Hex Nut
-  category: construction-category-misc
-  description: Two hex nuts handcrafted from one steel.
-  graph: HexNutDoubleGraph
-  startNode: start
-  targetNode: HexNutStack
-  icon:
-    sprite: _Goobstation/Objects/Materials/materials.rsi
-    state: hex_1
-  objectType: Item
-
 # screw
 
 - type: constructionGraph
@@ -46,51 +33,9 @@
   - node: ScrewStack
     entity: MaterialScrewSingle
 
-- type: construction
-  id: Screw
-  name: Screw
-  category: construction-category-misc
-  description: Two screws crafted from one steel.
-  graph: ScrewGraph
-  startNode: start
-  targetNode: ScrewStack
-  icon:
-    sprite: _Goobstation/Objects/Materials/materials.rsi
-    state: screw_1
-  objectType: Item
-
-# wooden handle
-
-#- type: constructionGraph
-#  id: WoodenHandleGraph
-#  start: start
-#  graph:
-#  - node: start
-#    edges:
-#    - to: Handle
-#      steps:
-#      - material: WoodPlank
-#        amount: 5
-#        doAfter: 6
-#  - node: Handle
-#    entity: WoodenHandle
-#
-#
-#- type: construction
-#  id: WoodenHandleCraft
-#  name: Wooden Handle
-#  description: A simple wooden handle for tools.
-#  graph: WoodenHandleGraph
-#  startNode: start
-#  targetNode: Handle
-#  icon:
-#    sprite: _Goobstation/Objects/Misc/Crafting/wooden_handle.rsi
-#    state: icon
-#  objectType: Item
-#  hide: true
-
 # contra bag
 # graph made by a program that mades graphs easier to make so lets hope it works
+# total mats: steel: 7, plastic: 5, cable: 10
 - type: constructionGraph
   id: ContrabandSatchelGraph
   start: start
@@ -140,20 +85,8 @@
   - node: final
     entity: ContrabandBag
 
-- type: construction
-  id: ContrabandSatchelCraft
-  name: contraband bag
-  description: A steel bag for hiding from metal detectors.
-  graph: ContrabandSatchelGraph
-  category: construction-category-misc
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
-    state: icon
-  objectType: Item
-
 # stupidly over complicated makeshift defib craft:
+# total mats: steel: 22, Cable: 12, power cell, 4 cloth
 - type: constructionGraph
   id: MakeshiftDefibGraph
   start: start
@@ -257,21 +190,8 @@
     edges: []
     entity: MakeshiftDefib
 
-- type: construction
-  id: MakeshiftDefibCraft
-  name: makeshift defibrillator
-  category: construction-category-misc
-  description: Stupidly complex makeshift defibrillator for all your needs.
-  graph: MakeshiftDefibGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Objects/Devices/defib.rsi
-    state: icon
-  objectType: Item
-
 # tide flipper zero
-
+# total mats: remote signaller: 1, multitool: 1, steel: 2, cable: 8, id: 2
 - type: constructionGraph
   id: TideFlipperZeroGraph
   start: start
@@ -342,21 +262,8 @@
     edges: []
     entity: TideFlipperZero
 
-- type: construction
-  id: TideFlipperCraft
-  name: makeshift tide flipper
-  category: construction-category-misc
-  description: Makeshift hand remote that can be used to hack doors without access.
-  graph: TideFlipperZeroGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
-    state: icon
-  objectType: Item
-
 # metal baseball bat
-
+# total mats: Wood: 5, Steel: 12
 - type: constructionGraph
   id: MetalBaseballBatGraph
   start: start
@@ -407,20 +314,8 @@
     edges: []
     entity: MetalBaseballBat
 
-- type: construction
-  id: MetalBaseballBatCrafting
-  name: makeshift metal baseball bat
-  category: construction-category-weapons
-  description: Makeshift hard and robust metal baseball bat with a wooden handle.
-  graph: MetalBaseballBatGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
-    state: icon
-  objectType: Item
-
 # makeshift hammer
+# total mats: wood: 3, steel: 5
 - type: constructionGraph
   id: HammerConstructionGraph
   start: start
@@ -430,7 +325,7 @@
     - to: mid
       steps:
       - material: WoodPlank
-        amount: 5
+        amount: 3
         doAfter: 5
   - node: mid
     entity: WoodenHandleHammer
@@ -461,7 +356,7 @@
       - tool: Hammering
         doAfter: 1
       - material: Steel
-        amount: 2
+        amount: 1
         doAfter: 2
       - tool: Welding
         doAfter: 8
@@ -472,21 +367,9 @@
   - node: final
     entity: MeleeHammer
 
-- type: construction
-  id: HandmadeHammerCrafting
-  name: handmade hammer
-  category: construction-category-weapons
-  description: A normal handmade hammer.
-  graph: HammerConstructionGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi
-    state: icon
-  objectType: Item
 
 # makeshift jammer
-
+# total mats: Remote signaller: 1, multitool: 1, cable: 8, power cell, enc key: 3
 - type: constructionGraph
   id: MakeshiftJammerGraph
   start: start
@@ -553,21 +436,10 @@
     entity: MakeshiftJammer
     edges: []
 
-- type: construction
-  id: MakeshiftJammerCrafting
-  name: makeshift jammer
-  category: construction-category-misc
-  description: Makeshift jammer, not efficient, but it does its job.
-  graph: MakeshiftJammerGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
-    state: jammer
-  objectType: Item
 # clothing
 
 # heavy boots
+# total mats: Steel: 9
 - type: constructionGraph
   id: HeavyBootsGraph
   start: start
@@ -628,21 +500,9 @@
     entity: ClothingShoesHeavyBoots
     edges: []
 
-- type: construction
-  id: HeavyBootsCrafting
-  name: makeshift metal boots
-  category: construction-category-clothing
-  description: Makeshift heavy metal boots.
-  graph: HeavyBootsGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
-    state: icon
-  objectType: Item
 
 # helmet
-
+# total mats: steel: 12, cable: 4. glass: 4
 - type: constructionGraph
   id: MakeshiftHelmetGraph
   start: start
@@ -718,21 +578,9 @@
     entity: ClothingHeadMakeshiftHelmet
     edges: []
 
-- type: construction
-  id: MakeshiftHelmetCraft
-  name: makeshift light helmet
-  category: construction-category-clothing
-  description: Makeshift light helmet for protection.
-  graph: MakeshiftHelmetGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
-    state: icon
-  objectType: Item
 
 # light vest
-
+# total mats: Steel: 23, Cable: 16
 - type: constructionGraph
   id: MakeshiftLightVestGraph
   start: start
@@ -873,22 +721,10 @@
   - node: final
     entity: ClothingOuterArmorMakeshiftVestLight
 
-- type: construction
-  id: MakeshiftLightVestCraft
-  name: makeshift light vest
-  category: construction-category-clothing
-  description: Complex makeshift light vest for protection. Open a blacksmith man.
-  graph: MakeshiftLightVestGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
-    state: icon
-  objectType: Item
-
 # heavy vest
 # gab forgive me for making these crafts so long
 # its for the balance i swear
+# total mats: Steel: 15, Plasteel: 8, Cable: 16
 - type: constructionGraph
   id: MakeshiftHeavyVestGraph
   start: start
@@ -1078,16 +914,3 @@
   - node: final
     entity: ClothingOuterArmorMakeshiftVestHeavy
     edges: []
-
-- type: construction
-  id: MakeshiftHeavyVestCraft
-  name: makeshift heavy vest
-  category: construction-category-clothing
-  description: A complex heavy armor vest, made with steel, plasteel, and nails.
-  graph: MakeshiftHeavyVestGraph
-  startNode: start
-  targetNode: final
-  icon:
-    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
-    state: icon
-  objectType: Item
