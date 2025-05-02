@@ -133,6 +133,7 @@
 # SPDX-FileCopyrightText: 2025 august-sun <45527070+august.sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #When adding new hardsuits, please try to keep the organization consistent with hardsuit-helmets.yml (if possible.)
@@ -747,7 +748,7 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3 #goob
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -859,7 +860,7 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.2 #goob
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -897,7 +898,7 @@
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.2 #goob
+    damageCoefficient: 0.3
   - type: Armor
     modifiers:
       coefficients:
