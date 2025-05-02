@@ -17,8 +17,6 @@ using Content.Server.Hands.Systems;
 using Content.Server.Implants;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Implants.Components;
@@ -265,8 +263,10 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             if (_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto))
             {
+                if (!contract.CurrentClauses.Add(clauseProto))
+                    continue;
+
                 newWeight += clauseProto.ClauseWeight;
-                contract.CurrentClauses.Add(clauseProto);
             }
             else
                 _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {uid}");
@@ -281,6 +281,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         var matches = _clauseRegex.Matches(paper.Content);
+        var processedClauses = new HashSet<string>();
 
         foreach (Match match in matches)
         {
@@ -304,6 +305,10 @@ public sealed partial class DevilContractSystem : EntitySystem
                 _sawmill.Warning($"Unknown contract clause: {clauseKey}");
                 continue;
             }
+
+            // no duplicates
+            if (!processedClauses.Add(clauseKey))
+                continue;
 
             var targetEntity = resolver(comp);
 
