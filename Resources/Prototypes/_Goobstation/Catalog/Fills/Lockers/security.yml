@@ -1,0 +1,11 @@
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: GunSafeLauncherNonLethal
+  name: riot launcher safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLauncherNonLethal
+    - id: BoxGrenadesBaton
+    - id: BoxGrenadesFlash
+    - id: BoxGrenadesTeargas
