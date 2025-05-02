@@ -76,6 +76,18 @@ public sealed partial class WoundableComponent : Component
     public FixedPoint2 HealAbility = 0.1;
 
     /// <summary>
+    /// How much bleeds will the woundable treat per tick
+    /// </summary>
+    [ViewVariables, DataField]
+    public FixedPoint2 BleedingTreatmentAbility = 0.04f;
+
+    /// <summary>
+    /// At which amount of bleeds the woundable will stop healing.
+    /// </summary>
+    [ViewVariables, DataField]
+    public FixedPoint2 BleedsThreshold = 3.5f;
+
+    /// <summary>
     /// Multipliers of severity applied to this wound.
     /// </summary>
     public Dictionary<EntityUid, WoundableSeverityMultiplier> SeverityMultipliers = new();

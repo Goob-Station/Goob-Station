@@ -221,7 +221,7 @@ public sealed class SandboxUIController : UIController, IOnStateChanged<Gameplay
         return _sandbox.Copy(session, coords, uid);
     }
 
-    private void ToggleWindow()
+    public void ToggleWindow()
     {
         if (_window == null)
             return;

@@ -13,7 +13,7 @@
   id: BasePart
   components:
   - type: Damageable
-    damageContainer: OrganicPart # Shitmed Change
+    damageContainer: Biological # Shitmed Change
   - type: Nerve
   - type: Extractable
     juiceSolution:
@@ -35,7 +35,7 @@
   id: BaseChest
   components:
   - type: Woundable
-    damageContainer: OrganicPart
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:
@@ -89,7 +89,7 @@
   parent: BaseGroinInorganic
   components:
   - type: Woundable
-    damageContainer: OrganicPart
+    damageContainer: Biological
   - type: WoundableVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     occupiedLayer: Groin

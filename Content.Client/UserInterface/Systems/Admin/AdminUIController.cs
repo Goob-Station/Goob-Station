@@ -187,7 +187,7 @@ public sealed class AdminUIController : UIController,
         Toggle();
     }
 
-    private void Toggle()
+    public void Toggle()
     {
         if (_window is {IsOpen: true})
         {

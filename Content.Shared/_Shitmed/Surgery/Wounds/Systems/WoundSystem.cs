@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Shitmed.CCVar;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared.Body.Components;
@@ -289,6 +290,7 @@ public sealed partial class WoundSystem : EntitySystem
 
         component.HealingRateAccumulated = state.HealingRateAccumulated;
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -297,20 +299,32 @@ public sealed partial class WoundSystem : EntitySystem
             return;
 
         var timeToHeal = 1 / _medicalHealingTickrate;
-        using var query = EntityQueryEnumerator<WoundableComponent, MetaDataComponent>();
+        var query = EntityQueryEnumerator<WoundableComponent, MetaDataComponent>();
         while (query.MoveNext(out var ent, out var woundable, out var metaData))
         {
             if (Paused(ent, metaData))
                 continue;
 
             woundable.HealingRateAccumulated += frameTime;
+            if (woundable.HealingRateAccumulated < timeToHeal)
+                continue;
 
-            if (woundable.HealingRateAccumulated < timeToHeal
-                || woundable.Wounds == null
-                || woundable.Wounds.Count == 0)
+            if (woundable.Wounds == null || woundable.Wounds.Count == 0)
                 continue;
 
             woundable.HealingRateAccumulated -= timeToHeal;
+
+            var bleedWounds = GetWoundableWoundsWithComp<BleedInflicterComponent>(ent, woundable).ToArray();
+            var bleedingAmount = bleedWounds.Aggregate(FixedPoint2.Zero,
+                    (current, wound) => current + wound.Comp2.BleedingAmount);
+
+            if (bleedingAmount > woundable.BleedsThreshold)
+                continue;
+
+            var bleedTreatment = woundable.BleedingTreatmentAbility / bleedWounds.Length;
+
+            foreach (var wound in bleedWounds)
+                wound.Comp2.BleedingAmountRaw -= bleedTreatment;
 
             var woundsToHeal =
                 GetWoundableWounds(ent, woundable).Where(wound => CanHealWound(wound, wound)).ToList();
@@ -319,14 +333,14 @@ public sealed partial class WoundSystem : EntitySystem
                 continue;
 
             var healAmount = -woundable.HealAbility / woundsToHeal.Count;
-            _parallel.ProcessNow(new IntegrityJob
+
+            Entity<WoundableComponent> owner = (ent, woundable);
+            foreach (var x in woundsToHeal)
             {
-                System = this,
-                Owner = (ent, woundable),
-                WoundsToHeal = woundsToHeal,
-                HealAmount = healAmount,
-            },
-            woundsToHeal.Count);
+                ApplyWoundSeverity(x,
+                    ApplyHealingRateMultipliers(x, owner, healAmount, owner, x),
+                    x);
+            }
         }
     }
 }

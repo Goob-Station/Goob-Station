@@ -339,12 +339,17 @@ public partial class WoundSystem
         return GetWoundableWounds(woundable).Any(wound => wound.Comp.DamageGroup?.ID == damageGroup);
     }
 
-    public FixedPoint2 ApplyHealingRateMultipliers(EntityUid wound, EntityUid woundable, FixedPoint2 severity, WoundableComponent? component = null)
+    public FixedPoint2 ApplyHealingRateMultipliers(EntityUid wound,
+        EntityUid woundable,
+        FixedPoint2 severity,
+        WoundableComponent? component = null,
+        WoundComponent? woundComp = null)
     {
         if (!Resolve(woundable, ref component))
             return severity;
 
-        if (!Comp<WoundComponent>(wound).CanBeHealed)
+        if (!Resolve(wound, ref woundComp, false)
+            || !woundComp.CanBeHealed)
             return FixedPoint2.Zero;
 
         var woundHealingMultiplier =

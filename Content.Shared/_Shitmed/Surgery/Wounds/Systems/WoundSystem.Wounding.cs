@@ -1554,6 +1554,29 @@ public sealed partial class WoundSystem
     }
 
     /// <summary>
+    /// Get the wounds present on a specific woundable, with a component you want
+    /// </summary>
+    /// <param name="targetEntity">Entity that owns the woundable</param>
+    /// <param name="targetWoundable">Woundable component</param>
+    /// <returns>An enumerable pointing to one of the found wounds, with the said component</returns>
+    public IEnumerable<Entity<WoundComponent, T>> GetWoundableWoundsWithComp<T>(
+        EntityUid targetEntity,
+        WoundableComponent? targetWoundable = null) where T : Component, new()
+    {
+        if (!Resolve(targetEntity, ref targetWoundable, false)
+            || targetWoundable.Wounds == null || targetWoundable.Wounds.Count == 0)
+            yield break;
+
+        foreach (var woundEntity in GetWoundableWounds(targetEntity, targetWoundable))
+        {
+            if (!TryComp<T>(woundEntity, out var foundComponent))
+                continue;
+
+            yield return (woundEntity, woundEntity, foundComponent);
+        }
+    }
+
+    /// <summary>
     /// Checks for wounds on an entity that have exceeded their MangleSeverity threshold
     /// </summary>
     public bool HasWoundsExceedingMangleSeverity(EntityUid targetEntity, WoundableComponent? targetWoundable = null)

@@ -300,20 +300,6 @@ public sealed class HealingSystem : EntitySystem
             || !TryComp<DamageableComponent>(targetedWoundable, out var damageableComp))
             return;
 
-        var woundableDamageContainer = woundableComp.DamageContainerID;
-
-        if (healing.DamageContainers is not null &&
-            woundableDamageContainer is not null &&
-            !healing.DamageContainers.Contains(woundableDamageContainer))
-        {
-            _popupSystem.PopupEntity(
-                Loc.GetString("cant-heal-damage-rebell", ("target", ent), ("used", args.Used)),
-                ent,
-                args.User,
-                PopupType.MediumCaution);
-            return;
-        }
-
         var healedBleed = false;
         var canHeal = true;
         var healedTotal = FixedPoint2.Zero;

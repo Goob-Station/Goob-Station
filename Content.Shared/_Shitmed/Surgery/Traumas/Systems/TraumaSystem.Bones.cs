@@ -123,7 +123,6 @@ public partial class TraumaSystem
 
     private void OnAttemptHandsShoot(Entity<BoneComponent> bone, ref AttemptHandsShootEvent args)
     {
-        Logger.Debug("OnAttemptHandsShoot Bones");
         var odds = bone.Comp.BoneSeverity switch
         {
             BoneSeverity.Cracked => 0.10f,
@@ -139,10 +138,7 @@ public partial class TraumaSystem
             return;
 
         if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
-        {
-            Logger.Debug("Fumbled Bones");
             args.Handled = true;
-        }
     }
 
     #endregion

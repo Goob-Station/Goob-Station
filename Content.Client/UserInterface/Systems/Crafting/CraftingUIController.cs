@@ -72,6 +72,11 @@ public sealed class CraftingUIController : UIController, IOnStateChanged<Gamepla
         CraftingButton.OnToggled += ButtonToggled;
     }
 
+    public void Toggle()
+    {
+        _presenter?.ToggleMenu();
+    }
+
     private void ButtonToggled(BaseButton.ButtonToggledEventArgs obj)
     {
         _presenter?.OnHudCraftingButtonToggled(obj);
