@@ -72,6 +72,7 @@ public sealed class ModularGrenadeTests : InteractionTest
 
         // Wait until grenade explodes
         var timer = Comp<ActiveTimerTriggerComponent>();
+        Target = SEntMan.GetNetEntity(await FindEntity(Payload)); // Goobstation - shrapnel payload
         while (timer.TimeRemaining >= 0)
         {
             await RunTicks(10);
