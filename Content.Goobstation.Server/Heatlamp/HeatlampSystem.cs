@@ -1,12 +1,16 @@
+using Content.Server.Examine;
 using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Hands;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
+using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Heatlamp;
 
@@ -16,14 +20,52 @@ public sealed partial class HeatlampSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
 
     private readonly int _settingCount = Enum.GetValues<EntityHeaterSetting>().Length;
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<HeatlampComponent, GotEquippedHandEvent>(OnEquipped);
+        SubscribeLocalEvent<HeatlampComponent, GotUnequippedHandEvent>(OnUnequipped);
+
+        SubscribeLocalEvent<HeatlampComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<HeatlampComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<HeatlampComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<HeatlampComponent, BatteryComponent>();
+        while (query.MoveNext(out var uid, out var heater, out var battery))
+        {
+            if (heater.Setting == EntityHeaterSetting.Off
+            || heater.NextTick >= _timing.CurTime)
+                continue;
+
+            if (heater.User is not null)
+            {
+                var energy = heater.CurrentPowerDraw * frameTime;
+                _temperature.ChangeHeat(heater.User.Value, energy);
+            }
+
+            _battery.UseCharge(uid, heater.CurrentPowerDraw, battery);
+            heater.NextTick = _timing.CurTime + heater.TickDelay;
+        }
+    }
+
+    private void OnEquipped(EntityUid uid, HeatlampComponent comp, ref GotEquippedHandEvent args)
+    {
+        comp.User = args.User;
+    }
+
+    private void OnUnequipped(EntityUid uid, HeatlampComponent comp, ref GotUnequippedHandEvent args)
+    {
+        comp.User = null;
     }
 
     private void OnExamined(EntityUid uid, HeatlampComponent comp, ExaminedEvent args)
@@ -67,7 +109,7 @@ public sealed partial class HeatlampSystem : EntitySystem
             return;
 
         comp.Setting = setting;
-        comp.CurrentPowerDraw = SettingPower(setting, power.MaxCharge);
+        comp.CurrentPowerDraw = SettingPower(setting, comp.Power);
 
         _appearance.SetData(uid, EntityHeaterVisuals.Setting, setting);
         _audio.PlayPvs(comp.SettingSound, uid);
