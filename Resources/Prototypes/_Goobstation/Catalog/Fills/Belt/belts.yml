@@ -140,14 +140,6 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
-  - type: ContainerContainer
-    containers:
-      item: !type:ContainerSlot
-      storagebase: !type:Container
-        ents: []
-      item2: !type:ContainerSlot
-      storagebase: !type:Container
-        ents: []
   - type: ItemSlots
     slots:
       item:
