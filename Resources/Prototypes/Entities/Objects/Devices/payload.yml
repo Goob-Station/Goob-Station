@@ -33,34 +33,45 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: explosive payload
+  name: shrapnel payload # Goobstation - shrapnel payload
   parent: BasePayload
   id: ExplosivePayload
   components:
   - type: Sprite
     sprite: Objects/Devices/payload.rsi
     state: payload-explosive-armed
-  - type: Explosive
-    explosionType: Default
-    # same as the standard grenade, but those numbers were also just picked out of a hat.
-    maxIntensity: 10
-    intensitySlope: 3
-    totalIntensity: 120 # about a ~4 tile radius
-  - type: ExplodeOnTrigger
+  # Goobstation - shrapnel payload
+  #- type: Explosive
+  #  explosionType: Default
+  #  # same as the standard grenade, but those numbers were also just picked out of a hat.
+  #  maxIntensity: 10
+  #  intensitySlope: 3
+  #  totalIntensity: 120 # about a ~4 tile radius
+  #- type: ExplodeOnTrigger
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 25
-      behaviors:
-      - !type:ExplodeBehavior
+  #  - trigger:
+  #      !type:DamageTypeTrigger
+  #      damageType: Heat
+  #      damage: 25
+  #   behaviors:
+  #    - !type:ExplodeBehavior
+  #  - trigger:
+  #      !type:DamageTrigger
+  #      damage: 50
+  #    behaviors:
+  #    - !type:DoActsBehavior
+  #      acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 10
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: DeleteParentOnTrigger
+  - type: ProjectileGrenade # Should be worse than the syndicate one
+    fillPrototype: PelletClusterLethalWeak
+    capacity: 20
 
 - type: entity
   name: chemical payload

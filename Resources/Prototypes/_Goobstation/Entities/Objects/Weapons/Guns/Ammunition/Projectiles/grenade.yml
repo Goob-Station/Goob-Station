@@ -1,0 +1,11 @@
+- type: entity
+  id: PelletClusterLethalWeak
+  name: pellet (ball, lethal)
+  categories: [ HideSpawnMenu ]
+  parent: PelletClusterLethal
+  components:
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Piercing: 30
