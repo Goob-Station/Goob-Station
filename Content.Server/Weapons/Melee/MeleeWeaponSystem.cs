@@ -31,6 +31,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -135,8 +136,8 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (ap == 0)
             return;
 
-        var absap = Math.Abs(ap);
-        args.Message.AddMarkupPermissive("\n" + (Loc.GetString("armor-penetration", ("absap", absap), ("ap", ap))));
+        var abs = Math.Abs(ap);
+        args.Message.AddMarkupPermissive("\n" + Loc.GetString("armor-penetration", ("arg", ap/abs), ("abs", abs)));
     }
 
     protected override bool ArcRaySuccessful(EntityUid targetUid,
