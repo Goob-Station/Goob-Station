@@ -131,7 +131,7 @@
 
 - type: entity
   id: ClothingBeltHolsterFilledChaplain
-  parent: ClothingBeltHolster
+  parent: ClothingBeltStorageBase
   name: Chaplains' Holster
   description: A shoulder holster from the Gods. Contains a set of dual pistols.
   suffix: Filled, Chaplain
