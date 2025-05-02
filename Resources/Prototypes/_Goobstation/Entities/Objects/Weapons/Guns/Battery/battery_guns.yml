@@ -384,6 +384,7 @@
     autoRechargePauseTime: 50
 
 
+
 - type: entity
   name: ion rifle
   id: WeaponEnergyIonRifle
