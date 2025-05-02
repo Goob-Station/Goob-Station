@@ -8230,3 +8230,15 @@ Entries:
         time the do-after similarly to syringes.
   id: 949
   time: '2025-05-02T11:26:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Replaced crew explosive payloads with shrapnel ones.
+    - type: Tweak
+      message: Flash payloads now properly work as flashbangs.
+    - type: Tweak
+      message: Blackpowder explosion is nerfed slightly.
+    - type: Tweak
+      message: Returned old explosive resistances on nukies hardsuits.
+  id: 950
+  time: '2025-05-02T12:07:16.0000000+00:00'
