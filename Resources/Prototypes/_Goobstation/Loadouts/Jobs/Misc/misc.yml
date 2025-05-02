@@ -1,0 +1,8 @@
+- type: job # i want to kms
+  id: GreyTider
+  name: job-name-greytide
+  playTimeTracker: JobTider
+  icon: "JobIconNoId"
+  setPreference: false
+  access:
+  - Maintenance

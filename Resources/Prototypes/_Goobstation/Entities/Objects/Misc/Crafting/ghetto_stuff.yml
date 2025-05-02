@@ -280,6 +280,40 @@
   - type: Construction
     graph: MakeshiftJammerGraph
     node: final
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardTide
+  name: tide ID card
+  description: Makeshift t-ID-e card, made from god knows what.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    state: icon
+  - type: PresetIdCard
+    job: GreyTider
+  - type: Construction
+    graph: MakeshiftIDCardGraph
+    node: final
+
+- type: entity
+  parent: BaseItem
+  id: IDCardTideUnfinished
+  description: God have mercy.
+  name: unfinished makeshift ID card
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    state: icon_unfinished
+  - type: Construction
+    graph: MakeshiftIDCardGraph
+    node: mid
+  - type: InternalTemperature
+    thickness: 0.02
+    area: 0.02
+  - type: AtmosExposed
+  - type: Temperature
+    currentTemperature: 290
 # clothing
 
 # heavy boots

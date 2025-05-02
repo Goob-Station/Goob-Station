@@ -436,6 +436,67 @@
     entity: MakeshiftJammer
     edges: []
 
+# makeshift id
+- type: constructionGraph
+  id: MakeshiftIDCardGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Plastic
+        amount: 4
+        doAfter: 5
+  - node: mid
+    entity: IDCardTideUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Hammering
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - material: Cable
+        amount: 4
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 1
+      - tool: Cutting
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 8
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+  - node: final
+    entity: IDCardTide
+    edges: []
 # clothing
 
 # heavy boots

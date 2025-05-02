@@ -43,3 +43,6 @@
 
 - type: playTimeTracker
   id: JobConquest
+
+- type: playTimeTracker
+  id: JobTider
