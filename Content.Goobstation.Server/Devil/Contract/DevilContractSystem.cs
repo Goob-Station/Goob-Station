@@ -7,6 +7,7 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Goobstation.Common.Paper;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
@@ -33,6 +34,7 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
     [Dependency] private readonly BodySystem _bodySystem = null!;
+    [Dependency] private readonly WoundSystem _wounds = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
 
     private ISawmill _sawmill = null!;
