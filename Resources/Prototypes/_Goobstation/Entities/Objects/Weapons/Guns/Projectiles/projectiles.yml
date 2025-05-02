@@ -181,6 +181,76 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_blue
 
+- type: hitscan
+  id: LaserSniper
+  damage:
+    types:
+      Heat: 30
+      Shock: 10
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
+    state: beam_blue_heavy
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
+- type: hitscan
+  id: RedMediumSplitLaser
+  damage:
+    types:
+      Heat: 20
+      Shock: 5
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 7
+        Shock: 1
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavyStructural
+  parent: BulletLaserHeavy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 14
+        Shock: 2
+        Structural: 10
+
+- type: entity
+  name: heavy laser barrage
+  id: BulletLaserSpreadHeavy
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaserHeavy
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavyStructural
+    count: 5
+    spread: 30
+
 - type: entity
   id: BulletTemperatureCold
   name: cold temperature bolt
@@ -272,3 +342,5 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+
