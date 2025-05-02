@@ -10,6 +10,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -24,7 +25,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
         base.Initialize();
         SubscribeLocalEvent<ItemSwitchComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ItemSwitchComponent, ChargeChangedEvent>(OnBatteryChanged);
-        SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack);
+        SubscribeLocalEvent<ItemSwitchComponent, MeleeHitEvent>(OnMeleeAttack, after: new[] { typeof(StaminaSystem) });
     }
 
     /// <summary>

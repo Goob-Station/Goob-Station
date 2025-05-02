@@ -172,8 +172,7 @@
   equipment:
     outerClothing: ClothingOuterWinterHoS
 
-# Goobstation
-- type: loadout
+- type: loadout # Goobstation
   id: HeadofSecurityVestWeb
   equipment:
     outerClothing: ClothingOuterArmorHoSVestWeb

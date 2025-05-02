@@ -7,9 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Explosion.Components;
 using Content.Goobstation.Server.Explosion.Components.OnTrigger;
-using Content.Server._Goobstation.Explosion.Components;
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Hands.Components;
@@ -26,7 +24,6 @@ public sealed partial class GoobTriggerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        InitializeMelee();
         SubscribeLocalEvent<DeleteParentOnTriggerComponent, TriggerEvent>(HandleDeleteParentTrigger);
         SubscribeLocalEvent<DropOnTriggerComponent, TriggerEvent>(HandleDropOnTrigger);
     }

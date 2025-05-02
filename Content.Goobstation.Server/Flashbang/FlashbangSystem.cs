@@ -63,13 +63,13 @@ public sealed class FlashbangSystem : EntitySystem
 
         if (!_tag.HasTag(ent, FlashSystem.IgnoreResistancesTag))
         {
-            var ev = new GetFlashbangedEvent(args.Range);
+            var ev = new GetFlashbangedEvent(MathF.Max(args.Range, ent.Comp.MinProtectionRange + 1f));
             RaiseLocalEvent(args.Target, ev);
 
             protectionRange = ev.ProtectionRange;
         }
 
-        if (protectionRange <= 0f)
+        if (protectionRange <= ent.Comp.MinProtectionRange)
             return;
 
         var distance = MathF.Max(0f, args.Distance);

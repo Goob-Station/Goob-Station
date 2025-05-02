@@ -11,10 +11,12 @@
       "name": "icon"
     },
     {
-      "name": "legs-equipped-OUTERCLOTHING"
+      "name": "legs-equipped-OUTERCLOTHING",
+      "directions": 4
     },
     {
-      "name": "equipped-OUTERCLOTHING"
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
     },
     {
       "name": "inhand-left",

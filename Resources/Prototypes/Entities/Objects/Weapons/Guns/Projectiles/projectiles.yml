@@ -368,7 +368,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 0 
+        Heat: 0
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -910,6 +910,7 @@
     timeRemaining: 0.3
   - type: DeleteOnTrigger
   - type: Flashbang # Goobstation
+    minProtectionRange: 7 # Can't stun/knockdown people wearing any ear protection
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity

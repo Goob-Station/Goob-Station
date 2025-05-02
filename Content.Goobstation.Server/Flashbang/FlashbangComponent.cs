@@ -10,9 +10,15 @@ namespace Content.Goobstation.Server.Flashbang;
 [RegisterComponent]
 public sealed partial class FlashbangComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float StunTime = 2f;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float KnockdownTime = 10f;
+
+    /// <summary>
+    /// Minimum protection range on entity for stun and knocked down effects to be applied
+    /// </summary>
+    [DataField]
+    public float MinProtectionRange;
 }

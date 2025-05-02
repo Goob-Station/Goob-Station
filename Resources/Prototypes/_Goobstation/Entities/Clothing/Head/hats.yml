@@ -154,18 +154,10 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
 
-
-
 - type: entity
-  parent: [ClothingHeadBase, BaseSecurityCommandContraband]
-  id: ClothingHeadHatBeretHeadOfSecurityAdvanced
-  name: head of security's parade beret
-  description: A particularly gilded beret, designed for the Head of Security.
+  id: ClothingHeadHatHeadOfSecurityArmor
+  abstract: true
   components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
-  - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -175,6 +167,17 @@
         Radiation: 0.90
         Caustic: 0.90
         Heat: 0.90
+
+- type: entity
+  parent: [ClothingHeadBase, ClothingHeadHatHeadOfSecurityArmor, BaseSecurityCommandContraband]
+  id: ClothingHeadHatBeretHeadOfSecurityAdvanced
+  name: head of security's parade beret
+  description: A particularly gilded beret, designed for the Head of Security.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
   - type: Tag
     tags:
     - ClothMade
