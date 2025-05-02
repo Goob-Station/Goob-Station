@@ -1,0 +1,68 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  name: web cocoon
+  id: WebCocoon
+  graph: WebCocoon
+  startNode: start
+  targetNode: end
+  category: construction-category-tools
+  description: "Strong web cocoon used to restrain preys or just criminals."
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _NF/Objects/Misc/webcocoon.rsi
+    state: cocoon
+  objectType: Item
+
+- type: construction
+  name: classic web poncho
+  id: ClothingNeckClassicPonchoWeb
+  graph: ClothingNeckClassicPonchoWeb
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: Take your glands in one hand, channel the idea of two triangles in the other.
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _NF/Clothing/Neck/Misc/classic_poncho_web.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  name: web poncho
+  id: ClothingNeckPonchoWeb
+  graph: ClothingNeckPonchoWeb
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: Imagine wrapping your prey in a cocoon. Now, forget to add the bottom and make it decorative. A cozy treat.
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _NF/Clothing/Neck/Misc/poncho_web.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  name: web cloak
+  id: ClothingNeckCloakWeb
+  graph: ClothingNeckCloakWeb
+  startNode: start
+  targetNode: end
+  category: construction-category-clothing
+  description: A decorative adornment to celebrate the cunning craftsmanship of spider kind. It is silky! Does not ward off spider attacks.
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  icon:
+    sprite: _NF/Clothing/Neck/Cloaks/cloak_web.rsi
+    state: icon
+  objectType: Item
