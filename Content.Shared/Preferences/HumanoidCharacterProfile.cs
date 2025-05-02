@@ -596,6 +596,7 @@ namespace Content.Shared.Preferences
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
                 name = RestrictedNameRegex.Replace(name, string.Empty);
+                name = Regex.Replace(name, @"\bJohn\b", ""); // Goobstation - no Johns
             }
 
             if (configManager.GetCVar(CCVars.ICNameCase))
