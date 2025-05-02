@@ -83,8 +83,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 04/06/2025 18:30:02
-  entityCount: 25194
+  time: 03/29/2025 00:10:25
+  entityCount: 25193
 maps:
 - 1
 grids:
@@ -7038,7 +7038,8 @@ entities:
             0: 255
             1: 57344
           -1,-9:
-            0: 35835
+            0: 34952
+            1: 547
           0,-12:
             0: 32631
           0,-13:
@@ -7053,7 +7054,7 @@ entities:
             0: 49083
           -1,-10:
             0: 34952
-            1: 544
+            1: 8736
           1,-12:
             0: 65520
           1,-11:
@@ -7117,8 +7118,7 @@ entities:
           -2,-10:
             0: 817
           -2,-9:
-            1: 3
-            0: 2184
+            1: 15
           -2,-13:
             0: 49083
           -1,-13:
@@ -8395,7 +8395,7 @@ entities:
             1: 39312
           -12,8:
             4: 12
-            6: 3072
+            5: 3072
           -11,5:
             0: 63351
           -11,6:
@@ -8404,7 +8404,7 @@ entities:
           -11,8:
             4: 1
             1: 17476
-            6: 256
+            5: 256
           -11,7:
             1: 17484
           -10,5:
@@ -8503,10 +8503,10 @@ entities:
             0: 255
             1: 57344
           -8,11:
-            5: 816
+            6: 816
             1: 34952
           -9,11:
-            5: 2176
+            6: 2176
             1: 8738
           -8,12:
             1: 34959
@@ -8622,7 +8622,7 @@ entities:
             1: 61713
           -12,9:
             0: 16
-            5: 3084
+            6: 3084
           -13,9:
             1: 39305
           -13,10:
@@ -8632,18 +8632,18 @@ entities:
             0: 12544
           -12,10:
             3: 12
-            5: 3072
+            6: 3072
           -12,11:
-            5: 12
+            6: 12
           -11,9:
-            5: 257
+            6: 257
             1: 17476
           -11,10:
             3: 1
-            5: 256
+            6: 256
             1: 17476
           -11,11:
-            5: 1
+            6: 1
             1: 17476
           -11,12:
             1: 17487
@@ -8697,7 +8697,7 @@ entities:
             1: 15
           -13,12:
             1: 34952
-            6: 48
+            5: 48
             4: 12288
           -12,13:
             1: 61455
@@ -8731,11 +8731,11 @@ entities:
             1: 64719
           -7,14:
             1: 252
-            5: 57344
+            6: 57344
             0: 1024
           -7,15:
             1: 61440
-            5: 238
+            6: 238
             0: 1024
           -7,16:
             1: 65524
@@ -8794,7 +8794,7 @@ entities:
           -14,12:
             0: 1
             1: 8738
-            6: 128
+            5: 128
             4: 32768
           -17,12:
             0: 52232
@@ -9282,8 +9282,8 @@ entities:
         - volume: 2500
           temperature: 235
           moles:
-          - 27.225372
-          - 102.419266
+          - 21.824879
+          - 82.10312
           - 0
           - 0
           - 0
@@ -9339,7 +9339,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
+          - 6666.982
           - 0
           - 0
           - 0
@@ -9358,7 +9358,7 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 6666.982
+          - 0
           - 0
           - 0
           - 0
@@ -9555,58 +9555,78 @@ entities:
       version: 2
       data:
         tiles:
+          -1,-2:
+            0: 61440
+          -1,-1:
+            0: 65279
+            1: 256
+          0,-2:
+            0: 61440
+          0,-1:
+            0: 65535
           -4,-2:
-            0: 15360
-            1: 546
+            0: 65058
           -4,-1:
-            1: 2200
-            0: 12320
-          -5,-1:
-            1: 192
-            0: 49409
+            0: 65021
           -4,-3:
-            1: 8704
-          -4,0:
-            1: 8738
-            0: 12
+            0: 8704
           -3,-2:
-            0: 1792
-            1: 4096
+            0: 63232
           -3,-1:
-            1: 6135
+            0: 65535
+          -2,-2:
+            0: 61440
+          -2,-1:
+            0: 65535
+          1,-2:
+            0: 28672
+          1,-1:
+            0: 32767
+          2,-1:
+            0: 61439
+          2,-2:
+            0: 57344
+          3,-2:
+            0: 12288
+            2: 16384
+          3,-1:
+            0: 14199
+            2: 16384
+          -4,0:
+            0: 8750
+          -4,1:
+            0: 2
           -3,0:
             0: 7
-          -2,-2:
-            0: 4096
-          -2,-1:
-            1: 1276
-            0: 4096
-          -1,-1:
-            1: 3551
-          0,-1:
-            1: 7967
-          1,-1:
-            1: 994
-          2,-1:
-            1: 2296
-            0: 8192
-          2,-2:
-            0: 8192
-          3,-1:
-            1: 819
-            0: 16384
-          3,-2:
-            0: 16384
-          -4,1:
-            1: 2
           -6,-1:
             0: 2048
+          -5,-1:
+            0: 53231
         uniqueMixes:
         - volume: 2500
-          immutable: True
+          temperature: 293.15
           moles:
+          - 21.824879
+          - 82.10312
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.1495
+          moles:
+          - 9.8897505
+          - 37.204296
           - 0
           - 0
           - 0
@@ -9624,8 +9644,8 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -11213,6 +11233,12 @@ entities:
     - type: Transform
       pos: -29.5,37.5
       parent: 2
+    - type: Door
+      secondsUntilStateChange: -23365.982
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
 - proto: AirlockBarLocked
   entities:
   - uid: 133
@@ -16865,13 +16891,6 @@ entities:
     components:
     - type: Transform
       pos: 52.61781,-27.622787
-      parent: 2
-- proto: BoxLethalshot
-  entities:
-  - uid: 8958
-    components:
-    - type: Transform
-      pos: -24.5,2.5
       parent: 2
 - proto: BoxLightbulb
   entities:
@@ -49663,6 +49682,14 @@ entities:
     - type: Transform
       pos: 23.743336,21.526909
       parent: 2
+- proto: CapsaicinDispenser
+  entities:
+  - uid: 8957
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.5,-17.5
+      parent: 2
 - proto: CaptainIDCard
   entities:
   - uid: 7441
@@ -61850,12 +61877,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 24.5,-40.5
-      parent: 2
-  - uid: 9461
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -22.5,-0.5
       parent: 2
   - uid: 9462
     components:
@@ -100382,6 +100403,14 @@ entities:
     - type: Transform
       pos: -4.5,-2.5
       parent: 2
+- proto: GlassBoxLawbringerFilled
+  entities:
+  - uid: 8959
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -22.5,-0.5
+      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 14818
@@ -109571,17 +109600,17 @@ entities:
       parent: 2
 - proto: IntercomCommand
   entities:
+  - uid: 8958
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -19.5,-1.5
+      parent: 2
   - uid: 16547
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 11.5,18.5
-      parent: 2
-  - uid: 16548
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -23.5,-0.5
       parent: 2
   - uid: 16549
     components:
@@ -111506,17 +111535,17 @@ entities:
     - type: Transform
       pos: 4.5,-44.5
       parent: 2
-- proto: MagazinePistolSubMachineGunTopMounted
+- proto: MagazineLightRifle
   entities:
-  - uid: 16733
+  - uid: 16731
     components:
     - type: Transform
-      pos: -21.437603,0.8355694
+      pos: -24.328882,2.6569912
       parent: 2
-  - uid: 16734
+  - uid: 16732
     components:
     - type: Transform
-      pos: -21.437603,0.8355694
+      pos: -24.563257,2.6569912
       parent: 2
 - proto: MailingUnit
   entities:
@@ -133433,28 +133462,6 @@ entities:
     - type: Transform
       pos: -27.5,2.5
       parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: Supermatter
   entities:
   - uid: 20345
@@ -154752,24 +154759,14 @@ entities:
     - type: Transform
       pos: -24.484362,-0.72721076
       parent: 2
-- proto: WeaponShotgunEnforcer
+- proto: WeaponRifleAk
   entities:
-  - uid: 8957
+  - uid: 24057
     components:
+    - type: MetaData
+      name: Old War AKMS
     - type: Transform
-      pos: -24.491491,2.7537594
-      parent: 2
-    - type: Gun
-      burstCooldownModified: 0.25
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-- proto: WeaponSubMachineGunWt550
-  entities:
-  - uid: 24058
-    components:
-    - type: Transform
-      pos: -21.459091,0.5840763
+      pos: -24.45179,2.5628066
       parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:

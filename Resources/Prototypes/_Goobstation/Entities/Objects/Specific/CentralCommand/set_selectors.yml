@@ -1,0 +1,60 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Blueshield
+
+- type: entity
+  id: BlueshieldUndeterminedWeapon
+  name: blueshield weaponry pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - BSOBlueshieldSet
+    - BSORevolverSet
+    - BSOCQCSet
+    - BSOChesterSet
+    - BSOSyringeSet
+    maxSelectedSets: 2
+
+- type: entity
+  id: BlueshieldUndeterminedHardsuit
+  name: blueshield hardsuit pack
+  description: A small box utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    state: icon-alt
+  - type: SetSelector
+    possibleSets:
+    - BSOHardsuitLightSet
+    - BSOHardsuitHeavySet
+    maxSelectedSets: 1
+
+# ERT
+
+- type: entity
+  id: ERTSecurityUndeterminedWeapon
+  name: emergency response weaponry pack
+  description: A small remote utilizing bluespace technology to drop in a loadout directly to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/ertundetermined.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - ERTBallisticsSet
+    - ERTPulseSet
+    maxSelectedSets: 1
+

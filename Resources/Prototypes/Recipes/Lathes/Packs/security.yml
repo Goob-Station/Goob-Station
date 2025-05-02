@@ -75,6 +75,7 @@
   recipes:
   - ClothingBackpackElectropack
   - HoloprojectorSecurity
+  - HoloprojectorSecurityAdvanced
   - PortableRecharger
   - PowerCageHigh
   - PowerCageMedium
