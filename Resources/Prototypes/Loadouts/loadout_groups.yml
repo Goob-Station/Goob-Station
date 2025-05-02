@@ -1163,6 +1163,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
+  - HeadofSecuritySpecialBeret # Goobstation
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1189,6 +1190,7 @@
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
+  - HeadofSecurityGreatCoat # Goobstation
   - HeadofSecurityWinterCoat
   - ArmorVest #Goobstation change
   - ArmorVestSlim #Goobstation change

@@ -171,3 +171,20 @@
     sprintModifier: 0.7
   - type: StaticPrice
     price: 1
+
+- type: entity
+  parent: [BaseCommandContraband, ClothingShoesBootsJack]
+  id: ClothingShoesBootsJackAdvanced
+  name: advanced jackboots
+  description: Bluespace enhanced Nanotrasen-issue Security combat boots for combat scenarios or combat situations. This pair was designed for the Head of Security.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ClothingModifyStunTime
+    modifier: 0.75 # Nobodies gonna know it's just slightly better than normal ones. The main advantage is drip.
+  - type: ModifyStandingUpTime
+    multiplier: 0.5
