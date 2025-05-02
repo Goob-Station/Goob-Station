@@ -143,6 +143,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -542,6 +543,19 @@
   - type: Injector
     injectOnly: false
     # Goobstation Start - Added embeddable properties for syringe gun
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    canHeavyAttack: false
+    angle: 0
+    damage:
+      types:
+        Piercing: 1
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+  - type: CombatDoAfter
+    trigger: !type:CombatSyringeTriggerEvent
+    breakOnDamage: true
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -725,6 +739,8 @@
       Glass: 62
       Plasma: 25
       Silver: 12
+  - type: CombatDoAfter # Goobstation
+    delay: 3 # Longer than a regular syringe
 
 - type: entity
   id: SyringeCryostasis
