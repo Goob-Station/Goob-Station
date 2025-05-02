@@ -11,6 +11,7 @@ using Content.Goobstation.Server.Devil.Objectives.Components;
 using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.CheatDeath;
+using Content.Goobstation.Shared.Chemistry;
 using Content.Goobstation.Shared.CrematorImmune;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
@@ -37,7 +38,9 @@ using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
+using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Polymorph;
@@ -84,6 +87,8 @@ public sealed partial class DevilSystem : EntitySystem
         SubscribeLocalEvent<DevilComponent, SoulAmountChangedEvent>(OnSoulAmountChanged);
         SubscribeLocalEvent<DevilComponent, PowerLevelChangedEvent>(OnPowerLevelChanged);
         SubscribeLocalEvent<DevilComponent, ExorcismDoAfterEvent>(OnExorcismDoAfter);
+
+        SubscribeLocalEvent<IdentityBlockerComponent, InventoryRelayedEvent<IsEyesCoveredCheckEvent>>(OnEyesCoveredCheckEvent);
 
         InitializeHandshakeSystem();
         SubscribeAbilities();
@@ -176,10 +181,24 @@ public sealed partial class DevilSystem : EntitySystem
         }
     }
 
-    private void OnExamined(Entity<DevilComponent> comp, ref ExaminedEvent args)
+    private void OnExamined(Entity<DevilComponent> ent, ref ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !_net.IsClient && comp.Comp.PowerLevel >= DevilPowerLevel.Weak)
-            args.PushMarkup(Loc.GetString("devil-component-examined", ("target", Identity.Entity(comp, EntityManager))));
+        if (!args.IsInDetailsRange || ent.Comp.PowerLevel < DevilPowerLevel.Weak)
+            return;
+
+        var ev = new IsEyesCoveredCheckEvent();
+        RaiseLocalEvent(ent, ev);
+
+        if (ev.IsEyesProtected)
+            return;
+
+        args.PushMarkup(Loc.GetString("devil-component-examined", ("target", Identity.Entity(ent, EntityManager))));
+    }
+
+    private void OnEyesCoveredCheckEvent(EntityUid uid, IdentityBlockerComponent comp, InventoryRelayedEvent<IsEyesCoveredCheckEvent> args)
+    {
+        if (comp.Enabled)
+            args.Args.IsEyesProtected = true;
     }
     private void OnListen(EntityUid uid, DevilComponent comp, ListenEvent args)
     {

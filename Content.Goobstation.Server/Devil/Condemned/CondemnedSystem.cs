@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Polymorph.Systems;
@@ -153,7 +154,15 @@ public sealed partial class CondemnedSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, CondemnedComponent comp, ExaminedEvent args)
     {
-        if (args.IsInDetailsRange && !comp.SoulOwnedNotDevil)
-            args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", uid)));
+        if (!args.IsInDetailsRange || comp.SoulOwnedNotDevil)
+            return;
+
+        var ev = new IsEyesCoveredCheckEvent();
+        RaiseLocalEvent(uid, ev);
+
+        if (ev.IsEyesProtected)
+            return;
+
+        args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", uid)));
     }
 }
