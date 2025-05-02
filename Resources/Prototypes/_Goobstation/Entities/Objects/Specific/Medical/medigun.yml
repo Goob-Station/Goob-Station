@@ -33,14 +33,24 @@
         Slash: -4
         Piercing: -4
         Heat: -4
+    soundOnTarget:
+      path: /Audio/_Goobstation/Weapons/Effects/energy_reload.ogg
+      params:
+        volume: 6
   - type: ItemToggle
     predictable: false
     soundActivate:
-      path: /Audio/Items/flashlight_on.ogg
+      path: /Audio/_Goobstation/Weapons/Effects/energy_alarm.ogg
+      params:
+        volume: 6
     soundDeactivate:
-      path: /Audio/Items/flashlight_off.ogg
+      path: /Audio/_Goobstation/Weapons/Effects/energy_error.ogg
+      params:
+        volume: 6
     soundFailToActivate:
-      path: /Audio/Machines/button.ogg
+      path: /Audio/_Goobstation/Weapons/Effects/energy_error.ogg
+      params:
+        volume: 6
   - type: Battery
     maxCharge: 20
     startingCharge: 20

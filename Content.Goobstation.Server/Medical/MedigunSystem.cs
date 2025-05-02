@@ -19,6 +19,7 @@ using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Physics;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -30,6 +31,7 @@ public sealed class MedigunSystem : SharedMedigunSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly AlertsSystem _alert = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
@@ -201,6 +203,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
             return;
         }
 
+        _audio.PlayPvs(comp.SoundOnTarget, uid);
+
         comp.HealedEntities.Add(target);
         comp.IsActive = true;
         comp.ParentEntity = args.User;
@@ -275,6 +279,8 @@ public sealed class MedigunSystem : SharedMedigunSystem
     private void EnableUber(Entity<MediGunComponent> ent)
     {
         var comp = ent.Comp;
+
+        _audio.PlayPvs(comp.SoundOnTarget, ent);
         comp.UberActivated = true;
         comp.UberEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.UberDefaultLenght);
         comp.UberPoints = 0;
