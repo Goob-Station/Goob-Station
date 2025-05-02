@@ -16,7 +16,7 @@
 
 - type: entity
   parent: WoodenHandle
-  id: WoodenHandleBat # shitcode
+  id: WoodenHandleBat # shitcode. It would need another placeholder item for the mid crafting step if i removed it
   categories: [ HideSpawnMenu ]
   components:
   - type: Construction
@@ -115,7 +115,7 @@
   - type: UndetectableContraband
   - type: Storage
     grid:
-    - 0,0,1,2
+    - 0,0,1,2 # no drawback because contra scanners are useless right now, change this when they are not shit
   - type: Item
     sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
     size: Normal
@@ -151,27 +151,15 @@
   name: makeshift defibrillator
   description: Rusty looking defibrillator, made out of scrap. Are you sure this is a good idea?
   components:
+  - type: Defibrillator
+    zapDamage: 12 # twice as a normal defib + 2 extra
   - type: MultiHandedItem
   - type: ToggleCellDraw
   - type: PowerCellDraw
     useRate: 200 # twice the normal amount
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/defib.rsi
-  - type: ItemToggleMeleeWeapon
-    activatedSoundOnHit:
-      path: /Audio/Items/Defib/defib_zap.ogg
-      params:
-        variation: 0.250
-    activatedSoundOnHitNoDamage:
-      path: /Audio/Items/Defib/defib_zap.ogg
-      params:
-        variation: 0.250
-        volume: -10
-    activatedDamage:
-      types:
-        Blunt: 2
-        Shock: 8 # slightly better than a crowbar, but why
-  - type: MeleeWeapon
+  - type: MeleeWeapon # 1984
     damage:
       types:
         Blunt: 2
@@ -206,6 +194,9 @@
   - type: Construction
     graph: TideFlipperZeroGraph
     node: final
+  - type: Access
+    groups:
+    - Maintenance # TIDE flipper without maints access?
 
 - type: entity
   id: TideFlipperZeroUnfinished
@@ -245,7 +236,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 7
+        Blunt: 5 # 17 weld damage is the damage that cap saber has
         Structural: 12
   - type: Construction
     graph: MetalBaseballBatGraph
@@ -262,18 +253,10 @@
   components:
   - type: RadioJammer
     settings:
-    - wattage: 10
-      range: 1
-      message: radio-jammer-component-set-message-low
-      name: radio-jammer-component-setting-low
     - wattage: 20
       range: 3
       message: radio-jammer-component-set-message-medium
       name: radio-jammer-component-setting-medium
-    - wattage: 40
-      range: 8
-      message: radio-jammer-component-set-message-high
-      name: radio-jammer-component-setting-high
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ContainerContainer
@@ -308,7 +291,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95 # what are you even trying to protect with them
+        Slash: 0.95 # what are you even trying to protect with them
   - type: Construction
     graph: HeavyBootsGraph
     node: final
@@ -351,11 +334,11 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.7
+        Piercing: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ModifyDelayedKnockdown # counter to the tide armor: disablers.
-    delayDelta: 1.25
+  - type: ModifyDelayedKnockdown # counter to the tide armor: stuns.
+    delayDelta: 1.25 # ITS THE OPPOSITE VALUES, IT HAS NEGATIVE STAMINA RESISTANCE
     knockdownTimeDelta: -1.25
   - type: StaminaDamageResistance
     coefficient: 1.2 # stun meta go wild
@@ -380,7 +363,7 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.6
+        Piercing: 0.7 # slightly worse than a secvest
         Heat: 0.9
   - type: ModifyDelayedKnockdown
     delayDelta: -1.25
@@ -390,3 +373,6 @@
   - type: Construction
     graph: MakeshiftHeavyVestGraph
     node: final
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95 # you wouldn't notice
+    sprintModifier: 0.95
