@@ -114,8 +114,8 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
-uplink-heavensgate-name = Heaven's gate
-uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+uplink-he1sg8-bundle-name = HE1S-G8 Bundle
+uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
 # Ammo
 
@@ -158,11 +158,11 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
 
-uplink-92-AP-name = box of .92 armour piercing rounds
-uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper rifle. effective for anti-infantry use.
+uplink-cartridge-G8-demolishing-name = G8 demolishing cartridge
+uplink-cartridge-G8-demolishing-desc = This cartridge shots "The Spear of Ares" bullet, demolishing whole lines of walls, dealing massive stamina damage to people and overcharging energy vortexes. Used by HE1S-G8.
 
-uplink-92-AT-name = box of .92 anti-tank rounds
-uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
+uplink-cartridge-G8-hypercharged-name = G8 hypercharged cartridge
+uplink-cartridge-G8-hypercharged-desc = This cartridge shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge. Used by HE1S-G8.
 
 # Grenades
 

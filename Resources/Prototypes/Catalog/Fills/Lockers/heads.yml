@@ -481,22 +481,28 @@
   table: !type:AllSelector
     children:
 #    - id: WeaponEnergyShotgun
-    - id: WeaponEnergyGunMultiphase # Goobstation, replace energy shotgun with the X-01 Multiphase.
+    # - id: WeaponEnergyGunMultiphase # Goobstation - Security Revamp
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50
     - id: ClothingBeltSecurityFilled
-    - id: ClothingEyesGlassesSecurity
+  #  - id: ClothingEyesGlassesSecurity # Goobstation - Security Revamp - Start
+    - id: ClothingEyesGlassesSecurityAdvanced
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
+    - id: ClothingHeadHatBeretHeadOfSecurityAdvanced
     - id: ClothingOuterCoatHoSTrench
-    - id: ClothingShoesBootsJack
+   # - id: ClothingShoesBootsJack
+    - id: ClothingShoesBootsJackAdvanced
     - id: DoorRemoteSecurity
-    - id: HoloprojectorSecurity
+   # - id: HoloprojectorSecurity
+    - id: HoloprojectorSecurityAdvanced
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    #- id: WeaponDisabler #Goobstation (Disablers in belts)
+    - id: ClothingBeltSheathHeadOfSecurityFilled
+    - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp - End
+    #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
     - id: DrinkHosFlask
 
@@ -506,7 +512,8 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    - id: ClothingOuterHardsuitSecurityRed
+    #- id: ClothingOuterHardsuitSecurityRed # Goobstation
+    - id: ClothingOuterHardsuitHeadOfSecurityExperimental  # Goobstation
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
