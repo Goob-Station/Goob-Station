@@ -21,6 +21,8 @@ namespace Content.Goobstation.Shared.MisandryBox.Saturation;
 [Serializable, NetSerializable]
 public sealed partial class SaturationRequirement : JobRequirement
 {
+    public const string Bald = "HairBald";
+
     [DataField(required: true)]
     public double HairColorSaturation { get; set; }
 
@@ -33,6 +35,9 @@ public sealed partial class SaturationRequirement : JobRequirement
         reason = null;
 
         if (profile is null)
+            return true;
+
+        if (profile.Appearance.HairStyleId == Bald)
             return true;
 
         var saturation = profile.Appearance.HairColor.ToHSV().S;
