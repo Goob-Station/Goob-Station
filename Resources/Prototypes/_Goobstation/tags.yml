@@ -76,7 +76,7 @@
   id: CartridgeSmart
 
 - type: Tag
-  id: CartridgeAntiMaterielHeavy
+  id: CartridgeG8
 
 - type: Tag
   id: Clarke
@@ -262,6 +262,9 @@
   id: JanicartKeys
 
 - type: Tag
+  id: Justice
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
@@ -335,6 +338,9 @@
 
 - type: Tag
   id: Organ
+
+- type: Tag
+  id: PepperSpray
 
 - type: Tag
   id: Poppy
@@ -416,6 +422,9 @@
 
 - type: Tag
   id: WeaponPistolDualetta
+
+- type: Tag
+  id: WeaponEnergyGunLawbringer
 
 - type: Tag
   id: Welder

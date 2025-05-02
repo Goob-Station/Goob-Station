@@ -77,6 +77,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -168,15 +170,16 @@ public sealed class RadiationCollectorSystem : EntitySystem
         foreach (var gas in component.RadiationReactiveGases)
         {
             float reactantMol = gasTankComponent.Air.GetMoles(gas.ReactantPrototype);
-            float delta = args.TotalRads * reactantMol * gas.ReactantBreakdownRate;
+            float delta = MathF.Sqrt(args.TotalRads) * reactantMol * gas.ReactantBreakdownRate; // Goobstation
 
             // We need to offset the huge power gains possible when using very cold gases
             // (they allow you to have a much higher molar concentrations of gas in the tank).
             // Hence power output is modified using the Michaelis-Menten equation,
             // it will heavily penalise the power output of low temperature reactions:
             // 300K = 100% power output, 73K = 49% power output, 1K = 1% power output
-            float temperatureMod = 1.5f * gasTankComponent.Air.Temperature / (150f + gasTankComponent.Air.Temperature);
-            charge += args.TotalRads * reactantMol * component.ChargeModifier * gas.PowerGenerationEfficiency * temperatureMod;
+            // Goobstation - no
+            // float temperatureMod = 1.5f * gasTankComponent.Air.Temperature / (150f + gasTankComponent.Air.Temperature);
+            charge += args.TotalRads * reactantMol * component.ChargeModifier * gas.PowerGenerationEfficiency;
 
             if (delta > 0)
             {

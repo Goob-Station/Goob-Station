@@ -40,8 +40,6 @@ public sealed class RestrictedMeleeSystem : EntitySystem
 
         args.Message = Loc.GetString(comp.FailText, ("item", uid));
 
-
-
         if (comp.DoKnockdown)
             _stun.TryKnockdown(args.User, comp.KnockdownDuration, true);
 
