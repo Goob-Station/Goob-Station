@@ -8205,3 +8205,28 @@ Entries:
       message: My sanity
   id: 947
   time: '2025-05-02T07:23:51.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now build tiders.
+  id: 948
+  time: '2025-05-02T10:42:13.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: You can now use medical patches while moving and self use is faster.
+    - type: Add
+      message: >-
+        You can now shoot yourself with syringe or dart gun if you aim at
+        yourself.
+    - type: Add
+      message: >-
+        You can now fully inject the syringe into someone and destroy it in the
+        process if you time the do-after that appears in combat mode while
+        holding syringe. Hitting yourself ignores the do-after.
+    - type: Add
+      message: >-
+        Bolas only knockdown if you are in combat mode while throwing them and
+        time the do-after similarly to syringes.
+  id: 949
+  time: '2025-05-02T11:26:41.0000000+00:00'
