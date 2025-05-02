@@ -24,6 +24,11 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from freesound.org, and reversed by SolsticeOfTheWinter"
   source: "https://freesound.org/people/pip_/sounds/557194/"
+  
+- files: ["energy-short-sword-swing.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from freesound.org"
+  source: "https://freesound.org/people/ejfortin/sounds/49675/"
 
 - files: ["throwhard.ogg"]
   license: "CC-BY-SA-3.0"
