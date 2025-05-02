@@ -131,9 +131,14 @@ public sealed class PartStatusSystem : EntitySystem
     private FormattedMessage GetExamineText(EntityUid entity, EntityUid examiner, HashSet<PartStatus> partStatusSet)
     {
         var message = new FormattedMessage();
+        message.PushTag(new MarkupNode("examineborder", null, null)); // border
+        message.PushNewline();
         message.AddText(Loc.GetString("inspect-part-status-title"));
         message.PushNewline();
+        AddLine(message);
         CreateBodyPartMessage(partStatusSet, entity == examiner, ref message);
+        AddLine(message);
+        message.Pop();
 
         return message;
     }
@@ -163,7 +168,7 @@ public sealed class PartStatusSystem : EntitySystem
         }
     }
 
-private string BuildStatusDescription(PartStatus partStatus, bool inspectingSelf)
+    private string BuildStatusDescription(PartStatus partStatus, bool inspectingSelf)
     {
         var sb = new StringBuilder();
         var hasStatus = false;
@@ -219,5 +224,13 @@ private string BuildStatusDescription(PartStatus partStatus, bool inspectingSelf
             sb.Append(Loc.GetString(inspectingSelf ? $"self-{localeText}" : localeText));
             hasStatus = true;
         }
+    }
+
+    private void AddLine(FormattedMessage message)
+    {
+        message.PushColor(Color.FromHex("#282D31"));
+        message.AddText(Loc.GetString("examine-border-line"));
+        message.PushNewline();
+        message.Pop();
     }
 }
