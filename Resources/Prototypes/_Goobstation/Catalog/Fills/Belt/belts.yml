@@ -136,6 +136,10 @@
   description: A shoulder holster from the Gods. Contains a set of dual pistols.
   suffix: Filled, Chaplain
   components:
+  - type: Sprite
+    sprite: Clothing/Belt/holster.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/holster.rsi
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
@@ -160,7 +164,6 @@
     containers:
       item:
       - WeaponPistolCasul
-      item2:
       - WeaponPistolJackal
     
 - type: entityTable
