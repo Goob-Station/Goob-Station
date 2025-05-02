@@ -101,6 +101,11 @@
       types:
         Slash: 7 # heated knifes are not that sharp yknow
         Heat: 5
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 3
+    popupText: powered-light-component-burn-hand
 
 - type: entity
   id: ContrabandBag
