@@ -458,7 +458,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
             cqc.Blocked = false;
-            comp.Used = true;
             return false;
         }
 

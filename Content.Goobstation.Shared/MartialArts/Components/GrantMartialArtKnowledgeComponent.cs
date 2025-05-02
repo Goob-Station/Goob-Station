@@ -10,14 +10,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.MartialArts.Components;
 
 public abstract partial class GrantMartialArtKnowledgeComponent : Component
 {
-    [DataField]
-    public bool Used;
-
     [DataField]
     public virtual MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CloseQuartersCombat;
 
@@ -25,7 +23,10 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
     public virtual LocId LearnMessage { get; set; } = "cqc-success-learned";
 
     [DataField]
-    public virtual LocId LearnFailMessage { get; set; } = "cqc-fail-used";
+    public string? SpawnedProto = "Ash";
+
+    [DataField]
+    public SoundSpecifier SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
 }
 
 [RegisterComponent]

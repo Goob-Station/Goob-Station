@@ -7,7 +7,6 @@
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -23,7 +22,6 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, DragonStrikePerformedEvent>(OnDragonStrike);
 
         SubscribeLocalEvent<GrantKungFuDragonComponent, UseInHandEvent>(OnGrantCQCUse);
-        SubscribeLocalEvent<GrantKungFuDragonComponent, ExaminedEvent>(OnGrantCQCExamine);
 
         SubscribeLocalEvent<DragonPowerBuffComponent, AttackedEvent>(OnAttacked);
     }

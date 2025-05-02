@@ -17,8 +17,6 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -44,7 +42,6 @@ public partial class SharedMartialArtsSystem
 
         SubscribeLocalEvent<GrantCqcComponent, UseInHandEvent>(OnGrantCQCUse);
         SubscribeLocalEvent<GrantCqcComponent, MapInitEvent>(OnMapInitEvent);
-        SubscribeLocalEvent<GrantCqcComponent, ExaminedEvent>(OnGrantCQCExamine);
     }
 
     #region Generic Methods
@@ -87,24 +84,20 @@ public partial class SharedMartialArtsSystem
         if (!_netManager.IsServer)
             return;
 
-        if (comp.Used)
+        if (!TryGrantMartialArt(args.User, comp))
+            return;
+
+        _popupSystem.PopupEntity(Loc.GetString(comp.LearnMessage), args.User, args.User);
+
+        if (comp.SpawnedProto == null)
         {
-            _popupSystem.PopupEntity(Loc.GetString(comp.LearnFailMessage, ("manual", Identity.Entity(ent, EntityManager))),
-                args.User,
-                args.User);
+            _audio.PlayPvs(comp.SoundOnUse, ent);
             return;
         }
 
-        if (!TryGrantMartialArt(args.User, comp))
-            return;
-        _popupSystem.PopupEntity(Loc.GetString(comp.LearnMessage), args.User, args.User);
-        comp.Used = true;
-    }
-
-    private void OnGrantCQCExamine(EntityUid ent, GrantMartialArtKnowledgeComponent comp, ExaminedEvent args)
-    {
-        if (comp.Used)
-            args.PushMarkup(Loc.GetString("cqc-manual-used", ("manual", Identity.Entity(ent, EntityManager))));
+        var ash = Spawn(comp.SpawnedProto, _transform.GetMapCoordinates(ent));
+        _audio.PlayPvs(comp.SoundOnUse, ash);
+        Del(ent);
     }
 
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)

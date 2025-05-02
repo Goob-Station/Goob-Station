@@ -49,13 +49,13 @@
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: CapoeiraManual
-  name: Capoeira manual
-  description: A small, black manual. There are drawn instructions of Capoeira.
+  name: choreography manual
+  description: Choreography manual — or so it claims. Every second page ends with someone on the floor, not dancing.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    sprite: _Goobstation/Objects/Misc/martial_arts.rsi
     layers:
-    - state: icon
+    - state: capoeira
   - type: Item
     size: Small
   - type: StaticPrice
