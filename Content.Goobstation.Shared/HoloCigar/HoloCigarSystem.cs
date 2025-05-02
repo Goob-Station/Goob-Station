@@ -1,27 +1,25 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.TheManWhoSoldTheWorld;
-using Content.Goobstation.Shared.Weapons.Multishot;
-using Content.Shared._Goobstation.Weapons.Ranged;
+using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Goobstation.Common.Weapons.NoWieldNeeded;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Content.Shared.Mobs;
 using Content.Shared.Smoking;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Wieldable;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
-using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -37,11 +35,8 @@ public sealed class HoloCigarSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _items = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
 
-    private const string YowieProtoId = "Yowie";
     private const string LitPrefix = "lit";
     private const string UnlitPrefix = "unlit";
     private const string MaskSlot = "mask";
@@ -53,12 +48,10 @@ public sealed class HoloCigarSystem : EntitySystem
         SubscribeLocalEvent<HoloCigarComponent, ComponentHandleState>(OnComponentHandleState);
 
         SubscribeLocalEvent<HoloCigarAffectedGunComponent, DroppedEvent>(OnDroppedEvent);
-        SubscribeLocalEvent<HoloCigarAffectedGunComponent, WieldAttemptEvent>(OnWieldAttemptEvent);
 
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MapInitEvent>(OnMapInitEvent);
         SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, ComponentShutdown>(OnComponentShutdown);
-        SubscribeLocalEvent<TheManWhoSoldTheWorldComponent, MobStateChangedEvent>(OnMobStateChangedEvent);
     }
 
     private void OnAddInteractVerb(Entity<HoloCigarComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -84,32 +77,14 @@ public sealed class HoloCigarSystem : EntitySystem
 
     #region Event Methods
 
-    private void OnWieldAttemptEvent(Entity<HoloCigarAffectedGunComponent> ent, ref WieldAttemptEvent args)
-    {
-        args.Cancel(); // cancel any attempts to wield holocigar weapons
-    }
-
-    private void OnMobStateChangedEvent(Entity<TheManWhoSoldTheWorldComponent> ent, ref MobStateChangedEvent args)
-    {
-        if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
-            return;
-
-        if (args.NewMobState == MobState.Dead)
-            _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
-
-        if (_net.IsServer)
-            _audio.PlayPvs(ent.Comp.DeathAudio, ent, AudioParams.Default.WithVolume(3f));
-    }
-
     private void OnComponentShutdown(Entity<TheManWhoSoldTheWorldComponent> ent, ref ComponentShutdown args)
     {
         if (!TryComp<HoloCigarComponent>(ent.Comp.HoloCigarEntity, out var holoCigarComponent))
             return;
 
-        _audio.Stop(holoCigarComponent.MusicEntity); // no music out of mouth duh
         ShutDownEnumerateRemoval(ent);
 
-        if (!TryComp<HumanoidAppearanceComponent>(ent, out var appearance) || appearance.Species == YowieProtoId)
+        if (!ent.Comp.AddedNoWieldNeeded)
             return;
 
         RemComp<NoWieldNeededComponent>(ent);
@@ -119,8 +94,7 @@ public sealed class HoloCigarSystem : EntitySystem
     private void ShutDownEnumerateRemoval(Entity<TheManWhoSoldTheWorldComponent> ent)
     {
         var query = EntityQueryEnumerator<HoloCigarAffectedGunComponent>();
-        while
-            (query.MoveNext(out var gun, out var comp))
+        while (query.MoveNext(out var gun, out var comp))
         {
             if (comp.GunOwner != ent.Owner)
                 continue;
@@ -131,7 +105,11 @@ public sealed class HoloCigarSystem : EntitySystem
 
     private void OnMapInitEvent(Entity<TheManWhoSoldTheWorldComponent> ent, ref MapInitEvent args)
     {
-        EnsureComp<NoWieldNeededComponent>(ent);
+        if (!HasComp<NoWieldNeededComponent>(ent))
+        {
+            ent.Comp.AddedNoWieldNeeded = true;
+            AddComp<NoWieldNeededComponent>(ent);
+        }
         if (!_inventory.TryGetSlotEntity(ent, MaskSlot, out var cigarEntity) ||
             !HasComp<HoloCigarComponent>(cigarEntity))
             return;
@@ -149,15 +127,25 @@ public sealed class HoloCigarSystem : EntitySystem
             return;
 
         var affected = EnsureComp<HoloCigarAffectedGunComponent>(args.Item);
-
-        if (HasComp<MultishotComponent>(args.Item))
-            affected.WasOriginallyMultishot = true;
-
-        var multi = EnsureComp<MultishotComponent>(args.Item);
-
         affected.GunOwner = ent.Owner;
-        affected.OriginalSpreadModifier = multi.SpreadMultiplier;
+
+        if (TryComp<MultishotComponent>(args.Item, out var multi))
+        {
+            affected.WasOriginallyMultishot = true;
+            affected.OriginalMissChance = multi.MissChance;
+            affected.OriginalSpreadModifier = multi.SpreadMultiplier;
+            affected.OriginalSpreadAddition = multi.SpreadAddition;
+            affected.OriginalHandDamageAmount = multi.HandDamageAmount; // We don't care about the type though
+            affected.OriginalStaminaDamage = multi.StaminaDamage;
+        }
+
+        multi = EnsureComp<MultishotComponent>(args.Item);
+        multi.MissChance = 0f;
         multi.SpreadMultiplier = 1f; // no extra spread chuds
+        multi.SpreadAddition = 0f;
+        multi.HandDamageAmount = 0f;
+        multi.StaminaDamage = 0f;
+
         _gun.RefreshModifiers(args.Item);
     }
 
@@ -175,23 +163,6 @@ public sealed class HoloCigarSystem : EntitySystem
         _appearance.SetData(ent, SmokingVisuals.Smoking, state, appearance);
         _clothing.SetEquippedPrefix(ent, prefix, clothing);
         _items.SetHeldPrefix(ent, prefix);
-
-        if (!_net.IsServer) // mary copium right here
-            return;
-
-        if (ent.Comp.Lit == false)
-        {
-            var audio = _audio.PlayPvs(ent.Comp.Music,
-                ent,
-                AudioParams.Default.WithLoop(true).WithVolume(3f)); // must be louder than everything else on jehovah
-
-            if (audio is null)
-                return;
-            ent.Comp.MusicEntity = audio.Value.Entity;
-            return;
-        }
-
-        _audio.Stop(ent.Comp.MusicEntity);
     }
 
     private void OnComponentHandleState(Entity<HoloCigarComponent> ent, ref ComponentHandleState args)
@@ -224,7 +195,11 @@ public sealed class HoloCigarSystem : EntitySystem
                 break;
             case true:
             {
+                multiShotComp.MissChance = cigarAffectedGunComponent.OriginalMissChance;
                 multiShotComp.SpreadMultiplier = cigarAffectedGunComponent.OriginalSpreadModifier;
+                multiShotComp.SpreadAddition = cigarAffectedGunComponent.OriginalSpreadAddition;
+                multiShotComp.HandDamageAmount = cigarAffectedGunComponent.OriginalHandDamageAmount;
+                multiShotComp.StaminaDamage = cigarAffectedGunComponent.OriginalStaminaDamage;
                 break;
             }
         }

@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
@@ -66,22 +67,16 @@
   id: CartridgeHighCaliber
 
 - type: Tag
+  id: CartridgeLowCaliber
+
+- type: Tag
   id: CartridgeMagicBullet
 
 - type: Tag
   id: CartridgeSmart
 
 - type: Tag
-  id: CartridgeCaselessMagnum95
-
-- type: Tag
-  id: CartridgeCaselessMagnum95MinusP
-
-- type: Tag
-  id: CartridgeCaselessMagnum95SAPHE
-
-- type: Tag
-  id: CartridgeAntiMaterielHeavy
+  id: CartridgeG8
 
 - type: Tag
   id: Clarke
@@ -267,6 +262,9 @@
   id: JanicartKeys
 
 - type: Tag
+  id: Justice
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
@@ -282,19 +280,13 @@
   id: MagazineHighCaliber
 
 - type: Tag
+  id: MagazineLowCaliberM7S
+
+- type: Tag
   id: MagazineMagnumLeverRifle
 
 - type: Tag
   id: MagazineSmart
-
-- type: Tag
-  id: MagazineCaselessM7S
-
-- type: Tag
-  id: MagazineCaselessMagnum95
-
-- type: Tag
-  id: MagazineCaselessMagnum95Pistol
 
 - type: Tag
   id: Mask
@@ -346,6 +338,9 @@
 
 - type: Tag
   id: Organ
+
+- type: Tag
+  id: PepperSpray
 
 - type: Tag
   id: Poppy
@@ -427,6 +422,18 @@
 
 - type: Tag
   id: WeaponPistolDualetta
+
+- type: Tag
+  id: WeaponEnergyGunLawbringer
+
+- type: Tag
+  id: Welder
+
+- type: Tag
+  id: WelderExperimental
+
+- type: Tag
+  id: WelderIndustrial
 
 - type: Tag
   id: WinterCoat
