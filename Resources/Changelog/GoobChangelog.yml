@@ -7928,3 +7928,280 @@ Entries:
         to choose one of three random bundles!
   id: 920
   time: '2025-04-27T19:39:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new syndicate faction - Neulithiv Visionary Federation
+  id: 921
+  time: '2025-04-28T03:28:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Removed copyrighted songs. (R.I.P Holocigar & Mariah)
+  id: 922
+  time: '2025-04-28T05:07:20.0000000+00:00'
+- author: yahay505
+  changes:
+    - type: Add
+      message: RADIATION OVERHAUL!
+    - type: Remove
+      message: Nerfed Richard Turk
+    - type: Tweak
+      message: >-
+        Radiation now uses 2D propagation system, standing on top of or holding
+        radiation sources in your hand is extremely ill advised. doubly more so
+        than before. 
+    - type: Tweak
+      message: >-
+        Radiation propagation now takes into account distance traveled through
+        blockers
+    - type: Tweak
+      message: >-
+        Radiation now uses a percentage based blocking, large radiation sources
+        are blocked more.
+    - type: Tweak
+      message: >-
+        Radiation propagation max distance removed, huge rad sources can now
+        travel way further.
+    - type: Fix
+      message: Engi can no longer accidentally insta-kill their 100 tile radius
+    - type: Add
+      message: >-
+        *reinforced* uranium or *reinforced* plasma windows, plasma walls and
+        uranium walls are excellent radiation blockers, engineers should set
+        them up before making experimental SM setups.
+    - type: Remove
+      message: normal walls, windows and doors no longer block radiation
+  id: 923
+  time: '2025-04-28T19:26:55.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Radiation collectors are now more efficient at higher radiation. Also
+        removed them being bad if you use cold plasma.
+  id: 924
+  time: '2025-04-28T19:27:29.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Add
+      message: >-
+        New toy for engineering: Power Transmission Laser. Turking it made
+        legal. Convert cancer into money!
+  id: 925
+  time: '2025-04-28T19:27:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        The NTRs handheld fax now drops paper on the ground when printing inside
+        of a container, instead of sticking it to the bag.
+  id: 926
+  time: '2025-04-29T07:57:58.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Queue system now exists, if the server is full and you try joining,
+        you'll be put in a queue. (Patrons get priority queue 😄 )
+    - type: Tweak
+      message: >-
+        Goobflation has ruined the antag token economy (as of writing there are
+        3,676,072 coins in circulation), antag tokens have risen in price to
+        combat this.
+    - type: Remove
+      message: >-
+        Mid tier, low tier, and ghost role tokens have been nuked in favor of
+        one central antag token.
+    - type: Tweak
+      message: Patrons get double goob coins now.
+  id: 927
+  time: '2025-04-29T23:37:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Changed sizes of most weapons.
+    - type: Tweak
+      message: >-
+        Reworked shoulder holsters. Detective's holster now stores a handgun and
+        syndicate holster stores any gun, and on top of that they both have 4x2
+        pocket for ammo.
+    - type: Tweak
+      message: Syndicate shoulder holster now costs 8 TC.
+    - type: Tweak
+      message: Blueshield Officer EG-4 pack now comes with a shoulder holster.
+  id: 928
+  time: '2025-04-30T07:20:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate fire axe buffed (attack rate, damage, structural damage
+        significantly increased).
+  id: 929
+  time: '2025-04-30T22:03:50.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Mice can no longer shove (sorry).
+  id: 930
+  time: '2025-04-30T22:31:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Abductor pinchers can now be used as barber scissors.
+  id: 931
+  time: '2025-04-30T23:05:36.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now use welders to deconstruct plating.
+  id: 932
+  time: '2025-05-01T03:29:56.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Atmos temperature limit effectively removed.
+  id: 933
+  time: '2025-05-01T05:11:03.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Energy guns can now light cigarettes. Blueshield is 10x cooler.
+  id: 934
+  time: '2025-05-01T06:02:31.0000000+00:00'
+- author: >-
+    SolsticeOfTheWinter, Rosef, The Chinese Communist Party, The Friends I Made
+    Along the Way
+  changes:
+    - type: Add
+      message: Added the Devil. But actually this time.
+  id: 935
+  time: '2025-05-01T06:43:51.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced Syndicate Encryption Key box uplink purchase, which contained
+        two keys, with a singular cheaper key.
+    - type: Tweak
+      message: 'Reduced the price of Syndicate Radio Implanter uplink purchase. '
+  id: 936
+  time: '2025-05-01T09:13:19.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Nukeops role timers increased, 10 overall hours + 10 sec hours for
+        troopa, 25 overall hours +5 chemist hours for agent and 25 overall hours
+        +5 hours of command for commander (LEADERSHIP SKILLS)
+    - type: Tweak
+      message: Nukeops now spawn with agent IDs in their PDA
+    - type: Tweak
+      message: Nukeops now spawn with NVGs, pop those lights buddy
+    - type: Tweak
+      message: Ninjas now have a microbomb instead of a death acidifier
+  id: 937
+  time: '2025-05-01T10:09:48.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Remove
+      message: Blobs no longer emit light.
+  id: 938
+  time: '2025-05-01T16:34:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: China lake is back to 1 firerate. Still pump action.
+    - type: Tweak
+      message: >-
+        Singularity buster is greatly increased in size and is no longer a steal
+        target.
+  id: 939
+  time: '2025-05-01T18:13:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        You can now make counterfeit spesos by applying a knife then a spray
+        painter to paper. Law enforcement might not be happy, though.
+  id: 940
+  time: '2025-05-01T18:43:54.0000000+00:00'
+- author: Creatorbot01
+  changes:
+    - type: Add
+      message: Added 1 mag type for cr-2
+    - type: Add
+      message: Added Ion rifle
+    - type: Tweak
+      message: small buff to cr-2 to actually be deadly against nukie(15>17 damage)
+    - type: Tweak
+      message: Disabler no longer do ion damage ipc rejoice
+  id: 941
+  time: '2025-05-01T21:01:14.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed several issues with devil.
+  id: 942
+  time: '2025-05-01T22:46:00.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Changed floor tile decals texture
+  id: 943
+  time: '2025-05-02T05:27:23.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Generalized plushie names.
+    - type: Add
+      message: >-
+        You can now gib Mikedyne and Muppet with a plushie that resembles them.
+        This will not have consequences unless an admin says otherwise.
+  id: 944
+  time: '2025-05-02T05:29:51.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Moths move slightly slower but can dash with their wings with 65%
+        chance. 
+    - type: Tweak
+      message: Voxes now do not rot, but you can't clone them.
+    - type: Tweak
+      message: Onis are now able to shoot one-handed SMGs with two hands.
+    - type: Add
+      message: Added some more things for arachnids to craft.
+    - type: Fix
+      message: Harpies now move slightly faster, as they should.
+  id: 945
+  time: '2025-05-02T05:31:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Removed Heaven's Gate!
+    - type: Add
+      message: Added HE1S-G8!
+  id: 946
+  time: '2025-05-02T05:35:45.0000000+00:00'
+- author: SolsticeOfTheWinter, Rosef, Taro Varne, pheenty
+  changes:
+    - type: Add
+      message: Gave HOS that solstice ***spice***
+    - type: Add
+      message: Added pepperspray.
+    - type: Add
+      message: Added the distress signaller.
+    - type: Add
+      message: Added the bloodtrak for the detective.
+    - type: Add
+      message: Added the advanced holobarrier projector.
+    - type: Add
+      message: Added shitsec.
+    - type: Add
+      message: Added lethal injections to the wardens locker.
+    - type: Remove
+      message: My sanity
+  id: 947
+  time: '2025-05-02T07:23:51.0000000+00:00'

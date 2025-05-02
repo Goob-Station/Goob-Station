@@ -164,7 +164,7 @@
     - id: Handcuffs
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
-    - id: WeaponDisabler #Goobstation
+    - id: WeaponDisabler # Goobstation
 
 - type: entity
   id: ClothingBeltSecurityFilled
@@ -310,10 +310,14 @@
   parent: ClothingBeltHolster
   suffix: Filled, Inspector # Goobstation
   components:
+  - type: ContainerFill # Goobstation
+    containers:
+      item:
+      - WeaponRevolverInspector
   - type: StorageFill
     contents:
         - id: SpeedLoaderMagnum
-        - id: WeaponRevolverInspector
+        # - id: WeaponRevolverInspector # Goobstation
 
 - type: entity
   id: ClothingBeltChefFilled

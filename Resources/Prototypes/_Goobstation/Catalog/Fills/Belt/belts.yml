@@ -54,19 +54,20 @@
       - id: CentcommStimpack
         amount: 2
       - id: OmnimedTool
-  - type: Tag
-    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   id: ClothingBeltHolsterFilledCentComm
   parent: ClothingBeltHolster
   suffix: Filled, N1984
   components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolN1984
   - type: StorageFill
     contents:
     - id: MagazineMagnum
     - id: MagazineMagnum
-    - id: WeaponPistolN1984
 
 - type: entity
   id: ClothingBeltSecurityWebbingFilledMedical
@@ -96,6 +97,16 @@
     containers:
       item:
       - NavyOfficerSabre
+
+- type: entity
+  id: ClothingBeltSheathHeadOfSecurityFilled
+  parent: ClothingBeltSheathHeadOfSecurity
+  suffix: Filled, Head Of Security
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - Justice
 
 - type: entityTable
   id: BeltSecurityNoBatonEntityTable
@@ -170,3 +181,19 @@
     - id: EphedrineChemistryBottle
       amount: 2
     - id: OmnizineChemistryBottle
+
+- type: entity
+  id: ClothingBeltHolsterFilledBlueshield
+  parent: ClothingBeltHolster
+  suffix: Filled, EG-4
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponEnergyRevolver
+  - type: StorageFill
+    contents:
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderLethal
+    - id: EnergySpeedloaderDisabler
+    - id: EnergySpeedloaderDisabler
