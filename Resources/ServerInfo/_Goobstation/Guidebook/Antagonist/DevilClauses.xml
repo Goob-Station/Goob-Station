@@ -38,6 +38,13 @@
 
   - Makes the contractee invisible.
 
+  ## Fear of Death
+  <Box>
+    [color=#999999][italic]-25 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee have no critical state. You stand, or you die.
+
   ## Fear of Fire
   <Box>
     [color=#999999][italic]-20 Weight[/italic][/color]
@@ -59,6 +66,20 @@
 
   - Makes the contractee immune to electrical shocks.
 
+  ## Greed
+  <Box>
+    [color=#999999][italic]-15 Weight[/italic][/color]
+  </Box>
+
+  - Grants the target a ton of cash-money.
+
+  ## Pain
+  <Box>
+    [color=#999999][italic]-10 Weight[/italic][/color]
+  </Box>
+
+  - Makes the contractee feel no pain, and suffer no negatives from pain.
+
   ## Inner Peace
   <Box>
     [color=#999999][italic]5 Weight[/italic][/color]
@@ -72,6 +93,13 @@
   </Box>
 
   - Makes the contractee take double damage.
+
+  ## Humanity
+  <Box>
+    [color=#999999][italic]25 Weight[/italic][/color]
+  </Box>
+
+  - Turns the contractee into a frog.
 
   ## Coherence
   <Box>
@@ -100,6 +128,13 @@
   </Box>
 
   - Immediately severs one of the contractees legs.
+
+  ## Awake
+  <Box>
+    [color=#999999][italic]40 Weight[/italic][/color]
+  </Box>
+
+  - Turns the target narcoleptic.
 
   ## Legs
   <Box>

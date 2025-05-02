@@ -8,15 +8,20 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Goobstation.Common.Paper;
+using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server.Body.Systems;
+using Content.Server.Hands.Systems;
+using Content.Server.Implants;
+using Content.Server.Polymorph.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Implants.Components;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -32,11 +37,13 @@ public sealed partial class DevilContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly HandsSystem _hands = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = null!;
     [Dependency] private readonly BodySystem _bodySystem = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly SubdermalImplantSystem _implant = null!;
+    [Dependency] private readonly PolymorphSystem _polymorph = null!;
 
     private ISawmill _sawmill = null!;
     private readonly EntProtoId _fireEffectProto = "FireEffect";
@@ -164,7 +171,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         }
 
         // Check if devil is trying to sign first
-        if (args.Signer == comp.ContractOwner)
+        if (args.Signer == comp.ContractOwner || HasComp<PossessedComponent>(args.Signer))
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("devil-contract-early-sign-failed"),
@@ -310,8 +317,17 @@ public sealed partial class DevilContractSystem : EntitySystem
     public void ApplyEffectToTarget(EntityUid target, DevilClausePrototype clause, DevilContractComponent? contract)
     {
         AddComponents(target, clause);
+
         RemoveComponents(target, clause);
+
         ChangeDamageModifier(target, clause);
+
+        AddImplants(target, clause);
+
+        SpawnItems(target, clause);
+
+        DoPolymorphs(target, clause);
+
         DoSpecialActions(target, contract, clause);
     }
 
@@ -331,12 +347,43 @@ public sealed partial class DevilContractSystem : EntitySystem
         EntityManager.RemoveComponents(target, clause.RemovedComponents);
     }
 
+    private void AddImplants(EntityUid target, DevilClausePrototype clause)
+    {
+        if (clause.Implants == null)
+            return;
+
+        _implant.AddImplants(target, clause.Implants);
+    }
+
     private void AddComponents(EntityUid target, DevilClausePrototype clause)
     {
         if (clause.AddedComponents == null)
             return;
 
         EntityManager.AddComponents(target, clause.AddedComponents);
+    }
+
+    private void SpawnItems(EntityUid target, DevilClausePrototype clause)
+    {
+        if (clause.SpawnedItems == null)
+            return;
+
+        foreach (var item in clause.SpawnedItems)
+        {
+            if (!_prototypeManager.TryIndex(item, out _))
+                return;
+
+            var spawnedItem = SpawnNextToOrDrop(item, target);
+            _hands.TryPickupAnyHand(target, spawnedItem, false, false, false);
+        }
+    }
+
+    private void DoPolymorphs(EntityUid target, DevilClausePrototype clause)
+    {
+        if (clause.Polymorph == null)
+            return;
+
+        _polymorph.PolymorphEntity(target, clause.Polymorph.Value);
     }
 
     private void DoSpecialActions(EntityUid target, DevilContractComponent? contract, DevilClausePrototype clause)

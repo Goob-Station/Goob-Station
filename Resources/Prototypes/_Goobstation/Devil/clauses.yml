@@ -6,6 +6,13 @@
   clauseWeight: 25
   event: !type:DevilContractSoulOwnershipEvent
 
+# self antag clause
+#- type: clause
+#  id: pride
+#  clauseWeight: -70
+#  implants:
+#  - UplinkImplant
+
 - type: clause
   id: weakness
   clauseWeight: -35
@@ -24,6 +31,16 @@
   - type: PressureImmunity
 
 - type: clause
+  id: fearofdeath
+  clauseWeight: -25
+  addedComponents:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Critical
+      201: Dead
+
+- type: clause
   id: fearoflight
   clauseWeight: -15
   addedComponents:
@@ -36,11 +53,32 @@
   - type: Insulated
 
 - type: clause
+  id: greed
+  clauseWeight: -15
+  spawnedItems:
+  - SpaceCash30000
+
+- type: clause
+  id: pain
+  clauseWeight: -10
+  addedComponents:
+  - type: PainNumbness
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 1
+      80: 1
+
+- type: clause
   id: shadows
   clauseWeight: -25
   addedComponents:
   - type: Stealth
   - type: StealthOnMove
+
+- type: clause
+  id: humanity
+  clauseWeight: 25
+  polymorph: MobFrogPolymorph
 
 - type: clause
   id: strength
@@ -81,6 +119,12 @@
   id: ahand
   clauseWeight: 30
   event: !type:DevilContractLoseHandEvent
+
+- type: clause
+  id: awake
+  clauseWeight: 40
+  addedComponents:
+  - type: Narcolepsy
 
 - type: clause
   id: anorgan
