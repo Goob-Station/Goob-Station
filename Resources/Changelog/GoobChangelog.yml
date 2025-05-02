@@ -8185,3 +8185,23 @@ Entries:
       message: Added HE1S-G8!
   id: 946
   time: '2025-05-02T05:35:45.0000000+00:00'
+- author: SolsticeOfTheWinter, Rosef, Taro Varne, pheenty
+  changes:
+    - type: Add
+      message: Gave HOS that solstice ***spice***
+    - type: Add
+      message: Added pepperspray.
+    - type: Add
+      message: Added the distress signaller.
+    - type: Add
+      message: Added the bloodtrak for the detective.
+    - type: Add
+      message: Added the advanced holobarrier projector.
+    - type: Add
+      message: Added shitsec.
+    - type: Add
+      message: Added lethal injections to the wardens locker.
+    - type: Remove
+      message: My sanity
+  id: 947
+  time: '2025-05-02T07:23:51.0000000+00:00'
