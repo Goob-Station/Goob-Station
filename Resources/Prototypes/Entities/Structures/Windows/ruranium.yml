@@ -14,7 +14,9 @@
 # SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 cohanna <conornhanna@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -71,7 +73,7 @@
   - type: StaticPrice
     price: 215
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 20
 
 - type: entity
   id: UraniumReinforcedWindowDirectional
@@ -127,7 +129,7 @@
   - type: StaticPrice
     price: 110
   - type: RadiationBlocker
-    resistance: 2.5
+    resistance: 10
 
 - type: entity
   parent: ReinforcedUraniumWindow

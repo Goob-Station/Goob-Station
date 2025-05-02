@@ -26,6 +26,7 @@
     clumsyProof: true
   - type: PacifismAllowedGun
   - type: Multishot
+    missChance: 0
   - type: AmmoCounter
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 5

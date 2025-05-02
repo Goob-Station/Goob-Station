@@ -78,17 +78,14 @@ uplink-dart-gun-name = Dart Gun
 uplink-dart-gun-desc = This gun applies inside chemicals to its regenerating dart supply, allowing to distantly heal allies or to commit war crimes by poisoning foes.
 # Weapons
 
-uplink-dualetta-kit-name = Dualetta kit
-uplink-dualetta-kit-desc = Two dualettas for a cheap price.
-
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
 uplink-weapon-burner-name = Burner Heavy Rifle
-uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
+uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and suppression weapon.
 
-uplink-WSPR-name = WSPR Bundle
-uplink-WSPR-desc = A silenced burst rifle, does not match the damage output of other options but gets the job done quietly.
+uplink-WSPR-name = WSPR
+uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -96,7 +93,7 @@ uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
 uplink-buldog-name = Bulldog
 uplink-buldog-desc = A magazine fed fullauto shotgun.
 
-uplink-l6-saw-name = L6 Saw Bundle
+uplink-l6-saw-name = L6 Saw
 uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 
 uplink-m90-name = M-90
@@ -114,11 +111,11 @@ uplink-bulk-mosin-desc = 10 WW4-era rifles to arm you, your friends, and your ca
 uplink-whimsy-bundle-name = Syndicate Joy & Whimsy Bundle
 uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. has the solution for you! Contains a LIMITED EDITION axe and enough candy to kill a man.
 
-uplink-m7s-name = M7S
-uplink-m7s-desc = A high capacity but low velocity submachinegun that takes 48 round magazines.
+uplink-m7s-name = M7S "Ventilator"
+uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
-uplink-heavensgate-name = Heaven's gate
-uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+uplink-he1sg8-bundle-name = HE1S-G8 Bundle
+uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
 # Ammo
 
@@ -128,26 +125,23 @@ uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the C
 uplink-frag-grenade-name = Frag Grenade
 uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
 
-uplink-rifle-mag-name = .20 Rifle Magazine
+uplink-rifle-mag-name = Rifle Magazine (.20)
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
-uplink-rifle-caseless-mag-name = 9.5mm Caseless Magnum Magazine
-uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless bullets. Compatible with the WSPR.
+uplink-rifle-caseless-mag-name = Rifle Magazine (9.5mm HP)
+uplink-rifle-caseless-mag-desc = A 30 round rifle magazine filled with 9.5mm caseless magnum hollow-point bullets. Compatible with the WSPR.
 
-uplink-caseless-magnum-pistol-mag-minusp-name = 9.5mm Caseless Magnum -P Magazine (Pistol)
-uplink-caseless-magnum-pistol-mag-minusp-desc = 12 rounds of 9.5mm lowered pressure ammunition for better suppression. Compatible with the cobra.
-
-uplink-caseless-magnum-pistol-mag-saphe-name = 9.5mm Caseless Magnum SAP-HE Magazine (Pistol)
-uplink-caseless-magnum-pistol-mag-saphe-desc = 12 rounds of 9.5mm Semi Armor Piercing High Explosive ammunition, splits its damage between 13 direct damage and 10 explosive damage on one tile. Compatible with the cobra. WARNING: ammunition is volatile and explosion may trigger infront of instead of on the target
+uplink-pistol-magazine-caseless-saphe-name = Pistol Magazine (9.5mm SAP-HE)
+uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum semi-armor-piercing high-explosive ammunition. It is exactly what you have read. Compatible with the Cobra.
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
 uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
-uplink-shotgun-magazine-desc = Shutgun drum with 8 pellet shells. Compatible with the Bulldog.
+uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
 uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
-uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible with the Bulldog.
+uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
 uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
@@ -158,21 +152,21 @@ uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive c
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
-uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
+uplink-highcap-pistol-mag-name = High Capacity Pistol Magazine (.35 auto)
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
-uplink-m7s-mag-name = M7S .25 magazine
-uplink-m7s-mag-desc = A 48 round .25 rifle magazine, side mounts on the M7S submachinegun
+uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
+uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
 
-uplink-92-AP-name = box of .92 armour piercing rounds
-uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper rifle. effective for anti-infantry use.
+uplink-cartridge-G8-demolishing-name = G8 demolishing cartridge
+uplink-cartridge-G8-demolishing-desc = This cartridge shots "The Spear of Ares" bullet, demolishing whole lines of walls, dealing massive stamina damage to people and overcharging energy vortexes. Used by HE1S-G8.
 
-uplink-92-AT-name = box of .92 anti-tank rounds
-uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
+uplink-cartridge-G8-hypercharged-name = G8 hypercharged cartridge
+uplink-cartridge-G8-hypercharged-desc = This cartridge shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge. Used by HE1S-G8.
 
 # Grenades
 
-uplink-sarin-gas-grenade-name = Sarin gas grenade
+uplink-sarin-gas-grenade-name = Sarin Gas Grenade
 uplink-sarin-gas-grenade-desc = A brutal neurotoxin gas that stuns, blinds, and poisons anybody unlucky enough to catch a whiff aswell as burning anyone not in a voidsuit, leaving them writhing on the floor begging to be finished off
 
 # Mechs
@@ -224,13 +218,18 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
 
-uplink-smugglers-satchel-name = Smuggler's Satchel
-uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
-
 # Disruption
 
 uplink-syndicate-weapon-module-advanced-name = advanced weapons module
 uplink-syndicate-weapon-module-advanced-desc = Upgrades a cyborg with an energy sword and an anaconda pistol.
+
+# Martial Arts
+
+uplink-cqc-name = CQC Manual
+uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. Does not restrict weapon usage. Your disarms will inflict some stamina damage while making people temporarily slur their words, your grabs will immobilize for a second making it easier to reinforce them, your harm attacks will deal moderate stamina damage, and you will get a set of combos that allow you to efficiently knockdown, disarm or stun your opponent. You can find more information on CQC and its combos here.
+
+uplink-sleeping-carp-name = Way of the Sleeping Carp Scroll
+uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
 
 # Misc
 
@@ -242,3 +241,6 @@ uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndi
 
 uplink-pizza-party-crate-name = Pizza Party Crate
 uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.
+
+uplink-undetermined-bundle-name = Undetermined Bundle Crate
+uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.
