@@ -126,6 +126,14 @@
   equipment:
     head: ClothingHeadHatBeretHoS
 
+- type: loadout # Goobstation
+  id: HeadofSecuritySpecialBeret
+  equipment:
+    head: ClothingHeadHatBeretHeadOfSecurityAdvanced
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+
 # Neck
 - type: loadout
   id: HeadofSecurityCloak
@@ -150,6 +158,14 @@
   id: HeadofSecurityCoat
   equipment:
     outerClothing: ClothingOuterCoatHoSTrench
+
+- type: loadout
+  id: HeadofSecurityGreatCoat # Goobstation
+  equipment:
+    outerClothing: ClothingOuterArmorHoSExperimental
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
 
 - type: loadout
   id: HeadofSecurityWinterCoat
