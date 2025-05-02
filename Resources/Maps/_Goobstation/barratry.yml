@@ -165,8 +165,8 @@ meta:
   engineVersion: 247.2.0
   forkId: ""
   forkVersion: ""
-  time: 03/12/2025 21:34:23
-  entityCount: 15674
+  time: 03/29/2025 00:11:36
+  entityCount: 15670
 maps:
 - 1
 grids:
@@ -34505,6 +34505,14 @@ entities:
     - type: Transform
       pos: -37.481266,49.508133
       parent: 2
+- proto: CapsaicinDispenser
+  entities:
+  - uid: 5236
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -45.5,53.5
+      parent: 2
 - proto: CargoTechFab
   entities:
   - uid: 551
@@ -42388,13 +42396,6 @@ entities:
     - type: Transform
       pos: -34.543724,28.416185
       parent: 2
-- proto: ClothingNeckMantleHOS
-  entities:
-  - uid: 5435
-    components:
-    - type: Transform
-      pos: -60.468678,63.752388
-      parent: 2
 - proto: ClothingNeckMantleRD
   entities:
   - uid: 5437
@@ -48580,8 +48581,11 @@ entities:
   - uid: 6437
     components:
     - type: Transform
-      pos: -58.33147,64.88806
+      pos: -60.236225,63.839653
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 6438
     components:
     - type: Transform
@@ -48602,8 +48606,11 @@ entities:
   - uid: 6441
     components:
     - type: Transform
-      pos: -58.70647,64.85681
+      pos: -60.611225,64.02715
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: DrinkWhiskeyGlass
   entities:
   - uid: 6442
@@ -70194,6 +70201,14 @@ entities:
     - type: Transform
       pos: -6.5,59.5
       parent: 2
+- proto: GlassBoxLawbringerFilled
+  entities:
+  - uid: 5235
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -58.5,64.5
+      parent: 2
 - proto: GravityGenerator
   entities:
   - uid: 9332
@@ -75277,7 +75292,7 @@ entities:
   - uid: 4
     components:
     - type: Transform
-      pos: -58.53795,64.84835
+      pos: -60.600807,63.725067
       parent: 2
     - type: HandheldLight
       toggleActionEntity: 5
@@ -75293,6 +75308,8 @@ entities:
           ents:
           - 5
     - type: Physics
+      angularDamping: 0
+      linearDamping: 0
       canCollide: True
     - type: ActionsContainer
   - uid: 10252
@@ -76616,18 +76633,6 @@ entities:
     components:
     - type: Transform
       pos: -42.288002,61.49391
-      parent: 2
-- proto: MagazinePistolSubMachineGunTopMounted
-  entities:
-  - uid: 10345
-    components:
-    - type: Transform
-      pos: -60.513123,64.48181
-      parent: 2
-  - uid: 10346
-    components:
-    - type: Transform
-      pos: -60.513123,64.48181
       parent: 2
 - proto: MagazineRifle
   entities:
@@ -92211,11 +92216,6 @@ entities:
     - type: Transform
       pos: -60.5,63.5
       parent: 2
-  - uid: 12930
-    components:
-    - type: Transform
-      pos: -58.5,64.5
-      parent: 2
   - uid: 12931
     components:
     - type: Transform
@@ -106485,13 +106485,6 @@ entities:
     components:
     - type: Transform
       pos: -41.62914,61.561836
-      parent: 2
-- proto: WeaponSubMachineGunWt550
-  entities:
-  - uid: 15457
-    components:
-    - type: Transform
-      pos: -60.450623,64.62244
       parent: 2
 - proto: WeaponTurretSyndicateBroken
   entities:
