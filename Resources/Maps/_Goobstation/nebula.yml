@@ -4,8 +4,8 @@ meta:
   engineVersion: 248.0.2
   forkId: ""
   forkVersion: ""
-  time: 04/17/2025 23:01:55
-  entityCount: 15626
+  time: 05/02/2025 09:08:29
+  entityCount: 15642
 maps:
 - 1
 grids:
@@ -151,7 +151,7 @@ entities:
           version: 6
         0,-2:
           ind: 0,-2
-          tiles: DQAAAAAADQAAAAAADQAAAAAAEAAAAAAAEAAAAAADEAAAAAABEAAAAAADIAAAAAADIAAAAAABIAAAAAABIAAAAAABIAAAAAAAEAAAAAACEAAAAAABEAAAAAABAgAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAADEAAAAAACgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAAAEAAAAAADgwAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAAAEAAAAAADgwAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAACEAAAAAABgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAAAEAAAAAABgwAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAACEAAAAAABgwAAAAAAfwAAAAAAfwAAAAACfwAAAAAAgwAAAAAAEAAAAAAAEAAAAAAAgwAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAAAEAAAAAACgwAAAAAAfwAAAAAAfwAAAAABfwAAAAAAgwAAAAAAEAAAAAACEAAAAAACgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAABEAAAAAADgwAAAAAAfwAAAAAAfwAAAAAAfwAAAAACgwAAAAAAEAAAAAAAEAAAAAACgwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgwAAAAAAEAAAAAABEAAAAAADgwAAAAAAfwAAAAADfwAAAAAAfwAAAAABgwAAAAAAEAAAAAADEAAAAAACgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAADEAAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAABEAAAAAACgwAAAAAAAwAAAAADAwAAAAABAwAAAAAAAwAAAAACAwAAAAACgwAAAAAAEAAAAAAAEAAAAAADgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAADEAAAAAADfwAAAAAAfwAAAAAAfwAAAAADfwAAAAAAfwAAAAADfwAAAAADfwAAAAAAEAAAAAACEAAAAAAAgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAACEAAAAAACgwAAAAAAfwAAAAAAfwAAAAABfwAAAAAAfwAAAAAAfwAAAAADgwAAAAAAEAAAAAACEAAAAAABgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAABEAAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAABEAAAAAADgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAAAEAAAAAAAgwAAAAAABQAAAAACBQAAAAADBQAAAAABBQAAAAADBQAAAAAAgwAAAAAAEAAAAAABEAAAAAABgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAAAgwAAAAAAEAAAAAADEAAAAAABgwAAAAAABQAAAAAAAQAAAAADAQAAAAABAQAAAAAABQAAAAAAgwAAAAAAEAAAAAAAEAAAAAACgwAAAAAAAQAAAAACAQAAAAACAQAAAAABAQAAAAACAQAAAAACAQAAAAACAQAAAAACAQAAAAAAAQAAAAABAQAAAAADAQAAAAADAQAAAAAAAQAAAAADAQAAAAAAAQAAAAAAAQAAAAACGwAAAAAAGwAAAAAAGwAAAAAABQAAAAAABQAAAAAABQAAAAAABQAAAAAAGwAAAAAAGwAAAAAAGwAAAAAAGwAAAAAAGwAAAAAABQAAAAAABQAAAAAABQAAAAAABQAAAAAA
+          tiles: DQAAAAAADQAAAAAADQAAAAAAEAAAAAAAEAAAAAADEAAAAAABEAAAAAADIAAAAAADIAAAAAABIAAAAAABIAAAAAABIAAAAAAAEAAAAAACEAAAAAABEAAAAAABAgAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAADEAAAAAACgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAAAEAAAAAADgwAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAAAEAAAAAADgwAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAACEAAAAAABgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAAAEAAAAAABgwAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAAgwAAAAAAEAAAAAACEAAAAAABgwAAAAAAfwAAAAAAfwAAAAACfwAAAAAAgwAAAAAAEAAAAAAAEAAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAADQAAAAAAEAAAAAAAEAAAAAACgwAAAAAAfwAAAAAAfwAAAAABfwAAAAAAgwAAAAAAEAAAAAACEAAAAAACgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAABEAAAAAADgwAAAAAAfwAAAAAAfwAAAAAAfwAAAAACgwAAAAAAEAAAAAAAEAAAAAACgwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgwAAAAAAEAAAAAABEAAAAAADgwAAAAAAfwAAAAADfwAAAAAAfwAAAAABgwAAAAAAEAAAAAADEAAAAAACgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAADEAAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAABEAAAAAACgwAAAAAAAwAAAAADAwAAAAABAwAAAAAAAwAAAAACAwAAAAACgwAAAAAAEAAAAAAAEAAAAAADgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAADEAAAAAADfwAAAAAAfwAAAAAAfwAAAAADfwAAAAAAfwAAAAADfwAAAAADfwAAAAAAEAAAAAACEAAAAAAAgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAACEAAAAAACgwAAAAAAfwAAAAAAfwAAAAABfwAAAAAAfwAAAAAAfwAAAAADgwAAAAAAEAAAAAACEAAAAAABgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAABEAAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAABEAAAAAADgwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAgwAAAAAAEAAAAAAAEAAAAAAAgwAAAAAABQAAAAACBQAAAAADBQAAAAABBQAAAAADBQAAAAAAgwAAAAAAEAAAAAABEAAAAAABgwAAAAAAgwAAAAAAgwAAAAAAEAAAAAAAgwAAAAAAEAAAAAADEAAAAAABgwAAAAAABQAAAAAAAQAAAAADAQAAAAABAQAAAAAABQAAAAAAgwAAAAAAEAAAAAAAEAAAAAACgwAAAAAAAQAAAAACAQAAAAACAQAAAAABAQAAAAACAQAAAAACAQAAAAACAQAAAAACAQAAAAAAAQAAAAABAQAAAAADAQAAAAADAQAAAAAAAQAAAAADAQAAAAAAAQAAAAAAAQAAAAACGwAAAAAAGwAAAAAAGwAAAAAABQAAAAAABQAAAAAABQAAAAAABQAAAAAAGwAAAAAAGwAAAAAAGwAAAAAAGwAAAAAAGwAAAAAABQAAAAAABQAAAAAABQAAAAAABQAAAAAA
           version: 6
         1,-2:
           ind: 1,-2
@@ -3304,7 +3304,8 @@ entities:
           2,2:
             0: 46079
           2,3:
-            0: 32911
+            0: 143
+            1: 32768
           2,4:
             0: 3067
           2,-1:
@@ -3331,42 +3332,42 @@ entities:
             0: 30576
           0,-4:
             0: 15
-            1: 20224
+            2: 20224
           0,-5:
             0: 65287
           -1,-4:
             0: 28687
-            1: 34816
+            2: 34816
           0,-3:
-            1: 244
-            2: 28672
+            2: 244
+            3: 28672
           -1,-3:
-            1: 136
-            2: 32768
+            2: 136
+            3: 32768
             0: 13104
           0,-2:
-            2: 511
+            3: 511
             0: 61440
           -1,-2:
-            2: 136
+            3: 136
             0: 45874
           -1,-1:
             0: 48063
           1,-4:
             0: 15
-            1: 61184
+            2: 61184
           1,-3:
-            1: 3924
+            2: 3924
           1,-2:
             0: 65262
           1,-5:
             0: 65467
           2,-4:
             0: 15
-            1: 20224
+            2: 20224
           2,-3:
             0: 3840
-            1: 64
+            2: 64
           2,-2:
             0: 65262
           2,-5:
@@ -3434,7 +3435,7 @@ entities:
           -1,-5:
             0: 65291
           -5,0:
-            3: 16
+            4: 16
             0: 65504
           -4,1:
             0: 61438
@@ -3514,12 +3515,12 @@ entities:
             0: 4095
           -5,6:
             0: 3003
-            1: 12288
+            2: 12288
           -4,7:
             0: 65535
           -5,7:
             0: 65416
-            1: 3
+            2: 3
           -4,8:
             0: 48127
           -3,5:
@@ -3611,7 +3612,7 @@ entities:
           8,4:
             0: 58623
           8,7:
-            1: 18244
+            2: 18244
           4,-5:
             0: 65323
           5,-4:
@@ -3630,7 +3631,7 @@ entities:
             0: 30479
           6,-5:
             0: 65280
-            1: 4
+            2: 4
           7,-4:
             0: 119
           7,-3:
@@ -3653,18 +3654,18 @@ entities:
             0: 54548
           -9,-3:
             0: 24016
-            1: 8192
+            2: 8192
           -8,-2:
             0: 24567
-            4: 8
+            1: 8
           -9,-2:
-            1: 34952
+            2: 34952
             0: 18260
           -8,-1:
-            1: 1
+            2: 1
             0: 3548
           -9,-1:
-            1: 8
+            2: 8
             0: 61156
           -8,0:
             0: 4095
@@ -3702,40 +3703,40 @@ entities:
             0: 3838
           -8,2:
             0: 1911
-            1: 16392
+            2: 16392
           -9,2:
             0: 3822
           -8,3:
-            1: 26214
+            2: 26214
           -8,4:
-            1: 61030
+            2: 61030
           -7,1:
             0: 4092
           -7,2:
-            1: 273
+            2: 273
             0: 1092
           -7,3:
             0: 65535
           -7,4:
             0: 64443
-            4: 1092
+            1: 1092
           -6,1:
             0: 40945
           -6,2:
             0: 35771
-            1: 16384
+            2: 16384
           -6,3:
             0: 39325
-            1: 17472
+            2: 17472
           -6,4:
             0: 39321
-            1: 26180
+            2: 26180
           -5,4:
             0: 29013
           -8,-8:
-            1: 4089
+            2: 4089
           -9,-8:
-            1: 3852
+            2: 3852
           -8,-7:
             0: 64443
           -8,-6:
@@ -3745,78 +3746,78 @@ entities:
           -9,-5:
             0: 65295
           -8,-9:
-            1: 32769
+            2: 32769
             0: 3272
           -7,-8:
-            1: 1010
+            2: 1010
           -7,-7:
             0: 13107
           -7,-6:
             0: 13104
           -7,-9:
-            1: 8192
+            2: 8192
             0: 4095
           -6,-6:
             0: 65280
-            1: 3
+            2: 3
           -6,-8:
             0: 238
-            1: 40960
+            2: 40960
             5: 16384
           -6,-7:
-            1: 15914
+            2: 15914
             5: 196
           -5,-7:
-            1: 12047
+            2: 12047
             5: 240
           -5,-6:
             0: 65280
-            1: 2
+            2: 2
           -5,-8:
-            1: 232
+            2: 232
           -5,-9:
-            1: 32768
+            2: 32768
             0: 3822
           -4,-8:
-            1: 242
+            2: 242
           -4,-7:
-            1: 36623
+            2: 36623
             5: 240
           -4,-6:
             0: 47872
-            1: 8
+            2: 8
           -4,-9:
-            1: 8192
+            2: 8192
             0: 882
           -3,-8:
-            1: 34971
+            2: 34971
           -3,-7:
-            1: 10987
+            2: 10987
             5: 4368
           -3,-6:
             5: 1
             0: 48008
-            1: 2
+            2: 2
           -3,-9:
-            1: 60615
+            2: 60615
           -2,-6:
             0: 65535
           -2,-8:
-            1: 50244
+            2: 50244
           -2,-9:
-            1: 62704
+            2: 62704
           -2,-7:
-            1: 1092
+            2: 1092
             0: 2184
           -1,-8:
-            1: 12561
+            2: 12561
             0: 36590
           -1,-7:
             0: 36863
           -1,-6:
             0: 48051
           -1,-9:
-            1: 4400
+            2: 4400
             0: 60928
           0,-8:
             0: 1919
@@ -3825,10 +3826,10 @@ entities:
             6: 4096
           0,-6:
             0: 14192
-            4: 16384
+            1: 16384
           0,-9:
             0: 30464
-            1: 6
+            2: 6
           1,-8:
             0: 47935
           1,-7:
@@ -3847,58 +3848,58 @@ entities:
             0: 65535
           3,-8:
             0: 26215
-            1: 8
+            2: 8
           3,-7:
             0: 26215
           3,-6:
             0: 26230
           3,-9:
             0: 30583
-            1: 128
+            2: 128
           4,-8:
-            1: 13107
+            2: 13107
           4,-7:
-            1: 1
+            2: 1
             0: 13056
           4,-6:
             0: 45873
           4,-9:
-            1: 13107
+            2: 13107
           5,-6:
             0: 53248
-            1: 3276
+            2: 3276
           5,-8:
-            1: 52430
+            2: 52430
           5,-7:
-            1: 52940
+            2: 52940
           5,-9:
-            1: 52428
+            2: 52428
           6,-8:
-            1: 17485
+            2: 17485
           6,-9:
-            1: 30513
+            2: 30513
           6,-7:
-            1: 19524
+            2: 19524
           6,-6:
-            1: 50244
+            2: 50244
           -10,0:
-            1: 61986
+            2: 61986
           -10,1:
-            1: 61713
+            2: 61713
             0: 3822
           -10,2:
-            1: 61713
+            2: 61713
           -10,3:
-            1: 7953
+            2: 7953
           -10,4:
-            1: 4081
+            2: 4081
             5: 61440
           -10,-1:
-            1: 8946
+            2: 8946
           -9,3:
-            1: 8994
+            2: 8994
           -9,4:
-            1: 53234
+            2: 53234
             5: 12288
           -12,-4:
             0: 24532
@@ -3912,18 +3913,18 @@ entities:
             0: 12274
           -12,-2:
             0: 4095
-            1: 49152
+            2: 49152
           -13,-2:
             0: 3003
-            1: 12288
+            2: 12288
           -12,-1:
-            1: 252
+            2: 252
           -13,-1:
-            1: 243
+            2: 243
           -11,-3:
             0: 59255
           -11,-1:
-            1: 240
+            2: 240
           -11,-5:
             0: 65391
           -11,-4:
@@ -3939,59 +3940,59 @@ entities:
           -10,-5:
             0: 65287
           -8,5:
-            1: 65535
+            2: 65535
           -9,5:
-            1: 36044
+            2: 36044
             5: 13107
           -8,6:
-            1: 61713
+            2: 61713
             0: 3822
           -9,6:
-            1: 34952
+            2: 34952
             5: 819
           -8,7:
-            1: 15
+            2: 15
             0: 65280
           -9,7:
-            1: 8
+            2: 8
             0: 65331
           -8,8:
             0: 15
-            1: 3840
+            2: 3840
           -7,5:
             0: 255
-            1: 61440
+            2: 61440
           -7,6:
             0: 4095
-            1: 61440
+            2: 61440
           -7,7:
-            1: 15
+            2: 15
             0: 65280
           -7,8:
             0: 15
-            1: 3840
+            2: 3840
           -6,5:
             0: 35033
-            1: 30246
+            2: 30246
           -6,6:
             0: 4095
-            1: 61440
+            2: 61440
           -6,7:
-            1: 15
+            2: 15
             0: 65280
           -6,8:
             0: 15
-            1: 3840
+            2: 3840
           -5,5:
             0: 5461
-            1: 8192
+            2: 8192
           -5,8:
             0: 143
-            1: 768
+            2: 768
           -12,-8:
-            1: 3840
+            2: 3840
           -13,-8:
-            1: 3584
+            2: 3584
           -12,-7:
             0: 61166
           -13,-7:
@@ -4003,13 +4004,13 @@ entities:
           -13,-5:
             0: 65295
           -11,-8:
-            1: 3840
+            2: 3840
           -11,-7:
             0: 63078
           -11,-6:
             0: 26214
           -10,-8:
-            1: 3840
+            2: 3840
           -10,-7:
             0: 30583
           -10,-6:
@@ -4017,7 +4018,7 @@ entities:
           -9,-6:
             0: 30576
           -9,-9:
-            1: 17501
+            2: 17501
           8,0:
             0: 43690
           8,2:
@@ -4065,134 +4066,134 @@ entities:
           12,3:
             0: 1911
           0,-11:
-            1: 60040
+            2: 60040
           0,-10:
-            1: 26214
+            2: 26214
           0,-12:
-            1: 49152
+            2: 49152
           1,-12:
-            1: 61440
+            2: 61440
           1,-11:
-            1: 318
+            2: 318
             0: 51200
           1,-10:
             0: 65535
           2,-12:
-            1: 61440
+            2: 61440
           2,-11:
-            1: 15
+            2: 15
             0: 65280
           2,-10:
             0: 65535
           3,-12:
-            1: 61440
+            2: 61440
           3,-11:
-            1: 36075
+            2: 36075
             0: 4096
           3,-10:
             0: 30583
           4,-12:
-            1: 4096
+            2: 4096
           4,-11:
-            1: 12800
+            2: 12800
           4,-10:
-            1: 13107
+            2: 13107
           -4,-11:
-            1: 240
+            2: 240
           -5,-11:
-            1: 17648
+            2: 17648
           -4,-10:
             0: 57971
           -5,-10:
             0: 61166
           -3,-11:
-            1: 25360
+            2: 25360
           -3,-10:
-            1: 18244
+            2: 18244
           -8,-11:
-            1: 992
+            2: 992
           -9,-11:
-            1: 51217
+            2: 51217
           -8,-10:
-            1: 256
+            2: 256
             0: 43208
           -9,-10:
-            1: 56660
+            2: 56660
           -7,-11:
-            1: 17648
+            2: 17648
           -7,-10:
             0: 65535
           -6,-11:
-            1: 17648
+            2: 17648
           -6,-10:
             0: 61166
           -6,-9:
             0: 3822
           -12,-12:
-            1: 56784
+            2: 56784
           -13,-12:
-            1: 52416
+            2: 52416
           -12,-11:
-            1: 63709
+            2: 63709
           -13,-11:
-            1: 63692
+            2: 63692
           -12,-10:
-            1: 56792
+            2: 56792
           -13,-10:
-            1: 52424
+            2: 52424
           -12,-9:
-            1: 221
+            2: 221
           -13,-9:
-            1: 204
+            2: 204
           -11,-12:
-            1: 56784
+            2: 56784
           -11,-11:
-            1: 63709
+            2: 63709
           -11,-10:
-            1: 56792
+            2: 56792
           -11,-9:
-            1: 221
+            2: 221
           -10,-12:
-            1: 56784
+            2: 56784
           -10,-11:
-            1: 63709
+            2: 63709
           -10,-10:
-            1: 56792
+            2: 56792
           -10,-9:
-            1: 221
+            2: 221
           -9,-12:
-            1: 4368
+            2: 4368
           5,-11:
-            1: 65280
+            2: 65280
           5,-10:
-            1: 52430
+            2: 52430
           6,-11:
-            1: 4096
+            2: 4096
           6,-10:
-            1: 1
+            2: 1
           8,5:
             0: 3822
           8,6:
-            1: 16384
+            2: 16384
           8,8:
-            1: 17476
+            2: 17476
           9,5:
             0: 3549
           9,6:
-            1: 240
+            2: 240
           10,6:
-            1: 241
+            2: 241
           10,5:
             0: 3822
           11,5:
-            1: 39048
+            2: 39048
           11,6:
-            1: 248
+            2: 248
           12,4:
             0: 1911
-            1: 34816
+            2: 34816
           12,6:
-            1: 124
+            2: 124
           13,0:
             0: 65280
           13,1:
@@ -4200,18 +4201,18 @@ entities:
           13,2:
             0: 4087
           13,3:
-            1: 8928
+            2: 8928
           13,4:
-            1: 8994
+            2: 8994
           14,0:
             0: 65280
           14,1:
             0: 65524
           14,2:
             0: 4084
-            1: 16384
+            2: 16384
           14,3:
-            1: 244
+            2: 244
           15,0:
             0: 65280
           15,1:
@@ -4219,7 +4220,7 @@ entities:
           15,2:
             0: 4092
           15,3:
-            1: 240
+            2: 240
           16,0:
             0: 4352
           16,1:
@@ -4227,7 +4228,7 @@ entities:
           16,2:
             0: 273
           16,3:
-            1: 3184
+            2: 3184
           9,-3:
             0: 14080
           9,-2:
@@ -4255,7 +4256,7 @@ entities:
           17,1:
             0: 65520
           17,3:
-            1: 3908
+            2: 3908
           17,2:
             0: 28256
           18,1:
@@ -4263,7 +4264,7 @@ entities:
           18,2:
             0: 273
           18,3:
-            1: 1856
+            2: 1856
           20,-4:
             0: 61088
           20,-3:
@@ -4300,7 +4301,7 @@ entities:
             0: 30719
           5,11:
             0: 30583
-            1: 2048
+            2: 2048
           6,9:
             0: 65294
           6,10:
@@ -4308,7 +4309,7 @@ entities:
             5: 61440
           6,11:
             5: 15
-            1: 256
+            2: 256
           7,9:
             0: 13063
           7,10:
@@ -4349,28 +4350,28 @@ entities:
             0: 65535
           -4,9:
             0: 15291
-            1: 32768
+            2: 32768
           -5,9:
             0: 65280
           -4,10:
-            1: 35737
+            2: 35737
           -5,10:
-            1: 15940
+            2: 15940
           -3,9:
             0: 35293
-            1: 12288
+            2: 12288
           -3,10:
-            1: 13107
+            2: 13107
             0: 34824
           -4,11:
-            1: 34952
+            2: 34952
           -3,11:
-            1: 4915
+            2: 4915
             0: 34952
           -4,12:
-            1: 34952
+            2: 34952
           -3,12:
-            1: 4593
+            2: 4593
           -2,9:
             0: 30583
           -2,10:
@@ -4379,18 +4380,18 @@ entities:
             0: 65535
           -9,8:
             0: 13119
-            1: 34816
+            2: 34816
           -8,9:
-            1: 12079
+            2: 12079
           -9,9:
-            1: 3976
+            2: 3976
             0: 3
           -8,10:
-            1: 11810
+            2: 11810
           -8,11:
-            1: 57890
+            2: 57890
           -8,12:
-            1: 202
+            2: 202
           -7,9:
             0: 65520
           -7,10:
@@ -4402,44 +4403,44 @@ entities:
             0: 65392
           -6,10:
             0: 30583
-            1: 32768
+            2: 32768
           -6,11:
             0: 1911
-            1: 32768
+            2: 32768
           -6,12:
-            1: 248
+            2: 248
           -5,11:
-            1: 12834
+            2: 12834
           -5,12:
-            1: 18
+            2: 18
           -12,4:
-            1: 63631
+            2: 63631
           -13,4:
-            1: 61999
+            2: 61999
           -12,5:
-            1: 255
+            2: 255
           -13,5:
-            1: 4607
+            2: 4607
           -12,6:
-            1: 39055
+            2: 39055
           -13,6:
-            1: 61727
+            2: 61727
           -12,7:
-            1: 63897
+            2: 63897
           -12,8:
-            1: 39321
+            2: 39321
           -13,7:
-            1: 61713
+            2: 61713
           -11,4:
-            1: 64705
+            2: 64705
           -11,5:
-            1: 52479
+            2: 52479
           -11,7:
-            1: 64716
+            2: 64716
           -11,6:
-            1: 50244
+            2: 50244
           -11,8:
-            1: 19660
+            2: 19660
             0: 32768
           -10,5:
             5: 65535
@@ -4450,204 +4451,204 @@ entities:
           -10,8:
             0: 63743
           -13,8:
-            1: 61713
+            2: 61713
           -12,9:
-            1: 3976
+            2: 3976
           -13,9:
-            1: 7953
+            2: 7953
           -12,10:
-            1: 65520
+            2: 65520
           -13,10:
-            1: 65521
+            2: 65521
           -12,11:
-            1: 3908
+            2: 3908
           -13,11:
-            1: 3857
+            2: 3857
           -11,10:
-            1: 65532
+            2: 65532
           -11,11:
-            1: 3976
+            2: 3976
           -11,9:
-            1: 52420
+            2: 52420
             0: 8
           -10,9:
             0: 15
-            1: 7936
+            2: 7936
           -10,10:
-            1: 4369
+            2: 4369
           -10,11:
-            1: 1792
+            2: 1792
           -16,4:
-            1: 61727
+            2: 61727
           -17,4:
-            1: 57352
+            2: 57352
           -16,5:
-            1: 30719
+            2: 30719
           -16,6:
-            1: 30583
+            2: 30583
           -16,7:
-            1: 63351
+            2: 63351
           -17,6:
-            1: 61713
+            2: 61713
           -16,8:
-            1: 30583
+            2: 30583
           -15,4:
-            1: 63631
+            2: 63631
           -15,5:
-            1: 255
+            2: 255
           -15,7:
-            1: 61986
+            2: 61986
           -15,6:
-            1: 8750
+            2: 8750
           -15,8:
-            1: 8738
+            2: 8738
           -14,4:
-            1: 61455
+            2: 61455
           -14,5:
-            1: 255
+            2: 255
           -14,6:
-            1: 61455
+            2: 61455
           -14,7:
-            1: 61713
+            2: 61713
           -14,8:
-            1: 61713
+            2: 61713
           -17,8:
-            1: 4593
+            2: 4593
           -16,9:
-            1: 30583
+            2: 30583
           -16,10:
-            1: 65527
+            2: 65527
           -16,11:
-            1: 3857
+            2: 3857
           -17,10:
-            1: 61713
+            2: 61713
           -15,10:
-            1: 65520
+            2: 65520
           -15,11:
-            1: 3908
+            2: 3908
           -15,9:
-            1: 3618
+            2: 3618
           -14,9:
-            1: 3840
+            2: 3840
           -14,10:
-            1: 65520
+            2: 65520
           -14,11:
-            1: 3840
+            2: 3840
           -17,5:
-            1: 4352
+            2: 4352
           -17,7:
-            1: 4369
+            2: 4369
           -17,9:
-            1: 4369
+            2: 4369
           -17,11:
-            1: 561
+            2: 561
           -4,13:
-            1: 47240
+            2: 47240
           -4,14:
-            1: 47295
+            2: 47295
           -5,13:
-            1: 57344
+            2: 57344
           -5,14:
-            1: 57582
+            2: 57582
           -4,15:
-            1: 47295
+            2: 47295
           -5,15:
-            1: 57582
+            2: 57582
           -4,16:
-            1: 35007
+            2: 35007
           -3,13:
-            1: 53745
+            2: 53745
           -3,14:
-            1: 53727
+            2: 53727
           -3,15:
-            1: 53727
+            2: 53727
           -3,16:
-            1: 479
+            2: 479
           -2,12:
-            1: 52464
+            2: 52464
           -2,13:
-            1: 28924
+            2: 28924
           -2,14:
-            1: 28791
+            2: 28791
           -2,15:
-            1: 28791
+            2: 28791
           -2,16:
-            1: 119
+            2: 119
           -1,12:
-            1: 4368
+            2: 4368
             5: 52416
           -1,13:
-            1: 241
+            2: 241
           0,12:
             5: 65520
           0,13:
-            1: 240
+            2: 240
           -1,14:
-            1: 8
+            2: 8
           0,14:
-            1: 15
+            2: 15
           1,13:
-            1: 126
+            2: 126
           1,14:
-            1: 15
+            2: 15
           2,13:
-            1: 8751
+            2: 8751
           2,14:
-            1: 15
+            2: 15
           2,12:
             5: 1632
           3,12:
             5: 2992
           3,13:
-            1: 15
+            2: 15
           3,14:
-            1: 15
+            2: 15
           4,12:
             5: 3536
           4,13:
-            1: 15
+            2: 15
           4,14:
-            1: 15
+            2: 15
           5,13:
-            1: 7
+            2: 7
           5,14:
-            1: 7
+            2: 7
           5,12:
             5: 1632
           -7,12:
-            1: 240
+            2: 240
           -5,16:
-            1: 238
+            2: 238
           8,11:
-            1: 9796
+            2: 9796
           8,9:
-            1: 17476
+            2: 17476
           8,10:
-            1: 17476
+            2: 17476
           -16,-8:
-            1: 4465
+            2: 4465
             0: 34944
           -16,-9:
-            1: 4368
+            2: 4368
           -16,-7:
-            1: 5905
+            2: 5905
             0: 2184
           -16,-6:
-            1: 61713
+            2: 61713
           -16,-5:
-            1: 4383
+            2: 4383
           -16,-4:
-            1: 30481
+            2: 30481
             0: 34944
           -15,-8:
             0: 8176
           -15,-7:
             0: 52733
           -15,-6:
-            1: 12288
+            2: 12288
             0: 52416
           -15,-5:
-            1: 3
+            2: 3
             0: 52236
           -14,-8:
             0: 4078
@@ -4659,15 +4660,15 @@ entities:
             0: 56783
           -14,-9:
             0: 60992
-            1: 4
+            2: 4
           -16,-3:
-            1: 1
+            2: 1
             0: 2176
           -16,-2:
-            1: 4471
+            2: 4471
             0: 2184
           -16,-1:
-            1: 193
+            2: 193
           -15,-4:
             0: 65520
           -15,-3:
@@ -4675,39 +4676,58 @@ entities:
           -15,-2:
             0: 4095
           -15,-1:
-            1: 240
+            2: 240
           -14,-3:
             0: 4080
           -14,-1:
-            1: 240
+            2: 240
           -14,-4:
             0: 61152
           -14,-2:
             0: 3822
           -16,-10:
-            1: 49152
+            2: 49152
           -15,-10:
-            1: 61695
+            2: 61695
           -15,-12:
-            1: 61440
+            2: 61440
           -15,-11:
-            1: 61695
+            2: 61695
           -14,-12:
-            1: 21504
+            2: 21504
           -14,-11:
-            1: 54359
+            2: 54359
           -14,-10:
-            1: 29791
+            2: 29791
           12,5:
-            1: 32768
+            2: 32768
           13,5:
-            1: 12834
+            2: 12834
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -4765,25 +4785,6 @@ entities:
           moles:
           - 21.6852
           - 81.57766
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 20.078888
-          - 75.53487
           - 0
           - 0
           - 0
@@ -5785,11 +5786,18 @@ entities:
     - type: DeviceList
       devices:
       - 9691
+      - 15629
+      - 15628
   - uid: 9678
     components:
     - type: Transform
       pos: 21.5,26.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 15627
+      - 14415
+      - 9692
   - uid: 10948
     components:
     - type: Transform
@@ -5907,7 +5915,6 @@ entities:
       - 10987
       - 10986
       - 10985
-      - 15279
       - 15280
       - 15281
   - uid: 11090
@@ -32722,6 +32729,16 @@ entities:
     - type: Transform
       pos: -17.5,22.5
       parent: 2
+  - uid: 15640
+    components:
+    - type: Transform
+      pos: -15.5,30.5
+      parent: 2
+  - uid: 15641
+    components:
+    - type: Transform
+      pos: -15.5,29.5
+      parent: 2
 - proto: CableHVStack
   entities:
   - uid: 4738
@@ -40076,6 +40093,28 @@ entities:
     - type: Transform
       pos: 11.5,15.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 7931
     components:
     - type: Transform
@@ -45704,27 +45743,87 @@ entities:
       parent: 2
 - proto: FaxMachineBase
   entities:
+  - uid: 1056
+    components:
+    - type: Transform
+      pos: -39.5,-10.5
+      parent: 2
+    - type: FaxMachine
+      name: Nanotrasen Representative's office
   - uid: 1352
     components:
     - type: Transform
       pos: 10.5,-21.5
       parent: 2
+    - type: FaxMachine
+      name: HoP's Office
   - uid: 2174
     components:
     - type: Transform
       pos: 4.5,-37.5
       parent: 2
+    - type: FaxMachine
+      name: Bridge
   - uid: 2458
     components:
     - type: Transform
       pos: 26.5,-4.5
       parent: 2
-- proto: FaxMachineCentcom
-  entities:
   - uid: 13151
     components:
     - type: Transform
-      pos: -39.5,-10.5
+      pos: 40.5,11.5
+      parent: 2
+    - type: FaxMachine
+      name: Science
+  - uid: 15630
+    components:
+    - type: Transform
+      pos: 60.5,7.5
+      parent: 2
+    - type: FaxMachine
+      name: Security Checkpoint
+  - uid: 15632
+    components:
+    - type: Transform
+      pos: -4.5,-6.5
+      parent: 2
+    - type: FaxMachine
+      name: Conference Room
+  - uid: 15633
+    components:
+    - type: Transform
+      pos: -21.5,1.5
+      parent: 2
+    - type: FaxMachine
+      name: Warden's Office
+  - uid: 15635
+    components:
+    - type: Transform
+      pos: -26.5,3.5
+      parent: 2
+    - type: FaxMachine
+      name: Security
+  - uid: 15636
+    components:
+    - type: Transform
+      pos: -16.5,24.5
+      parent: 2
+    - type: FaxMachine
+      name: Chief Engineer's Office
+  - uid: 15637
+    components:
+    - type: Transform
+      pos: -9.5,17.5
+      parent: 2
+    - type: FaxMachine
+      name: Engineering
+- proto: FaxMachineCaptain
+  entities:
+  - uid: 5509
+    components:
+    - type: Transform
+      pos: -0.5,-32.5
       parent: 2
 - proto: filingCabinetDrawerRandom
   entities:
@@ -46181,6 +46280,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 9675
+      - 9678
   - uid: 9697
     components:
     - type: Transform
@@ -48257,10 +48357,10 @@ entities:
       parent: 2
 - proto: FoodPieCherry
   entities:
-  - uid: 12151
+  - uid: 15638
     components:
     - type: Transform
-      pos: -9.452289,17.711174
+      pos: -9.3004875,19.457197
       parent: 2
 - proto: FoodPizzaCotton
   entities:
@@ -50065,14 +50165,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 1056
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 5.5,6.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 1060
     components:
     - type: Transform
@@ -51244,14 +51336,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 8049
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -4.5,25.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
   - uid: 8050
     components:
     - type: Transform
@@ -51351,11 +51435,10 @@ entities:
   - uid: 8064
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,25.5
+      pos: -4.5,25.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0335FCFF'
+      color: '#FF1212FF'
   - uid: 8066
     components:
     - type: Transform
@@ -52599,7 +52682,7 @@ entities:
   - uid: 9543
     components:
     - type: Transform
-      pos: 5.5,18.5
+      pos: -2.5,25.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
@@ -52656,7 +52739,6 @@ entities:
   - uid: 9552
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 7.5,18.5
       parent: 2
     - type: AtmosPipeColor
@@ -53491,6 +53573,13 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
+  - uid: 9734
+    components:
+    - type: Transform
+      pos: 5.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 9736
     components:
     - type: Transform
@@ -54249,11 +54338,11 @@ entities:
   - uid: 9915
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,7.5
+      rot: 1.5707963267948966 rad
+      pos: 23.5,5.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#0335FCFF'
+      color: '#FF1212FF'
   - uid: 9916
     components:
     - type: Transform
@@ -58196,11 +58285,11 @@ entities:
   - uid: 10723
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,5.5
+      rot: 1.5707963267948966 rad
+      pos: 23.5,7.5
       parent: 2
     - type: AtmosPipeColor
-      color: '#FF1212FF'
+      color: '#0335FCFF'
   - uid: 10729
     components:
     - type: Transform
@@ -59602,6 +59691,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
+  - uid: 11689
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-16.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 11725
     components:
     - type: Transform
@@ -59841,6 +59938,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
+  - uid: 12151
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-17.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 12375
     components:
     - type: Transform
@@ -59995,8 +60100,7 @@ entities:
   - uid: 14213
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.5,-16.5
+      pos: 3.5,6.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
@@ -60796,14 +60900,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -20.5,-17.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FF1212FF'
-  - uid: 14415
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.5,-17.5
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
@@ -62357,6 +62453,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
+  - uid: 8049
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,6.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
   - uid: 8051
     components:
     - type: Transform
@@ -62653,6 +62757,8 @@ entities:
     - type: Transform
       pos: 7.5,7.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 9733
     components:
     - type: Transform
@@ -62660,12 +62766,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 9734
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,6.5
-      parent: 2
   - uid: 9735
     components:
     - type: Transform
@@ -62868,6 +62968,8 @@ entities:
     - type: Transform
       pos: 12.5,7.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 9945
     components:
     - type: Transform
@@ -65831,6 +65933,17 @@ entities:
       - 14745
     - type: AtmosPipeColor
       color: '#0335FCFF'
+  - uid: 14415
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,23.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9678
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 14672
     components:
     - type: Transform
@@ -65853,21 +65966,14 @@ entities:
       - 14790
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 15279
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,6.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 10976
   - uid: 15280
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 7.5,6.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
     - type: DeviceNetwork
       deviceLists:
       - 10976
@@ -65877,9 +65983,22 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.5,6.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
     - type: DeviceNetwork
       deviceLists:
       - 10976
+  - uid: 15628
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,34.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9677
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
 - proto: GasVentPumpFreezer
   entities:
   - uid: 5453
@@ -66035,12 +66154,6 @@ entities:
       - 5476
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 5509
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,4.5
-      parent: 2
   - uid: 5532
     components:
     - type: Transform
@@ -67491,6 +67604,27 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 14694
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
+  - uid: 15627
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,25.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9678
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
+  - uid: 15629
+    components:
+    - type: Transform
+      pos: 22.5,35.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9677
     - type: AtmosPipeColor
       color: '#FF1212FF'
 - proto: GasVentScrubberFreezer
@@ -73140,6 +73274,13 @@ entities:
     - type: Transform
       pos: -23.5,-36.5
       parent: 2
+- proto: HoloCigar
+  entities:
+  - uid: 15642
+    components:
+    - type: Transform
+      pos: 1.3114276,-27.514238
+      parent: 2
 - proto: HolopadAiCore
   entities:
   - uid: 11680
@@ -73167,13 +73308,6 @@ entities:
     components:
     - type: Transform
       pos: 24.5,-16.5
-      parent: 2
-- proto: HolopadCommandBridge
-  entities:
-  - uid: 11689
-    components:
-    - type: Transform
-      pos: 9.5,-36.5
       parent: 2
 - proto: HolopadCommandBridgeHallway
   entities:
@@ -84450,6 +84584,14 @@ entities:
       id: Captain's room
 - proto: SurveillanceCameraEngineering
   entities:
+  - uid: 15279
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,47.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Northern Atmos
   - uid: 15300
     components:
     - type: Transform
@@ -84524,6 +84666,14 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Atmos aux burn chamber
+  - uid: 15639
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,47.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Northern Atmos 2
 - proto: SurveillanceCameraGeneral
   entities:
   - uid: 15253
@@ -85577,6 +85727,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -60.5,-30.5
+      parent: 2
+  - uid: 15634
+    components:
+    - type: Transform
+      pos: -26.5,3.5
       parent: 2
 - proto: TableCarpet
   entities:
@@ -86736,6 +86891,11 @@ entities:
     components:
     - type: Transform
       pos: -57.5,-19.5
+      parent: 2
+  - uid: 15631
+    components:
+    - type: Transform
+      pos: -4.5,-6.5
       parent: 2
 - proto: TargetClown
   entities:
