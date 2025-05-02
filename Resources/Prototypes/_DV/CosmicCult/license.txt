@@ -1,0 +1,12 @@
+"Cosmic Cult assets" refers to all digital images and digital audio published for the purposes of contribution towards the Cosmic Cult project, an antagonist designed for Space Station 14.
+"Cosmic Cult code" refers to all digital files containing C-Sharp code published for the purposes of contribution towards the Cosmic Cult project, an antagonist designed for Space Station 14.
+"Cosmic Cult localization" refers to all digital ".ftl" files containing language localization text published for the purposes of contribution towards the Cosmic Cult project, an antagonist designed for Space Station 14.
+
+All Cosmic Cult assets, code, and localization may be utilized by and replicated to any Space Station 14 repository, regardless of repository licensing.
+Cosmic Cult assets must retain their CC-BY-SA-3.0 licenses, as dictated by said license.
+
+Cosmic Cult assets, code, localization, and/or derivatives made from aforementioned are not to be used for the purpose of training "Artificial Intelligence(s)", "Neural Network(s)", "Large Language Model(s)", or any AI whatsoever.
+
+By contributing to or utilizing assets from the Cosmic Cult project, you agree to comply with the statements described above.
+
+- AftrLite
