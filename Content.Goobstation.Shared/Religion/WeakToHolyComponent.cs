@@ -15,6 +15,12 @@ namespace Content.Goobstation.Shared.Religion;
 public sealed partial class WeakToHolyComponent : Component
 {
     /// <summary>
+    /// Should this entity take holy damage no matter what?
+    /// </summary>
+    [DataField]
+    public bool AlwaysTakeHoly;
+
+    /// <summary>
     /// Is the entity currently standing on a rune?
     /// </summary>
     [ViewVariables]
@@ -34,16 +40,4 @@ public sealed partial class WeakToHolyComponent : Component
     /// </summary>
     [DataField]
     public DamageSpecifier HealAmount = new() {DamageDict = new Dictionary<string, FixedPoint2> {{ "Holy", -4 }}};
-
-    /// <summary>
-    /// The biological container.
-    /// </summary>
-    [ViewVariables]
-    public readonly string BiologicalContainerId = "Biological";
-
-    /// <summary>
-    /// The biological metaphysical container.
-    /// </summary>
-    [ViewVariables]
-    public readonly string MetaphysicalContainerId = "BiologicalMetaphysical";
 }

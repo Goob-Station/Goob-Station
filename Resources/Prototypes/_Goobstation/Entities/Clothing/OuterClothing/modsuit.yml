@@ -173,6 +173,11 @@
       heatingCoefficient: 0.4
   - type: FireProtection
     reduction: 0.5
+  - type: ClothingAutoInject
+    reagents:
+      Epinephrine: 10
+      Bicaridine: 10
+      TranexamicAcid: 5
 
 - type: entity
   parent: ClothingOuterBase

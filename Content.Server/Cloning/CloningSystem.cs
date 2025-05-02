@@ -43,12 +43,16 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Cloning;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Cloning.Components;
@@ -56,7 +60,6 @@ using Content.Server.DeviceLinking.Systems;
 using Content.Server.EUI;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Humanoid;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
@@ -102,8 +105,8 @@ public sealed class CloningSystem : EntitySystem
         if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
-        if (HasComp<SiliconComponent>(original))
-            return false; // Goobstation: Don't clone IPCs. It could be argued it should be in the CloningPodSystem instead
+        if (HasComp<UncloneableComponent>(original))
+            return false; // Goobstation: Don't clone IPCs and voxes. It could be argued it should be in the CloningPodSystem instead
 
         var attemptEv = new CloningAttemptEvent(settings);
         RaiseLocalEvent(original, ref attemptEv);

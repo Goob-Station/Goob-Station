@@ -110,13 +110,16 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: BaseMobSpeciesOrganic
+  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies ] # Goobstation - unperishable voxes
   id: BaseMobVox
   abstract: true
   components:
@@ -259,6 +262,69 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+  # Goobstation start - voxes are uncloneable but do not rot - all the stuff from BaseMobSpeciesOrganic
+  - type: Uncloneable
+  - type: Absorbable # Goobstation - changelings
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.50 #per second, scales with pressure and other constants.
+        Heat: 0.1
+  #- type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute. # Specified above already
+  #  allowedStates:
+  #  - Alive
+  #  damageCap: 20
+  #  damage:
+  #    types:
+  #      Heat: -0.07
+  #    groups:
+  #      Brute: -0.07
+  - type: Fingerprint
+  - type: Blindable
+  # Other
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 260
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.5 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      293: 0.8
+      280: 0.6
+      260: 0.4
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 25
+  # - type: Perishable # Nuh uh
+  # - type: Butcherable # Specified above already
+  #  butcheringType: Spike # TODO human.
+  #  spawned:
+  #  - id: FoodMeat
+  #    amount: 5
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.0
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: FireVisuals
+    alternateState: Standing
+  - type: FootprintOwner # Corvax-Next-Footprints
+  - type: Carriable # Goobstation
+  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
+  # Goobstation end
 
 - type: entity
   parent: BaseSpeciesDummy
