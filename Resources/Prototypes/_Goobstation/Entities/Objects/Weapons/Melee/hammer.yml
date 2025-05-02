@@ -18,10 +18,21 @@
     damage:
       types:
         Blunt: 12
-    heavyStaminaCost: 12
+    heavyStaminaCost: 6
     soundHit:
       collection: MetalThud
   - type: Item
     size: Small
     sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi
-
+  - type: Tag
+    tags:
+    - Hammer
+  - type: Multihit
+    multihitWhitelist:
+      tags:
+      - Hammer
+    conditions:
+    - !type:MultihitUserWhitelistEvent
+      whitelist:
+        components:
+        - EngineeringStaff

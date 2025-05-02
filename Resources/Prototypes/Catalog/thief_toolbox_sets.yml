@@ -106,10 +106,13 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+scarky0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -121,16 +124,7 @@
     sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
     state: icon
   content:
-  - ChameleonPDA
-  - ClothingUniformJumpsuitChameleon
-  - ClothingOuterChameleon
-  - ClothingNeckChameleon
-  - ClothingMaskGasChameleon
-  - ClothingHeadHatChameleon
-  - ClothingEyesChameleon
-  - ClothingHeadsetChameleon
-  - ClothingShoesChameleon
-  - BarberScissors
+  - ClothingBackpackChameleonFill
   - ChameleonProjector
   - FakeMindShieldImplanter
   - AgentIDCard
@@ -163,7 +157,6 @@
   - StorageImplanter
   - DnaScramblerImplanter
   - EphedrineChemistryBottle
-  - FoodSnackLollypopWrappedSyndicate # Goobstation
   - SoapOmega
   - Syringe
   - DrinkShaker
@@ -182,8 +175,7 @@
   - AccessBreaker
   - Lighter
   - CigPackSyndicate
-   # Goobstation - Telecrystal rework
-  - Telecrystal50 # The thief cannot use them, but it may induce communication with traitors
+  - Telecrystal10 # The thief cannot use them, but it may induce communication with traitors
 
 - type: thiefBackpackSet
   id: SleeperSet
@@ -226,4 +218,3 @@
   - SmokeGrenade
   - SmokeGrenade
   - SmokeGrenade
-  - ClothingSatchelSmuggler # Goobstation

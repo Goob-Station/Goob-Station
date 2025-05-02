@@ -43,8 +43,10 @@
 # SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 psykana <36602558+psykana@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -145,7 +147,8 @@
   description: Activating your freedom implant will free you from any hand restraints
   components:
   - type: InstantAction
-    charges: 3
+    # charges: 3 # Goob - useful freedom
+    useDelay: 5 # Goob - useful freedom
     checkCanInteract: false
     itemIconStyle: BigAction
     priority: -20
@@ -188,9 +191,9 @@
   description: Randomly teleports you within a large distance.
   components:
   - type: InstantAction
-    checkCanInteract: false
-    # charges: 2 # Goobstation - Scrambler buff
-    useDelay: 300 # Goobstation - Scrambler buff, Goobstation - Fix scram
+    # checkCanInteract: false # Goobstation - scrambler rework - start
+    # charges: 2
+    useDelay: 120 # Goobstation - scrambler rework - end
     itemIconStyle: BigAction
     priority: -20
     icon:

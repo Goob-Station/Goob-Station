@@ -43,8 +43,10 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -113,8 +115,6 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Airtight
-  - type: RadiationBlocker
-    resistance: 2
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
@@ -228,8 +228,6 @@
     node: ShuttersWindow
     containers:
     - board
-  - type: RadiationBlocker
-    resistance: 1
 
 - type: entity
   id: ShuttersWindowOpen

@@ -5,8 +5,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -51,6 +55,66 @@
     - type: Loadout
       prototypes: [ LostFrontierProspectorSuit ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  id: RandomHumanoidGreyTider
+  name: greytider
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: passenger
+    - type: RandomHumanoidSpawner
+      settings: GreyTider
+    - type: Construction
+      graph: GreyTider
+      node: greyTider
+
+- type: randomHumanoidSettings
+  id: GreyTider
+  speciesWhitelist: Human # lore accurate
+  parent: EventHumanoid
+  components:
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-greytider-name
+      description: ghost-role-information-greytider-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: short
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      hair: HairBald
+    - type: Loadout
+      prototypes: [ GreyTiderGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomMetadata
+      nameSegments:
+      - TiderNamesFirst
+      - TiderNamesLast
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound # do salvager AI while not taken by anyone
+    - type: FactionException
+    - type: NPCRetaliation
+      attackMemoryLength: 20 # the tide remembers
+    - type: NpcFactionMember
+      factions:
+      - Greytide
+    - type: GroupRetaliation
+      range: 15 # the tide hears
+
+- type: startingGear
+  id: GreyTiderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAncient
+    back: ClothingBackpackSatchel
+    shoes: ClothingShoesBootsWinter
+    mask: ClothingMaskGas
+    id: PassengerPDA
+    gloves: ClothingHandsGlovesFingerlessInsulated
+    outerClothing: ClothingOuterWinterCoat
+  inhand:
+    - ToolboxMechanical
 
 - type: entity
   parent: MobHuman
@@ -217,226 +281,3 @@
   - type: RandomMetadata
     nameSegments:
     - names_vox
-
-- type: entity
-  id: RandomHumanoidSpawnerERTSecurityEVAAnnie
-  parent: RandomHumanoidSpawnerERTSecurityEVA
-  suffix: ERTRole, Annie, EVA
-  components:
-    - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVAAnnie
-
-- type: randomHumanoidSettings
-  id: ERTSecurityEVAAnnie
-  parent: ERTSecurityEVA
-  components:
-    - type: GhostRole
-      name: ghost-role-information-ert-security-name
-      description: ghost-role-information-ert-security-description
-      rules: ghost-role-information-nonantagonist-rules
-      raffle:
-        settings: short
-      job: ERTSecurity
-    - type: Loadout
-      prototypes: [ ERTSecurityGearEVAAnnie ]
-      roleLoadout: [ RoleSurvivalEVA ]
-
-# Central Command!
-
-# Navy Officer
-
-- type: entity
-  id: RandomHumanoidSpawnerNavyOfficer
-  name: Navy Officer
-  suffix: CentComm
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstLeader
-    - NamesMilitaryLast
-  - type: RandomHumanoidSpawner
-    settings: NavyOfficer
-
-- type: randomHumanoidSettings
-  id: NavyOfficer
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-navy-officer-name
-    description: ghost-role-information-navy-officer-description
-    rules: ghost-role-information-navy-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ NavyOfficerGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstLeader
-    - NamesMilitaryLast
-
-# Navy Captain
-
-- type: entity
-  id: RandomHumanoidSpawnerNavyCaptain
-  name: Navy Captain
-  suffix: ADMIN ONLY, DO FUCKING NOT
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstHighRank
-    - NamesMilitaryLast
-  - type: RandomHumanoidSpawner
-    settings: NavyCaptain
-
-- type: randomHumanoidSettings
-  id: NavyCaptain
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-navy-captain-name
-    description: ghost-role-information-navy-captain-description
-    rules: ghost-role-information-navy-captain-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ NavyCaptainGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstHighRank
-    - NamesMilitaryLast
-
-# Navy Undercover Officer
-
-- type: entity
-  id: RandomHumanoidSpawnerNavyOfficerUndercover
-  name: Undercover Navy Officer
-  suffix: CentComm
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstLeader
-    - NamesMilitaryLast
-  - type: RandomHumanoidSpawner
-    settings: NavyOfficerUndercover
-
-- type: randomHumanoidSettings
-  id: NavyOfficerUndercover
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, StorageImplant ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-navy-officer-undercover-name
-    description: ghost-role-information-navy-officer-undercover-description
-    rules: ghost-role-information-navy-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [  NavyOfficerUndercoverGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstLeader
-    - NamesMilitaryLast
-
-# Special Operations Officer
-
-- type: entity
-  id: RandomHumanoidSpawnerSpecialOperationsOfficers
-  name: Special Operations Officer
-  suffix: CentComm
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstHighRank
-    - NamesMilitaryLast
-  - type: RandomHumanoidSpawner
-    settings: SpecialOperationsOfficer
-
-- type: randomHumanoidSettings
-  id: SpecialOperationsOfficer
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GrantCqc
-    isBlocked: false
-  - type: GhostRole
-    name: ghost-role-information-special-operations-officer-name
-    description: ghost-role-information-special-operations-officer-description
-    rules: ghost-role-information-special-operations-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ SpecialOperationsOfficerGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstHighRank
-    - NamesMilitaryLast
-
-# Diplomat
-
-- type: entity
-  id: RandomHumanoidSpawnerDiplomat
-  name: Diplomat
-  suffix: CentComm
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
-    state: icon
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstPolitical
-    - NamesLast
-  - type: RandomHumanoidSpawner
-    settings: DiplomatGear
-
-- type: randomHumanoidSettings
-  id: DiplomatGear
-  parent: EventHumanoidMindShielded
-  randomizeName: false
-  components:
-  - type: GrantImplant
-    implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm ]
-  - type: GhostRole
-    name: ghost-role-information-diplomat-name
-    description: ghost-role-information-diplomat-description
-    rules: ghost-role-information-navy-officer-rules
-    raffle:
-      settings: short
-  - type: Loadout
-    prototypes: [ DiplomatGear ]
-    roleLoadout: [ RoleSurvivalEVA ]
-  - type: RandomMetadata
-    nameSegments:
-    - NamesMilitaryFirstPolitical
-    - NamesLast

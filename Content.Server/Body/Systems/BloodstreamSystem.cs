@@ -97,7 +97,6 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
@@ -108,10 +107,14 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Bloodstream;
 using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
@@ -253,14 +256,17 @@ public sealed class BloodstreamSystem : EntitySystem
             // deal bloodloss damage if their blood level is below a threshold.
             var bloodPercentage = GetBloodLevelPercentage(uid, bloodstream);
             if (bloodPercentage >= bloodstream.BloodlossThreshold) // Goobstation
-                RemCompDeferred<BloodlossDamageMultiplierComponent>(uid);
+                RaiseLocalEvent(uid, new StoppedTakingBloodlossDamageEvent());
             if (bloodPercentage < bloodstream.BloodlossThreshold && !_mobStateSystem.IsDead(uid))
             {
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
 
-                if (TryComp(uid, out BloodlossDamageMultiplierComponent? multiplier)) // Goobstation
-                    amt *= multiplier.Multiplier;
+                // Goobstation start
+                var multiplierEv = new GetBloodlossDamageMultiplierEvent();
+                RaiseLocalEvent(uid, multiplierEv);
+                amt *= multiplierEv.Multiplier;
+                // Goobstation end
 
                 _damageableSystem.TryChangeDamage(uid, amt,
                     ignoreResistances: false, interruptsDoAfters: false);
