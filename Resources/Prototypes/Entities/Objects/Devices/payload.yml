@@ -64,11 +64,10 @@
   #      acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 10
+        damage: 25
       behaviors:
       - !type:TriggerBehavior
   - type: DeleteOnTrigger
-  - type: DeleteParentOnTrigger
   - type: ProjectileGrenade # Should be worse than the syndicate one
     fillPrototype: PelletClusterLethalWeak
     capacity: 20
@@ -125,6 +124,7 @@
     - type: DeleteOnTrigger
     - type: FlashOnTrigger
       range: 6
+    - type: Flashbang # Goobstation
     - type: EmitSoundOnTrigger
       sound:
         path: "/Audio/Effects/flash_bang.ogg"
