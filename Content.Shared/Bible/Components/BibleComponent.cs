@@ -12,11 +12,12 @@
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Bible // Death to serverside components. Glory to Goobistan
 {
-    [RegisterComponent]
+    [RegisterComponent, NetworkedComponent]
     public sealed partial class BibleComponent : Component
     {
         /// <summary>

@@ -6,22 +6,20 @@
 
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod;
-using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Goobstation.Shared.Religion.Nullrod.Systems;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Content.Shared.Weapons.Melee;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Religion.Nullrod;
+namespace Content.Goobstation.Shared.Religion.AlternatePrayable;
 
 public sealed partial class NullRodSystem : SharedNullRodSystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -56,8 +54,13 @@ public sealed partial class NullRodSystem : SharedNullRodSystem
     #region Doafter
     private void StartPrayDoAfter(EntityUid user, EntityUid nullRod, AlternatePrayableComponent comp)
     {
-        var popup = Loc.GetString("nullrod-pray-start", ("user", Name(user)), ("nullrod", Name(nullRod)));
-        _popupSystem.PopupEntity(popup, user);
+        if (_timing.CurTime > comp.NextPopup)
+        {
+            var popup = Loc.GetString("nullrod-pray-start", ("user", Name(user)), ("nullrod", Name(nullRod)));
+            _popupSystem.PopupEntity(popup, user);
+
+            comp.NextPopup = _timing.CurTime + comp.PopupDelay;
+        }
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
