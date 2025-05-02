@@ -140,6 +140,10 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
+  - type: ContainerContainer
+    containers:
+      Item: !type:Container
+      Item2: !type:Container
   - type: ItemSlots
     slots:
       item:
@@ -156,6 +160,7 @@
     containers:
       item:
       - WeaponPistolCasul
+      item2:
       - WeaponPistolJackal
     
 - type: entityTable
