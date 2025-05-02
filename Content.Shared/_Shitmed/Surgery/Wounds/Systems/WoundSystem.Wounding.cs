@@ -34,7 +34,8 @@ public sealed partial class WoundSystem
     private const string BoneContainerId = "Bone";
     private void InitWounding()
     {
-        SubscribeLocalEvent<WoundableComponent, ComponentInit>(OnWoundableMapInit);
+        SubscribeLocalEvent<WoundableComponent, ComponentInit>(OnWoundableInit);
+        SubscribeLocalEvent<WoundableComponent, MapInitEvent>(OnWoundableMapInit);
         SubscribeLocalEvent<WoundableComponent, EntInsertedIntoContainerMessage>(OnWoundableInserted);
         SubscribeLocalEvent<WoundableComponent, EntRemovedFromContainerMessage>(OnWoundableRemoved);
         SubscribeLocalEvent<WoundComponent, EntGotInsertedIntoContainerMessage>(OnWoundInserted);
@@ -52,15 +53,15 @@ public sealed partial class WoundSystem
 
     #region Event Handling
 
-    private void OnWoundableMapInit(EntityUid uid, WoundableComponent comp, ComponentInit args)
+    private void OnWoundableInit(EntityUid uid, WoundableComponent comp, ComponentInit args)
     {
         comp.RootWoundable = uid;
         comp.Wounds = _container.EnsureContainer<Container>(uid, WoundContainerId);
         comp.Bone = _container.EnsureContainer<Container>(uid, BoneContainerId);
+    }
 
-        if (!_net.IsServer)
-            return;
-
+    private void OnWoundableMapInit(EntityUid uid, WoundableComponent comp, MapInitEvent args)
+    {
         var bone = Spawn(comp.BoneEntity);
         if (!TryComp<BoneComponent>(bone, out var boneComp))
             return;

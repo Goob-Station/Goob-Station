@@ -35,6 +35,10 @@
     containers:
       bodypart: !type:Container
         ents: []
+      Wounds: !type:Container # Shitmed Change
+        ents: []
+      Bone: !type:Container # Shitmed Change
+        ents: []
   - type: Appearance
   - type: StaticPrice
     price: 100
@@ -100,6 +104,10 @@
   - type: ContainerContainer
     containers:
       chest_slot: !type:ContainerSlot {}
+      Wounds: !type:Container # Shitmed Change
+        ents: []
+      Bone: !type:Container # Shitmed Change
+        ents: []
 
 - type: entity
   abstract: true
@@ -154,6 +162,10 @@
   - type: ContainerContainer
     containers:
       groin_slot: !type:ContainerSlot {}
+      Wounds: !type:Container # Shitmed Change
+        ents: []
+      Bone: !type:Container # Shitmed Change
+        ents: []
 
 - type: entity
   abstract: true
@@ -205,6 +217,10 @@
   - type: ContainerContainer
     containers:
       mouth_slot: !type:ContainerSlot {}
+      Wounds: !type:Container # Shitmed Change
+        ents: []
+      Bone: !type:Container # Shitmed Change
+        ents: []
 
 - type: entity
   abstract: true

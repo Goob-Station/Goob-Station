@@ -5,6 +5,10 @@
   components:
   - type: Wound
     damageType: Blunt
+  - type: ContainerContainer
+    containers:
+      Traumas: !type:Container
+        ents: [ ]
 
 - type: entity
   id: Blunt
