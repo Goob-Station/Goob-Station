@@ -5,6 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
@@ -15,13 +16,16 @@
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -32,6 +36,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Alphabetical order people!
+- type: Tag
+  id: AntagGateway
+
 - type: Tag
   id: AutoinjectorCartridge
 
@@ -60,10 +67,16 @@
   id: CartridgeHighCaliber
 
 - type: Tag
+  id: CartridgeLowCaliber
+
+- type: Tag
   id: CartridgeMagicBullet
 
 - type: Tag
   id: CartridgeSmart
+
+- type: Tag
+  id: CartridgeG8
 
 - type: Tag
   id: Clarke
@@ -150,7 +163,7 @@
   id: EnergySpeedloaderLethal
 
 - type: Tag
-  id: EnergySpeedloaderTerminate
+  id: EnergySpeedloaderPulse
 
 - type: Tag
   id: ExtendedEmergencyOxygenTank
@@ -166,6 +179,9 @@
 
 - type: Tag
   id: FlashIgnoreResistances
+
+- type: Tag
+  id: FollowerStayOnPolymorph
 
 - type: Tag
   id: FrozenIgnoreMindAction
@@ -210,6 +226,9 @@
   id: GunCanAimShooter
 
 - type: Tag
+  id: Hammer
+
+- type: Tag
   id: HandheldCrewMonitor
 
 - type: Tag
@@ -217,6 +236,12 @@
 
 - type: Tag
   id: Heart
+
+- type: Tag
+  id: HereticBlade
+
+- type: Tag
+  id: HereticBladeBlade
 
 - type: Tag
   id: HereticItem
@@ -237,6 +262,9 @@
   id: JanicartKeys
 
 - type: Tag
+  id: Justice
+
+- type: Tag
   id: Kidneys
 
 - type: Tag
@@ -246,7 +274,13 @@
   id: Lungs
 
 - type: Tag
+  id: MagazineAntiMateriel
+
+- type: Tag
   id: MagazineHighCaliber
+
+- type: Tag
+  id: MagazineLowCaliberM7S
 
 - type: Tag
   id: MagazineMagnumLeverRifle
@@ -304,6 +338,9 @@
 
 - type: Tag
   id: Organ
+
+- type: Tag
+  id: PepperSpray
 
 - type: Tag
   id: Poppy
@@ -385,6 +422,18 @@
 
 - type: Tag
   id: WeaponPistolDualetta
+
+- type: Tag
+  id: WeaponEnergyGunLawbringer
+
+- type: Tag
+  id: Welder
+
+- type: Tag
+  id: WelderExperimental
+
+- type: Tag
+  id: WelderIndustrial
 
 - type: Tag
   id: WinterCoat

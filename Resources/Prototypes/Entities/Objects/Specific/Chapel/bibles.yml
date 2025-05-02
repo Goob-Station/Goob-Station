@@ -112,7 +112,7 @@
       collection: Punch
     damage:
       types:
-        Holy: 25
+        Holy: 5 # Goobstation - bro wtf
         Blunt: 1
   - type: Prayable
     bibleUserOnly: true
@@ -143,6 +143,7 @@
     - Book
   - type: StealTarget
     stealGroup: Bible
+  - type: EnchantingTool # Goobstation
 
 - type: entity
   parent: [Bible, BaseSyndicateContraband]

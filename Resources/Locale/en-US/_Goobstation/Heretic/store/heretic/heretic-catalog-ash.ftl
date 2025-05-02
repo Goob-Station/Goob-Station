@@ -50,6 +50,7 @@ knowledge-path-ash-s4-desc =
 
     Your Mansus Grasp now applies the Mark of Ash. The mark is triggered from an attack with your Ashen Blade.
     When triggered, the victim takes additional stamina and burn damage, and the mark is transferred to a nearby heathen.
+    Damage dealt is decreased with each transfer.
 
 knowledge-path-ash-s5-name = Volcanic Blast
 knowledge-path-ash-s5-desc =

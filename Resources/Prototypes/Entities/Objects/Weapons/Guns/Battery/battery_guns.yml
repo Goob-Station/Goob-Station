@@ -34,7 +34,6 @@
 # SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
@@ -120,6 +119,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GaussiArson <193122004+GaussiArson@users.noreply.github.com>
@@ -130,6 +131,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -137,6 +139,7 @@
 # SPDX-FileCopyrightText: 2025 gaussiarson-admin <stephenkitchens0306@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -172,6 +175,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: AlwaysHot # Goobstation
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -212,6 +216,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: AlwaysHot # Goobstation
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -240,6 +245,9 @@
   components:
   - type: Item
     size: Small
+    shape: # Goobstation
+    - 0,0,1,0
+    - 0,1,0,1
   - type: Tag
     tags:
     - Sidearm
@@ -270,6 +278,7 @@
     steps: 5
     zeroVisible: true
   - type: Multishot # Goobstation
+    spreadAddition: 10
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 500
@@ -298,6 +307,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: makeshift laser pistol
@@ -327,6 +337,7 @@
     maxCharge: 500
     startingCharge: 500
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: tesla gun
@@ -433,12 +444,13 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: Pulse
+    proto: LightPulse # Goobstation
     fireCost: 200
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
   - type: Multishot # Goobstation
+    spreadAddition: 10
   - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
     autoRecharge: true
     autoRechargeRate: 40
@@ -478,9 +490,14 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: pulse rifle
@@ -513,9 +530,14 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,1
 
 - type: entity
   name: laser cannon
@@ -545,9 +567,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedHeavyLaser
     fireCost: 100
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: portable particle decelerator
@@ -615,9 +642,14 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: Tag # Goobstation
+  # Goobstation
+  - type: Tag
     tags:
     - Rifle
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
 
 - type: entity
   name: practice disabler
@@ -647,12 +679,12 @@
     price: 100
   - type: Gun
     fireRate: 2
-    projectileSpeed: 35 # any higher and this causes issues in lag
+    #projectileSpeed: 35 # Goobstation - nuh uh
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 25 # Goob edit
+    fireCost: 25 # Goobstation - billions must troll with practice disabler
   - type: Tag
     tags:
     - Taser
@@ -812,6 +844,7 @@
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: advanced laser pistol
@@ -820,7 +853,7 @@
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
   - type: Item
-    size: Normal  # Intentionally larger than other pistols
+    # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     layers:
@@ -848,6 +881,7 @@
   - type: StaticPrice
     price: 63
   - type: Multishot # Goobstation
+    spreadAddition: 10
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -996,11 +1030,11 @@
     verbOnly: true
     verbText: mode-select-verb-text
     key: enum.AmmoSelectorUiKey.Key
-  # Goob edit end
   - type: Item
     size: Large
     shape:
-    - 0,0,3,1
+    - 0,0,4,1
+  # Goob edit end
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: Tag

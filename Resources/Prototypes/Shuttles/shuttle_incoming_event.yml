@@ -5,6 +5,8 @@
 # SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -76,7 +78,7 @@
 
 - type: preloadedGrid
   id: Instigator
-  path: /Maps/Shuttles/ShuttleEvent/instigator.yml
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/instigator.yml
   copies: 1
 
 - type: preloadedGrid
