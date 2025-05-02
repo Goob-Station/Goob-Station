@@ -8161,3 +8161,19 @@ Entries:
         This will not have consequences unless an admin says otherwise.
   id: 944
   time: '2025-05-02T05:29:51.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Moths move slightly slower but can dash with their wings with 65%
+        chance. 
+    - type: Tweak
+      message: Voxes now do not rot, but you can't clone them.
+    - type: Tweak
+      message: Onis are now able to shoot one-handed SMGs with two hands.
+    - type: Add
+      message: Added some more things for arachnids to craft.
+    - type: Fix
+      message: Harpies now move slightly faster, as they should.
+  id: 945
+  time: '2025-05-02T05:31:16.0000000+00:00'
