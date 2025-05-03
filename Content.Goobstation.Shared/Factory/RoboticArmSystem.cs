@@ -8,6 +8,7 @@ using Content.Goobstation.Shared.Factory.Slots;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Examine;
 using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -46,6 +47,7 @@ public sealed class RoboticArmSystem : EntitySystem
         _thrownQuery = GetEntityQuery<ThrownItemComponent>();
 
         SubscribeLocalEvent<RoboticArmComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<RoboticArmComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<RoboticArmComponent, AfterAutoHandleStateEvent>(OnHandleState);
         // input items
         SubscribeLocalEvent<RoboticArmComponent, StartCollideEvent>(OnStartCollide);
@@ -99,6 +101,22 @@ public sealed class RoboticArmSystem : EntitySystem
         UpdateSlots(ent);
 
         UpdateItemSlots(ent);
+    }
+
+    private void OnExamined(Entity<RoboticArmComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        using (args.PushGroup(nameof(RoboticArmComponent)))
+        {
+            args.PushMarkup(_filter.GetSlot(ent) is {} filter
+                ? Loc.GetString("robotic-arm-examine-filter", ("filter", filter))
+                : Loc.GetString("robotic-arm-examine-no-filter"));
+            args.PushMarkup(ent.Comp.HeldItem is {} item
+                ? Loc.GetString("robotic-arm-examine-item", ("item", item))
+                : Loc.GetString("robotic-arm-examine-no-item"));
+        }
     }
 
     private void OnHandleState(Entity<RoboticArmComponent> ent, ref AfterAutoHandleStateEvent args)
