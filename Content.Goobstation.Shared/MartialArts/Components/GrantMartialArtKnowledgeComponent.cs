@@ -20,7 +20,10 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
     public virtual MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CloseQuartersCombat;
 
     [DataField]
-    public virtual LocId LearnMessage { get; set; } = "cqc-success-learned";
+    public virtual LocId? LearnMessage { get; set; } = null;
+
+    [DataField]
+    public bool MultiUse;
 
     [DataField]
     public string? SpawnedProto = "Ash";
@@ -34,6 +37,8 @@ public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponen
 {
     [DataField]
     public bool IsBlocked;
+
+    public override LocId? LearnMessage { get; set; } = "cqc-success-learned";
 }
 
 [RegisterComponent]
@@ -49,7 +54,7 @@ public sealed partial class GrantCapoeiraComponent : GrantMartialArtKnowledgeCom
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Capoeira;
 
-    public override LocId LearnMessage { get; set; } = "capoeira-success-learned";
+    public override LocId? LearnMessage { get; set; } = "capoeira-success-learned";
 }
 
 [RegisterComponent]
@@ -58,7 +63,7 @@ public sealed partial class GrantKungFuDragonComponent : GrantMartialArtKnowledg
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.KungFuDragon;
 
-    public override LocId LearnMessage { get; set; } = "dragon-success-learned";
+    public override LocId? LearnMessage { get; set; } = "dragon-success-learned";
 }
 
 [RegisterComponent]
@@ -67,7 +72,7 @@ public sealed partial class GrantNinjutsuComponent : GrantMartialArtKnowledgeCom
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Ninjutsu;
 
-    public override LocId LearnMessage { get; set; } = "ninjutsu-success-learned";
+    public override LocId? LearnMessage { get; set; } = "ninjutsu-success-learned";
 }
 
 [RegisterComponent]

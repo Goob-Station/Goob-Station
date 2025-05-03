@@ -87,17 +87,16 @@ public partial class SharedMartialArtsSystem
         if (!TryGrantMartialArt(args.User, comp))
             return;
 
-        _popupSystem.PopupEntity(Loc.GetString(comp.LearnMessage), args.User, args.User);
-
-        if (comp.SpawnedProto == null)
-        {
-            _audio.PlayPvs(comp.SoundOnUse, ent);
+        var coords = Transform(args.User).Coordinates;
+        _audio.PlayPvs(comp.SoundOnUse, coords);
+        if (comp.MultiUse)
             return;
-        }
 
-        var ash = Spawn(comp.SpawnedProto, _transform.GetMapCoordinates(ent));
-        _audio.PlayPvs(comp.SoundOnUse, ash);
         Del(ent);
+        if (comp.SpawnedProto == null)
+            return;
+
+        Spawn(comp.SpawnedProto, coords);
     }
 
     private void OnCQCAttackPerformed(Entity<MartialArtsKnowledgeComponent> ent, ref ComboAttackPerformedEvent args)
