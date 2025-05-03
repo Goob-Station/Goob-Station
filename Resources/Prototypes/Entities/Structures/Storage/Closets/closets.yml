@@ -27,7 +27,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: eng
-    stateDoorOpen: eng_open
+    stateDoorOpen: generic_open_2
     stateDoorClosed: eng_tool_door
 
 # Radiation suit closet
@@ -40,7 +40,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: eng
-    stateDoorOpen: eng_open
+    stateDoorOpen: generic_open_2
     stateDoorClosed: eng_rad_door
 
 # Emergency closet
@@ -53,7 +53,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: emergency
-    stateDoorOpen: emergency_open
+    stateDoorOpen: generic_open_2
     stateDoorClosed: emergency_door
 
 # Emergency N2 closet
@@ -65,8 +65,8 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: n2
-    stateDoorOpen: n2_open
+    stateBaseClosed: fire
+    stateDoorOpen: generic_open_2
     stateDoorClosed: n2_door
 
 # Fire safety closet
@@ -79,7 +79,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: fire
-    stateDoorOpen: fire_open
+    stateDoorOpen: generic_open_2
     stateDoorClosed: fire_door
 
 # EOD closet
@@ -92,7 +92,7 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: bomb
-    stateDoorOpen: bomb_open
+    stateDoorOpen: generic_open_2
     stateDoorClosed: bomb_door
 
 # Janitorial bomb suit closet
@@ -120,7 +120,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio
+    stateBaseClosed: med
     stateDoorOpen: bio_open
     stateDoorClosed: bio_door
 
@@ -131,7 +131,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_viro
+    stateBaseClosed: generic
     stateDoorOpen: bio_viro_open
     stateDoorClosed: bio_viro_door
 
@@ -142,7 +142,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_sec
+    stateBaseClosed: fire
     stateDoorOpen: bio_sec_open
     stateDoorClosed: bio_sec_door
 
@@ -153,7 +153,7 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: bio_jan
+    stateBaseClosed: generic
     stateDoorOpen: bio_jan_open
     stateDoorClosed: bio_jan_door
 

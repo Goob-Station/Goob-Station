@@ -140,9 +140,9 @@
   components:
   - type: Appearance
   - type: EntityStorageVisuals
-    stateBaseClosed: generic
+    stateBaseClosed: fire
     stateDoorOpen: generic_open
-    stateDoorClosed: red_door
+    stateDoorClosed: sec_wardrobe_door
 
 - type: entity
   id: WardrobeAtmospherics
@@ -157,81 +157,171 @@
 
 - type: entity
   id: ClosetJanitor
-  parent: WardrobeMixed
+  parent: WardrobeBase
   name: custodial closet
   description: It's a storage unit for janitorial clothes and gear.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: generic
+      stateDoorOpen: bio_jan_open
+      stateDoorClosed: jani_wardrobe_door
 
 - type: entity
   id: WardrobeFormal
-  parent: WardrobeBlack
+  parent: WardrobeBase
   name: formal closet
   description: It's a storage unit for formal clothing.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: generic
+      stateDoorOpen: generic_open
+      stateDoorClosed: black_door
 
 - type: entity
   id: ClosetChef
-  parent: WardrobeBlack
+  parent: WardrobeBase
   name: chef's closet
   description: It's a storage unit for foodservice garments and mouse traps.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: med
+      stateDoorOpen: generic_open
+      stateDoorClosed: chef_wardrobe_door
 
 - type: entity
   id: WardrobeChapel
-  parent: WardrobeBlack
+  parent: WardrobeBase
   name: chaplain's wardrobe
   description: It's a storage unit for Nanotrasen-approved religious attire.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: generic
+      stateDoorOpen: generic_open
+      stateDoorClosed: chap_wardrobe_door
 
 - type: entity
   id: ClosetLegal
-  parent: WardrobeBlue
+  parent: WardrobeBase
   name: legal closet
   description: It's a storage unit for courtroom apparel and items.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: generic
+      stateDoorOpen: generic_open
+      stateDoorClosed: law_wardrobe_door
 
 - type: entity
   id: WardrobeCargo
-  parent: WardrobePrison
+  parent: WardrobeBase
   name: cargo wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: cargo
+      stateDoorOpen: generic_open
+      stateDoorClosed: cargo_wardrobe_door
 
 - type: entity
   id: WardrobeSalvage
-  parent: WardrobeMixed
+  parent: WardrobeBase
   name: salvage wardrobe
   description: Notably not salvaged.
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: mining
+      stateDoorOpen: generic_open
+      stateDoorClosed: mining_wardrobe_door
 
 - type: entity
   id: WardrobeEngineering
-  parent: WardrobeYellow
+  parent: WardrobeBase
   name: engineering wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: generic
+      stateDoorOpen: generic_open
+      stateDoorClosed: engi_wardrobe_door
 
 - type: entity
   id: WardrobeMedicalDoctor
-  parent: WardrobeWhite
+  parent: WardrobeBase
   name: medical doctor's wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: med
+      stateDoorOpen: bio_open
+      stateDoorClosed: med_wardrobe_door
 
 - type: entity
   id: WardrobeRobotics
-  parent: WardrobeBlack
+  parent: WardrobeBase
   name: robotics wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: science
+      stateDoorOpen: bio_sci_open
+      stateDoorClosed: robo_wardrobe_door
 
 - type: entity
   id: WardrobeChemistry
-  parent: WardrobeWhite
+  parent: WardrobeBase
   name: chemistry wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: med
+      stateDoorOpen: bio_open
+      stateDoorClosed: chem_wardrobe_door
 
 - type: entity
   id: WardrobeGenetics
-  parent: WardrobeWhite
+  parent: WardrobeBase
   name: genetics wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: science
+      stateDoorOpen: bio_sci_open
+      stateDoorClosed: gen_wardrobe_door
 
 - type: entity
   id: WardrobeVirology
-  parent: WardrobeWhite
+  parent: WardrobeBase
   name: virology wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: generic
+      stateDoorOpen: bio_viro_open
+      stateDoorClosed: viro_wardrobe_door
 
 - type: entity
   id: WardrobeScience
-  parent: WardrobeWhite
+  parent: WardrobeBase
   name: science wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: science
+      stateDoorOpen: science_open
+      stateDoorClosed: sci_wardrobe_door
 
 - type: entity
   id: WardrobeBotanist
-  parent: WardrobeGreen
+  parent: WardrobeBase
   name: botanist wardrobe
+  components:
+    - type: Appearance
+    - type: EntityStorageVisuals
+      stateBaseClosed: hydro
+      stateDoorOpen: generic_open
+      stateDoorClosed: botany_wardrobe_door
