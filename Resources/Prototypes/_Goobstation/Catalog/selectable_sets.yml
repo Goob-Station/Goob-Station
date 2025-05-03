@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -163,6 +164,7 @@
   - BoxHoloparasite
   - EmpImplanter
   - ScramImplanter
+  - FreedomImplanter
   - SmokeImplanter
   - KravMagaImplanter
 
@@ -393,3 +395,45 @@
     - EnergySpeedloaderPulse
     - EnergySpeedloaderPulse
     - EnergySpeedloaderDisabler
+
+# Head Of Security
+
+- type: selectableSet
+  id: HosSmgSet
+  name: selectable-set-hos-smg-name
+  description: selectable-set-hos-smg-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySMG
+
+- type: selectableSet
+  id: HosShotgunSet
+  name: selectable-set-hos-shotgun-name
+  description: selectable-set-hos-shotgun-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityShotgun
+
+- type: selectableSet
+  id: HosSniperSet
+  name: selectable-set-hos-sniper-name
+  description: selectable-set-hos-sniper-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySniper
+
+- type: selectableSet
+  id: HosRifleSet
+  name: selectable-set-hos-rifle-name
+  description: selectable-set-hos-rifle-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityRifle
