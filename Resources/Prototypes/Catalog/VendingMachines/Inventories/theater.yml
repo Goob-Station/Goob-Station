@@ -112,6 +112,7 @@
     ToyFigurineMusician: 1
     WeaponLauncherTaiwanPond: 1 # Goobstation
     GrenadeToy: 5 # Goobstation
+    ClothingOuterSteelTile: 1 # Goobstation
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
