@@ -67,6 +67,9 @@
         Structural: 10
   - type: StaminaDamageOnHit # goob - bat makes you hurt and tired (but not as much as the real stun stick)
     damage: 7.5 # goob - 9 hits to stamcrit someone with armor vest + helmet
+  - type: MeleeThrowOnHit
+    distance: 1 # Goobstation
+    speed: 5
   - type: Item
     size: Normal
   - type: Tool
