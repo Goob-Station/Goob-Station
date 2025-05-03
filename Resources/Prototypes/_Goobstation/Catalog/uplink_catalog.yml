@@ -883,7 +883,7 @@
   cost:
     Telecrystal: 60
   categories:
-  - UplinkWeaponry
+  - UplinkJob
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
