@@ -14,7 +14,7 @@ security-starting-text = [head=3]NanoTrasen Document[/head]                     
     ──────────────────────────────────────────[/color]
 
 # cargo
-cargo-starting-text = [head=3]  NanoTrasen[/head]        [color=#d48311]█▄ █ ▀█▀ [/color][bold]      To: Cargo department[/bold][head=3]
+cargo-starting-text1 = [head=3]  NanoTrasen[/head]        [color=#d48311]█▄ █ ▀█▀ [/color][bold]      To: Cargo department[/bold][head=3]
        Document[/head]           [color=#d48311]█ ▀█     █       [/color] [bold]   From: CentComm[/bold]
     ──────────────────────────────────────────
                                         Issued: {$date}

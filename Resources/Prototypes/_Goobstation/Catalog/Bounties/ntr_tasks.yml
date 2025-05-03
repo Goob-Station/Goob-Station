@@ -114,7 +114,6 @@
     BloodChangeling: 3000
   entries:
   - name: task-ling-blood-name
-    stamps: []
 
 - type: ntrTask
   id: TaskArtifexium
@@ -129,7 +128,6 @@
     Artifexium: 3000
   entries:
   - name: task-artifexium-name
-    stamps: []
 
 - type: ntrTask
   id: TaskDexalin
@@ -144,7 +142,6 @@
     DexalinPlus: 3000
   entries:
   - name: task-chem-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskWeh
@@ -159,7 +156,6 @@
     JuiceThatMakesYouWeh: 3000
   entries:
   - name: task-weh-name
-    stamps: []
 
 - type: ntrTask
   id: TaskHew
@@ -174,7 +170,6 @@
     JuiceThatMakesYouHew: 3000
   entries:
   - name: task-hew-name
-    stamps: []
 
 - type: ntrTask
   id: TaskEthyl
@@ -189,7 +184,6 @@
     Ethylredoxrazine: 3000
   entries:
   - name: task-chem-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskIpecac
@@ -204,7 +198,6 @@
     Ipecac: 3000
   entries:
   - name: task-chem-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskTRAcid
@@ -219,7 +212,6 @@
     TranexamicAcid: 3000
   entries:
   - name: task-chem-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskSigynate
@@ -234,7 +226,6 @@
     Sigynate: 3000
   entries:
   - name: task-chem-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskCogni
@@ -249,7 +240,6 @@
     Cognizine: 1000
   entries:
   - name: task-cogni-name
-    stamps: []
 
 - type: ntrTask
   id: TaskHoly
@@ -264,7 +254,6 @@
     Holywater: 3000
   entries:
   - name: task-holy-name
-    stamps: []
 
 - type: ntrTask
   id: TaskRazorium
@@ -279,7 +268,6 @@
     Razorium: 10000
   entries:
   - name: task-razorium-name
-    stamps: []
 
 - type: ntrTask
   id: TaskPunct
@@ -294,7 +282,6 @@
     Puncturase: 10000
   entries:
   - name: task-punct-name
-    stamps: []
 
 - type: ntrTask
   id: TaskTrico
@@ -309,7 +296,6 @@
     Tricordrazine: 10000
   entries:
   - name: task-trico-name
-    stamps: []
 
 - type: ntrTask
   id: TaskMeth
@@ -324,7 +310,6 @@
     Desoxyephedrine: 10000
   entries:
   - name: task-meth-name
-    stamps: []
 
 - type: ntrTask
   id: TaskTHC
@@ -339,7 +324,6 @@
     THC: 10000
   entries:
   - name: task-thc-name
-    stamps: []
 
 # Drink tasks
 - type: ntrTask
@@ -354,7 +338,6 @@
     KiraSpecial: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskNuclearCola
@@ -368,7 +351,6 @@
     NuclearCola: 3000
   entries:
   - name: task-special-drink-name
-    stamps: []
 
 - type: ntrTask
   id: TaskGildlager
@@ -382,7 +364,6 @@
     Gildlager: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskGrog
@@ -396,7 +377,6 @@
     Grog: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskHippiesDelight
@@ -410,7 +390,6 @@
     HippiesDelight: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskIrishCarBomb
@@ -424,7 +403,6 @@
     IrishCarBomb: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskLongIslandIcedTea
@@ -438,7 +416,6 @@
     LongIslandIcedTea: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskManhattan
@@ -452,7 +429,6 @@
     Manhattan: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskManlyDorf
@@ -466,7 +442,6 @@
     ManlyDorf: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskPinaColada
@@ -480,7 +455,6 @@
     PinaColada: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskCogChamp
@@ -494,7 +468,6 @@
     CogChamp: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskSingulo
@@ -508,7 +481,6 @@
     Singulo: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskTequilaSunrise
@@ -522,7 +494,6 @@
     TequilaSunrise: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskWhiteRussian
@@ -536,8 +507,6 @@
     WhiteRussian: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
-
 - type: ntrTask
   id: TaskBudgetInsulsDrink
   proto: TaskBottle
@@ -550,7 +519,6 @@
     BudgetInsulsDrink: 3000
   entries:
   - name: task-drink-base-name
-    stamps: []
 
 - type: ntrTask
   id: TaskZombieCocktail
@@ -564,4 +532,3 @@
   reagentTask: true
   entries:
   - name: task-special-drink-name
-    stamps: []
