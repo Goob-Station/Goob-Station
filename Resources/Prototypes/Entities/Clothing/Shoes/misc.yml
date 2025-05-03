@@ -102,6 +102,8 @@
       collection: FootstepDuck
       params:
         variation: 0.07
+  - type: WaddleWhenWorn # Goobstation
+    tumbleIntensity: 10 # smaller than clown shoes
   - type: Construction
     graph: ClothingShoeSlippersDuck
     node: shoes
@@ -121,6 +123,8 @@
       collection: FootstepLizardSlippers
       params:
         variation: 0.02
+  - type: WaddleWhenWorn # Goobstation
+    tumbleIntensity: 10 # smaller than clown shoes
   - type: Construction
     graph: ClothingShoeSlippersLizard
     node: shoes

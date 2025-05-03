@@ -63,6 +63,7 @@
   parent: [ClothingShoesBaseButcherable, ClothingSlotBase]
   id: ClothingShoesClownBase
   components:
+  - type: WaddleWhenWorn # Goobstation
   - type: ItemSlots
     slots:
       item:
