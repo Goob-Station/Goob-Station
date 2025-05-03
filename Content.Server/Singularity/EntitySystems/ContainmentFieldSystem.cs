@@ -106,6 +106,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Singularity;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
 using Content.Server.Singularity.Events;
@@ -134,6 +135,12 @@ public sealed class ContainmentFieldSystem : EntitySystem
     private void HandleFieldCollide(EntityUid uid, ContainmentFieldComponent component, ref StartCollideEvent args)
     {
         var otherBody = args.OtherEntity;
+
+        // Goobstation
+        var ev = new ContainmentFieldThrowEvent(uid);
+        RaiseLocalEvent(otherBody, ref ev);
+        if (ev.Cancelled)
+            return;
 
         if (component.DestroyGarbage && HasComp<SpaceGarbageComponent>(otherBody))
         {

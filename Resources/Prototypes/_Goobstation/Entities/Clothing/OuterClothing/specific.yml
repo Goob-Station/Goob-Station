@@ -37,8 +37,13 @@
     clothingPrototypes: 
       head: ClothingHeadHelmetHEV
   - type: ClothingGrantComponent
-    component:
+    component: # same as CE suit
       - type: SupermatterImmune
+      - type: EventHorizonIgnore
+        horizonWhitelist:
+          tags:
+          - Tesla
+      - type: ContainmentFieldIgnore
   - type: Tag
     tags:
       - HEVSuit

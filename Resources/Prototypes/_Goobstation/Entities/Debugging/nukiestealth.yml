@@ -52,6 +52,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.4
+    - type: Stealth
 
 
 - type: entity
@@ -78,6 +79,3 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: ClothingGrantComponent # this is horrible shitcode i have to do because clothinggrantcomponent only works with 1 comp per clothing item
-    component:
-    - type: Stealth
