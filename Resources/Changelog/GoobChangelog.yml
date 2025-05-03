@@ -8359,3 +8359,9 @@ Entries:
       message: Blob factories are now limited to 3 alive and not total blob drops.
   id: 964
   time: '2025-05-03T04:26:14.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: You can now wear your propeller hat backwards like the cool kids do.
+  id: 965
+  time: '2025-05-03T04:26:34.0000000+00:00'
