@@ -8282,3 +8282,9 @@ Entries:
         menu.
   id: 954
   time: '2025-05-03T04:16:01.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Warops declaration will now play new music.
+  id: 955
+  time: '2025-05-03T04:17:03.0000000+00:00'
