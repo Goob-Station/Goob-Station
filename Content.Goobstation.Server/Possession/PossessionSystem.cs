@@ -22,7 +22,6 @@ using Robust.Server.Containers;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
@@ -57,19 +56,17 @@ public sealed partial class PossessionSystem : EntitySystem
             if (_timing.CurTime >= comp.PossessionEndTime)
                 RemComp<PossessedComponent>(uid);
 
-            if (comp.DoPacify)
-            {
-                comp.WasPacified = true;
-                EnsureComp<PacifiedComponent>(uid);
-            }
-
             comp.PossessionTimeRemaining = comp.PossessionEndTime - _timing.CurTime;
         }
     }
 
     private void OnInit(EntityUid uid, PossessedComponent comp, MapInitEvent args)
     {
-        EnsureComp<WeakToHolyComponent>(uid);
+        if (!HasComp<WeakToHolyComponent>(uid))
+            AddComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+        else
+            comp.WasWeakToHoly = true;
+
         comp.PossessedContainer = _container.EnsureContainer<Container>(uid, "PossessedContainer");
     }
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
@@ -77,18 +74,20 @@ public sealed partial class PossessionSystem : EntitySystem
         MapCoordinates? coordinates = null;
 
         // Remove associated components.
-        if (comp.WasPacified)
+        if (!comp.WasPacified)
             RemComp<PacifiedComponent>(comp.OriginalEntity);
-        RemComp<WeakToHolyComponent>(comp.OriginalEntity);
+
+        if (!comp.WasWeakToHoly)
+            RemComp<WeakToHolyComponent>(comp.OriginalEntity);
 
         // Return the possessors mind to their body, and the target to theirs.
-        if (!TerminatingOrDeleted(comp.PossessorOriginalEntity))
+        if (!TerminatingOrDeleted(comp.PossessorMindId))
             _mind.TransferTo(comp.PossessorMindId, comp.PossessorOriginalEntity);
-        if (!TerminatingOrDeleted(comp.OriginalEntity))
-        {
-            coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
+        if (!TerminatingOrDeleted(comp.OriginalMindId))
             _mind.TransferTo(comp.OriginalMindId, comp.OriginalEntity);
-        }
+
+        if (!TerminatingOrDeleted(comp.OriginalEntity))
+            coordinates = _transform.ToMapCoordinates(comp.OriginalEntity.ToCoordinates());
 
         // Paralyze, so you can't just magdump them.
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(10), false);
@@ -103,7 +102,7 @@ public sealed partial class PossessionSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, PossessedComponent comp, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || comp.PossessorMindId == args.Examiner)
+        if (!args.IsInDetailsRange || args.Examined != args.Examiner)
             return;
 
         var timeRemaining = Math.Floor(comp.PossessionTimeRemaining.TotalSeconds);
@@ -171,7 +170,12 @@ public sealed partial class PossessionSystem : EntitySystem
         var possessedComp = EnsureComp<PossessedComponent>(possessed);
 
         if (pacifyPossessed)
-            possessedComp.DoPacify = true;
+        {
+            if (!HasComp<PacifiedComponent>(possessed))
+                EnsureComp<PacifiedComponent>(possessed);
+            else
+                possessedComp.WasPacified = true;
+        }
 
         // Get the possession time.
         possessedComp.PossessionEndTime = _timing.CurTime + possessionDuration;
@@ -179,14 +183,10 @@ public sealed partial class PossessionSystem : EntitySystem
         // Store possessors original information.
         possessedComp.PossessorOriginalEntity = possessor;
         possessedComp.PossessorMindId = possessorMind;
-        possessedComp.PossessorMindComponent = possessorMindComp;
 
         // Store possessed original info
         possessedComp.OriginalEntity = possessed;
         possessedComp.OriginalMindId = possessedMind;
-
-        if (possessedMindComp != null)
-            possessedComp.OriginalMindComponent = possessedMindComp;
 
         // Nobodies gonna know.
         var dummy = Spawn("FoodSnackLollypop", MapCoordinates.Nullspace);
