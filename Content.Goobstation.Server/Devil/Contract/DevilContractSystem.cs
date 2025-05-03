@@ -376,7 +376,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         foreach (var item in clause.SpawnedItems)
         {
             if (!_prototypeManager.TryIndex(item, out _))
-                return;
+                continue;
 
             var spawnedItem = SpawnNextToOrDrop(item, target);
             _hands.TryPickupAnyHand(target, spawnedItem, false, false, false);
