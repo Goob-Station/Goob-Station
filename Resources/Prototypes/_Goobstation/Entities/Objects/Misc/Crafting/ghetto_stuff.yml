@@ -171,6 +171,10 @@
   - type: Construction
     graph: MakeshiftDefibGraph
     node: final
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
 
 - type: entity
   id: MakeshiftDefibUnfinished
@@ -272,7 +276,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
+#        startingItem: PowerCellMedium
   - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
@@ -408,11 +412,11 @@
         Piercing: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ModifyDelayedKnockdown # counter to the tide armor: stuns.
-    delayDelta: 1.25 # ITS THE OPPOSITE VALUES, IT HAS NEGATIVE STAMINA RESISTANCE
-    knockdownTimeDelta: -1.25
+  - type: ModifyDelayedKnockdown # how tf does this work
+    delayDelta: -1.0
+    knockdownTimeDelta: 1.5
   - type: StaminaDamageResistance
-    coefficient: 1.2 # stun meta go wild
+    coefficient: 1.2 # counter to the tide armor: stuns.
   - type: Construction
     graph: MakeshiftLightVestGraph
     node: final

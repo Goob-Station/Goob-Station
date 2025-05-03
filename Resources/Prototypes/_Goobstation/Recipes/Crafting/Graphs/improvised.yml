@@ -152,14 +152,6 @@
         doAfter: 1
       - tool: Screwing
         doAfter: 1
-      - tag: PowerCell
-        name: power cell
-        icon:
-          sprite: Objects/Power/power_cells.rsi
-          state: o2
-        doAfter: 2
-      - tool: Screwing
-        doAfter: 2
       - material: Steel
         amount: 2
         doAfter: 2
@@ -315,7 +307,7 @@
     entity: MetalBaseballBat
 
 # makeshift hammer
-# total mats: wood: 3, steel: 5
+# total mats: wood: 2, steel: 3
 - type: constructionGraph
   id: HammerConstructionGraph
   start: start
@@ -325,7 +317,7 @@
     - to: mid
       steps:
       - material: WoodPlank
-        amount: 3
+        amount: 2
         doAfter: 5
   - node: mid
     entity: WoodenHandleHammer
@@ -333,43 +325,26 @@
     - to: final
       steps:
       - material: Screw
-        amount: 2
+        amount: 1
         doAfter: 2
-      - tool: Screwing
-        doAfter: 1
       - tool: Screwing
         doAfter: 1
       - material: Screw
-        amount: 2
-        doAfter: 2
-      - tool: Screwing
-        doAfter: 1
-      - tool: Screwing
-        doAfter: 1
-      - material: Steel
-        amount: 2
-        doAfter: 2
-      - tool: Welding
-        doAfter: 8
-      - tool: Hammering
-        doAfter: 1
-      - tool: Hammering
-        doAfter: 1
-      - material: Steel
         amount: 1
         doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
       - tool: Welding
-        doAfter: 8
-      - tool: Hammering
-        doAfter: 1
-      - tool: Hammering
-        doAfter: 1
+        doAfter: 5
   - node: final
     entity: MeleeHammer
 
 
 # makeshift jammer
-# total mats: Remote signaller: 1, multitool: 1, cable: 8, power cell, enc key: 3
+# total mats: Remote signaller: 1, multitool: 1, cable: 8, enc key: 1
 - type: constructionGraph
   id: MakeshiftJammerGraph
   start: start
@@ -404,32 +379,12 @@
         doAfter: 1
       - tool: Pulsing
         doAfter: 4
-      - component: EncryptionKey # 3 keys because i can already smell people malding
-        doAfter: 5
-        name: encryption key
-        icon:
-          sprite: Objects/Devices/encryption_keys.rsi
-          state: crypt_gray
       - component: EncryptionKey
         doAfter: 5
         name: encryption key
         icon:
           sprite: Objects/Devices/encryption_keys.rsi
           state: crypt_gray
-      - component: EncryptionKey
-        doAfter: 5
-        name: encryption key
-        icon:
-          sprite: Objects/Devices/encryption_keys.rsi
-          state: crypt_gray
-      - tool: Screwing
-        doAfter: 2
-      - tag: PowerCell
-        name: power cell
-        icon:
-          sprite: Objects/Power/power_cells.rsi
-          state: o2
-        doAfter: 2
       - tool: Screwing
         doAfter: 2
   - node: final
