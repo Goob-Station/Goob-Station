@@ -17,6 +17,8 @@ public sealed partial class AACWindow : FancyWindow
     private readonly List<QuickPhrasePrototype> _phrases;
     private readonly Dictionary<string, List<QuickPhrasePrototype>> _filteredPhrases = new();
     public event Action<List<ProtoId<QuickPhrasePrototype>>>? PhraseButtonPressed;
+    public event Action? Typing;
+    public event Action? SubmitPressed;
 
     private const float SpaceWidth = 10f;
     private const float ParentWidth = 540f;
@@ -51,6 +53,7 @@ public sealed partial class AACWindow : FancyWindow
 
         _phraseBuffer.RemoveAt(_phraseBuffer.Count - 1);
         UpdateBufferText();
+        Typing?.Invoke();
     }
 
     private void UpdateBufferText()
@@ -68,6 +71,7 @@ public sealed partial class AACWindow : FancyWindow
         PhraseButtonPressed?.Invoke(_phraseBuffer);
         _phraseBuffer.Clear();
         BufferedString.Text = string.Empty;
+        SubmitPressed?.Invoke();
     }
 
     private void FilterSearch(LineEdit.LineEditEventArgs? obj)
@@ -226,12 +230,14 @@ public sealed partial class AACWindow : FancyWindow
 
             _phraseBuffer.Add(phraseId);
             UpdateBufferText();
+            Typing?.Invoke();
         }
         else
         {
             _phraseSingle.Clear();
             _phraseSingle.Add(phraseId);
             PhraseButtonPressed?.Invoke(_phraseSingle);
+            SubmitPressed?.Invoke();
         }
     }
 }

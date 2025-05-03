@@ -29,3 +29,26 @@
   typingState: chitinid0
   idleState: chitinid0
   offset: -0.2, 0.1 # 0625
+
+- type: typingIndicator
+  id: Thaven
+  spritePath: /Textures/_DV/Effects/speech.rsi
+  typingState: thaven0
+  offset: -0.2, 0.1 # 0625
+
+- type: typingIndicator
+  id: feroxi
+  spritePath: /Textures/_DV/Effects/speech.rsi
+  typingState: feroxi0
+
+- type: typingIndicator
+  id: kitsune
+  spritePath: /Textures/_DV/Effects/speech.rsi
+  typingState: kitsune0
+  offset: 0, 0.25
+
+- type: typingIndicator
+  id: aac
+  spritePath: /Textures/_DV/Effects/speech.rsi
+  typingState: aac0
+  offset: -0.05, 0.1
