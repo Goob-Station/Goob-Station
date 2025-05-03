@@ -8313,3 +8313,9 @@ Entries:
         together correctly!
   id: 958
   time: '2025-05-03T04:20:00.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: 'New Ian variant: Clown Ian.'
+  id: 959
+  time: '2025-05-03T04:22:38.0000000+00:00'
