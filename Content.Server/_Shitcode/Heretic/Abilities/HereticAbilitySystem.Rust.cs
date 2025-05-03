@@ -11,6 +11,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Weapons.DelayedKnockdown;
+using Content.Goobstation.Common.Wizard.Targeting;
 using Content.Goobstation.Shared.Wizard;
 using Content.Server.Body.Components;
 using Content.Server.Flash;

@@ -125,6 +125,7 @@ using Content.Client.UserInterface.Systems.Actions.Controls;
 using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Actions.Windows;
 using Content.Client.UserInterface.Systems.Gameplay;
+using Content.Goobstation.Common.Wizard.Targeting;
 using Content.Goobstation.Shared.ActionTargetMarkSystem;
 using Content.Goobstation.Shared.Wizard;
 using Content.Goobstation.Shared.Wizard.Components;
@@ -170,8 +171,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
+    [UISystemDependency] private readonly GoobTargetingSystem? _targeting = default!; // Goobstation
     [UISystemDependency] private readonly TransformSystem _transform = default!; // Goobstation
-    [UISystemDependency] private readonly SharedSpellsSystem? _spells = default!; // Goobstation - these dont resolve in uisystemdependancies?
     [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
 
     private ActionButtonContainer? _container;
@@ -239,8 +240,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             // Goobstation end
         }
 
-        if (_spells != null) // Goobstation
-            _spells.StopTargeting += StopTargeting;
+        if (_targeting != null)
+            _targeting.StopTargeting += Targeting;
 
         UpdateFilterLabel();
         QueueWindowUpdate();
@@ -283,7 +284,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (SelectingTargetFor == null)
             return false;
 
-        StopTargeting();
+        Targeting();
         return true;
     }
 
@@ -345,7 +346,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         {
             // Invalid target.
             if (action.DeselectOnMiss)
-                StopTargeting();
+                Targeting();
 
             return false;
         }
@@ -363,7 +364,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetCoordinates(coords)));
 
         if (!action.Repeat)
-            StopTargeting();
+            Targeting();
 
         return true;
     }
@@ -378,7 +379,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!_actionsSystem.ValidateEntityTarget(user, entity, (actionId, action)))
         {
             if (action.DeselectOnMiss)
-                StopTargeting();
+                Targeting();
 
             return false;
         }
@@ -396,7 +397,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetEntity(args.EntityUid)));
 
         if (!action.Repeat)
-            StopTargeting();
+            Targeting();
 
         return true;
     }
@@ -423,7 +424,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!_actionsSystem.ValidateEntityWorldTarget(user, entity, coords, (actionId, action)))
         {
             if (action.DeselectOnMiss)
-                StopTargeting();
+                Targeting();
 
             return false;
         }
@@ -442,7 +443,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetEntity(entity), EntityManager.GetNetCoordinates(coords))); // Goob edit
 
         if (!action.Repeat)
-            StopTargeting();
+            Targeting();
 
         return true;
     }
@@ -494,8 +495,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             // Goobstation end
         }
 
-        if (_spells != null) // Goobstation
-            _spells.StopTargeting -= StopTargeting;
+        if (_targeting != null) // Goobstation
+            _targeting.StopTargeting -= Targeting;
 
         CommandBinds.Unregister<ActionUIController>();
     }
@@ -552,7 +553,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!swap.AllowSecondaryTarget)
             return false;
 
-        if (_actionsSystem == null || _spells == null)
+        if (_actionsSystem == null || _targeting == null)
             return false;
 
         var entity = args.EntityUid;
@@ -560,12 +561,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (!_actionsSystem.ValidateEntityTarget(user, entity, (actionId, entityTarget)))
         {
             if (entityTarget.DeselectOnMiss)
-                StopTargeting();
+                Targeting();
 
             return false;
         }
 
-        _spells.SetSwapSecondaryTarget(user, entity, actionId);
+        _targeting.SetSwapSecondaryTarget(user, entity, actionId); // fix
 
         return true;
     }
@@ -691,7 +692,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
 
         if (actionId == SelectingTargetFor)
-            StopTargeting();
+            Targeting();
 
         _actions.RemoveAll(x => x == actionId);
     }
@@ -1210,7 +1211,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         _container?.ClearActionData();
         QueueWindowUpdate();
-        StopTargeting();
+        Targeting();
     }
 
     private void LoadDefaultActions()
@@ -1238,7 +1239,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         if (SelectingTargetFor == actionId)
         {
-            StopTargeting();
+            Targeting();
             return;
         }
 
@@ -1251,7 +1252,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private void StartTargeting(EntityUid actionId, BaseTargetActionComponent action)
     {
         // If we were targeting something else we should stop
-        StopTargeting();
+        Targeting();
 
         SelectingTargetFor = actionId;
         // TODO inform the server
@@ -1289,11 +1290,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action is not EntityTargetActionComponent entityAction)
             return;
 
-        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
-            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId); // fix
-
         Func<EntityUid, bool>? predicate = null;
         var attachedEnt = entityAction.AttachedEntity;
+
+        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && entityAction.AttachedEntity != null) // Goobstation
+            _targeting?.SetSwapSecondaryTarget(entityAction.AttachedEntity.Value, null, actionId); // fix
 
         if (!entityAction.CanTargetSelf)
             predicate = e => e != attachedEnt;
@@ -1307,7 +1308,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     /// <summary>
     /// Switch out of targeting mode if currently selecting target for an action
     /// </summary>
-    private void StopTargeting()
+    private void Targeting()
     {
         if (_playerManager.LocalEntity is not { } user)
             return;
@@ -1327,7 +1328,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         // Goobstation
         if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
-            _spells?.SetSwapSecondaryTarget(user, null, oldAction.Value); // fix
+            _targeting?.SetSwapSecondaryTarget(user, null, oldAction.Value); // fix
 
         SelectingTargetFor = null;
 

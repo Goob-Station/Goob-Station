@@ -105,7 +105,6 @@ public abstract class SharedEnsnareableSystem : EntitySystem
                 Popup.PopupPredicted(Loc.GetString("ensnare-component-try-free-fail", ("ensnare", args.Args.Used)), uid, args.User, PopupType.MediumCaution);
             else if (args.Target != null)
                 Popup.PopupPredicted(Loc.GetString("ensnare-component-try-free-fail-other", ("ensnare", args.Args.Used), ("user", args.Target)), uid, args.User, PopupType.MediumCaution);
-
             return;
         }
 
@@ -193,6 +192,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         var breakOnMove = !component.CanMoveBreakout;
 
         var ev = new GetEnsareTimeModifier();
+        RaiseLocalEvent(target, ref ev);
         freeTime *= ev.FreeTime;
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, user, freeTime, new EnsnareableDoAfterEvent(), target, target: target, used: ensnare)

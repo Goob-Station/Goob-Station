@@ -1,6 +1,4 @@
-using Content.Goobstation.Shared.Wizard.SpellCards;
-
-namespace Content.Goobstation.Shared.ActionTargetMarkSystem;
+namespace Content.Goobstation.Common.Wizard.Targeting;
 
 /// <summary>
 /// This handles...

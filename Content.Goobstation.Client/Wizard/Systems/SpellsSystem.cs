@@ -12,7 +12,6 @@ using Content.Goobstation.Shared.Wizard;
 using Content.Goobstation.Shared.Wizard.SupermatterHalberd;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
-using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Client.Wizard.Systems;
@@ -59,19 +58,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         var track = EnsureComp<TrackUserComponent>(rays.Value);
         track.User = uid;
-    }
-
-    public override void SetSwapSecondaryTarget(EntityUid user, EntityUid? target, EntityUid action)
-    {
-        if (target == null || user == target)
-        {
-            _mark.SetMark(user, null);
-            RaisePredictiveEvent(new SetSwapSecondaryTarget(GetNetEntity(action), null));
-            return;
-        }
-
-        _mark.SetMark(user, target);
-        RaisePredictiveEvent(new SetSwapSecondaryTarget(GetNetEntity(action), GetNetEntity(target.Value)));
     }
 
     private void GetWizardIcon(Entity<WizardComponent> ent, ref GetStatusIconsEvent args)

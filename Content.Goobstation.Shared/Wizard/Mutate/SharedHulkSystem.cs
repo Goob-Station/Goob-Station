@@ -45,6 +45,7 @@ public abstract class SharedHulkSystem : EntitySystem
 
     private void OnGetEnsareTimeModifier(Entity<HulkComponent> ent, ref GetEnsareTimeModifier args)
     {
+        Roar(ent);
         args.FreeTime *= ent.Comp.EnsnareTimeMultiplier;
     }
 

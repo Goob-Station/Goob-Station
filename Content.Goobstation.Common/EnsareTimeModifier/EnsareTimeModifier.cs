@@ -1,6 +1,10 @@
 namespace Content.Goobstation.Common.EnsareTimeModifier;
 
-public sealed class GetEnsareTimeModifier : EntityEventArgs
+/// <summary>
+/// Raised on an entity to change the target for a color flash effect.
+/// </summary>
+[ByRefEvent]
+public record struct GetEnsareTimeModifier()
 {
-    public float FreeTime = 1;
+    public float FreeTime = 1f;
 }

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Common.Wizard.Chuuni;
+using Content.Goobstation.Common.Wizard.Targeting;
 using Content.Goobstation.Shared.Magic;
 using Content.Goobstation.Shared.Wizard.BindSoul;
 using Content.Goobstation.Shared.Wizard.Chuuni;
@@ -133,7 +134,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly MobThresholdSystem _threshold = default!;
 
     #endregion
-    public event Action? StopTargeting;
     public override void Initialize()
     {
         base.Initialize();
@@ -174,7 +174,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TileToggleSpellEvent>(OnTileToggle);
         SubscribeLocalEvent<PredictionToggleSpellEvent>(OnPredictionToggle);
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
-        SubscribeNetworkEvent<StopTargetingEvent>(OnStopTargeting);
         SubscribeLocalEvent<HandleSpellInvocationEvent>(OnHandleSpellInvocation);
     }
 
@@ -209,13 +208,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         return invocationEv.Invocation;
     }
 
-    private void OnStopTargeting(StopTargetingEvent msg, EntitySessionEventArgs args)
-    {
-        if (_net.IsClient)
-            return;
 
-        StopTargeting?.Invoke();
-    }
+
     private void OnSwapSecondaryTarget(SetSwapSecondaryTarget ev)
     {
         var action = GetEntity(ev.Action);
@@ -229,11 +223,6 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         swap.SecondaryTarget = target;
         Dirty(action, swap);
-    }
-
-    public virtual void SetSwapSecondaryTarget(EntityUid user, EntityUid? target, EntityUid action)
-    {
-
     }
 
     #region Spells
@@ -1545,8 +1534,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     #endregion
 }
 
-[Serializable, NetSerializable]
-public sealed class StopTargetingEvent : EntityEventArgs;
 
 [Serializable, NetSerializable]
 public sealed class ChargeSpellRaysEffectEvent(NetEntity uid) : EntityEventArgs
@@ -1554,10 +1541,4 @@ public sealed class ChargeSpellRaysEffectEvent(NetEntity uid) : EntityEventArgs
     public NetEntity Uid = uid;
 }
 
-[Serializable, NetSerializable]
-public sealed class SetSwapSecondaryTarget(NetEntity action, NetEntity? target) : EntityEventArgs
-{
-    public NetEntity Action = action;
 
-    public NetEntity? Target = target;
-}

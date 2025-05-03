@@ -85,5 +85,5 @@ public sealed partial class HulkComponent : Component
     };
 
     [DataField]
-    public float EnsnareTimeMultiplier;
+    public float EnsnareTimeMultiplier = 0.25f;
 }

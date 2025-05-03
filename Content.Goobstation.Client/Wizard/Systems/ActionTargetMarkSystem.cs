@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Wizard.Targeting;
 using Content.Goobstation.Shared.ActionTargetMarkSystem;
 using Robust.Shared.Prototypes;
 
