@@ -115,6 +115,18 @@
     state: icon
   objectType: Item
 
+- type: construction
+  id: MakeshiftToolbox
+  name: makeshift toolbox
+  category: construction-category-weapons
+  description: The weapon of the Tide order.
+  graph: MakeshiftToolboxGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
+    state: icon
+  objectType: Item
 # clothing
 
 - type: construction

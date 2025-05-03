@@ -314,6 +314,35 @@
   - type: AtmosExposed
   - type: Temperature
     currentTemperature: 290
+
+# grey toolbox
+- type: entity
+  parent: ToolboxBase
+  id: ToolboxGrey
+  name: grey toolbox
+  description: A truly robust weapon. You feel sudden urge to tide while holding this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
+    state: icon
+  - type: Construction
+    graph: MakeshiftToolboxGraph
+    node: final
+
+- type: entity
+  parent: BaseItem
+  name: unfinished makeshift toolbox
+  description: Some steel welded together. Looks unfinished.
+  id: ToolboxGreyUnfinished
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
+    state: icon-unfinished
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: MakeshiftToolboxGraph
+    node: mid
 # clothing
 
 # heavy boots

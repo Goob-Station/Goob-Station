@@ -497,6 +497,51 @@
   - node: final
     entity: IDCardTide
     edges: []
+
+# grey toolbox
+- type: constructionGraph
+  id: MakeshiftToolboxGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 5
+  - node: mid
+    entity: ToolboxGreyUnfinished
+    edges:
+    - to: final
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 3
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Steel
+        amount: 2
+        doAfter: 2
+      - tool: Welding
+        doAfter: 3
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+  - node: final
+    entity: ToolboxGrey
 # clothing
 
 # heavy boots
