@@ -36,8 +36,9 @@
   - type: Sprite
   - type: Instrument
   - type: ActivatableUI
-    inHandsOnly: true
+    inHandsOnly: false # Goobstation
     singleUser: true
+    requireActiveHand: false # Goobstation
     verbText: verb-instrument-openui
     key: enum.InstrumentUiKey.Key
   - type: UserInterface
