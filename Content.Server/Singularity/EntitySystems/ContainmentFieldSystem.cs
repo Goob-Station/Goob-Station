@@ -150,7 +150,7 @@ public sealed class ContainmentFieldSystem : EntitySystem
             QueueDel(otherBody);
         }
 
-        if (TryComp<PhysicsComponent>(otherBody, out var physics) && physics.Mass <= component.MaxMass && physics.Hard)
+        if (TryComp<PhysicsComponent>(otherBody, out var physics) && physics.Hard) // Goobstation - removed mass check
         {
             var fieldDir = _transformSystem.GetWorldPosition(uid);
             var playerDir = _transformSystem.GetWorldPosition(otherBody);

@@ -93,12 +93,15 @@ public sealed partial class ContainmentFieldComponent : Component
     [DataField("throwForce")]
     public float ThrowForce = 100f;
 
+    // Goobstation - replaced with ContainmentFieldIgnoreComponent; if you think this is causing issues, ping @Ilya246 to fix
+    /*
     /// <summary>
     /// This shouldn't be at 99999 or higher to prevent the singulo glitching out
     /// Will throw anything at the supplied mass or less that collides with the field.
     /// </summary>
     [DataField("maxMass")]
     public float MaxMass = 10000f;
+    */
 
     /// <summary>
     /// Should field vaporize garbage that collides with it?

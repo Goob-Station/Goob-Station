@@ -47,6 +47,8 @@
     shootMaxInterval: 10
     shootRange: 3
     lightningPrototype: Lightning
+  # Goobstation
+  - type: ContainmentFieldIgnore # to replace the cursed mass threshold system
 
 - type: entity
   id: TeslaEnergyBall
@@ -62,7 +64,7 @@
             radius: 0.55
         hard: true
         restitution: 1.0 # Goobstation - fun
-        density: 99999
+        density: 5000 # Goobstation - make it not absurdly heavy
         mask:
         - Opaque
         - Impassable # Goobstation - needed so they collide with each other
