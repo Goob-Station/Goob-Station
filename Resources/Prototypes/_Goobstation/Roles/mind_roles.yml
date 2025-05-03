@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: DevilMindRole
+  name: Devil Role
+  components:
+  - type: MindRole
+    antagPrototype: Devil
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+  - type: DevilRole

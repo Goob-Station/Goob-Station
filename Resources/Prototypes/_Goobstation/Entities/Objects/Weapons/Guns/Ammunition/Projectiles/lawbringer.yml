@@ -1,0 +1,210 @@
+- type: entity
+  id: BulletClownshot
+  name: clownshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    layers:
+    - state: omnilaser-yellow
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 25
+  - type: ProjectileRequireWhitelist
+    whitelist:
+     components:
+      - Clumsy
+  - type: ProjectileThrowOnHit
+    distance: 10
+    speed: 10
+  - type: BlurOnCollide
+
+- type: entity
+  id: BulletPulse
+  name: pulse
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    layers:
+    - state: omnilaser-blue
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 5
+  - type: ProjectileThrowOnHit
+    distance: 3
+    speed: 3
+  - type: BlurOnCollide
+  - type: StaminaDamageOnCollide
+    damage: 10
+    overtime: 20
+
+- type: entity
+  id: BulletDetain
+  name: detain
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 2
+  - type: BlurOnCollide
+  - type: StaminaDamageOnCollide
+    damage: 30
+    overtime: 15
+
+- type: entity
+  id: BulletExecute
+  name: execute
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    layers:
+    - state: omnilaser-green
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
+        Radiation: 5 # 13 parity
+
+- type: entity
+  id: BulletHotshot
+  name: hotshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: heavylaser
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+  - type: IgniteOnCollide
+    fireStacks: 2
+
+- type: entity
+  id: BulletSleepshot
+  name: sleepshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    layers:
+    - state: omnilaser-pink
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 2
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 2
+  - type: StunOnCollide
+    walkSpeedMultiplier: 0.8
+    runSpeedMultiplier: 0.8
+    slowdownAmount: 2
+
+- type: entity
+  id: BulletBigshot
+  name: bigshot
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: omnilaser_greyscale
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+        Structural: 45
+  - type: BlurOnCollide

@@ -1,0 +1,439 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Thief
+
+- type: selectableSet
+  id: ThiefAnatomySet
+  name: selectable-set-thief-anatomy-name
+  description: selectable-set-thief-anatomy-description
+  sprite:
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+  content:
+  - StorageImplanter
+  - DnaScramblerImplanter
+  - EphedrineChemistryBottle
+  - SoapOmega
+  - Syringe
+  - DrinkShaker
+  - FoodSnackLollypopWrappedSyndicate
+
+- type: selectableSet
+  id: ThiefBreacherSet
+  name: selectable-set-thief-breacher-name
+  description: selectable-set-thief-breacher-description
+  sprite:
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: jaws_pry
+  content:
+  - WelderIndustrialAdvanced
+  - ClothingEyesGlassesMeson
+  - ClothingHandsGlovesColorYellow
+  - JawsOfLife
+  - RemoteSignaller
+  - Multitool
+  - C4
+  - C4
+
+- type: selectableSet
+  id: ThiefChameleonSet
+  name: selectable-set-thief-chameleon-name
+  description: selectable-set-thief-chameleon-description
+  sprite:
+    sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
+    state: icon
+  content:
+  - ClothingBackpackChameleonFill
+  - ChameleonProjector
+  - FakeMindShieldImplanter
+  - AgentIDCard
+
+- type: selectableSet
+  id: ThiefSyndieSet
+  name: selectable-set-thief-syndie-name
+  description: selectable-set-thief-syndie-description
+  sprite:
+    sprite: Objects/Specific/Syndicate/telecrystal.rsi
+    state: telecrystal
+  content:
+  - RadioJammer
+  - TraitorCodePaper
+  - Emag
+  - AccessBreaker
+  - Lighter
+  - CigPackSyndicate
+  - Telecrystal50 # The thief cannot use them, but it may induce communication with traitors
+
+- type: selectableSet
+  id: ThiefSleeperSet
+  name: selectable-set-thief-sleeper-name
+  description: selectable-set-thief-sleeper-description
+  sprite:
+    sprite: Objects/Tanks/anesthetic.rsi
+    state: icon
+  content:
+  - NocturineChemistryBottle
+  - NocturineChemistryBottle
+  - HypopenBox
+  - NitrousOxideTankFilled
+
+- type: selectableSet
+  id: ThiefCommunicatorSet
+  name: selectable-set-thief-communicator-name
+  description: selectable-set-thief-communicator-description
+  sprite:
+    sprite: Objects/Tools/spy_device.rsi
+    state: icon
+  content:
+  - EncryptionKeyStationMaster
+  - CyberPen
+  - BriefcaseThiefBribingBundleFilled
+  - ClothingMaskGasVoiceChameleon
+
+- type: selectableSet
+  id: ThiefSmugglerSet
+  name: selectable-set-thief-smuggler-name
+  description: selectable-set-thief-smuggler-description
+  sprite:
+    sprite: Clothing/Neck/Cloaks/void.rsi
+    state: icon
+  content:
+  - InvisibleCrate
+  - FultonBeacon
+  - Fulton
+  - SmokeGrenade
+  - SmokeGrenade
+  - SmokeGrenade
+
+# Syndicate
+
+- type: selectableSet
+  id: SyndicateSpySet
+  name: selectable-set-syndicate-spy-name
+  description: selectable-set-syndicate-spy-description
+  sprite:
+    sprite: Objects/Devices/jammer.rsi
+    state: jammer
+  content:
+  - EncryptionKeySyndie
+  - ClothingHandsChameleonThief
+  - ClothingBackpackChameleonFill
+  - ClothingMaskGasVoiceChameleon
+  - AgentIDCard
+  - HypopenBox
+  - RadioJammer
+  - StealthBox
+  - SyndicateJawsOfLife
+
+- type: selectableSet
+  id: SyndicateHitmanSet
+  name: selectable-set-syndicate-hitman-name
+  description: selectable-set-syndicate-hitman-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - WeaponPistolCobra
+  - MagazinePistolCaselessRifle
+  - MagazinePistolCaselessRifle
+  - MagazinePistolCaselessRifle
+  - CQCManual
+  - ClothingOuterArmourInvisibleSyndie
+  - ClothingShoesChameleonNoSlips
+  - CigPackSyndicate
+  - MedkitCombatFilled
+  - ClothingEyesGlassesSunglasses
+  - ClothingUniformJumpsuitDetectiveGrey
+  - ClothingHandsGlovesCombat
+
+- type: selectableSet
+  id: SyndicateImplantsSet
+  name: selectable-set-syndicate-implants-name
+  description: selectable-set-syndicate-implants-description
+  sprite:
+    sprite: Objects/Specific/Medical/syndi_implanter.rsi
+    state: implanter0
+  content:
+  - RadioImplanter
+  - BoxHoloparasite
+  - EmpImplanter
+  - ScramImplanter
+  - FreedomImplanter
+  - SmokeImplanter
+  - KravMagaImplanter
+
+- type: selectableSet
+  id: SyndicateHackerSet
+  name: selectable-set-syndicate-hacker-name
+  description: selectable-set-syndicate-hacker-description
+  sprite:
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  content:
+  - EncryptionKeySyndie
+  - AntimovCircuitBoard
+  - AccessBreaker
+  - Emag
+  - CameraBug
+  - ToolboxSyndicateFilled
+  - ClothingUniformJumpsuitAtmosSyndie
+  - ClothingEyesGlassesOutlawGlasses
+  - EncryptionKeyBinarySyndicate
+
+- type: selectableSet
+  id: SyndicateDeswordSet
+  name: selectable-set-syndicate-desword-name
+  description: selectable-set-syndicate-desword-description
+  sprite:
+    sprite: Objects/Weapons/Melee/e_sword_double.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - EnergySwordDouble
+  - StimkitFilled
+  - DrinkSpaceGlue
+  - ClothingShoesBootsJack
+  - ClothingOuterArmorCloakSith # this is armor
+
+- type: selectableSet
+  id: SyndicateGrenadierSet
+  name: selectable-set-syndicate-grenadier-name
+  description: selectable-set-syndicate-grenadier-description
+  sprite:
+    sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+    state: icon
+  content:
+  - EncryptionKeySyndie
+  - SyndieMiniBomb
+  - ExGrenade
+  - GrenadeIncendiary
+  - GrenadeShrapnel
+  - EmpGrenade
+  - SupermatterGrenade
+  - WhiteholeGrenade
+  - SmokeGrenade
+  - GrenadeFlashBang
+  - C4
+
+- type: selectableSet
+  id: SyndicateFluclearSet
+  name: selectable-set-syndicate-fluclear-name
+  description: selectable-set-syndicate-fluclear-description
+  sprite:
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    state: icon
+  content:
+  - ClothingHeadsetAltSyndicate
+  - WeaponSubMachineGunC20r
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - MagazinePistolSubMachineGun
+  - EnergyShield
+  - JetpackBlackFilled
+  - ClothingBackpackDuffelSyndicateHardsuitBundle
+  - ClothingUniformJumpsuitOperative
+  - SyndiPDA
+  - ClothingEyesHudSyndicate
+  - ClothingShoesBootsCombatFilled
+  - ClothingBeltMilitaryWebbing
+
+- type: selectableSet
+  id: SyndicateFriendshipSet
+  name: selectable-set-syndicate-friendship-name
+  description: selectable-set-syndicate-friendship-description
+  sprite:
+    sprite: _Goobstation/Interface/Misc/job_icons.rsi
+    state: Mindcontrolled
+  content:
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - EncryptionKeySyndie
+    - ContractorBaton
+    - Handcuffs
+    - MindcontrolImplanter
+    - MindcontrolImplanter
+    - WeaponSniperMosin
+    - WeaponSniperMosin
+    - WeaponSniperMosin
+
+- type: selectableSet
+  id: SyndicateCarpSet
+  name: selectable-set-syndicate-carp-name
+  description: selectable-set-syndicate-carp-description
+  sprite:
+    sprite: Objects/Fun/toys.rsi
+    state: carpplush
+  content:
+    - EncryptionKeySyndie
+    - SleepingCarpScroll
+    - DehydratedSpaceCarp # 1
+    - DehydratedSpaceCarp # 2
+    - DehydratedSpaceCarp # 3
+    - DehydratedSpaceCarp # 4
+    - DehydratedSpaceCarp # 5
+    - DehydratedSpaceCarp # 6
+    - DehydratedSpaceCarp # 7
+    - DehydratedSpaceCarp # 8
+    - DehydratedSpaceCarp # 9
+    - DehydratedSpaceCarp # 10
+    - FireExtinguisher
+
+# Blueshield officer
+
+- type: selectableSet
+  id: BSOBlueshieldSet
+  name: selectable-set-blueshield-shield-name
+  description: selectable-set-blueshield-shield-description
+  sprite:
+    sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+    state: icon-on
+  content:
+    - BlueShieldShieldFilled
+
+- type: selectableSet
+  id: BSORevolverSet
+  name: selectable-set-blueshield-revolver-name
+  description: selectable-set-blueshield-revolver-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    state: icon
+  content:
+    - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloaders
+
+- type: selectableSet
+  id: BSOCQCSet
+  name: selectable-set-blueshield-cqc-name
+  description: selectable-set-blueshield-cqc-description
+  sprite:
+    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    state: icon-alt
+  content:
+    - BSOManual
+
+- type: selectableSet
+  id: BSOChesterSet
+  name: selectable-set-blueshield-chester-name
+  description: selectable-set-blueshield-chester-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    state: base
+  content:
+    - MagazineShotgunLeverRifleEmpty
+    - MagazineShotgunLeverRifleEmpty
+    - MagazineBoxShotgunHighCaliber
+    - MagazineBoxShotgunHighCaliberFlash
+    - MagazineBoxShotgunHighCaliberEnsnaring
+    - MagazineBoxShotgunHighCaliberEMP
+    - WeaponLeverChester
+
+- type: selectableSet
+  id: BSOSyringeSet
+  name: selectable-set-blueshield-syringe-name
+  description: selectable-set-blueshield-syringe-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
+    state: icon
+  content:
+    - BoxCombatInjector
+
+# Blueshield hardsuits
+
+- type: selectableSet
+  id: BSOHardsuitLightSet
+  name: selectable-set-blueshield-hardsuit-light-name
+  description: selectable-set-blueshield-hardsuit-light-description
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
+    state: icon
+  content:
+    - ClothingOuterHardsuitBlueshieldLight
+
+- type: selectableSet
+  id: BSOHardsuitHeavySet
+  name: selectable-set-blueshield-hardsuit-heavy-name
+  description: selectable-set-blueshield-hardsuit-heavy-description
+  sprite:
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    state: icon
+  content:
+    - ClothingOuterHardsuitBlueshieldHeavy
+
+# ERT
+
+- type: selectableSet
+  id: ERTBallisticsSet
+  name: selectable-set-ert-ballistic-name
+  description: selectable-set-ert-ballistic-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
+    state: base
+  content:
+    - WeaponRifleAnnie
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - MagazineLightRifle
+    - WeaponPistolN1984
+    - MagazineMagnum
+    - MagazineMagnum
+
+- type: selectableSet
+  id: ERTPulseSet
+  name: selectable-set-ert-pulse-name
+  description: selectable-set-ert-pulse-description
+  sprite:
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    state: icon
+  content:
+    - WeaponPulseCarbineAdvanced
+    - WeaponEnergyRevolver
+    - EnergySpeedloaderPulse
+    - EnergySpeedloaderPulse
+    - EnergySpeedloaderDisabler
+
+# Head Of Security
+
+- type: selectableSet
+  id: HosSmgSet
+  name: selectable-set-hos-smg-name
+  description: selectable-set-hos-smg-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySMG
+
+- type: selectableSet
+  id: HosShotgunSet
+  name: selectable-set-hos-shotgun-name
+  description: selectable-set-hos-shotgun-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityShotgun
+
+- type: selectableSet
+  id: HosSniperSet
+  name: selectable-set-hos-sniper-name
+  description: selectable-set-hos-sniper-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecuritySniper
+
+- type: selectableSet
+  id: HosRifleSet
+  name: selectable-set-hos-rifle-name
+  description: selectable-set-hos-rifle-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurityRifle

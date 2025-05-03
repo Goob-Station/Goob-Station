@@ -7707,3 +7707,681 @@ Entries:
         explosion resistance to their contents.
   id: 898
   time: '2025-04-17T18:16:08.0000000+00:00'
+- author: TheBorzoiMustConsume
+  changes:
+    - type: Tweak
+      message: Only heretic, wizard and chaplain have ability to enchant items now.
+  id: 899
+  time: '2025-04-18T22:48:25.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Brought back disposal unit speed flush.
+  id: 900
+  time: '2025-04-19T02:12:44.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Remove
+      message: Ghost bar arena portal was temporarily removed.
+  id: 901
+  time: '2025-04-20T00:33:44.0000000+00:00'
+- author: The Independent State of Chemlabia
+  changes:
+    - type: Fix
+      message: Fixed syringes being breakable.
+  id: 902
+  time: '2025-04-20T06:21:21.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Buff and tattoo to markings...and a hair style
+    - type: Tweak
+      message: You can have 3 chest markings
+  id: 903
+  time: '2025-04-20T18:32:56.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Armor-piercing values are now shown on examine.
+    - type: Tweak
+      message: Reworked M7S. Meet the Ventilator.
+    - type: Tweak
+      message: Caseless Magnum is now hollow-point.
+    - type: Fix
+      message: Disablers no longer deal double the damage.
+  id: 904
+  time: '2025-04-22T04:40:50.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Fix
+      message: Fixed carp scroll being unbuyable.
+  id: 905
+  time: '2025-04-22T05:52:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Changeling biomass.
+    - type: Tweak
+      message: Changeling steal DNA objective changed to absorb objective.
+  id: 906
+  time: '2025-04-23T01:21:47.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added metrics to game director, doesn't actually do anything player
+        facing, but this means it should be easier for us to make game director
+        suck less now.
+  id: 907
+  time: '2025-04-23T20:02:02.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Resomi are now immune to cold, slightly more vulnarable to blunt, slash
+        and heat, unable to fit into duffelbags and fly.
+  id: 908
+  time: '2025-04-23T20:08:20.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token spawns spawning by themselves.
+  id: 909
+  time: '2025-04-24T02:24:21.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed token abductors. Maybe.
+  id: 910
+  time: '2025-04-25T02:02:59.0000000+00:00'
+- author: BombaserDS2, pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Dual-wielded weapons no longer shoot slower, but they will have a chance
+        to miss their shots.
+    - type: Fix
+      message: Dual-wielded weapons now actually respect firerate of each other.
+    - type: Fix
+      message: Yowies now correctly get all gun wielding bonuses without wielding.
+  id: 911
+  time: '2025-04-25T02:25:48.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: 'All enchantments now related to anomaly cores. '
+    - type: Tweak
+      message: >-
+        Protection enchant max level decreased to 2. It also requires equipment
+        to have any armor to be applied.
+  id: 912
+  time: '2025-04-25T06:35:47.0000000+00:00'
+- author: be1bright
+  changes:
+    - type: Add
+      message: Added welder energy swords.
+  id: 913
+  time: '2025-04-25T14:33:25.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Add
+      message: >-
+        Changelings received a new ability, Void adaption - which grants them
+        total immunity to the effects of space. Costs 4 points and requires 2
+        absorptions. Applies a 25% penalty to chem regen.
+    - type: Add
+      message: >-
+        Ephedrine overdose changed to Adrenaline Reserves - which uses a unique
+        chemical.
+    - type: Add
+      message: >-
+        Changelings are now unable to use most abilities while on fire, along
+        with suffering a major chem regen penalty!
+    - type: Add
+      message: >-
+        Some changeling abilities will now apply a reduction multiplier to the
+        amount of chemicals that are regenerated.
+    - type: Remove
+      message: Space adaption (replaced by Void adaption).
+    - type: Tweak
+      message: >-
+        Resonant shriek has been reworked, now stuns everybody nearby
+        (changelings ignore this, and sound protection reduces the duration by
+        half).
+    - type: Tweak
+      message: >-
+        Fleshmend heals twice as fast, heals more brute and treats asphyxiation
+        but is half as effective with burns. Cooldown now lasts for as long as
+        it takes effect.
+    - type: Tweak
+      message: >-
+        Panacea clears more pax, clears BZ, heals eye damage and also removes
+        any disabilities. Cooldown now lasts for as long as it takes effect.
+    - type: Tweak
+      message: >-
+        Biodegrade blinds and knocks down anyone who is grabbing you. Leaving
+        stasis will knockdown people grabbing you.
+    - type: Tweak
+      message: >-
+        Transforming identities as a Changeling will no longer show up a massive
+        red text prompt (only the sound remains).
+    - type: Tweak
+      message: >-
+        Chitinous Armour now provides resistance to weaker fires, has no
+        slowdown and no has radiation protection.
+    - type: Tweak
+      message: Chitinous Armour and Chameleon Skin apply a 25% penalty to chem regen.
+    - type: Tweak
+      message: >-
+        Arm-hammer and Arm-claw have new sprites, matching the style of the
+        arm-blade.
+    - type: Tweak
+      message: Changelings can no longer use martial arts or have a holo-parasite.
+  id: 914
+  time: '2025-04-25T23:53:39.0000000+00:00'
+- author: PunishedJoe
+  changes:
+    - type: Tweak
+      message: resomi's now take 30% more brute damage
+    - type: Tweak
+      message: resomi fit in bags again
+  id: 915
+  time: '2025-04-26T18:31:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Advanced pens (e.g. cybersun pen) now do 3 -> 20 embed damage.
+  id: 916
+  time: '2025-04-27T14:42:25.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Fix
+      message: fixed deathsquad PDA colors
+  id: 917
+  time: '2025-04-27T14:43:07.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Instead of having 20% more health, IPCs now take 20% less brute damage.
+        Other values changed accordingly, this is only a cosmetic change.
+  id: 918
+  time: '2025-04-27T15:29:05.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Welder energy swords now have 10% chance of reflecting lasers, deal 5/10
+        damage instead of 4/11, and are half as effective in damaging limbs as
+        the real eswords.
+    - type: Fix
+      message: >-
+        You can no longer use welder energy swords to craft a real double energy
+        sword.
+  id: 919
+  time: '2025-04-27T16:12:11.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Syndicate agents can now purchase undeterminated crates, allowing them
+        to choose one of three random bundles!
+  id: 920
+  time: '2025-04-27T19:39:50.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added new syndicate faction - Neulithiv Visionary Federation
+  id: 921
+  time: '2025-04-28T03:28:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Remove
+      message: Removed copyrighted songs. (R.I.P Holocigar & Mariah)
+  id: 922
+  time: '2025-04-28T05:07:20.0000000+00:00'
+- author: yahay505
+  changes:
+    - type: Add
+      message: RADIATION OVERHAUL!
+    - type: Remove
+      message: Nerfed Richard Turk
+    - type: Tweak
+      message: >-
+        Radiation now uses 2D propagation system, standing on top of or holding
+        radiation sources in your hand is extremely ill advised. doubly more so
+        than before. 
+    - type: Tweak
+      message: >-
+        Radiation propagation now takes into account distance traveled through
+        blockers
+    - type: Tweak
+      message: >-
+        Radiation now uses a percentage based blocking, large radiation sources
+        are blocked more.
+    - type: Tweak
+      message: >-
+        Radiation propagation max distance removed, huge rad sources can now
+        travel way further.
+    - type: Fix
+      message: Engi can no longer accidentally insta-kill their 100 tile radius
+    - type: Add
+      message: >-
+        *reinforced* uranium or *reinforced* plasma windows, plasma walls and
+        uranium walls are excellent radiation blockers, engineers should set
+        them up before making experimental SM setups.
+    - type: Remove
+      message: normal walls, windows and doors no longer block radiation
+  id: 923
+  time: '2025-04-28T19:26:55.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Radiation collectors are now more efficient at higher radiation. Also
+        removed them being bad if you use cold plasma.
+  id: 924
+  time: '2025-04-28T19:27:29.0000000+00:00'
+- author: John Shitcode
+  changes:
+    - type: Add
+      message: >-
+        New toy for engineering: Power Transmission Laser. Turking it made
+        legal. Convert cancer into money!
+  id: 925
+  time: '2025-04-28T19:27:42.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: >-
+        The NTRs handheld fax now drops paper on the ground when printing inside
+        of a container, instead of sticking it to the bag.
+  id: 926
+  time: '2025-04-29T07:57:58.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Queue system now exists, if the server is full and you try joining,
+        you'll be put in a queue. (Patrons get priority queue 😄 )
+    - type: Tweak
+      message: >-
+        Goobflation has ruined the antag token economy (as of writing there are
+        3,676,072 coins in circulation), antag tokens have risen in price to
+        combat this.
+    - type: Remove
+      message: >-
+        Mid tier, low tier, and ghost role tokens have been nuked in favor of
+        one central antag token.
+    - type: Tweak
+      message: Patrons get double goob coins now.
+  id: 927
+  time: '2025-04-29T23:37:06.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Changed sizes of most weapons.
+    - type: Tweak
+      message: >-
+        Reworked shoulder holsters. Detective's holster now stores a handgun and
+        syndicate holster stores any gun, and on top of that they both have 4x2
+        pocket for ammo.
+    - type: Tweak
+      message: Syndicate shoulder holster now costs 8 TC.
+    - type: Tweak
+      message: Blueshield Officer EG-4 pack now comes with a shoulder holster.
+  id: 928
+  time: '2025-04-30T07:20:54.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Syndicate fire axe buffed (attack rate, damage, structural damage
+        significantly increased).
+  id: 929
+  time: '2025-04-30T22:03:50.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: Mice can no longer shove (sorry).
+  id: 930
+  time: '2025-04-30T22:31:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Abductor pinchers can now be used as barber scissors.
+  id: 931
+  time: '2025-04-30T23:05:36.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now use welders to deconstruct plating.
+  id: 932
+  time: '2025-05-01T03:29:56.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Remove
+      message: Atmos temperature limit effectively removed.
+  id: 933
+  time: '2025-05-01T05:11:03.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Energy guns can now light cigarettes. Blueshield is 10x cooler.
+  id: 934
+  time: '2025-05-01T06:02:31.0000000+00:00'
+- author: >-
+    SolsticeOfTheWinter, Rosef, The Chinese Communist Party, The Friends I Made
+    Along the Way
+  changes:
+    - type: Add
+      message: Added the Devil. But actually this time.
+  id: 935
+  time: '2025-05-01T06:43:51.0000000+00:00'
+- author: TurboTrackerss14
+  changes:
+    - type: Tweak
+      message: >-
+        Replaced Syndicate Encryption Key box uplink purchase, which contained
+        two keys, with a singular cheaper key.
+    - type: Tweak
+      message: 'Reduced the price of Syndicate Radio Implanter uplink purchase. '
+  id: 936
+  time: '2025-05-01T09:13:19.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Nukeops role timers increased, 10 overall hours + 10 sec hours for
+        troopa, 25 overall hours +5 chemist hours for agent and 25 overall hours
+        +5 hours of command for commander (LEADERSHIP SKILLS)
+    - type: Tweak
+      message: Nukeops now spawn with agent IDs in their PDA
+    - type: Tweak
+      message: Nukeops now spawn with NVGs, pop those lights buddy
+    - type: Tweak
+      message: Ninjas now have a microbomb instead of a death acidifier
+  id: 937
+  time: '2025-05-01T10:09:48.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Remove
+      message: Blobs no longer emit light.
+  id: 938
+  time: '2025-05-01T16:34:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: China lake is back to 1 firerate. Still pump action.
+    - type: Tweak
+      message: >-
+        Singularity buster is greatly increased in size and is no longer a steal
+        target.
+  id: 939
+  time: '2025-05-01T18:13:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        You can now make counterfeit spesos by applying a knife then a spray
+        painter to paper. Law enforcement might not be happy, though.
+  id: 940
+  time: '2025-05-01T18:43:54.0000000+00:00'
+- author: Creatorbot01
+  changes:
+    - type: Add
+      message: Added 1 mag type for cr-2
+    - type: Add
+      message: Added Ion rifle
+    - type: Tweak
+      message: small buff to cr-2 to actually be deadly against nukie(15>17 damage)
+    - type: Tweak
+      message: Disabler no longer do ion damage ipc rejoice
+  id: 941
+  time: '2025-05-01T21:01:14.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed several issues with devil.
+  id: 942
+  time: '2025-05-01T22:46:00.0000000+00:00'
+- author: Aineias1
+  changes:
+    - type: Tweak
+      message: Changed floor tile decals texture
+  id: 943
+  time: '2025-05-02T05:27:23.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Generalized plushie names.
+    - type: Add
+      message: >-
+        You can now gib Mikedyne and Muppet with a plushie that resembles them.
+        This will not have consequences unless an admin says otherwise.
+  id: 944
+  time: '2025-05-02T05:29:51.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Moths move slightly slower but can dash with their wings with 65%
+        chance. 
+    - type: Tweak
+      message: Voxes now do not rot, but you can't clone them.
+    - type: Tweak
+      message: Onis are now able to shoot one-handed SMGs with two hands.
+    - type: Add
+      message: Added some more things for arachnids to craft.
+    - type: Fix
+      message: Harpies now move slightly faster, as they should.
+  id: 945
+  time: '2025-05-02T05:31:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Remove
+      message: Removed Heaven's Gate!
+    - type: Add
+      message: Added HE1S-G8!
+  id: 946
+  time: '2025-05-02T05:35:45.0000000+00:00'
+- author: SolsticeOfTheWinter, Rosef, Taro Varne, pheenty
+  changes:
+    - type: Add
+      message: Gave HOS that solstice ***spice***
+    - type: Add
+      message: Added pepperspray.
+    - type: Add
+      message: Added the distress signaller.
+    - type: Add
+      message: Added the bloodtrak for the detective.
+    - type: Add
+      message: Added the advanced holobarrier projector.
+    - type: Add
+      message: Added shitsec.
+    - type: Add
+      message: Added lethal injections to the wardens locker.
+    - type: Remove
+      message: My sanity
+  id: 947
+  time: '2025-05-02T07:23:51.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You can now build tiders.
+  id: 948
+  time: '2025-05-02T10:42:13.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: You can now use medical patches while moving and self use is faster.
+    - type: Add
+      message: >-
+        You can now shoot yourself with syringe or dart gun if you aim at
+        yourself.
+    - type: Add
+      message: >-
+        You can now fully inject the syringe into someone and destroy it in the
+        process if you time the do-after that appears in combat mode while
+        holding syringe. Hitting yourself ignores the do-after.
+    - type: Add
+      message: >-
+        Bolas only knockdown if you are in combat mode while throwing them and
+        time the do-after similarly to syringes.
+  id: 949
+  time: '2025-05-02T11:26:41.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Replaced crew explosive payloads with shrapnel ones.
+    - type: Tweak
+      message: Flash payloads now properly work as flashbangs.
+    - type: Tweak
+      message: Blackpowder explosion is nerfed slightly.
+    - type: Tweak
+      message: Returned old explosive resistances on nukies hardsuits.
+  id: 950
+  time: '2025-05-02T12:07:16.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Freedom implant now costs 18 TC, is unlimited use, will stun the person
+        pulling the user, and removes bolas.
+    - type: Tweak
+      message: Changeling biodegrade now removes bolas too.
+    - type: Tweak
+      message: >-
+        Scram implant now recharges faster, costs 15 TC, but does not work while
+        stunned or cuffed.
+    - type: Add
+      message: Cyberpsychosis bundle now includes freedom implant.
+  id: 951
+  time: '2025-05-02T12:08:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Security lockers now contain either security belt OR judo belt, but not
+        both.
+  id: 952
+  time: '2025-05-03T04:08:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed radiation collectors with very high maximum output ramping very
+        slowly.
+  id: 953
+  time: '2025-05-03T04:14:52.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: >-
+        Invisible armor (Syndie and Centcomm) are now invisible in the strip
+        menu.
+  id: 954
+  time: '2025-05-03T04:16:01.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Warops declaration will now play new music.
+  id: 955
+  time: '2025-05-03T04:17:03.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Salvage borg grappling module now has experimental jaunter, which will
+        recharge over time.
+  id: 956
+  time: '2025-05-03T04:17:55.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        You can now quickscope with Hristov like a pro. Also, it is now
+        bolt-action, but fires faster, is 2x7 in the storage, comes with an
+        extra mag, but slows down on wielding slightly more.
+  id: 957
+  time: '2025-05-03T04:18:15.0000000+00:00'
+- author: Singul0
+  changes:
+    - type: Fix
+      message: >-
+        Ghost roles with requirements (such as maint drones) are now grouped
+        together correctly!
+  id: 958
+  time: '2025-05-03T04:20:00.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: 'New Ian variant: Clown Ian.'
+  id: 959
+  time: '2025-05-03T04:22:38.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: I'm now gibbable via carp. I shall take the punishment in his stead.
+    - type: Add
+      message: >-
+        Brizby is now gibbable via carp. The balance of goob stays equivalent
+        after all...
+    - type: Remove
+      message: 'Rosef is no longer gibbable via carp. Please shame him publicly. '
+  id: 960
+  time: '2025-05-03T04:23:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed a bug with movement impaired.
+  id: 961
+  time: '2025-05-03T04:24:16.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Revenant is now slightly stronger and faster.
+    - type: Add
+      message: Revenant now can toggle nightvision.
+  id: 962
+  time: '2025-05-03T04:24:40.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Teslas can now bounce off each other.
+    - type: Add
+      message: Tesla generators are now immune to teslas.
+  id: 963
+  time: '2025-05-03T04:25:42.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob factories are now limited to 3 alive and not total blob drops.
+  id: 964
+  time: '2025-05-03T04:26:14.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: You can now wear your propeller hat backwards like the cool kids do.
+  id: 965
+  time: '2025-05-03T04:26:34.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Burner HE ammo is now HEI. Weaker explosion, but enflames its targets.
+        Come on, it's called BURNER after all.
+    - type: Tweak
+      message: Emag and disruptor both cost 20 TC now.
+    - type: Tweak
+      message: Viper and Cobra cost 13 and 17 TC respectively.
+    - type: Tweak
+      message: A lot of ammo now costs less TC.
+  id: 966
+  time: '2025-05-03T04:27:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added inline filters - essentially a filter on top of a straight pipe.
+  id: 967
+  time: '2025-05-03T04:33:47.0000000+00:00'

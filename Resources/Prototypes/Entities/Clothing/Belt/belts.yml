@@ -323,6 +323,7 @@
         - HandheldCrewMonitor # Goobstation
         - EnergySpeedloader # Goobstation
         - Sidearm # Goobstation
+        - PepperSpray # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -710,9 +711,28 @@
   - type: Storage
     grid:
     - 0,0,3,1
+  # Goobstation
+    whitelist:
+      components:
+        - BallisticAmmoProvider
+        - CartridgeAmmo
+      tags:
+        - EnergySpeedloader # Goobstation
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: []
+  - type: ItemSlots
+    slots:
+      item:
+        name: Handgun
+        whitelist:
+          tags:
+          - Sidearm
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
+  parent: [ClothingBeltHolster, BaseSyndicateContraband] # Goobstation
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
@@ -723,15 +743,23 @@
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Item
     size: Ginormous
-  - type: Storage
-    maxItemSize: Huge
-    grid:
-    - 0,0,3,3
-    whitelist:
-      components:
-      - Gun
-      - BallisticAmmoProvider
-      - CartridgeAmmo
+  # Goobstation
+  #- type: Storage
+  #  maxItemSize: Huge
+  #  grid:
+  #  - 0,0,3,3
+  #  whitelist:
+  #    components:
+  #    - Gun
+  #    - BallisticAmmoProvider
+  #    - CartridgeAmmo
+  - type: ItemSlots
+    slots:
+      item:
+        name: Gun
+        whitelist:
+          components:
+          - Gun
 
 # Belts without visualizers
 

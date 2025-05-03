@@ -1,7 +1,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -82,7 +84,5 @@
     boundingBox: "-0.5,-0.5,0.5,-0.28125"
   - type: StaticPrice
     price: 37
-  - type: RadiationBlocker
-    resistance: 1
   - type: BlockWeather
   - type: RustedWall # For rust heretic. I'm too lazy to make this wall rustable so it counts as already rusted.

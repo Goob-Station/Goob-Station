@@ -27,6 +27,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Bible;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -128,9 +129,7 @@ namespace Content.Server.Bible
                 return;
 
             if (args.Target == null || args.Target == args.User || !_mobStateSystem.IsAlive(args.Target.Value))
-            {
-                return;
-            }
+                return; // STOP WITH USELESS BRACES!! - Goobstation
 
             if (!HasComp<BibleUserComponent>(args.User))
             {
@@ -275,5 +274,7 @@ namespace Content.Server.Bible
             component.AlreadySummoned = true;
             _actionsSystem.RemoveAction(user, component.SummonActionEntity);
         }
+
+
     }
 }

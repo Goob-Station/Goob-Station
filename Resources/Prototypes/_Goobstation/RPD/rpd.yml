@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: rcd
+  id: FilterInline
+  category: AtmosphericUtility
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/inlineFilter.png
+  mode: ConstructObject
+  prototype: GasFilterInline
+  cost: 1
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0

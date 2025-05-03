@@ -32,6 +32,7 @@
 # SPDX-FileCopyrightText: 2025 HTML/Crystal <152909599+HTMLSystem@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -153,6 +154,7 @@
         visible: false
   - type: Inventory
     templateId: arachnid
+  - type: IgnoreSpiderWeb # Goobstation
 
 - type: entity
   parent: BaseSpeciesDummy
