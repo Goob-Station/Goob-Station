@@ -8385,3 +8385,13 @@ Entries:
       message: Added inline filters - essentially a filter on top of a straight pipe.
   id: 967
   time: '2025-05-03T04:33:47.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Slightly changed armor values of most armor vests.
+    - type: Tweak
+      message: >-
+        Instead of just dealing more damage, heavier calibers now have partial
+        AP.
+  id: 968
+  time: '2025-05-03T04:47:17.0000000+00:00'
