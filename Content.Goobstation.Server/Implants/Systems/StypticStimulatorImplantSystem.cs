@@ -15,6 +15,7 @@ using Content.Shared.Mobs;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using System.Linq;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
@@ -50,9 +51,9 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         var damageComp = EnsureComp<PassiveDamageComponent>(user);
 
         // Store original allowed states.
-        ent.Comp.OriginalAllowedMobStates?.Clear();
-        foreach (var state in damageComp.AllowedStates)
-            ent.Comp.OriginalAllowedMobStates?.Add(state);
+        ent.Comp.OriginalAllowedMobStates = null;
+        if (damageComp.AllowedStates != null)
+            ent.Comp.OriginalAllowedMobStates = damageComp.AllowedStates.ToList();
 
         // Store original damage cap if not already stored
         if (!_originalDamageCaps.ContainsKey(user))
@@ -80,7 +81,6 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         damageComp.DamageCap = FixedPoint2.Zero;
 
         // Set new allowed states.
-        damageComp.AllowedStates.Clear();
         damageComp.AllowedStates = [MobState.Alive, MobState.Critical];
 
         damageComp.Interval = 0.20f;
@@ -132,11 +132,9 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
                 _originalDamageSpecifiers.Remove(implanted);
             }
 
-            // Restore original allowed states.
-            damageComp.AllowedStates.Clear();
-
+            damageComp.AllowedStates = null;
             if (ent.Comp.OriginalAllowedMobStates != null)
-                damageComp.AllowedStates = ent.Comp.OriginalAllowedMobStates;
+                damageComp.AllowedStates = ent.Comp.OriginalAllowedMobStates.ToList();
 
             // blah blah
             damageComp.Interval = 1f;

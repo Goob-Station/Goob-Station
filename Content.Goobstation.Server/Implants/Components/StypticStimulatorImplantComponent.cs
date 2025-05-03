@@ -26,5 +26,5 @@ public sealed partial class StypticStimulatorImplantComponent : Component
     public float BleedingModifier = -100f;
 
     [DataField]
-    public List<MobState> OriginalAllowedMobStates = new();
+    public List<MobState>? OriginalAllowedMobStates = null;
 }

@@ -36,8 +36,8 @@ public sealed class PassiveDamageSystem : EntitySystem
         var curTime = _timing.CurTime;
 
         // Go through every entity with the component
-        var query = EntityQueryEnumerator<PassiveDamageComponent, DamageableComponent, MobStateComponent>();
-        while (query.MoveNext(out var uid, out var comp, out var damage, out var mobState))
+        var query = EntityQueryEnumerator<PassiveDamageComponent, DamageableComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var damage))
         {
             // Make sure they're up for a damage tick
             if (comp.NextDamage > curTime)
@@ -48,6 +48,13 @@ public sealed class PassiveDamageSystem : EntitySystem
 
             // Set the next time they can take damage
             comp.NextDamage = curTime + TimeSpan.FromSeconds(1f);
+
+            // Goobstation
+            if (comp.AllowedStates == null || !TryComp<MobStateComponent>(uid, out var mobState))
+            {
+                _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
+                return;
+            }
 
             // Damage them
             foreach (var allowedState in comp.AllowedStates)

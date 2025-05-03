@@ -73,7 +73,15 @@
         Shock: -1
         Structural: -1
       groups:
-        Brute: -1
+        Brute: -3
   - type: AntiRottingContainer
   - type: SpawnOnDespawn
     prototype: CrateFunBingleLoot
+
+- type: entity
+  id: BinglePitBingleless
+  parent: BinglePit
+  suffix: bingleless
+  components:
+  - type: BinglePit
+    startingBingles: 0
