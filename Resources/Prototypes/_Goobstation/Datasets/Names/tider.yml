@@ -6,11 +6,11 @@
 - type: localizedDataset
   id: TiderNamesFirst
   values:
-  prefix: names-tider-first-
-  count: 8
+    prefix: names-tider-first-
+    count: 8
 
 - type: localizedDataset
   id: TiderNamesLast
   values:
-  prefix: names-tider-last-
-  count: 10
+    prefix: names-tider-last-
+    count: 10
