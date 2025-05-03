@@ -85,7 +85,9 @@
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -128,6 +130,7 @@ using Content.Shared.Speech; // Goobstation
 using Content.Shared.Standing;
 using Content.Shared.Throwing; // Goobstation
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio; // Goobstation
 using Robust.Shared.Audio.Systems; // Goobstation
 using Robust.Shared.Containers;
@@ -170,6 +173,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
+    [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!; // Goobstation - Grab Intent
 
     public override void Initialize()
     {
@@ -686,8 +690,12 @@ public sealed class PullingSystem : EntitySystem
         return TogglePull((puller.Pulling.Value, pullable), pullerUid);
     }
 
-    public bool TryStartPull(EntityUid pullerUid, EntityUid pullableUid,
-        PullerComponent? pullerComp = null, PullableComponent? pullableComp = null, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1.0f)
+    public bool TryStartPull(EntityUid pullerUid,
+        EntityUid pullableUid,
+        PullerComponent? pullerComp = null,
+        PullableComponent? pullableComp = null,
+        GrabStage? grabStageOverride = null,
+        float escapeAttemptModifier = 1.0f)
     {
         if (!Resolve(pullerUid, ref pullerComp, false) ||
             !Resolve(pullableUid, ref pullableComp, false))
@@ -702,6 +710,10 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         if (!TryComp(pullerUid, out PhysicsComponent? pullerPhysics) || !TryComp(pullableUid, out PhysicsComponent? pullablePhysics))
+            return false;
+
+        if(TryComp<MeleeWeaponComponent>(pullerUid, out var meleeWeaponComponent)
+           && _timing.CurTime < meleeWeaponComponent.NextAttack)
             return false;
 
         // Ensure that the puller is not currently pulling anything.
@@ -719,33 +731,40 @@ public sealed class PullingSystem : EntitySystem
             if (!TryStopPull(pullableUid, pullableComp, pullableComp.Puller))
             {
                 // Not succeed to retake grabbed entity
-                if (_netManager.IsServer)
-                {
-                    _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail",
-                            ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullerUid, pullerUid, PopupType.MediumCaution);
-                    _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail-puller",
-                            ("puller", Identity.Entity(pullerUid, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullableComp.Puller.Value, pullableComp.Puller.Value, PopupType.MediumCaution);
-                }
+                if (!_netManager.IsServer)
+                    return false;
+                _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail",
+                        ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                    pullerUid,
+                    pullerUid,
+                    PopupType.MediumCaution);
+                _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail-puller",
+                        ("puller", Identity.Entity(pullerUid, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                    pullableComp.Puller.Value,
+                    pullableComp.Puller.Value,
+                    PopupType.MediumCaution);
                 return false;
             }
 
-            else if (pullableComp.GrabStage != GrabStage.No)
+            if (pullableComp.GrabStage != GrabStage.No)
             {
                 // Successful retake
                 if (_netManager.IsServer)
                 {
                     _popup.PopupEntity(Loc.GetString("popup-grab-retake-success",
-                            ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullerUid, pullerUid, PopupType.MediumCaution);
+                        ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                        pullerUid,
+                        pullerUid,
+                        PopupType.MediumCaution);
                     _popup.PopupEntity(Loc.GetString("popup-grab-retake-success-puller",
-                            ("puller", Identity.Entity(pullerUid, EntityManager)),
-                            ("pulled", Identity.Entity(pullableUid, EntityManager))),
-                        pullableComp.Puller.Value, pullableComp.Puller.Value, PopupType.MediumCaution);
+                        ("puller", Identity.Entity(pullerUid, EntityManager)),
+                        ("pulled", Identity.Entity(pullableUid, EntityManager))),
+                        pullableComp.Puller.Value,
+                        pullableComp.Puller.Value,
+                        PopupType.MediumCaution);
                 }
             }
             // Goobstation
@@ -838,39 +857,47 @@ public sealed class PullingSystem : EntitySystem
         if (msg.Cancelled)
             return false;
 
-
         // Goobstation - Grab Intent
         if (!ignoreGrab)
-        {
-            if (_netManager.IsServer && user != null && user.Value == pullableUid)
-            {
-                var releaseAttempt = AttemptGrabRelease(pullableUid);
-                if (!releaseAttempt)
-                {
-                    _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
-                        pullableUid,
-                        pullableUid,
-                        PopupType.SmallCaution);
-                    return false;
-                }
+            if (!TryGrabRelease(pullableUid, user, pullerUidNull.Value))
+                return false;
 
-                _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
-                    pullableUid,
-                    pullableUid,
-                    PopupType.SmallCaution);
-                _popup.PopupEntity(
-                    Loc.GetString("popup-grab-release-success-puller",
-                        ("target", Identity.Entity(pullableUid, EntityManager))),
-                    pullerUidNull.Value,
-                    pullerUidNull.Value,
-                    PopupType.MediumCaution);
-            }
-        }
-        // Goobstation
         StopPulling(pullableUid, pullable);
         return true;
     }
+    private bool TryGrabRelease(EntityUid pullableUid, EntityUid? user, EntityUid pullerUid)
+    {
+        if (user == null || user.Value != pullableUid)
+            return true;
 
+        var releaseAttempt = AttemptGrabRelease(pullableUid);
+
+        if (!_netManager.IsServer)
+            return false;
+
+        if (!releaseAttempt)
+        {
+            _popup.PopupEntity(Loc.GetString("popup-grab-release-fail-self"),
+                pullableUid,
+                pullableUid,
+                PopupType.SmallCaution);
+            return false;
+        }
+
+        _popup.PopupEntity(Loc.GetString("popup-grab-release-success-self"),
+            pullableUid,
+            pullableUid,
+            PopupType.SmallCaution);
+
+        _popup.PopupEntity(
+            Loc.GetString("popup-grab-release-success-puller",
+                ("target", Identity.Entity(pullableUid, EntityManager))),
+            pullerUid,
+            pullerUid,
+            PopupType.MediumCaution);
+
+        return true;
+    }
     public void StopAllPulls(EntityUid uid) // Goobstation
     {
         if (TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
@@ -892,41 +919,31 @@ public sealed class PullingSystem : EntitySystem
     /// <param name="escapeAttemptModifier">if anything what to modify the escape chance by</param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     /// <returns></returns>
-    public bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
+    private bool TryGrab(Entity<PullableComponent?> pullable, Entity<PullerComponent?> puller, bool ignoreCombatMode = false, GrabStage? grabStageOverride = null, float escapeAttemptModifier = 1f)
     {
-        if (!Resolve(pullable.Owner, ref pullable.Comp))
-            return false;
-
-        if (!Resolve(puller.Owner, ref puller.Comp))
+        if (!Resolve(pullable.Owner, ref pullable.Comp)
+            || !Resolve(puller.Owner, ref puller.Comp)
+            || HasComp<PacifiedComponent>(puller)
+            || !HasComp<MobStateComponent>(pullable)
+            || pullable.Comp.Puller != puller
+            || puller.Comp.Pulling != pullable
+            || !TryComp<MeleeWeaponComponent>(puller, out var meleeWeaponComponent))
             return false;
 
         // prevent you from grabbing someone else while being grabbed
         if (TryComp<PullableComponent>(puller, out var pullerAsPullable) && pullerAsPullable.Puller != null)
             return false;
 
-        if (HasComp<PacifiedComponent>(puller))
-            return false;
-
-        if (pullable.Comp.Puller != puller ||
-            puller.Comp.Pulling != pullable)
-            return false;
-
-        if (puller.Comp.NextStageChange > _timing.CurTime)
-            return true;
-
-        // You can't choke crates
-        if (!HasComp<MobStateComponent>(pullable))
-            return false;
-
-        // Delay to avoid spamming
-        puller.Comp.NextStageChange = _timing.CurTime + puller.Comp.StageChangeCooldown;
-        Dirty(puller);
-
         // Don't grab without grab intent
         if (!ignoreCombatMode)
             if (!_combatMode.IsInCombatMode(puller))
                 return false;
 
+        if (_timing.CurTime < meleeWeaponComponent.NextAttack)
+            return true;
+
+        meleeWeaponComponent.NextAttack += puller.Comp.StageChangeCooldown;
+        Dirty(puller, meleeWeaponComponent);
         // It's blocking stage update, maybe better UX?
         if (puller.Comp.GrabStage == GrabStage.Suffocate)
         {
@@ -1001,21 +1018,34 @@ public sealed class PullingSystem : EntitySystem
         _modifierSystem.RefreshMovementSpeedModifiers(puller);
 
         // I'm lazy to write client code
-        if (!_netManager.IsServer)
-            return true;
+        if (_netManager.IsServer)
+        {
+            _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-target",
+                    ("puller", Identity.Entity(puller, EntityManager))),
+                pullable,
+                pullable,
+                popupType);
+            _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-self",
+                    ("target", Identity.Entity(pullable, EntityManager))),
+                pullable,
+                puller,
+                PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-others",
+                    ("target", Identity.Entity(pullable, EntityManager)),
+                    ("puller", Identity.Entity(puller, EntityManager))),
+                pullable,
+                filter,
+                true,
+                popupType);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
+        }
 
-        _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-target", ("puller", Identity.Entity(puller, EntityManager))), pullable, pullable, popupType);
-        _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-self", ("target", Identity.Entity(pullable, EntityManager))), pullable, puller, PopupType.Medium);
-        _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-others", ("target", Identity.Entity(pullable, EntityManager)), ("puller", Identity.Entity(puller, EntityManager))), pullable, filter, true, popupType);
-
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), pullable);
 
         var comboEv = new ComboAttackPerformedEvent(puller.Owner, pullable.Owner, puller.Owner, ComboAttackType.Grab);
         RaiseLocalEvent(puller.Owner, comboEv);
 
         Dirty(pullable);
         Dirty(puller);
-
         return true;
     }
 
@@ -1082,10 +1112,8 @@ public sealed class PullingSystem : EntitySystem
     /// <returns></returns>
     private bool AttemptGrabRelease(Entity<PullableComponent?> pullable)
     {
-        if (!Resolve(pullable.Owner, ref pullable.Comp))
-            return false;
-
-        if (_timing.CurTime < pullable.Comp.NextEscapeAttempt)  // No autoclickers! Mwa-ha-ha
+        if (!Resolve(pullable.Owner, ref pullable.Comp)
+            || _timing.CurTime < pullable.Comp.NextEscapeAttempt)
             return false;
 
         if (_random.Prob(pullable.Comp.GrabEscapeChance))
@@ -1133,9 +1161,6 @@ public sealed class PullingSystem : EntitySystem
         if (pullable.Comp.Puller != puller.Owner ||
             puller.Comp.Pulling != pullable.Owner)
             return false;
-
-        if (_timing.CurTime < puller.Comp.NextStageChange)
-            return true;
 
         pullable.Comp.NextEscapeAttempt = _timing.CurTime.Add(TimeSpan.FromSeconds(1f));
         Dirty(pullable);

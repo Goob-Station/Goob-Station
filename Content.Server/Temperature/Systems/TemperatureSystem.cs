@@ -227,7 +227,7 @@ public sealed class TemperatureSystem : EntitySystem
 
         if (!ignoreHeatResistance)
         {
-            var ev = new ModifyChangedTemperatureEvent(heatAmount);
+            var ev = new ModifyChangedTemperatureEvent(heatAmount, uid); // Goobstation
             RaiseLocalEvent(uid, ev);
             heatAmount = ev.TemperatureDelta;
         }

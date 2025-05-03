@@ -165,6 +165,9 @@
   - type: SpeedModifierContactCapClothing
     maxContactSprintSlowdown: 0.7
     maxContactWalkSlowdown: 0.7
+  - type: Enchanter # Goobstation
+    enchants:
+    - EnchantUnslippable
 
 - type: entity
   parent: [ClothingShoesBaseButcherable, BaseMajorContraband]

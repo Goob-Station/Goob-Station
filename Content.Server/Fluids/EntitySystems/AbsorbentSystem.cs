@@ -20,6 +20,7 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -28,6 +29,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
+using Content.Goobstation.Common.Footprints;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -340,7 +342,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         _solutionContainerSystem.AddSolution(puddle.Solution.Value, absorberSplit);
         _solutionContainerSystem.AddSolution(absorberSoln, puddleSplit);
 
-        _audio.PlayPvs(absorber.PickupSound, target);
+        _audio.PlayPvs(absorber.PickupSound, Transform(target).Coordinates); // Goobstation - Footsteps Change - Play sound on footstep to puddle replacement
         if (useDelay != null)
             _useDelay.TryResetDelay((used, useDelay));
 
@@ -350,6 +352,8 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         localPos = userXform.LocalRotation.RotateVec(localPos);
 
         _melee.DoLunge(user, used, Angle.Zero, localPos, null, Angle.Zero, false);
+
+        RaiseLocalEvent(target, new FootprintCleanEvent()); // Corvax-Next-Footprints
 
         return true;
     }

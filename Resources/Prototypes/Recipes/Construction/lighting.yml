@@ -34,6 +34,17 @@
   objectType: Item
 
 - type: construction
+  name: yellow light tube
+  id: YellowLight
+  graph: YellowLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a yellow crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
+
+- type: construction
   name: pink light tube
   id: PinkLight
   graph: PinkLight
@@ -52,6 +63,17 @@
   targetNode: icon
   category: construction-category-utilities
   description: A high powered light tube containing an orange crystal.
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
+
+- type: construction
+  name: black light tube
+  id: BlackLight
+  graph: BlackLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a black crystal. It won't be very bright.
   icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
   objectType: Item
 
@@ -100,6 +122,17 @@
   objectType: Item
 
 - type: construction
+  name: yellow light bulb
+  id: YellowLightBulb
+  graph: YellowLightBulb
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light bulb containing a yellow crystal.
+  icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
+  objectType: Item
+
+- type: construction
   name: pink light bulb
   id: PinkLightBulb
   graph: PinkLightBulb
@@ -118,6 +151,17 @@
   targetNode: icon
   category: construction-category-utilities
   description: A high powered light bulb containing an orange crystal.
+  icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
+  objectType: Item
+
+- type: construction
+  name: black light bulb
+  id: BlackLightBulb
+  graph: BlackLightBulb
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light bulb containing a black crystal. It won't be very bright.
   icon: { sprite: Objects/Power/light_bulb.rsi, state: normal }
   objectType: Item
 

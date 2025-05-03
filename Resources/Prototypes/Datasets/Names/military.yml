@@ -1,77 +1,17 @@
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-- type: dataset
-  id: NamesFirstMilitaryLeader
+- type: localizedDataset
+  id: NamesMilitaryFirstLeader
   values:
-  - Colonel
-  - Commander
-  - Lieutenant
-  - Major
+    prefix: names-military-leader-first-dataset-
+    count: 4
 
-- type: dataset
-  id: NamesFirstMilitary
+- type: localizedDataset
+  id: NamesMilitaryFirst
   values:
-  - Corporal
-  - Sergeant
-  - Specialist
+    prefix: names-military-first-dataset-
+    count: 3
 
-- type: dataset
-  id: NamesLastMilitary
+- type: localizedDataset
+  id: NamesMilitaryLast
   values:
-  - Agena
-  - Andromeda
-  - Antares
-  - Aquarius
-  - Ara
-  - Aries
-  - Beid
-  - Betelgeuse
-  - Canopus
-  - Cetus
-  - Capricorn
-  - Celaeno
-  - Centaur
-  - Chamaeleon
-  - Chau
-  - Cygnus
-  - Deneb
-  - Dragon
-  - Electra
-  - Fomalhaut
-  - Ginan
-  - Hercules
-  - Labr
-  - Leonis
-  - Lupis
-  - Lepus
-  - Matar
-  - Microscopium
-  - Nihal
-  - Ophiuchus
-  - Oculus
-  - Orion
-  - Perseus
-  - Phoenix
-  - Procyon
-  - Pyxis
-  - Regulus
-  - Rigel
-  - Sargas
-  - Schedar
-  - Shaula
-  - Sirius
-  - Tabit
-  - Taurus
-  - Ukdah
-  - Vega
-  - Voltaire # Goobstation - I spent a lot of time on this PR, I might as well add myself to it :godo:
-  - Winterwing # Goobstation - Friend asked me to add this. :godo:
-  - Yildun
-  - Zosma
+    prefix: names-military-last-dataset-
+    count: 42

@@ -103,6 +103,12 @@
   - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: Enchanter # Goobstation
+    minLevel: 2 # they're fairly unique so good chance of high rolls
+    maxLevel: 5.25 # Small chance of getting Sharpness V first try
+    enchants:
+    - EnchantFireAspect
+    - EnchantSharpness
 
 - type: entity
   id: FireAxeFlaming

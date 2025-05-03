@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: CrateFishingGoodies
+  parent: CratePlastic
+  name: fishing goodies crate
+  description: A couple of fishing rods, a bear, and a hat. Everything you need to catch all fish on the station!
+  components:
+  - type: StorageFill
+    contents:
+      - id: FishingRod
+      - id: FishingRodGoon
+      - id: ClothingHeadFishCap
+      - id: DrinkBeerBottleFull

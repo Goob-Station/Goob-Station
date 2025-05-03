@@ -79,6 +79,10 @@
   - Lawyer
   - Brig
   - Maintenance
+  special: # Goobstation - lawyers have no souls to sacrafice
+  - !type:AddComponentSpecial
+    components:
+    - type: Soulless
 
 - type: startingGear
   id: LawyerGear

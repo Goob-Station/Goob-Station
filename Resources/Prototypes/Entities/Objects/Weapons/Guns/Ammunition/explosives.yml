@@ -105,6 +105,8 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Rockets
@@ -148,6 +150,24 @@
       state: frag
     - type: StaticPrice
       price: 20
+
+- type: entity
+  id: CartridgeRocketSingularityBuster
+  name: rocket-propelled anti-singularity grenade
+  parent: [BaseItem, BaseCommandContraband]
+  description: A warhead containing a large amount of anti-particles. Upon hitting a singularity, the anti-particles are released, decomposing the singularity. Warranty void if the rocket hits anything besides a singularity or tesla.
+  components:
+    - type: Item
+      size: Small
+    - type: CartridgeAmmo
+      proto: BulletSingularityBusterRocket
+      deleteOnSpawn: true
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: buster
+    - type: Tag
+      tags:
+      - CartridgeRocket
 
 # Grenades
 

@@ -37,5 +37,7 @@
     name: ghost-role-information-pirate-irs-name # leaving it like that because i'm too lazy to redo it
     description: ghost-role-information-pirate-irs-description
     rules: ghost-role-information-pirate-irs-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default

@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: BaseCartridgeCaselessMagnum
+  name: cartridge (9.5mm caseless magnum)
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeCaselessMagnum95
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: CartridgeCaselessMagnum95
+  name: cartridge (9.5mm caseless magnum)
+  parent: BaseCartridgeCaselessMagnum
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessMagnum95
+
+- type: entity
+  id: CartridgeCaselessMagnum95MinusP
+  name: cartridge (9.5mm caseless magnum -P)
+  parent: BaseCartridgeCaselessMagnum
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeCaselessMagnum95
+  - type: CartridgeAmmo
+    proto: BulletCaselessMagnum95MinusP
+
+- type: entity
+  id: CartridgeCaselessMagnum95SAPHE
+  name: cartridge (9.5mm caseless magnum SAP-HE)
+  parent: BaseCartridgeCaselessMagnum
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeCaselessMagnum95
+  - type: CartridgeAmmo
+    proto: BulletCaselessMagnum95SAPHE

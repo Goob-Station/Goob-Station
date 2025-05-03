@@ -17,11 +17,7 @@ on:
       - synchronize
       - reopened
       - ready_for_review
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
+      
 jobs:
   Label:
     if: ( github.event.pull_request.draft == false )

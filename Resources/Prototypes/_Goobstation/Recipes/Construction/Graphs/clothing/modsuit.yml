@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -119,3 +121,24 @@
 
   - node: standard
     entity: ClothingModsuitStandard
+
+  - node: security
+    entity: ClothingModsuitSecurity
+
+  - node: paramedic
+    entity: ClothingModsuitParamedic
+
+  - node: headofsecurity
+    entity: ClothingModsuitHeadOfSecurity
+
+  - node: engineer
+    entity: ClothingModsuitEngineer
+
+  - node: atmostech
+    entity: ClothingModsuitAtmostech
+
+  - node: rd
+    entity: ClothingModsuitResearchDirector
+
+  - node: captain
+    entity: ClothingModsuitCaptain

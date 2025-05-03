@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
@@ -85,6 +86,11 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
     private void OnGetFootstepSound(Entity<PuddleComponent> entity, ref GetFootstepSoundEvent args)
     {
+        // Corvax-Next-Footprints
+        if (!entity.Comp.AffectsSound)
+            return;
+        // Corvax-Next-Footprints
+
         if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution,
                 out var solution))
             return;

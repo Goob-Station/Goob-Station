@@ -1,0 +1,45 @@
+- type: entity
+  abstract: true
+  parent: BaseEnchant
+  id: BaseProtEnchant
+  components:
+  - type: Enchant
+    whitelist:
+      components:
+      - Clothing
+    maxLevel: 4
+
+- type: entity
+  parent: BaseProtEnchant
+  id: EnchantProtection
+  name: Protection
+  components:
+  - type: Enchant
+    incompatible:
+    - EnchantProtBlast
+    - EnchantProtFire
+  - type: DamageModifyEnchant
+    factor: 0.9 # 35% reduction per piece at IV
+    protectWearer: true
+
+- type: entity
+  parent: BaseProtEnchant
+  id: EnchantProtBlast
+  name: Blast Protection
+  components:
+  - type: Enchant
+    incompatible:
+    - EnchantProtection
+    - EnchantProtFire
+  # TODO implement
+
+- type: entity
+  parent: BaseProtEnchant
+  id: EnchantProtFire
+  name: Fire Protection
+  components:
+  - type: Enchant
+    incompatible:
+    - EnchantProtection
+    - EnchantProtBlast
+  - type: FireProtEnchant

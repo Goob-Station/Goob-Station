@@ -70,7 +70,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
   - type: RandomMetadata
-    nameSegments: [ names_borg ]
+    nameSegments: [ NamesBorg ]
 
 - type: entity
   id: PlayerBorgDerelictSyndicateAssaultGhostRole
@@ -81,6 +81,8 @@
     name: ghost-role-information-derelict-cyborg-syndicate-name
     description: ghost-role-information-derelict-cyborg-syndicate-description
     rules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
     raffle:
       settings: default
     requirements: # Goobstation - ghost roles requirements

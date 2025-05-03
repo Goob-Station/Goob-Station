@@ -278,3 +278,8 @@
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-blue
+  - type: Enchanter # GoobStation
+    minLevel: 2.5 # Guaranteed Slippery II
+    maxLevel: 4.1 # Very small change to instantly get Slippery IV
+    enchants:
+    - EnchantSlippery

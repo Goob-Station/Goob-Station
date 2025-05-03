@@ -27,6 +27,7 @@
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 kamkoi <poiiiple1@gmail.com>
 // SPDX-FileCopyrightText: 2025 shibe <95730644+shibechef@users.noreply.github.com>
@@ -291,75 +292,76 @@ public sealed partial class GoobCVars
 
     #endregion
 
-  #region Contests System
+    #region Contests System
 
-        /// <summary>
-        ///     The MASTER TOGGLE for the entire Contests System.
-        ///     ALL CONTESTS BELOW, regardless of type or setting will output 1f when false.
-        /// </summary>
-        public static readonly CVarDef<bool> DoContestsSystem =
-            CVarDef.Create("contests.do_contests_system", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     The MASTER TOGGLE for the entire Contests System.
+    ///     ALL CONTESTS BELOW, regardless of type or setting will output 1f when false.
+    /// </summary>
+    public static readonly CVarDef<bool> DoContestsSystem =
+        CVarDef.Create("contests.do_contests_system", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Contest functions normally include an optional override to bypass the clamp set by max_percentage.
-        ///     This CVar disables the bypass when false, forcing all implementations to comply with max_percentage.
-        /// </summary>
-        public static readonly CVarDef<bool> AllowClampOverride =
-            CVarDef.Create("contests.allow_clamp_override", true, CVar.REPLICATED | CVar.SERVER);
-        /// <summary>
-        ///     Toggles all MassContest functions. All mass contests output 1f when false
-        /// </summary>
-        public static readonly CVarDef<bool> DoMassContests =
-            CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Contest functions normally include an optional override to bypass the clamp set by max_percentage.
+    ///     This CVar disables the bypass when false, forcing all implementations to comply with max_percentage.
+    /// </summary>
+    public static readonly CVarDef<bool> AllowClampOverride =
+        CVarDef.Create("contests.allow_clamp_override", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all MassContest functions. All mass contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoMassContests =
+        CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Toggles all StaminaContest functions. All stamina contests output 1f when false
-        /// </summary>
-        public static readonly CVarDef<bool> DoStaminaContests =
-            CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all StaminaContest functions. All stamina contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoStaminaContests =
+        CVarDef.Create("contests.do_stamina_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Toggles all HealthContest functions. All health contests output 1f when false
-        /// </summary>
-        public static readonly CVarDef<bool> DoHealthContests =
-            CVarDef.Create("contests.do_health_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all HealthContest functions. All health contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoHealthContests =
+        CVarDef.Create("contests.do_health_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     Toggles all MindContest functions. All mind contests output 1f when false.
-        ///     MindContests are not currently implemented, and are awaiting completion of the Psionic Refactor
-        /// </summary>
-        public static readonly CVarDef<bool> DoMindContests =
-            CVarDef.Create("contests.do_mind_contests", true, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     Toggles all MindContest functions. All mind contests output 1f when false.
+    ///     MindContests are not currently implemented, and are awaiting completion of the Psionic Refactor
+    /// </summary>
+    public static readonly CVarDef<bool> DoMindContests =
+        CVarDef.Create("contests.do_mind_contests", true, CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
-        ///     Default of 0.25f outputs between * 0.75f and 1.25f
-        /// </summary>
-        public static readonly CVarDef<float> MassContestsMaxPercentage =
-            CVarDef.Create("contests.max_percentage", 1f, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
+    ///     Default of 0.25f outputs between * 0.75f and 1.25f
+    /// </summary>
+    public static readonly CVarDef<float> MassContestsMaxPercentage =
+        CVarDef.Create("contests.max_percentage", 1f, CVar.REPLICATED | CVar.SERVER);
 
-        #endregion
+    #endregion
 
-        #region Shoving - WD Port
-        /// <summary>
-        /// Shove range multiplier.
-        /// </summary>
-        public static readonly CVarDef<float> ShoveRange =
-            CVarDef.Create("game.shove_range", 3f, CVar.SERVER | CVar.ARCHIVE);
+    #region Shoving - WD Port
+    /// <summary>
+    /// Shove range multiplier.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveRange =
+        CVarDef.Create("game.shove_range", 3f, CVar.SERVER | CVar.ARCHIVE);
 
-        /// <summary>
-        /// Shove speed multiplier, does not affect range.
-        /// </summary>
-        public static readonly CVarDef<float> ShoveSpeed =
-            CVarDef.Create("game.shove_speed", 4f, CVar.SERVER | CVar.ARCHIVE);
+    /// <summary>
+    /// Shove speed multiplier, does not affect range.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveSpeed =
+        CVarDef.Create("game.shove_speed", 4f, CVar.SERVER | CVar.ARCHIVE);
 
-        /// <summary>
-        /// How much should the mass difference affect shove range & speed.
-        /// </summary>
-        public static readonly CVarDef<float> ShoveMassFactor =
-            CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
-        #endregion
-    #region Chat highlights
+    /// <summary>
+    /// How much should the mass difference affect shove range & speed.
+    /// </summary>
+    public static readonly CVarDef<float> ShoveMassFactor =
+        CVarDef.Create("game.shove_mass_factor", 5f, CVar.SERVER | CVar.ARCHIVE);
+    #endregion
+
+    #region Chat
 
     /// <summary>
     /// A string containing a list of newline-separated words to be highlighted in the chat.
@@ -379,6 +381,27 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<string> ChatHighlightsColor =
         CVarDef.Create("chat.highlights_color", "#17FFC1FF", CVar.CLIENTONLY | CVar.ARCHIVE, "The color in which the highlights will be displayed.");
 
+    /// <summary>
+    /// Whether or not to log actions in the chat.
+    /// </summary>
+    public static readonly CVarDef<bool> LogInChat =
+        CVarDef.Create("chat.log_in_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether or not to coalesce identical messages in the chat.
+    /// </summary>
+    public static readonly CVarDef<bool> CoalesceIdenticalMessages =
+         CVarDef.Create("chat.coalesce_identical_messages", true, CVar.CLIENT | CVar.ARCHIVE | CVar.CLIENTONLY);
+
     #endregion
 
+    #region Misc
+
+    /// <summary>
+    /// Whether or not to show detailed examine text.
+    /// </summary>
+    public static readonly CVarDef<bool> DetailedExamine =
+        CVarDef.Create("misc.detailed_examine", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    #endregion
 }

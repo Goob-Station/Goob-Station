@@ -404,6 +404,9 @@
     pierceArmor: false
   - type: Extractable
     grindableSolutionName: food
+  - type: Enchanter # Goobstation
+    enchants:
+    - EnchantThorns
 
 - type: entity
   name: death nettle
@@ -438,6 +441,11 @@
     pierceArmor: false
   - type: Extractable
     grindableSolutionName: food
+  - type: Enchanter # Goobstation
+    minLevel: 1.5
+    maxLevel: 3.5 # good chance of thorns 3 from a deathnettle
+    enchants:
+    - EnchantThorns
 
 - type: entity
   name: banana
@@ -646,6 +654,10 @@
     sprite: Objects/Materials/materials.rsi
     heldPrefix: peel
   - type: Slippery
+  - type: Enchanter # Goobstation
+    maxLevel: 2.25
+    enchants:
+    - EnchantSlippery
 
 - type: entity
   name: carrot

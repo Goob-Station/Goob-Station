@@ -50,6 +50,8 @@
         name: abductor-lone-ghost-role-name
         description: abductor-lone-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleSoloAntagonist
         raffle:
           settings: default
         requirements:
@@ -145,6 +147,8 @@
         name: abductor-scientist-ghost-role-name
         description: abductor-scientist-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleTeamAntagonist
         raffle:
           settings: default
         requirements:
@@ -194,6 +198,8 @@
         name: abductor-agent-ghost-role-name
         description: abductor-agent-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleTeamAntagonist
         raffle:
           settings: default
         requirements:
