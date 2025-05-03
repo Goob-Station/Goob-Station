@@ -8274,3 +8274,11 @@ Entries:
         slowly.
   id: 953
   time: '2025-05-03T04:14:52.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: >-
+        Invisible armor (Syndie and Centcomm) are now invisible in the strip
+        menu.
+  id: 954
+  time: '2025-05-03T04:16:01.0000000+00:00'
