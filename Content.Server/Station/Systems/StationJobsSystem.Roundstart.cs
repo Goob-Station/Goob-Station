@@ -394,7 +394,7 @@ public sealed partial class StationJobsSystem
                 if (!_prototypeManager.TryIndex(jobId, out var job))
                     continue;
 
-                // Check if this job is blacklisted for the player's session
+                // Check if this job is blacklisted for the player's session || GOOBSTATION
                 if (hasSession && session != null && antagBlacklists.TryGetValue(session, out var blacklistedJobs))
                 {
                     if (blacklistedJobs.Contains(jobId))

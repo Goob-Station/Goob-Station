@@ -157,7 +157,7 @@ public sealed partial class AntagSelectionComponent : Component
 public partial struct AntagSelectionDefinition()
 {
     /// <summary>
-    /// A list of jobs which cannnot roll this antag.
+    /// A list of jobs which cannnot roll this antag. | GOOBSTATION
     /// </summary>
     [DataField("jobBlacklist")]
     public List<ProtoId<JobPrototype>>? JobBlacklist;

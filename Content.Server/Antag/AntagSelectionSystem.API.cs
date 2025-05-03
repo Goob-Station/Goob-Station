@@ -418,47 +418,6 @@ public sealed partial class AntagSelectionSystem
         return result;
     }
 
-        /// <summary>
-        /// Get all definition blacklists from sessions that have been preselected for antag.
-        /// </summary>
-        public Dictionary<ICommonSession, List<ProtoId<JobPrototype>>> GetPreSelectedAntagSessionsWithBlacklist(AntagSelectionDefinition? except = null)
-        {
-            var result = new Dictionary<ICommonSession, List<ProtoId<JobPrototype>>>();
-            var query = QueryAllRules();
-
-            while (query.MoveNext(out var uid, out var comp, out _))
-            {
-                if (HasComp<EndedGameRuleComponent>(uid))
-                    continue;
-
-                foreach (var def in comp.Definitions)
-                {
-                    if (def.Equals(except))
-                        continue;
-
-                    if (comp.PreSelectedSessions.TryGetValue(def, out var sessions))
-                    {
-                        foreach (var session in sessions)
-                        {
-                            // Get the blacklisted jobs for this antag definition
-                            var blacklist = def.JobBlacklist ?? new List<ProtoId<JobPrototype>>();
-
-                            // If session already exists, merge the blacklists
-                            if (result.TryGetValue(session, out var existingBlacklist))
-                            {
-                                existingBlacklist.AddRange(blacklist);
-                            }
-                            else
-                            {
-                                result[session] = new List<ProtoId<JobPrototype>>(blacklist);
-                            }
-                        }
-                    }
-                }
-            }
-            return result;
-        }
-
     /// <summary>
     /// Get all sessions that have been preselected for antag and are exclusive, i.e. should not be paired with other antags.
     /// </summary>
@@ -488,6 +447,47 @@ public sealed partial class AntagSelectionSystem
             }
         }
 
+        return result;
+    }
+
+    /// <summary>
+    /// Get all definition blacklists from sessions that have been preselected for antag. | GOOBSTATION
+    /// </summary>
+    public Dictionary<ICommonSession, List<ProtoId<JobPrototype>>> GetPreSelectedAntagSessionsWithBlacklist(AntagSelectionDefinition? except = null)
+    {
+        var result = new Dictionary<ICommonSession, List<ProtoId<JobPrototype>>>();
+        var query = QueryAllRules();
+
+        while (query.MoveNext(out var uid, out var comp, out _))
+        {
+            if (HasComp<EndedGameRuleComponent>(uid))
+                continue;
+
+            foreach (var def in comp.Definitions)
+            {
+                if (def.Equals(except))
+                    continue;
+
+                if (comp.PreSelectedSessions.TryGetValue(def, out var sessions))
+                {
+                    foreach (var session in sessions)
+                    {
+                        // Get the blacklisted jobs for this antag definition
+                        var blacklist = def.JobBlacklist ?? new List<ProtoId<JobPrototype>>();
+
+                        // If session already exists, merge the blacklists
+                        if (result.TryGetValue(session, out var existingBlacklist))
+                        {
+                            existingBlacklist.AddRange(blacklist);
+                        }
+                        else
+                        {
+                            result[session] = new List<ProtoId<JobPrototype>>(blacklist);
+                        }
+                    }
+                }
+            }
+        }
         return result;
     }
 }
