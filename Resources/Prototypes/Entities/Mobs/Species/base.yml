@@ -345,7 +345,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
-      Acidic: [Touch, Ingestion]
+      Acidic: [Touch, Ingestion, Eyes] # Goobstation
     reactions:
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
@@ -466,7 +466,7 @@
     penetrateDamage: 50
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
-  
+
 - type: entity
   save: false
   parent:

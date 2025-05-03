@@ -9,7 +9,9 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -82,7 +84,7 @@ public sealed partial class SubdermalImplantComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? Blacklist;
-    
+
     /// <summary>
     /// If set, this ProtoId is used when attempting to draw the implant instead.
     /// Useful if the implant is a child to another implant and you don't want to differentiate between them when drawing.
@@ -101,7 +103,8 @@ public sealed partial class OpenStorageImplantEvent : InstantActionEvent
 
 public sealed partial class UseFreedomImplantEvent : InstantActionEvent
 {
-
+    [DataField]
+    public float StunTime = 5; // Goobstation - useful freedom
 }
 
 /// <summary>

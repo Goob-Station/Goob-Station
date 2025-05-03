@@ -5,8 +5,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -51,6 +55,66 @@
     - type: Loadout
       prototypes: [ LostFrontierProspectorSuit ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  id: RandomHumanoidGreyTider
+  name: greytider
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: passenger
+    - type: RandomHumanoidSpawner
+      settings: GreyTider
+    - type: Construction
+      graph: GreyTider
+      node: greyTider
+
+- type: randomHumanoidSettings
+  id: GreyTider
+  speciesWhitelist: Human # lore accurate
+  parent: EventHumanoid
+  components:
+    - type: GhostTakeoverAvailable
+    - type: GhostRole
+      name: ghost-role-information-greytider-name
+      description: ghost-role-information-greytider-description
+      rules: ghost-role-information-freeagent-rules
+      raffle:
+        settings: short
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+      hair: HairBald
+    - type: Loadout
+      prototypes: [ GreyTiderGear ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomMetadata
+      nameSegments:
+      - TiderNamesFirst
+      - TiderNamesLast
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound # do salvager AI while not taken by anyone
+    - type: FactionException
+    - type: NPCRetaliation
+      attackMemoryLength: 20 # the tide remembers
+    - type: NpcFactionMember
+      factions:
+      - Greytide
+    - type: GroupRetaliation
+      range: 15 # the tide hears
+
+- type: startingGear
+  id: GreyTiderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAncient
+    back: ClothingBackpackSatchel
+    shoes: ClothingShoesBootsWinter
+    mask: ClothingMaskGas
+    id: PassengerPDA
+    gloves: ClothingHandsGlovesFingerlessInsulated
+    outerClothing: ClothingOuterWinterCoat
+  inhand:
+    - ToolboxMechanical
 
 - type: entity
   parent: MobHuman

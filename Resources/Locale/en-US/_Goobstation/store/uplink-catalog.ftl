@@ -114,8 +114,8 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
-uplink-heavensgate-name = Heaven's gate
-uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+uplink-he1sg8-bundle-name = HE1S-G8 Bundle
+uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
 # Ammo
 
@@ -158,11 +158,11 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
 
-uplink-92-AP-name = box of .92 armour piercing rounds
-uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper rifle. effective for anti-infantry use.
+uplink-cartridge-G8-demolishing-name = G8 demolishing cartridge
+uplink-cartridge-G8-demolishing-desc = This cartridge shots "The Spear of Ares" bullet, demolishing whole lines of walls, dealing massive stamina damage to people and overcharging energy vortexes. Used by HE1S-G8.
 
-uplink-92-AT-name = box of .92 anti-tank rounds
-uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
+uplink-cartridge-G8-hypercharged-name = G8 hypercharged cartridge
+uplink-cartridge-G8-hypercharged-desc = This cartridge shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge. Used by HE1S-G8.
 
 # Grenades
 
@@ -218,9 +218,6 @@ uplink-reverse-bear-trap-desc = An ingenious execution device worn on (or forced
 uplink-clothing-explosive-gloves-name = Explosive Insulated Gloves
 uplink-clothing-explosive-gloves-desc = Gloves that look just like normal insulated gloves, but explode a second after being shocked, disabling the user's hands.
 
-uplink-smugglers-satchel-name = Smuggler's Satchel
-uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
-
 # Disruption
 
 uplink-syndicate-weapon-module-advanced-name = advanced weapons module
@@ -232,7 +229,7 @@ uplink-cqc-name = CQC Manual
 uplink-cqc-desc = A manual that teaches a single user tactical Close-Quarters Combat before self-destructing. Does not restrict weapon usage. Your disarms will inflict some stamina damage while making people temporarily slur their words, your grabs will immobilize for a second making it easier to reinforce them, your harm attacks will deal moderate stamina damage, and you will get a set of combos that allow you to efficiently knockdown, disarm or stun your opponent. You can find more information on CQC and its combos here.
 
 uplink-sleeping-carp-name = Way of the Sleeping Carp Scroll
-uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by vampire and changeling agents.
+uplink-sleeping-carp-desc = This scroll contains the secrets of an ancient martial arts technique. You will master unarmed combat, deflecting ranged weapon fire, and space carp will become friendly to you. Learning this art means you will also refuse to use dishonorable ranged weaponry. Unable to be understood by changelings.
 
 # Misc
 
@@ -244,3 +241,6 @@ uplink-pizza-bomb-desc = First pioneered by terrorists, now is used by the syndi
 
 uplink-pizza-party-crate-name = Pizza Party Crate
 uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza delivery. Filled with pizzas and pizza bombs to throw the most explosive pizza party ever. Unfortunately you can't seem to remember which one is which.
+
+uplink-undetermined-bundle-name = Undetermined Bundle Crate
+uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.

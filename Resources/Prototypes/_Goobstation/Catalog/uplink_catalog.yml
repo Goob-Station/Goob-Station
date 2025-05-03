@@ -258,19 +258,15 @@
     -  UplinkWeaponry
 
 - type: listing
-  id: UplinkWeaponHeavensgate
-  name: uplink-heavensgate-name
-  description: uplink-heavensgate-desc
-  productEntity: WeaponSniperHeavensGate
+  id: UplinkWeaponHE1SG8
+  name: uplink-he1sg8-bundle-name
+  description: uplink-he1sg8-bundle-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
+  productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
   cost:
-    Telecrystal: 100
+    Telecrystal: 130
   categories:
-  -  UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+    - UplinkWeaponry
 
 # Wearables
 
@@ -615,17 +611,6 @@
 # Deception
 
 - type: listing
-  id: UplinkSmugglerSatchel
-  name: smuggler's satchel
-  description: uplink-smugglers-satchel-desc
-  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
-  productEntity: ClothingSatchelSmuggler
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkDeception
-
-- type: listing
   id: UplinkClothingExplosiveGloves
   name: uplink-clothing-explosive-gloves-name
   description: uplink-clothing-explosive-gloves-desc
@@ -808,36 +793,24 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkBox92AP
-  name: uplink-92-AP-name
-  description: uplink-92-AP-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  id: UplinkCartridgeG8Demolishing
+  name: uplink-cartridge-G8-demolishing-name
+  description: uplink-cartridge-G8-demolishing-desc
+  productEntity:  CartridgeG8Demolishing
   cost:
-    Telecrystal: 10 # 100 AP damage, don't blame me
+    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
-  id: UplinkBox92AT
-  name: uplink-92-AT-name
-  description: uplink-92-AT-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  id: UplinkCartridgeG8Hypercharged
+  name: uplink-cartridge-G8-hypercharged-name
+  description: uplink-cartridge-G8-hypercharged-desc
+  productEntity: CartridgeG8Hypercharged
   cost:
-    Telecrystal: 8
+    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 # Mechs
 
@@ -947,3 +920,22 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Human
+
+- type: listing
+  id: UplinkUndeterminedBundle
+  name: uplink-undetermined-bundle-name
+  description: uplink-undetermined-bundle-desc
+  productEntity: CrateSyndicateUndetermined
+  cost:
+    Telecrystal: 99 # :trollface:
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

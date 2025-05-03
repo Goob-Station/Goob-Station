@@ -15,6 +15,8 @@
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 plyush <121322002+toasterpm87@users.noreply.github.com>
@@ -422,8 +424,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieSamantha
-  name: samantha plushie
-  description: A cute stuffed toy that resembles a certain blueshield officer. You feel a sudden urge for lollypops while holding it.
+  name: jane blueshield plushie
+  description: A cute stuffed toy that resembles a veteran blueshield officer. You feel a sudden urge for lollypops while holding it.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -490,7 +492,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBenny
-  name: Benny plushie
+  name: yowie plushie
   description: A cute stuffed toy that resembles a yowie. Smells like meth and unethical surgery.
   components:
   - type: Sprite
@@ -500,7 +502,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieCairo
-  name: Cairo plushie
+  name: ivory lizard plushie
   description: A cute stuffed toy that resembles a white lizard.
   components:
   - type: Sprite
@@ -520,8 +522,8 @@
 - type: entity
   parent: BasePlushie
   id: PlushieDelta
-  name: Delta plushie
-  description: A cute stuffed toy that resembles a purple resomi. You may not know it, but the Deltas are free, and you can take them home.
+  name: purple resomi plushie
+  description: A cute stuffed toy that resembles a purple resomi. You may not know it, but the Resomis are free, and you can take them home.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
@@ -530,7 +532,7 @@
 - type: entity
   parent: ToyMouse
   id: PlushieRaki
-  name: Raki plushie
+  name: rat plushie
   description: A cute stuffed toy that resembles a specific rat. Reeks with the smell of dirty water.
   components:
   - type: Sprite
@@ -540,7 +542,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieTina
-  name: Tina-Le-Plush
+  name: white lizard plush
   description: A cute stuffed toy that resembles a white lizard. Who the fuck put this on station?!?! Violet, red, hit all the alerts!
   components:
   - type: Sprite
@@ -550,7 +552,7 @@
 - type: entity
   parent: PlushieMoth
   id: PlushieKnott
-  name: Knott plushie
+  name: blue moff plushie
   description: A cute stuffed toy that resembles a blue moth.
   components:
   - type: Sprite
@@ -560,7 +562,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieKury
-  name: Kury plushie
+  name: evil vulpkanin plushie
   description: A cute stuffed toy that resembles a specific vulpkanin.
   components:
   - type: Sprite
@@ -570,7 +572,7 @@
 - type: entity
   parent: PlushieSlime
   id: PlushieZlorb
-  name: Zlorb plushie
+  name: extravagant slime plushie
   description: A cute stuffed toy that resembles a slime wearing fancy clothes.
   components:
   - type: Sprite
@@ -596,6 +598,12 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
     state: plushie_command_human
+  - type: GibThisGuy
+    requireBoth: false
+    icNames:
+    - Owen Saylor
+    ocNames:
+    - Mikedyne
 
 - type: entity
   parent: BasePlushie
@@ -651,7 +659,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieStoop
-  name: Stoop plushie
+  name: blue lizard plushie
   description: A cute stuffed toy that resembles a blue lizard. Somehow keeps getting promoted.
   components:
   - type: Sprite
@@ -661,7 +669,7 @@
 - type: entity
   parent: PlushieLizard
   id: PlushieWehWinter
-  name: Weh-of-Winter plushie
+  name: mythical lizard plushie
   description: A cute stuffed toy that resembles a funky lizard. She looks better with glasses.
   components:
   - type: Sprite
@@ -674,8 +682,8 @@
 - type: entity
   parent: [BasePlushie, BaseMajorContraband]
   id: PlushieByrrne
-  name: Byrrne plushie
-  description: Depending on who you ask, Byrrne is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
+  name: despised resomi plushie
+  description: Depending on who you ask, this resomi is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/selfinsert.rsi
@@ -702,7 +710,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieByrrneGibbed # special gib mechanic
-  name: gibbed Byrrne plushie
+  name: gibbed despised resomi plushie
   suffix: gibbed
   description: No... it can't be... IT SHOULD'VE BEEN ME THAT DID IT.. But was it worth it..? Deep inside, you feel like it cared about your coins... your goob coins.. even.
   components:
@@ -744,7 +752,7 @@
 - type: entity
   parent: PlushieSlime
   id: PlushieGrub
-  name: grub plushie
+  name: ugly rat plushie
   description: An ugly stuffed toy that resembles a green goblin.
   components:
   - type: Sprite
@@ -754,3 +762,9 @@
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Effects/pop_high.ogg
+  - type: GibThisGuy
+    requireBoth: false
+    icNames:
+    - Grub
+    ocNames:
+    - Muppet
