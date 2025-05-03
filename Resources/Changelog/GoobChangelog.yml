@@ -8319,3 +8319,15 @@ Entries:
       message: 'New Ian variant: Clown Ian.'
   id: 959
   time: '2025-05-03T04:22:38.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: I'm now gibbable via carp. I shall take the punishment in his stead.
+    - type: Add
+      message: >-
+        Brizby is now gibbable via carp. The balance of goob stays equivalent
+        after all...
+    - type: Remove
+      message: 'Rosef is no longer gibbable via carp. Please shame him publicly. '
+  id: 960
+  time: '2025-05-03T04:23:36.0000000+00:00'
