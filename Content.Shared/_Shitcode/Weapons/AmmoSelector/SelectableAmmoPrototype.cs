@@ -27,7 +27,7 @@ public sealed partial class SelectableAmmoPrototype : IPrototype, ICloneable
     public string Desc;
 
     [DataField(required: true)]
-    public EntProtoId ProtoId;
+    public string ProtoId; // this has to be a string because of how hitscan projectiles work
 
     [DataField]
     public Color? Color;
