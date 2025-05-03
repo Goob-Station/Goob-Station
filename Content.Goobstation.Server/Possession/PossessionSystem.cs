@@ -41,6 +41,8 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
+    public ISawmill Log { get; private set; } = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -100,7 +102,8 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!TerminatingOrDeleted(comp.PossessorOriginalEntity) && coordinates is not null)
             _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates.Value);
 
-        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(comp.PossessorOriginalEntity)} + \" unpossessed \" + {ToPrettyString(comp.OriginalEntity)}");
+        Log.Info($"{ToPrettyString(comp.PossessorOriginalEntity)} unpossessed {ToPrettyString(comp.OriginalEntity)}");
+        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(comp.PossessorOriginalEntity)} unpossessed {ToPrettyString(comp.OriginalEntity)}");
 
         _container.CleanContainer(comp.PossessedContainer);
     }
@@ -206,7 +209,8 @@ public sealed partial class PossessionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", possessed)), possessed, PopupType.MediumCaution);
         _audio.PlayPvs(possessedComp.PossessionSoundPath, possessed);
 
-        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(possessor)} + \" possessed \" + {ToPrettyString(possessed)}");
+        Log.Info($"{ToPrettyString(possessor)} possessed {ToPrettyString(possessed)}");
+        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(possessor)} possessed {ToPrettyString(possessed)}");
     }
 
     private bool CheckMindswapBlocker(Type type, string message, EntityUid possessed, EntityUid possessor)
