@@ -3,8 +3,10 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+# SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
@@ -87,9 +89,11 @@
   id: ScienceBoards
   recipes:
   #- TurboItemRechargerCircuitboard - Goobstation - Moved to SharedBoards
-  #- AutolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
-  #- ProtolatheHyperConvectionMachineCircuitboard - Moved to SharedBoards
-  #- CircuitImprinterHyperConvectionMachineCircuitboard - Moved to SharedBoards
+  # Begin DeltaV Removals - replaced by techfabs/upgrade kits
+  #- AutolatheHyperConvectionMachineCircuitboard
+  #- ProtolatheHyperConvectionMachineCircuitboard
+  #- CircuitImprinterHyperConvectionMachineCircuitboard
+  # End DeltaV Removals
   - TechDiskComputerCircuitboard
   #- FlatpackerMachineCircuitboard - Moved to SharedBoards
   #- SheetifierMachineCircuitboard - Moved to ServiceBoards
