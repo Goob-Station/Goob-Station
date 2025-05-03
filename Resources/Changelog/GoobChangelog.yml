@@ -8258,3 +8258,11 @@ Entries:
       message: Cyberpsychosis bundle now includes freedom implant.
   id: 951
   time: '2025-05-02T12:08:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Security lockers now contain either security belt OR judo belt, but not
+        both.
+  id: 952
+  time: '2025-05-03T04:08:22.0000000+00:00'
