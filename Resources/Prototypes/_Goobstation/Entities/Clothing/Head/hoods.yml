@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodZeusHood
+  categories: [ HideSpawnMenu ]
+  name: zeus hood
+  description: Guaranteed to not fly off when leaping from skyscraper to skyscraper.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hoods/mercer_hood.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hoods/mercer_hood.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair

@@ -209,3 +209,14 @@
         Slash: 0.75
         Piercing: 0.70
         Heat: 0.75
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMercer
+  name: manhattan streetwear
+  description: Only someone who would try to run away with Earth's deadliest bioweapon would want to wear this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mercer.rsi
