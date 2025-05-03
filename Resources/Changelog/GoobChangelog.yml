@@ -8266,3 +8266,11 @@ Entries:
         both.
   id: 952
   time: '2025-05-03T04:08:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed radiation collectors with very high maximum output ramping very
+        slowly.
+  id: 953
+  time: '2025-05-03T04:14:52.0000000+00:00'
