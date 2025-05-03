@@ -8379,3 +8379,9 @@ Entries:
       message: A lot of ammo now costs less TC.
   id: 966
   time: '2025-05-03T04:27:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added inline filters - essentially a filter on top of a straight pipe.
+  id: 967
+  time: '2025-05-03T04:33:47.0000000+00:00'
