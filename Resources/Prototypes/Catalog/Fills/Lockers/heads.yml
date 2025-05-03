@@ -310,6 +310,7 @@
     - id: CartridgeRocketSingularityBuster
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
+    - id: MachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
