@@ -8407,3 +8407,22 @@ Entries:
       message: Fixed Patron Queue
   id: 970
   time: '2025-05-03T17:51:16.0000000+00:00'
+- author: LuciferEOS, xcenlegend
+  changes:
+    - type: Add
+      message: The Tide is here.
+    - type: Add
+      message: >-
+        Makeshift defibrillator, contraband bag, tide flipper, makeshift id
+        card, grey toolbox, makeshift jammer, metal baseball bat and kitchen
+        knife crafting recipies.
+    - type: Add
+      message: Craftable armor, check out "makeshift" in the G menu.
+    - type: Tweak
+      message: syndicate jammer price reduced 20 -> 5
+    - type: Tweak
+      message: >-
+        Weswords are now slightly harder to make and require tools. (dont worry
+        tiders nothing will change)
+  id: 971
+  time: '2025-05-03T19:31:10.0000000+00:00'
