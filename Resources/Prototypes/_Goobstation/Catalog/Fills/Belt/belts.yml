@@ -98,6 +98,16 @@
       item:
       - NavyOfficerSabre
 
+- type: entity
+  id: ClothingBeltSheathHeadOfSecurityFilled
+  parent: ClothingBeltSheathHeadOfSecurity
+  suffix: Filled, Head Of Security
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - Justice
+
 - type: entityTable
   id: BeltSecurityNoBatonEntityTable
   table: !type:AllSelector

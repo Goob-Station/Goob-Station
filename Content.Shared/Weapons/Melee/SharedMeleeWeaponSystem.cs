@@ -508,6 +508,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     return false;
                 break;
             default:
+                if (!weapon.CanHeavyAttack) // Goobstation
+                    return false;
+
                 if (!Blocker.CanAttack(user, weapon: (weaponUid, weapon)))
                     return false;
                 break;
