@@ -8401,3 +8401,9 @@ Entries:
       message: Added factorio.
   id: 969
   time: '2025-05-03T16:15:09.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed Patron Queue
+  id: 970
+  time: '2025-05-03T17:51:16.0000000+00:00'
