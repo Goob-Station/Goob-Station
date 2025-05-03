@@ -23,6 +23,7 @@
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
@@ -370,6 +371,8 @@ public sealed partial class StationJobsSystem
 
         foreach (var (player, profile) in profiles)
         {
+
+            var shouldContinue = true;
             var roleBans = _banManager.GetJobBans(player);
             var antagBlocked = _antag.GetPreSelectedAntagSessions();
             var profileJobs = profile.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
@@ -388,8 +391,27 @@ public sealed partial class StationJobsSystem
                 if (!_prototypeManager.TryIndex(jobId, out var job))
                     continue;
 
-                if (!job.CanBeAntag && (!_playerManager.TryGetSessionById(player, out var session) || antagBlocked.Contains(session)))
-                    continue;
+                if (!job.CanBeAntag
+                    && (!_playerManager.TryGetSessionById(player, out var session)
+                        || antagBlocked.Contains(session)))
+                {
+                    if (session != null && job.AntagBlacklist?.Count > 0)
+                    {
+                        var antagDefs = _antag.GetPreSelectedAntagDefinitions(session);
+
+                        foreach (var antagDef in antagDefs)
+                        {
+
+                                if (job.AntagBlacklist.Any(x => antagDef.PrefRoles.Contains(x)))
+                                {
+                                    shouldContinue = false;
+                                    break;
+                                }
+                        }
+                    }
+                    if(!shouldContinue)
+                        continue;
+                }
 
                 if (weight is not null && job.Weight != weight.Value)
                     continue;

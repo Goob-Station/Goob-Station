@@ -412,6 +412,29 @@ public sealed partial class AntagSelectionSystem
         return result;
     }
 
+        /// <summary>
+        /// Get all definitions from sessions that have been preselected for antag.
+        /// </summary>
+        public HashSet<AntagSelectionDefinition> GetPreSelectedAntagDefinitions(ICommonSession session)
+        {
+            var result = new HashSet<AntagSelectionDefinition>();
+            var query = QueryAllRules();
+
+            while (query.MoveNext(out var uid, out var comp, out _))
+            {
+                if (HasComp<EndedGameRuleComponent>(uid))
+                    continue;
+
+                foreach (var def in comp.Definitions)
+                {
+                    if (comp.PreSelectedSessions.TryGetValue(def, out var sessions)
+                        && sessions.Contains(session))
+                        result.Add(def);
+                }
+            }
+            return result;
+        }
+
     /// <summary>
     /// Get all sessions that have been preselected for antag and are exclusive, i.e. should not be paired with other antags.
     /// </summary>
