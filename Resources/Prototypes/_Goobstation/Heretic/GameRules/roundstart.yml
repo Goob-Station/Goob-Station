@@ -32,6 +32,7 @@
       max: 5
       playerRatio: 15
       lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ]
       mindRoles:
       - MindRoleHeretic
       components:
@@ -61,6 +62,7 @@
       max: 3
       playerRatio: 15
       lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ]
       mindRoles:
       - MindRoleHeretic
       components:

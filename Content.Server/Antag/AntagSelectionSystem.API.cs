@@ -25,10 +25,12 @@ using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag;
 
@@ -417,11 +419,11 @@ public sealed partial class AntagSelectionSystem
     }
 
         /// <summary>
-        /// Get all definitions from sessions that have been preselected for antag.
+        /// Get all definition blacklists from sessions that have been preselected for antag.
         /// </summary>
-        public HashSet<AntagSelectionDefinition> GetPreSelectedAntagDefinitions(ICommonSession session)
+        public Dictionary<ICommonSession, List<ProtoId<JobPrototype>>> GetPreSelectedAntagSessionsWithBlacklist(AntagSelectionDefinition? except = null)
         {
-            var result = new HashSet<AntagSelectionDefinition>();
+            var result = new Dictionary<ICommonSession, List<ProtoId<JobPrototype>>>();
             var query = QueryAllRules();
 
             while (query.MoveNext(out var uid, out var comp, out _))
@@ -431,9 +433,27 @@ public sealed partial class AntagSelectionSystem
 
                 foreach (var def in comp.Definitions)
                 {
-                    if (comp.PreSelectedSessions.TryGetValue(def, out var sessions)
-                        && sessions.Contains(session))
-                        result.Add(def);
+                    if (def.Equals(except))
+                        continue;
+
+                    if (comp.PreSelectedSessions.TryGetValue(def, out var sessions))
+                    {
+                        foreach (var session in sessions)
+                        {
+                            // Get the blacklisted jobs for this antag definition
+                            var blacklist = def.JobBlacklist ?? new List<ProtoId<JobPrototype>>();
+
+                            // If session already exists, merge the blacklists
+                            if (result.TryGetValue(session, out var existingBlacklist))
+                            {
+                                existingBlacklist.AddRange(blacklist);
+                            }
+                            else
+                            {
+                                result[session] = new List<ProtoId<JobPrototype>>(blacklist);
+                            }
+                        }
+                    }
                 }
             }
             return result;

@@ -157,6 +157,12 @@ public sealed partial class AntagSelectionComponent : Component
 public partial struct AntagSelectionDefinition()
 {
     /// <summary>
+    /// A list of jobs which cannnot roll this antag.
+    /// </summary>
+    [DataField("jobBlacklist")]
+    public List<ProtoId<JobPrototype>>? JobBlacklist;
+
+    /// <summary>
     /// A list of antagonist roles that are used for selecting which players will be antagonists.
     /// </summary>
     [DataField]
