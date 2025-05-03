@@ -8,8 +8,10 @@ using Content.Goobstation.Common.Changeling;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
+using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Heretic;
@@ -37,6 +39,7 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
 
     public override void Initialize()
     {
@@ -96,6 +99,8 @@ public sealed partial class PossessionSystem : EntitySystem
         // Teleport to the entity, kinda like you're popping out of their head!
         if (!TerminatingOrDeleted(comp.PossessorOriginalEntity) && coordinates is not null)
             _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates.Value);
+
+        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(comp.PossessorOriginalEntity)} + \" unpossessed \" + {ToPrettyString(comp.OriginalEntity)}");
 
         _container.CleanContainer(comp.PossessedContainer);
     }
@@ -200,6 +205,8 @@ public sealed partial class PossessionSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("possession-popup-self"), possessedMind, possessedMind, PopupType.LargeCaution);
         _popup.PopupEntity(Loc.GetString("possession-popup-others", ("target", possessed)), possessed, PopupType.MediumCaution);
         _audio.PlayPvs(possessedComp.PossessionSoundPath, possessed);
+
+        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(possessor)} + \" possessed \" + {ToPrettyString(possessed)}");
     }
 
     private bool CheckMindswapBlocker(Type type, string message, EntityUid possessed, EntityUid possessor)
