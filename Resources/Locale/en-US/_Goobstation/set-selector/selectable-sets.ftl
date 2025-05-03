@@ -67,8 +67,8 @@ selectable-set-syndicate-hitman-description =
 selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
-    Contains: holoparasite kit, EMP, scram, smoke,
-    krav maga and syndicate radio implanters.
+    Contains: holoparasite kit, EMP, scram, freedom,
+    smoke, krav maga and syndicate radio implanters.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
