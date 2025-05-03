@@ -53,7 +53,10 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 Floxington <florian.decker@mailbox.org>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -63,8 +66,10 @@
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -80,6 +85,7 @@
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      - id: BoxLethalInjection # Goobstation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltWarden # Goobstation
@@ -115,6 +121,7 @@
       #- id: WeaponDisabler #Goobstation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
       - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
+      - id: BoxLethalInjection # Goobstation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltWarden # Goobstation
@@ -151,11 +158,15 @@
       - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic
       - id: ClothingBeltSecurityFilled
-      - id: ClothingBeltCorporateJudoFilled # Goobstation - Martial Arts
+        orGroup: Belt # Goobstation - Martial Arts - start
+      - id: ClothingBeltCorporateJudoFilled
+        orGroup: Belt # Goobstation - Martial Arts - end
       - id: Flash
         prob: 0.5
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltSecurityRegular # Goobstation
+      - id: PanicButton # Goobstation
+      - id: PepperSpray # Goobstation
       - id: ClothingHandsGlovesColorBlack
       - id: ClothingShoesBootsJack
       - id: WeaponMeleeNeedle
@@ -222,6 +233,7 @@
       - id: DrinkDetFlask
       - id: ClothingHandsGlovesForensic
       - id: RubberStampDetective
+      - id: BloodTrak # Goobstation
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
       - id: HandLabeler
@@ -333,4 +345,6 @@
     - id: WeaponLaserCarbine
       amount: 3
     - id: WeaponTemperatureGun # Goobstation
+      amount: 2
+    - id: WeaponEnergyIonRifle # Goobstation
       amount: 2
