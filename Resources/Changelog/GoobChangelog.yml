@@ -8345,3 +8345,11 @@ Entries:
       message: Revenant now can toggle nightvision.
   id: 962
   time: '2025-05-03T04:24:40.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Teslas can now bounce off each other.
+    - type: Add
+      message: Tesla generators are now immune to teslas.
+  id: 963
+  time: '2025-05-03T04:25:42.0000000+00:00'
