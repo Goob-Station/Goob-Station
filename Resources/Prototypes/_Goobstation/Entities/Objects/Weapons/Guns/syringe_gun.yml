@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -39,6 +40,9 @@
         ents: []
   - type: SyringeGun
   - type: PacifismAllowedGun
+  - type: Tag
+    tags:
+    - GunCanAimShooter
 
 - type: entity
   name: syringe gun
@@ -83,6 +87,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - GunCanAimShooter
 
 - type: entity
   name: syringe pistol

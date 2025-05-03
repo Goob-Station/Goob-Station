@@ -1,0 +1,190 @@
+- type: entity
+  name: DT-2 'Justice'
+  parent: [BaseItem, BaseGrandTheftContraband]
+  id: Justice
+  description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
+  components:
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    size: Huge
+    storedRotation: -90
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    state: icon
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
+    autoRechargePause: true
+    autoRechargePauseTime: 20
+  - type: DisarmMalus
+  - type: Tag
+    tags:
+    - Justice
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: ItemSwitch
+    needsPower: true
+    defaultState: off
+    state: "off"
+    showLabel: true
+    states:
+      off: !type:ItemSwitchState
+        verb: off
+        energyPerUse: 0
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          state: icon
+        components:
+        - type: Item
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          storedRotation: -90
+          size: Huge
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 0.75
+          damage:
+            types:
+              Slash: 15
+          angle: 60
+          animation: WeaponArcThrust
+
+      stun: !type:ItemSwitchState
+        verb: stun
+        energyPerUse: 70
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          state: stun-icon
+        components:
+        - type: Item
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          heldPrefix: stun
+          storedRotation: -90
+          size: Huge
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 0.75
+          damage:
+            types:
+              Shock: 5
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        - type: StaminaDamageOnHit
+          damage: 30
+          overtime: 30
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+
+      ion: !type:ItemSwitchState
+        verb: ion
+        energyPerUse: 80
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          state: ion-icon
+        components:
+        - type: Item
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          heldPrefix: ion
+          storedRotation: -90
+          size: Huge
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 0.75
+          damage:
+            types:
+              Ion: 30
+              Shock: 10
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+
+      lethal: !type:ItemSwitchState
+        verb: lethal
+        energyPerUse: 120
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          state: lethal-icon
+        components:
+        - type: Item
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          heldPrefix: lethal
+          storedRotation: -90
+          size: Huge
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 0.75
+          damage:
+            types:
+              Slash: 15
+              Heat: 15
+          angle: 60
+          animation: WeaponArcThrust
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
+
+      empowered: !type:ItemSwitchState
+        verb: empowered
+        energyPerUse: 400
+        sprite:
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          state: empowered-icon
+        components:
+        - type: Item
+          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          heldPrefix: empowered
+          storedRotation: -90
+          size: Huge
+        - type: IgniteOnMeleeHit
+          fireStacks: 4
+        - type: TriggerOnMelee
+        - type: Explosive
+          explosionType: Default
+          maxIntensity: 4
+          intensitySlope: 1
+          totalIntensity: 4
+          canCreateVacuum: false
+          deleteAfterExplosion: false
+          repeatable: true
+        - type: ExplodeOnTrigger
+        - type: MeleeWeapon
+          wideAnimationRotation: -135
+          attackRate: 0.5
+          angle: 30
+          animation: WeaponArcThrust
+          damage:
+            types:
+              Slash: 15
+              Heat: 30
+              Shock: 5
+          soundHit:
+            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.250
