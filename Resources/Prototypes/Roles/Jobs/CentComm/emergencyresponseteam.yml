@@ -526,9 +526,6 @@
     - ParamedHypo
     - CartridgeAtropine
     - CartridgeAtropine
-    special: # Goobstation
-    - !type:AddImplantSpecial
-      implants: [ MindShieldImplant, FreedomImplant, BluespaceLifelineImplant, RadioImplantCentcomm, NutrimentPumpImplant, StypticStimulatorImplant ]
 
 # Janitor
 - type: job
