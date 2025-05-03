@@ -673,7 +673,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
   productEntity: MagazineLightRifleBox
   cost:
-    Telecrystal: 25 # 5 times as much total damage as C20 mag - 5 time as much cost
+    Telecrystal: 20
   categories:
   - UplinkAmmo
 
@@ -684,7 +684,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 8 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
+    Telecrystal: 8
   categories:
   - UplinkAmmo
 
@@ -718,7 +718,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
   productEntity: MagazineRifle
   cost:
-    Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage (550, 92 damage per TC)
+    Telecrystal: 5
   categories:
   - UplinkAmmo
 
