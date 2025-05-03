@@ -83,7 +83,7 @@
 - type: entity
   id: BinglePitBingleless
   parent: BinglePit
-  suffix: bingleless
+  suffix: no starting
   components:
   - type: BinglePit
     startingBingles: 0
