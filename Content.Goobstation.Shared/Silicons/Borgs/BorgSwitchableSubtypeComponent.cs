@@ -3,10 +3,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Silicons.Borgs;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Silicons.Borgs.Components;
+namespace Content.Goobstation.Shared.Silicons.Borgs;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]

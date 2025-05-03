@@ -8,7 +8,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
-                      xmlns:subtype="clr-namespace:Content.Client.Silicons.Borgs.Subtype"
+                      xmlns:subtype="clr-namespace:Content.Client.Silicons.Borgs"
                       Title="{Loc 'borg-select-type-menu-title'}"
                       SetSize="600 480">
     <BoxContainer Orientation="Vertical">
