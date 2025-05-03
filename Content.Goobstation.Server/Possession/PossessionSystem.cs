@@ -102,9 +102,6 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!TerminatingOrDeleted(comp.PossessorOriginalEntity) && coordinates is not null)
             _transform.SetMapCoordinates(comp.PossessorOriginalEntity, coordinates.Value);
 
-        Log.Info($"{ToPrettyString(comp.PossessorOriginalEntity)} unpossessed {ToPrettyString(comp.OriginalEntity)}");
-        _admin.Add(LogType.Mind, LogImpact.High, $"{ToPrettyString(comp.PossessorOriginalEntity)} unpossessed {ToPrettyString(comp.OriginalEntity)}");
-
         _container.CleanContainer(comp.PossessedContainer);
     }
 
