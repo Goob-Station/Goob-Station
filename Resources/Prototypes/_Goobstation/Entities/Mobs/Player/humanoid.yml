@@ -91,6 +91,7 @@
       nameSegments:
       - TiderNamesFirst
       - TiderNamesLast
+      nameFormat: name-format-standard
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound # do salvager AI while not taken by anyone
