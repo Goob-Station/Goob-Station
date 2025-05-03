@@ -185,7 +185,7 @@
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
   cost:
-    Telecrystal: 14 # goob - this +1 mag = 16 TC
+    Telecrystal: 13 # goob - this +1 mag = 15 TC
   categories:
   - UplinkWeaponry
 
@@ -207,7 +207,7 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 15 # goob - this +1 mag = 18 TC
+    Telecrystal: 17 # goob - this +1 mag = 20 TC
   categories:
   - UplinkWeaponry
 
@@ -600,7 +600,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
+    Telecrystal: 5 # goob - Ammo should be cheap. 96 dmg per TC.
   categories:
   - UplinkAmmo
 
@@ -624,7 +624,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
+    Telecrystal: 3 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
 
@@ -635,7 +635,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 12 # goob - l6 exists
+    Telecrystal: 9 # goob
   categories:
   - UplinkAmmo
 
@@ -963,7 +963,7 @@
   description: uplink-access-breaker-desc
   productEntity: AccessBreaker
   cost:
-    Telecrystal: 25 # goob - keeping the 25 price since it's just damn good
+    Telecrystal: 20 # goob
   categories:
   - UplinkDisruption
 
@@ -973,7 +973,7 @@
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 15 # goob - I'm tempted to set it to 10, since it's pretty bad unless you have a good plan, but we'll keep it at 15 and see
+    Telecrystal: 20 # goob - not quite worth 25
   categories:
   - UplinkDisruption
 

@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
@@ -7,6 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -121,22 +121,22 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletHighCaliberExplosive
-  name: bullet (.50 high-explosive)
+  name: bullet (.50 high-explosive incendiary)
   components:
   - type: Projectile
     damage:
       types:
-        Blunt: 1
-        Piercing: 1
         Heat: 1
-        Structural: 20
+        Blunt: 2
+        Piercing: 3
+        Structural: 10
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
-    maxIntensity: 3 # 3x3 explosion
-    intensitySlope: 1.5 # 45 damage at the center tile
-    totalIntensity: 12 # 22.5 damage at the edges
-    maxTileBreak: 0 # 11.25 damage at the corners
+    explosionType: FireBombWeak # 1.3 firestacks
+    totalIntensity: 10.8 # 3x3 explosion
+    intensitySlope: 1.4 # 14 damage at the center tile
+    maxIntensity: 2.4 # 8 damage at the edges
+    maxTileBreak: 0 # 4 damage at the corners
   - type: PointLight
     radius: 3.5
     color: orange
