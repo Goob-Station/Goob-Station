@@ -37,7 +37,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 22
+        Piercing: 17
+    armorPenetration: 0.2 # Goobstation
 
 - type: entity
   id: BulletRiflePractice
@@ -71,5 +72,5 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 10
-        Piercing: 12
+        Radiation: 9
+        Piercing: 10

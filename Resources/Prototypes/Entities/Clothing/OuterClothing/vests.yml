@@ -49,7 +49,7 @@
       coefficients:
         Blunt: 0.6 #ballistic plates = better protection
         Slash: 0.6
-        Piercing: 0.35 # Goobstation - John Station - 65%
+        Piercing: 0.3
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -79,7 +79,7 @@
         Blunt: 0.5
         Slash: 0.5
         Piercing: 0.7
-        Heat: 0.35 # Goobstation - John Station - 65%
+        Heat: 0.3
         Radiation: 0.5
         Caustic: 0.5
   - type: ExplosionResistance
