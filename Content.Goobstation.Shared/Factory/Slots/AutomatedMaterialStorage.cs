@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Materials;
+using Content.Shared.Power.EntitySystems;
 
 namespace Content.Goobstation.Shared.Factory.Slots;
 
@@ -14,6 +15,7 @@ namespace Content.Goobstation.Shared.Factory.Slots;
 public sealed partial class AutomatedMaterialStorage : AutomationSlot
 {
     private SharedMaterialStorageSystem _material;
+    private SharedPowerReceiverSystem _power;
 
     private EntityQuery<MaterialComponent> _materialQuery;
     private EntityQuery<MaterialStorageComponent> _storageQuery;
@@ -24,6 +26,7 @@ public sealed partial class AutomatedMaterialStorage : AutomationSlot
         base.Initialize();
 
         _material = EntMan.System<SharedMaterialStorageSystem>();
+        _power = EntMan.System<SharedPowerReceiverSystem>();
 
         _materialQuery = EntMan.GetEntityQuery<MaterialComponent>();
         _storageQuery = EntMan.GetEntityQuery<MaterialStorageComponent>();
@@ -38,6 +41,10 @@ public sealed partial class AutomatedMaterialStorage : AutomationSlot
     public override bool CanInsert(EntityUid item)
     {
         if (!base.CanInsert(item) || !_storageQuery.TryComp(Owner, out var storage))
+            return false;
+
+        // don't bypass power check for lathes and stuff
+        if (!_power.IsPowered(Owner))
             return false;
 
         // this has to be essentially copypasted because goidacode doesnt have a CanInsertMaterial method
