@@ -123,6 +123,9 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
     size: Huge
+    shape:
+      - 0,0,6,1
+    storedRotation: 45
   - type: Clothing
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
     quickEquip: false
@@ -131,13 +134,14 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.75
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
+    autoCycle: false
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: ItemSlots
@@ -213,6 +217,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+    resetOnHandSelected: false # Goobstation - quickscope pro
   #- type: BallisticAmmoProvider - Goobstation - Magazine Sniper
   #  whitelist:
   #    tags:
@@ -220,8 +225,8 @@
   #  capacity: 5
   #  proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.9 # goob edit V
-    sprintModifier: 0.9 # goob edit ^
+    walkModifier: 0.8 # goob edit V
+    sprintModifier: 0.8 # goob edit ^
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 8 # Goobstation - Sniper rifles buff
