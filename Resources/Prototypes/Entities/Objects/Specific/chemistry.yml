@@ -143,6 +143,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -154,6 +155,7 @@
 # SPDX-FileCopyrightText: 2025 grub <unalterableness@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
+# SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -540,7 +542,20 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
-    # GoobStation Start - Added embeddable properties for syringe gun
+    # Goobstation Start - Added embeddable properties for syringe gun
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    canHeavyAttack: false
+    angle: 0
+    damage:
+      types:
+        Piercing: 1
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+  - type: CombatDoAfter
+    trigger: !type:CombatSyringeTriggerEvent
+    breakOnDamage: true
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -586,24 +601,7 @@
   - type: ThrowableBlocked
   - type: Ammo
     muzzleFlash: null
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 30
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: GlassBreak
-          params:
-            volume: -4
-      - !type:SpillBehavior
-        solution: injector
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    # GoobStation End
+    # Goobstation End
   - type: ExaminableSolution
     solution: injector
   - type: Spillable
@@ -741,6 +739,8 @@
       Glass: 62
       Plasma: 25
       Silver: 12
+  - type: CombatDoAfter # Goobstation
+    delay: 3 # Longer than a regular syringe
 
 - type: entity
   id: SyringeCryostasis

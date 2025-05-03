@@ -4,9 +4,11 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -113,3 +115,17 @@
       amount: 5
     - id: FoodSnackChocolate
       amount: 5
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledHE1SG8
+  name: HE1S-G8 bundle
+  description: This bundle holds the HE1S-G8 rifle paired with 19 cartridges for some extra funny.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperHE1SG8 # 1 cartridge inside
+    - id: CartridgeG8Demolishing
+      amount: 9
+    - id: CartridgeG8Hypercharged
+      amount: 9
