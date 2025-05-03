@@ -11,6 +11,7 @@
 
 - type: entity
   id: BinglePit
+  categories: [ Spawner ] # needed so tests don't sus
   name: binglepit
   description: Looks Hungry
   placement:
