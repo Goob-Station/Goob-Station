@@ -8331,3 +8331,9 @@ Entries:
       message: 'Rosef is no longer gibbable via carp. Please shame him publicly. '
   id: 960
   time: '2025-05-03T04:23:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed a bug with movement impaired.
+  id: 961
+  time: '2025-05-03T04:24:16.0000000+00:00'
