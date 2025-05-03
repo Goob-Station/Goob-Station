@@ -29,7 +29,7 @@ public abstract partial class GrantMartialArtKnowledgeComponent : Component
     public string? SpawnedProto = "Ash";
 
     [DataField]
-    public SoundSpecifier SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
+    public SoundSpecifier? SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
 }
 
 [RegisterComponent]
