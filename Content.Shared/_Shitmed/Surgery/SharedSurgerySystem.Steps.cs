@@ -557,6 +557,11 @@ public abstract partial class SharedSurgerySystem
 
         if (HasComp<SanitizedComponent>(args.User))
             return;
+
+        if (TryComp<SurgeryTargetComponent>(args.Body, out var surgeryTargetComponent) &&
+            surgeryTargetComponent.SepsisImmune)
+            return;
+
         var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
         var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
         RaiseLocalEvent(args.Body, ref ev);

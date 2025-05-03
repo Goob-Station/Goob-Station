@@ -150,6 +150,8 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: SurgeryTarget # Goobstation
+    sepsisImmune: true
   - type: Tag # Goobstation
     tags:
     - CanPilot
