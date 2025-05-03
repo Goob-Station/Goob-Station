@@ -931,6 +931,8 @@ MediumXenoArtifactItem: ComplexXenoArtifactItem
 VariedXenoArtifactItem: ComplexXenoArtifactItem
 
 # 2025-04-19
+ClothingOuterHardsuitSyndicate: ClothingOuterEVASuitSyndicate
+ClothingOuterHardsuitSyndicateDurathread: ClothingOuterEVASuitSyndicate
 AirlockMaintCommonLocked: AirlockMaintLocked
 AirlockMaintIntLocked: AirlockMaintLocked
 
