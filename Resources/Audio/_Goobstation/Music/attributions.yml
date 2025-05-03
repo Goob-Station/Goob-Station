@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files: ["running_in.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original music by Q/\ntum & Z.W.E.I. for SS220, slightly modified by pheenty"
+  source: "https://youtu.be/AisGME8DRk0"
