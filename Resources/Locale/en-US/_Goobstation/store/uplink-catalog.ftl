@@ -143,11 +143,11 @@ uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible wit
 uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
-uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
-uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
+uplink-high-caliber-magazine-name = Rifle Magazine (.50 anti-materiel)
+uplink-high-caliber-magazine-desc = Heavy rifle magazine with 15 cartridges. Compatible with the Burner.
 
-uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
-uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
+uplink-high-caliber-explosive-magazine-name = Rifle Magazine (.50 HEI)
+uplink-high-caliber-explosive-magazine-desc = Heavy rifle magazine with 15 High Explosive Incendiary cartridges. Compatible with the Burner.
 
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
