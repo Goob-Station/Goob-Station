@@ -8258,3 +8258,140 @@ Entries:
       message: Cyberpsychosis bundle now includes freedom implant.
   id: 951
   time: '2025-05-02T12:08:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Security lockers now contain either security belt OR judo belt, but not
+        both.
+  id: 952
+  time: '2025-05-03T04:08:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed radiation collectors with very high maximum output ramping very
+        slowly.
+  id: 953
+  time: '2025-05-03T04:14:52.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: >-
+        Invisible armor (Syndie and Centcomm) are now invisible in the strip
+        menu.
+  id: 954
+  time: '2025-05-03T04:16:01.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Warops declaration will now play new music.
+  id: 955
+  time: '2025-05-03T04:17:03.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Salvage borg grappling module now has experimental jaunter, which will
+        recharge over time.
+  id: 956
+  time: '2025-05-03T04:17:55.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        You can now quickscope with Hristov like a pro. Also, it is now
+        bolt-action, but fires faster, is 2x7 in the storage, comes with an
+        extra mag, but slows down on wielding slightly more.
+  id: 957
+  time: '2025-05-03T04:18:15.0000000+00:00'
+- author: Singul0
+  changes:
+    - type: Fix
+      message: >-
+        Ghost roles with requirements (such as maint drones) are now grouped
+        together correctly!
+  id: 958
+  time: '2025-05-03T04:20:00.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: 'New Ian variant: Clown Ian.'
+  id: 959
+  time: '2025-05-03T04:22:38.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: I'm now gibbable via carp. I shall take the punishment in his stead.
+    - type: Add
+      message: >-
+        Brizby is now gibbable via carp. The balance of goob stays equivalent
+        after all...
+    - type: Remove
+      message: 'Rosef is no longer gibbable via carp. Please shame him publicly. '
+  id: 960
+  time: '2025-05-03T04:23:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed a bug with movement impaired.
+  id: 961
+  time: '2025-05-03T04:24:16.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Revenant is now slightly stronger and faster.
+    - type: Add
+      message: Revenant now can toggle nightvision.
+  id: 962
+  time: '2025-05-03T04:24:40.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Teslas can now bounce off each other.
+    - type: Add
+      message: Tesla generators are now immune to teslas.
+  id: 963
+  time: '2025-05-03T04:25:42.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob factories are now limited to 3 alive and not total blob drops.
+  id: 964
+  time: '2025-05-03T04:26:14.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: You can now wear your propeller hat backwards like the cool kids do.
+  id: 965
+  time: '2025-05-03T04:26:34.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Burner HE ammo is now HEI. Weaker explosion, but enflames its targets.
+        Come on, it's called BURNER after all.
+    - type: Tweak
+      message: Emag and disruptor both cost 20 TC now.
+    - type: Tweak
+      message: Viper and Cobra cost 13 and 17 TC respectively.
+    - type: Tweak
+      message: A lot of ammo now costs less TC.
+  id: 966
+  time: '2025-05-03T04:27:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added inline filters - essentially a filter on top of a straight pipe.
+  id: 967
+  time: '2025-05-03T04:33:47.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Slightly changed armor values of most armor vests.
+    - type: Tweak
+      message: >-
+        Instead of just dealing more damage, heavier calibers now have partial
+        AP.
+  id: 968
+  time: '2025-05-03T04:47:17.0000000+00:00'

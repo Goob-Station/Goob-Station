@@ -435,6 +435,9 @@
   id: TemplarHelmet
 
 - type: Tag
+  id: Tesla
+
+- type: Tag
   id: Tongue
 
 - type: Tag
