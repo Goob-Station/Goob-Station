@@ -103,6 +103,7 @@
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pacable <igor.mamaev1@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
