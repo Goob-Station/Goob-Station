@@ -401,7 +401,7 @@ public sealed partial class StationJobsSystem
                         continue;
                 }
 
-                if (!job.CanBeAntag && hasSession && antagBlocked.Contains(session!))
+                if (!job.CanBeAntag && (!_playerManager.TryGetSessionById(player, out var newSession) || antagBlocked.Contains(newSession)))
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)
