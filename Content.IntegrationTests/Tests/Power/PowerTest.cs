@@ -15,6 +15,8 @@
 // SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -333,6 +335,7 @@ namespace Content.IntegrationTests.Tests.Power
                 supplier.MaxSupply = 400;
                 supplier.SupplyRampRate = 400;
                 supplier.SupplyRampTolerance = 100;
+                supplier.SupplyRampScaling = 1; // Goobstation - test bandaid
                 consumer.DrawRate = 400;
             });
 
