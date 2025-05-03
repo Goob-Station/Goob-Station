@@ -109,7 +109,7 @@ cosmiccult-monument-stage3-briefing =
 
 ## MALIGN RIFTS
 
-osmiccult-rift-inuse = You can't do this right now.
+cosmiccult-rift-inuse = You can't do this right now.
 cosmiccult-rift-invaliduser = You lack to proper tools to deal with this.
 cosmiccult-rift-chaplainoops = Wield your holy scripture.
 cosmiccult-rift-alreadyempowered = You are already empowered; the rift's power would be wasted.

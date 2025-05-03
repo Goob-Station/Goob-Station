@@ -150,12 +150,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     protected override void ActiveTick(EntityUid uid, CosmicCultRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
-        if (component.StewardVoteTimer is { } voteTimer && _timing.CurTime <= voteTimer)
+        if (component.StewardVoteTimer is { } voteTimer && _timing.CurTime >= voteTimer)
         {
             component.StewardVoteTimer = null;
             StewardVote();
         }
-        if (component.PrepareFinaleTimer is { } finalePrepTimer && _timing.CurTime <= finalePrepTimer)
+        if (component.PrepareFinaleTimer is { } finalePrepTimer && _timing.CurTime >= finalePrepTimer)
         {
             component.PrepareFinaleTimer = null;
 
@@ -166,7 +166,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
                 return;
             }
         }
-        if (component.Tier3DelayTimer is { } tier3Timer && _timing.CurTime <= tier3Timer)
+        if (component.Tier3DelayTimer is { } tier3Timer && _timing.CurTime >= tier3Timer)
         {
             component.Tier3DelayTimer = null;
 
@@ -214,7 +214,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             UpdateCultData(component.MonumentInGame); //instantly go up a tier if they manage it.
             _ui.SetUiState(component.MonumentInGame.Owner, MonumentKey.Key, new MonumentBuiState(component.MonumentInGame.Comp)); //not sure if this is needed but I'll be safe
         }
-        if (component.Tier2DelayTimer is { } tier2Timer && _timing.CurTime <= tier2Timer)
+        if (component.Tier2DelayTimer is { } tier2Timer && _timing.CurTime >= tier2Timer)
         {
             component.Tier2DelayTimer = null;
 
@@ -514,18 +514,17 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         {
             _monument.SetCanTierUp(uid, false);
 
-            var timer = _t3RevealDelay;
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
             {
-                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing", ("time", _t3RevealDelay.Seconds)), Color.FromHex("#4cabb3"), _monumentAlert);
+                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage3-briefing", ("time", _t3RevealDelay.TotalSeconds)), Color.FromHex("#4cabb3"), _monumentAlert);
             }
 
             _monument.MonumentTier3(uid);
             _monument.UpdateMonumentReqsForTier(uid, cult.Comp.CurrentTier);
             cult.Comp.CurrentTier = 3;
 
-            cult.Comp.Tier3DelayTimer = _timing.CurTime + timer;
+            cult.Comp.Tier3DelayTimer = _timing.CurTime + _t3RevealDelay;
         }
         else if (uid.Comp.CurrentProgress >= uid.Comp.TargetProgress && cult.Comp.CurrentTier == 1 && uid.Comp.CanTierUp)
         {
@@ -534,7 +533,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
             var cultistQuery = EntityQueryEnumerator<CosmicCultComponent>();
             while (cultistQuery.MoveNext(out var cultist, out var cultistComp))
             {
-                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage2-briefing", ("time", _t2RevealDelay.Seconds)), Color.FromHex("#4cabb3"), _monumentAlert);
+                _antag.SendBriefing(cultist, Loc.GetString("cosmiccult-monument-stage2-briefing", ("time", _t2RevealDelay.TotalSeconds)), Color.FromHex("#4cabb3"), _monumentAlert);
             }
 
             _monument.MonumentTier2(uid);
