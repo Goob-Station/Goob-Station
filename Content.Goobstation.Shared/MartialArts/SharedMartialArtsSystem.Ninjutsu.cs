@@ -11,7 +11,6 @@ using Content.Goobstation.Shared.MartialArts.Events;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
-using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -36,7 +35,6 @@ public abstract partial class SharedMartialArtsSystem
         SubscribeLocalEvent<CanPerformComboComponent, DirtyKillPerformedEvent>(OnDirtyKill);
 
         SubscribeLocalEvent<GrantNinjutsuComponent, UseInHandEvent>(OnGrantCQCUse);
-        SubscribeLocalEvent<GrantNinjutsuComponent, ExaminedEvent>(OnGrantCQCExamine);
 
         SubscribeLocalEvent<ThrownEvent>(OnThrow);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);

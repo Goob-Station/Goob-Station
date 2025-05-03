@@ -458,8 +458,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-success-unblocked"), user, user);
             cqc.Blocked = false;
-            comp.Used = true;
-            return false;
+            return true;
         }
 
         _popupSystem.PopupEntity(Loc.GetString("cqc-fail-already"), user, user);
@@ -475,6 +474,9 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!_proto.TryIndex<MartialArtPrototype>(comp.MartialArtsForm.ToString(), out var martialArtsPrototype)
             || !TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             return false;
+
+        if (comp.LearnMessage != null)
+            _popupSystem.PopupEntity(Loc.GetString(comp.LearnMessage), user, user);
 
         switch (martialArtsPrototype.MartialArtsForm)
         {

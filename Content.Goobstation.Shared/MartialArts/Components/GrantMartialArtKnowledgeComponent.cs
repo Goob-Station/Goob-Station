@@ -10,22 +10,26 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.MartialArts;
+using Robust.Shared.Audio;
 
 namespace Content.Goobstation.Shared.MartialArts.Components;
 
 public abstract partial class GrantMartialArtKnowledgeComponent : Component
 {
     [DataField]
-    public bool Used;
-
-    [DataField]
     public virtual MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.CloseQuartersCombat;
 
     [DataField]
-    public virtual LocId LearnMessage { get; set; } = "cqc-success-learned";
+    public virtual LocId? LearnMessage { get; set; } = null;
 
     [DataField]
-    public virtual LocId LearnFailMessage { get; set; } = "cqc-fail-used";
+    public bool MultiUse;
+
+    [DataField]
+    public string? SpawnedProto = "Ash";
+
+    [DataField]
+    public SoundSpecifier? SoundOnUse = new SoundPathSpecifier("/Audio/Effects/fire.ogg", AudioParams.Default.WithVolume(10));
 }
 
 [RegisterComponent]
@@ -33,6 +37,8 @@ public sealed partial class GrantCqcComponent : GrantMartialArtKnowledgeComponen
 {
     [DataField]
     public bool IsBlocked;
+
+    public override LocId? LearnMessage { get; set; } = "cqc-success-learned";
 }
 
 [RegisterComponent]
@@ -48,7 +54,7 @@ public sealed partial class GrantCapoeiraComponent : GrantMartialArtKnowledgeCom
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Capoeira;
 
-    public override LocId LearnMessage { get; set; } = "capoeira-success-learned";
+    public override LocId? LearnMessage { get; set; } = "capoeira-success-learned";
 }
 
 [RegisterComponent]
@@ -57,7 +63,7 @@ public sealed partial class GrantKungFuDragonComponent : GrantMartialArtKnowledg
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.KungFuDragon;
 
-    public override LocId LearnMessage { get; set; } = "dragon-success-learned";
+    public override LocId? LearnMessage { get; set; } = "dragon-success-learned";
 }
 
 [RegisterComponent]
@@ -66,7 +72,7 @@ public sealed partial class GrantNinjutsuComponent : GrantMartialArtKnowledgeCom
     [DataField]
     public override MartialArtsForms MartialArtsForm { get; set; } = MartialArtsForms.Ninjutsu;
 
-    public override LocId LearnMessage { get; set; } = "ninjutsu-success-learned";
+    public override LocId? LearnMessage { get; set; } = "ninjutsu-success-learned";
 }
 
 [RegisterComponent]

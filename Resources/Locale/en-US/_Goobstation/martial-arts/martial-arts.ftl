@@ -4,22 +4,16 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-cqc-fail-used = {CAPITALIZE(THE($manual))} is already used.
 cqc-fail-notself = You can't teach anyone with {CAPITALIZE(THE($manual))}.
 
 cqc-fail-changeling = We are beyond using this.
 cqc-fail-knowanother = You already know another martial art.
 cqc-fail-already = You already know everything about a Martial art.
 cqc-success-unblocked = Your CQC skills are not bound to kitchen anymore.
-cqc-success-learned = You have learned CQC.
-capoeira-success-learned = You have learned Capoeira.
-dragon-success-learned = You have learned Dragon Kung Fu.
-ninjutsu-success-learned = You have learned Ninjutsu.
-
-cqc-manual-used = [color=white]{CAPITALIZE(THE($manual))} looks to be already used.[/color]
-
-ent-CQCManual = CQC manual
-    .desc = Looks like a usual book, but contains some secrets inside.
+cqc-success-learned = You have learned CQC. The manual incinerates in your hands...
+capoeira-success-learned = You have learned Capoeira. The manual incinerates in your hands...
+dragon-success-learned = You have learned Dragon Kung Fu. The manual incinerates in your hands...
+ninjutsu-success-learned = You have learned Ninjutsu. The scroll incinerates in your hands...
 
 carp-scroll-waiting = The journey of a thousand miles begins with one step, and the path of wisdom is traveled slowly, one lesson at a time.
 carp-scroll-advance = You have taken one step closer to becoming a master of the Way of the Sleeping Carp.

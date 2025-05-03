@@ -122,6 +122,9 @@ public sealed class RiposteeSystem : EntitySystem
         if (_mobState.IsIncapacitated(ent))
             return;
 
+        if (HasComp<RiposteeComponent>(args.User))
+            return;
+
         foreach (var data in ent.Comp.Data.Values)
         {
             if (!data.CanRiposte)
