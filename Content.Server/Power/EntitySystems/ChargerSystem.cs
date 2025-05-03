@@ -194,7 +194,12 @@ internal sealed class ChargerSystem : EntitySystem
             if (!_container.TryGetContainer(uid, charger.SlotId, out var container, containerComp))
                 continue;
 
-            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged || container.ContainedEntities.Count == 0)
+            // Goobstation start
+            if (container.ContainedEntities.Count == 0)
+                continue;
+            UpdateStatus(uid, charger);
+            // Goobstation end
+            if (charger.Status == CellChargerStatus.Empty || charger.Status == CellChargerStatus.Charged) // Goobstation edit
                 continue;
 
             foreach (var contained in container.ContainedEntities)
