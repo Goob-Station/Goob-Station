@@ -8288,3 +8288,11 @@ Entries:
       message: Warops declaration will now play new music.
   id: 955
   time: '2025-05-03T04:17:03.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Salvage borg grappling module now has experimental jaunter, which will
+        recharge over time.
+  id: 956
+  time: '2025-05-03T04:17:55.0000000+00:00'
