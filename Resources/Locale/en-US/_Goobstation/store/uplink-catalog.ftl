@@ -114,16 +114,22 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
+uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
+uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
+
 uplink-he1sg8-bundle-name = HE1S-G8 Bundle
 uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
 # Ammo
 
-uplink-blast-grenade-name = Blast Grenade
+uplink-blast-grenade-name = Blast Grenade (40mm)
 uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the China-Lake.
 
-uplink-frag-grenade-name = Frag Grenade
+uplink-frag-grenade-name = Frag Grenade (40mm)
 uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-mpapers-grenade-name = MP-APERS shell (40mm)
+uplink-mpapers-grenade-desc = Fires out 20 small pellets to turn your grenade launcher into a shotgun. Compatible with the China-Lake.
 
 uplink-rifle-mag-name = Rifle Magazine (.20)
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
@@ -137,10 +143,10 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge pellet)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
 uplink-high-caliber-magazine-name = Rifle Magazine (.50 anti-materiel)
@@ -163,6 +169,18 @@ uplink-cartridge-G8-demolishing-desc = This cartridge shots "The Spear of Ares" 
 
 uplink-cartridge-G8-hypercharged-name = G8 hypercharged cartridge
 uplink-cartridge-G8-hypercharged-desc = This cartridge shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge. Used by HE1S-G8.
+
+uplink-high-caliber-shotgun-box-name = 8 Gauge shell box
+uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
+uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
+uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
+
+uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
+uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 # Grenades
 

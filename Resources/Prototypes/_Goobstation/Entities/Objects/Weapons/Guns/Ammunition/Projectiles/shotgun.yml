@@ -226,8 +226,29 @@
   - type: StaminaDamageOnCollide
     damage: 80 # ye-OW
 
-# MP-APERS
+- type: entity
+  id: BulletShotgunHeavySlugSarin
+  name: bullet (8 Gauge Sarin)
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    smokePrototype: Smoke
+    solution:
+      reagents:
+      - ReagentId: Sarin
+        Quantity: 20
+    spreadAmount: 1
+  - type: ActiveTimerTrigger
+    timeRemaining: 1
+  - type: DeleteOnTrigger
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
 
+# MP-APERS
 - type: entity
   id: HighCaliberPelletGrenade
   name: pellet (MP-APERS)

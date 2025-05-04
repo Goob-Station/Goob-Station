@@ -370,7 +370,7 @@
   description: uplink-explosive-grenade-desc
   productEntity: ExGrenade
   cost:
-    Telecrystal: 12 # goob - Better than C4 combat wise, less utility elsewhere. Don't want crazy spam on ops however.
+    Telecrystal: 6 # Goob edit, same price and size as one rifle magazine
   categories:
   - UplinkExplosives
 
@@ -381,7 +381,7 @@
   description: uplink-flash-grenade-desc
   productEntity: GrenadeFlashBang
   cost:
-    Telecrystal: 4 # goob - grenade balancing applies
+    Telecrystal: 2 # goob - grenade balancing applies
   categories:
   - UplinkExplosives
 
@@ -392,7 +392,7 @@
   description: uplink-smoke-grenade-desc
   productEntity: SmokeGrenade
   cost:
-    Telecrystal: 4 # goob - grenade balancing applies
+    Telecrystal: 2 # goob - grenade balancing applies
   categories:
   - UplinkExplosives
 
@@ -555,7 +555,7 @@
   description: uplink-shrapnel-grenade-desc
   productEntity: GrenadeShrapnel
   cost:
-    Telecrystal: 16 # goob - Better than the normal nade, but not by much.
+    Telecrystal: 8 # goob - Better than the normal nade, but not by much.
   categories:
   - UplinkExplosives
 
@@ -566,7 +566,7 @@
   description: uplink-incendiary-grenade-desc
   productEntity: GrenadeIncendiary
   cost:
-    Telecrystal: 20 # goob - Better than the shrapnel nade by far.
+    Telecrystal: 10 # goob - Better than the shrapnel nade by far.
   categories:
   - UplinkExplosives
 
