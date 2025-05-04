@@ -194,6 +194,7 @@
     - type: TriggerOnMobstateChange
       mobState:
       - Critical
+      - Dead # Goobstation - microreactor uplink and tracker fixes
     - type: Rattle
       radioChannel: "Security"
 
