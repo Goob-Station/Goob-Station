@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Git-Nivrak <59925169+Git-Nivrak@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+# construction_graphs.yml
+
+- type: construction_graph
+  id: Water_Floor_Construction
+  nodes:
+    start:
+      name: start
+    bucket_added:
+      name: bucket_added
+    finished:
+      name: finished
+      entity: FloorWaterEntity # Prototype ID of the final entity
+  edges:
+    start:
+      bucket_added:
+        steps:
+        - !MaterialConstructionGraphStep
+          id: Bucket
+          amount: 4
+          store: bucket_container
+        - !SolutionCheckConstructionGraphStep #Checks if the bucket has water
+          solution: bucket_container
+          reagent: Water
+          quantity: 250 # Minimum amount of water required
+    bucket_added:
+      finished:
+        steps:
+        - !GraphAction
+          action: AddComponent
+          component:
+            type: SolutionTransferer
+            solution: bucket_container
