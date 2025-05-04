@@ -1887,3 +1887,21 @@
     state: closed
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: WaterFloor
+  name: Water Tile
+  description: Simply water!
+  graph: WaterFloorGraph
+  startNode: start
+  targetNode: finished
+  constructionType: Structure # or Item
+  category: construction-category-structures
+  conditions:
+  - !type:TileNotBlocked
+    failIfSpace: false
+  icon:
+    sprite: Tiles/Planet/water.rsi
+    state: shoreline_water
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false

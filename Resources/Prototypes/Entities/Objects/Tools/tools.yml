@@ -726,6 +726,9 @@
   - type: StaticPrice
     price: 25
   - type: Shovel
+  - type: Tool # Goobstation
+    qualities:
+    - Digging
 
 - type: entity
   parent: BaseItem

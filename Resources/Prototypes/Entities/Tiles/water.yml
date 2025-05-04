@@ -21,6 +21,9 @@
     snap:
     - Wall
   components:
+  - type: Construction #Goob!!1212121
+    graph: WaterFloorGraph
+    node: finished
   - type: FloorOccluder
   - type: Transform
     anchored: true
