@@ -15,6 +15,7 @@ using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
+using Content.Server.NodeContainer.Nodes;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
@@ -83,7 +84,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         _clauseRegex = new Regex($@"^\s*(?<target>{targetPattern})\s*:\s*(?<clause>.+?)\s*$",
             RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline);
     }
-
     private void OnGetVerbs(EntityUid uid, DevilContractComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract

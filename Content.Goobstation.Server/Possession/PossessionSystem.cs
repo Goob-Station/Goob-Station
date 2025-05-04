@@ -9,6 +9,7 @@ using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
+using Content.Server.Polymorph.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared.Actions;
@@ -45,7 +46,7 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -87,6 +88,8 @@ public sealed partial class PossessionSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // if polymorphed, undo
+        _polymorph.Revert(uid);
         RemComp(uid, comp);
 
         args.Handled = true;
