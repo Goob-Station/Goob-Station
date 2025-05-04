@@ -244,3 +244,6 @@ uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza del
 
 uplink-undetermined-bundle-name = Undetermined Bundle Crate
 uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.
+
+uplink-energy-pickaxe-name = Energy Pickaxe
+uplink-energy-pickaxe-desc = A holographic mining tool with blades comprised of hard light that also serves a deadly melee weapon. Rock and stone!
