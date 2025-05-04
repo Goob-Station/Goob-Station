@@ -45,3 +45,31 @@
   - type: ConditionalSpawner
     prototypes:
       - VehicleJanicart
+
+- type: entity
+  name: Office chair Spawner Light
+  id: SpawnOfficeChairLight
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: structures/furniture/chair.rsi
+        state: office-white
+  - type: ConditionalSpawner
+    prototypes:
+      - ChairOfficeLight
+
+- type: entity
+  name: Office chair Spawner Dark
+  id: SpawnOfficeChairDarnk
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: structures/furniture/chair.rsi
+        state: office-dark
+  - type: ConditionalSpawner
+    prototypes:
+      - ChairOfficeDark
