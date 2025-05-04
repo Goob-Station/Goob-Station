@@ -1,0 +1,43 @@
+using Content.Goobstation.Server.RelayedDeathrattle;
+using Content.Goobstation.Shared.CrewMonitoring;
+using Content.Server.Revolutionary.Components;
+using Content.Shared.DoAfter;
+using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
+
+namespace Content.Goobstation.Server.CrewMonitoring;
+
+public sealed class CrewMonitorScanningSystem : EntitySystem
+{
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<CrewMonitorScanningComponent, AfterInteractEvent>(OnScanAttempt);
+        SubscribeLocalEvent<CrewMonitorScanningComponent, CrewMonitorScanningDoAfterEvent>(OnScanComplete);
+    }
+
+    private void OnScanAttempt(EntityUid uid, CrewMonitorScanningComponent comp, AfterInteractEvent args)
+    {
+        if (args.Target == null || !args.CanReach || !HasComp<HumanoidAppearanceComponent>(args.Target))
+            return;
+
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, comp.DoAfterTime, new CrewMonitorScanningDoAfterEvent(), uid, args.Target, uid) { NeedHand = true, BreakOnMove = true });
+    }
+
+    private void OnScanComplete(EntityUid uid, CrewMonitorScanningComponent comp, CrewMonitorScanningDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled || args.Target == null || comp.ScannedEntities.Contains(args.Target.Value))
+            return;
+
+        if (comp.OnlyCommandStaff && !HasComp<CommandStaffComponent>(args.Target))
+            return;
+
+        comp.ScannedEntities.Add(args.Target.Value);
+        if (!comp.ApplyDeathrattle)
+            return;
+
+        EnsureComp<RelayedDeathrattleComponent>(args.Target.Value).Target = uid;
+        args.Handled = true;
+    }
+}

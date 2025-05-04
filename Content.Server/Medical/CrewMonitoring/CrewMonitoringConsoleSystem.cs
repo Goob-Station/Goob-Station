@@ -15,6 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.CrewMonitoring;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.PowerCell;
@@ -57,7 +58,25 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (!payload.TryGetValue(SuitSensorConstants.NET_STATUS_COLLECTION, out Dictionary<string, SuitSensorStatus>? sensorStatus))
             return;
 
+        // Goobstation - start
+        if (TryComp<CrewMonitorScanningComponent>(uid, out var scanned))
+        {
+            var newSensorStatus = new Dictionary<string, SuitSensorStatus>();
+            foreach (var pair in sensorStatus)
+            {
+                var entity = GetEntity(pair.Value.SuitSensorUid);
+                if (!HasComp<TransformComponent>(entity))
+                    continue;
+
+                if (scanned.ScannedEntities.Contains(Transform(entity).ParentUid))
+                    newSensorStatus[pair.Key] = pair.Value;
+            }
+            sensorStatus = newSensorStatus;
+        }
+        // Goobstation - end
+
         component.ConnectedSensors = sensorStatus;
+
         UpdateUserInterface(uid, component);
     }
 

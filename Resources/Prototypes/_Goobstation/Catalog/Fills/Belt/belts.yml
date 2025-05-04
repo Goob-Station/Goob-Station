@@ -134,8 +134,8 @@
   table: !type:AllSelector
     children:
     - id: Stunbaton
-    - id: HandheldCrewMonitor
     - id: HoloprojectorSecurity
+    - id: GrenadeFlashBang
     - id: GrenadeFlashBang
     - id: WeaponDisabler
     - id: Zipties
