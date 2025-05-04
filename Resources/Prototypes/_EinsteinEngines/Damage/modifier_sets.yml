@@ -19,5 +19,5 @@
     Shock: 2
   # Goobstation
     Radiation: 0.4
-    Ion: 0.8
+    Ion: 1.6
   ignoreArmorPierceFlags: All
