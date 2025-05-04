@@ -62,8 +62,22 @@
   name: Fireball II
   description: Fires a fireball, but faster!
   components:
-  - type: Action
-    useDelay: 4
+  - type: EntityWorldTargetAction # Goob edit
+    useDelay: 4 # Goob edit
+    checkCanInteract: false # Goobstation
+    itemIconStyle: BigAction
+    checkCanAccess: false
+    raiseOnUser: true
+    range: 60
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: fireball # Goob edit
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileFireball
+  - type: SpeakOnAction
+    sentence: action-speech-spell-fireball
 
 - type: entity
   parent: ActionFireball
@@ -71,5 +85,19 @@
   name: Fireball III
   description: The fastest fireball in the west!
   components:
-  - type: Action
-    useDelay: 2
+    - type: EntityWorldTargetAction # Goob edit
+      useDelay: 2 # Goob edit
+      checkCanInteract: false # Goobstation
+      itemIconStyle: BigAction
+      checkCanAccess: false
+      raiseOnUser: true
+      range: 60
+      sound: !type:SoundPathSpecifier
+        path: /Audio/Magic/fireball.ogg
+      icon:
+        sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+        state: fireball # Goob edit
+      event: !type:ProjectileSpellEvent
+        prototype: ProjectileFireball
+    - type: SpeakOnAction
+      sentence: action-speech-spell-fireball
