@@ -2,11 +2,11 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseSyndicateContraband]
   id: BloodredModsuitBackpack
-  name: CSA-99MS "Deimos" Modsuit Control
+  name: Syndicate "Deimos" Modsuit Control
   description: A control module for the "Deimos" modsuit.
   components:
     - type: Sprite
-      sprite: _Baystation/Clothing/Modsuit/bloodredmodsuit.rsi
+      sprite: _Goobstation\Clothing\Back\Modsuits\bloodredmodsuit.rsi
     - type: ExplosionResistance
       damageCoefficient: 0.6
     - type: ToggleableClothing
@@ -42,7 +42,7 @@
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Baystation/Clothing/Modsuit/bloodredmodsuit.rsi
+      sprite: _Goobstation\Clothing\Hands\Modsuits\bloodredmodsuit.rsi
     - type: SealableClothingVisuals
       visualLayers:
         gloves:
@@ -51,12 +51,12 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingModsuitHelmetBloodredModsuit
-  name: CSA-99MS "Deimos" Modsuit Helm
+  name: Syndicate "Deimos" Modsuit Helm
   description: A helmet made for the "Deimos" modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Baystation/Clothing/Modsuit/bloodredmodsuit.rsi
+      sprite: _Goobstation\Clothing\Head\Modsuits\bloodredmodsuit.rsi
     - type: Armor
       modifiers:
         coefficients:
@@ -79,12 +79,12 @@
 - type: entity
   parent: [ClothingModsuitChestplateStandard, BaseSyndicateContraband]
   id: ClothingModsuitChestplateBloodredModsuit
-  name: CSA-99MS "Deimos" Modsuit Chestplate
+  name: Syndicate "Deimos" Modsuit Chestplate
   description: Mass produced, low-protection replacement for the average blood-red in case you lack the funds to buy a real one. It is more versatile than the average bloodred, but it will protect you way less in a fight. A fancy piece of technology to show off to your Syndicate friends.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Baystation/Clothing/Modsuit/bloodredmodsuit.rsi
+      sprite: _Goobstation\Clothing\OuterClothing\Modsuits\bloodredmodsuit.rsi
     - type: ClothingSpeedModifier
       walkModifier: 0.9
       sprintModifier: 0.9
@@ -97,14 +97,15 @@
           Blunt: 0.70
           Slash: 0.70
           Piercing: 0.80
-          Heat: 0.60
+          Heat: 0.70
+          Radiation: 0.70
     - type: TemperatureProtection
       coefficient: 0.01
-    - type: ClothingModifyStunTime
-      modifier: 0.5
-    - type: Reflect
-      spread: 270
-      reflectProb: 0.04
+    - type: ModifyDelayedKnockdown # Goobstation
+      delayDelta: 2
+      knockdownTimeDelta: -2
+    - type: StaminaDamageResistance # Goobstation
+      coefficient: 0.7
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
@@ -113,13 +114,13 @@
 - type: entity
   parent: [ClothingModsuitBootsStandard, BaseSyndicateContraband]
   id: ClothingModsuitBootsBloodredModsuit
-  name: CSA-99MS "Deimos" Modsuit Boots
+  name: Syndicate "Deimos" Modsuit Boots
   description: A set of greaves made for the "Deimos" modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
     - type: Sprite
-      sprite: _Baystation/Clothing/Modsuit/bloodredmodsuit.rsi
+      sprite: _Goobstation\Shoes\Back\Modsuits\bloodredmodsuit.rsi
     - type: Tag
       tags:
         - WhitelistChameleon
@@ -135,11 +136,11 @@
 - type: entity
   parent: [ClothingModsuitStandard, BaseSyndicateContraband]
   id: EliteModsuitBackpack
-  name: CSA-122MS "Phobos" Modsuit Control
+  name: Elite Syndicate "Phobos" Modsuit Control
   description: A controller for the "Phobos" modsuit.
   components:
     - type: Sprite
-      sprite: _TG/Clothing/Modsuit/syndicateelitemodsuit.rsi
+      sprite: _Goobstation\Clothing\Back\Modsuits\syndicateelitemodsuit.rsi
     - type: ExplosionResistance
       damageCoefficient: 0.6
     - type: ToggleableClothing
@@ -164,18 +165,18 @@
       visualLayers:
         back:
         - state: equipped-BACKPACK-sealed
-        - state: equipped-BACKPACK-sealed_glow
+        - state: equipped-BACKPACK-sealed-glow
           shader: unshaded
 
 - type: entity
   parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
   id: ClothingModsuitGauntletsEliteSyndicateModsuit
-  name: CSA-122MS "Phobos" Modsuit Gauntlets
+  name: Elite Syndicate "Phobos" Modsuit Gauntlets
   description: A pair of gauntlets made for the "Phobos" modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _TG/Clothing/Modsuit/syndicateelitemodsuit.rsi
+      sprite: _Goobstation\Clothing\Hands\Modsuits\syndicateelitemodsuit.rsi
     - type: SealableClothingVisuals
       visualLayers:
         gloves:
@@ -185,12 +186,12 @@
 - type: entity
   parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
   id: ClothingModsuitHelmetEliteSyndicateModsuit
-  name: CSA-122MS "Phobos" Modsuit Helm
+  name: Elite Syndicate "Phobos" Modsuit Helm
   description: A helmet made for the "Phobos" modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _TG/Clothing/Modsuit/syndicateelitemodsuit.rsi
+      sprite: _Goobstation\Clothing\Head\Modsuits\syndicateelitemodsuit.rsi
     - type: Armor
       modifiers:
         coefficients:
@@ -202,24 +203,32 @@
       visualLayers:
         head:
           - state: equipped-HEAD-sealed
-          - state: equipped-HEAD-sealed_glow
+          - state: equipped-HEAD-sealed-glow
             shader: unshaded
     - type: ShowHealthBars
       damageContainers:
         - Biological
     - type: PointLight
       color: "#ffd480"
-    - type: NightVision
+    - type: ModifyDelayedKnockdown # Goobstation
+      delayDelta: 3
+      knockdownTimeDelta: -3
+    - type: StaminaDamageResistance # Goobstation
+      coefficient: 0.6
 
 - type: entity
   parent: [ClothingModsuitChestplateStandard, BaseSyndicateContraband]
   id: ClothingModsuitChestplateEliteSyndicateModsuit
-  name: CSA-122MS "Phobos" Modsuit Chestplate
+  name: Elite Syndicate "Phobos" Modsuit Chestplate
   description: Compared to the Deimos modsuit chestplate, this one is instead based upon the elite suit in terms of resistances and looks.
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _TG/Clothing/Modsuit/syndicateelitemodsuit.rsi
+      sprite: _Goobstation\Clothing\OuterClothing\Modsuits\syndicateelitemodsuit.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.4
+    - type: FireProtection
+      reduction: 0.9
     - type: Armor
       modifiers:
         flatReductions:
@@ -229,15 +238,11 @@
           Blunt: 0.70
           Slash: 0.70
           Piercing: 0.80
-          Heat: 0.60
-          Radiation: 0.40
+          Heat: 0.40
+          Radiation: 0.30
+          Caustic: 0.6
     - type: TemperatureProtection
       coefficient: 0.01
-    - type: ClothingModifyStunTime
-      modifier: 0.5
-    - type: Reflect
-      spread: 270
-      reflectProb: 0.2
     - type: SealableClothingVisuals
       visualLayers:
         outerClothing:
@@ -245,13 +250,13 @@
 - type: entity
   parent: [ClothingModsuitBootsStandard, BaseSyndicateContraband]
   id: ClothingModsuitBootsEliteSyndicateModsuit
-  name: CSA-122MS "Phobos" Modsuit Boots
+  name: Elite Syndicate "Phobos" Modsuit Boots
   description: A pair of greaves made for the "Phobos" modsuit.
   categories: [HideSpawnMenu]
   components:
     - type: Appearance
     - type: Sprite
-      sprite: _TG/Clothing/Modsuit/syndicateelitemodsuit.rsi
+      sprite: _Goobstation\Clothing\Shoes\Modsuits\syndicateelitemodsuit.rsi
     - type: Tag
       tags:
         - WhitelistChameleon
