@@ -9,6 +9,7 @@ using Content.Goobstation.Server.Devil.Contract.Revival;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Contract;
+using Content.Shared.IdentityManagement;
 
 namespace Content.Goobstation.Server.Devil;
 
@@ -35,7 +36,7 @@ public sealed partial class DevilSystem
 
         contractComponent.ContractOwner = args.Performer;
         PlayFwooshSound(uid, comp);
-        DoContractFlavor(uid, Name(uid));
+        DoContractFlavor(uid, Identity.Name(uid, EntityManager));
     }
 
     private void OnRevivalContractCreated(EntityUid uid, DevilComponent comp, ref CreateRevivalContractEvent args)
@@ -51,7 +52,7 @@ public sealed partial class DevilSystem
 
         contractComponent.ContractOwner = args.Performer;
         PlayFwooshSound(uid, comp);
-        DoContractFlavor(uid, Name(uid));
+        DoContractFlavor(uid, Identity.Name(uid, EntityManager));
     }
 
     private void OnShadowJaunt(EntityUid uid, DevilComponent comp, ref ShadowJauntEvent args)

@@ -25,19 +25,10 @@ public sealed partial class DevilComponent : Component
     /// The amount of souls or successful contracts the entity has.
     /// </summary>
     [DataField]
-    public int Souls = 0;
+    public int Souls;
 
     [DataField]
     public ProtoId<DevilBranchPrototype> DevilBranchPrototype = "BaseDevilBranch";
-
-    /// <summary>
-    /// Should it perform startup tasks and apply items?
-    /// </summary>
-    /// <remarks>
-    /// False by default so possession doesn't bork.
-    /// Run the gamerule if you want to make someone a devil silly.
-    /// </remarks>
-    public bool DoStartup;
 
     /// <summary>
     /// The true name of the devil.

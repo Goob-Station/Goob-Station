@@ -67,6 +67,21 @@
       state: possess
     event: !type:DevilPossessionEvent {}
 
+- type: entity
+  id: ActionEndPossession
+  name: End possession
+  description: Cancel this possession early.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    checkCanInteract: false
+    checkConsciousness: false
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: possess
+    event: !type:EndPossessionEarlyEvent {}
+
 # Deals
 
 - type: entity

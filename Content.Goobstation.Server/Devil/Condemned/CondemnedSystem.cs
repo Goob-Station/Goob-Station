@@ -7,8 +7,10 @@
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Religion;
+using Content.Server.IdentityManagement;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Polymorph;
@@ -25,7 +27,6 @@ public sealed partial class CondemnedSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -163,6 +164,6 @@ public sealed partial class CondemnedSystem : EntitySystem
         if (ev.IsEyesProtected)
             return;
 
-        args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", uid)));
+        args.PushMarkup(Loc.GetString("condemned-component-examined", ("target", Identity.Entity(uid, EntityManager) )));
     }
 }

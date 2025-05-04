@@ -79,10 +79,11 @@
   - Lawyer
   - Brig
   - Maintenance
-  special: # Goobstation - lawyers have no souls to sacrifice
+  special: # Goobstation - Everyone knows lawyers are soulless.
   - !type:AddComponentSpecial
     components:
     - type: Condemned
+      soulOwnedNotDevil: true
 
 - type: startingGear
   id: LawyerGear

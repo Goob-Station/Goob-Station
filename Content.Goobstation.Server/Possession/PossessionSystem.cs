@@ -5,9 +5,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
+using Content.Server.Actions;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
@@ -40,15 +43,16 @@ public sealed partial class PossessionSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly ISharedAdminLogManager _admin = default!;
-
-    public ISawmill Log { get; private set; } = default!;
-
+    [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PossessedComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<PossessedComponent, ComponentRemove>(OnComponentRemoved);
         SubscribeLocalEvent<PossessedComponent, ExaminedEvent>(OnExamined);
+
+        SubscribeLocalEvent<PossessedComponent, EndPossessionEarlyEvent>(OnEarlyEnd);
     }
 
     public override void Update(float frameTime)
@@ -72,11 +76,25 @@ public sealed partial class PossessionSystem : EntitySystem
         else
             comp.WasWeakToHoly = true;
 
+        _action.AddAction(uid, ref comp.ActionEntity, comp.EndPossessionAction);
+
         comp.PossessedContainer = _container.EnsureContainer<Container>(uid, "PossessedContainer");
+    }
+
+    private void OnEarlyEnd(EntityUid uid, PossessedComponent comp, ref EndPossessionEarlyEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        RemComp(uid, comp);
+
+        args.Handled = true;
     }
     private void OnComponentRemoved(EntityUid uid, PossessedComponent comp, ComponentRemove args)
     {
         MapCoordinates? coordinates = null;
+
+        _action.RemoveAction(uid, comp.ActionEntity);
 
         // Remove associated components.
         if (!comp.WasPacified)
@@ -161,16 +179,17 @@ public sealed partial class PossessionSystem : EntitySystem
                 return false;
         }
 
-        if (!_mind.TryGetMind(possessor, out var possessorMind, out var possessorMindComp))
+        if (!_mind.TryGetMind(possessor, out var possessorMind, out _))
             return false;
 
-        DoPossess(possessed, possessor, possessionDuration, pacifyPossessed, possessorMind, possessorMindComp);
+        DoPossess(possessed, possessor, possessionDuration, pacifyPossessed, possessorMind);
         return true;
     }
 
-    private void DoPossess(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, EntityUid possessorMind, MindComponent possessorMindComp)
+    private void DoPossess(EntityUid? possessedNullable, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, EntityUid possessorMind)
     {
-        _mind.TryGetMind(possessed, out var possessedMind, out var possessedMindComp);
+        if (possessedNullable is not { } possessed)
+            return;
 
         var possessedComp = EnsureComp<PossessedComponent>(possessed);
 
@@ -191,12 +210,17 @@ public sealed partial class PossessionSystem : EntitySystem
 
         // Store possessed original info
         possessedComp.OriginalEntity = possessed;
-        possessedComp.OriginalMindId = possessedMind;
 
-        // Nobodies gonna know.
-        var dummy = Spawn("FoodSnackLollypop", MapCoordinates.Nullspace);
-        _container.Insert(dummy, possessedComp.PossessedContainer);
-        _mind.TransferTo(possessedMind, dummy);
+        if (_mind.TryGetMind(possessed, out var possessedMind, out _))
+        {
+            possessedComp.OriginalMindId = possessedMind;
+
+            // Nobodies gonna know.
+            var dummy = Spawn("FoodSnackLollypop", MapCoordinates.Nullspace);
+            _container.Insert(dummy, possessedComp.PossessedContainer);
+
+            _mind.TransferTo(possessedMind, dummy);
+        }
 
         // Transfer into target
         _mind.TransferTo(possessorMind, possessed);

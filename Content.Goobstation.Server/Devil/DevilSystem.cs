@@ -59,8 +59,8 @@ public sealed partial class DevilSystem : EntitySystem
 {
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StunSystem _stun = default!;
@@ -173,10 +173,11 @@ public sealed partial class DevilSystem : EntitySystem
             foreach (var actionId in ability.Value)
             {
                 EntityUid? actionEnt = null;
+
                 _actions.AddAction(uid, ref actionEnt, actionId);
 
-                if (actionEnt != null)
-                    comp.ActionEntities.Add(actionEnt.Value);
+                if (actionEnt is not null)
+                    _actionContainer.EnsureAction(uid, ref actionEnt, actionId);
             }
         }
     }

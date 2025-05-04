@@ -9,6 +9,7 @@ using System.Linq;
 using Content.Goobstation.Server.Devil.HandShake;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
@@ -31,7 +32,8 @@ public sealed partial class DevilSystem
         || !args.CanInteract
         || _state.IsIncapacitated(args.Target)
         || !HasComp<MobStateComponent>(args.Target)
-        || args.Target == args.User)
+        || args.Target == args.User
+        || HasComp<CondemnedComponent>(args.Target))
             return;
 
         InnateVerb handshakeVerb = new()
