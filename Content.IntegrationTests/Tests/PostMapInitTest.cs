@@ -178,7 +178,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
-            "/Maps/loop.yml", // Don't ask me why we are overwriting upstream
+            "/Maps/_Goobstation/loop.yml",
             "/Maps/_Goobstation/Shuttles/consul.yml", // Contains HEINOUS amounts of centcomm contraband. Obviously.
             "/Maps/_Goobstation/Shuttles/retort_assault.yml", // ERT ships
             "/Maps/_Goobstation/Shuttles/retort_medical.yml",
@@ -218,7 +218,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
             "Leonid", // Goobstation - add Leonid
-            "Amber",
+            //"Amber", // NO AMBER DHH
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
             "Loop",
