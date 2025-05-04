@@ -17,6 +17,7 @@ using System.Linq;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Maps;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
@@ -140,6 +141,11 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
             var randomY = RobustRandom.Next((int) aabb.Bottom, (int) aabb.Top);
 
             tile = new Vector2i(randomX, randomY);
+
+            if (!_map.TryGetTile(grid.Comp, tile, out var selectedTile) || selectedTile.IsEmpty ||
+                selectedTile.IsSpace())
+                continue;
+
             if (_atmosphere.IsTileSpace(grid.Owner, Transform(grid.Owner).MapUid, tile)
                 || _atmosphere.IsTileAirBlocked(grid.Owner, tile, mapGridComp: grid.Comp))
                 continue;
