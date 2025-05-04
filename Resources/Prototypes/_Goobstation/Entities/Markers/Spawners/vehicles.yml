@@ -54,8 +54,8 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: structures/furniture/chair.rsi
-        state: office-white
+      - sprite: Objects/Vehicles/chairs.rsi
+        state: white-icon
   - type: ConditionalSpawner
     prototypes:
       - ChairOfficeLight
@@ -68,8 +68,8 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: structures/furniture/chair.rsi
-        state: office-dark
+      - sprite: Objects/Vehicles/chairs.rsi
+        state: dark-icon
   - type: ConditionalSpawner
     prototypes:
       - ChairOfficeDark
