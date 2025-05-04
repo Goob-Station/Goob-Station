@@ -4,6 +4,8 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -11,7 +13,7 @@
   id: TeslaGenerator
   name: tesla generator
   parent: BaseStructureDynamic
-  description: An Odd Device which produces a powerful Tesla ball when set up. Comes with a temporary shutdown containment failsafe.
+  description: An Odd Device which produces a powerful Tesla ball when set up. Comes with a temporary shutdown containment failsafe. Tesla-hardened. # Goobstation
   components:
   - type: Sprite
     noRot: true
@@ -33,6 +35,11 @@
         - MachineMask
         layer:
         - Opaque
+  # Goobstation
+  - type: EventHorizonIgnore
+    horizonWhitelist:
+      tags:
+      - Tesla # no being eaten by other teslas
   - type: Anchorable
   - type: GuideHelp
     guides:

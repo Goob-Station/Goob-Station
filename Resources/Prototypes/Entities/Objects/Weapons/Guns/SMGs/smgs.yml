@@ -119,13 +119,6 @@
   - type: StaticPrice
     price: 500
   - type: Multishot # Goobstation
-  - type: RestrictGunshotsByUserTag # Goobstation
-    doesntContain:
-    - Oni
-    messages:
-    - oni-cannot-shoot-guns-1
-    - oni-cannot-shoot-guns-2
-    - oni-cannot-shoot-guns-3
 
 - type: entity
   name: Atreides
@@ -249,12 +242,19 @@
       steps: 1
       zeroVisible: true
     - type: Appearance
+    - type: RestrictGunshotsByUserTag # Goobstation
+      doesntContain:
+      - Oni
+      messages:
+      - oni-cannot-shoot-guns-1
+      - oni-cannot-shoot-guns-2
+      - oni-cannot-shoot-guns-3
 
 - type: entity
-  name: WT550
-  parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband ]
+  name: WT550 autorifle # Goobstation
+  parent: [ BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunWt550
-  description: An excellent SMG, produced by NanoTrasen's Small Arms Division. Uses .35 auto ammo.
+  description: A cheaply made, mass produced, auto-rifle created by NanoTrasens Small Arms Division. Uses .35 auto ammo. # Goobstation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
@@ -273,18 +273,15 @@
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
-  - type: Gun
-    fireRate: 5.5
-    minAngle: 1
-    maxAngle: 6
-    angleIncrease: 1.5
-    angleDecay: 6
+  - type: Gun # Goobstation - I am the one who nerfs the WT.
+    minAngle: 2
+    maxAngle: 16
+    fireRate: 5
+    burstFireRate: 8
+    angleIncrease: 3
+    angleDecay: 16
     selectedMode: FullAuto
-    shotsPerBurst: 5
-    burstCooldown: 0.2
-    burstFireRate: 7
     availableModes:
-    - Burst
     - FullAuto
     - SemiAuto
   - type: ItemSlots

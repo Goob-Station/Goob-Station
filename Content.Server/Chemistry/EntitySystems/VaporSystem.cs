@@ -87,6 +87,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -108,6 +110,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
+using Content.Goobstation.Shared.Chemistry;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -139,6 +142,12 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
+
+                var ev = new VaporCheckEyeProtectionEvent(); // Goobstation - Start
+                RaiseLocalEvent(args.OtherEntity, ev);
+
+                if (!ev.Protected)
+                    _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation - End
             }
 
             // Check for collision with a impassable object (e.g. wall) and stop
@@ -232,6 +241,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 // Delete this
                 EntityManager.QueueDeleteEntity(entity);
             }
+
         }
     }
 }
