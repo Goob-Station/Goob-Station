@@ -6,11 +6,11 @@ using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using System.Numerics;
-using Timer = Robust.Shared.Timing.Timer;
 using Robust.Client.Audio;
 using Robust.Shared.Audio;
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Client._DV.CosmicCult;
 

@@ -45,7 +45,7 @@
     requiredCultists: 3
     activationDamage:
       types:
-        Asphyxiation: 80
+        Asphyxiation: 30
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-truth
 
@@ -64,7 +64,7 @@
     requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 40
+        Asphyxiation: 30
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-knowledge
 
@@ -88,7 +88,7 @@
     requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 25
+        Asphyxiation: 20
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-cessation
 
@@ -113,7 +113,7 @@
     requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 80
+        Asphyxiation: 20
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-blades
 
@@ -139,7 +139,7 @@
     requiredCultists: 2
     activationDamage:
       types:
-        Asphyxiation: 80
+        Asphyxiation: 30
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-warding
 

@@ -4,6 +4,7 @@
   description: Silently siphon entropy from your target, dealing some damage in the process.
   components:
   - type: EntityTargetAction
+    deselectOnMiss: true
     useDelay: 50
     whitelist:
       components:

@@ -5,6 +5,7 @@ namespace Content.Shared._DV.CosmicCult;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CosmicCultActionComponent : Component;
+
 public sealed partial class EventCosmicSiphon : EntityTargetActionEvent;
 public sealed partial class EventCosmicBlank : EntityTargetActionEvent;
 public sealed partial class EventCosmicPlaceMonument : InstantActionEvent; //given to the cult leader on roundstart

@@ -19,7 +19,7 @@ public sealed partial class CosmicGlyphAstralProjectionComponent : Component
     public DamageSpecifier ProjectionDamage = new()
     {
         DamageDict = new() {
-            { "Asphyxiation", 40 }
+            { "Asphyxiation", 20 }
         }
     };
 }

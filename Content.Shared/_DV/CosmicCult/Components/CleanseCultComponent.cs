@@ -10,9 +10,9 @@ namespace Content.Shared._DV.CosmicCult.Components;
 [AutoGenerateComponentPause]
 public sealed partial class CleanseCultComponent : Component
 {
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan CleanseTime = default!;
 
-    [DataField] public TimeSpan CleanseDuration = TimeSpan.FromSeconds(25);
+    [DataField]
+    public TimeSpan CleanseDuration = TimeSpan.FromSeconds(25);
 }

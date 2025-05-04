@@ -30,7 +30,8 @@ public sealed class CosmicRiftSystem : EntitySystem
 
     private void OnInteract(Entity<CosmicMalignRiftComponent> uid, ref InteractHandEvent args)
     {
-        if (args.Handled || uid.Comp.Occupied)
+        if (args.Handled
+            || uid.Comp.Occupied)
         {
             _popup.PopupEntity(Loc.GetString("cosmiccult-rift-inuse"), args.User, args.User);
             return;
@@ -72,7 +73,8 @@ public sealed class CosmicRiftSystem : EntitySystem
 
     private void OnInteractUsing(Entity<CosmicMalignRiftComponent> uid, ref InteractUsingEvent args)
     {
-        if (args.Handled || uid.Comp.Occupied)
+        if (args.Handled
+            || uid.Comp.Occupied)
         {
             _popup.PopupEntity(Loc.GetString("cosmiccult-rift-inuse"), args.User, args.User);
             return;
@@ -119,6 +121,7 @@ public sealed class CosmicRiftSystem : EntitySystem
         {
             if (TryComp<CosmicMalignRiftComponent>(args.Args.Target, out var rift))
                 rift.Occupied = false;
+
             return;
         }
 

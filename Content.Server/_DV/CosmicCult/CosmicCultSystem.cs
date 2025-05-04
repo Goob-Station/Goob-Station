@@ -1,7 +1,9 @@
 using Content.Server._DV.CosmicCult.EntitySystems;
+using Content.Server._DV.CosmicCult.Components;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
+using Content.Server.Antag;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Pinpointer;
@@ -18,6 +20,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffect;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.EntitySerialization;
@@ -33,6 +36,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AlertLevelSystem _alert = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly CosmicCorruptingSystem _corrupting = default!;
@@ -52,9 +56,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-
     private readonly ResPath _mapPath = new("Maps/_DV/Nonstations/cosmicvoid.yml");
-
     private static readonly EntProtoId CosmicEchoVfx = "CosmicEchoVfx";
     private static readonly ProtoId<StatusEffectPrototype> EntropicDegen = "EntropicDegen";
 
@@ -65,8 +67,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
-        SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnRemoveCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
+        SubscribeLocalEvent<CosmicCultLeadComponent, CosmicCultLeadChangedEvent>(OnCultLeadChanged);
         //SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
 
         SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotEquipped);
@@ -90,6 +92,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         if (_cultRule.AssociatedGamerule(uid) is not { } cult)
             return;
+
         if (cult.Comp.CurrentTier > 1 && !_random.Prob(0.5f))
             Spawn(CosmicEchoVfx, Transform(uid).Coordinates);
     }
@@ -106,10 +109,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             _map.SetPaused(map.Value.Comp.MapId, false);
     }
 
-    private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args)
-    {
-        args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner) ? ent.Comp.CultistText : ent.Comp.OthersText));
-    }
+    private void OnCosmicCultExamined(Entity<CosmicCultExamineComponent> ent, ref ExaminedEvent args) =>
+        args.PushMarkup(Loc.GetString(EntitySeesCult(args.Examiner)
+            ? ent.Comp.CultistText
+            : ent.Comp.OthersText));
+
     #endregion
 
     #region Init Cult
@@ -123,16 +127,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             var actionEnt = _actions.AddAction(uid, actionId);
             uid.Comp.ActionEntities.Add(actionEnt);
         }
+
         _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
 
         if (TryComp(uid, out EyeComponent? eyeComp))
             _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask | (int) VisibilityFlags.CosmicCultMonument);
-    }
-
-    private void OnRemoveCultist(Entity<CosmicCultComponent> uid, ref ComponentRemove args)
-    {
-        if (TryComp(uid, out EyeComponent? eyeComp))
-            _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask & (int) ~VisibilityFlags.CosmicCultMonument);
     }
 
     /// <summary>
@@ -141,6 +140,37 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     private void OnStartCultLead(Entity<CosmicCultLeadComponent> uid, ref ComponentInit args)
     {
         _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
+    }
+
+    private void OnCultLeadChanged(Entity<CosmicCultLeadComponent> uid, ref CosmicCultLeadChangedEvent args)
+    {
+        if (_cultRule.AssociatedGamerule(uid) is not { } cult)
+            return;
+
+        // If they're the last cultist, or the only one due to admemes, they get special powers.
+        if (cult.Comp.TotalCult == 1)
+        {
+            EnsureComp<LoneCosmicCultLeadComponent>(uid);
+            _antag.SendBriefing(uid,
+                Loc.GetString("cosmiccult-vote-lone-steward-briefing"),
+                Color.FromHex("#4cabb3"),
+                new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier_up.ogg"));
+        }
+        else
+        {
+            _antag.SendBriefing(uid,
+                Loc.GetString("cosmiccult-vote-steward-briefing"),
+                Color.FromHex("#4cabb3"),
+                new SoundPathSpecifier("/Audio/_DV/CosmicCult/tier_up.ogg"));
+        }
+
+        if (cult.Comp.CurrentTier == 2)
+        {
+            _actions.AddAction(uid,
+                ref uid.Comp.CosmicMonumentMoveActionEntity,
+                uid.Comp.CosmicMonumentMoveAction,
+                uid);
+        }
     }
 
     /*private void OnGetVisMask(Entity<CosmicCultComponent> uid, ref GetVisMaskEvent args)
@@ -179,14 +209,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     #endregion
 
     #region Movespeed
-    private void OnStartInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentInit args) // i wish movespeed was easier to work with
-    {
+    private void OnStartInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentInit args) => // i wish movespeed was easier to work with
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-    }
-    private void OnEndInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentRemove args) // that movespeed applies more-or-less correctly
-    {
+    private void OnEndInfluenceStride(Entity<InfluenceStrideComponent> uid, ref ComponentRemove args) => // that movespeed applies more-or-less correctly
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
-    }
     private void OnStartImposition(Entity<CosmicImposingComponent> uid, ref ComponentInit args) // these functions just make sure
     {
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
@@ -198,14 +224,11 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         RemComp<CosmicCultExamineComponent>(uid);
     }
 
-    private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
-    {
+    private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args) =>
         args.ModifySpeed(1.05f, 1.05f);
-    }
-    private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
-    {
+    private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args) =>
         args.ModifySpeed(0.55f, 0.55f);
-    }
+
     #endregion
 
 }

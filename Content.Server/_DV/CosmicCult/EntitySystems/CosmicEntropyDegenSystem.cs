@@ -37,8 +37,10 @@ public sealed partial class CosmicEntropyDegenSystem : EntitySystem
         {
             if (_timing.CurTime < component.CheckTimer)
                 continue;
+
             component.CheckTimer = _timing.CurTime + component.CheckWait;
             _damageable.TryChangeDamage(uid, component.Degen, true, false);
+
             if (_random.Prob(component.PopupChance))
                 _popup.PopupEntity(Loc.GetString("entropy-effect-numb"), uid, uid, PopupType.SmallCaution);
         }

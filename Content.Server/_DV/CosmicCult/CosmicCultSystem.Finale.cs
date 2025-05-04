@@ -26,10 +26,14 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     {
         if (!HasComp<HumanoidAppearanceComponent>(args.User))
             return; // humanoids only!
+
         if (!EntityIsCultist(args.User) && !args.Handled && ent.Comp.FinaleActive)
         {
             ent.Comp.Occupied = true;
-            var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new CancelFinaleDoAfterEvent(), ent, ent)
+            var doargs = new DoAfterArgs(EntityManager,
+                args.User,
+                ent.Comp.InteractionTime,
+                new CancelFinaleDoAfterEvent(), ent, ent)
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
@@ -40,7 +44,12 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         else if (EntityIsCultist(args.User) && !args.Handled && !ent.Comp.FinaleActive && ent.Comp.CurrentState != FinaleState.Unavailable)
         {
             ent.Comp.Occupied = true;
-            var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.InteractionTime, new StartFinaleDoAfterEvent(), ent, ent)
+            var doargs = new DoAfterArgs(EntityManager,
+                args.User,
+                ent.Comp.InteractionTime,
+                new StartFinaleDoAfterEvent(),
+                ent,
+                ent)
             {
                 DistanceThreshold = 1f, Hidden = false, BreakOnHandChange = true, BreakOnDamage = true, BreakOnMove = true
             };
@@ -57,7 +66,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             uid.Comp.Occupied = false;
             return;
         }
-
         _popup.PopupEntity(Loc.GetString("cosmiccult-finale-beckon-success"), args.Args.User, args.Args.User);
         StartFinale(uid);
     }
@@ -67,7 +75,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         var comp = uid.Comp;
         var indicatedLocation = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, Transform(uid))));
 
-        if (!TryComp<MonumentComponent>(uid, out var monument) || !TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
+        if (!TryComp<MonumentComponent>(uid, out var monument)
+            || !TryComp<CosmicCorruptingComponent>(uid, out var corruptingComp))
             return;
 
         if (uid.Comp.CurrentState == FinaleState.ReadyBuffer)
@@ -101,10 +110,9 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         }
 
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
+
         if (stationUid != null)
-        {
             _alert.SetLevel(stationUid.Value, "octarine", true, true, true, true);
-        }
 
         if (TryComp<ActivatableUIComponent>(uid, out var uiComp))
             uiComp.Key = MonumentKey.Key; // wow! This is the laziest way to enable a UI ever!

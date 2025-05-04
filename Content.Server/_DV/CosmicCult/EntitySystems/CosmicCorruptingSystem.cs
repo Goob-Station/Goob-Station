@@ -36,16 +36,10 @@ public sealed class CosmicCorruptingSystem : EntitySystem
     ///     this system is a mostly generic way of replacing tiles around an entity. the only hardcoded behaviour is secret
     ///     walls -> malign doors, but that shouldn't be too hard to fix if this is needed for smth else later.
     /// </remarks>
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<CosmicCorruptingComponent, MapInitEvent>(OnMapInit);
-    }
+    public override void Initialize() => SubscribeLocalEvent<CosmicCorruptingComponent, MapInitEvent>(OnMapInit);
 
     //when the entity spawns, add all neighbouring tiles to the corruptable list
-    private void OnMapInit(Entity<CosmicCorruptingComponent> ent, ref MapInitEvent args)
-    {
-        RecalculateStartingTiles(ent);
-    }
+    private void OnMapInit(Entity<CosmicCorruptingComponent> ent, ref MapInitEvent args) => RecalculateStartingTiles(ent);
 
     public override void Update(float frameTime)
     {
@@ -53,20 +47,20 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         var blanktimer = EntityQueryEnumerator<CosmicCorruptingComponent>();
         while (blanktimer.MoveNext(out var uid, out var comp))
         {
-            if (comp.Enabled && _timing.CurTime >= comp.CorruptionTimer)
-            {
-                comp.CorruptionTimer = _timing.CurTime + comp.CorruptionSpeed;
-                ConvertTiles((uid, comp));
-                if (comp.CorruptionTicks <= comp.CorruptionMaxTicks)
-                {
-                    comp.CorruptionTicks++;
-                    comp.CorruptionChance -= comp.CorruptionReduction;
-                }
+            if (!comp.Enabled
+                || _timing.CurTime < comp.CorruptionTimer)
+                continue;
 
-                if (comp.CorruptionTicks >= comp.CorruptionMaxTicks && comp.AutoDisable)
-                    comp.Enabled =
-                        false; //maybe just remComp this? atm nothing re-enables a corruptor so that should be safe to do?
+            comp.CorruptionTimer = _timing.CurTime + comp.CorruptionSpeed;
+            ConvertTiles((uid, comp));
+            if (comp.CorruptionTicks <= comp.CorruptionMaxTicks)
+            {
+                comp.CorruptionTicks++;
+                comp.CorruptionChance -= comp.CorruptionReduction;
             }
+
+            if (comp.CorruptionTicks >= comp.CorruptionMaxTicks && comp.AutoDisable)
+                comp.Enabled = false; //maybe just remComp this? atm nothing re-enables a corruptor so that should be safe to do?
         }
     }
 
@@ -76,7 +70,7 @@ public sealed class CosmicCorruptingSystem : EntitySystem
         if (xform.GridUid is not { } gridUid || !TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
 
-        var convertTile = (ContentTileDefinition)_tileDefinition[ent.Comp.ConversionTile];
+        var convertTile = (ContentTileDefinition) _tileDefinition[ent.Comp.ConversionTile];
 
         //if this is a mobile corruptor, reset the list of corruptable tiles every attempt.
         //not a super clean solution because I didn't account for the astral nova in the first rewrite but it works well enough for our purposes.
@@ -85,7 +79,7 @@ public sealed class CosmicCorruptingSystem : EntitySystem
 
         //go over every corruptible tile
         foreach (var pos in
-                 new HashSet<Vector2i>(ent.Comp.CorruptableTiles)) //we love avoiding ConcurrentModificationExceptions
+            new HashSet<Vector2i>(ent.Comp.CorruptableTiles)) //we love avoiding ConcurrentModificationExceptions
         {
             var tileRef = _map.GetTileRef((gridUid, mapGrid), pos);
             if (tileRef.Tile.TypeId == convertTile.TileId ||
@@ -105,8 +99,8 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                 foreach (var neighbourPos in _neighbourPositions)
                 {
                     var neighbourRef = _map.GetTileRef((gridUid, mapGrid), tileRef.GridIndices + neighbourPos);
-                    if (neighbourRef.Tile.TypeId == convertTile.TileId ||
-                        tileRef.Tile.IsEmpty) //ignore already corrupted (or space) tiles
+                    if (neighbourRef.Tile.TypeId == convertTile.TileId
+                        || tileRef.Tile.IsEmpty) //ignore already corrupted (or space) tiles
                         continue;
 
                     ent.Comp.CorruptableTiles.Add(neighbourRef.GridIndices);
@@ -134,10 +128,8 @@ public sealed class CosmicCorruptingSystem : EntitySystem
 
     #region API
 
-    public void SetCorruptionTime(Entity<CosmicCorruptingComponent> ent, TimeSpan time)
-    {
+    public void SetCorruptionTime(Entity<CosmicCorruptingComponent> ent, TimeSpan time) =>
         ent.Comp.CorruptionSpeed = time;
-    }
 
     public void Enable(Entity<CosmicCorruptingComponent> ent, bool recalculate = true)
     {

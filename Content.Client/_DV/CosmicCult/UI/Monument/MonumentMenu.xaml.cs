@@ -38,7 +38,7 @@ public sealed partial class MonumentMenu : FancyWindow
     public Action? OnRemoveGlyphButtonPressed;
 
     public Action<ProtoId<InfluencePrototype>>? OnGainButtonPressed;
-    private int _entropyPerCultist = 0;
+    private int _entropyPerCultist = 1; // Evil division by 0.
 
     public MonumentMenu()
     {
@@ -81,7 +81,7 @@ public sealed partial class MonumentMenu : FancyWindow
     /// </summary>
     private void UpdateBar(MonumentBuiState state)
     {
-        var percentComplete = 100f * ((float)state.CurrentProgress / state.TargetProgress);
+        var percentComplete = 100f * ((float) state.CurrentProgress / state.TargetProgress);
 
         percentComplete = Math.Min(percentComplete, 100f);
 
@@ -96,14 +96,13 @@ public sealed partial class MonumentMenu : FancyWindow
     private void UpdateEntropy(MonumentBuiState state)
     {
         var availableEntropy = -1;
+
         if (_ent.TryGetComponent<CosmicCultComponent>(_player.LocalEntity, out var cultComp))
-        {
             availableEntropy = cultComp.EntropyBudget;
-        }
 
         var entropyToNextStage = Math.Max(state.TargetProgress - state.CurrentProgress, 0);
-        var min = entropyToNextStage == 0 ? 0 : 1; //I have no idea what to call this. makes it so that it shows 0 crew for the final stage but at least one at all other times
-        var crewToNextStage = (int)Math.Max(Math.Round((double)entropyToNextStage / _entropyPerCultist, MidpointRounding.ToPositiveInfinity), min); //force it to be at least one
+        var min = entropyToNextStage == 0 ? 0 : 1; // I have no idea what to call this. makes it so that it shows 0 crew for the final stage but at least one at all other times
+        var crewToNextStage = Math.Max(entropyToNextStage / _entropyPerCultist, min); // Why the fuck did you make such an ugly cast for an approximation anyway???
 
         AvailableEntropy.Text = Loc.GetString("monument-interface-entropy-value", ("infused", availableEntropy));
         EntropyUntilNextStage.Text = Loc.GetString("monument-interface-entropy-value", ("infused", entropyToNextStage.ToString()));
@@ -158,9 +157,7 @@ public sealed partial class MonumentMenu : FancyWindow
         //sort the list of UI boxes by state (locked -> owned -> not enough entropy -> enough entropy)
         //then sort alphabetically within those categories
         foreach (var box in influenceUIBoxes.OrderBy(box => box.State).ThenBy(box => box.Proto.ID))
-        {
             InfluencesContainer.AddChild(box);
-        }
     }
 
     private InfluenceUIBox.InfluenceUIBoxState GetUIBoxStateForInfluence(InfluencePrototype influence, MonumentBuiState state)
@@ -175,11 +172,11 @@ public sealed partial class MonumentMenu : FancyWindow
         if (owned)
             return InfluenceUIBox.InfluenceUIBoxState.Owned;
 
+        //if it's unlocked, do we have enough entropy to buy it?
         if (unlocked)
-        {
-            //if it's unlocked, do we have enough entropy to buy it?
-            return influence.Cost > cultComp.EntropyBudget ? InfluenceUIBox.InfluenceUIBoxState.UnlockedAndNotEnoughEntropy : InfluenceUIBox.InfluenceUIBoxState.UnlockedAndEnoughEntropy;
-        }
+            return influence.Cost > cultComp.EntropyBudget
+                ? InfluenceUIBox.InfluenceUIBoxState.UnlockedAndNotEnoughEntropy
+                : InfluenceUIBox.InfluenceUIBoxState.UnlockedAndEnoughEntropy;
 
         return InfluenceUIBox.InfluenceUIBoxState.Locked;
     }

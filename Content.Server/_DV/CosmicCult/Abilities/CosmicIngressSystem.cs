@@ -22,12 +22,16 @@ public sealed class CosmicIngressSystem : EntitySystem
     private void OnCosmicIngress(Entity<CosmicCultComponent> uid, ref EventCosmicIngress args)
     {
         var target = args.Target;
+
         if (args.Handled)
             return;
 
         args.Handled = true;
-        if (uid.Comp.CosmicEmpowered && TryComp<DoorBoltComponent>(target, out var doorBolt))
+
+        if (uid.Comp.CosmicEmpowered
+            && TryComp<DoorBoltComponent>(target, out var doorBolt))
             _door.SetBoltsDown((target, doorBolt), false);
+
         _door.StartOpening(target);
         _audio.PlayPvs(uid.Comp.IngressSFX, uid);
         Spawn(uid.Comp.AbsorbVFX, Transform(target).Coordinates);

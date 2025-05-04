@@ -58,20 +58,17 @@ public sealed class CosmicMonumentSystem : EntitySystem
 
     private void OnCosmicMoveMonument(Entity<CosmicCultLeadComponent> uid, ref EventCosmicMoveMonument args)
     {
-        if (_cultRule.AssociatedGamerule(uid) is not {} cult)
-            return;
-
-        if (!VerifyPlacement(uid, out var pos))
+        if (_cultRule.AssociatedGamerule(uid) is not { } cult
+            || !VerifyPlacement(uid, out var pos))
             return;
 
         _actions.RemoveAction(uid, uid.Comp.CosmicMonumentMoveActionEntity);
 
         //delete all old monument colliders for 100% safety
         var colliderQuery = EntityQueryEnumerator<MonumentCollisionComponent>();
+
         while (colliderQuery.MoveNext(out var collider, out _))
-        {
             QueueDel(collider);
-        }
 
         //spawn the destination effect first because we only need one
         var destEnt = Spawn(MonumentCosmicCultMoveEnd, pos);
@@ -79,10 +76,8 @@ public sealed class CosmicMonumentSystem : EntitySystem
         destComp.Monument = cult.Comp.MonumentInGame;
         var coords = Transform(cult.Comp.MonumentInGame).Coordinates;
         Spawn(MonumentCollider, pos); //spawn a new collider
-
         Spawn(MonumentCosmicCultMoveStart, coords);
         Spawn(MonumentCollider, Transform(cult.Comp.MonumentInGame).Coordinates); //spawn a new collider
-
         _monument.PhaseOutMonument(cult.Comp.MonumentInGame);
         destComp.PhaseInTimer = cult.Comp.MonumentInGame.Comp.PhaseOutTimer + TimeSpan.FromSeconds(0.75);
     }

@@ -181,8 +181,12 @@ public sealed class RespiratorSystem : EntitySystem
 
             if (!CanBreathe(uid, respirator)) // Goobstation edit
             {
-                // DeltaV: Cosmic Cult - One line change but a refactor would be better. this is kinda cringe. Makes cultists gasp and respirate but not asphyxiate in space.
-                if (TryComp<CosmicCultComponent>(uid, out var cultComponent) && !cultComponent.Respiration && !_mobState.IsIncapacitated(uid)) return;
+                // DeltaV: Cosmic Cult - One line change but a refactor would be better. this is kinda cringe.
+                // Makes cultists gasp and respirate but not asphyxiate in space.
+                if (TryComp<CosmicCultComponent>(uid, out var cultComponent)
+                    && !cultComponent.Respiration
+                    && !_mobState.IsIncapacitated(uid))
+                    return;
 
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
                 {

@@ -7,12 +7,10 @@ namespace Content.Shared._DV.CosmicCult.Components;
 /// Makes the target take damage over time.
 /// Meant to be used in conjunction with statusEffectSystem.
 /// </summary>
-[RegisterComponent]
-[AutoGenerateComponentPause]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class CosmicEntropyDebuffComponent : Component
 {
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan CheckTimer = default!;
 
     [DataField]

@@ -12,8 +12,8 @@ public sealed partial class CosmicCorruptingComponent : Component
     /// <summary>
     /// Our timer for corruption checks.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField] public TimeSpan CorruptionTimer = default!;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan CorruptionTimer = default!;
 
     /// <summary>
     /// the list of tiles that can be corrupted by this corruptor.

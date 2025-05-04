@@ -15,8 +15,8 @@ namespace Content.Shared.Eye
     {
         None = 0,
         Normal = 1 << 0,
-        Ghost  = 1 << 1,
-        Abductor  = 1 << 2, // Shitmed Change - Starlight Abductors
+        Ghost = 1 << 1,
+        Abductor = 1 << 2, // Shitmed Change - Starlight Abductors
         CosmicCultMonument = 1 << 4, // DeltaV - Cosmic Cult
     }
 }

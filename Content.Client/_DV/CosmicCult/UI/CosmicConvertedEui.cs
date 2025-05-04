@@ -6,15 +6,9 @@ public sealed class CosmicConvertedEui : BaseEui
 {
     private readonly CosmicConvertedMenu _menu;
 
-    public CosmicConvertedEui()
-    {
-        _menu = new CosmicConvertedMenu();
-    }
+    public CosmicConvertedEui() => _menu = new CosmicConvertedMenu();
 
-    public override void Opened()
-    {
-        _menu.OpenCentered();
-    }
+    public override void Opened() => _menu.OpenCentered();
 
     public override void Closed()
     {

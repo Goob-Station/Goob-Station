@@ -49,21 +49,22 @@ public sealed class CosmicSpireSystem : EntitySystem
 
     private void OnDeviceUpdated(Entity<CosmicSpireComponent> ent, ref AtmosDeviceUpdateEvent args)
     {
-        if (!ent.Comp.Enabled)
+        if (!ent.Comp.Enabled
+            || args.Grid is not { } grid)
             return;
-        if (args.Grid is not { } grid)
-            return;
+
         var timeDelta = args.dt;
         var position = _transform.GetGridTilePositionOrDefault(ent.Owner);
         var environment = _atmos.GetTileMixture(grid, args.Map, position, true);
         var running = Drain(timeDelta, ent, environment);
+
         if (!running)
             return;
+
         var enumerator = _atmos.GetAdjacentTileMixtures(grid, position, false, true);
+
         while (enumerator.MoveNext(out var adjacent))
-        {
             Drain(timeDelta, ent, adjacent);
-        }
 
         if (ent.Comp.Storage.TotalMoles >= ent.Comp.DrainThreshHold)
         {
@@ -74,6 +75,7 @@ public sealed class CosmicSpireSystem : EntitySystem
 
             if (_cosmicRule.AssociatedGamerule(ent) is not { } cult)
                 return;
+
             cult.Comp.EntropySiphoned++;
         }
     }
@@ -94,8 +96,6 @@ public sealed class CosmicSpireSystem : EntitySystem
         args.GasMixtures.Add((Name(ent), ent.Comp.Storage));
     }
 
-    private void UpdateSpireAppearance(EntityUid uid, SpireStatus status)
-    {
+    private void UpdateSpireAppearance(EntityUid uid, SpireStatus status) =>
         _appearance.SetData(uid, SpireVisuals.Status, status);
-    }
 }

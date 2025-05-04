@@ -21,14 +21,17 @@ public sealed class MonumentVisualizerSystem : EntitySystem
     {
         if (args.Sprite == null)
             return;
+
         args.Sprite.LayerMapTryGet(MonumentVisualLayers.TransformLayer, out var transformLayer);
         args.Sprite.LayerMapTryGet(MonumentVisualLayers.MonumentLayer, out var baseLayer);
         _appearance.TryGetData<bool>(ent, MonumentVisuals.Transforming, out var transforming, args.Component);
         _appearance.TryGetData<bool>(ent, MonumentVisuals.Tier3, out var tier3, args.Component);
+
         if (!tier3)
             args.Sprite.LayerSetState(transformLayer, "transform-stage2");
         else
             args.Sprite.LayerSetState(transformLayer, "transform-stage3");
+
         if (transforming && HasComp<MonumentTransformingComponent>(ent))
         {
             args.Sprite.LayerSetAnimationTime(transformLayer, 0f);

@@ -81,7 +81,7 @@
   parent: BaseStructure
   abstract: true
   id: CosmicPolymorphEnt
-  name: "???"
+  name: "Unknown" # The question marks crash regex gg
   description: Trapped in a lapse between here and there.
   components:
   - type: Sprite

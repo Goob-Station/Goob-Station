@@ -28,10 +28,10 @@ public sealed class CosmicImpositionSystem : EntitySystem
         var query = EntityQueryEnumerator<CosmicImposingComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.Expiry)
-            {
-                RemComp(uid, comp);
-            }
+            if (_timing.CurTime < comp.Expiry)
+                continue;
+
+            RemComp(uid, comp);
         }
     }
 
@@ -45,8 +45,6 @@ public sealed class CosmicImpositionSystem : EntitySystem
         _cult.MalignEcho(uid);
     }
 
-    private void OnImpositionDamaged(Entity<CosmicImposingComponent> uid, ref BeforeDamageChangedEvent args)
-    {
+    private void OnImpositionDamaged(Entity<CosmicImposingComponent> uid, ref BeforeDamageChangedEvent args) =>
         args.Cancelled = true;
-    }
 }

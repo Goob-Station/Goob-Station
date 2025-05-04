@@ -39,7 +39,7 @@
         visible: false
         map: ["enum.MonumentVisualLayers.FinaleLayer"]
     offset: 0,1
-    drawdepth: Mobs
+    drawdepth: Overdoors
   - type: Appearance
   - type: GenericVisualizer
     visuals:

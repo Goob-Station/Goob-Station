@@ -29,15 +29,22 @@ public sealed class CosmicLapseSystem : EntitySystem
 
     private void OnCosmicLapse(Entity<CosmicCultComponent> uid, ref EventCosmicLapse action)
     {
-        if (action.Handled || HasComp<CosmicBlankComponent>(action.Target) || HasComp<CleanseCultComponent>(action.Target) || HasComp<BibleUserComponent>(action.Target))
+        if (action.Handled
+            || HasComp<CosmicBlankComponent>(action.Target)
+            || HasComp<CleanseCultComponent>(action.Target)
+            || HasComp<BibleUserComponent>(action.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;
         }
+
         action.Handled = true;
         var tgtpos = Transform(action.Target).Coordinates;
         Spawn(uid.Comp.LapseVFX, tgtpos);
-        _popup.PopupEntity(Loc.GetString("cosmicability-lapse-success", ("target", Identity.Entity(action.Target, EntityManager))), uid, uid);
+        _popup.PopupEntity(Loc.GetString("cosmicability-lapse-success",
+            ("target", Identity.Entity(action.Target, EntityManager))),
+            uid,
+            uid);
         var species = Comp<HumanoidAppearanceComponent>(action.Target).Species;
         var polymorphId = "CosmicLapseMob" + species;
 
@@ -45,6 +52,7 @@ public sealed class CosmicLapseSystem : EntitySystem
             _polymorph.PolymorphEntity(action.Target, polymorphId);
         else
             _polymorph.PolymorphEntity(action.Target, HumanLapse);
+
         _cult.MalignEcho(uid);
     }
 }

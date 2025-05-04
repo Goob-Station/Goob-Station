@@ -59,23 +59,36 @@ public sealed class DeconversionSystem : EntitySystem
 
     private void OnAfterInteract(Entity<CleanseOnUseComponent> uid, ref AfterInteractEvent args)
     {
-        if (!TryComp(uid, out UseDelayComponent? useDelay) || _delay.IsDelayed((uid, useDelay)))
-            return;
-        if (!args.CanReach || !uid.Comp.Enabled || args.Target == null || _mobState.IsDead(args.Target.Value))
+        if (!TryComp(uid, out UseDelayComponent? useDelay)
+            || _delay.IsDelayed((uid, useDelay))
+            || !args.CanReach
+            || !uid.Comp.Enabled
+            || args.Target == null
+            || _mobState.IsDead(args.Target.Value))
             return;
 
         if (!HasComp<BibleUserComponent>(args.User))
         {
-            _popup.PopupEntity(Loc.GetString("cleanse-item-sizzle", ("target", Identity.Entity(args.Used, EntityManager))), args.User, args.User);
-
+            _popup.PopupEntity(Loc.GetString("cleanse-item-sizzle",
+                ("target", Identity.Entity(args.Used, EntityManager))),
+                args.User,
+                args.User);
             _audio.PlayPvs(uid.Comp.SizzleSound, args.User);
             _damageable.TryChangeDamage(args.User, uid.Comp.SelfDamage, origin: uid);
             _delay.TryResetDelay((uid, useDelay));
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-begin", ("target", Identity.Entity(args.User, EntityManager))), args.User, args.Target.Value);
-        _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-begin-user", ("target", Identity.Entity(args.Target.Value, EntityManager))), args.User, args.User);
+        _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-begin",
+            ("target", Identity.Entity(args.User, EntityManager))),
+            args.User,
+            args.Target.Value);
+
+        _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-begin-user",
+            ("target", Identity.Entity(args.Target.Value, EntityManager))),
+            args.User,
+            args.User);
+
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, uid.Comp.UseTime, new CleanseOnDoAfterEvent(), uid, args.Target, uid)
         {
             BreakOnMove = true,
@@ -91,27 +104,43 @@ public sealed class DeconversionSystem : EntitySystem
     private void OnDoAfter(Entity<CleanseOnUseComponent> uid, ref CleanseOnDoAfterEvent args)
     {
         var target = args.Args.Target;
-        if (!TryComp(uid, out UseDelayComponent? useDelay) || args.Cancelled || args.Handled || target == null || _mobState.IsDead(target.Value))
+
+        if (!TryComp(uid, out UseDelayComponent? useDelay)
+            || args.Cancelled
+            || args.Handled
+            || target == null
+            || _mobState.IsDead(target.Value))
             return;
+
         var targetPosition = Transform(target.Value).Coordinates;
-        //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
-        if (TryComp<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
+        // dTODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired.
+        // This is easy to read and easy to modify code. Expand it at thine leisure.
+        if (TryComp<CosmicCultComponent>(args.Target, out var comp))
         {
-            Spawn(uid.Comp.MalignVFX, targetPosition);
-            Spawn(uid.Comp.MalignVFX, Transform(args.User).Coordinates);
-            EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);
-            cleanse.CleanseDuration = TimeSpan.FromSeconds(1);
-            _audio.PlayPvs(uid.Comp.MalignSound, targetPosition, AudioParams.Default.WithVolume(2f));
-            _damageable.TryChangeDamage(args.User, uid.Comp.SelfDamage, true);
-            _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success-empowered", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
-        }
-        else if (TryComp<CosmicCultComponent>(target, out var cultComponent) && !cultComponent.CosmicEmpowered)
-        {
-            Spawn(uid.Comp.CleanseVFX, targetPosition);
-            EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);
-            cleanse.CleanseDuration = TimeSpan.FromSeconds(1);
-            _audio.PlayPvs(uid.Comp.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
-            _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
+            if (comp.CosmicEmpowered)
+            {
+                Spawn(uid.Comp.MalignVFX, targetPosition);
+                Spawn(uid.Comp.MalignVFX, Transform(args.User).Coordinates);
+                EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);
+                cleanse.CleanseDuration = TimeSpan.FromSeconds(1);
+                _audio.PlayPvs(uid.Comp.MalignSound, targetPosition, AudioParams.Default.WithVolume(2f));
+                _damageable.TryChangeDamage(args.User, uid.Comp.SelfDamage, true);
+                _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success-empowered",
+                    ("target", Identity.Entity(target.Value, EntityManager))),
+                    args.User,
+                    args.User);
+            }
+            else
+            {
+                Spawn(uid.Comp.CleanseVFX, targetPosition);
+                EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);
+                cleanse.CleanseDuration = TimeSpan.FromSeconds(1);
+                _audio.PlayPvs(uid.Comp.CleanseSound, targetPosition, AudioParams.Default.WithVolume(4f));
+                _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-success",
+                    ("target", Identity.Entity(target.Value, EntityManager))),
+                    args.User,
+                    args.User);
+            }
         }
         else if (HasComp<RogueAscendedInfectionComponent>(target))
         {
@@ -124,6 +153,7 @@ public sealed class DeconversionSystem : EntitySystem
         {
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-notcorrupted", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
         }
+
         _delay.TryResetDelay((uid, useDelay));
         args.Handled = true;
     }

@@ -11,3 +11,7 @@ public sealed partial class CosmicSiphonIndicatorEvent(NetEntity target) : Entit
     {
     }
 }
+
+public sealed partial class CosmicCultLeadChangedEvent() : EntityEventArgs
+{
+}

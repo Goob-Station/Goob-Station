@@ -16,15 +16,12 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
     private readonly IEntityManager _ent;
     private readonly IPlayerManager _player;
     private readonly SpriteSystem _sprite;
-    private readonly SharedMapSystem _map;
     private readonly MonumentPlacementPreviewSystem _preview;
     private readonly IGameTiming _timing;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
-
     private readonly ShaderInstance _saturationShader;
     private readonly ShaderInstance _unshadedShader;
     private readonly ShaderInstance _starsShader;
-
     public bool LockPlacement = false;
     private EntityCoordinates _lastPos = new();
 
@@ -49,14 +46,27 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
     //also I kinda want wrappers around the dog ass existing arbitrary rendering methods
 
     //evil huge ctor because doing iocmanager stuff was killing the client for some reason
-    public MonumentPlacementPreviewOverlay(IEntityManager entityManager, IPlayerManager playerManager, IPrototypeManager protoMan, IGameTiming timing, int tier)
+    public MonumentPlacementPreviewOverlay(IEntityManager entityManager,
+        IPlayerManager playerManager,
+        IPrototypeManager protoMan,
+        IGameTiming timing,
+        int tier,
+        ResPath? mainPath = null,
+        string? mainState = null,
+        string? outlineState = null,
+        string? starState = null)
     {
         _ent = entityManager;
         _player = playerManager;
         _sprite = _ent.System<SpriteSystem>();
-        _map = _ent.System<SharedMapSystem>();
         _preview = _ent.System<MonumentPlacementPreviewSystem>();
         _timing = timing;
+
+        // Set default values or use provided ones
+        var mainRsiPath = mainPath ?? new ResPath("_DV/CosmicCult/Tileset/monument.rsi");
+        var mainRsiState = mainState ?? $"stage{tier}";
+        var outlineRsiState = outlineState ?? $"stage{tier}-placement-ghost-1";
+        var starRsiState = starState ?? $"stage{tier}-placement-ghost-2";
 
         _saturationShader = protoMan.Index<ShaderPrototype>("SaturationShuffle").InstanceUnique();
         _saturationShader.SetParameter("tileSize", new Vector2(96, 96));
@@ -70,22 +80,18 @@ public sealed class MonumentPlacementPreviewOverlay : Overlay
         ZIndex = (int) Shared.DrawDepth.DrawDepth.Mobs; //make the overlay render at the same depth as the actual sprite. might want to make it 1 lower if things get wierd with it.
 
         //will fuck up if the wrong tier is passed in but it's not my problem if that happens
-        _mainTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}");
-        _outlineTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-1");
-        _starTex = new SpriteSpecifier.Rsi(new ResPath("_DV/CosmicCult/Tileset/monument.rsi"), $"stage{tier}-placement-ghost-2");
+        _mainTex = new SpriteSpecifier.Rsi(mainRsiPath, mainRsiState);
+        _outlineTex = new SpriteSpecifier.Rsi(mainRsiPath, outlineRsiState);
+        _starTex = new SpriteSpecifier.Rsi(mainRsiPath, starRsiState);
     }
 
     //this might get wierd if the player managed to leave the grid they put the monument on? theoretically not a concern because it can't be placed too close to space.
     //shouldn't crash due to the comp checks, though.
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (!_ent.TryGetComponent<TransformComponent>(_player.LocalEntity, out var transformComp))
-            return;
-
-        if (!_ent.TryGetComponent<MapGridComponent>(transformComp.GridUid, out var grid))
-            return;
-
-        if (!_ent.TryGetComponent<TransformComponent>(transformComp.ParentUid, out var parentTransform))
+        if (!_ent.TryGetComponent<TransformComponent>(_player.LocalEntity, out var transformComp)
+            || !_ent.TryGetComponent<MapGridComponent>(transformComp.GridUid, out var grid)
+            || !_ent.TryGetComponent<TransformComponent>(transformComp.ParentUid, out var parentTransform))
             return;
 
         var worldHandle = args.WorldHandle;

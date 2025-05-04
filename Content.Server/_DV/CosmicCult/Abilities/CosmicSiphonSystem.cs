@@ -68,10 +68,11 @@ public sealed class CosmicSiphonSystem : EntitySystem
 
     private void OnCosmicSiphonDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicSiphonDoAfter args)
     {
-        if (args.Args.Target is not { } target)
+        if (args.Args.Target is not { } target
+            || args.Cancelled
+            || args.Handled)
             return;
-        if (args.Cancelled || args.Handled)
-            return;
+
         args.Handled = true;
 
         if (_mind.TryGetMind(uid, out var _, out var mind) && mind.Session != null)
@@ -81,10 +82,17 @@ public sealed class CosmicSiphonSystem : EntitySystem
         uid.Comp.EntropyBudget += uid.Comp.CosmicSiphonQuantity;
         Dirty(uid, uid.Comp);
 
-        _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target, "EntropicDegen", TimeSpan.FromSeconds(21), true);
+        _statusEffects.TryAddStatusEffect<CosmicEntropyDebuffComponent>(target,
+            "EntropicDegen",
+            uid.Comp.CosmicEntropyDebuffDuration,
+            true);
+
         if (_cosmicCult.EntityIsCultist(target))
         {
-            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+            _popup.PopupEntity(Loc.GetString("cosmicability-siphon-cultist-success",
+                ("target", Identity.Entity(target, EntityManager))),
+                uid,
+                uid);
         }
         else
         {
@@ -101,6 +109,7 @@ public sealed class CosmicSiphonSystem : EntitySystem
             {
                 if (!_random.Prob(0.5f))
                     continue;
+
                 _ghost.DoGhostBooEvent(light);
             }
         }

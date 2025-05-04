@@ -43,7 +43,9 @@ public sealed class CosmicGlareSystem : EntitySystem
         args.Handled = true;
 
         _lights.Clear();
-        _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates, uid.Comp.CosmicGlareRange, _lights);
+        _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates,
+            uid.Comp.CosmicGlareRange,
+            _lights);
 
         foreach (var entity in _lights)
             _poweredLight.TryDestroyBulb(entity);
@@ -54,17 +56,39 @@ public sealed class CosmicGlareSystem : EntitySystem
                 return true;
 
             var ent = player.AttachedEntity.Value;
-            if (!HasComp<MobStateComponent>(ent) || !HasComp<HumanoidAppearanceComponent>(ent) || _cosmicCult.EntityIsCultist(ent) || HasComp<BibleUserComponent>(ent))
+
+            if (!HasComp<MobStateComponent>(ent)
+                || !HasComp<HumanoidAppearanceComponent>(ent)
+                || _cosmicCult.EntityIsCultist(ent)
+                || HasComp<BibleUserComponent>(ent))
                 return true;
 
-            return !_interact.InRangeUnobstructed((uid, Transform(uid)), (ent, Transform(ent)), range: 0, collisionMask: CollisionGroup.Impassable);
+            return !_interact.InRangeUnobstructed((uid, Transform(uid)),
+                (ent, Transform(ent)),
+                range: 0,
+                collisionMask: CollisionGroup.Impassable);
         });
 
-        var targets = new HashSet<NetEntity>(targetFilter.RemovePlayerByAttachedEntity(uid).Recipients.Select(ply => GetNetEntity(ply.AttachedEntity!.Value)));
+        var targets = new HashSet<NetEntity>(targetFilter
+            .RemovePlayerByAttachedEntity(uid)
+            .Recipients
+            .Select(ply => GetNetEntity(ply.AttachedEntity!.Value)));
+
         foreach (var target in targets)
         {
-            _flash.Flash(GetEntity(target), uid, args.Action, (float)uid.Comp.CosmicGlareDuration.TotalMilliseconds, uid.Comp.CosmicGlarePenalty, false, false, uid.Comp.CosmicGlareStun);
-            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { GetEntity(target) }, Filter.Pvs(GetEntity(target), entityManager: EntityManager));
+            _flash.Flash(GetEntity(target),
+                uid,
+                args.Action,
+                (float) uid.Comp.CosmicGlareDuration.TotalMilliseconds,
+                uid.Comp.CosmicGlarePenalty,
+                false,
+                false,
+                uid.Comp.CosmicGlareStun);
+
+            _color.RaiseEffect(Color.CadetBlue,
+                new List<EntityUid>() { GetEntity(target) },
+                Filter.Pvs(GetEntity(target),
+                entityManager: EntityManager));
         }
     }
 }

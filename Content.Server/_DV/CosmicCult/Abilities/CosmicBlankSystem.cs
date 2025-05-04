@@ -43,11 +43,15 @@ public sealed class CosmicBlankSystem : EntitySystem
 
     private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
     {
-        if (_cosmicCult.EntityIsCultist(args.Target) || HasComp<CosmicBlankComponent>(args.Target) || HasComp<BibleUserComponent>(args.Target) || HasComp<ActiveNPCComponent>(args.Target))
+        if (_cosmicCult.EntityIsCultist(args.Target)
+            || HasComp<CosmicBlankComponent>(args.Target)
+            || HasComp<BibleUserComponent>(args.Target)
+            || HasComp<ActiveNPCComponent>(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;
         }
+
         if (args.Handled)
             return;
 
@@ -59,6 +63,7 @@ public sealed class CosmicBlankSystem : EntitySystem
             BreakOnMove = true,
             BreakOnDropItem = true,
         };
+
         args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-begin", ("target", Identity.Entity(uid, EntityManager))), uid, args.Target);
@@ -71,48 +76,51 @@ public sealed class CosmicBlankSystem : EntitySystem
         var shuntQuery = EntityQueryEnumerator<InVoidComponent>();
         while (shuntQuery.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime >= comp.ExitVoidTime)
-            {
-                if (!_mind.TryGetMind(uid, out var mindEnt, out var mind))
-                    continue;
-                mind.PreventGhosting = false;
-                _mind.TransferTo(mindEnt, comp.OriginalBody);
-                RemComp<CosmicBlankComponent>(comp.OriginalBody);
-                _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
-                QueueDel(uid);
-            }
+            if (_timing.CurTime < comp.ExitVoidTime
+                || !_mind.TryGetMind(uid, out var mindEnt, out var mind))
+                continue;
+
+            mind.PreventGhosting = false;
+            _mind.TransferTo(mindEnt, comp.OriginalBody);
+            RemComp<CosmicBlankComponent>(comp.OriginalBody);
+            RemComp<CosmicCultExamineComponent>(comp.OriginalBody);
+            _popup.PopupEntity(Loc.GetString("cosmicability-blank-return"), comp.OriginalBody, comp.OriginalBody);
+            QueueDel(uid);
         }
     }
 
     private void OnCosmicBlankDoAfter(Entity<CosmicCultComponent> uid, ref EventCosmicBlankDoAfter args)
     {
-        if (args.Args.Target is not { } target)
+        if (args.Args.Target is not { } target
+            || args.Cancelled
+            || args.Handled)
             return;
-        if (args.Cancelled || args.Handled)
-            return;
+
         args.Handled = true;
 
-        if (!TryComp<MindContainerComponent>(target, out var mindContainer) || !mindContainer.HasMind)
-        {
+        if (!TryComp<MindContainerComponent>(target, out var mindContainer)
+            || !mindContainer.HasMind)
             return;
-        }
 
         EnsureComp<CosmicBlankComponent>(target);
         var examine = EnsureComp<CosmicCultExamineComponent>(target);
         examine.CultistText = "cosmic-examine-text-abilityblank";
 
-        _popup.PopupEntity(Loc.GetString("cosmicability-blank-success", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+        _popup.PopupEntity(Loc.GetString("cosmicability-blank-success",
+            ("target", Identity.Entity(target, EntityManager))), uid, uid);
         var tgtpos = Transform(target).Coordinates;
         var mindEnt = mindContainer.Mind.Value;
         var mind = Comp<MindComponent>(mindEnt);
         var comp = uid.Comp;
         mind.PreventGhosting = true;
 
-        var spawnPoints = EntityManager.GetAllComponents(typeof(CosmicVoidSpawnComponent)).ToImmutableList();
+        var spawnPoints = EntityManager
+            .GetAllComponents(typeof(CosmicVoidSpawnComponent))
+            .ToImmutableList();
+
         if (spawnPoints.IsEmpty)
-        {
             return;
-        }
+
         _audio.PlayPvs(comp.BlankSFX, uid, AudioParams.Default.WithVolume(6f));
         Spawn(comp.BlankVFX, tgtpos);
         var newSpawn = _random.Pick(spawnPoints);
@@ -125,7 +133,9 @@ public sealed class CosmicBlankSystem : EntitySystem
         _stun.TryKnockdown(target, comp.CosmicBlankDuration + TimeSpan.FromSeconds(2), true);
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-transfer"), mobUid, mobUid);
         _audio.PlayPvs(comp.BlankSFX, spawnTgt, AudioParams.Default.WithVolume(6f));
-        _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { target }, Filter.Pvs(target, entityManager: EntityManager));
+        _color.RaiseEffect(Color.CadetBlue,
+            new List<EntityUid>() { target },
+            Filter.Pvs(target, entityManager: EntityManager));
         Spawn(comp.BlankVFX, spawnTgt);
         _cult.MalignEcho(uid);
     }

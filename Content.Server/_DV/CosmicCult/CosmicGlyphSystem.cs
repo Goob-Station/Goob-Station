@@ -38,7 +38,12 @@ public sealed class CosmicGlyphSystem : EntitySystem
     {
         if (_cosmicCult.EntityIsCultist(args.Examiner))
         {
-            args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", uid.Comp.RequiredCultists)));
+            var requiredCultists = uid.Comp.RequiredCultists;
+
+            if (TryComp(args.Examiner, out LoneCosmicCultLeadComponent? leadComp))
+                requiredCultists = Math.Max(requiredCultists - leadComp.CultAbilityDeduction, 1);
+
+            args.PushMarkup(Loc.GetString("cosmic-examine-glyph-cultcount", ("COUNT", requiredCultists)));
         }
         else
         {
@@ -50,10 +55,20 @@ public sealed class CosmicGlyphSystem : EntitySystem
     {
         var tgtpos = Transform(uid).Coordinates;
         var userCoords = Transform(args.User).Coordinates;
-        if (args.Handled || !userCoords.TryDistance(EntityManager, tgtpos, out var distance) || distance > uid.Comp.ActivationRange || !_cosmicCult.EntityIsCultist(args.User))
+
+        if (args.Handled
+            || !userCoords.TryDistance(EntityManager, tgtpos, out var distance)
+            || distance > uid.Comp.ActivationRange
+            || !_cosmicCult.EntityIsCultist(args.User))
             return;
+
         var cultists = GatherCultists(uid, uid.Comp.ActivationRange);
-        if (cultists.Count < uid.Comp.RequiredCultists)
+        var requiredCultists = uid.Comp.RequiredCultists;
+
+        if (TryComp(args.User, out LoneCosmicCultLeadComponent? leadComp))
+            requiredCultists = Math.Max(requiredCultists - leadComp.CultAbilityDeduction, 1);
+
+        if (cultists.Count < requiredCultists)
         {
             _popup.PopupEntity(Loc.GetString("cult-glyph-not-enough-cultists"), uid, args.User);
             return;
@@ -62,14 +77,14 @@ public sealed class CosmicGlyphSystem : EntitySystem
         args.Handled = true;
         var tryInvokeEv = new TryActivateGlyphEvent(args.User, cultists);
         RaiseLocalEvent(uid, tryInvokeEv);
+
         if (tryInvokeEv.Cancelled)
             return;
 
         var damage = uid.Comp.ActivationDamage / cultists.Count;
+
         foreach (var cultist in cultists)
-        {
             _damageable.TryChangeDamage(cultist, damage, true);
-        }
 
         _audio.PlayPvs(uid.Comp.GylphSFX, tgtpos, AudioParams.Default.WithVolume(+1f));
         Spawn(uid.Comp.GylphVFX, tgtpos);
@@ -97,8 +112,10 @@ public sealed class CosmicGlyphSystem : EntitySystem
     public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearGlyph(EntityUid uid, float range, Predicate<Entity<HumanoidAppearanceComponent>>? exclude = null)
     {
         _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, range, _humanoids);
+
         if (exclude != null)
             _humanoids.RemoveWhere(exclude);
+
         _humanoids.RemoveWhere(target => HasComp<CosmicBlankComponent>(target) || HasComp<CosmicLapseComponent>(target)); // We never want these.
 
         return _humanoids;

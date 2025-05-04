@@ -12,11 +12,17 @@ cosmiccult-gamemode-title = The Cosmic Cult
 cosmiccult-gamemode-description = Scanners detect an anomalous increase in Λ-CDM. There is no additional data.
 
 cosmiccult-vote-steward-initiator = The Unknown
+
 cosmiccult-vote-steward-title = Cosmic Cult Stewardship
 cosmiccult-vote-steward-briefing =
     You are the Cosmic Cult's Steward!
     Ensure that The Monument is placed in a secure location, and organize the cult to ensure your collective victory.
     You are not permitted to instruct cultists on how to use or spend their Entropy.
+
+cosmiccult-vote-lone-steward-title = The Lone Cultist
+cosmiccult-vote-lone-steward-briefing =
+    You're completely alone. But your duty is not done.
+    Ensure that The Monument is placed in a secure location, and finish what the cult started.
 
 cosmiccult-finale-autocall-briefing = The Monument activates {$minutesandseconds}! Gather yourselves, and prepare for the end.
 cosmiccult-finale-ready = A terrifying light surges forth from The Monument!

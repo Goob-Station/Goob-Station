@@ -8,14 +8,11 @@ public sealed class RogueAscendedObjectiveSystem : EntitySystem
 {
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
 
-    public override void Initialize()
-    {
+    public override void Initialize() =>
         SubscribeLocalEvent<RogueInfectionConditionComponent, ObjectiveGetProgressEvent>(OnGetInfectionProgress);
-    }
 
-    private void OnGetInfectionProgress(EntityUid uid, RogueInfectionConditionComponent comp, ref ObjectiveGetProgressEvent args)
-    {
-        // prevent divide-by-zero
-        args.Progress = _number.GetTarget(uid) == 0 ? 1f : MathF.Min(comp.MindsCorrupted / (float)_number.GetTarget(uid), 1f);
-    }
+    private void OnGetInfectionProgress(EntityUid uid, RogueInfectionConditionComponent comp, ref ObjectiveGetProgressEvent args) =>
+        args.Progress = _number.GetTarget(uid) == 0
+            ? 1f
+            : MathF.Min(comp.MindsCorrupted / (float) _number.GetTarget(uid), 1f);
 }

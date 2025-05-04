@@ -485,10 +485,8 @@ namespace Content.Server.Voting.Managers
 
             // Begin DeltaV - Cosmic Cult
             if (eligibility == VoterEligibility.CosmicCult)
-            {
                 if (!_entityManager.HasComponent<CosmicCultComponent>(player.AttachedEntity))
                     return false;
-            }
             // End DeltaV - Cosmic Cult
 
             return true;
