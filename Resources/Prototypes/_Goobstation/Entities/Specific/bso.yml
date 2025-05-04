@@ -35,6 +35,9 @@
   - type: Item
     size: Small
   - type: CrewMonitorScanning
+    whitelist:
+      components:
+      - CommandStaff
   - type: ActivatableUI
     key: enum.CrewMonitoringUIKey.Key
   - type: UserInterface

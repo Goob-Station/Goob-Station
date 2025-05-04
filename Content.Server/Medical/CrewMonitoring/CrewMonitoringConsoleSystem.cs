@@ -64,11 +64,11 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             var newSensorStatus = new Dictionary<string, SuitSensorStatus>();
             foreach (var pair in sensorStatus)
             {
-                var entity = GetEntity(pair.Value.SuitSensorUid);
-                if (!HasComp<TransformComponent>(entity))
+                var sensorUid = GetEntity(pair.Value.SuitSensorUid);
+                if (!HasComp<TransformComponent>(sensorUid))
                     continue;
 
-                if (scanned.ScannedEntities.Contains(Transform(entity).ParentUid))
+                if (scanned.ScannedEntities.Contains(Transform(sensorUid).ParentUid))
                     newSensorStatus[pair.Key] = pair.Value;
             }
             sensorStatus = newSensorStatus;

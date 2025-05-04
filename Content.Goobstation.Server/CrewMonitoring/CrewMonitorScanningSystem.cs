@@ -1,15 +1,16 @@
 using Content.Goobstation.Server.RelayedDeathrattle;
 using Content.Goobstation.Shared.CrewMonitoring;
-using Content.Server.Revolutionary.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Server.CrewMonitoring;
 
 public sealed class CrewMonitorScanningSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -30,7 +31,7 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Target == null || comp.ScannedEntities.Contains(args.Target.Value))
             return;
 
-        if (comp.OnlyCommandStaff && !HasComp<CommandStaffComponent>(args.Target))
+        if (_whitelist.IsWhitelistFail(comp.Whitelist, args.Target.Value))
             return;
 
         comp.ScannedEntities.Add(args.Target.Value);

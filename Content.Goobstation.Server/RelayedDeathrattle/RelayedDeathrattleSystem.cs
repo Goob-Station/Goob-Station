@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Medical.CrewMonitoring;
 using Content.Server.Pinpointer;
 using Content.Shared.Mobs;
 using Robust.Shared.Utility;
@@ -20,12 +21,34 @@ public sealed class RelayedDeathrattleSystem : EntitySystem
         if (comp.Target == null)
             return;
 
+        if (comp.RequireCrewMonitor && TryComp<CrewMonitoringConsoleComponent>(comp.Target, out var monitor))
+        {
+            var found = false;
+            foreach (var pair in monitor.ConnectedSensors)
+            {
+                if (found)
+                    continue;
+
+                var sensorUid = GetEntity(pair.Value.SuitSensorUid);
+                if (!HasComp<TransformComponent>(sensorUid))
+                    continue;
+
+                if (uid == Transform(sensorUid).ParentUid)
+                    found = true;
+            }
+            if (!found)
+                return;
+        }
+
+        bool dead;
         var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
-
         if (args is { NewMobState: MobState.Critical, OldMobState: MobState.Alive })
-            _chat.TrySendInGameICMessage(comp.Target.Value, Loc.GetString(comp.CritMessage, ("user", uid), ("position", posText)), InGameICChatType.Speak, hideChat: false);
+            dead = false;
+        else if (args.NewMobState == MobState.Dead)
+            dead = true;
+        else
+            return;
 
-        if (args.NewMobState == MobState.Dead)
-            _chat.TrySendInGameICMessage(comp.Target.Value, Loc.GetString(comp.DeathMessage, ("user", uid), ("position", posText)), InGameICChatType.Speak, hideChat: false);
+        _chat.TrySendInGameICMessage(comp.Target.Value, Loc.GetString(dead ? comp.DeathMessage : comp.CritMessage, ("user", uid), ("position", posText)), InGameICChatType.Speak, hideChat: false);
     }
 }

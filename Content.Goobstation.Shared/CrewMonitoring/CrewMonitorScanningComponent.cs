@@ -1,3 +1,5 @@
+using Content.Shared.Whitelist;
+
 namespace Content.Goobstation.Shared.CrewMonitoring;
 
 [RegisterComponent]
@@ -13,5 +15,5 @@ public sealed partial class CrewMonitorScanningComponent : Component
     public bool ApplyDeathrattle = true;
 
     [DataField]
-    public bool OnlyCommandStaff = true;
+    public EntityWhitelist Whitelist = new ();
 }
