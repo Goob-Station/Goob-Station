@@ -1,0 +1,16 @@
+- type: entity
+  name: AI Remote Cyborg Spawner
+  id: AiRemoteCyborgSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: Mobs/Silicon/chassis.rsi
+          state: robot
+        - sprite: Mobs/Silicon/chassis.rsi
+          state: robot_e
+        - state: ai
+    - type: ConditionalSpawner
+      prototypes:
+        - PlayerBorgAiRemote

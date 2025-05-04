@@ -102,6 +102,37 @@ public sealed class RoboticsConsoleSystem : SharedRoboticsConsoleSystem
         UpdateUserInterface(ent);
     }
 
+    // Corvax-Next-MutableLaws-Start
+    private void OnChangeLaws(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleChangeLawsMessage args)
+    {
+        if (_lock.IsLocked(ent.Owner))
+            return;
+
+        if (!ent.Comp.Cyborgs.TryGetValue(args.Address, out var data))
+            return;
+
+        if (!_slots.TryGetSlot(ent, ent.Comp.CircuitBoardItemSlot, out var slot) || slot.Item is null)
+            return;
+
+        // Corvax-Next-AiRemoteControl-Start
+        if (data.IsAiControllable)
+            return;
+        // Corvax-Next-AiRemoteControl-End
+
+        var payload = new NetworkPayload()
+        {
+            [DeviceNetworkConstants.Command] = RoboticsConsoleConstants.NET_CHANGE_LAWS_COMMAND,
+            [RoboticsConsoleConstants.NET_CIRCUIT_BOARD] = slot.Item.Value,
+        };
+
+        _deviceNetwork.QueuePacket(ent, args.Address, payload);
+
+        var message = Loc.GetString(ent.Comp.ChangeLawsMessage, ("name", data.Name));
+        _radio.SendRadioMessage(ent, message, ent.Comp.RadioChannel, ent);
+        _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(args.Actor):user} changed laws of borg {data.Name} with address {args.Address}");
+    }
+    // Corvax-Next-MutableLaws-End
+
     private void OnDisable(Entity<RoboticsConsoleComponent> ent, ref RoboticsConsoleDisableMessage args)
     {
         if (_lock.IsLocked(ent.Owner))

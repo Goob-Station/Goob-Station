@@ -25,6 +25,8 @@ using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
 using Content.Server._Imp.Drone; //Goobstation drone
 using Robust.Shared.Player; //Goobstation drone
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components; //Ai remote brain
+
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
@@ -64,7 +66,8 @@ public sealed partial class BorgSystem
                 charge,
                 chassis.ModuleCount,
                 hasBrain,
-                canDisable);
+                canDisable,
+                HasComp<AiRemoteControllerComponent>(uid)); // Corvax-Next-AiRemoteControl
 
             var payload = new NetworkPayload()
             {

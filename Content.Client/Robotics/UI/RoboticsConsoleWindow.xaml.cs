@@ -87,9 +87,20 @@ public sealed partial class RoboticsConsoleWindow : FancyWindow
         if (_selected is {} selected && !_cyborgs.ContainsKey(selected))
             _selected = null;
 
+        // Corvax-Next-AiRemoteControl-Start
+        var isAiControllable = false;
+
+        if (_selected != null)
+        {
+            _cyborgs.TryGetValue(_selected, out var data);
+            isAiControllable = data.IsAiControllable;
+        }
+        // Corvax-Next-AiRemoteControl-End
+
         var hasCyborgs = _cyborgs.Count > 0;
         NoCyborgs.Visible = !hasCyborgs;
         CyborgsContainer.Visible = hasCyborgs;
+        ChangeLawsButton.Disabled = !state.HasCircuitBoard || isAiControllable; // Corvax-Next-MutableLaws-AiRemoteControl
         PopulateCyborgs();
 
         PopulateData();
