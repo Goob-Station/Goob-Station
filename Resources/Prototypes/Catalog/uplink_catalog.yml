@@ -155,6 +155,9 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
 # SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -185,7 +188,7 @@
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
   cost:
-    Telecrystal: 14 # goob - this +1 mag = 16 TC
+    Telecrystal: 13 # goob - this +1 mag = 15 TC
   categories:
   - UplinkWeaponry
 
@@ -207,7 +210,7 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 15 # goob - this +1 mag = 18 TC
+    Telecrystal: 17 # goob - this +1 mag = 20 TC
   categories:
   - UplinkWeaponry
 
@@ -600,7 +603,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
+    Telecrystal: 5 # goob - Ammo should be cheap. 96 dmg per TC.
   categories:
   - UplinkAmmo
 
@@ -624,7 +627,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
+    Telecrystal: 3 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
 
@@ -635,7 +638,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 12 # goob - l6 exists
+    Telecrystal: 9 # goob
   categories:
   - UplinkAmmo
 
@@ -963,7 +966,7 @@
   description: uplink-access-breaker-desc
   productEntity: AccessBreaker
   cost:
-    Telecrystal: 25 # goob - keeping the 25 price since it's just damn good
+    Telecrystal: 20 # goob
   categories:
   - UplinkDisruption
 
@@ -973,7 +976,7 @@
   description: uplink-emag-desc
   productEntity: Emag
   cost:
-    Telecrystal: 15 # goob - I'm tempted to set it to 10, since it's pretty bad unless you have a good plan, but we'll keep it at 15 and see
+    Telecrystal: 20 # goob - not quite worth 25
   categories:
   - UplinkDisruption
 
@@ -984,7 +987,7 @@
   description: uplink-radio-jammer-desc
   productEntity: RadioJammer
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkDisruption
 
@@ -1368,7 +1371,7 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: freedom }
   productEntity: FreedomImplanter
   cost:
-    Telecrystal: 25 # goob
+    Telecrystal: 18 # goob - not quite worth any more than that
   categories:
     - UplinkImplants
 
@@ -1380,7 +1383,7 @@
   icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
   productEntity: ScramImplanter
   cost:
-    Telecrystal: 20 # goob - it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
+    Telecrystal: 15 # goob - can be useful, but does nothing on its own
   categories:
     - UplinkImplants
 
@@ -1639,6 +1642,16 @@
 
 
 - type: listing
+  id: UplinkClothingOuterVestWebElite
+  name: uplink-clothing-outer-vest-web-elite-name
+  description: uplink-clothing-outer-vest-web-elite-desc
+  productEntity: ClothingOuterVestWebElite
+  cost:
+    Telecrystal: 25 # goob
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkClothingShoesBootsMagSyndie
   name: uplink-clothing-shoes-boots-mag-syndie-name
   description: uplink-clothing-shoes-boots-mag-syndie-desc
@@ -1712,6 +1725,11 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
+  #conditions: # Goobstation - no fuck you
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 
 - type: listing
@@ -1724,6 +1742,11 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
+  #conditions: # Goobstation - no fuck you
+  #- !type:StoreWhitelistCondition
+  # whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 
 - type: listing

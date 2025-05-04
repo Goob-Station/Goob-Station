@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -40,10 +42,12 @@
   - Terminus
   - WeaponSubMachineSmart
   - WeaponEnergyRifle
+  - WeaponEnergyIonRifle
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
   recipes:
+  - EnergyMagRifleOverchargeLethal
   - EnergyMagRifleIon
   - EnergyMagRifleDisabler
   - EnergyMagRifleLethal
@@ -51,6 +55,11 @@
   - MagazineBoxShotgunIncendiaryHighCaliber
   - MagazineBoxShotgunBeanbagHighCaliber
   - MagazineBoxShotgunUraniumHighCaliber
+
+- type: latheRecipePack
+  id: SecurityEquipmentDynamicGoob
+  recipes:
+  - HoloprojectorSecurityAdvanced
 
 - type: latheRecipePack
   id: SecurityCybernetics

@@ -1,0 +1,18 @@
+# Head Of Security
+
+- type: entity
+  id: HeadOfSecurityWeaponUndetermined
+  name: X-00 Series Box
+  description: A small remote utilizing bluespace technology to drop in a weapon from the X-00 series to you. Choose wisely.
+  parent: [ BaseItem, BaseSetSelector, BaseCommandContraband ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Security/hosundetermined.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - HosSmgSet
+    - HosRifleSet
+    - HosShotgunSet
+    - HosSniperSet
+    maxSelectedSets: 1
