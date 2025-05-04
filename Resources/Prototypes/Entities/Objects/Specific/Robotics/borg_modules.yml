@@ -400,9 +400,10 @@
     items:
     - SheetSteelLingering0
     - SheetGlassLingering0
-    - SheetPlasteelLingering0
     - PartRodMetalLingering0
     - FloorTileItemSteelLingering0
+    # goobstation
+    - SheetPlasteelLingering0
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Construction
