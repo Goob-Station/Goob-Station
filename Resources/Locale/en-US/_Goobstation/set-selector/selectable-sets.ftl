@@ -67,8 +67,8 @@ selectable-set-syndicate-hitman-description =
 selectable-set-syndicate-implants-name = Cyberpsychosis Bundle
 selectable-set-syndicate-implants-description =
     A few implants to give you some options for when you inevitably get arrested.
-    Contains: holoparasite kit, EMP, scram, smoke,
-    krav maga and syndicate radio implanters.
+    Contains: holoparasite kit, EMP, scram, freedom,
+    smoke, krav maga and syndicate radio implanters.
 
 selectable-set-syndicate-hacker-name = Hacker Bundle
 selectable-set-syndicate-hacker-description =
@@ -117,8 +117,8 @@ selectable-set-blueshield-shield-description =
 selectable-set-blueshield-revolver-name = revolver set
 selectable-set-blueshield-revolver-description =
     Running out of ammo is the worst thing that could happen in a firefight.
-    Includes: The EG-4 energy revolver, capable of firing using
-    various self-recharging energy speedloaders, both lethal and not.
+    Includes: The EG-4 energy revolver, capable of firing bolts using
+    recharging speedloaders, both lethal and not, and a shoulder holster.
 
 selectable-set-blueshield-cqc-name = close quarters combat set
 selectable-set-blueshield-cqc-description =

@@ -90,12 +90,22 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 meta:
-  format: 6
-  postmapinit: false
+  format: 7
+  category: Map
+  engineVersion: 247.2.0
+  forkId: ""
+  forkVersion: ""
+  time: 03/29/2025 00:38:16
+  entityCount: 2522
+maps:
+- 1
+grids:
+- 2
+orphans: []
+nullspace: []
 tilemap:
   0: Space
   1: FloorBlueCircuit
-  2: FloorSteelLime
   31: FloorDark
   36: FloorDarkMono
   47: FloorGlass
@@ -108,6 +118,7 @@ tilemap:
   79: FloorReinforced
   80: FloorReinforcedHardened
   93: FloorSteel
+  2: FloorSteelLime
   108: FloorTechMaint
   109: FloorTechMaint2
   110: FloorTechMaint3
@@ -5498,6 +5509,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -22.5,2.5
+      parent: 2
+- proto: CapsaicinDispenser
+  entities:
+  - uid: 859
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-3.5
       parent: 2
 - proto: CargoTechFab
   entities:
@@ -16542,6 +16561,21 @@ entities:
     - type: Transform
       pos: 25.5,2.5
       parent: 2
+- proto: WeaponEnergyGunLawbringer
+  entities:
+  - uid: 2300
+    components:
+    - type: Transform
+      pos: 18.57877,-2.4324293
+      parent: 2
+    - type: AccessReader
+      accessLog: []
+      accessKeys: []
+      access:
+      - - HeadOfSecurity
+      denyTags: []
+    - type: ActiveListener
+      range: 2
 - proto: WeaponEnergyShotgun
   entities:
   - uid: 2446

@@ -7,9 +7,12 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
+# SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -110,9 +113,6 @@
   description: A highly advanced energy revolver capable of firing various bolts depending on the power cell.
   components:
   - type: Item
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
     heldPrefix: lethal
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
@@ -288,3 +288,139 @@
         whitelist:
           tags:
             - EnergyMagAmmo
+- type: entity
+  name: DT-12 "Lawbringer"
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
+  id: WeaponEnergyGunLawbringer
+  description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - suitStorage
+    - belt
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDetain
+    fireCost: 80
+  - type: AmmoSelector
+    prototypes:
+    - BulletEnergyGunClownshot
+    - BulletEnergyGunPulse
+    - BulletEnergyGunDetain
+    - BulletEnergyGunExecute
+    - BulletEnergyGunHotshot
+    - BulletEnergyGunSleepshot
+    - BulletEnergyGunBigshot
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    wieldToggle: false
+  - type: ItemToggleColor
+  - type: Appearance
+  - type: ToggleableLightVisuals
+    spriteLayer: Firemode
+    inhandVisuals:
+      left:
+      - state: mode-inhand-left
+        shader: unshaded
+      right:
+      - state: mode-inhand-right
+        shader: unshaded
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+    - WeaponEnergyGunLawbringer
+  - type: StealTarget
+    stealGroup: WeaponEnergyGunLawbringer
+  - type: RestrictById
+    restrictMelee: true
+    restrictRanged: true
+    isEmaggable: true
+  - type: StaticPrice
+    price: 750
+  - type: TriggerOnVoiceIdLocked
+    keyPhrase: "lawbringer-phrase"
+    listenRange: 0 # only the holder
+  - type: AccessReader
+    access: [['HeadOfSecurity']]
+  - type: ActiveListener
+  - type: ExplodeOnTrigger
+  - type: DropOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 2
+    intensitySlope: 1
+    totalIntensity: 2
+    canCreateVacuum: false
+    deleteAfterExplosion: false
+    repeatable: true
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+    autoRechargePause: true
+    autoRechargePauseTime: 50
+
+
+
+- type: entity
+  name: ion rifle
+  id: WeaponEnergyIonRifle
+  description: An energy rifle that shoots ionized energy bolts designed to destroy mechanical targets.
+  parent: [BaseWeaponBattery, BaseSecurityContraband]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    size: Large
+  - type: Appearance
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    soundEmpty:
+      path: /Audio/_DV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: RifleBulletEnergyGunIon # yes i just copy cr-2 ion bullet
+    fireCost: 40
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
