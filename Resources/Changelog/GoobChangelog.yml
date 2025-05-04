@@ -8426,3 +8426,18 @@ Entries:
         tiders nothing will change)
   id: 971
   time: '2025-05-03T19:31:10.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added the combat shotgun for the syndicate, 5 round pump action
+        chambered in 8 gauge. Carpshot, slugs, flash and sarin rounds are
+        available in the uplink.
+  id: 972
+  time: '2025-05-04T05:41:22.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Cleaned up emote wheel.
+  id: 973
+  time: '2025-05-04T18:37:51.0000000+00:00'
