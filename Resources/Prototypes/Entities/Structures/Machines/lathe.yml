@@ -324,6 +324,11 @@
   - type: TechnologyDatabase
   - type: Speech # Goobstation - Lathe message on recipes update
     speechSounds: Lathe
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -563,6 +568,7 @@
     - ShuttleBoards
     # Goobstation Packs
     - SharedBoards
+    - UpgradeKits
   - type: MaterialStorage
     whitelist:
       tags:
