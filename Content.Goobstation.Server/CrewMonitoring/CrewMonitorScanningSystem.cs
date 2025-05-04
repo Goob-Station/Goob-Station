@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Server.RelayedDeathrattle;
 using Content.Goobstation.Shared.CrewMonitoring;
 using Content.Server.Revolutionary.Components;
