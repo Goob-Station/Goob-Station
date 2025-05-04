@@ -92,8 +92,8 @@
         Radiation: 0.6
         Caustic: 0.6
   - type: ClothingSpeedModifier
-    sprintModifier: 0.9
-    walkModifier: 0.9
+    sprintModifier: 0.85
+    walkModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
@@ -124,13 +124,13 @@
       coefficients:
         Blunt: 0.5
         Slash: 0.5
-        Piercing: 0.45
+        Piercing: 0.55
         Radiation: 0.5
         Caustic: 0.5
-        Heat: 0.45
+        Heat: 0.55
   - type: ClothingSpeedModifier
-    sprintModifier: 0.75
-    walkModifier: 1
+    sprintModifier: 0.7
+    walkModifier: 0.7
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototypes:
