@@ -244,3 +244,6 @@ uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza del
 
 uplink-undetermined-bundle-name = Undetermined Bundle Crate
 uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.
+
+uplink-microreactor-name = microreactor power cell
+uplink-microreactor-desc = You can only buy one of these because "SOMEONE" stole all the uranium to make something else.

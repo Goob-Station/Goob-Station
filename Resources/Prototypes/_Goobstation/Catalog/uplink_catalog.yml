@@ -939,3 +939,19 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkSelfRechargeBattery
+  name: uplink-microreactor-name
+  description: uplink-microreactor-desc
+  productEntity: PowerCellMicroreactor
+  cost:
+    Telecrystal: 35
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - IPC
