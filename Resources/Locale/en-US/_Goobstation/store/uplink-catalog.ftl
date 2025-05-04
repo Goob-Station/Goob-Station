@@ -114,8 +114,11 @@ uplink-whimsy-bundle-desc = Do YOU like spreading joy & whimsy? Well, Donk Co. h
 uplink-m7s-name = M7S "Ventilator"
 uplink-m7s-desc = The spread of this submachine gun gets tighter the longer you suppress your foes with it. The gunshots are suppressed too. Pretty convenient.
 
-uplink-heavensgate-name = Heaven's gate
-uplink-heavensgate = An old anti tank rifle used by the syndicate's finest. Comes with two types of ammunition, armour piercing for use against infantry and anti-tank for use against structures.
+uplink-combat-shotgun-name = 'Bojevic' Combat shotgun
+uplink-combat-shotgun-desc = A beefy pump-action shotgun chambered in 8 gauge, with a 5 round magazine tube.
+
+uplink-he1sg8-bundle-name = HE1S-G8 Bundle
+uplink-he1sg8-bundle-desc = High Energy One-Shell rifle bundle. Comes with 10 demolishing and 9 hypercharged Gauss-8 cartridges for some extra funny.
 
 # Ammo
 
@@ -137,17 +140,17 @@ uplink-pistol-magazine-caseless-saphe-desc = 10 rounds of 9.5mm caseless magnum 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
 
-uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-name = Shotgun Drum (12 Gauge pellet)
 uplink-shotgun-magazine-desc = Shotgun drum with 8 pellet shells. Compatible with the Bulldog.
 
-uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-name = Shotgun Drum (12 Gauge slug)
 uplink-shotgun-magazine-slug-desc = Shotgun drum with 8 slug shells. Compatible with the Bulldog.
 
-uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
-uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
+uplink-high-caliber-magazine-name = Rifle Magazine (.50 anti-materiel)
+uplink-high-caliber-magazine-desc = Heavy rifle magazine with 15 cartridges. Compatible with the Burner.
 
-uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
-uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
+uplink-high-caliber-explosive-magazine-name = Rifle Magazine (.50 HEI)
+uplink-high-caliber-explosive-magazine-desc = Heavy rifle magazine with 15 High Explosive Incendiary cartridges. Compatible with the Burner.
 
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
@@ -158,11 +161,23 @@ uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bul
 uplink-m7s-mag-name = Side-mounted SMG Magazine (5x23mm)
 uplink-m7s-mag-desc = A 48 round 5x23mm rifle magazine. Compatible with M7S.
 
-uplink-92-AP-name = box of .92 armour piercing rounds
-uplink-92-AP-desc = 10 .92 armour Piercing rounds for the heaven's gate sniper rifle. effective for anti-infantry use.
+uplink-cartridge-G8-demolishing-name = G8 demolishing cartridge
+uplink-cartridge-G8-demolishing-desc = This cartridge shots "The Spear of Ares" bullet, demolishing whole lines of walls, dealing massive stamina damage to people and overcharging energy vortexes. Used by HE1S-G8.
 
-uplink-92-AT-name = box of .92 anti-tank rounds
-uplink-92-AT-desc = 10 .92 anti-tank rounds for the heaven's gate sniper rifle. effective for anti-structure use.
+uplink-cartridge-G8-hypercharged-name = G8 hypercharged cartridge
+uplink-cartridge-G8-hypercharged-desc = This cartridge shots "The Bolt of Zeus" bullet, shocking everyone on its way and creating an energy vortex at its destination point, that creates a massive explosion on overcharge. Used by HE1S-G8.
+
+uplink-high-caliber-shotgun-box-name = 8 Gauge shell box
+uplink-high-caliber-shotgun-box-desc = 16 shells of 8 Gauge shells, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-slug-name = 8 Gauge slug box
+uplink-high-caliber-shotgun-box-slug-desc = 16 shells of 8 Gauge slugs, for the combat shotgun.
+
+uplink-high-caliber-shotgun-box-flash-slug-name = 8 Gauge flash shell box
+uplink-high-caliber-shotgun-box-flash-slug-desc = 16 shells of 8 Gauge flashbang shells, for the combat shotgun. Doesn't down those without hearing protection.
+
+uplink-high-caliber-shotgun-box-sarin-name = 8 Gauge sarin gas shell box
+uplink-high-caliber-shotgun-box-sarin-desc = 16 shells of 8 Gauge sarin shells for the combat shotgun, which release a small plus-shaped cloud of sarin gas.
 
 # Grenades
 

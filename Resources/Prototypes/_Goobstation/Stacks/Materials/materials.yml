@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -19,3 +21,17 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: bluespace_crystal }
   spawn: MaterialBSCrystal1Unprocessed
   maxCount: 30
+
+- type: stack
+  id: HexNut
+  name: steel hex
+  icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: hex_1 }
+  spawn: MaterialHexNut
+  maxCount: 10 # like capacitors and shi
+
+- type: stack
+  id: Screw
+  name: screw
+  icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: screw_1 }
+  spawn: MaterialScrew
+  maxCount: 10
