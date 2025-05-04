@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Codersprite created by deltanedas (github) for Goobstation.",
+    "size": {
+    	"x": 64,
+    	"y": 64
+	},
+	"states": [
+		{
+			"name": "icon"
+		},
+		{
+			"name": "base"
+		},
+		{
+			"name": "powered"
+		},
+		{
+			"name": "arm-short"
+		},
+		{
+			"name": "arm-long"
+		}
+	]
+}
