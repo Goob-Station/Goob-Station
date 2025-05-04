@@ -10,6 +10,7 @@ using Content.Server.Speech.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
+using Content.Shared.Hands;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Explosion.EntitySystems
@@ -23,12 +24,28 @@ namespace Content.Server.Explosion.EntitySystems
 
         public override void Initialize()
         {
+            SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, GotEquippedHandEvent>(OnEquipped);
+            SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, GotUnequippedHandEvent>(OnUnequipped);
+
             SubscribeLocalEvent<TriggerOnVoiceIdLockedComponent, ListenEvent>(OnListen);
+        }
+
+        private void OnEquipped(Entity<TriggerOnVoiceIdLockedComponent> ent, ref GotEquippedHandEvent args)
+        {
+            ent.Comp.User = args.User;
+        }
+
+        private void OnUnequipped(Entity<TriggerOnVoiceIdLockedComponent> ent, ref GotUnequippedHandEvent args)
+        {
+            ent.Comp.User = null;
         }
 
         private void OnListen(Entity<TriggerOnVoiceIdLockedComponent> ent, ref ListenEvent args)
         {
             if (ent.Comp.NextActivationTime > _timing.CurTime)
+                return;
+
+            if (ent.Comp.HolderOnly && args.Source != ent.Comp.User)
                 return;
 
             var message = args.Message.Trim();

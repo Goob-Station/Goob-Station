@@ -30,8 +30,17 @@ namespace Content.Server._Goobstation.Explosion.Components
         [DataField]
         public TimeSpan ActivationCooldown = TimeSpan.FromSeconds(5);
 
+        /// <summary>
+        /// trigger only if the entity saying the phrase is the entity holding it
+        /// </summary>
         [DataField]
+        public bool HolderOnly;
+
+        [ViewVariables]
         public TimeSpan NextActivationTime;
+
+        [ViewVariables]
+        public EntityUid? User;
 
     }
 }

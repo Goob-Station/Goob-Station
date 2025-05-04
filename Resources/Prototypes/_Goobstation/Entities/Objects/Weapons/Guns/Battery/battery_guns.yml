@@ -363,7 +363,8 @@
     price: 750
   - type: TriggerOnVoiceIdLocked
     keyPhrase: "lawbringer-phrase"
-    listenRange: 0 # only the holder
+    listenRange: 1
+    holderOnly: true
   - type: AccessReader
     access: [['HeadOfSecurity']]
   - type: ActiveListener
