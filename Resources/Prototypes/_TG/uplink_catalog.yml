@@ -22,8 +22,8 @@
   productEntity: EliteModsuitBackpack
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 35
+    Telecrystal: 30
   cost:
-    Telecrystal: 70
+    Telecrystal: 60
   categories:
   - UplinkWearables
