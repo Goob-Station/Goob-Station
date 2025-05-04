@@ -591,6 +591,8 @@ public sealed class FaxSystem : EntitySystem
 
         UpdateUserInterface(uid, component);
 
+        if (!args.Actor.IsValid()) return; // Goobstation - no log for automation
+
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
             $"{ToPrettyString(args.Actor):actor} " +
@@ -654,6 +656,7 @@ public sealed class FaxSystem : EntitySystem
 
         _deviceNetworkSystem.QueuePacket(uid, component.DestinationFaxAddress, payload);
 
+        if (!args.Actor.IsValid()) // Goobstation - no log for automation
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
             $"{ToPrettyString(args.Actor):actor} " +

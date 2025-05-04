@@ -142,9 +142,25 @@
           Printing: { state: printing }
           Normal: {state: idle}
   - type: ItemSlots
+    slots: # Goobstation - so automation slots work
+      Paper:
+        insertSound: /Audio/Machines/scanning.ogg
+        ejectSound: /Audio/Machines/tray_eject.ogg
+        whitelist:
+          components:
+          - FaxableObject
   - type: ContainerContainer
     containers:
       Paper: !type:ContainerSlot
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotPaper
+      output: AutomationSlotPaper
+      slotId: Paper
+    - !type:AutomatedPorts
+      sinks:
+      - FaxCopy
   - type: DeviceNetworkRequiresPower
   - type: DeviceNetwork
     deviceNetId: Wireless
