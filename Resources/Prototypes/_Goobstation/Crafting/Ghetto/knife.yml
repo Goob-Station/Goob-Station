@@ -1,0 +1,78 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: HeatedKnifeGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: incompleteKnife
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 6
+      - material: Screw
+        amount: 2
+        doAfter: 3
+
+  - node: incompleteKnife
+    entity: WoodenHandle
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: MaterialScrewSingle
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Prying
+        doAfter: 1
+    - to: BoltsInstalled
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Anchoring
+        doAfter: 3
+
+  - node: BoltsInstalled
+    edges:
+    - to: BladeForged
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 1
+      - tool: Welding
+        fuel: 30
+        doAfter: 5
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+      - tool: Hammering
+        doAfter: 1
+
+  - node: BladeForged
+    entity: HeatedMadeKitchenKnife
+
+- type: construction
+  id: HeatedKnifeConstruction
+  name: handmade kitchen knife
+  description: A normal kitchen knife. May be hot!
+  graph: HeatedKnifeGraph
+  startNode: start
+  targetNode: BladeForged
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/heated_knife.rsi
+    state: icon
+  objectType: Item
+
+
