@@ -91,7 +91,7 @@
   description: uplink-sarin-gas-grenade-desc
   productEntity: SarinGasGrenade
   cost:
-    Telecrystal: 12
+    Telecrystal: 6
   categories:
     -  UplinkDisruption
   conditions:
