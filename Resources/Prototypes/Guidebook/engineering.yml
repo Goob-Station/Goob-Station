@@ -28,6 +28,7 @@
   - Power
   - ShuttleCraft
   - Networking
+  - Automation # Goobstation
 
 - type: guideEntry
   id: Construction
@@ -324,8 +325,7 @@
   - TEG
   - RTG
   - SolarPanels
-  # Goobstation - Supermatter
-  - Supermatter
+  - Supermatter # Goobstation
 
 - type: guideEntry
   id: AME

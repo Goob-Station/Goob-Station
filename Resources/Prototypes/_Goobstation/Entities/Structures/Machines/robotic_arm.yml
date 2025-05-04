@@ -112,3 +112,7 @@
   - type: ApcPowerReceiver
     powerLoad: 50 # Idle power usage, increases when active
   - type: PowerSwitch
+  # Guide
+  - type: GuideHelp
+    guides:
+    - Automation

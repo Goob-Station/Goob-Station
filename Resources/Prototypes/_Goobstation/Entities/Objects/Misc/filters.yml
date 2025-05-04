@@ -3,7 +3,7 @@
   parent: BaseItem
   id: BaseAutomationFilter
   name: filter
-  description: A filter that can be installed in a robotic arm.
+  description: A filter that can be installed in factory machines.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/filter.rsi
@@ -13,12 +13,15 @@
   - type: AutomationFilter
   - type: Construction
     graph: AutomationFilter
+  - type: GuideHelp
+    guides:
+    - Automation
 
 - type: entity
   parent: BaseAutomationFilter
   id: AutomationFilterLabel
   name: label filter
-  description: A filter that can be installed in a robotic arm. This one scans labels of attached items.
+  description: A filter that can be installed in factory machines. This one scans labels of attached items.
   components:
   - type: LabelFilter
   - type: ActivatableUI
@@ -34,7 +37,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterName
   name: name filter
-  description: A filter that can be installed in a robotic arm. This one uses complex AI vision technology to identify items.
+  description: A filter that can be installed in factory machines. This one uses complex AI vision technology to identify items.
   components:
   - type: NameFilter
   - type: ActivatableUI
@@ -50,7 +53,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterStack
   name: stack filter
-  description: A filter that can be installed in a robotic arm. This one weighs items to compare it to a stack size.
+  description: A filter that can be installed in factory machines. This one weighs items to compare it to a stack size.
   components:
   - type: StackFilter
   - type: ActivatableUI
@@ -66,7 +69,7 @@
   parent: BaseAutomationFilter
   id: AutomationFilterCombined
   name: combined filter
-  description: A filter that can be installed in a robotic arm. This one uses a logic gate to combine 2 installed item filters.
+  description: A filter that can be installed in factory machines. This one uses a logic gate to combine 2 installed item filters.
   components:
   - type: CombinedFilter
   - type: ItemSlots
