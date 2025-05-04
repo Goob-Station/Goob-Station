@@ -171,6 +171,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
                 uid.Comp.CosmicMonumentMoveAction,
                 uid);
         }
+
+        cult.Comp.CultLeader = uid;
     }
 
     /*private void OnGetVisMask(Entity<CosmicCultComponent> uid, ref GetVisMaskEvent args)

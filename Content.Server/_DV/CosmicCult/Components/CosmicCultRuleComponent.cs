@@ -7,8 +7,7 @@ namespace Content.Server._DV.CosmicCult.Components;
 /// <summary>
 /// Component for the CosmicCultRuleSystem that should store gameplay info.
 /// </summary>
-[RegisterComponent, Access(typeof(CosmicCultRuleSystem))]
-[AutoGenerateComponentPause]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class CosmicCultRuleComponent : Component
 {
     /// <summary>
@@ -60,6 +59,12 @@ public sealed partial class CosmicCultRuleComponent : Component
     /// </summary>
     [DataField]
     public EntityUid MonumentSlowZone;
+
+    /// <summary>
+    ///     The EntityUid of the cult leader
+    /// </summary>
+    [DataField]
+    public EntityUid? CultLeader;
 
     /// <summary>
     ///     Current tier of the cult

@@ -117,6 +117,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
         SubscribeLocalEvent<CosmicCultAssociateRuleEvent>(OnAssociateRule);
         SubscribeLocalEvent<CosmicCultRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
+        SubscribeLocalEvent<CosmicCultRuleComponent, CosmicCultAddedCultistEvent>(OnAddedCultist);
         SubscribeLocalEvent<CosmicCultComponent, ComponentShutdown>(OnComponentShutdown);
         SubscribeLocalEvent<CosmicGodComponent, ComponentInit>(OnGodSpawn);
         SubscribeLocalEvent<CosmicCultComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -310,6 +311,15 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
     private void OnAntagSelect(Entity<CosmicCultRuleComponent> uid, ref AfterAntagEntitySelectedEvent args) =>
         TryStartCult(args.EntityUid, uid);
+
+    private void OnAddedCultist(Entity<CosmicCultRuleComponent> uid, ref CosmicCultAddedCultistEvent args)
+    {
+        if (!uid.Comp.CultLeader.HasValue
+            || !HasComp<LoneCosmicCultLeadComponent>(uid.Comp.CultLeader.Value))
+            return;
+
+        RemComp<LoneCosmicCultLeadComponent>(uid.Comp.CultLeader.Value);
+    }
 
     #endregion
 
@@ -716,7 +726,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         cosmicGamerule.TotalCult++;
         cosmicGamerule.Cultists.Add(uid);
-
+        RaiseLocalEvent(cult, new CosmicCultAddedCultistEvent());
         UpdateCultData(cosmicGamerule.MonumentInGame);
     }
 
