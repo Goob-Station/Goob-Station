@@ -4,8 +4,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Spy;
+using Content.Server.Antag;
+using Content.Server.Antag.Components;
+using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
+using Content.Server.Mind;
+using Content.Server.Roles;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
+using Content.Server.Traitor.Uplink;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Robust.Server.GameObjects;
@@ -31,6 +38,10 @@ public sealed partial class SpySystem : SharedSpySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly UplinkSystem _uplink = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     public override void Initialize()
     {
