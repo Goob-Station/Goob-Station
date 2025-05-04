@@ -198,7 +198,7 @@
 
 - type: entity
   id: TideFlipperZero
-  parent: [ DoorRemoteDefault, BaseMinorContraband ]
+  parent: [ DoorRemoteDefault, BaseMajorContraband ]
   name: tide flipper
   description: A makeshift device that can hack doors without access.
   components:
