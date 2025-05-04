@@ -65,6 +65,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
+        SubscribeLocalEvent<CosmicCultComponent, ComponentRemove>(OnRemoveCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
         //SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
 
