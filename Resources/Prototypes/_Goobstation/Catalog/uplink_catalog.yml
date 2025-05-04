@@ -948,10 +948,7 @@
   cost:
     Telecrystal: 35
   categories:
-  - UplinkWearables
+  - UplinkDisruption
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - IPC
