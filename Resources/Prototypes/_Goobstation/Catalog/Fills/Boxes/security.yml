@@ -71,7 +71,7 @@
   name: 40mm tear gas grenade box
   parent: [BoxCardboard, BaseSecurityContraband]
   id: BoxGrenadesTeargas
-  description: A box containing four 40mmtear gas grenades for efficient riot dispersion.
+  description: A box containing four 40mm tear gas grenades for efficient riot dispersion.
   components:
   - type: StorageFill
     contents:
