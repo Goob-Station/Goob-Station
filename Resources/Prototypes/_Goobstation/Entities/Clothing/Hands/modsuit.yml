@@ -296,3 +296,32 @@
     visualLayers:
       gloves:
       - state: equipped-HAND-sealed
+
+- type: entity
+  parent: [ClothingModsuitGauntletsStandard]
+  id: ClothingModsuitGauntletsBloodredModsuit
+  name: CSA-99MS "Deimos" Modsuit Gauntlets
+  description: A set of armored gauntlets for the "Deimos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\Hands\Modsuits\bloodredmodsuit.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+        - state: equipped-HAND-sealed
+
+- type: entity
+  parent: [ClothingModsuitGauntletsStandard, BaseSyndicateContraband]
+  id: ClothingModsuitGauntletsEliteSyndicateModsuit
+  name: Elite Syndicate "Phobos" Modsuit Gauntlets
+  description: A pair of gauntlets made for the "Phobos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\Hands\Modsuits\syndicateelitemodsuit.rsi
+    - type: SealableClothingVisuals
+      visualLayers:
+        gloves:
+        - state: equipped-HAND-sealed
+    - type: Insulated

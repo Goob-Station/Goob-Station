@@ -747,3 +747,59 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
+  id: ClothingModsuitHelmetBloodredModsuit
+  name: Syndicate "Deimos" Modsuit Helm
+  description: A helmet made for the "Deimos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\Head\Modsuits\bloodredmodsuit.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.90
+          Slash: 0.90
+          Piercing: 0.95
+          Heat: 0.90
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-glow
+            shader: unshaded
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+    - type: PointLight
+      color: "#21A52E"
+
+- type: entity
+  parent: [ClothingModsuitHelmetStandard, ShowSecurityIcons, BaseSyndicateContraband]
+  id: ClothingModsuitHelmetEliteSyndicateModsuit
+  name: Elite Syndicate "Phobos" Modsuit Helm
+  description: A helmet made for the "Phobos" modsuit.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\Head\Modsuits\syndicateelitemodsuit.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.90
+          Slash: 0.90
+          Piercing: 0.95
+          Heat: 0.90
+    - type: SealableClothingVisuals
+      visualLayers:
+        head:
+          - state: equipped-HEAD-sealed
+          - state: equipped-HEAD-sealed-glow
+            shader: unshaded
+    - type: ShowHealthBars
+      damageContainers:
+        - Biological
+    - type: PointLight
+      color: "#ffd480"

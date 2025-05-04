@@ -755,3 +755,74 @@
         whitelist:
           components:
             - PowerCell
+
+# The bloodred from ali express
+- type: entity
+  parent: [ClothingModsuitStandard, BaseSyndicateContraband]
+  id: BloodredModsuitBackpack
+  name: Syndicate "Deimos" Modsuit Control
+  description: A control module for the "Deimos" modsuit.
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\Back\Modsuits\bloodredmodsuit.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.6
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetBloodredModsuit
+        gloves: ClothingModsuitGauntletsBloodredModsuit
+        outerClothing: ClothingModsuitChestplateBloodredModsuit
+        shoes: ClothingModsuitBootsBloodredModsuit
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellHyper
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+        - 0,0,7,4
+    - type: SealableClothingVisuals
+      visualLayers:
+        back:
+        - state: equipped-BACKPACK-sealed
+        - state: equipped-BACKPACK-sealed-glow
+          shader: unshaded
+
+- type: entity
+  parent: [ClothingModsuitStandard, BaseSyndicateContraband]
+  id: EliteModsuitBackpack
+  name: Elite Syndicate "Phobos" Modsuit Control
+  description: A controller for the "Phobos" modsuit.
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\Back\Modsuits\syndicateelitemodsuit.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.6
+    - type: ToggleableClothing
+      clothingPrototypes:
+        head: ClothingModsuitHelmetEliteSyndicateModsuit
+        gloves: ClothingModsuitGauntletsEliteSyndicateModsuit
+        outerClothing: ClothingModsuitChestplateEliteSyndicateModsuit
+        shoes: ClothingModsuitBootsEliteSyndicateModsuit
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellHyper
+          whitelist:
+            components:
+              - PowerCell
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+        - 0,0,7,4
+    - type: SealableClothingVisuals
+      visualLayers:
+        back:
+        - state: equipped-BACKPACK-sealed
+        - state: equipped-BACKPACK-sealed-glow
+          shader: unshaded

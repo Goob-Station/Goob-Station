@@ -458,3 +458,75 @@
     coefficient: 0.7
   - type: FireProtection
     reduction: 0.5
+
+- type: entity
+  parent: [ClothingModsuitChestplateStandard, BaseSyndicateContraband]
+  id: ClothingModsuitChestplateBloodredModsuit
+  name: Syndicate "Deimos" Modsuit Chestplate
+  description: Mass produced, low-protection replacement for the average blood-red in case you lack the funds to buy a real one. It is more versatile than the average bloodred, but it will protect you way less in a fight. A fancy piece of technology to show off to your Syndicate friends.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\OuterClothing\Modsuits\bloodredmodsuit.rsi
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+    - type: Armor
+      modifiers:
+        flatReductions:
+          Piercing: 2
+          Heat: 2
+        coefficients:
+          Blunt: 0.70
+          Slash: 0.70
+          Piercing: 0.80
+          Heat: 0.70
+          Radiation: 0.70
+    - type: TemperatureProtection
+      coefficient: 0.01
+    - type: ModifyDelayedKnockdown # Goobstation
+      delayDelta: 2
+      knockdownTimeDelta: -2
+    - type: StaminaDamageResistance # Goobstation
+      coefficient: 0.7
+    - type: SealableClothingVisuals
+      visualLayers:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+
+- type: entity
+  parent: [ClothingModsuitChestplateStandard, BaseSyndicateContraband]
+  id: ClothingModsuitChestplateEliteSyndicateModsuit
+  name: Elite Syndicate "Phobos" Modsuit Chestplate
+  description: Compared to the Deimos modsuit chestplate, this one is instead based upon the elite suit in terms of resistances and looks.
+  categories: [HideSpawnMenu]
+  components:
+    - type: Sprite
+      sprite: _Goobstation\Clothing\OuterClothing\Modsuits\syndicateelitemodsuit.rsi
+    - type: ExplosionResistance
+      damageCoefficient: 0.4
+    - type: FireProtection
+      reduction: 0.9
+    - type: Armor
+      modifiers:
+        flatReductions:
+          Piercing: 2
+          Heat: 2
+        coefficients:
+          Blunt: 0.70
+          Slash: 0.70
+          Piercing: 0.80
+          Heat: 0.40
+          Radiation: 0.30
+          Caustic: 0.6
+    - type: TemperatureProtection
+      coefficient: 0.01
+    - type: SealableClothingVisuals
+      visualLayers:
+        outerClothing:
+        - state: equipped-OUTERCLOTHING-sealed
+    - type: ModifyDelayedKnockdown # Goobstation
+      delayDelta: 3
+      knockdownTimeDelta: -3
+    - type: StaminaDamageResistance # Goobstation
+      coefficient: 0.6
