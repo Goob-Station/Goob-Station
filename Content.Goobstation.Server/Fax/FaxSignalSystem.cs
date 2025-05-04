@@ -17,7 +17,6 @@ namespace Content.Goobstation.Server.Fax;
 public sealed class FaxSignalSystem : EntitySystem
 {
     public static readonly ProtoId<SinkPortPrototype> CopyPort = "FaxCopy";
-    public static readonly ProtoId<SinkPortPrototype> SendPort = "FaxSend";
 
     public override void Initialize()
     {
@@ -30,7 +29,5 @@ public sealed class FaxSignalSystem : EntitySystem
     {
         if (args.Port == CopyPort)
             RaiseLocalEvent(ent, new FaxCopyMessage());
-        else if (args.Port == SendPort)
-            RaiseLocalEvent(ent, new FaxSendMessage());
     }
 }
