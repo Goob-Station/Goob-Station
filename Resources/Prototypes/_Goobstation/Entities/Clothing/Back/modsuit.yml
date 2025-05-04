@@ -765,7 +765,7 @@
   description: A control module for the "Deimos" modsuit.
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\Back\Modsuits\bloodredmodsuit.rsi
+      sprite: _Goobstation/Clothing/Back/Modsuits/bloodredmodsuit.rsi
     - type: ExplosionResistance
       damageCoefficient: 0.6
     - type: ToggleableClothing
@@ -800,7 +800,7 @@
   description: A controller for the "Phobos" modsuit.
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\Back\Modsuits\syndicateelitemodsuit.rsi
+      sprite: _Goobstation/Clothing/Back/Modsuits/syndicateelitemodsuit.rsi
     - type: ExplosionResistance
       damageCoefficient: 0.6
     - type: ToggleableClothing

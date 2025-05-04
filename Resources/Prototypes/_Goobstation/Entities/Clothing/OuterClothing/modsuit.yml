@@ -468,7 +468,7 @@
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\OuterClothing\Modsuits\bloodredmodsuit.rsi
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/bloodredmodsuit.rsi
     - type: ClothingSpeedModifier
       walkModifier: 0.9
       sprintModifier: 0.9
@@ -503,7 +503,7 @@
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\OuterClothing\Modsuits\syndicateelitemodsuit.rsi
+      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/syndicateelitemodsuit.rsi
     - type: ExplosionResistance
       damageCoefficient: 0.4
     - type: FireProtection

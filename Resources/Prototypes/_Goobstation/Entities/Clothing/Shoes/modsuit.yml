@@ -287,7 +287,7 @@
   components:
     - type: Appearance
     - type: Sprite
-      sprite: _Goobstation\Shoes\Back\Modsuits\bloodredmodsuit.rsi
+      sprite: _Goobstation/Clothing/Shoes/Modsuits/bloodredmodsuit.rsi
     - type: Tag
       tags:
         - WhitelistChameleon
@@ -308,7 +308,7 @@
   components:
     - type: Appearance
     - type: Sprite
-      sprite: _Goobstation\Clothing\Shoes\Modsuits\syndicateelitemodsuit.rsi
+      sprite: _Goobstation/Clothing/Shoes/Modsuits/syndicateelitemodsuit.rsi
     - type: Tag
       tags:
         - WhitelistChameleon

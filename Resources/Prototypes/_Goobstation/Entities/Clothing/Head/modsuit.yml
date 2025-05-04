@@ -757,7 +757,7 @@
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\Head\Modsuits\bloodredmodsuit.rsi
+      sprite: _Goobstation/Clothing/Head/Modsuits/bloodredmodsuit.rsi
     - type: Armor
       modifiers:
         coefficients:
@@ -785,7 +785,7 @@
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\Head\Modsuits\syndicateelitemodsuit.rsi
+      sprite: _Goobstation/Clothing/Head/Modsuits/syndicateelitemodsuit.rsi
     - type: Armor
       modifiers:
         coefficients:

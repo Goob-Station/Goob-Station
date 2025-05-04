@@ -244,3 +244,11 @@ uplink-pizza-party-crate-desc = A crate coming in the form of disaster pizza del
 
 uplink-undetermined-bundle-name = Undetermined Bundle Crate
 uplink-undetermined-bundle-desc = This crate comes with three random bundles and allows to choose one of them. Guaranteed to include Syndicate encryption key.
+
+# Bloodred Modsuit
+uplink-modsuit-bloodred-name = Syndicate "Deimos" Modsuit
+uplink-modsuit-bloodred-desc = Mass produced, low-protection replacement for the average blood-red in case you lack the funds to buy a real one. It is more versatile than the average bloodred, but it will protect you way less in a fight. A fancy piece of technology to show off to your Syndicate friends.
+
+# Elite Modsuit
+uplink-modsuit-elitemodsuit-name = Elite Syndicate "Phobos" Modsuit
+uplink-modsuit-elitemodsuit-desc = A mass produced modular take on the Elite suit. It trades a few of the Elite suit's enhanced protection for modular equipment gear.

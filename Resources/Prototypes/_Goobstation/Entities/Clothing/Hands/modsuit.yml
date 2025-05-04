@@ -306,7 +306,7 @@
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\Hands\Modsuits\bloodredmodsuit.rsi
+      sprite: _Goobstation/Clothing/Hands/Modsuits/bloodredmodsuit.rsi
     - type: SealableClothingVisuals
       visualLayers:
         gloves:
@@ -320,7 +320,7 @@
   categories: [HideSpawnMenu]
   components:
     - type: Sprite
-      sprite: _Goobstation\Clothing\Hands\Modsuits\syndicateelitemodsuit.rsi
+      sprite: _Goobstation/Clothing/Hands/Modsuits/syndicateelitemodsuit.rsi
     - type: SealableClothingVisuals
       visualLayers:
         gloves:
