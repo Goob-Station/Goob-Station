@@ -1,93 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 EmoGarbage404 <retron404@gmail.com>
-# SPDX-FileCopyrightText: 2024 Eoin Mcloughlin <helloworld@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Lye <128915833+Lyroth001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MerrytheManokit <167581110+MerrytheManokit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NakataRin <45946146+NakataRin@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OrangeMoronage9622 <whyteterry0092@gmail.com>
-# SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RiceMar1244 <138547931+RiceMar1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spanky <scott@wearejacob.com>
-# SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 bibbly <thomaspisklak@gmail.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-# SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-# SPDX-FileCopyrightText: 2024 dylanstrategie <188926747+dylanstrategie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 dylanstrategie <188926747+dylanstrategie@users.noreply.github.com~>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 hamurlik <75280571+hamurlik@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 hamurlik <renoDeath@protonmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
-# SPDX-FileCopyrightText: 2024 saintmuntzer <47153094+saintmuntzer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 stroopwafel <j.o.luijkx@student.tudelft.nl>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 meta:
   format: 6
   postmapinit: false
@@ -1222,8 +1132,7 @@ entities:
           3,3:
             0: 4115
           3,-1:
-            2: 1
-            0: 53724
+            0: 53725
           3,4:
             1: 1
           4,0:
@@ -1265,8 +1174,8 @@ entities:
           2,-2:
             0: 61687
           2,-4:
-            3: 6
-            4: 1536
+            2: 6
+            3: 1536
           3,-4:
             1: 8737
             0: 256
@@ -1340,10 +1249,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           immutable: True
           moles:
@@ -1359,29 +1264,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 20.078888
-          - 75.53487
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1397,18 +1279,10 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -2090,24 +1964,6 @@ entities:
     - type: Transform
       pos: 19.5,4.5
       parent: 2
-- proto: Biogenerator
-  entities:
-  - uid: 2510
-    components:
-    - type: Transform
-      pos: -14.5,5.5
-      parent: 2
-- proto: BiomassReclaimerMachineCircuitboard
-  entities:
-  - uid: 2505
-    components:
-    - type: Transform
-      parent: 2502
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: BlastDoor
   entities:
   - uid: 910
@@ -6116,6 +5972,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 23.5,1.5
       parent: 2
+  - uid: 872
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.5,-0.5
+      parent: 2
 - proto: ChemDispenser
   entities:
   - uid: 873
@@ -6151,28 +6013,6 @@ entities:
     - type: Transform
       pos: -3.5,-5.5
       parent: 2
-- proto: CloningConsoleComputerCircuitboard
-  entities:
-  - uid: 2506
-    components:
-    - type: Transform
-      parent: 2502
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: CloningPodMachineCircuitboard
-  entities:
-  - uid: 2507
-    components:
-    - type: Transform
-      parent: 2502
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClosetChefFilled
   entities:
   - uid: 878
@@ -6328,17 +6168,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
-- proto: ClothingBackpackDuffelSurgeryFilled
-  entities:
-  - uid: 2501
-    components:
-    - type: Transform
-      pos: 10.528191,-4.1092772
-      parent: 2
 - proto: ClothingBackpackERTJanitor
   entities:
   - uid: 887
@@ -11836,50 +11665,6 @@ entities:
     - type: Transform
       pos: 4.5,-4.5
       parent: 2
-- proto: LockerMedicine
-  entities:
-  - uid: 2502
-    components:
-    - type: Transform
-      pos: 12.5,-3.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 2503
-          - 2504
-          - 2505
-          - 2506
-          - 2507
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: LockerMedicineFilled
   entities:
   - uid: 1655
@@ -11936,13 +11721,6 @@ entities:
     - type: Transform
       pos: 8.5,-8.5
       parent: 2
-- proto: MaterialSilo
-  entities:
-  - uid: 872
-    components:
-    - type: Transform
-      pos: 23.5,-0.5
-      parent: 2
 - proto: MedicalBed
   entities:
   - uid: 1663
@@ -11960,28 +11738,6 @@ entities:
     - type: Transform
       pos: 9.5,-4.5
       parent: 2
-- proto: MedicalBiofabMachineBoard
-  entities:
-  - uid: 2504
-    components:
-    - type: Transform
-      parent: 2502
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: MedicalScannerMachineCircuitboard
-  entities:
-  - uid: 2503
-    components:
-    - type: Transform
-      parent: 2502
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: MedicalTechFab
   entities:
   - uid: 1666
@@ -12035,13 +11791,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-10.5
-      parent: 2
-- proto: OperatingTable
-  entities:
-  - uid: 2508
-    components:
-    - type: Transform
-      pos: 11.5,-4.5
       parent: 2
 - proto: OreProcessor
   entities:
@@ -13028,11 +12777,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 11.5,-6.5
-      parent: 2
-  - uid: 2417
-    components:
-    - type: Transform
-      pos: 0.5,16.5
       parent: 2
 - proto: ReinforcedPlasmaWindow
   entities:
@@ -14831,17 +14575,6 @@ entities:
         - Left: Reverse
         - Right: Forward
         - Middle: Off
-  - uid: 2509
-    components:
-    - type: Transform
-      pos: 0.5,15.5
-      parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        2417:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
 - proto: VendingMachineBooze
   entities:
   - uid: 2108
@@ -16430,6 +16163,13 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-12.5
+      parent: 2
+- proto: WaterTankHighCapacity
+  entities:
+  - uid: 2417
+    components:
+    - type: Transform
+      pos: -14.5,5.5
       parent: 2
 - proto: WeaponCapacitorRecharger
   entities:
