@@ -21,6 +21,9 @@ public sealed partial class SpyStealDoAfterEvent : DoAfterEvent
 }
 
 [Serializable, NetSerializable]
+public sealed partial class UplinkCreateDoAfterEvent : SimpleDoAfterEvent;
+
+[Serializable, NetSerializable]
 public sealed class SpyStartStealEvent(NetEntity target) : EntityEventArgs
 {
     public NetEntity Target = target;
