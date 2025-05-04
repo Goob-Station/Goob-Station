@@ -400,6 +400,7 @@
     items:
     - SheetSteelLingering0
     - SheetGlassLingering0
+    - SheetPlasteelLingering0
     - PartRodMetalLingering0
     - FloorTileItemSteelLingering0
     # Frontier: droppable borg items
