@@ -259,7 +259,10 @@ public sealed class FaxSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, FaxMachineComponent component, ComponentInit args)
     {
-        _itemSlotsSystem.AddItemSlot(uid, PaperSlotId, component.PaperSlot);
+        // <Goobstation> - define the slot in ItemSlots instead of adding it
+        _itemSlotsSystem.TryGetSlot(uid, PaperSlotId, out var slot);
+        component.PaperSlot = slot!;
+        // </Goobstation>
         UpdateAppearance(uid, component);
     }
 
