@@ -40,10 +40,7 @@ default-contract-content = This binding contract made this day between:
             {"["}bold]Clauses of Binding:{"["}/bold]
             {"["}italic]The following parties give up the following possessions{"["}/italic{"]"}
 
-            Article I: Soul
             Contractee: Soul Ownership
-
-            Article II: Mortality
             Contractee: Death
 
             {"["}italic]All clauses come into effect upon signing of this paper by both parties.{"["}/italic]

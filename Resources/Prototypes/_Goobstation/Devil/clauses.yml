@@ -31,10 +31,11 @@
 
 - type: clause
   id: fearofspace
-  clauseWeight: -25
+  clauseWeight: -30
   addedComponents:
   - type: BreathingImmunity
   - type: PressureImmunity
+  - type: SpecialLowTempImmunity
 
 - type: clause
   id: fearofdeath
@@ -60,7 +61,7 @@
 
 - type: clause
   id: greed
-  clauseWeight: -15
+  clauseWeight: -10
   spawnedItems:
   - SpaceCash30000
 
