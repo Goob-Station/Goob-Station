@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: constructionGraph
+  id: GreyTider
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: greyTider
+          steps:
+            - material: Steel
+              amount: 30
+              doAfter: 4
+            - material: Cloth
+              amount: 10
+              doAfter: 2
+            - tag: FingerlessInsulatedGloves
+              name: fingerless insulated gloves
+              icon:
+                sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
+                state: icon
+              doAfter: 2
+            - tag: GasMask
+              name: gas mask
+              icon:
+                sprite: Clothing/Mask/gas.rsi
+                state: icon
+              doAfter: 2
+            - tag: WinterCoat
+              name: winter coat
+              icon:
+                sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+                state: icon
+              doAfter: 2
+            - tag: Toolbox
+              name: toolbox
+              icon:
+                sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+                state: icon
+              doAfter: 2
+            - tag: CursedHeart
+              name: cursed heart
+              icon:
+                sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+                state: cursed_heart
+              doAfter: 2
+    - node: greyTider
+      entity: RandomHumanoidGreyTider

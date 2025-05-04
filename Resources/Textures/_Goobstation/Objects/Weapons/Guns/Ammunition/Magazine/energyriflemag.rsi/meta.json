@@ -15,6 +15,9 @@
         },
         {
             "name":"erifle_lethal"
+        },
+        {
+            "name":"erifle_overcharge"
         }
     ]
 }

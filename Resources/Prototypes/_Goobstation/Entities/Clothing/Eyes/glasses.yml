@@ -184,3 +184,31 @@
   - type: Construction
     graph: GlassesMedDiagHUD
     node: glassesMedDiag
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityCommandContraband]
+  id: ClothingEyesGlassesSecurityAdvanced
+  name: advanced security goggles
+  description: A set of goggles that provide flash protection, a security HUD, and basic thermal vision.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    pulseTime: 2
+    isEquipment: true
+    toggleAction: PulseThermalVision
+  - type: IdentityBlocker
+    coverage: EYES
