@@ -76,7 +76,9 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -98,6 +100,12 @@ public sealed partial class StationEventComponent : Component
     public const float WeightNormal = 10.0f;
     public const float WeightHigh = 15.0f;
     public const float WeightVeryHigh = 20.0f;
+
+    /// <summary>
+    /// Can this event be selected randomly by the game director?
+    /// </summary>
+    [DataField]
+    public bool IsSelectable = true;
 
     [DataField]
     public float Weight = WeightNormal;

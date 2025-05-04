@@ -79,6 +79,8 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 botanySupremist <160211017+botanySupremist@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 botanySupremist <definitelyrealBotSupremist@gmail.com>
 #
@@ -91,6 +93,8 @@
   description: A patch for applying medicine over time to patients.
   abstract: true
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: GenericPatch
@@ -107,6 +111,9 @@
     stickPopupSuccess: goobstation-medicalpatch-sticy-trystick-success
     unstickPopupStart: goobstation-medicalpatch-sticy-tryremove
     unstickPopupSuccess: goobstation-medicalpatch-sticy-tryremove-success
+    selfStickBreakOnMove: false
+    selfUnstickBreakOnMove: false
+    selfStickTimeMultiplier: 0.5
     whitelist:
       components:
       - Bloodstream
