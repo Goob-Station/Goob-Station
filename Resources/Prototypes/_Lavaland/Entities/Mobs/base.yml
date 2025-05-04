@@ -32,7 +32,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
-      Acidic: [ Touch, Ingestion ]
+      Acidic: [ Touch, Ingestion, Eyes ]
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
