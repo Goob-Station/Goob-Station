@@ -12,10 +12,10 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       groups:
-        Brute: 20
+        Brute: 18
       types:
-        Heat: 15
-        Structural: 30
+        Heat: 18
+        Structural: 40
   - type: Sprite
     sprite: _NF/Objects/Weapons/Melee/energy_pickaxe.rsi
     layers:
@@ -55,3 +55,13 @@
         volume: -2
   - type: MeleeWeapon
     animationRotation: -135
+    attackRate: 0.7
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      groups:
+        Brute: 3
+    heavyStaminaCost: 5
+    clickPartDamageMultiplier: 1

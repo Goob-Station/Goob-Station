@@ -947,7 +947,7 @@
   icon: { sprite: /Textures/_NF/Objects/Weapons/Melee/energy_pickaxe.rsi, state: icon }
   productEntity: NFEnergyPickaxe
   cost:
-    Telecrystal: 40 # Slightly more damage than a regular esword
+    Telecrystal: 32 # Worse than esword for combat, better for breaching
   categories:
   - UplinkWeaponry
   conditions:
