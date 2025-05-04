@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
@@ -165,6 +166,7 @@ public sealed partial class PossessionSystem : EntitySystem
         List<(Type, string)> blockers =
         [
             (typeof(ChangelingComponent), "changeling"),
+            (typeof(DevilComponent), "devil"),
             (typeof(HereticComponent), "heretic"),
             (typeof(GhoulComponent), "ghoul"),
             (typeof(GhostComponent), "ghost"),
