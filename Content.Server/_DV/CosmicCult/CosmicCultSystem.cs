@@ -66,7 +66,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         SubscribeLocalEvent<CosmicCultComponent, ComponentInit>(OnStartCultist);
         SubscribeLocalEvent<CosmicCultLeadComponent, ComponentInit>(OnStartCultLead);
-        SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
+        //SubscribeLocalEvent<CosmicCultComponent, GetVisMaskEvent>(OnGetVisMask);
 
         SubscribeLocalEvent<CosmicEquipmentComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<CosmicEquipmentComponent, GotUnequippedEvent>(OnGotUnequipped);
@@ -122,8 +122,16 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
             var actionEnt = _actions.AddAction(uid, actionId);
             uid.Comp.ActionEntities.Add(actionEnt);
         }
-        _eye.RefreshVisibilityMask(uid.Owner);
         _alerts.ShowAlert(uid, uid.Comp.EntropyAlert);
+
+        if (TryComp(uid, out EyeComponent? eyeComp))
+            _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask | (int) VisibilityFlags.CosmicCultMonument);
+    }
+
+    private void OnRemoveCultist(Entity<CosmicCultComponent> uid, ref ComponentRemove args)
+    {
+        if (TryComp(uid, out EyeComponent? eyeComp))
+            _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask & (int) ~VisibilityFlags.CosmicCultMonument);
     }
 
     /// <summary>
@@ -134,10 +142,10 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
     }
 
-    private void OnGetVisMask(Entity<CosmicCultComponent> uid, ref GetVisMaskEvent args)
+    /*private void OnGetVisMask(Entity<CosmicCultComponent> uid, ref GetVisMaskEvent args)
     {
-        args.VisibilityMask |= (int)VisibilityFlags.CosmicCultMonument;
-    }
+        args.VisibilityMask |= (int) VisibilityFlags.CosmicCultMonument;
+    }*/
 
     /// <summary>
     /// Called by Cosmic Siphon. Increments the Cult's global objective tracker.

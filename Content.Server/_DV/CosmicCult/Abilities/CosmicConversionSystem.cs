@@ -1,5 +1,5 @@
 using Content.Server._DV.CosmicCult.Components;
-using Content.Server.Bible.Components;
+using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;

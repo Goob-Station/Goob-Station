@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Server.Bible.Components;
+using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared.Damage;

@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server.Bible.Components;
+using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Flash;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
