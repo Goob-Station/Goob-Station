@@ -133,6 +133,7 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  durability: 1000 # Goobstation
 
 - type: tile
   id: TrainLattice
@@ -149,3 +150,4 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+  durability: 1500 # Goobstation

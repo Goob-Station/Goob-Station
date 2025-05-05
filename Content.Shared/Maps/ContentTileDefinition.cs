@@ -100,6 +100,13 @@ namespace Content.Shared.Maps
         [DataField]
         public float DeconstructTimeMultiplier { get; private set; }
 
+        // Goobstation
+        /// <summary>
+        /// How much energy it takes to break this. Matters for grid impacts.
+        /// </summary>
+        [DataField]
+        public float Durability = 5000f;
+
         /// <remarks>
         /// Legacy AF but nice to have.
         /// </remarks>

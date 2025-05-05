@@ -46,6 +46,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StunSystem _stuns = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDef = default!;
 
     /// <summary>
     /// Minimum velocity difference between 2 bodies for a shuttle "impact" to occur.
@@ -53,9 +54,11 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     private float MinimumImpactVelocity = 15;
 
     /// <summary>
-    /// Kinetic energy required to dismantle a single tile
+    /// Multiplier of Kinetic energy required to dismantle a single tile
     /// </summary>
-    private float TileBreakEnergy = 5000;
+    private float TileBreakEnergyMultiplier = 1;
+
+    private const float PlatingBreakEnergy = 5000f;
 
     /// <summary>
     /// Kinetic energy required to spawn sparks
@@ -73,7 +76,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     {
         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
             Subs.CVar(_cfg, GoobCVars.MinimumImpactVelocity, value => MinimumImpactVelocity = value, true);
-            Subs.CVar(_cfg, GoobCVars.TileBreakEnergy, value => TileBreakEnergy = value, true);
+            Subs.CVar(_cfg, GoobCVars.TileBreakEnergyMultiplier, value => TileBreakEnergyMultiplier = value, true);
             Subs.CVar(_cfg, GoobCVars.SparkEnergy, value => SparkEnergy = value, true);
             Subs.CVar(_cfg, GoobCVars.MaxImpactRadius, value => MaxImpactRadius = value, true);
     }
@@ -123,7 +126,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         // Calculate the impact radius based on energy, but capped at MaxImpactRadius
         var impactRadius = MathF.Min(
-            MathF.Sqrt(energy / TileBreakEnergy),
+            MathF.Sqrt(energy / PlatingBreakEnergy),
             MaxImpactRadius
         );
 
@@ -246,7 +249,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     private void ProcessImpactZone(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float energy, Vector2 dir, float radius)
     {
         // Skip processing if the grid has an anchor component
-        if (!Exists(uid) ||
+        if (
             // Goob - not real
             //HasComp<PreventGridAnchorChangesComponent>(uid) ||
             //HasComp<ForceAnchorComponent>(uid) ||
@@ -340,7 +343,8 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             }
 
             // Mark tiles for breaking/effects
-            if (tileData.Energy > TileBreakEnergy)
+            var def = (ContentTileDefinition)_tileDef[_mapSys.GetTileRef(uid, grid, tileData.Tile).Tile.TypeId];
+            if (tileData.Energy > def.Durability * TileBreakEnergyMultiplier)
                 brokenTiles.Add(tileData.Tile);
 
             // Mark tiles for spark effects

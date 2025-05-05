@@ -436,8 +436,8 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> MinimumImpactVelocity =
         CVarDef.Create("shuttle.impact.minimum_velocity", 5f, CVar.SERVERONLY);
 
-    public static readonly CVarDef<float> TileBreakEnergy =
-        CVarDef.Create("shuttle.impact.tile_break_energy", 5000f, CVar.SERVERONLY);
+    public static readonly CVarDef<float> TileBreakEnergyMultiplier =
+        CVarDef.Create("shuttle.impact.tile_break_energy", 1f, CVar.SERVERONLY);
 
     public static readonly CVarDef<float> SparkEnergy =
         CVarDef.Create("shuttle.impact.spark_energy", 7000f, CVar.SERVERONLY);
