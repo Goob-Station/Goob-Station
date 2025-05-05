@@ -88,7 +88,7 @@ public partial class SharedMartialArtsSystem
                     return;
                 _faction.AddFaction(args.User, "Dragon");
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
-                userReflect.ReflectProb = 1;
+                userReflect.ReflectProb = 0.5f;
                 userReflect.Spread = 60;
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
