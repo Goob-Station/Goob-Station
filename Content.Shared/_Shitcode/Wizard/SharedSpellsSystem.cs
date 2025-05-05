@@ -12,8 +12,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Common.Religion.Events;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -202,10 +200,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnCluwneCurse(CluwneCurseEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (TryComp(ev.Target, out StatusEffectsComponent? status))
         {
@@ -221,10 +224,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnBananaTouch(BananaTouchEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (TryComp(ev.Target, out StatusEffectsComponent? status))
         {
@@ -246,10 +254,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnMimeMalaise(MimeMalaiseEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (!TryComp(ev.Target, out StatusEffectsComponent? status))
             return;
@@ -425,10 +438,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnBlind(BlindSpellEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (HasComp<GhostComponent>(ev.Target) || HasComp<SpectralComponent>(ev.Target))
             return;
@@ -586,10 +604,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnLightningBolt(LightningBoltEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (!_examine.InRangeUnOccluded(ev.Performer, ev.Target, SharedInteractionSystem.MaxRaycastRange))
         {
@@ -691,10 +714,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnBarnyardCurse(BarnyardCurseEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (ev.Masks.Count == 0)
             return;
@@ -739,10 +767,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnScreamForMe(ScreamForMeEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (HasComp<BorgChassisComponent>(ev.Target) || HasComp<SiliconComponent>(ev.Target))
         {
@@ -1012,10 +1045,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnSwap(SwapSpellEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (ev.Performer == ev.Target)
             return;
@@ -1204,11 +1242,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnTileToggle(TileToggleSpellEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || TerminatingOrDeleted(ev.Target)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (HasComp<HierophantBeatComponent>(ev.Target))
             RemComp<HierophantBeatComponent>(ev.Target);
@@ -1221,11 +1263,15 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void OnPredictionToggle(PredictionToggleSpellEvent ev)
     {
-        if (ev.Handled
-            || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer)
-            || TerminatingOrDeleted(ev.Target)
-            || _magic.SpellDenied(ev.Action, ev.Target))
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
+
+        if (_magic.SpellDenied(ev.Target))
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
 
         if (HasComp<CurseOfByondComponent>(ev.Target))
             RemComp<CurseOfByondComponent>(ev.Target);
