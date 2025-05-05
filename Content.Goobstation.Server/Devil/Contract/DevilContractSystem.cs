@@ -343,7 +343,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (clause.DamageModifierSet == null)
             return;
 
-        _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet);
+        _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet); // todo - refactor this shit to use a comp, because modifiers suck bad
     }
 
     private void RemoveComponents(EntityUid target, DevilClausePrototype clause)
