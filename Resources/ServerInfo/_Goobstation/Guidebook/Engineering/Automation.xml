@@ -42,16 +42,19 @@ A large gridinv storage that can be accessed by robotic arms by default.
 
 It has a filter slot to control what items can be inserted, similar to a belt whitelist.
 
-<!-- NYI
+A good use of this is stacking up items and then extracting them in chunks with a stack filter robotic arm.
+
 ## Interactor
 
-<GuideEntityEmbed Entity="BikeHorn"/>
+<GuideEntityEmbed Entity="Interactor"/>
 
 This simulates left click interactions with its held item on an entity infront of it.
-If no item is held it's like pressing E, to open a door/crate, use a signaller, etc.
+If no item is held it's like pressing E, to open a door/crate, picking up an item, etc.
+
+It stores its tool in an actual hand so you can swap it out with the strip menu by pressing E on it.
 
 A filter slot is used to change what entities it will interact with. Using a proper filter is essential as it will only try to interact with 1 item.
-If your interaction fails
+It will search for [bold]any entity[/bold] without a filter, even things like conveyors or puddles! Use filters.
 
 It has 4 signal ports:
 - Start, used to try interacting with something
@@ -59,6 +62,7 @@ It has 4 signal ports:
 - Completed, invoked on interaction success OR when the doafter ends
 - Failed, invoked if it could not interact with anything
 
+<!-- NYI
 ## Assembler
 
 <GuideEntityEmbed Entity="BikeHorn"/>
@@ -75,8 +79,6 @@ It has 4 signal ports:
 - Failed, invoked if it there weren't enough materials or some condition failed like the area being obstructed
 
 !!! bit below is because comments are goidacode -->
-
-A good use of this is stacking up items and then extracting them in chunks with a stack filter robotic arm.
 
 ## Filters
 
