@@ -12,7 +12,10 @@ namespace Content.Goobstation.Server.HisGrace;
 /// </summary>
 /// <param name="NewState">The new hunger level of His Grace.</param>
 [ByRefEvent]
-public record struct HisGraceHungerChangedEvent(HisGraceState NewState, HisGraceState OldState);
+public record struct HisGraceStateChangedEvent(HisGraceState NewState, HisGraceState OldState);
+
+[ByRefEvent]
+public record struct HisGraceHungerChangedEvent;
 
 /// <summary>
 /// Raised on His Grace when an entity is consumed

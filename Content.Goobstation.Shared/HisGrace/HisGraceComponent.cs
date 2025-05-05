@@ -5,14 +5,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.HisGrace;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class HisGraceComponent : Component
 {
     /// <summary>
@@ -49,7 +49,7 @@ public sealed partial class HisGraceComponent : Component
     /// When the next hunger tick is.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan NextHungerTick;
+    public TimeSpan NextTick;
 
     /// <summary>
     /// The delay between each action tick.
@@ -91,8 +91,17 @@ public sealed partial class HisGraceComponent : Component
     /// <summary>
     /// How much the damage is currently increased by.
     /// </summary>
+    /// <remarks>
+    /// This starts defined as zero so we can increase it.
+    /// </remarks>
     [ViewVariables(VVAccess.ReadWrite)]
-    public DamageSpecifier CurrentDamageIncrease = new() { DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", 0 } } };
+    public DamageSpecifier CurrentDamageIncrease = new() // evil? yes. ugly? less so.
+    {
+        DamageDict =
+        {
+            ["Blunt"] = 0,
+        },
+    };
 
     /// <summary>
     /// The base damage of the item.
@@ -132,7 +141,7 @@ public sealed partial class HisGraceComponent : Component
     /// <summary>
     /// Where the entities go when it devours them, empties on user death.
     /// </summary>
-    public Robust.Shared.Containers.Container Stomach = new();
+    public Container Stomach = new();
 
     /// <summary>
     /// Is His Grace currently being held?
@@ -144,16 +153,6 @@ public sealed partial class HisGraceComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Holder;
-
-    /// <summary>
-    /// The time at which His Grace will attack a nearby target.
-    /// </summary>
-    public TimeSpan NextGroundAttack;
-
-    /// <summary>
-    /// The time at which His Grace will attempt to attack his user for being too far.
-    /// </summary>
-    public TimeSpan NextUserAttack;
 
     /// <summary>
     /// Sound played on devour
