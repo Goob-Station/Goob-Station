@@ -57,12 +57,11 @@
     BoxCandle: 2
     BoxCandleSmall: 2
     Urn: 5
-    Bible: 1
     SpectralLocator: 1
     TemplarArmor: 1 #goob
-    ClothingHeadHelmetTemplar: 1 #goob
-    BibleQuaran: 1 #goob
-    BibleTanakh: 1 #goob
+    ClothingHeadHelmetTemplar: 2 #goob
+    ClothingOuterClownPriest: 1 #goob
+    MonkRobes: 1 #goob
     ClothingHeadHatImam: 1 #goob
   contrabandInventory:
     FoodBakedBunHotX: 2
