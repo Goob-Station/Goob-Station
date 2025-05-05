@@ -90,10 +90,12 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 # SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -187,9 +189,14 @@
           Quantity: 100
         maxVol: 100
   - type: Tool
+    alwaysCheckDoAfter: true # Goobstation
     useSound:
       collection: Welder
-    qualities: Welding
+    qualities:
+    - Welding
+    - Axing # Goobstation
+  - type: ToolTileCompatible # Goobstation
+    delay: 2
   - type: Welder
   - type: PointLight
     enabled: false
@@ -208,14 +215,13 @@
     temperature: 700
   - type: WeldingHealing # EE IPCs
     damageContainers:
-      - Silicon
       - SiliconRadiation # Goobstation - Make IPCs take radiation
     fuelCost: 5
     damage:
       types:
-        Blunt: -25
-        Piercing: -25
-        Slash: -25
+        Blunt: -20
+        Piercing: -20
+        Slash: -20
   - type: Cautery # Shitmed
     speed: 0.7
   - type: SurgeryTool # Shitmed

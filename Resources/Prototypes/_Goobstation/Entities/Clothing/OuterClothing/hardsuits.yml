@@ -186,7 +186,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
-      noMoveTime: 3 
+      noMoveTime: 3
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -248,3 +248,26 @@
     coefficient: 0
   - type: ModifyDelayedKnockdown
     cancel: true
+
+    delayDelta: 6
+    knockdownTimeDelta: -4
+
+#Head of Security's Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSecurityRed
+  id: ClothingOuterHardsuitHeadOfSecurityExperimental
+  name: FI-52 "Honor Guard" parade hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
+  - type: ClothingAutoInject
+    reagents:
+      Epinephrine: 10
+      Bicaridine: 10
+      TranexamicAcid: 5
