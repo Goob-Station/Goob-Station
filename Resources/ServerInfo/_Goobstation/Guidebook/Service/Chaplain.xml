@@ -1,0 +1,50 @@
+<Document>
+# Chaplain
+There's something about the vast infinity of space that turns men to prayer... Especially if they get thrown into it without a space suit.
+
+
+As a chaplain, you would ideally proselytize whatever crazy religion you've made up for that round over your headset. However, besides your office, the hellish crematorium next to your office, and the rarely used morgue, you have no access.
+
+  <Box>
+    <GuideEntityEmbed Entity="Bible"/>
+    <GuideEntityEmbed Entity="Nullrod"/>
+  </Box>
+
+## Religions:
+You are free to propagate any present day religions you know of, or even invent one of your own! Just make sure it doesn't go against NanoTrasen and its values, or you may well end up in the brig.
+
+If you don't already have one, build an altar and find an offering to place on-top:
+
+  <Box>
+    <GuideEntityEmbed Entity="AltarBananium"/>
+    <GuideEntityEmbed Entity="AltarChaos"/>
+    <GuideEntityEmbed Entity="AltarDruid"/>
+    <GuideEntityEmbed Entity="AltarFangs"/>
+    <GuideEntityEmbed Entity="AltarHeaven"/>
+    <GuideEntityEmbed Entity="AltarConvertMaint"/>
+    <GuideEntityEmbed Entity="AltarNanotrasen"/>
+    <GuideEntityEmbed Entity="AltarSpaceChristian"/>
+    <GuideEntityEmbed Entity="AltarTechnology"/>
+    <GuideEntityEmbed Entity="AltarToolbox"/>
+  </Box>
+
+## Holy Artefacts
+
+### Crusader Armour
+A dated suit of plate armour that was previously used as part of a holy crusade. Provides decent armour. Wearing this armour will slightly slow your movement speed.
+
+### Null Rod
+The obsidian rod will be your defense against the forces of evil. Having it in your possession will make you completely immune to the effects of magic.
+
+You can transform it into a holy weapon of choice by placing it on an altar!
+
+## Duties
+
+- Church Services: Give sermons and sing hymns.
+- Proselytizing: Most crew members are godless heathens, show them god's love.
+- Burial Services: Security or Medical may require someone, or something... to be cremated, familiarise yourself with your Chapel so you can make things quick!
+
+### Metaphysical Threats
+As Chaplain you are the first line of defence against metaphysical threats, ready your Null Rod - the time is now.
+
+</Document>
