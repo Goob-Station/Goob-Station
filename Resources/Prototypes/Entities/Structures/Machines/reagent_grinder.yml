@@ -28,6 +28,9 @@
 # SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2025 Łukasz Lindert <lukasz.lindert@protonmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -79,6 +82,20 @@
         whitelist:
           components:
           - FitsInDispenser
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedItemSlot
+      input: AutomationSlotBeaker
+      output: AutomationSlotBeaker
+      slotId: beakerSlot
+    - !type:AutomatedContainer
+      input: AutomationSlotInput
+      output: AutomationSlotInput
+      whitelist:
+        components:
+        - Extractable # shitcode doesnt require this with container attempt events just in interaction
+      containerId: inputContainer
+      maxItems: 6 # manually have to sync it with ReagentGrinderComponent :)
   - type: Machine
     board: ReagentGrinderMachineCircuitboard
   - type: ContainerContainer
