@@ -160,6 +160,8 @@
   - type: Occluder
   - type: StaticPrice
     price: 70
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   id: WindowRCDResistant

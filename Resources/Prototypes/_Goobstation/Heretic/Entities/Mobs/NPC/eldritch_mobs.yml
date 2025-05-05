@@ -17,6 +17,8 @@
   id: BaseMobGhoul
   abstract: true
   components:
+  - type: WeakToHoly
+    alwaysTakeHoly: true
   - type: Ghoul
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.00
@@ -25,8 +27,8 @@
   - type: MobMover
   - type: Reactive
     groups:
-      Flammable: [Touch]
-      Extinguish: [Touch]
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
   - type: NpcFactionMember
     factions:
     - Heretic
@@ -49,10 +51,12 @@
       0: Alive
       90: Critical
       100: Dead
+  - type: Damageable
+    damageContainer: Biological
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     angle: 0
     animation: WeaponArcClaw
     damage:
@@ -72,6 +76,9 @@
     rules: ghostrole-ghoul-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
+    components:
+    - type: WeakToHoly
+      alwaysTakeHoly: true
     raffle:
       settings: short
   - type: Tag
@@ -99,7 +106,7 @@
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
-  # basically an EMP implant. don't feel like making 1 more emp action
+    # basically an EMP implant. don't feel like making 1 more emp action
     - ActionActivateEmpImplant
   - type: TriggerImplantAction
   - type: EmpOnTrigger
@@ -220,8 +227,8 @@
     - Heretic
   - type: Reactive
     groups:
-      Flammable: [Touch]
-      Extinguish: [Touch]
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
   - type: Destructible
     thresholds:
     - trigger:

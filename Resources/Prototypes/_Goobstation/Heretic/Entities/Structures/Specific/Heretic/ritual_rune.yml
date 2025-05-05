@@ -61,7 +61,7 @@
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
-  - type: EnchantingTable
+  - type: EnchantingTable # Goobstation
 
 - type: entity
   id: HereticRuneRitualDrawAnimation

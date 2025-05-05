@@ -15,6 +15,9 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 GreenArg7 <GreenArc12@outlook.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -36,6 +39,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Alphabetical order people!
+
+- type: Tag
+  id: ArrythmicKnife
+
+- type: Tag
+  id: AthiestsFedora
+
 - type: Tag
   id: AntagGateway
 
@@ -44,6 +54,9 @@
 
 - type: Tag
   id: BindSoulAction
+
+- type: Tag
+  id: Bible
 
 - type: Tag
   id: Blobbernaut
@@ -56,6 +69,9 @@
 
 - type: Tag
   id: BolaEnergy
+
+- type: Tag
+  id: BudgetInsuls
 
 - type: Tag
   id: BreadEmergency
@@ -178,6 +194,9 @@
   id: FelinidEmotes
 
 - type: Tag
+  id: FingerlessInsulatedGloves
+
+- type: Tag
   id: FlashIgnoreResistances
 
 - type: Tag
@@ -188,6 +207,9 @@
 
 - type: Tag
   id: GasMask
+
+- type: Tag
+  id: GodHand
 
 - type: Tag
   id: GorillaFormAction
@@ -248,6 +270,12 @@
 
 - type: Tag
   id: HEVSuit
+
+- type: Tag
+  id: HolyClaymore
+
+- type: Tag
+  id: HonkmotherMaw
 
 - type: Tag
   id: IgnoreBindSoul
@@ -325,6 +353,9 @@
   id: ModsuitShell
 
 - type: Tag
+  id: MonkStaff
+
+- type: Tag
   id: Muzzle
 
 - type: Tag
@@ -335,6 +366,9 @@
 
 - type: Tag
   id: NukeOpsReinforcementUplink
+
+- type: Tag
+  id: Nullrod
 
 - type: Tag
   id: Organ
@@ -350,6 +384,9 @@
 
 - type: Tag
   id: RipleyMkII
+
+- type: Tag
+  id: Rosary
 
 - type: Tag
   id: SecurityBreathMask
@@ -397,6 +434,12 @@
   id: Table
 
 - type: Tag
+  id: TemplarHelmet
+
+- type: Tag
+  id: Tesla
+
+- type: Tag
   id: Tongue
 
 - type: Tag
@@ -410,6 +453,9 @@
 
 - type: Tag
   id: Undead
+
+- type: Tag
+  id: UristHand
 
 - type: Tag
   id: VehicleKey
@@ -433,7 +479,16 @@
   id: WelderExperimental
 
 - type: Tag
+  id: WoodenHandle
+
+- type: Tag
   id: WelderIndustrial
+
+- type: Tag
+  id: WeaponPistolCasul
+
+- type: Tag
+  id: WeaponPistolJackal
 
 - type: Tag
   id: WinterCoat
