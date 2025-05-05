@@ -133,12 +133,6 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         if (TryComp(uid, out EyeComponent? eyeComp))
             _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask | (int) VisibilityFlags.CosmicCultMonument);
-
-        // Goobstation Change - Shitchap
-        if (!HasComp<WeakToHolyComponent>(uid))
-            EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
-        else
-            uid.Comp.WasWeakToHoly = true;
     }
 
     /// <summary>
