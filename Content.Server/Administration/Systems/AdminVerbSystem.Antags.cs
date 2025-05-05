@@ -273,6 +273,7 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.High,
             Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-make-wizard")),
         };
+        args.Verbs.Add(wizard);
 
         // Begin DeltaV Additions
         var cosmicCultName = Loc.GetString("admin-verb-text-make-cosmiccultist");
