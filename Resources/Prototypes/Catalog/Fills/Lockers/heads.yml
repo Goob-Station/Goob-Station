@@ -305,11 +305,14 @@
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    # Goobstation V
     - id: BaseHandheldStationMapPowerCe
-    - id: EngineeringTechFabCircuitboard # Goobstation - Engineering Techfab
+    - id: EngineeringTechFabCircuitboard
     - id: CartridgeRocketSingularityBuster
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
+    - id: WeaponNailgun
+    - id: MagazineNailgun
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit

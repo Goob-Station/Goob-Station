@@ -40,3 +40,17 @@
   materials:
     Steel: 300
     Wood: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxNail
+  result: MagazineBoxNail
+  materials:
+    Steel: 400
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxNailArmorPiercing
+  result: MagazineBoxNailArmorPiercing
+  materials:
+    Steel: 800

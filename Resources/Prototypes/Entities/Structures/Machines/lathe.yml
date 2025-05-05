@@ -410,6 +410,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     # Goobstation
+    - NailsStatic
     - LatheMiscStatic
     - MedicalVehiclesStatic
     - GrenadeTriggersStatic

@@ -1,3 +1,25 @@
+# Static
+
+- type: latheRecipePack
+  id: NailsStatic
+  recipes:
+  - MagazineBoxNail
+
+- type: latheRecipePack
+  id: NailgunStatic
+  recipes:
+  - WeaponNailgun
+  - MagazineNailgun
+  - MagazineNailgunEmpty
+
+- type: latheRecipePack
+  id: NailgunEvilStatic # Emag-locked
+  recipes:
+  - MagazineNailgunArmorPiercing
+  - MagazineBoxNailArmorPiercing
+
+# Dynamic
+
 - type: latheRecipePack
   id: UpgradeKits
   recipes:

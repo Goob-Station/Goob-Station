@@ -17,7 +17,6 @@
   icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
 
 - type: tool
-
   id: Hammering
   name: tool-quality-hammering-name
   toolName: tool-quality-hammering-tool-name

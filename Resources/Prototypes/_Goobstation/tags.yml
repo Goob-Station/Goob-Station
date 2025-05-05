@@ -292,6 +292,9 @@
   id: MagazineMagnumLeverRifle
 
 - type: Tag
+  id: MagazineNailgun
+
+- type: Tag
   id: MagazineSmart
 
 - type: Tag
@@ -332,6 +335,12 @@
 
 - type: Tag
   id: Muzzle
+
+- type: Tag
+  id: Nail
+
+- type: Tag
+  id: Nailgun
 
 - type: Tag
   id: NukeOpsCommanderUplink

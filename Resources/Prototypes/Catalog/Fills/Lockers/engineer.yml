@@ -177,6 +177,7 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
+      - id: WeaponNailgun # Goobstation
 
 - type: entity
   id: LockerEngineerFilled
@@ -190,6 +191,7 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
+      - id: WeaponNailgun # Goobstation
 
 - type: entity
   id: ClosetRadiationSuitFilled

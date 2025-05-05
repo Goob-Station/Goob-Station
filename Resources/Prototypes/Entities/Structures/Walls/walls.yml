@@ -222,10 +222,13 @@
   - type: StaticPrice
     price: 75
   - type: BlockWeather
-  - type: Penetratable # Goobstation - Better snipers
+  - type: SunShadowCast
+  # Goobstation
+  - type: Penetratable
     penetrateDamage: 50
     damagePenalty: 0.1
-  - type: SunShadowCast
+  - type: ExaminableDamage
+    messages: WindowMessages
 
 - type: entity
   parent: BaseWall

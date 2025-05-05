@@ -44,6 +44,7 @@
     - LightsStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - NailgunStatic
     dynamicPacks:
     - AdvancedTools
     - AtmosTools
@@ -61,6 +62,7 @@
     - UpgradeKits
   - type: EmagLatheRecipes
     emagDynamicPacks:
+    - NailgunEvilStatic
     - SecurityBoards # TF2 reference, go build fucking turrets
     - MiningBoards
   - type: MaterialStorage
