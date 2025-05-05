@@ -251,7 +251,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     {
         _damageable.TryChangeDamage(user,
             comp.DamageOnFail,
-            targetPart: TargetBodyPart.Head,
+            targetPart: TargetBodyPart.Torso,
             origin: uid,
             ignoreResistances: true);
 
@@ -301,7 +301,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         var popUp = Loc.GetString("hisgrace-too-far");
         _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
 
-        _damageable.TryChangeDamage(user, hisGrace.BaseDamage, targetPart: TargetBodyPart.Head, ignoreResistances: true);
+        _damageable.TryChangeDamage(user, hisGrace.BaseDamage, targetPart: TargetBodyPart.Torso, ignoreResistances: true);
 
         hisGrace.NextUserAttack = _timing.CurTime + hisGrace.TickDelay;
     }
@@ -324,7 +324,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
 
             // do damage and animation
-            _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Head, origin: uid);
+            _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Torso, origin: uid);
             _melee.DoLunge(uid, uid, angle, coordinates.Position, null, angle, false, false);
 
             _audio.PlayPvs(melee.HitSound, uid);
