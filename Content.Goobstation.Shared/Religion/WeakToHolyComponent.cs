@@ -11,13 +11,13 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Religion;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WeakToHolyComponent : Component
 {
     /// <summary>
     /// Should this entity take holy damage no matter what?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool AlwaysTakeHoly;
 
     /// <summary>

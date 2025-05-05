@@ -37,20 +37,20 @@ public abstract partial class SharedNullRodSystem : EntitySystem
     #region Attack Attempts
     private void OnAttackAttempt(Entity<NullrodComponent> ent, ref AttackAttemptEvent args)
     {
-        if (!HasComp<BibleUserComponent>(args.Uid))
-        {
-            args.Cancel();
-            UntrainedDamageAndPopup(ent, args.Uid);
-        }
+        if (!ent.Comp.UntrainedUseRestriction || HasComp<BibleUserComponent>(args.Uid))
+            return;
+
+        args.Cancel();
+        UntrainedDamageAndPopup(ent, args.Uid);
     }
 
     private void OnShootAttempt(Entity<NullrodComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (!HasComp<BibleUserComponent>(args.User))
-        {
-            args.Cancel();
-            UntrainedDamageAndPopup(ent, args.User);
-        }
+        if (!ent.Comp.UntrainedUseRestriction || HasComp<BibleUserComponent>(args.User))
+            return;
+
+        args.Cancel();
+        UntrainedDamageAndPopup(ent, args.User);
     }
     #endregion
 

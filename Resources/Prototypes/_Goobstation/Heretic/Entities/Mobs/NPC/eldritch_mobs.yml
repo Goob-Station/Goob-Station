@@ -76,9 +76,6 @@
     rules: ghostrole-ghoul-rules
     mindRoles:
     - MindRoleGhostRoleFamiliar
-    components:
-    - type: WeakToHoly
-      alwaysTakeHoly: true
     raffle:
       settings: short
   - type: Tag
@@ -189,6 +186,7 @@
         Poison: -2
         Radiation: -2
         Cellular: -2
+        Holy: -2
   - type: MeleeWeapon
     soundHit:
       collection: MetalThud

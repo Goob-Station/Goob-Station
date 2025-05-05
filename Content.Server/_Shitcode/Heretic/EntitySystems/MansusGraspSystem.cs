@@ -19,54 +19,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Goobstation.Shared.Bible;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Abilities;
 using Content.Server.Heretic.Components;
 using Content.Server.Heretic.Components.PathSpecific;
-using Content.Server.Item;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
-using Content.Server.Temperature.Components;
-using Content.Server.Temperature.Systems;
-using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared._White.BackStab;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Doors.Components;
-using Content.Shared.Doors.Systems;
-using Content.Shared.Examine;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
-using Content.Shared.Heretic.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Magic;
 using Content.Shared.Maps;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Silicons.StationAi;
-using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -89,6 +65,7 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
     [Dependency] private readonly HereticAbilitySystem _ability = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedMagicSystem _magic = default!;
 
     public static readonly SoundSpecifier DefaultSound = new SoundPathSpecifier("/Audio/Items/welder.ogg");
 
@@ -215,11 +192,21 @@ public sealed class MansusGraspSystem : SharedMansusGraspSystem
 
         var target = args.Target.Value;
 
-        if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path))
+        if (TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path)
             return;
 
         if (_whitelist.IsBlacklistPass(comp.Blacklist, target))
             return;
+
+        if (_magic.SpellDenied(target))
+        {
+            _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+            hereticComp.MansusGrasp = EntityUid.Invalid;
+            InvokeGrasp(args.User, ent);
+            QueueDel(ent);
+            args.Handled = true;
+            return;
+        }
 
         // upgraded grasp
         if (!TryApplyGraspEffectAndMark(args.User, hereticComp, target, ent))

@@ -15,6 +15,12 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
     public sealed partial class NullrodComponent : Component
     {
         /// <summary>
+        /// Whether non bible-users are able to use null rod
+        /// </summary>
+        [DataField]
+        public bool UntrainedUseRestriction;
+
+        /// <summary>
         /// How much damage is dealt when an untrained user uses it.
         /// </summary>
         [DataField("DamageOnUntrainedUse", required: true)]

@@ -161,7 +161,6 @@ public sealed class GhoulSystem : EntitySystem
     private void OnStartup(Entity<GhoulComponent> ent, ref ComponentStartup args)
     {
         GhoulifyEntity(ent);
-        EnsureComp<WeakToHolyComponent>(ent); // Shitchap - Start
         var unholy = EnsureComp<WeakToHolyComponent>(ent);
         unholy.AlwaysTakeHoly = true; // Shitchap - End
     }

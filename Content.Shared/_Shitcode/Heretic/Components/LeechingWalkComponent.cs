@@ -34,6 +34,7 @@ public sealed partial class LeechingWalkComponent : Component
             {"Poison", -1},
             {"Radiation", -1},
             {"Cellular", -1},
+            {"Holy", -1},
         },
     };
 
