@@ -20,7 +20,9 @@ using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Destructible;
 using Content.Server.Hands.Systems;
 using Content.Server.Jittering;
 using Content.Server.Mind;
@@ -75,6 +77,7 @@ public sealed partial class DevilSystem : EntitySystem
     [Dependency] private readonly CondemnedSystem _condemned = default!;
     [Dependency] private readonly MobStateSystem _state = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
+    [Dependency] private readonly BodySystem _body = default!;
 
     private static readonly Regex WhitespaceAndNonWordRegex = new(@"[\s\W]+", RegexOptions.Compiled);
 
@@ -106,6 +109,7 @@ public sealed partial class DevilSystem : EntitySystem
         RemComp<TemperatureComponent>(uid);
         RemComp<TemperatureSpeedComponent>(uid);
         RemComp<CondemnedComponent>(uid);
+        RemComp<DestructibleComponent>(uid);
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(uid);
@@ -127,6 +131,13 @@ public sealed partial class DevilSystem : EntitySystem
         // Add base actions
         foreach (var actionId in comp.BaseDevilActions)
             _actions.AddAction(uid, actionId);
+
+        // no slicy the devil you goober
+        foreach (var (id, part) in _body.GetBodyChildren(uid))
+        {
+            part.CanSever = false;
+            Dirty(id, part);
+        }
 
         // Self Explanatory
         GenerateTrueName(comp);
