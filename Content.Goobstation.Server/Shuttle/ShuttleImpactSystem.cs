@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // ported from: monolith (Content.Server/Shuttles/Systems/ShuttleSystem.Impact.cs)
+using Content.Goobstation.Common.CCVar;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Audio;
 using Content.Shared.Buckle.Components;
@@ -12,6 +13,7 @@ using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Slippery;
 using Content.Server.Stunnable;
@@ -19,6 +21,7 @@ using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
@@ -32,6 +35,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageSys = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IParallelManager _parallel = default!;
@@ -46,28 +50,32 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// <summary>
     /// Minimum velocity difference between 2 bodies for a shuttle "impact" to occur.
     /// </summary>
-    private const int MinimumImpactVelocity = 15;
+    private float MinimumImpactVelocity = 15;
 
     /// <summary>
     /// Kinetic energy required to dismantle a single tile
     /// </summary>
-    private const float TileBreakEnergy = 5000;
+    private float TileBreakEnergy = 5000;
 
     /// <summary>
     /// Kinetic energy required to spawn sparks
     /// </summary>
-    private const float SparkEnergy = 7000;
+    private float SparkEnergy = 7000;
 
     /// <summary>
     /// Maximum impact radius in tiles
     /// </summary>
-    private const int MaxImpactRadius = 3;
+    private float MaxImpactRadius = 5;
 
     private readonly SoundCollectionSpecifier _shuttleImpactSound = new("ShuttleImpactSound");
 
     public override void Initialize()
     {
         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
+            Subs.CVar(_cfg, GoobCVars.MinimumImpactVelocity, value => MinimumImpactVelocity = value, true);
+            Subs.CVar(_cfg, GoobCVars.TileBreakEnergy, value => TileBreakEnergy = value, true);
+            Subs.CVar(_cfg, GoobCVars.SparkEnergy, value => SparkEnergy = value, true);
+            Subs.CVar(_cfg, GoobCVars.MaxImpactRadius, value => MaxImpactRadius = value, true);
     }
 
     /// <summary>
@@ -100,28 +108,36 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         var otherXform = Transform(args.OtherEntity);
 
-        var ourPoint = Vector2.Transform(args.WorldPoint, _transform.GetInvWorldMatrix(ourXform));
-        var otherPoint = Vector2.Transform(args.WorldPoint, _transform.GetInvWorldMatrix(otherXform));
+        var ourPoint = _transform.ToCoordinates(args.OurEntity, new MapCoordinates(args.WorldPoint, ourXform.MapID));
+        var otherPoint = _transform.ToCoordinates(args.OtherEntity, new MapCoordinates(args.WorldPoint, otherXform.MapID));
 
-        var ourVelocity = _physics.GetLinearVelocity(uid, ourPoint, ourBody, ourXform);
-        var otherVelocity = _physics.GetLinearVelocity(args.OtherEntity, otherPoint, otherBody, otherXform);
+        var ourVelocity = _physics.GetLinearVelocity(uid, ourPoint.Position, ourBody, ourXform);
+        var otherVelocity = _physics.GetLinearVelocity(args.OtherEntity, otherPoint.Position, otherBody, otherXform);
         var jungleDiff = (ourVelocity - otherVelocity).Length();
 
         if (jungleDiff < MinimumImpactVelocity)
             return;
 
-        var energy = ourBody.Mass * Math.Pow(jungleDiff, 2) / 2;
+        var energy = ourBody.Mass * MathF.Pow(jungleDiff, 2) / 2;
         var dir = (ourVelocity.Length() > otherVelocity.Length() ? ourVelocity : -otherVelocity).Normalized();
 
         // Calculate the impact radius based on energy, but capped at MaxImpactRadius
-        var impactRadius = Math.Min(
-            (int)Math.Ceiling(Math.Sqrt((double)energy / TileBreakEnergy)),
+        var impactRadius = MathF.Min(
+            MathF.Sqrt(energy / TileBreakEnergy),
             MaxImpactRadius
         );
 
         // Convert the collision point directly to tile indices
         var ourTile = new Vector2i((int)Math.Floor(ourPoint.X / ourGrid.TileSize), (int)Math.Floor(ourPoint.Y / ourGrid.TileSize));
+
+        // for whatever reason collisions decide to go schizo sometimes and "collide" at some apparently random point
+        if (!OnOrNearGrid((uid, ourGrid), ourPoint))
+            return;
+
         var otherTile = new Vector2i((int)Math.Floor(otherPoint.X / otherGrid.TileSize), (int)Math.Floor(otherPoint.Y / otherGrid.TileSize));
+
+        if (!OnOrNearGrid((args.OtherEntity, otherGrid), otherPoint))
+            return;
 
         // Play impact sound
         var coordinates = new EntityCoordinates(ourXform.MapUid.Value, args.WorldPoint);
@@ -227,7 +243,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// <summary>
     /// Processes a zone of tiles around the impact point
     /// </summary>
-    private void ProcessImpactZone(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float energy, Vector2 dir, int radius)
+    private void ProcessImpactZone(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float energy, Vector2 dir, float radius)
     {
         // Skip processing if the grid has an anchor component
         if (!Exists(uid) ||
@@ -241,9 +257,10 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var tilesToProcess = new List<ImpactTileData>();
 
         // Pre-calculate all tiles that need processing
-        for (var x = -radius; x <= radius; x++)
+        var ceilRadius = (int)MathF.Ceiling(radius);
+        for (var x = -ceilRadius; x <= ceilRadius; x++)
         {
-            for (var y = -radius; y <= radius; y++)
+            for (var y = -ceilRadius; y <= ceilRadius; y++)
             {
                 // Skip tiles too far from impact center (creating a rough circle)
                 if (x*x + y*y > radius*radius)
@@ -364,5 +381,23 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
             Spawn("EffectSparks", coords);
         }
+    }
+
+    // if you want to reuse this, copy into a separate system as a public method
+    private bool OnOrNearGrid(
+        Entity<MapGridComponent> grid,
+        EntityCoordinates at,
+        int tolerance = 1
+    )
+    {
+        for (int x = -tolerance; x <= tolerance; x++)
+        {
+            for (int y = -tolerance; y <= tolerance; y++)
+            {
+                if (_mapSys.GetTileRef(grid, grid.Comp, at.Offset(new Vector2(x, y))).Tile != Tile.Empty)
+                    return true;
+            }
+        }
+        return false;
     }
 }
