@@ -59,29 +59,20 @@ It has 4 signal ports:
 - Completed, invoked on interaction success OR when the doafter ends
 - Failed, invoked if it could not interact with anything
 
-## Constructor
+## Assembler
 
 <GuideEntityEmbed Entity="BikeHorn"/>
 
-This will construct new objects that would use construction ghosts, such as machine frames.
+This will construct new objects like you would in the G menu.
+Construction ghosts and created items both get placed infront of it.
 
-Items are taken from the floor nearby.
+Input items are taken from the floor nearby.
 
 It has 4 signal ports:
 - Start, used to start the building
 - Started, invoked when the doafter begins
 - Completed, invoked when the doafter is over
 - Failed, invoked if it there weren't enough materials or some condition failed like the area being obstructed
-
-## Assembler
-
-<GuideEntityEmbed Entity="BikeHorn"/>
-
-This will assemble new items that require no ghost, like a stunprod or metal rods.
-
-Items are taken from the floor nearby.
-
-Same ports as the Constructor.
 
 !!! bit below is because comments are goidacode -->
 
