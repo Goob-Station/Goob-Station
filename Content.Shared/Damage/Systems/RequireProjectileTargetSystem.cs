@@ -7,6 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Common.Projectiles;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
@@ -37,9 +38,16 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
         var other = args.OtherEntity;
         // Goob edit start
-        if (TryComp(other, out TargetedProjectileComponent? targeted) &&
-            (targeted.Target == null || targeted.Target == ent))
-            return;
+        if (TryComp(other, out TargetedProjectileComponent? targeted))
+        {
+            if (targeted.Target == null || targeted.Target == ent)
+                return;
+
+            var ev = new ShouldTargetedProjectileCollideEvent(targeted.Target.Value);
+            RaiseLocalEvent(ent, ev);
+            if (ev.Handled)
+                return;
+        }
 
         if (TryComp(other, out ProjectileComponent? projectile))
         {

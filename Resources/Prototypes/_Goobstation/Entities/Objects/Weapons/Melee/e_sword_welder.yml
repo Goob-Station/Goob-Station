@@ -1,5 +1,8 @@
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -61,7 +64,6 @@
         variation: 0.250
   - type: Reflect
     reflectProb: 0.1
-    otherTypeReflectProb: 0
     reflects:
       - Energy
   - type: Welder
@@ -142,3 +144,51 @@
       reagents:
         - ReagentId: WeldingFuel
           Quantity: 3 # Cuz fuelConsumption is 3
+
+- type: entity
+  name: unfinished welder sword
+  parent: BaseItem
+  id: UnfinishedWelderSword
+  description: A crude assembly of parts that vaguely resembles a weapon. It's completely non-functional.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    layers:
+    - state: welder_sword
+    - state: welder_sword_blade_simple
+      visible: false
+      shader: unshaded
+      map: ["blade"]
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+  - type: Construction
+    graph: WelderSword
+    node: frameAssembly
+
+- type: entity
+  name: unfinished industrial welder sword
+  parent: UnfinishedWelderSword
+  id: UnfinishedWelderSwordIndustrial
+  components:
+  - type: Sprite
+    layers:
+    - state: welder_sword_industrial
+    - state: welder_sword_blade_industrial
+      visible: false
+  - type: Construction
+    graph: WelderSwordIndustrial
+    node: reinforcedFrameInd
+
+- type: entity
+  name: unfinished experimental welder sword
+  parent: UnfinishedWelderSword
+  id: UnfinishedWelderSwordExperimental
+  components:
+  - type: Sprite
+    layers:
+    - state: welder_sword_experimental
+    - state: welder_sword_blade_experimental
+      visible: false
+  - type: Construction
+    graph: WelderSwordExperimental
+    node: plasmaFrame

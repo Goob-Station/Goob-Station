@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -33,21 +34,21 @@ namespace Content.Shared.Weapons.Marker;
 /// <summary>
 /// Marks an entity to take additional damage
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedDamageMarkerSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), Access(typeof(SharedDamageMarkerSystem))]
 [AutoGenerateComponentPause]
 public sealed partial class DamageMarkerComponent : Component
 {
     /// <summary>
     /// Sprite to apply to the entity while damagemarker is applied.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("effect")]
-    public SpriteSpecifier.Rsi? Effect = new(new ResPath("/Textures/Objects/Weapons/Effects"), "shield2");
+    [ViewVariables(VVAccess.ReadWrite), DataField("effect"), AutoNetworkedField]
+    public SpriteSpecifier.Rsi? Effect = default!;
 
     /// <summary>
     /// Sound to play when the damage marker is procced.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("sound")]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg");
+    [ViewVariables(VVAccess.ReadWrite), DataField("sound"), AutoNetworkedField]
+    public SoundSpecifier? Sound;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("damage")]
     public DamageSpecifier Damage = new();

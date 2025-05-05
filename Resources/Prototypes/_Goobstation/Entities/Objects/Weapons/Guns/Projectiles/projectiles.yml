@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2024 a_person <40855173+a-person5660@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
@@ -7,9 +6,11 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -121,22 +122,22 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletTrigger
   id: BulletHighCaliberExplosive
-  name: bullet (.50 high-explosive)
+  name: bullet (.50 high-explosive incendiary)
   components:
   - type: Projectile
     damage:
       types:
-        Blunt: 1
-        Piercing: 1
         Heat: 1
-        Structural: 20
+        Blunt: 2
+        Piercing: 3
+        Structural: 10
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
-    maxIntensity: 3 # 3x3 explosion
-    intensitySlope: 1.5 # 45 damage at the center tile
-    totalIntensity: 12 # 22.5 damage at the edges
-    maxTileBreak: 0 # 11.25 damage at the corners
+    explosionType: FireBombWeak # 1.3 firestacks
+    totalIntensity: 10.8 # 3x3 explosion
+    intensitySlope: 1.4 # 14 damage at the center tile
+    maxIntensity: 2.4 # 8 damage at the edges
+    maxTileBreak: 0 # 4 damage at the corners
   - type: PointLight
     radius: 3.5
     color: orange
@@ -180,6 +181,76 @@
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_blue
+
+- type: hitscan
+  id: LaserSniper
+  damage:
+    types:
+      Heat: 30
+      Shock: 10
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
+    state: beam_blue_heavy
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
+- type: hitscan
+  id: RedMediumSplitLaser
+  damage:
+    types:
+      Heat: 20
+      Shock: 5
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 7
+        Shock: 1
+
+- type: entity
+  name: heavy laser bolt
+  id: BulletLaserHeavyStructural
+  parent: BulletLaserHeavy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 14
+        Shock: 2
+        Structural: 10
+
+- type: entity
+  name: heavy laser barrage
+  id: BulletLaserSpreadHeavy
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaserHeavy
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavyStructural
+    count: 5
+    spread: 30
 
 - type: entity
   id: BulletTemperatureCold
@@ -272,3 +343,52 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  id: HolyBulletCharge
+  name: holy bolt
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  description: Marks a target for additional holy damage.
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_yellow
+      shader: unshaded
+  - type: GatheringProjectile
+  - type: DamageMarkerOnCollide
+    onlyWorkOnFauna: false
+    whitelist:
+      components:
+      - MobState
+    damage:
+      types:
+        Burn: 3
+        Holy: 5
+    effect: { sprite: /Textures/_ShitChap/Effects/holy_beam.rsi, state: beam }
+    sound: /Audio/Effects/holy.ogg
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Blunt: 0
+  # Short lifespan
+  - type: TimedDespawn
+    lifetime: 0.4
+
+- type: entity
+  id: BulletPistolSilver
+  name: bullet (.45 silver)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 4
+        Holy: 4

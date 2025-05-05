@@ -11,6 +11,8 @@
 // SPDX-FileCopyrightText: 2024 DisposableCrewmember42 <disposablecrewmember42@proton.me>
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -51,7 +53,7 @@ public sealed partial class RevenantComponent : Component
     /// through harvesting player souls.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("maxEssence")]
-    public FixedPoint2 EssenceRegenCap = 75;
+    public FixedPoint2 EssenceRegenCap = 100;
 
     /// <summary>
     /// The coefficient of damage taken to actual health lost.
@@ -63,7 +65,7 @@ public sealed partial class RevenantComponent : Component
     /// The amount of essence passively generated per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("essencePerSecond")]
-    public FixedPoint2 EssencePerSecond = 0.5f;
+    public FixedPoint2 EssencePerSecond = 1f;
 
     [ViewVariables]
     public float Accumulator = 0;
