@@ -893,3 +893,5 @@ PaxChemistryBottle: ChemistryBottlePax
 MuteToxinChemistryBottle: ChemistryBottleMuteToxin
 LeadChemistryBottle: ChemistryBottleLead
 ToxinChemistryBottle: ChemistryBottleToxin
+# Goob - making wizden maps compatible to support mapping efforts
+CargoMailTeleporter: MailTeleporter
