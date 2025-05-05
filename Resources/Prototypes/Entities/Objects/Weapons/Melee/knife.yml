@@ -182,6 +182,14 @@
     guides:
     - Chef
     - FoodRecipes
+  - type: EmbeddableProjectile # Goobstation
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
+  - type: LandAtCursor # Goobstation
+  - type: DamageOtherOnHit # Goobstation
+    damage:
+      types:
+        Slash: 10
 
 - type: entity
   name: butcher's cleaver
