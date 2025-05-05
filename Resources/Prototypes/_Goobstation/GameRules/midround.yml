@@ -69,6 +69,7 @@
       blacklist:
         components:
         - AntagImmune
+        - BibleUser
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -106,6 +107,7 @@
         - AntagImmune
         - BibleUser
       lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       mindRoles:
       - MindRoleHeretic
   - type: Tag
