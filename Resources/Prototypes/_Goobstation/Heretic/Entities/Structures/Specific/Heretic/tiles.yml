@@ -176,3 +176,34 @@
   id: Rust
   updatesPerSecond: 16
   preventSpreadOnSpaced: false
+
+- type: entity
+  id: WallFieldCosmic
+  name: cosmic field
+  description: A field that cannot be passed by people marked with a cosmic star.
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Tag
+    tags:
+      - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - HighImpassable
+        - MidImpassable
+        - LowImpassable
+  - type: Airtight
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Effects/effects.rsi
+    layers:
+    - state: cosmic_carpet
+  - type: RustRequiresPathStage
+    pathStage: 11 # Can't rust
+  - type: CosmicField

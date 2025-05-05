@@ -1,0 +1,42 @@
+- type: listing
+  id: HereticCosmosPath1
+  name: knowledge-path-cosmos-s1-name
+  description: knowledge-path-cosmos-s1-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi, state: icon }
+  productHereticKnowledge: EternalGate
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
+    # add every path here because you shouldn't be able to buy more starter knowledge
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Lock
+    - Void
+    - Rust
+    - Cosmos
+
+- type: listing
+  id: HereticCosmosPath2
+  name: knowledge-path-cosmos-s2-name
+  description: knowledge-path-cosmos-s2-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfCosmos
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Cosmos

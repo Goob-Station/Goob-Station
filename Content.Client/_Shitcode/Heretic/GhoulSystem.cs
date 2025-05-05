@@ -39,7 +39,7 @@ public sealed partial class GhoulSystem : EntitySystem
         if (!TryComp<GhoulComponent>(player, out var playerGhoul))
             return;
 
-        if (GetNetEntity(ent.Owner) != playerGhoul.BoundHeretic)
+        if (ent.Owner != playerGhoul.BoundHeretic)
             return;
 
         if (_prototype.TryIndex(playerGhoul.MasterIcon, out var iconPrototype))

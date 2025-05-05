@@ -400,6 +400,19 @@
   path: Rust
   event: !type:HereticAscensionRustEvent
 
+## cosmos path
+- type: hereticKnowledge
+  id: EternalGate
+  path: Cosmos
+  stage: 1
+  ritualPrototypes:
+  - BladeCosmos
+
+- type: hereticKnowledge
+  id: GraspOfCosmos
+  path: Cosmos
+  stage: 2
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
