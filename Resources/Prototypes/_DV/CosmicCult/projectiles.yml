@@ -60,8 +60,7 @@
   description: Marks a target for additional damage.
   components:
   - type: Reflective
-    reflective:
-    - Energy
+    reflective: Magic
   - type: Sprite
     noRot: false
     sprite: _DV/CosmicCult/Effects/weaponprojectiles.rsi
