@@ -57,12 +57,16 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         base.Initialize();
 
         SubscribeLocalEvent<HisGraceComponent, MapInitEvent>(OnInit);
+
         SubscribeLocalEvent<HisGraceComponent, GotEquippedHandEvent>(OnEquipped);
         SubscribeLocalEvent<HisGraceComponent, GotUnequippedHandEvent>(OnUnequipped);
+
         SubscribeLocalEvent<HisGraceComponent, UseInHandEvent>(OnUse);
         SubscribeLocalEvent<HisGraceComponent, MeleeHitEvent>(OnMeleeHit);
+
         SubscribeLocalEvent<HisGraceComponent, HisGraceHungerChangedEvent>(OnHungerChanged);
         SubscribeLocalEvent<HisGraceComponent, HisGraceEntityConsumedEvent>(OnEntityConsumed);
+
         SubscribeLocalEvent<HisGraceUserComponent, RefreshMovementSpeedModifiersEvent>(OnModifierRefresh);
         SubscribeLocalEvent<HisGraceUserComponent, AttackedEvent>(OnAttacked);
     }
@@ -111,7 +115,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (!TryComp<HisGraceComponent>(ent.Comp.HisGrace, out var hisGrace))
             return;
 
-        // awaiting aviu code
+        // awaiting avius martial art thingy, damage modifier sets are malicious.
         /*
         if (hisGrace.CurrentState == HisGraceState.Ascended)
             args.Damage *= ent.Comp.AscensionDamageCoefficient
@@ -193,6 +197,9 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         if (args.OldState == HisGraceState.Dormant)
             return;
 
+        // if the new state is bigger than the old state, increase popup
+        // else, decrease
+        // we dont count for ascended since too many popups will clutter it.
         var (messageKey, popupType) = args.NewState > args.OldState &&
          args.NewState != HisGraceState.Ascended
          ? ("hisgrace-hunger-increased", PopupType.MediumCaution)
@@ -242,7 +249,6 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void HandleDeathState(EntityUid uid, HisGraceComponent comp, EntityUid user)
     {
-        SetUnremovable(uid, true);
         _damageable.TryChangeDamage(user,
             comp.DamageOnFail,
             targetPart: TargetBodyPart.Head,
@@ -294,6 +300,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
         var popUp = Loc.GetString("hisgrace-too-far");
         _popup.PopupEntity(popUp, user, user, PopupType.LargeCaution);
+
         _damageable.TryChangeDamage(user, hisGrace.BaseDamage, targetPart: TargetBodyPart.Head, ignoreResistances: true);
 
         hisGrace.NextUserAttack = _timing.CurTime + hisGrace.TickDelay;
@@ -302,33 +309,37 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
     private void HandleGroundAttacks(EntityUid uid, HisGraceComponent hisGrace, MeleeWeaponComponent melee, TransformComponent xform)
     {
         if (hisGrace.IsHeld && hisGrace.Holder == hisGrace.User
-            || _timing.CurTime < hisGrace.NextGroundAttack)
+        || _timing.CurTime < hisGrace.NextGroundAttack)
             return;
 
         var nearbyEnts = _lookup.GetEntitiesInRange(uid, 1f);
 
-        foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity)
+        // dont attack if the entity is the user, and dont if the entity is in a container (e.g, already devoured)
+        foreach (var entity in nearbyEnts.Where(entity => HasComp<MobStateComponent>(entity) // malicious foreach loop
         && entity != hisGrace.User
-        && !TerminatingOrDeleted(entity)
         && !_containerSystem.IsEntityOrParentInContainer(entity)))
         {
+            /// get co-ordinates for animation
             var coordinates = _transform.GetMapCoordinates(uid);
             var angle = _transform.GetRelativePosition(xform, entity, GetEntityQuery<TransformComponent>()).ToAngle();
 
+            // do damage and animation
             _damageable.TryChangeDamage(entity, melee.Damage, targetPart: TargetBodyPart.Head, origin: uid);
-            _audio.PlayPvs(melee.HitSound, uid);
-            _popup.PopupEntity(Loc.GetString("hisgrace-attack-popup", ("target", Name(entity))), uid, PopupType.LargeCaution);
             _melee.DoLunge(uid, uid, angle, coordinates.Position, null, angle, false, false);
 
-            TryDevour(hisGrace, entity);
-            hisGrace.NextGroundAttack = _timing.CurTime + hisGrace.TickDelay;
+            _audio.PlayPvs(melee.HitSound, uid);
+            _popup.PopupEntity(Loc.GetString("hisgrace-attack-popup", ("target", Name(entity))), uid, PopupType.LargeCaution);
 
+            TryDevour(hisGrace, entity);
+
+            hisGrace.NextGroundAttack = _timing.CurTime + hisGrace.TickDelay;
             break;
         }
     }
 
     private void UpdateHungerState(HisGraceComponent hisGrace)
     {
+        // if the current hunger is less than the current threshold min, a downgrade is needed.
         var downgradeNeeded =
         hisGrace.StateThresholds.TryGetValue(hisGrace.CurrentState, out var currentThreshold)
         && hisGrace.Hunger < currentThreshold.Threshold;
@@ -338,6 +349,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             var threshold = hisGrace.OrderedStates[i];
             if (threshold.Key > hisGrace.CurrentState)
             {
+                // go up a state
                 if (hisGrace.Hunger >= threshold.Value.Threshold)
                 {
                     hisGrace.HungerIncrement = threshold.Value.Increment;
@@ -347,6 +359,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             }
             else if (downgradeNeeded && hisGrace.Hunger >= threshold.Value.Threshold)
             {
+                // go down a state
                 hisGrace.HungerIncrement = threshold.Value.Increment;
                 ChangeState(hisGrace, threshold.Key);
                 break;
@@ -354,6 +367,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         }
     }
 
+    // increases hunger and heals user every tick
     private void ProcessHungerTick(HisGraceComponent hisGrace, EntityUid user)
     {
         if (hisGrace.NextHungerTick > _timing.CurTime)
@@ -381,11 +395,13 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
         EnsureComp<PressureImmunityComponent>(user);
         EnsureComp<BreathingImmunityComponent>(user);
 
+        // le funny ascension
         _chat.DispatchGlobalAnnouncement(Loc.GetString("hisgrace-ascension-announcement"), Name(user), true, comp.AscendSound, Color.PaleGoldenrod);
     }
 
     private void ChangeState(HisGraceComponent comp, HisGraceState newState)
     {
+        // self explanatory
         var oldstate = comp.CurrentState;
         comp.CurrentState = newState;
 
@@ -395,6 +411,7 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private bool TryDevour(HisGraceComponent comp, EntityUid target)
     {
+        // vore
         if (!_state.IsIncapacitated(target) || !_containerSystem.Insert(target, comp.Stomach) )
             return false;
 
@@ -421,8 +438,8 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
             return comp.HungerOnDevourDefault;
 
         // hunger value is equal to the mutiplier times the crit threshold.
-        // this is twenty for humans
-        return (FixedPoint2)(comp.HungerOnDevourMultiplier * criticalThreshold);
+        // this is 100 for humans, so the hunger returned is 20.
+        return (FixedPoint2)(comp.HungerOnDevourMultiplier * criticalThreshold); // solstice try not to cast challenge (impossible)
     }
 
     private void SetUnremovable(EntityUid uid, bool enabled)
@@ -441,12 +458,10 @@ public sealed partial class HisGraceSystem : SharedHisGraceSystem
 
     private void ReleaseContainedEntities(HisGraceComponent hisGrace)
     {
-        var toRelease = hisGrace.Stomach.ContainedEntities;
-        foreach (var ent in toRelease)
-        {
-            _containerSystem.TryRemoveFromContainer(ent);
+        var released = _containerSystem.EmptyContainer(hisGrace.Stomach, true);
+
+        foreach (var ent in released)
             _stun.TryParalyze(ent, TimeSpan.FromSeconds(8), true);
-        }
     }
 
     #endregion
