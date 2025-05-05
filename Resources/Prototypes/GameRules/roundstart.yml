@@ -148,7 +148,7 @@
     - id: Heretic # goob edit
       prob: 0.2
     - id: Devil # Goob
-      prob: 0.3
+      prob: 0.1
 
 - type: entity
   id: DeathMatch31
