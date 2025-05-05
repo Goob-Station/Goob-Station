@@ -15,8 +15,8 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 12
-        Holy: 7
+        Blunt: 10
+        Holy: 8
     soundHit:
       collection: MetalThud
   - type: Reflect
@@ -68,10 +68,10 @@
   - type: MeleeWeapon
     animationRotation: -45
     wideAnimationRotation: -135
-    attackRate: 1.0
+    attackRate: 0.8
     damage:
       types:
-        Slash: 15
+        Slash: 12
         Holy: 7
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -182,7 +182,7 @@
     damage:
       types:
         Heat: 10
-        Slash: 5
+        Slash: 2
         Holy: 7
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
@@ -229,7 +229,7 @@
     attackRate: 1.2
     damage:
       types:
-        Slash: 12
+        Slash: 8
         Holy: 7
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -266,7 +266,7 @@
     sprite: _ShitChap/Objects/Weapons/Nullrod/monkstaff.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 5.0
+    attackRate: 2.5
     damage:
       types:
         Holy: 2.5
@@ -289,7 +289,7 @@
         Slash: 1
         Piercing: 1
   - type: StaminaDamageOnHit
-    damage: 15
+    damage: 7
   - type: Wieldable
   - type: Tag
     tags:
@@ -452,7 +452,7 @@
     damage:
       types:
         Holy: 8
-        Blunt: 12
+        Blunt: 9
         Structural: 15
     soundHit:
       path: /Audio/Weapons/smash.ogg
@@ -496,7 +496,7 @@
     attackRate: 3
     damage:
       types:
-        Slash: 7
+        Slash: 5
         Blunt: 3
         Structural: 8
         Holy: 3
