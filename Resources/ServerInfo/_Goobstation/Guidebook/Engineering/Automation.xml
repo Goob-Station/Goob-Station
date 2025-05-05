@@ -18,6 +18,8 @@ Without any configuration, it will work with items on the floor infront of it an
 [bold]Use a multitool[/bold] to link its input and output machine to [bold]automated machines[/bold].
 Any signal port that starts with "Item:" is compatible.
 
+It has a [italic]Moved[/italic] signal port which is invoked after an item is moved to the output.
+
 ## Automated Machines
 
 A variety of machines can be automated by installing an [bold]Automation Upgrade[/bold] on them.
