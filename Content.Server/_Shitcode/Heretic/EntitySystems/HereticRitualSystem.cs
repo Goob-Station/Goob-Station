@@ -175,7 +175,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 if (!ghoulQuery.TryComp(spawned, out var ghoul))
                     continue;
 
-                ghoul.BoundHeretic = GetNetEntity(performer);
+                ghoul.BoundHeretic = performer;
                 Dirty(spawned, ghoul);
             }
         }

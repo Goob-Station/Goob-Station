@@ -1,8 +1,10 @@
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Doors.Components;
@@ -21,6 +23,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
@@ -31,6 +34,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
 
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -42,6 +46,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
@@ -144,7 +149,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     }
 
                     var ghoul = _compFactory.GetComponent<GhoulComponent>();
-                    ghoul.BoundHeretic = GetNetEntity(performer);
+                    ghoul.BoundHeretic = performer;
                     ghoul.GiveBlade = true;
 
                     AddComp(target, ghoul);
@@ -181,6 +186,25 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                         targetPart: TargetBodyPart.Torso);
                 }
 
+                break;
+            }
+
+            case "Cosmos":
+            {
+                if (TryComp(target, out HereticComponent? targetHeretic) && targetHeretic.CurrentPath == "Cosmos" ||
+                    TryComp(target, out GhoulComponent? ghoul) && ghoul.BoundHeretic == performer)
+                    break;
+
+                _statusEffect.TryAddStatusEffect<StarMarkComponent>(target, "StarMark", TimeSpan.FromSeconds(30), true);
+
+                if (_net.IsClient)
+                    break;
+
+                var spawnCoords = Transform(performer).Coordinates.SnapToGrid(EntityManager, _mapMan);
+                var lookup =
+                    _lookup.GetEntitiesInRange<CosmicFieldComponent>(spawnCoords, 0.1f, LookupFlags.Static);
+                if (lookup.Count == 0)
+                    Spawn("WallFieldCosmic", spawnCoords);
                 break;
             }
 
