@@ -39,7 +39,7 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.Target.Value))
             return;
 
-        comp.ScannedEntities.Add(args.Target.Value);
+        comp.ScannedEntities.Add(args.Target.Value); //TODO : replace by giving the implant
         if (!comp.ApplyDeathrattle)
             return;
 

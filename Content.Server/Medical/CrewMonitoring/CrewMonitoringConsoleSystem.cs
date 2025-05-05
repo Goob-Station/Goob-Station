@@ -70,13 +70,13 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
                 if (!HasComp<TransformComponent>(sensorUid))
                     continue;
 
-                if (scanned.ScannedEntities.Contains(Transform(sensorUid).ParentUid))
+                if (pair.Value.IsCommandTracker)
                     newSensorStatus[pair.Key] = pair.Value;
             }
             sensorStatus = newSensorStatus;
         }
         // Goobstation - end
-
+        //Todo : Ignore Command member on non BSO tracker
         component.ConnectedSensors = sensorStatus;
 
         UpdateUserInterface(uid, component);

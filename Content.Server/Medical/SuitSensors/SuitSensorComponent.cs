@@ -31,6 +31,13 @@ namespace Content.Server.Medical.SuitSensors;
 [Access(typeof(SuitSensorSystem))]
 public sealed partial class SuitSensorComponent : Component
 {
+
+    /// <summary>
+    ///     BSO only
+    /// </summary>
+    [DataField("commandtracker")]
+    public bool CommandTracker = false;
+
     /// <summary>
     ///     Choose a random sensor mode when item is spawned.
     /// </summary>

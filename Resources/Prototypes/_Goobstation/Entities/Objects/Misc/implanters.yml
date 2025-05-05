@@ -103,6 +103,14 @@
     implant: BluespaceLifelineImplant
 
 - type: entity
+  id: CommandTrackingImplanter
+  suffix: command tracker
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: CommandTrackingImplant #Todo : Verify and add way for removal
+
+- type: entity
   id: CentcommFreedomImplanter
   suffix: freedom implant
   parent: BaseImplantOnlyImplanterCentcomm
