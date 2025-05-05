@@ -4,6 +4,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
+using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
 using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Chat.Systems;
 using Content.Server.EUI;
@@ -689,7 +690,12 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         if (cosmicGamerule.CurrentTier == 3)
         {
-            _damage.SetDamageContainerID(uid, "BiologicalMetaphysical");
+        // Goobstation Change - Shitchap
+            if (!HasComp<WeakToHolyComponent>(uid))
+                EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+            else
+                cultComp.WasWeakToHoly = true;
+
             cultComp.EntropyBudget = 48; // pity balance
             cultComp.Respiration = false;
 
@@ -752,6 +758,11 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<PressureImmunityComponent>(uid);
         RemComp<TemperatureImmunityComponent>(uid);
         RemComp<CosmicStarMarkComponent>(uid);
+
+        // Goobstation Change: Shitchap
+        if (!uid.Comp.WasWeakToHoly)
+            RemComp<WeakToHolyComponent>(uid);
+
         _damage.SetDamageContainerID(uid.Owner, uid.Comp.StoredDamageContainer);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-fluff"), Color.FromHex("#4cabb3"), _deconvertSound);
         _antag.SendBriefing(uid, Loc.GetString("cosmiccult-role-deconverted-briefing"), Color.FromHex("#cae8e8"), null);
