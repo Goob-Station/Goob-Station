@@ -17,6 +17,8 @@
   id: BaseMobGhoul
   abstract: true
   components:
+  - type: WeakToHoly
+    alwaysTakeHoly: true
   - type: Ghoul
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.00
@@ -25,8 +27,8 @@
   - type: MobMover
   - type: Reactive
     groups:
-      Flammable: [Touch]
-      Extinguish: [Touch]
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
   - type: NpcFactionMember
     factions:
     - Heretic
@@ -49,10 +51,12 @@
       0: Alive
       90: Critical
       100: Dead
+  - type: Damageable
+    damageContainer: Biological
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
-        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     angle: 0
     animation: WeaponArcClaw
     damage:
@@ -99,7 +103,7 @@
   - type: ActionsProvider
     actions:
     - ActionHereticJaunt
-  # basically an EMP implant. don't feel like making 1 more emp action
+    # basically an EMP implant. don't feel like making 1 more emp action
     - ActionActivateEmpImplant
   - type: TriggerImplantAction
   - type: EmpOnTrigger
@@ -153,11 +157,36 @@
     totalHealth: 100
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_mobs.rsi
-    state: rust_walker
+    layers:
+    - map: [ "movement" ]
+      state: rust_walker
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: rust_walker-move
+    noMovementLayers:
+      movement:
+        state: rust_walker
   - type: ActionsProvider
     actions:
     - ActionHereticAggressiveSpread
+    - ActionHereticRustWave
   - type: LeechingWalk
+    toHeal:
+      types:
+        Blunt: -2
+        Slash: -2
+        Piercing: -2
+        Heat: -2
+        Cold: -2
+        Shock: -2
+        Asphyxiation: -2
+        Bloodloss: -2
+        Caustic: -2
+        Poison: -2
+        Radiation: -2
+        Cellular: -2
+        Holy: -2
   - type: MeleeWeapon
     soundHit:
       collection: MetalThud
@@ -220,8 +249,8 @@
     - Heretic
   - type: Reactive
     groups:
-      Flammable: [Touch]
-      Extinguish: [Touch]
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
   - type: Destructible
     thresholds:
     - trigger:

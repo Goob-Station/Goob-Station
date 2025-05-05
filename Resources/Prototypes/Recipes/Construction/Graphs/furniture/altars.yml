@@ -12,6 +12,8 @@
 #
 # SPDX-License-Identifier: MIT
 
+# Deprecated, we now use ShitChap Altar crafting.
+
 - type: constructionGraph
   id: BananiumAltarGraph
   start: start
