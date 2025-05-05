@@ -1713,6 +1713,20 @@
         components:
         - Wizard
         - Apprentice
+        - BibleUser
+    - type: Damageable
+    - type: Clickable
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 350
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WindowShatter
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
     # Goobstation end
 
 - type: entity
