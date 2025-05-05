@@ -39,6 +39,9 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
 
     private void OnInit(Entity<SplitPersonalityComponent> ent, ref MapInitEvent args)
     {
+        if (!_mind.TryGetMind(ent, out var hostMindId, out var hostMind))
+            return;
+
         ent.Comp.NextSwapAttempt = _timing.CurTime + ent.Comp.SwapAttemptDelay;
         ent.Comp.MindsContainer = _container.EnsureContainer<Container>(ent, "SplitPersonalityContainer");
 
@@ -48,9 +51,6 @@ public sealed partial class SplitPersonalitySystem : EntitySystem
             _popup.PopupEntity(popup, ent, ent, PopupType.LargeCaution);
             _stun.TryParalyze(ent, TimeSpan.FromSeconds(6), true);
         }
-
-        if (!_mind.TryGetMind(ent, out var hostMindId, out var hostMind))
-            return;
 
         ent.Comp.OriginalMind = hostMindId;
         ent.Comp.MindRoles.AddRange(hostMind.MindRoles);
