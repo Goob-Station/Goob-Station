@@ -46,7 +46,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// <summary>
     /// Minimum velocity difference between 2 bodies for a shuttle "impact" to occur.
     /// </summary>
-    private const int MinimumImpactVelocity = 10; // Goob - lowered a bit since we're not a shuttle-centric fork
+    private const int MinimumImpactVelocity = 15;
 
     /// <summary>
     /// Kinetic energy required to dismantle a single tile
@@ -125,72 +125,29 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         // Play impact sound
         var coordinates = new EntityCoordinates(ourXform.MapUid.Value, args.WorldPoint);
+
         var volume = MathF.Min(10f, 1f * MathF.Pow(jungleDiff, 0.5f) - 5f);
         var audioParams = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(volume);
+        _audio.PlayPvs(_shuttleImpactSound, coordinates, audioParams);
 
-        try
-        {
-            _audio.PlayPvs(_shuttleImpactSound, coordinates, audioParams);
-        }
-        catch (Exception ex)
-        {
-            Log.Error($"Error playing shuttle impact sound: {ex}");
-        }
         // Compare masses to determine which shuttle should process the impact
         bool ourShuttleIsHeavier = ourBody.Mass > otherBody.Mass;
         bool otherShuttleIsHeavier = otherBody.Mass > ourBody.Mass;
 
         // Process impact zones sequentially to avoid race conditions
-        try
-        {
-            if (Exists(uid) && HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
-            {
-                ProcessImpactZone(uid, ourGrid, ourTile, (float)energy, -dir, impactRadius);
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.Error($"Error processing impact zone for {ToPrettyString(uid)}: {ex}");
-        }
+        if (HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
+            ProcessImpactZone(uid, ourGrid, ourTile, (float)energy, -dir, impactRadius);
 
-        try
-        {
-            if (Exists(args.OtherEntity) && HasComp<Robust.Shared.Physics.BroadphaseComponent>(args.OtherEntity))
-            {
-                ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, (float)energy, dir, impactRadius);
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.Error($"Error processing impact zone for {ToPrettyString(args.OtherEntity)}: {ex}");
-        }
+        if (HasComp<Robust.Shared.Physics.BroadphaseComponent>(args.OtherEntity))
+            ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, (float)energy, dir, impactRadius);
 
-        // Knockdown unbuckled entities on both grids
-        try
-        {
-            // Only knockdown entities on our shuttle if it's not heavier
-            if (!ourShuttleIsHeavier && Exists(uid))
-            {
-                KnockdownEntitiesOnGrid(uid);
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.Error($"Error knocking down entities on grid {ToPrettyString(uid)}: {ex}");
-        }
+        // knockdown entities on our shuttle if other is heavier
+        if (otherShuttleIsHeavier)
+            KnockdownEntitiesOnGrid(uid);
 
-        try
-        {
-            // Only knockdown entities on other shuttle if it's not heavier
-            if (!otherShuttleIsHeavier && Exists(args.OtherEntity))
-            {
-                KnockdownEntitiesOnGrid(args.OtherEntity);
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.Error($"Error knocking down entities on grid {ToPrettyString(args.OtherEntity)}: {ex}");
-        }
+        // knockdown entities on other shuttle if we're heavier
+        if (!otherShuttleIsHeavier)
+            KnockdownEntitiesOnGrid(args.OtherEntity);
     }
 
     /// <summary>
@@ -217,7 +174,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         while (query.MoveNext(out var uid, out var mobState, out var xform))
         {
             // Skip entities not on this grid
-            if (xform.GridUid != gridUid || !Exists(uid))
+            if (xform.GridUid != gridUid)
                 continue;
 
             // If entity has a buckle component and is buckled, skip it
@@ -228,27 +185,15 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             if (noSlipQuery.HasComponent(uid))
                 continue;
 
-            // Check if the entity is wearing magboots
-            bool hasMagboots = false;
-
             // Check if they're wearing shoes with NoSlip component or activated magboots
-            if (_inventorySystem.TryGetSlotEntity(uid, "shoes", out var shoes) && Exists(shoes))
-            {
-                // If shoes have NoSlip component
-                if (noSlipQuery.HasComponent(shoes))
-                {
-                    hasMagboots = true;
-                }
-                // If shoes are magboots and they are activated
-                else if (magbootsQuery.HasComponent(shoes) &&
-                         itemToggleQuery.TryGetComponent(shoes, out var toggle) &&
-                         toggle.Activated)
-                {
-                    hasMagboots = true;
-                }
-            }
-
-            if (hasMagboots)
+            if (_inventorySystem.TryGetSlotEntity(uid, "shoes", out var shoes) &&
+                    (noSlipQuery.HasComponent(shoes) ||
+                        (magbootsQuery.HasComponent(shoes) &&
+                        itemToggleQuery.TryGetComponent(shoes, out var toggle) &&
+                        toggle.Activated
+                        )
+                    )
+                )
                 continue;
 
             // Add entity to knockdown batch
@@ -257,19 +202,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         // Apply knockdowns sequentially for safety
         foreach (var uid in entitiesToKnockdown)
-        {
-            if (Exists(uid))
-            {
-                try
-                {
-                    _stuns.TryKnockdown(uid, knockdownTime, true);
-                }
-                catch (Exception ex)
-                {
-                    Log.Error($"Error applying knockdown to {ToPrettyString(uid)}: {ex}");
-                }
-            }
-        }
+            _stuns.TryKnockdown(uid, knockdownTime, true);
     }
 
     /// <summary>
@@ -360,72 +293,42 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         {
             var tileData = tilesToProcess[i];
 
-            try
+            if (!HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
+                continue;
+
+            // Process entities on this tile
+            var entitiesOnTile = new HashSet<EntityUid>();
+
+            _lookup.GetLocalEntitiesIntersecting(uid, tileData.Tile, entitiesOnTile, gridComp: grid);
+
+            foreach (var localUid in entitiesOnTile)
             {
-                if (!Exists(uid) || !HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
-                    continue;
-
-                // Process entities on this tile
-                var entitiesOnTile = new HashSet<EntityUid>();
-
-                try
+                // Apply damage scaled by distance but capped to prevent gibbing
+                var scaledDamage = tileData.Energy;
+                var damageSpec = new DamageSpecifier(damageTemplate)
                 {
-                    _lookup.GetLocalEntitiesIntersecting(uid, tileData.Tile, entitiesOnTile, gridComp: grid);
-                }
-                catch (Exception ex)
+                    DamageDict = { ["Blunt"] = scaledDamage }
+                };
+
+                _damageSys.TryChangeDamage(localUid, damageSpec);
+
+                // Handle anchoring and throwing
+                if (TryComp<TransformComponent>(localUid, out var form))
                 {
-                    Log.Error($"Error getting entities on tile {tileData.Tile} for grid {ToPrettyString(uid)}: {ex}");
-                    continue;
-                }
+                    if (!form.Anchored)
+                        _transform.Unanchor(localUid, form);
 
-                foreach (var localUid in entitiesOnTile)
-                {
-                    if (!Exists(localUid))
-                        continue;
-
-                    try
-                    {
-                        // Apply damage scaled by distance but capped to prevent gibbing
-                        var scaledDamage = tileData.Energy;
-                        var damageSpec = new DamageSpecifier(damageTemplate)
-                        {
-                            DamageDict = { ["Blunt"] = scaledDamage }
-                        };
-
-                        _damageSys.TryChangeDamage(localUid, damageSpec);
-
-                        // Handle anchoring and throwing
-                        if (TryComp<TransformComponent>(localUid, out var form))
-                        {
-                            if (!form.Anchored)
-                                _transform.Unanchor(localUid, form);
-
-                            if (Exists(localUid))
-                                _throwing.TryThrow(localUid, tileData.ThrowDirection * tileData.DistanceFactor);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Error($"Error processing impact on entity {ToPrettyString(localUid)}: {ex}");
-                    }
-                }
-
-                // Mark tiles for breaking/effects
-                if (tileData.Energy > TileBreakEnergy)
-                {
-                    brokenTiles.Add(tileData.Tile);
-                }
-
-                // Mark tiles for spark effects
-                if (tileData.Energy > SparkEnergy && tileData.DistanceFactor > 0.7f)
-                {
-                    sparkTiles.Add(tileData.Tile);
+                    _throwing.TryThrow(localUid, tileData.ThrowDirection * tileData.DistanceFactor);
                 }
             }
-            catch (Exception ex)
-            {
-                Log.Error($"Error processing tile {tileData.Tile} during impact: {ex}");
-            }
+
+            // Mark tiles for breaking/effects
+            if (tileData.Energy > TileBreakEnergy)
+                brokenTiles.Add(tileData.Tile);
+
+            // Mark tiles for spark effects
+            if (tileData.Energy > SparkEnergy && tileData.DistanceFactor > 0.7f)
+                sparkTiles.Add(tileData.Tile);
         }
     }
 
@@ -438,51 +341,28 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         TCollection brokenTiles,
         TCollection sparkTiles) where TCollection : IEnumerable<Vector2i>
     {
-        if (!Exists(uid))
-            return;
-
         // Break tiles
         foreach (var tile in brokenTiles)
-        {
-            try
-            {
-                if (Exists(uid))
-                    _mapSys.SetTile(new Entity<MapGridComponent>(uid, grid), tile, Tile.Empty);
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"Error breaking tile {tile} on grid {ToPrettyString(uid)}: {ex}");
-            }
-        }
+            _mapSys.SetTile(new Entity<MapGridComponent>(uid, grid), tile, Tile.Empty);
 
         // Spawn spark effects
         foreach (var tile in sparkTiles)
         {
-            try
-            {
-                if (!Exists(uid))
-                    continue;
+            var coords = grid.GridTileToLocal(tile);
 
-                var coords = grid.GridTileToLocal(tile);
+            // Validate the coordinates before spawning
+            var mapId = coords.GetMapId(EntityManager);
+            if (mapId == MapId.Nullspace)
+                continue;
 
-                // Validate the coordinates before spawning
-                var mapId = coords.GetMapId(EntityManager);
-                if (mapId == MapId.Nullspace)
-                    continue;
+            if (!_mapManager.MapExists(mapId))
+                continue;
 
-                if (!_mapManager.MapExists(mapId))
-                    continue;
+            var mapPos = coords.ToMap(EntityManager, _transform);
+            if (mapPos.MapId == MapId.Nullspace)
+                continue;
 
-                var mapPos = coords.ToMap(EntityManager, _transform);
-                if (mapPos.MapId == MapId.Nullspace)
-                    continue;
-
-                Spawn("EffectSparks", coords);
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"Error spawning sparks at tile {tile} on grid {ToPrettyString(uid)}: {ex}");
-            }
+            Spawn("EffectSparks", coords);
         }
     }
 }
