@@ -457,6 +457,9 @@
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
+  - type: Tag
+    tags:
+      - BudgetInsuls
 
 # Conductive Insulated Gloves
 - type: entity
