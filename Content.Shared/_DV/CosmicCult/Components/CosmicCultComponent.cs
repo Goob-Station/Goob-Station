@@ -133,10 +133,16 @@ public sealed partial class CosmicCultComponent : Component
     public bool CosmicEmpowered;
 
     /// <summary>
-    /// Wether or not this cultist needs to respirate.
+    /// Whether or not this cultist needs to respirate.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Respiration = true;
+
+    /// <summary>
+    /// Goobstation Change - Shitchap: Whether or not this cultist was weak to holy before conversion.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool WasWeakToHoly;
 
     /// <summary>
     /// A string for storing what damage container this cultist had upon conversion.

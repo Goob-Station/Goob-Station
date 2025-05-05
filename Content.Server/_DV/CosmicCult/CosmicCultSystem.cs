@@ -1,5 +1,6 @@
 using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server._DV.CosmicCult.Components;
+using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
@@ -132,6 +133,12 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         if (TryComp(uid, out EyeComponent? eyeComp))
             _eye.SetVisibilityMask(uid, eyeComp.VisibilityMask | (int) VisibilityFlags.CosmicCultMonument);
+
+        // Goobstation Change - Shitchap
+        if (!HasComp<WeakToHolyComponent>(uid))
+            EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
+        else
+            uid.Comp.WasWeakToHoly = true;
     }
 
     /// <summary>
