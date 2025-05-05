@@ -12,7 +12,7 @@
     size: Small
   - type: MeleeWeapon
     heavyStaminaCost: 2.5
-    attackRate: 1.4
+    attackRate: 1
     damage:
       types:
         Blunt: 12
