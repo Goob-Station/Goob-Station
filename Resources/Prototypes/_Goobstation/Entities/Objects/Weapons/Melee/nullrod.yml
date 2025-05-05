@@ -74,7 +74,7 @@
         Slash: 15
         Holy: 7
     soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
   - type: DamageBoostOnMarker
     boost:
@@ -193,7 +193,7 @@
     speed: 0.3
   - type: Tool
     qualities:
-      - Prying
+    - Prying
   - type: Unremoveable
   - type: Nullrod
     DamageOnUntrainedUse:
@@ -320,7 +320,7 @@
         Slash: 8
         Holy: 6
     soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Small
     storedRotation: -90
@@ -363,10 +363,10 @@
         Holy: 8
         Blunt: 10
     soundHit:
-        collection: RubberHammer
-        params:
-            variation: 0.03
-            volume: 3
+      collection: RubberHammer
+      params:
+        variation: 0.03
+        volume: 3
   - type: KnockdownOnHit
     duration: 0.2
     dropHeldItemsBehavior: DropIfStanding
@@ -399,7 +399,7 @@
     delay: 0
   - type: Tool
     qualities:
-      - Screwing
+    - Screwing
     speedModifier: 1.2
     useSound: /Audio/Items/drill_use.ogg
   - type: ToolTileCompatible
@@ -467,8 +467,8 @@
     distance: 1
   - type: Tag
     tags:
-      - UristHand
-      - Multitool
+    - UristHand
+    - Multitool
 
 - type: entity
   name: his holy chainsaw
@@ -527,55 +527,56 @@
   id: WeaponPistolCasul
   description: The first of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
   components:
-    - type: Nullrod
-      DamageOnUntrainedUse:
-        types:
-          Heat: 20
-      UntrainedUseString: nullrod-pistol-untrained-usage-popup
-    - type: Sprite
-      sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
-      state: icon
-    - type: Clothing
-      sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi # Bweh!
-      quickEquip: false
-      slots:
-        - suitStorage
-        - Belt
-    - type: Gun
-      minAngle: 1
-      maxAngle: 5
-      angleIncrease: 1
-      angleDecay: 4
-      fireRate: 8
-      availableModes:
-        - SemiAuto
-        - FullAuto
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/mk58.ogg # Todo - Change this to be less aggressive
-    - type: Item
-      size: Small
-      shape:
-        - 0,0,1,0
-        - 0,1,0,1
-    - type: BasicEntityAmmoProvider
-      proto: BulletPistolSilver
-      capacity: 5
-      count: 5
-    - type: AmmoCounter
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
-    - type: Multishot
-      spreadMultiplier: 1.25
-    - type: Tag
+  - type: Nullrod
+    DamageOnUntrainedUse:
+      types:
+        Heat: 20
+    UntrainedUseString: nullrod-pistol-untrained-usage-popup
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/casul.rsi # Bweh!
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    minAngle: 1
+    maxAngle: 5
+    angleIncrease: 1
+    angleDecay: 4
+    fireRate: 8
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg # Todo - Change this to be less aggressive
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: BasicEntityAmmoProvider
+    proto: BulletPistolSilver
+    capacity: 5
+    count: 5
+  - type: AmmoCounter
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Multishot
+    spreadMultiplier: 1.25
+  - type: Tag
+    tags:
+    - WeaponPistolCasul
+    - Sidearm
+  - type: RequiresDualWield
+    whitelist:
       tags:
-        - WeaponPistolCasul
-        - Sidearm
-    - type: RequiresDualWield
-      whitelist:
-        tags:
-          - WeaponPistolJackal
-    - type: ReloadOnPray
+      - WeaponPistolJackal
+  - type: ReloadOnPray
+  - type: AlternatePrayable # needs this, since it ain't parented of nullrod.
 
 - type: entity
   name: jackal
@@ -583,16 +584,16 @@
   id: WeaponPistolJackal
   description: The second of two huge pistols, capable of firing regenerating silver bullets. Incapable of firing without its sister gun.
   components:
-    - type: Sprite
-      sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
-      state: icon
-    - type: Clothing
-      sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
-    - type: Tag
+  - type: Sprite
+    sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
+    state: icon
+  - type: Clothing
+    sprite: _ShitChap/Objects/Weapons/Nullrod/jackal.rsi
+  - type: Tag
+    tags:
+    - WeaponPistolJackal
+    - Sidearm
+  - type: RequiresDualWield
+    whitelist:
       tags:
-        - WeaponPistolJackal
-        - Sidearm
-    - type: RequiresDualWield
-      whitelist:
-        tags:
-          - WeaponPistolCasul
+      - WeaponPistolCasul
