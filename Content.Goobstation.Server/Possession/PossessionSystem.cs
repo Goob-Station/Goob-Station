@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Changeling;
+using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
@@ -144,7 +145,7 @@ public sealed partial class PossessionSystem : EntitySystem
     /// <param name="possessionDuration">How long does the possession last in seconds.</param>
     /// <param name="pacifyPossessed">Should the possessor be pacified while inside the possessed body?</param>
     /// <param name="doesMindshieldBlock">Does having a mindshield block being possessed?</param>
-    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false)
+    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false, bool doesChaplainBlock = true)
     {
         // Possessing a dead guy? What.
         if (_mobState.IsIncapacitated(possessed) || HasComp<ZombieComponent>(possessed))
@@ -157,6 +158,12 @@ public sealed partial class PossessionSystem : EntitySystem
         if (doesMindshieldBlock && HasComp<MindShieldComponent>(possessed))
         {
             _popup.PopupClient(Loc.GetString("possession-fail-target-shielded"), possessor, possessor);
+            return false;
+        }
+
+        if (doesChaplainBlock && HasComp<BibleUserComponent>(possessed))
+        {
+            _popup.PopupClient(Loc.GetString("possession-fail-target-chaplain"), possessor, possessor);
             return false;
         }
 
