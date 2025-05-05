@@ -87,13 +87,17 @@
   - type: Organ # Shitmed
     slotId: brain
   - type: Brain # Shitmed
+  - type: Extractable # goob edit
+    grindableSolutionName: organ # goob edit
   - type: SolutionContainerManager
     solutions:
       organ:
-        maxVol: 10
+        maxVol: 15 # goob edit
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
       Lung:
         maxVol: 100
         canReact: False

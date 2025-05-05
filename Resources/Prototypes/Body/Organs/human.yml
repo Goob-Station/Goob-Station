@@ -194,17 +194,23 @@
     - Meat
     - Organ
     - Brain
+  - type: Extractable # goob edit
+    grindableSolutionName: organ # goob edit
   - type: SolutionContainerManager
     solutions:
       organ:
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
       food:
-        maxVol: 5
+        maxVol: 10 # goob edit
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
+        - ReagentId: Cognizine # goob edit
+          Quantity: 5 # goob edit
   - type: FlavorProfile
     flavors:
       - people

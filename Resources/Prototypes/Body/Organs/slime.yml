@@ -49,19 +49,25 @@
         - id: Narcotic
         - id: Alcohol
           rateModifier: 0.25
+    - type: Extractable # goob edit
+      grindableSolutionName: organ # goob edit
     - type: SolutionContainerManager
       solutions:
         stomach:
           maxVol: 50.0
         food:
-          maxVol: 5
+          maxVol: 10 # goob edit
           reagents:
           - ReagentId: GreyMatter
             Quantity: 5
+          - ReagentId: Cognizine # goob edit
+            Quantity: 5 # goob edit
         organ:
           reagents:
           - ReagentId: Slime
             Quantity: 10
+          - ReagentId: Cognizine # goob edit
+            Quantity: 5 # goob edit
     - type: Item
       size: Small
       heldPrefix: brain
