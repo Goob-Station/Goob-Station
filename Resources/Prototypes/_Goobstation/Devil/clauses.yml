@@ -30,6 +30,12 @@
   damageModifierSet: HellSpawn
 
 - type: clause
+  id: brokeness
+  clauseWeight: -20
+  spawnedItems:
+  - ClothingShoesRealJordansAutographed
+
+- type: clause
   id: fearofspace
   clauseWeight: -30
   addedComponents:
@@ -58,6 +64,13 @@
   clauseWeight: -15
   addedComponents:
   - type: Insulated
+
+- type: clause
+  id: gluttony
+  clauseWeight: -15
+  removedComponents:
+  - type: Hunger
+  - type: Thirst
 
 - type: clause
   id: greed
