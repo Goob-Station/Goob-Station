@@ -94,6 +94,6 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - Bible
+    - ChaplainUndeterminedBible
     - RubberStampChaplain
     - Nullrod
