@@ -13,7 +13,6 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -216,6 +215,16 @@
   ignoreArmorPierceFlags: All # Goobstation
 
 - type: damageModifierSet
+  id: HisGraceAscended
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Cold: 0.5
+    Heat: 0.5
+  ignoreArmorPierceFlags: All
+
+- type: damageModifierSet
   id: DevilDealPositive
   coefficients:
     Blunt: 0.50
@@ -246,13 +255,3 @@
   id: StructuralImmunity
   coefficients:
     Structural: 0
-
-- type: damageModifierSet
-  id: HisGraceAscended
-  coefficients:
-    Blunt: 0.5
-    Slash: 0.5
-    Piercing: 0.5
-    Cold: 0.5
-    Heat: 0.5
-  ignoreArmorPierceFlags: All
