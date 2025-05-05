@@ -46,8 +46,14 @@ public sealed partial class PossessedComponent : Component
     [DataField]
     public EntProtoId<InstantActionComponent> EndPossessionAction = "ActionEndPossession";
 
+    [DataField]
+    public bool HideActions = true;
+
     [ViewVariables]
     public EntityUid? ActionEntity = null;
+
+    [ViewVariables]
+    public EntityUid[] HiddenActions;
 
     [ViewVariables]
     public readonly SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");

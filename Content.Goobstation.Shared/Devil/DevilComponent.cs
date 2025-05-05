@@ -25,7 +25,7 @@ public sealed partial class DevilComponent : Component
     };
 
     [DataField]
-    public List<EntityUid> ActionEntities;
+    public List<EntityUid>? ActionEntities;
 
     /// <summary>
     /// The amount of souls or successful contracts the entity has.

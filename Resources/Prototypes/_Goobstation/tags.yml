@@ -82,6 +82,9 @@
   id: CartridgeG8
 
 - type: Tag
+  id: CannotSuicideAny
+
+- type: Tag
   id: Clarke
 
 - type: Tag
