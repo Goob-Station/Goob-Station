@@ -51,8 +51,6 @@
         - id: Narcotic
         - id: Alcohol
           rateModifier: 0.25
-    - type: Extractable # goob edit
-      grindableSolutionName: organ # goob edit
     - type: SolutionContainerManager
       solutions:
         stomach:

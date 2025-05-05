@@ -196,8 +196,6 @@
     - Meat
     - Organ
     - Brain
-  - type: Extractable # goob edit
-    grindableSolutionName: organ # goob edit
   - type: SolutionContainerManager
     solutions:
       organ:
