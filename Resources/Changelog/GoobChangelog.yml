@@ -8501,3 +8501,9 @@ Entries:
       message: Blueshield Officer no longer gets security comms and wanted HUD.
   id: 977
   time: '2025-05-05T10:05:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cosmic cultists not being able to use glyphs.
+  id: 978
+  time: '2025-05-05T15:30:58.0000000+00:00'
