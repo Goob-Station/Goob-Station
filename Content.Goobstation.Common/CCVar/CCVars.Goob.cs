@@ -434,16 +434,19 @@ public sealed partial class GoobCVars
     #region Grid impacts
 
     public static readonly CVarDef<float> MinimumImpactVelocity =
-        CVarDef.Create("shuttle.impact.minimum_velocity", 5f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.minimum_velocity", 5f, CVar.SERVERONLY); // it doesn't do much damage at low velocities
 
     public static readonly CVarDef<float> TileBreakEnergyMultiplier =
-        CVarDef.Create("shuttle.impact.tile_break_energy", 1f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.tile_break_energy", 3000f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> ImpactDamageMultiplier =
+        CVarDef.Create("shuttle.impact.damage_multiplier", 0.0001f, CVar.SERVERONLY);
 
     public static readonly CVarDef<float> SparkEnergy =
-        CVarDef.Create("shuttle.impact.spark_energy", 7000f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.spark_energy", 1000000f, CVar.SERVERONLY);
 
-    public static readonly CVarDef<float> MaxImpactRadius =
-        CVarDef.Create("shuttle.impact.max_radius", 5f, CVar.SERVERONLY);
+    public static readonly CVarDef<float> ImpactRadius =
+        CVarDef.Create("shuttle.impact.radius", 5f, CVar.SERVERONLY);
 
     #endregion
 }

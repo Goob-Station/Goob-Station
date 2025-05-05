@@ -669,11 +669,24 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
-    - type: RustRequiresPathStage # Goobstation
+    # <Goobstation>
+    - type: RustRequiresPathStage
       pathStage: 11 # Can't rust
-    - type: Penetratable # Goobstation - Better snipers
+    - type: Penetratable
       penetrateDamage: 1000
       damagePenalty: 0.8
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 3000 # ramming nukies is a bad idea
+    # </Goobstation>
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -864,6 +877,18 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
+  # <Goobstation>
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000 # double normal density
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
   - type: Penetratable # Goobstation - Better snipers
@@ -871,6 +896,7 @@
     damagePenalty: 0.25
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  # </Goobstation>
 
 - type: entity
   parent: WallReinforced
@@ -1204,13 +1230,26 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  - type: RustRequiresPathStage # Goobstation
+  # <Goobstation>
+  - type: RustRequiresPathStage
     pathStage: 7 # Toxic blade
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable
     penetrateDamage: 90
     damagePenalty: 0.3
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000 # double normal density
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  # </Goobstation>
 
 - type: entity
   parent: BaseWall

@@ -102,10 +102,10 @@ namespace Content.Shared.Maps
 
         // Goobstation
         /// <summary>
-        /// How much energy it takes to break this. Matters for grid impacts.
+        /// Effective mass of this tile for grid impacts.
         /// </summary>
         [DataField]
-        public float Durability = 5000f;
+        public float Mass = 1000f;
 
         /// <remarks>
         /// Legacy AF but nice to have.

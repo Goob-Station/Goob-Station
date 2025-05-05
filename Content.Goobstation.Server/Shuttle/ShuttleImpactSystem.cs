@@ -24,7 +24,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Threading;
 using System.Numerics;
@@ -51,40 +53,45 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// <summary>
     /// Minimum velocity difference between 2 bodies for a shuttle "impact" to occur.
     /// </summary>
-    private float MinimumImpactVelocity = 15;
+    private float MinimumImpactVelocity;
 
     /// <summary>
-    /// Multiplier of Kinetic energy required to dismantle a single tile
+    /// Multiplier of Kinetic energy required to dismantle a single tile in relation to its mass
     /// </summary>
-    private float TileBreakEnergyMultiplier = 1;
+    private float TileBreakEnergyMultiplier;
 
-    private const float PlatingBreakEnergy = 5000f;
+    /// <summary>
+    /// Multiplier of damage done to entities on colliding areas
+    /// </summary>
+    private float DamageMultiplier;
 
     /// <summary>
     /// Kinetic energy required to spawn sparks
     /// </summary>
-    private float SparkEnergy = 7000;
+    private float SparkEnergy;
 
     /// <summary>
-    /// Maximum impact radius in tiles
+    /// Area to consider for impact calculations
     /// </summary>
-    private float MaxImpactRadius = 5;
+    private float ImpactRadius;
+
+    private const float PlatingMass = 800f;
 
     private readonly SoundCollectionSpecifier _shuttleImpactSound = new("ShuttleImpactSound");
 
     public override void Initialize()
     {
         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
-            Subs.CVar(_cfg, GoobCVars.MinimumImpactVelocity, value => MinimumImpactVelocity = value, true);
-            Subs.CVar(_cfg, GoobCVars.TileBreakEnergyMultiplier, value => TileBreakEnergyMultiplier = value, true);
-            Subs.CVar(_cfg, GoobCVars.SparkEnergy, value => SparkEnergy = value, true);
-            Subs.CVar(_cfg, GoobCVars.MaxImpactRadius, value => MaxImpactRadius = value, true);
+
+        Subs.CVar(_cfg, GoobCVars.MinimumImpactVelocity, value => MinimumImpactVelocity = value, true);
+        Subs.CVar(_cfg, GoobCVars.TileBreakEnergyMultiplier, value => TileBreakEnergyMultiplier = value, true);
+        Subs.CVar(_cfg, GoobCVars.ImpactDamageMultiplier, value => DamageMultiplier = value, true);
+        Subs.CVar(_cfg, GoobCVars.SparkEnergy, value => SparkEnergy = value, true);
+        Subs.CVar(_cfg, GoobCVars.ImpactRadius, value => ImpactRadius = value, true);
     }
 
     /// <summary>
     /// Handles collision between two shuttles, applying impact damage and effects.
-    /// Larger shuttles (by mass) will not experience impact effects when colliding with smaller shuttles.
-    /// Smaller shuttles will still experience the full impact regardless.
     /// </summary>
     private void OnShuttleCollide(EntityUid uid, ShuttleComponent component, ref StartCollideEvent args)
     {
@@ -121,15 +128,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         if (jungleDiff < MinimumImpactVelocity)
             return;
 
-        var energy = ourBody.Mass * MathF.Pow(jungleDiff, 2) / 2;
         var dir = (ourVelocity.Length() > otherVelocity.Length() ? ourVelocity : -otherVelocity).Normalized();
-
-        // Calculate the impact radius based on energy, but capped at MaxImpactRadius
-        var impactRadius = MathF.Min(
-            MathF.Sqrt(energy / PlatingBreakEnergy),
-            MaxImpactRadius
-        );
-
         // Convert the collision point directly to tile indices
         var ourTile = new Vector2i((int)Math.Floor(ourPoint.X / ourGrid.TileSize), (int)Math.Floor(ourPoint.Y / ourGrid.TileSize));
 
@@ -153,12 +152,19 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         bool ourShuttleIsHeavier = ourBody.Mass > otherBody.Mass;
         bool otherShuttleIsHeavier = otherBody.Mass > ourBody.Mass;
 
-        // Process impact zones sequentially to avoid race conditions
-        if (HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
-            ProcessImpactZone(uid, ourGrid, ourTile, (float)energy, -dir, impactRadius);
+        var ourMass = GetRegionMass(uid, ourGrid, ourTile, ImpactRadius);
+        var otherMass = GetRegionMass(args.OtherEntity, otherGrid, otherTile, ImpactRadius);
+        Log.Info($"Shuttle impact of {ToPrettyString(uid)} with {ToPrettyString(args.OtherEntity)}; our mass: {ourMass}, other: {otherMass}, velocity {jungleDiff}");
 
-        if (HasComp<Robust.Shared.Physics.BroadphaseComponent>(args.OtherEntity))
-            ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, (float)energy, dir, impactRadius);
+        var energyMult = MathF.Pow(jungleDiff, 2) / 2;
+        var biasMult = MathF.Sqrt(ourMass / otherMass); // multiplier to make the area with more mass take less damage so a reinforced wall rammer doesn't die to lattice
+        var ourEnergy = ourMass * energyMult * MathF.Min(1f, biasMult);
+        var otherEnergy = otherMass * energyMult / MathF.Max(1f, biasMult);
+        // Process impact zones sequentially to avoid race conditions
+        var ourRadius = Math.Min(ImpactRadius, MathF.Sqrt(otherEnergy / TileBreakEnergyMultiplier / PlatingMass));
+        var otherRadius = Math.Min(ImpactRadius, MathF.Sqrt(ourEnergy / TileBreakEnergyMultiplier / PlatingMass));
+        ProcessImpactZone(uid, ourGrid, ourTile, otherEnergy, -dir, ourRadius);
+        ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, ourEnergy, dir, otherRadius);
 
         // knockdown entities on our shuttle if other is heavier
         if (otherShuttleIsHeavier)
@@ -243,6 +249,42 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         }
     }
 
+    // this is fairly cold code so i don't think the performance impact of this matters THAT much
+    private float GetRegionMass(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float radius)
+    {
+        var mass = 0f;
+        var ceilRadius = (int)MathF.Ceiling(radius);
+        HashSet<EntityUid> counted = new();
+        for (var x = -ceilRadius; x <= ceilRadius; x++)
+        {
+            for (var y = -ceilRadius; y <= ceilRadius; y++)
+            {
+                if (x*x + y*y > radius*radius)
+                    continue;
+
+                Vector2i tile = new Vector2i(centerTile.X + x, centerTile.Y + y);
+                var tileRef = _mapSys.GetTileRef(uid, grid, tile);
+                if (tileRef.Tile != Tile.Empty)
+                {
+                    var def = (ContentTileDefinition)_tileDef[tileRef.Tile.TypeId];
+                    mass += def.Mass;
+                }
+
+                foreach (var localUid in _lookup.GetLocalEntitiesIntersecting(uid, tile, gridComp: grid))
+                {
+                    if (counted.Contains(localUid))
+                        continue;
+
+                    if (TryComp<PhysicsComponent>(localUid, out var physics))
+                        mass += physics.FixturesMass;
+
+                    counted.Add(localUid);
+                }
+            }
+        }
+        return mass;
+    }
+
     /// <summary>
     /// Processes a zone of tiles around the impact point
     /// </summary>
@@ -324,7 +366,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             foreach (var localUid in entitiesOnTile)
             {
                 // Apply damage scaled by distance but capped to prevent gibbing
-                var scaledDamage = tileData.Energy;
+                var scaledDamage = tileData.Energy * DamageMultiplier;
                 var damageSpec = new DamageSpecifier(damageTemplate)
                 {
                     DamageDict = { ["Blunt"] = scaledDamage }
@@ -344,7 +386,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
             // Mark tiles for breaking/effects
             var def = (ContentTileDefinition)_tileDef[_mapSys.GetTileRef(uid, grid, tileData.Tile).Tile.TypeId];
-            if (tileData.Energy > def.Durability * TileBreakEnergyMultiplier)
+            if (tileData.Energy > def.Mass * TileBreakEnergyMultiplier)
                 brokenTiles.Add(tileData.Tile);
 
             // Mark tiles for spark effects
@@ -391,7 +433,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     private bool OnOrNearGrid(
         Entity<MapGridComponent> grid,
         EntityCoordinates at,
-        int tolerance = 1
+        int tolerance = 2
     )
     {
         for (int x = -tolerance; x <= tolerance; x++)
