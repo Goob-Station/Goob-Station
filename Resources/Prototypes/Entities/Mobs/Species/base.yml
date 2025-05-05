@@ -491,6 +491,7 @@
     damage:
       types:
         Heat: -0.07
+        Holy: -0.07
       groups:
         Brute: -0.07
   - type: Fingerprint
