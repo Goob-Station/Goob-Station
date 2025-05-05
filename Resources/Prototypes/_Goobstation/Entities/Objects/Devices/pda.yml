@@ -117,7 +117,7 @@
     borderColor: "#00842e"
 
 - type: entity
-  parent: ERTLeaderPDA
+  parent: BaseMedicalPDA
   id: BlueshieldPDA
   name: blueshield officer PDA
   description: The silver shield of the Blueshield is engraved on the front.
