@@ -41,26 +41,26 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// <summary>
     /// Minimum velocity difference between 2 bodies for a shuttle "impact" to occur.
     /// </summary>
-    private const int MinimumImpactVelocity = 15;
+    private const int MinimumImpactVelocity = 10; // Goob - lowered a bit since we're not a shuttle-centric fork
 
     /// <summary>
     /// Kinetic energy required to dismantle a single tile
     /// </summary>
-    private const float TileBreakEnergy = 10000;
+    private const float TileBreakEnergy = 5000;
 
     /// <summary>
     /// Kinetic energy required to spawn sparks
     /// </summary>
-    private const float SparkEnergy = 14000;
+    private const float SparkEnergy = 7000;
 
     /// <summary>
     /// Maximum impact radius in tiles
     /// </summary>
-    private const int MaxImpactRadius = 1;
+    private const int MaxImpactRadius = 3;
 
     private readonly SoundCollectionSpecifier _shuttleImpactSound = new("ShuttleImpactSound");
 
-    private void InitializeImpact()
+    public override void Initialize()
     {
         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
     }
@@ -120,7 +120,17 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         // Play impact sound
         var coordinates = new EntityCoordinates(ourXform.MapUid.Value, args.WorldPoint);
+        var volume = MathF.Min(10f, 1f * MathF.Pow(jungleDiff, 0.5f) - 5f);
+        var audioParams = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(volume);
 
+        try
+        {
+            _audio.PlayPvs(_shuttleImpactSound, coordinates, audioParams);
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Error playing shuttle impact sound: {ex}");
+        }
         // Compare masses to determine which shuttle should process the impact
         bool ourShuttleIsHeavier = ourBody.Mass > otherBody.Mass;
         bool otherShuttleIsHeavier = otherBody.Mass > ourBody.Mass;
@@ -128,8 +138,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         // Process impact zones sequentially to avoid race conditions
         try
         {
-            // Only apply impact to our shuttle if it's not heavier
-            if (!ourShuttleIsHeavier && Exists(uid) && HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
+            if (Exists(uid) && HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))
             {
                 ProcessImpactZone(uid, ourGrid, ourTile, (float)energy, -dir, impactRadius);
             }
@@ -141,8 +150,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         try
         {
-            // Only apply impact to other shuttle if it's not heavier
-            if (!otherShuttleIsHeavier && Exists(args.OtherEntity) && HasComp<Robust.Shared.Physics.BroadphaseComponent>(args.OtherEntity))
+            if (Exists(args.OtherEntity) && HasComp<Robust.Shared.Physics.BroadphaseComponent>(args.OtherEntity))
             {
                 ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, (float)energy, dir, impactRadius);
             }

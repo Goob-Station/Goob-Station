@@ -62,7 +62,8 @@ public sealed partial class ShuttleSystem
 
     private void InitializeImpact()
     {
-        SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
+        // Goobstation - replaced by ShuttleImpactSystem.cs, yes i know this is cursed but 1984Toolbox doesn't let me have 2 subscriptions for one event+comp pair
+        //SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
     }
 
     private void OnShuttleCollide(EntityUid uid, ShuttleComponent component, ref StartCollideEvent args)
