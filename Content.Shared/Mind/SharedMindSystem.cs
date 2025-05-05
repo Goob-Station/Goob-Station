@@ -456,6 +456,21 @@ public abstract class SharedMindSystem : EntitySystem
         return false;
     }
 
+    // Begin DeltaV - Cosmic Cult Deconversion
+    public void ClearObjectives(EntityUid mind, MindComponent? comp = null)
+    {
+        if (!Resolve(mind, ref comp))
+            return;
+
+        foreach (var obj in comp.Objectives)
+        {
+            QueueDel(obj);
+        }
+        comp.Objectives.Clear();
+        Dirty(mind, comp);
+    }
+    // End DeltaV - Cosmic Cult Deconversion
+
     /// <summary>
     /// Tries to find an objective that has the same prototype as the argument.
     /// </summary>
