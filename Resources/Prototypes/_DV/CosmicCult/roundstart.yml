@@ -19,6 +19,7 @@
       min: 2
       max: 6
       playerRatio: 10
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - AntagImmune
