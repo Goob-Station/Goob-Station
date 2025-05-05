@@ -41,6 +41,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Alphabetical order people!
+
+- type: Tag
+  id: ArrythmicKnife
+
+- type: Tag
+  id: AthiestsFedora
+
 - type: Tag
   id: AntagGateway
 
@@ -49,6 +56,9 @@
 
 - type: Tag
   id: BindSoulAction
+
+- type: Tag
+  id: Bible
 
 - type: Tag
   id: Blobbernaut
@@ -61,6 +71,9 @@
 
 - type: Tag
   id: BolaEnergy
+
+- type: Tag
+  id: BudgetInsuls
 
 - type: Tag
   id: BreadEmergency
@@ -82,6 +95,9 @@
 
 - type: Tag
   id: CartridgeG8
+
+- type: Tag
+  id: Chair
 
 - type: Tag
   id: Clarke
@@ -198,6 +214,9 @@
   id: GasMask
 
 - type: Tag
+  id: GodHand
+
+- type: Tag
   id: GorillaFormAction
 
 - type: Tag
@@ -256,6 +275,12 @@
 
 - type: Tag
   id: HEVSuit
+
+- type: Tag
+  id: HolyClaymore
+
+- type: Tag
+  id: HonkmotherMaw
 
 - type: Tag
   id: IgnoreBindSoul
@@ -333,6 +358,9 @@
   id: ModsuitShell
 
 - type: Tag
+  id: MonkStaff
+
+- type: Tag
   id: Muzzle
 
 - type: Tag
@@ -343,6 +371,9 @@
 
 - type: Tag
   id: NukeOpsReinforcementUplink
+
+- type: Tag
+  id: Nullrod
 
 - type: Tag
   id: Organ
@@ -363,7 +394,13 @@
   id: RipleyMkII
 
 - type: Tag
+  id: Rosary
+
+- type: Tag
   id: SecurityBreathMask
+
+- type: Tag
+  id: ShadowCloakAction
 
 - type: Tag
   id: ShowWizardIcons
@@ -408,6 +445,9 @@
   id: Table
 
 - type: Tag
+  id: TemplarHelmet
+
+- type: Tag
   id: Tesla
 
 - type: Tag
@@ -424,6 +464,9 @@
 
 - type: Tag
   id: Undead
+
+- type: Tag
+  id: UristHand
 
 - type: Tag
   id: VehicleKey
@@ -451,6 +494,12 @@
 
 - type: Tag
   id: WelderIndustrial
+
+- type: Tag
+  id: WeaponPistolCasul
+
+- type: Tag
+  id: WeaponPistolJackal
 
 - type: Tag
   id: WinterCoat

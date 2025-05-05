@@ -311,6 +311,9 @@
     sprite: Clothing/Head/Helmets/templar.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - TemplarHelmet
 
 #Thunderdome Helmet
 - type: entity
