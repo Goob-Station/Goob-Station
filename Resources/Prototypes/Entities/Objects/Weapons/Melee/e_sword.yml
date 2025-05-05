@@ -218,7 +218,6 @@
         shader: unshaded
   - type: Reflect # Goob edit
     reflectProb: .5
-    otherTypeReflectProb: .1
     reflects:
       - Energy
   - type: IgnitionSource
@@ -323,7 +322,6 @@
     netsync: false
   - type: Reflect # Goob edit
     reflectProb: .25
-    otherTypeReflectProb: 0
 
 - type: entity
   name: pen
@@ -399,7 +397,6 @@
     reflectProb: 0.25 #Goob rebalace
     reflects: #Goob rebalance
       - Energy
-    otherTypeReflectProb: 0
     spread: 30
 
 - type: entity
@@ -517,7 +514,6 @@
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect # Goob edit
     reflectProb: 1
-    otherTypeReflectProb: .2
     spread: 75
   - type: FlipOnHit # WD EDIT
   - type: ThrowableBlocker # Goobstation

@@ -19,7 +19,7 @@ namespace Content.Shared.Damage.Components;
 /// <summary>
 /// Passively damages the entity on a specified interval.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)] // Goobstation - Networked all  fields
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation - Networked all  fields
 public sealed partial class PassiveDamageComponent : Component
 {
     /// <summary>
