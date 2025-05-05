@@ -260,8 +260,10 @@ public sealed class FaxSystem : EntitySystem
     private void OnComponentInit(EntityUid uid, FaxMachineComponent component, ComponentInit args)
     {
         // <Goobstation> - define the slot in ItemSlots instead of adding it
-        _itemSlotsSystem.TryGetSlot(uid, PaperSlotId, out var slot);
-        component.PaperSlot = slot!;
+        if (_itemSlotsSystem.TryGetSlot(uid, PaperSlotId, out var slot))
+            component.PaperSlot = slot;
+        else
+            throw new InvalidOperationException($"{ToPrettyString(uid)} missing paper slot {PaperSlotId}");
         // </Goobstation>
         UpdateAppearance(uid, component);
     }
