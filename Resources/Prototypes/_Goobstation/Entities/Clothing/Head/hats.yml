@@ -6,10 +6,12 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+# SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -100,7 +102,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatPropeller
   name: propeller hat hat
   description: Aw gee willickers!
@@ -109,6 +111,16 @@
     sprite: _Goobstation/Clothing/Head/Hats/propeller.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/propeller.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHeadHatPropeller, ClothingHeadHeadHatBaseFlipped]
+  id: ClothingHeadHatPropellerFlipped
+  name: propeller hat hat
+  components:
   - type: Tag
     tags:
     - ClothMade
@@ -154,3 +166,28 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
 
+
+
+- type: entity
+  parent: [ClothingHeadBase, BaseSecurityCommandContraband]
+  id: ClothingHeadHatBeretHeadOfSecurityAdvanced
+  name: head of security's parade beret
+  description: A particularly gilded beret, designed for the Head of Security.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.85
+        Radiation: 0.90
+        Caustic: 0.90
+        Heat: 0.90
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

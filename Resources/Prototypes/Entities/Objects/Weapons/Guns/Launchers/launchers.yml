@@ -122,6 +122,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -143,6 +144,8 @@
     - Back
   - type: Item
     size: Huge
+    shape: # Goobstation
+    - 0,0,5,2
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
@@ -168,7 +171,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.6 # Goobstation
+    fireRate: 1
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -417,7 +420,7 @@
     - type: PacifismAllowedGun
 
 - type: entity
-  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseGrandTheftContraband]
+  parent: [BaseWeaponLauncher, BaseSecurityEngineeringContraband]
   id: WeaponLauncherSingularityBuster
   name: singularity buster rocket launcher
   description: An experimental rocket launcher designed to fire rockets capable of decomposing a singularity or tesla.
@@ -431,12 +434,16 @@
     sprite: Objects/Weapons/Guns/Launchers/buster_rocket.rsi
     slots:
     - Back
-    - suitStorage
+  - type: Item
+    shape:
+    - 0,0,5,2
+  - type: MultiHandedItem
   - type: Gun
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
   - type: BallisticAmmoProvider
+    autoCycle: false
     whitelist:
       tags:
       - CartridgeRocket
@@ -444,14 +451,9 @@
     capacity: 1
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: StealTarget
-    stealGroup: WeaponLauncherSingularityBuster
   - type: Appearance
   - type: StaticPrice
     price: 1000
-  - type: Tag
-    tags:
-    - HighRiskItem
 
 # Admeme
 - type: entity

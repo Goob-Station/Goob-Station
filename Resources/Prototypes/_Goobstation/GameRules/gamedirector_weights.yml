@@ -20,6 +20,7 @@
     Heretic: 0.11
     BlobGameMode: 0.05
     Wizard: 0.007
+    CosmicCult: 0.12 # make it semi often so we can test it
     #HonkOps: 0.01 # this test fail was real holy shit it was only a preset the entire a time i was lied too by myself
 
 
@@ -31,6 +32,7 @@
   - Zombie
   - Revolutionary
   - BlobGameMode
+  - CosmicCult
 
 - type: incompatibleModes
   id: HonkOps
@@ -40,6 +42,7 @@
   - Zombie
   - Revolutionary
   - BlobGameMode
+  - CosmicCult
 
 - type: incompatibleModes
   id: Wizard
@@ -51,16 +54,29 @@
   modes:
   - BlobGameMode
   - Nukeops
+  - CosmicCult
   - HonkOps
 
 - type: incompatibleModes
   id: Zombie
   modes:
   - Nukeops
+  - CosmicCult
   - HonkOps
 
 - type: incompatibleModes
   id: Revolutionary
   modes:
   - Nukeops
+  - CosmicCult
   - HonkOps
+
+- type: incompatibleModes
+  id: CosmicCult
+  modes:
+  - Nukeops
+  - HonkOps
+  - Zombie
+  - Revolutionary
+  - BlobGameMode
+  - CosmicCult

@@ -53,6 +53,8 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -143,6 +145,10 @@ public sealed class PacificationSystem : EntitySystem
         // Allow attacking with no target. This should be fine.
         // If it's a wide swing, that will be handled with a later AttackAttemptEvent raise.
         if (args.Target == null)
+            return;
+
+        // Goobstation - can attack self while pacified
+        if (uid == args.Target)
             return;
 
         // If we would do zero damage, it should be fine.

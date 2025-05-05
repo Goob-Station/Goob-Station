@@ -1,0 +1,15 @@
+- type: entity
+  id: HellHand
+  parent: Pentagram
+  name: hell hand
+  description: A hellish hand from below!
+  components:
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Effects/hellhand.rsi
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - state: hellhand
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 1
