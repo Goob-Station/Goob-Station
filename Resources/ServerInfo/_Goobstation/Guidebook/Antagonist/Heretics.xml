@@ -20,6 +20,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
   - Sacrificing crew members your dark patrons hunger for.
   - Automatically getting one knowledge point every 20 minutes.
 
+  ## The Chaplain
+  A powerful foe indeed, try to steer clear of the Chaplain as their Null Rod and it's variants will deal holy damage to you while you're wielding heretical equipment!
+
+  Heretics can heal holy damage a few ways:
+  - Standing on a transmutation rune.
+  - Drinking from the Eldritch Flask.
+
   ## Eldritch Influences
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluence" Caption=""/>

@@ -87,6 +87,54 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+#START SET SELECTION
+- type: entity
+  id: ChaplainUndeterminedBible
+  name: bluespace scripture beacon
+  description: Though I walk through the valley of the shadow of death I will fear no evil, for you are with me.
+  parent: [ BaseItem, BaseSetSelector ]
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Objects/scripturebeacon.rsi
+    state: icon
+  - type: SetSelector
+    possibleSets:
+    - BibleSet
+    - QuaranSet
+    - TanakhSet
+    maxSelectedSets: 1
+
+- type: selectableSet
+  id: BibleSet
+  name: The Holy Bible
+  description: Sever any tie, but the ties that bind me to your service and to your heart.
+  sprite:
+    sprite: Objects/Specific/Chapel/bible.rsi
+    state: icon
+  content:
+  - Bible
+
+- type: selectableSet
+  id: QuaranSet
+  name: The Quaran
+  description: Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?
+  sprite:
+    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
+    state: icon
+  content:
+  - BibleQuaran
+
+- type: selectableSet
+  id: TanakhSet
+  name: The Tanakh Scrolls
+  description: As you teach, you learn.
+  sprite:
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll2
+  content:
+  - BibleTanakh
+##END SET SELECTION
+
 - type: entity
   name: bible
   description: New Interstellar Version 2340.
@@ -114,8 +162,11 @@
       types:
         Holy: 5 # Goobstation - bro wtf
         Blunt: 1
-  - type: Prayable
-    bibleUserOnly: true
+  #- type: Prayable - no, use the altar
+  #  bibleUserOnly: true
+  - type: AlternatePrayable # Goobstation
+    requireBibleUser: false
+  - type: HealUserOnPray # Goobstation - Heal that holy damage
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
   - type: ReactionMixer
@@ -138,9 +189,10 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+  - type: Material
   - type: Tag
     tags:
-    - Book
+    - Bible
   - type: StealTarget
     stealGroup: Bible
   - type: EnchantingTool # Goobstation

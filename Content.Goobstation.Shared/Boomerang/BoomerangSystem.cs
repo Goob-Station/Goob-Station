@@ -1,7 +1,10 @@
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 //
@@ -87,9 +90,9 @@ public sealed class BoomerangSystem : EntitySystem
 
         _physicsSystem.SetBodyStatus(uid, boomerangPhysicsComponent, BodyStatus.InAir);
         _throwingSystem.TryThrow(uid, throwerCoords, user: component.Thrower.Value);
+        component.SendBack = false;
         if(!TryComp<MeleeThrowOnHitComponent>(uid, out var meleeThrowOnHitComponent))
             return;
         meleeThrowOnHitComponent.ActivateOnThrown = false;
-        component.SendBack = false;
     }
 }
