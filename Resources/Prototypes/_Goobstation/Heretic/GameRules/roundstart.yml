@@ -32,9 +32,11 @@
       max: 5
       playerRatio: 15
       lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       mindRoles:
       - MindRoleHeretic
       components:
+      - type: WeakToHoly
       - type: CanEnchant
   - type: Tag
     tags:
@@ -60,9 +62,11 @@
       max: 3
       playerRatio: 15
       lateJoinAdditional: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       mindRoles:
       - MindRoleHeretic
       components:
+      - type: WeakToHoly
       - type: CanEnchant
   - type: Tag
     tags:

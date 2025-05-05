@@ -1,0 +1,27 @@
+- type: constructionGraph
+  id: FieryCrossGraph
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: BonfireNode
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: WoodPlank
+        amount: 10
+        doAfter: 1
+
+  - node: BonfireNode
+    entity: FieryCross
+    edges:
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: MaterialWoodPlank1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 1
