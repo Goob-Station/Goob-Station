@@ -8463,3 +8463,23 @@ Entries:
         will be promoted to a leader.
   id: 974
   time: '2025-05-05T01:07:43.0000000+00:00'
+- author: TheBorzoiMustConsume, SolsticeOfTheWinter, Aviu00, gusxyz
+  changes:
+    - type: Add
+      message: Nullrod & it's variants
+    - type: Add
+      message: Fiery crosses to burn heretics like it's Walpurgisnacht!
+    - type: Add
+      message: Altar Crafting Recipe/s
+    - type: Add
+      message: Heretics can now take holy damage
+    - type: Add
+      message: Unholy (Heretic) and Magic (Wizard) Nullrod/Chaplain interactions.
+    - type: Add
+      message: New equipment in the PietyVend
+    - type: Add
+      message: A new chaplain guidebook entry
+    - type: Add
+      message: New information in the heretic guidebook
+  id: 975
+  time: '2025-05-05T03:36:13.0000000+00:00'
