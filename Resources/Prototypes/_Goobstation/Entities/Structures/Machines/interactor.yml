@@ -1,0 +1,119 @@
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: [ ConstructibleMachine, BaseMachinePowered, BaseAutomatedMachine ]
+  id: Interactor
+  name: interactor
+  description: A high-tech robotic arm capable of moving items to and from machines that have automation upgrades.
+  components:
+  # Visuals
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/interactor.rsi
+    layers:
+    - state: base
+    - state: powered
+      shader: unshaded
+      visible: false
+      map: [ powered ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        powered:
+          True: { visible: true }
+          False: { visible: false }
+  # Physics
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.25
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+      interactor_target:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,0.55,0.45,1.45"
+        density: 100
+        hard: false
+        layer:
+        - Impassable
+  # Construction
+  - type: Machine
+    board: InteractorCircuitboard
+  - type: Construction
+    containers:
+    - machine_board
+    - machine_parts
+    - interactor_tool
+    - filter_slot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - interactor_tool
+    - filter_slot
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      interactor_tool: !type:ContainerSlot
+      filter_slot: !type:ContainerSlot
+  # Interactor
+  - type: ItemSlots
+    slots:
+      filter_slot:
+        whitelist:
+          components:
+          - AutomationFilter
+  - type: Interactor
+  - type: FilterSlot
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedHand
+      input: AutomationSlotTool
+      output: AutomationSlotTool
+      handName: interactor_tool
+    - !type:AutomatedItemSlot
+      input: AutomationSlotFilter
+      output: AutomationSlotFilter
+      slotId: filter_slot
+  # Fake interaction stuff
+  - type: DoAfter
+    raiseEndedEvent: true # so Completed can be fired off
+  - type: Hands
+    showInHands: false
+  - type: Strippable
+    handDelay: 0.5
+  - type: UserInterface # need stripping to be able to add/remove items without a robotic arm
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: HandsFill
+    hands:
+      interactor_tool: null # no tool by default
+  - type: ComplexInteraction
+  # Linking
+  - type: DeviceLinkSink
+    ports:
+    - InteractorStart
+  - type: DeviceLinkSource
+    ports:
+    - InteractorStarted
+    - InteractorCompleted
+    - InteractorFailed
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 5
+  # Power
+  - type: ApcPowerReceiver
+    powerLoad: 3500
+  - type: PowerSwitch

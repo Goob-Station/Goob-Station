@@ -54,6 +54,15 @@
         ents: []
   - type: ApcPowerReceiver
     powerLoad: 10000
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedStorage
+      input: AutomationSlotStorage
+      output: AutomationSlotStorage
+    - !type:AutomatedHand
+      input: AutomationSlotAutodocHand
+      output: AutomationSlotAutodocHand
+      handName: surgery_specific
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired

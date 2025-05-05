@@ -65,3 +65,22 @@
   id: AutomationSlotStorage
   name: signal-port-name-automation-slot-storage
   description: signal-port-description-automation-slot-storage
+
+# Interactor
+
+- type: sinkPort
+  id: AutomationSlotTool
+  name: signal-port-name-automation-slot-tool
+  description: signal-port-description-automation-slot-tool
+
+- type: sinkPort
+  id: InteractorStart
+  name: signal-port-name-interactor-start
+  description: signal-port-description-interactor-start
+
+# Autodoc
+
+- type: sinkPort
+  id: AutomationSlotAutodocHand
+  name: signal-port-name-automation-slot-autodoc-hand
+  description: signal-port-description-automation-slot-autodoc-hand
