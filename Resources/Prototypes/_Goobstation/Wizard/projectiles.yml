@@ -22,7 +22,7 @@
     stunAmount: 6
     knockdownAmount: 6
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: PointLight
     enabled: true
     color: "#FF87FF"
@@ -66,7 +66,7 @@
     layers:
     - state: icon
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Projectile
     soundHit:
       path: /Audio/Weapons/smash.ogg
@@ -113,7 +113,7 @@
       shader: unshaded
       map: [ "base" ]
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Projectile
     damage:
       types:
@@ -229,7 +229,7 @@
     - state: arcane_barrage
       shader: unshaded
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Projectile
     damage:
       types:
@@ -266,6 +266,8 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective: Magic
   - type: Projectile
     damage:
       types:
@@ -303,8 +305,9 @@
     whitelist:
       components:
       - Body
+  - type: TriggerOnProjectileHit
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
   - type: Trail
@@ -355,7 +358,7 @@
       types:
         Heat: 600
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
   - type: Trail
@@ -395,7 +398,7 @@
     teleportAttempts: 1
     forceSafeTeleport: false
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
 
@@ -418,7 +421,7 @@
   - type: IgniteOnCollide
     fireStacks: 10
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
   - type: PointLight
@@ -449,7 +452,7 @@
       - Temperature
       - Body
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
 
@@ -482,7 +485,7 @@
       - Transform
       - Body
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
   - type: Trail
@@ -512,7 +515,7 @@
       types:
         Heat: 0
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
   - type: SpawnEntitiesOnHit
@@ -544,7 +547,7 @@
       types:
         Radiation: 20
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
 
@@ -552,7 +555,7 @@
   id: ProjectileEmpBolt
   name: electromagnetic bolt
   description: Energy low!!!
-  parent: BaseBulletTrigger
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -565,9 +568,10 @@
       types:
         Ion: 30
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
+  - type: TriggerOnProjectileHit
   - type: EmpOnTrigger
     range: 3
     energyConsumption: 50000
@@ -590,7 +594,7 @@
       types:
         Heat: 0
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
   - type: SmokeOnTrigger
@@ -627,7 +631,7 @@
       types:
         Heat: 0
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Ammo
     muzzleFlash: null
   - type: SpawnOnTrigger
@@ -660,7 +664,7 @@
       types:
         Slash: 20
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: LifeStealOnProjectileHit
     whitelist:
       requireAll: true
@@ -693,7 +697,7 @@
     - state: magicm
       shader: unshaded
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: PointLight
     enabled: true
     color: "#FF87FF"

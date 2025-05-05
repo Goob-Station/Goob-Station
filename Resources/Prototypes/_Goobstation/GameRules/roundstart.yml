@@ -37,6 +37,7 @@
     - prefRoles: [ Changeling ]
       max: 4
       playerRatio: 12
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -201,6 +202,7 @@
     definitions:
     - prefRoles: [ Blob ]
       allowNonHumans: true
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       blacklist:
         components:
         - AntagImmune

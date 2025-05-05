@@ -470,6 +470,21 @@ public abstract partial class SharedMindSystem : EntitySystem
         return false;
     }
 
+    // Begin DeltaV - Cosmic Cult Deconversion
+    public void ClearObjectives(EntityUid mind, MindComponent? comp = null)
+    {
+        if (!Resolve(mind, ref comp))
+            return;
+
+        foreach (var obj in comp.Objectives)
+        {
+            QueueDel(obj);
+        }
+        comp.Objectives.Clear();
+        Dirty(mind, comp);
+    }
+    // End DeltaV - Cosmic Cult Deconversion
+
     /// <summary>
     /// Copies objectives from one mind to another, so that they are shared between two players.
     /// </summary>
