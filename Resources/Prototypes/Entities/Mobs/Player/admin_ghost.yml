@@ -235,6 +235,12 @@
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: SupermatterImmune # Goobstation
+  - type: Eye
+    visMask:
+      - Ghost
+      - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
+      - Abductor
 
 - type: entity
   id: ActionAGhostShowSolar

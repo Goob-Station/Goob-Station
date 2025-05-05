@@ -185,7 +185,7 @@
   description: uplink-WSPR-desc
   productEntity: WeaponRifleWSPR
   cost:
-    Telecrystal: 65
+    Telecrystal: 65 # fire
   categories:
   - UplinkWeaponry
 
@@ -258,19 +258,25 @@
     -  UplinkWeaponry
 
 - type: listing
-  id: UplinkWeaponHeavensgate
-  name: uplink-heavensgate-name
-  description: uplink-heavensgate-desc
-  productEntity: WeaponSniperHeavensGate
+  id: UplinkWeaponHE1SG8
+  name: uplink-he1sg8-bundle-name
+  description: uplink-he1sg8-bundle-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
+  productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
   cost:
-    Telecrystal: 100
+    Telecrystal: 130
   categories:
-  -  UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+    - UplinkWeaponry
+
+- type: listing
+  id: UplinkWeaponCombatShotgun
+  name: uplink-combat-shotgun-name
+  description: uplink-combat-shotgun-desc
+  productEntity: WeaponShotgunCombat
+  cost:
+    Telecrystal: 50
+  categories:
+    -  UplinkWeaponry
 
 # Wearables
 
@@ -677,7 +683,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
   productEntity: MagazineLightRifleBox
   cost:
-    Telecrystal: 25 # 5 times as much total damage as C20 mag - 5 time as much cost
+    Telecrystal: 20
   categories:
   - UplinkAmmo
 
@@ -688,7 +694,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 10 # Slightly more total damage compared to C20 mags, also they have partial AP so more expensive
+    Telecrystal: 8
   categories:
   - UplinkAmmo
 
@@ -699,7 +705,7 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 20 # 2x as much compared to regular mags.
+    Telecrystal: 12
   categories:
   - UplinkAmmo
 
@@ -722,7 +728,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
   productEntity: MagazineRifle
   cost:
-    Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
+    Telecrystal: 5
   categories:
   - UplinkAmmo
 
@@ -733,7 +739,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi, state: red }
   productEntity: MagazineCaselessRifle
   cost:
-    Telecrystal: 6
+    Telecrystal: 8 # Much more damage than C20 or M90 (780, 98 dmg per TC), but hollow-point
   categories:
   - UplinkAmmo
 
@@ -781,7 +787,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: practice }
   productEntity: MagazinePistolCaselessRifleSAPHE
   cost:
-    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 12 pierce 11 explosive
+    Telecrystal: 5 # 23 damage but ~1/3 of a rifle magazine and semi armor piercing, remember the damage is 13 pierce 10.5 explosive
   categories:
   - UplinkAmmo
 
@@ -792,41 +798,73 @@
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
   productEntity: MagazineLowCaliberM7S
   cost:
-    Telecrystal: 8 # 48 rounds of .25 rifle, 19 damage a shot but half the velocity of other weapons
+    Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
   categories:
   - UplinkAmmo
 
 - type: listing
-  id: UplinkBox92AP
-  name: uplink-92-AP-name
-  description: uplink-92-AP-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  id: UplinkCartridgeG8Demolishing
+  name: uplink-cartridge-G8-demolishing-name
+  description: uplink-cartridge-G8-demolishing-desc
+  productEntity:  CartridgeG8Demolishing
   cost:
-    Telecrystal: 10 # 100 AP damage, don't blame me
+    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
-  id: UplinkBox92AT
-  name: uplink-92-AT-name
-  description: uplink-92-AT-desc
-  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-  productEntity: MagazineBoxAntiMaterielHeavyArmourPiercing
+  id: UplinkCartridgeG8Hypercharged
+  name: uplink-cartridge-G8-hypercharged-name
+  description: uplink-cartridge-G8-hypercharged-desc
+  productEntity: CartridgeG8Hypercharged
+  cost:
+    Telecrystal: 6 # 12% cheaper than the bundle, coherency with china
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBox8Gauge
+  name: uplink-high-caliber-shotgun-box-name
+  description: uplink-high-caliber-shotgun-box-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-lethal }
+  productEntity: MagazineBoxShotgunHighCaliber
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBox8GaugeSlug
+  name: uplink-high-caliber-shotgun-box-slug-name
+  description: uplink-high-caliber-shotgun-box-slug-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-slug }
+  productEntity: MagazineBoxShotgunSlugHighCaliber
   cost:
     Telecrystal: 8
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBox8GaugeFlash
+  name: uplink-high-caliber-shotgun-box-flash-slug-name
+  description: uplink-high-caliber-shotgun-box-flash-slug-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-incendiary }
+  productEntity: MagazineBoxShotgunHighCaliberFlash
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBox8GaugeSarin
+  name: uplink-high-caliber-shotgun-box-sarin-name
+  description: uplink-high-caliber-shotgun-box-sarin-desc
+  icon: { sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi, state: icon-sarin }
+  productEntity: MagazineBoxShotgunHighCaliberSarin
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkAmmo
 
 # Mechs
 

@@ -13,6 +13,8 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -159,8 +161,9 @@
   - type: ModifyDelayedKnockdown
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance
     coefficient: 0.5
+  - type: StripMenuInvisible # No peeking!
   - type: TemperatureProtection
     heatingCoefficient: 0.8 # Blame it on bluespace.
     coolingCoefficient: 0.1
@@ -259,3 +262,28 @@
   - type: TemperatureProtection # No
     heatingCoefficient: 1
     coolingCoefficient: 1
+
+- type: entity
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, ]
+  id: MonkRobes
+  name: Monk's Robes
+  description: The robes of a long forgotten tradition.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.70
+        Heat: 1.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 1
+    knockdownTimeDelta: -1
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
+    coolingCoefficient: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.0

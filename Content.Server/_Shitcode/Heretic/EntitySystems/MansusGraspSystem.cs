@@ -11,13 +11,16 @@
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 github-actions <github-actions@github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Shared.Bible;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Hands.Systems;
@@ -46,6 +49,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
@@ -217,6 +221,9 @@ public sealed class MansusGraspSystem : EntitySystem
 
         var target = args.Target.Value;
 
+        if (TryBibleUser(args, ent, comp))
+            return;
+
         if ((TryComp<HereticComponent>(target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;
 
@@ -273,6 +280,36 @@ public sealed class MansusGraspSystem : EntitySystem
         }
 
         return true;
+    }
+
+    private bool TryBibleUser(AfterInteractEvent args, Entity<MansusGraspComponent> ent, MansusGraspComponent comp)
+    {
+        if (TryComp<BibleUserComponent>(args.Target, out _) &&
+            TryComp(args.User, out StatusEffectsComponent? hereticstatus))
+        {
+            _stun.KnockdownOrStun(args.User, comp.KnockdownTime, true, hereticstatus);
+            _stamina.TakeStaminaDamage(args.User, comp.StaminaDamage);
+            _language.DoRatvarian(args.User, comp.SpeechTime, true, hereticstatus);
+            _statusEffect.TryAddStatusEffect<MansusGraspAffectedComponent>(args.User,
+                "MansusGraspAffected",
+                ent.Comp.AffectedTime,
+                true,
+                hereticstatus);
+
+            if (TryComp<HereticComponent>(args.User, out var hereticComp)) // Added null check
+            {
+                _actions.SetCooldown(hereticComp.MansusGrasp, ent.Comp.CooldownAfterUse);
+                hereticComp.MansusGrasp = EntityUid.Invalid;
+            }
+
+            InvokeGrasp(args.User, ent);
+            QueueDel(ent);
+            args.Handled = true;
+
+            return true;
+        }
+
+        return false;
     }
 
     private void InvokeGrasp(EntityUid user, Entity<MansusGraspComponent> ent)
