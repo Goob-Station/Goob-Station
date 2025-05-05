@@ -18,7 +18,7 @@
   - type: Appearance
   - type: SpentAmmoVisuals
     state: apers
-    suffix: false
+#    suffix: false - Goobstation
 
 - type: entity
   id: GrenadeTeargas
@@ -39,4 +39,4 @@
     tags:
      - Grenade
      - NonLethalGrenade
-    suffix: false
+#    suffix: false - Goobstation
