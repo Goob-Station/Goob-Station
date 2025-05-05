@@ -8483,3 +8483,11 @@ Entries:
       message: New information in the heretic guidebook
   id: 975
   time: '2025-05-05T03:36:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: You can now pray at the Casul & Jackul nullrods again.
+    - type: Tweak
+      message: nerfed nullrod damages across the board. Maints hate fun
+  id: 976
+  time: '2025-05-05T09:51:45.0000000+00:00'
