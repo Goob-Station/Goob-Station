@@ -20,6 +20,7 @@
   name: eldritch blade
   description: A sickly green crescent blade, decorated with an ornamental eye. You feel like you're being watched...
   components:
+  - type: UnholyItem
   - type: HereticBlade
   - type: Sharp
   - type: Sprite

@@ -155,6 +155,9 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
 # SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -984,7 +987,7 @@
   description: uplink-radio-jammer-desc
   productEntity: RadioJammer
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkDisruption
 
@@ -1639,6 +1642,16 @@
 
 
 - type: listing
+  id: UplinkClothingOuterVestWebElite
+  name: uplink-clothing-outer-vest-web-elite-name
+  description: uplink-clothing-outer-vest-web-elite-desc
+  productEntity: ClothingOuterVestWebElite
+  cost:
+    Telecrystal: 25 # goob
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkClothingShoesBootsMagSyndie
   name: uplink-clothing-shoes-boots-mag-syndie-name
   description: uplink-clothing-shoes-boots-mag-syndie-desc
@@ -1712,6 +1725,11 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
+  #conditions: # Goobstation - no fuck you
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 
 - type: listing
@@ -1724,6 +1742,11 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
+  #conditions: # Goobstation - no fuck you
+  #- !type:StoreWhitelistCondition
+  # whitelist:
+  #    tags:
+  #    - NukeOpsUplink
 
 
 - type: listing

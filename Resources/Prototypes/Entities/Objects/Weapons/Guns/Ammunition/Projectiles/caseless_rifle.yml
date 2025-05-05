@@ -35,8 +35,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 26 # Goobstation edit
-    armorPenetration: -0.25 # Goobstation
+        Piercing: 25 # Goobstation edit
+    armorPenetration: -0.3 # Goobstation
 
 - type: entity
   id: BulletCaselessRiflePractice

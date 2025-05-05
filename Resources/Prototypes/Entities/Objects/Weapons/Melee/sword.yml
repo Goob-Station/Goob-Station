@@ -282,7 +282,7 @@
       types:
         Slash: 20
     soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Item
   - type: Clothing
     sprite: Objects/Weapons/Melee/claymore.rsi
