@@ -21,6 +21,8 @@
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Kur <joshuaz2255@hotmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -152,6 +154,9 @@
     sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
     speedModifier: 0.75 # slower at digging than a full-sized shovel
+  - type: Tool # Goobstation
+    qualities:
+    - Digging #digs..........................
 
 - type: entity
   name: plant bag
