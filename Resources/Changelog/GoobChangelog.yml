@@ -8491,3 +8491,13 @@ Entries:
       message: nerfed nullrod damages across the board. Maints hate fun
   id: 976
   time: '2025-05-05T09:51:45.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Added handheld command monitor for Blueshield Officer that only tracks
+        heads and works as a deathrattle.
+    - type: Remove
+      message: Blueshield Officer no longer gets security comms and wanted HUD.
+  id: 977
+  time: '2025-05-05T10:05:35.0000000+00:00'
