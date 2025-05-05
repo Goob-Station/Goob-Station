@@ -631,6 +631,8 @@
       types:
         Blunt: 20
         Slash: 5
+    effect: { sprite: /Textures/Objects/Weapons/effects.rsi, state: shield2 }
+    sound: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
