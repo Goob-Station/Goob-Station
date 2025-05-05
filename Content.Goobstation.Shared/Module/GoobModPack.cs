@@ -16,7 +16,7 @@ public sealed class GoobModPack : ModulePack
     public override IReadOnlySet<RequiredAssembly> RequiredAssemblies { get; } = new HashSet<RequiredAssembly>
     {
         RequiredAssembly.Client("Content.Goobstation.Client"),
-        RequiredAssembly.Client("Content.GoobStation.UIKit.Client"),
+        RequiredAssembly.Client("Content.Goobstation.UIKit.Client"),
         RequiredAssembly.Server("Content.Goobstation.Server"),
         RequiredAssembly.Shared("Content.Goobstation.Maths.Common"),
         RequiredAssembly.Shared("Content.Goobstation.Common"),

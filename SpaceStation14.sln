@@ -140,7 +140,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Goobstation.Common"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Goobstation.UIKit.Client", "Content.Goobstation.UIKit.Client\Content.Goobstation.UIKit.Client.csproj", "{E575399B-774D-4DA0-950C-A78F4C7B14D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Goobstation.Maths", "Content.Goobstation.Maths\Content.Goobstation.Maths.csproj", "{72B19814-37C5-44ED-AA22-C60065AF1450}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.Goobstation.Maths.Common", "Content.Goobstation.Maths.Common\Content.Goobstation.Maths.Common.csproj", "{72B19814-37C5-44ED-AA22-C60065AF1450}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
