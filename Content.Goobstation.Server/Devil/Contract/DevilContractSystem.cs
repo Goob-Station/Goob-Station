@@ -109,7 +109,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (contract.Comp.ContractOwner == null)
             return;
 
-        if (contract.Comp is { IsContractFullySigned: true } or { IsDevilSigned: false, IsVictimSigned: false })
+        if (contract.Comp is not { IsContractFullySigned: true})
         {
             Spawn(_fireEffectProto, coordinates);
             _audio.PlayPvs(devilComp.FwooshPath, coordinates, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
