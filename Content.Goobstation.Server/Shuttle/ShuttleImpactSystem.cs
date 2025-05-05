@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 // ported from: monolith (Content.Server/Shuttles/Systems/ShuttleSystem.Impact.cs)
 using Content.Server.Shuttles.Components;
 using Content.Shared.Audio;
