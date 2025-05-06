@@ -11,10 +11,6 @@
   - type: StorageFill
     contents:
     - id: WeaponLauncherNonLethal
-    - id: ClothingBeltMilitaryRigGrenadier
     - id: BoxGrenadesBaton
-    - id: BoxGrenadesBaton # If you add any more (for some reason) use 'amount: X', I only didn't because it would be the same amount of lines lol
     - id: BoxGrenadesFlash
-    - id: BoxGrenadesFlash
-    - id: BoxGrenadesTeargas
     - id: BoxGrenadesTeargas

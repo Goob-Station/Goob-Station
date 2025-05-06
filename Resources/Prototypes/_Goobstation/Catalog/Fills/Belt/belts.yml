@@ -235,3 +235,35 @@
     - id: EnergySpeedloaderLethal
     - id: EnergySpeedloaderDisabler
     - id: EnergySpeedloaderDisabler
+
+- type: entity
+  id: ClothingBeltMilitaryRigGrenadierFilled
+  parent: ClothingBeltMilitaryRigGrenadier
+  suffix: Grenadier bundle, filled
+  components:         # How many nades do you want?
+  - type: StorageFill # Yes.
+    contents:         # If seriously this is like 200 TC worth of explosives.
+    - id: MetalFoamGrenade
+    - id: MetalFoamGrenade
+    - id: GrenadeFlashBang
+    - id: GrenadeFlashBang
+    - id: WhiteholeGrenade
+    - id: WhiteholeGrenade
+    - id: SmokeGrenade
+    - id: SmokeGrenade
+    - id: EmpGrenade
+    - id: EmpGrenade
+    - id: C4
+    - id: C4
+    - id: GrenadeShrapnel
+    - id: GrenadeShrapnel
+    - id: GrenadeIncendiary
+    - id: GrenadeIncendiary
+    - id: ExGrenade
+    - id: ExGrenade
+    - id: SarinGasGrenade
+    - id: SarinGasGrenade
+    - id: SupermatterGrenade
+    - id: SupermatterGrenade
+    - id: SyndieMiniBomb
+    - id: SyndieMiniBomb

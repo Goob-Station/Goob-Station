@@ -191,10 +191,10 @@
   - type: Appearance
 
 - type: entity
-  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSecurityContraband ]
+  parent: [ ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband ]
   id: ClothingBeltMilitaryRigGrenadier # Rig instead of webbing to distinguish it from the upstream counterpart
   name: grenadier belt
-  description: A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all. Can store a sidearm and magazines for it.
+  description: A specialised belt rig to hold so many grenades that your arm gets tired from throwing them all.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Belt/grenaderig.rsi
@@ -204,20 +204,7 @@
     damageCoefficient: 0.01
   - type: Storage
     grid:
-      - 0,0,7,3
+      - 0,0,23,1 # Comically long
     whitelist:
-      tags:
-        - Grenade
-        - MagazinePistol
-  - type: ContainerContainer
-    containers:
-      item: !type:ContainerSlot
-      storagebase: !type:Container
-        ents: []
-  - type: ItemSlots
-    slots:
-      item:
-        name: Handgun
-        whitelist:
-          tags:
-          - Sidearm
+      components:
+      - OnUseTimerTrigger # Basically all and only grenades use this

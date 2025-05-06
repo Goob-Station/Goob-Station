@@ -210,9 +210,8 @@
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
     state: icon
   content:
-  - ClothingBeltMilitaryRigGrenadierFilledSelectableSet
+  - ClothingBeltMilitaryRigGrenadierFilled
   - EncryptionKeySyndie
-  - C4
 
 - type: selectableSet
   id: SyndicateFluclearSet
