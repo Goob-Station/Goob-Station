@@ -12,6 +12,7 @@ using Content.Goobstation.Server.Possession;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
+using Content.Server._Imp.Drone;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
@@ -141,7 +142,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         // You can't sell your soul if you already sold it. (also no robits)
-        if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(args.Signer))
+        if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(args.Signer) || HasComp<DroneComponent>(args.Signer))
         {
             var noSoulPopup = Loc.GetString("devil-contract-no-soul-sign-failed");
             _popupSystem.PopupEntity(noSoulPopup, args.Signer, args.Signer, PopupType.MediumCaution);
