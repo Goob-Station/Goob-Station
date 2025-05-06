@@ -96,6 +96,9 @@
   id: CartridgeG8
 
 - type: Tag
+  id: Chair
+
+- type: Tag
   id: Clarke
 
 - type: Tag
@@ -394,6 +397,9 @@
 
 - type: Tag
   id: SecurityBreathMask
+
+- type: Tag
+  id: ShadowCloakAction
 
 - type: Tag
   id: ShowWizardIcons
