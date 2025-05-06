@@ -6,6 +6,7 @@
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 
 namespace Content.Goobstation.Server.DeathSquad;
@@ -24,24 +25,27 @@ public sealed partial class DeathSquadMemberSystem : EntitySystem
         SubscribeLocalEvent<DeathSquadMemberComponent, MapInitEvent>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, DeathSquadMemberComponent comp, ref MapInitEvent args)
+    private void OnInit(Entity<DeathSquadMemberComponent> deathSquad, ref MapInitEvent args)
     {
-        var originalCrit = _threshold.GetThresholdForState(uid, MobState.Critical);
-        var originalDead = _threshold.GetThresholdForState(uid, MobState.Dead);
+        if (!HasComp<MobStateComponent>(deathSquad))
+            return;
 
-        var newCrit = originalCrit + comp.NewHealth;
-        var newDead = originalDead + comp.NewHealth;
+        var originalCrit = _threshold.GetThresholdForState(deathSquad, MobState.Critical);
+        var originalDead = _threshold.GetThresholdForState(deathSquad, MobState.Dead);
 
-        _threshold.SetMobStateThreshold(uid, newCrit, MobState.Critical);
-        _threshold.SetMobStateThreshold(uid, newDead, MobState.Dead);
+        var newCrit = originalCrit + deathSquad.Comp.NewHealth;
+        var newDead = originalDead + deathSquad.Comp.NewHealth;
+
+        _threshold.SetMobStateThreshold(deathSquad, newCrit, MobState.Critical);
+        _threshold.SetMobStateThreshold(deathSquad, newDead, MobState.Dead);
     }
 
-    private void OnExamined(EntityUid uid, DeathSquadMemberComponent comp, ref ExaminedEvent args)
+    private void OnExamined(Entity<DeathSquadMemberComponent> deathSquad, ref ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
 
-        var details = Loc.GetString("death-squad-examined", ("target", Identity.Entity(uid, EntityManager)));
+        var details = Loc.GetString("death-squad-examined", ("target", Identity.Entity(deathSquad, EntityManager)));
         args.PushMarkup(details, 5);
     }
 }
