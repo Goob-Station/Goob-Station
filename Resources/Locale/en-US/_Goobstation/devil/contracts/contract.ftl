@@ -24,7 +24,7 @@ revival-contract-rejected = You reject the unholy offer.
 revival-contract-expired = Times up.
 revival-contract-prompt = {$offerer} offers to restore your life for a price... Do you accept?
 revival-contract-use-success = You offer {$target} a deal no man could refuse...
-revival-contract-use-failed = You cannot offer {$target} two deals at once.
+revival-contract-use-failed = You cannot offer {$target} this deal.
 
 revival-contract-prompt-reject = Reject Offer
 revival-contract-prompt-accept = Accept Offer
