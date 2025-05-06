@@ -19,4 +19,6 @@
     <PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
   </ItemGroup>
 
+  <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
+  <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
 </Project>

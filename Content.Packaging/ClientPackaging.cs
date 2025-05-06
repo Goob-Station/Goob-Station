@@ -100,11 +100,12 @@ public static class ClientPackaging
         var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database" };
         // Goobstation - Modular Packaging
         modules.AddRange(ModuleDiscovery.DiscoverModules(path)
-            .Where(m => m.Type is ModuleType.Client or ModuleType.Shared or ModuleType.Common)
+            .Where(m => m.Type is not ModuleType.Server)
             .Select(m => m.Name)
             .Distinct()
         );
 
+        // Basic Directory Scanning
         var directories = Directory.GetDirectories(path, "Content.*");
         foreach (var dir in directories)
         {
@@ -113,6 +114,7 @@ public static class ClientPackaging
             // Throw out anything that does not end with ".Client" or ".Shared"
             if (!dirName.EndsWith(".Client") && !dirName.EndsWith(".Shared") || modules.Contains(dirName))
                 continue;
+
             var projectPath = Path.Combine(dir, $"{dirName}.csproj");
             if (File.Exists(projectPath))
                 modules.Add(dirName);

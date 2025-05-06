@@ -23,9 +23,9 @@ public static class ModuleDiscovery
 
             var attr = assembly?.CustomAttributes
                 .FirstOrDefault(a =>
-                    a.Constructor?.DeclaringType?.FullName == "Content.ModuleManager.ContentModuleAttribute");
+                    a.Constructor?.DeclaringType?.FullName == typeof(ContentModuleAttribute).FullName);
 
-            if (attr == null || attr.Signature == null)
+            if (attr?.Signature == null)
                 continue;
 
             var dir = Path.GetDirectoryName(dllPath);

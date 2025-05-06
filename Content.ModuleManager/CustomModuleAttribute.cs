@@ -1,10 +1,9 @@
 namespace Content.ModuleManager;
 
-[AttributeUsage(AttributeTargets.Assembly, Inherited = false)]
-public sealed class ContentModuleAttribute(ModuleType type, params string[] dependencies) : Attribute
+[AttributeUsage(AttributeTargets.Assembly)]
+public sealed class ContentModuleAttribute(ModuleType type) : Attribute
 {
     public ModuleType Type { get; } = type;
-    public string[] Dependencies { get; } = dependencies ?? Array.Empty<string>();
 }
 
 public enum ModuleType

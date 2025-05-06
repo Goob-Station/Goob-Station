@@ -252,7 +252,7 @@ public static class ServerPackaging
     {
         var modules = new List<string>(CoreServerContentAssemblies);
         modules.AddRange(ModuleDiscovery.DiscoverModules(path)
-            .Where(m => m.Type is ModuleType.Server or ModuleType.Shared or ModuleType.Common)
+            .Where(m => m.Type is not ModuleType.Client)
             .Select(m => m.Name)
             .Distinct()
         );
