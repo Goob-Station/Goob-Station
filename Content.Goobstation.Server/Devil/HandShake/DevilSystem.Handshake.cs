@@ -98,20 +98,7 @@ public sealed partial class DevilSystem
         var cheatdeath = EnsureComp<CheatDeathComponent>(target);
         cheatdeath.ReviveAmount = 1;
 
-        AddRandomNegativeClause(target);
-    }
-
-    private void AddRandomNegativeClause(EntityUid target)
-    {
-        var negativeClauses = _prototype.EnumeratePrototypes<DevilClausePrototype>()
-            .Where(c => c.ClauseWeight >= 0)
-            .ToList();
-
-        if (negativeClauses.Count == 0)
-            return;
-
-        var selectedClause = _random.Pick(negativeClauses);
-        _contract.ApplyEffectToTarget(target, selectedClause, null);
+        _contract.AddRandomNegativeClause(target);
     }
 
     public override void Update(float frameTime)

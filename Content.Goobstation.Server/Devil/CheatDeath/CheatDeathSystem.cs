@@ -53,8 +53,20 @@ public sealed partial class CheatDeathSystem : EntitySystem
 
     private void OnExamined(Entity<CheatDeathComponent> ent, ref ExaminedEvent args)
     {
-        if (args.Examined == args.Examiner)
-            args.PushMarkup(Loc.GetString("cheat-death-component-remaining-revives", ("amount", ent.Comp.ReviveAmount)));
+        if (args.Examined != args.Examiner)
+            return;
+
+        if (ent.Comp.InfiniteRevives)
+        {
+            var unlimited = Loc.GetString("cheat-death-component-remaining-revives-unlimited");
+            args.PushMarkup(unlimited);
+        }
+        else
+        {
+            var remaining = Loc.GetString("cheat-death-component-remaining-revives", ("amount", ent.Comp.ReviveAmount));
+            args.PushMarkup(remaining);
+        }
+
     }
 
     private void OnDelayedDeath(Entity<CheatDeathComponent> ent, ref DelayedDeathEvent args)
@@ -107,7 +119,10 @@ public sealed partial class CheatDeathSystem : EntitySystem
         if (!ent.Comp.InfiniteRevives)
             ent.Comp.ReviveAmount--;
 
-        args.Handled = true;
+        // remove comp if at zero
+        if (ent.Comp.ReviveAmount <= 0 && !ent.Comp.InfiniteRevives)
+            RemComp(ent.Owner, ent.Comp);
 
+        args.Handled = true;
     }
 }

@@ -66,3 +66,6 @@ public sealed partial class DevilContractLoseLegEvent : BaseDevilContractEvent;
 
 [DataDefinition, Serializable]
 public sealed partial class DevilContractLoseOrganEvent : BaseDevilContractEvent;
+
+[DataDefinition, Serializable]
+public sealed partial class DevilContractChanceEvent : BaseDevilContractEvent;

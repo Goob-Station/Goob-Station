@@ -41,7 +41,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDelay: 25 # 1984
+    useDelay: 40 # Stop running you cowardly fucks.
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/devil.rsi

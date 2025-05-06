@@ -387,5 +387,42 @@ public sealed partial class DevilContractSystem : EntitySystem
         RaiseLocalEvent(target, (object)ev, true);
     }
 
+    public void AddRandomNegativeClause(EntityUid target)
+    {
+        var negativeClauses = _prototypeManager.EnumeratePrototypes<DevilClausePrototype>()
+            .Where(c => c.ClauseWeight >= 0)
+            .ToList();
+
+        if (negativeClauses.Count == 0)
+            return;
+
+        var selectedClause = _random.Pick(negativeClauses);
+        ApplyEffectToTarget(target, selectedClause, null);
+    }
+
+    public void AddRandomPositiveClause(EntityUid target)
+    {
+        var positiveClauses = _prototypeManager.EnumeratePrototypes<DevilClausePrototype>()
+            .Where(c => c.ClauseWeight <= 0)
+            .ToList();
+
+        if (positiveClauses.Count == 0)
+            return;
+
+        var selectedClause = _random.Pick(positiveClauses);
+        ApplyEffectToTarget(target, selectedClause, null);
+    }
+
+    public void AddRandomClause(EntityUid target)
+    {
+        var clauses = _prototypeManager.EnumeratePrototypes<DevilClausePrototype>().ToList();
+
+        if (clauses.Count == 0)
+            return;
+
+        var selectedClause = _random.Pick(clauses);
+        ApplyEffectToTarget(target, selectedClause, null);
+    }
+
     #endregion
 }

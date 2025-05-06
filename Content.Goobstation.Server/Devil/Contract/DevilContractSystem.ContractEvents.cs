@@ -20,6 +20,7 @@ public sealed partial class DevilContractSystem
         SubscribeLocalEvent<DevilContractLoseHandEvent>(OnLoseHand);
         SubscribeLocalEvent<DevilContractLoseLegEvent>(OnLoseLeg);
         SubscribeLocalEvent<DevilContractLoseOrganEvent>(OnLoseOrgan);
+        SubscribeLocalEvent<DevilContractChanceEvent>(OnChance);
     }
     private void OnSoulOwnership(DevilContractSoulOwnershipEvent args)
     {
@@ -76,5 +77,11 @@ public sealed partial class DevilContractSystem
 
         _bodySystem.RemoveOrgan(pick.Id, pick.Component);
         QueueDel(pick.Id);
+    }
+
+    // LETS GO GAMBLING!!!!!
+    private void OnChance(DevilContractChanceEvent args)
+    {
+        AddRandomClause(args.Target);
     }
 }

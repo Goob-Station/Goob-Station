@@ -89,6 +89,11 @@
       80: 1
 
 - type: clause
+  id: chance
+  clauseWeight: -20
+  event: !type:DevilContractChanceEvent
+
+- type: clause
   id: shadows
   clauseWeight: -25
   addedComponents:
