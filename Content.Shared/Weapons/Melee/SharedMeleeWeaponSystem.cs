@@ -193,6 +193,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly ContestsSystem _contests = default!;
     [Dependency] private   readonly ThrowingSystem _throwing = default!;
     [Dependency] private   readonly INetConfigurationManager _config = default!;
+    [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
 
     //Goob - Shove
     private float _shoveRange;
