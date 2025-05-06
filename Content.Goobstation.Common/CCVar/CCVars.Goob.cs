@@ -449,7 +449,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("shuttle.impact.radius", 5f, CVar.SERVERONLY);
 
     public static readonly CVarDef<float> ImpactSlowdown =
-        CVarDef.Create("shuttle.impact.slowdown", 0.9995f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.slowdown", 0.9998f, CVar.SERVERONLY);
 
     #endregion
 }
