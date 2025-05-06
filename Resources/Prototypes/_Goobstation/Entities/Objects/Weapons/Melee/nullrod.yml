@@ -139,7 +139,7 @@
     damage:
       types:
         Blunt: 3
-        Holy: 20
+        Holy: 10
   - type: Wieldable
   - type: SpeedModifiedOnWield # HOLY.. AURA!
     walkModifier: 1.15
@@ -501,10 +501,10 @@
     attackRate: 4
     damage:
       types:
-        Slash: 4
-        Blunt: 3
+        Slash: 5
+        Blunt: 2
         Structural: 15
-        Holy: 5
+        Holy: 3
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
