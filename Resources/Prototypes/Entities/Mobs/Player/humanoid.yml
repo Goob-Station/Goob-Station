@@ -297,7 +297,6 @@
   id: ERTChaplain
   parent: ERTLeader
   components:
-    - type: CanEnchant #GoobStation
     - type: BibleUser
     - type: GhostRole
       name: ghost-role-information-ert-chaplain-name
@@ -340,7 +339,6 @@
     - type: Loadout
       prototypes: [ ERTChaplainGearEVA ]
       roleLoadout: [ RoleSurvivalEVA ]
-    - type: BibleUser
 
 ## ERT Janitor
 
