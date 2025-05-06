@@ -5,7 +5,7 @@ cheat-death-component-remaining-revives = { $amount ->
                                    *[other] You have {$amount} revives left.
                                  }
 
-cheat-death-component-remaining-revives-unlimited = You have an unlimited amount of revives. Fun.
+cheat-death-component-remaining-revives-unlimited = You have an unlimited amount of revives. Ain't that fun.
 
 action-cheat-death-fail-no-lives = You aren't slipping away this time...
 action-cheat-death-fail-not-dead = You can't cheat death while alive!

@@ -60,12 +60,12 @@ public sealed partial class CheatDeathSystem : EntitySystem
         {
             var unlimited = Loc.GetString("cheat-death-component-remaining-revives-unlimited");
             args.PushMarkup(unlimited);
+
+            return;
         }
-        else
-        {
-            var remaining = Loc.GetString("cheat-death-component-remaining-revives", ("amount", ent.Comp.ReviveAmount));
-            args.PushMarkup(remaining);
-        }
+
+        var remaining = Loc.GetString("cheat-death-component-remaining-revives", ("amount", ent.Comp.ReviveAmount));
+        args.PushMarkup(remaining);
 
     }
 
