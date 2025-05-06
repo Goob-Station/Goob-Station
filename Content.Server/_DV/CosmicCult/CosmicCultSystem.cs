@@ -158,6 +158,8 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         _actions.AddAction(uid, ref uid.Comp.CosmicMonumentPlaceActionEntity, uid.Comp.CosmicMonumentPlaceAction, uid);
     }
 
+
+    // Goob method? I think?
     private void OnCultLeadChanged(Entity<CosmicCultLeadComponent> uid, ref CosmicCultLeadChangedEvent args)
     {
         if (_cultRule.AssociatedGamerule(uid) is not { } cult)
@@ -190,6 +192,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
 
         cult.Comp.CultLeader = uid;
     }
+    // Goob end.
 
     private void OnGetVisMask(Entity<CosmicCultComponent> uid, ref GetVisMaskEvent args)
     {
@@ -245,10 +248,14 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
         RemComp<CosmicCultExamineComponent>(uid);
     }
 
-    private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args) =>
+    private void OnRefreshMoveSpeed(EntityUid uid, InfluenceStrideComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
         args.ModifySpeed(1.1f, 1.1f);
-    private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args) =>
-        args.ModifySpeed(0.65f, 0.65f);
+    }
+    private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(0.60f, 0.60f);
+    }
 
     // Goob start
     private void OnStartCosmicEmpowered(Entity<CosmicEmpoweredSpeedComponent> uid, ref ComponentInit args) =>

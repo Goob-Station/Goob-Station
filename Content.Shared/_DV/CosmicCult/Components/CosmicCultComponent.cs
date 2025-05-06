@@ -41,6 +41,7 @@ public sealed partial class CosmicCultComponent : Component
     public HashSet<ProtoId<InfluencePrototype>> UnlockedInfluences =
     [
         "InfluenceAberrantLapse",
+        "InfluenceNullGlare",
         "InfluenceEschewMetabolism",
     ];
 
@@ -60,13 +61,13 @@ public sealed partial class CosmicCultComponent : Component
     /// The duration of the doAfter for Siphon Entropy
     /// </summary>
     [DataField]
-    public TimeSpan CosmicSiphonDelay = TimeSpan.FromSeconds(2.5f);
+    public TimeSpan CosmicSiphonDelay = TimeSpan.FromSeconds(2.5f); // Goobstation
 
     /// <summary>
     /// The duration of the doAfter for Shunt Subjectivity
     /// </summary>
     [DataField]
-    public TimeSpan CosmicBlankDelay = TimeSpan.FromSeconds(1.2f);
+    public TimeSpan CosmicBlankDelay = TimeSpan.FromSeconds(1.2f); // Goobstation
 
     /// <summary>
     /// The duration of Shunt Subjectivity's trip to the cosmic void
@@ -84,7 +85,7 @@ public sealed partial class CosmicCultComponent : Component
     /// The duration of Null Glare's flash/disorientation.
     /// </summary>
     [DataField]
-    public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(2.5f);
+    public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(2.5f); // Goobstation
 
     /// <summary>
     /// The range of Null Glare.
@@ -102,8 +103,10 @@ public sealed partial class CosmicCultComponent : Component
     /// The stun duration inflicted by Null Glare.
     /// </summary>
     [DataField]
-    public TimeSpan CosmicGlareStun = TimeSpan.FromSeconds(0.5);
+    public TimeSpan CosmicGlareStun = TimeSpan.FromSeconds(0.5); // Goob Edit
 
+
+    /// Goobstation???
     /// <summary>
     /// The duration of the Entropic Degen debuff inflicted by Siphon Entropy
     /// </summary
@@ -156,13 +159,6 @@ public sealed partial class CosmicCultComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float FlickerRange = 5f;
-
-    //Goobstation
-    /// <summary>
-    /// The maximum amount of Entropy the user can have at once.
-    /// </summary>
-    //[DataField, AutoNetworkedField]
-    //public int MonumentHealRange = 15; Erm...
 
     /// <summary>
     /// Wether or not this cultist has been empowered by a Malign Rift.

@@ -29,7 +29,7 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -39,7 +39,7 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
-        Holy: 1.25
+        Holy: 1.25 # Goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

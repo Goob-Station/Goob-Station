@@ -142,8 +142,12 @@
   description: Emit a horrific pulse of cosmic light, slowing and disorienting everyone around you.
   categories: [ HideSpawnMenu ]
   components:
-  - type: Action
-    useDelay: 30
+  - type: ConfirmableAction
+    popup: cosmicability-glare-confirm
+    confirmDelay: 0.1
+    primeTime: 5 #increased to give you more time to figure out where you want to put it
+  - type: InstantAction
+    useDelay: 60
     itemIconStyle: NoItem
     icon:
       sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
@@ -206,92 +210,3 @@
     range: 60
   - type: WorldTargetAction
     event: !type:EventCosmicNova {}
-
-#################################### ROGUE ASCENDANT ACTIONS ######################################
-
-- type: entity
-  parent: BaseAction
-  id: ActionRogueCosmicNova
-  name: Usurped Astral Nova
-  description: Hurl a large and disruptive blast of astral energy.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    useDelay: 10
-    raiseOnUser: true
-    itemIconStyle: NoItem
-    icon:
-      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: roguenova
-  - type: TargetAction
-    range: 60
-  - type: WorldTargetAction
-    event: !type:EventRogueCosmicNova {}
-
-- type: entity
-  parent: BaseAction
-  id: ActionRogueInfection
-  name: Malign Corruption
-  description: Instill the essence of endings into a subdued target.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    useDelay: 5
-    itemIconStyle: NoItem
-    icon:
-      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: rogueinfect
-  - type: TargetAction
-    deselectOnMiss: true
-  - type: EntityTargetAction
-    whitelist:
-      components:
-        - HumanoidAppearance
-    blacklist:
-      components:
-        - RogueAscendedInfection
-        - CosmicCult
-        - BibleUser
-    event: !type:EventRogueInfection {}
-
-- type: entity
-  parent: BaseAction
-  id: ActionRogueSlumber
-  name: Slumber Shell
-  description: Instantly slumber a target's mortal shell, rendering them asleep and ready for Malign Corruption.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    useDelay: 55
-    itemIconStyle: NoItem
-    icon:
-      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: rogueshatter
-  - type: TargetAction
-    deselectOnMiss: true
-  - type: EntityTargetAction
-    whitelist:
-      components:
-        - HumanoidAppearance
-    blacklist:
-      components:
-        - RogueAscendedInfection
-        - CosmicCult
-        - BibleUser
-    event: !type:EventRogueSlumber {}
-
-- type: entity
-  parent: BaseAction
-  id: ActionRogueGrandShunt
-  name: Malign Mindspike
-  description: Shunt the minds of all nearby out of their body and unto the cosmic dark, temporarily rendering their body mindless.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    useDelay: 100
-    itemIconStyle: NoItem
-    icon:
-      sprite: _DV/CosmicCult/Icons/cosmiccult_abilities.rsi
-      state: rogueshunt
-  - type: InstantAction
-    event: !type:EventRogueGrandShunt {}

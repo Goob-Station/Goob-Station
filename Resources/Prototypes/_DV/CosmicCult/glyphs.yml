@@ -51,7 +51,7 @@
     requiredCultists: 3
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-truth
 
@@ -67,10 +67,10 @@
     drawdepth: Puddles
   - type: CosmicGlyphConversion
   - type: CosmicGlyph
-    requiredCultists: 1
+    requiredCultists: 1 # Goobstation
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-knowledge
 
@@ -94,7 +94,7 @@
     requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-cessation
 
@@ -112,7 +112,7 @@
     transmutations:
     - SwordCosmicCult
     - SpearCosmicCult
-    - ScytheCosmicCult
+    - ScytheCosmicCult # Goobstation
     whitelist:
       components:
       - Sharp
@@ -120,7 +120,7 @@
     requiredCultists: 1
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-blades
 
@@ -143,10 +143,10 @@
       - ClothingSpeedModifier
       - PressureProtection
   - type: CosmicGlyph
-    requiredCultists: 1
+    requiredCultists: 1 # Goobstation
     activationDamage:
       types:
-        Asphyxiation: 10
+        Asphyxiation: 10 # Goobstation
   - type: CosmicCultExamine
     cultistText: cosmic-examine-glyph-warding
 

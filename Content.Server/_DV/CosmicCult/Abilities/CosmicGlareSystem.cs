@@ -14,11 +14,11 @@ using Content.Goobstation.Shared.Religion; // Goobstation - Bible
 using Content.Server.Flash;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
+using Content.Server.Stunnable;
 using Content.Shared._DV.CosmicCult;
 using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Effects;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Light.Components;
@@ -37,6 +37,7 @@ public sealed class CosmicGlareSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedCosmicCultSystem _cosmicCult = default!;
@@ -74,11 +75,11 @@ public sealed class CosmicGlareSystem : EntitySystem
                 return true;
 
             var ent = player.AttachedEntity.Value;
-
             if (!HasComp<MobStateComponent>(ent)
-                || !HasComp<HumanoidAppearanceComponent>(ent)
                 || _cosmicCult.EntityIsCultist(ent)
-                || _divineIntervention.ShouldDeny(ent))
+                || HasComp<BibleUserComponent>(ent)
+                || _divineIntervention.ShouldDeny(ent) // Goob
+                )
                 return true;
 
             return !_interact.InRangeUnobstructed((uid, Transform(uid)),
@@ -96,7 +97,7 @@ public sealed class CosmicGlareSystem : EntitySystem
         {
             var targetEnt = GetEntity(target);
 
-            _flash.Flash(targetEnt,
+            _flash.Flash(targetEnt, // Goob edit on this
                 uid,
                 args.Action,
                 uid.Comp.CosmicGlareDuration,
@@ -105,13 +106,13 @@ public sealed class CosmicGlareSystem : EntitySystem
                 false,
                 uid.Comp.CosmicGlareStun);
 
+            // Goob start we dont have whatever EE comps they're using take ours.
             if (HasComp<BorgChassisComponent>(targetEnt) // fuck them clankers
                 || HasComp<SiliconComponent>(targetEnt))
                 _stun.TryUpdateParalyzeDuration(targetEnt, uid.Comp.CosmicGlareDuration / 2);
+            // Goob end.
 
-            _color.RaiseEffect(Color.CadetBlue,
-                new List<EntityUid>() { targetEnt },
-                Filter.Pvs(targetEnt, entityManager: EntityManager));
+            _color.RaiseEffect(Color.CadetBlue, new List<EntityUid>() { targetEnt }, Filter.Pvs(targetEnt, entityManager: EntityManager));
         }
     }
 }
