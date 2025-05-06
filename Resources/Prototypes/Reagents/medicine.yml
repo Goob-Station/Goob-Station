@@ -1379,8 +1379,6 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-    Medicine:
-      effects:
       - !type:CleanseCult # DeltaV - Cosmic Cult
         conditions:
         - !type:ReagentThreshold
@@ -1396,6 +1394,7 @@
             Heat: -0.2
             Shock: -0.2
             Cold: -0.2
+
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
