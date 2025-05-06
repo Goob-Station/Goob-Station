@@ -8,7 +8,7 @@ using Content.Client.Eui;
 
 namespace Content.Client._DV.CosmicCult.UI;
 
-public sealed class DeconvertedCultistEui : BaseEui
+public sealed class CosmicDeconvertedEui : BaseEui
 {
     private readonly CosmicDeconvertedMenu _menu;
 

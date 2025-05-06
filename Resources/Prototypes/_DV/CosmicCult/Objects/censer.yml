@@ -1,0 +1,65 @@
+- type: tool
+  id: Censer
+  name: tool-quality-censer-name
+  toolName: tool-quality-censer-tool-name
+  spawn: CosmicCenser
+  icon: { sprite: _DV/CosmicCult/Objects/censer.rsi, state: icon }
+
+- type: entity
+  parent: BaseItem
+  id: CosmicCenser
+  name: censer
+  description: Cleanses and sanctifies the air around it.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _DV/CosmicCult/Objects/censer.rsi
+    layers:
+    - state: icon
+    - state: flame
+      visible: false
+      shader: unshaded
+      map: ["enum.ToggleVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggle
+    predictable: false
+  - type: CosmicCenser
+  - type: Tool
+    qualities: Censer
+  - type: Welder
+    fuelSolutionName: Censer
+    fuelReagent: Holywater
+  - type: RefillableSolution
+    solution: Censer
+  - type: SolutionContainerManager
+    solutions:
+      Censer:
+        reagents:
+        - ReagentId: Holywater
+          Quantity: 100
+        maxVol: 100
+  - type: ItemTogglePointLight
+  - type: ToggleableLightVisuals
+    spriteLayer: flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-flame
+        shader: unshaded
+      right:
+      - state: inhand-right-flame
+        shader: unshaded
+  - type: Appearance
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 2
+    color: "#7742a8"
+    netsync: false

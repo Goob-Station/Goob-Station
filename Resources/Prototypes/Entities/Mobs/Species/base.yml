@@ -488,6 +488,7 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: Targeting # Shitmed Change
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: CanEscapeInventory # GoobStation - Escape being picked up by players
   - type: Consciousness
     cap: 190

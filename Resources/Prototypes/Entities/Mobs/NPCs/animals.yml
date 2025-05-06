@@ -1704,6 +1704,7 @@
   - type: HumanoidAppearance
     species: Monkey
   # Shitmed Change End
+  - type: CosmicCenserTarget # DeltaV - Cosmic Cult
   - type: Inventory
     templateId: monkey
     speciesId: monkey
