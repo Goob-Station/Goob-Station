@@ -461,9 +461,9 @@
   id: UplinkGrenadierRig
   name: uplink-grenadier-rig-name
   description: uplink-grenadier-rig-desc
-  productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  productEntity: ClothingBeltMilitaryRigGrenadierFilledNukie
   cost:
-    Telecrystal: 25 # goob
+    Telecrystal: 35 # goob
   categories:
   - UplinkExplosives
   conditions:
