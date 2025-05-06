@@ -170,7 +170,7 @@ public abstract partial class SharedGunSystem
         // Continuous loading
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
         {
-            BreakOnMove = true,
+            // BreakOnMove = true, // Goobstation - no
             BreakOnDamage = false,
             NeedHand = true,
         });
@@ -178,8 +178,8 @@ public abstract partial class SharedGunSystem
 
     private void OnBallisticAmmoFillDoAfter(EntityUid uid, BallisticAmmoProviderComponent component, AmmoFillDoAfterEvent args)
     {
-        //if (args.Handled || args.Cancelled) // Goobstation - feature
-        //    return;
+        if (args.Handled || args.Cancelled)
+            return;
 
         if (Deleted(args.Target) ||
             !TryComp<BallisticAmmoProviderComponent>(args.Target, out var target) ||
