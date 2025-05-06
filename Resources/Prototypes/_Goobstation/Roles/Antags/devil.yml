@@ -13,10 +13,10 @@
   guides: [ Devil ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 72000 #20 hrs
+    time: 144000 #40 hrs
   - !type:RoleTimeRequirement
     role: JobLawyer
-    time: 3600 #1 hour. I'm not THAT evil.
+    time: 10800 # 3 Hours. You forced my hand.
 
 - type: startingGear
   id: DevilStartingGear
