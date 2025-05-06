@@ -209,16 +209,8 @@
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
     state: icon
   content:
+  - ClothingBeltMilitaryRigGrenadierFilledSelectableSet
   - EncryptionKeySyndie
-  - SyndieMiniBomb
-  - ExGrenade
-  - GrenadeIncendiary
-  - GrenadeShrapnel
-  - EmpGrenade
-  - SupermatterGrenade
-  - WhiteholeGrenade
-  - SmokeGrenade
-  - GrenadeFlashBang
   - C4
 
 - type: selectableSet
@@ -238,8 +230,8 @@
   - JetpackBlackFilled
   - ClothingBackpackDuffelSyndicateHardsuitBundle
   - ClothingUniformJumpsuitOperative
-  - SyndiPDA
-  - ClothingEyesHudSyndicate
+  - SyndiPDANukie
+  - ClothingEyesNightVisionGogglesNukie
   - ClothingShoesBootsCombatFilled
   - ClothingBeltMilitaryWebbing
 
