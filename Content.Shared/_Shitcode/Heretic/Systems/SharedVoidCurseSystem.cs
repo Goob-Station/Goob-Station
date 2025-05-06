@@ -11,38 +11,68 @@
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Temperature;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Shared._Goobstation.Heretic.Systems;
 
-public abstract partial class SharedVoidCurseSystem : EntitySystem
+public abstract class SharedVoidCurseSystem : EntitySystem
 {
+    [Dependency] private readonly MovementSpeedModifierSystem _modifier = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<VoidCurseComponent, TemperatureChangeAttemptEvent>(OnTemperatureChangeAttempt);
+        SubscribeLocalEvent<VoidCurseComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
+        SubscribeLocalEvent<VoidCurseComponent, ComponentRemove>(OnRemove);
+    }
+
+    private void OnRemove(Entity<VoidCurseComponent> ent, ref ComponentRemove args)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        _modifier.RefreshMovementSpeedModifiers(ent);
+    }
+
+    private void OnTemperatureChangeAttempt(Entity<VoidCurseComponent> ent, ref TemperatureChangeAttemptEvent args)
+    {
+        if (!args.Cancelled && ent.Comp.Stacks >= ent.Comp.MaxStacks && args.CurrentTemperature > args.LastTemperature)
+            args.Cancel();
+    }
+
+    private void OnRefreshMoveSpeed(Entity<VoidCurseComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
+    {
+        // If entity is not slowed down by temperature - slow them down even more
+        var divisor = HasComp<TemperatureSpeedComponent>(ent) ? 15f : 10f;
+        var modifier = 1f - Math.Clamp(ent.Comp.Stacks / divisor, 0f, 1f);
+        args.ModifySpeed( modifier, modifier);
+    }
+
     protected virtual void Cycle(Entity<VoidCurseComponent> ent)
     {
 
     }
 
-    public void DoCurse(EntityUid uid)
+    public void DoCurse(EntityUid uid, int stacks = 1)
     {
+        if (stacks < 1)
+            return;
+
         if (!HasComp<MobStateComponent>(uid))
             return; // ignore non mobs because holy shit
 
         if (TryComp<HereticComponent>(uid, out var h) && h.CurrentPath == "Void" || HasComp<GhoulComponent>(uid))
             return;
 
-        if (TryComp<VoidCurseComponent>(uid, out var curse))
-        {
-            if (!curse.Drain)
-            {
-                // we keep adding curse time until we reach ~30 seconds
-                // when the time is reached it can't add any more time to the curse and just locks itself out until it's gone
-                // which is very balanced :+1:
-                curse.Lifetime = Math.Clamp(curse.Lifetime + 5f, 0f, curse.MaxLifetime);
-                if (curse.Lifetime >= curse.MaxLifetime)
-                    curse.Drain = true;
-            }
-            curse.Stacks = Math.Clamp(curse.Stacks + 1, 0, curse.MaxStacks + 1);
-            Dirty(uid, curse);
-        }
-        else EnsureComp<VoidCurseComponent>(uid);
+        var curse = EnsureComp<VoidCurseComponent>(uid);
+        curse.Lifetime = curse.MaxLifetime;
+        curse.Stacks = Math.Clamp(curse.Stacks + stacks, 0, curse.MaxStacks);
+        Dirty(uid, curse);
+
+        _modifier.RefreshMovementSpeedModifiers(uid);
     }
 }

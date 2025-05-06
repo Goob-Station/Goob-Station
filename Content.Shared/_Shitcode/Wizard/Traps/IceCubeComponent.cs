@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
+using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -44,6 +45,15 @@ public sealed partial class IceCubeComponent : Component
 
     [DataField]
     public float TemperaturePerHeatDamageIncrease = 5f;
+
+    [DataField]
+    public float SustainedDamageMeltProbabilityMultiplier = 4f;
+
+    [DataField]
+    public float DamageMeltProbabilityThreshold = 20f;
+
+    [DataField]
+    public float SustainedDamage;
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
     public int CollisionMask = (int) CollisionGroup.FullTileMask;

@@ -16,6 +16,7 @@
   name: codex cicatrix
   description: This heavy tome is full of cryptic scribbles and impossible diagrams. According to legend, it can be deciphered to reveal the secrets of the veil between worlds.
   components:
+  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/book.rsi
     layers:
@@ -55,6 +56,7 @@
   name: eldritch flask
   description: A flask filled with an unknown substance. Who knows what will happen when you take a sip from it.
   components:
+  - type: UnholyItem
   - type: Sprite
     sprite: _Goobstation/Heretic/items.rsi
     state: eldritch_flask
@@ -100,7 +102,7 @@
     - FollowerStayOnPolymorph
   - type: Reflect
     reflectProb: 1
-    spread: 5
+    spread: 360
 
 - type: entity
   parent: BaseBullet
@@ -116,7 +118,7 @@
       shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
-    ignoreResistances: true
+    armorPenetration: 1
     damage:
       types:
         Slash: 25

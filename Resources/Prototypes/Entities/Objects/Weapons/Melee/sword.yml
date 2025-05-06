@@ -282,7 +282,7 @@
       types:
         Slash: 20
     soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Item
   - type: Clothing
     sprite: Objects/Weapons/Melee/claymore.rsi
@@ -333,7 +333,6 @@
         path: /Audio/Effects/explosion_small1.ogg
     - type: Reflect # Goob edit
       reflectProb: .5
-      otherTypeReflectProb: .1
       reflects:
         - Energy
       spread: 90
