@@ -63,7 +63,6 @@
     - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 500
-    - type: MansusGraspBlockTrigger
 
 - type: entity
   parent: BaseSubdermalImplant

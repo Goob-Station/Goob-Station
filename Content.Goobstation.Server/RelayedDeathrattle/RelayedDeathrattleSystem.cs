@@ -26,24 +26,6 @@ public sealed class RelayedDeathrattleSystem : EntitySystem
         if (comp.Target == null)
             return;
 
-        if (comp.RequireCrewMonitor && TryComp<CrewMonitoringConsoleComponent>(comp.Target, out var monitor))
-        {
-            var found = false;
-            foreach (var pair in monitor.ConnectedSensors)
-            {
-                if (found)
-                    continue;
-
-                var sensorUid = GetEntity(pair.Value.SuitSensorUid);
-                if (!HasComp<TransformComponent>(sensorUid))
-                    continue;
-
-                if (uid == Transform(sensorUid).ParentUid)
-                    found = true;
-            }
-            if (!found)
-                return;
-        }
 
         bool dead;
         var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
