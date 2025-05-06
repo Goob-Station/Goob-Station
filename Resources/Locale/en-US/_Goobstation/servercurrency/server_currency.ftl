@@ -69,7 +69,7 @@ gs-balanceui-shop-buy-token-admin-abuse = Buy an admin abuse token - {$price} Go
 
 gs-balanceui-shop-token-antag = High Tier Antag Token
 gs-balanceui-shop-token-admin-abuse = Admin Abuse Token
-gs-balanceui-shop-token-hat = Hat Token
+gs-balanceui-shop-token-hat = Hat Token - 800 Goob Coins
 
 gs-balanceui-shop-buy-token-antag-desc = Allows you become any antag. (Excluding Wizards)
 gs-balanceui-shop-buy-token-admin-abuse-desc = Allows you to request an admin to abuse their powers against you. Admins are encouraged to go wild.
