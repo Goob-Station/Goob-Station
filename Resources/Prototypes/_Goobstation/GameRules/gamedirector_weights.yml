@@ -50,6 +50,12 @@
   - Wizard
 
 - type: incompatibleModes
+  id: Heretic
+  modes:
+  - Heretic
+  - CosmicCult
+
+- type: incompatibleModes
   id: BlobGameMode
   modes:
   - BlobGameMode
@@ -80,3 +86,4 @@
   - Revolutionary
   - BlobGameMode
   - CosmicCult
+  - Heretic
