@@ -770,7 +770,7 @@
     - Screwdriver
     - BorgTrashBag
     - Plunger
-    - SoapNT
+    - SoapBorg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: light-replacer-module }
 
