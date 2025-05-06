@@ -8,24 +8,35 @@
   parent: [ ConstructibleMachine, BaseMachinePowered, BaseAutomatedMachine ]
   id: Interactor
   name: interactor
-  description: A high-tech robotic arm capable of moving items to and from machines that have automation upgrades.
+  description: A robotic actuator specialized in interacting with objects using tools.
   components:
   # Visuals
   - type: Sprite
     sprite: _Goobstation/Structures/Machines/interactor.rsi
     layers:
     - state: base
-    - state: powered
+    - state: empty
+      map: [ enum.InteractorLayers.Hand ]
+    - state: empty-powered
       shader: unshaded
       visible: false
-      map: [ powered ]
+      map: [ enum.InteractorLayers.Powered ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
-        powered:
+        enum.InteractorLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+      enum.InteractorVisuals.State:
+        enum.InteractorLayers.Hand:
+          Empty: { state: empty }
+          Inactive: { state: inactive }
+          Active: { state: active }
+        enum.InteractorLayers.Powered:
+          Empty: { state: empty-powered }
+          Inactive: { state: inactive-powered }
+          Active: { state: active-powered }
   # Physics
   - type: Transform
     noRot: false
@@ -43,7 +54,7 @@
         - MachineLayer
       interactor_target:
         shape: !type:PhysShapeAabb
-          bounds: "-0.45,0.55,0.45,1.45"
+          bounds: "-0.45,-1.45,0.45,-0.55"
         density: 100
         hard: false
         layer:

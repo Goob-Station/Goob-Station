@@ -74,5 +74,5 @@
   id: InteractorCircuitboard
   icon:
     sprite: _Goobstation/Structures/Machines/interactor.rsi
-    state: base
+    state: icon
   result: InteractorCircuitboard

@@ -6,6 +6,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Goobstation.Shared.Factory;
 
@@ -13,6 +14,9 @@ namespace Content.Goobstation.Shared.Factory;
 [AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class InteractorComponent : Component
 {
+    [DataField]
+    public string ToolContainerId = "interactor_tool";
+
     #region Linking
     /// <summary>
     /// Sink port that starts interacting with some target when invoked.
@@ -46,4 +50,28 @@ public sealed partial class InteractorComponent : Component
     [DataField, AutoNetworkedField]
     public List<(NetEntity, bool)> TargetEntities = new();
     #endregion
+}
+
+[Serializable, NetSerializable]
+public enum InteractorVisuals : byte
+{
+    State
+}
+
+[Serializable, NetSerializable]
+public enum InteractorLayers : byte
+{
+    Hand,
+    Powered
+}
+
+[Serializable, NetSerializable]
+public enum InteractorState : byte
+{
+    // Inactive with no tool
+    Empty,
+    // Inactive with a tool
+    Inactive,
+    // Active, with or without a tool
+    Active
 }

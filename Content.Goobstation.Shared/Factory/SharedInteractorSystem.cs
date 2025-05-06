@@ -21,6 +21,7 @@ public abstract class SharedInteractorSystem : EntitySystem
     [Dependency] private readonly AutomationSystem _automation = default!;
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedDeviceLinkSystem Device = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] protected readonly SharedPowerReceiverSystem Power = default!;
@@ -43,12 +44,16 @@ public abstract class SharedInteractorSystem : EntitySystem
         // target entities
         SubscribeLocalEvent<InteractorComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<InteractorComponent, EndCollideEvent>(OnEndCollide);
+        // hand visuals
+        SubscribeLocalEvent<InteractorComponent, EntInsertedIntoContainerMessage>(OnItemModified);
+        SubscribeLocalEvent<InteractorComponent, EntRemovedFromContainerMessage>(OnItemModified);
     }
 
     private void OnInit(Entity<InteractorComponent> ent, ref ComponentInit args)
     {
         Device.EnsureSinkPorts(ent, ent.Comp.StartPort);
         Device.EnsureSourcePorts(ent, ent.Comp.StartedPort, ent.Comp.CompletedPort, ent.Comp.FailedPort);
+        UpdateAppearance(ent);
     }
 
     private void OnExamined(Entity<InteractorComponent> ent, ref ExaminedEvent args)
@@ -105,8 +110,17 @@ public abstract class SharedInteractorSystem : EntitySystem
         _wake.SetEnabled(args.OtherEntity, wake); // don't break conveyors for skipped entities
     }
 
+    private void OnItemModified<T>(Entity<InteractorComponent> ent, ref T args) where T: ContainerModifiedMessage
+    {
+        if (args.Container.ID != ent.Comp.ToolContainerId)
+            return;
+
+        UpdateAppearance(ent);
+    }
+
     private void OnDoAfterEnded(Entity<InteractorComponent> ent, ref DoAfterEndedEvent args)
     {
+        UpdateToolAppearance(ent);
         if (!Power.IsPowered(ent.Owner))
             return;
 
@@ -139,8 +153,33 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     protected void RemoveTarget(Entity<InteractorComponent> ent, EntityUid target)
     {
+        // if it no longer exists it should be removed by collision events
+        if (TerminatingOrDeleted(target))
+            return;
+
         var netEnt = GetNetEntity(target);
         ent.Comp.TargetEntities.RemoveAll(pair => pair.Item1 == netEnt);
         DirtyField(ent, ent.Comp, nameof(InteractorComponent.TargetEntities));
+    }
+
+    protected void UpdateAppearance(EntityUid uid)
+    {
+        if (HasDoAfter(uid))
+            UpdateAppearance(uid, InteractorState.Active);
+        else
+            UpdateToolAppearance(uid);
+    }
+
+    private void UpdateToolAppearance(EntityUid uid)
+    {
+        var state = _handsQuery.CompOrNull(uid)?.ActiveHand?.IsEmpty == false
+            ? InteractorState.Inactive
+            : InteractorState.Empty;
+        UpdateAppearance(uid, state);
+    }
+
+    protected void UpdateAppearance(EntityUid uid, InteractorState state)
+    {
+        _appearance.SetData(uid, InteractorVisuals.State, state);
     }
 }

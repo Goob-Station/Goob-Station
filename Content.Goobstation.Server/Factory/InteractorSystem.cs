@@ -59,12 +59,14 @@ public sealed class InteractorSystem : SharedInteractorSystem
         if (newCount > originalCount || HasDoAfter(ent))
         {
             Device.InvokePort(ent, ent.Comp.StartedPort);
+            UpdateAppearance(ent, InteractorState.Active);
         }
         else
         {
             // no doafter, complete it immediately
             TryRemoveTarget(ent, target);
             Device.InvokePort(ent, ent.Comp.CompletedPort);
+            UpdateAppearance(ent);
         }
     }
 }
