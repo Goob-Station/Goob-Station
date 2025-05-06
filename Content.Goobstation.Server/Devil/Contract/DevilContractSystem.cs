@@ -15,12 +15,10 @@ using Content.Goobstation.Shared.Devil.Contract;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
-using Content.Server.NodeContainer.Nodes;
 using Content.Server.Polymorph.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.Implants.Components;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -132,7 +130,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (contract.Comp.IsVictimSigned && args.Signer != contract.Comp.ContractOwner)
         {
             var invalidUserPopup = Loc.GetString("devil-sign-invalid-user");
-            _popupSystem.PopupEntity(invalidUserPopup, contract);
+            _popupSystem.PopupEntity(invalidUserPopup, contract, args.Signer);
 
             args.Cancelled = true;
             return;
@@ -146,7 +144,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(args.Signer))
         {
             var noSoulPopup = Loc.GetString("devil-contract-no-soul-sign-failed");
-            _popupSystem.PopupEntity(noSoulPopup, args.Signer, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(noSoulPopup, args.Signer, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
         }
@@ -157,7 +155,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             var difference = Math.Abs(contract.Comp.ContractWeight);
 
             var unevenOddsPopup = Loc.GetString("contract-uneven-odds", ("number", difference));
-            _popupSystem.PopupEntity(unevenOddsPopup, contract, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(unevenOddsPopup, contract, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
         }
@@ -166,7 +164,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (args.Signer == contract.Comp.ContractOwner || HasComp<PossessedComponent>(args.Signer))
         {
             var tooEarlyPopup = Loc.GetString("devil-contract-early-sign-failed");
-            _popupSystem.PopupEntity(tooEarlyPopup, args.Signer, PopupType.MediumCaution);
+            _popupSystem.PopupEntity(tooEarlyPopup, args.Signer, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
         }
