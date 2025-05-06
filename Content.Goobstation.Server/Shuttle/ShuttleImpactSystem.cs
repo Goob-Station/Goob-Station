@@ -99,54 +99,83 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
             !TryComp<MapGridComponent>(args.OtherEntity, out var otherGrid))
             return;
 
-        // Skip impact processing if either grid has an anchor component
-        // Goob - not real
-        //if (HasComp<PreventGridAnchorChangesComponent>(uid) ||
-        //    HasComp<ForceAnchorComponent>(uid) ||
-        //    HasComp<PreventGridAnchorChangesComponent>(args.OtherEntity) ||
-        //    HasComp<ForceAnchorComponent>(args.OtherEntity))
-        //    return;
-
         var ourBody = args.OurBody;
         var otherBody = args.OtherBody;
 
         // TODO: Would also be nice to have a continuous sound for scraping.
         var ourXform = Transform(uid);
-
-        if (ourXform.MapUid == null)
-            return;
-
         var otherXform = Transform(args.OtherEntity);
 
         var ourPoint = _transform.ToCoordinates(args.OurEntity, new MapCoordinates(args.WorldPoint, ourXform.MapID));
         var otherPoint = _transform.ToCoordinates(args.OtherEntity, new MapCoordinates(args.WorldPoint, otherXform.MapID));
 
+        bool evil = false;
+
+        // for whatever reason collisions decide to go schizo sometimes and "collide" at some apparently random point
+        if (!OnOrNearGrid((uid, ourGrid), ourPoint))
+            evil = true;
+
+        if (!evil && !OnOrNearGrid((args.OtherEntity, otherGrid), otherPoint))
+            evil = true;
+
+        var point = args.WorldPoint;
+
+        // engine has provided a WorldPoint in the middle of nowhere, try workaround
+        if (evil)
+        {
+            var contacts = _physics.GetContacts(uid);
+            var coord = new Vector2(0, 0);
+            while (contacts.MoveNext(out var contact))
+            {
+                if (contact.IsTouching && (contact.EntityA == args.OtherEntity || contact.EntityB == args.OtherEntity))
+                {
+                    // i copypasted this i have no idea what it does
+                    Span<Vector2> points = stackalloc Vector2[2];
+                    var transformA = _physics.GetPhysicsTransform(contact.EntityA);
+                    var transformB = _physics.GetPhysicsTransform(contact.EntityB);
+                    contact.GetWorldManifold(transformA, transformB, out var normal, points);
+                    int count = 0;
+                    foreach (var p in points)
+                    {
+                        if (p.LengthSquared() > 0.001f) // ignore zero-vectors
+                            count++;
+                        coord += p;
+                    }
+
+                    coord *= 1f / count;
+                    break;
+                }
+            }
+            point = coord;
+            ourPoint = _transform.ToCoordinates(args.OurEntity, new MapCoordinates(coord, ourXform.MapID));
+            otherPoint = _transform.ToCoordinates(args.OtherEntity, new MapCoordinates(coord, otherXform.MapID));
+
+            Log.Debug($"Bugged collision at {args.WorldPoint}, new point: {coord}");
+
+            if (!OnOrNearGrid((uid, ourGrid), ourPoint))
+                return;
+
+            if (!OnOrNearGrid((args.OtherEntity, otherGrid), otherPoint))
+                return;
+        }
+
         var ourVelocity = _physics.GetLinearVelocity(uid, ourPoint.Position, ourBody, ourXform);
         var otherVelocity = _physics.GetLinearVelocity(args.OtherEntity, otherPoint.Position, otherBody, otherXform);
         var jungleDiff = (ourVelocity - otherVelocity).Length();
 
-        if (jungleDiff < MinimumImpactVelocity)
-            return;
-
-        var dir = (ourVelocity.Length() > otherVelocity.Length() ? ourVelocity : -otherVelocity).Normalized();
-        // Convert the collision point directly to tile indices
-        var ourTile = new Vector2i((int)Math.Floor(ourPoint.X / ourGrid.TileSize), (int)Math.Floor(ourPoint.Y / ourGrid.TileSize));
-
-        // for whatever reason collisions decide to go schizo sometimes and "collide" at some apparently random point
-        if (!OnOrNearGrid((uid, ourGrid), ourPoint))
-            return;
-
-        var otherTile = new Vector2i((int)Math.Floor(otherPoint.X / otherGrid.TileSize), (int)Math.Floor(otherPoint.Y / otherGrid.TileSize));
-
-        if (!OnOrNearGrid((args.OtherEntity, otherGrid), otherPoint))
+        if (jungleDiff < MinimumImpactVelocity || ourXform.MapUid == null)
             return;
 
         // Play impact sound
-        var coordinates = new EntityCoordinates(ourXform.MapUid.Value, args.WorldPoint);
+        var coordinates = new EntityCoordinates(ourXform.MapUid.Value, point);
 
         var volume = MathF.Min(10f, 1f * MathF.Pow(jungleDiff, 0.5f) - 5f);
         var audioParams = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(volume);
         _audio.PlayPvs(_shuttleImpactSound, coordinates, audioParams);
+
+        // Convert the collision point directly to tile indices
+        var ourTile = new Vector2i((int)Math.Floor(ourPoint.X / ourGrid.TileSize), (int)Math.Floor(ourPoint.Y / ourGrid.TileSize));
+        var otherTile = new Vector2i((int)Math.Floor(otherPoint.X / otherGrid.TileSize), (int)Math.Floor(otherPoint.Y / otherGrid.TileSize));
 
         var ourMass = GetRegionMass(uid, ourGrid, ourTile, ImpactRadius);
         var otherMass = GetRegionMass(args.OtherEntity, otherGrid, otherTile, ImpactRadius);
@@ -159,6 +188,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         // Process impact zones sequentially to avoid race conditions
         var ourRadius = Math.Min(ImpactRadius, MathF.Sqrt(otherEnergy / TileBreakEnergyMultiplier / PlatingMass));
         var otherRadius = Math.Min(ImpactRadius, MathF.Sqrt(ourEnergy / TileBreakEnergyMultiplier / PlatingMass));
+        var dir = (ourVelocity.Length() > otherVelocity.Length() ? ourVelocity : -otherVelocity).Normalized();
         ProcessImpactZone(uid, ourGrid, ourTile, otherEnergy, -dir, ourRadius);
         ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, ourEnergy, dir, otherRadius);
 
