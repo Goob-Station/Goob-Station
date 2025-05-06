@@ -13,10 +13,13 @@
   guides: [ Devil ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 144000 #40 hrs
+    time: 108000 # 30h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 18000 # 5 hours
   - !type:RoleTimeRequirement
-    role: JobNanotrasenRepresentative
-    time: 18000 # I'm evil
+    role: JobLawyer
+    time: 3600 # 1 Hour
 
 - type: startingGear
   id: DevilStartingGear
