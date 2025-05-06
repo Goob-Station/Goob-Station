@@ -25,6 +25,7 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
     private readonly TimeSpan _typingTimeout = TimeSpan.FromSeconds(2);
     private TimeSpan _lastTextChange;
     private bool _isClientTyping;
+    private bool _isClientChatFocused;
 
     public override void Initialize()
     {
@@ -40,7 +41,8 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
             return;
 
         // client typed something - show typing indicator
-        ClientUpdateTyping(true);
+        _isClientTyping = true;
+        ClientUpdateTyping();
         _lastTextChange = _time.CurTime;
     }
 
@@ -51,7 +53,19 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
             return;
 
         // client submitted text - hide typing indicator
-        ClientUpdateTyping(false);
+        _isClientTyping = false;
+        ClientUpdateTyping();
+    }
+
+    public void ClientChangedChatFocus(bool isFocused)
+    {
+        // don't update it if player don't want to show typing
+        if (!_cfg.GetCVar(CCVars.ChatShowTypingIndicator))
+            return;
+
+        // client submitted text - hide typing indicator
+        _isClientChatFocused = isFocused;
+        ClientUpdateTyping();
     }
 
     public override void Update(float frameTime)
@@ -64,23 +78,25 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
             var dif = _time.CurTime - _lastTextChange;
             if (dif > _typingTimeout)
             {
-                // client didn't typed anything for a long time - hide indicator
-                ClientUpdateTyping(false);
+                // client didn't typed anything for a long time - change indicator
+                _isClientTyping = false;
+                ClientUpdateTyping();
             }
         }
     }
 
-    private void ClientUpdateTyping(bool isClientTyping)
+    private void ClientUpdateTyping()
     {
-        if (_isClientTyping == isClientTyping)
-            return;
-
-        // check if player controls any entity.
+        // check if player controls any pawn
         if (_playerManager.LocalEntity == null)
             return;
 
-        _isClientTyping = isClientTyping;
-        RaisePredictiveEvent(new TypingChangedEvent(isClientTyping));
+        var state = TypingIndicatorState.None;
+        if (_isClientChatFocused)
+            state = _isClientTyping ? TypingIndicatorState.Typing : TypingIndicatorState.Idle;
+
+        // send a networked event to server
+        RaisePredictiveEvent(new TypingChangedEvent(state));
     }
 
     private void OnShowTypingChanged(bool showTyping)
@@ -88,7 +104,8 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         // hide typing indicator immediately if player don't want to show it anymore
         if (!showTyping)
         {
-            ClientUpdateTyping(false);
+            _isClientTyping = false;
+            ClientUpdateTyping();
         }
     }
 }
