@@ -448,5 +448,8 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<float> ImpactRadius =
         CVarDef.Create("shuttle.impact.radius", 5f, CVar.SERVERONLY);
 
+    public static readonly CVarDef<float> ImpactSlowdown =
+        CVarDef.Create("shuttle.impact.slowdown", 0.94f, CVar.SERVERONLY);
+
     #endregion
 }

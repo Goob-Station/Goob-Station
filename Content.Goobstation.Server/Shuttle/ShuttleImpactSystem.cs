@@ -75,6 +75,11 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// </summary>
     private float ImpactRadius;
 
+    /// <summary>
+    /// How much to slowdown per energy spent on impact
+    /// </summary>
+    private float ImpactSlowdown;
+
     private const float PlatingMass = 800f;
 
     private readonly SoundCollectionSpecifier _shuttleImpactSound = new("ShuttleImpactSound");
@@ -88,6 +93,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         Subs.CVar(_cfg, GoobCVars.ImpactDamageMultiplier, value => DamageMultiplier = value, true);
         Subs.CVar(_cfg, GoobCVars.SparkEnergy, value => SparkEnergy = value, true);
         Subs.CVar(_cfg, GoobCVars.ImpactRadius, value => ImpactRadius = value, true);
+        Subs.CVar(_cfg, GoobCVars.ImpactSlowdown, value => ImpactSlowdown = value, true);
     }
 
     /// <summary>
@@ -185,9 +191,15 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var biasMult = MathF.Sqrt(ourMass / otherMass); // multiplier to make the area with more mass take less damage so a reinforced wall rammer doesn't die to lattice
         var ourEnergy = ourMass * energyMult * MathF.Min(1f, biasMult);
         var otherEnergy = otherMass * energyMult / MathF.Max(1f, biasMult);
-        // Process impact zones sequentially to avoid race conditions
+
         var ourRadius = Math.Min(ImpactRadius, MathF.Sqrt(otherEnergy / TileBreakEnergyMultiplier / PlatingMass));
         var otherRadius = Math.Min(ImpactRadius, MathF.Sqrt(ourEnergy / TileBreakEnergyMultiplier / PlatingMass));
+
+        var ourPostImpactVelocity = ourVelocity * MathF.Pow(ImpactSlowdown, otherMass / ourBody.FixturesMass);
+        var otherPostImpactVelocity = otherVelocity * MathF.Pow(ImpactSlowdown, ourMass / otherBody.FixturesMass);
+        _physics.ApplyLinearImpulse(uid, (-ourVelocity + ourPostImpactVelocity) * ourBody.FixturesMass, body: ourBody);
+        _physics.ApplyLinearImpulse(args.OtherEntity, (-otherVelocity + otherPostImpactVelocity) * otherBody.FixturesMass, body: otherBody);
+
         var dir = (ourVelocity.Length() > otherVelocity.Length() ? ourVelocity : -otherVelocity).Normalized();
         ProcessImpactZone(uid, ourGrid, ourTile, otherEnergy, -dir, ourRadius);
         ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, ourEnergy, dir, otherRadius);
