@@ -15,7 +15,7 @@
         doAfter: 1
 
   - node: BonfireNode
-    entity: Bonfire
+    entity: FieryCross
     edges:
     - to: start
       completed:

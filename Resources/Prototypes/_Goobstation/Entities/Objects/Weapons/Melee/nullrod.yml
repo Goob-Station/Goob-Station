@@ -14,11 +14,6 @@
     reflectProb: 1
     reflects:
     - Magic
-  - type: InjectOnHit
-    reagents:
-    - ReagentId: MuteToxin
-      Quantity: 0.10
-    limit: 2
   - type: DisarmMalus
     malus: 0
   - type: Tag
@@ -55,6 +50,8 @@
   id: HolyClaymore
   description: A weapon fit for a crusade! A sword capable of stealing life from evil-doers.
   components:
+  - type: Item
+    size: Large
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -275,17 +272,15 @@
     soundHit:
       collection: BoxingHit
   - type: Blocking
+    passiveBlockFraction: 0.3
+    activeBlockFraction: 0.5
     passiveBlockModifier:
       coefficients:
-        Blunt: 0.3
-        Slash: 0.3
-        Piercing: 0.3
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
     activeBlockModifier:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-      flatReductions:
         Blunt: 1
         Slash: 1
         Piercing: 1
@@ -370,7 +365,7 @@
         volume: 3
   - type: KnockdownOnHit
     duration: 0.2
-    dropHeldItemsBehavior: DropIfStanding
+    dropHeldItemsBehavior: NoDrop
   - type: UseDelay
     delay: 3
   - type: UseDelayBlockKnockdown
