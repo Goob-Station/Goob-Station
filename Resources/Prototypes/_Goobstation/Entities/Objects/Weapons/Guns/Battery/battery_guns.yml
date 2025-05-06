@@ -12,6 +12,7 @@
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -363,7 +364,8 @@
     price: 750
   - type: TriggerOnVoiceIdLocked
     keyPhrase: "lawbringer-phrase"
-    listenRange: 0 # only the holder
+    listenRange: 1
+    holderOnly: true
   - type: AccessReader
     access: [['HeadOfSecurity']]
   - type: ActiveListener
