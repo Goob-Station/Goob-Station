@@ -178,8 +178,8 @@ public abstract partial class SharedGunSystem
 
     private void OnBallisticAmmoFillDoAfter(EntityUid uid, BallisticAmmoProviderComponent component, AmmoFillDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled)
-            return;
+        //if (args.Handled || args.Cancelled) // Goobstation - feature
+        //    return;
 
         if (Deleted(args.Target) ||
             !TryComp<BallisticAmmoProviderComponent>(args.Target, out var target) ||
