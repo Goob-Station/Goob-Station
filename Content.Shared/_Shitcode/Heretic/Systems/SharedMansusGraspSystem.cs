@@ -53,7 +53,8 @@ public abstract class SharedMansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedVoidCurseSystem _voidCurse = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
 
     public bool TryApplyGraspEffectAndMark(EntityUid user,
         HereticComponent hereticComp,
@@ -76,6 +77,14 @@ public abstract class SharedMansusGraspSystem : EntitySystem
             markComp.Path = hereticComp.CurrentPath;
             markComp.Repetitions = hereticComp.CurrentPath == "Ash" ? 5 : 1;
             Dirty(target, markComp);
+
+            if (hereticComp.CurrentPath == "Cosmos")
+            {
+                var cosmosMark = EnsureComp<HereticCosmicMarkComponent>(target);
+                cosmosMark.CosmicDiamondUid = Spawn(cosmosMark.CosmicDiamond,
+                    Transform(target).Coordinates.SnapToGrid(EntityManager, _mapMan));
+                _transform.AttachToGridOrMap(cosmosMark.CosmicDiamondUid.Value);
+            }
         }
 
         return true;
@@ -203,18 +212,10 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     TryComp(target, out GhoulComponent? ghoul) && ghoul.BoundHeretic == performer)
                     break;
 
-                _statusNew.TrySetStatusEffectDuration(target,
+                _statusNew.TryUpdateStatusEffectDuration(target,
                     SharedStarMarkSystem.StarMarkStatusEffect,
                     TimeSpan.FromSeconds(30));
-
-                if (_net.IsClient)
-                    break;
-
-                var spawnCoords = Transform(performer).Coordinates.SnapToGrid(EntityManager, _mapMan);
-                var lookup =
-                    _lookup.GetEntitiesInRange<CosmicFieldComponent>(spawnCoords, 0.1f, LookupFlags.Static);
-                if (lookup.Count == 0)
-                    Spawn("WallFieldCosmic", spawnCoords);
+                _starMark.SpawnCosmicField(Transform(performer).Coordinates);
                 break;
             }
 

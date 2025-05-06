@@ -13,7 +13,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Body.Systems;
-using Content.Server.Popups;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Heretic;
@@ -25,12 +24,16 @@ using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Server.Body.Components;
 using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server._Shitcode.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Medical;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Stunnable;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -47,6 +50,20 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
     [Dependency] private readonly VoidCurseSystem _voidcurse = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StarMarkSystem _starMark = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<HereticCombatMarkComponent, ComponentStartup>(OnStart);
+        SubscribeLocalEvent<HereticCombatMarkComponent, ComponentRemove>(OnRemove);
+
+        SubscribeLocalEvent<HereticCosmicMarkComponent, ComponentRemove>(OnCosmicRemove);
+    }
 
     public override bool ApplyMarkEffect(EntityUid target, HereticCombatMarkComponent mark, string? path, EntityUid user)
     {
@@ -101,6 +118,26 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
                 _voidcurse.DoCurse(target, 3);
                 break;
 
+            case "Cosmos":
+                if (!TryComp(target, out HereticCosmicMarkComponent? cosmicMark))
+                    break;
+
+                var targetCoords = Transform(target).Coordinates;
+                _starMark.SpawnCosmicField(targetCoords);
+
+                if (Exists(cosmicMark.CosmicDiamondUid))
+                {
+                    Spawn(cosmicMark.CosmicCloud, targetCoords);
+                    var newCoords = Transform(cosmicMark.CosmicDiamondUid.Value).Coordinates;
+                    _pulling.StopAllPulls(target);
+                    _transform.SetCoordinates(target, newCoords);
+                    Spawn(cosmicMark.CosmicCloud, newCoords);
+                    Del(cosmicMark.CosmicDiamondUid.Value); // Just in case
+                }
+
+                _stun.TryParalyze(target, cosmicMark.ParalyzeTime, true);
+                break;
+
             default:
                 return false;
         }
@@ -129,13 +166,6 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
         return true;
     }
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<HereticCombatMarkComponent, ComponentStartup>(OnStart);
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -154,5 +184,21 @@ public sealed class HereticCombatMarkSystem : SharedHereticCombatMarkSystem
     {
         if (ent.Comp.Timer == TimeSpan.Zero)
             ent.Comp.Timer = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DisappearTime);
+    }
+
+    private void OnRemove(Entity<HereticCombatMarkComponent> ent, ref ComponentRemove args)
+    {
+        if (TerminatingOrDeleted(ent.Owner))
+            return;
+
+        RemComp<HereticCosmicMarkComponent>(ent.Owner);
+    }
+
+    private void OnCosmicRemove(Entity<HereticCosmicMarkComponent> ent, ref ComponentRemove args)
+    {
+        if (TerminatingOrDeleted(ent.Comp.CosmicDiamondUid))
+            return;
+
+        Del(ent.Comp.CosmicDiamondUid);
     }
 }

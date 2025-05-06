@@ -118,3 +118,53 @@
   - type: EntityTrail
   - type: RotationVisuals
   - type: Appearance
+
+- type: entity
+  id: EffectCosmicDiamond
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: cosmic_diamond
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectCosmicCloud
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Heretic/Effects/effects.rsi
+        state: cosmic_cloud
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: ImpactEffectStarBlast
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Goobstation/Heretic/Effects/effects64x64.rsi
+      state: cosmic_explosion
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu

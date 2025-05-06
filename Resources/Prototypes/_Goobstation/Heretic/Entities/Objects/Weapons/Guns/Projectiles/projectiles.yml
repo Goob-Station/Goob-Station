@@ -18,7 +18,7 @@
     - state: eldritch_projectile
       shader: unshaded
   - type: Reflective
-    reflective: None
+    reflective: Magic
   - type: Projectile
     damage:
       types:
@@ -35,3 +35,40 @@
     sprite:
       sprite: /Textures/_Goobstation/Heretic/projectiles.rsi
       state: eldritch_projectile
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileStarBall
+  name: star ball
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/projectiles.rsi
+    layers:
+    - state: star_ball
+      shader: unshaded
+  - type: Reflective
+    reflective: Magic
+  - type: Projectile
+    impactEffect: ImpactEffectStarBlast
+    damage:
+      types:
+        Heat: 20
+    soundHit:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+    forceSound: true
+  - type: TimedDespawn
+    lifetime: 50
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.4
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: StunOnCollide
+    knockdownAmount: 4
+  - type: StarBlast

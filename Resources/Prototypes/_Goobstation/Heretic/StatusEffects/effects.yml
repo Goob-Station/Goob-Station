@@ -11,3 +11,10 @@
   name: star mark
   components:
   - type: StarMarkStatusEffect
+
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectStarTouched
+  name: star touched
+  components:
+  - type: StarTouchedStatusEffect

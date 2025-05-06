@@ -157,7 +157,7 @@ public sealed class FireBlastSystem : SharedFireBlastSystem
 
         // Send beam from target to origin so that we can easier remove it if we only have access to target
         var beam = EnsureComp<ComplexJointVisualsComponent>(target);
-        beam.Data.Add(GetNetEntity(origin),
+        beam.Data[GetNetEntity(origin)] =
             new ComplexJointVisualsData(origin.Comp.FireBlastBeamDataId, origin.Comp.FireBlastBeamSprite));
         Dirty(target, beam);
 

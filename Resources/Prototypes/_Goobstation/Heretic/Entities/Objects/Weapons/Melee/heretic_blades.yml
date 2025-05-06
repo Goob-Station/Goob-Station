@@ -195,7 +195,7 @@
   id: HereticBladeCosmos
   name: cosmic blade
   description: A mote of celestial resonance, shaped into a star-woven blade. An iridescent exile, carving radiant trails, desperately seeking unification.
-  suffix: Void
+  suffix: Cosmos
   components:
   - type: HereticBlade
     path: Cosmos

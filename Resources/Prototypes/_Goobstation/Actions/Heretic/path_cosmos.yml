@@ -1,0 +1,55 @@
+- type: entity
+  id: ActionHereticCosmicRune
+  name: Cosmic Rune
+  description: Creates a cosmic rune at your position, only two can exist at a time. Invoking one rune transports you to the other. Anyone with a star mark gets transported along with you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 15
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/Magic/forcewall.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: cosmic_rune
+    event: !type:EventHereticCosmicRune
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-cosmic-rune
+  - type: HereticCosmicRuneAction
+
+- type: entity
+  id: ActionHereticStarTouch
+  name: Star Touch
+  description: Manifests cosmic fields on tiles next to you while marking the victim with a star mark or consuming an already present star mark to put them to sleep for 4 seconds. They will then be linked to you with a cosmic ray, burning them for up to a minute, or until they can escape your sight. Star Touch can also remove Cosmic Runes, or teleport you to your Star Gazer when used on yourself.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: star_touch
+    event: !type:EventHereticStarTouch
+  - type: HereticAction
+    requireMagicItem: true
+
+- type: entity
+  id: ActionHereticStarBlast
+  name: Star Blast
+  description: This spell fires a disk with cosmic energies at a target, spreading the star mark.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityWorldTargetAction
+    range: 12
+    useDelay: 20
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Heretic/cosmic_energy.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: star_blast
+    event: !type:EventHereticStarBlast
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-star-blast

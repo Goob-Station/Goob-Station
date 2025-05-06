@@ -228,6 +228,28 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
     public EntProtoId TileRune = "TileHereticRustRune";
 }
 
+// cosmos
+public sealed partial class EventHereticCosmicRune : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Rune = "HereticRuneCosmos";
+}
+
+public sealed partial class EventHereticStarTouch : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId StarTouch = "TouchSpellStar";
+}
+
+public sealed partial class EventHereticStarBlast : EntityWorldTargetActionEvent
+{
+    [DataField]
+    public EntProtoId Projectile = "ProjectileStarBall";
+
+    [DataField]
+    public float ProjectileSpeed = 2f;
+}
+
 // side
 public sealed partial class EventHereticIceSpear : InstantActionEvent;
 
