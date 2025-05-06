@@ -148,10 +148,6 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var audioParams = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(volume);
         _audio.PlayPvs(_shuttleImpactSound, coordinates, audioParams);
 
-        // Compare masses to determine which shuttle should process the impact
-        bool ourShuttleIsHeavier = ourBody.Mass > otherBody.Mass;
-        bool otherShuttleIsHeavier = otherBody.Mass > ourBody.Mass;
-
         var ourMass = GetRegionMass(uid, ourGrid, ourTile, ImpactRadius);
         var otherMass = GetRegionMass(args.OtherEntity, otherGrid, otherTile, ImpactRadius);
         Log.Info($"Shuttle impact of {ToPrettyString(uid)} with {ToPrettyString(args.OtherEntity)}; our mass: {ourMass}, other: {otherMass}, velocity {jungleDiff}");
@@ -166,12 +162,10 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         ProcessImpactZone(uid, ourGrid, ourTile, otherEnergy, -dir, ourRadius);
         ProcessImpactZone(args.OtherEntity, otherGrid, otherTile, ourEnergy, dir, otherRadius);
 
-        // knockdown entities on our shuttle if other is heavier
-        if (otherShuttleIsHeavier)
+        // Compare masses to determine which shuttle should have knockdowns
+        if (otherBody.FixturesMass > ourBody.FixturesMass)
             KnockdownEntitiesOnGrid(uid);
-
-        // knockdown entities on other shuttle if we're heavier
-        if (!otherShuttleIsHeavier)
+        else
             KnockdownEntitiesOnGrid(args.OtherEntity);
     }
 
