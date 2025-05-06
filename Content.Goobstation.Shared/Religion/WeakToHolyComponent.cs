@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -11,13 +12,13 @@ using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Religion;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WeakToHolyComponent : Component
 {
     /// <summary>
     /// Should this entity take holy damage no matter what?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool AlwaysTakeHoly;
 
     /// <summary>

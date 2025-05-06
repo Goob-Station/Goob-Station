@@ -44,6 +44,8 @@
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -441,6 +443,17 @@ namespace Content.Shared.Damage
             comp.DamageModifierSetId = damageModifierSetId;
             Dirty(uid, comp);
         }
+
+        // Begin DeltaV Additions - We need to be able to change DamageContainer to make cultists vulnerable to Holy Damage
+        public void SetDamageContainerID(Entity<DamageableComponent?> ent, string damageContainerId)
+        {
+            if (!_damageableQuery.Resolve(ent, ref ent.Comp))
+                return;
+
+            ent.Comp.DamageContainerID = damageContainerId;
+            Dirty(ent);
+        }
+        // End DeltaV Additions
 
         private void DamageableGetState(EntityUid uid, DamageableComponent component, ref ComponentGetState args)
         {

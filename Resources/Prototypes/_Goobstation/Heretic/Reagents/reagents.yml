@@ -38,6 +38,7 @@
             Airloss: -3
             Brute: -3
             Genetic: -3
+            Metaphysical: -5
         conditions:
         - !type:HasComponentCondition
           components:
@@ -101,3 +102,5 @@
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
           invert: true
+  tileReactions:
+  - !type:ChangeTileReaction # Rusts tile
