@@ -89,6 +89,7 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.AbilitySuppression;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -266,6 +267,18 @@ public abstract class SharedMagicSystem : EntitySystem
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;
+
+        // check if magic is being suppressed
+        var sup = new CheckMagicSuppressionEvent();
+        RaiseLocalEvent(args.Performer, sup);
+
+        if (sup.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), args.Performer, args.Performer, PopupType.Medium);
+            args.Cancelled = sup.Cancelled;
+            return;
+        }
+
         if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
             HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
         {

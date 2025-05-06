@@ -54,6 +54,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Heretic.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
+using Content.Shared.AbilitySuppression;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
@@ -151,6 +152,16 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         if (!TryComp<HereticActionComponent>(args.Action, out var actionComp))
             return false;
+
+        // Check if the magic is being suppressed
+        var sup = new CheckMagicSuppressionEvent();
+        RaiseLocalEvent(ent, sup);
+
+        if (sup.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), ent, ent, PopupType.Medium);
+            return false;
+        }
 
         // check if any magic items are worn
         if (TryComp<HereticComponent>(ent, out var hereticComp) && actionComp.RequireMagicItem && !hereticComp.Ascended)

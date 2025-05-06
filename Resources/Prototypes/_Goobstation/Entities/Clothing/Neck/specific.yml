@@ -35,3 +35,19 @@
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Misc/nopro.rsi
     quickEquip: true
+
+- type: entity
+  parent: ClothingNeckBase
+  id: MagicSuppressionCollar
+  name: magic suppression collar
+  description: A massive collar that restricts the use of magic.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
+#   equipDelay: 5 hmmm... not sure if I should have this tbh
+    unequipDelay: 5
+  - type: MagicSuppression
+
+
