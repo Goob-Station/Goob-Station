@@ -371,6 +371,7 @@
       types:
         Blunt: 1
 
+- type: entity
   id: HolyBulletCharge
   name: holy bolt
   parent: BaseBullet
