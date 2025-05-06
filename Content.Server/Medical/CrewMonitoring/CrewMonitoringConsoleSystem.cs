@@ -99,8 +99,8 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             .Select(pair => pair.Value)
             .ToList();
         _uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(filteredSensors));
-        // GoobStation - Stop
+        // GoobStation - End
         //var allSensors = component.ConnectedSensors.Values.ToList();
-        //_uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(filteredSensors));
+        //_uiSystem.SetUiState(uid, CrewMonitoringUIKey.Key, new CrewMonitoringState(allSensors));
     }
 }

@@ -39,7 +39,7 @@ public sealed partial class SuitSensorComponent : Component
     /// </summary>
     [DataField]
     public bool CommandTracker = false;
-    // GoobStation - Stop
+    // GoobStation - End
     /// <summary>
     ///     Choose a random sensor mode when item is spawned.
     /// </summary>
