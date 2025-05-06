@@ -8558,3 +8558,11 @@ Entries:
         Conrad, not cool..
   id: 980
   time: '2025-05-06T16:41:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added shuttle collision damage.
+    - type: Tweak
+      message: Shuttle max speed increased to 50.
+  id: 981
+  time: '2025-05-06T16:44:39.0000000+00:00'
