@@ -5,15 +5,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Linq;
-using Content.Goobstation.Server.Devil.HandShake;
 using Content.Goobstation.Shared.CheatDeath;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Condemned;
-using Content.Goobstation.Shared.Devil.Contract;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Server.Devil;
