@@ -8566,3 +8566,9 @@ Entries:
       message: Shuttle max speed increased to 50.
   id: 981
   time: '2025-05-06T16:44:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Cosmic Cult and Heretics may no longer roll in the same round.
+  id: 982
+  time: '2025-05-06T16:50:49.0000000+00:00'
