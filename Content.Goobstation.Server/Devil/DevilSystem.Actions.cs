@@ -35,7 +35,7 @@ public sealed partial class DevilSystem
             return;
 
         contractComponent.ContractOwner = args.Performer;
-        PlayFwooshSound(uid, comp);
+        PlayFwooshSound(uid);
         DoContractFlavor(uid, Identity.Name(uid, EntityManager));
     }
 
@@ -51,7 +51,7 @@ public sealed partial class DevilSystem
             return;
 
         contractComponent.ContractOwner = args.Performer;
-        PlayFwooshSound(uid, comp);
+        PlayFwooshSound(uid);
         DoContractFlavor(uid, Identity.Name(uid, EntityManager));
     }
 
