@@ -33,13 +33,13 @@ namespace Content.Server.Medical.SuitSensors;
 [Access(typeof(SuitSensorSystem))]
 public sealed partial class SuitSensorComponent : Component
 {
-
+    // GoobStation - Start
     /// <summary>
-    ///     BSO only
+    ///     Is this suit sensor for commands, BSO use only
     /// </summary>
-    [DataField("commandtracker")]
+    [DataField]
     public bool CommandTracker = false;
-
+    // GoobStation - Stop
     /// <summary>
     ///     Choose a random sensor mode when item is spawned.
     /// </summary>

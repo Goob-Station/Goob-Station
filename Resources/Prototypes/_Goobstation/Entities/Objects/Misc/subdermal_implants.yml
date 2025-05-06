@@ -54,7 +54,7 @@
     - type: SuitSensor
       randomMode: false
       controlsLocked: true
-      commandtracker: true #BSO only
+      commandTracker: true #for BSO command monitor
       mode: SensorCords
       activationContainer: "implant"
     - type: DeviceNetwork
@@ -64,12 +64,6 @@
     - type: WirelessNetworkConnection
       range: 500
     - type: MansusGraspBlockTrigger
-    - type: TriggerOnMobstateChange
-      mobState:
-      - Critical
-      - Dead
-    - type: Rattle
-      radioChannel: "Command"
 
 - type: entity
   parent: BaseSubdermalImplant
