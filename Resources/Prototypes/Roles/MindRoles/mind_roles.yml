@@ -274,17 +274,6 @@
     subtype: role-subtype-traitor-reinforcement
     antagPrototype: GenericTeamAntagonist
 
-# Wizards
-- type: entity
-  parent: BaseMindRoleAntag
-  id: MindRoleWizard
-  name: Wizard Role
-  components:
-  - type: MindRole
-    antagPrototype: Wizard
-    exclusiveAntag: true
-    subtype: role-subtype-wizard
-  - type: WizardRole
 
 # Zombie Squad
 - type: entity

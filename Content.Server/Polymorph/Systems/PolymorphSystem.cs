@@ -568,14 +568,15 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         var popup = Loc.GetString("polymorph-revert-popup-generic",
                     ("parent", Identity.Entity(uid, EntityManager)),
-                    ("child", Identity.Entity(parent, EntityManager));
+                    ("child", Identity.Entity(parent, EntityManager)));
+
         if (component.Configuration.ExitPolymorphPopup != null)
             popup = Loc.GetString(component.Configuration.ExitPolymorphPopup,
                 ("parent", Identity.Entity(uid, EntityManager)),
-                ("child", Identity.Entity(parent, EntityManager))
+                ("child", Identity.Entity(parent, EntityManager)));
 
         if (component.Configuration.ShowPopup)
-            _popup.PopupEntity(popup);
+            _popup.PopupEntity(popup, parent);
         QueueDel(uid);
 
         return parent;
