@@ -121,7 +121,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Allow infinite revival
         var revival = EnsureComp<CheatDeathComponent>(uid);
-        revival.ReviveAmount = -1;
+        revival.InfiniteRevives = true;
         revival.CanCheatStanding = true;
 
         // Change damage modifier

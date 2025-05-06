@@ -15,11 +15,14 @@ public sealed partial class CheatDeathComponent : Component
     /// <summary>
     /// How many revives does this entity have remaining.
     /// </summary>
-    /// <remarks>
-    /// If set to -1, the amount is infinite.
-    /// </remarks>
     [DataField]
     public int ReviveAmount = 1;
+
+    /// <summary>
+    /// Self-explanatory.
+    /// </summary>
+    [DataField]
+    public bool InfiniteRevives;
 
     /// <summary>
     /// Can this entity heal themselves while not being dead?
@@ -29,6 +32,9 @@ public sealed partial class CheatDeathComponent : Component
 
     [DataField]
     public EntProtoId ActionCheatDeath = "ActionCheatDeath";
+
+    [DataField]
+    public EntityUid? ActionEntity;
 
 }
 

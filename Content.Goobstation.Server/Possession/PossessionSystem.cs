@@ -144,7 +144,8 @@ public sealed partial class PossessionSystem : EntitySystem
 
     private void OnExamined(Entity<PossessedComponent> possessed, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || args.Examined != args.Examiner)
+        if (!args.IsInDetailsRange
+            || args.Examined != args.Examiner)
             return;
 
         var timeRemaining = Math.Floor(possessed.Comp.PossessionTimeRemaining.TotalSeconds);

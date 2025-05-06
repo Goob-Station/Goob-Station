@@ -114,6 +114,9 @@ public sealed partial class DevilComponent : Component
     public EntProtoId PentagramEffectProto = "Pentagram";
 
     [DataField]
+    public EntProtoId FireEffectProto = "FireEffect";
+
+    [DataField]
     public EntProtoId JauntAnimationProto = "PolymorphShadowJauntAnimation";
 
     [DataField]

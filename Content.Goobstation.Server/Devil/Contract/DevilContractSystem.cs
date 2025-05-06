@@ -45,7 +45,6 @@ public sealed partial class DevilContractSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = null!;
 
     private ISawmill _sawmill = null!;
-    private readonly EntProtoId _fireEffectProto = "FireEffect";
 
     public override void Initialize()
     {
@@ -73,28 +72,24 @@ public sealed partial class DevilContractSystem : EntitySystem
 
     private void InitializeRegex()
     {
-        var escapedPatterns = new List<string>();
-        foreach (var locId in _targetResolvers.Keys)
-        {
-            var localized = Loc.GetString(locId);
-            escapedPatterns.Add(localized);
-        }
-
+        var escapedPatterns = _targetResolvers.Keys.Select(locId => Loc.GetString(locId)).ToList(); // malicious linq and regex
         var targetPattern = string.Join("|", escapedPatterns);
+
         _clauseRegex = new Regex($@"^\s*(?<target>{targetPattern})\s*:\s*(?<clause>.+?)\s*$",
             RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.Multiline);
     }
     private void OnGetVerbs(Entity<DevilContractComponent> contract, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract
-            || !args.CanAccess
-            || !TryComp<DevilComponent>(args.User, out var devilComp)
-            || !TryComp<DevilContractComponent>(contract, out var contractComp))
+        || !args.CanAccess
+        || !TryComp<DevilComponent>(args.User, out var devilComp))
             return;
+
+        var user = args.User;
 
         AlternativeVerb burnVerb = new()
         {
-            Act = () => TryBurnContract(contract, devilComp),
+            Act = () => TryBurnContract(contract, (user, devilComp)),
             Text = Loc.GetString("burn-contract-prompt"),
             Icon = new SpriteSpecifier.Rsi(new ("/Textures/Effects/fire.rsi"), "fire"),
         };
@@ -102,22 +97,19 @@ public sealed partial class DevilContractSystem : EntitySystem
         args.Verbs.Add(burnVerb);
     }
 
-    private void TryBurnContract(Entity<DevilContractComponent> contract, DevilComponent devilComp)
+    private void TryBurnContract(Entity<DevilContractComponent> contract, Entity<DevilComponent> devil)
     {
         var coordinates = Transform(contract).Coordinates;
 
-        if (contract.Comp.ContractOwner == null)
-            return;
-
         if (contract.Comp is not { IsContractFullySigned: true})
         {
-            Spawn(_fireEffectProto, coordinates);
-            _audio.PlayPvs(devilComp.FwooshPath, coordinates, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
+            Spawn(devil.Comp.FireEffectProto, coordinates);
+            _audio.PlayPvs(devil.Comp.FwooshPath, coordinates, new AudioParams(-2f, 1f, SharedAudioSystem.DefaultSoundRange, 1f, false, 0f));
             _popupSystem.PopupCoordinates(Loc.GetString("burn-contract-popup-success"), coordinates, PopupType.MediumCaution);
             QueueDel(contract);
         }
         else
-            _popupSystem.PopupCoordinates(Loc.GetString("burn-contract-popup-fail"), coordinates, contract.Comp.ContractOwner.Value, PopupType.MediumCaution);
+            _popupSystem.PopupCoordinates(Loc.GetString("burn-contract-popup-fail"), coordinates, devil, PopupType.MediumCaution);
     }
 
     private void OnExamined(Entity<DevilContractComponent> contract, ref ExaminedEvent args)
@@ -135,10 +127,13 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         // Make sure that weight is set properly!
         UpdateContractWeight(contract);
+
         // Don't allow mortals to sign contracts for other people.
         if (contract.Comp.IsVictimSigned && args.Signer != contract.Comp.ContractOwner)
         {
-            _popupSystem.PopupEntity(Loc.GetString("devil-sign-invalid-user"), contract);
+            var invalidUserPopup = Loc.GetString("devil-sign-invalid-user");
+            _popupSystem.PopupEntity(invalidUserPopup, contract);
+
             args.Cancelled = true;
             return;
         }
@@ -150,11 +145,9 @@ public sealed partial class DevilContractSystem : EntitySystem
         // You can't sell your soul if you already sold it. (also no robits)
         if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(args.Signer))
         {
-            _popupSystem.PopupEntity(
-                Loc.GetString("devil-contract-no-soul-sign-failed"),
-                args.Signer,
-                PopupType.MediumCaution
-            );
+            var noSoulPopup = Loc.GetString("devil-contract-no-soul-sign-failed");
+            _popupSystem.PopupEntity(noSoulPopup, args.Signer, PopupType.MediumCaution);
+
             args.Cancelled = true;
         }
 
@@ -162,20 +155,19 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (!contract.Comp.IsContractSignable)
         {
             var difference = Math.Abs(contract.Comp.ContractWeight);
-            _popupSystem.PopupEntity(Loc.GetString("contract-uneven-odds", ("number", difference)),
-                contract,
-                PopupType.MediumCaution);
+
+            var unevenOddsPopup = Loc.GetString("contract-uneven-odds", ("number", difference));
+            _popupSystem.PopupEntity(unevenOddsPopup, contract, PopupType.MediumCaution);
+
             args.Cancelled = true;
         }
 
         // Check if devil is trying to sign first
         if (args.Signer == contract.Comp.ContractOwner || HasComp<PossessedComponent>(args.Signer))
         {
-            _popupSystem.PopupEntity(
-                Loc.GetString("devil-contract-early-sign-failed"),
-                args.Signer,
-                PopupType.MediumCaution
-            );
+            var tooEarlyPopup = Loc.GetString("devil-contract-early-sign-failed");
+            _popupSystem.PopupEntity(tooEarlyPopup, args.Signer, PopupType.MediumCaution);
+
             args.Cancelled = true;
         }
     }
@@ -184,38 +176,31 @@ public sealed partial class DevilContractSystem : EntitySystem
     {
         // Determine signing phase
         if (!contract.Comp.IsVictimSigned)
-            HandleVictimSign(contract, args);
+            HandleVictimSign(contract, args.Paper, args.User);
         else if (!contract.Comp.IsDevilSigned)
-            HandleDevilSign(contract, args);
+            HandleDevilSign(contract, args.Paper, args.User);
 
         // Final activation check
         if (contract.Comp.IsContractFullySigned)
             HandleBothPartiesSigned(contract);
     }
 
-    private void HandleVictimSign(Entity<DevilContractComponent> contract, SignSuccessfulEvent args)
+    private void HandleVictimSign(Entity<DevilContractComponent> contract, EntityUid signed, EntityUid signer)
     {
-        // No funny business with a cybersun pen!
-        if (TryComp<PaperComponent>(args.Paper, out var paper))
-            paper.EditingDisabled = true;
-
-        contract.Comp.Signer = args.User;
+        contract.Comp.Signer = signer;
         contract.Comp.IsVictimSigned = true;
 
-        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), args.Paper, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("contract-victim-signed"), signed, signer);
     }
 
-    private void HandleDevilSign(Entity<DevilContractComponent> contract, SignSuccessfulEvent args)
+    private void HandleDevilSign(Entity<DevilContractComponent> contract, EntityUid signed, EntityUid signer)
     {
         contract.Comp.IsDevilSigned = true;
-        _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), args.Paper, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("contract-devil-signed"), signed, signer);
     }
 
     private void HandleBothPartiesSigned(Entity<DevilContractComponent> contract)
     {
-        if (!contract.Comp.CanApplyEffects)
-            return;
-
         UpdateContractWeight(contract);
         DoContractEffects(contract);
     }
@@ -227,11 +212,8 @@ public sealed partial class DevilContractSystem : EntitySystem
     public bool TryTransferSouls(EntityUid devil, EntityUid contractee, int added)
     {
         // Can't sell what doesn't exist.
-        if (HasComp<CondemnedComponent>(contractee))
-            return false;
-
-        // Can't sell yer soul to yourself
-        if (devil == contractee)
+        if (HasComp<CondemnedComponent>(contractee)
+            || devil == contractee)
             return false;
 
         var ev = new SoulAmountChangedEvent(devil, contractee, added);
@@ -240,20 +222,19 @@ public sealed partial class DevilContractSystem : EntitySystem
         var condemned = EnsureComp<CondemnedComponent>(contractee);
         condemned.SoulOwner = devil;
         condemned.CondemnOnDeath = true;
-        condemned.SoulOwnedNotDevil = false;
 
         return true;
     }
 
-    private void UpdateContractWeight(Entity<DevilContractComponent> contract)
+    private void UpdateContractWeight(Entity<DevilContractComponent> contract, PaperComponent? paper = null)
     {
-        if (!TryComp<PaperComponent>(contract, out var paper))
+        if (!Resolve(contract, ref paper))
             return;
 
         contract.Comp.CurrentClauses.Clear();
-        var matches = _clauseRegex.Matches(paper.Content);
         var newWeight = 0;
 
+        var matches = _clauseRegex.Matches(paper.Content);
         foreach (Match match in matches)
         {
             if (!match.Success)
@@ -275,12 +256,12 @@ public sealed partial class DevilContractSystem : EntitySystem
         contract.Comp.ContractWeight = newWeight;
     }
 
-    private void DoContractEffects(Entity<DevilContractComponent> contract)
+    private void DoContractEffects(Entity<DevilContractComponent> contract, PaperComponent? paper = null)
     {
-        UpdateContractWeight(contract);
-
-        if (!TryComp<PaperComponent>(contract, out var paper) || !contract.Comp.CanApplyEffects)
+        if (!Resolve(contract, ref paper))
             return;
+
+        UpdateContractWeight(contract);
 
         var matches = _clauseRegex.Matches(paper.Content);
         var processedClauses = new HashSet<string>();

@@ -59,6 +59,7 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 
         if (ent is null)
             return;
+
         args.Append(MakeBriefing(ent.Value));
     }
 
@@ -82,11 +83,11 @@ public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
                 continue;
 
             var metaData = MetaData(devil);
-            if (devilComp.Souls > mostContracts)
-            {
-                mostContracts = devilComp.Souls;
-                mostContractsName = _objective.GetTitle((mindId, mind), metaData.EntityName);
-            }
+            if (devilComp.Souls < mostContracts)
+                continue;
+
+            mostContracts = devilComp.Souls;
+            mostContractsName = _objective.GetTitle((mindId, mind), metaData.EntityName);
         }
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString($"roundend-prepend-devil-contracts{(!string.IsNullOrWhiteSpace(mostContractsName) ? "-named" : "")}", ("name", mostContractsName), ("number", mostContracts)));

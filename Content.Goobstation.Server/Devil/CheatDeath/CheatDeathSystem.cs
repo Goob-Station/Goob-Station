@@ -30,15 +30,25 @@ public sealed partial class CheatDeathSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<CheatDeathComponent, ComponentStartup>(OnStartup);
+
+        SubscribeLocalEvent<CheatDeathComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<CheatDeathComponent, ComponentRemove>(OnRemoval);
+
         SubscribeLocalEvent<CheatDeathComponent, CheatDeathEvent>(OnDeathCheatAttempt);
+
         SubscribeLocalEvent<CheatDeathComponent, ExaminedEvent>(OnExamined);
+
         SubscribeLocalEvent<CheatDeathComponent, DelayedDeathEvent>(OnDelayedDeath);
     }
 
-    private void OnStartup(EntityUid uid, CheatDeathComponent comp, ref ComponentStartup args)
+    private void OnInit(Entity<CheatDeathComponent> ent, ref MapInitEvent args)
     {
-        _actionsSystem.AddAction(uid, comp.ActionCheatDeath);
+        _actionsSystem.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.ActionCheatDeath);
+    }
+
+    private void OnRemoval(Entity<CheatDeathComponent> ent, ref ComponentRemove args)
+    {
+        _actionsSystem.RemoveAction(ent, ent.Comp.ActionEntity);
     }
 
     private void OnExamined(Entity<CheatDeathComponent> ent, ref ExaminedEvent args)
@@ -47,12 +57,12 @@ public sealed partial class CheatDeathSystem : EntitySystem
             args.PushMarkup(Loc.GetString("cheat-death-component-remaining-revives", ("amount", ent.Comp.ReviveAmount)));
     }
 
-    private void OnDelayedDeath(EntityUid uid, CheatDeathComponent comp, ref DelayedDeathEvent args)
+    private void OnDelayedDeath(Entity<CheatDeathComponent> ent, ref DelayedDeathEvent args)
     {
         if (args.Cancelled)
             return;
 
-        RemComp(uid, comp);
+        RemComp(ent.Owner, ent.Comp);
     }
 
     private void OnDeathCheatAttempt(Entity<CheatDeathComponent> ent, ref CheatDeathEvent args)
@@ -69,7 +79,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
         }
 
         // If the entity is out of revives, or if they are unrevivable, return.
-        if (ent.Comp.ReviveAmount == 0 || HasComp<UnrevivableComponent>(ent))
+        if (ent.Comp.ReviveAmount <= 0 || HasComp<UnrevivableComponent>(ent))
         {
             var failPopup = Loc.GetString("action-cheat-death-fail-no-lives");
             _popupSystem.PopupEntity(failPopup, ent, PopupType.LargeCaution);
@@ -94,8 +104,9 @@ public sealed partial class CheatDeathSystem : EntitySystem
         _jitter.DoJitter(ent, TimeSpan.FromSeconds(5), true);
 
         // Decrement remaining revives.
-        if (ent.Comp.ReviveAmount != -1)
+        if (!ent.Comp.InfiniteRevives)
             ent.Comp.ReviveAmount--;
+
         args.Handled = true;
 
     }

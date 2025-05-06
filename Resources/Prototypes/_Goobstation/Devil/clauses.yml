@@ -177,7 +177,7 @@
   clauseWeight: -100
   addedComponents:
   - type: CheatDeath
-    reviveAmount: -1
+    infiniteRevives: true
 
 - type: clause
   id: time
@@ -186,4 +186,3 @@
   - type: DelayedDeath
     deathTime: 300
     deathMessageId: devil-deal-time-ran-out
-  - type: Condemned
