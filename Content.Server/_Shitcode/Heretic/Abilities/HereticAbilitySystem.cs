@@ -186,10 +186,11 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
         if (!TryUseAbility(ent, args))
             return;
 
+        if (!TryComp<HandsComponent>(ent, out var handsComp))
+            return;
+
         if (ent.Comp.MansusGrasp != EntityUid.Invalid)
         {
-            if(!TryComp<HandsComponent>(ent, out var handsComp))
-                return;
             foreach (var hand in handsComp.Hands.Values)
             {
                 if (hand.HeldEntity == null)
@@ -201,7 +202,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
             return;
         }
 
-        if (!_hands.TryGetEmptyHand(ent, out var emptyHand))
+        if (!_hands.TryGetEmptyHand(ent, out var emptyHand, handsComp))
         {
             // Empowered blades - infuse all of our blades that are currently in our inventory
             if (ent.Comp.CurrentPath == "Blade" && ent.Comp.PathStage >= 7)
@@ -218,7 +219,7 @@ public sealed partial class HereticAbilitySystem : SharedHereticAbilitySystem
 
         var st = Spawn(GetMansusGraspProto(ent), Transform(ent).Coordinates);
 
-        if (!_hands.TryPickup(ent, st, emptyHand, animate: false))
+        if (!_hands.TryPickup(ent, st, emptyHand, animate: false, handsComp: handsComp))
         {
             Popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             QueueDel(st);

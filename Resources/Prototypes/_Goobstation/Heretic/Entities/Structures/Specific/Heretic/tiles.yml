@@ -186,7 +186,8 @@
     lifetime: 30
   - type: Tag
     tags:
-      - Wall
+    - Wall
+    - WideSwingIgnore
   - type: Physics
     bodyType: Static
   - type: Fixtures

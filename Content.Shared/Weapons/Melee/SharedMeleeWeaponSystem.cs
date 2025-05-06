@@ -136,6 +136,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
@@ -166,6 +167,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly MeleeSoundSystem        _meleeSound      = default!;
     [Dependency] private   readonly SharedPhysicsSystem     _physics         = default!;
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
+    [Dependency] private   readonly TagSystem               _tag             = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
 
 
@@ -894,6 +896,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 range,
                 ignore,
                 false)
+                .Where(x => !_tag.HasTag(x.HitEntity, "WideSwingIgnore")) // Goobstation
                 .ToList();
 
             if (res.Count != 0)

@@ -413,6 +413,34 @@
   path: Cosmos
   stage: 2
 
+- type: hereticKnowledge
+  id: CosmicRunes
+  path: Cosmos
+  sideKnowledge: true
+  stage: 3
+  actionPrototypes:
+  - ActionHereticCosmicRune
+
+- type: hereticKnowledge
+  id: MarkOfCosmos
+  path: Cosmos
+  stage: 4
+
+- type: hereticKnowledge
+  id: StarTouch
+  path: Cosmos
+  stage: 5
+  actionPrototypes:
+  - ActionHereticStarTouch
+
+- type: hereticKnowledge
+  id: StarBlast
+  path: Cosmos
+  sideKnowledge: true
+  stage: 6
+  actionPrototypes:
+  - ActionHereticStarBlast
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge

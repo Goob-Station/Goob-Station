@@ -488,6 +488,9 @@
   id: WelderExperimental
 
 - type: Tag
+  id: WideSwingIgnore
+
+- type: Tag
   id: WoodenHandle
 
 - type: Tag
