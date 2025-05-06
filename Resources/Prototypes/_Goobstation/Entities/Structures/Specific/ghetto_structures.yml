@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseStructure
+  id: MakeshiftSmithingOven
+  name: makeshift heating oven
+  description: Poorly constructed makeshift oven, made to slowly heat steel. Requires something flamable to work, like wood.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
+    state: empty
+    layers:
+    - state: full
+    - state: burning
+      map: ["enum.EntityHeaterVisuals.Setting"]
+      shader: unshaded
+      enumValues:
+        EntityHeaterSetting.Off: 0
+        EntityHeaterSetting.Low: 1
+        EntityHeaterSetting.Medium: 1
+        EntityHeaterSetting.High: 1
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterSetting:
+          Off:
+            burning: false
+          Low:
+            burning: true
+            color: DimGray
+          Medium:
+            burning: true
+            color: Gray
+          High:
+            burning: true
+            color: White
+  - type: EntityHeater
+    power: 800
+    settingSound:
+      path: /Audio/Machines/machine_switch.ogg
+  - type: ApcPowerReceiver
+    needsPower: true
+    powered: false
+  - type: ItemPlacer
+    maxEntities: 1
+    whitelist:
+      components:
+      - Temperature

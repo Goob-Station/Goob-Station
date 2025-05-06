@@ -441,8 +441,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
+        Blunt: 0.6
+        Slash: 0.6
         Piercing: 0.7 # slightly worse than a secvest
         Heat: 0.9
   - type: ModifyDelayedKnockdown
@@ -454,5 +454,5 @@
     graph: MakeshiftHeavyVestGraph
     node: final
   - type: ClothingSpeedModifier
-    walkModifier: 0.95 # you wouldn't notice
-    sprintModifier: 0.95
+    walkModifier: 0.9
+    sprintModifier: 0.9

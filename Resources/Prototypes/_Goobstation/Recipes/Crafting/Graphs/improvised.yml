@@ -397,6 +397,7 @@
     edges: []
 
 # makeshift id
+# total mats: plastic 4, cable: 8, steel: 4
 - type: constructionGraph
   id: MakeshiftIDCardGraph
   start: start
@@ -459,6 +460,7 @@
     edges: []
 
 # grey toolbox
+# total mats: steel: 8
 - type: constructionGraph
   id: MakeshiftToolboxGraph
   start: start
@@ -813,7 +815,6 @@
       - tool: Welding
         doAfter: 8
       - tool: Hammering
-        doAfter: 1
       - tool: Hammering
         doAfter: 1
       - material: Steel
