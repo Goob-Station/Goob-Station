@@ -42,4 +42,4 @@
   - type: ModifyDelayedKnockdown # Goobstation
     cancel: true
   - type: StaminaResistance # Goobstation
-    coefficient: 0.4
+    damageCoefficient: 0.4

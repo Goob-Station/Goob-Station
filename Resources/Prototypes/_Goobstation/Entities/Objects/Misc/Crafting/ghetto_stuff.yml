@@ -421,7 +421,7 @@
     delayDelta: -1.0
     knockdownTimeDelta: 1.5
   - type: StaminaResistance
-    coefficient: 1.2 # counter to the tide armor: stuns.
+    damageCoefficient: 1.2 # counter to the tide armor: stuns.
   - type: Construction
     graph: MakeshiftLightVestGraph
     node: final
@@ -449,7 +449,7 @@
     delayDelta: -1.25
     knockdownTimeDelta: 1.25
   - type: StaminaResistance
-    coefficient: 1.2
+    damageCoefficient: 1.2
   - type: Construction
     graph: MakeshiftHeavyVestGraph
     node: final

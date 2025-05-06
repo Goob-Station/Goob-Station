@@ -269,7 +269,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSpatio
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2
     knockdownTimeDelta: -2
@@ -311,7 +311,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSalvage
   - type: StaminaResistance # Goobstation
-    coefficient: 0.6
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
@@ -352,7 +352,7 @@
     graph: HardsuitGoliath
     node: hardsuitGoliath
   - type: StaminaResistance # Goobstation
-    coefficient: 0.6
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
@@ -391,7 +391,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitMaxim
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -428,7 +428,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSecurity
   - type: StaminaResistance # Goobstation
-    coefficient: 0.6
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -462,7 +462,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBrigmedic
   - type: StaminaResistance # Goobstation
-    coefficient: 0.6
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -499,7 +499,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitWarden
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -537,7 +537,7 @@
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCap
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -654,7 +654,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 #Head of Security's Hardsuit
 - type: entity
@@ -692,7 +692,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -730,7 +730,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -751,8 +751,6 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.75
   - type: Armor
     modifiers:
       coefficients:
@@ -778,7 +776,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -802,7 +800,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -825,8 +823,6 @@
     damageCoefficient: 0.2
   - type: FireProtection
     reduction: 0.8
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
@@ -849,7 +845,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -867,8 +863,6 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.5
-  #- type: StaminaResistance
-  #  damageCoefficient: 0.6
   - type: Armor
     modifiers:
       coefficients:
@@ -889,7 +883,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.4
+    damageCoefficient: 0.4
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -907,8 +901,6 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
-  #- type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
-  #  damageCoefficient: 0.99
   - type: Armor
     modifiers:
       coefficients:
@@ -929,7 +921,7 @@
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaResistance # Goobstation
-    coefficient: 0.8
+    damageCoefficient: 0.8
 
 #Wizard Hardsuit
 - type: entity
@@ -965,7 +957,7 @@
   - type: ModifyDelayedKnockdown # Goobstation
     cancel: true
   - type: StaminaResistance # Goobstation
-    coefficient: 0.2
+    damageCoefficient: 0.2
   - type: Tag # Goobstation
     tags:
     - Hardsuit
@@ -1005,7 +997,7 @@
   - type: ModifyDelayedKnockdown
     cancel: true
   - type: StaminaResistance
-    coefficient: 0.4
+    damageCoefficient: 0.4
 
 #Pirate EVA Suit (Deep Space EVA Suit)
 #Despite visually appearing like a softsuit, it functions exactly like a hardsuit would (parents off of base hardsuit, has resistances and toggleable clothing, etc.) so it goes here.
@@ -1043,7 +1035,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -1082,7 +1074,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -1201,7 +1193,7 @@
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance # Goobstation - Start
-    coefficient: 0
+    damageCoefficient: 0
   - type: ClothingSlowOnDamageModifier
     modifier: 0.1
   - type: ClothingModifyStunTime
@@ -1272,7 +1264,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 #MISC. HARDSUITS
 #Clown Hardsuit

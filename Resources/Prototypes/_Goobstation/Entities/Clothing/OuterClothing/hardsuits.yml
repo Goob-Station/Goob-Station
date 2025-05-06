@@ -56,7 +56,7 @@
   - type: ModifyDelayedKnockdown
     cancel: true
   - type: StaminaResistance
-    coefficient: 0
+    damageCoefficient: 0
 
 - type: entity
   parent: ClothingOuterHardsuitChronolegioneer
@@ -102,7 +102,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
-    coefficient: 0.6
+    damageCoefficient: 0.6
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCentcommContraband]
@@ -139,7 +139,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 # Cybersun Stealth
 
@@ -191,7 +191,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance
-    coefficient: 0.5
+    damageCoefficient: 0.5
 
 # cybersun dreadnought suit
 
@@ -245,7 +245,7 @@
       interval: 1.0
       ignoreResistances: true
   - type: StaminaResistance
-    coefficient: 0
+    damageCoefficient: 0
   - type: ModifyDelayedKnockdown
     cancel: true
 

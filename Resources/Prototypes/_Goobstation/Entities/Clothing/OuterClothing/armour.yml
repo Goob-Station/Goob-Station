@@ -43,7 +43,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 # Durathread plated vest
 - type: entity
@@ -69,7 +69,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 # Helldiver
 - type: entity
@@ -162,7 +162,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance
-    coefficient: 0.5
+    damageCoefficient: 0.5
   - type: StripMenuInvisible # No peeking!
   - type: TemperatureProtection
     heatingCoefficient: 0.8 # Blame it on bluespace.
@@ -239,7 +239,7 @@
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
   - type: StaminaResistance
-    coefficient: 0.55
+    damageCoefficient: 0.55
   - type: PressureProtection
     lowPressureMultiplier: 1000
   # Intentionally no temperature or high pressure protection
@@ -258,7 +258,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
-    coefficient: 0.5
+    damageCoefficient: 0.5
   - type: TemperatureProtection # No
     heatingCoefficient: 1
     coolingCoefficient: 1

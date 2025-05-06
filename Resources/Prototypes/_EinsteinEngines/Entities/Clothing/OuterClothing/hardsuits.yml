@@ -37,7 +37,7 @@
       head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
   - type: StaminaResistance # Goobstation
-    coefficient: 0.6
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -89,7 +89,7 @@
       head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
   - type: StaminaResistance # Goobstation
-    coefficient: 0.6
+    damageCoefficient: 0.6
   - type: ModifyDelayedKnockdown # Goobstation
     delayDelta: 3
     knockdownTimeDelta: -3
@@ -127,6 +127,6 @@
       head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
   - type: StaminaResistance # Goobstation
-    coefficient: 0.5
+    damageCoefficient: 0.5
   - type: ModifyDelayedKnockdown # Goobstation
     cancel: true

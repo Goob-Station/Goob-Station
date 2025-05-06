@@ -207,7 +207,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 - type: entity
   abstract: true
@@ -228,7 +228,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
@@ -523,7 +523,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -580,7 +580,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance # Goobstation
-    coefficient: 0.7
+    damageCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase

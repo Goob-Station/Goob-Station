@@ -46,4 +46,4 @@
   - type: ModifyDelayedKnockdown
     cancel: true
   - type: StaminaResistance
-    coefficient: 0.4
+    damageCoefficient: 0.4

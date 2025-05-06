@@ -40,7 +40,7 @@
       - state: equipped-OUTERCLOTHING-sealed
         shader: unshaded
   - type: StaminaResistance
-    coefficient: 0.9
+    damageCoefficient: 0.9
   - type: Armor
     modifiers:
       coefficients:
@@ -96,7 +96,7 @@
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaResistance
-    coefficient: 0.7
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -153,7 +153,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance
-    coefficient: 0.7
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -227,7 +227,7 @@
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaResistance
-    coefficient: 0.9
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
 
@@ -285,7 +285,7 @@
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaResistance
-    coefficient: 0.9
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.0
 
@@ -341,7 +341,7 @@
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaResistance
-    coefficient: 0.9
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.0
 
@@ -399,7 +399,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance
-    coefficient: 0.9
+    damageCoefficient: 0.9
   - type: FireProtection
     reduction: 0.5
 
@@ -455,6 +455,6 @@
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaResistance
-    coefficient: 0.7
+    damageCoefficient: 0.7
   - type: FireProtection
     reduction: 0.5
