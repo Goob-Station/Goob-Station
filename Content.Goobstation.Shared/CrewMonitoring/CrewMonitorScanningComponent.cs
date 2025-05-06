@@ -14,7 +14,7 @@ public sealed partial class CrewMonitorScanningComponent : Component
     public List<EntityUid> ScannedEntities = [];
 
     [DataField]
-    public TimeSpan DoAfterTime = TimeSpan.FromSeconds(15);
+    public TimeSpan DoAfterTime = TimeSpan.FromSeconds(8);
 
     [DataField]
     public bool ApplyDeathrattle = true;

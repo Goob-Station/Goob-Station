@@ -11,6 +11,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;
+using Content.Shared.Implants;
 
 namespace Content.Goobstation.Server.CrewMonitoring;
 
@@ -18,6 +19,8 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
+    [Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -41,7 +44,8 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
         if (_whitelist.IsWhitelistFail(comp.Whitelist, args.Target.Value))
             return;
 
-        comp.ScannedEntities.Add(args.Target.Value); //TODO : replace by giving the implant
+        comp.ScannedEntities.Add(args.Target.Value); //Keep for don't double implant
+        _implantSystem.AddImplant(args.Target.Value, "CommandTrackingImplant");
         if (!comp.ApplyDeathrattle)
             return;
 
