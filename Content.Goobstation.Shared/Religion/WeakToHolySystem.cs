@@ -77,7 +77,8 @@ public sealed class WeakToHolySystem : EntitySystem
 
     private void OnUnholyItemDamage(Entity<WeakToHolyComponent> uid, ref DamageUnholyEvent args)
     {
-        if (uid.Comp.AlwaysTakeHoly)
+
+        if (uid.Comp.AlwaysTakeHoly || TryComp<HereticComponent>(uid, out var heretic) && heretic.Ascended)
         {
             args.ShouldTakeHoly = true;
             return;

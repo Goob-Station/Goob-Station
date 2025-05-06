@@ -233,6 +233,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - NunHood
   - type: HideLayerClothing
     slots:
     - Hair
