@@ -207,6 +207,7 @@
   - type: Tag
     tags:
     - GrenadeFlashBang
+    - Grenade # Goobstation
 
 - type: entity
   id: GrenadeFlashEffect

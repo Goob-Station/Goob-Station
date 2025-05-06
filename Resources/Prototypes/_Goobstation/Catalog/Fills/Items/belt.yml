@@ -1,0 +1,35 @@
+- type: entity
+  id: ClothingBeltMilitaryRigGrenadierFilledNukie
+  parent: ClothingBeltMilitaryRigGrenadier
+  suffix: Filled, Nukie
+  components:
+  - type: StorageFill
+    contents:
+      - id: ExGrenade
+        amount: 4
+      - id: SyndieMiniBomb
+        amount: 2
+      - id: EmpGrenade
+        amount: 2
+
+- type: entity
+  id: ClothingBeltMilitaryRigGrenadierFilledSelectableSet
+  parent: ClothingBeltMilitaryRigGrenadier
+  suffix: Filled, Selectable Set
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WeaponPistolViper
+  - type: StorageFill
+    contents:
+      - id: ExGrenade
+        amount: 1
+      - id: GrenadeShrapnel
+        amount: 1
+      - id: GrenadeIncendiary
+        amount: 1
+      - id: SarinGasGrenade
+        amount: 1
+      - id: MagazinePistol
+        amount: 2
