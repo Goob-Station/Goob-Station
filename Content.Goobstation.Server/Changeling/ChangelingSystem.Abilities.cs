@@ -13,7 +13,7 @@
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -44,6 +44,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Polymorph;
 using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
@@ -541,27 +542,13 @@ public sealed partial class ChangelingSystem
             return;
 
         comp.IsInHorrorForm = true;
-        comp.StoredBaseForm = uid; // Stores original form, unsure if needed
+
+        var childUid = _polymorph.PolymorphEntity(uid, "PolymorphAbomination");
 
         var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) uid, EntityManager)));
         _popup.PopupEntity(loc, (EntityUid) uid, PopupType.LargeCaution);
-
-        var ev = new PolymorphSpellEvent
-        {
-            Performer = uid,
-            ProtoId = new("MobChangelingShamblingAbomination"),
-            Speech = null,
-            Sound = null,
-            LoadActions = true,
-            MakeWizard = false
-        };
-
-        args.Handled = _polymorph.Polymorph(ev);
-        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/sound_voice_creepyshriek.ogg"), newUid.Value, AudioParams.Default.WithVolume(2f));
-
-      
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/sound_voice_creepyshriek.ogg"), uid, AudioParams.Default.WithVolume(2f));
     }
-
     #endregion
 
     #region Stings

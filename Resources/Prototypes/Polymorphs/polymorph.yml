@@ -271,3 +271,15 @@
     duration: 5 # Goob edot
     showPopup: false # Goobstation
     attachToGridOrMap: true # Goobstation
+
+# Polymorph for changeling horror form
+- type: polymorph
+  id: PolymorphAbomination
+  configuration:
+    entity: MobChangelingShamblingAbomination
+    revertOnDeath: true
+    revertOnCrit: true
+    revertOnEat: true
+    inventory: None
+    allowRepeatedMorphs: false
+    forced: true
