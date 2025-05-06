@@ -109,7 +109,7 @@
   parent: BaseImplantOnlyImplanterCentcomm
   components:
   - type: Implanter
-    implant: CommandTrackingImplant #Todo : Verify and add way for removal
+    implant: CommandTrackingImplant
 
 - type: entity
   id: CentcommFreedomImplanter

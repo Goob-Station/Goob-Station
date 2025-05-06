@@ -21,6 +21,9 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     [Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
+
+    private const string CommandTrackerImplant = "CommandTrackingImplant";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -38,6 +41,7 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
 
     private void OnScanComplete(EntityUid uid, CrewMonitorScanningComponent comp, CrewMonitorScanningDoAfterEvent args)
     {
+        var implantProto = new string(CommandTrackerImplant);
         if (args.Cancelled || args.Handled || args.Target == null || comp.ScannedEntities.Contains(args.Target.Value))
             return;
 
@@ -45,11 +49,11 @@ public sealed class CrewMonitorScanningSystem : EntitySystem
             return;
 
         comp.ScannedEntities.Add(args.Target.Value); //Keep for don't double implant
-        _implantSystem.AddImplant(args.Target.Value, "CommandTrackingImplant");
-        if (!comp.ApplyDeathrattle)
-            return;
+        _implantSystem.AddImplant(args.Target.Value, implantProto);
 
-        EnsureComp<RelayedDeathrattleComponent>(args.Target.Value).Target = uid;
+        if (comp.ApplyDeathrattle)
+            EnsureComp<RelayedDeathrattleComponent>(args.Target.Value).Target = uid;
+
         args.Handled = true;
     }
 }

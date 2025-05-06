@@ -18,5 +18,5 @@ public sealed partial class RelayedDeathrattleComponent : Component
     public LocId DeathMessage = "deathrattle-implant-dead-message";
 
     [DataField]
-    public bool RequireCrewMonitor = true;
+    public bool RequireCrewMonitor = false;
 }

@@ -44,7 +44,7 @@
   parent: BaseSubdermalImplant
   id: CommandTrackingImplant
   name: Command tracking implant
-  description: This implant reserved for command has a tracking device attached to the suit sensor network, as well as a condition monitor for the Command radio channel.
+  description: This implant reserved for command has a tracking device attached to a private suit sensor network, as well as a condition monitor for the Command radio channel.
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -67,6 +67,7 @@
     - type: TriggerOnMobstateChange
       mobState:
       - Critical
+      - Dead
     - type: Rattle
       radioChannel: "Command"
 
