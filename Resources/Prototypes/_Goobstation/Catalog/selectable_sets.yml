@@ -211,6 +211,8 @@
     state: icon
   content:
   - ClothingBeltMilitaryRigGrenadierFilled
+  - ClothingOuterSuitBomb
+  - ClothingHeadHelmetBombSuit
   - EncryptionKeySyndie
 
 - type: selectableSet
