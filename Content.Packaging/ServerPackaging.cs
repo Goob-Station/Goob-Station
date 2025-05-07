@@ -79,6 +79,7 @@
 
 using System.Diagnostics;
 using System.IO.Compression;
+using Content.ModuleManager;
 using Robust.Packaging;
 using Robust.Packaging.AssetProcessing;
 using Robust.Packaging.AssetProcessing.Passes;
@@ -250,21 +251,23 @@ public static class ServerPackaging
     private static List<string> FindAllServerModules(string path = ".")
     {
         var modules = new List<string>(CoreServerContentAssemblies);
+        modules.AddRange(ModuleDiscovery.DiscoverModules(path)
+            .Where(m => m.Type is not ModuleType.Client)
+            .Select(m => m.Name)
+            .Distinct()
+        );
 
         var directories = Directory.GetDirectories(path, "Content.*");
         foreach (var dir in directories)
         {
             var dirName = Path.GetFileName(dir);
 
-            if ((dirName.EndsWith(".Server") || dirName.EndsWith(".Shared")) || dirName.EndsWith(".Common") &&
-                !modules.Contains(dirName))
-            {
-                var projectPath = Path.Combine(dir, $"{dirName}.csproj");
-                if (File.Exists(projectPath))
-                {
-                    modules.Add(dirName);
-                }
-            }
+            // Throw out anything that does not end with ".Server" or ".Shared"
+            if ((!dirName.EndsWith(".Server") && !dirName.EndsWith(".Shared")) || modules.Contains(dirName))
+                continue;
+            var projectPath = Path.Combine(dir, $"{dirName}.csproj");
+            if (File.Exists(projectPath))
+                modules.Add(dirName);
         }
 
         return modules;

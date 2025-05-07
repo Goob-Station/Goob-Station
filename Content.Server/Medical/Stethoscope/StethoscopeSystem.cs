@@ -25,7 +25,7 @@ using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Medical;
 using Content.Shared.Medical.Stethoscope;
 using Content.Shared.Mobs.Components;
