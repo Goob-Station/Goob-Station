@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
@@ -39,15 +41,19 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
 
-    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
+    public static readonly SoundSpecifier BriefingSound =
+        new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
+    public static readonly SoundSpecifier BriefingSoundIntense =
+        new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain_intense.ogg");
 
-    [ValidatePrototypeId<NpcFactionPrototype>] public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+    public static readonly ProtoId<NpcFactionPrototype> HereticFactionId = "Heretic";
 
-    [ValidatePrototypeId<CurrencyPrototype>] public readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
+    public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
-    [ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleHeretic";
+    public static readonly ProtoId<CurrencyPrototype> Currency = "KnowledgePoint";
+
+    static EntProtoId MindRole = "MindRoleHeretic";
 
     public override void Initialize()
     {
@@ -81,7 +87,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
-        _role.MindAddRole(mindId, mindRole.Id, mind, true);
+        _role.MindAddRole(mindId, MindRole.Id, mind, true);
 
         // briefing
         if (HasComp<MetaDataComponent>(target))
@@ -131,7 +137,9 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
                 mostKnowledgeName = name;
             }
 
-            var str = Loc.GetString($"roundend-prepend-heretic-ascension-{(heretic.Ascended ? "success" : "fail")}", ("name", name));
+            var message =
+                $"roundend-prepend-heretic-ascension-{(heretic.Ascended ? "success" : heretic.CanAscend ? "fail" : "fail-owls")}";
+            var str = Loc.GetString(message, ("name", name));
             sb.AppendLine(str);
         }
 

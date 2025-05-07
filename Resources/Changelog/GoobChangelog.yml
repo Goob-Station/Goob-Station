@@ -8258,3 +8258,337 @@ Entries:
       message: Cyberpsychosis bundle now includes freedom implant.
   id: 951
   time: '2025-05-02T12:08:49.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Security lockers now contain either security belt OR judo belt, but not
+        both.
+  id: 952
+  time: '2025-05-03T04:08:22.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Fixed radiation collectors with very high maximum output ramping very
+        slowly.
+  id: 953
+  time: '2025-05-03T04:14:52.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: >-
+        Invisible armor (Syndie and Centcomm) are now invisible in the strip
+        menu.
+  id: 954
+  time: '2025-05-03T04:16:01.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: Warops declaration will now play new music.
+  id: 955
+  time: '2025-05-03T04:17:03.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Salvage borg grappling module now has experimental jaunter, which will
+        recharge over time.
+  id: 956
+  time: '2025-05-03T04:17:55.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        You can now quickscope with Hristov like a pro. Also, it is now
+        bolt-action, but fires faster, is 2x7 in the storage, comes with an
+        extra mag, but slows down on wielding slightly more.
+  id: 957
+  time: '2025-05-03T04:18:15.0000000+00:00'
+- author: Singul0
+  changes:
+    - type: Fix
+      message: >-
+        Ghost roles with requirements (such as maint drones) are now grouped
+        together correctly!
+  id: 958
+  time: '2025-05-03T04:20:00.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Add
+      message: 'New Ian variant: Clown Ian.'
+  id: 959
+  time: '2025-05-03T04:22:38.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: I'm now gibbable via carp. I shall take the punishment in his stead.
+    - type: Add
+      message: >-
+        Brizby is now gibbable via carp. The balance of goob stays equivalent
+        after all...
+    - type: Remove
+      message: 'Rosef is no longer gibbable via carp. Please shame him publicly. '
+  id: 960
+  time: '2025-05-03T04:23:36.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Fixed a bug with movement impaired.
+  id: 961
+  time: '2025-05-03T04:24:16.0000000+00:00'
+- author: OnsenCapy
+  changes:
+    - type: Tweak
+      message: Revenant is now slightly stronger and faster.
+    - type: Add
+      message: Revenant now can toggle nightvision.
+  id: 962
+  time: '2025-05-03T04:24:40.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Teslas can now bounce off each other.
+    - type: Add
+      message: Tesla generators are now immune to teslas.
+  id: 963
+  time: '2025-05-03T04:25:42.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob factories are now limited to 3 alive and not total blob drops.
+  id: 964
+  time: '2025-05-03T04:26:14.0000000+00:00'
+- author: Muppet
+  changes:
+    - type: Tweak
+      message: You can now wear your propeller hat backwards like the cool kids do.
+  id: 965
+  time: '2025-05-03T04:26:34.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: >-
+        Burner HE ammo is now HEI. Weaker explosion, but enflames its targets.
+        Come on, it's called BURNER after all.
+    - type: Tweak
+      message: Emag and disruptor both cost 20 TC now.
+    - type: Tweak
+      message: Viper and Cobra cost 13 and 17 TC respectively.
+    - type: Tweak
+      message: A lot of ammo now costs less TC.
+  id: 966
+  time: '2025-05-03T04:27:24.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added inline filters - essentially a filter on top of a straight pipe.
+  id: 967
+  time: '2025-05-03T04:33:47.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Tweak
+      message: Slightly changed armor values of most armor vests.
+    - type: Tweak
+      message: >-
+        Instead of just dealing more damage, heavier calibers now have partial
+        AP.
+  id: 968
+  time: '2025-05-03T04:47:17.0000000+00:00'
+- author: WUBE Software
+  changes:
+    - type: Add
+      message: Added factorio.
+  id: 969
+  time: '2025-05-03T16:15:09.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Fixed Patron Queue
+  id: 970
+  time: '2025-05-03T17:51:16.0000000+00:00'
+- author: LuciferEOS, xcenlegend
+  changes:
+    - type: Add
+      message: The Tide is here.
+    - type: Add
+      message: >-
+        Makeshift defibrillator, contraband bag, tide flipper, makeshift id
+        card, grey toolbox, makeshift jammer, metal baseball bat and kitchen
+        knife crafting recipies.
+    - type: Add
+      message: Craftable armor, check out "makeshift" in the G menu.
+    - type: Tweak
+      message: syndicate jammer price reduced 20 -> 5
+    - type: Tweak
+      message: >-
+        Weswords are now slightly harder to make and require tools. (dont worry
+        tiders nothing will change)
+  id: 971
+  time: '2025-05-03T19:31:10.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: >-
+        Added the combat shotgun for the syndicate, 5 round pump action
+        chambered in 8 gauge. Carpshot, slugs, flash and sarin rounds are
+        available in the uplink.
+  id: 972
+  time: '2025-05-04T05:41:22.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Cleaned up emote wheel.
+  id: 973
+  time: '2025-05-04T18:37:51.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Added the Deimos and Phobos modsuits, cheaper equivalents to the
+        Bloodred and Elite hardsuit.
+    - type: Add
+      message: >-
+        NEW MAJOR ANTAGONIST: THE COSMIC CULT. The Vast Nameless Unknown wants
+        you to uninstall reality. As a treat.
+    - type: Tweak
+      message: Reduced damage values on some glyph usages.
+    - type: Tweak
+      message: >-
+        If there is only one cultist, and they are the leader, they will get the
+        ability to do conversions and such with one less cultist.
+    - type: Tweak
+      message: >-
+        If cultists are reduced down to one (deconversion or RRd), the last one
+        will be promoted to a leader.
+  id: 974
+  time: '2025-05-05T01:07:43.0000000+00:00'
+- author: TheBorzoiMustConsume, SolsticeOfTheWinter, Aviu00, gusxyz
+  changes:
+    - type: Add
+      message: Nullrod & it's variants
+    - type: Add
+      message: Fiery crosses to burn heretics like it's Walpurgisnacht!
+    - type: Add
+      message: Altar Crafting Recipe/s
+    - type: Add
+      message: Heretics can now take holy damage
+    - type: Add
+      message: Unholy (Heretic) and Magic (Wizard) Nullrod/Chaplain interactions.
+    - type: Add
+      message: New equipment in the PietyVend
+    - type: Add
+      message: A new chaplain guidebook entry
+    - type: Add
+      message: New information in the heretic guidebook
+  id: 975
+  time: '2025-05-05T03:36:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: You can now pray at the Casul & Jackul nullrods again.
+    - type: Tweak
+      message: nerfed nullrod damages across the board. Maints hate fun
+  id: 976
+  time: '2025-05-05T09:51:45.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Added handheld command monitor for Blueshield Officer that only tracks
+        heads and works as a deathrattle.
+    - type: Remove
+      message: Blueshield Officer no longer gets security comms and wanted HUD.
+  id: 977
+  time: '2025-05-05T10:05:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cosmic cultists not being able to use glyphs.
+  id: 978
+  time: '2025-05-05T15:30:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 4 new heretic side and roundstart knowledge.
+    - type: Add
+      message: Heretic blades are now limited, use reminiscence ritual to recall them.
+    - type: Add
+      message: >-
+        Flesh path ghouls get their own blade for free, this blade cannot be
+        shattered and disappears on their death.
+    - type: Add
+      message: >-
+        You can now infuse all blades that you have created at once in the
+        inventory or in hands if you cast mansus grasp while your hands are
+        occupied.
+    - type: Add
+      message: Knowledge ritual is now one-time only but gives 1 more point.
+    - type: Add
+      message: Standing on rust as non heretic is bad for your well-being now.
+    - type: Add
+      message: >-
+        Eldritch water can now rust tiles when splashing, Space Cola removes
+        rust the same way.
+    - type: Add
+      message: Rust is now removed using a welder instead of a crowbar.
+    - type: Add
+      message: Ominous hood protects from flashes and flashbangs now.
+    - type: Tweak
+      message: Blade ascension nerfed, it is not unkillable anymore.
+    - type: Tweak
+      message: >-
+        Halved rust heretic healing on rust, rustwalkers heal the same as
+        before.
+    - type: Tweak
+      message: Void path debuff is now better.
+    - type: Tweak
+      message: Entropic Plume is 25% weaker now.
+    - type: Fix
+      message: Fixed reality shifts spawning on empty tiles.
+  id: 979
+  time: '2025-05-05T16:24:08.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Pepperspray can now correctly refill at dispensers.
+    - type: Fix
+      message: >-
+        You can no longer blow up hos by yelling "I AM THE LAW". Looking at you
+        Conrad, not cool..
+  id: 980
+  time: '2025-05-06T16:41:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added shuttle collision damage.
+    - type: Tweak
+      message: Shuttle max speed increased to 50.
+  id: 981
+  time: '2025-05-06T16:44:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Cosmic Cult and Heretics may no longer roll in the same round.
+  id: 982
+  time: '2025-05-06T16:50:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Abductor walls can now be destroyed.
+    - type: Add
+      message: >-
+        Large grids can now deal impact damage at lower velocities. Enjoy your
+        colony drops.
+    - type: Tweak
+      message: Walls should now matter more for impact damage.
+    - type: Tweak
+      message: Shuttle speed further raised to 60.
+    - type: Tweak
+      message: Impact damage to non-structures reduced, and to structures increased.
+    - type: Fix
+      message: >-
+        Impact damage can no longer destroy tiles under things without
+        destroying them first.
+  id: 983
+  time: '2025-05-07T18:00:36.0000000+00:00'

@@ -8,6 +8,7 @@
 using Content.Goobstation.Server.Wizard.Components;
 using Content.Server.Teleportation;
 using Content.Shared.Projectiles;
+using Content.Shared.Teleportation;
 using Content.Shared.Whitelist;
 
 namespace Content.Goobstation.Server.Wizard.Systems;

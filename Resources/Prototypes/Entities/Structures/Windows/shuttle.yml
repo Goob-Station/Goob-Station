@@ -70,6 +70,8 @@
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 150
+  - type: CosmicCorruptible # DeltaV - Cosmic Cult
+    convertTo: WindowCosmicCult
 
 - type: entity
   parent: ShuttleWindow

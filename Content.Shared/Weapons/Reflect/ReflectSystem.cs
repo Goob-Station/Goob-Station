@@ -182,13 +182,8 @@ public sealed class ReflectSystem : EntitySystem
             !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
-            // Goob edit start
-            !((reflect.Reflects & reflective.Reflective) != 0x0 &&
-                _random.Prob(reflect.ReflectProb) ||
-                reflective.Reflective != ReflectType.None &&
-                (reflect.Reflects & reflective.Reflective) == 0x0 &&
-                _random.Prob(reflect.OtherTypeReflectProb)) ||
-            // Goob edit end
+            (reflect.Reflects & reflective.Reflective) == 0x0 ||
+            !_random.Prob(reflect.ReflectProb) ||
             !TryComp<PhysicsComponent>(projectile, out var physics))
         {
             return false;
@@ -268,11 +263,7 @@ public sealed class ReflectSystem : EntitySystem
             !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
             // Goob edit start
-            !((reflect.Reflects & reflective) != 0x0 &&
-                _random.Prob(reflect.ReflectProb) ||
-                reflective != ReflectType.None &&
-                (reflect.Reflects & reflective) == 0x0 &&
-                _random.Prob(reflect.OtherTypeReflectProb)))
+            !((reflect.Reflects & reflective) != 0x0 && _random.Prob(reflect.ReflectProb)))
             // Goob edit end
         {
             newDirection = null;

@@ -9,7 +9,7 @@ using System.Linq;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;

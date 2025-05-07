@@ -53,6 +53,7 @@
 // SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
@@ -60,7 +61,9 @@
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -91,6 +94,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Movement.Pulling.Components; // Goobstation
 using Content.Shared.Movement.Pulling.Systems; // Goobstation
 using Content.Goobstation.Shared.Body.Components;
+using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 
 namespace Content.Server.Body.Systems;
@@ -127,7 +131,7 @@ public sealed class RespiratorSystem : EntitySystem
     // Can breathe check for grab
     public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
-        if(respirator.Saturation < respirator.SuffocationThreshold)
+        if (respirator.Saturation < respirator.SuffocationThreshold)
             return false;
         if (TryComp<PullableComponent>(uid, out var pullable)
             && pullable.GrabStage == GrabStage.Suffocate)
@@ -180,6 +184,13 @@ public sealed class RespiratorSystem : EntitySystem
 
             if (!CanBreathe(uid, respirator)) // Goobstation edit
             {
+                // DeltaV: Cosmic Cult - One line change but a refactor would be better. this is kinda cringe.
+                // Makes cultists gasp and respirate but not asphyxiate in space.
+                if (TryComp<CosmicCultComponent>(uid, out var cultComponent)
+                    && !cultComponent.Respiration
+                    && !_mobState.IsIncapacitated(uid))
+                    return;
+
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
                 {
                     respirator.LastGaspEmoteTime = _gameTiming.CurTime;

@@ -45,7 +45,7 @@ using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
