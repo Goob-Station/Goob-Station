@@ -371,8 +371,6 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
-                // #Goobstation - Borg Preferred Name
-                profile.BorgName,
                 profile.Age,
                 sex,
                 gender,
@@ -408,8 +406,6 @@ namespace Content.Server.Database
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
-            // #Goobstation - Borg Preferred Name
-            profile.BorgName = humanoid.BorgName;
             profile.Species = humanoid.Species;
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
