@@ -2128,7 +2128,7 @@
   description: uplink-cluster-banana-peel-desc
   productEntity: ClusterBananaPeel
   cost:
-    Telecrystal: 12 # goob
+    Telecrystal: 18 # goob
   categories:
   - UplinkJob
   conditions:
