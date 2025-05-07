@@ -90,7 +90,6 @@ public partial class SharedMartialArtsSystem
                 var userReflect = EnsureComp<ReflectComponent>(args.User);
                 userReflect.ReflectProb = 1;
                 userReflect.Spread = 60;
-                userReflect.OtherTypeReflectProb = 0.25f;
                 _popupSystem.PopupEntity(
                     Loc.GetString("carp-scroll-complete"),
                     ent,
