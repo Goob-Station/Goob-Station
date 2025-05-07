@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity # Making a base item with allow for creating more variants easier. Probably.
   parent: BaseItem
   id: BaseNullrod
@@ -132,7 +139,7 @@
     damage:
       types:
         Blunt: 3
-        Holy: 20
+        Holy: 10
   - type: Wieldable
   - type: SpeedModifiedOnWield # HOLY.. AURA!
     walkModifier: 1.15
@@ -494,10 +501,10 @@
     attackRate: 4
     damage:
       types:
-        Slash: 4
-        Blunt: 3
+        Slash: 5
+        Blunt: 2
         Structural: 15
-        Holy: 5
+        Holy: 3
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
