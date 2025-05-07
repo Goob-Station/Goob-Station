@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using Content.Goobstation.Shared.Heretic.Systems;
 using Content.Goobstation.Shared.Wizard.SanguineStrike;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Rotting;

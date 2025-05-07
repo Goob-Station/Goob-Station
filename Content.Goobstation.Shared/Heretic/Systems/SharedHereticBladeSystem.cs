@@ -15,8 +15,9 @@
 
 using System.Linq;
 using System.Text;
+using Content.Goobstation.Shared.Wizard.SanguineStrike;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.SanguineStrike;
+using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -30,7 +31,7 @@ using Content.Shared.Teleportation;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Shared._Shitcode.Heretic.Systems;
+namespace Content.Goobstation.Shared.Heretic.Systems;
 
 public abstract class SharedHereticBladeSystem : EntitySystem
 {

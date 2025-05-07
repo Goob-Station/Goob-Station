@@ -3,6 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Systems;
 
 namespace Content.Client._Shitcode.Heretic;
