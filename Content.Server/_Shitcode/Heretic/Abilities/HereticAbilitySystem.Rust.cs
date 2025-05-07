@@ -115,7 +115,10 @@ public sealed partial class HereticAbilitySystem
         if (ent.Comp.CurrentState == MobState.Dead)
             return;
 
-        if (HasComp<HereticComponent>(ent) || HasComp<GhoulComponent>(ent) || HasComp<GodmodeComponent>(ent))
+        if (HasComp<HereticComponent>(ent)
+            || HasComp<GhoulComponent>(ent)
+            || HasComp<GodmodeComponent>(ent)
+            || HasComp<BibleUserComponent>(ent))
             return;
 
         if (IsTileRust(Transform(ent).Coordinates, out _))
