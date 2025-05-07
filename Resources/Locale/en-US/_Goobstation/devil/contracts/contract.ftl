@@ -4,6 +4,7 @@ devil-contract-contractor = contractor
 devil-contract-early-sign-failed = The contractor must wait for the contractee to sign first!
 devil-contract-no-soul-sign-failed = You do not have a soul to sell!
 devil-sign-invalid-user = You do not have the power to fulfill this contract!
+devil-contract-mind-shielded-failed = Your Nanotrasen™ mindshield prevents you from signing this of your own free will.
 
 contract-summon-flavor = {$name}'s hand bursts into flames before revealing a black roll of parchment...
 burn-contract-prompt = Burn contract.

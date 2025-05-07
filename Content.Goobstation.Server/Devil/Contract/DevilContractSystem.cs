@@ -20,6 +20,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Mindshield.Components;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -142,12 +143,24 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         // You can't sell your soul if you already sold it. (also no robits)
-        if (HasComp<CondemnedComponent>(args.Signer) || HasComp<SiliconComponent>(args.Signer) || HasComp<DroneComponent>(args.Signer))
+        if (HasComp<CondemnedComponent>(args.Signer)
+            || HasComp<SiliconComponent>(args.Signer)
+            || HasComp<DroneComponent>(args.Signer))
         {
             var noSoulPopup = Loc.GetString("devil-contract-no-soul-sign-failed");
             _popupSystem.PopupEntity(noSoulPopup, args.Signer, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
+            return;
+        }
+
+        if (HasComp<MindShieldComponent>(args.Signer))
+        {
+            var mindshieldedPopup = Loc.GetString("devil-contract-mind-shielded-failed");
+            _popupSystem.PopupEntity(mindshieldedPopup, args.Signer, args.Signer, PopupType.MediumCaution);
+
+            args.Cancelled = true;
+            return;
         }
 
         // Check if the weight is too low
@@ -159,6 +172,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             _popupSystem.PopupEntity(unevenOddsPopup, contract, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
+            return;
         }
 
         // Check if devil is trying to sign first
