@@ -61,9 +61,6 @@
         base:
           Primed: { state: primed }
           Unprimed: { state: complete }
-  - type: Tag # Goobstation
-    tags:
-    - Bomb
 
 - type: entity
   name: composition C-4
