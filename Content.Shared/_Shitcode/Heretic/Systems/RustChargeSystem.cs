@@ -30,6 +30,7 @@ public sealed class RustChargeSystem : EntitySystem
         SubscribeLocalEvent<RustChargeComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<RustChargeComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<RustChargeComponent, LandEvent>(OnLand);
+        SubscribeLocalEvent<RustChargeComponent, StopThrowEvent>(OnStopThrow);
         SubscribeLocalEvent<RustChargeComponent, DownAttemptEvent>(OnDownAttempt);
         SubscribeLocalEvent<RustChargeComponent, InteractionAttemptEvent>(OnInteractAttempt);
         SubscribeLocalEvent<RustChargeComponent, BeforeStatusEffectAddedEvent>(OnBeforeRustChargeStatusEffect);
@@ -70,6 +71,11 @@ public sealed class RustChargeSystem : EntitySystem
         if (!HasComp<DamageableComponent>(other) || _tag.HasTag(other, "IgnoreImmovableRod") ||
             ent.Comp.DamagedEntities.Contains(other))
             args.Cancelled = true;
+    }
+
+    private void OnStopThrow(Entity<RustChargeComponent> ent, ref StopThrowEvent args)
+    {
+        RemCompDeferred(ent.Owner, ent.Comp);
     }
 
     private void OnLand(Entity<RustChargeComponent> ent, ref LandEvent args)
