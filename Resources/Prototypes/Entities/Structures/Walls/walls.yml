@@ -163,10 +163,14 @@
 # SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 yahay505 <58685802+yahay505@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -669,11 +673,24 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
-    - type: RustRequiresPathStage # Goobstation
+    # <Goobstation>
+    - type: RustRequiresPathStage
       pathStage: 11 # Can't rust
-    - type: Penetratable # Goobstation - Better snipers
+    - type: Penetratable
       penetrateDamage: 1000
       damagePenalty: 0.8
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+          - FullTileMask
+          layer:
+          - WallLayer
+          density: 3000 # ramming nukies is a bad idea
+    # </Goobstation>
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -864,6 +881,18 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
+  # <Goobstation>
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000 # double normal density
   - type: RustRequiresPathStage # Goobstation
     pathStage: 7 # Toxic blade
   - type: Penetratable # Goobstation - Better snipers
@@ -871,6 +900,7 @@
     damagePenalty: 0.25
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  # </Goobstation>
 
 - type: entity
   parent: WallReinforced
@@ -1204,13 +1234,26 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  - type: RustRequiresPathStage # Goobstation
+  # <Goobstation>
+  - type: RustRequiresPathStage
     pathStage: 7 # Toxic blade
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable
     penetrateDamage: 90
     damagePenalty: 0.3
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 2000 # double normal density
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
+  # </Goobstation>
 
 - type: entity
   parent: BaseWall

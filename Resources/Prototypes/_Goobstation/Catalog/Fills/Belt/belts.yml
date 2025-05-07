@@ -6,8 +6,10 @@
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -244,26 +246,26 @@
   - type: StorageFill # Yes.
     contents:         # If seriously this is like 200 TC worth of explosives.
     - id: MetalFoamGrenade
-    - id: MetalFoamGrenade
+      amount: 2
     - id: GrenadeFlashBang
-    - id: GrenadeFlashBang
+      amount: 2
     - id: WhiteholeGrenade
-    - id: WhiteholeGrenade
+      amount: 2
     - id: SmokeGrenade
-    - id: SmokeGrenade
+      amount: 2
     - id: EmpGrenade
-    - id: EmpGrenade
+      amount: 2
     - id: C4
-    - id: C4
+      amount: 2
     - id: GrenadeShrapnel
-    - id: GrenadeShrapnel
+      amount: 2
     - id: GrenadeIncendiary
-    - id: GrenadeIncendiary
+      amount: 2
     - id: ExGrenade
-    - id: ExGrenade
+      amount: 2
     - id: SarinGasGrenade
-    - id: SarinGasGrenade
+      amount: 2
     - id: SupermatterGrenade
-    - id: SupermatterGrenade
+      amount: 2
     - id: SyndieMiniBomb
-    - id: SyndieMiniBomb
+      amount: 2
