@@ -43,10 +43,12 @@ public sealed class CosmicGlareSystem : EntitySystem
 
     private void OnCosmicGlare(Entity<CosmicCultComponent> uid, ref EventCosmicGlare args)
     {
+        if (!_cosmicCult.TryUseAbility(args))
+            return;
+
         _audio.PlayPvs(uid.Comp.GlareSFX, uid);
         Spawn(uid.Comp.GlareVFX, Transform(uid).Coordinates);
         _cult.MalignEcho(uid);
-        args.Handled = true;
 
         _lights.Clear();
         _lookup.GetEntitiesInRange<PoweredLightComponent>(Transform(uid).Coordinates,

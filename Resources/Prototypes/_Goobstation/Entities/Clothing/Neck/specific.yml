@@ -46,8 +46,9 @@
     sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
-#   equipDelay: 5 hmmm... not sure if I should have this tbh
+#   equipDelay: 5 hmmm... not sure
     unequipDelay: 5
+  - type: SelfUnremovableClothing
   - type: MagicSuppression
 
 

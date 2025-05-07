@@ -49,6 +49,9 @@ public sealed class CosmicNovaSystem : EntitySystem
     /// </summary>
     private void OnCosmicNova(Entity<CosmicCultComponent> uid, ref EventCosmicNova args)
     {
+        if (!_cosmicCult.TryUseAbility(args))
+            return;
+
         var startPos = _transform.GetMapCoordinates(args.Performer);
         var targetPos = _transform.ToMapCoordinates(args.Target);
         var userVelocity = _physics.GetMapLinearVelocity(args.Performer);
@@ -57,7 +60,6 @@ public sealed class CosmicNovaSystem : EntitySystem
         if (delta.EqualsApprox(Vector2.Zero))
             delta = new(.01f, 0);
 
-        args.Handled = true;
         var ent = Spawn(Projectile, startPos);
         _gun.ShootProjectile(ent, delta, userVelocity, args.Performer, args.Performer, 5f);
         _audio.PlayPvs(uid.Comp.NovaCastSFX, uid, AudioParams.Default.WithVariation(0.1f));

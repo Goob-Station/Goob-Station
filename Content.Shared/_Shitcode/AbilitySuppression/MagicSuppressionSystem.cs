@@ -6,6 +6,8 @@ namespace Content.Shared.AbilitySuppression;
 
 public sealed partial class MagicSuppressionSystem : EntitySystem
 {
+    [Dependency] protected readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -13,6 +15,21 @@ public sealed partial class MagicSuppressionSystem : EntitySystem
         SubscribeLocalEvent<MagicSuppressionComponent, InventoryRelayedEvent<CheckMagicSuppressionEvent>>(OnCheckSuppression);
         SubscribeLocalEvent<MagicSuppressionComponent, ExaminedEvent>(OnMagicSuppressionExamine);
 
+    }
+
+    public bool TryMagicSuppressed(EntityUid ent)
+    {
+        // Check if wearing an item that does it
+        var sup = new CheckMagicSuppressionEvent();
+        RaiseLocalEvent(ent, sup);
+
+        if (sup.Cancelled)
+        {
+            _popup.PopupEntity(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), ent, ent, PopupType.Medium);
+            return true;
+        }
+
+        return false;
     }
 
     private void OnCheckSuppression(Entity<MagicSuppressionComponent> ent, ref InventoryRelayedEvent<CheckMagicSuppressionEvent> args)

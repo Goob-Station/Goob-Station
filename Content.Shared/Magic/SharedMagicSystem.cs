@@ -170,6 +170,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
     [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
+    [Dependency] private readonly MagicSuppressionSystem _suppression = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -274,16 +275,9 @@ public abstract class SharedMagicSystem : EntitySystem
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;
 
-        // check if magic is being suppressed
-        var sup = new CheckMagicSuppressionEvent();
-        RaiseLocalEvent(args.Performer, sup);
-
-        if (sup.Cancelled)
-        {
-            _popup.PopupEntity(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), args.Performer, args.Performer, PopupType.Medium);
-            args.Cancelled = sup.Cancelled;
+        // Check if the magic is being suppressed
+        if (_suppression.TryMagicSuppressed(ent))
             return;
-        }
 
         if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
             HasComp<ChuuniEyepatchComponent>(eyepatch.Value))

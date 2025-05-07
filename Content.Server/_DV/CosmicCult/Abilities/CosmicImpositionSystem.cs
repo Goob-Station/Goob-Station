@@ -43,10 +43,13 @@ public sealed class CosmicImpositionSystem : EntitySystem
 
     private void OnCosmicImposition(Entity<CosmicCultComponent> uid, ref EventCosmicImposition args)
     {
+        if (!_cult.TryUseAbility(args))
+            return;
+
         EnsureComp<CosmicImposingComponent>(uid, out var comp);
         comp.Expiry = _timing.CurTime + uid.Comp.CosmicImpositionDuration;
         Spawn(uid.Comp.ImpositionVFX, Transform(uid).Coordinates);
-        args.Handled = true;
+
         _audio.PlayPvs(uid.Comp.ImpositionSFX, uid, AudioParams.Default.WithVariation(0.05f));
         _cult.MalignEcho(uid);
     }

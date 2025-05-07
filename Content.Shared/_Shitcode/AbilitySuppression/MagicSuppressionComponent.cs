@@ -9,7 +9,7 @@ public sealed partial class MagicSuppressionComponent : Component
 }
 
 /// <summary>
-///     Raised when you want to check if an item that suppresses the users magic is worn
+///     Raised when you want to check if an item suppresses the users magic
 /// </summary>
 public sealed class CheckMagicSuppressionEvent : IInventoryRelayEvent
 {

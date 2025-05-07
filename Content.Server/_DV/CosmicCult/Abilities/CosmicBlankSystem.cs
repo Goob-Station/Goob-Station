@@ -49,6 +49,9 @@ public sealed class CosmicBlankSystem : EntitySystem
 
     private void OnCosmicBlank(Entity<CosmicCultComponent> uid, ref EventCosmicBlank args)
     {
+        if (!_cosmicCult.TryUseAbility(args))
+            return;
+
         if (_cosmicCult.EntityIsCultist(args.Target)
             || HasComp<CosmicBlankComponent>(args.Target)
             || HasComp<BibleUserComponent>(args.Target)
@@ -57,9 +60,6 @@ public sealed class CosmicBlankSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("cosmicability-generic-fail"), uid, uid);
             return;
         }
-
-        if (args.Handled)
-            return;
 
         var doargs = new DoAfterArgs(EntityManager, uid, uid.Comp.CosmicBlankDelay, new EventCosmicBlankDoAfter(), uid, args.Target)
         {
@@ -70,7 +70,6 @@ public sealed class CosmicBlankSystem : EntitySystem
             BreakOnDropItem = true,
         };
 
-        args.Handled = true;
         _doAfter.TryStartDoAfter(doargs);
         _popup.PopupEntity(Loc.GetString("cosmicability-blank-begin", ("target", Identity.Entity(uid, EntityManager))), uid, args.Target);
     }

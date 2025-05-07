@@ -1,4 +1,5 @@
 using Content.Shared._Shitcode.Heretic.Components;
+using Content.Shared.AbilitySuppression;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
@@ -32,6 +33,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
+    [Dependency] private readonly MagicSuppressionSystem _suppression = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 
@@ -71,6 +73,10 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     protected bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
         if (args.Handled)
+            return false;
+
+        // Check if the magic is being suppressed
+        if (_suppression.TryMagicSuppressed(ent))
             return false;
 
         // No using abilities while charging

@@ -29,10 +29,8 @@ public sealed class CosmicIngressSystem : EntitySystem
     {
         var target = args.Target;
 
-        if (args.Handled)
+        if (!_cult.TryUseAbility(args))
             return;
-
-        args.Handled = true;
 
         if (uid.Comp.CosmicEmpowered
             && TryComp<DoorBoltComponent>(target, out var doorBolt))
