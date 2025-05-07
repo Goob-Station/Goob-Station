@@ -481,7 +481,7 @@ public sealed partial class GoobCVars
     /// Area to consider for impact calculations
     /// </summary>
     public static readonly CVarDef<float> ImpactRadius =
-        CVarDef.Create("shuttle.impact.radius", 5f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.radius", 4f, CVar.SERVERONLY);
 
     /// <summary>
     /// Affects slowdown on impact
