@@ -65,7 +65,7 @@ public partial class DelayedDeathSystem : EntitySystem
         // can't defib someone without a heart or brain pal
         args.Cancel();
 
-        _chat.TrySendInGameICMessage(args.Defib, Loc.GetString("defibrillator-missing-organs"),
-            InGameICChatType.Speak, true);
+        var failPopup = Loc.GetString(ent.Comp.DeathMessageId); // Goobstation
+        _chat.TrySendInGameICMessage(args.Defib, failPopup, InGameICChatType.Speak, true);
     }
 }

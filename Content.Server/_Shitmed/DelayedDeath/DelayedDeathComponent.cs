@@ -24,4 +24,10 @@ public sealed partial class DelayedDeathComponent : Component
     /// </summary>
     [DataField]
     public LocId DeathMessageId;
+
+    /// <summary>
+    /// What the defib displays when attempting to revive this entity. - Goobstation
+    /// </summary>
+    [DataField]
+    public LocId DefibFailMessageId = "defibrillator-missing-organs";
 }

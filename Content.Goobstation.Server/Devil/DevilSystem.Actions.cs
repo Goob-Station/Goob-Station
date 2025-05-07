@@ -23,64 +23,68 @@ public sealed partial class DevilSystem
         SubscribeLocalEvent<DevilComponent, DevilPossessionEvent>(OnPossess);
     }
 
-    private void OnContractCreated(EntityUid uid, DevilComponent comp, ref CreateContractEvent args)
+    private void OnContractCreated(Entity<DevilComponent> devil, ref CreateContractEvent args)
     {
         if (!TryUseAbility(args))
             return;
 
-        var contract = Spawn(comp.ContractPrototype, Transform(uid).Coordinates);
-        _hands.TryPickupAnyHand(uid, contract);
+        var contract = Spawn(devil.Comp.ContractPrototype, Transform(devil).Coordinates);
+        _hands.TryPickupAnyHand(devil, contract);
 
         if (!TryComp<DevilContractComponent>(contract, out var contractComponent))
             return;
 
         contractComponent.ContractOwner = args.Performer;
-        PlayFwooshSound(uid);
-        DoContractFlavor(uid, Identity.Name(uid, EntityManager));
+
+        PlayFwooshSound(devil);
+        DoContractFlavor(devil, Identity.Name(devil, EntityManager));
     }
 
-    private void OnRevivalContractCreated(EntityUid uid, DevilComponent comp, ref CreateRevivalContractEvent args)
+    private void OnRevivalContractCreated(Entity<DevilComponent> devil, ref CreateRevivalContractEvent args)
     {
         if (!TryUseAbility(args))
             return;
 
-        var contract = Spawn(comp.RevivalContractPrototype, Transform(uid).Coordinates);
-        _hands.TryPickupAnyHand(uid, contract);
+        var contract = Spawn(devil.Comp.RevivalContractPrototype, Transform(devil).Coordinates);
+        _hands.TryPickupAnyHand(devil, contract);
 
         if (!TryComp<RevivalContractComponent>(contract, out var contractComponent))
             return;
 
         contractComponent.ContractOwner = args.Performer;
-        PlayFwooshSound(uid);
-        DoContractFlavor(uid, Identity.Name(uid, EntityManager));
+
+        PlayFwooshSound(devil);
+        DoContractFlavor(devil, Identity.Name(devil, EntityManager));
     }
 
-    private void OnShadowJaunt(EntityUid uid, DevilComponent comp, ref ShadowJauntEvent args)
+    private void OnShadowJaunt(Entity<DevilComponent> devil, ref ShadowJauntEvent args)
     {
         if (!TryUseAbility(args))
             return;
 
-        Spawn(comp.JauntAnimationProto, Transform(uid).Coordinates);
-        Spawn(comp.PentagramEffectProto, Transform(uid).Coordinates);
-        _poly.PolymorphEntity(uid, comp.JauntEntityProto);
+        Spawn(devil.Comp.JauntAnimationProto, Transform(devil).Coordinates);
+        Spawn(devil.Comp.PentagramEffectProto, Transform(devil).Coordinates);
+
+        _poly.PolymorphEntity(devil, devil.Comp.JauntEntityProto);
     }
 
-    private void OnPossess(EntityUid uid, DevilComponent comp, ref DevilPossessionEvent args)
+    private void OnPossess(Entity<DevilComponent> devil, ref DevilPossessionEvent args)
     {
         if (args.Target == default || !TryUseAbility(args))
         {
             var message = Loc.GetString("invalid-possession-target");
-            _popup.PopupEntity(message, uid, uid);
+            _popup.PopupEntity(message, devil, devil);
             return;
         }
 
-        if (comp.PowerLevel != DevilPowerLevel.None)
-            comp.PossessionDuration *= (int)comp.PowerLevel;
+        if (devil.Comp.PowerLevel != DevilPowerLevel.None)
+            devil.Comp.PossessionDuration *= (int)devil.Comp.PowerLevel;
 
-        if (_possession.TryPossessTarget(args.Target, args.Performer, comp.PossessionDuration, true, polymorphPossessor: true))
+        if (_possession.TryPossessTarget(args.Target, args.Performer, devil.Comp.PossessionDuration, true, polymorphPossessor: true))
         {
-            Spawn(comp.JauntAnimationProto, Transform(args.Target).Coordinates);
-            Spawn(comp.PentagramEffectProto, Transform(args.Target).Coordinates);
+            Spawn(devil.Comp.JauntAnimationProto, Transform(args.Target).Coordinates);
+            Spawn(devil.Comp.PentagramEffectProto, Transform(args.Target).Coordinates);
         }
+
     }
 }

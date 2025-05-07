@@ -61,7 +61,6 @@ public sealed partial class DevilSystem : EntitySystem
 {
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly PolymorphSystem _poly = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -84,7 +83,7 @@ public sealed partial class DevilSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<DevilComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<DevilComponent, MapInitEvent>(OnStartup);
         SubscribeLocalEvent<DevilComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<DevilComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<DevilComponent, SoulAmountChangedEvent>(OnSoulAmountChanged);
@@ -99,48 +98,48 @@ public sealed partial class DevilSystem : EntitySystem
 
     #region Startup & Remove
 
-    private void OnStartup(EntityUid uid, DevilComponent comp, ComponentStartup args)
+    private void OnStartup(Entity<DevilComponent> devil, ref MapInitEvent args)
     {
 
         // Remove human components.
-        RemComp<CombatModeComponent>(uid);
-        RemComp<HungerComponent>(uid);
-        RemComp<ThirstComponent>(uid);
-        RemComp<TemperatureComponent>(uid);
-        RemComp<TemperatureSpeedComponent>(uid);
-        RemComp<CondemnedComponent>(uid);
-        RemComp<DestructibleComponent>(uid);
+        RemComp<CombatModeComponent>(devil);
+        RemComp<HungerComponent>(devil);
+        RemComp<ThirstComponent>(devil);
+        RemComp<TemperatureComponent>(devil);
+        RemComp<TemperatureSpeedComponent>(devil);
+        RemComp<CondemnedComponent>(devil);
+        RemComp<DestructibleComponent>(devil);
 
         // Adjust stats
-        EnsureComp<ZombieImmuneComponent>(uid);
-        EnsureComp<BreathingImmunityComponent>(uid);
-        EnsureComp<PressureImmunityComponent>(uid);
-        EnsureComp<ActiveListenerComponent>(uid);
-        EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
-        EnsureComp<CrematoriumImmuneComponent>(uid);
+        EnsureComp<ZombieImmuneComponent>(devil);
+        EnsureComp<BreathingImmunityComponent>(devil);
+        EnsureComp<PressureImmunityComponent>(devil);
+        EnsureComp<ActiveListenerComponent>(devil);
+        EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;
+        EnsureComp<CrematoriumImmuneComponent>(devil);
 
         // Allow infinite revival
-        var revival = EnsureComp<CheatDeathComponent>(uid);
+        var revival = EnsureComp<CheatDeathComponent>(devil);
         revival.InfiniteRevives = true;
         revival.CanCheatStanding = true;
 
         // Change damage modifier
-        if (TryComp<DamageableComponent>(uid, out var damageableComp))
-            _damageable.SetDamageModifierSetId(uid, comp.DevilDamageModifierSet, damageableComp);
+        if (TryComp<DamageableComponent>(devil, out var damageableComp))
+            _damageable.SetDamageModifierSetId(devil, devil.Comp.DevilDamageModifierSet, damageableComp);
 
         // Add base actions
-        foreach (var actionId in comp.BaseDevilActions)
-            _actions.AddAction(uid, actionId);
+        foreach (var actionId in devil.Comp.BaseDevilActions)
+            _actions.AddAction(devil, actionId);
 
         // no slicy the devil you goober
-        foreach (var (id, part) in _body.GetBodyChildren(uid))
+        foreach (var (id, part) in _body.GetBodyChildren(devil))
         {
             part.CanSever = false;
             Dirty(id, part);
         }
 
         // Self Explanatory
-        GenerateTrueName(comp);
+        GenerateTrueName(devil);
     }
 
     #endregion
@@ -182,14 +181,7 @@ public sealed partial class DevilSystem : EntitySystem
                 continue;
 
             foreach (var actionId in ability.Value)
-            {
-                EntityUid? actionEnt = null;
-
-                _actions.AddAction(devil, ref actionEnt, actionId);
-
-                if (actionEnt is not null)
-                    _actionContainer.EnsureAction(devil, ref actionEnt, actionId);
-            }
+                _actions.AddAction(devil, actionId);
         }
     }
 
@@ -255,7 +247,9 @@ public sealed partial class DevilSystem : EntitySystem
 
     private void OnExorcismDoAfter(Entity<DevilComponent> devil, ref ExorcismDoAfterEvent args)
     {
-        if (args.Target is not { } target || args.Cancelled || args.Handled)
+        if (args.Target is not { } target
+            || args.Cancelled
+            || args.Handled)
             return;
 
         _popup.PopupEntity(Loc.GetString("devil-exorcised", ("target", devil.Comp.TrueName)), devil, PopupType.LargeCaution);
