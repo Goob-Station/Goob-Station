@@ -436,6 +436,7 @@
     - prefRoles: [ InitialInfected ]
       max: 6
       playerRatio: 10
+      jobBlacklist: [ Chaplain ]
       blacklist:
         components:
         - ZombieImmune
