@@ -113,6 +113,9 @@ public sealed partial class PossessionSystem : EntitySystem
         if (possessed.Comp.HideActions)
             _action.UnHideActions(possessed, possessed.Comp.HiddenActions);
 
+        if (possessed.Comp.PolymorphEntity)
+            _polymorph.Revert(possessed.Owner);
+
         _tag.RemoveTag(possessed, "CannotSuicideAny");
 
         // Remove associated components.
@@ -162,7 +165,7 @@ public sealed partial class PossessionSystem : EntitySystem
     /// <param name="doesMindshieldBlock">Does having a mindshield block being possessed?</param>
     /// <param name="doesChaplainBlock">Is the chaplain immune to this possession?</param>
     /// <param name="HideActions">Should all actions be hidden during?</param>
-    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false, bool doesChaplainBlock = true, bool HideActions = true)
+    public bool TryPossessTarget(EntityUid possessed, EntityUid possessor, TimeSpan possessionDuration, bool pacifyPossessed, bool doesMindshieldBlock = false, bool doesChaplainBlock = true, bool hideActions = true, bool polymorphPossessor = true)
     {
         // Possessing a dead guy? What.
         if (_mobState.IsIncapacitated(possessed) || HasComp<ZombieComponent>(possessed))
@@ -211,17 +214,17 @@ public sealed partial class PossessionSystem : EntitySystem
         if (!_mind.TryGetMind(possessor, out var possessorMind, out _))
             return false;
 
-        DoPossess(possessed, possessor, possessionDuration, possessorMind, pacifyPossessed, HideActions);
+        DoPossess(possessed, possessor, possessionDuration, possessorMind, pacifyPossessed, hideActions, polymorphPossessor);
         return true;
     }
 
-    private void DoPossess(EntityUid? possessedNullable, EntityUid possessor, TimeSpan possessionDuration,  EntityUid possessorMind, bool pacifyPossessed, bool HideActions)
+    private void DoPossess(EntityUid? possessedNullable, EntityUid possessor, TimeSpan possessionDuration,  EntityUid possessorMind, bool pacifyPossessed, bool hideActions, bool polymorphPossessor)
     {
         if (possessedNullable is not { } possessed)
             return;
 
         var possessedComp = EnsureComp<PossessedComponent>(possessed);
-        possessedComp.HideActions = HideActions;
+        possessedComp.HideActions = hideActions;
 
         if (pacifyPossessed)
         {
@@ -230,6 +233,10 @@ public sealed partial class PossessionSystem : EntitySystem
             else
                 possessedComp.WasPacified = true;
         }
+
+        possessedComp.PolymorphEntity = polymorphPossessor;
+        if (polymorphPossessor)
+            _polymorph.PolymorphEntity(possessor, possessedComp.Polymorph);
 
         // Get the possession time.
         possessedComp.PossessionEndTime = _timing.CurTime + possessionDuration;

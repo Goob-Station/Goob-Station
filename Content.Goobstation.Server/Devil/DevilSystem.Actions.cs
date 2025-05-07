@@ -77,11 +77,10 @@ public sealed partial class DevilSystem
         if (comp.PowerLevel != DevilPowerLevel.None)
             comp.PossessionDuration *= (int)comp.PowerLevel;
 
-        if (_possession.TryPossessTarget(args.Target, args.Performer, comp.PossessionDuration, true))
+        if (_possession.TryPossessTarget(args.Target, args.Performer, comp.PossessionDuration, true, polymorphPossessor: true))
         {
-            Spawn(comp.JauntAnimationProto, Transform(args.Performer).Coordinates);
-            Spawn(comp.PentagramEffectProto, Transform(args.Performer).Coordinates);
-            _poly.PolymorphEntity(args.Performer, GetJauntEntity(comp));
+            Spawn(comp.JauntAnimationProto, Transform(args.Target).Coordinates);
+            Spawn(comp.PentagramEffectProto, Transform(args.Target).Coordinates);
         }
     }
 }

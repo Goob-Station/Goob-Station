@@ -274,14 +274,6 @@ public sealed partial class DevilSystem : EntitySystem
         action.Handled = true;
         return true;
     }
-
-    private static ProtoId<PolymorphPrototype> GetJauntEntity(DevilComponent comp)
-    {
-        return comp.PowerLevelToJauntPrototypeMap.TryGetValue(comp.PowerLevel, out var value)
-            ? value
-            : new ProtoId<PolymorphPrototype>("ShadowJaunt30");
-    }
-
     private void PlayFwooshSound(EntityUid uid, DevilComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))

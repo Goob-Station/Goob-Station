@@ -6,6 +6,7 @@
 
 using Content.Shared.Actions;
 using Content.Shared.Mind;
+using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -54,6 +55,12 @@ public sealed partial class PossessedComponent : Component
 
     [ViewVariables]
     public EntityUid[] HiddenActions;
+
+    [DataField]
+    public bool PolymorphEntity = true;
+
+    [DataField]
+    public ProtoId<PolymorphPrototype> Polymorph = new ("ShadowJauntPermanent");
 
     [ViewVariables]
     public readonly SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");

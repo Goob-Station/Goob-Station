@@ -91,14 +91,6 @@ public sealed partial class DevilComponent : Component
     [DataField]
     public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
 
-    [ViewVariables]
-    public Dictionary<DevilPowerLevel, ProtoId<PolymorphPrototype>> PowerLevelToJauntPrototypeMap = new()
-    {
-        { DevilPowerLevel.Weak, new ProtoId<PolymorphPrototype>("ShadowJaunt30") },
-        { DevilPowerLevel.Moderate, new ProtoId<PolymorphPrototype>("ShadowJaunt60") },
-        { DevilPowerLevel.Powerful, new ProtoId<PolymorphPrototype>("ShadowJaunt90") },
-    };
-
     // abandom all hope, all ye who enter
 
     [DataField]

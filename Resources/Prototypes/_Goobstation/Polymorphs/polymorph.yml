@@ -100,27 +100,10 @@
     attachToGridOrMap: true
 
 - type: polymorph
-  id: ShadowJaunt30
+  id: ShadowJauntPermanent
   configuration:
     entity: PolymorphShadowJaunt
     forced: true
-    duration: 30
-    attachToGridOrMap: true
-
-- type: polymorph
-  id: ShadowJaunt60
-  configuration:
-    entity: PolymorphShadowJaunt
-    forced: true
-    duration: 60
-    attachToGridOrMap: true
-
-- type: polymorph
-  id: ShadowJaunt90
-  configuration:
-    entity: PolymorphShadowJaunt
-    forced: true
-    duration: 90
     attachToGridOrMap: true
 
 - type: polymorph
