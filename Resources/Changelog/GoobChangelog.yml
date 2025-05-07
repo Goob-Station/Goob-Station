@@ -8548,3 +8548,27 @@ Entries:
       message: Fixed reality shifts spawning on empty tiles.
   id: 979
   time: '2025-05-05T16:24:08.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Pepperspray can now correctly refill at dispensers.
+    - type: Fix
+      message: >-
+        You can no longer blow up hos by yelling "I AM THE LAW". Looking at you
+        Conrad, not cool..
+  id: 980
+  time: '2025-05-06T16:41:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added shuttle collision damage.
+    - type: Tweak
+      message: Shuttle max speed increased to 50.
+  id: 981
+  time: '2025-05-06T16:44:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Cosmic Cult and Heretics may no longer roll in the same round.
+  id: 982
+  time: '2025-05-06T16:50:49.0000000+00:00'
