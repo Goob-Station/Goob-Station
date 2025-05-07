@@ -8435,3 +8435,140 @@ Entries:
         available in the uplink.
   id: 972
   time: '2025-05-04T05:41:22.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Cleaned up emote wheel.
+  id: 973
+  time: '2025-05-04T18:37:51.0000000+00:00'
+- author: AftrLite
+  changes:
+    - type: Add
+      message: >-
+        Added the Deimos and Phobos modsuits, cheaper equivalents to the
+        Bloodred and Elite hardsuit.
+    - type: Add
+      message: >-
+        NEW MAJOR ANTAGONIST: THE COSMIC CULT. The Vast Nameless Unknown wants
+        you to uninstall reality. As a treat.
+    - type: Tweak
+      message: Reduced damage values on some glyph usages.
+    - type: Tweak
+      message: >-
+        If there is only one cultist, and they are the leader, they will get the
+        ability to do conversions and such with one less cultist.
+    - type: Tweak
+      message: >-
+        If cultists are reduced down to one (deconversion or RRd), the last one
+        will be promoted to a leader.
+  id: 974
+  time: '2025-05-05T01:07:43.0000000+00:00'
+- author: TheBorzoiMustConsume, SolsticeOfTheWinter, Aviu00, gusxyz
+  changes:
+    - type: Add
+      message: Nullrod & it's variants
+    - type: Add
+      message: Fiery crosses to burn heretics like it's Walpurgisnacht!
+    - type: Add
+      message: Altar Crafting Recipe/s
+    - type: Add
+      message: Heretics can now take holy damage
+    - type: Add
+      message: Unholy (Heretic) and Magic (Wizard) Nullrod/Chaplain interactions.
+    - type: Add
+      message: New equipment in the PietyVend
+    - type: Add
+      message: A new chaplain guidebook entry
+    - type: Add
+      message: New information in the heretic guidebook
+  id: 975
+  time: '2025-05-05T03:36:13.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: You can now pray at the Casul & Jackul nullrods again.
+    - type: Tweak
+      message: nerfed nullrod damages across the board. Maints hate fun
+  id: 976
+  time: '2025-05-05T09:51:45.0000000+00:00'
+- author: pheenty
+  changes:
+    - type: Add
+      message: >-
+        Added handheld command monitor for Blueshield Officer that only tracks
+        heads and works as a deathrattle.
+    - type: Remove
+      message: Blueshield Officer no longer gets security comms and wanted HUD.
+  id: 977
+  time: '2025-05-05T10:05:35.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cosmic cultists not being able to use glyphs.
+  id: 978
+  time: '2025-05-05T15:30:58.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 4 new heretic side and roundstart knowledge.
+    - type: Add
+      message: Heretic blades are now limited, use reminiscence ritual to recall them.
+    - type: Add
+      message: >-
+        Flesh path ghouls get their own blade for free, this blade cannot be
+        shattered and disappears on their death.
+    - type: Add
+      message: >-
+        You can now infuse all blades that you have created at once in the
+        inventory or in hands if you cast mansus grasp while your hands are
+        occupied.
+    - type: Add
+      message: Knowledge ritual is now one-time only but gives 1 more point.
+    - type: Add
+      message: Standing on rust as non heretic is bad for your well-being now.
+    - type: Add
+      message: >-
+        Eldritch water can now rust tiles when splashing, Space Cola removes
+        rust the same way.
+    - type: Add
+      message: Rust is now removed using a welder instead of a crowbar.
+    - type: Add
+      message: Ominous hood protects from flashes and flashbangs now.
+    - type: Tweak
+      message: Blade ascension nerfed, it is not unkillable anymore.
+    - type: Tweak
+      message: >-
+        Halved rust heretic healing on rust, rustwalkers heal the same as
+        before.
+    - type: Tweak
+      message: Void path debuff is now better.
+    - type: Tweak
+      message: Entropic Plume is 25% weaker now.
+    - type: Fix
+      message: Fixed reality shifts spawning on empty tiles.
+  id: 979
+  time: '2025-05-05T16:24:08.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Fix
+      message: Pepperspray can now correctly refill at dispensers.
+    - type: Fix
+      message: >-
+        You can no longer blow up hos by yelling "I AM THE LAW". Looking at you
+        Conrad, not cool..
+  id: 980
+  time: '2025-05-06T16:41:12.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added shuttle collision damage.
+    - type: Tweak
+      message: Shuttle max speed increased to 50.
+  id: 981
+  time: '2025-05-06T16:44:39.0000000+00:00'
+- author: gusxyz
+  changes:
+    - type: Tweak
+      message: Cosmic Cult and Heretics may no longer roll in the same round.
+  id: 982
+  time: '2025-05-06T16:50:49.0000000+00:00'
