@@ -274,6 +274,9 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: Tag # Goobstation
+    tags:
+    - VendingMachine
 
 - type: entity
   parent: VendingMachine
@@ -546,6 +549,7 @@
   - type: Tag
     tags:
       - DroneUsable # Goobstation
+      - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -582,6 +586,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1115,7 +1120,8 @@
     rotateWhilePulling: true
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable
+    - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1541,6 +1547,7 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - VendingMachine # Goobstation
 
 - type: entity
   parent: VendingMachine
@@ -1665,6 +1672,8 @@
   - type: Tag
     tags:
     - DroneUsable # Goobstation
+    - VendingMachine # Goobstation
+
 
 - type: entity
   parent: VendingMachine

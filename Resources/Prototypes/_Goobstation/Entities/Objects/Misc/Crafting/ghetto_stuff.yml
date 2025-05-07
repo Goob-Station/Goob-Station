@@ -451,7 +451,7 @@
   - type: StaminaDamageResistance
     coefficient: 1.2
   - type: Construction
-    graph: MakeshiftHeavyVestGraph
+    graph: MakeshiftLightVestGraph
     node: final
   - type: ClothingSpeedModifier
     walkModifier: 0.9

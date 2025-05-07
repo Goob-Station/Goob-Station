@@ -162,9 +162,9 @@
 
 - type: construction
   id: MakeshiftLightVestCraft
-  name: makeshift light vest
+  name: makeshift vest
   category: construction-category-clothing
-  description: Complex makeshift light vest for protection. Open a blacksmith man.
+  description: Complex makeshift vest for protection. Can be upgraded into a heavy vest.
   graph: MakeshiftLightVestGraph
   startNode: start
   targetNode: final
@@ -173,15 +173,29 @@
     state: icon
   objectType: Item
 
+#- type: construction
+#  id: MakeshiftHeavyVestCraft
+#  name: makeshift heavy vest
+#  category: construction-category-clothing
+#  description: A complex heavy armor vest, made with steel, plasteel, and nails.
+#  graph: MakeshiftHeavyVestGraph
+#  startNode: mid
+#  targetNode: final
+#  icon:
+#    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+#    state: icon
+#  objectType: Item
+
+# structures
 - type: construction
-  id: MakeshiftHeavyVestCraft
-  name: makeshift heavy vest
-  category: construction-category-clothing
-  description: A complex heavy armor vest, made with steel, plasteel, and nails.
-  graph: MakeshiftHeavyVestGraph
+  id: MakeshiftOvenCraft
+  name: makeshift oven
+  description: A not-so complex makeshift oven for heating things. You would probably use this for heating steel.
+  graph: MakeshiftOvenEmptyGraph
   startNode: start
-  targetNode: final
+  targetNode: lit
   icon:
-    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
-    state: icon
-  objectType: Item
+    sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi
+    state: empty
+  objectType: Item # because the craft uses a vending machine :sob:
+  placementMode: SnapgridCenter

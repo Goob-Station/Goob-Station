@@ -35,3 +35,10 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: screw_1 }
   spawn: MaterialScrew
   maxCount: 10
+
+- type: stack
+  id: HeatedSteel
+  name: heated steel
+  icon: { sprite: /Textures/_Goobstation/Objects/Materials/materials.rsi, state: heated_steel }
+  spawn: MaterialHeatedSteel
+  maxCount: 30

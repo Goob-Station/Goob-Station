@@ -470,6 +470,9 @@
   id: VulpEmotes
 
 - type: Tag
+  id: VendingMachine
+
+- type: Tag
   id: WaterTank
 
 - type: Tag
