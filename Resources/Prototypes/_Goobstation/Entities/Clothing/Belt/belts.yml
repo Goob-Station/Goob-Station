@@ -210,6 +210,10 @@
         - Grenade
         - Bomb
         - MagazinePistol
+        - MagazinePistolHighCapacity
+        - MagazineMagnum
+        - SpeedLoaderMagnum
+        - MagazinePistolCaselessRifle
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
