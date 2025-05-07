@@ -102,7 +102,7 @@
     - FollowerStayOnPolymorph
   - type: Reflect
     reflectProb: 1
-    spread: 5
+    spread: 360
 
 - type: entity
   parent: BaseBullet
@@ -118,7 +118,7 @@
       shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
-    ignoreResistances: true
+    armorPenetration: 1
     damage:
       types:
         Slash: 25

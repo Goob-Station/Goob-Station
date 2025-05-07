@@ -558,6 +558,7 @@
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
@@ -603,6 +604,7 @@
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
@@ -709,6 +711,7 @@
   - type: Tag
     tags:
     - Wooden
+    - Table # goob
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
@@ -862,6 +865,7 @@
   - type: Tag
     tags:
       - Debug
+      - Table # goob
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi
   - type: Icon

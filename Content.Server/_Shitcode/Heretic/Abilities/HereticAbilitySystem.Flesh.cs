@@ -64,7 +64,7 @@ public sealed partial class HereticAbilitySystem
                     foreach (var entity in _body.GetBodyOrganEntityComps<StomachComponent>((args.Target, body)))
                         QueueDel(entity.Owner);
 
-                    _popup.PopupEntity(Loc.GetString("admin-smite-stomach-removal-self"), args.Target,
+                    Popup.PopupEntity(Loc.GetString("admin-smite-stomach-removal-self"), args.Target,
                         args.Target, PopupType.LargeCaution);
                     break;
 
@@ -76,8 +76,8 @@ public sealed partial class HereticAbilitySystem
                         _transform.AttachToGridOrMap(part.Id);
                         break;
                     }
-                    _popup.PopupEntity(Loc.GetString("admin-smite-remove-hands-self"), args.Target, args.Target, PopupType.LargeCaution);
-                    _popup.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", args.Target)), baseXform.Coordinates,
+                    Popup.PopupEntity(Loc.GetString("admin-smite-remove-hands-self"), args.Target, args.Target, PopupType.LargeCaution);
+                    Popup.PopupCoordinates(Loc.GetString("admin-smite-remove-hands-other", ("name", args.Target)), baseXform.Coordinates,
                         Filter.PvsExcept(args.Target), true, PopupType.Medium);
                     break;
 
@@ -86,7 +86,7 @@ public sealed partial class HereticAbilitySystem
                     foreach (var entity in _body.GetBodyOrganEntityComps<LungComponent>((args.Target, body)))
                         QueueDel(entity.Owner);
 
-                    _popup.PopupEntity(Loc.GetString("admin-smite-lung-removal-self"), args.Target,
+                    Popup.PopupEntity(Loc.GetString("admin-smite-lung-removal-self"), args.Target,
                         args.Target, PopupType.LargeCaution);
                     break;
 

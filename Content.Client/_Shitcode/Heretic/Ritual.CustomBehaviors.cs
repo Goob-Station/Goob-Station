@@ -95,3 +95,59 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         // do nothing
     }
 }
+
+public sealed partial class RitualCreateBladeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualRecallBladeBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualFeastOfOwlsBehavior : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}
+
+public sealed partial class RitualCanAscend : RitualCustomBehavior
+{
+    public override bool Execute(RitualData args, out string? outstr)
+    {
+        outstr = null;
+        return true;
+    }
+
+    public override void Finalize(RitualData args)
+    {
+        // do nothing
+    }
+}

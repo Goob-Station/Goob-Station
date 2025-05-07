@@ -102,3 +102,5 @@
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
           invert: true
+  tileReactions:
+  - !type:ChangeTileReaction # Rusts tile
