@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server.Weapons.Melee;
+namespace Content.Shared.Weapons.Melee;
 
 [RegisterComponent]
 public sealed partial class ShovingComponent : Component
