@@ -16,6 +16,7 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Eye;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
@@ -136,7 +137,7 @@ public sealed class HereticSystem : EntitySystem
 
         // add influence layer
         if (TryComp<EyeComponent>(ent, out var eye))
-            _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
+            _eye.SetVisibilityMask(ent, eye.VisibilityMask | VisibilityFlags.EldritchInfluence);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);

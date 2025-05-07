@@ -18,5 +18,6 @@ namespace Content.Shared.Eye
         Ghost = 1 << 1,
         Abductor = 1 << 2, // Shitmed Change - Starlight Abductors
         CosmicCultMonument = 1 << 4, // DeltaV - Cosmic Cult
+        EldritchInfluence = 1 << 5, // Goobstation
     }
 }
