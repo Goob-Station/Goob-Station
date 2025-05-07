@@ -433,23 +433,59 @@ public sealed partial class GoobCVars
 
     #region Grid impacts
 
+    /// <summary>
+    /// Minimum velocity difference between 2 bodies for a shuttle impact to trigger any special behaviors like damage.
+    /// </summary>
     public static readonly CVarDef<float> MinimumImpactVelocity =
         CVarDef.Create("shuttle.impact.minimum_velocity", 5f, CVar.SERVERONLY); // it doesn't do much damage at low velocities
 
+    /// <summary>
+    /// Multiplier of Kinetic energy required to dismantle a single tile in relation to its mass
+    /// </summary>
     public static readonly CVarDef<float> TileBreakEnergyMultiplier =
         CVarDef.Create("shuttle.impact.tile_break_energy", 3000f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Multiplier of damage done to entities on colliding areas
+    /// </summary>
     public static readonly CVarDef<float> ImpactDamageMultiplier =
         CVarDef.Create("shuttle.impact.damage_multiplier", 0.0001f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Multiplier of additional structural damage to do
+    /// </summary>
+    public static readonly CVarDef<float> ImpactStructuralDamage =
+        CVarDef.Create("shuttle.impact.structural_damage", 2f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Kinetic energy required to spawn sparks
+    /// </summary>
     public static readonly CVarDef<float> SparkEnergy =
         CVarDef.Create("shuttle.impact.spark_energy", 1000000f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Area to consider for impact calculations
+    /// </summary>
     public static readonly CVarDef<float> ImpactRadius =
-        CVarDef.Create("shuttle.impact.radius", 5f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.radius", 4f, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Affects slowdown on impact
+    /// </summary>
     public static readonly CVarDef<float> ImpactSlowdown =
-        CVarDef.Create("shuttle.impact.slowdown", 0.9998f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.slowdown", 0.9999f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minimum velocity change from impact to throw entities on-grid
+    /// </summary>
+    public static readonly CVarDef<float> ImpactMinThrowVelocity =
+        CVarDef.Create("shuttle.impact.min_throw_velocity", 3f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Affects how much damage reduction to give to grids with higher mass
+    /// </summary>
+    public static readonly CVarDef<float> ImpactMassBias =
+        CVarDef.Create("shuttle.impact.mass_bias", 0.6f, CVar.SERVERONLY);
 
     #endregion
 }
