@@ -160,7 +160,7 @@ uplink-c4-bundle-desc = Because sometimes quantity is quality. Contains 8 C-4 pl
 
 uplink-grenadier-rig-name = grenadier belt rig
 # Goobstation - grenadier rig rework
-uplink-grenadier-rig-desc = All you need for a loud party: 4 explosive grenades, 2 EMP grenades and 2 minibombs in a belt rig with room for more. Can store a pistol and magazines in the holster.
+uplink-grenadier-rig-desc = All you need for a loud party: 4 explosive grenades, 2 sarin gas grenades, and 2 minibombs in a belt rig with room for more. Can store a pistol and magazines in the holster.
 
 uplink-emp-grenade-name = EMP Grenade
 uplink-emp-grenade-desc = A grenade designed to disrupt electronic systems. Useful for disrupting communications, security's energy weapons, and APCs when you're in a tight spot.
