@@ -97,7 +97,7 @@ public static class ClientPackaging
         if (string.IsNullOrEmpty(path))
             path = ".";
 
-        var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database" };
+        var modules = new List<string> { "Content.Client", "Content.Shared", "Content.Shared.Database", "Content.ModuleManager" };
         // Goobstation - Modular Packaging
         modules.AddRange(ModuleDiscovery.DiscoverModules(path)
             .Where(m => m.Type is not ModuleType.Server)

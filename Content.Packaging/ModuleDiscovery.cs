@@ -1,7 +1,7 @@
 ﻿using AsmResolver.DotNet;
-using System.IO;
+using Content.ModuleManager;
 
-namespace Content.ModuleManager;
+namespace Content.Packaging;
 
 public static class ModuleDiscovery
 {
