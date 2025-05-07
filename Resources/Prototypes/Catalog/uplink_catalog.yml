@@ -1087,7 +1087,7 @@
   description: uplink-slipocalypse-clustersoap-desc
   productEntity: SlipocalypseClusterSoap
   cost:
-    Telecrystal: 12 # goob - Not a GREAT item but has some effects. Bomb Balance.
+    Telecrystal: 6 # goob - Not a GREAT item but has some effects. Bomb Balance.
   categories:
   - UplinkDisruption
 
@@ -2128,7 +2128,7 @@
   description: uplink-cluster-banana-peel-desc
   productEntity: ClusterBananaPeel
   cost:
-    Telecrystal: 24 # goob
+    Telecrystal: 12 # goob
   categories:
   - UplinkJob
   conditions:
