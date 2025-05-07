@@ -81,6 +81,11 @@ public partial class SharedMartialArtsSystem
 
     private void OnGrantCQCUse(EntityUid ent, GrantMartialArtKnowledgeComponent comp, UseInHandEvent args)
     {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
         if (!_netManager.IsServer)
             return;
 
@@ -92,7 +97,7 @@ public partial class SharedMartialArtsSystem
         if (comp.MultiUse)
             return;
 
-        Del(ent);
+        QueueDel(ent);
         if (comp.SpawnedProto == null)
             return;
 
