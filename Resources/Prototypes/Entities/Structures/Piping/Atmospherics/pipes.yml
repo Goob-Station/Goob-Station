@@ -132,7 +132,7 @@
   - type: Anchorable
   - type: Rotatable
   - type: RCDDeconstructable
-    cost: 0.5
+    cost: 1
     delay: 2
     fx: EffectRCDDeconstruct2
     rpd: true

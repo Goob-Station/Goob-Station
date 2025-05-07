@@ -302,7 +302,6 @@
     - type: Flash
     - type: LimitedCharges
       maxCharges: 5
-      charges: 5
     - type: MeleeWeapon
       wideAnimationRotation: 180
       damage:
@@ -338,7 +337,6 @@
   components:
     - type: LimitedCharges
       maxCharges: 2
-      charges: 2
 
 - type: entity
   name: portable flasher

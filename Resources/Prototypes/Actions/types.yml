@@ -208,8 +208,9 @@
   components:
   - type: ConfirmableAction
     popup: dna-scrambler-action-popup
+  - type: LimitedCharges
+    maxCharges: 1
   - type: InstantAction
-    charges: 1
     itemIconStyle: BigAction
     priority: -20
     icon:

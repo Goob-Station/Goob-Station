@@ -59,7 +59,7 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
     [Dependency] private readonly FloorTileSystem _floors = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -69,7 +69,6 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -161,7 +160,7 @@ public sealed class RCDSystem : EntitySystem
         if (!location.IsValid(EntityManager))
             return;
 
-        var gridUid = _transformSystem.GetGrid(location);
+        var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
@@ -268,7 +267,7 @@ public sealed class RCDSystem : EntitySystem
         // Ensure the RCD operation is still valid
         var location = GetCoordinates(args.Event.Location);
 
-        var gridUid = _transformSystem.GetGrid(location);
+        var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
@@ -301,7 +300,7 @@ public sealed class RCDSystem : EntitySystem
 
         var location = GetCoordinates(args.Location);
 
-        var gridUid = _transformSystem.GetGrid(location);
+        var gridUid = _transform.GetGrid(location);
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
@@ -321,8 +320,8 @@ public sealed class RCDSystem : EntitySystem
         // Goobstation - start
         var proto = _protoManager.Index(args.StartingProtoId);
         if (proto.Mode == RcdMode.Deconstruct)
-            _charges.AddCharges(uid, args.Cost / 2);
-        else _charges.UseCharges(uid, args.Cost);
+            _sharedCharges.AddCharges(uid, args.Cost / 2);
+        else _sharedCharges.AddCharges(uid, -args.Cost);
         // Goobstation - end
     }
 
@@ -377,10 +376,10 @@ public sealed class RCDSystem : EntitySystem
         var prototype = _protoManager.Index(component.ProtoId);
 
         // Check that the RCD has enough ammo to get the job done
-        TryComp<LimitedChargesComponent>(uid, out var charges);
+        var charges = _sharedCharges.GetCurrentCharges(uid);
 
         // Both of these were messages were suppose to be predicted, but HasInsufficientCharges wasn't being checked on the client for some reason?
-        if (_charges.IsEmpty(uid, charges))
+        if (charges == 0)
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rcd-component-no-ammo-message"), uid, user);
@@ -388,7 +387,7 @@ public sealed class RCDSystem : EntitySystem
             return false;
         }
 
-        if (_charges.HasInsufficientCharges(uid, prototype.Cost, charges))
+        if (prototype.Cost > charges)
         {
             if (popMsgs)
                 _popup.PopupClient(Loc.GetString("rcd-component-insufficient-ammo-message"), uid, user);
@@ -680,14 +679,14 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
     public ProtoId<RCDPrototype> StartingProtoId { get; private set; }
 
     [DataField]
-    public FixedPoint2 Cost { get; private set; } = 1;
+    public int Cost { get; private set; } = 1;
 
     [DataField("fx")]
     public NetEntity? Effect { get; private set; }
 
     private RCDDoAfterEvent() { }
 
-    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, FixedPoint2 cost, NetEntity? effect = null)
+    public RCDDoAfterEvent(NetCoordinates location, Direction direction, ProtoId<RCDPrototype> startingProtoId, int cost, NetEntity? effect = null)
     {
         Location = location;
         Direction = direction;

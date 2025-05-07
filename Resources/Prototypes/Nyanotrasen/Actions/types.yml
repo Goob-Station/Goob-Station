@@ -20,7 +20,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    charges: 1
     icon: { sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi, state: icon }
     useDelay: 30
     event: !type:HairballActionEvent
