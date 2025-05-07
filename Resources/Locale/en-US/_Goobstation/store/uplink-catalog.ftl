@@ -87,6 +87,8 @@ uplink-weapon-burner-desc = The Burner Heavy Rifle, an excellent breaching and s
 uplink-WSPR-name = WSPR
 uplink-WSPR-desc = This burst-fire rifle does its job silently and uses 9.5mm caseless magnum hollow-point bullets.
 
+uplink-WSPR-bundle-name = WSPR Bundle
+
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
 

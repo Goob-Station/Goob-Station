@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -11,6 +12,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Goobstation.Common.Blob;
 using Content.Goobstation.Server.Changeling.GameTicking.Rules;
 using Content.Goobstation.Server.Devil.GameTicking.Rules;
+using Content.Goobstation.Server.Spy.GameTicking;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -27,6 +29,8 @@ public sealed partial class GoobAdminVerbSystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
+
+    private const string DefaultSpyRule = "Spies";
 
     private void AddAntagVerbs(GetVerbsEvent<Verb> args)
     {
@@ -80,6 +84,21 @@ public sealed partial class GoobAdminVerbSystem
             Message = Loc.GetString("admin-verb-make-devil"),
         };
         args.Verbs.Add(devilAntag);
+
+        // Spies
+        Verb spy = new()
+        {
+            Text = Loc.GetString("admin-verb-make-spy"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "spy"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<SpyRuleComponent>(targetPlayer, DefaultSpyRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", Loc.GetString("admin-verb-make-spy"),  Loc.GetString("admin-verb-make-spy")),
+        };
+        args.Verbs.Add(spy);
     }
 
     public bool AntagVerbAllowed(GetVerbsEvent<Verb> args, [NotNullWhen(true)] out ICommonSession? target)

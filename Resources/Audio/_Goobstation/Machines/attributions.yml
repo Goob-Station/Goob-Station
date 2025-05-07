@@ -10,3 +10,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from TG station."
   source: "https://github.com/tgstation/tgstation/pull/32336"
+
+- files: ["wewewew.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from TG station."
+  source: "https://github.com/tgstation/tgstation/pull/87191"

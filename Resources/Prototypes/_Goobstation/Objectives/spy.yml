@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseThiefStealObjective
+  id: InsulatedGlovesStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: InsulatedGeneral
+  - type: Objective
+    difficulty: 0.5
+
+- type: weightedRandom
+  id: SpyObjectiveGroups
+  weights:
+    SpyObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
+
+- type: weightedRandom
+  id: SpyObjectiveGroupState
+  weights:
+    EscapeShuttleObjective: 1
+    DieObjective: 0.02 # Should be insanely rare your a spy not a terrorist.
+    HijackShuttleObjective: 0.01 # Should be insanely rare your a spy not a terrorist

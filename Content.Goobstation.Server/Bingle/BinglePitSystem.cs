@@ -1,8 +1,10 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -12,44 +14,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System;
 using System.Numerics;
-using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Shared.Bingle;
-using Content.Server.GameTicking;
-using Content.Server.Pinpointer;
 using Content.Goobstation.Common.Bingle;
 using Content.Goobstation.Shared.Bingle;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Stunnable;
 using Content.Shared.Destructible;
-using Content.Shared.Destructible;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Destructible;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
-using Content.Shared.Humanoid;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
-using Content.Shared.StepTrigger.Systems;
-using Content.Shared.Stunnable;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;

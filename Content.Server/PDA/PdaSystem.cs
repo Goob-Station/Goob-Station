@@ -96,6 +96,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Goobstation.Shared.Spy;
 using Content.Server.Access.Systems;
 using Content.Server.AlertLevel;
 using Content.Server.CartridgeLoader;
@@ -132,6 +133,7 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
+        [Dependency] private readonly SharedSpySystem _spy = default!;
 
         public override void Initialize()
         {
@@ -358,9 +360,14 @@ namespace Content.Server.PDA
             if (!PdaUiKey.Key.Equals(msg.UiKey))
                 return;
 
+            // Goob - Spy start
             // check if its locked again to prevent malicious clients opening locked uplinks
-            if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid))
+            if (HasComp<UplinkComponent>(uid) && IsUnlocked(uid) && !HasComp<SpyUplinkComponent>(uid))
                 _store.ToggleUi(msg.Actor, uid);
+
+            if (HasComp<SpyUplinkComponent>(uid))
+                _spy.ToggleUi(msg.Actor, uid); // send to spy uplink instead
+            // Goob - Spy end
         }
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaLockUplinkMessage msg)

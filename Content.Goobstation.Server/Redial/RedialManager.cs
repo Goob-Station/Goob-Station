@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -10,7 +12,6 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-using Robust.Shared.IoC;
 using Robust.Shared.Network;
 
 namespace Content.Goobstation.Server.Redial;

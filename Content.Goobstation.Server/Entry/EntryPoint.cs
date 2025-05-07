@@ -1,4 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -7,7 +9,6 @@
 using Content.Goobstation.Server.IoC;
 using Content.Goobstation.Common.JoinQueue;
 using Robust.Shared.ContentPack;
-using Robust.Shared.IoC;
 
 namespace Content.Goobstation.Server.Entry;
 
