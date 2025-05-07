@@ -9,6 +9,7 @@
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Goobstation.Shared.Religion;
 
@@ -37,8 +38,15 @@ public sealed partial class WeakToHolyComponent : Component
     public TimeSpan NextHealTick;
 
     /// <summary>
-    /// How much the entity is healed by each tick.
+    /// How much the entity is healed by runes each tick.
     /// </summary>
     [DataField]
     public DamageSpecifier HealAmount = new() {DamageDict = new Dictionary<string, FixedPoint2> {{ "Holy", -4 }}};
+
+    /// <summary>
+    /// How much the entity is healed passively by each tick.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier PassiveAmount = new() {DamageDict = new Dictionary<string, FixedPoint2> {{ "Holy", -0.07 }}};
+
 }

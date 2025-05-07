@@ -11,6 +11,7 @@ using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
@@ -96,7 +97,7 @@ public sealed class WeakToHolySystem : EntitySystem
 
     #endregion
 
-    #region Heretic Rune Healing
+    #region Holy Healing
 
     // Passively heal on runes
     private void OnCollide(Entity<HereticRitualRuneComponent> ent, ref StartCollideEvent args)
@@ -118,16 +119,28 @@ public sealed class WeakToHolySystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+        var curTime = _timing.CurTime;
 
         var query = EntityQueryEnumerator<WeakToHolyComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.NextHealTick > _timing.CurTime || !comp.IsColliding)
+            if (comp.NextHealTick > curTime || !comp.IsColliding)
                 continue;
 
             _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
 
-            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
+            comp.NextHealTick = curTime + comp.HealTickDelay;
+        }
+
+        // passive healing
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.NextHealTick > curTime)
+                continue;
+
+            _damageableSystem.TryChangeDamage(uid, comp.PassiveAmount);
+
+            comp.NextHealTick = curTime + comp.HealTickDelay;
         }
     }
 
