@@ -487,7 +487,7 @@ public sealed partial class GoobCVars
     /// Affects slowdown on impact
     /// </summary>
     public static readonly CVarDef<float> ImpactSlowdown =
-        CVarDef.Create("shuttle.impact.slowdown", 0.00015f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.impact.slowdown", 0.2f, CVar.SERVERONLY);
 
     /// <summary>
     /// Minimum velocity change from impact to throw entities on-grid

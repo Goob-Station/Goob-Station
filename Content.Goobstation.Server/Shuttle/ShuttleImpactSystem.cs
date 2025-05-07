@@ -178,8 +178,8 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var ourTile = new Vector2i((int)Math.Floor(ourPoint.X / ourGrid.TileSize), (int)Math.Floor(ourPoint.Y / ourGrid.TileSize));
         var otherTile = new Vector2i((int)Math.Floor(otherPoint.X / otherGrid.TileSize), (int)Math.Floor(otherPoint.Y / otherGrid.TileSize));
 
-        var ourMass = GetRegionMass(uid, ourGrid, ourTile, ImpactRadius);
-        var otherMass = GetRegionMass(args.OtherEntity, otherGrid, otherTile, ImpactRadius);
+        var ourMass = GetRegionMass(uid, ourGrid, ourTile, ImpactRadius, out var ourTiles);
+        var otherMass = GetRegionMass(args.OtherEntity, otherGrid, otherTile, ImpactRadius, out var otherTiles);
         Log.Info($"Shuttle impact of {ToPrettyString(uid)} with {ToPrettyString(args.OtherEntity)}; our mass: {ourMass}, other: {otherMass}, velocity {jungleDiff}, impact point {point}");
 
         var energyMult = MathF.Pow(jungleDiff, 2) / 2;
@@ -195,8 +195,8 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         var totalInertia = ourVelocity * ourMass + otherVelocity * otherMass;
         var unelasticVel = totalInertia / (ourMass + otherMass);
-        var ourPostImpactVelocity = Vector2.Lerp(ourVelocity, unelasticVel, MathF.Min(1f, ImpactSlowdown * ourMass / ourBody.FixturesMass));
-        var otherPostImpactVelocity = Vector2.Lerp(otherVelocity, unelasticVel, MathF.Min(1f, ImpactSlowdown * otherMass / otherBody.FixturesMass));
+        var ourPostImpactVelocity = Vector2.Lerp(ourVelocity, unelasticVel, MathF.Min(1f, ImpactSlowdown * ourTiles * args.OurFixture.Density / ourBody.FixturesMass));
+        var otherPostImpactVelocity = Vector2.Lerp(otherVelocity, unelasticVel, MathF.Min(1f, ImpactSlowdown * otherTiles * args.OtherFixture.Density / otherBody.FixturesMass));
         var ourDeltaV = -ourVelocity + ourPostImpactVelocity;
         var otherDeltaV = -otherVelocity + otherPostImpactVelocity;
         _physics.ApplyLinearImpulse(uid, ourDeltaV * ourBody.FixturesMass, body: ourBody);
@@ -290,8 +290,9 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     }
 
     // this is fairly cold code so i don't think the performance impact of this matters THAT much
-    private float GetRegionMass(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float radius)
+    private float GetRegionMass(EntityUid uid, MapGridComponent grid, Vector2i centerTile, float radius, out int tileCount)
     {
+        tileCount = 0;
         var mass = 0f;
         var ceilRadius = (int)MathF.Ceiling(radius);
         HashSet<EntityUid> counted = new();
@@ -308,18 +309,20 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
                 {
                     var def = (ContentTileDefinition)_tileDef[tileRef.Tile.TypeId];
                     mass += def.Mass;
+                    tileCount++;
+
+                    foreach (var localUid in _lookup.GetLocalEntitiesIntersecting(uid, tile, gridComp: grid))
+                    {
+                        if (counted.Contains(localUid))
+                            continue;
+
+                        if (TryComp<PhysicsComponent>(localUid, out var physics))
+                            mass += physics.FixturesMass;
+
+                        counted.Add(localUid);
+                    }
                 }
 
-                foreach (var localUid in _lookup.GetLocalEntitiesIntersecting(uid, tile, gridComp: grid))
-                {
-                    if (counted.Contains(localUid))
-                        continue;
-
-                    if (TryComp<PhysicsComponent>(localUid, out var physics))
-                        mass += physics.FixturesMass;
-
-                    counted.Add(localUid);
-                }
             }
         }
         return mass;
@@ -448,7 +451,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
                 sparkTiles.Add(tileData.Tile);
 
             if (!canBreakTile)
-                return;
+                continue;
 
             // Mark tiles for breaking/effects
             var def = (ContentTileDefinition)_tileDef[_mapSys.GetTileRef(uid, grid, tileData.Tile).Tile.TypeId];
