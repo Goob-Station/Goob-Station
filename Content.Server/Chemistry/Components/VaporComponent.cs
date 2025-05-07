@@ -23,7 +23,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Chemistry.Components
 {

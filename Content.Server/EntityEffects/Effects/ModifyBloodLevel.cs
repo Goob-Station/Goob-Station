@@ -15,7 +15,7 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.EntityEffects;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.EntityEffects.Effects;

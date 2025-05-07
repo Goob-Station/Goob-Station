@@ -84,7 +84,7 @@ using Content.Server.Destructible;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Explosion.EntitySystems;

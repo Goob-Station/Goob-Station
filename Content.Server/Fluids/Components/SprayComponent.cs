@@ -33,7 +33,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Fluids.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Content.Shared.Inventory; // Assmos - Extinguisher Nozzle

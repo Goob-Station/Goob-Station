@@ -14,7 +14,7 @@
 
 using System.Numerics;
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 

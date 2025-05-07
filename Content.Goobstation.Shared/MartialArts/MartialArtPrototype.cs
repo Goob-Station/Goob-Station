@@ -8,7 +8,7 @@
 
 using Content.Goobstation.Common.MartialArts;
 using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.MartialArts;

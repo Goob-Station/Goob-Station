@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Text.Json;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.Administration.Logs.Converters;
 

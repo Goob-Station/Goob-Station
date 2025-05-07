@@ -50,7 +50,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 
 namespace Content.Shared.RCD.Systems;
 

@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Damage.Components

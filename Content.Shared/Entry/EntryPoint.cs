@@ -201,7 +201,7 @@ namespace Content.Shared.Entry
             {
                 var missing = module.RequiredAssemblies
                     .Where(req =>
-                        (_net.IsClient && req.IsClient || _net.IsServer && req.IsServer) &&
+                        (_net.IsClient && req.Client || _net.IsServer && req.Server) &&
                         !loadedAssemblies.Contains(req.AssemblyName))
                     .ToList();
 
