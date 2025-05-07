@@ -11,6 +11,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Movement;
+using Content.Goobstation.Shared.Bible;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Shuttles.Components;
@@ -100,7 +101,10 @@ public sealed partial class HereticAbilitySystem
         if (args.Tile is not { ID: RustTile })
             return;
 
-        if (HasComp<HereticComponent>(ent) || HasComp<GhoulComponent>(ent) || HasComp<GodmodeComponent>(ent))
+        if (HasComp<HereticComponent>(ent)
+            || HasComp<GhoulComponent>(ent)
+            || HasComp<GodmodeComponent>(ent)
+            || HasComp<BibleUserComponent>(ent))
             return;
 
         EnsureComp<DisgustComponent>(ent);
