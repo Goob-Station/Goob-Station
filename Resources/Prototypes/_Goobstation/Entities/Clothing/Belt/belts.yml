@@ -208,6 +208,7 @@
     whitelist:
       tags:
         - Grenade
+        - Bomb
         - MagazinePistol
   - type: ContainerContainer
     containers:

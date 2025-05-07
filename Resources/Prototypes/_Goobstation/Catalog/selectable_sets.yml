@@ -212,7 +212,6 @@
   content:
   - ClothingBeltMilitaryRigGrenadierFilledSelectableSet
   - EncryptionKeySyndie
-  - C4
 
 - type: selectableSet
   id: SyndicateFluclearSet

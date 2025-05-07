@@ -235,3 +235,41 @@
     - id: EnergySpeedloaderLethal
     - id: EnergySpeedloaderDisabler
     - id: EnergySpeedloaderDisabler
+
+- type: entity
+  id: ClothingBeltMilitaryRigGrenadierFilledNukie
+  parent: ClothingBeltMilitaryRigGrenadier
+  suffix: Filled, Nukie
+  components:
+  - type: StorageFill
+    contents:
+      - id: ExGrenade
+        amount: 4
+      - id: SyndieMiniBomb
+        amount: 2
+      - id: SarinGasGrenade
+        amount: 2
+
+- type: entity
+  id: ClothingBeltMilitaryRigGrenadierFilledSelectableSet
+  parent: ClothingBeltMilitaryRigGrenadier
+  suffix: Filled, Selectable Set
+  components:
+  - type: StorageFill
+    contents:
+      - id: ExGrenade
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+      - id: GrenadeIncendiary
+        amount: 2
+      - id: SarinGasGrenade
+        amount: 2
+      - id: C4
+        amount: 2
+      - id: SyndieMiniBomb
+      - id: EmpGrenade
+      - id: GrenadeFlashBang
+      - id: SmokeGrenade
+      - id: WhiteholeGrenade
+      - id: SupermatterGrenade
