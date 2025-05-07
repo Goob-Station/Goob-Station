@@ -193,7 +193,7 @@
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
   - type: GrabbingItem
   - type: IgniteOnMeleeHit # emphasis on FLAMING GIFT!!
-    fireStacks: 0.50
+    fireStacks: 0.25
   - type: Cautery
     speed: 0.3
   - type: Tool
