@@ -120,6 +120,7 @@ public static class ServerPackaging
         "Content.Server",
         "Content.Shared",
         "Content.Shared.Database",
+        "Content.ModuleManager", // I cant be fucked to figure out how to this dynamically
     };
 
     private static readonly List<string> ServerExtraAssemblies = new()
