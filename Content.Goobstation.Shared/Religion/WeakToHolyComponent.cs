@@ -47,6 +47,6 @@ public sealed partial class WeakToHolyComponent : Component
     /// How much the entity is healed passively by each tick.
     /// </summary>
     [DataField]
-    public DamageSpecifier PassiveAmount = new() {DamageDict = new Dictionary<string, FixedPoint2> {{ "Holy", -0.07 }}};
+    public DamageSpecifier PassiveAmount = new() {DamageDict = new Dictionary<string, FixedPoint2> {{ "Holy", -0.11 }}};
 
 }

@@ -11,11 +11,13 @@ using Content.Goobstation.Common.Religion.Events;
 using Content.Goobstation.Shared.Bible;
 using Content.Goobstation.Shared.Religion.Nullrod.Components;
 using Content.Shared.Damage;
+using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Systems;
@@ -26,6 +28,8 @@ public abstract partial class SharedNullRodSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
 
     public override void Initialize()
     {
@@ -33,6 +37,9 @@ public abstract partial class SharedNullRodSystem : EntitySystem
 
         SubscribeLocalEvent<NullrodComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<NullrodComponent, ShotAttemptedEvent>(OnShootAttempt);
+
+        SubscribeLocalEvent<NullrodComponent, GotEquippedHandEvent>(OnGotEquippedHand);
+        SubscribeLocalEvent<NullrodComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
     }
 
     #region Attack Attempts
@@ -70,6 +77,47 @@ public abstract partial class SharedNullRodSystem : EntitySystem
 
         ent.Comp.NextPopupTime = _timing.CurTime + ent.Comp.PopupCooldown;
     }
+    #endregion
+
+    #region Add Component Methods
+
+    private void OnGotEquippedHand(EntityUid uid, NullrodComponent comp, GotEquippedHandEvent args)
+    {
+        if (comp.Components.Count == 0) return;
+
+        if (comp.Components.Count > 1)
+        {
+            Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
+            return;
+        }
+
+        foreach (var (name, data) in comp.Components)
+        {
+            var newComp = (Component) _componentFactory.GetComponent(name);
+
+            if (HasComp(args.User, newComp.GetType()))
+                continue;
+
+            newComp.Owner = args.User;
+
+            var temp = (object) newComp;
+            _serializationManager.CopyTo(data.Component, ref temp);
+            EntityManager.AddComponent(args.User, (Component)temp!);
+        }
+    }
+
+    private void OnGotUnequippedHand(EntityUid uid, NullrodComponent comp, GotUnequippedHandEvent args)
+    {
+        if (comp.Components.Count == 0) return;
+
+        foreach (var (name, data) in comp.Components)
+        {
+            var newComp = (Component) _componentFactory.GetComponent(name);
+
+            RemComp(args.User, newComp.GetType());
+        }
+    }
+
     #endregion
 
 }

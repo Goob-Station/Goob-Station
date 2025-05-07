@@ -6,9 +6,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
 
@@ -67,4 +67,10 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
         [DataField]
         public EntityUid? LastAttackedEntity;
 
+        /// <summary>
+        /// Components that can be added to the user by the Null Rod.
+        /// </summary>
+        [DataField("component", required: false)]
+        [AlwaysPushInheritance]
+        public ComponentRegistry Components { get; private set; } = new();
     }

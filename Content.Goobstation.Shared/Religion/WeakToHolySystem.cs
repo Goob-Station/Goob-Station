@@ -119,28 +119,29 @@ public sealed class WeakToHolySystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var curTime = _timing.CurTime;
 
-        var query = EntityQueryEnumerator<WeakToHolyComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var querySpecialHealing = EntityQueryEnumerator<WeakToHolyComponent>();
+        // Healing while standing on runes.
+        while (querySpecialHealing.MoveNext(out var uid, out var comp))
         {
-            if (comp.NextHealTick > curTime || !comp.IsColliding)
+            if (comp.NextHealTick > _timing.CurTime || !comp.IsColliding)
                 continue;
 
             _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
 
-            comp.NextHealTick = curTime + comp.HealTickDelay;
+            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
         }
 
-        // passive healing
-        while (query.MoveNext(out var uid, out var comp))
+        var queryPassiveHealing = EntityQueryEnumerator<WeakToHolyComponent>();
+        // Passive healing.
+        while (queryPassiveHealing.MoveNext(out var uid, out var comp))
         {
-            if (comp.NextHealTick > curTime)
+            if (comp.NextHealTick > _timing.CurTime)
                 continue;
 
             _damageableSystem.TryChangeDamage(uid, comp.PassiveAmount);
 
-            comp.NextHealTick = curTime + comp.HealTickDelay;
+            comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
         }
     }
 
