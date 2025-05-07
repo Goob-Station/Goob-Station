@@ -191,7 +191,7 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
             if (genQuery.HasComponent(result.HitEntity))
                 closestResult = result;
 
-            break;
+            // break; // Goobstation - still trigger with stuff inside the field
         }
 
         if (closestResult == null)
