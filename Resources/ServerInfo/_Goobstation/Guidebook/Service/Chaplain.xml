@@ -28,6 +28,19 @@ If you don't already have one, build an altar and find an offering to place on-t
     <GuideEntityEmbed Entity="AltarToolbox"/>
   </Box>
 
+These altars can be constructed by placing the following offerings atop your base convert altar:
+
+- Bananium Altar: 1 x Bananium
+- Chaos Altar: 1 x Plasma
+- Druid Altar: 1 x Wooden Plank
+- Fanged Altar: 1 x Raw Meat
+- Heaven Altar: 1 x Templar Helmet
+- Maints Altar: 1 x Budget Insulated Gloves
+- Nanotrasen Altar: 1 x Plasteel
+- Space-Christian Altar: 1 x Nun Hood
+- Technology Altar: 1 x Capacitor
+- Toolbox Altar: 1 x Toolbox
+
 ## Holy Artefacts
 
 ### Crusader Armour
@@ -46,5 +59,7 @@ You can transform it into a holy weapon of choice by placing it on an altar!
 
 ### Metaphysical Threats
 As Chaplain you are the first line of defence against metaphysical threats, ready your Null Rod - the time is now.
+
+Use of excessive force against targets which you cannot confirm are metaphysical threats may land you in trouble with the law, use caution and investigate carefully.
 
 </Document>
