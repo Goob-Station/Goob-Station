@@ -55,7 +55,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 45
+    useDelay: 95
     whitelist:
       components:
       - Body
@@ -92,7 +92,7 @@
   components:
   - type: InstantAction
     itemIconStyle: NoItem
-    useDelay: 180
+    useDelay: 200
     checkCanInteract: false
     checkConsciousness: false
     icon:
