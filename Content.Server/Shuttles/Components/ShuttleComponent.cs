@@ -33,7 +33,7 @@ namespace Content.Server.Shuttles.Components
         /// Maximum velocity assuming unupgraded, tier 1 thrusters
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float BaseMaxLinearVelocity = 60f; // Goobstation - billions must die
+        public float BaseMaxLinearVelocity = 20f;
 
         public const float MaxAngularVelocity = 4f;
 
