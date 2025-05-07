@@ -9,6 +9,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
@@ -427,6 +428,28 @@ public sealed partial class GoobCVars
     /// </summary>
     public static readonly CVarDef<bool> DetailedExamine =
         CVarDef.Create("misc.detailed_examine", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
+
+    #endregion
+
+    #region Grid impacts
+
+    public static readonly CVarDef<float> MinimumImpactVelocity =
+        CVarDef.Create("shuttle.impact.minimum_velocity", 5f, CVar.SERVERONLY); // it doesn't do much damage at low velocities
+
+    public static readonly CVarDef<float> TileBreakEnergyMultiplier =
+        CVarDef.Create("shuttle.impact.tile_break_energy", 3000f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> ImpactDamageMultiplier =
+        CVarDef.Create("shuttle.impact.damage_multiplier", 0.0001f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> SparkEnergy =
+        CVarDef.Create("shuttle.impact.spark_energy", 1000000f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> ImpactRadius =
+        CVarDef.Create("shuttle.impact.radius", 5f, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> ImpactSlowdown =
+        CVarDef.Create("shuttle.impact.slowdown", 0.9998f, CVar.SERVERONLY);
 
     #endregion
 }
