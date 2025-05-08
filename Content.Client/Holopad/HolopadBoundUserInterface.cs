@@ -5,7 +5,6 @@
 
 using Content.Shared.Holopad;
 using Content.Shared.Silicons.StationAi;
-using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Player;
 using System.Numerics;
@@ -15,7 +14,6 @@ namespace Content.Client.Holopad;
 public sealed class HolopadBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IClyde _displayManager = default!;
 
     [ViewVariables]
     private HolopadWindow? _window;

@@ -149,6 +149,13 @@ public sealed partial class AntagSelectionComponent : Component
     public LocId? AgentName;
 
     /// <summary>
+    /// If the player is pre-selected but fails to spawn in (e.g. due to only having antag-immune jobs selected),
+    /// should they be removed from the pre-selection list?
+    /// </summary>
+    [DataField]
+    public bool RemoveUponFailedSpawn = true;
+
+    /// <summary>
     /// Goobstation.
     /// Whether the round end text should show original entity name or mind character name.
     /// </summary>
