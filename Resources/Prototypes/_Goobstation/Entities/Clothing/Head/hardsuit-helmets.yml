@@ -174,7 +174,7 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHOP
-  name: head of personal's hardsuit helmet
+  name: head of personnel's hardsuit helmet
   description: A lightly armored helmet with fancy gold trim.
   components:
   - type: Sprite
