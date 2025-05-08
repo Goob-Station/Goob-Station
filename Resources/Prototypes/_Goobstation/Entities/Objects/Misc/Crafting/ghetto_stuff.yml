@@ -1,0 +1,458 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  id: WoodenHandle
+  parent: BaseItem
+  name: wooden handle
+  description: A normal wooden handle, that can be used in crafting.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/Crafting/wooden_handle.rsi
+    state: icon
+  - type: Construction
+    graph: HeatedKnifeGraph
+    node: incompleteKnife
+  - type: Tag
+    tags:
+    - WoodenHandle
+
+- type: entity
+  parent: WoodenHandle
+  id: WoodenHandleBat # shitcode. It would need another placeholder item for the mid crafting step if i removed it
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MetalBaseballBatGraph
+    node: Metaling
+
+- type: entity
+  parent: WoodenHandle
+  id: WoodenHandleHammer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: HammerConstructionGraph
+    node: mid
+
+- type: entity
+  parent: BaseItem
+  id: ScrapBase
+  name: metal scrap
+  abstract: true
+  description: Some metal being prepared for crafting.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/Crafting/scrap.rsi
+    state: scrap
+
+- type: entity
+  parent: ScrapBase
+  id: ScrapHelmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftHelmetGraph
+    node: mid
+
+- type: entity
+  parent: ScrapBase
+  id: ScrapLightVest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftLightVestGraph
+    node: mid
+
+
+- type: entity
+  parent: ScrapBase
+  id: ScrapHeavyVest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftHeavyVestGraph
+    node: mid
+
+- type: entity
+  parent: ScrapBase
+  id: ScrapBoots
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: HeavyBootsGraph
+    node: mid
+
+- type: entity
+  id: HeatedMadeKitchenKnife
+  parent: KitchenKnife
+  name: heated kitchen knife
+  description: A handmade knife, looks hot! You probably have a few minutes before it cools off.
+  components:
+  - type: Construction
+    graph: HeatedKnifeGraph
+    node: BladeForged
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/heated_knife.rsi
+    state: icon
+  - type: TimedDespawn
+    lifetime: 180.0 # 3 minutes to cool off is fine leh
+  - type: SpawnOnDespawn
+    prototype: KitchenKnife
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 7 # heated knifes are not that sharp yknow
+        Heat: 5
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 3
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  id: ContrabandBag
+  parent: [ BaseStorageItem, BaseBagOpenClose, BaseMinorContraband ]
+  name: makeshift bag
+  description: A makeshift bag, made out of steel and cables in such way, to block contraband scanners.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    state: icon
+  - type: HideContrabandContent
+  - type: UndetectableContraband
+  - type: Storage
+    grid:
+    - 0,0,1,2 # no drawback because contra scanners are useless right now, change this when they are not shit
+  - type: Item
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    size: Normal
+    shape:
+    - 0,0,2,1
+    storedRotation: 90
+  - type: Construction
+    graph: ContrabandSatchelGraph
+    node: final
+
+- type: entity
+  id: ContrabandBagUnfinished
+  parent: [ BaseItem, BaseMinorContraband ]
+  name: makeshift something
+  description: Something made out of steel and plastic, you are not sure what is this supposed to be.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    state: icon_unfinished
+  - type: Item
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    size: Normal
+    shape:
+    - 0,0,2,1
+    storedRotation: 90
+  - type: Construction
+    graph: ContrabandSatchelGraph
+    node: mid
+
+- type: entity
+  id: MakeshiftDefib
+  parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
+  name: makeshift defibrillator
+  description: Rusty looking defibrillator, made out of scrap. Are you sure this is a good idea?
+  components:
+  - type: Defibrillator
+    zapDamage: 12 # twice as a normal defib + 2 extra
+  - type: MultiHandedItem
+  - type: ToggleCellDraw
+  - type: PowerCellDraw
+    useRate: 200 # twice the normal amount
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/defib.rsi
+  - type: MeleeWeapon # 1984
+    damage:
+      types:
+        Blunt: 2
+  - type: Construction
+    graph: MakeshiftDefibGraph
+    node: final
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+
+- type: entity
+  id: MakeshiftDefibUnfinished
+  parent: BaseItem
+  name: makeshift something
+  description: Something complex out of steel. You are not quite sure what is this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/defib.rsi
+    state: icon_unfinished
+  - type: Construction
+    graph: MakeshiftDefibGraph
+    node: screwing
+  - type: Item
+    size: Large
+
+- type: entity
+  id: TideFlipperZero
+  parent: [ DoorRemoteDefault, BaseMinorContraband ]
+  name: tide flipper
+  description: A makeshift device that can hack doors without access.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    state: icon
+  - type: Construction
+    graph: TideFlipperZeroGraph
+    node: final
+  - type: Access
+    tags:
+    - Maintenance # TIDE flipper without maints access?
+
+- type: entity
+  id: TideFlipperZeroUnfinished
+  parent: BaseItem
+  name: makeshift something
+  description: A remote controller strapped to a multitool, you gotta be a genius to figure what it does.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    state: icon_unfinished
+  - type: Construction
+    graph: TideFlipperZeroGraph
+    node: screwing
+
+- type: entity
+  parent: TideFlipperZeroUnfinished
+  id: MakeshiftJammerUnfinished
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Construction
+    graph: MakeshiftJammerGraph
+    node: mid
+
+- type: entity
+  id: MetalBaseballBat
+  parent: BaseBallBat
+  name: metal baseball bat
+  description: A very robust and heavy metal baseball bat to kick asses. Has a nice wooden handle.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
+  - type: MeleeWeapon # the difference? +2 damage compared to a normal bat, shoudlnt be an op weapon
+    damage:
+      types:
+        Blunt: 12
+        Structural: 7
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 7 # 19 weld dmage is the damage that cap saber has
+        Structural: 12
+  - type: Construction
+    graph: MetalBaseballBatGraph
+    node: final
+  - type: SpeedModifiedOnWield # heavy stuff leh
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  id: MakeshiftJammer
+  parent: [ BaseItem, BaseMajorContraband ]
+  name: makeshift radio jammer
+  description: A cheap looking device that can spam radio waves, essentially blocking all signal. Yeah its not effective.
+  components:
+  - type: RadioJammer
+    selectedPowerLevel: 0
+    settings:
+    - wattage: 8
+      range: 4
+      message: radio-jammer-component-set-message-medium
+      name: radio-jammer-component-setting-medium
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+#        startingItem: PowerCellMedium
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
+    state: jammer
+  - type: Construction
+    graph: MakeshiftJammerGraph
+    node: final
+
+- type: entity
+  parent: IDCardStandard
+  id: IDCardTide
+  name: tide ID card
+  description: Makeshift t-ID-e card, made from god knows what.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    state: icon
+  - type: PresetIdCard
+    job: GreyTider
+  - type: Construction
+    graph: MakeshiftIDCardGraph
+    node: final
+
+- type: entity
+  parent: BaseItem
+  id: IDCardTideUnfinished
+  description: God have mercy.
+  name: unfinished makeshift ID card
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    state: icon_unfinished
+  - type: Construction
+    graph: MakeshiftIDCardGraph
+    node: mid
+  - type: InternalTemperature
+    thickness: 0.02
+    area: 0.02
+  - type: AtmosExposed
+  - type: Temperature
+    currentTemperature: 290
+
+# grey toolbox
+- type: entity
+  parent: ToolboxBase
+  id: ToolboxGrey
+  name: grey toolbox
+  description: A truly robust weapon. You feel sudden urge to tide while holding this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
+    state: icon
+  - type: Construction
+    graph: MakeshiftToolboxGraph
+    node: final
+
+- type: entity
+  parent: BaseItem
+  name: unfinished makeshift toolbox
+  description: Some steel welded together. Looks unfinished.
+  id: ToolboxGreyUnfinished
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
+    state: icon-unfinished
+  - type: Item
+    size: Ginormous
+  - type: Construction
+    graph: MakeshiftToolboxGraph
+    node: mid
+# clothing
+
+# heavy boots
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseMinorContraband]
+  id: ClothingShoesHeavyBoots
+  name: tide boots
+  description: Metal is scraping through the floor as you walk with them, who thought this was a good idea?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
+  - type: ClothingSlowOnDamageModifier # 2 times the jackboots
+    modifier: 0.75
+  - type: ClothingModifyStunTime
+    modifier: 0.9
+  - type: ModifyStandingUpTime
+    multiplier: 0.75
+  - type: Construction
+    graph: HeavyBootsGraph
+    node: final
+
+# helmet
+
+- type: entity
+  parent: [ ClothingHeadHelmetBase, BaseMinorContraband ]
+  id: ClothingHeadMakeshiftHelmet
+  name: makeshift light helmet
+  description: A bunch of steel connected with wires, surprisingly durable, and stylish.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95 # worse than a sec helmet
+        Piercing: 0.95
+  - type: Construction
+    graph: MakeshiftHelmetGraph
+    node: final
+
+# light armor
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, BaseMinorContraband ]
+  id: ClothingOuterArmorMakeshiftVestLight
+  name: makeshift light vest
+  description: A light handmade vest made with steel and cables. Durable, but not that efficient.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ModifyDelayedKnockdown # how tf does this work
+    delayDelta: -1.0
+    knockdownTimeDelta: 1.5
+  - type: StaminaDamageResistance
+    coefficient: 1.2 # counter to the tide armor: stuns.
+  - type: Construction
+    graph: MakeshiftLightVestGraph
+    node: final
+
+# heavy armor
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, BaseMinorContraband ]
+  id: ClothingOuterArmorMakeshiftVestHeavy
+  name: makeshift heavy vest
+  description: A heavy makeshift vest, made to withstand bullets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7 # slightly worse than a secvest
+        Heat: 0.9
+  - type: ModifyDelayedKnockdown
+    delayDelta: -1.25
+    knockdownTimeDelta: 1.25
+  - type: StaminaDamageResistance
+    coefficient: 1.2
+  - type: Construction
+    graph: MakeshiftHeavyVestGraph
+    node: final
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95 # you wouldn't notice
+    sprintModifier: 0.95

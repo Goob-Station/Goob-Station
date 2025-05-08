@@ -172,6 +172,12 @@
         key: Jitter
         time: 3.0
         type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 1.5
+        type: Add
+        refresh: false
       - !type:HealthChange
         damage:
           types:
@@ -1261,6 +1267,10 @@
         factor: 3
     Medicine:
       effects:
+      - !type:CleanseCult # DeltaV - Cosmic Cult
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
@@ -1285,7 +1295,7 @@
         ignoreResistances: false
         damage:
           types:
-            Holy: 0.5
+            Holy: 2
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
