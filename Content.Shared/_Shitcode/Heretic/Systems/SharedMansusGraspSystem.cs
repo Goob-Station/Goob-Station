@@ -1,6 +1,7 @@
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
 using Content.Shared.Damage;
@@ -169,6 +170,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     return false;
                 else if (TryComp(target, out DamageableComponent? damageable) && // Is it even damageable?
                          !_tag.HasTag(target, "Meat") && // Is it not organic body part or organ?
+                         !HasComp<ShadowCloakEntityComponent>(target) && // No instakilling shadow cloak heretics
                          (!HasComp<MobStateComponent>(target) || HasComp<SiliconComponent>(target) ||
                           HasComp<BorgChassisComponent>(target) ||
                           _tag.HasTag(target, "Bot"))) // Check for ingorganic target
