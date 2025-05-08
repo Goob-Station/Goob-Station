@@ -278,6 +278,8 @@
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
     - id: ClothingOuterHardsuitHOP # No more stealing the hardsuit from the vault.
+    - id: OxygenTankFilled # Tanks for hardsuit
+    - id: NitrogenTankFilled
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
