@@ -38,9 +38,9 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: MagicSuppressionCollar
-  name: magic suppression collar
-  description: A collar that restricts the use of magic.
+  id: MagicSuppressionAmulet
+  name: magic suppression amulet
+  description: An amulet that restricts the use of magic.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
