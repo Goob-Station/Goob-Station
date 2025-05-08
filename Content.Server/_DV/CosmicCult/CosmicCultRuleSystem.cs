@@ -5,7 +5,6 @@ using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
 using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
-using Content.Goobstation.Shared.Bible; // Goobstation - Bible
 using Content.Server.Chat.Systems;
 using Content.Server.EUI;
 using Content.Server.GameTicking.Rules;
@@ -59,6 +58,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.Bible.Components;
 
 namespace Content.Server._DV.CosmicCult;
 

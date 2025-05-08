@@ -27,7 +27,7 @@ public sealed class ContinuousBeamOverlay : Overlay
 
     public ContinuousBeamOverlay(IEntityManager entManager, IPrototypeManager prototype, IGameTiming timing)
     {
-        ZIndex = (int) Shared.DrawDepth.DrawDepth.Effects;
+        ZIndex = (int) Shared.DrawDepth.DrawDepth.BelowMobs;
 
         _entManager = entManager;
 

@@ -97,8 +97,8 @@ public abstract partial class SharedHereticAbilitySystem
             var secondRuneComp = EnsureComp<HereticCosmicRuneComponent>(runeAction.SecondRune!.Value);
             newRuneComp.LinkedRune = runeAction.SecondRune.Value;
             secondRuneComp.LinkedRune = newRune;
-            Dirty(newRune, newRuneComp);
-            Dirty(runeAction.SecondRune.Value, secondRuneComp);
+            DirtyField(newRune, newRuneComp, nameof(HereticCosmicRuneComponent.LinkedRune));
+            DirtyField(runeAction.SecondRune.Value, secondRuneComp, nameof(HereticCosmicRuneComponent.LinkedRune));
             runeAction.FirstRune = runeAction.SecondRune.Value;
             runeAction.SecondRune = newRune;
             return;
@@ -117,8 +117,8 @@ public abstract partial class SharedHereticAbilitySystem
             var secondRuneComp = EnsureComp<HereticCosmicRuneComponent>(runeAction.SecondRune!.Value);
             newRuneComp.LinkedRune = runeAction.SecondRune.Value;
             secondRuneComp.LinkedRune = newRune;
-            Dirty(newRune, newRuneComp);
-            Dirty(runeAction.SecondRune.Value, secondRuneComp);
+            DirtyField(newRune, newRuneComp, nameof(HereticCosmicRuneComponent.LinkedRune));
+            DirtyField(runeAction.SecondRune.Value, secondRuneComp, nameof(HereticCosmicRuneComponent.LinkedRune));
             return;
         }
 
@@ -136,8 +136,8 @@ public abstract partial class SharedHereticAbilitySystem
             var firstRuneComp = EnsureComp<HereticCosmicRuneComponent>(runeAction.FirstRune!.Value);
             newRuneComp.LinkedRune = runeAction.FirstRune.Value;
             firstRuneComp.LinkedRune = newRune;
-            Dirty(newRune, newRuneComp);
-            Dirty(runeAction.FirstRune.Value, firstRuneComp);
+            DirtyField(newRune, newRuneComp, nameof(HereticCosmicRuneComponent.LinkedRune));
+            DirtyField(runeAction.FirstRune.Value, firstRuneComp, nameof(HereticCosmicRuneComponent.LinkedRune));
         }
     }
 }
