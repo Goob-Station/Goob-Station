@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Popups;
 using Content.Shared._DV.CosmicCult.Components.Examine;
 using Content.Shared._DV.CosmicCult.Components;
@@ -98,6 +105,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// </summary>
     public HashSet<Entity<CosmicCultComponent>> GatherCultists(EntityUid uid, float range)
     {
+        _cultists.Clear();
         _lookup.GetEntitiesInRange<CosmicCultComponent>(Transform(uid).Coordinates, range, _cultists);
         _cultists.RemoveWhere(entity => !_mobState.IsAlive(entity) || _container.IsEntityInContainer(entity));
         return _cultists;
@@ -111,6 +119,7 @@ public sealed class CosmicGlyphSystem : EntitySystem
     /// <param name="exclude">Filter to exclude from return.</param>
     public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearGlyph(EntityUid uid, float range, Predicate<Entity<HumanoidAppearanceComponent>>? exclude = null)
     {
+        _humanoids.Clear();
         _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(Transform(uid).Coordinates, range, _humanoids);
 
         if (exclude != null)

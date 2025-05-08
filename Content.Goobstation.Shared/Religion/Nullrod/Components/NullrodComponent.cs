@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -5,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -14,6 +15,12 @@ namespace Content.Goobstation.Shared.Religion.Nullrod.Components;
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class NullrodComponent : Component
     {
+        /// <summary>
+        /// Whether non bible-users are able to use null rod
+        /// </summary>
+        [DataField]
+        public bool UntrainedUseRestriction;
+
         /// <summary>
         /// How much damage is dealt when an untrained user uses it.
         /// </summary>

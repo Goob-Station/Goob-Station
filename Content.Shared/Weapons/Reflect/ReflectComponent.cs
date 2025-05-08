@@ -91,7 +91,7 @@ public sealed partial class ReflectComponent : Component
     /// What we reflect.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("reflects")]
-    public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy | ReflectType.Magic; //Goob change to allow Nullrod to reflect magic
+    public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy;
 
     /// <summary>
     /// Select in which inventory slots it will reflect.
@@ -124,14 +124,6 @@ public sealed partial class ReflectComponent : Component
     [DataField("soundOnReflect")]
     public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg");
 
-    /// <summary>
-    /// Goobstation
-    /// If not null determines probability for a projectile to be reflected
-    /// for other type of projectile (energy / non energy).
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public float OtherTypeReflectProb;
-
     // WD START
     [DataField, AutoNetworkedField]
     public float DamageOnReflectModifier;
@@ -144,5 +136,5 @@ public enum ReflectType : byte
     None = 0,
     NonEnergy = 1 << 0,
     Energy = 1 << 1,
-    Magic = 1 << 1,
+    Magic = 1 << 2,
 }
