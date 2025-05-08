@@ -49,3 +49,4 @@
       sprite: /Textures/_Goobstation/Actions/implants/nanitemend.rsi
       state: icon
     event: !type:NaniteMendEvent
+

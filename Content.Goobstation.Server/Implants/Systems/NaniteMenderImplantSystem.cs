@@ -6,20 +6,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Implants.Components;
-using Content.Goobstation.Server.Implants.ImplantEvents;
-using Content.Server.Actions;
+using Content.Goobstation.Shared.Implants;
 using Content.Server.Administration.Systems;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
-using Content.Shared.Damage;
-using Content.Shared.Implants;
-using Content.Shared.Implants.Components;
 using Content.Shared.Popups;
-using Robust.Shared.Containers;
-using Robust.Shared.Timing;
 
 namespace Content.Goobstation.Server.Implants.Systems;
 
