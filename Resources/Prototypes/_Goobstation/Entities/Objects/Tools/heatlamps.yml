@@ -2,9 +2,13 @@
   parent: BaseItem
   id: heatlamp
   name: Heat Lamp
-  description: A hand held heating lamp utilized by cold-blooded species to warm up. Affectionately referred to as a "Lizard Lamp"
+  description: A hand held temperature stabilization lamp commonly utilized by cold-blooded species to warm up. Affectionately referred to as a "Lizard Lamp"
   components:
   - type: Heatlamp
+    offShape:
+    - 0,0,0,1
+    onShape:
+    - 0,0,0,3
   - type: ExaminableBattery
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi

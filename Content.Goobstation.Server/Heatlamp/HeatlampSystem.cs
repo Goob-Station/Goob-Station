@@ -1,13 +1,10 @@
 using Content.Server.Body.Components;
-using Content.Server.Examine;
+using Content.Server.Item;
 using Content.Server.PowerCell;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Examine;
-using Content.Shared.Hands;
 using Content.Shared.Inventory;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
@@ -24,25 +21,19 @@ public sealed partial class HeatlampSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly ItemSystem _item = default!;
 
     private readonly int _settingCount = Enum.GetValues<EntityHeaterSetting>().Length;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HeatlampComponent, GotEquippedHandEvent>(OnEquippedHand);
-        SubscribeLocalEvent<HeatlampComponent, GotUnequippedHandEvent>(OnUnequippedHand);
-
         SubscribeLocalEvent<HeatlampComponent, EntGotInsertedIntoContainerMessage>(OnInsertedContainer);
         SubscribeLocalEvent<HeatlampComponent, EntGotRemovedFromContainerMessage>(OnRemovedContainer);
-
-        SubscribeLocalEvent<HeatlampComponent, GotEquippedEvent>(OnEquipped);
-        SubscribeLocalEvent<HeatlampComponent, GotUnequippedEvent>(OnUnequipped);
 
         SubscribeLocalEvent<HeatlampComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<HeatlampComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
     }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -51,55 +42,57 @@ public sealed partial class HeatlampSystem : EntitySystem
         while (query.MoveNext(out var uid, out var heater))
         {
             if (heater.User is not { } user
-            || heater.Setting == EntityHeaterSetting.Off
-            || !TryComp<TemperatureComponent>(user, out var temperature)
-            || !TryComp<ThermalRegulatorComponent>(user, out var thermalRegulator))
-                continue;
-
-            var tempDelta = thermalRegulator.NormalBodyTemperature - temperature.CurrentTemperature;
-            if (tempDelta <= 0)
-                continue;
-
-            var energy = heater.CurrentPowerDraw  * frameTime;
-            var energyToUse = energy / 4f;
-
-            if (!_powerCell.HasCharge(uid, energyToUse))
+            || heater.Setting == EntityHeaterSetting.Off)
             {
-                ChangeSetting((uid, heater), EntityHeaterSetting.Off);
-                return;
+                _item.SetSize(uid, heater.OffSize);
+                _item.SetShape(uid, heater.OffShape);
+                // set appearance here too
+                continue;
             }
 
-            if (heater.LowerEfficiencyWhenContained)
-                energy /= heater.ContainerMultiplier;
-
-            _temperature.ChangeHeat(user, energy * heater.PowerToHeatMultiplier);
-            _powerCell.TryUseCharge(uid, energyToUse);
+            _item.SetSize(uid, heater.OnSize);
+            _item.SetShape(uid, heater.OnShape);
+            RegulateTemperature(user, (uid, heater), frameTime);
         }
     }
 
-    private void OnEquippedHand(Entity<HeatlampComponent> lamp, ref GotEquippedHandEvent args)
+    private void RegulateTemperature(
+        EntityUid user,
+        Entity<HeatlampComponent> heater,
+        float frameTime,
+        ThermalRegulatorComponent? regulator = null,
+        TemperatureComponent? temperature = null)
     {
-        lamp.Comp.User = args.User;
-    }
+        if (!Resolve(user, ref regulator, ref temperature))
+            return;
 
-    private void OnUnequippedHand(Entity<HeatlampComponent> lamp, ref GotUnequippedHandEvent args)
-    {
-        lamp.Comp.User = null;
-    }
+        var tempDelta = regulator.NormalBodyTemperature - temperature.CurrentTemperature;
+        var deltaIsNegative = tempDelta < 0;
 
-    private void OnEquipped(Entity<HeatlampComponent> lamp, ref GotEquippedEvent args)
-    {
-        lamp.Comp.User = args.Equipee;
-    }
+        var energy = heater.Comp.CurrentPowerDraw  * frameTime;
 
-    private void OnUnequipped(Entity<HeatlampComponent> lamp, ref GotUnequippedEvent args)
-    {
-        lamp.Comp.User = args.Equipee;
-    }
+        if (!_powerCell.TryUseCharge(heater, energy * frameTime))
+        {
+            ChangeSetting((heater, heater), EntityHeaterSetting.Off);
+            return;
+        }
 
+        if (heater.Comp.LowerEfficiencyWhenContained)
+            energy /= heater.Comp.ContainerMultiplier;
+
+        var totalTransfer = energy * heater.Comp.PowerToHeatMultiplier;
+
+        if (deltaIsNegative)
+            totalTransfer *= heater.Comp.NegativeDeltaMultiplier;
+
+        _temperature.ChangeHeat(user, totalTransfer);
+    }
     private void OnInsertedContainer(Entity<HeatlampComponent> lamp, ref EntGotInsertedIntoContainerMessage args)
     {
-        _inventory.TryGetContainingEntity(args.Container.Owner, out lamp.Comp.User);
+        if (!_inventory.TryGetContainingEntity(lamp.Owner, out var user))
+            _inventory.TryGetContainingEntity(args.Container.Owner, out user);
+
+        lamp.Comp.User = user;
     }
 
     private void OnRemovedContainer(Entity<HeatlampComponent> lamp, ref EntGotRemovedFromContainerMessage args)

@@ -1,5 +1,7 @@
+using Content.Shared.Item;
 using Content.Shared.Temperature;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Server.Heatlamp;
 
@@ -17,7 +19,13 @@ public sealed partial class HeatlampComponent : Component
     /// How much the power used is multiplied by before being turned into heat.
     /// </summary>
     [DataField]
-    public float PowerToHeatMultiplier = 1000f;
+    public float PowerToHeatMultiplier = 600f;
+
+    /// <summary>
+    /// The multiplier used when the temperature delta is negative, or it is cooling.
+    /// </summary>
+    [DataField]
+    public float NegativeDeltaMultiplier = -0.5f;
 
     /// <summary>
     /// Current setting of the heater. If it is off or unpowered it won't heat anything.
@@ -29,7 +37,7 @@ public sealed partial class HeatlampComponent : Component
     /// Should the efficiency be lowered when contained? (E.G, in a bag)
     /// </summary>
     [DataField]
-    public bool LowerEfficiencyWhenContained;
+    public bool LowerEfficiencyWhenContained = true;
 
     /// <summary>
     /// What amount is the efficiency multiplied by when contained.
@@ -47,9 +55,27 @@ public sealed partial class HeatlampComponent : Component
     public SoundSpecifier SettingSound = new SoundPathSpecifier("/Audio/Machines/button.ogg");
 
     /// <summary>
+    /// The size of this lamp when off.
+    /// </summary>
+    [DataField]
+    public ProtoId<ItemSizePrototype> OffSize = "Small";
+
+    /// <summary>
+    /// The size of this lamp when on.
+    /// </summary>
+    [DataField]
+    public ProtoId<ItemSizePrototype> OnSize = "Normal";
+
+    /// <summary>
     /// The entity to be heated.
     /// </summary>
     [ViewVariables]
     public EntityUid? User;
+
+    [DataField]
+    public List<Box2i> OffShape;
+
+    [DataField]
+    public List<Box2i> OnShape;
 
 }
