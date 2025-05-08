@@ -72,7 +72,7 @@ using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Random;

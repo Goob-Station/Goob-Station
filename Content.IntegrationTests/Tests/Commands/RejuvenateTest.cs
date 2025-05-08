@@ -50,7 +50,7 @@ using Content.Server.Administration.Commands;
 using Content.Server.Administration.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
