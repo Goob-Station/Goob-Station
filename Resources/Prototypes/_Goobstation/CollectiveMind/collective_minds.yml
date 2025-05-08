@@ -77,3 +77,11 @@
   color: "#c18851"
   requiredTags:
   - MouseMind
+
+- type: collectiveMind
+  id: Shadowmind
+  name: collective-mind-shadowmind
+  keycode: 's'
+  color: "#7f32a8"
+  requiredTags:
+  - ShadowMind

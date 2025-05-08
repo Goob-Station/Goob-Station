@@ -175,7 +175,7 @@ namespace Content.Server.Flash
             TimeSpan? stunDuration = null)
         {
             // Goob edit start
-            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
+            if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag) && !_tag.HasTag(target, IgnoreResistancesTag))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
                 RaiseLocalEvent(target, attempt, true);

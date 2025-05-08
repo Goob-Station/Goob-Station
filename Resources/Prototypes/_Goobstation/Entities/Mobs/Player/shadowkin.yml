@@ -1,0 +1,6 @@
+- type: entity
+  save: false
+  name: Urist McShadow
+  parent: MobShadowkinBase
+  id: MobShadowkin
+  description: "Their barrel chest doesn't seem to rise and fall as quickly as a human's, how unnerving."

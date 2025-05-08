@@ -135,7 +135,7 @@
   id: TattooEyeRight
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -149,7 +149,7 @@
   id: TattooEyeLeft
   bodyPart: Eyes
   markingCategory: Head
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -163,7 +163,7 @@
   id: TattooTribal1
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:
@@ -177,7 +177,7 @@
   id: TattooLoops
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni ] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni
+  speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Harpy, Rodentia, Tajaran, Oni, Shadowkin] # Delta V - Felinid, Harpy, Rodentia; Goob - Tajaran; EE- Oni, Shadowkins
   coloring:
     default:
       type:

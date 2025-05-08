@@ -5,3 +5,6 @@
 
 reagent-name-alien-blood = alien blood
 reagent-desc-alien-blood = The creature this bled from is not of this galaxy. Maybe it's grape flavoured.
+
+reagent-name-black-blood = black blood
+reagent-desc-black-blood = This is definitely not ketchup nor BBQ sauce.
