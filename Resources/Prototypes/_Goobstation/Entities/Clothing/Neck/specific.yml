@@ -52,6 +52,6 @@
   - type: MagicSuppression
   - type: ClothingAccessLock
   - type: AccessReader
-    access: [ [ "Command" ], [ "Security" ] ]
+    access: [ [ "Command" ], [ "Security" ], [ "Chapel" ] ]
 
 
