@@ -75,6 +75,10 @@ namespace Content.Shared.Humanoid.Markings
 
             foreach (var (key, marking) in MarkingsByCategory(category))
             {
+                // Goobstation - species without hair or other markings
+                if (!markingPoints.Points.ContainsKey(category))
+                    continue;
+
                 if ((markingPoints.OnlyWhitelisted || markingPoints.Points[category].OnlyWhitelisted) && marking.SpeciesRestrictions == null)
                 {
                     continue;
