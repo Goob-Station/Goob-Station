@@ -1,8 +1,8 @@
-﻿using System.Text;
+using System.Text;
 using Content.Server.PowerCell;
 using Content.Shared.Speech.Components;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems;
