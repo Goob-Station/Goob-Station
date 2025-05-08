@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared._DV.CosmicCult.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
