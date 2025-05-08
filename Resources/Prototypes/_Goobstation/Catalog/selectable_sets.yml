@@ -211,6 +211,7 @@
     state: icon
   content:
   - ClothingBeltMilitaryRigGrenadierFilled
+  - ClothingBackpackSyndicateFilledGrenadier
   - ClothingOuterSuitBomb
   - ClothingHeadHelmetBombSuit
   - EncryptionKeySyndie

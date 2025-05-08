@@ -464,6 +464,21 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkClothingBeltMilitaryRigGrenadier
+  name: uplink-belt-rig-name
+  description: uplink-belt-rig-desc
+  productEntity: ClothingBeltMilitaryRigGrenadier
+  cost:
+    Telecrystal: 4
+  categories:
+  -  UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkClothingHeadHelmetSwatSyndicate
   name: uplink-helmet-swat-name
   description: uplink-helmet-swat-desc

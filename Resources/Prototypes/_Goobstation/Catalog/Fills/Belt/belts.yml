@@ -244,34 +244,19 @@
   suffix: Grenadier bundle, filled
   components:         # How many nades do you want?
   - type: StorageFill # Yes.
-    contents:         # If seriously this is like 200 TC worth of explosives.
+    contents:         # If seriously this is like 100 TC worth of explosives.
     - id: CleanerGrenade
-      amount: 2
     - id: MetalFoamGrenade
-      amount: 2
     - id: GrenadeFlashBang
-      amount: 2
     - id: TearGasGrenade
-      amount: 2
     - id: GrenadeStinger
-      amount: 2
     - id: WhiteholeGrenade
-      amount: 2
     - id: SmokeGrenade
-      amount: 2
     - id: EmpGrenade
-      amount: 2
     - id: C4
-      amount: 2
     - id: GrenadeShrapnel
-      amount: 2
     - id: GrenadeIncendiary
-      amount: 2
     - id: ExGrenade
-      amount: 2
     - id: SarinGasGrenade
-      amount: 2
     - id: SupermatterGrenade
-      amount: 2
     - id: SyndieMiniBomb
-      amount: 2
