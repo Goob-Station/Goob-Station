@@ -29,7 +29,7 @@
         - ItemMask
   - type: Construction
     graph: MakeshiftOvenEmptyGraph
-    node: wood1
+    node: Wood1
   - type: Anchorable
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -72,7 +72,7 @@
     state: full
   - type: Construction
     graph: MakeshiftOvenEmptyGraph
-    node: wood1
+    node: Wood1
   - type: Anchorable
 
 - type: entity
