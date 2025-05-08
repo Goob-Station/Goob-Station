@@ -202,7 +202,7 @@
     - type: Speech
       allowedEmotes: ['Mars', 'Wurble']
     - type: CollectiveMind
-      defaultChannel: MansusLink
+      defaultChannel: Shadowmind
     - type: Tag
       tags:
       - CanPilot
