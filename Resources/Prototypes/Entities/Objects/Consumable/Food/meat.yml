@@ -1709,9 +1709,19 @@
     graph: CookedPatty
     node: cooked meat patty
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/meat.rsi
+      state: meatball-cooked
     entries:
-      Burger: MeatSteak
-      Taco: MeatSteak
+      burger:
+        name: food-sequence-burger-content-meat
+      taco:
+        name: food-sequence-content-meat
+      skewer:
+        name: food-sequence-content-meat
+        sprite:
+          sprite: Objects/Consumable/Food/skewer.rsi
+          state: skewer-meat
 
 - type: entity
   name: boiled snail

@@ -717,7 +717,7 @@
 
 #Pirate Captain Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitPirateCap
   name: pirate captain's hardsuit helmet
   suffix: Pirate
