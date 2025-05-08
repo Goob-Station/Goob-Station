@@ -202,7 +202,7 @@
     - type: Speech
       allowedEmotes: ['Mars', 'Wurble']
     - type: CollectiveMind
-      defaultChannel: Shadowmind
+      defaultChannel: Empathy
     - type: Tag
       tags:
       - CanPilot
@@ -210,7 +210,7 @@
       - DoorBumpOpener
       - ShadowkinEmotes
       - FlashIgnoreResistances # Can't protect against flashes
-      - ShadowMind # Can talk with other shadowkins by telepathy
+      - Empathy # Can talk with other shadowkins by telepathy
 
 - type: entity
   save: false
