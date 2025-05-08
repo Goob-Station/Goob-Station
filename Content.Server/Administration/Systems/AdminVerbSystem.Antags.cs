@@ -65,15 +65,23 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Pancake <Pangogie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Common.Blob;
 using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._DV.CosmicCult.Components; // DeltaV
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
@@ -241,7 +249,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = hereticName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Heretic/Blades/blade_blade.rsi"), "icon"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Heretic/Blades/eldritch_blade.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<HereticRuleComponent>(targetPlayer, "Heretic");
@@ -265,6 +273,22 @@ public sealed partial class AdminVerbSystem
             Impact = LogImpact.High,
             Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-make-wizard")),
         };
-        args.Verbs.Add(wizard);
+
+        // Begin DeltaV Additions
+        var cosmicCultName = Loc.GetString("admin-verb-text-make-cosmiccultist");
+        Verb cosmiccult = new()
+        {
+            Text = cosmicCultName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_DV/CosmicCult/Icons/antag_icons.rsi"), "CosmicCult"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<CosmicCultRuleComponent>(targetPlayer, "CosmicCult");
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", cosmicCultName, Loc.GetString("admin-verb-make-cosmiccultist")),
+        };
+        args.Verbs.Add(cosmiccult);
+        // End DeltaV Additions
     }
 }
