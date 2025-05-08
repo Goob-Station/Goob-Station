@@ -126,14 +126,14 @@
   minTemp: 374
   reactants:
     Oil:
-      amount: 5
+      amount: 1 # Goob edit - revert that once we get energy chem
     Ash:
-      amount: 3
+      amount: 0.6 # Goob edit - revert that once we get energy chem
     SulfuricAcid:
-      amount: 2
+      amount: 0.4 # Goob edit - revert that once we get energy chem
   effects:
     - !type:CreateEntityReactionEffect
-      entity: SheetPlastic10 # Goob edit - revert that once we get energy chem
+      entity: SheetPlastic1
 
 - type: reaction
   id: FlashFreezeIce
