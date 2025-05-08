@@ -224,8 +224,6 @@
       visible: false
   - type: HumanoidAppearance
     species: Vox
-    undergarmentTop: UndergarmentTopTanktopVox
-    undergarmentBottom: UndergarmentBottomBoxersVox
     markingsDisplacement:
       Hair:
         sizeMaps:
