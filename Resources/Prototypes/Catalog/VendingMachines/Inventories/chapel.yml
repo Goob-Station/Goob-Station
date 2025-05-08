@@ -63,6 +63,7 @@
     ClothingOuterClownPriest: 1 #goob
     MonkRobes: 1 #goob
     ClothingHeadHatImam: 1 #goob
+    MagicSuppressionAmulet: 2 #goob
   contrabandInventory:
     FoodBakedBunHotX: 2
     DrinkWineBottleFull: 1

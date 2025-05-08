@@ -130,8 +130,6 @@
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
       - id: ClothingOuterWinterWarden
-      - id: MagicSuppressionCollar
-        amount: 2
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity

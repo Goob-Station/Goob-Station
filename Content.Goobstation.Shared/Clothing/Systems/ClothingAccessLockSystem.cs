@@ -6,6 +6,8 @@
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 
 namespace Content.Goobstation.Shared.Clothing.Systems;
@@ -32,6 +34,10 @@ public sealed class ClothingAccessLockSystem : EntitySystem
 
     private void OnEquipAttempt(Entity<ClothingAccessLockComponent> ent, ref BeingEquippedAttemptEvent args)
     {
+        // make sure it's in the right slot
+        if (TryComp<ClothingComponent>(ent, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
+            return;
+
         if (!AccessCheck(ent, args.Equipee) && ent.Comp.RequireEquip)
         {
             args.Reason = "no-access-equip";
@@ -41,6 +47,10 @@ public sealed class ClothingAccessLockSystem : EntitySystem
 
     private void OnUnequipAttempt(Entity<ClothingAccessLockComponent> ent, ref BeingUnequippedAttemptEvent args)
     {
+        // make sure it's in the right slot
+        if (TryComp<ClothingComponent>(ent, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
+            return;
+
         if (!AccessCheck(ent, args.Unequipee) && ent.Comp.RequireUnequip)
         {
             args.Reason = "no-access-unequip";

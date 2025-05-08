@@ -45,9 +45,9 @@
   description: An amulet that restricts the use of magic.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_amulet.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_amulet.rsi
   - type: SelfUnremovableClothing
   - type: MagicSuppression
   - type: ClothingAccessLock
