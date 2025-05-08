@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Goobstation.Shared.Clothing.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
