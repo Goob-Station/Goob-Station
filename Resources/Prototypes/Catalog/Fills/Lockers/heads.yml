@@ -156,9 +156,12 @@
     - id: RubberStampQm
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
-    - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
-    - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
-    - id: ClothingHandsKnucklesQuartermaster # Goobstation - ROCK THAT MF!!
+    # <Goobstation>
+    - id: CargoTechFabCircuitboard
+    - id: MailTeleporterMachineCircuitboard
+    - id: ClothingHandsKnucklesQuartermaster
+    - id: GatewayFlatpackLavaland
+    # </Goobstation>
 
 - type: entity
   id: LockerQuarterMasterFilled
