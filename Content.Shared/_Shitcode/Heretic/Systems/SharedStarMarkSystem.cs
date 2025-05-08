@@ -53,25 +53,42 @@ public abstract class SharedStarMarkSystem : EntitySystem
     private void OnHit(Entity<StarBlastComponent> ent, ref ProjectileHitEvent args)
     {
         var coords = Transform(ent).Coordinates;
-        var ents = _lookup.GetEntitiesInRange<StatusEffectsComponent>(coords,
-            ent.Comp.StarMarkRadius,
-            LookupFlags.Dynamic);
 
-        foreach (var (entity, status) in ents)
-        {
-            TryApplyStarMark(entity, args.Shooter, status);
-        }
+        ApplyStarMarkInRange(coords, ent.Comp.StarMarkRadius);
 
         if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
             _stun.KnockdownOrStun(args.Target, ent.Comp.KnockdownTime, true, targetStatus);
 
-        SpawnCosmicFields(coords, 1);
+        SpawnCosmicFieldLine(coords, DirectionFlag.North, -1, 1, 0);
+        SpawnCosmicFieldLine(coords, DirectionFlag.East, -1, 1, 1);
     }
 
     private void OnPreventColliede(Entity<CosmicFieldComponent> ent, ref PreventCollideEvent args)
     {
         if (!HasComp<StarMarkComponent>(args.OtherEntity))
             args.Cancelled = true;
+    }
+
+    public void SpawnCosmicFieldLine(EntityCoordinates coords,
+        DirectionFlag directions,
+        int start,
+        int end,
+        int centerSkipRadius,
+        float lifetime = 30f)
+    {
+        if (start > end)
+            return;
+
+        var x = (directions & DirectionFlag.West) != 0 ? -1 : (directions & DirectionFlag.East) != 0 ? 1 : 0;
+        var y = (directions & DirectionFlag.South) != 0 ? -1 : (directions & DirectionFlag.North) != 0 ? 1 : 0;
+
+        for (var i = start; i <= end; i++)
+        {
+            if (centerSkipRadius > 0 && Math.Abs(i) < centerSkipRadius)
+                continue;
+
+            SpawnCosmicField(coords.Offset(new Vector2i(x * i, y * i)), lifetime);
+        }
     }
 
     public void SpawnCosmicFields(EntityCoordinates coords, int range, float lifetime = 30f)
@@ -112,13 +129,21 @@ public abstract class SharedStarMarkSystem : EntitySystem
         EnsureComp<TimedDespawnComponent>(field).Lifetime = lifetime;
     }
 
-    public bool TryApplyStarMark(EntityUid entity, EntityUid? user, StatusEffectsComponent? status = null)
+    public void ApplyStarMarkInRange(EntityCoordinates coords, float range)
+    {
+        var ents = _lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, range, LookupFlags.Dynamic);
+        foreach (var (entity, status) in ents)
+        {
+            TryApplyStarMark(entity, status);
+        }
+    }
+
+    public bool TryApplyStarMark(EntityUid entity, StatusEffectsComponent? status = null)
     {
         if (!Resolve(entity, ref status))
             return false;
 
-        if (TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" || user != null &&
-            TryComp(entity, out GhoulComponent? ghoul) && ghoul.BoundHeretic == user.Value)
+        if (HasComp<HereticComponent>(entity) || HasComp<GhoulComponent>(entity))
             return false;
 
         return _status.TryAddStatusEffect<StarMarkComponent>(entity,

@@ -51,6 +51,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedSanguineStrikeSystem _sanguine = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly CosmosComboSystem _combo = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {
@@ -191,10 +192,15 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                         },
                     };
 
+                    if (_net.IsClient)
+                        break;
+
                     var hitEnts = args.HitEntities;
 
                     if (hitEnts.Count == 0)
                         break;
+
+                    _combo.ComboProgress(args.User, hitEnts);
 
                     var user = args.User;
                     var coords = Transform(user).Coordinates;
@@ -217,7 +223,7 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                             HasComp<HereticComponent>(areaEnt) || HasComp<GhoulComponent>(areaEnt))
                             continue;
 
-                        if (_net.IsClient)
+                        if (!_examine.InRangeUnOccluded(args.User, areaEnt))
                             continue;
 
                         // Spawning timer because effects appearing at once is ugly and annoying
@@ -237,8 +243,6 @@ public abstract class SharedHereticBladeSystem : EntitySystem
                                 Spawn(effect, xform.Coordinates);
                             });
                     }
-
-                    _combo.ComboProgress(args.User, hitEnts);
                     break;
             }
         }

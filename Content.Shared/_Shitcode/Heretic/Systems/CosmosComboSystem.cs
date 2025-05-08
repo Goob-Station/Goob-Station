@@ -96,7 +96,7 @@ public sealed class CosmosComboSystem : EntitySystem
             combo.HitEntities[hit] = 0;
 
             if (combo.ComboCounter > 3)
-                _starMark.TryApplyStarMark(hit, uid);
+                _starMark.TryApplyStarMark(hit);
         }
 
         foreach (var dictHit in combo.HitEntities)

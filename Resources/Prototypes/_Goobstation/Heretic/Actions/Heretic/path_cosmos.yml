@@ -53,3 +53,22 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-star-blast
+
+- type: entity
+  id: ActionHereticCosmicExpansion
+  name: Cosmic Expansion
+  description: This spell generates a 3x3 domain of cosmic fields. Creatures up to 7 tiles away will also receive a star mark.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 45
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/_Goobstation/Heretic/cosmic_expansion.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: cosmic_domain
+    event: !type:EventHereticCosmicExpansion
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-cosmic-expansion

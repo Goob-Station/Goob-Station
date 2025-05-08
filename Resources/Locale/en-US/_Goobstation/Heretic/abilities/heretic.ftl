@@ -77,6 +77,7 @@ heretic-speech-void-pull = BR'NG F'RTH TH'M T' M'!!
 heretic-speech-cosmic-rune = ST'R R'N'!
 heretic-speech-star-touch = ST'R 'N'RG'!!
 heretic-speech-star-blast = R'T'T' ST'R!!
+heretic-speech-cosmic-expansion = C'SM'S 'XP'ND!
 
 heretic-speech-cleave = CL'VE!
 heretic-speech-bloodsiphon = FL'MS O'ET'RN'ITY!
