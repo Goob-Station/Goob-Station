@@ -17,7 +17,13 @@ SPDX-License-Identifier: MIT
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Content.ModuleManager\Content.ModuleManager.csproj" />
     <ProjectReference Include="..\RobustToolbox\Robust.Packaging\Robust.Packaging.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AsmResolver" />
+    <PackageReference Include="AsmResolver.DotNet" />
   </ItemGroup>
 
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

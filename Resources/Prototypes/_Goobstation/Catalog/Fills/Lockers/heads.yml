@@ -52,7 +52,7 @@
     - id: ClothingHeadHelmetSwat
     - id: BlueshieldUndeterminedHardsuit
     - id: ClothingBackpackDuffelSurgeryFilled
-    - id: BoxTracker
+    - id: HandheldCrewMonitorBSO
     - id: BlueshieldUndeterminedWeapon
     - id: PlushieSamantha
       prob: 0.20

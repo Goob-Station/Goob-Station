@@ -10,7 +10,7 @@
 
 using Content.Goobstation.Shared.Blob;
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Goobstation.Shared.Blob.Components;
