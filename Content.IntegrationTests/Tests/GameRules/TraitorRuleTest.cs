@@ -19,6 +19,9 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Roles; // Goobstation
+using Content.Shared.Preferences; // Goobstation
+using Content.Shared.CCVar; // Goobstation
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -29,7 +32,27 @@ public sealed class TraitorRuleTest
 {
     private const string TraitorGameRuleProtoId = "Traitor";
     private const string TraitorAntagRoleName = "Traitor";
+    private static readonly ProtoId<JobPrototype> Passenger = "Passenger"; // Goobstation
 
+    // Goobstation Change: For some reason this shitcode doesnt let me set another job other than passenger unless we have a map.
+    private static string _map = "TraitorTestMap";
+
+    [TestPrototypes]
+    private static readonly string TraitorTestMap = @$"
+- type: gameMap
+  id: {_map}
+  mapName: {_map}
+  mapPath: /Maps/Test/empty.yml
+  minPlayers: 0
+  stations:
+    Empty:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: ""Empty""
+        - type: StationJobs
+          availableJobs:
+            {Passenger}: [ -1, -1 ]";
     [Test]
     public async Task TestTraitorObjectives()
     {
@@ -41,6 +64,7 @@ public sealed class TraitorRuleTest
             InLobby = true,
         });
         var server = pair.Server;
+        pair.Server.CfgMan.SetCVar(CCVars.GameMap, _map); // Goobstation
         var client = pair.Client;
         var entMan = server.EntMan;
         var protoMan = server.ProtoMan;
@@ -84,6 +108,7 @@ public sealed class TraitorRuleTest
 
         // Opt-in the player for the traitor role
         await pair.SetAntagPreference(TraitorAntagRoleName, true);
+        await pair.SetJobPriorities((Passenger, JobPriority.Never)); // Goobstation
 
         // Add the game rule
         TraitorRuleComponent traitorRule = null;
