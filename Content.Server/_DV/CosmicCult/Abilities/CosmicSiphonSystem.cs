@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Coenx-flex <coengmurray@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Shared._DV.CosmicCult;
