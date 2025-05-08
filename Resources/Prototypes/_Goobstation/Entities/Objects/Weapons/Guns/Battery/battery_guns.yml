@@ -289,6 +289,7 @@
         whitelist:
           tags:
             - EnergyMagAmmo
+
 - type: entity
   name: DT-12 "Lawbringer"
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
@@ -351,11 +352,8 @@
         shader: unshaded
   - type: Tag
     tags:
-    - HighRiskItem
     - Sidearm
     - WeaponEnergyGunLawbringer
-  - type: StealTarget
-    stealGroup: WeaponEnergyGunLawbringer
   - type: RestrictById
     restrictMelee: true
     restrictRanged: true
@@ -379,13 +377,6 @@
     canCreateVacuum: false
     deleteAfterExplosion: false
     repeatable: true
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 25
-    autoRechargePause: true
-    autoRechargePauseTime: 50
-
-
 
 - type: entity
   name: ion rifle

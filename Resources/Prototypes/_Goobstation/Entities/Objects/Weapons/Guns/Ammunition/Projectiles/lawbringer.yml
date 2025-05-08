@@ -17,18 +17,13 @@
     layers:
     - state: omnilaser-yellow
       shader: unshaded
-  - type: Projectile
-    damage:
-      types:
-        Blunt: 25
   - type: ProjectileRequireWhitelist
     whitelist:
      components:
       - Clumsy
   - type: ProjectileThrowOnHit
     distance: 10
-    speed: 10
-  - type: BlurOnCollide
+    speed: 30
 
 - type: entity
   id: BulletPulse
@@ -84,10 +79,8 @@
     damage:
       types:
         Heat: 2
-  - type: BlurOnCollide
   - type: StaminaDamageOnCollide
-    damage: 30
-    overtime: 15
+    damage: 25
 
 - type: entity
   id: BulletExecute
@@ -111,8 +104,7 @@
   - type: Projectile
     damage:
       types:
-        Heat: 20
-        Radiation: 5 # 13 parity
+        Heat: 17 #fuck parity
 
 - type: entity
   id: BulletHotshot
@@ -136,9 +128,9 @@
   - type: Projectile
     damage:
       types:
-        Heat: 15
+        Heat: 2
   - type: IgniteOnCollide
-    fireStacks: 2
+    fireStacks: 1.5
 
 - type: entity
   id: BulletSleepshot
@@ -182,6 +174,7 @@
     walkSpeedMultiplier: 0.8
     runSpeedMultiplier: 0.8
     slowdownAmount: 2
+  - type: BlurOnCollide
 
 - type: entity
   id: BulletBigshot
@@ -205,6 +198,4 @@
   - type: Projectile
     damage:
       types:
-        Heat: 15
-        Structural: 45
-  - type: BlurOnCollide
+        Structural: 250

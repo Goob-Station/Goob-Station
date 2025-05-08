@@ -15,4 +15,7 @@
     - HosRifleSet
     - HosShotgunSet
     - HosSniperSet
+    - HosSwordSet
+    - HosLawbringerSet
+    - HosUtilitySet
     maxSelectedSets: 1

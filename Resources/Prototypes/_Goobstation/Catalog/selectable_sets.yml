@@ -437,3 +437,33 @@
     state: icon
   content:
   - WeaponHeadOfSecurityRifle
+
+- type: selectableSet
+  id: HosSwordSet
+  name: selectable-set-hos-sword-name
+  description: selectable-set-hos-sword-description
+  sprite:
+    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
+    state: sheath-sabre
+  content:
+  - ClothingBeltSheathHeadOfSecurityFilled
+
+- type: selectableSet
+  id: HosLawbringerSet
+  name: selectable-set-hos-lawbringer-name
+  description: selectable-set-hos-lawbringer-description
+  sprite:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    state: icon
+  content:
+  - WeaponEnergyGunLawbringer
+
+- type: selectableSet
+  id: HosUtilitySet
+  name: selectable-set-hos-utility-name
+  description: selectable-set-hos-utility-description
+  sprite:
+    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
+    state: icon
+  content:
+  - WeaponHeadOfSecurClothingBackpackDuffelHosFilledUtilityity

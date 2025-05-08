@@ -22,7 +22,7 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -30,14 +30,9 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     defaultDirection: 1, 0
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 15
-    autoRechargePause: true
-    autoRechargePauseTime: 20
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumSplitLaser
-    fireCost: 100
+    fireCost: 35
   - type: StaticPrice
     price: 2500
 
@@ -63,9 +58,9 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
-    minAngle: 2
-    maxAngle: 10
-    fireRate: 7
+    minAngle: 5
+    maxAngle: 50
+    fireRate: 9
     burstFireRate: 6
     angleIncrease: 3
     angleDecay: 10
@@ -76,11 +71,6 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
     defaultDirection: 1, 0
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 25
-    autoRechargePause: true
-    autoRechargePauseTime: 20
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserHeavy
     fireCost: 30
@@ -107,11 +97,6 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
     shape:
     - 0,0,4,1
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 15
-    autoRechargePause: true
-    autoRechargePauseTime: 20
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -144,11 +129,6 @@
     slots:
     - Back
     - suitStorage
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 15
-    autoRechargePause: true
-    autoRechargePauseTime: 20
   - type: Item
     shape:
     - 0,0,6,1
@@ -156,7 +136,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-    fireRate: 0.70
+    fireRate: 0.25
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -169,8 +149,8 @@
   - type: StaticPrice
     price: 2500
   - type: SpeedModifiedOnWield
-    walkModifier: 0.80
-    sprintModifier: 0.80
+    walkModifier: 0.5
+    sprintModifier: 0.5
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 8

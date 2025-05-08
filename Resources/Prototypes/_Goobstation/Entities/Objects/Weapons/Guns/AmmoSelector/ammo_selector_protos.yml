@@ -80,7 +80,7 @@
     state: pulse
   color: blue
   protoId: BulletPulse
-  fireCost: 80
+  fireCost: 500
 
 - type: selectableAmmo
   id: BulletEnergyGunDetain
@@ -90,17 +90,17 @@
     state: omnilaser
   color: blue
   protoId: BulletDetain
-  fireCost: 80
+  fireCost: 40
 
 - type: selectableAmmo
   id: BulletEnergyGunExecute
-  desc: A highly damaging, and slightly radioactive bolt. Great for putting things down.
+  desc: A highly damaging bolt. Great for putting things down.
   icon:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: execute
   color: green
   protoId: BulletExecute
-  fireCost: 120
+  fireCost: 80
 
 - type: selectableAmmo
   id: BulletEnergyGunHotshot
@@ -110,7 +110,7 @@
     state: hotshot
   color: red
   protoId: BulletHotshot
-  fireCost: 100
+  fireCost: 150
 
 - type: selectableAmmo
   id: BulletEnergyGunSleepshot
@@ -120,7 +120,7 @@
     state: sleepshot
   color: pink
   protoId: BulletSleepshot
-  fireCost: 120
+  fireCost: 50
 
 - type: selectableAmmo
   id: BulletEnergyGunBigshot

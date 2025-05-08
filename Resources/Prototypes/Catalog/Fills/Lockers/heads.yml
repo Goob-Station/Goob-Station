@@ -488,19 +488,17 @@
       prob: 0.50
     - id: ClothingBeltSecurityFilled
   #  - id: ClothingEyesGlassesSecurity # Goobstation - Security Revamp - Start
-    - id: ClothingEyesGlassesSecurityAdvanced
+    - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
     - id: ClothingHeadHatBeretHeadOfSecurityAdvanced
     - id: ClothingOuterCoatHoSTrench
-   # - id: ClothingShoesBootsJack
-    - id: ClothingShoesBootsJackAdvanced
+    - id: ClothingShoesBootsJack
     - id: DoorRemoteSecurity
    # - id: HoloprojectorSecurity
     - id: HoloprojectorSecurityAdvanced
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
-    - id: ClothingBeltSheathHeadOfSecurityFilled
     - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp - End
     #- id: WeaponDisabler # Goobstation (Disablers in belts)
     - id: WantedListCartridge
@@ -513,7 +511,7 @@
     children:
     - id: ClothingMaskGasSwat
     #- id: ClothingOuterHardsuitSecurityRed # Goobstation
-    - id: ClothingOuterHardsuitHeadOfSecurityExperimental  # Goobstation
+    - id: ClothingOuterHardsuitSecurityRed
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled
