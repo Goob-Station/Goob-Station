@@ -144,7 +144,7 @@
     needsPower: false
     powerLoad: 250
   - type: FaxMachine
-    Paper:
+    paperSlot:
       insertSound: /Audio/Machines/scanning.ogg
       ejectSound: /Audio/Machines/tray_eject.ogg
       whitelist:
@@ -166,7 +166,7 @@
     transmitFrequencyId: Fax
   - type: ItemSlots
     slots:
-      paperSlot:
+      Paper:
         insertSound: /Audio/Machines/scanning.ogg
         ejectSound: /Audio/Machines/tray_eject.ogg
         whitelist:
