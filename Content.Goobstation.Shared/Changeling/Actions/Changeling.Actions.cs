@@ -10,6 +10,7 @@
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
