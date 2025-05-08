@@ -466,4 +466,4 @@
     sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
     state: icon
   content:
-  - WeaponHeadOfSecurClothingBackpackDuffelHosFilledUtilityity
+  - ClothingBackpackDuffelHosFilledUtility

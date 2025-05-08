@@ -256,7 +256,7 @@
 - type: entity
   parent: ClothingOuterHardsuitSecurityRed
   id: ClothingOuterHardsuitHeadOfSecurityExperimental
-  name: FI-52 "Honor Guard" parade hardsuit
+  name: FI-52 "Ronald" hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
   components:
   - type: Sprite
