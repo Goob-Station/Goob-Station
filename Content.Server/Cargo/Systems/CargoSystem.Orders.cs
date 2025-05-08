@@ -574,7 +574,11 @@ namespace Content.Server.Cargo.Systems
 
         private void PlayDenySound(EntityUid uid, CargoOrderConsoleComponent component)
         {
-            _audio.PlayPvs(_audio.ResolveSound(component.ErrorSound), uid);
+            if (_timing.CurTime >= component.NextDenySoundTime)
+            {
+                component.NextDenySoundTime = _timing.CurTime + component.DenySoundDelay;
+                _audio.PlayPvs(_audio.ResolveSound(component.ErrorSound), uid);
+            }
         }
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id, ProtoId<CargoAccountPrototype> account)
