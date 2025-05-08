@@ -89,7 +89,7 @@ public sealed class SlipperySystem : EntitySystem
         SlipperyComponent component,
         ref StepTriggerAttemptEvent args)
     {
-        args.Continue |= component.SlipOnStep && CanSlip(uid, args.Tripper); // Goob edit
+        args.Continue |= component.SlipData.SlipOnStep && CanSlip(uid, args.Tripper); // Goob edit
     }
 
     private static void OnNoSlipAttempt(EntityUid uid, NoSlipComponent component, SlipAttemptEvent args)
@@ -130,7 +130,7 @@ public sealed class SlipperySystem : EntitySystem
         if (!predicted && _net.IsClient)
             return;
 
-        if ((HasComp<KnockedDownComponent>(other) || HasComp<StunnedComponent>(other)) && !component.SuperSlippery)
+        if ((HasComp<KnockedDownComponent>(other) || HasComp<StunnedComponent>(other)) && !component.SlipData.SuperSlippery)
             return;
 
         if (!force)
@@ -149,7 +149,7 @@ public sealed class SlipperySystem : EntitySystem
                 return;
         }
 
-        var hardStun = component.slipData.SuperSlippery; // Goobstation
+        var hardStun = component.SlipData.SuperSlippery; // Goobstation
         // Goob edit end
 
         var ev = new SlipEvent(other);
@@ -170,7 +170,7 @@ public sealed class SlipperySystem : EntitySystem
         var playSound = !_statusEffects.HasStatusEffect(other, "KnockedDown");
 
         // goob edit - stunmeta
-        var time = TimeSpan.FromSeconds(component.SlipData.ParalyzeTime);
+        var time = component.SlipData.ParalyzeTime;
         if (hardStun)
             _stun.TryParalyze(other, time, true);
         else

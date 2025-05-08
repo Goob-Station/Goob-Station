@@ -380,8 +380,6 @@ public sealed partial class StationJobsSystem
             RaiseLocalEvent(ref ev);
 
             List<string>? availableJobs = null;
-            ICommonSession? session = null; //GOOBSTATION
-            bool hasSession = _playerManager.TryGetSessionById(player, out session); //GOOBSTATION
 
             foreach (var jobId in profileJobs)
             {
@@ -394,13 +392,13 @@ public sealed partial class StationJobsSystem
                     continue;
 
                 // Check if this job is blacklisted for the player's session || GOOBSTATION
-                if (hasSession && session != null && antagBlacklists.TryGetValue(session, out var blacklistedJobs))
+                if (_player.TryGetSessionById(player, out var session) && antagBlacklists.TryGetValue(session, out var blacklistedJobs))
                 {
                     if (blacklistedJobs.Contains(jobId))
                         continue;
                 }
 
-                if (!job.CanBeAntag && (!_player.TryGetSessionById(player, out var session) || antagBlocked.Contains(session)))
+                if (!job.CanBeAntag && (!_player.TryGetSessionById(player, out session) || antagBlocked.Contains(session)))
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)

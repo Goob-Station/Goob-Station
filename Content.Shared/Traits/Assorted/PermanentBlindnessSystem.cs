@@ -28,6 +28,7 @@ namespace Content.Shared.Traits.Assorted;
 public sealed class PermanentBlindnessSystem : EntitySystem
 {
     [Dependency] private readonly BlindableSystem _blinding = default!;
+    [Dependency] private readonly NetManager _net = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

@@ -101,7 +101,7 @@ namespace Content.Shared.Slippery
         /// Goobstation.
         /// Whether we should slip on step.
         /// </summary>
-        [DataField, AutoNetworkedField]
+        [DataField]
         [Access(Other = AccessPermissions.ReadWrite)]
         public bool SlipOnStep = true;
 
