@@ -121,7 +121,7 @@ public partial class SharedBodySystem
 
             var marking = new Marking(markingId, markingColors);
 
-            _humanoid.SetLayerVisibility(uid, targetLayer, true, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((uid, bodyAppearance), targetLayer, true);
             _humanoid.AddMarking(uid, markingId, markingColors, true, true, bodyAppearance);
             if (!partAppearance.Comp.Markings.ContainsKey(targetLayer))
                 partAppearance.Comp.Markings[targetLayer] = new List<Marking>();
@@ -172,17 +172,17 @@ public partial class SharedBodySystem
         if (component.EyeColor != null)
         {
             bodyAppearance.EyeColor = component.EyeColor.Value;
-            _humanoid.SetLayerVisibility(target, HumanoidVisualLayers.Eyes, true, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((target, bodyAppearance), HumanoidVisualLayers.Eyes, true);
         }
 
         if (component.Color != null)
             _humanoid.SetBaseLayerColor(target, component.Type, component.Color, true, bodyAppearance);
 
-        _humanoid.SetLayerVisibility(target, component.Type, true, true, bodyAppearance);
+        _humanoid.SetLayerVisibility((target, bodyAppearance), component.Type, true);
 
         foreach (var (visualLayer, markingList) in component.Markings)
         {
-            _humanoid.SetLayerVisibility(target, visualLayer, true, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((target, bodyAppearance), visualLayer, true);
             foreach (var marking in markingList)
             {
                 _humanoid.AddMarking(target, marking.MarkingId, marking.MarkingColors, true, true, bodyAppearance);
@@ -199,7 +199,7 @@ public partial class SharedBodySystem
 
         foreach (var (visualLayer, markingList) in component.Markings)
         {
-            _humanoid.SetLayerVisibility(entity, visualLayer, false, true, bodyAppearance);
+            _humanoid.SetLayerVisibility((entity, bodyAppearance), visualLayer, false);
         }
         RemoveBodyMarkings(entity, component, bodyAppearance);
     }

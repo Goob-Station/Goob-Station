@@ -123,7 +123,7 @@ public sealed class DecalPlacementSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (args.Target.GetGridUid(EntityManager) == null)
+        if (_transform.GetGrid(args.Target) == null)
             return;
 
         args.Handled = true;
