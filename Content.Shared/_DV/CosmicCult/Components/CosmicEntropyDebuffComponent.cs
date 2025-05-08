@@ -30,8 +30,9 @@ public sealed partial class CosmicEntropyDebuffComponent : Component
     {
         DamageDict = new()
         {
-            { "Cold", 0.25},
-            { "Asphyxiation", 1.25},
+            { "Cold", 5.0},
+            { "Asphyxiation", 5.0},
+            { "Ion", 5.0},
         }
     };
 }

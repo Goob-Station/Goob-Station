@@ -106,6 +106,7 @@
     transmutations:
     - SwordCosmicCult
     - SpearCosmicCult
+    - ScytheCosmicCult
     whitelist:
       components:
       - Sharp

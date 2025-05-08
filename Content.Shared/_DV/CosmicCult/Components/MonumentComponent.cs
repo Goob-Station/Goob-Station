@@ -82,7 +82,7 @@ public sealed partial class MonumentComponent : Component
     /// the amount of time between the above timer's ticks
     /// </summary>
     [DataField]
-    public TimeSpan CheckWait = TimeSpan.FromSeconds(5);
+    public TimeSpan CheckWait = TimeSpan.FromSeconds(1);
 
     /// <summary>
     /// Passive healing factor for cultists w/ the ability near the monument
@@ -92,15 +92,15 @@ public sealed partial class MonumentComponent : Component
     {
         DamageDict = new()
         {
-            { "Blunt", 2},
-            { "Slash", 2 },
-            { "Piercing", 2 },
-            { "Heat", 2},
-            { "Shock", 2},
-            { "Cold", 2},
-            { "Poison", 2},
-            { "Radiation", 2},
-            { "Asphyxiation", 2 }
+            { "Blunt", 1},
+            { "Slash", 1 },
+            { "Piercing", 1 },
+            { "Heat", 1},
+            { "Shock", 1},
+            { "Cold", 1},
+            { "Poison", 1},
+            { "Radiation", 1},
+            { "Asphyxiation", 1 }
         }
     };
 

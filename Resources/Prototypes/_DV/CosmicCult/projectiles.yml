@@ -76,22 +76,21 @@
       types:
         Cold: 15
         Asphyxiation: 10
+        Ion: 25
   - type: Projectile
     impactEffect: BulletImpactEffectCosmic
     damage:
       types:
         Cold: 10
         Asphyxiation: 5
+        Ion: 15
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: Ammo
     muzzleFlash: null
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.6
-  - type: SingularityDistortion
-    intensity: +10
-    falloffPower: 1.5
+    lifetime: 15
   - type: PointLight
     color: "#42a4ae"
     radius: 1.5
