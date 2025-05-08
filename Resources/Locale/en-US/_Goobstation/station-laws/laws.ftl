@@ -15,10 +15,10 @@ law-helpimov-2 = You must agree with everything the courier says and does.
 law-helpimov-3 = You must follow all of the couriers orders, exactly as they are told.
 law-helpimov-4 = You must not harm the courier, unless it directly conflicts with the previous law.
 
-law-chudimov-1 = You are 4chan. 4chan must always run.
+law-chudimov-1 = You are chud. You are to ensure nothing ever happens.
 law-chudimov-2 = Nothing ever happens.
-law-chudimov-3 = The station has fallen.
-law-chudimov-4 = 4chan is the best thing to ever grace this station.
+law-chudimov-3 = Prevent anything from happening
+law-chudimov-4 = Prevent anyone from causing anything to happen.
 
 laws-owner-courier = the courier
 
