@@ -12,8 +12,9 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_arachnid_first
-    - names_arachnid_last
+    - NamesArachnidFirst
+    - NamesArachnidLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: MobIPC
@@ -45,5 +46,6 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - NamesFirst
+    - NamesLast
+    nameFormat: name-format-standard 
