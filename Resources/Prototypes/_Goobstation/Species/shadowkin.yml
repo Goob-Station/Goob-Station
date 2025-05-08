@@ -9,8 +9,8 @@
   dollPrototype: MobShadowkinDummy
   skinColoration: Hues
   naming: First
-  maleFirstNames: names_shadowkin
-  femaleFirstNames: names_shadowkin
+  maleFirstNames: NamesShadowkin
+  femaleFirstNames: NamesShadowkin
   minAge: 18
   maxAge: 250
   youngAge: 80
