@@ -86,12 +86,12 @@ public sealed class DeconversionSystem : EntitySystem
             return;
 
         var targetPosition = Transform(target.Value).Coordinates;
-        // dTODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired.
-        // This is easy to read and easy to modify code. Expand it at thine leisure.
-        if (TryComp<CosmicCultComponent>(args.Target, out var comp))
+        var userPosition = Transform(args.User).Coordinates;
+        //TODO: This could be made more agnostic, but there's only one cult for now, and frankly, i'm so tired. This is easy to read and easy to modify code. Expand it at thine leisure.
+        if (TryComp<CosmicCultComponent>(args.Target, out var comp) && comp.CosmicEmpowered)
         {
             Spawn(censer.MalignVFX, targetPosition);
-            Spawn(censer.MalignVFX, Transform(args.User).Coordinates);
+            Spawn(censer.MalignVFX, userPosition);
             EnsureComp<CleanseCultComponent>(target.Value, out var cleanse);
             cleanse.CleanseDuration = TimeSpan.FromSeconds(1);
             _audio.PlayPvs(censer.MalignSound, targetPosition, AudioParams.Default.WithVolume(2f));
@@ -114,9 +114,13 @@ public sealed class DeconversionSystem : EntitySystem
         }
         else
         {
+            Spawn(censer.ReboundVFX, userPosition);
+            Spawn(censer.ReboundVFX, targetPosition);
             _audio.PlayPvs(censer.SizzleSound, targetPosition);
             _popup.PopupEntity(Loc.GetString("cleanse-deconvert-attempt-notcorrupted", ("target", Identity.Entity(target.Value, EntityManager))), args.User, args.User);
+            _popup.PopupCoordinates(Loc.GetString("cleanse-deconvert-attempt-rebound"), targetPosition, PopupType.MediumCaution);
             _damageable.TryChangeDamage(args.User, censer.FailedDeconversionDamage, true);
+            _damageable.TryChangeDamage(args.Target, censer.FailedDeconversionDamage, true);
         }
         args.Handled = true;
     }

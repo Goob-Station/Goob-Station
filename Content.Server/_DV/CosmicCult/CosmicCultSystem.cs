@@ -40,6 +40,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Popups;
 
 namespace Content.Server._DV.CosmicCult;
 
@@ -254,7 +255,7 @@ public sealed partial class CosmicCultSystem : SharedCosmicCultSystem
     }
     private void OnImpositionMoveSpeed(EntityUid uid, CosmicImposingComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        args.ModifySpeed(0.60f, 0.60f);
+        args.ModifySpeed(0.65f, 0.65f);
     }
 
     // Goob start

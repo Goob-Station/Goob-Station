@@ -19,7 +19,7 @@ public sealed partial class CosmicCenserComponent : Component
     /// The length of time it takes to deconvert someone.
     /// </summary>
     [DataField]
-    public TimeSpan DeconversionTime = TimeSpan.FromSeconds(10);
+    public TimeSpan DeconversionTime = TimeSpan.FromSeconds(15);
 
     /// <summary>
     /// The damage to deal on a failed deconversion
@@ -27,7 +27,7 @@ public sealed partial class CosmicCenserComponent : Component
     [DataField]
     public DamageSpecifier FailedDeconversionDamage = new() {
         DamageDict = new() {
-            { "Asphyxiation", 50 },
+            { "Asphyxiation", 65 },
             { "Caustic", 15 }
         }
     };
@@ -38,7 +38,9 @@ public sealed partial class CosmicCenserComponent : Component
 
     [DataField] public SoundSpecifier MalignSound = new SoundPathSpecifier("/Audio/_DV/CosmicCult/glyph_trigger.ogg");
 
-    [DataField] public EntProtoId CleanseVFX = "CleanseEffectVFX";
+    [DataField] public EntProtoId CleanseVFX = "NoosphericVFX2";
+
+    [DataField] public EntProtoId ReboundVFX = "NoosphericVFX1";
 
     [DataField] public EntProtoId MalignVFX = "CosmicGenericVFX";
 }
