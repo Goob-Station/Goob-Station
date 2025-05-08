@@ -29,12 +29,12 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         SubscribeLocalEvent<StypticStimulatorImplantComponent, EntGotRemovedFromContainerMessage>(OnUnimplanted);
     }
 
-    private void OnImplant(EntityUid uid, StypticStimulatorImplantComponent comp, ref ImplantImplantedEvent args)
+    private void OnImplant(Entity<StypticStimulatorImplantComponent> implant, ref ImplantImplantedEvent args)
     {
         if (!args.Implanted.HasValue || TerminatingOrDeleted(args.Implanted.Value))
             return;
 
-        comp.User = args.Implanted.Value;
+        implant.Comp.User = args.Implanted.Value;
     }
 
     public override void Update(float frameTime)
@@ -57,8 +57,8 @@ public sealed class StypticStimulatorImplantSystem : EntitySystem
         }
     }
 
-    private void OnUnimplanted(EntityUid uid, StypticStimulatorImplantComponent comp, ref EntGotRemovedFromContainerMessage args)
+    private void OnUnimplanted(Entity<StypticStimulatorImplantComponent> implant, ref EntGotRemovedFromContainerMessage args)
     {
-        comp.User = null;
+        implant.Comp.User = null;
     }
 }
