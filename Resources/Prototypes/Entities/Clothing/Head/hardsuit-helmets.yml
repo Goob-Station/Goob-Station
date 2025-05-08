@@ -421,6 +421,23 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitHOP
+  name: hop hardsuit helmet
+  description: A lightly armored helmet with fancy gold trim.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/hop.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/hop.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
 #Chief Engineer's Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
