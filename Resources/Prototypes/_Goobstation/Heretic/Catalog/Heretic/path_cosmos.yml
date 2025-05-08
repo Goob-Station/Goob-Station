@@ -108,3 +108,21 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 5
+
+- type: listing
+  id: HereticCosmosPath7
+  name: knowledge-path-cosmos-s7-name
+  description: knowledge-path-cosmos-s7-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_cosmos.rsi, state: icon }
+  productHereticKnowledge: CosmicBlade
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Cosmos

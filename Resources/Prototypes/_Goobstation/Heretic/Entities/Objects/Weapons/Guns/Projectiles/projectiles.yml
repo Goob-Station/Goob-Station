@@ -50,7 +50,7 @@
   - type: Reflective
     reflective: Magic
   - type: Projectile
-    impactEffect: ImpactEffectStarBlast
+    impactEffect: EffectCosmicExplosion
     damage:
       types:
         Heat: 20
@@ -70,3 +70,4 @@
         - Impassable
         - BulletImpassable
   - type: StarBlast
+  - type: CosmicTrail

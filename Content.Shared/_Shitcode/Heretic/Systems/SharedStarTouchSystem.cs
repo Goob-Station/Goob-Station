@@ -144,11 +144,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
                 _status.TryRemoveStatusEffect(target, SharedStarMarkSystem.StarMarkStatusEffect);
         }
         else
-        {
-            _status.TryUpdateStatusEffectDuration(target,
-                SharedStarMarkSystem.StarMarkStatusEffect,
-                TimeSpan.FromSeconds(30));
-        }
+            _starMark.TryApplyStarMark(target, args.User);
 
         if (_status.TryUpdateStatusEffectDuration(target, StarTouchStatusEffect, ent.Comp.Duration))
         {

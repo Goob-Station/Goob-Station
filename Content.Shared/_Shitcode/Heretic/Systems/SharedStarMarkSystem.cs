@@ -58,13 +58,13 @@ public abstract class SharedStarMarkSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        var query = EntityQueryEnumerator<StarBlastComponent, TransformComponent>();
-        while (query.MoveNext(out var blast, out var xform))
+        var query = EntityQueryEnumerator<CosmicTrailComponent, TransformComponent>();
+        while (query.MoveNext(out var trail, out var xform))
         {
-            if (blast.NextCosmicFieldTime > _timing.CurTime)
+            if (trail.NextCosmicFieldTime > _timing.CurTime)
                 continue;
 
-            blast.NextCosmicFieldTime = _timing.CurTime + blast.CosmicFieldPeriod;
+            trail.NextCosmicFieldTime = _timing.CurTime + trail.CosmicFieldPeriod;
             SpawnCosmicField(xform.Coordinates, 5f);
         }
     }
@@ -76,10 +76,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
         foreach (var entity in ents)
         {
-            if (TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos")
-                continue;
-
-            _status.TrySetStatusEffectDuration(entity, StarMarkStatusEffect, ent.Comp.StarMarkDuration);
+            TryApplyStarMark(entity, args.Shooter);
         }
 
         if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
@@ -130,5 +127,14 @@ public abstract class SharedStarMarkSystem : EntitySystem
         var field = Spawn("WallFieldCosmic", spawnCoords);
         _transform.AttachToGridOrMap(field);
         EnsureComp<TimedDespawnComponent>(field).Lifetime = lifetime;
+    }
+
+    public bool TryApplyStarMark(EntityUid entity, EntityUid? user)
+    {
+        if (TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" || user != null &&
+            TryComp(entity, out GhoulComponent? ghoul) && ghoul.BoundHeretic == user.Value)
+            return false;
+
+        return _status.TryUpdateStatusEffectDuration(entity, StarMarkStatusEffect, TimeSpan.FromSeconds(30));
     }
 }

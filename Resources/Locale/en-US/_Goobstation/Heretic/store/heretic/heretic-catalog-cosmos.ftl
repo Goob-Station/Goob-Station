@@ -43,3 +43,12 @@ knowledge-path-cosmos-s6-desc =
 
     Fires a projectile that moves very slowly, raising a short-lived wall of cosmic fields where it goes.
     Anyone hit by the projectile will receive burn damage, a knockdown, and give people in a three tile range a star mark.
+
+knowledge-path-cosmos-s7-name = Cosmic Blade
+knowledge-path-cosmos-s7-desc =
+    The Beast took my blades in their hand, I kneeled and felt a sharp pain. The blades now glistened with fragmented power. I fell to the ground and wept at the beast's feet.
+
+    Your blade now deals damage to people around your target through cosmic radiation.
+    Your attacks will chain bonus damage to up to two previous victims.
+    The combo is reset after two seconds without making an attack, or if you attack someone already marked.
+    If you combo more than four attacks you will receive a cosmic trail and increase your combo timer up to ten seconds.

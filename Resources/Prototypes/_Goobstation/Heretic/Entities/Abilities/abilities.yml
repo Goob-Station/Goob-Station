@@ -66,9 +66,9 @@
     noRot: true
     drawdepth: Effects
     layers:
-      - shader: unshaded
-        sprite: _Goobstation/Heretic/Effects/effects.rsi
-        state: cleave
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects.rsi
+      state: cleave
   - type: Tag
     tags:
       - HideContextMenu
@@ -127,9 +127,9 @@
     noRot: true
     drawdepth: Effects
     layers:
-      - shader: unshaded
-        sprite: _Goobstation/Heretic/Effects/effects.rsi
-        state: cosmic_diamond
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects.rsi
+      state: cosmic_diamond
   - type: Tag
     tags:
       - HideContextMenu
@@ -144,15 +144,15 @@
     noRot: true
     drawdepth: Effects
     layers:
-      - shader: unshaded
-        sprite: _Goobstation/Heretic/Effects/effects.rsi
-        state: cosmic_cloud
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects.rsi
+      state: cosmic_cloud
   - type: Tag
     tags:
       - HideContextMenu
 
 - type: entity
-  id: ImpactEffectStarBlast
+  id: EffectCosmicExplosion
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
@@ -164,7 +164,41 @@
       map: ["enum.EffectLayers.Unshaded"]
       sprite: _Goobstation/Heretic/Effects/effects64x64.rsi
       state: cosmic_explosion
-  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectCosmicDomain
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects160x160.rsi
+      state: cosmic_domain
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  id: EffectCosmicSlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    fadeOutTime: 0.5
+    lifetime: 0
+  - type: RandomRotation
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      sprite: _Goobstation/Heretic/Effects/effects.rsi
+      state: cosmic_slash
   - type: Tag
     tags:
       - HideContextMenu

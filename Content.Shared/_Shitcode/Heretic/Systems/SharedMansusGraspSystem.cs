@@ -10,7 +10,6 @@ using Content.Shared._Goobstation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
-using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Doors.Components;
@@ -207,13 +206,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
             case "Cosmos":
             {
-                if (TryComp(target, out HereticComponent? targetHeretic) && targetHeretic.CurrentPath == "Cosmos" ||
-                    TryComp(target, out GhoulComponent? ghoul) && ghoul.BoundHeretic == performer)
-                    break;
-
-                _statusNew.TryUpdateStatusEffectDuration(target,
-                    SharedStarMarkSystem.StarMarkStatusEffect,
-                    TimeSpan.FromSeconds(30));
+                _starMark.TryApplyStarMark(target, performer);
                 _starMark.SpawnCosmicField(Transform(performer).Coordinates);
                 break;
             }

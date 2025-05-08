@@ -441,6 +441,11 @@
   actionPrototypes:
   - ActionHereticStarBlast
 
+- type: hereticKnowledge
+  id: CosmicBlade
+  path: Cosmos
+  stage: 7
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
