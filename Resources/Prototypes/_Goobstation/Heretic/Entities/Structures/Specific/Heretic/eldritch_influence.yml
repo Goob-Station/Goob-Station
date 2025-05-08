@@ -23,7 +23,7 @@
     state: icon
   - type: Clickable
   - type: Visibility
-    layer: EldritchInfluence
+    layer: 32 # keep in sync with VisibilityFlags.EldritchInfluence for upstream merges
 
 - type: entity
   id: EldritchInfluenceIntermediate
