@@ -67,14 +67,14 @@
     node: mid
 
 
-- type: entity
-  parent: ScrapBase
-  id: ScrapHeavyVest
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Construction
-    graph: MakeshiftHeavyVestGraph
-    node: mid
+#- type: entity
+#  parent: ScrapBase
+#  id: ScrapHeavyVest
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: Construction
+#    graph: MakeshiftHeavyVestGraph
+#    node: mid
 
 - type: entity
   parent: ScrapBase
@@ -451,7 +451,6 @@
     state: icon-unfinished
   - type: Item
     sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
-    state: icon-unfinished
     size: Huge
   - type: Construction
     graph: MakeshiftJetpackGraph
