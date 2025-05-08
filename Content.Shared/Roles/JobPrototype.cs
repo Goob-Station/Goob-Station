@@ -180,7 +180,7 @@ namespace Content.Shared.Roles
         public bool? OverrideConsoleVisibility { get; private set; } = null;
 
         [DataField("canBeAntag")]
-        public bool CanBeAntag { get; private set; } = true;
+        public bool CanBeAntag { get; private set; } = false; // Goob edit
 
         /// <summary>
         ///     The "weight" or importance of this job. If this number is large, the job system will assign this job

@@ -80,6 +80,7 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
+  canBeAntag: true # Goobstation
   goobcoins: 0 #Goob content
   access:
   - Maintenance
