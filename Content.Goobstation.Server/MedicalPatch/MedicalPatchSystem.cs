@@ -85,7 +85,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Sticky;
 using Content.Shared.Sticky.Components;

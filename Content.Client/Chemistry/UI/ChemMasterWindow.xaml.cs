@@ -19,7 +19,9 @@
 // SPDX-FileCopyrightText: 2024 Intoxicating-Innocence <188202277+Intoxicating-Innocence@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Dora <27211909+catdotjs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -36,7 +38,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Client.Graphics;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
