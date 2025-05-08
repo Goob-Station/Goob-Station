@@ -199,11 +199,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
 
             case "Cosmos":
             {
-                if (TryComp(target, out HereticComponent? targetHeretic) && targetHeretic.CurrentPath == "Cosmos" ||
-                    TryComp(target, out GhoulComponent? ghoul) && ghoul.BoundHeretic == performer)
-                    break;
-
-                _statusEffect.TryAddStatusEffect<StarMarkComponent>(target, "StarMark", TimeSpan.FromSeconds(30), true);
+                _starMark.TryApplyStarMark(target, performer);
                 _starMark.SpawnCosmicField(Transform(performer).Coordinates);
                 break;
             }

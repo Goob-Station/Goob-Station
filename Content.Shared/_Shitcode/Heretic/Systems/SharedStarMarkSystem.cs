@@ -39,13 +39,13 @@ public abstract class SharedStarMarkSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        var query = EntityQueryEnumerator<StarBlastComponent, TransformComponent>();
-        while (query.MoveNext(out var blast, out var xform))
+        var query = EntityQueryEnumerator<CosmicTrailComponent, TransformComponent>();
+        while (query.MoveNext(out var trail, out var xform))
         {
-            if (blast.NextCosmicFieldTime > _timing.CurTime)
+            if (trail.NextCosmicFieldTime > _timing.CurTime)
                 continue;
 
-            blast.NextCosmicFieldTime = _timing.CurTime + blast.CosmicFieldPeriod;
+            trail.NextCosmicFieldTime = _timing.CurTime + trail.CosmicFieldPeriod;
             SpawnCosmicField(xform.Coordinates, 5f);
         }
     }
@@ -59,10 +59,7 @@ public abstract class SharedStarMarkSystem : EntitySystem
 
         foreach (var (entity, status) in ents)
         {
-            if (TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos")
-                continue;
-
-            _status.TryAddStatusEffect<StarMarkComponent>(entity, "StarMark", ent.Comp.StarMarkDuration, true, status);
+            TryApplyStarMark(entity, args.Shooter, status);
         }
 
         if (TryComp(args.Target, out StatusEffectsComponent? targetStatus))
@@ -113,5 +110,21 @@ public abstract class SharedStarMarkSystem : EntitySystem
         var field = Spawn("WallFieldCosmic", spawnCoords);
         _transform.AttachToGridOrMap(field);
         EnsureComp<TimedDespawnComponent>(field).Lifetime = lifetime;
+    }
+
+    public bool TryApplyStarMark(EntityUid entity, EntityUid? user, StatusEffectsComponent? status = null)
+    {
+        if (!Resolve(entity, ref status))
+            return false;
+
+        if (TryComp(entity, out HereticComponent? heretic) && heretic.CurrentPath == "Cosmos" || user != null &&
+            TryComp(entity, out GhoulComponent? ghoul) && ghoul.BoundHeretic == user.Value)
+            return false;
+
+        return _status.TryAddStatusEffect<StarMarkComponent>(entity,
+            "StarMark",
+            TimeSpan.FromSeconds(30),
+            true,
+            status);
     }
 }

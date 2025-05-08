@@ -128,7 +128,7 @@ public abstract class SharedStarTouchSystem : EntitySystem
                 _status.TryRemoveStatusEffect(target, "StarMark", status);
         }
         else
-            _status.TryAddStatusEffect<StarMarkComponent>(target, "StarMark", TimeSpan.FromSeconds(30), true, status);
+            _starMark.TryApplyStarMark(target, args.User, status);
 
         var beam = EnsureComp<ContinuousBeamComponent>(args.User);
         var netTarget = GetNetEntity(args.Target.Value);
