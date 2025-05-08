@@ -421,10 +421,11 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
 
+#HOP's Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitHOP
-  name: hop hardsuit helmet
+  name: head of personal's hardsuit helmet
   description: A lightly armored helmet with fancy gold trim.
   components:
   - type: Sprite
