@@ -95,6 +95,8 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -119,6 +121,7 @@ namespace Content.Client.Administration.UI.SetOutfit
 
         public NetEntity? TargetEntityId { get; set; }
         private StartingGearPrototype? _selectedOutfit;
+        public bool DoSpecial; // Goobstation
 
         public SetOutfitMenu()
         {
@@ -129,7 +132,9 @@ namespace Content.Client.Administration.UI.SetOutfit
             Title = Loc.GetString("set-outfit-menu-title");
 
             ConfirmButton.Text = Loc.GetString("set-outfit-menu-confirm-button");
+            ToggleSpecial.Text = Loc.GetString("set-outfit-menu-toggle-special"); // Goobstation
             ConfirmButton.OnPressed += ConfirmButtonOnOnPressed;
+            ToggleSpecial.OnToggled += OnToggleSpecialPressed; // Goobstation
             SearchBar.OnTextChanged += SearchBarOnOnTextChanged;
             OutfitList.OnItemSelected += OutfitListOnOnItemSelected;
             OutfitList.OnItemDeselected += OutfitListOnOnItemDeselected;
@@ -140,9 +145,15 @@ namespace Content.Client.Administration.UI.SetOutfit
         {
             if (TargetEntityId == null || _selectedOutfit == null)
                 return;
-            var command = $"setoutfit {TargetEntityId} {_selectedOutfit.ID}";
+            var command = $"setoutfit {TargetEntityId} {_selectedOutfit.ID} {DoSpecial}"; // Goobstation
             _consoleHost.ExecuteCommand(command);
             Close();
+        }
+
+        // Goobstation
+        private void OnToggleSpecialPressed(BaseButton.ButtonToggledEventArgs obj)
+        {
+            DoSpecial = obj.Pressed;
         }
 
         private void OutfitListOnOnItemSelected(ItemList.ItemListSelectedEventArgs obj)
