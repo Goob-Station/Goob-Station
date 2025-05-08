@@ -504,7 +504,7 @@
         Blunt: 1
         Slash: 2
         Structural: 20
-        Holy: 5
+        Holy: 6
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
