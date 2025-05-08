@@ -283,9 +283,12 @@
   description: A fancy, gold trimmed hardsuit made for the HOP. Mostly for show, but features reinforced plating to resist blunt force trauma from toolboxes specifically.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hop.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hop.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Armor
