@@ -84,23 +84,18 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 2
-      - material: HexNut
-        amount: 2
-        doAfter: 3
-      - tool: Anchoring
         doAfter: 1
-      - tool: Anchoring
+      - tool: Screwing
         doAfter: 1
       - material: Cable
         amount: 10
         doAfter: 2
       - tool: Cutting
-        doAfter: 2
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 2
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 2
+        doAfter: 0.5
   - node: final
     entity: ContrabandBag
 
@@ -129,35 +124,35 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: HexNut
         amount: 2
         doAfter: 2
       - tool: Anchoring
-        doAfter: 1
+        doAfter: 0.5
       - tool: Anchoring
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: HexNut
         amount: 2
         doAfter: 2
       - tool: Anchoring
-        doAfter: 1
+        doAfter: 0.5
       - tool: Anchoring
-        doAfter: 1
+        doAfter: 0.5
       - material: Cable
         amount: 8
         doAfter: 4
       - tool: Cutting
-        doAfter: 2
+        doAfter: 3
       - tool: Welding
         doAfter: 5
       - tool: Hammering
@@ -168,9 +163,9 @@
         amount: 4
         doAfter: 4
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Steel
         amount: 2
         doAfter: 2
@@ -190,18 +185,18 @@
         amount: 8
         doAfter: 4
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
   - node: final
-    edges: []
     entity: MakeshiftDefib
 
 # tide flipper zero
+# currently not in use
 # total mats: remote signaller: 1, multitool: 1, steel: 2, cable: 8, id: 2
 - type: constructionGraph
   id: TideFlipperZeroGraph
@@ -232,23 +227,23 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Cable
         amount: 8
         doAfter: 4
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - component: IdCard
         doAfter: 2
         name: id card
@@ -302,14 +297,16 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 2
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
       - material: HeatedSteel
         amount: 5
         doAfter: 4
@@ -325,7 +322,6 @@
       - tool: Hammering
         doAfter: 1
   - node: final
-    edges: []
     entity: MetalBaseballBat
 
 # makeshift hammer
@@ -350,12 +346,12 @@
         amount: 1
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 1
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Steel
         amount: 2
         doAfter: 2
@@ -393,9 +389,9 @@
         amount: 8
         doAfter: 4
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Pulsing
         doAfter: 4
       - component: EncryptionKey
@@ -408,7 +404,6 @@
         doAfter: 2
   - node: final
     entity: MakeshiftJammer
-    edges: []
 
 # makeshift id
 # total mats: plastic 4, cable: 8, steel: 4
@@ -434,16 +429,16 @@
         amount: 4
         doAfter: 4
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - material: Cable
         amount: 4
         doAfter: 4
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Hammering
         doAfter: 1
       - material: Steel
@@ -459,19 +454,18 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
   - node: final
     entity: IDCardTide
-    edges: []
 
 # grey toolbox
 # total mats: Heated steeel: 4, steel: 4
@@ -509,11 +503,118 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
   - node: final
     entity: ToolboxGrey
+
+- type: constructionGraph
+  id: MakeshiftFlare
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: flare
+      steps:
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper
+      - tag: Paper
+        name: paper
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: paper # amount doesnt work with non-stack items
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+      - tag: Matchstick
+        name: match stick
+        icon:
+          sprite: Objects/Tools/matches.rsi
+          state: match_unlit
+        doAfter: 5
+  - node: flare
+    entity: Flare
+
+- type: constructionGraph
+  id: MakeshiftJetpackGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: mid
+      steps:
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+      - material: Cable
+        amount: 10
+        doAfter: 8
+  - node: mid
+    entity: MakeshiftJetpackUnfinished
+    edges:
+    - to: final
+      steps:
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - tag: FireExtinguisher
+        name: fire extunguisher
+        icon:
+          sprite: Objects/Misc/fire_extinguisher.rsi
+          state: fire_extinguisher_open
+        doAfter: 5
+      - material: Cable
+        amount: 5
+        doAfter: 3
+      - tool: Cutting
+        doAfter: 0.5
+      - tool: Cutting
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+      - material: Screw
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 0.5
+      - tool: Screwing
+        doAfter: 0.5
+  - node: final
+    entity: MakeshiftJetpack
 # clothing
 
 # heavy boots
@@ -558,18 +659,18 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Hammering
-        doAfter: 2
+        doAfter: 1
   - node: final
     entity: ClothingShoesHeavyBoots
     edges: []
@@ -618,16 +719,16 @@
         amount: 4
         doAfter: 4
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Glass
         amount: 4
         doAfter: 4
@@ -674,9 +775,9 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Welding
         doAfter: 4
       - tool: Hammering
@@ -701,16 +802,16 @@
         amount: 8
         doAfter: 8
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - material: Cable
         amount: 8
         doAfter: 8
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - material: HeatedSteel
         amount: 5
         doAfter: 2
@@ -722,9 +823,9 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: HeatedSteel
         amount: 5
         doAfter: 2
@@ -736,16 +837,16 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Screw
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Hammering
         doAfter: 2
   - node: heavy vest
@@ -771,16 +872,16 @@
           amount: 2
           doAfter: 2
         - tool: Screwing
-          doAfter: 1
+          doAfter: 0.5
         - tool: Screwing
-          doAfter: 1
+          doAfter: 0.5
         - material: Screw
           amount: 2
           doAfter: 2
         - tool: Screwing
-          doAfter: 1
+          doAfter: 0.5
         - tool: Screwing
-          doAfter: 1
+          doAfter: 0.5
         - material: Plasteel
           amount: 2
           doAfter: 2
@@ -931,23 +1032,23 @@
         amount: 2
         doAfter: 2
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - tool: Screwing
-        doAfter: 1
+        doAfter: 0.5
       - material: Cable
         amount: 8
         doAfter: 4
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - material: Cable
         amount: 8
         doAfter: 3
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
       - tool: Cutting
-        doAfter: 1
+        doAfter: 0.5
   - node: Wood1
     entity: MakeshiftSmithingOvenEmpty
     edges:

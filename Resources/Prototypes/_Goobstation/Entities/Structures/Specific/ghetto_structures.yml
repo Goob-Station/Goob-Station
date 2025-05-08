@@ -2,7 +2,7 @@
   parent: BaseStructure
   id: MakeshiftSmithingOvenEmpty
   name: makeshift heating oven
-  description: Poorly constructed makeshift oven, made to slowly heat steel and anything that is inside. Requires something flammable to work. Use crowbar and wood to refill.
+  description: Poorly constructed makeshift oven, made to slowly heat steel and anything that is inside. Requires something flammable to work, and a bit of power to power the remaining vending systems that you forgot to remove. Use crowbar and wood to refill.
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Specific/Ghetto/forge.rsi

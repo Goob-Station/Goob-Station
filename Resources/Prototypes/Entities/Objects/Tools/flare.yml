@@ -128,3 +128,6 @@
           Quantity: 2
         - ReagentId: Sulfur
           Quantity: 2
+  - type: Construction # Goobstation
+    graph: MakeshiftFlare
+    node: flare

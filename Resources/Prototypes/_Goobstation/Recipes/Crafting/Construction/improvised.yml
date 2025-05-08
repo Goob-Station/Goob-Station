@@ -56,17 +56,42 @@
   objectType: Item
 
 - type: construction
-  id: TideFlipperCraft
-  name: makeshift tide flipper
-  category: construction-category-misc
-  description: Makeshift hand remote that can be used to hack doors without access.
-  graph: TideFlipperZeroGraph
+  id: MakeshiftFlareCraft
+  name: emergency flare
+  description: Some paper and matchsticks folded together.
+  graph: MakeshiftFlare
+  startNode: start
+  targetNode: flare
+  icon:
+    sprite: Objects/Misc/flare.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftJetpackCraft
+  name: makeshit jetpack
+  description: Gas tanks, fire extinguisher, cable and dream that you can fly - all you need.
+  graph: MakeshiftJetpackGraph
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    sprite: _Goobstation/Objects/Devices/jetpack_improv.rsi
     state: icon
   objectType: Item
+
+# TODO: redo tide flipper to not be overpowered, then introduce it back into the game.
+#- type: construction
+#  id: TideFlipperCraft
+#  name: makeshift tide flipper
+#  category: construction-category-misc
+#  description: Makeshift hand remote that can be used to hack doors without access.
+#  graph: TideFlipperZeroGraph
+#  startNode: start
+#  targetNode: final
+#  icon:
+#    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+#    state: icon
+#  objectType: Item
 
 - type: construction
   id: MetalBaseballBatCrafting
@@ -169,7 +194,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
     state: icon
   objectType: Item
 
