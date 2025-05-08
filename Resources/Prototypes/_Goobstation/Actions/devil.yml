@@ -82,6 +82,19 @@
       state: possess
     event: !type:EndPossessionEarlyEvent {}
 
+- type: entity
+  id: ActionDevilGrip
+  name: Devils Grip
+  description: What little fraction of your power remains in this realm, channeled into your hands.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Actions/devil.rsi
+      state: devil-grip
+    event: !type:DevilGripEvent {}
+
 # Deals
 
 - type: entity

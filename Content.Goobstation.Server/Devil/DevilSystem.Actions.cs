@@ -6,6 +6,7 @@
 
 using Content.Goobstation.Server.Devil.Contract;
 using Content.Goobstation.Server.Devil.Contract.Revival;
+using Content.Goobstation.Server.Devil.Grip;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
 using Content.Goobstation.Shared.Devil.Contract;
@@ -20,6 +21,7 @@ public sealed partial class DevilSystem
         SubscribeLocalEvent<DevilComponent, CreateContractEvent>(OnContractCreated);
         SubscribeLocalEvent<DevilComponent, CreateRevivalContractEvent>(OnRevivalContractCreated);
         SubscribeLocalEvent<DevilComponent, ShadowJauntEvent>(OnShadowJaunt);
+        SubscribeLocalEvent<DevilComponent, DevilGripEvent>(OnDevilGrip);
         SubscribeLocalEvent<DevilComponent, DevilPossessionEvent>(OnPossess);
     }
 
@@ -66,6 +68,27 @@ public sealed partial class DevilSystem
         Spawn(devil.Comp.PentagramEffectProto, Transform(devil).Coordinates);
 
         _poly.PolymorphEntity(devil, devil.Comp.JauntEntityProto);
+    }
+
+    private void OnDevilGrip(Entity<DevilComponent> devil, ref DevilGripEvent args)
+    {
+        if (!TryUseAbility(args))
+            return;
+
+        if (devil.Comp.DevilGrip != null)
+        {
+            foreach (var item in _hands.EnumerateHeld(devil))
+            {
+                if (HasComp<DevilGripComponent>(item))
+                    QueueDel(item);
+            }
+        }
+
+        var grasp = Spawn(devil.Comp.GripPrototype, Transform(devil).Coordinates);
+        if (!_hands.TryPickupAnyHand(devil, grasp))
+            QueueDel(grasp);
+
+        devil.Comp.DevilGrip = args.Action.Owner;
     }
 
     private void OnPossess(Entity<DevilComponent> devil, ref DevilPossessionEvent args)

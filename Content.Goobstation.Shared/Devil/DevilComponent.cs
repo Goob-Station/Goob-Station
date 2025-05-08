@@ -23,6 +23,7 @@ public sealed partial class DevilComponent : Component
     {
         "ActionCreateContract",
         "ActionShadowJaunt",
+        "ActionDevilGrip",
     };
 
     [DataField]
@@ -92,10 +93,16 @@ public sealed partial class DevilComponent : Component
     [DataField]
     public TimeSpan ParalyzeDurationOnTrueName = TimeSpan.FromSeconds(4);
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? DevilGrip;
+
     // abandom all hope, all ye who enter
 
     [DataField]
     public TimeSpan PossessionDuration = TimeSpan.FromSeconds(30);
+
+    [DataField]
+    public EntProtoId GripPrototype = "DevilGrip";
 
     [DataField]
     public EntProtoId ContractPrototype = "PaperDevilContract";
