@@ -108,6 +108,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Goobstation.Common.Wizard.Mutate;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
@@ -116,7 +117,6 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared._EinsteinEngines.Flight;
-using Content.Shared._Goobstation.Wizard.Mutate; // Goobstation
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -166,7 +166,6 @@ namespace Content.Shared.Cuffs
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
-        [Dependency] private readonly SharedHulkSystem _hulk = default!;
 
         public override void Initialize()
         {
@@ -755,12 +754,10 @@ namespace Content.Shared.Cuffs
                     return;
                 }
 
-                if (TryComp(user, out HulkComponent? hulk)) // Goobstation
-                {
-                    _hulk.Roar((user, hulk));
-                    Uncuff(user, user, cuffsToRemove.Value, cuffable);
+                var hulkUncuffAttemptEv = new HulkUncuffAttemptEvent(cuffsToRemove.Value);
+                RaiseLocalEvent(user, ref hulkUncuffAttemptEv);
+                if(hulkUncuffAttemptEv.Success)
                     return;
-                }
             }
 
             var doAfterEventArgs = new DoAfterArgs(EntityManager, user, uncuffTime, new UnCuffDoAfterEvent(), target, target, cuffsToRemove)

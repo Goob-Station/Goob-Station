@@ -95,12 +95,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goobstation.Shared.Wizard.Spellblade;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
-using Content.Shared._Goobstation.Wizard.Spellblade;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
@@ -123,7 +122,7 @@ public sealed class TemperatureSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
-    [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
+    [Dependency] private readonly SharedSpellbladeSystem _spellblade = default!; // Goobstation
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.

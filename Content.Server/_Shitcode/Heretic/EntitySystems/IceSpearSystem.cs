@@ -1,6 +1,6 @@
+using Content.Goobstation.Common.Wizard.Traps;
 using Content.Server.Damage.Systems;
 using Content.Server.Temperature.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
@@ -9,7 +9,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 
 namespace Content.Server._Shitcode.Heretic.EntitySystems;
 

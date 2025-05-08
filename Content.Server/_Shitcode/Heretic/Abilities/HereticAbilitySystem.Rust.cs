@@ -10,13 +10,13 @@
 
 using System.Linq;
 using System.Numerics;
+using Content.Goobstation.Common.Wizard.Targeting;
 using Content.Goobstation.Common.Movement;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Shuttles.Components;
 using Content.Server.Spreader;
 using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Atmos;

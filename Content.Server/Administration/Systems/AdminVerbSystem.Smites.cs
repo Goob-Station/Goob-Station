@@ -101,6 +101,7 @@
 
 using System.Threading;
 using Content.Goobstation.Common.Speech;
+using Content.Goobstation.Common.Wizard.Traps;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
 using Content.Server.Atmos.Components;
@@ -121,7 +122,6 @@ using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
 using Content.Server.Tabletop.Components;
 using Content.Server.Temperature.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
 using Content.Shared.Body.Components;
