@@ -542,34 +542,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
 
-#HOP's Hardsuit
-- type: entity
-  parent: ClothingOuterHardsuitBasic
-  id: ClothingOuterHardsuitHOP
-  name: head of personal's hardsuit
-  description: A fancy, gold trimmed hardsuit made for the HOP. Mostly for show, but features reinforced plating to resist blunt force trauma from toolboxes specifically.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.9
-        Piercing: 0.8
-        Heat: 0.9
-        Radiation: 0.9
-  - type: ClothingSpeedModifier
-    walkModifier: 0.90
-    sprintModifier: 0.90
-  - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitHOP
+
 
 #Chief Engineer's Hardsuit
 - type: entity

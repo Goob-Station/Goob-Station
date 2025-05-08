@@ -167,3 +167,21 @@
         Heat: 0.85
   - type: FlashImmunity
   - type: FlashSoundSuppression
+
+#HOP's Hardsuit
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitHOP
+  name: head of personal's hardsuit helmet
+  description: A lightly armored helmet with fancy gold trim.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hardsuits/hop.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hardsuits/hop.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide

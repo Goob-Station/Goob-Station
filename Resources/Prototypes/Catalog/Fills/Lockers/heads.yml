@@ -277,9 +277,9 @@
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
     - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
-    - id: ClothingOuterHardsuitHOP # No more stealing the hardsuit from the vault.
-    - id: OxygenTankFilled # Tanks for hardsuit
-    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitHOP # Goobstation - HOP Hardsuit
+    - id: OxygenTankFilled # Goobstation - HOP Hardsuit
+    - id: NitrogenTankFilled # Goobstation - HOP Hardsuit
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
