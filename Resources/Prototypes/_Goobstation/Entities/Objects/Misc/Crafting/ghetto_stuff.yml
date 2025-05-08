@@ -391,8 +391,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.95 # worse than a sec helmet
-        Piercing: 0.95
+        Blunt: 0.9 # not as good as slash because theres no padding between your skull
+        Slash: 0.8 # TODO: buff and make head-only
+        Piercing: 0.9
   - type: Construction
     graph: MakeshiftHelmetGraph
     node: final
@@ -412,8 +413,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
+        Blunt: 0.7 # not as good as the heavy vest because of the insane crafting time
+        Slash: 0.65
         Piercing: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.9
@@ -441,9 +442,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7 # slightly worse than a secvest
+        Blunt: 0.4 # TODO: change to flat reduction of like 8 and raise this back to 0.7
+        Slash: 0.5 # TODO: same
+        Piercing: 0.6
         Heat: 0.9
   - type: ModifyDelayedKnockdown
     delayDelta: -1.25
