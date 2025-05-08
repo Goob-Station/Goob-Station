@@ -159,11 +159,13 @@
     repeatPrayer: true
   - type: HealNearOnPray
     damage:
+      types:
+        Holy: 30
       groups:
-        Brute: -11.0
-        Burn: -11.0
-        Toxin: -1.0
-        Airloss: -3.0
+        Brute: -15.0
+        Burn: -15.0
+        Toxin: -3.0
+        Airloss: -6.0
   - type: Tag
     tags:
     - Rosary
@@ -274,7 +276,7 @@
     attackRate: 3
     damage:
       types:
-        Holy: 5
+        Holy: 6
         Blunt: 2.5
     soundHit:
       collection: BoxingHit
@@ -315,7 +317,7 @@
     damage:
       types:
         Slash: 12
-        Holy: 10
+        Holy: 12
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -454,9 +456,8 @@
     attackRate: 0.9
     damage:
       types:
-        Holy: 10
+        Holy: 14
         Blunt: 9
-        Structural: 15
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: Unremoveable
@@ -492,7 +493,6 @@
     sprite: _ShitChap/Objects/Weapons/Nullrod/divinechainsaw.rsi
     state: icon
   - type: MeleeWeapon
-    heavyStaminaCost: 10
     autoAttack: true
     angle: 0
     animationRotation: 90
@@ -501,9 +501,8 @@
     damage:
       types:
         Slash: 2
-        Blunt: 1
         Structural: 20
-        Holy: 4
+        Holy: 5
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
