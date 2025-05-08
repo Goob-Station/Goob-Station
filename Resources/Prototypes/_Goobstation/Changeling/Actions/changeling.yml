@@ -316,6 +316,7 @@
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
+    useInHorrorForm: true
     requireAbsorbed: 1
 
 - type: entity
@@ -629,6 +630,7 @@
     event: !type:ActionFleshmendEvent {}
   - type: ChangelingAction
     chemicalCost: 35
+    useInHorrorForm: true
     useInLesserForm: true
 
 - type: entity
@@ -650,6 +652,7 @@
   - type: ChangelingAction
     chemicalCost: 20
     useInLesserForm: true
+    useInHorrorForm: true
     requireAbsorbed: 1
 
 - type: entity
@@ -666,6 +669,7 @@
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: lesser_form
     event: !type:ActionLesserFormEvent {}
+    useInHorrorForm: true
   - type: ChangelingAction
     chemicalCost: 20
 

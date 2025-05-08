@@ -58,6 +58,8 @@ namespace Content.Goobstation.Server.Changeling;
 
 public sealed partial class ChangelingSystem
 {
+    private static readonly ISawmill sawmill = Logger.GetSawmill("changeling");
+
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<ChangelingIdentityComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
