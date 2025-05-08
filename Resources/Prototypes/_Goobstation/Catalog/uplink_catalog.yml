@@ -76,19 +76,21 @@
     - UplinkDisruption
 
 - type: listing
-  id: UplinkSarinGasGrenadeNukeops
+  id: UplinkSarinGasGrenade
   name: uplink-sarin-gas-grenade-name
   description: uplink-sarin-gas-grenade-desc
   productEntity: SarinGasGrenade
   cost:
     Telecrystal: 10
   categories:
-  -  UplinkDisruption
+  - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
       tags:
       - NukeOpsUplink
+
+# Same explosives for nukies, but cheaper
 
 - type: listing
   id: UplinkSarinGasGrenadeNukeops
@@ -98,14 +100,12 @@
   cost:
     Telecrystal: 5
   categories:
-    -  UplinkDisruption
+  - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
       tags:
       - NukeOpsUplink
-
-# Wizden explosive for nukies, but cheaper
 
 - type: listing
   id: UplinkExplosiveGrenadeNukeops

@@ -260,3 +260,4 @@
     - id: SarinGasGrenade
     - id: SupermatterGrenade
     - id: SyndieMiniBomb
+      amount: 2
