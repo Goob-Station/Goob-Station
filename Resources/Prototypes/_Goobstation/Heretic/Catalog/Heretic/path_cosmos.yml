@@ -126,3 +126,19 @@
     stage: 6
     whitelist:
     - Cosmos
+
+- type: listing
+  id: HereticCosmosPath8
+  name: knowledge-path-cosmos-s8-name
+  description: knowledge-path-cosmos-s8-desc
+  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cosmic_domain }
+  productHereticKnowledge: CosmicExpansion
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathCosmos
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7

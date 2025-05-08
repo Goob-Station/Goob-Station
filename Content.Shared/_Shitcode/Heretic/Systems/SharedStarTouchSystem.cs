@@ -136,7 +136,12 @@ public abstract class SharedStarTouchSystem : EntitySystem
         }
 
         var range = hereticComp.Ascended ? 2 : 1;
-        _starMark.SpawnCosmicFields(Transform(args.User).Coordinates, range);
+        var xform = Transform(args.User);
+        _starMark.SpawnCosmicFieldLine(xform.Coordinates,
+            Angle.FromDegrees(90f).RotateDir(xform.LocalRotation.GetDir()).AsFlag(),
+            -1,
+            1,
+            1);
 
         if (HasComp<StarMarkComponent>(target))
         {

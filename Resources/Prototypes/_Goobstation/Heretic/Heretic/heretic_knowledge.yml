@@ -446,6 +446,14 @@
   path: Cosmos
   stage: 7
 
+- type: hereticKnowledge
+  id: CosmicExpansion
+  path: Cosmos
+  sideKnowledge: true
+  stage: 8
+  actionPrototypes:
+  - ActionHereticCosmicExpansion
+
 ### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge

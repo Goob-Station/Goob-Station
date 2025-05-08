@@ -250,6 +250,15 @@ public sealed partial class EventHereticStarBlast : EntityWorldTargetActionEvent
     public float ProjectileSpeed = 2f;
 }
 
+public sealed partial class EventHereticCosmicExpansion : InstantActionEvent
+{
+    [DataField]
+    public EntProtoId Effect = "EffectCosmicDomain";
+
+    [DataField]
+    public float Range = 7f;
+}
+
 // side
 public sealed partial class EventHereticIceSpear : InstantActionEvent;
 

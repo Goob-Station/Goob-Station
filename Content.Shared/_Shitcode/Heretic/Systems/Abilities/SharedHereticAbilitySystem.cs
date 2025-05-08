@@ -36,6 +36,7 @@ public abstract partial class SharedHereticAbilitySystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
 
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
 

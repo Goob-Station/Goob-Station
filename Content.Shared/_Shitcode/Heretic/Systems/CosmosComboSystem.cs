@@ -4,7 +4,6 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
@@ -16,8 +15,6 @@ public sealed class CosmosComboSystem : EntitySystem
 
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedStarMarkSystem _starMark = default!;
 
     public override void Initialize()
     {
@@ -29,6 +26,9 @@ public sealed class CosmosComboSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        if (_net.IsClient)
+            return;
 
         var query = EntityQueryEnumerator<CosmosComboComponent>();
         while (query.MoveNext(out var uid, out var combo))
@@ -94,9 +94,6 @@ public sealed class CosmosComboSystem : EntitySystem
         foreach (var hit in hitMobs)
         {
             combo.HitEntities[hit] = 0;
-
-            if (combo.ComboCounter > 3)
-                _starMark.TryApplyStarMark(hit, uid);
         }
 
         foreach (var dictHit in combo.HitEntities)
@@ -110,7 +107,8 @@ public sealed class CosmosComboSystem : EntitySystem
                     _damageable.TryChangeDamage(dictHit.Key,
                         combo.DamageToSecondTargets,
                         origin: uid,
-                        targetPart: TargetBodyPart.Torso);
+                        targetPart: TargetBodyPart.Chest,
+                        canMiss: false);
                     _audio.PlayPvs(combo.Sound, dictHit.Key);
                     Spawn(combo.SecondTargetEffect, Transform(dictHit.Key).Coordinates);
                     break;
@@ -118,7 +116,8 @@ public sealed class CosmosComboSystem : EntitySystem
                     _damageable.TryChangeDamage(dictHit.Key,
                         combo.DamageToThirdTargets,
                         origin: uid,
-                        targetPart: TargetBodyPart.Torso);
+                        targetPart: TargetBodyPart.Chest,
+                        canMiss: false);
                     _audio.PlayPvs(combo.Sound, dictHit.Key);
                     Spawn(combo.ThirdTargetEffect, Transform(dictHit.Key).Coordinates);
                     break;
@@ -134,7 +133,7 @@ public sealed class CosmosComboSystem : EntitySystem
         combo.ComboDuration = MathF.Min(combo.ComboDuration + combo.ComboIncreaseTime, combo.MaxComboDuration);
         combo.ComboTimer = combo.ComboDuration;
 
-        if (combo.ComboCounter > 3)
+        if (combo.ComboCounter >= 3)
             EnsureComp<CosmicTrailComponent>(uid);
     }
 }

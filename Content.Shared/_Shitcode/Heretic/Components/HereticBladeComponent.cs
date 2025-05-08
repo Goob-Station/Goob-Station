@@ -21,10 +21,4 @@ public sealed partial class HereticBladeComponent : Component
 
     [DataField]
     public SoundSpecifier? ShatterSound = new SoundCollectionSpecifier("GlassBreak");
-
-    [DataField]
-    public SoundSpecifier? CosmosAoeSound = new SoundPathSpecifier("/Audio/Weapons/bladeslice.ogg");
-
-    [DataField]
-    public EntProtoId CosmosAoeEffect = "EffectCosmicSlash";
 }

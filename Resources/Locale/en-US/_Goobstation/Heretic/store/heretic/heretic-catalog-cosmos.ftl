@@ -52,3 +52,10 @@ knowledge-path-cosmos-s7-desc =
     Your attacks will chain bonus damage to up to two previous victims.
     The combo is reset after two seconds without making an attack, or if you attack someone already marked.
     If you combo more than four attacks you will receive a cosmic trail and increase your combo timer up to ten seconds.
+
+knowledge-path-cosmos-s8-name = Cosmic Expansion
+knowledge-path-cosmos-s8-desc =
+    The ground now shook beneath me. The Beast inhabited me, and their voice was intoxicating.
+
+    Grants you Cosmic Expansion, a spell that creates a 3x3 area of cosmic fields around you.
+    Nearby beings will also receive a star mark.

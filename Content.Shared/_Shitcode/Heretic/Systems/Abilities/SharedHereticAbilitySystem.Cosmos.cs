@@ -13,6 +13,29 @@ public abstract partial class SharedHereticAbilitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticCosmicRune>(OnCosmicRune);
         SubscribeLocalEvent<HereticComponent, EventHereticStarTouch>(OnStarTouch);
         SubscribeLocalEvent<HereticComponent, EventHereticStarBlast>(OnStarBlast);
+        SubscribeLocalEvent<HereticComponent, EventHereticCosmicExpansion>(OnExpansion);
+    }
+
+    private void OnExpansion(Entity<HereticComponent> ent, ref EventHereticCosmicExpansion args)
+    {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        args.Handled = true;
+
+        var coords = Transform(ent).Coordinates;
+
+        _starMark.ApplyStarMarkInRange(coords, args.Range);
+        _starMark.SpawnCosmicFields(coords, 1);
+
+        if (_net.IsServer)
+            Spawn(args.Effect, coords);
+
+        if (!ent.Comp.Ascended)
+            return;
+
+        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.North, -3, 3, 2);
+        _starMark.SpawnCosmicFieldLine(coords, DirectionFlag.East, -3, 3, 2);
     }
 
     private void OnStarBlast(Entity<HereticComponent> ent, ref EventHereticStarBlast args)
