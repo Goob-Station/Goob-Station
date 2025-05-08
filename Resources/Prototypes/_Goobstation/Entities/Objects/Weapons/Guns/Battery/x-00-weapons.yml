@@ -1,10 +1,10 @@
 # I don't want to clutter battery guns with these ones.
 
 - type: entity
-  name: X-8 "Station Sweeper"
+  name: X-8 "McChicken"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityRifle
-  description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
+  description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, medium damage, insane capacity.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
@@ -37,7 +37,7 @@
     price: 2500
 
 - type: entity
-  name: X-6 "Threadripper"
+  name: X-6 "Large Fries"
   parent: [BaseWeaponBattery, BaseCommandContraband]
   id: WeaponHeadOfSecuritySMG
   description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
@@ -78,7 +78,7 @@
     price: 2500
 
 - type: entity
-  name: X-12 "Flamberge"
+  name: X-12 "Sorry fam, icecream machines broken"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecurityShotgun
   description: An elaborately designed shotgun, firing shots of pure phoron. Built to break down defenses, and it does that job well.
@@ -114,7 +114,7 @@
     price: 2500
 
 - type: entity
-  name: X-18 "Ranought"
+  name: X-18 "The Big Mac"
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
   id: WeaponHeadOfSecuritySniper
   description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
