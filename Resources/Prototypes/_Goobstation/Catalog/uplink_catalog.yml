@@ -467,6 +467,21 @@
     - Passenger
 
 - type: listing
+  id: UplinkChudimovCircuitBoard
+  name: chudimov circuit board
+  description: A very un-dangerous Lawset to use when you want to cause the A.I. to be a weirdo, use when bored.
+  productEntity: ChudimovCircuitBoard
+  cost:
+    Telecrystal: 15
+  categories:
+  -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Passenger
+
+- type: listing
   id: UplinkZooimovCircuitBoard
   name: zooimov circuit board
   description: A lawset for when you wanna keep all the stations animals safe and protected.

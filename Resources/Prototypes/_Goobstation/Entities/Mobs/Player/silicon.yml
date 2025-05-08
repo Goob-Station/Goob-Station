@@ -47,6 +47,18 @@
     laws: HelpimovLawset
 
 - type: entity
+  id: ChudimovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Chudimov)
+  description: An electronics board containing the Chudimov lawset. Nothing ever happens.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: ChudimovLawset
+
+- type: entity
   id: PlayerBorgDerelictSyndicateAssaultBattery
   parent: BorgChassisDerelictSyndicateAssault
   suffix: Battery, Module, Operative, Derelict
