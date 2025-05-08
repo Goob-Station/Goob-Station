@@ -19,7 +19,7 @@
 
 - type: entity
   name: devilish pen
-  parent: [BaseAdvancedPen, BaseMagicContraband]
+  parent: [BaseAdvancedPen, BaseMagicalContraband]
   id: PenDevil
   description: A devilishly sharp pen with a strangely warm body. Not quite as sharp as a devils tongue, nor as silver coated.
   components:

@@ -335,7 +335,7 @@
 
 #Wizard Helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, ClothingHeadHatWizardBaseArmor, BaseMagicContraband] # Goob edit
+  parent: [ClothingHeadHelmetBase, ClothingHeadHatWizardBaseArmor, BaseMagicalContraband] # Goob edit
   id: ClothingHeadHelmetWizardHelm
   name: wizard helm
   description: Strange-looking helmet that most certainly belongs to a real magic user. Doesn't count as wizard hat. # Goob edit

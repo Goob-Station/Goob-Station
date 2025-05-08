@@ -39,7 +39,7 @@
         - TabletopMachineLayer
 
 - type: entity
-  parent: [BaseItem, ScryingOrbBase, BaseMagicContraband]
+  parent: [BaseItem, ScryingOrbBase, BaseMagicalContraband]
   id: ScryingOrbWizard
   name: scrying orb
   description: An incandescent orb of otherworldly energy, staring into it gives you vision beyond mortal means.

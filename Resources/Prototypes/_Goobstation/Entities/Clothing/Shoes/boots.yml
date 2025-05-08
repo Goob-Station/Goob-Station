@@ -106,7 +106,7 @@
     tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseMagicContraband]
+  parent: [ClothingShoesBootsMagBase, BaseMagicalContraband]
   id: ClothingShoesRealJordans
   name: air jordans
   description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.

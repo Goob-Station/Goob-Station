@@ -311,7 +311,7 @@
       head: ClothingHeadHatOblivionEnforcer
 
 - type: entity
-  parent: [ClothingMaskGas, BaseMagicContraband]
+  parent: [ClothingMaskGas, BaseMagicalContraband]
   id: ClothingMaskGasOblivionEnforcer
   suffix: Voice Mask, Wizard Clothes
   name: oblivion enforcer's mask

@@ -799,7 +799,7 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingHeadBase, BaseMagicContraband]
+  parent: [ClothingHeadBase, BaseMagicalContraband]
   id: ClothingHeadHatWizardBase
   suffix: Wizard Clothes # Goobstation
   components:
