@@ -133,7 +133,7 @@
       amount: 2
   effects:
     - !type:CreateEntityReactionEffect
-      entity: SheetPlastic1
+      entity: SheetPlastic10 # Goob edit - revert that once we get energy chem
 
 - type: reaction
   id: FlashFreezeIce
