@@ -10,6 +10,7 @@ using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Possession;
 using Content.Goobstation.Shared.Religion;
 using Content.Server.Actions;
+using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
@@ -113,7 +114,7 @@ public sealed partial class PossessionSystem : EntitySystem
         if (possessed.Comp.HideActions)
             _action.UnHideActions(possessed, possessed.Comp.HiddenActions);
 
-        if (possessed.Comp.PolymorphEntity)
+        if (possessed.Comp.PolymorphEntity && HasComp<PolymorphedEntityComponent>(possessed))
             _polymorph.Revert(possessed.Owner);
 
         _tag.RemoveTag(possessed, "CannotSuicideAny");
