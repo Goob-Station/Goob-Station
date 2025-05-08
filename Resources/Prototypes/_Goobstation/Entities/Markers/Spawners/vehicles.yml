@@ -49,8 +49,8 @@
       - VehicleJanicart
 
 - type: entity
-  name: Office chair Spawner Light
-  id: SpawnOfficeChairLight
+  name: light office chair spawner
+  id: SpawnVehicleChairOfficeLight
   parent: MarkerBase
   components:
   - type: Sprite
@@ -63,8 +63,8 @@
       - ChairOfficeLight
 
 - type: entity
-  name: Office chair Spawner Dark
-  id: SpawnOfficeChairDarnk
+  name: dark office chair spawner
+  id: SpawnVehicleChairOfficeDark
   parent: MarkerBase
   components:
   - type: Sprite
