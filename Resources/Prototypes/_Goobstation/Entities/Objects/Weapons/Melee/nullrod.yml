@@ -88,7 +88,8 @@
   - type: LeechOnMarker
     leech:
       groups:
-        Brute: -15
+        Brute: -17
+        Airloss: -10
   - type: Clothing
     sprite: _ShitChap/Objects/Weapons/Nullrod/holyclaymore.rsi
     slots:
@@ -500,6 +501,7 @@
     attackRate: 4
     damage:
       types:
+        Blunt: 1
         Slash: 2
         Structural: 20
         Holy: 5
