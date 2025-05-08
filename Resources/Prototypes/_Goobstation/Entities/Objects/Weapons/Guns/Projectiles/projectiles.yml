@@ -392,3 +392,12 @@
       types:
         Piercing: 4
         Holy: 4
+
+- type: entity
+  parent: MeteorSpaceDust
+  id: ImpactDebris
+  name: impact debris
+  description: If you see this it might be too late to look at the mass scanner.
+  components:
+  - type: Explosive
+    totalIntensity: 50
