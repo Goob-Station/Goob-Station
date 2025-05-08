@@ -7,7 +7,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
