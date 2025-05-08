@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -131,9 +133,6 @@
   suffix: Filled
   description: A small 50u canister of Oleoresin Capsaicin. Capable of blinding and stunning targets who aren't wearing protective gear.
   components:
-  - type: Tag
-    tags:
-    - PepperSpray
   - type: Sprite
     sprite: /Textures/_Goobstation/Objects/Specific/Security/pepperspray.rsi
     layers:
@@ -142,6 +141,16 @@
     size: Small
     sprite: /Textures/_Goobstation/Objects/Specific/Security/pepperspray.rsi
   - type: RefillableSolution
+    solution: spray
+  - type: DrainableSolution
+    solution: spray
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: spray
+  - type: TrashOnSolutionEmpty
+    solution: spray
+  - type: ExaminableSolution
     solution: spray
   - type: SolutionContainerManager
     solutions:
@@ -159,3 +168,8 @@
   - type: UseDelay
   - type: StaticPrice
     price: 25
+  - type: Tag
+    tags:
+    - Spray
+    - PepperSpray
+    - Trash

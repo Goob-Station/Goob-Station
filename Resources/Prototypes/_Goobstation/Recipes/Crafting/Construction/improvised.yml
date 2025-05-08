@@ -1,0 +1,187 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: construction
+  id: HexNutDouble
+  name: Hex Nut
+  category: construction-category-misc
+  description: Two hex nuts handcrafted from one steel.
+  graph: HexNutDoubleGraph
+  startNode: start
+  targetNode: HexNutStack
+  icon:
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: hex_1
+  objectType: Item
+
+- type: construction
+  id: Screw
+  name: Screw
+  category: construction-category-misc
+  description: Two screws crafted from one steel.
+  graph: ScrewGraph
+  startNode: start
+  targetNode: ScrewStack
+  icon:
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: screw_1
+  objectType: Item
+
+- type: construction
+  id: ContrabandSatchelCraft
+  name: contraband bag
+  description: A steel bag for hiding from metal detectors.
+  graph: ContrabandSatchelGraph
+  category: construction-category-misc
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftDefibCraft
+  name: makeshift defibrillator
+  category: construction-category-misc
+  description: Stupidly complex makeshift defibrillator for all your needs.
+  graph: MakeshiftDefibGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Devices/defib.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: TideFlipperCraft
+  name: makeshift tide flipper
+  category: construction-category-misc
+  description: Makeshift hand remote that can be used to hack doors without access.
+  graph: TideFlipperZeroGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MetalBaseballBatCrafting
+  name: makeshift metal baseball bat
+  category: construction-category-weapons
+  description: Makeshift hard and robust metal baseball bat with a wooden handle.
+  graph: MetalBaseballBatGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: HandmadeHammerCrafting
+  name: handmade hammer
+  category: construction-category-weapons
+  description: A normal handmade hammer.
+  graph: HammerConstructionGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftJammerCrafting
+  name: makeshift jammer
+  category: construction-category-misc
+  description: Makeshift jammer, not efficient, but it does its job.
+  graph: MakeshiftJammerGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
+    state: jammer
+  objectType: Item
+
+- type: construction
+  id: MakeshiftIDCard
+  name: makeshift id card
+  category: construction-category-misc
+  description: Makeshift ID card for tiding purposes.
+  graph: MakeshiftIDCardGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftToolbox
+  name: makeshift toolbox
+  category: construction-category-weapons
+  description: The weapon of the Tide order.
+  graph: MakeshiftToolboxGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
+    state: icon
+  objectType: Item
+# clothing
+
+- type: construction
+  id: HeavyBootsCrafting
+  name: makeshift metal boots
+  category: construction-category-clothing
+  description: Makeshift heavy metal boots.
+  graph: HeavyBootsGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftHelmetCraft
+  name: makeshift light helmet
+  category: construction-category-clothing
+  description: Makeshift light helmet for protection.
+  graph: MakeshiftHelmetGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftLightVestCraft
+  name: makeshift light vest
+  category: construction-category-clothing
+  description: Complex makeshift light vest for protection. Open a blacksmith man.
+  graph: MakeshiftLightVestGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  id: MakeshiftHeavyVestCraft
+  name: makeshift heavy vest
+  category: construction-category-clothing
+  description: A complex heavy armor vest, made with steel, plasteel, and nails.
+  graph: MakeshiftHeavyVestGraph
+  startNode: start
+  targetNode: final
+  icon:
+    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+    state: icon
+  objectType: Item
