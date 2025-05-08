@@ -25,6 +25,8 @@
   - type: HideLayerClothing
     slots:
     - Hair
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
 
 - type: entity
   parent: ClothingHeadBase
@@ -38,6 +40,6 @@
   - type: Clothing
     sprite: _Goobstation/Heretic/void_hood.rsi
   - type: Tag
-    tags: []
+    tags: [ ]
   - type: StripMenuInvisible
   - type: VoidCloakHood

@@ -1,0 +1,177 @@
+# I don't want to clutter battery guns with these ones.
+
+- type: entity
+  name: X-8 "Station Sweeper"
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
+  id: WeaponHeadOfSecurityRifle
+  description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    shape:
+    - 0,0,4,2
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    defaultDirection: 1, 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 15
+    autoRechargePause: true
+    autoRechargePauseTime: 20
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumSplitLaser
+    fireCost: 100
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  name: X-6 "Threadripper"
+  parent: [BaseWeaponBattery, BaseCommandContraband]
+  id: WeaponHeadOfSecuritySMG
+  description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    shape:
+    - 0,0,3,1
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    minAngle: 2
+    maxAngle: 10
+    fireRate: 7
+    burstFireRate: 6
+    angleIncrease: 3
+    angleDecay: 10
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    defaultDirection: 1, 0
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 25
+    autoRechargePause: true
+    autoRechargePauseTime: 20
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserHeavy
+    fireCost: 30
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  name: X-12 "Flamberge"
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
+  id: WeaponHeadOfSecurityShotgun
+  description: An elaborately designed shotgun, firing shots of pure phoron. Built to break down defenses, and it does that job well.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    state: icon
+  - type: Appearance
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
+    shape:
+    - 0,0,4,1
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 15
+    autoRechargePause: true
+    autoRechargePauseTime: 20
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    fireRate: 0.75
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpreadHeavy
+    fireCost: 125
+  - type: StaticPrice
+    price: 2500
+
+- type: entity
+  name: X-18 "Ranought"
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCommandContraband]
+  id: WeaponHeadOfSecuritySniper
+  description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    state: icon
+  - type: Appearance
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 15
+    autoRechargePause: true
+    autoRechargePauseTime: 20
+  - type: Item
+    shape:
+    - 0,0,6,1
+    storedRotation: 45
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+    fireRate: 0.70
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: LaserSniper
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: StaticPrice
+    price: 2500
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.80
+    sprintModifier: 0.80
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 8
+    pvsIncrease: 0.8

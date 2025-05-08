@@ -16,7 +16,7 @@ using Content.Shared.Body.Part;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared.Mobs.Components;

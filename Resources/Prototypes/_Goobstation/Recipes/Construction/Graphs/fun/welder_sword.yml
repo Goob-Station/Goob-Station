@@ -1,0 +1,193 @@
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# base
+- type: constructionGraph
+  id: WelderSword
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frameAssembly
+      steps:
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 3
+      - material: Cable
+        amount: 7
+
+  - node: frameAssembly
+    entity: UnfinishedWelderSword
+    edges:
+    - to: coreIntegration
+      steps:
+      - material: HexNut
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2
+
+  - node: coreIntegration
+    edges:
+    - to: weldingStage
+      steps:
+      - tool: Welding
+        doAfter: 4
+      - material: MetalRod
+        amount: 1
+
+  - node: weldingStage
+    edges:
+    - to: finalAssembly
+      steps:
+      - tool: Cutting
+        doAfter: 3
+      - tool: Screwing
+        doAfter: 2
+
+  - node: finalAssembly
+    edges:
+    - to: welderSword
+      steps:
+      - tag: Welder
+        name: welding tool
+        icon:
+          sprite: Objects/Tools/welder.rsi
+          state: icon
+        doAfter: 5
+
+  - node: welderSword
+    entity: EnergySwordWelder
+
+# indus
+- type: constructionGraph
+  id: WelderSwordIndustrial
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: reinforcedFrameInd
+      steps:
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 4
+      - material: Cable
+        amount: 10
+
+  - node: reinforcedFrameInd
+    entity: UnfinishedWelderSwordIndustrial
+    edges:
+    - to: industrialCore
+      steps:
+      - material: HexNut
+        amount: 4
+        doAfter: 2
+      - material: MetalRod
+        amount: 2
+
+  - node: industrialCore
+    edges:
+    - to: industrialWelding
+      steps:
+      - tool: Welding
+        fuel: 10
+        doAfter: 6
+      - material: Glass
+        amount: 2
+
+  - node: industrialWelding
+    edges:
+    - to: industrialAssembly
+      steps:
+      - tool: Cutting
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 3
+
+  - node: industrialAssembly
+    edges:
+    - to: welderSwordIndustrial
+      steps:
+      - tag: WelderIndustrial
+        name: industrial welding tool
+        icon:
+          sprite: Objects/Tools/welder_industrial.rsi
+          state: icon
+        doAfter: 7
+      - material: ReinforcedGlass
+        amount: 1
+
+  - node: welderSwordIndustrial
+    entity: EnergySwordWelderIndustrial
+
+# exp
+- type: constructionGraph
+  id: WelderSwordExperimental
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: plasmaFrame
+      steps:
+      - component: GasTank
+        name: gas tank
+        icon:
+          sprite: Objects/Tanks/oxygen.rsi
+          state: icon
+        doAfter: 5
+      - material: Cable
+        amount: 15
+
+  - node: plasmaFrame
+    entity: UnfinishedWelderSwordExperimental
+    edges:
+    - to: plasmaIntegration
+      steps:
+      - material: HexNut
+        amount: 6
+        doAfter: 2
+      - material: MetalRod
+        amount: 4
+
+  - node: plasmaIntegration
+    edges:
+    - to: plasmaForging
+      steps:
+      - tool: Welding
+        fuel: 10
+        doAfter: 8
+      - material: PlasmaGlass
+        amount: 2
+
+  - node: plasmaForging
+    edges:
+    - to: experimentalAssembly
+      steps:
+      - tool: Cutting
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 4
+
+  - node: experimentalAssembly
+    edges:
+    - to: welderSwordExperimental
+      steps:
+      - tag: WelderExperimental
+        name: experimental welding tool
+        icon:
+          sprite: Objects/Tools/welder_experimental.rsi
+          state: icon
+        doAfter: 10
+
+  - node: welderSwordExperimental
+    entity: EnergySwordWelderExperimental
