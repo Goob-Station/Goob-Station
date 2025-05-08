@@ -231,12 +231,12 @@
     - DrinkWaterMelonJuiceJug
     - Lantern
     - Lantern
-    - ChaplainUndeterminedBible
+    - ChaplainUndeterminedBible # Goobstation
     - CrowbarRed
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
-    - Nullrod
+    - Nullrod # Goobstation
     - Lighter
     - ExecutiveIDCard # Goobstation - Executive Access!
 
@@ -263,13 +263,14 @@
     - DrinkWaterMelonJuiceJug
     - Lantern
     - Lantern
-    - ChaplainUndeterminedBible
+    - ChaplainUndeterminedBible # Goobstation
     - CrowbarRed
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - FoodBakedBunHotX
     - Lighter
+    - Nullrod # Goobstation
     - ExecutiveIDCard # Goobstation - Executive Access!
 
 # Engineer
