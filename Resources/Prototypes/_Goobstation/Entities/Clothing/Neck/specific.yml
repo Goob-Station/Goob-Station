@@ -40,15 +40,16 @@
   parent: ClothingNeckBase
   id: MagicSuppressionCollar
   name: magic suppression collar
-  description: A massive collar that restricts the use of magic.
+  description: A collar that restricts the use of magic.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Misc/magic_suppression_collar.rsi
-#   equipDelay: 5 hmmm... not sure
-    unequipDelay: 5
   - type: SelfUnremovableClothing
   - type: MagicSuppression
+  - type: ClothingAccessLock
+  - type: AccessReader
+    access: [ [ "Command" ], [ "Security" ] ]
 
 
