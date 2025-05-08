@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -15,7 +17,7 @@ using Content.Shared.Climbing.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
@@ -139,7 +141,7 @@ public sealed class TableSlamSystem : EntitySystem
                 });
         }
 
-        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage);
+        _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage, applyResistances: true);
         _stunSystem.TryKnockdown(ent, TimeSpan.FromSeconds(3 * modifierOnGlassBreak), false);
         var postTabledComponent = EnsureComp<PostTabledComponent>(ent);
         postTabledComponent.PostTabledShovableTime = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3));

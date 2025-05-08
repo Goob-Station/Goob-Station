@@ -34,6 +34,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
@@ -42,6 +43,9 @@
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+// SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Unlumination <144041835+Unlumy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -60,7 +64,7 @@ using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
@@ -238,6 +242,7 @@ namespace Content.Shared.Damage
             bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null,
             // Shitmed Change
             bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null,
+            float armorPenetration = 0f,
             // Goobstation
             bool heavyAttack = false)
         {
@@ -259,7 +264,7 @@ namespace Content.Shared.Damage
                 return null;
 
             // Shitmed Change Start
-            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, armorPenetration, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
             RaiseLocalEvent(uid.Value, ref partDamage);
 
             if (partDamage.Evaded || partDamage.Cancelled)
@@ -276,10 +281,11 @@ namespace Content.Shared.Damage
                     // TODO DAMAGE PERFORMANCE
                     // use a local private field instead of creating a new dictionary here..
                     // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
-                    damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+                    damage = DamageSpecifier.ApplyModifierSet(damage,
+                        DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goob edit
                 }
 
-                var ev = new DamageModifyEvent(damage, origin, targetPart); // Shitmed Change
+                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration); // Shitmed + Goobstation Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -386,6 +392,49 @@ namespace Content.Shared.Damage
             // Shitmed Change End
         }
 
+        /// <summary>
+        ///     Change the DamageContainer of a DamageableComponent. - Goobstation, Rubin Code
+        /// </summary>
+        public void ChangeDamageContainer(EntityUid uid, string newDamageContainerId, DamageableComponent? component = null)
+        {
+            if (!Resolve(uid, ref component, logMissing: false)
+                || newDamageContainerId == component.DamageContainerID)
+            {
+                return;
+            }
+
+            // Try to get the new DamageContainerPrototype
+            if (!_prototypeManager.TryIndex<DamageContainerPrototype>(newDamageContainerId, out var damageContainerPrototype))
+            {
+                // Return early if no DamageContainerPrototype is found
+                return;
+            }
+
+            // Update the DamageContainerID
+            component.DamageContainerID = new ProtoId<DamageContainerPrototype>(newDamageContainerId);
+
+            // Clear the existing damage dictionary
+            component.Damage.DamageDict.Clear();
+
+            // Initialize damage dictionary, using the types and groups from the damage container prototype
+            foreach (var type in damageContainerPrototype.SupportedTypes)
+            {
+                component.Damage.DamageDict.TryAdd(type, FixedPoint2.Zero);
+            }
+
+            foreach (var groupId in damageContainerPrototype.SupportedGroups)
+            {
+                var group = _prototypeManager.Index<DamageGroupPrototype>(groupId);
+                foreach (var type in group.DamageTypes)
+                {
+                    component.Damage.DamageDict.TryAdd(type, FixedPoint2.Zero);
+                }
+            }
+
+            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.TotalDamage = component.Damage.GetTotal();
+        }
+
         public void SetDamageModifierSetId(EntityUid uid, string damageModifierSetId, DamageableComponent? comp = null)
         {
             if (!_damageableQuery.Resolve(uid, ref comp))
@@ -394,6 +443,17 @@ namespace Content.Shared.Damage
             comp.DamageModifierSetId = damageModifierSetId;
             Dirty(uid, comp);
         }
+
+        // Begin DeltaV Additions - We need to be able to change DamageContainer to make cultists vulnerable to Holy Damage
+        public void SetDamageContainerID(Entity<DamageableComponent?> ent, string damageContainerId)
+        {
+            if (!_damageableQuery.Resolve(ent, ref ent.Comp))
+                return;
+
+            ent.Comp.DamageContainerID = damageContainerId;
+            Dirty(ent);
+        }
+        // End DeltaV Additions
 
         private void DamageableGetState(EntityUid uid, DamageableComponent component, ref ComponentGetState args)
         {
@@ -475,6 +535,7 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null,
         bool IgnoreResistances = false,
+        float ArmorPenetration = 0f,
         bool CanSever = true,
         bool CanEvade = false,
         float PartMultiplier = 1.00f,
@@ -493,17 +554,21 @@ namespace Content.Shared.Damage
         // Whenever locational damage is a thing, this should just check only that bit of armour.
         public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
 
+        public readonly EntityUid Target; // Goobstation
         public readonly DamageSpecifier OriginalDamage;
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
+        public float ArmorPenetration; // Goobstation
 
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null) // Shitmed Change
+        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0) // Shitmed + Goobstation Change
         {
+            Target = target; // Goobstation
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
             TargetPart = targetPart; // Shitmed Change
+            ArmorPenetration = armorPenetration; // Goobstation
         }
     }
 

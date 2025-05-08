@@ -16,6 +16,8 @@
     name: ghost-role-information-SyndiRoach-name
     description: ghost-role-information-SyndiRoach-description
     rules: ghost-role-information-SyndiRoach-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
     requirements:

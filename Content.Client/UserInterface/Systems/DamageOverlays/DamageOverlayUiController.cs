@@ -7,12 +7,14 @@
 // SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
 // SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -80,7 +82,7 @@ public sealed class DamageOverlayUiController : UIController
     {
         _overlay.DeadLevel = 0f;
         _overlay.CritLevel = 0f;
-        _overlay.BruteLevel = 0f;
+        _overlay.PainLevel = 0f;
         _overlay.OxygenLevel = 0f;
     }
 
@@ -108,23 +110,27 @@ public sealed class DamageOverlayUiController : UIController
         {
             case MobState.Alive:
             {
-                if (EntityManager.HasComponent<PainNumbnessComponent>(entity))
+                FixedPoint2 painLevel = 0;
+                _overlay.PainLevel = 0;
+
+                if (!EntityManager.HasComponent<PainNumbnessComponent>(entity))
                 {
-                    _overlay.BruteLevel = 0;
-                }
-                else if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteDamage))
-                {
-                    _overlay.BruteLevel = FixedPoint2.Min(1f, bruteDamage / critThreshold).Float();
+                    foreach (var painDamageType in damageable.PainDamageGroups)
+                    {
+                        damageable.DamagePerGroup.TryGetValue(painDamageType, out var painDamage);
+                        painLevel += painDamage;
+                    }
+                    _overlay.PainLevel = FixedPoint2.Min(1f, painLevel / critThreshold).Float();
+
+                    if (_overlay.PainLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
+                    {
+                        _overlay.PainLevel = 0;
+                    }
                 }
 
                 if (damageable.DamagePerGroup.TryGetValue("Airloss", out var oxyDamage))
                 {
                     _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
-                }
-
-                if (_overlay.BruteLevel < 0.05f) // Don't show damage overlay if they're near enough to max.
-                {
-                    _overlay.BruteLevel = 0;
                 }
 
                 _overlay.CritLevel = 0;
@@ -138,13 +144,13 @@ public sealed class DamageOverlayUiController : UIController
                     return;
                 _overlay.CritLevel = critLevel.Value.Float();
 
-                _overlay.BruteLevel = 0;
+                _overlay.PainLevel = 0;
                 _overlay.DeadLevel = 0;
                 break;
             }
             case MobState.Dead:
             {
-                _overlay.BruteLevel = 0;
+                _overlay.PainLevel = 0;
                 _overlay.CritLevel = 0;
                 break;
             }

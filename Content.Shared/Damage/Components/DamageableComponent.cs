@@ -90,7 +90,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
@@ -155,6 +155,13 @@ namespace Content.Shared.Damage
 
         [DataField("radiationDamageTypes")]
         public List<ProtoId<DamageTypePrototype>> RadiationDamageTypeIDs = new() { "Radiation" };
+
+        /// <summary>
+        ///     Group types that affect the pain overlay.
+        /// </summary>
+        ///     TODO: Add support for adding damage types specifically rather than whole damage groups
+        [DataField]
+        public List<ProtoId<DamageGroupPrototype>> PainDamageGroups = new() { "Brute", "Burn" };
 
         [DataField]
         public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()

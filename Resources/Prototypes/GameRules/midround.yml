@@ -35,7 +35,7 @@
       maxPicks: 10
     maxDifficulty: 2.5
   - type: AntagSelection
-    selectionTime: BeforeJobs # Goobstation
+    selectionTime: IntraPlayerSpawn # Goobstation
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
@@ -45,6 +45,7 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
+      jobBlacklist: [ Chaplain ] # GOOBSTATION
       components:
       - type: Pacified
       mindRoles:

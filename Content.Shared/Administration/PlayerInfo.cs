@@ -20,6 +20,7 @@
 
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
+using Content.Shared.Mind;
 
 namespace Content.Shared.Administration;
 
@@ -30,6 +31,7 @@ public sealed record PlayerInfo(
     string IdentityName,
     string StartingJob,
     bool Antag,
+    RoleTypePrototype RoleProto,
     NetEntity? NetEntity,
     NetUserId SessionId,
     bool Connected,

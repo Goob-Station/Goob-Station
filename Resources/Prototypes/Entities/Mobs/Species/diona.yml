@@ -32,6 +32,7 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -147,9 +148,6 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # WD EDIT
-    leftBarePrint: "footprint-left-bare-diona"
-    rightBarePrint: "footprint-right-bare-diona"
   - type: StepTriggerImmune # Goobstation
     whitelist:
       types:

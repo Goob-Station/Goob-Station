@@ -1,13 +1,20 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
+// SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <199992874+thebiggestbruh@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 thebiggestbruh <marcus2008stoke@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Goobstation.Common.MartialArts;
+using Content.Goobstation.Shared.Changeling.Components;
 using Content.Goobstation.Shared.MartialArts.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Grab;
@@ -20,6 +27,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
@@ -58,6 +66,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     public override void Initialize()
     {
@@ -186,6 +195,12 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         if (!_netManager.IsServer || MetaData(user).EntityLifeStage >= EntityLifeStage.Terminating)
             return false;
 
+        if (HasComp<ChangelingIdentityComponent>(user))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cqc-fail-changeling"), user, user);
+            return false;
+        }
+
         if (HasComp<KravMagaComponent>(user))
         {
             _popupSystem.PopupEntity(Loc.GetString("cqc-fail-knowanother"), user, user);
@@ -228,7 +243,6 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         martialArtsKnowledgeComponent.MartialArtsForm = martialArtsPrototype.MartialArtsForm;
         LoadCombos(martialArtsPrototype.RoundstartCombos, canPerformComboComponent);
         martialArtsKnowledgeComponent.Blocked = false;
-        pullerComponent.StageChangeCooldown /= 2;
 
         if (meleeWeaponComponent.Damage.DamageDict.Count != 0)
         {

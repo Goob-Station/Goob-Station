@@ -22,12 +22,14 @@
 using Content.Server.Advertise;
 using Content.Server.Advertise.Components;
 using Content.Shared._DV.VendingMachines;
+using Content.Shared.Advertise.Components;
+using Content.Shared.Advertise.Systems;
 
 namespace Content.Server._DV.VendingMachines;
 
 public sealed class ShopVendorSystem : SharedShopVendorSystem
 {
-    [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+    [Dependency] private readonly SharedSpeakOnUIClosedSystem _speakOnUIClosed = default!;
 
     public override void Update(float frameTime)
     {

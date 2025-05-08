@@ -98,6 +98,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
+using Content.Shared.Mind;
 using Content.Shared.PDA;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Popups;
@@ -113,6 +114,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Administration.Systems;
 
@@ -129,6 +131,7 @@ public sealed class AdminSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -233,7 +236,8 @@ public sealed class AdminSystem : EntitySystem
     private void OnRoleEvent(RoleEvent ev)
     {
         var session = _minds.GetSession(ev.Mind);
-        if (!ev.Antagonist || session == null)
+
+        if (!ev.RoleTypeUpdate || session == null)
             return;
 
         UpdatePlayerList(session);
@@ -300,6 +304,7 @@ public sealed class AdminSystem : EntitySystem
         var entityName = string.Empty;
         var identityName = string.Empty;
 
+        // Visible (identity) name can be different from real name
         if (session?.AttachedEntity != null)
         {
             entityName = EntityManager.GetComponent<MetaDataComponent>(session.AttachedEntity.Value).EntityName;
@@ -307,15 +312,28 @@ public sealed class AdminSystem : EntitySystem
         }
 
         var antag = false;
+
+        // Starting role, antagonist status and role type
+        RoleTypePrototype roleType = new();
         var startingRole = string.Empty;
-        if (_minds.TryGetMind(session, out var mindId, out _))
+        if (_minds.TryGetMind(session, out var mindId, out var mindComp))
         {
+            if (_proto.TryIndex(mindComp.RoleType, out var role))
+                roleType = role;
+            else
+                Log.Error($"{ToPrettyString(mindId)} has invalid Role Type '{mindComp.RoleType}'. Displaying '{Loc.GetString(roleType.Name)}' instead");
+
             antag = _role.MindIsAntagonist(mindId);
             startingRole = _jobs.MindTryGetJobName(mindId);
         }
 
+        // Connection status and playtime
         var connected = session != null && session.Status is SessionStatus.Connected or SessionStatus.InGame;
-        TimeSpan? overallPlaytime = null;
+
+        // Start with the last available playtime data
+        var cachedInfo = GetCachedPlayerInfo(data.UserId);
+        var overallPlaytime = cachedInfo?.OverallPlaytime;
+        // Overwrite with current playtime data, unless it's null (such as if the player just disconnected)
         if (session != null &&
             _playTime.TryGetTrackerTimes(session, out var playTimes) &&
             playTimes.TryGetValue(PlayTimeTrackingShared.TrackerOverall, out var playTime))
@@ -323,7 +341,7 @@ public sealed class AdminSystem : EntitySystem
             overallPlaytime = playTime;
         }
 
-        return new PlayerInfo(name, entityName, identityName, startingRole, antag, GetNetEntity(session?.AttachedEntity), data.UserId,
+        return new PlayerInfo(name, entityName, identityName, startingRole, antag, roleType, GetNetEntity(session?.AttachedEntity), data.UserId,
             connected, _roundActivePlayers.Contains(data.UserId), overallPlaytime);
     }
 

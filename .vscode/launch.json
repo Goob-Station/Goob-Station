@@ -104,17 +104,6 @@
             "console": "integratedTerminal",
             "stopAtEntry": false
         },
-        // Discord
-        {
-            "name": "Discord Bot",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-discord-bot",
-            "program": "${workspaceFolder}/Content.DiscordBot/bin/Debug/net8.0/Content.DiscordBot.dll",
-            "args": [],
-            "console": "integratedTerminal",
-            "stopAtEntry": false
-        },
     ],
     "compounds": [
         {

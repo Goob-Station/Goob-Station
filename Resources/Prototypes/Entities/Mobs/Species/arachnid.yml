@@ -25,8 +25,13 @@
 # SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 HTML/Crystal <152909599+HTMLSystem@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -147,9 +152,7 @@
         visible: false
   - type: Inventory
     templateId: arachnid
-  - type: FootPrints # WD EDIT
-    leftBarePrint: "footprint-left-bare-spider"
-    rightBarePrint: "footprint-right-bare-spider"
+  - type: IgnoreSpiderWeb # Goobstation
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -158,6 +161,8 @@
   components:
   - type: HumanoidAppearance
     species: Arachnid
+  - type: Inventory
+    speciesId: arachnid
 
 
 #>88w88<

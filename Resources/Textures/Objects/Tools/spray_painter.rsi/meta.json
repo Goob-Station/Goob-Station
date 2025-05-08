@@ -1,14 +1,22 @@
 {
-   "copyright" : "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/8e92e96d56f231f79dc16f95918d59b2803085aa/icons/obj/painting.dmi",
-   "license" : "CC-BY-SA-3.0",
-   "size" : {
-      "x" : 32,
-      "y" : 32
-   },
-   "states" : [
-      {
-         "name" : "spray_painter"
-      }
-   ],
-   "version" : 1
+  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/8e92e96d56f231f79dc16f95918d59b2803085aa/icons/obj/painting.dmi, Inhand sprites by onesch",
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "spray_painter"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ],
+  "version": 1
 }
