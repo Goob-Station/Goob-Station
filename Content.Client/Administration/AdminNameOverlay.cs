@@ -71,7 +71,6 @@
 // SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2024 foboscheshir <156405958+foboscheshir@users.noreply.github.com>
@@ -92,10 +91,13 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+// SPDX-FileCopyrightText: 2025 Schrödinger <132720404+Schrodinger71@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Schr�dinger <132720404+Schrodinger71@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
