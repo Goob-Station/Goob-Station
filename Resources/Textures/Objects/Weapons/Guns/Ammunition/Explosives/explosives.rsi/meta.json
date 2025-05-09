@@ -41,6 +41,12 @@
             "name": "spent"
 	    },
         {
+            "name": "blast-spent"
+	    },
+        {
+            "name": "frag-spent"
+	    },
+        {
             "name": "baton-spent"
 	    },
         {
