@@ -105,7 +105,7 @@ public sealed class RustChargeSystem : EntitySystem
                 false,
                 true,
                 damageable,
-                targetPart: TargetBodyPart.Torso);
+                targetPart: TargetBodyPart.Chest);
 
             return;
         }

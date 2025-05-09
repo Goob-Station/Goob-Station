@@ -14,7 +14,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -1274,7 +1274,8 @@ public sealed partial class WoundSystem
         if (rand.NextFloat() < odds)
         {
             _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
-            RaiseLocalEvent(body, new DropHandItemsEvent(), false);
+            var ev = new DropHandItemsEvent();
+            RaiseLocalEvent(body, ref ev, false);
             _audio.PlayPredicted(sound, body, body);
             return true;
         }

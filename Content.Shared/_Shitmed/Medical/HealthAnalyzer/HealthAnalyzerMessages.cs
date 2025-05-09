@@ -2,7 +2,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared.Body.Part;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Serialization;
 using Content.Shared.Chemistry.Components;
 namespace Content.Shared._Shitmed.Medical.HealthAnalyzer;

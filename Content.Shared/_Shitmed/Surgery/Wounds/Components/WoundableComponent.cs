@@ -1,5 +1,5 @@
 ﻿using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -79,7 +79,7 @@ public sealed partial class WoundableComponent : Component
     /// How much bleeds will the woundable treat per tick
     /// </summary>
     [ViewVariables, DataField]
-    public FixedPoint2 BleedingTreatmentAbility = 0.02f;
+    public FixedPoint2 BleedingTreatmentAbility = 0.01f;
 
     /// <summary>
     /// At which amount of bleeds the woundable will stop healing.

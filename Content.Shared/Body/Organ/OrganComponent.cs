@@ -22,7 +22,7 @@ using Content.Shared.Body.Systems;
 using Robust.Shared.GameStates;
 
 // Shitmed Change
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;

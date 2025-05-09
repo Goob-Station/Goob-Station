@@ -67,7 +67,7 @@ using Robust.Shared.Network;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared.Body.Systems;
 

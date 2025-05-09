@@ -678,14 +678,6 @@ namespace Content.Shared.Damage
 
             return damageDict;
         }
-        public void SetDamageModifierSetId(EntityUid uid, string? damageModifierSetId, DamageableComponent? comp = null)
-        {
-            if (!_damageableQuery.Resolve(uid, ref comp))
-                return;
-
-            comp.DamageModifierSetId = damageModifierSetId;
-            Dirty(uid, comp);
-        }
 
         /// <summary>
         ///     Change the DamageContainer of a DamageableComponent. - Goobstation, Rubin Code

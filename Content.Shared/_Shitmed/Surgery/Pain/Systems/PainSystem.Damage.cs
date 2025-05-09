@@ -9,7 +9,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Pain.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Traumas;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;

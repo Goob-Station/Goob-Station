@@ -5,7 +5,7 @@ using Content.Shared._Shitmed.Weapons.Melee.Events;
 using Content.Shared._Shitmed.Weapons.Ranged.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
@@ -380,7 +380,8 @@ public partial class TraumaSystem
         if (rand.NextFloat() < odds)
         {
             _popup.PopupClient(Loc.GetString(message), body, PopupType.Medium);
-            RaiseLocalEvent(body, new DropHandItemsEvent(), false);
+            var ev = new DropHandItemsEvent();
+            RaiseLocalEvent(body, ref ev, false);
             _audio.PlayPredicted(sound, body, body);
             return true;
         }

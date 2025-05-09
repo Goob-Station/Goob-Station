@@ -1,4 +1,4 @@
-﻿using Content.Shared.FixedPoint;
+﻿using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;

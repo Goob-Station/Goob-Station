@@ -136,7 +136,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using System.Linq;
 
 namespace Content.Server.Medical;

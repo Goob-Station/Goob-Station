@@ -2,7 +2,7 @@
 using Content.Shared._Shitmed.Medical.Surgery.Wounds;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Pain.Systems;
 

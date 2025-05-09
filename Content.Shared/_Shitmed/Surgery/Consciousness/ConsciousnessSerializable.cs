@@ -1,5 +1,5 @@
 ﻿using Content.Shared._Shitmed.Medical.Surgery.Pain;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Consciousness;

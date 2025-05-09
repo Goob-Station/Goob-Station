@@ -44,7 +44,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.FixedPoint; // Shitmed Change
+using Content.Goobstation.Maths.FixedPoint; // Shitmed Change
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Damage.Prototypes
