@@ -3,7 +3,5 @@
   powerActions:
     Weak:
     - "ActionCreateRevivalContract"
-    #Moderate:
-    #- "ActionDevilPossess"
-    # Goobstation players have shown they cannot be trusted with this.
-    # Maybe you can add it back if you do a different idea.
+    Moderate:
+    - "ActionDevilPossess"

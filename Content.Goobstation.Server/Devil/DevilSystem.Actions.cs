@@ -9,6 +9,7 @@ using Content.Goobstation.Server.Devil.Contract.Revival;
 using Content.Goobstation.Server.Devil.Grip;
 using Content.Goobstation.Shared.Devil;
 using Content.Goobstation.Shared.Devil.Actions;
+using Content.Goobstation.Shared.Devil.Condemned;
 using Content.Goobstation.Shared.Devil.Contract;
 using Content.Shared.IdentityManagement;
 
@@ -93,12 +94,15 @@ public sealed partial class DevilSystem
 
     private void OnPossess(Entity<DevilComponent> devil, ref DevilPossessionEvent args)
     {
-        if (args.Target == default || !TryUseAbility(args))
+        if (!TryComp<CondemnedComponent>(args.Target, out var condemned) || condemned.SoulOwnedNotDevil)
         {
             var message = Loc.GetString("invalid-possession-target");
             _popup.PopupEntity(message, devil, devil);
             return;
         }
+
+        if (!TryUseAbility(args))
+            return;
 
         if (devil.Comp.PowerLevel != DevilPowerLevel.None)
             devil.Comp.PossessionDuration *= (int)devil.Comp.PowerLevel;
