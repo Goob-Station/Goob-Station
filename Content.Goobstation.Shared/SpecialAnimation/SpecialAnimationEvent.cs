@@ -5,19 +5,19 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.SpellCard;
+namespace Content.Goobstation.Shared.SpecialAnimation;
 
 /// <summary>
 /// Raised on some client to play a spell card animation.
 /// </summary>
 [ImplicitDataDefinitionForInheritors]
 [Serializable, NetSerializable]
-public sealed partial class SpellCardAnimationEvent : EntityEventArgs
+public sealed partial class SpecialAnimationEvent : EntityEventArgs
 {
-    public SpellCardAnimationEvent(SpellCardAnimationData animationData)
+    public SpecialAnimationEvent(SpecialAnimationData animationData)
     {
         AnimationData = animationData;
     }
 
-    public SpellCardAnimationData AnimationData;
+    public SpecialAnimationData AnimationData;
 }

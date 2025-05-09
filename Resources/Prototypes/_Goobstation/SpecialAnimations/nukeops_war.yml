@@ -1,0 +1,13 @@
+- type: specialAnimation
+  id: NukeOpsWarAnimation
+  animation: !type:SpecialAnimationData
+    totalDuration: 5.8
+    scale: 15.0
+    maxOpacity: 0.7
+    fadeInDuration: 1.6
+    fadeOutDuration: 1.6
+    startPosition: -300,-100
+    endPosition: -300,200
+    text: "WAR DECLARATION"
+    textPosition: -200,150
+    textOverrideColor: Red

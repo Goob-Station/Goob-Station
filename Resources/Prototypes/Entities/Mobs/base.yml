@@ -129,7 +129,7 @@
   - type: AnimatedEmotes
   - type: Fart
   - type: CollectiveMind # Goobstation - Starlight collective mind port
-  - type: SpellCardRecipient # Goobstation - Cool Animations!!!!
+  - type: SpecialAnimationViewer # Goobstation - Cool Animations!!!!
   - type: Penetratable # Goobstation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05

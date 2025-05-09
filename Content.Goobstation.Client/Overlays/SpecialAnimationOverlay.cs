@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Shared.SpellCard;
+using Content.Goobstation.Shared.SpecialAnimation;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -16,7 +16,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Goobstation.Client.Overlays;
 
-public sealed class SpellCardOverlay : Overlay
+public sealed class SpecialAnimationOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -24,21 +24,23 @@ public sealed class SpellCardOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IClyde _clyde = default!;
 
-    public Queue<SpellCardAnimationData> AnimationQueue = new();
+    public Queue<SpecialAnimationData> AnimationQueue = new();
 
-    private SpellCardAnimationData? _currentAnimation;
+    private SpecialAnimationData? _currentAnimation;
 
     private IRenderTexture? _target;
 
-    private Font _font;
+    private (Font Font, string Path, int Size)? _font;
 
-    public SpellCardOverlay()
+    public SpecialAnimationOverlay()
     {
         IoCManager.InjectDependencies(this);
 
-        _font = new VectorFont( _cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 20);
-        _target = CreateRenderTarget((64, 64), nameof(SpellCardOverlay));
+        var path = SpecialAnimationData.DefaultAnimation.TextFontPath;
+        var size = SpecialAnimationData.DefaultAnimation.TextFontSize;
 
+        _font = (new VectorFont(_cache.GetResource<FontResource>(path), size), path, size);
+        _target = CreateRenderTarget((64, 64), nameof(SpecialAnimationOverlay));
         ZIndex = 102;
     }
 
@@ -93,7 +95,7 @@ public sealed class SpellCardOverlay : Overlay
             _target = _clyde
                 .CreateRenderTarget(targetSize,
                     new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb),
-                    name: nameof(SpellCardOverlay));
+                    name: nameof(SpecialAnimationOverlay));
         }
 
         screen.RenderInRenderTarget(_target,
@@ -112,7 +114,26 @@ public sealed class SpellCardOverlay : Overlay
 
         var opacity = _currentAnimation.Opacity;
         screen.DrawTexture(_target.Texture, Vector2.Zero, Color.White.WithAlpha(opacity));
-        screen.DrawString(_font, center + _currentAnimation.TextPosition, _currentAnimation.Name ?? "Unknown", Color.White.WithAlpha(opacity));
+
+        // Render text
+        if (_currentAnimation.Text == null)
+            return;
+
+        // Change our font if required
+        if (_font == null ||
+            _font.Value.Path != _currentAnimation.TextFontPath ||
+            _font.Value.Size != _currentAnimation.TextFontSize)
+        {
+            var path = _currentAnimation.TextFontPath;
+            var size = _currentAnimation.TextFontSize;
+            _font = (new VectorFont(_cache.GetResource<FontResource>(path), size), path, size);
+        }
+
+        screen.DrawString(
+            _font.Value.Font,
+            center + _currentAnimation.TextPosition,
+            _currentAnimation.Text,
+            _currentAnimation.TextOverrideColor.WithAlpha(opacity));
     }
 
     private IRenderTexture CreateRenderTarget(Vector2i size, string name)
@@ -134,7 +155,7 @@ public sealed class SpellCardOverlay : Overlay
         _target?.Dispose();
     }
 
-    private bool StartupAnimation(SpellCardAnimationData animation)
+    private bool StartupAnimation(SpecialAnimationData animation)
     {
         var source = _entity.GetEntity(animation.Source);
 
@@ -155,33 +176,38 @@ public sealed class SpellCardOverlay : Overlay
         return true;
     }
 
-    private void CalculateAnimation(SpellCardAnimationData animation)
+    private void CalculateAnimation(SpecialAnimationData animation)
     {
         var curTime = _timing.CurTime;
         var frameTime = (float) (curTime - animation.LastTime).TotalSeconds;
         var fadeInEndTime = animation.StartTime + TimeSpan.FromSeconds(animation.FadeInDuration);
         var fadeOutStartTime = animation.StartTime + TimeSpan.FromSeconds(animation.TotalDuration) - TimeSpan.FromSeconds(animation.FadeOutDuration);
 
-        // Handle animating all fades, movement, and opacity of the current animation.
-        var moveAmount = animation.MoveAngle.ToVec() * animation.MoveSpeed;
-        animation.Position += moveAmount * frameTime;
+        // Move the sprite
+        var distanceVec = animation.EndPosition - animation.StartPosition;
+        var moveAmount = distanceVec * frameTime / animation.TotalDuration;
+        animation.Position += moveAmount;
 
         // Fade-in
         if (fadeInEndTime > curTime)
         {
-            animation.Opacity += animation.FadeInOpacityChange * frameTime;
+            var fadeInOpacityChange = animation.MaxOpacity / animation.FadeInDuration;
+            animation.Opacity += fadeInOpacityChange * frameTime;
+            animation.Opacity = MathF.Min(animation.Opacity, animation.MaxOpacity);
         }
 
         // Fade-out
         if (fadeOutStartTime < curTime)
         {
-            animation.Opacity -= animation.FadeOutOpacityChange * frameTime;
+            var fadeOutOpacityChange = animation.MaxOpacity / animation.FadeOutDuration;
+            animation.Opacity -= fadeOutOpacityChange * frameTime;
+            animation.Opacity = MathF.Max(animation.Opacity, 0f);
         }
 
         animation.LastTime = curTime;
     }
 
-    private void KillAnimation(SpellCardAnimationData animation)
+    private void KillAnimation(SpecialAnimationData animation)
     {
         _entity.QueueDeleteEntity(animation.AnimationEntity);
     }

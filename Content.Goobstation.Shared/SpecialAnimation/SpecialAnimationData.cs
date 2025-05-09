@@ -6,20 +6,16 @@
 using System.Numerics;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.SpellCard;
+namespace Content.Goobstation.Shared.SpecialAnimation;
 
 /// <summary>
 /// Data that is used for playing a spell card animation.
 /// </summary>
 [Serializable, NetSerializable]
 [DataDefinition]
-public sealed partial class SpellCardAnimationData
+public sealed partial class SpecialAnimationData
 {
-    /// <summary>
-    /// The name of the spell card. If specified, will be displayed on the screen
-    /// </summary>
-    [DataField]
-    public string? Name;
+    #region Basic Customization
 
     /// <summary>
     /// Total duration in seconds.
@@ -58,28 +54,46 @@ public sealed partial class SpellCardAnimationData
     public Vector2 StartPosition;
 
     /// <summary>
+    /// Ending point where animation will move.
+    /// </summary>
+    [DataField]
+    public Vector2 EndPosition;
+
+    #endregion
+
+    #region Text Customization
+
+    /// <summary>
+    /// Text for the animation. If specified, will be displayed on the screen
+    /// </summary>
+    [DataField]
+    public string? Text;
+
+    /// <summary>
+    /// Text for the animation. If specified, will be displayed on the screen
+    /// </summary>
+    [DataField]
+    public Color TextOverrideColor = Color.White;
+
+    /// <summary>
     /// Starting point for text to appear.
     /// </summary>
     [DataField]
     public Vector2 TextPosition;
 
     /// <summary>
-    /// How much we should scale the text.
+    /// Font for the text to use.
     /// </summary>
     [DataField]
-    public float TextScale = 1f;
+    public string TextFontPath = "/Fonts/NotoSans/NotoSans-Regular.ttf";
 
     /// <summary>
-    /// Angle that the texture will move to.
+    /// Text font size.
     /// </summary>
     [DataField]
-    public Angle MoveAngle;
+    public int TextFontSize = 26;
 
-    /// <summary>
-    /// Speed of the texture, in pixels per second.
-    /// </summary>
-    [DataField]
-    public float MoveSpeed = 70f;
+    #endregion
 
     /// <summary>
     /// Entity to use for a sprite.
@@ -89,7 +103,8 @@ public sealed partial class SpellCardAnimationData
     public NetEntity Source;
 
     /// <summary>
-    /// Entity that is used to draw a sprite from. Copies all layers from the Source at
+    /// Entity that is used to draw a sprite from. Copies SpriteComponent from
+    /// the Source and then uses it, so it won't break when Source leaves our PVS range.
     /// </summary>
     [ViewVariables]
     [NonSerialized]
@@ -126,36 +141,43 @@ public sealed partial class SpellCardAnimationData
     public TimeSpan LastTime;
 
     /// <summary>
-    /// How much opacity we add each second while in fade-in stage of animation.
+    /// Most basic animation to use. Use this if you're lazy and don't want to make anything special,
+    /// otherwise use <see cref="SpecialAnimationPrototype"/>.
     /// </summary>
-    public float FadeInOpacityChange => MaxOpacity / FadeInDuration;
-
-    /// <summary>
-    /// How much opacity we remove each second while in fade-out stage of animation.
-    /// </summary>
-    public float FadeOutOpacityChange => MaxOpacity / FadeOutDuration;
-
-    public static readonly SpellCardAnimationData DefaultAnimation = new()
+    public static readonly SpecialAnimationData DefaultAnimation = new()
     {
-        Name = null,
         TotalDuration = 2.8f,
-        Scale = 10f,
+        Scale = 15f,
         MaxOpacity = 0.6f,
         FadeInDuration = 0.8f,
         FadeOutDuration = 0.8f,
-        StartPosition = new Vector2(-300, -100),
-        TextPosition = new Vector2(-100, 100),
-        MoveAngle = new Angle(Math.PI * 1.5),
-        MoveSpeed = 60,
+        StartPosition = new Vector2(-300, -150),
+        EndPosition = new Vector2(-300, 250),
+
+        Text = null,
+        TextOverrideColor = Color.White,
+        TextPosition = new Vector2(-250, 100),
+        TextFontSize = 26,
+        TextFontPath = "/Fonts/NotoSans/NotoSans-Bold.ttf", // Bald.
     };
 
-    public SpellCardAnimationData WithName(string name)
+    /// <summary>
+    /// Adds some text to the animation.
+    /// </summary>
+    public SpecialAnimationData WithText(string text)
     {
-        Name = name;
+        Text = text;
         return this;
     }
 
-    public SpellCardAnimationData WithSource(NetEntity source)
+    /// <summary>
+    /// Sets some sprite source to the animation.
+    /// </summary>
+    /// <remarks>
+    /// Make sure that this entity is loaded in PVS
+    /// for the client that this animation is addressed to.
+    /// </remarks>
+    public SpecialAnimationData WithSource(NetEntity source)
     {
         Source = source;
         return this;

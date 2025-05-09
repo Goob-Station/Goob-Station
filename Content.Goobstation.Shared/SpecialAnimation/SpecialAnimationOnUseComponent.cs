@@ -4,20 +4,26 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.SpellCard;
+namespace Content.Goobstation.Shared.SpecialAnimation;
 
-/// <summary>
-/// This is used for...
-/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class SpellCardAnimationOnUseComponent : Component
+public sealed partial class SpecialAnimationOnUseComponent : Component
 {
     /// <summary>
     /// Animation to play when this entity is triggered.
+    /// If not specified, will use default variation.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public SpellCardAnimationData AnimationData;
+    public ProtoId<SpecialAnimationPrototype>? AnimationDataId;
+
+    /// <summary>
+    /// If specified, will override existing text inside SpecialAnimationPrototype.
+    /// Use this to not shitspam with prototypes on each name.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? OverrideText;
 
     [DataField, AutoNetworkedField]
     public SpellCardBroadcastType BroadcastType = SpellCardBroadcastType.Pvs;
