@@ -315,6 +315,7 @@
     sounds:
       Unsexed: UnisexSilicon
     screamAction: null
+  - type: DamagedSiliconAccent
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -395,6 +396,7 @@
     - DoorBumpOpener
     - FootstepSound
     - CanPilot
+    - Unimplantable
   - type: Emoting
   - type: GuideHelp
     guides:
