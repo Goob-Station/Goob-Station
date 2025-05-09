@@ -1,0 +1,23 @@
+- type: entity
+  id: SpellCardFun
+  name: spell card
+  parent: BaseItem
+  description: A spell card in form of an item, that speaks of your presence for all living beings around you.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/spellcard.rsi
+    state: red
+  - type: SpellCardAnimationOnUse
+    animationData: !type:SpellCardAnimationData
+      name: "Special Attack: 65 STRIKE!"
+      totalDuration: 2.8
+      scale: 10.0
+      maxOpacity: 0.6
+      fadeInDuration: 0.8
+      fadeOutDuration: 0.8
+      startPosition: -300,-100
+      textPosition: -100,100
+      moveAngle: 90
+      moveSpeed: 60
+  - type: UseDelay
+    delay: 5
