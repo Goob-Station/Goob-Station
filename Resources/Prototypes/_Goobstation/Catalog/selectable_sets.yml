@@ -210,7 +210,10 @@
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
     state: icon
   content:
-  - ClothingBeltMilitaryRigGrenadierFilledSelectableSet
+  - ClothingBeltMilitaryRigGrenadierFilled
+  - ClothingBackpackSyndicateFilledGrenadier
+  - ClothingOuterSuitBomb
+  - ClothingHeadHelmetBombSuit
   - EncryptionKeySyndie
 
 - type: selectableSet
