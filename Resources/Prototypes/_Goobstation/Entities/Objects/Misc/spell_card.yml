@@ -11,12 +11,12 @@
     animationData: !type:SpellCardAnimationData
       name: "Special Attack: 65 STRIKE!"
       totalDuration: 2.8
-      scale: 10.0
+      scale: 15.0
       maxOpacity: 0.6
       fadeInDuration: 0.8
       fadeOutDuration: 0.8
       startPosition: -300,-100
-      textPosition: -100,100
+      textPosition: -300,150
       moveAngle: 90
       moveSpeed: 60
   - type: UseDelay
