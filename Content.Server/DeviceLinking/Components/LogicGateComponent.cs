@@ -57,7 +57,7 @@ public sealed partial class LogicGateComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<SourcePortPrototype> OutputPort = "Output";
 
-    // Initial state
+    // Initial state, used to not spam invoke ports
     [DataField]
     public SignalState StateA = SignalState.Low;
 
@@ -66,14 +66,4 @@ public sealed partial class LogicGateComponent : Component
 
     [DataField]
     public bool LastOutput;
-}
-
-/// <summary>
-/// Last state of a signal port, used to not spam invoking ports.
-/// </summary>
-public enum SignalState : byte
-{
-    Momentary, // Instantaneous pulse high, compatibility behavior
-    Low,
-    High
 }
