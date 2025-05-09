@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Content.Shared.CCVar;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
@@ -7,7 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.UserInterface.RichText;
+namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
 public sealed class RadioIconTag : BaseTextureTag
 {
@@ -19,34 +18,6 @@ public sealed class RadioIconTag : BaseTextureTag
     public override bool TryGetControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
         control = null;
-
-        /*
-        if (_cfg.GetCVar(CCVars.ChatIconsEnable))
-        {
-            if (!node.Attributes.TryGetValue("path", out var rawPath))
-                return false;
-
-            if (!node.Attributes.TryGetValue("scale", out var scale) || !scale.TryGetLong(out var scaleValue))
-            {
-                scaleValue = 1;
-            }
-
-            if (!TryDrawIcon(rawPath.ToString(), scaleValue.Value, out var texture))
-                return false;
-
-            control = texture;
-        }
-        else
-        {
-            if (!node.Attributes.TryGetValue("text", out var text))
-                return false;
-
-            if (!node.Attributes.TryGetValue("color", out var color))
-                return false;
-
-            control = DrawText(text.ToString(), color.ToString());
-        }
-        */
 
         if (!node.Attributes.TryGetValue("text", out var text))
             return false;

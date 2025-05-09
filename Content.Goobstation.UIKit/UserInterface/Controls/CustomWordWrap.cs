@@ -5,7 +5,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Log;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.UserInterface.Controls;
+namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
 /// <summary>
 /// Helper utility struct for word-wrapping calculations.
@@ -166,7 +166,6 @@ internal struct CustomWordWrap
         return (int)MaxUsedWidth;
     }
 
-    [Pure]
     private static bool IsWordBoundary(Rune a, Rune b)
     {
         return a == new Rune(' ') || b == new Rune(' ') || a == new Rune('-') || b == new Rune('-');

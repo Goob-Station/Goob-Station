@@ -5,7 +5,7 @@ using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Utility;
 using System.Numerics;
 
-namespace Content.Client._Shitcode.UserInterface.Controls;
+namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
 [Virtual]
 public sealed class CustomOutputPanel : Control

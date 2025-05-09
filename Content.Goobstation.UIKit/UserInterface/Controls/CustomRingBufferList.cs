@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.UserInterface.Controls;
+namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
 public sealed class CustomRingBufferList<T> : IList<T>
 {

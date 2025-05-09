@@ -1,4 +1,4 @@
-﻿using Content.Client._Shitcode.UserActions.Controls;
+﻿using Content.Goobstation.UIKit.UserActions.Controls;
 using Content.Client._Shitcode.UserActions.Tabs;
 using Robust.Client.UserInterface.Controllers;
 

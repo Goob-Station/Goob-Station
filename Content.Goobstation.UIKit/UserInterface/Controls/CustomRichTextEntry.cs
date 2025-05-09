@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Numerics;
 using System.Text;
-using Content.Client._Shitcode.UserInterface.RichText;
+using Content.Goobstation.UIKit.UserInterface.RichText;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -10,7 +10,7 @@ using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Collections;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.UserInterface.Controls;
+namespace Content.Goobstation.UIKit.UserInterface.Controls;
 
 internal struct CustomRichTextEntry
 {

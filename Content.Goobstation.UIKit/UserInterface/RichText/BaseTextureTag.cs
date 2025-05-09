@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Client._Shitcode.UserInterface.Controls;
+using Content.Goobstation.UIKit.UserInterface.Controls;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -8,7 +8,7 @@ using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.UserInterface.RichText;
+namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
 public abstract class BaseTextureTag : IMarkupTag
 {

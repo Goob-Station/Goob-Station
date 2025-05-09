@@ -3,7 +3,7 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitcode.UserInterface.RichText;
+namespace Content.Goobstation.UIKit.UserInterface.RichText;
 
 public sealed class EntityTextureTag : BaseTextureTag
 {

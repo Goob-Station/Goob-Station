@@ -4,7 +4,7 @@ using Robust.Client.UserInterface.Controls;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Client._Shitcode.UserActions.Controls;
+namespace Content.Goobstation.UIKit.UserActions.Controls;
 
 [Virtual]
 public class IconButton : Button
