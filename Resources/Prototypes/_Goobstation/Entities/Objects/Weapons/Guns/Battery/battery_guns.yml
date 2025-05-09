@@ -292,7 +292,7 @@
 
 - type: entity
   name: DT-12 "Lawbringer"
-  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponEnergyGunLawbringer
   description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
   components:

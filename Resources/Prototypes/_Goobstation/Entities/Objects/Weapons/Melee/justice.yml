@@ -6,7 +6,7 @@
 
 - type: entity
   name: DT-2 'Justice'
-  parent: [BaseItem, BaseGrandTheftContraband]
+  parent: [BaseItem, BaseSecurityContraband]
   id: Justice
   description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
   components:
