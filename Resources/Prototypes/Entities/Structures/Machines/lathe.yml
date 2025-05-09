@@ -496,7 +496,7 @@
     - Equipment # Goobstation note: handheld mass scanner is removed
     - FauxTiles
     # Goobstation Packs
-    - ServiceWeapons
+    # - ServiceWeapons
     - SpecOpsGoogles
     - MedicalMisc
     - MedicalVehiclesAdvanced
@@ -745,7 +745,7 @@
     - MechWeaponsSecurityHeavy
     - SecurityAmmoGoob
     - SecurityCybernetics
-    - ServiceWeapons
+    # - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
   - type: EmagLatheRecipes # Goobstation

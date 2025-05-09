@@ -10,10 +10,10 @@
   recipes:
   - SyndicateMicrowaveMachineCircuitboard
 
-- type: latheRecipePack
-  id: ServiceWeapons
-  recipes:
-  - WeaponLaserSvalinn
+#- type: latheRecipePack
+#  id: ServiceWeapons
+#  recipes:
+#  - WeaponLaserSvalinn
 
 - type: latheRecipePack
   id: TapeRecorderStatic

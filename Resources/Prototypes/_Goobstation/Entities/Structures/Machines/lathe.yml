@@ -50,7 +50,7 @@
     - EngineeringWeapons
     - PowerCells
     - Equipment
-    - ServiceWeapons
+    # - ServiceWeapons
     - SpecOpsGoogles
     - EngineeringBoards
     - SharedBoards
@@ -106,7 +106,7 @@
     - Mining
     - PowerCells
     - Equipment
-    - ServiceWeapons
+    # - ServiceWeapons
     - MiningWeapons
     - MiningBoards
     - MiningUpgrades
@@ -184,7 +184,7 @@
     - Chemistry
     - Janitor
     - Equipment
-    - ServiceWeapons
+    # - ServiceWeapons
     - Surgery
     - SpecOpsGoogles
     - EngineeringBoards
@@ -243,7 +243,7 @@
     - Janitor
     - Instruments
     - FauxTiles
-    - ServiceWeapons
+    # - ServiceWeapons
     - MedicalMisc
     - MechBoardsCivilian
     - MechWeaponsCivilian

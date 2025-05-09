@@ -24,7 +24,7 @@
   recipes:
   - WeaponProtoKineticAccelerator
   - WeaponPlasmaCutter
-  - WeaponPlasmaRifle
+  # - WeaponPlasmaRifle
 
 - type: latheRecipePack
   id: MiningBoards

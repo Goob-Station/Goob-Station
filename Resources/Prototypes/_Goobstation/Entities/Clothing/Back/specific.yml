@@ -108,6 +108,8 @@
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Backpacks/lmg_backpack.rsi
     layers:
+    - state: icon
+      visible: false
     - state: base
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -136,6 +138,7 @@
       item:
         name: LMG
         priority: 2
+        startingItem: WeaponLaserLMG
         whitelist:
           tags:
           - LaserLMG

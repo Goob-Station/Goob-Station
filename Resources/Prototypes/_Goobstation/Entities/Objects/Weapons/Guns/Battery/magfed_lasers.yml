@@ -29,6 +29,8 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_smg.rsi
     layers:
+    - state: icon
+      visible: false
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-4
@@ -52,6 +54,7 @@
   - type: SurgeryTool
     endSound:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_smg.ogg
+  - type: AmmoCounter
 
 
 - type: entity
@@ -82,6 +85,8 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_sniper.rsi
     layers:
+    - state: icon
+      visible: false
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
@@ -105,14 +110,15 @@
   - type: GunRequiresWield
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 8
-    pvsIncrease: 0.8
+    maxOffset: 5
+    pvsIncrease: 0.5
   - type: SpeedModifiedOnWield
     walkModifier: 0.8
     sprintModifier: 0.8
   - type: SurgeryTool
     endSound:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
+  - type: AmmoCounter
 
 
 - type: entity
@@ -146,6 +152,8 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/cell_revolver.rsi
     layers:
+    - state: icon
+      visible: false
     - state: mag-0
       visible: false
       shader: unshaded
@@ -186,6 +194,7 @@
   - type: SurgeryTool
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: AmmoCounter
 
 
 - type: entity

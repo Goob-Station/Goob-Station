@@ -43,6 +43,10 @@
   - WeaponSubMachineSmart
   - WeaponEnergyRifle
   - WeaponEnergyIonRifle
+  - WeaponLaserCellRevolver
+  - WeaponLaserCellSMG
+  - WeaponLaserCellSniper
+  - ClothingBackpackLMGBattery
 
 - type: latheRecipePack
   id: SecurityAmmoGoob
@@ -55,6 +59,19 @@
   - MagazineBoxShotgunIncendiaryHighCaliber
   - MagazineBoxShotgunBeanbagHighCaliber
   - MagazineBoxShotgunUraniumHighCaliber
+  - PowerCellIRRevolver
+  - PowerCellIonRevolver
+  - PowerCellXrayRevolver
+  - PowerCellOverchargedRevolver
+  - PowerCellIRSMG
+  - PowerCellIonSMG
+  - PowerCellXraySMG
+  - PowerCellOverchargedSMG
+  - PowerCellIRSniper
+  - PowerCellIonSniper
+  - PowerCellXraySniper
+  - PowerCellOverchargedSniper
+  - MilitaryPowerCellLMG
 
 - type: latheRecipePack
   id: SecurityEquipmentDynamicGoob

@@ -130,10 +130,11 @@
   - WeaponTemperatureGun # Goobstation
   - WeaponMechCombatFiredartLaser # Goobstation
   - WeaponEnergyIonRifle # Goobstation - CR second energy bolt update(and ion)
+  - PowerCellIonRevolver # Goobstation
   # Goobstation R&D Console rework start
   position: 4,0
   technologyPrerequisites:
-  - WeaponPlasmaRifleTech
+  - WeaponLaserCellRevolverTech
   # Goobstation R&D Console rework end
 
 - type: technology
@@ -255,6 +256,9 @@
   recipeUnlocks:
   - WeaponXrayCannon
   - HoloprojectorSecurityAdvanced # Goobstation
+  - PowerCellXrayRevolver # Goobstation
+  - PowerCellXraySMG # Goobstation
+  - PowerCellXraySniper # Goobstation
   # Goobstation R&D Console rework start
   technologyPrerequisites:
   - WeaponizedLaserManipulation
@@ -300,6 +304,9 @@
   - PortableRecharger
   - WeaponMechCombatImmolationGun # Goobstation
   - EnergyMagRifleOverchargeLethal # Goobstation - CR second energy bolt update(and ion)
+  - PowerCellOverchargedRevolver # Goobstation
+  - PowerCellOverchargedSMG # Goobstation
+  - PowerCellOverchargedSniper # Goobstation
   # Goobstation R&D Console rework start
   position: 6,0
   technologyPrerequisites:
