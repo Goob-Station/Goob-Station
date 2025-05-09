@@ -483,6 +483,13 @@
   description: And because it's fuckin' FUN! AHAHA! AHAHAHA! AHAH-AAAAAAAA-MEN!
   suffix: Unremoveable
   components:
+  - type: Wieldable
+    wieldSound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: 1
+  - type: MeleeRequiresWield
+    fumbleOnAttempt: true
   - type: Nullrod
     DamageOnUntrainedUse:
       types:
@@ -494,6 +501,7 @@
     sprite: _ShitChap/Objects/Weapons/Nullrod/divinechainsaw.rsi
     state: icon
   - type: MeleeWeapon
+    heavyStaminaCost: 5
     autoAttack: true
     angle: 0
     animationRotation: 90
@@ -501,19 +509,14 @@
     attackRate: 4
     damage:
       types:
-        Blunt: 1
-        Slash: 2
+        Blunt: 2
+        Slash: 3
         Structural: 20
         Holy: 6
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
       params:
         volume: -3
-  - type: UseDelay
-    delay: 3
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Weapons/chainsawwield.ogg
   - type: Item
     size: Ginormous
     sprite: _ShitChap/Objects/Weapons/Nullrod/divinechainsaw.rsi
