@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: StorageBin
+  id: Constructor
+  name: constructor
+  description: The machine putting assistants out of a job, it can build anything using supplied materials.
+  components:
+  - type: Constructor
+  - type: DeviceLinkSink
+    ports:
+    - ConstructorStart
+  - type: DeviceLinkSource
+    ports:
+    - ConstructorStarted
+    - ConstructorComplete
+    - ConstructorFailed
