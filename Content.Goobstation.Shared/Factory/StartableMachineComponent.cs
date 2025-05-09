@@ -39,7 +39,7 @@ public sealed partial class StartableMachineComponent : Component
 
     /// <summary>
     /// Queues an auto start for the next tick.
-    /// </remarks>
+    /// </summary>
     [DataField(serverOnly: true)]
     public bool AutoStartQueued;
 
