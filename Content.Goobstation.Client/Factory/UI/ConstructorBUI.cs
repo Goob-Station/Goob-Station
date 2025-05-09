@@ -91,7 +91,7 @@ public sealed class ConstructorBUI : BoundUserInterface
             categoriesArray[idx++] = cat;
         }
 
-        _menu.OptionCategories.Clear();
+        _menu?.OptionCategories.Clear();
 
         for (var i = 0; i < categoriesArray.Length; i++)
         {
@@ -101,13 +101,13 @@ public sealed class ConstructorBUI : BoundUserInterface
                 _menu.OptionCategories.SelectId(i);
         }
 
-        _menu.Categories = categoriesArray;
+        _menu?.Categories = categoriesArray;
     }
 
     // copypasted and optimised from ConstructionMenuPresenter
     private void PopulateRecipes(string search, string category)
     {
-        if (PlayerManager.LocalEntity is not {} user)
+        if (PlayerManager.LocalEntity is not {} user || _menu is not {} menu)
             return;
 
         search = search.Trim().ToLowerInvariant();
@@ -146,11 +146,11 @@ public sealed class ConstructorBUI : BoundUserInterface
 
         _recipes.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.InvariantCulture));
 
-        var recipesList = _menu.Recipes;
+        var recipesList = menu.Recipes;
         recipesList.Clear();
 
-        _menu.RecipesGridScrollContainer.Visible = false;
-        _menu.Recipes.Visible = true;
+        menu.RecipesGridScrollContainer.Visible = false;
+        menu.Recipes.Visible = true;
 
         // no grid because fuck you
         foreach (var recipe in _recipes)
@@ -173,10 +173,10 @@ public sealed class ConstructorBUI : BoundUserInterface
 
     private void GenerateStepList(ConstructionPrototype proto)
     {
-        if (_construction.GetGuide(proto) is not {} guide)
+        if (_construction.GetGuide(proto) is not {} guide || _menu is not {} menu)
             return;
 
-        var list = _menu.RecipeStepList;
+        var list = menu.RecipeStepList;
         foreach (var entry in guide.Entries)
         {
             var text = entry.Arguments != null
