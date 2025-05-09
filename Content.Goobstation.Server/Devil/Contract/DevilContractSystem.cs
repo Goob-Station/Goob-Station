@@ -142,6 +142,16 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (contract.Comp.IsVictimSigned || contract.Comp.IsDevilSigned)
             return;
 
+        // Death to sec powergame
+        if (HasComp<MindShieldComponent>(args.Signer))
+        {
+            var mindshieldedPopup = Loc.GetString("devil-contract-mind-shielded-failed");
+            _popupSystem.PopupEntity(mindshieldedPopup, args.Signer, args.Signer, PopupType.MediumCaution);
+
+            args.Cancelled = true;
+            return;
+        }
+
         // You can't sell your soul if you already sold it. (also no robits)
         if (HasComp<CondemnedComponent>(args.Signer)
             || HasComp<SiliconComponent>(args.Signer)
@@ -149,15 +159,6 @@ public sealed partial class DevilContractSystem : EntitySystem
         {
             var noSoulPopup = Loc.GetString("devil-contract-no-soul-sign-failed");
             _popupSystem.PopupEntity(noSoulPopup, args.Signer, args.Signer, PopupType.MediumCaution);
-
-            args.Cancelled = true;
-            return;
-        }
-
-        if (HasComp<MindShieldComponent>(args.Signer))
-        {
-            var mindshieldedPopup = Loc.GetString("devil-contract-mind-shielded-failed");
-            _popupSystem.PopupEntity(mindshieldedPopup, args.Signer, args.Signer, PopupType.MediumCaution);
 
             args.Cancelled = true;
             return;
@@ -255,15 +256,11 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             var clauseKey = match.Groups["clause"].Value.Trim().ToLowerInvariant().Replace(" ", "");
 
-            if (_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto))
-            {
-                if (!contract.Comp.CurrentClauses.Add(clauseProto))
-                    continue;
+            if (!_prototypeManager.TryIndex(clauseKey, out DevilClausePrototype? clauseProto)
+                || !contract.Comp.CurrentClauses.Add(clauseProto))
+                continue;
 
-                newWeight += clauseProto.ClauseWeight;
-            }
-            else
-                _sawmill.Warning($"Unknown clause '{clauseKey}' in contract {contract}");
+            newWeight += clauseProto.ClauseWeight;
         }
 
         contract.Comp.ContractWeight = newWeight;
@@ -304,19 +301,25 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             // no duplicates
             if (!processedClauses.Add(clauseKey))
+            {
+                _sawmill.Warning($"Attempted to apply duplicate clause: {clauseKey} on contract {ToPrettyString(contract)}");
                 continue;
+            }
+
 
             var targetEntity = resolver(contract.Comp);
 
             if (targetEntity is not null)
                 ApplyEffectToTarget(targetEntity.Value, clause, contract);
             else
-                _sawmill.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {contract}");
+                _sawmill.Warning($"Invalid target entity from resolver for clause {clauseKey} in contract {ToPrettyString(contract)}");
         }
     }
 
     public void ApplyEffectToTarget(EntityUid target, DevilClausePrototype clause, Entity<DevilContractComponent>? contract)
     {
+        _sawmill.Debug($"Applying {clause.ID} effect to {ToPrettyString(target)}");
+
         AddComponents(target, clause);
 
         RemoveComponents(target, clause);
@@ -338,6 +341,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet); // todo - refactor this shit to use a comp, because modifiers suck bad
+        _sawmill.Debug($"Changed {ToPrettyString(target)} modifier set to {clause.DamageModifierSet}");
     }
 
     private void RemoveComponents(EntityUid target, DevilClausePrototype clause)
@@ -346,6 +350,9 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         EntityManager.RemoveComponents(target, clause.RemovedComponents);
+
+        foreach (var component in clause.RemovedComponents)
+            _sawmill.Debug($"Removed {component.GetType()} from {ToPrettyString(target)}");
     }
 
     private void AddImplants(EntityUid target, DevilClausePrototype clause)
@@ -354,6 +361,9 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         _implant.AddImplants(target, clause.Implants);
+
+        foreach (var implant in clause.Implants)
+            _sawmill.Debug($"Added {implant} to {ToPrettyString(target)}");
     }
 
     private void AddComponents(EntityUid target, DevilClausePrototype clause)
@@ -362,6 +372,9 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         EntityManager.AddComponents(target, clause.AddedComponents);
+
+        foreach (var component in clause.AddedComponents)
+            _sawmill.Debug($"Added {component.GetType()} to {ToPrettyString(target)}");
     }
 
     private void SpawnItems(EntityUid target, DevilClausePrototype clause)
@@ -376,6 +389,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
             var spawnedItem = SpawnNextToOrDrop(item, target);
             _hands.TryPickupAnyHand(target, spawnedItem, false, false, false);
+
+            _sawmill.Debug($"Spawned {item} for {ToPrettyString(target)}");
         }
     }
 
@@ -385,6 +400,7 @@ public sealed partial class DevilContractSystem : EntitySystem
             return;
 
         _polymorph.PolymorphEntity(target, clause.Polymorph.Value);
+        _sawmill.Debug($"Polymorphed {ToPrettyString(target)} to {clause.Polymorph} ");
     }
 
     private void DoSpecialActions(EntityUid target, Entity<DevilContractComponent>? contract, DevilClausePrototype clause)
@@ -400,6 +416,7 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         // you gotta cast this shit to object, don't ask me vro idk either
         RaiseLocalEvent(target, (object)ev, true);
+        _sawmill.Debug($"Raising event: {(object)ev} on {ToPrettyString(target)}. ");
     }
 
     public void AddRandomNegativeClause(EntityUid target)
@@ -413,6 +430,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         var selectedClause = _random.Pick(negativeClauses);
         ApplyEffectToTarget(target, selectedClause, null);
+
+        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
     }
 
     public void AddRandomPositiveClause(EntityUid target)
@@ -426,6 +445,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         var selectedClause = _random.Pick(positiveClauses);
         ApplyEffectToTarget(target, selectedClause, null);
+
+        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
     }
 
     public void AddRandomClause(EntityUid target)
@@ -437,6 +458,8 @@ public sealed partial class DevilContractSystem : EntitySystem
 
         var selectedClause = _random.Pick(clauses);
         ApplyEffectToTarget(target, selectedClause, null);
+
+        _sawmill.Debug($"Selected {selectedClause.ID} effect for {ToPrettyString(target)}");
     }
 
     #endregion
