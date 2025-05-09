@@ -63,8 +63,8 @@ public sealed class TransferHeatOnInteract : EntitySystem
         var targetSpecific = _temperature.GetHeatCapacity(ent);
         var userSpecific = _temperature.GetHeatCapacity(user);
 
-        var δt = targetTemperature.CurrentTemperature - userTemperature.CurrentTemperature;
-        var energy = δt * ent.Comp.TransferRatio * (userSpecific * targetSpecific) / (userSpecific + targetSpecific);
+        var temperatureDelta = targetTemperature.CurrentTemperature - userTemperature.CurrentTemperature;
+        var energy = temperatureDelta * ent.Comp.TransferRatio * (userSpecific * targetSpecific) / (userSpecific + targetSpecific);
 
         _temperature.ChangeHeat(ent, -energy);
         _temperature.ChangeHeat(user, energy);
