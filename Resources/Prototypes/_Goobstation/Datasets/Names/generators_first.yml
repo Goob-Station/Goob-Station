@@ -3,14 +3,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
-  id: goob_generators_names_first
+- type: localizedDataset
+  id: GoobGeneratorsNamesFirst
   values:
-  - Jeff
-  - Bob
-  - Lord
-  - Almighty
-  - The
-  - John
-#  - Sigma 1984
-#  - Skibidi 1984
+    prefix: goob-generators-names-first-dataset-
+    count: 6
