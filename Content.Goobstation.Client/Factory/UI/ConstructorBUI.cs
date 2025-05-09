@@ -55,6 +55,8 @@ public sealed class ConstructorBUI : BoundUserInterface
                 _id = proto.ID;
                 _menu.SetRecipeInfo(proto.Name, proto.Description, _sprite.Frame0(proto.Icon),
                     proto.Type != ConstructionType.Item, true); // TODO: favourites
+
+                GenerateStepList(proto);
             }
             else
             {
