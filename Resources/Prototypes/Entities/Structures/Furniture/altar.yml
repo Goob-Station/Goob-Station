@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2022 Deahaka <96499407+Deahaka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Just-a-Unity-Dev <just-a-unity-dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Colin-Tel <113523727+Colin-Tel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: AltarBase
   parent: BaseStructure
@@ -8,9 +23,6 @@
   - type: Anchorable
   - type: Transform
   - type: Prayable
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Wood
   - type: PlaceableSurface
   - type: Fixtures
     fixtures:
@@ -27,6 +39,7 @@
     snapCardinals: true
   - type: Climbable
   - type: Clickable
+  - type: EnchantingTable # Goobstation
 
 - type: entity
   id: AltarNanotrasen
@@ -39,33 +52,13 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: nanotrasen
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 125
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 5
-          MaterialCloth1:
-            min: 1
-            max: 3
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: StealTarget
-    stealGroup: AltarNanotrasen
+  - type: Construction
+    graph: AltarsGraph
+    node: NanotrasenAltarNode
+  - type: AltarSource
+    rodProto: AtheistFedora
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarChaos
@@ -78,6 +71,17 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: chaos
+  - type: PointLight
+    radius: 1.5
+    energy: 1
+    color: "#fbb1b1"
+  - type: AltarSource
+    rodProto: GodHand
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: ChaosAltarNode
 
 - type: entity
   id: AltarDruid
@@ -90,6 +94,13 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: druid
+  - type: AltarSource
+    rodProto: MonkStaff
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: DruidAltarNode
 
 - type: entity
   id: AltarToolbox
@@ -102,6 +113,13 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/nanotrasen.rsi
     state: toolbox
+  - type: AltarSource
+    rodProto: HolyChainsaw # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: ToolAltarNode
 
 - type: entity
   id: AltarSpaceChristian
@@ -121,6 +139,13 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: AltarSource
+    rodProto: Rosary
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: SpaceChristianAltarNode
 
 - type: entity
   id: AltarSatana
@@ -159,6 +184,13 @@
     radius: 1.5
     energy: 1
     color: "#e0ffff"
+  - type: Construction
+    graph: AltarsGraph
+    node: TechnologyAltarNode
+  - type: AltarSource
+    rodProto: ClothingBeltHolsterFilledChaplain
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
 
 - type: entity
   id: AltarConvertFestival
@@ -171,33 +203,6 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
     state: festival
-  - type: Damageable
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 15
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroyHeavy
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MaterialWoodPlank:
-            min: 1
-            max: 5
-          MaterialCloth1:
-            min: 1
-            max: 3
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Tag
     tags:
     - Wooden
@@ -208,18 +213,24 @@
   name: maint altar
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    sprite: _ShitChap/Structures/convertaltar.rsi
     layers:
     - state: maint
-    - state: lightning
       shader: unshaded
   - type: Icon
-    sprite: Structures/Furniture/Altars/Gods/convertaltar.rsi
+    sprite: _ShitChap/Structures/convertaltar.rsi
     state: maint
   - type: PointLight
     radius: 1.5
     energy: 1
-    color: "#fbceb1"
+    color: "#ff6347"
+  - type: AltarSource
+    rodProto: UristHand # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: MaintsAltarNode
 
 - type: entity
   id: AltarConvertBlue
@@ -277,6 +288,9 @@
     radius: 1.5
     energy: 1
     color: "#fbceb1"
+  - type: Construction
+    graph: AltarsGraph
+    node: AltarConvertNode
 
 - type: entity
   id: AltarConvertOrange
@@ -368,28 +382,13 @@
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/heaven.rsi
     state: full
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 125
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+  - type: Construction
+    graph: AltarsGraph
+    node: HeavenAltarNode
+  - type: AltarSource
+    rodProto: HolyClaymore
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
   - type: PointLight
     radius: 1.5
     energy: 1
@@ -404,7 +403,13 @@
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
   - type: Icon
     sprite: Structures/Furniture/Altars/Cults/fangs.rsi
-
+  - type: AltarSource
+    rodProto: ArrythmicKnife # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Effects/hallelujah.ogg
+  - type: Construction
+    graph: AltarsGraph
+    node: FangedAltarNode
 
 - type: entity
   id: AltarBananium
@@ -416,5 +421,9 @@
     sprite: Structures/Furniture/Altars/Cults/bananium.rsi
     state: full
   - type: Construction
-    graph: BananiumAltarGraph
-    node: bananiumAltar
+    graph: AltarsGraph
+    node: BananiumAltarNode
+  - type: AltarSource
+    rodProto: HonkmotherMaw # Shitchap
+    effectProto: EffectSpark
+    soundPath: /Audio/Items/bikehorn.ogg

@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2024 NULL882 <gost6865@yandex.ru>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Tier 1
 - type: technology
   id: AccessibilityTech
@@ -11,6 +25,9 @@
   recipeUnlocks:
   - VehicleHoverchairSci
   - PrescriptionGlasses
+  position: 3,4
+  technologyPrerequisites:
+  - AdvancedEntertainment
 
 - type: technology
   id: MedicalDefense
@@ -23,6 +40,9 @@
   cost: 5000
   recipeUnlocks:
   - SyringeGun
+  position: 3,6
+  technologyPrerequisites:
+  - BiochemicalStasis
 
 - type: technology
   id: RescueTechnology
@@ -36,6 +56,9 @@
   recipeUnlocks:
   - HandheldCrewMonitor
   - DefibrillatorCompact
+  position: 4,6
+  technologyPrerequisites:
+  - BiochemicalStasis
 
 # Tier 2
 
@@ -51,5 +74,8 @@
   recipeUnlocks:
   - MechEquipmentHonkerBananaMortar
   - MechEquipmentHonkerMousetrapMortar
+  position: 0,6
+  technologyPrerequisites:
+  - HONKMech
 
 # Tier 3

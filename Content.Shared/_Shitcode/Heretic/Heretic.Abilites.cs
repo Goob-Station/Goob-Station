@@ -1,8 +1,22 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 yglop <95057024+yglop@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -73,6 +87,15 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // opens ui
+
+public sealed partial class EventHereticShadowCloak : InstantActionEvent
+{
+    [DataField]
+    public ProtoId<StatusEffectPrototype> Status = "ShadowCloak";
+
+    [DataField]
+    public TimeSpan Lifetime = TimeSpan.FromSeconds(180);
+}
 
 // living heart
 [Serializable, NetSerializable] public sealed partial class EventHereticLivingHeartActivate : BoundUserInterfaceMessage // triggers the logic
@@ -188,6 +211,8 @@ public sealed partial class EventHereticAggressiveSpread : InstantActionEvent
 }
 
 // side
+public sealed partial class EventHereticIceSpear : InstantActionEvent;
+
 public sealed partial class EventHereticCleave : WorldTargetActionEvent
 {
     [DataField]
@@ -211,6 +236,15 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
 
     [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
+}
+
+public sealed partial class EventHereticRustCharge : WorldTargetActionEvent
+{
+    [DataField]
+    public float Distance = 10f;
+
+    [DataField]
+    public float Speed = 10f;
 }
 
 // ascensions

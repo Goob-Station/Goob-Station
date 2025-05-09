@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Robust.Shared.Animations;
 using Robust.Shared.GameStates;
@@ -49,6 +56,9 @@ public sealed partial class TrailComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? RenderedEntity;
+
+    [DataField]
+    public bool NoRenderIfRenderedEntityDeleted = true;
 
     /// <summary>
     /// Whether to use <see cref="RenderedEntity"/> rotation (if it is not null), trail entity rotation,

@@ -1,6 +1,32 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
+# SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# btw who tf named this file tool-qualities instead of tool_qualities broo
 - type: tool
   id: Axing
   name: tool-quality-axing-name
   toolName: tool-quality-axing-tool-name
   spawn: FireAxe
   icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
+
+- type: tool
+
+  id: Hammering
+  name: tool-quality-hammering-name
+  toolName: tool-quality-hammering-tool-name
+  spawn: MeleeHammer
+  icon: { sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi, state: icon }
+
+- type: tool
+  id: Painting
+  name: tool-quality-painting-name
+  toolName: tool-quality-painting-tool-name
+  spawn: SprayPainter
+  icon: { sprite: Objects/Tools/spray_painter.rsi, state: spray_painter }

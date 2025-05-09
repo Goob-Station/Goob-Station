@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 chuuni-eyepatch-backstory-1 = [color=hotpink]This eyepatch is a seal that contains the power of the demon king. If I remove it, I will unleash a cataclysmic destruction upon the world.[/color]
 chuuni-eyepatch-backstory-2 = [color=hotpink]This eyepatch is a gift from the angel of light. It allows me to see the true nature of things and protect the innocent from harm.[/color]
 chuuni-eyepatch-backstory-3 = [color=hotpink]This eyepatch is a mark of my contract with the dragon god. It grants me access to his ancient wisdom and fiery breath.[/color]

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseBulletTrigger
   id: FireballChain
@@ -6,6 +13,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ChainFireball
+  - type: Reflective
+    reflective: Magic
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -26,3 +35,34 @@
         Heat: 5
   - type: TimedDespawn
     lifetime: 1
+
+- type: entity
+  parent: BaseBullet
+  id: ProjectileWaveRust
+  name: patron's reach
+  description: Toxic.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/projectiles.rsi
+    layers:
+    - state: eldritch_projectile
+      shader: unshaded
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    damage:
+      types:
+        Poison: 30
+  - type: TimedDespawn
+    lifetime: 2.5
+  - type: RustObjectsInRadius
+    rustRadius: 0.8
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.1
+    lifetime: 2.5
+    alphaLerpAmount: 0.2
+    sprite:
+      sprite: /Textures/_Goobstation/Heretic/projectiles.rsi
+      state: eldritch_projectile

@@ -1,13 +1,33 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+// SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <slambamactionman@gmail.com>
+// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
+// SPDX-FileCopyrightText: 2025 ss14-Starlight <ss14-Starlight@outlook.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Atmos.Components;  //Goobstation - Ventcrawler
 using Content.Shared.DrawDepth;
+using Content.Client.UserInterface.Systems.Sandbox;
 using Content.Shared.SubFloor;
 using Robust.Client.GameObjects;
+using Robust.Client.UserInterface;
+using Robust.Shared.Player;
 
 namespace Content.Client.SubFloor;
 
 public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     private bool _showAll;
     private bool _showVentPipe; //Goobstation - Ventcrawler
@@ -20,8 +40,13 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         {
             if (_showAll == value) return;
             _showAll = value;
+            _ui.GetUIController<SandboxUIController>().SetToggleSubfloors(value);
 
-            UpdateAll();
+            var ev = new ShowSubfloorRequestEvent()
+            {
+                Value = value,
+            };
+            RaiseNetworkEvent(ev);
         }
     }
 
@@ -44,6 +69,20 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
         base.Initialize();
 
         SubscribeLocalEvent<SubFloorHideComponent, AppearanceChangeEvent>(OnAppearanceChanged);
+        SubscribeNetworkEvent<ShowSubfloorRequestEvent>(OnRequestReceived);
+        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnPlayerDetached);
+    }
+
+    private void OnPlayerDetached(LocalPlayerDetachedEvent ev)
+    {
+        // Vismask resets so need to reset this.
+        ShowAll = false;
+    }
+
+    private void OnRequestReceived(ShowSubfloorRequestEvent ev)
+    {
+        // When client receives request Queue an update on all vis.
+        UpdateAll();
     }
 
     private void OnAppearanceChanged(EntityUid uid, SubFloorHideComponent component, ref AppearanceChangeEvent args)
@@ -81,9 +120,15 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         args.Sprite.Visible = hasVisibleLayer || revealed;
 
-        // allows a t-ray to show wires/pipes above carpets/puddles
-        if (scannerRevealed)
+        if (ShowAll)
         {
+            // Allows sandbox mode to make wires visible over other stuff.
+            component.OriginalDrawDepth ??= args.Sprite.DrawDepth;
+            args.Sprite.DrawDepth = (int)Shared.DrawDepth.DrawDepth.Overdoors;
+        }
+        else if (scannerRevealed)
+        {
+            // Allows a t-ray to show wires/pipes above carpets/puddles.
             if (component.OriginalDrawDepth is not null)
                 return;
             component.OriginalDrawDepth = args.Sprite.DrawDepth;

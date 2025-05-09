@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.CriminalRecords.Systems;
 using Content.Shared.Dataset;
 using Robust.Shared.GameStates;
@@ -21,7 +27,7 @@ public sealed partial class CriminalRecordsHackerComponent : Component
     /// Dataset of random reasons to use.
     /// </summary>
     [DataField]
-    public ProtoId<DatasetPrototype> Reasons = "CriminalRecordsWantedReasonPlaceholders";
+    public ProtoId<LocalizedDatasetPrototype> Reasons = "CriminalRecordsWantedReasonPlaceholders";
 
     /// <summary>
     /// Announcement made after the console is hacked.

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 - files: ["mechmove03.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from TG station."

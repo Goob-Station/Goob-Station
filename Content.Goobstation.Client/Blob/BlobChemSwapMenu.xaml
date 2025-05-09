@@ -1,4 +1,15 @@
-﻿<DefaultWindow xmlns="https://spacestation14.io"
+<!--
+SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+SPDX-FileCopyrightText: 2024 Fishbait <Fishbait@git.ml>
+SPDX-FileCopyrightText: 2024 fishbait <gnesse@gmail.com>
+SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+
+<DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc 'blob-chem-swap-ui-window-name'}"
                MinSize="250 300"
                SetSize="250 300">

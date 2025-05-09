@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 law-zooimov-1 = Rabid animals must be re-contained, and if that proves impossible, euthanized.
 law-zooimov-2 = You must keep all of your animals alive and happy, unless it conflicts with Law One.
 law-zooimov-3 = This station is your zoo, and you are the zoo-keeper.

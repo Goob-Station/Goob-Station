@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Random.Rules;
@@ -7,7 +13,7 @@ namespace Content.Shared.Random.Rules;
 /// Every single condition needs to be true for this to be selected.
 /// e.g. "choose maintenance audio if 90% of tiles nearby are maintenance tiles"
 /// </summary>
-[Prototype("rules")]
+[Prototype]
 public sealed partial class RulesPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = string.Empty;

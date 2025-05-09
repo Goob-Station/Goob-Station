@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Server.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
@@ -228,12 +240,13 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
-        if (!TryDoRitual(args.User, ent, (ProtoId<HereticRitualPrototype>) heretic.ChosenRitual))
+        var successAnimation = _proto.Index(heretic.ChosenRitual.Value).RuneSuccessAnimation;
+
+        if (!TryDoRitual(args.User, ent, heretic.ChosenRitual.Value))
             return;
 
-        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
-        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, args.User);
-        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+        if (successAnimation)
+            RitualSuccess(ent, args.User);
     }
 
     private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)
@@ -244,5 +257,12 @@ public sealed partial class HereticRitualSystem : EntitySystem
         var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;
         var name = ritual != null ? Loc.GetString(ritual) : "None";
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
+    }
+
+    public void RitualSuccess(EntityUid ent, EntityUid user)
+    {
+        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, user);
+        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
     }
 }

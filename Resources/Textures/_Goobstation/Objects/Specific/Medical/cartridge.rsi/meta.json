@@ -1,32 +1,17 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by ReggieTheRat/a_person5660, cartridge-saline state by pheenty",
+  "copyright": "Original sprite by ReggieTheRat/a_person5660; reworked to work with layers by pheenty",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "cartridge"
+      "name": "base"
     },
     {
-      "name": "cartridge-bicaridine"
-    },
-    {
-      "name": "cartridge-dermaline"
-    },
-    {
-      "name": "cartridge-epinephrine"
-    },
-    {
-      "name": "cartridge-ephedrine"
-    },
-    {
-      "name": "cartridge-ichor"
-    },
-    {
-      "name": "cartridge-saline"
+      "name": "filling"
     }
   ]
 }

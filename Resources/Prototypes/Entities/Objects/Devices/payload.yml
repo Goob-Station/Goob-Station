@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Ripmorld <60119809+UKNOWH@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseItem
   abstract: true
@@ -20,34 +35,47 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  name: explosive payload
+  name: shrapnel payload # Goobstation - shrapnel payload
   parent: BasePayload
   id: ExplosivePayload
   components:
   - type: Sprite
     sprite: Objects/Devices/payload.rsi
     state: payload-explosive-armed
-  - type: Explosive
-    explosionType: Default
-    # same as the standard grenade, but those numbers were also just picked out of a hat.
-    maxIntensity: 10
-    intensitySlope: 3
-    totalIntensity: 120 # about a ~4 tile radius
-  - type: ExplodeOnTrigger
+  # Goobstation - shrapnel payload
+  #- type: Explosive
+  #  explosionType: Default
+  #  # same as the standard grenade, but those numbers were also just picked out of a hat.
+  #  maxIntensity: 10
+  #  intensitySlope: 3
+  #  totalIntensity: 120 # about a ~4 tile radius
+  #- type: ExplodeOnTrigger
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 25
-      behaviors:
-      - !type:ExplodeBehavior
+  #  - trigger:
+  #      !type:DamageTypeTrigger
+  #      damageType: Heat
+  #      damage: 25
+  #   behaviors:
+  #    - !type:ExplodeBehavior
+  #  - trigger:
+  #      !type:DamageTrigger
+  #      damage: 50
+  #    behaviors:
+  #    - !type:DoActsBehavior
+  #      acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 25
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+      - !type:TriggerBehavior
+  - type: DeleteOnTrigger
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade # Should be worse than the syndicate one
+    fillPrototype: PelletClusterLethalWeak
+    capacity: 20
 
 - type: entity
   name: chemical payload
@@ -101,6 +129,7 @@
     - type: DeleteOnTrigger
     - type: FlashOnTrigger
       range: 6
+    - type: Flashbang # Goobstation
     - type: EmitSoundOnTrigger
       sound:
         path: "/Audio/Effects/flash_bang.ogg"

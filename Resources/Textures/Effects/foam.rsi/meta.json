@@ -94,6 +94,35 @@
                     0.1
                 ]
             ]
+        },
+        {
+            "name": "resin"
+        },
+        {
+            "name": "resin-west"
+        },
+        {
+            "name": "resin-east"
+        },
+        {
+            "name": "resin-north"
+        },
+        {
+            "name": "resin-south"
+        },
+        {
+            "name": "resin-dissolve",
+            "directions": 1,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
         }
     ]
 }

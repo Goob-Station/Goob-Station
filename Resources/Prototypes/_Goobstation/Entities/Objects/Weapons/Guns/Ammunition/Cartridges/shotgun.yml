@@ -1,9 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 ## Buckshot
 
 # Buckshot
 - type: entity
   id: ShellShotgunHighCaliber
-  name: shell (.75 carpshot)
+  name: shell (8 Gauge carpshot)
   parent: BaseShellShotgun
   components:
   - type: Tag
@@ -22,7 +29,7 @@
 
 - type: entity
   id: ShellShotgunHighCaliberIncendiary
-  name: shell (.75 dragons breath)
+  name: shell (8 Gauge dragons breath)
   parent: ShellShotgunHighCaliber
   components:
     - type: Tag
@@ -40,7 +47,7 @@
 
 - type: entity
   id: ShellShotgunHighCaliberPractice
-  name: shell (.75 practice)
+  name: shell (8 Gauge practice)
   parent: ShellShotgunHighCaliber
   components:
     - type: Tag
@@ -58,7 +65,7 @@
 
 - type: entity
   id: ShellShotgunHighCaliberUranium
-  name: shell (.75 depleted uranium)
+  name: shell (8 Gauge depleted uranium)
   parent: ShellShotgunHighCaliber
   components:
     - type: Tag
@@ -79,7 +86,7 @@
 # Slug
 - type: entity
   id: ShellShotgunSlugHighCaliber
-  name: shell (.75 slug)
+  name: shell (8 Gauge slug)
   parent: BaseShellShotgun
   components:
     - type: Tag
@@ -99,7 +106,7 @@
 # Ensnaring
 - type: entity
   id: ShellShotgunSlugEnsnaring
-  name: cartridge (.75 caliber ensnaring slug)
+  name: cartridge (8 Gauge caliber ensnaring slug)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -118,7 +125,7 @@
 # EMP
 - type: entity
   id: ShellShotgunSlugEMP
-  name: cartridge (.75 caliber EMP slug)
+  name: cartridge (8 Gauge caliber EMP slug)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -137,7 +144,7 @@
 # Flash
 - type: entity
   id: ShellShotgunSlugFlash
-  name: cartridge (.75 caliber flash slug)
+  name: cartridge (8 Gauge caliber flash slug)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -156,7 +163,7 @@
 # Beanbag
 - type: entity
   id: ShellShotgunBeanbagHighCaliber
-  name: shell (.75 beanbag)
+  name: shell (8 Gauge beanbag)
   parent: ShellShotgunSlugHighCaliber
   components:
   - type: Tag
@@ -172,5 +179,20 @@
   - type: SpentAmmoVisuals
     state: "beanbag"
 
-
-
+- type: entity
+  id: ShellShotgunHighCaliberSarin
+  name: shell (8 Gauge sarin gas)
+  parent: ShellShotgunSlugHighCaliber
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - ShellShotgunHeavy
+    - type: Sprite
+      layers:
+        - state: practice
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: BulletShotgunHeavySlugSarin
+    - type: SpentAmmoVisuals
+      state: "practice"

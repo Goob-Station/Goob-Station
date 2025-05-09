@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
 buzzochloricbees-effect-oh-god-bees = You are swarmed by many, many bees.
 buzzochloricbees-effect-its-the-bees = It's the bees, oh god the bees.
 buzzochloricbees-effect-why-am-i-covered-in-bees = You are covered in angry bees.

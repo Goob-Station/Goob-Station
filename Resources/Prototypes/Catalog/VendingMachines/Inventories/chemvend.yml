@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <@deltanedas:kde.org>
+# SPDX-FileCopyrightText: 2023 freeman2651 <104049107+freeman2651@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tonk-GCR <ryantrujillo82@gmail.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: vendingMachineInventory
   id: ChemVendInventory
   startingInventory:
@@ -26,8 +38,8 @@
     DrinkLithiumFlask: 1
     StrangePill: 3
   emaggedInventory:
-    ToxinChemistryBottle: 1
-    LeadChemistryBottle: 2
+    ChemistryBottleToxin: 1
+    ChemistryBottleLead: 2
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
@@ -54,12 +66,13 @@
     JugSugar: 3
     JugSulfur: 1
     JugWeldingFuel: 1
+    PlasmaChemistryVial: 1
   contrabandInventory:
     DrinkLithiumFlask: 1
     StrangePill: 3
   emaggedInventory:
-    PaxChemistryBottle: 3
-    MuteToxinChemistryBottle: 3
-    LeadChemistryBottle: 2
-    ToxinChemistryBottle: 1
-    
+    ChemistryBottlePax: 3
+    ChemistryBottleMuteToxin: 3
+    ChemistryBottleLead: 2
+    ChemistryBottleToxin: 1
+

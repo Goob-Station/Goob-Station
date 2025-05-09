@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2022 Deahaka <96499407+Deahaka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: MIT
+
+#Add satanic when ready
 - type: entity
   name: random altar spawner
   id: AltarSpawner
@@ -15,8 +22,12 @@
         - AltarDruid
         - AltarToolbox
         - AltarSpaceChristian
-        - AltarSatana
         - AltarTechnology
+        - AltarConvert
+        - AltarHeaven
+        - AltarFangs
+        - AltarBananium
+        - AltarConvertMaint
       offset: 0.0
 
 - type: entity
@@ -32,14 +43,6 @@
     - type: RandomSpawner
       prototypes:
         - AltarConvert
-        - AltarConvertFestival
-        - AltarConvertMaint
-        - AltarConvertBlue
-        - AltarConvertBurden
-        - AltarConvertOrange
-        - AltarConvertRed
-        - AltarConvertWhite
-        - AltarConvertYellow
       offset: 0.0
 
 - type: entity

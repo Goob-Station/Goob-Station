@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: flavor
   id: eldritch
   flavorType: Complex
@@ -31,6 +38,7 @@
             Airloss: -3
             Brute: -3
             Genetic: -3
+            Metaphysical: -5
         conditions:
         - !type:HasComponentCondition
           components:
@@ -85,8 +93,8 @@
         probability: 0.5
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: 5
+          types:
+            Poison: 5
         conditions:
         - !type:HasComponentCondition
           components:
@@ -94,3 +102,5 @@
             - Ghoul
           guidebookComponentName: reagent-comp-condition-heretic-or-ghoul
           invert: true
+  tileReactions:
+  - !type:ChangeTileReaction # Rusts tile

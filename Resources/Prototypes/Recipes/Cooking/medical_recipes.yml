@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 blueDev2 <89804215+blueDev2@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: microwaveMealRecipe
   id: RecipeAloeCream
   name: aloe cream recipe

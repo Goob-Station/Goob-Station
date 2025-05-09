@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   id: ActionHereticRustConstruction
   name: Rust Formation
@@ -62,3 +68,25 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-rust-plume
+
+- type: entity
+  id: ActionHereticRustWave
+  name: Patron's Reach
+  description: Release a toxic wave of rust.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityWorldTargetAction
+    range: 0
+    useDelay: 35
+    itemIconStyle: NoItem
+    sound:
+      path: /Audio/Items/welder.ogg
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: rust_wave
+    checkCanAccess: false
+    checkCanInteract: true
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileWaveRust
+      speech: heretic-speech-rust-wave
+      speed: 2.8

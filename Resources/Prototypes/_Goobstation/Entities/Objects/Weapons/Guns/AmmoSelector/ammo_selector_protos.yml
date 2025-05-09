@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: selectableAmmo
   id: BulletLaserSpread
   desc: Wide laser spread.
@@ -54,3 +59,75 @@
   color: blue
   protoId: BulletEnergyGunIon
   fireCost: 100
+
+# Lawbringer Projectiles
+
+- type: selectableAmmo
+  id: BulletEnergyGunClownshot
+  desc: A projectile capable of sending clowns, and only clowns, flying away.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: clownshot
+  color: yellow
+  protoId: BulletClownshot
+  fireCost: 40
+
+- type: selectableAmmo
+  id: BulletEnergyGunPulse
+  desc: Throws back enemies a fair distance, along with disorenting them.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: pulse
+  color: blue
+  protoId: BulletPulse
+  fireCost: 80
+
+- type: selectableAmmo
+  id: BulletEnergyGunDetain
+  desc: Causes large amounts of stamina damage, and disorients the enemy.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: blue
+  protoId: BulletDetain
+  fireCost: 80
+
+- type: selectableAmmo
+  id: BulletEnergyGunExecute
+  desc: A highly damaging, and slightly radioactive bolt. Great for putting things down.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: execute
+  color: green
+  protoId: BulletExecute
+  fireCost: 120
+
+- type: selectableAmmo
+  id: BulletEnergyGunHotshot
+  desc: A firey bolt, capable of lighting foes on fire.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: hotshot
+  color: red
+  protoId: BulletHotshot
+  fireCost: 100
+
+- type: selectableAmmo
+  id: BulletEnergyGunSleepshot
+  desc: A lightly-damaging bolt, capable of removing stimulants from a targets system, and inducing drowsiness.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: sleepshot
+  color: pink
+  protoId: BulletSleepshot
+  fireCost: 120
+
+- type: selectableAmmo
+  id: BulletEnergyGunBigshot
+  desc: While dealing less damage to living creatures, this bolt is especially effective at tearing apart structures.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: bigshot
+  color: gray
+  protoId: BulletBigshot
+  fireCost: 120

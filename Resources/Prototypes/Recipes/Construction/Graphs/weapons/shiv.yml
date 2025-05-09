@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2023 TaralGit <76408146+TaralGit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 and_a <and_a@DESKTOP-RJENGIR>
+# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: constructionGraph
   id: ShivConstruct
   start: start
@@ -6,6 +14,10 @@
     entity: ShardGlass
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -20,6 +32,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: GlassShard
         name: glass shard
@@ -41,6 +57,10 @@
     entity: ShardGlassReinforced
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -55,6 +75,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: ReinforcedGlassShard
         name: reinforced glass shard
@@ -76,6 +100,10 @@
     entity: ShardGlassPlasma
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -90,6 +118,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: PlasmaGlassShard
         name: plasma glass shard
@@ -111,6 +143,10 @@
     entity: ShardGlassUranium
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - material: Cloth
         amount: 1
@@ -125,6 +161,10 @@
   - node: start
     edges:
     - to: icon
+      completed:
+      - !type:AdminLog
+        message: "Construction"
+        impact: High
       steps:
       - tag: UraniumGlassShard
         name: uranium glass shard

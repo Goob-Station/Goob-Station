@@ -1,7 +1,43 @@
+// SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2024 Alice "Arimah" Heurlin <30327355+arimah@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 PJBot <pieterjan.briers+bot@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Truoizys <153248924+Truoizys@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
+// SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Server.Movement.Components;
 using Content.Server.Physics.Controllers;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Conveyor;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
 using Content.Shared.Movement.Pulling.Components;
@@ -121,6 +157,12 @@ public sealed class PullController : VirtualController
 
         var pulled = pullerComp.Pulling;
 
+        // See update statement; this thing overwrites so many systems, DOESN'T EVEN LERP PROPERLY.
+        // We had a throwing version but it occasionally had issues.
+        // We really need the throwing version back.
+        if (TryComp(pulled, out ConveyedComponent? conveyed) && conveyed.Conveying)
+            return false;
+
         if (!_pullableQuery.TryComp(pulled, out var pullable))
             return false;
 
@@ -131,7 +173,7 @@ public sealed class PullController : VirtualController
 
         // Cap the distance
         var range = 2f;
-        var fromUserCoords = coords.WithEntityId(player, EntityManager);
+        var fromUserCoords = _transformSystem.WithEntityId(coords, player);
         var userCoords = new EntityCoordinates(player, Vector2.Zero);
 
         if (!_transformSystem.InRange(coords, userCoords, range))
@@ -149,7 +191,7 @@ public sealed class PullController : VirtualController
             }
 
             fromUserCoords = new EntityCoordinates(player, direction.Normalized() * (range - 0.01f));
-            coords = fromUserCoords.WithEntityId(coords.EntityId);
+            coords = _transformSystem.WithEntityId(fromUserCoords, coords.EntityId);
         }
 
         var moving = EnsureComp<PullMovingComponent>(pulled!.Value);
@@ -240,7 +282,7 @@ public sealed class PullController : VirtualController
             var pullerXform = _xformQuery.Get(puller);
             var pullerPosition = TransformSystem.GetMapCoordinates(pullerXform);
 
-            var movingTo = mover.MovingTo.ToMap(EntityManager, TransformSystem);
+            var movingTo = TransformSystem.ToMapCoordinates(mover.MovingTo);
 
             if (movingTo.MapId != pullerPosition.MapId)
             {
@@ -251,6 +293,13 @@ public sealed class PullController : VirtualController
             if (!TryComp<PhysicsComponent>(pullableEnt, out var physics) ||
                 physics.BodyType == BodyType.Static ||
                 movingTo.MapId != pullableXform.MapID)
+            {
+                RemCompDeferred<PullMovingComponent>(pullableEnt);
+                continue;
+            }
+
+            // TODO: This whole thing is slop and really needs to be throwing again
+            if (TryComp(pullableEnt, out ConveyedComponent? conveyed) && conveyed.Conveying)
             {
                 RemCompDeferred<PullMovingComponent>(pullableEnt);
                 continue;

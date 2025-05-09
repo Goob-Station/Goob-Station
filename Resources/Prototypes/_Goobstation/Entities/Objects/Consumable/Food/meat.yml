@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2024 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <92357316+Piras314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   name: raw gondola meat
   parent: FoodMeatRawBase
@@ -48,3 +58,55 @@
   - type: Construction
     graph: GondolaSteak
     node: gondola steak
+
+- type: entity
+  name: raw bingle meat
+  parent: FoodMeatRawBase
+  id: FoodMeatBingle
+  description: Smells like shit.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
+    state: binglemeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 10
+        - ReagentId: Fat
+          Quantity: 9
+        - ReagentId: BingleJuice
+          Quantity: 1
+  - type: Construction
+    graph: BingleSteak
+    node: start
+    defaultTarget: bingle steak
+
+- type: entity
+  name: bingle steak
+  parent: FoodMeatBase
+  id: FoodMeatBingleCooked
+  description: Still smells like shit.
+  components:
+  - type: Tag
+    tags:
+    - Cooked
+    - Meat
+    - Steak
+  - type: Sprite
+    sprite: _Goobstation/Objects/Consumable/Food/bingle.rsi
+    state: cookedbinglemeat
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: BingleJuice
+          Quantity: 2
+  - type: Construction
+    graph: BingleSteak
+    node: bingle steak

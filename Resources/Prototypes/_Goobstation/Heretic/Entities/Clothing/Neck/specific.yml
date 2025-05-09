@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ ClothingNeckBase, BaseMagicContraband ]
   id: ClothingNeckAmberFocus
@@ -5,12 +14,17 @@
   description: An amber focusing glass that provides a link to the world beyond. The necklace seems to twitch, but only when you look at it from the corner of your eye.
   suffix: MagicItem
   components:
-    - type: HereticMagicItem
-    - type: Sprite
-      sprite: _Goobstation/Heretic/amber_focus.rsi
-      state: icon
-    - type: Clothing
-      sprite: _Goobstation/Heretic/amber_focus.rsi
+  - type: UnholyItem
+  - type: HereticMagicItem
+  - type: Sprite
+    sprite: _Goobstation/Heretic/amber_focus.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/amber_focus.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 1.25
 
 - type: entity
   parent: ClothingNeckAmberFocus
@@ -18,16 +32,16 @@
   name: warm eldritch medallion
   description: A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulsing of a thousand others.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Heretic/eldritch_medalion.rsi
-      state: icon
-    - type: Clothing
-      sprite: _Goobstation/Heretic/eldritch_medalion.rsi
-    - type: ThermalVision
-      isEquipment: true
-      isActive: true
-      color: white
-      drawOverlay: false
-      lightRadius: 0
-      toggleAction: null
-    - type: HereticClothing
+  - type: Sprite
+    sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+  - type: ThermalVision
+    isEquipment: true
+    isActive: true
+    color: white
+    drawOverlay: false
+    lightRadius: 0
+    toggleAction: null
+  - type: HereticClothing

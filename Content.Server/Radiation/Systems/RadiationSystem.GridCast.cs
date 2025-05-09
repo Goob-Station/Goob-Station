@@ -1,12 +1,28 @@
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 root <root@DESKTOP-HJPF29C>
+// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Thomas <87614336+Aeshus@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Numerics;
 using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
+using Content.Shared.Singularity.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -137,15 +153,11 @@ public partial class RadiationSystem
 
         // get direction from rad source to destination and its distance
         var dir = destWorld - source.WorldPosition;
-        var dist = dir.Length();
-
-        // check if receiver is too far away
-        if (dist > GridcastMaxDistance)
-            return null;
-
-        // will it even reach destination considering distance penalty
-        var rads = source.Intensity - source.Slope * dist;
-        if (rads < MinIntensity)
+        var dist = Math.Max(dir.Length(),0.5f);
+        if (TryComp(source.Entity.Owner, out EventHorizonComponent? horizon)) // if we have a horizon emit radiation from the horizon,
+            dist = Math.Max(dist - horizon.Radius, 0.5f);
+        var rads = source.Intensity / (dist );
+        if (rads < 0.01)
             return null;
 
         // create a new radiation ray from source to destination
@@ -191,7 +203,67 @@ public partial class RadiationSystem
 
         return ray;
     }
+/// <summary>
+/// Similar to GridLineEnumerator, but also returns the distance the ray traveled in each cell
+/// </summary>
+/// <param name="sourceGridPos">source of the ray, in grid space</param>
+/// <param name="destGridPos"></param>
+/// <returns></returns>
+    private static IEnumerable<(Vector2i cell, float distInCell)> AdvancedGridRaycast(Vector2 sourceGridPos,Vector2 destGridPos)
+    {
+        var delta = destGridPos - sourceGridPos;
 
+        var currentX = (int)Math.Floor(sourceGridPos.X);
+        var currentY = (int)Math.Floor(sourceGridPos.Y);
+
+        var stepX = 0;
+        float tDeltaX = 0, tMaxX = float.MaxValue;
+        if (delta.X != 0)
+        {
+            stepX = delta.X > 0 ? 1 : -1;
+            float xEdge = stepX > 0 ? currentX + 1 : currentX;
+            tMaxX = (xEdge - sourceGridPos.X) / delta.X;
+            tDeltaX = stepX / delta.X;
+        }
+
+        var stepY = 0;
+        float tDeltaY = 0, tMaxY = float.MaxValue;
+        if (delta.Y != 0)
+        {
+            stepY = delta.Y > 0 ? 1 : -1;
+            float yEdge = stepY > 0 ? currentY + 1 : currentY;
+            tMaxY = (yEdge - sourceGridPos.Y) / delta.Y;
+            tDeltaY = stepY / delta.Y;
+        }
+
+        var entry = sourceGridPos;
+        while (true)
+        {
+            var tExit = Math.Min(tMaxX, tMaxY);
+            var exitIsX = tMaxX < tMaxY;
+            if (tExit > 1f)
+                tExit = 1f;
+
+            var exit = sourceGridPos + delta * tExit;
+            var cell = new Vector2i(currentX, currentY);
+            yield return (cell,(exit - entry).Length());
+            if (tExit >= 1f)
+                break;
+
+            if (exitIsX)
+            {
+                currentX += stepX;
+                tMaxX += tDeltaX;
+            }
+            else
+            {
+                currentY += stepY;
+                tMaxY += tDeltaY;
+            }
+
+            entry = exit;
+        }
+    }
     private RadiationRay Gridcast(
         Entity<MapGridComponent, TransformComponent> grid,
         ref RadiationRay ray,
@@ -212,43 +284,44 @@ public partial class RadiationSystem
         // TODO Grid overlap. This currently assumes the grid is always parented directly to the map (local matrix == world matrix).
         // If ever grids are allowed to overlap, this might no longer be true. In that case, this should precompute and cache
         // inverse world matrices.
-
-        Vector2 srcLocal = sourceTrs.ParentUid == grid.Owner
+        var srcLocal = sourceTrs.ParentUid == grid.Owner
             ? sourceTrs.LocalPosition
             : Vector2.Transform(ray.Source, grid.Comp2.InvLocalMatrix);
 
-        Vector2 dstLocal = destTrs.ParentUid == grid.Owner
+        var dstLocal = destTrs.ParentUid == grid.Owner
             ? destTrs.LocalPosition
             : Vector2.Transform(ray.Destination, grid.Comp2.InvLocalMatrix);
 
-        Vector2i sourceGrid = new(
-            (int) Math.Floor(srcLocal.X / grid.Comp1.TileSize),
-            (int) Math.Floor(srcLocal.Y / grid.Comp1.TileSize));
+        Vector2 sourceGrid = new(
+            srcLocal.X / grid.Comp1.TileSize,
+            srcLocal.Y / grid.Comp1.TileSize);
 
-        Vector2i destGrid = new(
-            (int) Math.Floor(dstLocal.X / grid.Comp1.TileSize),
-            (int) Math.Floor(dstLocal.Y / grid.Comp1.TileSize));
+        Vector2 destGrid = new(
+            dstLocal.X / grid.Comp1.TileSize,
+            dstLocal.Y / grid.Comp1.TileSize);
 
-        // iterate tiles in grid line from source to destination
-        var line = new GridLineEnumerator(sourceGrid, destGrid);
-        while (line.MoveNext())
+        foreach (var (point,dist) in AdvancedGridRaycast(sourceGrid,destGrid))
         {
-            var point = line.Current;
-            if (!resistanceMap.TryGetValue(point, out var resData))
-                continue;
-            ray.Rads -= resData;
-
-            // save data for debug
-            if (saveVisitedTiles)
-                blockers!.Add((point, ray.Rads));
-
-            // no intensity left after blocker
-            if (ray.Rads <= MinIntensity)
+            if (resistanceMap.TryGetValue(point, out var resData))
             {
-                ray.Rads = 0;
-                break;
+                var passRatioFromRadResistance = (1 / (resData > 2 ? (resData / 2) : 1));
+
+                var passthroughRatio = MathF.Pow(passRatioFromRadResistance, dist);
+                ray.Rads *= passthroughRatio;
+
+                // save data for debug
+                if (saveVisitedTiles)
+                    blockers!.Add((point, ray.Rads));
+
+                // no intensity left after blocker
+                if (ray.Rads <= MinIntensity)
+                {
+                    ray.Rads = 0;
+                    break;
+                }
             }
         }
+
 
         if (!saveVisitedTiles || blockers!.Count <= 0)
             return ray;
@@ -280,7 +353,8 @@ public partial class RadiationSystem
 
             if (_blockerQuery.TryComp(xform.ParentUid, out var blocker))
             {
-                rads -= blocker.RadResistance;
+                var ratio =blocker.RadResistance>2? 1 / (blocker.RadResistance/2):1;
+                rads *= ratio;
                 if (rads < 0)
                     return 0;
             }

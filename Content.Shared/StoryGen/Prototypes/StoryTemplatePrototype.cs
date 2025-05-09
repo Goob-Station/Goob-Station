@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
@@ -6,7 +12,7 @@ namespace Content.Shared.StoryGen;
 /// <summary>
 /// Prototype for a story template that can be filled in with words chosen from <see cref="DatasetPrototype"/>s.
 /// </summary>
-[Serializable, Prototype("storyTemplate")]
+[Serializable, Prototype]
 public sealed partial class StoryTemplatePrototype : IPrototype
 {
     /// <summary>

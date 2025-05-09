@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: trait
   id: WheelchairBound
   name: trait-wheelchair-bound-name
@@ -18,3 +27,16 @@
   category: Disabilities
   components:
   - type: TileMovement
+
+- type: trait
+  id: MovementImpaired
+  name: trait-movement-impaired-name
+  description: trait-movement-impaired-desc
+  traitGear: Cane
+  category: Disabilities
+  blacklist:
+    components:
+    - BorgChassis
+  components:
+    - type: MovementImpaired
+      impairedSpeedMultiplier: 0.6

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Shared.DeviceLinking;
 using Content.Shared.Materials;
 using Robust.Shared.Audio;
@@ -10,8 +17,8 @@ namespace Content.Shared.Cloning;
 [RegisterComponent]
 public sealed partial class CloningPodComponent : Component
 {
-    [ValidatePrototypeId<SinkPortPrototype>]
-    public const string PodPort = "CloningPodReceiver";
+    [DataField]
+    public ProtoId<SinkPortPrototype> PodPort = "CloningPodReceiver";
 
     [ViewVariables]
     public ContainerSlot BodyContainer = default!;
@@ -31,23 +38,25 @@ public sealed partial class CloningPodComponent : Component
     /// <summary>
     /// The material that is used to clone entities.
     /// </summary>
-    [DataField("requiredMaterial"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public ProtoId<MaterialPrototype> RequiredMaterial = "Biomass";
 
     /// <summary>
-    /// The current amount of time it takes to clone a body
+    /// The current amount of time it takes to clone a body.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float CloningTime = 30f;
 
     /// <summary>
-    /// The mob to spawn on emag
+    /// The mob to spawn on emag.
     /// </summary>
-    [DataField("mobSpawnId"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public EntProtoId MobSpawnId = "MobAbomination";
 
-    // TODO: Remove this from here when cloning and/or zombies are refactored
-    [DataField("screamSound")]
+    /// <summary>
+    /// The sound played when a mob is spawned from an emagged cloning pod.
+    /// </summary>
+    [DataField]
     public SoundSpecifier ScreamSound = new SoundCollectionSpecifier("ZombieScreams")
     {
         Params = AudioParams.Default.WithVolume(4),
@@ -73,22 +82,4 @@ public enum CloningPodStatus : byte
     Cloning,
     Gore,
     NoMind
-}
-
-/// <summary>
-/// Raised after a new mob got spawned when cloning a humanoid
-/// </summary>
-[ByRefEvent]
-public struct CloningEvent
-{
-    public bool NameHandled = false;
-
-    public readonly EntityUid Source;
-    public readonly EntityUid Target;
-
-    public CloningEvent(EntityUid source, EntityUid target)
-    {
-        Source = source;
-        Target = target;
-    }
 }

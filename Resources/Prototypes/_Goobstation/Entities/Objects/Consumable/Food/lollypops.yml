@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
 # Base Prototypes
 # Lollypops are meant to hold chems. If you can implement them injecting chems while on the mask slot, that'd be cool.
 
@@ -1682,14 +1689,14 @@
         - ReagentId: Cyanide
           Quantity: 10
 
-# Tirizine
+# Tirizene
 
 - type: entity
   parent: FoodSnackLollypopWrappedSyndicate
   id: FoodSnackLollypopWrappedTirizene
   name: wrapped syndicate lollypop
-  suffix: tirizine
-  description: A lollypop containing tirizine. Appears completely ordinary when unwrapped.
+  suffix: tirizene
+  description: A lollypop containing tirizene. Appears completely ordinary when unwrapped.
   components:
   - type: Tag
     tags:
@@ -1705,7 +1712,7 @@
   parent: FoodSnackLollypopBaseSyndicate
   id: FoodSnackLollypopTirizene
   name: lollypop
-  suffix: tirizine
+  suffix: tirizene
   components:
   - type: Tag
     tags:

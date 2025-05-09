@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ ClothingMaskBase, BaseMagicContraband ]
   id: ClothingMaskMadHeretic
@@ -6,6 +13,7 @@
   components:
   # what heretic would remove the mask that will shit on everyone around him?
   # also forcing the mask on heathens will be funny.
+  - type: UnholyItem
   - type: SelfUnremovableClothing
   - type: MadnessMask
   - type: Sprite
@@ -14,6 +22,10 @@
     sprite: _Goobstation/Heretic/mad_mask.rsi
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Holy: 1.25
   - type: Tag
     tags:
     - Mask

@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2022 Eoin Mcloughlin <helloworld@eoinrul.es>
+// SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
+// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Content.Client.Message;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Monitor;
@@ -27,11 +38,11 @@ public sealed partial class SensorInfo : BoxContainer
 
         _address = address;
 
-        SensorAddress.Title = $"{address} : {data.AlarmState}";
+        SensorAddress.Title = Loc.GetString("air-alarm-ui-window-listing-title", ("address", _address), ("state", data.AlarmState));
 
         AlarmStateLabel.SetMarkup(Loc.GetString("air-alarm-ui-window-alarm-state-indicator",
                     ("color", AirAlarmWindow.ColorForAlarm(data.AlarmState)),
-                    ("state", $"{data.AlarmState}")));
+                    ("state", data.AlarmState)));
         PressureLabel.SetMarkup(Loc.GetString("air-alarm-ui-window-pressure-indicator",
                     ("color", AirAlarmWindow.ColorForThreshold(data.Pressure, data.PressureThreshold)),
                     ("pressure", $"{data.Pressure:0.##}")));
@@ -90,11 +101,11 @@ public sealed partial class SensorInfo : BoxContainer
 
     public void ChangeData(AtmosSensorData data)
     {
-        SensorAddress.Title = $"{_address} : {data.AlarmState}";
+        SensorAddress.Title = Loc.GetString("air-alarm-ui-window-listing-title", ("address", _address), ("state", data.AlarmState));
 
         AlarmStateLabel.SetMarkup(Loc.GetString("air-alarm-ui-window-alarm-state-indicator",
                     ("color", AirAlarmWindow.ColorForAlarm(data.AlarmState)),
-                    ("state", $"{data.AlarmState}")));
+                    ("state", data.AlarmState)));
 
         PressureLabel.SetMarkup(Loc.GetString("air-alarm-ui-window-pressure-indicator",
                     ("color", AirAlarmWindow.ColorForThreshold(data.Pressure, data.PressureThreshold)),

@@ -1,19 +1,27 @@
-﻿using Content.Server.Administration.Notes;
+// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Linq;
+using Content.Server.Administration.Notes;
 using Content.Shared.Administration;
+using Robust.Server.Player;
 using Robust.Shared.Console;
 
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.ViewNotes)]
-public sealed class OpenAdminNotesCommand : IConsoleCommand
+public sealed class OpenAdminNotesCommand : LocalizedCommands
 {
     public const string CommandName = "adminnotes";
 
-    public string Command => CommandName;
-    public string Description => "Opens the admin notes panel.";
-    public string Help => $"Usage: {Command} <notedPlayerUserId OR notedPlayerUsername>";
+    public override string Command => CommandName;
 
-    public async void Execute(IConsoleShell shell, string argStr, string[] args)
+    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (shell.Player is not { } player)
         {
@@ -33,17 +41,27 @@ public sealed class OpenAdminNotesCommand : IConsoleCommand
 
                 if (dbGuid == null)
                 {
-                    shell.WriteError($"Unable to find {args[0]} netuserid");
+                    shell.WriteError(Loc.GetString("cmd-adminnotes-wrong-target", ("user", args[0])));
                     return;
                 }
 
                 notedPlayer = dbGuid.UserId;
                 break;
             default:
-                shell.WriteError($"Invalid arguments.\n{Help}");
+                shell.WriteError(Loc.GetString("cmd-adminnotes-args-error"));
                 return;
         }
 
         await IoCManager.Resolve<IAdminNotesManager>().OpenEui(player, notedPlayer);
+    }
+
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
+        if (args.Length != 1)
+            return CompletionResult.Empty;
+
+        var playerMgr = IoCManager.Resolve<IPlayerManager>();
+        var options = playerMgr.Sessions.Select(c => c.Name).OrderBy(c => c).ToArray();
+        return CompletionResult.FromHintOptions(options, Loc.GetString("cmd-adminnotes-hint"));
     }
 }

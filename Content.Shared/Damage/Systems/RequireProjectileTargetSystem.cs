@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using Content.Goobstation.Common.Projectiles;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
@@ -28,9 +38,16 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
         var other = args.OtherEntity;
         // Goob edit start
-        if (TryComp(other, out TargetedProjectileComponent? targeted) &&
-            (targeted.Target == null || targeted.Target == ent))
-            return;
+        if (TryComp(other, out TargetedProjectileComponent? targeted))
+        {
+            if (targeted.Target == null || targeted.Target == ent)
+                return;
+
+            var ev = new ShouldTargetedProjectileCollideEvent(targeted.Target.Value);
+            RaiseLocalEvent(ent, ev);
+            if (ev.Handled)
+                return;
+        }
 
         if (TryComp(other, out ProjectileComponent? projectile))
         {

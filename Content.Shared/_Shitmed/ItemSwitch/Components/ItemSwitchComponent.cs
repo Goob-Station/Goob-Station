@@ -1,7 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Shitmed.ItemSwitch.Components;
@@ -45,6 +50,29 @@ public sealed partial class ItemSwitchComponent : Component
     /// </summary>
     [DataField]
     public bool ShowLabel = false;
+
+    /// <summary>
+    ///     Whether the item requires power to sustain a state.
+    /// </summary>
+    [DataField]
+    public bool NeedsPower = false;
+
+    /// <summary>
+    ///     Whether the item currently has enough power to sustain a state.
+    /// </summary>
+    [DataField]
+    public bool IsPowered = true;
+
+    /// <summary>
+    ///     The default state of an item, which is also the state it reverts to when out of power.
+    /// </summary>
+    [DataField]
+    public string? DefaultState = default!;
+
+    public ItemSwitchComponent(string state)
+    {
+        State = state;
+    }
 }
 [DataDefinition]
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
@@ -69,6 +97,17 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 
     [DataField]
     public bool Hidden;
+
+    /// <summary>
+    ///     Amount of energy consumed per swing
+    /// </summary>
+    [DataField]
+    public int EnergyPerUse;
+
+    public ItemSwitchState(string verb)
+    {
+        Verb = verb;
+    }
 }
 
 /// <summary>
@@ -78,8 +117,8 @@ public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
 public record struct ItemSwitchAttemptEvent()
 {
     public bool Cancelled = false;
-    public required readonly EntityUid? User { get; init; }
-    public required readonly string State { get; init; }
+    public required EntityUid? User { get; init; }
+    public required  string State { get; init; }
     /// <summary>
     /// Pop-up that gets shown to users explaining why the attempt was cancelled.
     /// </summary>
@@ -92,7 +131,7 @@ public record struct ItemSwitchAttemptEvent()
 [ByRefEvent]
 public readonly record struct ItemSwitchedEvent()
 {
-    public required readonly bool Predicted { get; init; }
-    public required readonly string State { get; init; }
-    public required readonly EntityUid? User { get; init; }
+    public required bool Predicted { get; init; }
+    public required string State { get; init; }
+    public required EntityUid? User { get; init; }
 }

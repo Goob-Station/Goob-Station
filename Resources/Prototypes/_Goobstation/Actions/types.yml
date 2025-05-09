@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2024 Scruq445 <storchdamien@gmail.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseSuicideAction
   id: ActionActivateBluespaceLifeline
@@ -47,3 +57,21 @@
       sprite: Objects/Weapons/Grenades/smoke.rsi
       state: icon
     event: !type:ActivateImplantEvent
+
+- type: entity
+  id: ActionDashMoth
+  name: Wing dash
+  description: Sharply flap your wings, dashing to the side!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    checkCanAccess: false
+    range: 0
+    useDelay: 6.5
+    icon: { sprite: _Goobstation/Actions/dash.rsi, state: icon }
+    itemIconStyle: NoItem
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Effects/moth_wings.ogg
+      params:
+        volume: 6.5
+    event: !type:DashActionEvent

@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Dorragon <101672978+Dorragon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
+# SPDX-FileCopyrightText: 2025 PursuitInAshes <91865152+PursuitInAshes@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: vendingMachineInventory
   id: PrideDrobeInventory
   startingInventory:
@@ -5,6 +18,7 @@
     ClothingNeckAllyPin: 3
     ClothingNeckAromanticPin: 3
     ClothingNeckAsexualPin: 3
+    ClothingNeckAroacePin: 3
     ClothingNeckBisexualPin: 3
     ClothingNeckGayPin: 3
     ClothingNeckIntersexPin: 3
@@ -21,6 +35,7 @@
     PlushieSharkGrey: 2
     ClothingNeckScarfStripedAce: 2
     ClothingNeckScarfStripedAro: 2
+    ClothingNeckScarfStripedAroace: 2
     ClothingNeckScarfStripedBiSexual: 2
     ClothingNeckScarfStripedGay: 2
     ClothingNeckScarfStripedInter: 2

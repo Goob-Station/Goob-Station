@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
+// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
+// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
 using System.Linq;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Body.Systems;
@@ -24,17 +35,20 @@ namespace Content.Server.Heretic.Ritual;
     /// <summary>
     ///     Minimal amount of corpses.
     /// </summary>
-    [DataField] public float Min = 1;
+    [DataField]
+    public float Min = 1;
 
     /// <summary>
     ///     Maximum amount of corpses.
     /// </summary>
-    [DataField] public float Max = 1;
+    [DataField]
+    public float Max = 1;
 
     /// <summary>
     ///     Should we count only targets?
     /// </summary>
-    [DataField] public bool OnlyTargets;
+    [DataField]
+    public bool OnlyTargets;
 
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
@@ -105,7 +119,7 @@ namespace Content.Server.Heretic.Ritual;
 
             var (isCommand, isSec) = IsCommandOrSec(uids[i], args.EntityManager);
             var knowledgeGain = heretic.SacrificeTargets.Any(x => x.Entity == args.EntityManager.GetNetEntity(uids[i]))
-                ? (isCommand || isSec ? 3f : 2f)
+                ? isCommand || isSec ? 3f : 2f
                 : 0f;
 
             // YES!!! GIB!!!

@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 router <messagebus@vk.com>
+# SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
+# SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MoutardOMiel <108993081+Moutardomiel@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: emote
   id: Flip
   name: chat-emote-name-flip
@@ -25,6 +38,24 @@
   - tweaks.
   - tweaks!
   event: !type:AnimationTweakEmoteEvent
+
+- type: emote
+  id: Flex
+  name: chat-emote-name-flex
+  chatMessages: ["chat-emote-msg-flex"]
+  whitelist:
+    tags:
+    - Blobbernaut
+  chatTriggers:
+  - flex
+  - flexes
+  - flexes muscles
+  - flexes its muscles
+  - shows off
+  - shows off muscles
+  - shows off its muscles
+  - intimidates
+  event: !type:AnimationFlexEmoteEvent
 
 - type: emote
   id: Spin

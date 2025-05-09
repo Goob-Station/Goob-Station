@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
+# SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
+# SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
+# SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: BaseGameRule
   id: LoneAbductorSpawn
@@ -39,6 +52,8 @@
         name: abductor-lone-ghost-role-name
         description: abductor-lone-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleSoloAntagonist
         raffle:
           settings: default
         requirements:
@@ -134,6 +149,8 @@
         name: abductor-scientist-ghost-role-name
         description: abductor-scientist-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleTeamAntagonist
         raffle:
           settings: default
         requirements:
@@ -183,6 +200,8 @@
         name: abductor-agent-ghost-role-name
         description: abductor-agent-ghost-role-desc
         rules: abductors-ghost-role-rules
+        mindRoles:
+        - MindRoleGhostRoleTeamAntagonist
         raffle:
           settings: default
         requirements:
@@ -205,6 +224,7 @@
           - CanPilot
           - FootstepSound
           - DoorBumpOpener
+          - AbductorMind
       - type: AbductorScientist # Should be removed when we have proper teleportation system
       mindRoles:
       - MindRoleAbductorAgent
