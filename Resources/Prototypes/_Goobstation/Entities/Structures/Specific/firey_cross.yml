@@ -1,0 +1,76 @@
+- type: entity
+  id: FieryCross
+  parent: BaseStructure
+  name: fiery cross
+  description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ShitChap/Structures/bonfire.rsi
+    offset: 0,0.5
+    layers:
+    - state: bonfire
+    - state: burning
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: "#FFC90C"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/fireplace.ogg
+  - type: Fixtures
+    fixtures:
+      ignition:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,1"
+        hard: true
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,0.25"
+  - type: IgnitionSource
+    temperature: 400
+    ignited: true
+  - type: TriggerOnCollide
+    fixtureID: ignition
+  - type: IgniteOnCollide
+    fireStacks: 5
+    count: 1000
+  - type: AlwaysHot
+  - type: Construction
+    graph: FieryCrossGraph
+    node: BonfireNode
+
+- type: construction
+  id: FieryCross
+  name: fiery cross
+  description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
+  graph: FieryCrossGraph
+  startNode: start
+  targetNode: BonfireNode
+  category: construction-category-furniture
+  icon:
+    sprite: _ShitChap/Structures/bonfire.rsi
+    state: bonfire
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

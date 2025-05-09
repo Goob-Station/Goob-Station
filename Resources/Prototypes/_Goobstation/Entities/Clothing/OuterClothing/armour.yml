@@ -262,3 +262,28 @@
   - type: TemperatureProtection # No
     heatingCoefficient: 1
     coolingCoefficient: 1
+
+- type: entity
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, ]
+  id: MonkRobes
+  name: Monk's Robes
+  description: The robes of a long forgotten tradition.
+  components:
+  - type: Sprite
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
+  - type: Clothing
+    sprite: _ShitChap/Clothing/OuterClothing/Misc/monkrobe.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.70
+        Heat: 1.5
+  - type: ModifyDelayedKnockdown
+    delayDelta: 1
+    knockdownTimeDelta: -1
+  - type: TemperatureProtection
+    heatingCoefficient: 1.1 # the robes keep you warm but lets go of heat poorly
+    coolingCoefficient: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.0
