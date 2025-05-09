@@ -1,4 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Goobstation.UIKit.UserInterface.Controls;
 using Robust.Client.GameObjects;

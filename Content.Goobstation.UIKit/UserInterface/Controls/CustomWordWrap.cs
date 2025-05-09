@@ -1,4 +1,8 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+using System;
 using System.Diagnostics.Contracts;
 using System.Text;
 using Robust.Client.Graphics;
