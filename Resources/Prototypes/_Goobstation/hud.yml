@@ -1,0 +1,5 @@
+- type: hudTheme
+  id: SS14CosmicalTheme
+  name: ui-options-hud-theme-cosmical
+  path: /Textures/_Goobstation/Interface/Cosmical/
+  order: 8
