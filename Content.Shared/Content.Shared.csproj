@@ -42,8 +42,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Content.Goobstation.Common\Content.Goobstation.Common.csproj" />
-    <ProjectReference Include="..\Content.Goobstation.Maths\Content.Goobstation.Maths.csproj" />
+    <ProjectReference Include="..\Content.Goidastation.Common\Content.Goidastation.Common.csproj" />
+    <ProjectReference Include="..\Content.Goidastation.Maths\Content.Goidastation.Maths.csproj" />
     <ProjectReference Include="..\Content.Shared.Database\Content.Shared.Database.csproj" />
     <ProjectReference Include="..\RobustToolbox\Lidgren.Network\Lidgren.Network.csproj">
       <Private>false</Private>
@@ -56,7 +56,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Goobstation\Changeling\Changeling.Actions.cs" />
+    <None Include="Goidastation\Changeling\Changeling.Actions.cs" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
