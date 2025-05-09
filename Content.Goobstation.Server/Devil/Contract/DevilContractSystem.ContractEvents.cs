@@ -6,6 +6,7 @@
 
 using System.Linq;
 using Content.Goobstation.Shared.Devil;
+using Content.Server.Body.Components;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
@@ -71,12 +72,15 @@ public sealed partial class DevilContractSystem
 
     private void OnLoseOrgan(DevilContractLoseOrganEvent args)
     {
-        var organs = _bodySystem.GetBodyOrgans(args.Target).ToList();
+        // don't remove the brain, as funny as that is.
+        var eligibleOrgans = _bodySystem.GetBodyOrgans(args.Target)
+            .Where(o => !HasComp<BrainComponent>(o.Id))
+            .ToList();
 
-        if (organs.Count <= 0)
+        if (eligibleOrgans.Count <= 0)
             return;
 
-        var pick = _random.Pick(organs);
+        var pick = _random.Pick(eligibleOrgans);
 
         _bodySystem.RemoveOrgan(pick.Id, pick.Component);
         _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
