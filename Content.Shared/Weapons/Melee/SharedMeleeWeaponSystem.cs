@@ -868,9 +868,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // goob edit - stunmeta
-        if (TryComp<StaminaComponent>(user, out var stamina))
+        if (TryComp<StaminaComponent>(user, out var stamina) && entities.Count != 0)
             // make it not immediate to prevent annoying stamcrits
-            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost, stamina, visual: false, immediate: false);
+            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost * (entities.Count - 1), stamina, visual: false, immediate: false);
 
         return true;
     }
