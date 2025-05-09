@@ -39,19 +39,19 @@ public sealed class SpecialAnimationSystem : SharedSpecialAnimationSystem
 
         switch (ent.Comp.BroadcastType)
         {
-            case SpellCardBroadcastType.Local:
+            case SpecialAnimationBroadcastType.Local:
                 PlayAnimationForEntity(args.User, args.User, animation);
                 break;
-            case SpellCardBroadcastType.Pvs:
+            case SpecialAnimationBroadcastType.Pvs:
                 PlayAnimationFiltered(args.User, Filter.Pvs(args.User, entityManager: EntityManager), animation);
                 break;
-            case SpellCardBroadcastType.Grid:
+            case SpecialAnimationBroadcastType.Grid:
                 PlayAnimationFiltered(args.User, Filter.BroadcastGrid(xform.ParentUid), animation);
                 break;
-            case SpellCardBroadcastType.Map:
+            case SpecialAnimationBroadcastType.Map:
                 PlayAnimationFiltered(args.User, Filter.BroadcastMap(xform.MapID), animation);
                 break;
-            case SpellCardBroadcastType.Global:
+            case SpecialAnimationBroadcastType.Global:
                 PlayAnimationFiltered(args.User, Filter.Broadcast(), animation);
                 break;
         }

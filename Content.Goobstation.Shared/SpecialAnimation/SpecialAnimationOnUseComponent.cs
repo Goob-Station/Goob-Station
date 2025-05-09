@@ -26,10 +26,10 @@ public sealed partial class SpecialAnimationOnUseComponent : Component
     public string? OverrideText;
 
     [DataField, AutoNetworkedField]
-    public SpellCardBroadcastType BroadcastType = SpellCardBroadcastType.Pvs;
+    public SpecialAnimationBroadcastType BroadcastType = SpecialAnimationBroadcastType.Pvs;
 }
 
-public enum SpellCardBroadcastType
+public enum SpecialAnimationBroadcastType
 {
     Local,
     Pvs,

@@ -16,3 +16,5 @@
     text: "WAR DECLARATION"
     textPosition: -200,150
     textOverrideColor: Red
+    textFontPath: "/Fonts/NotoSans/NotoSans-Bold.ttf"
+    textFontSize: 28
