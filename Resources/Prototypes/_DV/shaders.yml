@@ -1,0 +1,17 @@
+- type: shader
+  id: SaturationShuffle
+  kind: source
+  path: "/Textures/_DV/Shaders/saturation_shuffle.swsl"
+  params:
+    tileSize: 32, 32
+    hsv: 1.0, 1.0, 1.0
+
+- type: shader
+  id: MonumentStars
+  kind: source
+  path: "/Textures/_DV/Shaders/monument_stars.swsl"
+
+- type: shader
+  id: MonumentPulse
+  kind: source
+  path: "/Textures/_DV/Shaders/monument_pulse.swsl"

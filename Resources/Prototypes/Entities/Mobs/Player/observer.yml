@@ -168,6 +168,11 @@
     maxZoom: 1.44,1.44
   - type: Eye
     drawFov: false
+    visMask:
+      - Ghost
+      - Normal
+      - CosmicCultMonument # DeltaV - Cosmic Cult
+      - Abductor # Shitmed - Starlight Abductors
   - type: Input
     context: "ghost"
   - type: Examiner
