@@ -8656,3 +8656,9 @@ Entries:
       message: Token Store now displays the cost of a hat token
   id: 992
   time: '2025-05-09T16:35:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Midround shuttle events should work again.
+  id: 993
+  time: '2025-05-09T18:27:29.0000000+00:00'
