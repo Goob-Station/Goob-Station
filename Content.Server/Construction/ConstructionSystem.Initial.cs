@@ -55,7 +55,9 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -127,12 +129,8 @@ namespace Content.Server.Construction
             }
             // <Goobstation> - lets slimepeople and constructors use their storage
             if (TryComp<StorageComponent>(user, out var userStorage))
-            {
                 foreach (var userItem in userStorage.Container.ContainedEntities!)
-                {
                     yield return userItem;
-                }
-            }
             // </Goobstation>
 
             if (_inventorySystem.TryGetContainerSlotEnumerator(user, out var containerSlotEnumerator))
@@ -424,7 +422,8 @@ namespace Content.Server.Construction
             if (!_actionBlocker.CanInteract(user, null))
                 return false;
 
-            if (HasComp<MindContainerComponent>(user) && !HasComp<HandsComponent>(user)) // goobstation - don't require hands for constructor
+            if (HasComp<MindContainerComponent>(user) 
+                && !HasComp<HandsComponent>(user)) // goobstation - don't require hands for constructor
                 return false;
 
             foreach (var condition in constructionPrototype.Conditions)
@@ -483,14 +482,24 @@ namespace Content.Server.Construction
         {
             // <Goobstation> - use public API
             if (args.SenderSession.AttachedEntity is {} user)
-                await TryStartStructureConstruction(user, ev.PrototypeName, GetCoordinates(ev.Location), ev.Angle, ev.Ack, args.SenderSession);
+                await TryStartStructureConstruction(user,
+                    ev.PrototypeName,
+                    GetCoordinates(ev.Location),
+                    ev.Angle,
+                    ev.Ack,
+                    args.SenderSession);
         }
 
         /// <summary>
         /// Goobstation - Taken out of HandleStartStructureConstruction
         /// Changed to return false and only send the ack event to the user.
         /// </summary>
-        public async Task<bool> TryStartStructureConstruction(EntityUid user, string prototypeName, EntityCoordinates location, Angle angle, int ack = 0, ICommonSession? senderSession = null)
+        public async Task<bool> TryStartStructureConstruction(EntityUid user,
+            string prototypeName,
+            EntityCoordinates location,
+            Angle angle,
+            int ack = 0,
+            ICommonSession? senderSession = null)
         {
             // </Goobstation>
             if (!PrototypeManager.TryIndex(prototypeName, out ConstructionPrototype? constructionPrototype))

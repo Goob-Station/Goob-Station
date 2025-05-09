@@ -1,4 +1,7 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -112,7 +115,8 @@ public sealed class ConstructorBUI : BoundUserInterface
     // copypasted and optimised from ConstructionMenuPresenter
     private void PopulateRecipes(string search, string category)
     {
-        if (PlayerManager.LocalEntity is not {} user || _menu is not {} menu)
+        if (PlayerManager.LocalEntity is not { } user
+            || _menu is not { } menu)
             return;
 
         search = search.Trim().ToLowerInvariant();
@@ -128,22 +132,19 @@ public sealed class ConstructorBUI : BoundUserInterface
             if (_whitelist.IsWhitelistFail(recipe.EntityWhitelist, user))
                 continue;
 
-            if (searching && !recipe.Name.ToLowerInvariant().Contains(search))
+            if (searching 
+                && !recipe.Name.ToLowerInvariant().Contains(search))
                 continue;
 
             if (!isEmptyCategory)
             {
+                // TODO: when favourites get sent from server do this
+                // currently its specific to the G menu
+                //if (!_favoritedRecipes.Contains(recipe))
                 if (category == _favoriteCatName)
-                {
-                    // TODO: when favourites get sent from server do this
-                    // currently its specific to the G menu
-                    //if (!_favoritedRecipes.Contains(recipe))
-                        continue;
-                }
-                else if (recipe.Category != category)
-                {
                     continue;
-                }
+                else if (recipe.Category != category)
+                    continue;
             }
 
             _recipes.Add(recipe);
@@ -159,9 +160,7 @@ public sealed class ConstructorBUI : BoundUserInterface
 
         // no grid because fuck you
         foreach (var recipe in _recipes)
-        {
             recipesList.Add(GetItem(recipe, recipesList));
-        }
     }
 
     private ItemList.Item GetItem(ConstructionPrototype recipe, ItemList itemList)
@@ -178,7 +177,8 @@ public sealed class ConstructorBUI : BoundUserInterface
 
     private void GenerateStepList(ConstructionPrototype proto)
     {
-        if (_construction.GetGuide(proto) is not {} guide || _menu is not {} menu)
+        if (_construction.GetGuide(proto) is not { } guide
+            || _menu is not { } menu)
             return;
 
         var list = menu.RecipeStepList;
@@ -189,10 +189,8 @@ public sealed class ConstructorBUI : BoundUserInterface
                 : Loc.GetString(entry.Localization);
 
             if (entry.EntryNumber is { } number)
-            {
                 text = Loc.GetString("construction-presenter-step-wrapper",
                     ("step-number", number), ("text", text));
-            }
 
             // The padding needs to be applied regardless of text length... (See PadLeft documentation)
             text = text.PadLeft(text.Length + entry.Padding);

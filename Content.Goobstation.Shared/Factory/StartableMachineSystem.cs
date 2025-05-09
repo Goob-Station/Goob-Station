@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -71,10 +73,8 @@ public sealed class StartableMachineSystem : EntitySystem
     /// </summary>
     public bool TryStart(Entity<StartableMachineComponent?> ent)
     {
-        if (!_query.Resolve(ent, ref ent.Comp))
-            return false;
-
-        if (!_power.IsPowered(ent.Owner))
+        if (!_query.Resolve(ent, ref ent.Comp)
+            || !_power.IsPowered(ent.Owner))
             return false;
 
         var ev = new MachineStartedEvent();
@@ -87,7 +87,8 @@ public sealed class StartableMachineSystem : EntitySystem
     /// </summary>
     public bool TryAutoStart(Entity<StartableMachineComponent?> ent)
     {
-        if (!_query.Resolve(ent, ref ent.Comp) || !ent.Comp.AutoStart)
+        if (!_query.Resolve(ent, ref ent.Comp)
+            || !ent.Comp.AutoStart)
             return false;
 
         return TryStart(ent);

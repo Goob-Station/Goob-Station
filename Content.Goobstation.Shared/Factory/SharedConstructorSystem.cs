@@ -1,5 +1,7 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -41,14 +43,13 @@ public abstract class SharedConstructorSystem : EntitySystem
         args.PushMarkup(msg);
     }
 
-    private void OnConstructed(Entity<ConstructorComponent> ent, ref ConstructedEvent args)
-    {
+    private void OnConstructed(Entity<ConstructorComponent> ent, ref ConstructedEvent args) =>
         _transform.SetCoordinates(args.Entity, OutputPosition(ent));
-    }
 
     private void OnSetProto(Entity<ConstructorComponent> ent, ref ConstructorSetProtoMessage args)
     {
-        if (ent.Comp.Construction == args.Id || !Proto.HasIndex(args.Id))
+        if (ent.Comp.Construction == args.Id
+            || !Proto.HasIndex(args.Id))
             return;
 
         ent.Comp.Construction = args.Id;
