@@ -105,11 +105,11 @@
   - type: GunRequiresWield
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 3
-    pvsIncrease: 0.3
+    maxOffset: 8
+    pvsIncrease: 0.8
   - type: SpeedModifiedOnWield
-    walkModifier: 0.5
-    sprintModifier: 0.5
+    walkModifier: 0.8
+    sprintModifier: 0.8
   - type: SurgeryTool
     endSound:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/laser_lmg.ogg
