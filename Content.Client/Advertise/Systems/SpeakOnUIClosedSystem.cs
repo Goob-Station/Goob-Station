@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 //
