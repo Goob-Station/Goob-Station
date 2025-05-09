@@ -52,7 +52,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
