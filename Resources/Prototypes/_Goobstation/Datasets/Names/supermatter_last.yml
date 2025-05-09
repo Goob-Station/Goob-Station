@@ -3,11 +3,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
-  id: goob_generators_names_supermatter_last
+- type: localizedDataset
+  id: GoobGeneratorsNamesSupermatterLast
   values:
-  - SM
-  - Supermatter
-  - Lousymatter
-  - Station-Exploder
-  - Sigmamatter
+    prefix: goob-generators-names-supermatter-last-dataset-
+    count: 6
