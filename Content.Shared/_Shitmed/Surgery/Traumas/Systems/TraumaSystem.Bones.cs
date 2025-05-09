@@ -364,14 +364,9 @@ public partial class TraumaSystem
         acceleration /= bodyComp.RequiredLegs;
 
         _movementSpeed.ChangeBaseSpeed(body, walkSpeed, sprintSpeed, acceleration);
+
         if (walkSpeed < rawWalkSpeed / 3.4)
-        {
             _standing.Down(body);
-        }
-        else
-        {
-            _standing.Stand(body);
-        }
     }
 
     private bool TryFumble(string message, SoundPathSpecifier sound, EntityUid body, float odds)
