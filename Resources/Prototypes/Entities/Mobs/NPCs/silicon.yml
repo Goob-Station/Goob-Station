@@ -247,6 +247,7 @@
       120: Dead
     stateAlertDict:
       Alive: BorgHealth
+      Dead: BorgDead
     showOverlays: false
   - type: Stamina
     critThreshold: 120
