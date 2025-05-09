@@ -95,9 +95,16 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     /// </summary>
     private void OnShuttleCollide(EntityUid uid, ShuttleComponent component, ref StartCollideEvent args)
     {
-        if (!TryComp<MapGridComponent>(uid, out var ourGrid) ||
-            !TryComp<MapGridComponent>(args.OtherEntity, out var otherGrid))
+        if (TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid)
+            || TerminatingOrDeleted(args.OtherEntity) || EntityManager.IsQueuedForDeletion(args.OtherEntity)
+        )
             return;
+
+        if (!TryComp<MapGridComponent>(uid, out var ourGrid) ||
+            !TryComp<MapGridComponent>(args.OtherEntity, out var otherGrid)
+        )
+            return;
+
 
         var ourBody = args.OurBody;
         var otherBody = args.OtherBody;
@@ -164,7 +171,9 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
         var effectiveInertiaMult = 1f / (1f / ourBody.FixturesMass + 1f / otherBody.FixturesMass);
         var effectiveInertia = jungleDiff * effectiveInertiaMult;
 
-        if (jungleDiff < MinimumImpactVelocity && effectiveInertia < MinimumImpactInertia || ourXform.MapUid == null)
+        if (jungleDiff < MinimumImpactVelocity && effectiveInertia < MinimumImpactInertia
+            || ourXform.MapUid == null
+            || float.IsNaN(jungleDiff))
             return;
 
         // Play impact sound
@@ -180,6 +189,8 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
 
         var ourMass = GetRegionMass(uid, ourGrid, ourTile, ImpactRadius, out var ourTiles);
         var otherMass = GetRegionMass(args.OtherEntity, otherGrid, otherTile, ImpactRadius, out var otherTiles);
+        if (ourTiles == 0 || otherTiles == 0) // i have no idea why this happens
+            return;
         Log.Info($"Shuttle impact of {ToPrettyString(uid)} with {ToPrettyString(args.OtherEntity)}; our mass: {ourMass}, other: {otherMass}, velocity {jungleDiff}, impact point {point}");
 
         var energyMult = MathF.Pow(jungleDiff, 2) / 2;
