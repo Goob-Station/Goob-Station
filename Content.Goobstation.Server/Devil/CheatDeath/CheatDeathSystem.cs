@@ -88,7 +88,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
         if (!_mobStateSystem.IsDead(ent) && !ent.Comp.CanCheatStanding)
         {
             var failPopup = Loc.GetString("action-cheat-death-fail-not-dead");
-            _popupSystem.PopupEntity(failPopup, ent, PopupType.LargeCaution);
+            _popupSystem.PopupEntity(failPopup, ent, ent, PopupType.LargeCaution);
 
             return;
         }
@@ -97,7 +97,7 @@ public sealed partial class CheatDeathSystem : EntitySystem
         if (ent.Comp.ReviveAmount <= 0 || HasComp<UnrevivableComponent>(ent))
         {
             var failPopup = Loc.GetString("action-cheat-death-fail-no-lives");
-            _popupSystem.PopupEntity(failPopup, ent, PopupType.LargeCaution);
+            _popupSystem.PopupEntity(failPopup, ent, ent, PopupType.LargeCaution);
 
             return;
         }
