@@ -10,6 +10,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Input;
 using Robust.Shared.Utility;
+using Content.Client.UserInterface.ControlExtensions;
 
 namespace Content.Client.Guidebook.RichText;
 
@@ -35,7 +36,7 @@ public sealed class TextLinkTag : IMarkupTagHandler
         label.Text = text;
 
         label.MouseFilter = Control.MouseFilterMode.Stop;
-        label.FontColorOverride = Color.CornflowerBlue;
+        label.FontColorOverride = LinkColor;
         label.DefaultCursorShape = Control.CursorShape.Hand;
 
         label.OnMouseEntered += _ => label.FontColorOverride = Color.LightSkyBlue;
@@ -54,18 +55,10 @@ public sealed class TextLinkTag : IMarkupTagHandler
         if (control == null)
             return;
 
-        // Goobstation take ours here we need reagent guidebook changes here.
-
-        var current = control;
-        while (current != null)
-        {
-            current = current.Parent;
-
-            if (current is not ILinkClickHandler handler)
-                continue;
+        if (control.TryGetParentHandler<ILinkClickHandler>(out var handler))
             handler.HandleClick(link);
-            return;
-        }
+        else
+            Logger.Warning("Warning! No valid ILinkClickHandler found.");
     }
 }
 
