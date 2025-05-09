@@ -60,6 +60,7 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Goobstation.Common.Construction; // Goobstation
 using Content.Server.Construction.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
@@ -72,6 +73,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Mind.Components; // Goobstation
 using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -121,6 +123,15 @@ namespace Content.Server.Construction
 
                 yield return item;
             }
+            // <Goobstation> - lets slimepeople and constructors use their storage
+            if (TryComp<StorageComponent>(user, out var userStorage))
+            {
+                foreach (var userItem in userStorage.Container.ContainedEntities!)
+                {
+                    yield return userItem;
+                }
+            }
+            // </Goobstation>
 
             if (_inventorySystem.TryGetContainerSlotEnumerator(user, out var containerSlotEnumerator))
             {
@@ -411,7 +422,7 @@ namespace Content.Server.Construction
             if (!_actionBlocker.CanInteract(user, null))
                 return false;
 
-            if (!HasComp<HandsComponent>(user))
+            if (HasComp<MindContainerComponent>(user) && !HasComp<HandsComponent>(user)) // goobstation - don't require hands for constructor
                 return false;
 
             foreach (var condition in constructionPrototype.Conditions)
@@ -453,6 +464,11 @@ namespace Content.Server.Construction
                     targetNode,
                     Transform(user).Coordinates) is not { Valid: true } item)
                 return false;
+
+            // <Goobstation>
+            var constructedEv = new ConstructedEvent(item);
+            RaiseLocalEvent(user, ref constructedEv);
+            // </Goobstation>
 
             // Just in case this is a stack, attempt to merge it. If it isn't a stack, this will just normally pick up
             // or drop the item as normal.
@@ -538,8 +554,9 @@ namespace Content.Server.Construction
                     _beingBuilt[session].Remove(ack);
             }
 
+            HandsComponent? hands = null; // Goobstation
             if (!_actionBlocker.CanInteract(user, null)
-                || !EntityManager.TryGetComponent(user, out HandsComponent? hands) || hands.ActiveHandEntity == null)
+                || (senderSession != null && EntityManager.TryGetComponent(user, out hands) && hands.ActiveHandEntity == null)) // Goobstation - dont check hands for constructor
             {
                 Cleanup();
                 return false;
@@ -562,11 +579,11 @@ namespace Content.Server.Construction
             if(edge == null)
                 throw new InvalidDataException($"Can't find edge from starting node to the next node in pathfinding! Recipe: {prototypeName}");
 
-            var valid = false;
-
             if (senderSession != null) // Goobstation - don't check this for constructor machine
             {
-                if (hands.ActiveHandEntity is not {Valid: true} holding) // Goobstation - don't check for constructor machine
+                var valid = false;
+
+                if (hands?.ActiveHandEntity is not {Valid: true} holding) // Goobstation - don't check for constructor machine
                 {
                     Cleanup();
                     return false;
@@ -608,6 +625,11 @@ namespace Content.Server.Construction
                 Cleanup();
                 return false;
             }
+
+            // <Goobstation>
+            var constructedEv = new ConstructedEvent(structure);
+            RaiseLocalEvent(user, ref constructedEv);
+            // </Goobstation>
 
             RaiseNetworkEvent(new AckStructureConstructionMessage(ack, GetNetEntity(structure)), user);
             _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {prototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");

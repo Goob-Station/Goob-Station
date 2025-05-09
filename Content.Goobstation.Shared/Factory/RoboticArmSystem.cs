@@ -413,7 +413,6 @@ public sealed class RoboticArmSystem : EntitySystem
     public EntityCoordinates OutputPosition(EntityUid uid)
     {
         var xform = Transform(uid);
-        var coords = xform.Coordinates;
         var offset = xform.LocalRotation.ToVec();
         // positive would be where the input fixture is...
         return xform.Coordinates.Offset(-offset);

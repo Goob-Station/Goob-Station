@@ -20,6 +20,17 @@
         enum.StorageBinLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  # Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.3
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   # Construction
   - type: Machine
     board: StorageBinCircuitboard

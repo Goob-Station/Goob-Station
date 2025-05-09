@@ -49,3 +49,20 @@ signal-port-description-storage-inserted = Signal port that gets pulsed after an
 
 signal-port-name-storage-removed = Removed
 signal-port-description-storage-removed = Signal port that gets pulsed after an item is removed from a storage bin.
+
+# Constructor / Interactor
+
+signal-port-name-machine-start = Start
+signal-port-description-machine-start = Signal port to start a machine once.
+
+signal-port-name-machine-autostart = Auto Start
+signal-port-description-machine-autostart = Signal port to control starting after completing automatically.
+
+signal-port-name-machine-started = Started
+signal-port-description-machine-started = Signal port that gets pulsed after a machine starts.
+
+signal-port-name-machine-completed = Completed
+signal-port-description-machine-completed = Signal port that gets pulsed after a machine completes its work.
+
+signal-port-name-machine-failed = Failed
+signal-port-description-machine-failed = Signal port that gets pulsed after a machine fails to start.

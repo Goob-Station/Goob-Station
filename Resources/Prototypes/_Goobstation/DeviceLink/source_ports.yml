@@ -77,3 +77,20 @@
   id: StorageRemoved
   name: signal-port-name-storage-removed
   description: signal-port-description-storage-removed
+
+# Constructor / Interactor
+
+- type: sourcePort
+  id: Started
+  name: signal-port-name-machine-started
+  description: signal-port-description-machine-started
+
+- type: sourcePort
+  id: Completed
+  name: signal-port-name-machine-completed
+  description: signal-port-description-machine-completed
+
+- type: sourcePort
+  id: Failed
+  name: signal-port-name-machine-failed
+  description: signal-port-description-machine-failed

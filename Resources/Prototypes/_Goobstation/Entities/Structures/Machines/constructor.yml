@@ -8,12 +8,39 @@
   name: constructor
   description: The machine putting assistants out of a job, it can build anything using supplied materials.
   components:
+  # Appearance
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/constructor.rsi
+  # Physics
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: true
+  # Construction
+  - type: Machine
+    board: ConstructorCircuitboard
+  # UI
+  - type: ActivatableUI
+    key: enum.ConstructorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ConstructorUiKey.Key:
+        type: ConstructorBUI
+  # Constructor
   - type: Constructor
+  - type: DoAfter
+  - type: StartableMachine
   - type: DeviceLinkSink
     ports:
-    - ConstructorStart
+    - Start
+    - AutoStart
   - type: DeviceLinkSource
     ports:
-    - ConstructorStarted
-    - ConstructorComplete
-    - ConstructorFailed
+    - Started
+    - Completed
+    - Failed
+  # Power
+  - type: ApcPowerReceiver
+    powerLoad: 6000
