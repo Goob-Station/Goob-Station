@@ -501,7 +501,7 @@
     sprite: _ShitChap/Objects/Weapons/Nullrod/divinechainsaw.rsi
     state: icon
   - type: MeleeWeapon
-    heavyStaminaCost: 5
+    heavyStaminaCost: 15
     autoAttack: true
     angle: 0
     animationRotation: 90
