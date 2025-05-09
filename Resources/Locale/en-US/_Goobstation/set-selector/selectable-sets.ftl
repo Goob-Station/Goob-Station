@@ -86,11 +86,9 @@ selectable-set-syndicate-desword-description =
 
 selectable-set-syndicate-grenadier-name = Grenadier Bundle
 selectable-set-syndicate-grenadier-description =
-    Some a belt rig filled with enough explosives to ensure you can blast your
-    way through any situation.
-    Contains: syndicate encryption key, minibomb, two C4 explosives, and then
-    two incendiary, two explosive, two shrapnel, one EMP, whitehole, supermatter,
-    smoke and flash grenade.
+    Some explosives to ensure you can blast your way through any situation.
+    Contains: syndicate encryption key, bomb suit, grenadier belt rig,
+    explosive-resistant backpack and so much grenades you'll fall asleep reading.
 
 selectable-set-syndicate-fluclear-name = Fluclear Operative Bundle
 selectable-set-syndicate-fluclear-description =

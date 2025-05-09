@@ -105,7 +105,7 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
 
         if (!_animations.HasRunningAnimation(uid, player, AnimKey))
         {
-            _animations.Play(uid, player, GetAnimation(comp.Speed, comp.Direction), AnimKey); // Goob edit
+            _animations.Play((uid, player), GetAnimation(comp.Speed, comp.Direction), AnimKey); // Goob edit
         }
     }
 }

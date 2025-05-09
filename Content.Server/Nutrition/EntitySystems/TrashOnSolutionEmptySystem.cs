@@ -17,6 +17,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -24,6 +25,8 @@ namespace Content.Server.Nutrition.EntitySystems
     {
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
+
+        private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
 
         public override void Initialize()
         {
@@ -55,11 +58,11 @@ namespace Content.Server.Nutrition.EntitySystems
         {
             if (solution.Volume <= 0)
             {
-                _tagSystem.AddTag(entity.Owner, "Trash");
+                _tagSystem.AddTag(entity.Owner, TrashTag);
                 return;
             }
-            if (_tagSystem.HasTag(entity.Owner, "Trash"))
-                _tagSystem.RemoveTag(entity.Owner, "Trash");
+
+            _tagSystem.RemoveTag(entity.Owner, TrashTag);
         }
     }
 }

@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
+# SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -11,10 +12,6 @@
   - type: StorageFill
     contents:
     - id: WeaponLauncherNonLethal
-    - id: ClothingBeltMilitaryRigGrenadier
     - id: BoxGrenadesBaton
-    - id: BoxGrenadesBaton # If you add any more (for some reason) use 'amount: X', I only didn't because it would be the same amount of lines lol
     - id: BoxGrenadesFlash
-    - id: BoxGrenadesFlash
-    - id: BoxGrenadesTeargas
     - id: BoxGrenadesTeargas

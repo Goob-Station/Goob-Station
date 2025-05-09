@@ -519,9 +519,6 @@
   id: ReverseBearTrapKey
 
 - type: Tag
-  id: Bomb
-
-- type: Tag
   id: Rifle
 
 - type: Tag
