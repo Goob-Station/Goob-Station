@@ -224,7 +224,7 @@ public sealed class MappingState : GameplayStateBase
     {
         Deselect();
 
-        var coords = args.Coordinates.ToMap(_entityManager, _transform);
+        var coords = _transform.ToMapCoordinates(args.Coordinates);
         if (_verbs.TryGetEntityMenuEntities(coords, out var entities))
             _entityMenuController.OpenRootMenu(entities);
 

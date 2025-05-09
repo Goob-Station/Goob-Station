@@ -23,7 +23,6 @@ using Robust.Shared.Serialization;
 // Shitmed Change
 
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Prototypes;

@@ -29,7 +29,9 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -67,6 +69,9 @@
         Structural: 10
   - type: StaminaDamageOnHit # goob - bat makes you hurt and tired (but not as much as the real stun stick)
     damage: 7.5 # goob - 9 hits to stamcrit someone with armor vest + helmet
+  - type: MeleeThrowOnHit
+    distance: 1 # Goobstation
+    speed: 5
   - type: Item
     size: Normal
   - type: Tool
@@ -101,6 +106,7 @@
     state: icon
   - type: Item
     size: Normal
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
   - type: Construction
     graph: WoodenBat
     node: incompleteBat

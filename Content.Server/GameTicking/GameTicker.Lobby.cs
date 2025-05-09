@@ -93,9 +93,10 @@ namespace Content.Server.GameTicking
         public void UpdateInfoText()
         {
             RaiseNetworkEvent(GetInfoMsg(), Filter.Empty().AddPlayers(_playerManager.NetworkedSessions));
+            RaiseNetworkEvent(GetInGameInfoMsg(), Filter.Empty().AddPlayers(_playerManager.NetworkedSessions));
         }
 
-        private string GetInfoText()
+        private string GetInfoText(bool isInGameInfo = false)
         {
             var preset = CurrentPreset ?? Preset;
             if (preset == null)
@@ -129,10 +130,15 @@ namespace Content.Server.GameTicking
 
             var gmTitle = Loc.GetString(preset.ModeTitle);
             var desc = Loc.GetString(preset.Description);
-            return Loc.GetString(
-                RunLevel == GameRunLevel.PreRoundLobby
+            var infoText = RunLevel == GameRunLevel.PreRoundLobby
                     ? "game-ticker-get-info-preround-text"
-                    : "game-ticker-get-info-text",
+                    : "game-ticker-get-info-text";
+
+            if (isInGameInfo)
+                infoText = "game-ticker-get-ingame-info-text";
+
+            return Loc.GetString(
+                infoText,
                 ("roundId", RoundId),
                 ("playerCount", playerCount),
                 ("readyCount", readyCount),
@@ -170,6 +176,10 @@ namespace Content.Server.GameTicking
             RaiseNetworkEvent(new TickerLateJoinStatusEvent(DisallowLateJoin));
         }
 
+        private TickerInGameInfoEvent GetInGameInfoMsg()
+        {
+            return new (GetInfoText(true));
+        }
         public bool PauseStart(bool pause = true)
         {
             if (Paused == pause)

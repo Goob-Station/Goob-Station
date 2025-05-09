@@ -3,11 +3,8 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
-  id: goob_generators_names_tesla_last
+- type: localizedDataset
+  id: GoobGeneratorsNamesTeslaLast
   values:
-  - Tesloth
-  - Tesla
-  - Sparkly Rizzler
-  - Tesloose
-  - Teslay
+    prefix: goob-generators-names-tesla-last-dataset-
+    count: 5

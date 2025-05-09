@@ -127,6 +127,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTLeaderGear
@@ -201,6 +204,8 @@
     components:
     - type: BibleUser #Lets them heal with bibles
     - type: CanEnchant #GoobStation
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTChaplainGear
@@ -284,6 +289,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTEngineerGear
@@ -361,6 +369,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTSecurityGear
@@ -457,6 +468,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTMedicalGear
@@ -479,7 +493,7 @@
     - CentCommHypo
     - MedkitAdvancedFilled
     - CrowbarRed
-    - OmnizineChemistryBottle
+    - ChemistryBottleOmnizine
     - JugOxandrolone
     - JugSalicylicAcid
     - ParamedHypo
@@ -530,6 +544,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: ERTJanitorGear

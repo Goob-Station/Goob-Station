@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 V�ctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
 // SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
@@ -28,6 +28,7 @@ using Content.Shared.Maps;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Construction.Conditions
 {
@@ -35,6 +36,8 @@ namespace Content.Shared.Construction.Conditions
     [DataDefinition]
     public sealed partial class NoWindowsInTile : IConstructionCondition
     {
+        private static readonly ProtoId<TagPrototype> WindowTag = "Window";
+
         public bool Condition(EntityUid user, EntityCoordinates location, Direction direction)
         {
             var entManager = IoCManager.Resolve<IEntityManager>();
@@ -43,7 +46,7 @@ namespace Content.Shared.Construction.Conditions
 
             foreach (var entity in location.GetEntitiesInTile(LookupFlags.Static))
             {
-                if (tagSystem.HasTag(entity, "Window"))
+                if (tagSystem.HasTag(entity, WindowTag))
                     return false;
             }
 

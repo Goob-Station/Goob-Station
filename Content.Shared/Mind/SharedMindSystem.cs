@@ -65,6 +65,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Objectives.Systems;
 using Content.Shared.Players;
+using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -72,7 +73,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Mind;
 
-public abstract class SharedMindSystem : EntitySystem
+public abstract partial class SharedMindSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly INetManager _net = default!;
@@ -80,6 +81,7 @@ public abstract class SharedMindSystem : EntitySystem
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
     [Dependency] private readonly SharedPlayerSystem _player = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     [ViewVariables]
     protected readonly Dictionary<NetUserId, EntityUid> UserMinds = new();
@@ -94,6 +96,8 @@ public abstract class SharedMindSystem : EntitySystem
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
         SubscribeLocalEvent<MindComponent, ComponentStartup>(OnMindStartup);
         SubscribeLocalEvent<MindContainerComponent, EntityRenamedEvent>(OnRenamed); // Goob edit
+
+        InitializeRelay();
     }
 
     public override void Shutdown()
@@ -425,6 +429,16 @@ public abstract class SharedMindSystem : EntitySystem
         var title = Name(objective);
         _adminLogger.Add(LogType.Mind, LogImpact.Low, $"Objective {objective} ({title}) removed from the mind of {MindOwnerLoggingString(mind)}");
         mind.Objectives.Remove(objective);
+
+        // garbage collection - only delete the objective entity if no mind uses it anymore
+        // This comes up for stuff like paradox clones where the objectives share the same entity
+        var mindQuery = AllEntityQuery<MindComponent>();
+        while (mindQuery.MoveNext(out _, out var queryComp))
+        {
+            if (queryComp.Objectives.Contains(objective))
+                return true;
+        }
+
         Del(objective);
         return true;
     }
@@ -470,6 +484,33 @@ public abstract class SharedMindSystem : EntitySystem
         Dirty(mind, comp);
     }
     // End DeltaV - Cosmic Cult Deconversion
+
+    /// <summary>
+    /// Copies objectives from one mind to another, so that they are shared between two players.
+    /// </summary>
+    /// <remarks>
+    /// Only copies the reference to the objective entity, not the entity itself.
+    /// This relies on the fact that objectives are never changed after spawning them.
+    /// If someone ever changes that, they will have to address this.
+    /// </remarks>
+    /// <param name="source"> mind entity of the player to copy from </param>
+    /// <param name="target"> mind entity of the player to copy to </param>
+    /// <param name="except"> whitelist for objectives that should be copied </param>
+    /// <param name="except"> blacklist for objectives that should not be copied </param>
+    public void CopyObjectives(Entity<MindComponent?> source, Entity<MindComponent?> target, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    {
+        if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp))
+            return;
+
+        foreach (var objective in source.Comp.Objectives)
+        {
+            if (target.Comp.Objectives.Contains(objective))
+                continue; // target already has this objective
+
+            if (_whitelist.CheckBoth(objective, blacklist, whitelist))
+                AddObjective(target, target.Comp, objective);
+        }
+    }
 
     /// <summary>
     /// Tries to find an objective that has the same prototype as the argument.

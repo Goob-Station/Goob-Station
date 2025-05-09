@@ -18099,7 +18099,7 @@ entities:
     - type: Transform
       pos: 19.189339,-24.489933
       parent: 2
-- proto: NocturineChemistryBottle
+- proto: ChemistryBottleNocturine
   entities:
   - uid: 1551
     components:

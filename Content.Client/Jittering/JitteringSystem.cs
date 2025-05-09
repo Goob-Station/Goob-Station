@@ -46,7 +46,7 @@ namespace Content.Client.Jittering
             var animationPlayer = EnsureComp<AnimationPlayerComponent>(uid);
 
             jittering.StartOffset = sprite.Offset;
-            _animationPlayer.Play(uid, animationPlayer, GetAnimation(jittering, sprite), _jitterAnimationKey);
+            _animationPlayer.Play((uid, animationPlayer), GetAnimation(jittering, sprite), _jitterAnimationKey);
         }
 
         private void OnShutdown(EntityUid uid, JitteringComponent jittering, ComponentShutdown args)
@@ -68,7 +68,7 @@ namespace Content.Client.Jittering
 
             if (TryComp(uid, out AnimationPlayerComponent? animationPlayer)
                 && TryComp(uid, out SpriteComponent? sprite))
-                _animationPlayer.Play(uid, animationPlayer, GetAnimation(jittering, sprite), _jitterAnimationKey);
+                _animationPlayer.Play((uid, animationPlayer), GetAnimation(jittering, sprite), _jitterAnimationKey);
         }
 
         private Animation GetAnimation(JitteringComponent jittering, SpriteComponent sprite)

@@ -80,7 +80,7 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 247.2.0
+  engineVersion: 251.0.0
   forkId: ""
   forkVersion: ""
   time: 03/29/2025 00:10:25
@@ -11233,9 +11233,6 @@ entities:
     - type: Transform
       pos: -29.5,37.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -23365.982
-      state: Opening
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -73980,11 +73977,6 @@ entities:
     - type: Transform
       pos: -19.411674,-42.528496
       parent: 2
-  - uid: 11377
-    components:
-    - type: Transform
-      pos: -14.52124,-43.447884
-      parent: 2
 - proto: FoodBoxDonkpocketPizza
   entities:
   - uid: 11378
@@ -73992,9 +73984,6 @@ entities:
     - type: Transform
       pos: -34.51708,2.124221
       parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
   - uid: 11379
     components:
     - type: Transform
@@ -74007,9 +73996,6 @@ entities:
     - type: Transform
       pos: -25.884321,-13.146505
       parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: FoodBreadMoldySlice
   entities:
   - uid: 11381
@@ -111578,15 +111564,11 @@ entities:
     - type: Transform
       pos: 51.5,17.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: False
   - uid: 16740
     components:
     - type: Transform
       pos: 51.5,16.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: False
   - uid: 16741
     components:
     - type: Transform

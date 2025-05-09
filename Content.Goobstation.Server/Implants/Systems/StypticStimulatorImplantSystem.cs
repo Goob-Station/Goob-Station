@@ -1,3 +1,4 @@
+// SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -9,7 +10,7 @@ using Content.Goobstation.Server.Implants.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Implants;
 using Content.Shared.Mobs;
 using Robust.Shared.Containers;

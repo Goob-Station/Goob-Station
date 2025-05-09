@@ -214,11 +214,11 @@
     - id: LargeBeaker
     - id: OmnimedToolSyndie
     - id: DartGun
-    - id: EpinephrineChemistryBottle
+    - id: ChemistryBottleEpinephrine
       amount: 2
-    - id: EphedrineChemistryBottle
+    - id: ChemistryBottleEphedrine
       amount: 2
-    - id: OmnizineChemistryBottle
+    - id: ChemistryBottleOmnizine
 
 - type: entity
   id: ClothingBeltHolsterFilledBlueshield

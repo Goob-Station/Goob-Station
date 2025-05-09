@@ -11,8 +11,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Atmos.Piping.Binary.Components;
-using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
+using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Server.Atmos.Piping.Binary.EntitySystems;
 

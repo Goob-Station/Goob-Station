@@ -3,7 +3,11 @@
 examine-name = It's [bold]{$name}[/bold]!
 examine-name-selfaware = It's you!
 examine-can-see = Looking at {OBJECT($ent)}, you can see:
-examine-can-see-nothing = {CAPITALIZE(GENDER($ent))} is completely naked!
+examine-can-see-nothing = {CAPITALIZE(SUBJECT($ent))}'s completely naked!
+examine-border-line = ═════════════════════
+examine-present-tex = This is a [enttex id="{ $id }" size={ $size }] [bold]{$name}[/bold]!
+examine-present = This is a [bold]{$name}[/bold]!
+examine-present-line = ═══
 
 id-examine = - {CAPITALIZE(POSS-ADJ($ent))} [bold]{$item}[/bold] on {POSS-ADJ($ent)} belt.
 head-examine = - {CAPITALIZE(POSS-ADJ($ent))} [bold]{$item}[/bold] on {POSS-ADJ($ent)} head.

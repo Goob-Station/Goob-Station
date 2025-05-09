@@ -7,7 +7,7 @@
 using System.Linq;
 using Content.Goobstation.Shared.Traits.Components;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;

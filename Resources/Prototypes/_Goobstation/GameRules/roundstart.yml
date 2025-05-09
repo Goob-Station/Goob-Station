@@ -109,8 +109,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
-        - SyndicateNamesElite
+        - NamesSyndicateElite
+        nameFormat: name-format-nukie-commander
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -126,8 +126,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-agent
-        - SyndicateNamesNormal
+        - NamesSyndicateElite
+        nameFormat: name-format-nukie-agent
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -144,8 +144,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-operator
-        - SyndicateNamesNormal
+        - NamesSyndicateElite
+        nameFormat: name-format-nukie-operator
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -240,8 +240,9 @@
   components:
   - type: RandomMetadata # this generates the random operation name cuz it's cool.
     nameSegments:
-    - operationPrefixHonkops
-    - operationSuffixHonkops
+    - OperationPrefixHonkops
+    - OperationSuffixHonkops
+    nameFormat: name-format-standard
   - type: NukeopsRule
     localePrefix: "honkops-"
   - type: LoadMapRule
@@ -259,8 +260,9 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - HonkopsNamesPrefix
-        - HonkopsNamesElite
+        - NamesHonkopsPrefix
+        - NamesHonkopsElite
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -276,8 +278,9 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - HonkopsNamesPrefix
-        - HonkopsNamesElite
+        - NamesHonkopsPrefix
+        - NamesHonkopsElite
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -295,8 +298,9 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - HonkopsNamesPrefix
-        - HonkopsNamesElite
+        - NamesHonkopsPrefix
+        - NamesHonkopsElite
+        nameFormat: name-format-standard
       - type: NpcFactionMember
         factions:
         - Syndicate

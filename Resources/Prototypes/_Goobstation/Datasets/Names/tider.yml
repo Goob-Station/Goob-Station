@@ -3,28 +3,14 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
+- type: localizedDataset
   id: TiderNamesFirst
   values:
-  - Grey
-  - Maint
-  - Robust
-  - Crawling
-  - Tunnel
-  - John
-  - Insulated
-  - Bashing
+    prefix: names-tider-first-
+    count: 8
 
-- type: dataset
+- type: localizedDataset
   id: TiderNamesLast
   values:
-  - Tide
-  - Crawler
-  - King
-  - Toolbox
-  - Breaker
-  - Stealer
-  - Wrench
-  - Crowbar
-  - Shitter
-  - Belt
+    prefix: names-tider-last-
+    count: 10

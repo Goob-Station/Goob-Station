@@ -14,7 +14,7 @@ using Content.Server.Charges.Components;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Charges.Systems;

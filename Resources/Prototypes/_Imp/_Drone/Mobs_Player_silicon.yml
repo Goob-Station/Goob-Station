@@ -255,4 +255,4 @@
     - Atmospherics # Goobstation
   - type: RandomMetadata
     nameSegments:
-    - names_drone # maintainer drones get named after maintainers get it? its funny
+    - NamesDrone # maintainer drones get named after maintainers get it? its funny

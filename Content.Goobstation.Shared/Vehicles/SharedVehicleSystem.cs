@@ -23,7 +23,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Damage;
 
 namespace Content.Goobstation.Shared.Vehicles;

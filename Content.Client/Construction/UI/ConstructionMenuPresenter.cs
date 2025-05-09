@@ -26,6 +26,8 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -554,6 +556,11 @@ namespace Content.Client.Construction.UI
         }
 
         private void SystemOnToggleMenu(object? sender, EventArgs eventArgs)
+        {
+            ToggleMenu();
+        }
+
+        public void ToggleMenu()
         {
             if (!CraftingAvailable)
                 return;

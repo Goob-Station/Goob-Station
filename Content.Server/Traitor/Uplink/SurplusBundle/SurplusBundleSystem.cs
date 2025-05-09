@@ -10,7 +10,7 @@
 using System.Linq;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Store.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Random;

@@ -139,8 +139,9 @@
   - type: MetaData # Goobstation
   - type: RandomMetadata # Goobstation
     nameSegments:
-    - goob_generators_names_first
-    - goob_generators_names_tesla_last
+    - GoobGeneratorsNamesFirst
+    - GoobGeneratorsNamesTeslaLast
+    nameFormat: name-format-standard 
   - type: GuideHelp # For the curious among the brave.
     guides:
     - TeslaEngine

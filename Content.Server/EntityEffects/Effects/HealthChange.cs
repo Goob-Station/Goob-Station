@@ -53,7 +53,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Localizations;
 using Content.Shared._Shitmed.EntityEffects.Effects; // Shitmed Change
 using Content.Shared._Shitmed.Targeting; // Shitmed Change

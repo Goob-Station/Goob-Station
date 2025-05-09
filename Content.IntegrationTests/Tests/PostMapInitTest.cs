@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fern�ndez <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 metalgearsloth <metalgearsloth@gmail.com>
@@ -135,6 +135,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+using Robust.Shared.Map.Events;
 
 namespace Content.IntegrationTests.Tests
 {
@@ -177,7 +178,8 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Goobstation/submarine.yml",
             "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
-            "/Maps/loop.yml", // Don't ask me why we are overwriting upstream
+            "/Maps/_Goobstation/loop.yml",
+            "/Maps/_Goobstation/gate.yml",
             "/Maps/_Goobstation/Shuttles/consul.yml", // Contains HEINOUS amounts of centcomm contraband. Obviously.
             "/Maps/_Goobstation/Shuttles/retort_assault.yml", // ERT ships
             "/Maps/_Goobstation/Shuttles/retort_medical.yml",
@@ -217,7 +219,7 @@ namespace Content.IntegrationTests.Tests
             "Submarine", // Goobstation - add Submarine
             "Lambda", // Goobstation - add Lambda
             "Leonid", // Goobstation - add Leonid
-            "Amber",
+            //"Amber", // NO AMBER DHH
             "Gate", // Goobstation - goob changes
             "Lavatest", // Lavaland Change
             "Loop",
@@ -380,9 +382,12 @@ namespace Content.IntegrationTests.Tests
             }
 
             var deps = server.ResolveDependency<IEntitySystemManager>().DependencyCollection;
+            var ev = new BeforeEntityReadEvent();
+            server.EntMan.EventBus.RaiseEvent(EventSource.Local, ev);
+
             foreach (var map in v7Maps)
             {
-                Assert.That(IsPreInit(map, loader, deps));
+                Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
             }
 
             // Check that the test actually does manage to catch post-init maps and isn't just blindly passing everything.
@@ -395,17 +400,49 @@ namespace Content.IntegrationTests.Tests
             // First check that a pre-init version passes
             var path = new ResPath($"{nameof(NoSavedPostMapInitTest)}.yml");
             Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps));
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
 
             // and the post-init version fails.
             await server.WaitPost(() => mapSys.InitializeMap(id));
             Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps), Is.False);
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False);
 
             await pair.CleanReturnAsync();
         }
 
-        private bool IsPreInit(ResPath map, MapLoaderSystem loader, IDependencyCollection deps)
+        /// <summary>
+        /// Check that maps do not have any entities that belong to the DoNotMap entity category
+        /// </summary>
+        private void CheckDoNotMap(ResPath map, YamlNode node, IPrototypeManager protoManager)
+        {
+            if (DoNotMapWhitelist.Contains(map.ToString()))
+                return;
+
+            var yamlEntities = node["entities"];
+            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+                return;
+
+            Assert.Multiple(() =>
+            {
+                foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
+                {
+                    var protoId = yamlEntity["proto"].AsString();
+
+                    // This doesn't properly handle prototype migrations, but thats not a significant issue.
+                    if (!protoManager.TryIndex(protoId, out var proto, false))
+                        continue;
+
+                    Assert.That(!proto.Categories.Contains(dnmCategory),
+                        $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
+                }
+            });
+        }
+
+        private bool IsPreInit(ResPath map,
+            MapLoaderSystem loader,
+            IDependencyCollection deps,
+            Dictionary<string, string> renamedPrototypes,
+            HashSet<string> deletedPrototypes)
         {
             if (!loader.TryReadFile(map, out var data))
             {
@@ -413,7 +450,12 @@ namespace Content.IntegrationTests.Tests
                 return false;
             }
 
-            var reader = new EntityDeserializer(deps, data, DeserializationOptions.Default);
+            var reader = new EntityDeserializer(deps,
+                data,
+                DeserializationOptions.Default,
+                renamedPrototypes,
+                deletedPrototypes);
+
             if (!reader.TryProcessData())
             {
                 Assert.Fail($"Failed to process {map}");

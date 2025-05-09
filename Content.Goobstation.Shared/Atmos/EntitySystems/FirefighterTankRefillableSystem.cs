@@ -7,7 +7,7 @@
 
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Whitelist;

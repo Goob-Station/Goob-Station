@@ -134,6 +134,8 @@
     - Trash
     - BorgArm
     - BorgLArm
+  - type: Item
+    heldPrefix: borg-arm
 
 - type: entity
   parent: [ PartSiliconBase, BaseRightArm ]
@@ -149,6 +151,8 @@
     - Trash
     - BorgArm
     - BorgRArm
+  - type: Item
+    heldPrefix: borg-arm
 
 - type: entity
   parent: [ PartSiliconBase, BaseLeftLeg ]
@@ -164,6 +168,8 @@
     - Trash
     - BorgLeg
     - BorgLLeg
+  - type: Item
+    heldPrefix: borg-leg
 
 - type: entity
   parent: [ PartSiliconBase, BaseRightLeg ]
@@ -179,6 +185,8 @@
     - Trash
     - BorgLeg
     - BorgRLeg
+  - type: Item
+    heldPrefix: borg-leg
 
 - type: entity
   parent: [ PartSiliconBase, BaseHead ]
@@ -193,6 +201,8 @@
     tags:
     - Trash
     - BorgHead
+  - type: Item
+    heldPrefix: borg-head
 
 - type: entity
   parent: [ PartSiliconBase, BaseTorsoInorganic ]
@@ -207,3 +217,5 @@
     tags:
     - Trash
     - BorgTorso
+  - type: Item
+    heldPrefix: borg-chest

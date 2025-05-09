@@ -15,7 +15,7 @@
 
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;

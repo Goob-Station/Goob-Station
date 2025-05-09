@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Speech;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;

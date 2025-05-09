@@ -49,6 +49,9 @@
   # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear # Goobstation - Start - SolsticeOfTheWinter
   id: CentcomGear

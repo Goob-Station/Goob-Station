@@ -13,7 +13,7 @@ using System.Linq;
 using System.Threading;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;

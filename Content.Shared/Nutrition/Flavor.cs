@@ -10,7 +10,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Nutrition;
 
-[Prototype("flavor")]
+[Prototype]
 public sealed partial class FlavorPrototype : IPrototype
 {
     [IdDataField]

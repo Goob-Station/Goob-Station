@@ -21,6 +21,10 @@
     - node: start
       edges:
         - to: spear
+          completed:
+          - !type:AdminLog # Needs a log for start of attempt in addition to the completion log
+            message: "Construction"
+            impact: High
           steps:
             - material: MetalRod
               amount: 2
@@ -44,6 +48,10 @@
     - node: start
       edges:
         - to: spear
+          completed:
+          - !type:AdminLog # Needs a log for start of attempt in addition to the completion log
+            message: "Construction"
+            impact: High
           steps:
             - material: MetalRod
               amount: 2
@@ -67,6 +75,10 @@
     - node: start
       edges:
         - to: spear
+          completed:
+          - !type:AdminLog # Needs a log for start of attempt in addition to the completion log
+            message: "Construction"
+            impact: High
           steps:
             - material: MetalRod
               amount: 2
@@ -90,6 +102,10 @@
     - node: start
       edges:
         - to: spear
+          completed:
+          - !type:AdminLog # Needs a log for start of attempt in addition to the completion log
+            message: "Construction"
+            impact: High
           steps:
             - material: MetalRod
               amount: 2
@@ -113,6 +129,10 @@
     - node: start
       edges:
         - to: spear
+          completed:
+          - !type:AdminLog # Needs a log for start of attempt in addition to the completion log
+            message: "Construction"
+            impact: High
           steps:
             - material: Bones
               amount: 4

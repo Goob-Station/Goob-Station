@@ -374,8 +374,6 @@ ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 
 ## Admin menu
 
-ui-options-enable-classic-overlay = Revert antag overlay to classic mode
-
 ## Shitmed Change
 ui-options-header-targeting = Targeting
 ui-options-function-target-head = Target head
@@ -384,3 +382,19 @@ ui-options-function-target-left-arm = Target left arm
 ui-options-function-target-right-arm = Target right arm
 ui-options-function-target-left-leg = Target left leg
 ui-options-function-target-right-leg = Target right leg
+
+
+ui-options-admin-player-panel = Admin Menu Players List
+
+ui-options-admin-playerlist-separate-symbols = Show separate symbols for each antag role type
+ui-options-admin-playerlist-character-color = Color names of antagonist characters
+ui-options-admin-playerlist-roletype-color = Color role types
+
+ui-options-admin-overlay-title = Admin Overlay
+ui-options-enable-classic-overlay = Revert overlay to classic mode
+ui-options-enable-overlay-symbols = Add antag symbol to text
+ui-options-enable-overlay-playtime = Show playtime
+ui-options-enable-overlay-starting-job = Show starting job
+ui-options-overlay-merge-distance = Stack merge distance
+ui-options-overlay-ghost-fade-distance = Ghost overlay fade range from mouse
+ui-options-overlay-ghost-hide-distance = Ghost overlay hide range from mouse

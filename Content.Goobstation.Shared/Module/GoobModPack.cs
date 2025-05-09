@@ -11,12 +11,14 @@ namespace Content.Goobstation.Shared.Module;
 
 public sealed class GoobModPack : ModulePack
 {
-    public override string PackName => "Goobstation"; // would call it goobmod but will make it clearer what your supposed to be rebuilding
+    public override string PackName => "Goobstation";
 
     public override IReadOnlySet<RequiredAssembly> RequiredAssemblies { get; } = new HashSet<RequiredAssembly>
     {
-        RequiredAssembly.ForClient("Content.Goobstation.Client"),
-        RequiredAssembly.ForClient("Content.Goobstation.UIKit.Client"),
-        RequiredAssembly.ForServer("Content.Goobstation.Server"),
+        RequiredAssembly.Client("Content.Goobstation.Client"),
+        RequiredAssembly.Client("Content.Goobstation.UIKit"),
+        RequiredAssembly.Server("Content.Goobstation.Server"),
+        RequiredAssembly.Shared("Content.Goobstation.Maths"),
+        RequiredAssembly.Shared("Content.Goobstation.Common"),
     };
 }

@@ -149,6 +149,7 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: DamagedSiliconAccent
   - type: Uncloneable
 
 - type: entity
