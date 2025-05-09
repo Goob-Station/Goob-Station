@@ -70,6 +70,9 @@ public sealed class ConstructorBUI : BoundUserInterface
 
     private void PopulateCategories(string? selected = null)
     {
+        if (_menu is not {} menu)
+            return;
+
         var categories = new HashSet<string>();
 
         foreach (var prototype in _proto.EnumeratePrototypes<ConstructionPrototype>())
@@ -91,17 +94,17 @@ public sealed class ConstructorBUI : BoundUserInterface
             categoriesArray[idx++] = cat;
         }
 
-        _menu?.OptionCategories.Clear();
+        menu.OptionCategories.Clear();
 
         for (var i = 0; i < categoriesArray.Length; i++)
         {
-            _menu.OptionCategories.AddItem(Loc.GetString(categoriesArray[i]), i);
+            menu.OptionCategories.AddItem(Loc.GetString(categoriesArray[i]), i);
 
             if (!string.IsNullOrEmpty(selected) && selected == categoriesArray[i])
-                _menu.OptionCategories.SelectId(i);
+                menu.OptionCategories.SelectId(i);
         }
 
-        _menu?.Categories = categoriesArray;
+        menu.Categories = categoriesArray;
     }
 
     // copypasted and optimised from ConstructionMenuPresenter
