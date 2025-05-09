@@ -8600,3 +8600,11 @@ Entries:
       message: Updated base game to 13-04-2025 release
   id: 984
   time: '2025-05-08T16:54:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Stealthsuit no longer needs to stand still for 3 seconds to start
+        cloaking. Damage resistance changes undone.
+  id: 985
+  time: '2025-05-09T06:02:24.0000000+00:00'
