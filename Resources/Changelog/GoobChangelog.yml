@@ -8608,3 +8608,11 @@ Entries:
         cloaking. Damage resistance changes undone.
   id: 985
   time: '2025-05-09T06:02:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        PTL Flatpack now can also be found in ce locker. engi may now print
+        infinite money.
+  id: 986
+  time: '2025-05-09T06:03:07.0000000+00:00'
