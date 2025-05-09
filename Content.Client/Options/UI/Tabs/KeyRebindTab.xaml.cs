@@ -51,6 +51,7 @@
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Łukasz Mędrek <lukasz@lukaszm.xyz>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
