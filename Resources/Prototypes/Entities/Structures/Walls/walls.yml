@@ -71,7 +71,6 @@
 # SPDX-FileCopyrightText: 2024 Hrosts <35345601+Hrosts@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JIPDawg <51352440+JIPDawg@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 JIPDawg <JIPDawg93@gmail.com>
 # SPDX-FileCopyrightText: 2024 Joel Zimmerman <JoelZimmerman@users.noreply.github.com>
@@ -163,6 +162,7 @@
 # SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
@@ -339,6 +339,18 @@
   - type: IconSmooth
     key: walls
     base: clown
+  # Goobstation
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 8000 # really good ramming wall, bananium is rare so it's probably fine
   - type: RustRequiresPathStage # Goobstation
     pathStage: 4 # Mark of rust
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
@@ -522,6 +534,18 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Goobstation
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 4000
   - type: IconSmooth
     key: walls
     base: gold
@@ -689,7 +713,7 @@
           - FullTileMask
           layer:
           - WallLayer
-          density: 3000 # ramming nukies is a bad idea
+          density: 4000 # ramming nukies is a bad idea
     # </Goobstation>
 
 - type: entity
@@ -1145,6 +1169,7 @@
         - FullTileMask
         layer:
         - WallLayer
+        density: 2000 # Goobstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1446,6 +1471,18 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Goobstation
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 6000
   - type: IconSmooth
     key: walls
     base: uranium
