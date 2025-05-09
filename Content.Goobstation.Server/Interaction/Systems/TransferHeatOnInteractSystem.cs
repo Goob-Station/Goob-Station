@@ -1,4 +1,7 @@
 using Content.Goobstation.Server.Interaction.Components;
+using Content.Goobstation.Server.Temperature;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Bed.Sleep;
@@ -13,6 +16,7 @@ public sealed class TransferHeatOnInteract : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly GoobTemperatureSystem _goobTemperature = default!;
 
     public override void Initialize()
     {
@@ -60,6 +64,7 @@ public sealed class TransferHeatOnInteract : EntitySystem
         _temperature.ChangeHeat(ent, -energy);
         _temperature.ChangeHeat(user, energy);
 
+        if (ent.Comp.TransferFireStacks)
+            _goobTemperature.TransferFireStacks(user, ent);
     }
-
 }

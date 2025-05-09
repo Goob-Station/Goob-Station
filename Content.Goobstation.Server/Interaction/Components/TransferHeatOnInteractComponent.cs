@@ -21,6 +21,16 @@ public sealed partial class TransferHeatOnInteractComponent : Component
     public bool OnActivate;
 
     /// <summary>
+    /// Should this entity transfer firestacks on interaction?
+    /// </summary>
+    /// <remarks>
+    /// This effectively allows you to play 'hot potato' with fire stacks.
+    /// Lol.
+    /// </remarks>
+    [DataField]
+    public bool TransferFireStacks = true;
+
+    /// <summary>
     /// Time delay between interactions to avoid spam.
     /// </summary>
     [DataField]
