@@ -10,7 +10,7 @@
             <TabContainer Name="TabContainer" HorizontalExpand="True" VerticalExpand="True">
                 <tabs:StatusTabControl Name="StatusTabControl"/>
                 <tabs:EmotesTabControl Name="EmotesTabControl"/>
-                <!--<tabs:ActionsTabControl Name="ActionsTabControl"/>-->
+                <!-- <tabs:ActionsTabControl Name="ActionsTabControl"/> -->
                 <tabs:ConfigTabControl Name="ConfigTabControl"/>
             </TabContainer>
 

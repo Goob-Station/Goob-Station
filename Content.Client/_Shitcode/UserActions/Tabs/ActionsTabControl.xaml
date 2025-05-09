@@ -9,12 +9,12 @@
                          Margin="2"
                          MinHeight="100"
                          HScrollEnabled="False">
-            <!--<BoxContainer Name="ActionsContainer"
+            <BoxContainer Name="ActionsContainer2"
                           Orientation="Vertical"
                           HorizontalExpand="True"
                           Margin="2">
-                <actions:ActionsBar Name="Actions" Access="Public" />
-            </BoxContainer>-->
+                <!-- <actions:ActionsBar Name="Actions2" Access="Public" /> -->
+            </BoxContainer>
         </ScrollContainer>
     </PanelContainer>
 
