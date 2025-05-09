@@ -25,7 +25,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -82,7 +82,7 @@
         nodeGroupID: Pipe
         pipeDirection: North
 
-# Goobstation
+# Goidastation
 # a non-flippable filter
 - type: entity
   abstract: true
@@ -130,18 +130,18 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
+    - type: VentCrawlerJunction # Goidastation - ventcrawl
       degrees:
         - 0
         - -90
         - 180
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
 
-# Goobstation - reparent to new base filter proto
+# Goidastation - reparent to new base filter proto
 - type: entity
   parent: GasFilterBase
   id: GasFilter
@@ -150,9 +150,9 @@
   components:
   - type: Flippable
     mirrorEntity: GasFilterFlipped
-  # Goobstation - if you see a merge conflict here, move all new components to GasFilterBase
+  # Goidastation - if you see a merge conflict here, move all new components to GasFilterBase
 
-# Goobstation - reparent to new base protos
+# Goidastation - reparent to new base protos
 - type: entity
   parent: [GasFilter, GasTrinaryFlippedBase]
   id: GasFilterFlipped
@@ -177,7 +177,7 @@
           False: { state: gasFilterF }
   - type: Construction
     node: filterflipped
-  # Goobstation - if you see a merge conflict here, move all new components to GasFilterBase
+  # Goidastation - if you see a merge conflict here, move all new components to GasFilterBase
 
 - type: entity
   parent: GasTrinaryBase
@@ -227,14 +227,14 @@
     - type: GuideHelp
       guides:
       - MixingAndFiltering
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
+    - type: VentCrawlerJunction # Goidastation - ventcrawl
       degrees:
         - 0
         - -90
         - 180
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
 
@@ -280,14 +280,14 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
-  - type: VentCrawlerTube # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goidastation - ventcrawl
     containerId: VentCrawlerTube
-  - type: VentCrawlerJunction # Goobstation - ventcrawl
+  - type: VentCrawlerJunction # Goidastation - ventcrawl
     degrees:
       - 0
       - -90
       - 180
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
 
@@ -353,13 +353,13 @@
       - PneumaticValve
       - Pumps
       - Valves
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
+    - type: VentCrawlerJunction # Goidastation - ventcrawl
       degrees:
         - 0
         - -90
         - 180
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container

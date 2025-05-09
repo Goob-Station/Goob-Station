@@ -15,7 +15,7 @@
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    sprite: _Goidastation/Objects/Specific/Security/blueshieldundetermined.rsi
     state: icon
   - type: SetSelector
     possibleSets:
@@ -33,7 +33,7 @@
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    sprite: _Goidastation/Objects/Specific/Security/blueshieldundetermined.rsi
     state: icon-alt
   - type: SetSelector
     possibleSets:
@@ -50,7 +50,7 @@
   parent: [ BaseItem, BaseSetSelector, BaseCentcommContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/ertundetermined.rsi
+    sprite: _Goidastation/Objects/Specific/Security/ertundetermined.rsi
     state: icon
   - type: SetSelector
     possibleSets:

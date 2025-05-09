@@ -22,7 +22,7 @@ public sealed partial class GatheringProjectileComponent : Component
     public int Amount = 1;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// The probability that the given projectile will actually be gathering
     /// </summary>
     [DataField]

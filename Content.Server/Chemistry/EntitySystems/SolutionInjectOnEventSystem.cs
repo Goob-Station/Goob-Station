@@ -12,11 +12,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Armor; // Goobstation - Armor resisting syringe gun
+using Content.Shared.Armor; // Goidastation - Armor resisting syringe gun
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
-using Content.Shared.Chemistry.Components; // GoobStation
+using Content.Shared.Chemistry.Components; // GoidaStation
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Inventory;
@@ -85,18 +85,18 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         TryInjectTargets(injectorEntity, [target], source);
     }
 
-    private void ResetState(BaseSolutionInjectOnEventComponent comp) // Goobstation
+    private void ResetState(BaseSolutionInjectOnEventComponent comp) // Goidastation
     {
         comp.PierceArmorOverride = null;
         comp.SpeedMultiplier = 1f;
     }
 
-    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args) // Goobstation
+    private void OnEmbedLand(Entity<SolutionInjectOnEmbedComponent> entity, ref LandEvent args) // Goidastation
     {
         ResetState(entity.Comp);
     }
 
-    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args) // Goobstation
+    private void OnWhileEmbeddedLand(Entity<SolutionInjectWhileEmbeddedComponent> entity, ref LandEvent args) // Goidastation
     {
         entity.Comp.UpdateInterval *= entity.Comp.SpeedMultiplier;
         ResetState(entity.Comp);
@@ -132,7 +132,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (Deleted(target))
                 continue;
 
-            // Goobstation - Armor resisting syringe gun
+            // Goidastation - Armor resisting syringe gun
             var mult = 1f; // multiplier of how much to actually inject
             var pierce = injector.Comp.PierceArmorOverride ?? injector.Comp.PierceArmor;
             if (_inventory.TryGetSlotEntity(target, "outerClothing", out var suit)) // attempt to apply armor injection speed multiplier or block the syringe
@@ -194,8 +194,8 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             if (_bloodstream.TryAddToChemicals(target, solutionToInject, bloodstream))
                 anySuccess = true;
         }
-        // Goobstation - Armor resisting syringe gun
-        // on upstream there would be code here but it migrates north in the goobstation season
+        // Goidastation - Armor resisting syringe gun
+        // on upstream there would be code here but it migrates north in the goidastation season
 
         // Huzzah!
         return anySuccess;

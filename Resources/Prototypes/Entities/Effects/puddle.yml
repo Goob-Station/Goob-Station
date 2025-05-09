@@ -272,7 +272,7 @@
   - type: EdgeSpreader
     id: Puddle
   - type: StepTrigger
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - SlipTile
   - type: Drink

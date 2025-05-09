@@ -159,7 +159,7 @@
   - type: Hands
   - type: ComplexInteraction
   - type: Puller
-    needsHands: false # Goobstation - admin ghosts no longer need a free hand to pull
+    needsHands: false # Goidastation - admin ghosts no longer need a free hand to pull
   - type: CombatMode
   - type: Physics
     ignorePaused: true
@@ -237,7 +237,7 @@
   - type: Loadout
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
-  - type: SupermatterImmune # Goobstation
+  - type: SupermatterImmune # Goidastation
   - type: Eye
     visMask:
       - Ghost

@@ -12,13 +12,13 @@ using Content.Server.GameTicking.Rules;
 using Content.Shared.Mind;
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Server.Blob.GameTicking;
+namespace Content.Goidastation.Server.Blob.GameTicking;
 
 [RegisterComponent, Access(typeof(BlobRuleSystem), typeof(BlobCoreSystem), typeof(BlobObserverSystem))]
 public sealed partial class BlobRuleComponent : Component
 {
     [DataField]
-    public SoundSpecifier? DetectedAudio = new SoundPathSpecifier("/Audio/_Goobstation/Announcements/blob_detected.ogg");
+    public SoundSpecifier? DetectedAudio = new SoundPathSpecifier("/Audio/_Goidastation/Announcements/blob_detected.ogg");
 
     [DataField]
     public SoundSpecifier? CriticalAudio = new SoundPathSpecifier("/Audio/StationEvents/blobin_time.ogg");

@@ -89,7 +89,7 @@ namespace Content.Shared.UserInterface
         public bool VerbOnly;
 
         /// <summary>
-        ///     Goobstation
+        ///     Goidastation
         ///     If true, UI can only be opened via alt verb.
         /// </summary>
         [DataField, ViewVariables(VVAccess.ReadWrite)]

@@ -9,7 +9,7 @@
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Goobstation.Common.DoAfter;
+namespace Content.Goidastation.Common.DoAfter;
 
 [RegisterComponent]
 public sealed partial class DoAfterDelayMultiplierComponent : Component

@@ -65,7 +65,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// <summary>
     ///     Icon for codex and radial menu.
     /// </summary>
-    [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon");
+    [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goidastation/Heretic/amber_focus.rsi"), "icon");
 
     /// <summary>
     ///     Whether rune should play success animation on ritual success.

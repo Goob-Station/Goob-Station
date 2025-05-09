@@ -130,7 +130,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 {
                     BreakOnMove = false,
                     BreakOnDamage = true,
-                    MultiplyDelay = false, // Goobstation
+                    MultiplyDelay = false, // Goidastation
                 });
             }
             args.Handled = true;

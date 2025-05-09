@@ -11,9 +11,9 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Common.Blob;
-using Content.Goobstation.Server.Blob.Components;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Common.Blob;
+using Content.Goidastation.Server.Blob.Components;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Server.AlertLevel;
 using Content.Server.Antag;
 using Content.Server.Chat.Managers;
@@ -30,7 +30,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.Blob.GameTicking;
+namespace Content.Goidastation.Server.Blob.GameTicking;
 
 public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
 {

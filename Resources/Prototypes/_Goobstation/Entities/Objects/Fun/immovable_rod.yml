@@ -5,7 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-#Goobstation - add a skibidi toilet as an immovable rod sprite
+#Goidastation - add a skibidi toilet as an immovable rod sprite
 - type: entity
   parent: ImmovableRodKeepTilesStill
   id: ImmovableRodSkibidi
@@ -13,7 +13,7 @@
   description: skibidi dob dob yes yes
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Demons/skibidi.rsi
+    sprite: _Goidastation/Mobs/Demons/skibidi.rsi
     drawdepth: Mobs
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]

@@ -33,4 +33,4 @@
         Piercing: 10
   - type: ThrowingAngle
     angularVelocity: true # spins
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation

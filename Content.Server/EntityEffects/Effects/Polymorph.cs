@@ -26,7 +26,7 @@ public sealed partial class Polymorph : EntityEffect
     [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<PolymorphPrototype>))]
     public string PolymorphPrototype { get; set; }
 
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) // Goob edit
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) // Goida edit
     {
         var entProto = prototype.Index<PolymorphPrototype>(PolymorphPrototype).Configuration.Entity;
         if (entProto == null)

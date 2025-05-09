@@ -8,7 +8,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.HighFrequencyBlade;
+namespace Content.Shared._Goidastation.Wizard.HighFrequencyBlade;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LightAttackDamageMultiplierComponent : Component

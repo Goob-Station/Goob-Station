@@ -90,14 +90,14 @@
   - type: Tag
     tags:
       - PowerCell
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: Appearance
   - type: PowerCellVisuals
   - type: Riggable
   - type: HitscanBatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
-  - type: StealTarget #Goobstation - IPC steal
+  - type: StealTarget #Goidastation - IPC steal
     stealGroup: Battery
 
 - type: entity
@@ -115,7 +115,7 @@
   - type: Tag
     tags:
       - PotatoBattery
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: Construction
     graph: PowerCellPotato
     node: potatobattery
@@ -140,7 +140,7 @@
   - type: Tag
     tags:
       - PowerCellSmall
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 12
       Steel: 12
@@ -184,7 +184,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 50
       Steel: 50
@@ -230,7 +230,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 37
       Steel: 50
@@ -317,7 +317,7 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 100
       Glass: 75

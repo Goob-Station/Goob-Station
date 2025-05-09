@@ -13,7 +13,7 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -68,14 +68,14 @@ public sealed partial class BlockingSystem
             if (!TryComp<DamageableComponent>(component.BlockingItem, out var dmgComp))
                 return;
 
-            if (!_toggle.IsActivated(component.BlockingItem.Value)) // Goobstation
+            if (!_toggle.IsActivated(component.BlockingItem.Value)) // Goidastation
                 return;
 
             var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
             blockFraction = Math.Clamp(blockFraction, 0, 1);
             _damageable.TryChangeDamage(component.BlockingItem,
                 blockFraction * args.OriginalDamage,
-                armorPenetration: args.ArmorPenetration); // Goob edit
+                armorPenetration: args.ArmorPenetration); // Goida edit
 
             var modify = new DamageModifierSet();
             foreach (var key in dmgComp.Damage.DamageDict.Keys)
@@ -101,7 +101,7 @@ public sealed partial class BlockingSystem
         }
 
         args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage,
-            DamageSpecifier.PenetrateArmor(modifier, args.ArmorPenetration)); // Goob edit
+            DamageSpecifier.PenetrateArmor(modifier, args.ArmorPenetration)); // Goida edit
     }
 
     private void OnEntityTerminating(EntityUid uid, BlockingUserComponent component, ref EntityTerminatingEvent args)

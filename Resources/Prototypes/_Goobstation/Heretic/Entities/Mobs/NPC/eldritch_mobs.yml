@@ -5,7 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -93,7 +93,7 @@
   - type: Ghoul
     totalHealth: 150
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goidastation/Heretic/eldritch_mobs.rsi
     state: stalker
   - type: GhostRole
     name: ghostrole-stalker-name
@@ -121,7 +121,7 @@
     totalHealth: 75
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goidastation/Heretic/eldritch_mobs.rsi
     layers:
     - map: [ "movement" ]
       state: raw_prophet
@@ -156,7 +156,7 @@
   - type: Ghoul
     totalHealth: 100
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goidastation/Heretic/eldritch_mobs.rsi
     layers:
     - map: [ "movement" ]
       state: rust_walker

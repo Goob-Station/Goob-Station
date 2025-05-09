@@ -60,7 +60,7 @@
         - !type:HTNCompoundTask
           task: PickupMeleeCompound
 
-    # Goobstation - wield an item if it's wieldable
+    # Goidastation - wield an item if it's wieldable
     - preconditions:
         - !type:ActiveHandComponentPrecondition
           components:

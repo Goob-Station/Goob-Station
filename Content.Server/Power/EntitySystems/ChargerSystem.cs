@@ -360,7 +360,7 @@ internal sealed class ChargerSystem : EntitySystem
         UpdateStatus(uid, component);
     }
 
-    // Goobstation - Modsuits - Changed charger logic to work with suits in cyborg charger
+    // Goidastation - Modsuits - Changed charger logic to work with suits in cyborg charger
     private bool SearchForBattery(EntityUid uid, [NotNullWhen(true)] out EntityUid? batteryUid, [NotNullWhen(true)] out BatteryComponent? component)
     {
         batteryUid = null;
@@ -394,7 +394,7 @@ internal sealed class ChargerSystem : EntitySystem
     }
 }
 
-// Goobstation - Modsuits stuff
+// Goidastation - Modsuits stuff
 [ByRefEvent]
 public record struct FindInventoryBatteryEvent() : IInventoryRelayEvent
 {

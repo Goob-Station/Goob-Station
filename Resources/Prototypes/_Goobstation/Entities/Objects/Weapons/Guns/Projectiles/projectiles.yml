@@ -8,7 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -27,7 +27,7 @@
   components:
   - type: Sprite
     noRot: false
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/cbbolt.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/cbbolt.rsi
     layers:
     - state: cbbolt
   - type: Projectile
@@ -68,7 +68,7 @@
       - NonEnergy
   - type: Sprite
     noRot: false
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/bullet_cutter.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/bullet_cutter.rsi
     layers:
     - state: icon
       shader: unshaded
@@ -160,7 +160,7 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
   travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
     state: beam_blue_heavy
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -192,7 +192,7 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
   travelFlash:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/heavy_pulse.rsi
     state: beam_blue_heavy
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -309,7 +309,7 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
     layers:
     - state: bolt_blue_heavy
       shader: unshaded

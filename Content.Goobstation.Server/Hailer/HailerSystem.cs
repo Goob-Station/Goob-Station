@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Hailer;
+using Content.Goidastation.Shared.Hailer;
 using Content.Server.Chat.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Inventory;
@@ -15,7 +15,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Hailer;
+namespace Content.Goidastation.Server.Hailer;
 
 public sealed class HailerSystem : EntitySystem
 {
@@ -47,15 +47,15 @@ public sealed class HailerSystem : EntitySystem
         }
     }
     string[] _sounds = [
-        "/Audio/_Goobstation/Hailer/asshole.ogg",
-        "/Audio/_Goobstation/Hailer/bash.ogg",
-        "/Audio/_Goobstation/Hailer/bobby.ogg",
-        "/Audio/_Goobstation/Hailer/compliance.ogg",
-        "/Audio/_Goobstation/Hailer/dontmove.ogg",
-        "/Audio/_Goobstation/Hailer/dredd.ogg",
-        "/Audio/_Goobstation/Hailer/floor.ogg",
-        "/Audio/_Goobstation/Hailer/freeze.ogg",
-        "/Audio/_Goobstation/Hailer/halt.ogg",
+        "/Audio/_Goidastation/Hailer/asshole.ogg",
+        "/Audio/_Goidastation/Hailer/bash.ogg",
+        "/Audio/_Goidastation/Hailer/bobby.ogg",
+        "/Audio/_Goidastation/Hailer/compliance.ogg",
+        "/Audio/_Goidastation/Hailer/dontmove.ogg",
+        "/Audio/_Goidastation/Hailer/dredd.ogg",
+        "/Audio/_Goidastation/Hailer/floor.ogg",
+        "/Audio/_Goidastation/Hailer/freeze.ogg",
+        "/Audio/_Goidastation/Hailer/halt.ogg",
     ];
     Dictionary<EntityUid, TimeSpan> _delays = new Dictionary<EntityUid, TimeSpan>();
     TimeSpan _fixed_delay = TimeSpan.FromSeconds(2);

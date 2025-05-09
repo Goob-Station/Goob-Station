@@ -17,9 +17,9 @@
     useDelay: 3
     itemIconStyle: NoItem
     sound:
-      path: /Audio/_Goobstation/Heretic/ice_shovel.ogg
+      path: /Audio/_Goidastation/Heretic/ice_shovel.ogg
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: ice_spear
     event: !type:EventHereticIceSpear
     checkCanInteract: true
@@ -39,7 +39,7 @@
     useDelay: 45
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: cleave
     event: !type:EventHereticCleave
     checkCanAccess: false
@@ -59,7 +59,7 @@
     useDelay: 45
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: rust_charge
     event: !type:EventHereticRustCharge
     checkCanAccess: false

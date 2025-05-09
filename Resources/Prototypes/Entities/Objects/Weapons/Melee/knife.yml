@@ -106,7 +106,7 @@
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -250,7 +250,7 @@
     malus: 0.225
   - type: ThrowingAngle
     angle: 225
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
 
 - type: entity
   name: survival knife
@@ -312,7 +312,7 @@
     sprite: Clothing/Head/Hats/greyflatcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyflatcap.rsi
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
 
 - type: entity
   parent: BladedFlatcapGrey
@@ -353,7 +353,7 @@
     sprite: Objects/Weapons/Melee/shiv.rsi
   - type: DisarmMalus
     malus: 0.225
-  - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: UndetectableContraband #Goidastation-Contraband detector
 
 - type: entity
   name: reinforced shiv

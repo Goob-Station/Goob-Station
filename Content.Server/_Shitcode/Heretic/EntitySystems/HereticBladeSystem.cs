@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Text;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Server._Goidastation.Wizard.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Rotting;
 using Content.Server.Body.Systems;
@@ -8,7 +8,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Teleportation;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -6,7 +6,7 @@
 using Content.Server.Kitchen.Components;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Kitchen;
+namespace Content.Goidastation.Server.Kitchen;
 
 /// <summary>
 /// Prevents automation taking items out of an active microwave.

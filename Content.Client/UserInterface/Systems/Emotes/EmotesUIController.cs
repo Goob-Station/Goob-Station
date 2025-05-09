@@ -38,7 +38,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         [EmoteCategory.General] = ("emote-menu-category-general", new SpriteSpecifier.Texture(new ResPath("/Textures/Clothing/Head/Soft/mimesoft.rsi/icon.png"))),
         [EmoteCategory.Hands] = ("emote-menu-category-hands", new SpriteSpecifier.Texture(new ResPath("/Textures/Clothing/Hands/Gloves/latex.rsi/icon.png"))),
         [EmoteCategory.Vocal] = ("emote-menu-category-vocal", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Emotes/vocal.png"))),
-        [EmoteCategory.Farts] = ("emote-menu-category-farts", new SpriteSpecifier.Texture(new ResPath("/Textures/_Goobstation/Interface/Emotes/fart.png"))), // Goobstation (obviously)
+        [EmoteCategory.Farts] = ("emote-menu-category-farts", new SpriteSpecifier.Texture(new ResPath("/Textures/_Goidastation/Interface/Emotes/fart.png"))), // Goidastation (obviously)
     };
 
     public void OnStateEntered(GameplayState state)

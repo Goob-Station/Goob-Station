@@ -255,7 +255,7 @@ namespace Content.Server.Hands.Systems
             args.WasDisarmed = true;
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
-                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true); // Goobstation edit added check for grab
+                _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true); // Goidastation edit added check for grab
 
             var offsetRandomCoordinates = _transformSystem.GetMoverCoordinates(args.Target).Offset(_random.NextVector2(1f, 1.5f));
             if (!ThrowHeldItem(args.Target, offsetRandomCoordinates))
@@ -361,7 +361,7 @@ namespace Content.Server.Hands.Systems
             if (playerSession?.AttachedEntity is not {Valid: true} player || !Exists(player) || !coordinates.IsValid(EntityManager))
                 return false;
 
-            // Goobstation start
+            // Goidastation start
             if (TryGetActiveItem(player, out var item) && TryComp<VirtualItemComponent>(item, out var virtComp))
             {
                 var userEv = new VirtualItemDropAttemptEvent(virtComp.BlockingEntity, player, item.Value, true);
@@ -373,7 +373,7 @@ namespace Content.Server.Hands.Systems
                 if (userEv.Cancelled || targEv.Cancelled)
                     return false;
             }
-            // Goobstation end
+            // Goidastation end
 
             return ThrowHeldItem(player, coordinates);
         }
@@ -388,7 +388,7 @@ namespace Content.Server.Hands.Systems
                 hands.ActiveHandEntity is not { } throwEnt ||
                 !_actionBlockerSystem.CanThrow(player, throwEnt))
                 return false;
-            // Goobstation start added throwing for grabbed mobs, mnoved direction.
+            // Goidastation start added throwing for grabbed mobs, mnoved direction.
             var direction = _transformSystem.ToMapCoordinates(coordinates).Position - _transformSystem.GetWorldPosition(player);
 
             if (TryComp<VirtualItemComponent>(throwEnt, out var virt))
@@ -399,7 +399,7 @@ namespace Content.Server.Hands.Systems
                 var targEv = new VirtualItemThrownEvent(virt.BlockingEntity, player, throwEnt, direction);
                 RaiseLocalEvent(virt.BlockingEntity, targEv);
             }
-            // Goobstation end
+            // Goidastation end
 
             if (_timing.CurTime < hands.NextThrowTime)
                 return false;

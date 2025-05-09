@@ -12,9 +12,9 @@
   suffix: Unremoveable
   components:
   - type: Sprite
-    sprite: _Goobstation/Changeling/ling_armor_helmet.rsi
+    sprite: _Goidastation/Changeling/ling_armor_helmet.rsi
   - type: Clothing
-    sprite: _Goobstation/Changeling/ling_armor_helmet.rsi
+    sprite: _Goidastation/Changeling/ling_armor_helmet.rsi
   - type: Armor
     modifiers:
       coefficients:

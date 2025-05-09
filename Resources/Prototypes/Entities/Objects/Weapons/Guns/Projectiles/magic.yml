@@ -111,8 +111,8 @@
     explosiveProjectile: true
   - type: Explosive
     explosionType: Default
-    maxIntensity: 3.5 # Goob edit
-    intensitySlope: 3 # Goob edit
+    maxIntensity: 3.5 # Goida edit
+    intensitySlope: 3 # Goida edit
     totalIntensity: 28 # Gobo edit
     maxTileBreak: 0
   - type: IgnitionSource
@@ -120,17 +120,17 @@
     ignited: true
   - type: IgniteOnCollide
     fireStacks: 0.35
-  - type: Ammo # Goobstation
+  - type: Ammo # Goidastation
     muzzleFlash: null
-  - type: FlashOnTrigger # Goobstation
+  - type: FlashOnTrigger # Goidastation
     duration: 4
     range: 1.8
-  - type: Flashbang # Goobstation
+  - type: Flashbang # Goidastation
     stunTime: 1
     knockdownTime: 6
   - type: Reflective
     reflective: Magic
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
       - FlashIgnoreResistances
 
@@ -195,16 +195,16 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ResistLocker
-    resistTime: 60 # Goob edit
-  - type: Ammo # Goobstation
+    resistTime: 60 # Goida edit
+  - type: Ammo # Goidastation
     muzzleFlash: null
-  - type: FadingTimedDespawn # Goobstation
+  - type: FadingTimedDespawn # Goidastation
     lifetime: 120
     fadeOutTime: 5
   - type: StoreOnCollide
     lockOnCollide: true
     disableWhenFirstOpened: true
-    disableOnSleep: true # Goobstation
+    disableOnSleep: true # Goidastation
     whitelist:
       components:
         - Body
@@ -281,18 +281,18 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: magicm_green # Goob edit
+    - state: magicm_green # Goida edit
       shader: unshaded
   - type: Projectile
     damage:
       types:
-        Poison: 0 # Goob edit
-  - type: TriggerOnProjectileHit # Goob edit
-  - type: Reflective # Goobstation
+        Poison: 0 # Goida edit
+  - type: TriggerOnProjectileHit # Goida edit
+  - type: Reflective # Goidastation
     reflective: Magic
-  - type: Ammo # Goobstation
+  - type: Ammo # Goidastation
     muzzleFlash: null
-  - type: Trail # Goobstation
+  - type: Trail # Goidastation
     lerpTime: 0.05
     frequency: 0.02
     lifetime: 1
@@ -368,13 +368,13 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: magicm_yellow # Goob edit
+    - state: magicm_yellow # Goida edit
       shader: unshaded
   - type: Projectile
     damage:
       types:
-        Heat: 0 # Goob edit
-  - type: RejuvenateOnProjectileHit # Goobstation
+        Heat: 0 # Goida edit
+  - type: RejuvenateOnProjectileHit # Goidastation
     undeadList:
       components:
       - Zombie
@@ -383,11 +383,11 @@
     damage:
       types:
         Heat: 600
-  - type: Reflective # Goobstation
+  - type: Reflective # Goidastation
     reflective: Magic
-  - type: Ammo # Goobstation
+  - type: Ammo # Goidastation
     muzzleFlash: null
-  - type: Trail # Goobstation
+  - type: Trail # Goidastation
     lerpTime: 0.05
     frequency: 0.02
     lifetime: 1

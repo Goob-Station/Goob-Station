@@ -53,7 +53,7 @@
     id: VisitorPDA
     belt: ClothingBeltChiefEngineerFilled
     back: ClothingBackpackDuffelEngineering
-    ears: ClothingHeadsetAltEngineering # Goobstation
+    ears: ClothingHeadsetAltEngineering # Goidastation
     outerClothing: ClothingOuterVestHazard
     pocket1: WeaponDisabler
 
@@ -67,7 +67,7 @@
     id: VisitorPDA
     belt: ClothingBeltChiefEngineerFilled
     back: ClothingBackpackSatchelEngineering
-    ears: ClothingHeadsetAltEngineering # Goobstation
+    ears: ClothingHeadsetAltEngineering # Goidastation
     outerClothing: ClothingOuterWinterCE
     pocket1: WeaponDisabler
 
@@ -81,7 +81,7 @@
     neck: ClothingCloakCmo
     id: VisitorPDA
     back: ClothingBackpackMedical
-    ears: ClothingHeadsetAltMedical # Goobstation
+    ears: ClothingHeadsetAltMedical # Goidastation
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
     pocket1: WeaponDisabler
@@ -96,7 +96,7 @@
     neck: ClothingNeckMantleCMO
     id: VisitorPDA
     back: ClothingBackpackSatchelMedical
-    ears: ClothingHeadsetAltMedical # Goobstation
+    ears: ClothingHeadsetAltMedical # Goidastation
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLabCmo
     pocket1: WeaponDisabler
@@ -141,10 +141,10 @@
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSatchelSecurity
     ears: ClothingHeadsetAltSecurity
-    mask: ClothingMaskGasSecurity # Goobstation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterCoatHoSTrench
-    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
+    #pocket1: WeaponDisabler #Goidastation (Disablers in belts)
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
@@ -161,9 +161,9 @@
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSatchelLeather
     ears: ClothingHeadsetAltSecurity
-    mask: ClothingMaskGasSecurity # Goobstation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
-    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
+    #pocket1: WeaponDisabler #Goidastation (Disablers in belts)
     pocket2: MagazinePistolSubMachineGunTopMounted
   inhand:
   - WeaponSubMachineGunWt550
@@ -178,7 +178,7 @@
     neck: ClothingNeckCloakRd
     id: VisitorPDA
     back: ClothingBackpackScience
-    ears: ClothingHeadsetAltScience # Goobstation
+    ears: ClothingHeadsetAltScience # Goidastation
     outerClothing: ClothingOuterCoatRD
     pocket1: WeaponDisabler
 
@@ -192,7 +192,7 @@
     neck: ClothingNeckMantleRD
     id: VisitorPDA
     back: ClothingBackpackSatchelScience
-    ears: ClothingHeadsetAltScience # Goobstation
+    ears: ClothingHeadsetAltScience # Goidastation
     outerClothing: ClothingOuterCoatRD
     pocket1: WeaponDisabler
 
@@ -205,7 +205,7 @@
     neck: ClothingNeckCloakQm
     id: VisitorPDA
     back: ClothingBackpackCargo
-    ears: ClothingHeadsetAltCargo # Goobstation
+    ears: ClothingHeadsetAltCargo # Goidastation
     outerClothing: ClothingOuterWinterQM
     pocket1: WeaponDisabler
     pocket2: AppraisalTool
@@ -219,7 +219,7 @@
     neck: ClothingNeckMantleQM
     id: VisitorPDA
     back: ClothingBackpackSatchelCargo
-    ears: ClothingHeadsetAltCargo # Goobstation
+    ears: ClothingHeadsetAltCargo # Goidastation
     outerClothing: ClothingOuterWinterQM
     pocket1: WeaponDisabler
     pocket2: AppraisalTool
@@ -235,8 +235,8 @@
     id: VisitorPDA
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
     pocket1: WeaponPistolMk58
@@ -254,8 +254,8 @@
     id: VisitorPDA
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSatchelSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
     pocket1: WeaponPistolMk58
@@ -272,8 +272,8 @@
     id: VisitorPDA
     belt: ClothingBeltSecurityWebbingFilled
     back: ClothingBackpackSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
     pocket1: WeaponPistolMk58
@@ -291,8 +291,8 @@
     id: VisitorPDA
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSatchelSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
     pocket1: WeaponPistolMk58
@@ -310,8 +310,8 @@
     id: VisitorPDA
     belt: ClothingBeltHolsterFilled
     back: ClothingBackpackSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterCoatDetectiveLoadout
     pocket1: ForensicScanner
@@ -329,8 +329,8 @@
     id: VisitorPDA
     belt: ClothingBeltHolsterFilled
     back: ClothingBackpackSatchelSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterVestDetective
     pocket1: ForensicScanner
@@ -349,8 +349,8 @@
     id: VisitorPDA
     belt: ClothingBeltSecurityWebbingFilled
     back: ClothingBackpackSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterCoatWarden
     pocket1: WeaponDisabler
@@ -369,11 +369,11 @@
     id: VisitorPDA
     belt: ClothingBeltSecurityFilled
     back: ClothingBackpackSatchelSecurity
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
-    mask: ClothingMaskGasSecurity # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
+    mask: ClothingMaskGasSecurity # Goidastation
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterWinterWarden
-    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
+    #pocket1: WeaponDisabler #Goidastation (Disablers in belts)
     pocket2: Zipties
   inhand:
   - FlashlightSeclite

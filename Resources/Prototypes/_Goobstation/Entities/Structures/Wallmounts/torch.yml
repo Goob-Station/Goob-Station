@@ -21,7 +21,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Goobstation/Structures/Wallmounts/torch.rsi
+    sprite: _Goidastation/Structures/Wallmounts/torch.rsi
     state: torch
   - type: PointLight
     enabled: true

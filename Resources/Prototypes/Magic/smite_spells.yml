@@ -21,15 +21,15 @@
       - Body
     canTargetSelf: false
     interactOnMiss: false
-    raiseOnUser: true # Goobstation
+    raiseOnUser: true # Goidastation
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/disintegrate.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
       state: gib
     event: !type:SmiteSpellEvent
       speech: action-speech-spell-smite
-  - type: Magic # Goobstation
+  - type: Magic # Goidastation
     requiresClothes: true
     requiresSpeech: true
     school: Evocation

@@ -35,7 +35,7 @@
   id: JetpackEffect
   categories: [ HideSpawnMenu ]
   components:
-  - type: FadingTimedDespawn # Goobstation
+  - type: FadingTimedDespawn # Goidastation
     lifetime: 2
     fadeOutTime: 1
   - type: Sprite
@@ -91,7 +91,7 @@
     - type: Appearance
     - type: StaticPrice
       price: 100
-    - type: Tag # Goobstation
+    - type: Tag # Goidastation
       tags:
       - Jetpack
 
@@ -223,7 +223,7 @@
   suffix: Empty
   components:
     - type: Item
-      size: Normal # goobstation - MINI jetpack
+      size: Normal # goidastation - MINI jetpack
       sprite: Objects/Tanks/Jetpacks/mini.rsi
     - type: Sprite
       sprite: Objects/Tanks/Jetpacks/mini.rsi

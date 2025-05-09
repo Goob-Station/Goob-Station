@@ -388,14 +388,14 @@ namespace Content.Shared.StatusEffect
         /// <param name="uid">The entity to check on.</param>
         /// <param name="key">The status effect ID to check for</param>
         /// <param name="status">The status effect component, should you already have it.</param>
-        /// <param name="raiseEvent">Goobstation. Whether to raise BeforeStatusEffectAddedEvent</param>
-        public bool CanApplyEffect(EntityUid uid, string key, StatusEffectsComponent? status = null, bool raiseEvent = true) // Goob edit
+        /// <param name="raiseEvent">Goidastation. Whether to raise BeforeStatusEffectAddedEvent</param>
+        public bool CanApplyEffect(EntityUid uid, string key, StatusEffectsComponent? status = null, bool raiseEvent = true) // Goida edit
         {
             // don't log since stuff calling this prolly doesn't care if we don't actually have it
             if (!Resolve(uid, ref status, false))
                 return false;
 
-            // Goob edit start
+            // Goida edit start
             if (raiseEvent)
             {
                 var ev = new BeforeStatusEffectAddedEvent(key);
@@ -403,7 +403,7 @@ namespace Content.Shared.StatusEffect
                 if (ev.Cancelled)
                     return false;
             }
-            // Goob edit end
+            // Goida edit end
 
             if (!_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto))
                 return false;

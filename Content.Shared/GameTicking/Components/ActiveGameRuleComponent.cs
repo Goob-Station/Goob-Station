@@ -16,5 +16,5 @@ namespace Content.Shared.GameTicking.Components;
 ///     Added to game rules before <see cref="GameRuleStartedEvent"/> and removed before <see cref="GameRuleEndedEvent"/>.
 ///     Mutually exclusive with <seealso cref="EndedGameRuleComponent"/>.
 /// </summary>
-[RegisterComponent, NetworkedComponent] // Goob edit
+[RegisterComponent, NetworkedComponent] // Goida edit
 public sealed partial class ActiveGameRuleComponent : Component;

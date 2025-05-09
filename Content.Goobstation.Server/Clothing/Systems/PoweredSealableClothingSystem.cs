@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Systems;
+using Content.Goidastation.Shared.Clothing.Systems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Shared.Alert;
@@ -18,7 +18,7 @@ using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Rounding;
 
-namespace Content.Goobstation.Server.Clothing.Systems;
+namespace Content.Goidastation.Server.Clothing.Systems;
 
 public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealableClothingSystem
 {

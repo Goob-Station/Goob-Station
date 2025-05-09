@@ -148,7 +148,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: StepTriggerImmune # Goobstation
+  - type: StepTriggerImmune # Goidastation
     whitelist:
       types:
       - Shard

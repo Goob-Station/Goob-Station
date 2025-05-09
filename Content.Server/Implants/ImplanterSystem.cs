@@ -64,7 +64,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
         }
         else
         {
-            // Goobstation - allow traitors to buy suicide implants
+            // Goidastation - allow traitors to buy suicide implants
             bool canImplant = CanImplant(args.User, target, uid, component, out var implant, out var implantComp);
             if (!canImplant)
             {
@@ -87,7 +87,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
             if (args.User == target)
                 Implant(target, target, uid, component);
             else if (implantComp != null)
-                TryImplant(component, args.User, target, uid, implantComp.ImplantationTimeMultiplier); // Goobstation - allow traitors to buy suicide implants (add time multiplier)
+                TryImplant(component, args.User, target, uid, implantComp.ImplantationTimeMultiplier); // Goidastation - allow traitors to buy suicide implants (add time multiplier)
         }
 
         args.Handled = true;
@@ -100,7 +100,7 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
     /// <param name="user">The entity using the implanter</param>
     /// <param name="target">The entity being implanted</param>
     /// <param name="implanter">The implanter being used</param>
-    // Goobstation - allow traitors to buy suicide implants (add time multiplier)
+    // Goidastation - allow traitors to buy suicide implants (add time multiplier)
     public void TryImplant(ImplanterComponent component, EntityUid user, EntityUid target, EntityUid implanter, float timeMultiplier = 1)
     {
         var args = new DoAfterArgs(EntityManager, user, component.ImplantTime * timeMultiplier, new ImplantEvent(), implanter, target: target, used: implanter)

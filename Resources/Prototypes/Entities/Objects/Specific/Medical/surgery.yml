@@ -158,7 +158,7 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
   - type: Scalpel
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - SurgeryTool
     - Knife
@@ -411,7 +411,7 @@
       types:
         Piercing: 10
         Heat: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 150
       Glass: 37
@@ -469,7 +469,7 @@
       types:
         Slash: 10
         Heat: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 150
       Glass: 37
@@ -528,7 +528,7 @@
       types:
         Slash: 6.5
         Heat: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 150
       Glass: 37

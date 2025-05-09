@@ -1,4 +1,4 @@
-namespace Content.Goobstation.Shared.CrematorImmune;
+namespace Content.Goidastation.Shared.CrematorImmune;
 
 [RegisterComponent]
 public sealed partial class CrematoriumImmuneComponent : Component

@@ -45,8 +45,8 @@ public sealed class LightningSystem : SharedLightningSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!; // Goobstation
-    [Dependency] private readonly TagSystem _tag = default!; // Goobstation
+    [Dependency] private readonly PhysicsSystem _physics = default!; // Goidastation
+    [Dependency] private readonly TagSystem _tag = default!; // Goidastation
 
     private static readonly ProtoId<TagPrototype> BlockLightningTag = "BlockLightning";
 
@@ -74,11 +74,11 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="target">Where the lightning fires to</param>
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
     /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
-    /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
-    /// <param name="accumulateIndex">Goobstation. Whether to accumulate BeamSystem.NextIndex.</param>
+    /// <param name="beamAction">Goidastation. Action that is called on each beam entity.</param>
+    /// <param name="accumulateIndex">Goidastation. Whether to accumulate BeamSystem.NextIndex.</param>
     public bool ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true, Action<EntityUid>? beamAction = null, bool accumulateIndex = true)
     {
-        // Goobstation start. This is required for force walls to block lightning so that you can't stand inside them
+        // Goidastation start. This is required for force walls to block lightning so that you can't stand inside them
         // and spam lightning spells.
         var userMapPos = _transform.GetMapCoordinates(user);
         var targetMapPos = _transform.GetMapCoordinates(target);
@@ -102,10 +102,10 @@ public sealed class LightningSystem : SharedLightningSystem
 
         if (blocker != null)
             target = blocker.Value;
-        // Goobstation end
+        // Goidastation end
 
         var spriteState = LightningRandomizer();
-        if (!_beam.TryCreateBeam(user, target, lightningPrototype, spriteState, beamAction: beamAction, accumulateIndex: accumulateIndex)) // Goob edit
+        if (!_beam.TryCreateBeam(user, target, lightningPrototype, spriteState, beamAction: beamAction, accumulateIndex: accumulateIndex)) // Goida edit
             return false;
 
         if (triggerLightningEvents) // we don't want certain prototypes to trigger lightning level events
@@ -114,7 +114,7 @@ public sealed class LightningSystem : SharedLightningSystem
             RaiseLocalEvent(target, ref ev);
         }
 
-        return blocker == null; // Goobstation
+        return blocker == null; // Goidastation
     }
 
 
@@ -127,9 +127,9 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
     /// <param name="arcDepth">how many times to recursively fire lightning bolts from the target points of the first shot.</param>
     /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
-    /// <param name="ignoredEntity">Goobstation. Don't arc to this entity.</param>
-    /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
-    public void ShootRandomLightnings(EntityUid user, float range, int boltCount, string lightningPrototype = "Lightning", int arcDepth = 0, bool triggerLightningEvents = true, EntityUid? ignoredEntity = null, Action<EntityUid>? beamAction = null) // Goob edit
+    /// <param name="ignoredEntity">Goidastation. Don't arc to this entity.</param>
+    /// <param name="beamAction">Goidastation. Action that is called on each beam entity.</param>
+    public void ShootRandomLightnings(EntityUid user, float range, int boltCount, string lightningPrototype = "Lightning", int arcDepth = 0, bool triggerLightningEvents = true, EntityUid? ignoredEntity = null, Action<EntityUid>? beamAction = null) // Goida edit
     {
         //TODO: add support to different priority target tablem for different lightning types
         //TODO: Remove Hardcode LightningTargetComponent (this should be a parameter of the SharedLightningComponent)
@@ -137,7 +137,7 @@ public sealed class LightningSystem : SharedLightningSystem
         // several hashsets every time
 
         var targets = _lookup.GetEntitiesInRange<LightningTargetComponent>(_transform.GetMapCoordinates(user), range).ToList();
-        targets = targets.Where(x => x.Owner != ignoredEntity).ToList(); // Goobstation
+        targets = targets.Where(x => x.Owner != ignoredEntity).ToList(); // Goidastation
         _random.Shuffle(targets);
         targets.Sort((x, y) => y.Comp.Priority.CompareTo(x.Comp.Priority));
 
@@ -153,19 +153,19 @@ public sealed class LightningSystem : SharedLightningSystem
             if (!_random.Prob(curTarget.Comp.HitProbability)) //Chance to ignore target
                 continue;
 
-            if (!ShootLightning(user, targets[count].Owner, lightningPrototype, triggerLightningEvents, beamAction, false)) // Goob edit
+            if (!ShootLightning(user, targets[count].Owner, lightningPrototype, triggerLightningEvents, beamAction, false)) // Goida edit
             {
                 shootedCount++;
                 continue;
             }
             if (arcDepth - targets[count].Comp.LightningResistance > 0)
             {
-                ShootRandomLightnings(targets[count].Owner, range, 1, lightningPrototype, arcDepth - targets[count].Comp.LightningResistance, triggerLightningEvents, ignoredEntity, beamAction); // Goob edit
+                ShootRandomLightnings(targets[count].Owner, range, 1, lightningPrototype, arcDepth - targets[count].Comp.LightningResistance, triggerLightningEvents, ignoredEntity, beamAction); // Goida edit
             }
             shootedCount++;
         }
 
-        _beam.AccumulateIndex(); // Goobstation
+        _beam.AccumulateIndex(); // Goidastation
     }
 }
 

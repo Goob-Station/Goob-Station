@@ -10,7 +10,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Goobstation.Shared.Containers.OnCollide;
+namespace Content.Goidastation.Shared.Containers.OnCollide;
 
 public sealed class InsertToContainerOnCollideSystem : EntitySystem
 {

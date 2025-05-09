@@ -87,11 +87,11 @@
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
-  goobcoins: 20 #Goob content
+  goidacoins: 20 #Goida content
   access:
   - Medical
   - Maintenance
-  - External # goobstation
+  - External # goidastation
   extendedAccess:
   - Chemistry
   special: # Shitmed change

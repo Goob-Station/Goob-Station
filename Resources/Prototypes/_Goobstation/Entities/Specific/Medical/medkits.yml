@@ -48,10 +48,10 @@
   id: MedkitBSO
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    sprite: /Textures/_Goidastation/Objects/Specific/Medical/firstaidkits.rsi
     state: bsokit
   - type: Item
-    sprite: /Textures/_Goobstation/Objects/Specific/Medical/firstaidkits.rsi
+    sprite: /Textures/_Goidastation/Objects/Specific/Medical/firstaidkits.rsi
     heldPrefix: bsokit
     size: Normal
   - type: Storage

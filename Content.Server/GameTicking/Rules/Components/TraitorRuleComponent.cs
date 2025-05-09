@@ -19,7 +19,7 @@
 // SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
@@ -55,7 +55,7 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<LocalizedDatasetPrototype> CodewordVerbs = "Verbs";
 
     [DataField]
-    public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // Goobstation
+    public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // Goidastation
 
     /// <summary>
     /// Give this traitor an Uplink on spawn.
@@ -77,7 +77,7 @@ public sealed partial class TraitorRuleComponent : Component
 
     public int TotalTraitors => TraitorMinds.Count;
     public string[] Codewords = new string[3];
-    public string ObjectiveIssuer = string.Empty; // goob edit
+    public string ObjectiveIssuer = string.Empty; // goida edit
 
     public enum SelectionState
     {

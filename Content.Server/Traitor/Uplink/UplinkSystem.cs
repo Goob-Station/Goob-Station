@@ -35,7 +35,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Store.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
@@ -47,7 +47,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traitor.Uplink;
 
-// goobstation - heavily edited. fuck newstore
+// goidastation - heavily edited. fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 public sealed class UplinkSystem : EntitySystem
 {

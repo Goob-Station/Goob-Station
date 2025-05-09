@@ -223,7 +223,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         {
             NeedHand = true,
             BreakOnMove = !component.AllowDoAfterMovement,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         });
     }
 

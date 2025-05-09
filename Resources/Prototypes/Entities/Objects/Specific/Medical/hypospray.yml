@@ -232,12 +232,12 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20 # Goobstation
+        maxVol: 20 # Goidastation
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
     solutionName: pen
-    transferAmount: 20 # Goobstation
+    transferAmount: 20 # Goidastation
     onlyAffectsMobs: false
     injectOnly: true
   - type: Appearance
@@ -248,7 +248,7 @@
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
   - type: SpaceGarbage
@@ -261,7 +261,7 @@
   name: emergency medipen
   parent: ChemicalMedipen
   id: EmergencyMedipen
-  description: A rapid and safe way to heal minor damage, stop bleeding, and stabilize patients for personnel without advanced medical knowledge. # goobstation
+  description: A rapid and safe way to heal minor damage, stop bleeding, and stabilize patients for personnel without advanced medical knowledge. # goidastation
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/medipen.rsi
@@ -275,13 +275,13 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 20 # goobstation
+        maxVol: 20 # goidastation
         reagents:
-        - ReagentId: Tirimol # Goobstation
+        - ReagentId: Tirimol # Goidastation
           Quantity: 10
-        - ReagentId: Ibuprofen # Goobstation
+        - ReagentId: Ibuprofen # Goidastation
           Quantity: 5
-        - ReagentId: Omnizine # Goobstation
+        - ReagentId: Omnizine # Goidastation
           Quantity: 5
   - type: Tag
     tags:
@@ -330,7 +330,7 @@
   name: brute auto-injector
   parent: ChemicalMedipen
   id: BruteAutoInjector
-  description: A rapid dose of bicaridine, salicylic acid, and tranexamic acid, intended for combat applications. Usage of multiple highly recommended against. # goobstation
+  description: A rapid dose of bicaridine, salicylic acid, and tranexamic acid, intended for combat applications. Usage of multiple highly recommended against. # goidastation
   components:
   - type: Item
     inhandVisuals:
@@ -363,9 +363,9 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: SalicylicAcid # goobstation
+        - ReagentId: SalicylicAcid # goidastation
           Quantity: 10
-        - ReagentId: Bicaridine # goobstation
+        - ReagentId: Bicaridine # goidastation
           Quantity: 5
         - ReagentId: TranexamicAcid
           Quantity: 5
@@ -376,7 +376,7 @@
   name: burn auto-injector
   parent: ChemicalMedipen
   id: BurnAutoInjector
-  description: A rapid dose of oxandrolone and leporazine, intended for combat applications. # goobstation
+  description: A rapid dose of oxandrolone and leporazine, intended for combat applications. # goidastation
   components:
   - type: Item
     inhandVisuals:
@@ -409,7 +409,7 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: Oxandrolone # Goobstation
+        - ReagentId: Oxandrolone # Goidastation
           Quantity: 10
         - ReagentId: Leporazine
           Quantity: 10
@@ -508,7 +508,7 @@
   name: pyrazine auto-injector
   parent: ChemicalMedipen
   id: PyraAutoInjector
-  description: A rapid dose of pyrazine and oxandrolone, intended for combat applications. # goobstation
+  description: A rapid dose of pyrazine and oxandrolone, intended for combat applications. # goidastation
   components:
   - type: Item
     inhandVisuals:
@@ -543,7 +543,7 @@
         reagents:
         - ReagentId: Pyrazine
           Quantity: 10
-        - ReagentId: Oxandrolone # Goobstation
+        - ReagentId: Oxandrolone # Goidastation
           Quantity: 10
   - type: Tag
     tags: []
@@ -593,10 +593,10 @@
     tags: []
 
 - type: entity
-  name: environmental stabilization medipen # goobstation
+  name: environmental stabilization medipen # goidastation
   parent: ChemicalMedipen
   id: SpaceMedipen
-  description: Contains a mix of chemicals that will temporarily protect you from low pressure environments, and stabilizes your body temperature. # goobstation
+  description: Contains a mix of chemicals that will temporarily protect you from low pressure environments, and stabilizes your body temperature. # goidastation
   components:
   - type: Item
     inhandVisuals:
@@ -755,10 +755,10 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 35 # goobstation
+        maxVol: 35 # goidastation
         reagents:
         - ReagentId: Omnizine
-          Quantity: 30 # goobstation
+          Quantity: 30 # goidastation
         - ReagentId: TranexamicAcid
           Quantity: 5
   - type: Hypospray

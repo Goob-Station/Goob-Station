@@ -124,7 +124,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -387,9 +387,9 @@ binds:
   type: State
   key: E
   mod1: Shift
-- function: SmartEquipBack # Goobstation - Smart equip to back
-  type: State # Goobstation - Smart equip to back
-  key: F # Goobstation - Smart equip to back
+- function: SmartEquipBack # Goidastation - Smart equip to back
+  type: State # Goidastation - Smart equip to back
+  key: F # Goidastation - Smart equip to back
 - function: OpenBackpack
   type: State
   key: V
@@ -693,7 +693,7 @@ binds:
 - function: Hotbar9
   type: State
   key: Num9
-# Goobstation - Extra hotbar hotkeys
+# Goidastation - Extra hotbar hotkeys
 - function: HotbarShift0
   type: State
   key: Num0

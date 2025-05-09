@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 ScyronX <166930367+ScyronX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -19,14 +19,14 @@
   description: The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without its paired pistol.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
   - type: Gun
     minAngle: 1
     maxAngle: 5
@@ -85,12 +85,12 @@
     tags:
     - Sidearm
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/anaconda.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Pistols/anaconda.rsi
     layers:
     - state: icon
       map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/anaconda.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Pistols/anaconda.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -123,14 +123,14 @@
   description: A pistol specifically designed to fire neurotoxin laced bullets. It's capable concealing itself via bluespace technology.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Pistols/agentpistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Pistols/agentpistol.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Pistols/agentpistol.rsi
   - type: Gun
     minAngle: 1
     maxAngle: 5

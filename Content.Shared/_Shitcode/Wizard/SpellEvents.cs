@@ -15,7 +15,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Magic;
 using Content.Shared.Physics;
 using Content.Shared.Polymorph;
@@ -28,7 +28,7 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Goobstation.Wizard;
+namespace Content.Shared._Goidastation.Wizard;
 
 public sealed partial class CluwneCurseEvent : EntityTargetActionEvent, ISpeakSpell
 {
@@ -574,7 +574,7 @@ public sealed partial class TileToggleSpellEvent : EntityTargetActionEvent, ISpe
 public sealed partial class GlobalTileToggleEvent : EntityEventArgs
 {
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/ghost.ogg");
 }
 
 public sealed partial class PredictionToggleSpellEvent : EntityTargetActionEvent, ISpeakSpell
@@ -606,14 +606,14 @@ public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
 public sealed partial class SummonGhostsEvent : EntityEventArgs
 {
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost2.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/ghost2.ogg");
 }
 
 [DataDefinition]
 public sealed partial class DimensionShiftEvent : EntityEventArgs
 {
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/ghost.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/ghost.ogg");
 
     [DataField]
     public float OxygenMoles = 10f;

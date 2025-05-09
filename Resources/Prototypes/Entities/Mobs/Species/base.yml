@@ -220,7 +220,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
@@ -309,7 +309,7 @@
           False: {visible: false}
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
-  - type: HasJobIcons # Goobstation
+  - type: HasJobIcons # Goidastation
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
@@ -345,7 +345,7 @@
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
-      Acidic: [Touch, Ingestion, Eyes] # Goobstation
+      Acidic: [Touch, Ingestion, Eyes] # Goidastation
     reactions:
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
@@ -371,11 +371,11 @@
     - Flashed
     - RadiationProtection
     - Drowsiness
-    - Vulgarity # Goobstation - add Profanol
-    - Brainrotted # Goobstation - skibidi rizz ohio update
+    - Vulgarity # Goidastation - add Profanol
+    - Brainrotted # Goidastation - skibidi rizz ohio update
     - Adrenaline
-    - Brainrotted # Goobstation - skibidi rizz ohio update
-    - Dementia # Goobstation - Amnestic spray!
+    - Brainrotted # Goidastation - skibidi rizz ohio update
+    - Dementia # Goidastation - Amnestic spray!
   - type: Body
     prototype: Human
     requiredLegs: 2
@@ -427,12 +427,12 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      # Goobstation - changelings
+      # Goidastation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+      enum.HereticLivingHeartKey.Key: # goida edit - heretics
         type: LivingHeartMenuBoundUserInterface
-      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+      enum.WizardTeleportUiKey.Key: # Goidastation - wizard
         type: WizardTeleportBoundUserInterface
         requireInputValidation: false
   - type: Puller
@@ -461,8 +461,8 @@
     - AnomalyHost
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
-  - type: CanEscapeInventory # GoobStation - Escape being picked up by players
-  - type: Penetratable # Goobstation - Better snipers
+  - type: CanEscapeInventory # GoidaStation - Escape being picked up by players
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.2
   - type: ExaminableCharacter # WWDP
@@ -478,7 +478,7 @@
   id: BaseMobSpeciesOrganic
   abstract: true
   components:
-  - type: Absorbable # Goobstation - changelings
+  - type: Absorbable # Goidastation - changelings
   - type: Barotrauma
     damage:
       types:
@@ -536,8 +536,8 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FootprintOwner # Corvax-Next-Footprints
-  - type: Carriable # Goobstation
-  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
+  - type: Carriable # Goidastation
+  - type: CPRTraining # Goidastation - Just give to everyone! This ain't MRP.
 
 - type: entity
   save: false
@@ -598,7 +598,7 @@
   - type: Body
     prototype: Human
     requiredLegs: 2
-  - type: Absorbable # Goobstation - changelings
+  - type: Absorbable # Goidastation - changelings
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too

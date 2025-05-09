@@ -101,7 +101,7 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -117,7 +117,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40 # Goobstation - Don't really have to cycle them here, so a moderate nerf over 13 makes sense... not 28 damage what the actual fuck was that?
+        Piercing: 40 # Goidastation - Don't really have to cycle them here, so a moderate nerf over 13 makes sense... not 28 damage what the actual fuck was that?
 
 - type: entity
   id: PelletShotgunBeanbag
@@ -133,7 +133,7 @@
       types:
         Blunt: 10
   - type: StaminaDamageOnCollide
-    damage: 60 # Goob edit
+    damage: 60 # Goida edit
 
 - type: entity
   id: PelletShotgun

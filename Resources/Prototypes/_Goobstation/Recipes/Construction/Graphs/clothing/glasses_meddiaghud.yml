@@ -24,7 +24,7 @@
             - tag: HudMedicalDiagnostic
               name: meddiag hud
               icon:
-                sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+                sprite: _Goidastation/Clothing/Eyes/Hud/meddiag.rsi
                 state: icon
               doAfter: 5
             - material: Cable

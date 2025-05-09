@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MortalBaguette <169563638+MortalBaguette@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -20,14 +20,14 @@
   description: An improved lever-action rifle designed to fire specialized 8 gauge ammunition for rapid threat removal.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Lever/chester.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Lever/chester.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -54,7 +54,7 @@
     autoCycle: false
     autoEject: true
     soundAutoEject:
-      path: /Audio/_Goobstation/Weapons/Guns/MagOut/garand_eject.ogg
+      path: /Audio/_Goidastation/Weapons/Guns/MagOut/garand_eject.ogg
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
       params:

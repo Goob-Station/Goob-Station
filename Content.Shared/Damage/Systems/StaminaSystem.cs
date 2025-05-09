@@ -37,7 +37,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -48,8 +48,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Common.Stunnable; // Goobstation - Martial Arts
+using Content.Goidastation.Common.MartialArts;
+using Content.Goidastation.Common.Stunnable; // Goidastation - Martial Arts
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
@@ -73,7 +73,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Random; // Goob - Shove
+using Robust.Shared.Random; // Goida - Shove
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
@@ -89,10 +89,10 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
-    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
-    [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goida edit
+    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goida edit
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goida edit
+    [Dependency] private readonly IRobustRandom _random = default!; // Goida - Shove
 
 
     /// <summary>
@@ -126,7 +126,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
     private void OnStamHandleState(EntityUid uid, StaminaComponent component, ref AfterAutoHandleStateEvent args)
     {
-        // goob edit - stunmeta
+        // goida edit - stunmeta
         if (component.Critical)
             EnterStamCrit(uid, component);
         else
@@ -192,7 +192,7 @@ public sealed partial class StaminaSystem : EntitySystem
         // Shoving shouldnt handle it
     }
 
-    // goobstation - stun resistance. try not to modify this method at all
+    // goidastation - stun resistance. try not to modify this method at all
     private void OnMeleeHit(EntityUid uid, StaminaDamageOnHitComponent component, MeleeHitEvent args)
     {
         if (!args.IsHit ||
@@ -202,14 +202,14 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
         }
 
-        // Goobstation - Martial Arts
+        // Goidastation - Martial Arts
         if (TryComp<MartialArtsKnowledgeComponent>(args.User, out var knowledgeComp)
             && TryComp<MartialArtBlockedComponent>(args.Weapon, out var blockedComp)
             && knowledgeComp.MartialArtsForm == blockedComp.Form)
             return;
-        // Goobstation
+        // Goidastation
 
-        var ev = new StaminaDamageOnHitAttemptEvent(args.Direction == null, false); // Goob edit
+        var ev = new StaminaDamageOnHitAttemptEvent(args.Direction == null, false); // Goida edit
         RaiseLocalEvent(uid, ref ev);
         if (ev.Cancelled)
             return;
@@ -226,10 +226,10 @@ public sealed partial class StaminaSystem : EntitySystem
             toHit.Add((ent, stam));
         }
 
-        // Goobstation
+        // Goidastation
         RaiseLocalEvent(uid, new StaminaDamageMeleeHitEvent(toHit, args.Direction));
 
-        // goobstation
+        // goidastation
         foreach (var (ent, comp) in toHit)
         {
             var hitEvent = new TakeStaminaDamageEvent((ent, comp));
@@ -287,7 +287,7 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        // goobstation
+        // goidastation
         var hitEvent = new TakeStaminaDamageEvent((target, stamComp));
         RaiseLocalEvent(target, hitEvent);
 
@@ -303,7 +303,7 @@ public sealed partial class StaminaSystem : EntitySystem
         overtime += hitEvent.FlatModifier;
 
         TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
-        TakeOvertimeStaminaDamage(target, overtime); // Goobstation
+        TakeOvertimeStaminaDamage(target, overtime); // Goidastation
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
@@ -333,7 +333,7 @@ public sealed partial class StaminaSystem : EntitySystem
         return true;
     }
 
-    // goob edit - stunmeta
+    // goida edit - stunmeta
     public void TakeOvertimeStaminaDamage(EntityUid uid, float value)
     {
         // do this only on server side because otherwise shit happens
@@ -349,7 +349,7 @@ public sealed partial class StaminaSystem : EntitySystem
         overtime!.Damage = hasComp ? overtime.Damage + value : value;
     }
 
-    // goob edit - stunmeta
+    // goida edit - stunmeta
     public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null,
         EntityUid? source = null, EntityUid? with = null, bool visual = true, SoundSpecifier? sound = null, bool immediate = true, bool applyResistances = false)
     {
@@ -397,7 +397,7 @@ public sealed partial class StaminaSystem : EntitySystem
         // If we go above n% then apply effects
         if (component.StaminaDamage > slowdownThreshold)
         {
-            // goob edit - stunmeta
+            // goida edit - stunmeta
             // no slowdown because funny
             _jitter.DoJitter(uid, TimeSpan.FromSeconds(10f), true);
             _stutter.DoStutter(uid, TimeSpan.FromSeconds(10f), true);
@@ -405,7 +405,7 @@ public sealed partial class StaminaSystem : EntitySystem
 
         SetStaminaAlert(uid, component);
 
-        if (!component.Critical && component.StaminaDamage >= component.CritThreshold && value > 0) // goob edit
+        if (!component.Critical && component.StaminaDamage >= component.CritThreshold && value > 0) // goida edit
             EnterStamCrit(uid, component, immediate);
         else if (component.StaminaDamage < component.CritThreshold)
             ExitStamCrit(uid, component);
@@ -501,7 +501,7 @@ public sealed partial class StaminaSystem : EntitySystem
         }
     }
 
-    // goob edit - stunmeta
+    // goida edit - stunmeta
     private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null, bool hardStun = false)
     {
         if (!Resolve(uid, ref component) || component.Critical)
@@ -525,13 +525,13 @@ public sealed partial class StaminaSystem : EntitySystem
         component.Critical = true;
         _stunSystem.TryParalyze(uid, component.StunTime, true);
 
-        // Goobstation - Modularization
+        // Goidastation - Modularization
         var modifierEv = new GetClothingStunModifierEvent(uid);
         RaiseLocalEvent(modifierEv);
         var clothingModifier= modifierEv.Modifier;
-        // Goobstation - Modularization
+        // Goidastation - Modularization
 
-        component.NextUpdate = _timing.CurTime + component.StunTime * clothingModifier + StamCritBufferTime; // Goobstation - Modularization
+        component.NextUpdate = _timing.CurTime + component.StunTime * clothingModifier + StamCritBufferTime; // Goidastation - Modularization
 
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
@@ -539,7 +539,7 @@ public sealed partial class StaminaSystem : EntitySystem
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
     }
 
-    // goob edit - made it public.
+    // goida edit - made it public.
     // in any case it requires a stamina component that can be freely modified.
     // so it doesn't really matter if it's public or private. besides, very convenient.
     // regards

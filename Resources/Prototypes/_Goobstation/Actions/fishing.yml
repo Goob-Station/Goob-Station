@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -11,10 +11,10 @@
   components:
   - type: WorldTargetAction
     icon:
-      sprite: _Goobstation/Objects/Specific/Fishing/fishing_lure.rsi
+      sprite: _Goidastation/Objects/Specific/Fishing/fishing_lure.rsi
       state: icon
     sound:
-      path: /Audio/_Goobstation/Items/Fishing/fishing_rod_cast.ogg
+      path: /Audio/_Goidastation/Items/Fishing/fishing_rod_cast.ogg
     itemIconStyle: BigAction
     event: !type:ThrowFishingLureActionEvent
     useDelay: 2.5
@@ -28,10 +28,10 @@
   components:
   - type: InstantAction
     icon:
-      sprite: _Goobstation/Objects/Specific/Fishing/goon_rod.rsi
+      sprite: _Goidastation/Objects/Specific/Fishing/goon_rod.rsi
       state: icon
     sound:
-      path: /Audio/_Goobstation/Items/Fishing/fishing_rod_reel.ogg
+      path: /Audio/_Goidastation/Items/Fishing/fishing_rod_reel.ogg
     itemIconStyle: NoItem
     event: !type:PullFishingLureActionEvent
 

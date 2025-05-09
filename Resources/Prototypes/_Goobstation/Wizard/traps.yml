@@ -16,7 +16,7 @@
   - type: Clickable
   - type: Sprite
     drawdepth: FloorEffects
-    sprite: _Goobstation/Wizard/Objects/trap.rsi
+    sprite: _Goidastation/Wizard/Objects/trap.rsi
     state: icon
     color: '#FFFFFF0e'
   - type: Fixtures

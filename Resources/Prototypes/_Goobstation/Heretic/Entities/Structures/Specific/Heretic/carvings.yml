@@ -15,7 +15,7 @@
   - type: Clickable
   - type: Sprite
     drawdepth: FloorEffects
-    sprite: _Goobstation/Heretic/carvings.rsi
+    sprite: _Goidastation/Heretic/carvings.rsi
     color: '#FFFFFF2a'
   - type: Fixtures
     fixtures:
@@ -52,7 +52,7 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/_Goobstation/Heretic/runebreak.ogg
+          path: /Audio/_Goidastation/Heretic/runebreak.ogg
 
 - type: entity
   parent: BaseCarving
@@ -67,7 +67,7 @@
   - type: WizardTrap
     timeBetweenTriggers: 45
     triggerSound:
-      path: /Audio/_Goobstation/Heretic/demon_attack1.ogg
+      path: /Audio/_Goidastation/Heretic/demon_attack1.ogg
     stunTime: 5
   - type: DamageTrap
     damage:
@@ -88,7 +88,7 @@
     timeBetweenTriggers: 20
     charges: 2
     triggerSound:
-      path: /Audio/_Goobstation/Heretic/blind.ogg
+      path: /Audio/_Goidastation/Heretic/blind.ogg
   - type: MadCarving
 
 - type: entity
@@ -118,7 +118,7 @@
   id: GraspingCarving
   desc: Grasping Carving. When stepped on, causes heavy damage leg damage and stuns the victim for 5 seconds. Has 1 charge.
   icon:
-    sprite: _Goobstation/Heretic/carvings.rsi
+    sprite: _Goidastation/Heretic/carvings.rsi
     state: tentacle_rune
   protoId: GraspingCarving
 
@@ -126,7 +126,7 @@
   id: MadCarving
   desc: Mad Carving. When stepped on, causes heavy stamina damage, blindness, and muteness the victim. Has 2 charges.
   icon:
-    sprite: _Goobstation/Heretic/carvings.rsi
+    sprite: _Goidastation/Heretic/carvings.rsi
     state: madness_rune
   protoId: MadCarving
 
@@ -134,6 +134,6 @@
   id: AlertCarving
   desc: Alert Carving. A nearly invisible rune that, when stepped on, alerts the carver who triggered it and where.
   icon:
-    sprite: _Goobstation/Heretic/carvings.rsi
+    sprite: _Goidastation/Heretic/carvings.rsi
     state: alert_rune
   protoId: AlertCarving

@@ -18,7 +18,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+  - sprite: _Goidastation/Mobs/Customization/yowie_fur.rsi
     state: yowie_fur
     
 - type: marking
@@ -32,7 +32,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+  - sprite: _Goidastation/Mobs/Customization/yowie_fur.rsi
     state: yowie_fur_feet_right
     
 - type: marking
@@ -46,5 +46,5 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+  - sprite: _Goidastation/Mobs/Customization/yowie_fur.rsi
     state: yowie_fur_feet_left

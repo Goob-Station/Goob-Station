@@ -8,7 +8,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Changeling.Components;
+namespace Content.Goidastation.Shared.Changeling.Components;
 
 /// <summary>
 ///     Used for identifying other changelings.

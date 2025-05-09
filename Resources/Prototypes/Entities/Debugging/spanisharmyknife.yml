@@ -72,8 +72,8 @@
   - type: ToolTileCompatible
   - type: Tool
   - type: Prying
-  - type: UseDelay # Goobstation - For insta prying
-    delay: 0.25 # Goobstation - Changed to 0.25, Shit was annoying
+  - type: UseDelay # Goidastation - For insta prying
+    delay: 0.25 # Goidastation - Changed to 0.25, Shit was annoying
   - type: MultipleTool
     statusShowBehavior: true
     entries:

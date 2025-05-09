@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 //
@@ -8,8 +8,8 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Shared.Fishing.Components;
-using Content.Goobstation.Shared.Fishing.Systems;
+using Content.Goidastation.Shared.Fishing.Components;
+using Content.Goidastation.Shared.Fishing.Systems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Movement.Pulling.Components;
@@ -21,7 +21,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Fishing;
+namespace Content.Goidastation.Server.Fishing;
 
 public sealed class FishingSystem : SharedFishingSystem
 {

@@ -10,10 +10,10 @@
   name: staff of healing
   parent: WeaponStaffBase
   id: WeaponStaffHealing
-  description: An artefact that spits bolts of restoring magic which can remove ailments of all kinds and even raise the dead. Effects are reversed on the undead. # Goobstation
+  description: An artefact that spits bolts of restoring magic which can remove ailments of all kinds and even raise the dead. Effects are reversed on the undead. # Goidastation
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi # Goobstation
+    sprite: _Goidastation/Wizard/Objects/Weapons/Staves/healing.rsi # Goidastation
     layers:
     - state: healing
   - type: Item
@@ -23,19 +23,19 @@
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileHealingBolt
-    capacity: 6 # Goob edit
-    count: 6 # Goob edit
-  - type: RechargeBasicEntityAmmo # Goobstation
+    capacity: 6 # Goida edit
+    count: 6 # Goida edit
+  - type: RechargeBasicEntityAmmo # Goidastation
     rechargeCooldown: 8
 
 - type: entity
   name: staff of door creation
   parent: WeaponStaffBase
   id: WeaponStaffPolymorphDoor
-  description: An artefact that spits bolts of transformative magic that can create doors in walls. # Goob station
+  description: An artefact that spits bolts of transformative magic that can create doors in walls. # Goida station
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/door.rsi # Goobstation
+    sprite: _Goidastation/Wizard/Objects/Weapons/Staves/door.rsi # Goidastation
     layers:
     - state: door
   - type: Item
@@ -47,5 +47,5 @@
     proto: ProjectilePolyboltDoor
     capacity: 10
     count: 10
-  - type: RechargeBasicEntityAmmo # Goobstation
+  - type: RechargeBasicEntityAmmo # Goidastation
     rechargeCooldown: 2

@@ -194,11 +194,11 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakGoliathCloak
   name: goliath cloak
-  description: A cloak made from the hide of resilient fauna from a distant planet. #Goobstation
+  description: A cloak made from the hide of resilient fauna from a distant planet. #Goidastation
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       neck: ClothingHeadHatHoodGoliathCloak
   - type: Armor
@@ -235,7 +235,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodMoth
     requiredSlot:
@@ -258,7 +258,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/void.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodVoidCloak
     requiredSlot:

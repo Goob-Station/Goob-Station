@@ -9,7 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -22,7 +22,7 @@
   parent: BaseItem
   id: Cane
   name: cane
-  description: A standard wooden cane. Can help disabled people move easier. # Goobstation
+  description: A standard wooden cane. Can help disabled people move easier. # Goidastation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane.rsi
@@ -46,13 +46,13 @@
         Blunt: 3
   - type: UseDelay
     delay: 1
-  - type: MovementImpairedCorrection # Goobstation
+  - type: MovementImpairedCorrection # Goidastation
 
 - type: entity
   name: cane blade
   parent: [BaseItem, BaseSyndicateContraband]
   id: CaneBlade
-  description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goobstation
+  description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goidastation
   components:
   - type: Sharp
   - type: Sprite
@@ -64,7 +64,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 16 # Goobstation
+        Slash: 16 # Goidastation
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -74,7 +74,7 @@
     tags:
       - CaneBlade
   - type: DisarmMalus
-  - type: IgniteOnMeleeHit # Goobstation
+  - type: IgniteOnMeleeHit # Goidastation
     fireStacks: 0.5
 
 - type: entity
@@ -111,8 +111,8 @@
         whitelist:
           tags:
           - CaneBlade
-  - type: HideContrabandContent #Goobstation-Contraband detector
-  - type: MovementImpairedCorrection # Goobstation
+  - type: HideContrabandContent #Goidastation-Contraband detector
+  - type: MovementImpairedCorrection # Goidastation
 
 - type: entity
   id: CaneSheathFilled

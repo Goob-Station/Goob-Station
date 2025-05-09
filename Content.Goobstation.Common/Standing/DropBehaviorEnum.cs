@@ -7,7 +7,7 @@
 using System;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Common.Standing;
+namespace Content.Goidastation.Common.Standing;
 
 
 

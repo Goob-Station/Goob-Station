@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -19,10 +19,10 @@
   description: Wzzzzz....
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
+    sprite: _Goidastation/Objects/Tools/sonic_screwdriver.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
+    sprite: _Goidastation/Objects/Tools/sonic_screwdriver.rsi
     size: Small
   - type: Tag
     tags:
@@ -51,7 +51,7 @@
     entries:
       - behavior: Screwing
         sprite:
-          sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          sprite: _Goidastation/Objects/Tools/sonic_screwdriver.rsi
           state: screw
         useSound:
           path: /Audio/Items/drill_use.ogg
@@ -59,7 +59,7 @@
           path: /Audio/Effects/Arcade/newgame.ogg
       - behavior: Prying
         sprite:
-          sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          sprite: _Goidastation/Objects/Tools/sonic_screwdriver.rsi
           state: cutter
         useSound:
           path: /Audio/Items/jaws_pry.ogg
@@ -67,7 +67,7 @@
           path: /Audio/Effects/Arcade/newgame.ogg
       - behavior: Anchoring
         sprite:
-          sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          sprite: _Goidastation/Objects/Tools/sonic_screwdriver.rsi
           state: wrench
         useSound:
           path: /Audio/Items/ratchet.ogg
@@ -75,7 +75,7 @@
           path: /Audio/Effects/Arcade/newgame.ogg
       - behavior: Cutting
         sprite:
-          sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          sprite: _Goidastation/Objects/Tools/sonic_screwdriver.rsi
           state: crowbar
         useSound:
           path: /Audio/Items/jaws_cut.ogg
@@ -83,7 +83,7 @@
           path: /Audio/Effects/Arcade/newgame.ogg
       - behavior: Pulsing
         sprite:
-          sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          sprite: _Goidastation/Objects/Tools/sonic_screwdriver.rsi
           state: icon
         changeSound:
           path: /Audio/Effects/Arcade/newgame.ogg
@@ -103,10 +103,10 @@
   - type: AutoRecharge
     rechargeDuration: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/rcd_chrono.rsi
+    sprite: _Goidastation/Objects/Tools/rcd_chrono.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Objects/Tools/rcd_chrono.rsi
+    sprite: _Goidastation/Objects/Tools/rcd_chrono.rsi
   - type: RCD
 
 - type: entity
@@ -175,7 +175,7 @@
   - type: FaxMachine
     name: "Nanotrasen Representative"
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/handheld_fax.rsi
+    sprite: _Goidastation/Objects/Tools/handheld_fax.rsi
     drawdepth: SmallObjects
     layers:
     - state: icon
@@ -199,14 +199,14 @@
     name: "CentComm Official"
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Tools/official_fax.rsi
+    sprite: _Goidastation/Objects/Tools/official_fax.rsi
   - type: Prayable
     sentMessage: prayer-popup-notify-centcom-sent
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call
     verbImage: null
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/official_fax.rsi
+    sprite: _Goidastation/Objects/Tools/official_fax.rsi
     drawdepth: SmallObjects
     layers:
     - state: icon

@@ -56,10 +56,10 @@ public sealed class EggLayerSystem : EntitySystem
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<EggLayerComponent>();
-        var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goob - self-spawning
+        var eligibleEggLayers = new List<Entity<EggLayerComponent>>(); // Goida - self-spawning
         while (query.MoveNext(out var uid, out var eggLayer))
         {
-            // Goobstation - hard hunger requirement
+            // Goidastation - hard hunger requirement
             if (eggLayer.HungerRequired && !HasComp<HungerComponent>(uid))
                 continue;
 
@@ -78,14 +78,14 @@ public sealed class EggLayerSystem : EntitySystem
 
             // Hungerlevel check/modification is done in TryLayEgg()
             // so it's used for player controlled chickens as well.
-            eligibleEggLayers.Add((uid, eggLayer)); // Goob - self-spawning
+            eligibleEggLayers.Add((uid, eggLayer)); // Goida - self-spawning
         }
-        // Goob - self-spawning start
+        // Goida - self-spawning start
         foreach (var ent in eligibleEggLayers)
         {
             TryLayEgg(ent.Owner, ent.Comp);
         }
-        // Goob - self-spawning end
+        // Goida - self-spawning end
     }
 
     private void OnMapInit(EntityUid uid, EggLayerComponent component, MapInitEvent args)
@@ -108,7 +108,7 @@ public sealed class EggLayerSystem : EntitySystem
         if (_mobState.IsDead(uid))
             return false;
 
-        // Goobstation - hard hunger requirement
+        // Goidastation - hard hunger requirement
         if (egglayer.HungerRequired && !HasComp<HungerComponent>(uid))
         {
             _popup.PopupEntity(Loc.GetString("action-popup-lay-egg-unable"), uid, uid);

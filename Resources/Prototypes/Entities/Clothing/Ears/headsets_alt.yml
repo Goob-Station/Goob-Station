@@ -111,10 +111,10 @@
     state: icon_alt
   - type: Clothing
     equippedPrefix: alt
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashSoundSuppression # Goidastation
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
+  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goidastation
   id: ClothingHeadsetAltCargo
   name: quartermaster's over-ear headset
   components:
@@ -130,7 +130,7 @@
     sprite: Clothing/Ears/Headsets/cargo.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
+  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goidastation
   id: ClothingHeadsetAltCentCom
   name: CentComm over-ear headset
   components:

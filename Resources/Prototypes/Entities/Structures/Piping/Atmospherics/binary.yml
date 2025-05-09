@@ -126,10 +126,10 @@
   - type: GuideHelp
     guides:
     - Pumps
-  - type: VentCrawlerTube # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goidastation - ventcrawl
     containerId: VentCrawlerTube
-  - type: VentCrawlerTransit # Goobstation - ventcrawl
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: VentCrawlerTransit # Goidastation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
 
@@ -197,10 +197,10 @@
     - type: GuideHelp
       guides:
       - Pumps
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerTransit # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: VentCrawlerTransit # Goidastation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
 
@@ -240,10 +240,10 @@
     - type: GuideHelp
       guides:
       - PassiveGate
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerTransit # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: VentCrawlerTransit # Goidastation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
 
@@ -302,10 +302,10 @@
     - type: GuideHelp
       guides:
       - ManualValve
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerTransit # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: VentCrawlerTransit # Goidastation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
 
@@ -375,10 +375,10 @@
   - type: GuideHelp
     guides:
     - SignalValve
-  - type: VentCrawlerTube # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goidastation - ventcrawl
     containerId: VentCrawlerTube
-  - type: VentCrawlerTransit # Goobstation - ventcrawl
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: VentCrawlerTransit # Goidastation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
 
@@ -418,12 +418,12 @@
     - type: GuideHelp
       guides:
       - GasCanisters
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
+    - type: VentCrawlerJunction # Goidastation - ventcrawl
       degrees:
         - 0
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
 
@@ -518,7 +518,7 @@
   - type: PipeColorVisuals
   - type: Rotatable
   - type: GasRecycler
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   # - type: PipeRestrictOverlap
   - type: NodeContainer
     nodes:

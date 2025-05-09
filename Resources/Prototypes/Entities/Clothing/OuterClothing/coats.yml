@@ -116,7 +116,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Michael <107807667+doc-michael@users.noreply.github.com>
@@ -203,10 +203,10 @@
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.7
 
 - type: entity
@@ -224,10 +224,10 @@
         Caustic: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.7
 
 - type: entity
@@ -251,7 +251,7 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodChaplainHood
 
@@ -519,10 +519,10 @@
         Blunt: 0.8
         Slash: 0.65
         Piercing: 0.85
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.7
 
 - type: entity
@@ -576,10 +576,10 @@
         Piercing: 0.65
         Heat: 0.85
         Caustic: 0.75
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.7
 
 - type: entity

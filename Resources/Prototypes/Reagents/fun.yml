@@ -83,7 +83,7 @@
   color: "#FFD35D"
   tileReactions:
   - !type:CreateEntityTileReaction
-    entity: MobAngryBee # Goob edit
+    entity: MobAngryBee # Goida edit
     usage: 2
     maxOnTile: 2
     randomOffsetMax: 0.3
@@ -163,7 +163,7 @@
             Poison: 2
             Piercing: 2
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:HasTag
@@ -174,7 +174,7 @@
           types:
             Piercing: 2
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         - !type:HasTag
           invert: true

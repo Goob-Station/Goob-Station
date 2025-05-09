@@ -79,13 +79,13 @@
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
-  goobcoins: 20 #Goob content
+  goidacoins: 20 #Goida content
   access:
   - Cargo
   - Maintenance
   extendedAccess:
   - Salvage
-  - External # goobstation
+  - External # goidastation
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay

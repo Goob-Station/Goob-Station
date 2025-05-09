@@ -7,11 +7,11 @@
 
 using System.Numerics;
 using Content.Server.Lightning;
-using Content.Shared._Goobstation.Wizard.TeslaBlast;
+using Content.Shared._Goidastation.Wizard.TeslaBlast;
 using Content.Shared.Electrocution;
 using Content.Shared.Physics;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
 {

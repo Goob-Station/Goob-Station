@@ -54,7 +54,7 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: NukeDisk
-  - type: SupermatterImmune # Goobstation
+  - type: SupermatterImmune # Goidastation
 
 - type: entity
   name: nuclear authentication disk

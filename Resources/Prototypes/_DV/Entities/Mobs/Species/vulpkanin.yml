@@ -117,11 +117,11 @@
   - type: Perishable
   - type: Damageable
     damageModifierSet: Vulpkanin
-  #- type: TemperatureProtection # Goobstation - fix vulps - start
+  #- type: TemperatureProtection # Goidastation - fix vulps - start
   #  heatingCoefficient: 0.1
   #  coolingCoefficient: 0.1
   - type: Temperature
-    atmosTemperatureTransferEfficiency: 0.01  # Goobstation - fix vulps - end
+    atmosTemperatureTransferEfficiency: 0.01  # Goidastation - fix vulps - end
   - type: Vocal
     sounds:
       Male: MaleVulpkanin

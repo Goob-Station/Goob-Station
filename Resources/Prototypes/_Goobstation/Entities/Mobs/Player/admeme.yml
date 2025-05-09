@@ -37,7 +37,7 @@
   suffix: CentComm
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
     state: icon
   - type: RandomMetadata
     nameSegments:
@@ -77,7 +77,7 @@
   suffix: ADMIN ONLY, DO FUCKING NOT
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
     state: icon
   - type: RandomMetadata
     nameSegments:
@@ -117,7 +117,7 @@
   suffix: CentComm
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
     state: icon
   - type: RandomMetadata
     nameSegments:
@@ -157,7 +157,7 @@
   suffix: CentComm
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
     state: icon
   - type: RandomMetadata
     nameSegments:
@@ -197,7 +197,7 @@
   suffix: CentComm
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
     state: icon
   - type: RandomMetadata
     nameSegments:
@@ -237,7 +237,7 @@
   suffix: CentComm
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
     state: icon
   - type: RandomMetadata
     nameSegments:

@@ -143,7 +143,7 @@
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   canBeAntag: false
-  goobcoins: 35 #Goob content
+  goidacoins: 35 #Goida content
   access:
   - Security
   - Brig
@@ -156,7 +156,7 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial # goobstation
+  - !type:AddComponentSpecial # goidastation
     components:
       - type: SecurityStaff
 
@@ -165,10 +165,10 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
-    ears: ClothingHeadsetAltWarden # Goobstation
+    ears: ClothingHeadsetAltWarden # Goidastation
     pocket1: WeaponPistolMk58
   storage:
     back:
     - Flash
     - MagazinePistol
-    - ClothingMaskGasSecurity # Goobstation
+    - ClothingMaskGasSecurity # Goidastation

@@ -21,9 +21,9 @@ public sealed partial class BasicEntityAmmoProviderComponent : AmmoProviderCompo
 {
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("proto", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? Proto; // Goob edit
+    public string? Proto; // Goida edit
 
-    // Goobstation
+    // Goidastation
     [DataField]
     public ProtoId<WeightedRandomEntityPrototype>? Prototypes;
 

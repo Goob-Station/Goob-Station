@@ -10,11 +10,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Chemistry.Components;
-using Content.Shared._Goobstation.Weapons.Ranged;
+using Content.Shared._Goidastation.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Goobstation.Server.Weapons.Ranged;
+namespace Content.Goidastation.Server.Weapons.Ranged;
 
 /// <summary>
 ///     System for handling projectiles and altering their properties when fired from a Syringe Gun.

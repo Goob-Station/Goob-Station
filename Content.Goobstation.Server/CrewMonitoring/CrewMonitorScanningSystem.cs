@@ -1,16 +1,16 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.RelayedDeathrattle;
-using Content.Goobstation.Shared.CrewMonitoring;
+using Content.Goidastation.Server.RelayedDeathrattle;
+using Content.Goidastation.Shared.CrewMonitoring;
 using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;
 
-namespace Content.Goobstation.Server.CrewMonitoring;
+namespace Content.Goidastation.Server.CrewMonitoring;
 
 public sealed class CrewMonitorScanningSystem : EntitySystem
 {

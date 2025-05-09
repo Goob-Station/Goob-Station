@@ -1,8 +1,8 @@
-using Content.Goobstation.Shared.Factory.Filters;
+using Content.Goidastation.Shared.Factory.Filters;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Shared.Factory;
+namespace Content.Goidastation.Shared.Factory;
 
 public sealed class StorageBinSystem : EntitySystem
 {

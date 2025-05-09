@@ -81,7 +81,7 @@
   parent: [ClothingShoesBootsMagBase]
   id: ClothingShoesBootsMag
   components:
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 250
       Plastic: 125
@@ -117,7 +117,7 @@
     sprite: Clothing/Shoes/Boots/magboots-science.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/magboots-science.rsi
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 250
       Plastic: 125

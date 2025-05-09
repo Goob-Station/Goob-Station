@@ -1,16 +1,16 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Devil;
+using Content.Goidastation.Shared.Devil;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Devil.Contract;
+namespace Content.Goidastation.Server.Devil.Contract;
 
 public sealed partial class DevilContractSystem
 {

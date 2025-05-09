@@ -188,7 +188,7 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     /// TODO: Make this an event or such.
     /// </summary>
     /// <param name="entity">The entity to check.</param>
-    public bool CanGravPulseAffect(EntityUid entity) // Goob edit
+    public bool CanGravPulseAffect(EntityUid entity) // Goida edit
     {
         if (_physicsQuery.TryComp(entity, out var physics))
         {

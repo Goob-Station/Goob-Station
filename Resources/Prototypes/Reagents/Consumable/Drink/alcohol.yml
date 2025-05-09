@@ -211,7 +211,7 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -231,12 +231,12 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
             Brute: -1
-      - !type:HealthChange # Goobstation - Dwarf buff
+      - !type:HealthChange # Goidastation - Dwarf buff
         conditions:
         - !type:ReagentThreshold
           min: 3
@@ -256,7 +256,7 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
       - !type:Drunk
@@ -357,7 +357,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -1413,7 +1413,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -2411,7 +2411,7 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
-        - !type:OrganType # Goobstation
+        - !type:OrganType # Goidastation
           type: Yowie
           shouldHave: false
         damage:

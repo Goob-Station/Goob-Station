@@ -113,7 +113,7 @@
         path: /Audio/Machines/Nuke/general_beep.ogg
         params:
           volume: -2
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 75
       Plastic: 25
@@ -159,7 +159,7 @@
   - type: PayloadTrigger
     components:
     - type: TriggerOnVoice
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 75
       Plastic: 25

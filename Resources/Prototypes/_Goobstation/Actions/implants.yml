@@ -23,7 +23,7 @@
     canTargetSelf: false
     range: 15
     icon:
-      sprite: /Textures/_Goobstation/Actions/syndicateswap.rsi
+      sprite: /Textures/_Goidastation/Actions/syndicateswap.rsi
       state: icon
     event: !type:SwapSpellEvent
       sound:

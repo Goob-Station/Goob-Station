@@ -41,7 +41,7 @@
 - type: gameMap
   id: Leonid
   mapName: 'Leonid Station'
-  mapPath: /Maps/_Goobstation/leonid.yml
+  mapPath: /Maps/_Goidastation/leonid.yml
   minPlayers: 35
   stations:
     Leonid:
@@ -105,7 +105,7 @@
             StationAi: [ 1, 1 ]
             Borg: [ 4, 4 ]
 
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450

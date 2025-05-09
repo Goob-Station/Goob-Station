@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024 TGRCDev <tgrc@tgrc.dev>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -10,8 +10,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Changeling;
-using Content.Goobstation.Shared.Changeling;
+using Content.Goidastation.Server.Changeling;
+using Content.Goidastation.Shared.Changeling;
 using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
@@ -21,7 +21,7 @@ using Content.Shared.Inventory;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
 
-namespace Content.IntegrationTests.Tests._Goobstation.Changeling;
+namespace Content.IntegrationTests.Tests._Goidastation.Changeling;
 
 [TestFixture]
 public sealed class ChangelingArmorTest
@@ -53,7 +53,7 @@ public sealed class ChangelingArmorTest
         // Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.InRound));
 
         EntityUid urist = EntityUid.Invalid;
-        Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent changelingIdentity = null;
+        Goidastation.Shared.Changeling.Components.ChangelingIdentityComponent changelingIdentity = null;
         Entity<InstantActionComponent> armorAction = (EntityUid.Invalid, null);
 
         await server.WaitPost(() =>
@@ -62,7 +62,7 @@ public sealed class ChangelingArmorTest
             urist = entMan.SpawnEntity("MobHuman", testMap.GridCoords);
 
             // Make urist a changeling
-            changelingIdentity = entMan.AddComponent<Goobstation.Shared.Changeling.Components.ChangelingIdentityComponent>(urist);
+            changelingIdentity = entMan.AddComponent<Goidastation.Shared.Changeling.Components.ChangelingIdentityComponent>(urist);
             changelingIdentity.TotalAbsorbedEntities += 10;
             changelingIdentity.MaxChemicals = 1000;
             changelingIdentity.Chemicals = 1000;

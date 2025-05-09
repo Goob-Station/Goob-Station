@@ -26,7 +26,7 @@
 - type: gameMap
   id: Reach
   mapName: 'Reach'
-  mapPath: /Maps/_Goobstation/reach.yml
+  mapPath: /Maps/_Goidastation/reach.yml
   minPlayers: 0
   maxPlayers: 10
   stations:
@@ -42,8 +42,8 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
         - type: StationJobs
           availableJobs:
-            NanotrasenRepresentative: [ 1, 1 ] # Goobstation
-            BlueshieldOfficer: [ 1, 1 ] # Goobstation
+            NanotrasenRepresentative: [ 1, 1 ] # Goidastation
+            BlueshieldOfficer: [ 1, 1 ] # Goidastation
             Captain: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             SecurityOfficer: [ 1, 2 ]
@@ -61,9 +61,9 @@
             Scientist: [ 1, 1 ]
             Passenger: [ -1, -1 ]
 
-        # Goobstation blob-config-start LOW
+        # Goidastation blob-config-start LOW
         - type: StationBlobConfig
           stageBegin: 15
           stageCritical: 200
           stageTheEnd: 400
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

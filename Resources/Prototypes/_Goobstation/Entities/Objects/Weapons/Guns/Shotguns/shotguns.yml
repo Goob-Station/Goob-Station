@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -14,7 +14,7 @@
   suffix: DO NOT MAP # This should be made obtainable at some point.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/antelope.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Shotguns/antelope.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -23,7 +23,7 @@
   - type: Item
     size: Large
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Shotguns/antelope.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Shotguns/antelope.rsi
     quickEquip: false
     slots:
     - Back
@@ -80,9 +80,9 @@
   - type: Item
     size: Large
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Lever/combatshotgun.rsi
   - type: GunRequiresWield # remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1

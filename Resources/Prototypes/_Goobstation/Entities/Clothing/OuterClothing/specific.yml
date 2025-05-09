@@ -17,9 +17,9 @@
   description: Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Suits/hev.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Suits/hev.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Suits/hev.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: Armor
@@ -33,7 +33,7 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHEV
   - type: ClothingGrantComponent
@@ -71,7 +71,7 @@
     - type: StationAiVision
       range: 4
     - type: Sprite
-      sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
+      sprite: _Goidastation/Clothing/OuterClothing/Misc/nopro.rsi
     - type: Clothing
-      sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
+      sprite: _Goidastation/Clothing/OuterClothing/Misc/nopro.rsi
       quickEquip: true

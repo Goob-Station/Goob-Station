@@ -346,7 +346,7 @@ namespace Content.Client.Lobby.UI
 
             #endregion Age
 
-            // # Goobstation - Preferred Cyborg Name Thing
+            // # Goidastation - Preferred Cyborg Name Thing
 
             #region BorgName
 
@@ -791,7 +791,7 @@ namespace Content.Client.Lobby.UI
                 ("humanoid-profile-editor-antag-preference-no-button", 1)
             };
 
-            AntagList.AddChild(new Label { Text = Loc.GetString("humanoid-profile-editor-antag-roll-before-jobs") }); // Goobstation
+            AntagList.AddChild(new Label { Text = Loc.GetString("humanoid-profile-editor-antag-roll-before-jobs") }); // Goidastation
 
             foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
             {
@@ -911,7 +911,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateNameEdit();
             UpdateFlavorTextEdit();
-            // #Goobstation - Borg Preferred Name
+            // #Goidastation - Borg Preferred Name
             UpdateBorgNameEdit();
             UpdateSexControls();
             UpdateGenderControls();
@@ -1315,8 +1315,8 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                         break;
                     }
-                // Goobstation Section Start - Tajaran
-                case HumanoidSkinColor.AnimalFur: // Goobstation - Tajaran
+                // Goidastation Section Start - Tajaran
+                case HumanoidSkinColor.AnimalFur: // Goidastation - Tajaran
                     {
                         if (!RgbSkinColorContainer.Visible)
                         {
@@ -1330,7 +1330,7 @@ namespace Content.Client.Lobby.UI
                         Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                // Goidastation Section End - Tajaran
             }
 
             ReloadProfilePreview();
@@ -1365,7 +1365,7 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
         }
 
-        // #Goobstation - Prefered Cyborg Name Stuff
+        // #Goidastation - Prefered Cyborg Name Stuff
         private void SetBorgName(string newBName)
         {
             Profile = Profile?.WithBorgName(newBName);
@@ -1465,7 +1465,7 @@ namespace Content.Client.Lobby.UI
             AgeEdit.Text = Profile?.Age.ToString() ?? "";
         }
 
-        // #Goobstation - More Borg Name Stuff
+        // #Goidastation - More Borg Name Stuff
         private void UpdateBorgNameEdit()
         {
             BorgNameEdit.Text = Profile?.BorgName.ToString() ?? "";
@@ -1586,8 +1586,8 @@ namespace Content.Client.Lobby.UI
 
                         break;
                     }
-                // Goobstation Section Start - Tajaran
-                case HumanoidSkinColor.AnimalFur: // Goobstation - Tajaran
+                // Goidastation Section Start - Tajaran
+                case HumanoidSkinColor.AnimalFur: // Goidastation - Tajaran
                     {
                         if (!RgbSkinColorContainer.Visible)
                         {
@@ -1598,7 +1598,7 @@ namespace Content.Client.Lobby.UI
                         _rgbSkinColorSelector.Color = SkinColor.ClosestAnimalFurColor(Profile.Appearance.SkinColor);
                         break;
                     }
-                // Goobstation Section End - Tajaran
+                // Goidastation Section End - Tajaran
             }
 
         }
@@ -1787,7 +1787,7 @@ namespace Content.Client.Lobby.UI
             SetName(name);
             UpdateNameEdit();
         }
-        // #Goobstation - Borg Preferred Name
+        // #Goidastation - Borg Preferred Name
         private void RandomizeBorgName()
         {
             if (Profile == null) return;

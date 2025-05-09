@@ -11,7 +11,7 @@
   description: A tin of black caviar with a convenient pull tab. Looks expensive.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/black_caviar.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/black_caviar.rsi
   # the convenient pull tab
   - type: Openable
     openableByHand: true
@@ -30,7 +30,7 @@
   name: black caviar
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/black_caviar.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/black_caviar.rsi
 
 
 # Red Caviar
@@ -42,7 +42,7 @@
   description: A tin of red caviar with a convenient pull tab. 
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/red_caviar.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/red_caviar.rsi
   # the convenient pull tab
   - type: Openable
     openableByHand: true
@@ -60,4 +60,4 @@
   name: red caviar
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/red_caviar.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/red_caviar.rsi

@@ -29,7 +29,7 @@ public sealed class ComponentTogglerSystem : EntitySystem
         ToggleComponent(ent, args.Activated);
     }
 
-    // Goobstation - Make this system more flexible
+    // Goidastation - Make this system more flexible
     public void ToggleComponent(EntityUid uid, bool activate)
     {
         if (!TryComp<ComponentTogglerComponent>(uid, out var component))

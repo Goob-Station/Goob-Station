@@ -131,7 +131,7 @@ public sealed class EventManagerSystem : EntitySystem
         GameTicker.AddGameRule(randomEvent);
     }
 
-    // Goobstation start
+    // Goidastation start
     /// <summary>
     /// Runs a specific named event.
     /// </summary>
@@ -140,7 +140,7 @@ public sealed class EventManagerSystem : EntitySystem
         var ent = GameTicker.AddGameRule(eventId);
         Log.Info($"Running event {eventId} as entity {ent}");
     }
-    // Goobstation end
+    // Goidastation end
 
     /// <summary>
     /// Randomly runs an event from provided EntityTableSelector.

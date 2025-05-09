@@ -8,7 +8,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Traps;
+namespace Content.Shared._Goidastation.Wizard.Traps;
 
 [RegisterComponent]
 public sealed partial class DamageTrapComponent : Component

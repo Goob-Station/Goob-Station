@@ -120,7 +120,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtResearchDirector
 
-- type: loadout # goob
+- type: loadout # goida
   id: ResearchDirectorMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryResearchDirector

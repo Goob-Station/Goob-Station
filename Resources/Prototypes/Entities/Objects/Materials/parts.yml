@@ -42,7 +42,7 @@
     sprite: Objects/Materials/parts.rsi
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
@@ -73,7 +73,7 @@
     - rods_3
     - rods_4
     - rods_5
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -121,7 +121,7 @@
   - type: Tag
     tags:
     - RodMetal1
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Sprite
     state: rods
   - type: Stack
@@ -136,7 +136,7 @@
   - type: Tag
     tags:
     - RodMetal1
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Sprite
     state: rods
   - type: Stack

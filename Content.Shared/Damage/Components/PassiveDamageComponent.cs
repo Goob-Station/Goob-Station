@@ -1,16 +1,16 @@
 // SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Mobs;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.GameStates;
 
@@ -19,7 +19,7 @@ namespace Content.Shared.Damage.Components;
 /// <summary>
 /// Passively damages the entity on a specified interval.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation - Networked all  fields
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goidastation - Networked all  fields
 public sealed partial class PassiveDamageComponent : Component
 {
     /// <summary>

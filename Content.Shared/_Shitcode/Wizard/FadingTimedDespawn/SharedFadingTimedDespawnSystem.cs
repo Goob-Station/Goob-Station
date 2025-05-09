@@ -8,7 +8,7 @@
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+namespace Content.Shared._Goidastation.Wizard.FadingTimedDespawn;
 
 /// <summary>
 /// This is a copy of SharedTimedDespawnSystem with some modifications

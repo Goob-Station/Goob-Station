@@ -6,7 +6,7 @@
 
 using Robust.Shared.Serialization;
 using Robust.Shared.GameObjects;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 
 namespace Content.Shared._Shitmed.EntityEffects.Effects;
 

@@ -73,7 +73,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ProjectileComponent, PreventCollideEvent>(PreventCollision);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(EmbeddablePreventCollision); // Goobstation - Crawl Fix
+        SubscribeLocalEvent<EmbeddableProjectileComponent, PreventCollideEvent>(EmbeddablePreventCollision); // Goidastation - Crawl Fix
         SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
         SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate);
@@ -132,9 +132,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         EmbedAttach(embeddable, args.Target, args.Shooter, embeddable.Comp);
 
         // Raise a specific event for projectiles.
-        if (TryComp(embeddable, out ProjectileComponent? projectile) && projectile.Weapon.HasValue) // Goobstation edit: un-heisenfailing tests
+        if (TryComp(embeddable, out ProjectileComponent? projectile) && projectile.Weapon.HasValue) // Goidastation edit: un-heisenfailing tests
         {
-            // Goobstation edit: Shooter is nullable, so why are we using nullforgiving operator for shooter?
+            // Goidastation edit: Shooter is nullable, so why are we using nullforgiving operator for shooter?
             var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon.Value, args.Target);
             RaiseLocalEvent(embeddable, ref ev);
         }
@@ -214,7 +214,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (user != null)
         {
             // Land it just coz uhhh yeah
-            var landEv = new LandEvent(user, true);  // note from goobstation: if this line is removed, syringe gun will break, LOOK AT THIS IF YOU ARE SEEING THIS IN A MERGE CONFLICT
+            var landEv = new LandEvent(user, true);  // note from goidastation: if this line is removed, syringe gun will break, LOOK AT THIS IF YOU ARE SEEING THIS IN A MERGE CONFLICT
             RaiseLocalEvent(uid, ref landEv);
         }
 
@@ -239,7 +239,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
     {
-        // Goobstation - Crawling fix
+        // Goidastation - Crawling fix
         if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
             return;
 
@@ -253,7 +253,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             component.Weapon != null && _tag.HasTag(component.Weapon.Value, GunCanAimShooterTag) &&
             TryComp(uid, out TargetedProjectileComponent? targeted) && targeted.Target == args.OtherEntity)
             return;
-        // /Goobstation
+        // /Goidastation
 
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
         {
@@ -261,7 +261,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
     }
 
-    // Goobstation - Crawling fix
+    // Goidastation - Crawling fix
     private void EmbeddablePreventCollision(EntityUid uid, EmbeddableProjectileComponent component, ref PreventCollideEvent args)
     {
         if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)

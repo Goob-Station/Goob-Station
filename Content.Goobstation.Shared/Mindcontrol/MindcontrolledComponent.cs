@@ -12,7 +12,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Mindcontrol;
+namespace Content.Goidastation.Shared.Mindcontrol;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MindcontrolledComponent : Component
@@ -20,7 +20,7 @@ public sealed partial class MindcontrolledComponent : Component
     [DataField]
     public EntityUid? Master = null;
     [DataField]
-    public SoundSpecifier MindcontrolStartSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/mindcontrol_start.ogg");
+    public SoundSpecifier MindcontrolStartSound = new SoundPathSpecifier("/Audio/_Goidastation/Ambience/Antag/mindcontrol_start.ogg");
     [DataField]
     public bool BriefingSent = false;
 

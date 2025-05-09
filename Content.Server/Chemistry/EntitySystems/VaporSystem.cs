@@ -87,7 +87,7 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -97,7 +97,7 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Physics;
 using Content.Shared.Throwing;
 using Content.Shared.Chemistry.EntitySystems;
@@ -110,7 +110,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
-using Content.Goobstation.Shared.Chemistry;
+using Content.Goidastation.Shared.Chemistry;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -143,11 +143,11 @@ namespace Content.Server.Chemistry.EntitySystems
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
 
-                var ev = new VaporCheckEyeProtectionEvent(); // Goobstation - Start
+                var ev = new VaporCheckEyeProtectionEvent(); // Goidastation - Start
                 RaiseLocalEvent(args.OtherEntity, ev);
 
                 if (!ev.Protected)
-                    _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goobstation - End
+                    _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Eyes); // Goidastation - End
             }
 
             // Check for collision with a impassable object (e.g. wall) and stop

@@ -157,7 +157,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -532,7 +532,7 @@
         name: food-sequence-content-banana
       taco:
         name: food-sequence-content-banana
-  - type: Healing #Goobstation - Clowncar
+  - type: Healing #Goidastation - Clowncar
     damageContainers:
       - ClowncarDamageContainer
     damage:
@@ -608,7 +608,7 @@
   - type: Slippery
   - type: StepTrigger
     intersectRatio: 0.2
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - SlipEntity
   - type: CollisionWake
@@ -1865,8 +1865,8 @@
         maxVol: 25 ##I'm pretty sure this has to match the total of 100 potency yields
         reagents:
         - ReagentId: Aloe
-          Quantity: 5 # Goobstation edit
-        - ReagentId: SilverSulfadiazine # Goobstation edit
+          Quantity: 5 # Goidastation edit
+        - ReagentId: SilverSulfadiazine # Goidastation edit
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/aloe.rsi
@@ -1920,7 +1920,7 @@
   - type: Tag
     tags:
     - Flower # TODO add "RedFlower" or "Poppy" tag, when other color flowers will be
-    - Poppy # goob edit
+    - Poppy # goida edit
   - type: FoodSequenceElement
     sprite:
       sprite: Objects/Specific/Hydroponics/poppy.rsi
@@ -3082,7 +3082,7 @@
         - ReagentId: Vitamin
           Quantity: 3
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    sprite: _Goidastation/Objects/Specific/Hydroponics/cherry.rsi
   - type: Produce
     seedId: cherry
   - type: Extractable
@@ -3095,7 +3095,7 @@
     - Fruit
   - type: FoodSequenceElement
     sprite:
-      sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+      sprite: _Goidastation/Objects/Specific/Hydroponics/cherry.rsi
       state: produce
     entries:
       burger:
@@ -3109,10 +3109,10 @@
   id: TrashCherryPit
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    sprite: _Goidastation/Objects/Specific/Hydroponics/cherry.rsi
     state: pit
   - type: Item
-    sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+    sprite: _Goidastation/Objects/Specific/Hydroponics/cherry.rsi
     heldPrefix: pit
   - type: Tag
     tags:

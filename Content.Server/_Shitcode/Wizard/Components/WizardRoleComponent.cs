@@ -7,7 +7,7 @@
 
 using Content.Shared.Roles;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Server._Goidastation.Wizard.Components;
 
 [RegisterComponent]
 public sealed partial class WizardRoleComponent : BaseMindRoleComponent

@@ -85,14 +85,14 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Sticky;
 using Content.Shared.Sticky.Components;
 using Content.Shared.Sticky.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.MedicalPatch;
+namespace Content.Goidastation.Server.MedicalPatch;
 
 public sealed class MedicalPatchSystem : EntitySystem
 {

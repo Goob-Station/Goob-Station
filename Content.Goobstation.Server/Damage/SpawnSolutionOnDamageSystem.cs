@@ -9,7 +9,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Damage;
+namespace Content.Goidastation.Server.Damage;
 
 public sealed partial class SpawnSolutionOnDamageSystem : EntitySystem
 {

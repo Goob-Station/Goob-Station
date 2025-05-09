@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -8,9 +8,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Common.Blob;
-using Content.Goobstation.Server.Changeling.GameTicking.Rules;
-using Content.Goobstation.Server.Devil.GameTicking.Rules;
+using Content.Goidastation.Common.Blob;
+using Content.Goidastation.Server.Changeling.GameTicking.Rules;
+using Content.Goidastation.Server.Devil.GameTicking.Rules;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;
 using Content.Shared._EinsteinEngines.Silicon.Components;
@@ -21,9 +21,9 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Administration.Systems;
+namespace Content.Goidastation.Server.Administration.Systems;
 
-public sealed partial class GoobAdminVerbSystem
+public sealed partial class GoidaAdminVerbSystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IAdminManager _admin = default!;
@@ -38,7 +38,7 @@ public sealed partial class GoobAdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-changeling"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goobstation/Changeling/changeling_abilities.rsi"), "transform"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Goidastation/Changeling/changeling_abilities.rsi"), "transform"),
             Act = () =>
             {
                 if (!HasComp<SiliconComponent>(args.Target))
@@ -55,7 +55,7 @@ public sealed partial class GoobAdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-blob"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goobstation/Blob/Actions/blob.rsi"), "blobFactory"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Goidastation/Blob/Actions/blob.rsi"), "blobFactory"),
             Act = () =>
             {
                 EnsureComp<BlobCarrierComponent>(args.Target).HasMind = HasComp<ActorComponent>(args.Target);
@@ -71,7 +71,7 @@ public sealed partial class GoobAdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-devil"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
+            Icon = new SpriteSpecifier.Rsi(new("_Goidastation/Actions/devil.rsi"), "summon-contract"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<DevilRuleComponent>(targetPlayer, "Devil");

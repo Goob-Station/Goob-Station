@@ -143,7 +143,7 @@
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 40 #Goob content
+  goidacoins: 40 #Goida content
   access:
   - Research
   - Command
@@ -151,7 +151,7 @@
   - ResearchDirector
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # goidastation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -163,8 +163,8 @@
   id: ResearchDirectorGear
   equipment:
     id: RnDPDA
-    ears: ClothingHeadsetAltScience # Goobstation
+    ears: ClothingHeadsetAltScience # Goidastation
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton # Goidastation

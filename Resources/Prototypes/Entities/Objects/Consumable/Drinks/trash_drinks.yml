@@ -184,7 +184,7 @@
       Glass: 100
   - type: SpaceGarbage
   - type: DnaSubstanceTrace
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:
@@ -252,7 +252,7 @@
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cardboard: 50
   - type: SpaceGarbage

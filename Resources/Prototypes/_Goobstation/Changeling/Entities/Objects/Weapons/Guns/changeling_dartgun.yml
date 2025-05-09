@@ -11,11 +11,11 @@
   suffix: Unremoveable
   components:
   - type: Sprite
-    sprite: _Goobstation/Changeling/dartgun.rsi
+    sprite: _Goidastation/Changeling/dartgun.rsi
     state: icon
   - type: Item
     size: Ginormous
-    sprite: _Goobstation/Changeling/dartgun.rsi
+    sprite: _Goidastation/Changeling/dartgun.rsi
   - type: Unremoveable
   - type: DisarmMalus
     malus: 0
@@ -25,7 +25,7 @@
     resetOnHandSelected: false
     soundEmpty: null
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      path: /Audio/_Goidastation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
         volume: -5
   - type: ChangelingChemicalsAmmoProvider
@@ -48,7 +48,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Changeling/dart.rsi
+    sprite: _Goidastation/Changeling/dart.rsi
     layers:
     - state: icon
   - type: Fixtures

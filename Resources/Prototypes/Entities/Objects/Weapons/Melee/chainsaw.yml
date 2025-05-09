@@ -32,7 +32,7 @@
     sprite: Objects/Weapons/Melee/chainsaw.rsi
     state: icon
   - type: MeleeWeapon
-    heavyStaminaCost: 10 # goob edit
+    heavyStaminaCost: 10 # goida edit
     autoAttack: true
     angle: 0
     wideAnimationRotation: -135

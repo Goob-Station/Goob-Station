@@ -44,7 +44,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/projectiles.rsi
+    sprite: _Goidastation/Heretic/projectiles.rsi
     layers:
     - state: eldritch_projectile
       shader: unshaded
@@ -64,5 +64,5 @@
     lifetime: 2.5
     alphaLerpAmount: 0.2
     sprite:
-      sprite: /Textures/_Goobstation/Heretic/projectiles.rsi
+      sprite: /Textures/_Goidastation/Heretic/projectiles.rsi
       state: eldritch_projectile

@@ -9,7 +9,7 @@
 
 using Content.Shared.Roles;
 
-namespace Content.Goobstation.Server.Blob.Roles;
+namespace Content.Goidastation.Server.Blob.Roles;
 
 
 [RegisterComponent]

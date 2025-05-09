@@ -39,7 +39,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -67,7 +67,7 @@
   - type: Item
     size: Ginormous
   - type: MeleeWeapon
-    heavyStaminaCost: 10 # goob edit
+    heavyStaminaCost: 10 # goida edit
     damage:
       types:
         Blunt: 12
@@ -76,7 +76,7 @@
   - type: Tag
     tags:
     - Toolbox
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: GenericVisualizer
     visuals:
       enum.StorageVisuals.Open:
@@ -84,7 +84,7 @@
           True: { state: icon-open }
           False: { state: icon }
   - type: Appearance
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 125
 
@@ -184,7 +184,7 @@
     - 0,0,7,3
   - type: MeleeWeapon
     flipAnimation: false # Horizontally symetrical sprites dont need this. neither does
-    heavyStaminaCost: 10 # goob edit
+    heavyStaminaCost: 10 # goida edit
     damage:
       types:
         Blunt: 20

@@ -124,10 +124,10 @@
       mech-pilot-slot: !type:ContainerSlot
       mech-equipment-container: !type:Container
       mech-battery-slot: !type:ContainerSlot
-      paper_label: !type:ContainerSlot # Goobstation
+      paper_label: !type:ContainerSlot # Goidastation
   - type: Damageable
-    damageContainer: Silicon # Goobstation
-    damageModifierSet: LightArmor # Goobstation
+    damageContainer: Silicon # Goidastation
+    damageModifierSet: LightArmor # Goidastation
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
@@ -138,7 +138,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000 # Goobstation
+        damage: 1000 # Goidastation
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -147,8 +147,8 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  # Goobstation Change Start
-  - type: UnpoweredFlashlight # Goobstation mech lights for all mechs its unpowered to match hardsuits
+  # Goidastation Change Start
+  - type: UnpoweredFlashlight # Goidastation mech lights for all mechs its unpowered to match hardsuits
   - type: PointLight
     enabled: false
     softness: 5
@@ -181,11 +181,11 @@
         - Book
   - type: StaticPrice
     price: 450
-  # Goobstation Change End
+  # Goidastation Change End
 
 - type: entity
   id: MechRipley
-  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ] # Goobstation
+  parent: [ BaseMech, IndustrialMech, BaseCargoContraband ] # Goidastation
   name: Ripley APLU
   description: Versatile and lightly armored, the Ripley is useful for almost any heavy work scenario. The "APLU" stands for Autonomous Power Loading Unit.
   components:
@@ -207,14 +207,14 @@
     pilotWhitelist:
       components:
         - HumanoidAppearance
-        - BorgChassis # Goobstation - Let borgs pilot mechs
+        - BorgChassis # Goidastation - Let borgs pilot mechs
   - type: MeleeWeapon
     hidden: true
     attackRate: 1
     damage:
       types:
-        Blunt: 25 # Goobstation - Make ripley punch hard
-        Structural: 30 # Goobstation - Make ripley punch hard
+        Blunt: 25 # Goidastation - Make ripley punch hard
+        Structural: 30 # Goidastation - Make ripley punch hard
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6
@@ -230,7 +230,7 @@
       - PowerCellHigh
 
 - type: entity
-  parent: [ BaseMech, SpecialMech, BaseCivilianContraband ] # Goobstation
+  parent: [ BaseMech, SpecialMech, BaseCivilianContraband ] # Goidastation
   id: MechHonker
   name: H.O.N.K.
   description: "Produced by \"Tyranny of Honk, INC\", this exosuit is designed as heavy clown-support. Used to spread the fun and joy of life. HONK!"
@@ -252,11 +252,11 @@
     openState: honker-open
     brokenState: honker-broken
     mechToPilotDamageMultiplier: 0.5
-    airtight: true # Goobstation - Space Honk is real.
+    airtight: true # Goidastation - Space Honk is real.
     pilotWhitelist:
       components:
       - HumanoidAppearance
-      - BorgChassis # Goobstation - Let borgs pilot mechs
+      - BorgChassis # Goidastation - Let borgs pilot mechs
 
 - type: entity
   parent: MechHonker
@@ -269,7 +269,7 @@
       - PowerCellHigh
 
 - type: entity
-  parent: [ BaseMech, SmallMech ] # Goobstation
+  parent: [ BaseMech, SmallMech ] # Goidastation
   id: MechHamtr
   name: HAMTR
   description: "An experimental mech which uses a brain–computer interface to connect directly to a hamsters brain."

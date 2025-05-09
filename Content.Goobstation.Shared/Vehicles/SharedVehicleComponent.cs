@@ -12,7 +12,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Vehicles;
+namespace Content.Goidastation.Shared.Vehicles;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class VehicleComponent : Component

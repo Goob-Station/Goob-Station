@@ -18,7 +18,7 @@ using Content.Shared.UserInterface;
 using Content.Shared.Access.Systems;
 using Content.Shared.Gateway;
 using Content.Shared.Popups;
-using Content.Shared.Tag; // Goobstation
+using Content.Shared.Tag; // Goidastation
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
 using Robust.Server.GameObjects;
@@ -39,7 +39,7 @@ public sealed class GatewaySystem : EntitySystem
     [Dependency] private readonly StationSystem _stations = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly TagSystem _tag = default!; // Goobstation
+    [Dependency] private readonly TagSystem _tag = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -112,7 +112,7 @@ public sealed class GatewaySystem : EntitySystem
 
         while (query.MoveNext(out var destUid, out var dest, out var destXform))
         {
-            // Goobstation
+            // Goidastation
             if (!dest.Enabled
                 || destUid == uid
                 || (comp.TagRestriction != null && !_tag.HasTag(destUid, comp.TagRestriction.Value)) // if we have a tag restriction and destination doesn't have it, abort

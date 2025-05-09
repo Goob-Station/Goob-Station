@@ -124,7 +124,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Goobstation.Common.CCVar; // Goobstation - Queue
+using Content.Goidastation.Common.CCVar; // Goidastation - Queue
 
 /*
  * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
@@ -136,7 +136,7 @@ namespace Content.Server.Connection
     {
         void Initialize();
         void PostInit();
-        Task<bool> HasPrivilegedJoin(NetUserId userId); // Goobstation - Queue
+        Task<bool> HasPrivilegedJoin(NetUserId userId); // Goidastation - Queue
         /// <summary>
         /// Temporarily allow a user to bypass regular connection requirements.
         /// </summary>
@@ -395,8 +395,8 @@ namespace Content.Server.Connection
                 }
             }
 
-            var isPrivileged = await HasPrivilegedJoin(userId); // Goobstation - Queue
-            var isQueueEnabled = _cfg.GetCVar(GoobCVars.QueueEnabled); // Goobstation - Queue
+            var isPrivileged = await HasPrivilegedJoin(userId); // Goidastation - Queue
+            var isQueueEnabled = _cfg.GetCVar(GoidaCVars.QueueEnabled); // Goidastation - Queue
             var softPlayerCount = _plyMgr.PlayerCount;
 
             if (!_cfg.GetCVar(CCVars.AdminsCountForMaxPlayers))
@@ -404,7 +404,7 @@ namespace Content.Server.Connection
                 softPlayerCount -= _adminManager.ActiveAdmins.Count();
             }
 
-            if (softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !isPrivileged && !isQueueEnabled) // Goobstation - Queue
+            if (softPlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && !isPrivileged && !isQueueEnabled) // Goidastation - Queue
             {
                 return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
             }
@@ -474,7 +474,7 @@ namespace Content.Server.Connection
             return assigned;
         }
 
-        public async Task<bool> HasPrivilegedJoin(NetUserId userId) // Goobstation - Queue
+        public async Task<bool> HasPrivilegedJoin(NetUserId userId) // Goidastation - Queue
         {
             var isAdmin = await _db.GetAdminDataForAsync(userId) != null;
             var ticker = IoCManager.Resolve<IEntityManager>().System<GameTicker>();

@@ -5,7 +5,7 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
@@ -25,7 +25,7 @@
         task: SimpleRangedHostileCompound
     - type: Sprite
       drawdepth: Mobs
-      sprite: _Goobstation/Mobs/Demons/skibidi.rsi
+      sprite: _Goidastation/Mobs/Demons/skibidi.rsi
       layers:
         - map: ["enum.DamageStateVisualLayers.Base"]
           state: alive
@@ -69,14 +69,14 @@
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
-      soundGunshot: /Audio/_Goobstation/Animals/skibidi.wav
+      soundGunshot: /Audio/_Goidastation/Animals/skibidi.wav
     - type: CombatMode
     - type: InteractionPopup
       successChance: 0.3
       interactSuccessString: petting-success-skibidi-toilet
       interactFailureString: petting-failure-skibidi-toilet
       interactSuccessSound:
-        path: /Audio/_Goobstation/Animals/skibidi.wav
+        path: /Audio/_Goidastation/Animals/skibidi.wav
     - type: GhostRole
       makeSentient: true
       allowSpeech: true
@@ -185,7 +185,7 @@
   - type: Sprite
     scale: 0.18, 0.18
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Demons/osrs.rsi
+    sprite: _Goidastation/Mobs/Demons/osrs.rsi
     layers:
       - map: ["enum.DamageStateVisualLayers.Base", "Idle", "Walk", "Run"]
         state: idle
@@ -293,7 +293,7 @@
   - type: Sprite
     scale: 0.256, 0.256
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Demons/sportacus.rsi
+    sprite: _Goidastation/Mobs/Demons/sportacus.rsi
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: alive
@@ -375,7 +375,7 @@
   - type: Sprite
     scale: 0.256, 0.256
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Demons/mariah.rsi
+    sprite: _Goidastation/Mobs/Demons/mariah.rsi
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: alive

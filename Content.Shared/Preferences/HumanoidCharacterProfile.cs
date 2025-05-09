@@ -127,7 +127,7 @@ namespace Content.Shared.Preferences
         [DataField]
         public int Age { get; set; } = 18;
 
-        // #Goobstation - Prefered Borg Name Stuff
+        // #Goidastation - Prefered Borg Name Stuff
 
         [DataField]
         public string BorgName { get; set; } = "Genero-Bot";
@@ -176,7 +176,7 @@ namespace Content.Shared.Preferences
         [DataField]
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
-        // #Goobstation - Borg Preferred Name (borgname)
+        // #Goidastation - Borg Preferred Name (borgname)
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
@@ -229,7 +229,7 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
-                // #Goobstation - Borg Preferred Name
+                // #Goidastation - Borg Preferred Name
                 other.BorgName,
                 other.Age,
                 other.Sex,
@@ -308,7 +308,7 @@ namespace Content.Shared.Preferences
 
             var name = GetName(species, gender);
 
-            // #Goobstation - Borg Preferred Name
+            // #Goidastation - Borg Preferred Name
             var borgname = GetBorgName();
 
             return new HumanoidCharacterProfile()
@@ -338,7 +338,7 @@ namespace Content.Shared.Preferences
             return new(this) { Age = age };
         }
 
-        // #Goobstation - Borg Stuff (see above for more borgname things
+        // #Goidastation - Borg Stuff (see above for more borgname things
 
         public HumanoidCharacterProfile WithBorgName(string borgname)
         {
@@ -527,7 +527,7 @@ namespace Content.Shared.Preferences
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
             if (Age != other.Age) return false;
-            // #Goobstation - Borg Preferred Name
+            // #Goidastation - Borg Preferred Name
             if (BorgName != other.BorgName) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
@@ -619,7 +619,7 @@ namespace Content.Shared.Preferences
             {
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
-            // #Goobstation - Borg Preferred Name
+            // #Goidastation - Borg Preferred Name
             string borgname;
             if (string.IsNullOrEmpty(BorgName))
             {
@@ -689,7 +689,7 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
-            // #Goobstation - Borg Preferred Name
+            // #Goidastation - Borg Preferred Name
             BorgName = borgname;
             Age = age;
             Sex = sex;
@@ -785,7 +785,7 @@ namespace Content.Shared.Preferences
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
             return namingSystem.GetName(species, gender);
         }
-        // #Goobstation - Borg Preferred Name
+        // #Goidastation - Borg Preferred Name
         public static string GetBorgName()
         {
             var random = IoCManager.Resolve<IRobustRandom>();
@@ -809,7 +809,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
-            // #Goobstation - Borg Preferred Name
+            // #Goidastation - Borg Preferred Name
             hashCode.Add(BorgName);
             hashCode.Add(Species);
             hashCode.Add(Age);

@@ -79,8 +79,8 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Containers;
 using Content.Shared.Jittering;
 using Content.Shared.Speech.EntitySystems;
-using Content.Goobstation.Common.Standing;
-using Content.Goobstation.Common.Stunnable;
+using Content.Goidastation.Common.Standing;
+using Content.Goidastation.Common.Stunnable;
 using Content.Shared._White.Standing;
 
 namespace Content.Shared.Stunnable;
@@ -99,8 +99,8 @@ public abstract class SharedStunSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedLayingDownSystem _layingDown = default!; // WD EDIT
     [Dependency] private readonly SharedContainerSystem _container = default!; // WD EDIT
-    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
-    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
+    [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goida edit
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goida edit
 
     /// <summary>
     /// Friction modifier for knocked down players.
@@ -205,7 +205,7 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
-        _layingDown.UpdateSpriteRotation(uid); // Goobstation
+        _layingDown.UpdateSpriteRotation(uid); // Goidastation
         RaiseLocalEvent(uid, new CheckAutoGetUpEvent()); // WD EDIT
         _layingDown.TryLieDown(uid, null, null, component.DropHeldItemsBehavior); // WD EDIT
     }
@@ -271,10 +271,10 @@ public abstract class SharedStunSystem : EntitySystem
         if (!_statusEffect.TryAddStatusEffect<StunnedComponent>(uid, "Stun", time, refresh))
             return false;
 
-        // goob edit
+        // goida edit
         _jitter.DoJitter(uid, time, refresh);
         _stutter.DoStutter(uid, time, refresh);
-        // goob edit end
+        // goida edit end
 
         var ev = new StunnedEvent();
         RaiseLocalEvent(uid, ref ev);
@@ -293,7 +293,7 @@ public abstract class SharedStunSystem : EntitySystem
         RaiseLocalEvent(modifierEv);
         time *= modifierEv.Modifier;
 
-        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
+        if (!HasComp<LayingDownComponent>(uid)) // Goidastation - only knockdown mobs that can lie down
             return false;
 
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
@@ -310,7 +310,7 @@ public abstract class SharedStunSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Goobstation.
+    ///     Goidastation.
     ///     Try knockdown, if it fails - stun.
     /// </summary>
     public bool KnockdownOrStun(EntityUid uid, TimeSpan time, bool refresh, StatusEffectsComponent? status = null)
@@ -328,7 +328,7 @@ public abstract class SharedStunSystem : EntitySystem
         RaiseLocalEvent(modifierEv);
         time *= modifierEv.Modifier;
 
-        if (!HasComp<LayingDownComponent>(uid)) // Goobstation - only knockdown mobs that can lie down
+        if (!HasComp<LayingDownComponent>(uid)) // Goidastation - only knockdown mobs that can lie down
             return false;
 
         if (time <= TimeSpan.Zero)
@@ -356,7 +356,7 @@ public abstract class SharedStunSystem : EntitySystem
             return false;
 
         return TryKnockdown(uid, time, refresh, DropHeldItemsBehavior.AlwaysDrop, status) &&
-               TryStun(uid, time, refresh, status); // Goob edit
+               TryStun(uid, time, refresh, status); // Goida edit
     }
 
     /// <summary>

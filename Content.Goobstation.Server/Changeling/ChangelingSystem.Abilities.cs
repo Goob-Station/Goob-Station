@@ -10,7 +10,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
@@ -28,16 +28,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Atmos.Components;
-using Content.Goobstation.Shared.Body.Components;
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Server.Changeling.Objectives.Components;
-using Content.Goobstation.Shared.Changeling.Actions;
-using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.Temperature.Components;
+using Content.Goidastation.Shared.Atmos.Components;
+using Content.Goidastation.Shared.Body.Components;
+using Content.Goidastation.Common.Changeling;
+using Content.Goidastation.Server.Changeling.Objectives.Components;
+using Content.Goidastation.Shared.Changeling.Actions;
+using Content.Goidastation.Shared.Changeling.Components;
+using Content.Goidastation.Shared.Temperature.Components;
 using Content.Server.Light.Components;
 using Content.Server.Nutrition.Components;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Goidastation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -49,7 +49,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
@@ -63,7 +63,7 @@ using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Changeling;
+namespace Content.Goidastation.Server.Changeling;
 
 public sealed partial class ChangelingSystem
 {

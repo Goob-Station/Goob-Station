@@ -34,7 +34,7 @@ public sealed partial class AntagLoadProfileRuleComponent : Component
     public HashSet<ProtoId<SpeciesPrototype>>? SpeciesOverrideBlacklist;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// If true, then SpeciesOverride will always be used
     /// </summary>
     [DataField]

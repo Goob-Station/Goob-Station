@@ -160,7 +160,7 @@
   materials:
     Wood: 100
 
-- type: latheRecipe # Goobstation
+- type: latheRecipe # Goidastation
   id: Drone
   result: Drone
   completetime: 6

@@ -95,7 +95,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
@@ -106,7 +106,7 @@ using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;
-using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
+using Content.Shared._EinsteinEngines.Silicon.Components; // Goidastation
 
 namespace Content.IntegrationTests.Tests.GameRules;
 
@@ -312,7 +312,7 @@ public sealed class NukeOpsTest
         for (var tick = 0; tick < totalTicks; tick += increment)
         {
             await pair.RunTicksSync(increment);
-            if (!entMan.HasComponent<SiliconComponent>(player)) // Goobstation - IPC
+            if (!entMan.HasComponent<SiliconComponent>(player)) // Goidastation - IPC
             {
                 var resp = entMan.GetComponent<RespiratorComponent>(player);
                 Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
@@ -334,7 +334,7 @@ public sealed class NukeOpsTest
             // Delete the last nukie and make sure the round ends.
             entMan.DeleteEntity(nukies[^1]);
 
-            // goob edit - dynamic changes - nukies don't end the round instantly anymore
+            // goida edit - dynamic changes - nukies don't end the round instantly anymore
             //Assert.That(roundEndSys.IsRoundEndRequested,
             //    "All nukies were deleted, but the round didn't end!");
         });

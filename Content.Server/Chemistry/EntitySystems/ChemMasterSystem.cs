@@ -40,7 +40,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
@@ -186,7 +186,7 @@ namespace Content.Server.Chemistry.EntitySystems
             else // Container to buffer
             {
                 amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
-                if (bufferSolution.MaxVolume.Value > 0)    //Goobstation - chemicalbuffer if no limit
+                if (bufferSolution.MaxVolume.Value > 0)    //Goidastation - chemicalbuffer if no limit
                     amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id), bufferSolution.AvailableVolume);
 
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);

@@ -122,10 +122,10 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: VentCrawlerTube  # Goobstation - ventcrawl
+    - type: VentCrawlerTube  # Goidastation - ventcrawl
       containerId: VentCrawlerTube
     - type: VentCrawlerEntry
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
@@ -212,13 +212,13 @@
     - type: GuideHelp
       guides:
       - PassiveVent
-    - type: VentCrawlerEntry # Goobstation - ventcrawl
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerEntry # Goidastation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
-    - type: Weldable  # Goobstation - ventcrawl
+    - type: Weldable  # Goidastation - ventcrawl
       time: 3
 
 - type: entity
@@ -229,10 +229,10 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerEntry  # Goobstation - ventcrawl
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: VentCrawlerEntry  # Goidastation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
@@ -329,12 +329,12 @@
     - type: GuideHelp
       guides:
       - AirInjector
-    - type: VentCrawlerTube # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goidastation - ventcrawl
       containerId: VentCrawlerTube
-    - type: VentCrawlerJunction # Goobstation - ventcrawl
+    - type: VentCrawlerJunction # Goidastation - ventcrawl
       degrees:
         - 0
-    - type: ContainerContainer # Goobstation - ventcrawl
+    - type: ContainerContainer # Goidastation - ventcrawl
       containers:
         VentCrawlerTube: !type:Container
 
@@ -364,7 +364,7 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   # - type: PipeRestrictOverlap
     - type: NodeContainer
       nodes:
@@ -547,7 +547,7 @@
   - type: GasCondenser
   - type: AtmosPipeColor
   - type: AtmosDevice
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   # - type: PipeRestrictOverlap
   - type: ApcPowerReceiver
     powerLoad: 10000

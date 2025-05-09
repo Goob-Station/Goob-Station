@@ -45,7 +45,7 @@
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -247,7 +247,7 @@
 
 #ERT
 - type: entity
-  parent: [ ClothingBackpack, ContentsExplosionResistanceBase, BaseCentcommContraband ] # Goobstation
+  parent: [ ClothingBackpack, ContentsExplosionResistanceBase, BaseCentcommContraband ] # Goidastation
   id: ClothingBackpackERTLeader
   name: ERT leader backpack
   description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
@@ -257,7 +257,7 @@
   - type: Storage
     grid:
     - 0,0,10,3
-  - type: ExplosionResistance # Goobstation
+  - type: ExplosionResistance # Goidastation
     damageCoefficient: 0.1
 
 - type: entity
@@ -364,16 +364,16 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 500
       Silver: 187
       Plasma: 375
       Uranium: 37
       BSCrystal: 50
-  - type: StaticPrice #Goobstation - Recycle update
+  - type: StaticPrice #Goidastation - Recycle update
     price: 1850
-  - type: HideContrabandContent #Goobstation Contraband detector - Tecnicly the content is in another dimention
+  - type: HideContrabandContent #Goidastation Contraband detector - Tecnicly the content is in another dimention
 
 - type: entity
   parent: ClothingBackpackClown

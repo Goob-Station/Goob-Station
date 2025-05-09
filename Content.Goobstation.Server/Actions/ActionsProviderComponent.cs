@@ -9,7 +9,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Actions;
+namespace Content.Goidastation.Server.Actions;
 
 [RegisterComponent]
 public sealed partial class ActionsProviderComponent : Component

@@ -10,7 +10,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Blob.Components;
+namespace Content.Goidastation.Shared.Blob.Components;
 /// <remarks>
 /// To add a new special blob tile you will need to change code in BlobNodeSystem and BlobTypedStorage.
 /// </remarks>

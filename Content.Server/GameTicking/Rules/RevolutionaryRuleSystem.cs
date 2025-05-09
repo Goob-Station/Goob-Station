@@ -62,7 +62,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Revolutionary;
 using Content.Server.Communications;
 using System.Linq;
-using Content.Goobstation.Shared.Revolutionary;
+using Content.Goidastation.Shared.Revolutionary;
 using Content.Server.Chat.Systems;
 
 namespace Content.Server.GameTicking.Rules;
@@ -70,7 +70,7 @@ namespace Content.Server.GameTicking.Rules;
 /// <summary>
 /// Where all the main stuff for Revolutionaries happens (Assigning Head Revs, Command on station, and checking for the game to end.)
 /// </summary>
-// Heavily edited by goobstation. If you want to upstream something think twice
+// Heavily edited by goidastation. If you want to upstream something think twice
 public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
 {
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
@@ -99,7 +99,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<CommandStaffComponent, MobStateChangedEvent>(OnCommandMobStateChanged);
 
         SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
-        SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnTryCallEvac); // goob edit
+        SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnTryCallEvac); // goida edit
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
 
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
@@ -120,7 +120,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             component.CommandCheck = _timing.CurTime + component.TimerWait;
 
-            // goob edit
+            // goida edit
             if (CheckCommandLose())
             {
                 if (!component.HasRevAnnouncementPlayed)
@@ -199,7 +199,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
     {
-        // GoobStation - check if headRev's ability enabled
+        // GoidaStation - check if headRev's ability enabled
         if (!comp.ConvertAbilityEnabled)
             return;
 
@@ -214,7 +214,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target)
-            || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
+            || HasComp<CommandStaffComponent>(ev.Target)) // goida edit - rev no command flashing
         {
             return;
         }
@@ -246,7 +246,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (mind?.Session != null)
             _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
 
-        // Goobstation - Check lose if command was converted
+        // Goidastation - Check lose if command was converted
         if (!TryComp<CommandStaffComponent>(ev.Target, out var commandComp))
             return;
 
@@ -255,7 +255,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     }
 
     //~~TODO: Enemies of the revolution~~
-    // goob edit: too bad wizden goob did it first :trollface:
+    // goida edit: too bad wizden goida did it first :trollface:
     private void OnCommandMobStateChanged(EntityUid uid, CommandStaffComponent comp, MobStateChangedEvent ev)
     {
         if (ev.NewMobState == MobState.Dead || ev.NewMobState == MobState.Invalid)
@@ -270,9 +270,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var commandList = new List<EntityUid>();
 
         var heads = AllEntityQuery<CommandStaffComponent>();
-        while (heads.MoveNext(out var id, out var commandComp)) // GoobStation - commandComp
+        while (heads.MoveNext(out var id, out var commandComp)) // GoidaStation - commandComp
         {
-            // GoobStation - If mindshield was removed from head and he got converted - he won't count as command
+            // GoidaStation - If mindshield was removed from head and he got converted - he won't count as command
             if (commandComp.Enabled)
                 commandList.Add(id);
         }
@@ -295,9 +295,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var headRevList = new List<EntityUid>();
 
         var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
-        while (headRevs.MoveNext(out var uid, out var headRevComp, out _)) // GoobStation - headRevComp
+        while (headRevs.MoveNext(out var uid, out var headRevComp, out _)) // GoidaStation - headRevComp
         {
-            // GoobStation - Checking if headrev ability is enabled to count them
+            // GoidaStation - Checking if headrev ability is enabled to count them
             if (headRevComp.ConvertAbilityEnabled)
                 headRevList.Add(uid);
         }
@@ -318,7 +318,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
                 _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
 
-                // Goobstation - check if command staff was deconverted
+                // Goidastation - check if command staff was deconverted
                 if (TryComp<CommandStaffComponent>(uid, out var commandComp))
                     commandComp.Enabled = true;
 
@@ -339,7 +339,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         return false;
     }
 
-    // goob edit - no shuttle call until internal affairs are figured out
+    // goida edit - no shuttle call until internal affairs are figured out
     private void OnTryCallEvac(ref CommunicationConsoleCallShuttleAttemptEvent ev)
     {
         var revs = EntityQuery<RevolutionaryComponent, MobStateComponent>();

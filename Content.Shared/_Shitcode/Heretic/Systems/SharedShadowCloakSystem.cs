@@ -1,6 +1,6 @@
-using Content.Goobstation.Common.Identity;
-using Content.Goobstation.Common.Projectiles;
-using Content.Goobstation.Common.Speech;
+using Content.Goidastation.Common.Identity;
+using Content.Goidastation.Common.Projectiles;
+using Content.Goidastation.Common.Speech;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared._Shitmed.DoAfter;
 using Content.Shared.Actions;

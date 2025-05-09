@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Events;
 using Content.Shared.Chat;
@@ -15,7 +15,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.PlayerListener;
+namespace Content.Goidastation.Server.PlayerListener;
 
 /// <summary>
 ///     Records and notifies when a user has rage quit the game.
@@ -40,8 +40,8 @@ public sealed partial class RageQuitNotifySystem : EntitySystem
         base.Initialize();
         InitializeDiscord();
 
-        Subs.CVar(_cfg, GoobCVars.PlayerRageQuitNotify, value => _notify = value, invokeImmediately: true);
-        Subs.CVar(_cfg, GoobCVars.PlayerRageQuitTimeThreshold, value => _timer = value, invokeImmediately: true);
+        Subs.CVar(_cfg, GoidaCVars.PlayerRageQuitNotify, value => _notify = value, invokeImmediately: true);
+        Subs.CVar(_cfg, GoidaCVars.PlayerRageQuitTimeThreshold, value => _timer = value, invokeImmediately: true);
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<ActorComponent, MobStateChangedEvent>(OnActorMobStateChanged);

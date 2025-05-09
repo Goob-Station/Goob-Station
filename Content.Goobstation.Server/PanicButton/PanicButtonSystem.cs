@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -6,7 +6,7 @@
 using Content.Server.DoAfter;
 using Content.Server.Pinpointer;
 using Content.Server.Radio.EntitySystems;
-using Content.Shared._Goobstation.Security;
+using Content.Shared._Goidastation.Security;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Radio;
@@ -14,7 +14,7 @@ using Content.Shared.Timing;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.PanicButton
+namespace Content.Goidastation.Server.PanicButton
 {
     public sealed partial class PanicButtonSystem : EntitySystem
     {

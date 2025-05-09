@@ -60,7 +60,7 @@ public sealed partial class BlockingSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goobstation
+    [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -341,7 +341,7 @@ public sealed partial class BlockingSystem : EntitySystem
             return;
 
         var fraction = component.IsBlocking ? component.ActiveBlockFraction : component.PassiveBlockFraction;
-        if (!_toggle.IsActivated(uid)) // Goobstation
+        if (!_toggle.IsActivated(uid)) // Goidastation
             fraction = 0f;
         var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
 

@@ -133,7 +133,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JustinWinningham <justinmwinningham@gmail.com>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
@@ -162,8 +162,8 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - GasMask # goob edit
-    - Mask # goob edit
+    - GasMask # goida edit
+    - Mask # goida edit
   - type: HideLayerClothing
     layers:
       Snout: Mask
@@ -188,13 +188,13 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: Tag # Goobstation - For survial boxes
+  - type: Tag # Goidastation - For survial boxes
     tags:
     - PetWearable
     - WhitelistChameleon
     - SecurityBreathMask
-  - type: Hailer # Goobstation - Hailer
-  - type: IngestionBlocker # Goobstation
+  - type: Hailer # Goidastation - Hailer
+  - type: IngestionBlocker # Goidastation
     blockSmokeIngestion: true
 
 - type: entity
@@ -216,12 +216,12 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: Tag  # Goobstation - For survial boxes
+  - type: Tag  # Goidastation - For survial boxes
     tags:
     - PetWearable
     - WhitelistChameleon
     - SyndicateBreathMask
-  - type: IngestionBlocker # Goobstation
+  - type: IngestionBlocker # Goidastation
     blockSmokeIngestion: true
 
 - type: entity
@@ -301,7 +301,7 @@
     tags:
     - PetWearable
     - WhitelistChameleon
-    - BreathMask  # Goobstation - For survial boxes
+    - BreathMask  # Goidastation - For survial boxes
 
 
 - type: entity
@@ -342,8 +342,8 @@
     tags:
     - PetWearable
     - WhitelistChameleon
-    - BreathMask # Goobstation - For survial boxes
-  - type: PhysicalComposition #Goobstation - Recycle update
+    - BreathMask # Goidastation - For survial boxes
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 25
       Plastic: 25
@@ -472,7 +472,7 @@
     size: Tiny
   - type: IdentityBlocker
     coverage: MOUTH
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 25
 
@@ -496,7 +496,7 @@
   - type: Construction
     graph: Muzzle
     node: muzzle
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Muzzle
 
@@ -558,7 +558,7 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
-  - type: IngestionBlocker # Goobstation
+  - type: IngestionBlocker # Goidastation
     blockSmokeIngestion: true
 
 - type: entity
@@ -578,7 +578,7 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
-  - type: IngestionBlocker # Goobstation
+  - type: IngestionBlocker # Goidastation
     blockSmokeIngestion: true
 
 - type: entity
@@ -608,7 +608,7 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  - type: IngestionBlocker # Goobstation
+  - type: IngestionBlocker # Goidastation
     blockSmokeIngestion: true
 
 - type: entity
@@ -644,14 +644,14 @@
   - type: Tag
     tags:
     - HamsterWearable
-    - CursedAnimalMask # Goobstation
+    - CursedAnimalMask # Goidastation
     - WhitelistChameleon
     - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
   - type: IdentityBlocker
-  - type: AddAccentClothing # Goobstation
+  - type: AddAccentClothing # Goidastation
     accent: RatAccent
 
 - type: entity
@@ -670,10 +670,10 @@
     - Snout
   - type: Tag
     tags:
-    - CursedAnimalMask # Goobstation
-    - WhitelistChameleon # Goobstation
+    - CursedAnimalMask # Goidastation
+    - WhitelistChameleon # Goidastation
     - IPCMaskWearable # EE - IPCs
-  - type: AddAccentClothing # Goobstation
+  - type: AddAccentClothing # Goidastation
     accent: FoxAccent
 
 - type: entity
@@ -692,10 +692,10 @@
     - Snout
   - type: Tag
     tags:
-    - CursedAnimalMask # Goobstation
-    - WhitelistChameleon # Goobstation
+    - CursedAnimalMask # Goidastation
+    - WhitelistChameleon # Goidastation
     - IPCMaskWearable # EE - IPCs
-  - type: AddAccentClothing # Goobstation
+  - type: AddAccentClothing # Goidastation
     accent: BeeAccent
 
 - type: entity
@@ -714,10 +714,10 @@
     - Snout
   - type: Tag
     tags:
-    - CursedAnimalMask # Goobstation
-    - WhitelistChameleon # Goobstation
+    - CursedAnimalMask # Goidastation
+    - WhitelistChameleon # Goidastation
     - IPCMaskWearable # EE - IPCs
-  - type: AddAccentClothing # Goobstation
+  - type: AddAccentClothing # Goidastation
     accent: BearAccent
 
 - type: entity
@@ -736,10 +736,10 @@
     - Snout
   - type: Tag
     tags:
-    - CursedAnimalMask # Goobstation
-    - WhitelistChameleon # Goobstation
+    - CursedAnimalMask # Goidastation
+    - WhitelistChameleon # Goidastation
     - IPCMaskWearable # EE - IPCs
-  - type: AddAccentClothing # Goobstation
+  - type: AddAccentClothing # Goidastation
     accent: RavenAccent
 
 - type: entity
@@ -758,10 +758,10 @@
     - Snout
   - type: Tag
     tags:
-    - CursedAnimalMask # Goobstation
-    - WhitelistChameleon # Goobstation
+    - CursedAnimalMask # Goidastation
+    - WhitelistChameleon # Goidastation
     - IPCMaskWearable # EE - IPCs
-  - type: AddAccentClothing # Goobstation
+  - type: AddAccentClothing # Goidastation
     accent: JackalAccent
 
 - type: entity
@@ -780,10 +780,10 @@
     - Snout
   - type: Tag
     tags:
-    - CursedAnimalMask # Goobstation
-    - WhitelistChameleon # Goobstation
+    - CursedAnimalMask # Goidastation
+    - WhitelistChameleon # Goidastation
     - IPCMaskWearable # EE - IPCs
-  - type: AddAccentClothing # Goobstation
+  - type: AddAccentClothing # Goidastation
     accent: BatAccent
 
 - type: entity
@@ -908,7 +908,7 @@
   - type: IdentityBlocker
   - type: FlashImmunity
   - type: EyeProtection
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 150
       Glass: 50

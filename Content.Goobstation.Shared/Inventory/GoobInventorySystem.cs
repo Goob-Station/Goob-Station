@@ -4,9 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Inventory;
+namespace Content.Goidastation.Shared.Inventory;
 
-public sealed partial class GoobInventorySystem : EntitySystem
+public sealed partial class GoidaInventorySystem : EntitySystem
 {
 
     public override void Initialize()

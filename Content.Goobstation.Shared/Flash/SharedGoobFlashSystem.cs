@@ -4,12 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Flash;
+namespace Content.Goidastation.Shared.Flash;
 
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class SharedGoobFlashSystem : EntitySystem
+public sealed class SharedGoidaFlashSystem : EntitySystem
 {
     /// <inheritdoc/>
     public override void Initialize()

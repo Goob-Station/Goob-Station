@@ -13,7 +13,7 @@ using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 
-namespace Content.Goobstation.Client.Penalties.Systems;
+namespace Content.Goidastation.Client.Penalties.Systems;
 
 public sealed partial class OuterSlotPenaltySystem : EntitySystem
 {

@@ -120,7 +120,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
 using Content.Server.Database;
@@ -808,7 +808,7 @@ namespace Content.Server.Administration.Systems
             _activeConversations[bwoinkParams.Message.UserId] = DateTime.Now;
 
             var escapedText = FormattedMessage.EscapeText(bwoinkParams.Message.Text);
-            var adminColor = _config.GetCVar(GoobCVars.AdminBwoinkColor);
+            var adminColor = _config.GetCVar(GoidaCVars.AdminBwoinkColor);
             var adminPrefix = "";
             var bwoinkText = $"{bwoinkParams.SenderName}";
 
@@ -818,19 +818,19 @@ namespace Content.Server.Administration.Systems
                 if (bwoinkParams.SenderAdmin is not null && bwoinkParams.SenderAdmin.Title is not null)
                     adminPrefix = $"[bold]\\[{bwoinkParams.SenderAdmin.Title}\\][/bold] ";
 
-                if (_config.GetCVar(GoobCVars.UseDiscordRoleName) && bwoinkParams.RoleName is not null)
+                if (_config.GetCVar(GoidaCVars.UseDiscordRoleName) && bwoinkParams.RoleName is not null)
                     adminPrefix = $"[bold]\\[{bwoinkParams.RoleName}\\][/bold] ";
             }
 
             // If role color is enabled and exists, use it, otherwise use the discord reply color
-            if (_config.GetCVar(GoobCVars.DiscordReplyColor) != string.Empty && bwoinkParams.FromWebhook)
-                adminColor = _config.GetCVar(GoobCVars.DiscordReplyColor);
+            if (_config.GetCVar(GoidaCVars.DiscordReplyColor) != string.Empty && bwoinkParams.FromWebhook)
+                adminColor = _config.GetCVar(GoidaCVars.DiscordReplyColor);
 
-            if (_config.GetCVar(GoobCVars.UseDiscordRoleColor) && bwoinkParams.RoleColor is not null)
+            if (_config.GetCVar(GoidaCVars.UseDiscordRoleColor) && bwoinkParams.RoleColor is not null)
                 adminColor = bwoinkParams.RoleColor;
 
             if (!bwoinkParams.FromWebhook
-                && _config.GetCVar(GoobCVars.UseAdminOOCColorInBwoinks)
+                && _config.GetCVar(GoidaCVars.UseAdminOOCColorInBwoinks)
                 && bwoinkParams.SenderAdmin is not null)
             {
                 var prefs = _preferencesManager.GetPreferences(bwoinkParams.SenderId);
@@ -847,7 +847,7 @@ namespace Content.Server.Administration.Systems
             }
 
             if (bwoinkParams.FromWebhook)
-                bwoinkText = $"{_config.GetCVar(GoobCVars.DiscordReplyPrefix)}{bwoinkText}";
+                bwoinkText = $"{_config.GetCVar(GoidaCVars.DiscordReplyPrefix)}{bwoinkText}";
 
             bwoinkText = $"{(bwoinkParams.Message.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : !bwoinkParams.Message.PlaySound ? Loc.GetString("bwoink-message-silent") : "")} {bwoinkText}: {escapedText}";
 
@@ -895,7 +895,7 @@ namespace Content.Server.Administration.Systems
                             overrideMsgText = $"{bwoinkParams.SenderName}"; // Not an admin, name is not overridden.
 
                         if (bwoinkParams.FromWebhook)
-                            overrideMsgText = $"{_config.GetCVar(GoobCVars.DiscordReplyPrefix)}{overrideMsgText}";
+                            overrideMsgText = $"{_config.GetCVar(GoidaCVars.DiscordReplyPrefix)}{overrideMsgText}";
 
                         overrideMsgText = $"{(bwoinkParams.Message.PlaySound ? "" : "(S) ")}{overrideMsgText}: {escapedText}";
 
@@ -989,7 +989,7 @@ namespace Content.Server.Administration.Systems
                 stringbuilder.Append($" **{(parameters.AdminOnly ? Loc.GetString("bwoink-message-admin-only") : Loc.GetString("bwoink-message-silent"))}**");
 
             if (parameters.IsDiscord) // Frontier - Discord Indicator
-                stringbuilder.Append($" **{config.GetCVar(GoobCVars.DiscordReplyPrefix)}**");
+                stringbuilder.Append($" **{config.GetCVar(GoidaCVars.DiscordReplyPrefix)}**");
 
             if (parameters.Icon == null)
                 stringbuilder.Append($" **{parameters.Username}:** ");

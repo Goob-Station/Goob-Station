@@ -34,7 +34,7 @@
       state: mainboard
     - type: Tag
       tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
       - FirelockElectronics
     - type: StaticPrice
       price: 61

@@ -111,7 +111,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
 # SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -119,7 +119,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies ] # Goobstation - unperishable voxes
+  parent: [ MobBloodstream, MobRespirator, MobAtmosStandard, MobFlammable, BaseMobSpecies ] # Goidastation - unperishable voxes
   id: BaseMobVox
   abstract: true
   components:
@@ -262,9 +262,9 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-  # Goobstation start - voxes are uncloneable but do not rot - all the stuff from BaseMobSpeciesOrganic
+  # Goidastation start - voxes are uncloneable but do not rot - all the stuff from BaseMobSpeciesOrganic
   - type: Uncloneable
-  - type: Absorbable # Goobstation - changelings
+  - type: Absorbable # Goidastation - changelings
   - type: Barotrauma
     damage:
       types:
@@ -322,9 +322,9 @@
   - type: FireVisuals
     alternateState: Standing
   - type: FootprintOwner # Corvax-Next-Footprints
-  - type: Carriable # Goobstation
-  - type: CPRTraining # Goobstation - Just give to everyone! This ain't MRP.
-  # Goobstation end
+  - type: Carriable # Goidastation
+  - type: CPRTraining # Goidastation - Just give to everyone! This ain't MRP.
+  # Goidastation end
   - type: Hands
     leftHandDisplacement:
       sizeMaps:

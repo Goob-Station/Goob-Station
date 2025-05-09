@@ -121,7 +121,7 @@
     color: "#a8ffd9"
   - type: StaticPrice
     price: 5000
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Structure
     - IgnoreImmovableRod
@@ -185,6 +185,6 @@
     lightRadiusMax: 2.5
   - type: StaticPrice
     price: 2000
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Structure

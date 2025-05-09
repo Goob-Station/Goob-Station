@@ -7,13 +7,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Ranged.Events;
 
-namespace Content.Goobstation.Shared.Blob;
+namespace Content.Goidastation.Shared.Blob;
 
 public abstract class SharedZombieBlobSystem : EntitySystem
 {

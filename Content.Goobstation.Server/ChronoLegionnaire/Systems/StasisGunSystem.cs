@@ -6,12 +6,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.ChronoLegionnaire.Components;
+using Content.Goidastation.Server.ChronoLegionnaire.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Throwing;
 
-namespace Content.Goobstation.Server.ChronoLegionnaire.Systems;
+namespace Content.Goidastation.Server.ChronoLegionnaire.Systems;
 
 public sealed partial class StasisGunSystem : EntitySystem
 {

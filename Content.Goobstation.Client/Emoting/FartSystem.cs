@@ -5,12 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Emoting;
+using Content.Goidastation.Shared.Emoting;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Emoting;
+namespace Content.Goidastation.Client.Emoting;
 
 public sealed partial class FartSystem : SharedFartSystem
 {

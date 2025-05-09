@@ -12,12 +12,12 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/cutter.rsi
     state: icon
   - type: Gun
     fireRate: 1
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
+      path: /Audio/_Goidastation/Weapons/Guns/Gunshots/plasma_cutter.ogg
   - type: Item
     size: Large
     shape:

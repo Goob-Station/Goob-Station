@@ -21,11 +21,11 @@
 - type: speechSounds
   id: Chrono
   saySound:
-    path: /Audio/_Goobstation/Voice/Chrono/contact.ogg
+    path: /Audio/_Goidastation/Voice/Chrono/contact.ogg
   askSound:
-    path: /Audio/_Goobstation/Voice/Chrono/dagger.ogg
+    path: /Audio/_Goidastation/Voice/Chrono/dagger.ogg
   exclaimSound:
-    path: /Audio/_Goobstation/Voice/Chrono/contact.ogg
+    path: /Audio/_Goidastation/Voice/Chrono/contact.ogg
 
 - type: speechSounds
   id: Lathe
@@ -41,9 +41,9 @@
   saySound:
     collection: HissSay
   askSound:
-    path: /Audio/_Goobstation/Heretic/hiss/hiss3.ogg
+    path: /Audio/_Goidastation/Heretic/hiss/hiss3.ogg
   exclaimSound:
-    path: /Audio/_Goobstation/Heretic/hiss/hiss4.ogg
+    path: /Audio/_Goidastation/Heretic/hiss/hiss4.ogg
 
 - type: speechVerb
   id: Hiss

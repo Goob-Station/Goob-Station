@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -7,7 +7,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.UIKit.UserInterface.Controls;
+namespace Content.Goidastation.UIKit.UserInterface.Controls;
 
 public sealed class CustomRingBufferList<T> : IList<T>
 {

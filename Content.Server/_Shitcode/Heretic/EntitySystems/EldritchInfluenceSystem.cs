@@ -11,7 +11,7 @@
 
 using Content.Server.Heretic.Components;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;

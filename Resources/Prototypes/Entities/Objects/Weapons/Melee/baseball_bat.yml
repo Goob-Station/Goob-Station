@@ -29,7 +29,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -53,7 +53,7 @@
     state: icon
   - type: MeleeWeapon
     animationRotation: -135 # WWDP
-    heavyStaminaCost: 15 # goob edit
+    heavyStaminaCost: 15 # goida edit
     wideAnimationRotation: -135
     damage:
       types:
@@ -67,10 +67,10 @@
       types:
         Blunt: 5
         Structural: 10
-  - type: StaminaDamageOnHit # goob - bat makes you hurt and tired (but not as much as the real stun stick)
-    damage: 7.5 # goob - 9 hits to stamcrit someone with armor vest + helmet
+  - type: StaminaDamageOnHit # goida - bat makes you hurt and tired (but not as much as the real stun stick)
+    damage: 7.5 # goida - 9 hits to stamcrit someone with armor vest + helmet
   - type: MeleeThrowOnHit
-    distance: 1 # Goobstation
+    distance: 1 # Goidastation
     speed: 5
   - type: Item
     size: Normal
@@ -93,7 +93,7 @@
   - type: Tag
     tags:
     - BaseballBat
-  - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: UndetectableContraband #Goidastation-Contraband detector
 
 - type: entity
   name: incomplete baseball bat

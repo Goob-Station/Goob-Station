@@ -11,7 +11,7 @@
 using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Changeling.GameTicking.Rules;
+namespace Content.Goidastation.Server.Changeling.GameTicking.Rules;
 
 [RegisterComponent, Access(typeof(ChangelingRuleSystem))]
 public sealed partial class ChangelingRuleComponent : Component

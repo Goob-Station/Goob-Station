@@ -1,7 +1,7 @@
-using Content.Goobstation.Shared.Enchanting.Components;
+using Content.Goidastation.Shared.Enchanting.Components;
 using Content.Shared.Damage.Components;
 
-namespace Content.Goobstation.Shared.Enchanting.Systems;
+namespace Content.Goidastation.Shared.Enchanting.Systems;
 
 /// <summary>
 /// Controls <see cref="DamageOnAttackedComponent"/> damage for <see cref="ThornsEnchantComponent"/>.

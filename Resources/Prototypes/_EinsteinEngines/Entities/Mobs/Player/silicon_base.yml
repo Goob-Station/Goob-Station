@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -39,7 +39,7 @@
       soundHit:
         path: /Audio/Effects/hit_kick.ogg
     - type: Damageable
-      damageContainer: SiliconRadiation # Goobstation - Make IPCs take radiation
+      damageContainer: SiliconRadiation # Goidastation - Make IPCs take radiation
       damageModifierSet: IPC
     - type: InteractionOutline
     - type: MovementSpeedModifier
@@ -60,7 +60,7 @@
           shape:
             !type:PhysShapeCircle
             radius: 0.35
-          density: 300 # goob edit - metal is dense
+          density: 300 # goida edit - metal is dense
           restitution: 0.0
           mask:
           - MobMask
@@ -79,7 +79,7 @@
         1: 0.45
         0: 0.00
     - type: Temperature
-      heatDamageThreshold: 1800 # GoobStation: Roughly the melting point of mild steels
+      heatDamageThreshold: 1800 # GoidaStation: Roughly the melting point of mild steels
       coldDamageThreshold: 260
       currentTemperature: 310.15
       specificHeat: 42
@@ -90,7 +90,7 @@
         types:
           Heat: 3 #per second, scales with temperature & other constants
       atmosTemperatureTransferEfficiency: 0.05
-    - type: KillOnOverheat # GoobStation
+    - type: KillOnOverheat # GoidaStation
     - type: Deathgasp
       prototype: SiliconDeathgasp
       needsCritical: false
@@ -166,10 +166,10 @@
           sprite: "Effects/creampie.rsi"
           state: "creampie_human"
           visible: false
-    - type: CanEnterCryostorage # Goobstation
-    - type: StatusIcon # Goobstation
+    - type: CanEnterCryostorage # Goidastation
+    - type: StatusIcon # Goidastation
       bounds: -0.5,-0.5,0.5,0.5
-    - type: HasJobIcons # Goobstation
+    - type: HasJobIcons # Goidastation
     #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
     #  damageBleedModifiers: BloodlossIPC
     #  bloodReagent: Oil
@@ -191,7 +191,7 @@
       canResistFire: true
       damage:
         types:
-          Heat: 0 # GoobStation: Replaced fire damage with overheating shutdown
+          Heat: 0 # GoidaStation: Replaced fire damage with overheating shutdown
     # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
     #   damage:
     #     types:
@@ -236,11 +236,11 @@
           type: HumanoidMarkingModifierBoundUserInterface
         enum.StrippingUiKey.Key:
           type: StrippableBoundUserInterface
-        enum.StoreUiKey.Key: # Goobstation - changelings
+        enum.StoreUiKey.Key: # Goidastation - changelings
           type: StoreBoundUserInterface
-        enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        enum.HereticLivingHeartKey.Key: # goida edit - heretics
           type: LivingHeartMenuBoundUserInterface
-        enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        enum.WizardTeleportUiKey.Key: # Goidastation - wizard
           type: WizardTeleportBoundUserInterface
           requireInputValidation: false
     - type: Emoting
@@ -324,18 +324,18 @@
         - Pacified
         # - PsionicsDisabled
         # - PsionicallyInsulated
-        - Flashed # Goobstation
+        - Flashed # Goidastation
     - type: Blindable
     - type: FireVisuals
       alternateState: Standing
     - type: LightningTarget
-      priority: 2 # Goobstation
+      priority: 2 # Goidastation
       lightningExplode: false
     - type: ComplexInteraction
     - type: Carriable
     - type: Targeting
     - type: LayingDown
-    - type: Penetratable # Goobstation - Better snipers
+    - type: Penetratable # Goidastation - Better snipers
       penetrateDamage: 50
       damagePenalty: 0.2
     - type: CombatMode

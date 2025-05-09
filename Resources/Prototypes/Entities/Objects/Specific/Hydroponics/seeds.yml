@@ -836,7 +836,7 @@
     - type: Seed
       seedId: cherry
     - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+      sprite: _Goidastation/Objects/Specific/Hydroponics/cherry.rsi
 
 - type: entity
   parent: SeedBase

@@ -67,10 +67,10 @@
           - id: WallRockArtifactFragment
             prob: 0.02
             orGroup: rock
-          - id: WallRockBSCrystal # Goobstation
+          - id: WallRockBSCrystal # Goidastation
             prob: 0.05
             orGroup: rock
-          - id: WallRockBSCrystal # Goobstation
+          - id: WallRockBSCrystal # Goidastation
             prob: 0.01
             orGroup: rock
     - type: IFF

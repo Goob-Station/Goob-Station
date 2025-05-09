@@ -6,7 +6,7 @@
   description: A filter that can be installed in a robotic arm.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/filter.rsi
+    sprite: _Goidastation/Objects/Misc/filter.rsi
     state: icon
   - type: Item
     size: Tiny

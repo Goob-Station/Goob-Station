@@ -959,7 +959,7 @@
     - FoamingAgent
     - BuzzochloricBees
     - RobustHarvest
-    # Goobstation - Start
+    # Goidastation - Start
     - Triclor 
     - Cyanide
     - Genecide
@@ -978,7 +978,7 @@
     - Tricordrazine
     - Artifexium
     - Ethylredoxrazine
-    # Goobstation - Start
+    # Goidastation - Start
     - Probital
     - Tirimol
     - Multiver
@@ -1000,7 +1000,7 @@
     - Honk
     - Carpetium
     - JuiceThatMakesYouWeh
-    # Goobstation - Start
+    # Goidastation - Start
     - CatDrugs
   - type: Drink
     solution: anomaly

@@ -107,13 +107,13 @@ public sealed partial class GhostComponent : Component
     [DataField("canReturnToBody"), AutoNetworkedField]
     private bool _canReturnToBody;
 
-    // Goobstation start
+    // Goidastation start
     [DataField]
     public bool CanEnterGhostBar = true;
 
     [DataField]
     public bool CanTakeGhostRoles = true;
-    // Goobstation end
+    // Goidastation end
 }
 
 public sealed partial class ToggleFoVActionEvent : InstantActionEvent { }

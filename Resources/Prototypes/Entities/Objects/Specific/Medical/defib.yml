@@ -96,7 +96,7 @@
   suffix: One-Handed, Unpowered
 
 - type: entity
-  id: DefibrillatorCompact # This should be a research item at some point # Goobstation - it is.
+  id: DefibrillatorCompact # This should be a research item at some point # Goidastation - it is.
   parent: [ BaseDefibrillator, PowerCellSlotMediumItem ]
   name: compact defibrillator
   description: Now in fun size!
@@ -121,7 +121,7 @@
     zapHeal:
       types:
         Asphyxiation: -40
-    doAfterDuration: 3 # Goob value
+    doAfterDuration: 3 # Goida value
   - type: DoAfter
   - type: UseDelay
 

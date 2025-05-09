@@ -45,7 +45,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         if (HasComp<HeadRevolutionaryComponent>(uid))
         {
-            comp.Broken = true; // Goobstation - Broken mindshield implant instead of break it
+            comp.Broken = true; // Goidastation - Broken mindshield implant instead of break it
             Dirty(uid, comp);
             return;
         }
@@ -114,7 +114,7 @@ public abstract class SharedRevolutionarySystem : EntitySystem
         }
     }
 
-    // GoobStation
+    // GoidaStation
     /// <summary>
     /// Change headrevs ability to convert people
     /// </summary>

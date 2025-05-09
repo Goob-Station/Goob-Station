@@ -25,7 +25,7 @@ namespace Content.Server.Destructible.Thresholds
     public sealed partial class DamageThreshold
     {
         [DataField("behaviors")]
-        public List<IThresholdBehavior> Behaviors = new(); // Goob edit
+        public List<IThresholdBehavior> Behaviors = new(); // Goida edit
 
         /// <summary>
         ///     Whether or not this threshold was triggered in the previous call to
@@ -57,7 +57,7 @@ namespace Content.Server.Destructible.Thresholds
         /// <summary>
         ///     Behaviors to activate once this threshold is triggered.
         /// </summary>
-        // [ViewVariables] public IReadOnlyList<IThresholdBehavior> Behaviors => _behaviors; // Goob edit
+        // [ViewVariables] public IReadOnlyList<IThresholdBehavior> Behaviors => _behaviors; // Goida edit
 
         public bool Reached(DamageableComponent damageable, DestructibleSystem system)
         {

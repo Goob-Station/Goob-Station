@@ -88,7 +88,7 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -96,30 +96,30 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
+using Content.Goidastation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
-using Content.Shared._White.Grab; // Goobstation
+using Content.Shared._White.Grab; // Goidastation
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode;
-using Content.Shared.CombatMode.Pacification; // Goobstation
-using Content.Shared.Cuffs.Components; // Goobstation
+using Content.Shared.CombatMode.Pacification; // Goidastation
+using Content.Shared.Cuffs.Components; // Goidastation
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components; // Goobstation
-using Content.Shared.Damage.Systems; // Goobstation
+using Content.Shared.Damage.Components; // Goidastation
+using Content.Shared.Damage.Systems; // Goidastation
 using Content.Shared.Database;
-using Content.Shared.Effects; // Goobstation
+using Content.Shared.Effects; // Goidastation
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory.VirtualItem; // Goobstation
+using Content.Shared.Inventory.VirtualItem; // Goidastation
 using Content.Shared.Item;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components; // Goobstation
+using Content.Shared.Mobs.Components; // Goidastation
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
@@ -127,23 +127,23 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Pulling.Events;
-using Content.Shared.Speech; // Goobstation
+using Content.Shared.Speech; // Goidastation
 using Content.Shared.Standing;
-using Content.Shared.Throwing; // Goobstation
+using Content.Shared.Throwing; // Goidastation
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Melee;
-using Robust.Shared.Audio; // Goobstation
-using Robust.Shared.Audio.Systems; // Goobstation
+using Robust.Shared.Audio; // Goidastation
+using Robust.Shared.Audio.Systems; // Goidastation
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
-using Robust.Shared.Network; // Goobstation
+using Robust.Shared.Network; // Goidastation
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Random; // Goobstation
+using Robust.Shared.Random; // Goidastation
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Movement.Pulling.Systems;
@@ -174,8 +174,8 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly ContestsSystem _contests = default!; // Goobstation - Grab Intent
-    [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!; // Goobstation - Grab Intent
+    [Dependency] private readonly ContestsSystem _contests = default!; // Goidastation - Grab Intent
+    [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!; // Goidastation - Grab Intent
 
     public override void Initialize()
     {
@@ -191,8 +191,8 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, EntGotInsertedIntoContainerMessage>(OnPullableContainerInsert);
         SubscribeLocalEvent<PullableComponent, ModifyUncuffDurationEvent>(OnModifyUncuffDuration);
         SubscribeLocalEvent<PullableComponent, StopBeingPulledAlertEvent>(OnStopBeingPulledAlert);
-        SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goobstation
-        SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goobstation
+        SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt); // Goidastation
+        SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt); // Goidastation
 
         SubscribeLocalEvent<PullerComponent, UpdateMobStateEvent>(OnStateChanged);
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
@@ -202,8 +202,8 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<PullerComponent, DropHandItemsEvent>(OnDropHandItems);
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
-        SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown); // Goobstation - Grab Intent
-        SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent); // Goobstation - Grab Intent
+        SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown); // Goidastation - Grab Intent
+        SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent); // Goidastation - Grab Intent
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
@@ -212,7 +212,7 @@ public sealed class PullingSystem : EntitySystem
             .Bind(ContentKeyFunctions.ReleasePulledObject, InputCmdHandler.FromDelegate(OnReleasePulledObject, handle: false))
             .Register<PullingSystem>();
     }
-    // Goobstation - Grab Intent
+    // Goidastation - Grab Intent
     private void OnAddCuffDoAfterEvent(Entity<PullerComponent> ent, ref AddCuffDoAfterEvent args)
     {
         if (args.Handled)
@@ -226,7 +226,7 @@ public sealed class PullingSystem : EntitySystem
                 StopPulling(ent.Comp.Pulling.Value, comp);
         }
     }
-    // Goobstation
+    // Goidastation
 
     private void OnStateChanged(EntityUid uid, PullerComponent component, ref UpdateMobStateEvent args)
     {
@@ -287,17 +287,17 @@ public sealed class PullingSystem : EntitySystem
         if (!TryComp(ent.Comp.Pulling.Value, out PullableComponent? pulling))
             return;
 
-        // Goobstation - Grab Intent
+        // Goidastation - Grab Intent
         foreach (var item in ent.Comp.GrabVirtualItems)
             QueueDel(item);
 
         TryStopPull(ent.Comp.Pulling.Value, pulling, ent.Owner, true);
-        // Goobstation
+        // Goidastation
     }
 
     private void OnPullableContainerInsert(Entity<PullableComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        TryStopPull(ent.Owner, ent.Comp, ignoreGrab: true); // Goobstation
+        TryStopPull(ent.Owner, ent.Comp, ignoreGrab: true); // Goidastation
     }
 
     private void OnModifyUncuffDuration(Entity<PullableComponent> ent, ref ModifyUncuffDurationEvent args)
@@ -331,7 +331,7 @@ public sealed class PullingSystem : EntitySystem
         component.NextThrow += args.PausedTime;
     }
 
-    // Goobstation - Grab Intent Refactor
+    // Goidastation - Grab Intent Refactor
     private void OnVirtualItemDeleted(Entity<PullerComponent> ent, ref VirtualItemDeletedEvent args)
     {
         // If client deletes the virtual hand then stop the pull.
@@ -353,9 +353,9 @@ public sealed class PullingSystem : EntitySystem
         }
         ent.Comp.GrabVirtualItems.Clear();
     }
-    // Goobstation - Grab Intent Refactor
+    // Goidastation - Grab Intent Refactor
 
-    // Goobstation - Grab Intent
+    // Goidastation - Grab Intent
     private void OnVirtualItemThrown(EntityUid uid, PullerComponent component, VirtualItemThrownEvent args)
     {
         if (!TryComp<PhysicsComponent>(uid, out var throwerPhysics)
@@ -387,7 +387,7 @@ public sealed class PullingSystem : EntitySystem
         _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg"), uid);
         component.NextStageChange = _timing.CurTime.Add(TimeSpan.FromSeconds(3f)); // To avoid grab and throw spamming
     }
-    // Goobstation
+    // Goidastation
 
 
     private void AddPullVerbs(EntityUid uid, PullableComponent component, GetVerbsEvent<Verb> args)
@@ -482,7 +482,7 @@ public sealed class PullingSystem : EntitySystem
         }
     }
 
-    // Goobstation - Grab Intent
+    // Goidastation - Grab Intent
     private void OnPullableMoveInput(Entity<PullableComponent> ent, ref MoveInputEvent args)
     {
         // If someone moves then break their pulling.
@@ -499,7 +499,7 @@ public sealed class PullingSystem : EntitySystem
 
         TryStopPull(ent, ent, user: ent);
     }
-    // Goobstation
+    // Goidastation
 
     private void OnPullableCollisionChange(EntityUid uid, PullableComponent component, ref CollisionChangeEvent args)
     {
@@ -554,11 +554,11 @@ public sealed class PullingSystem : EntitySystem
 
         pullableComp.PullJointId = null;
         pullableComp.Puller = null;
-        // Goobstation - Grab Intent
+        // Goidastation - Grab Intent
         pullableComp.GrabStage = GrabStage.No;
         pullableComp.GrabEscapeChance = 1f;
         _blocker.UpdateCanMove(pullableUid);
-        // Goobstation
+        // Goidastation
 
         Dirty(pullableUid, pullableComp);
 
@@ -569,14 +569,14 @@ public sealed class PullingSystem : EntitySystem
             if (_netManager.IsServer)
                 _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
-            // Goobstation - Grab Intent
+            // Goidastation - Grab Intent
             pullerComp.GrabStage = GrabStage.No;
             var virtItems = pullerComp.GrabVirtualItems;
             foreach (var item in virtItems)
                 QueueDel(item);
 
             pullerComp.GrabVirtualItems.Clear();
-            // Goobstation
+            // Goidastation
             Dirty(oldPuller.Value, pullerComp);
 
             // Messaging
@@ -615,7 +615,7 @@ public sealed class PullingSystem : EntitySystem
             return;
         }
 
-        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true); // Goobstation
+        TryStopPull(pullerComp.Pulling.Value, pullableComp, user: player, true); // Goidastation
     }
 
     public bool CanPull(EntityUid puller, EntityUid pullableUid, PullerComponent? pullerComp = null)
@@ -637,7 +637,7 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
-        if (!TryComp<PhysicsComponent>(pullableUid, out var physics)) // Goobstation
+        if (!TryComp<PhysicsComponent>(pullableUid, out var physics)) // Goidastation
         {
             return false;
         }
@@ -664,7 +664,7 @@ public sealed class PullingSystem : EntitySystem
         return !startPull.Cancelled && !getPulled.Cancelled;
     }
 
-    // Goobstation - Grab Intent
+    // Goidastation - Grab Intent
     public bool TogglePull(Entity<PullableComponent?> pullable, EntityUid pullerUid)
     {
         if (!Resolve(pullable, ref pullable.Comp, false))
@@ -681,7 +681,7 @@ public sealed class PullingSystem : EntitySystem
 
         return false;
     }
-    // Goobstation
+    // Goidastation
 
 
     public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
@@ -720,7 +720,7 @@ public sealed class PullingSystem : EntitySystem
 
         // Ensure that the puller is not currently pulling anything.
         if (TryComp<PullableComponent>(pullerComp.Pulling, out var oldPullable)
-            && !TryStopPull(pullerComp.Pulling.Value, oldPullable, pullerUid, true)) // Goobstation
+            && !TryStopPull(pullerComp.Pulling.Value, oldPullable, pullerUid, true)) // Goidastation
             return false;
 
         // Stop anyone else pulling the entity we want to pull
@@ -729,7 +729,7 @@ public sealed class PullingSystem : EntitySystem
             // We're already pulling this item
             if (pullableComp.Puller == pullerUid)
                 return false;
-            // Goobstation - Grab Intent
+            // Goidastation - Grab Intent
             if (!TryStopPull(pullableUid, pullableComp, pullableComp.Puller))
             {
                 // Not succeed to retake grabbed entity
@@ -769,7 +769,7 @@ public sealed class PullingSystem : EntitySystem
                         PopupType.MediumCaution);
                 }
             }
-            // Goobstation
+            // Goidastation
         }
 
         var pullAttempt = new PullAttemptEvent(pullerUid, pullableUid);
@@ -820,8 +820,8 @@ public sealed class PullingSystem : EntitySystem
         // Messaging
         var message = new PullStartedMessage(pullerUid, pullableUid);
         _modifierSystem.RefreshMovementSpeedModifiers(pullerUid);
-        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert, 0); // Goobstation
-        _alertsSystem.ShowAlert(pullableUid, pullableComp.PulledAlert, 0); // Goobstation
+        _alertsSystem.ShowAlert(pullerUid, pullerComp.PullingAlert, 0); // Goidastation
+        _alertsSystem.ShowAlert(pullableUid, pullableComp.PulledAlert, 0); // Goidastation
 
         RaiseLocalEvent(pullerUid, message);
         RaiseLocalEvent(pullableUid, message);
@@ -836,8 +836,8 @@ public sealed class PullingSystem : EntitySystem
         _adminLogger.Add(LogType.Action, LogImpact.Low,
             $"{ToPrettyString(pullerUid):user} started pulling {ToPrettyString(pullableUid):target}");
 
-        if (_combatMode.IsInCombatMode(pullerUid) && grabStageOverride == null) // Goobstation
-            TryGrab(pullableUid, pullerUid, escapeAttemptModifier: escapeAttemptModifier); // Goobstation
+        if (_combatMode.IsInCombatMode(pullerUid) && grabStageOverride == null) // Goidastation
+            TryGrab(pullableUid, pullerUid, escapeAttemptModifier: escapeAttemptModifier); // Goidastation
         if(_combatMode.IsInCombatMode(pullerUid) && grabStageOverride != null)
             TryGrab(pullableUid, pullerUid, grabStageOverride: grabStageOverride, escapeAttemptModifier: escapeAttemptModifier);
         return true;
@@ -854,12 +854,12 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         var msg = new AttemptStopPullingEvent(user);
-        RaiseLocalEvent(pullableUid, ref msg, true); // Goob edit
+        RaiseLocalEvent(pullableUid, ref msg, true); // Goida edit
 
         if (msg.Cancelled)
             return false;
 
-        // Goobstation - Grab Intent
+        // Goidastation - Grab Intent
         if (!ignoreGrab)
             if (!TryGrabRelease(pullableUid, user, pullerUidNull.Value))
                 return false;
@@ -900,7 +900,7 @@ public sealed class PullingSystem : EntitySystem
 
         return true;
     }
-    public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goobstation
+    public void StopAllPulls(EntityUid uid, bool stopPullable = true, bool stopPuller = true) // Goidastation
     {
         if (stopPullable && TryComp<PullableComponent>(uid, out var pullable) && IsPulled(uid, pullable))
             TryStopPull(uid, pullable);
@@ -910,7 +910,7 @@ public sealed class PullingSystem : EntitySystem
             TryStopPull(puller.Pulling.Value, pullableEnt);
     }
 
-    // Goobstation - Grab Intent
+    // Goidastation - Grab Intent
     /// <summary>
     /// Trying to grab the target
     /// </summary>
@@ -1193,4 +1193,4 @@ public sealed class PullingSystem : EntitySystem
     }
 }
 
-// Goobstation
+// Goidastation

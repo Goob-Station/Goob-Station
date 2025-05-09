@@ -37,7 +37,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Traits;
+using Content.Goidastation.Common.Traits;
 using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Events;
@@ -45,7 +45,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
 
-namespace Content.Goobstation.Shared.Traits.Assorted;
+namespace Content.Goidastation.Shared.Traits.Assorted;
 
 public sealed class LegsParalyzedSystem : EntitySystem
 {

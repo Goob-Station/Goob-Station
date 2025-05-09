@@ -97,11 +97,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using System.Collections.Immutable; // Goobstation - Starlight collective mind port
+using System.Collections.Immutable; // Goidastation - Starlight collective mind port
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Server._Goidastation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -112,12 +112,12 @@ using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._Goobstation.Wizard.Chuuni;
+using Content.Shared._Goidastation.Wizard.Chuuni;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
+using Content.Shared._Starlight.CollectiveMind; // Goidastation - Starlight collective mind port
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -164,10 +164,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly TelepathicChatSystem _telepath = default!; // Goobstation Change
-    [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!; // Goobstation Change
-    [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goobstation Change
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goobstation - Starlight collective mind port
+    [Dependency] private readonly TelepathicChatSystem _telepath = default!; // Goidastation Change
+    [Dependency] private readonly GhostVisibilitySystem _ghostVisibility = default!; // Goidastation Change
+    [Dependency] private readonly ScryingOrbSystem _scrying = default!; // Goidastation Change
+    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // Goidastation - Starlight collective mind port
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -254,10 +254,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        string wrappedMessagePostfix = "" // Goidastation
         )
     {
-        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
+        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, wrappedMessagePostfix); // Goida edit
     }
 
     /// <summary>
@@ -282,7 +282,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        string wrappedMessagePostfix = "" // Goidastation
         )
     {
         if (HasComp<GhostComponent>(source))
@@ -292,7 +292,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        // Goobstation - Starlight collective mind port
+        // Goidastation - Starlight collective mind port
         if (TryComp<CollectiveMindComponent>(source, out var collective))
             _collectiveMind.UpdateCollectiveMind(source, collective);
 
@@ -348,24 +348,24 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (string.IsNullOrEmpty(message))
             return;
 
-        // Goobstation start
+        // Goidastation start
         var postfixEv = new GetMessagePostfixEvent();
         RaiseLocalEvent(source, postfixEv);
         if (!string.IsNullOrEmpty(postfixEv.Postfix))
             wrappedMessagePostfix = postfixEv.Postfix;
-        // Goobstation end
+        // Goidastation end
 
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
         if (checkRadioPrefix)
         {
             if (TryProccessRadioMessage(source, message, out var modMessage, out var channel))
             {
-                SendEntityWhisper(source, modMessage, range, channel, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
+                SendEntityWhisper(source, modMessage, range, channel, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goida edit
                 return;
             }
         }
 
-        // Goobstation - Starlight collective mind port
+        // Goidastation - Starlight collective mind port
         if (desiredType == InGameICChatType.CollectiveMind)
         {
             if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
@@ -379,10 +379,10 @@ public sealed partial class ChatSystem : SharedChatSystem
         switch (desiredType)
         {
             case InGameICChatType.Speak:
-                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
+                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goida edit
                 break;
             case InGameICChatType.Whisper:
-                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
+                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goida edit
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
@@ -543,7 +543,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
-    // Goobstation - Starlight collective mind port
+    // Goidastation - Starlight collective mind port
     private void SendCollectiveMindChat(EntityUid source, string message, CollectiveMindPrototype? collectiveMind)
     {
         if (_mobStateSystem.IsDead(source) || collectiveMind == null || message == "" || !TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp) || !sourseCollectiveMindComp.Minds.ContainsKey(collectiveMind.ID))
@@ -625,7 +625,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride,
         bool hideLog = false,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        string wrappedMessagePostfix = "" // Goidastation
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -656,7 +656,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         name = FormattedMessage.EscapeText(name);
 
-        var wrappedMessage = Loc.GetString((speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message") + wrappedMessagePostfix, // Goob edit
+        var wrappedMessage = Loc.GetString((speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message") + wrappedMessagePostfix, // Goida edit
             ("entityName", name),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("fontType", speech.FontId),
@@ -699,7 +699,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? nameOverride,
         bool hideLog = false,
         bool ignoreActionBlocker = false,
-        string wrappedMessagePostfix = "" // Goobstation
+        string wrappedMessagePostfix = "" // Goidastation
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -727,13 +727,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
         name = FormattedMessage.EscapeText(name);
 
-        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message" + wrappedMessagePostfix, // Goob edit
+        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message" + wrappedMessagePostfix, // Goida edit
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
 
-        var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message" + wrappedMessagePostfix, // Goob edit
+        var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message" + wrappedMessagePostfix, // Goida edit
             ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
-        var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message" + wrappedMessagePostfix, // Goob edit
+        var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message" + wrappedMessagePostfix, // Goida edit
             ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
 
@@ -844,12 +844,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         var playerName = Name(source);
         string wrappedMessage;
 
-        var speech = GetSpeechVerb(source, message); // Goobstation - Dead chat verbs
+        var speech = GetSpeechVerb(source, message); // Goidastation - Dead chat verbs
 
         if (_adminManager.IsAdmin(player))
         {
             wrappedMessage = Loc.GetString("chat-manager-send-admin-dead-chat-wrap-message",
-                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))), // Goobstation - Dead chat verbs
+                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))), // Goidastation - Dead chat verbs
                 ("adminChannelName", Loc.GetString("chat-manager-admin-channel-name")),
                 ("userName", player.Channel.UserName),
                 ("message", FormattedMessage.EscapeText(message)));
@@ -858,7 +858,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         else
         {
             wrappedMessage = Loc.GetString("chat-manager-send-dead-chat-wrap-message",
-                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))), // Goobstation - Dead chat verbs
+                ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))), // Goidastation - Dead chat verbs
                 ("deadChannelName", Loc.GetString("chat-manager-dead-channel-name")),
                 ("playerName", (playerName)),
                 ("message", FormattedMessage.EscapeText(message)));
@@ -1009,12 +1009,12 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     private IEnumerable<INetChannel> GetDeadChatClients()
     {
-        if (_ghostVisibility.GhostsVisible()) // Goobstation
+        if (_ghostVisibility.GhostsVisible()) // Goidastation
             return Filter.Broadcast().Recipients.Select(p => p.Channel);
 
         return Filter.Empty()
             .AddWhereAttachedEntity(HasComp<GhostComponent>)
-            .AddWhereAttachedEntity(_scrying.IsScryingOrbEquipped) // Goobstation
+            .AddWhereAttachedEntity(_scrying.IsScryingOrbEquipped) // Goidastation
             .Recipients
             .Union(_adminManager.ActiveAdmins)
             .Select(p => p.Channel);
@@ -1191,8 +1191,8 @@ public enum InGameICChatType : byte
     Speak,
     Emote,
     Whisper,
-    Telepathic, // Goobstation Change
-    CollectiveMind // Goobstation - Starlight collective mind port
+    Telepathic, // Goidastation Change
+    CollectiveMind // Goidastation - Starlight collective mind port
 }
 
 /// <summary>

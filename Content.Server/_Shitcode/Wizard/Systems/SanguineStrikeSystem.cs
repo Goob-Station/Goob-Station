@@ -9,18 +9,18 @@ using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.SanguineStrike;
+using Content.Shared._Goidastation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.SanguineStrike;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class SanguineStrikeSystem : SharedSanguineStrikeSystem
 {

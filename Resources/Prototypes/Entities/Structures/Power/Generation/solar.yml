@@ -185,7 +185,7 @@
     node: solarpanel
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   id: SolarPanelBroken

@@ -56,14 +56,14 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Weapons.Penetration;
+using Content.Goidastation.Common.Weapons.Penetration;
 using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
@@ -71,7 +71,7 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -107,8 +107,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (attemptEv.Cancelled)
         {
             SetShooter(uid, component, target);
-            _guns.SetTarget(uid, null, out _); // Goobstation
-            component.IgnoredEntities.Clear(); // Goobstation
+            _guns.SetTarget(uid, null, out _); // Goidastation
+            component.IgnoredEntities.Clear(); // Goidastation
             return;
         }
 
@@ -122,7 +122,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter, armorPenetration: component.ArmorPenetration); // Goob edit
+        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter, armorPenetration: component.ArmorPenetration); // Goida edit
         var deleted = Deleted(target);
 
         if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))
@@ -155,7 +155,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 if (stopPenetration)
                     component.ProjectileSpent = true;
             }
-            // Goobstation - Splits penetration change if target have PenetratableComponent
+            // Goidastation - Splits penetration change if target have PenetratableComponent
             if (!TryComp<PenetratableComponent>(target, out var penetratable))
             {
                 // If the object won't be destroyed, it "tanks" the penetration hit.
@@ -176,7 +176,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             }
             else
             {
-                // Goobstation - Here penetration threshold count as "penetration health".
+                // Goidastation - Here penetration threshold count as "penetration health".
                 // If it's lower than damage than penetation damage entity cause it deletes projectile
                 if (component.PenetrationThreshold < penetratable.PenetrateDamage)
                 {
@@ -192,13 +192,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             component.ProjectileSpent = true;
         }
 
-        // Goobstation start
+        // Goidastation start
         if (component.Penetrate)
         {
             component.IgnoredEntities.Add(target);
             component.ProjectileSpent = false; // Hardlight bow should be able to deal damage while piercing, no?
         }
-        // Goobstation end
+        // Goidastation end
 
         if (!deleted)
         {
@@ -208,7 +208,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
 
-        if ((component.DeleteOnCollide && component.ProjectileSpent) || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goobstation - Make x-ray arrows not penetrate blob
+        if ((component.DeleteOnCollide && component.ProjectileSpent) || (component.NoPenetrateMask & args.OtherFixture.CollisionLayer) != 0) // Goidastation - Make x-ray arrows not penetrate blob
             QueueDel(uid);
 
         if (component.ImpactEffect != null && TryComp(uid, out TransformComponent? xform))

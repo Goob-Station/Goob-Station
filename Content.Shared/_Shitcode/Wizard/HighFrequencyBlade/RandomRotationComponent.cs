@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Wizard.HighFrequencyBlade;
+namespace Content.Shared._Goidastation.Wizard.HighFrequencyBlade;
 
 [RegisterComponent]
 public sealed partial class RandomRotationComponent : Component

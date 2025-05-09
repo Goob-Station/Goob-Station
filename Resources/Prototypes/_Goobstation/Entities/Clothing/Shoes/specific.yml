@@ -12,9 +12,9 @@
   description: "A pair of Wizard Federation Roller Skates, imbued with a protection spell against collision."
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Specific/skateswizard.rsi
+    sprite: _Goidastation/Clothing/Shoes/Specific/skateswizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Specific/skateswizard.rsi
+    sprite: _Goidastation/Clothing/Shoes/Specific/skateswizard.rsi
     clothingVisuals:
       shoes:
       - state: equipped-FEET

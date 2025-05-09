@@ -6,14 +6,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.TimeStop;
+using Content.Shared._Goidastation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.TimeStop;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Shared._Goobstation.Wizard.SpellCards;
+namespace Content.Shared._Goidastation.Wizard.SpellCards;
 
 public sealed class SpellCardSystem : EntitySystem
 {

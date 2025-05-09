@@ -8,7 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Standing;
+using Content.Goidastation.Common.Standing;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Map;

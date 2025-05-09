@@ -23,7 +23,7 @@ using System.Text;
 using System.Linq;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.Stacks;
 using Robust.Shared.Containers;
 
@@ -41,7 +41,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
 
-    public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
+    public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goidastation/Heretic/castsummon.ogg");
 
     public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype>? id)
     {

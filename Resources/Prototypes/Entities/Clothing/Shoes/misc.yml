@@ -209,7 +209,7 @@
         name: power-cell-slot-component-slot-name-default
   - type: Tag
     tags: []
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 375
       Plastic: 250
@@ -241,6 +241,6 @@
     price: 75
   - type: Tag
     tags: [ ]
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 150

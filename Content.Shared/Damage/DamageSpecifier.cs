@@ -15,13 +15,13 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text.Json.Serialization;
 using Content.Shared.Damage.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
@@ -329,7 +329,7 @@ namespace Content.Shared.Damage
             }
         }
 
-        // Goobstation - partial AP. Returns new armor modifier set.
+        // Goidastation - partial AP. Returns new armor modifier set.
         public static DamageModifierSet PenetrateArmor(DamageModifierSet modifierSet, float penetration)
         {
             if (penetration == 0f ||

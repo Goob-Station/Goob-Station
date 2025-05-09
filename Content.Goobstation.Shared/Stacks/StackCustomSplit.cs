@@ -6,7 +6,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Stacks;
+namespace Content.Goidastation.Shared.Stacks;
 
 [Serializable, NetSerializable]
 public sealed class StackCustomSplitAmountMessage : BoundUserInterfaceMessage

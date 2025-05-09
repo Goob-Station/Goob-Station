@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Implants.Components;
+namespace Content.Goidastation.Server.Implants.Components;
 
 [RegisterComponent]
 public sealed partial class KravMagaImplantComponent : Component;

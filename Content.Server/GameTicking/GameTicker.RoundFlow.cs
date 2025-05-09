@@ -1071,7 +1071,7 @@ namespace Content.Server.GameTicking
             _doNewLine = true;
         }
 
-        // goob edit
+        // goida edit
         public void AppendAtStart(string text)
         {
             Text = text + Text;

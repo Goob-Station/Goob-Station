@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: MIT
 
 using System;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using NUnit.Framework;
 
 namespace Content.Tests.Shared.Chemistry

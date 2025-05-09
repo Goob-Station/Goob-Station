@@ -14,5 +14,5 @@
   - type: NukeDisk
     override: true
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/nukeoverride.rsi
+    sprite: _Goidastation/Objects/Misc/nukeoverride.rsi
     state: icon

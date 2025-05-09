@@ -6,7 +6,7 @@
 
 using Content.Server.Tesla.EntitySystems;
 using Content.Shared.Explosion;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Lightning.Components;

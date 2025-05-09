@@ -13,7 +13,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: _Goobstation/Actions/kravmaga.rsi
+      sprite: _Goidastation/Actions/kravmaga.rsi
       state: legsweep
       useDelay: 3
     event: !type:KravMagaActionEvent { }
@@ -29,7 +29,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: _Goobstation/Actions/kravmaga.rsi
+      sprite: _Goidastation/Actions/kravmaga.rsi
       state: neckchop
       useDelay: 3
     event: !type:KravMagaActionEvent { }
@@ -46,7 +46,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: _Goobstation/Actions/kravmaga.rsi
+      sprite: _Goidastation/Actions/kravmaga.rsi
       state: lungpunch
       useDelay: 3
     event: !type:KravMagaActionEvent { }

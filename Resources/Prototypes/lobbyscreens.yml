@@ -87,7 +87,7 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 CBozo <165491409+CBozo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Jvne <39907509+H2Owe@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -168,21 +168,21 @@
   artist: Piras314
 
 - type: lobbyBackground
-  id: goob
-  background: /Textures/LobbyScreens/goob.webp
-  name: Goob
+  id: goida
+  background: /Textures/LobbyScreens/goida.webp
+  name: Goida
   artist: Diebeck
 
 - type: lobbyBackground
-  id: GoobNukie
-  background: /Textures/LobbyScreens/GoobNukie.webp
-  name: Goob Nukie
+  id: GoidaNukie
+  background: /Textures/LobbyScreens/GoidaNukie.webp
+  name: Goida Nukie
   artist: Cheeki
 
 - type: lobbyBackground
-  id: grandtheftgoob
-  background: /Textures/LobbyScreens/grandtheftgoob.webp
-  name: Grand Theft Goob
+  id: grandtheftgoida
+  background: /Textures/LobbyScreens/grandtheftgoida.webp
+  name: Grand Theft Goida
   artist: Piras314
 
 - type: lobbyBackground
@@ -234,9 +234,9 @@
   artist: Cattom
   
 - type: lobbyBackground
-  id: stargoob
-  background: /Textures/LobbyScreens/StarGoob.webp
-  name: GoobWars
+  id: stargoida
+  background: /Textures/LobbyScreens/StarGoida.webp
+  name: GoidaWars
   artist: Jvne
 
 - type: lobbyBackground

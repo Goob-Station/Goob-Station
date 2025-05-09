@@ -24,7 +24,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClothMade
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 25  
 

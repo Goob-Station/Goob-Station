@@ -53,7 +53,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
+using Content.Shared._EinsteinEngines.Silicon.Components; // Goidastation
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -95,7 +95,7 @@ public abstract partial class SharedMindSystem : EntitySystem
         SubscribeLocalEvent<VisitingMindComponent, EntityTerminatingEvent>(OnVisitingTerminating);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnReset);
         SubscribeLocalEvent<MindComponent, ComponentStartup>(OnMindStartup);
-        SubscribeLocalEvent<MindContainerComponent, EntityRenamedEvent>(OnRenamed); // Goob edit
+        SubscribeLocalEvent<MindContainerComponent, EntityRenamedEvent>(OnRenamed); // Goida edit
 
         InitializeRelay();
     }
@@ -240,13 +240,13 @@ public abstract partial class SharedMindSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnRenamed(Entity<MindContainerComponent> ent, ref EntityRenamedEvent args) // Goob edit start
+    private void OnRenamed(Entity<MindContainerComponent> ent, ref EntityRenamedEvent args) // Goida edit start
     {
         if (!TryComp(ent.Comp.Mind, out MindComponent? mind))
             return;
 
         mind.CharacterName = args.NewName;
-        // Goob edit end
+        // Goida edit end
         Dirty(ent);
     }
 
@@ -661,7 +661,7 @@ public abstract partial class SharedMindSystem : EntitySystem
             if (!TryGetMind(uid, out var mind, out var mindComp) || mind == exclude || !_mobState.IsAlive(uid, mobState))
                 continue;
 
-            // Goobstation: Skip IPCs from selections
+            // Goidastation: Skip IPCs from selections
             if (excludeSilicon && HasComp<SiliconComponent>(uid))
                 continue;
 

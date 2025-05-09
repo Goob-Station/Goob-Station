@@ -149,14 +149,14 @@ namespace Content.Shared.GameTicking
     public sealed class TickerLobbyStatusEvent : EntityEventArgs
     {
         public bool IsRoundStarted { get; }
-        public LobbyBackgroundPrototype? LobbyBackground { get; } // Goobstation - Lobby Background Credits
+        public LobbyBackgroundPrototype? LobbyBackground { get; } // Goidastation - Lobby Background Credits
         public bool YouAreReady { get; }
         // UTC.
         public TimeSpan StartTime { get; }
         public TimeSpan RoundStartTimeSpan { get; }
         public bool Paused { get; }
 
-        // Goobstation - Lobby Background Credits
+        // Goidastation - Lobby Background Credits
         public TickerLobbyStatusEvent(bool isRoundStarted, LobbyBackgroundPrototype? lobbyBackground, bool youAreReady, TimeSpan startTime, TimeSpan preloadTime, TimeSpan roundStartTimeSpan, bool paused)
         {
             IsRoundStarted = isRoundStarted;

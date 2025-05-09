@@ -1,9 +1,9 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Power.PTL;
+using Content.Goidastation.Shared.Power.PTL;
 using Content.Server.Flash;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -29,7 +29,7 @@ using Robust.Shared.Timing;
 using System.Numerics;
 using System.Text;
 
-namespace Content.Goobstation.Server.Power.PTL;
+namespace Content.Goidastation.Server.Power.PTL;
 
 public sealed partial class PTLSystem : EntitySystem
 {

@@ -131,7 +131,7 @@ using System.Text;
 
 namespace Content.Server.GameTicking.Rules;
 
-// goobstation - heavily edited.
+// goidastation - heavily edited.
 // do not touch unless you want to shoot yourself in the leg
 public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {

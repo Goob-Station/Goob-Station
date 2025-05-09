@@ -53,7 +53,7 @@
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
@@ -110,10 +110,10 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goobstation - server currency
+        [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goidastation - server currency
         [Dependency] private readonly LinkAccountManager _linkAccount = default!; // RMC - Patreon
 
-        private ISawmill _sawmill = default!; // Goobstation
+        private ISawmill _sawmill = default!; // Goidastation
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
 
@@ -161,7 +161,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
 
-            _serverCur.BalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
+            _serverCur.BalanceChange += UpdatePlayerBalance; // Goidastation - Goida Coin
         }
 
         protected override void Shutdown()
@@ -172,7 +172,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
             _contentAudioSystem.LobbySoundtrackChanged -= UpdateLobbySoundtrackInfo;
-            _serverCur.BalanceChange -= UpdatePlayerBalance; // Goobstation - Goob Coin
+            _serverCur.BalanceChange -= UpdatePlayerBalance; // Goidastation - Goida Coin
 
             _voteManager.ClearPopupContainer();
 
@@ -296,7 +296,7 @@ namespace Content.Client.Lobby
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
 
-            UpdatePlayerBalance(); // Goobstation - Goob Coin
+            UpdatePlayerBalance(); // Goidastation - Goida Coin
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
@@ -328,7 +328,7 @@ namespace Content.Client.Lobby
             }
         }
 
-        // Goobstation - heavily modified to add credits for lobby backgrounds
+        // Goidastation - heavily modified to add credits for lobby backgrounds
         private void UpdateLobbyBackground()
         {
             if (_gameTicker.LobbyBackground != null)
@@ -369,7 +369,7 @@ namespace Content.Client.Lobby
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
         }
 
-        private void UpdatePlayerBalance() // Goobstation - Goob Coin
+        private void UpdatePlayerBalance() // Goidastation - Goida Coin
         {
             Lobby!.Balance.Text = _serverCur.Stringify(_serverCur.GetBalance());
         }

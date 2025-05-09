@@ -8,7 +8,7 @@
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Goobstation.Wizard.HighFrequencyBlade;
+namespace Content.Shared._Goidastation.Wizard.HighFrequencyBlade;
 
 public sealed class RandomRotationSystem : EntitySystem
 {

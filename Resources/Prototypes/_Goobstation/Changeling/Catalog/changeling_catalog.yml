@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
@@ -20,7 +20,7 @@
   id: EvolutionMenuCombatArmblade
   name: evolutionmenu-combat-armblade-name
   description: evolutionmenu-combat-armblade-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: armblade }
   productAction: ActionToggleArmblade
   cost:
     EvolutionPoint: 4
@@ -34,7 +34,7 @@
   id: EvolutionMenuCombatArmClaw
   name: evolutionmenu-combat-armclaw-name
   description: evolutionmenu-combat-armclaw-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: claw }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: claw }
   productAction: ActionToggleClaw
   cost:
     EvolutionPoint: 4
@@ -48,7 +48,7 @@
   id: EvolutionMenuCombatArmHammer
   name: evolutionmenu-combat-armhammer-name
   description: evolutionmenu-combat-armhammer-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hammer }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: hammer }
   productAction: ActionToggleHammer
   cost:
     EvolutionPoint: 4
@@ -62,7 +62,7 @@
   id: EvolutionMenuCombatDartGun
   name: evolutionmenu-combat-dartgun-name
   description: evolutionmenu-combat-dartgun-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: dartgun }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: dartgun }
   productAction: ActionToggleDartGun
   cost:
     EvolutionPoint: 3
@@ -76,7 +76,7 @@
   id: EvolutionMenuCombatBoneShard
   name: evolutionmenu-combat-boneshard-name
   description: evolutionmenu-combat-boneshard-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: bone_shard }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: bone_shard }
   productAction: ActionCreateBoneShard
   cost:
     EvolutionPoint: 3
@@ -90,7 +90,7 @@
   id: EvolutionMenuCombatChitinousArmor
   name: evolutionmenu-combat-armor-name
   description: evolutionmenu-combat-armor-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: chitinous_armor }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: chitinous_armor }
   productAction: ActionToggleChitinousArmor
   cost:
     EvolutionPoint: 4
@@ -104,7 +104,7 @@
   id: EvolutionMenuCombatOrganicShield
   name: evolutionmenu-combat-shield-name
   description: evolutionmenu-combat-shield-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: organic_shield }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: organic_shield }
   productAction: ActionToggleOrganicShield
   cost:
     EvolutionPoint: 2
@@ -118,7 +118,7 @@
   id: EvolutionMenuCombatShriekDissonant
   name: evolutionmenu-combat-shriek-dissonant-name
   description: evolutionmenu-combat-shriek-dissonant-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: shriek_dissonant }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: shriek_dissonant }
   productAction: ActionShriekDissonant
   cost:
     EvolutionPoint: 2
@@ -132,7 +132,7 @@
   id: EvolutionMenuCombatShriekResonant
   name: evolutionmenu-combat-shriek-resonant-name
   description: evolutionmenu-combat-shriek-resonant-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: shriek_resonant }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: shriek_resonant }
   productAction: ActionShriekResonant
   cost:
     EvolutionPoint: 2
@@ -146,7 +146,7 @@
   id: EvolutionMenuCombatMuscles
   name: evolutionmenu-combat-strainedmuscles-name
   description: evolutionmenu-combat-strainedmuscles-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: strained_muscles }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: strained_muscles }
   productAction: ActionToggleStrainedMuscles
   cost:
     EvolutionPoint: 2
@@ -160,7 +160,7 @@
 #  id: EvolutionMenuCombatSpiders
 #  name: evolutionmenu-combat-spiders-name
 #  description: evolutionmenu-combat-spiders-desc
-#  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: spiders_spawn }
+#  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: spiders_spawn }
 #  productAction: ActionSpawnChangelingSpider
 #  cost:
 #    EvolutionPoint: 6
@@ -176,7 +176,7 @@
   id: EvolutionMenuStingBlind
   name: evolutionmenu-sting-blind-name
   description: evolutionmenu-sting-blind-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_blind }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: sting_blind }
   productAction: ActionStingBlind
   cost:
     EvolutionPoint: 2
@@ -190,7 +190,7 @@
   id: EvolutionMenuStingCryo
   name: evolutionmenu-sting-cryo-name
   description: evolutionmenu-sting-cryo-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_cryo }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: sting_cryo }
   productAction: ActionStingCryo
   cost:
     EvolutionPoint: 2
@@ -204,7 +204,7 @@
   id: EvolutionMenuStingLethargic
   name: evolutionmenu-sting-lethargic-name
   description: evolutionmenu-sting-lethargic-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_lethargic }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: sting_lethargic }
   productAction: ActionStingLethargic
   cost:
     EvolutionPoint: 3
@@ -218,7 +218,7 @@
   id: EvolutionMenuStingMute
   name: evolutionmenu-sting-mute-name
   description: evolutionmenu-sting-mute-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_mute }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: sting_mute }
   productAction: ActionStingMute
   cost:
     EvolutionPoint: 2
@@ -232,7 +232,7 @@
   id: EvolutionMenuStingFakeArmblade
   name: evolutionmenu-sting-armblade-name
   description: evolutionmenu-sting-armblade-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_armblade }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: sting_armblade }
   productAction: ActionStingFakeArmblade
   cost:
     EvolutionPoint: 4
@@ -246,7 +246,7 @@
 #   id: EvolutionMenuStingTransform
 #   name: evolutionmenu-sting-transform-name
 #   description: evolutionmenu-sting-transform-desc
-#   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_transform }
+#   icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: sting_transform }
 #   productAction: ActionStingTransform
 #   cost:
 #     EvolutionPoint: 6
@@ -262,7 +262,7 @@
   id: EvolutionMenuUtilityPanacea
   name: evolutionmenu-utility-panacea-name
   description: evolutionmenu-utility-panacea-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: anatomic_panacea }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: anatomic_panacea }
   productAction: ActionAnatomicPanacea
   cost:
     EvolutionPoint: 2
@@ -276,7 +276,7 @@
   id: EvolutionMenuUtilityEyesight
   name: evolutionmenu-utility-eyesight-name
   description: evolutionmenu-utility-eyesight-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: augmented_eyesight }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: augmented_eyesight }
   productAction: ActionAugmentedEyesight
   productEvent: !type:AugmentedEyesightPurchasedEvent
   raiseProductEventOnUser: true
@@ -292,7 +292,7 @@
   id: EvolutionMenuUtilityBiodegrade
   name: evolutionmenu-utility-biodegrade-name
   description: evolutionmenu-utility-biodegrade-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: biodegrade }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: biodegrade }
   productAction: ActionBiodegrade
   cost:
     EvolutionPoint: 4
@@ -306,7 +306,7 @@
   id: EvolutionMenuUtilityChameleon
   name: evolutionmenu-utility-chameleon-name
   description: evolutionmenu-utility-chameleon-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: chameleon_skin }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: chameleon_skin }
   productAction: ActionChameleonSkin
   cost:
     EvolutionPoint: 4
@@ -320,7 +320,7 @@
   id: EvolutionMenuUtilityAdaption
   name: evolutionmenu-utility-voidadapt-name
   description: evolutionmenu-utility-voidadapt-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: void_adaptation }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: void_adaptation }
   productAction: ActionVoidAdapt
   cost:
     EvolutionPoint: 4
@@ -334,7 +334,7 @@
   id: EvolutionMenuUtilityOverdose
   name: evolutionmenu-utility-stims-name
   description: evolutionmenu-utility-stims-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: epinephrine_overdose }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: epinephrine_overdose }
   productAction: ActionAdrenalineReserves
   cost:
     EvolutionPoint: 4
@@ -348,7 +348,7 @@
   id: EvolutionMenuUtilityFleshmend
   name: evolutionmenu-utility-fleshmend-name
   description: evolutionmenu-utility-fleshmend-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: fleshmend }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: fleshmend }
   productAction: ActionFleshmend
   cost:
     EvolutionPoint: 5
@@ -362,7 +362,7 @@
   id: EvolutionMenuUtilityLastResort
   name: evolutionmenu-utility-lastresort-name
   description: evolutionmenu-utility-lastresort-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: last_resort }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: last_resort }
   productAction: ActionLastResort
   cost:
     EvolutionPoint: 2
@@ -376,7 +376,7 @@
   id: EvolutionMenuUtilityLesserForm
   name: evolutionmenu-utility-lesserform-name
   description: evolutionmenu-utility-lesserform-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: lesser_form }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: lesser_form }
   productAction: ActionToggleLesserForm
   cost:
     EvolutionPoint: 2
@@ -390,7 +390,7 @@
   id: EvolutionMenuUtilityHivemindAccess
   name: evolutionmenu-utility-hivemindaccess-name
   description: evolutionmenu-utility-hivemindaccess-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: hivemind_access }
   productAction: ActionHivemindAccess
   cost:
     EvolutionPoint: 4
@@ -404,7 +404,7 @@
   id: EvolutionMenuUtilityAbsorbBiomatter
   name: evolutionmenu-utility-absorbbiomatter-name
   description: evolutionmenu-utility-absorbbiomatter-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: absorb_biomatter }
+  icon: { sprite: _Goidastation/Changeling/changeling_abilities.rsi, state: absorb_biomatter }
   productAction: ActionAbsorbBiomatter
   cost:
     EvolutionPoint: 3

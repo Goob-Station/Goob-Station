@@ -53,7 +53,7 @@
       - VendingMachineRestockGetmoreChocolateCorp
       - VendingMachineRestockHappyHonk
       - VendingMachineRestockCondimentStation
-      - VendingMachineRestockSweetToof # Goobstation
+      - VendingMachineRestockSweetToof # Goidastation
 
 - type: entity
   id: SpawnVendingMachineRestockDrink

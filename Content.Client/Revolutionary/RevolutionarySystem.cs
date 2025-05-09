@@ -12,7 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Revolutionary;
+using Content.Goidastation.Shared.Revolutionary;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Revolutionary;
 using Content.Shared.StatusIcon.Components;
@@ -33,7 +33,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
 
         SubscribeLocalEvent<RevolutionaryComponent, GetStatusIconsEvent>(GetRevIcon);
         SubscribeLocalEvent<HeadRevolutionaryComponent, GetStatusIconsEvent>(GetHeadRevIcon);
-        SubscribeLocalEvent<RevolutionEnemyComponent, GetStatusIconsEvent>(EnemyGetIcon); // goob edit - enemies of the revolution
+        SubscribeLocalEvent<RevolutionEnemyComponent, GetStatusIconsEvent>(EnemyGetIcon); // goida edit - enemies of the revolution
     }
 
     private void GetRevIcon(Entity<RevolutionaryComponent> ent, ref GetStatusIconsEvent args)

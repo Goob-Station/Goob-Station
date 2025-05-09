@@ -38,7 +38,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -61,7 +61,7 @@
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
   - type: MeleeWeapon
-    heavyStaminaCost: 15 # goob edit
+    heavyStaminaCost: 15 # goida edit
     wideAnimationRotation: 135
     swingLeft: true
     attackRate: 0.75
@@ -89,7 +89,7 @@
   - type: Tool
     qualities:
       - Prying
-      # Goobstation - Fireaxe plating prying
+      # Goidastation - Fireaxe plating prying
       - Axing
   - type: ToolTileCompatible
   - type: Prying
@@ -114,13 +114,13 @@
   description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon
-    # Goobstation - fire axe buff
+    # Goidastation - fire axe buff
     damage:
       types:
         Heat: 5
         Slash: 10
         Structural: 20
-  # Goobstation - fire axe buff
+  # Goidastation - fire axe buff
   - type: IncreaseDamageOnWield
     damage:
       types:
@@ -128,7 +128,7 @@
         Slash: 10
         Structural: 80
   - type: IgniteOnMeleeHit
-    fireStacks: 5 #Goobchange
+    fireStacks: 5 #Goidachange
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon

@@ -7,9 +7,9 @@
 
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Goidastation.Wizard.Traps;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class WizardTrapsSystem : SharedWizardTrapsSystem
 {

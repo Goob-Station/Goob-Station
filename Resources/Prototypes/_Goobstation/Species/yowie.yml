@@ -93,83 +93,83 @@
 - type: humanoidBaseSprite
   id: MobYowieHead
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobYowieHeadMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
   id: MobYowieHeadFemale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: head_f
 
 - type: humanoidBaseSprite
   id: MobYowieTorso
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobYowieTorsoMale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
   id: MobYowieTorsoFemale
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: torso_f
 
 - type: humanoidBaseSprite
   id: MobYowieLLeg
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: l_leg
 
 - type: humanoidBaseSprite
   id: MobYowieLArm
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: l_arm
 
 - type: humanoidBaseSprite
   id: MobYowieLHand
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
   id: MobYowieLFoot
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: l_foot
 
 - type: humanoidBaseSprite
   id: MobYowieRLeg
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: r_leg
 
 - type: humanoidBaseSprite
   id: MobYowieRArm
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: r_arm
 
 - type: humanoidBaseSprite
   id: MobYowieRHand
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: r_hand
 
 - type: humanoidBaseSprite
   id: MobYowieRFoot
   baseSprite:
-    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    sprite: _Goidastation/Mobs/Species/Yowie/parts.rsi
     state: r_foot

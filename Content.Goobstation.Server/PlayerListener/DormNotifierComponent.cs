@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.PlayerListener;
+namespace Content.Goidastation.Server.PlayerListener;
 
 [RegisterComponent]
 public sealed partial class DormNotifierComponent : Component

@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -197,11 +197,11 @@
           key: ForcedSleep
           time: 10
           type: Remove
-        - !type:GenericStatusEffect # goob edit
+        - !type:GenericStatusEffect # goida edit
           key: Adrenaline
           component: IgnoreSlowOnDamage
           time: 2
-        - !type:RemoveComponentEffect # goob edit
+        - !type:RemoveComponentEffect # goida edit
           component: DelayedKnockdown
           locale: reagent-effect-guidebook-remove-delayed-knockdown
         - !type:PopupMessage

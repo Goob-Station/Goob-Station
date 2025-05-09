@@ -18,7 +18,7 @@
   components:
     - type: StationMap
     - type: Sprite
-      sprite: _Goobstation/Objects/Devices/tablets.rsi
+      sprite: _Goidastation/Objects/Devices/tablets.rsi
       layers:
         - state: tablet
         - state: powerconsole

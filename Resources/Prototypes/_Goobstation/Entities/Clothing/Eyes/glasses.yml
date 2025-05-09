@@ -8,7 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -24,9 +24,9 @@
   description: Sunglasses with a medical and security hud
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/medsecglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/medsecglasses.rsi
   - type: Construction
     graph: GlassesMedSecHUD
     node: glassesMedSec
@@ -77,9 +77,9 @@
   description: My glasses! I can't see without my glasses!
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/brokenglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/brokenglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/brokenglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/brokenglasses.rsi
   - type: Tag
     tags:
     - Trash
@@ -97,9 +97,9 @@
   description: Sunglasses with a medical hud.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/medglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/medglasses.rsi
   - type: Construction
     graph: GlassesMedHUD
     node: glassesMed
@@ -112,9 +112,9 @@
   description: Pride. Hubris. Wrath. It's not a sin if you're right.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/deathsquad.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/deathsquad.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/deathsquad.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -145,9 +145,9 @@
   description: A pair of shades designed for central command personnel. It's nothing personal. # *teleports behind you*, Nothing personnel, kid.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/centcommglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/centcommglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/centcommglasses.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -168,9 +168,9 @@
   description: Sunglasses with a medical, security and diagnostic hud.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/bsoglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/bsoglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/bsoglasses.rsi
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
 
@@ -182,9 +182,9 @@
   description: Sunglasses with a medical and diagnostic hud.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/meddiagglasses.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/meddiagglasses.rsi
   - type: Construction
     graph: GlassesMedDiagHUD
     node: glassesMedDiag
@@ -196,9 +196,9 @@
   description: A set of goggles that provide flash protection, a security HUD, and basic thermal vision.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/hos-expi.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Glasses/hos-expi.rsi
+    sprite: _Goidastation/Clothing/Eyes/Glasses/hos-expi.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

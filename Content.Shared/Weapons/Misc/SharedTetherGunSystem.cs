@@ -13,7 +13,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._Goobstation.Weapons.Misc;
+using Content.Shared._Goidastation.Weapons.Misc;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
@@ -191,7 +191,7 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
 
         if (physics.BodyType == BodyType.Static && !component.CanUnanchor ||
             _container.IsEntityInContainer(target) ||
-            HasComp<PhysicsGunBlacklistComponent>(target) && !component.CanUnanchor) // Goobstation
+            HasComp<PhysicsGunBlacklistComponent>(target) && !component.CanUnanchor) // Goidastation
             return false;
 
         if (physics.Mass > component.MassLimit)

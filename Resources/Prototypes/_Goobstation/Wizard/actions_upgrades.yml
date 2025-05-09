@@ -695,7 +695,7 @@
       protoId: WizardRodII
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: immrod
 
 - type: entity
@@ -712,7 +712,7 @@
       protoId: WizardRodIII
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: immrod
 
 - type: entity
@@ -729,7 +729,7 @@
       protoId: WizardRodIV
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: immrod
 
 - type: entity
@@ -746,7 +746,7 @@
       protoId: WizardRodV
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: immrod
 
 # Summon Simians
@@ -761,9 +761,9 @@
     useDelay: 75
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/monkey.ogg
+      path: /Audio/_Goidastation/Wizard/monkey.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
@@ -781,9 +781,9 @@
     useDelay: 60
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/monkey.ogg
+      path: /Audio/_Goidastation/Wizard/monkey.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
@@ -804,9 +804,9 @@
     useDelay: 45
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/monkey.ogg
+      path: /Audio/_Goidastation/Wizard/monkey.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
@@ -827,9 +827,9 @@
     useDelay: 30
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/monkey.ogg
+      path: /Audio/_Goidastation/Wizard/monkey.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians

@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
@@ -60,7 +60,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/standard.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/standard.rsi
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -147,7 +147,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/security.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/security.rsi
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -235,7 +235,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/headofsecurity.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/headofsecurity.rsi
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -322,7 +322,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/paramedic.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/paramedic.rsi
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -409,7 +409,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/engineer.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/engineer.rsi
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -496,7 +496,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/atmostech.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/atmostech.rsi
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -583,7 +583,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/researchdirector.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/researchdirector.rsi
     layers:
     - state: helmet
     - state: helmet-sealed
@@ -670,7 +670,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Modsuits/captain.rsi
+    sprite: _Goidastation/Clothing/Head/Modsuits/captain.rsi
     layers:
     - state: helmet
     - state: helmet-sealed

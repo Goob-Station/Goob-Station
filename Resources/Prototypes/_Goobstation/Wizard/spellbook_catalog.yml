@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
@@ -777,7 +777,7 @@
   description: spellbook-wand-desc
   productEntity: MultiWandWizard
   icon:
-    sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/Wands/wand.rsi
     state: icon
   cost:
     WizCoin: 2
@@ -805,7 +805,7 @@
   description: spellbook-apprentice-desc
   productEntity: ContractApprenticeship
   icon:
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
     state: scroll2
   cost:
     WizCoin: 2
@@ -826,7 +826,7 @@
   description: spellbook-event-dimension-shift-desc
   productEvent: !type:DimensionShiftEvent
   icon:
-    sprite: _Goobstation/Wizard/Icons/spellbook.rsi
+    sprite: _Goidastation/Wizard/Icons/spellbook.rsi
     state: icemoon
   cost:
     WizCoin: 0
@@ -843,7 +843,7 @@
   description: spellbook-event-global-tile-toggle-description
   productEvent: !type:GlobalTileToggleEvent
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: tileglobal
   cost:
     WizCoin: 0

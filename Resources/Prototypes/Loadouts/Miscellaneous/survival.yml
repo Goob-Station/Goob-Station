@@ -116,7 +116,7 @@
     - Human
     - Moth
     - Reptilian
-    # Goobstation - Custom Races
+    # Goidastation - Custom Races
     - Vulpkanin
     - Felinid
     - Harpy
@@ -142,7 +142,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlots # Goidastation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogen
@@ -151,7 +151,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxSurvivalSlotsNitrogen # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsNitrogen # Goidastation - Slots Based Survival Boxes
 
 # Clown
 - type: loadout
@@ -161,7 +161,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxHugSlots # Goobstation - Slots Based Survival Boxes
+    - BoxHugSlots # Goidastation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenClown
@@ -170,7 +170,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxHugSlotsNitrogen # Goobstation - Slots Based Survival Boxes
+    - BoxHugSlotsNitrogen # Goidastation - Slots Based Survival Boxes
 
 # Mime
 - type: loadout
@@ -180,7 +180,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxMimeSlots # Goobstation - Slots Based Survival Boxes
+    - BoxMimeSlots # Goidastation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenMime
@@ -189,7 +189,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxMimeSlotsNitrogen # Goobstation - Slots Based Survival Boxes
+    - BoxMimeSlotsNitrogen # Goidastation - Slots Based Survival Boxes
 
 
 # Engineering / Extended
@@ -200,7 +200,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsEngineering # Goidastation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenExtended
@@ -209,7 +209,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxSurvivalSlotsEngineeringNitrogen # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsEngineeringNitrogen # Goidastation - Slots Based Survival Boxes
 
 # Medical
 - type: loadout
@@ -219,7 +219,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxSurvivalSlotsMedical # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsMedical # Goidastation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenMedical
@@ -228,7 +228,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxSurvivalSlotsMedicalNitrogen # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsMedicalNitrogen # Goidastation - Slots Based Survival Boxes
 
 # Security
 - type: loadout
@@ -238,7 +238,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxSurvivalSlotsSecurity # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsSecurity # Goidastation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenSecurity
@@ -247,7 +247,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxSurvivalSlotsSecurityNitrogen # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsSecurityNitrogen # Goidastation - Slots Based Survival Boxes
 
 # Syndicate
 - type: loadout
@@ -257,7 +257,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxSurvivalSlotsSyndicate # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsSyndicate # Goidastation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenSyndicate
@@ -266,7 +266,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxSurvivalSlotsSyndicateNitrogen # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsSyndicateNitrogen # Goidastation - Slots Based Survival Boxes
 
 # Pre-equipped species gear
 

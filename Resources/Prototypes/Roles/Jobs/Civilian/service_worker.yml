@@ -77,7 +77,7 @@
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
-  goobcoins: 10 #Goob content
+  goidacoins: 10 #Goida content
   access:
   - Service
   - Maintenance

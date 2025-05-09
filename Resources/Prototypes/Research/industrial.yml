@@ -56,7 +56,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
@@ -79,19 +79,19 @@
     state: handdrill
   discipline: Industrial
   tier: 1
-  cost: 10000 # Goobstation
+  cost: 10000 # Goidastation
   recipeUnlocks:
   - MiningDrill
-  - WeaponPlasmaCutter # Goobstation
-  - MechEquipmentDrill # Goobstation
+  - WeaponPlasmaCutter # Goidastation
+  - MechEquipmentDrill # Goidastation
   - MineralScannerEmpty
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 0,-4
   technologyPrerequisites:
   - SpaceScanning
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: SpaceScanning
@@ -106,11 +106,11 @@
   - RadarConsoleCircuitboard
 #  - HandHeldMassScanner - Removed by Lavaland
   - BorgModuleGPS
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 0,-3
   technologyPrerequisites:
   - PowerGeneration
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: AdvancedPowercells
@@ -125,11 +125,11 @@
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
   - SMESAdvancedMachineCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 1,-6
   technologyPrerequisites:
   - IndustrialEngineering
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: MechanicalCompression
@@ -142,11 +142,11 @@
   cost: 10000
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 1,-4
   technologyPrerequisites:
   - SpaceScanning
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: IndustrialEngineering
@@ -167,17 +167,17 @@
   - LatheUpgradeKitHyper
   - LatheUpgradeKitCryo
   # End DeltaV Additions
-  # Begin Goobstation Additions
+  # Begin Goidastation Additions
   - UpgradeKitAutomation
   - RoboticArmCircuitboard
   - StorageBinCircuitboard
-  # End Goobstation Additions
+  # End Goidastation Additions
   - SheetifierMachineCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 1,-5
   technologyPrerequisites:
   - MechanicalCompression
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: PowerGeneration
@@ -209,11 +209,11 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -2,-4
   technologyPrerequisites:
   - SpaceScanning
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: RipleyAPLU
@@ -233,11 +233,11 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 0,-5
   technologyPrerequisites:
   - SalvageEquipment
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 # Tier 2
 
@@ -255,11 +255,11 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 2,-4
   technologyPrerequisites:
   - MechanicalCompression
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: AdvancedAtmospherics
@@ -276,9 +276,9 @@
   - HolofanProjector
   technologyPrerequisites:
   - AtmosphericTech
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -2,-5
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: AdvancedToolsTechnology
@@ -295,11 +295,11 @@
     - JawsOfLife
     - BorgModuleAdvancedTool
     - SignallerAdvanced # Moved from explosives research
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 2,-5
   technologyPrerequisites:
   - Shuttlecraft
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: MassExcavation
@@ -314,14 +314,14 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
-    - MechEquipmentDrillDiamond # Goobstation
-    - BorgModuleAdvancedMining # Goobstation
+    - MechEquipmentDrillDiamond # Goidastation
+    - BorgModuleAdvancedMining # Goidastation
     - MechEquipmentDrillDiamond
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 0,-6
   technologyPrerequisites:
   - RipleyAPLU
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 # Tier 3
 
@@ -333,17 +333,17 @@
     state: holding
   discipline: Industrial
   tier: 3
-  cost: 20000 # Goobstation 15000 -> 20000
+  cost: 20000 # Goidastation 15000 -> 20000
   recipeUnlocks:
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
   - ClothingBackpackMessengerHolding # Frontier
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 2,-7
   technologyPrerequisites:
    - PortableFission
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: PortableFission
@@ -353,10 +353,10 @@
     state: microreactor
   discipline: Industrial
   tier: 3
-  cost: 15000 # Goobstation 10000 -> 15000
+  cost: 15000 # Goidastation 10000 -> 15000
   recipeUnlocks:
   - PowerCellMicroreactor
   technologyPrerequisites:
-  - AdvancedToolsTechnology  # Goobstation R&D Console rework
-  - AdvancedPowercells  # Goobstation R&D Console rework
+  - AdvancedToolsTechnology  # Goidastation R&D Console rework
+  - AdvancedPowercells  # Goidastation R&D Console rework
   position: 2,-6

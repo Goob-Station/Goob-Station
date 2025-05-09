@@ -56,8 +56,8 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Gameplay;
-using Content.Goobstation.Common.Weapons.MeleeDash;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Goidastation.Common.Weapons.MeleeDash;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared._White.Blink;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
@@ -90,7 +90,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
+    [Dependency] private readonly TransformSystem _transform = default!; // Goidastation
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -125,7 +125,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var entity = entityNull.Value;
 
         if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
-            affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
+            affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goidastation
             return;
 
         if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
@@ -207,7 +207,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
-            // Goobstation start; TODO: put this more in-line with new structure
+            // Goidastation start; TODO: put this more in-line with new structure
             // Blink, WD edit
             if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)
             {
@@ -241,7 +241,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 var userPos = TransformSystem.GetWorldPosition(userXform);
                 return targetMap.Position - userPos;
             }
-            // Goobstation end
+            // Goidastation end
 
             ClientHeavyAttack(entity, coordinates, weaponUid, weapon);
             return;
@@ -327,7 +327,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+            target = screen.GetDamageableClickedEntity(mousePos); // Goida edit
 
         RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
     }
@@ -342,7 +342,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         EntityUid? target = null;
 
         if (_stateManager.CurrentState is GameplayStateBase screen)
-            target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
+            target = screen.GetDamageableClickedEntity(mousePos); // Goida edit
 
         // Don't light-attack if interaction will be handling this instead
         if (Interaction.CombatModeCanHandInteract(attacker, target))

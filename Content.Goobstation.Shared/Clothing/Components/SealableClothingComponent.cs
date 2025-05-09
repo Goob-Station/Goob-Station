@@ -8,11 +8,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Systems;
+using Content.Goidastation.Shared.Clothing.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Clothing.Components;
+namespace Content.Goidastation.Shared.Clothing.Components;
 
 /// <summary>
 ///     Defines the clothing entity that can be sealed by <see cref="SealableClothingControlComponent"/>

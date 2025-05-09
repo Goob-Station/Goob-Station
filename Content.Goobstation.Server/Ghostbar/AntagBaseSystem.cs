@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,7 +9,7 @@ using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Ghostbar;
+namespace Content.Goidastation.Server.Ghostbar;
 
 public sealed class AntagBaseSystem : EntitySystem
 {
@@ -21,7 +21,7 @@ public sealed class AntagBaseSystem : EntitySystem
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
     }
 
-    const string AntagMapDIR = "Maps/_Goobstation/Nonstations/antagplanet.yml";
+    const string AntagMapDIR = "Maps/_Goidastation/Nonstations/antagplanet.yml";
 
     void OnRoundStart(RoundStartingEvent ev)
     {

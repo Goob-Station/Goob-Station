@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -12,7 +12,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Whitelist;
 
-namespace Content.Goobstation.Shared.RandomizeMovementSpeed;
+namespace Content.Goidastation.Shared.RandomizeMovementSpeed;
 
 public sealed class ItemRandomizeMovementSpeedSystem : EntitySystem
 {

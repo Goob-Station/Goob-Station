@@ -7,7 +7,7 @@
 - type: cargoProduct
   id: LivestockLootbug
   icon:
-    sprite: _Goobstation/Mobs/Animals/lootbug.rsi
+    sprite: _Goidastation/Mobs/Animals/lootbug.rsi
     state: icon
   product: CrateNPCLootbug
   cost: 2200

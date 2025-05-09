@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Weapons.Misc;
+namespace Content.Shared._Goidastation.Weapons.Misc;
 
 /// <summary>
 ///     Marks an entity as unable to be tether or force gunned

@@ -6,15 +6,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Server.StationEvents.Metric.Components;
+using Content.Goidastation.Server.StationEvents.Metric.Components;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Doors.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Prometheus; // Added for Prometheus metrics
 
-namespace Content.Goobstation.Server.StationEvents.Metric;
+namespace Content.Goidastation.Server.StationEvents.Metric;
 
 /// <summary>
 ///   Uses doors and firelocks to sample station chaos across the station

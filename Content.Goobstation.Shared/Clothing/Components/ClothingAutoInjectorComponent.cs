@@ -1,14 +1,14 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Shared.Clothing;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Clothing.Components;
+namespace Content.Goidastation.Shared.Clothing.Components;
 /// <summary>
 /// Component applied by clothing that allows the wearer to inject themselves with a reagent on a cooldown.
 /// Used for auto-injection mechanisms like emergency epi-pens or stimulants. Possible uses for a modsuit in the future.

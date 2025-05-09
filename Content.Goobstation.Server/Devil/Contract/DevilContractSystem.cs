@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -7,10 +7,10 @@
 
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Goobstation.Common.Paper;
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Condemned;
-using Content.Goobstation.Shared.Devil.Contract;
+using Content.Goidastation.Common.Paper;
+using Content.Goidastation.Shared.Devil;
+using Content.Goidastation.Shared.Devil.Condemned;
+using Content.Goidastation.Shared.Devil.Contract;
 using Content.Server.Body.Systems;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Damage;
@@ -24,7 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Devil.Contract;
+namespace Content.Goidastation.Server.Devil.Contract;
 
 public sealed partial class DevilContractSystem : EntitySystem
 {

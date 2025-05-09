@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -248,7 +248,7 @@
   name: selectable-set-syndicate-friendship-name
   description: selectable-set-syndicate-friendship-description
   sprite:
-    sprite: _Goobstation/Interface/Misc/job_icons.rsi
+    sprite: _Goidastation/Interface/Misc/job_icons.rsi
     state: Mindcontrolled
   content:
     - EncryptionKeySyndie
@@ -291,7 +291,7 @@
   name: selectable-set-blueshield-shield-name
   description: selectable-set-blueshield-shield-description
   sprite:
-    sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+    sprite: _Goidastation/Objects/Shields/blueshieldshield.rsi
     state: icon-on
   content:
     - BlueShieldShieldFilled
@@ -301,7 +301,7 @@
   name: selectable-set-blueshield-revolver-name
   description: selectable-set-blueshield-revolver-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/erevolver.rsi
     state: icon
   content:
     - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 2 disabler speedloaders
@@ -311,7 +311,7 @@
   name: selectable-set-blueshield-cqc-name
   description: selectable-set-blueshield-cqc-description
   sprite:
-    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    sprite: _Goidastation/Objects/Misc/cqc_manual.rsi
     state: icon-alt
   content:
     - BSOManual
@@ -321,7 +321,7 @@
   name: selectable-set-blueshield-chester-name
   description: selectable-set-blueshield-chester-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Lever/chester.rsi
     state: base
   content:
     - MagazineShotgunLeverRifleEmpty
@@ -337,7 +337,7 @@
   name: selectable-set-blueshield-syringe-name
   description: selectable-set-blueshield-syringe-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_knife.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/blueshield_knife.rsi
     state: icon
   content:
     - BoxCombatInjector
@@ -349,7 +349,7 @@
   name: selectable-set-blueshield-hardsuit-light-name
   description: selectable-set-blueshield-hardsuit-light-description
   sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
     state: icon
   content:
     - ClothingOuterHardsuitBlueshieldLight
@@ -359,7 +359,7 @@
   name: selectable-set-blueshield-hardsuit-heavy-name
   description: selectable-set-blueshield-hardsuit-heavy-description
   sprite:
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/bso.rsi
     state: icon
   content:
     - ClothingOuterHardsuitBlueshieldHeavy
@@ -371,7 +371,7 @@
   name: selectable-set-ert-ballistic-name
   description: selectable-set-ert-ballistic-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Rifles/annie.rsi
     state: base
   content:
     - WeaponRifleAnnie
@@ -403,7 +403,7 @@
   name: selectable-set-hos-smg-name
   description: selectable-set-hos-smg-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
     state: icon
   content:
   - WeaponHeadOfSecuritySMG
@@ -413,7 +413,7 @@
   name: selectable-set-hos-shotgun-name
   description: selectable-set-hos-shotgun-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
     state: icon
   content:
   - WeaponHeadOfSecurityShotgun
@@ -423,7 +423,7 @@
   name: selectable-set-hos-sniper-name
   description: selectable-set-hos-sniper-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
     state: icon
   content:
   - WeaponHeadOfSecuritySniper
@@ -433,7 +433,7 @@
   name: selectable-set-hos-rifle-name
   description: selectable-set-hos-rifle-description
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     state: icon
   content:
   - WeaponHeadOfSecurityRifle

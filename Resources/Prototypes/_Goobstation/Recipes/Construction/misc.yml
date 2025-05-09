@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
@@ -14,7 +14,7 @@
   category: construction-category-misc
   description: Probably would be hard to catch a fish using that.
   icon:
-    sprite: _Goobstation/Objects/Specific/Fishing/makeshift_rod.rsi
+    sprite: _Goidastation/Objects/Specific/Fishing/makeshift_rod.rsi
     state: icon
   objectType: Item
 

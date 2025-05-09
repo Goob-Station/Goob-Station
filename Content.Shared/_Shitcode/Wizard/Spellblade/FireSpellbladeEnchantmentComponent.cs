@@ -8,7 +8,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Goidastation.Wizard.Spellblade;
 
 [RegisterComponent]
 public sealed partial class FireSpellbladeEnchantmentComponent : Component

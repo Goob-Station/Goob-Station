@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -91,7 +91,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -110,9 +110,9 @@
   description: Futuristic gloves made of an unknown material that doesn't leave any trace
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/chronolegioneer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/chronolegioneer.rsi
   - type: Insulated
   - type: FingerprintMask
 
@@ -155,9 +155,9 @@
   description: A pair of highly-advanced gauntlets capable of ripping open doors. Its retractable claws are laced with a potent neurotoxin.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/deathsquad.rsi
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-pitch-black
@@ -185,7 +185,7 @@
       gauntlet: !type:ItemSwitchState
         verb: gauntlet
         sprite:
-          sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+          sprite: _Goidastation/Clothing/Hands/Gloves/deathsquad.rsi
           state: icon
         components:
           - type: MeleeWeapon
@@ -207,7 +207,7 @@
       claws: !type:ItemSwitchState
         verb: claws
         sprite:
-          sprite: _Goobstation/Clothing/Hands/Gloves/deathsquad.rsi
+          sprite: _Goidastation/Clothing/Hands/Gloves/deathsquad.rsi
           state: icon-on
         components:
           - type: MeleeWeapon
@@ -238,9 +238,9 @@
   description: Like normal insulated gloves, but simply better by virtue of being from the Atmospherics department.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/atmos.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/atmos.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/atmos.rsi
   - type: Fiber
     fiberColor: fibers-blue
 
@@ -251,9 +251,9 @@
   description: A pair of gold-trimmed gloves made for Central Command staff. These ones are insulated.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/goldtrim.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/goldtrim.rsi
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-classified
@@ -266,9 +266,9 @@
   description: A pair of gold-trimmed gloves made for Central Command staff. Not insulated.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/goldtrim.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/goldtrim.rsi
   - type: Fiber
     fiberMaterial: fibers-classified
     fiberColor: fibers-white
@@ -280,9 +280,9 @@
   description: Stand ready for my arrival, worm.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/conquest.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/conquest.rsi
   - type: Insulated
   - type: MeleeWeapon
     attackRate: 0.8
@@ -307,9 +307,9 @@
   description: Stand ready for my arrival, worm.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/conquest.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/conquest.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/conquest.rsi
   - type: Insulated
   - type: Unremoveable
 
@@ -322,10 +322,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/knuckleduster.rsi
     state: knuckleduster
   - type: Clothing
-    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi
+    sprite: _Goidastation/Clothing/Hands/Gloves/knuckleduster.rsi
     slots: [ gloves ]
   - type: Appearance
   - type: Item

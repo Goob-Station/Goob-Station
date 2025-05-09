@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Vehicles.Clowncar;
+namespace Content.Goidastation.Shared.Vehicles.Clowncar;
 
 public abstract partial class SharedClowncarSystem
 {

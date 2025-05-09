@@ -10,7 +10,7 @@ using Content.Shared.Speech;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Speech;
+namespace Content.Shared._Goidastation.Speech;
 
 /// <summary>
 /// Marks clothing that change wearer speech sound (for example - human talking like borg when wearing borg head (just example))

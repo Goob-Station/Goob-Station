@@ -23,7 +23,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Gravity;
-using Content.Shared.Inventory; // Goobstation
+using Content.Shared.Inventory; // Goidastation
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map.Components;
@@ -160,12 +160,12 @@ public sealed class StepTriggerSystem : EntitySystem
         if (!component.Active || component.CurrentlySteppedOn.Contains(otherUid))
             return false;
 
-        // Goobstation Change Start: Immunity checks
+        // Goidastation Change Start: Immunity checks
         if (TryComp<StepTriggerImmuneComponent>(otherUid, out var stepTriggerImmuneComponent)
             && component.TriggerGroups != null
             && component.TriggerGroups.IsValid(stepTriggerImmuneComponent))
             return false;
-        // Goobstation Change End
+        // Goidastation Change End
 
         // Can't trigger if we don't ignore weightless entities
         // and the entity is flying or currently weightless
@@ -177,7 +177,7 @@ public sealed class StepTriggerSystem : EntitySystem
         var msg = new StepTriggerAttemptEvent { Source = uid, Tripper = otherUid };
 
         RaiseLocalEvent(uid, ref msg);
-        RaiseLocalEvent(otherUid, ref msg); // Goobstation - let enchants handle it too
+        RaiseLocalEvent(otherUid, ref msg); // Goidastation - let enchants handle it too
 
         return msg.Continue && !msg.Cancelled;
     }
@@ -270,7 +270,7 @@ public sealed class StepTriggerSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    // Goobstation
+    // Goidastation
     public void SetIgnoreWeightless(EntityUid uid, bool ignore, StepTriggerComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -285,9 +285,9 @@ public sealed class StepTriggerSystem : EntitySystem
 }
 
 [ByRefEvent]
-public struct StepTriggerAttemptEvent : IInventoryRelayEvent // Goobstation
+public struct StepTriggerAttemptEvent : IInventoryRelayEvent // Goidastation
 {
-    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.FEET | SlotFlags.OUTERCLOTHING; // Goobstation
+    SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.FEET | SlotFlags.OUTERCLOTHING; // Goidastation
     public EntityUid Source;
     public EntityUid Tripper;
     public bool Continue;

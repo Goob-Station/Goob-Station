@@ -51,7 +51,7 @@
     tags:
     - ClothMade
     - WhitelistChameleon
-    - Skirt # Goobstation
+    - Skirt # Goidastation
 
 - type: entity
   abstract: true
@@ -76,7 +76,7 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: StationLimitedNetwork
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 75
 

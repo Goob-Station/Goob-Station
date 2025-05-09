@@ -21,7 +21,7 @@
   id: ProjectileHealingBolt
   desc: Healing. Heals the living, kills undead.
   icon:
-    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/healing.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/Staves/healing.rsi
     state: healing
   color: lightgreen
   soundGunshot:
@@ -35,7 +35,7 @@
   id: ProjectileSpellCardPurpleSpread
   desc: Spell Cards. Fires a burst of spell cards.
   icon:
-    sprite: _Goobstation/Wizard/Projectiles/spellcard.rsi
+    sprite: _Goidastation/Wizard/Projectiles/spellcard.rsi
     state: purple
   color: fuchsia
   soundGunshot:
@@ -53,7 +53,7 @@
     state: blink
   color: lightblue
   soundGunshot:
-    path: /Audio/_Goobstation/Wizard/wand_teleport.ogg
+    path: /Audio/_Goidastation/Wizard/wand_teleport.ogg
   fireRate: 1.5
   fireCost: 100
   flags: All
@@ -63,7 +63,7 @@
   id: ProjectileFieryBolt
   desc: Fiery. Ignites the target.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: sacredflame
   color: "#F8B068"
   soundGunshot:
@@ -77,7 +77,7 @@
   id: ProjectileSwapBolt
   desc: Swap. Swap positions with the target. Penetrates walls.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: voidblink
   color: black
   soundGunshot:
@@ -91,7 +91,7 @@
   id: ProjectileBeeBolt
   desc: Bee. Unleashes a swarm of angry bees.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    sprite: _Goidastation/Objects/Weapons/Grenades/beenades.rsi
     state: icon
   color: yellow
   soundGunshot:
@@ -105,11 +105,11 @@
   id: ProjectileDeathBolt
   desc: Death. Kills the living, heals undead.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: skeleton
   color: darkred
   soundGunshot:
-    path: /Audio/_Goobstation/Wizard/wandodeath.ogg
+    path: /Audio/_Goidastation/Wizard/wandodeath.ogg
   fireRate: 1
   fireCost: 500
   flags: All
@@ -119,7 +119,7 @@
   id: ProjectileIceCubeBolt
   desc: Ice. Freezes the target into an ice cube.
   icon:
-    sprite: _Goobstation/Wizard/Effects/effects.rsi
+    sprite: _Goidastation/Wizard/Effects/effects.rsi
     state: ice_cube
   color: blue
   soundGunshot:
@@ -147,7 +147,7 @@
   id: ProjectileEmpBolt
   desc: Emp. Disables technology.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: emp
   color: cyan
   soundGunshot:
@@ -161,11 +161,11 @@
   id: ProjectileSmokeBolt
   desc: Smoke. Releases a cloud of choking smoke.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: smoke
   color: "#28005B"
   soundGunshot:
-    path: /Audio/_Goobstation/Wizard/smoke.ogg
+    path: /Audio/_Goidastation/Wizard/smoke.ogg
   fireRate: 1
   fireCost: 100
   flags: All
@@ -175,7 +175,7 @@
   id: ProjectileBlindingBolt
   desc: Blinding. Blinds the target temporarily.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: eye
   color: white
   soundGunshot:
@@ -189,11 +189,11 @@
   id: ProjectileVampiricBolt
   desc: Vampiric. Steals health and blood.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: blood_siphon
   color: red
   soundGunshot:
-    path: /Audio/_Goobstation/Wizard/crackandbleed.ogg
+    path: /Audio/_Goidastation/Wizard/crackandbleed.ogg
   fireRate: 2
   fireCost: 100
   flags: All
@@ -203,11 +203,11 @@
   id: ProjectileMagicMissileLesser
   desc: Lesser Magic Missile. Stuns in two hits.
   icon:
-    sprite: _Goobstation/Wizard/Icons/ammo_selector.rsi
+    sprite: _Goidastation/Wizard/Icons/ammo_selector.rsi
     state: magicm
   color: "#FF87FF"
   soundGunshot:
-    path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+    path: /Audio/_Goidastation/Wizard/magic_missile.ogg
   fireRate: 2
   fireCost: 100
   flags: All

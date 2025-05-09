@@ -6,7 +6,7 @@
   components:
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
-      path: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
+      path: /Audio/_Goidastation/Weapons/Baton/woodhit.ogg
       params:
         variation: 0.250
     activatedDamage:

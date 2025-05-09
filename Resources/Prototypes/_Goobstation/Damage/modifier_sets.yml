@@ -9,7 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -53,7 +53,7 @@
     Bloodloss: 0.9
     Poison: 0.0 # Yea, heroin is heaps good for ya
     Radiation : 0.7 # Engie yowies need some help against anti-rads
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: Tajaran
@@ -63,7 +63,7 @@
     Piercing: 1.15
     Heat: 1.20
     Cold: 0.80
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 # Mech armor
 - type: damageModifierSet
@@ -144,7 +144,7 @@
     Blunt: 10
     Heat: 7
 
-# Goobstation - Blob
+# Goidastation - Blob
 - type: damageModifierSet
   id: BaseBlob # ReactiveSpines
   coefficients:
@@ -152,7 +152,7 @@
     Slash: 0.25
     Piercing: 0.25
     Heat: 2.00
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: ElectromagneticWebBlob # Explosive Lattice
@@ -162,7 +162,7 @@
     Piercing: 0.50
     Heat: 2.50
     Shock: 0.50
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: ExplosiveLatticeBlob # Explosive Lattice
@@ -172,7 +172,7 @@
     Piercing: 0.25
     Heat: 3.00
     Shock: 1.50
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: BlobMob # Blob mobs
@@ -181,7 +181,7 @@
     Slash: 0.5
     Piercing: 0.5
     Heat: 1.5
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: BlobReflective # If it reflects lasers, then it must be fragile?
@@ -190,7 +190,7 @@
     Slash: 0.9
     Piercing: 0.9
     Heat: 1.5
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: Bingle
@@ -201,7 +201,7 @@
     Shock: 0.9
     Heat: 0.9
     Ion: 2.0 # double damage from ion
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: BingleUpgraded
@@ -212,7 +212,7 @@
     Shock: 0.8
     Heat: 0.8
     Ion: 2.0 # double damage from ion
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: DevilDealPositive
@@ -226,7 +226,7 @@
     Poison: 0.50
     Radiation : 0.50
     Holy: 1.50
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: DevilDealNegative
@@ -239,7 +239,7 @@
     Poison: 2
     Radiation : 2
     Holy: 2
-  ignoreArmorPierceFlags: All # Goobstation
+  ignoreArmorPierceFlags: All # Goidastation
 
 - type: damageModifierSet
   id: StructuralImmunity

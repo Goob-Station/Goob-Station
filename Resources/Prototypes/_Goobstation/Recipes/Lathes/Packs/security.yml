@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -11,7 +11,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 ## Static
 - type: latheRecipePack
-  id: SecurityAmmoStaticGoob
+  id: SecurityAmmoStaticGoida
   recipes:
   - MagazineMagnumEmpty
   - MagazineMagnum
@@ -20,7 +20,7 @@
   - MagazineBoxShotgunPracticeHighCaliber
 
 - type: latheRecipePack
-  id: SecurityEquipmentStaticGoob
+  id: SecurityEquipmentStaticGoida
   recipes:
   - GrenadeFlashBang
   - BolaEnergy
@@ -37,7 +37,7 @@
 
 ## Dynamic
 - type: latheRecipePack
-  id: SecurityWeaponsGoob
+  id: SecurityWeaponsGoida
   recipes:
   - Terminus
   - WeaponSubMachineSmart
@@ -45,7 +45,7 @@
   - WeaponEnergyIonRifle
 
 - type: latheRecipePack
-  id: SecurityAmmoGoob
+  id: SecurityAmmoGoida
   recipes:
   - EnergyMagRifleOverchargeLethal
   - EnergyMagRifleIon
@@ -57,7 +57,7 @@
   - MagazineBoxShotgunUraniumHighCaliber
 
 - type: latheRecipePack
-  id: SecurityEquipmentDynamicGoob
+  id: SecurityEquipmentDynamicGoida
   recipes:
   - HoloprojectorSecurityAdvanced
 

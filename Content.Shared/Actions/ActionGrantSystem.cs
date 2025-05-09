@@ -62,7 +62,7 @@ public sealed class ActionGrantSystem : EntitySystem
         if (!TryComp(ent.Owner, out ActionGrantComponent? grant))
             return;
 
-        // Goobstation
+        // Goidastation
         if (ent.Comp.RestrictSlots && ent.Comp.RestrictedSlots != args.SlotFlags)
             return;
 
@@ -83,7 +83,7 @@ public sealed class ActionGrantSystem : EntitySystem
                 ent.Comp.ActionEntities.Add(actionEnt.Value);
         }
 
-        Dirty(ent); // Goobstation
+        Dirty(ent); // Goidastation
     }
 
     private void OnShutdown(Entity<ActionGrantComponent> ent, ref ComponentShutdown args)

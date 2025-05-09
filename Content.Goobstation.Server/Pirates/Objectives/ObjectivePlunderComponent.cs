@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Pirates.Objectives;
+namespace Content.Goidastation.Server.Pirates.Objectives;
 
 [RegisterComponent]
 public sealed partial class ObjectivePlunderComponent : Component

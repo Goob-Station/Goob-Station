@@ -5,12 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Interactions;
-using Content.Goobstation.Server.Interaction.Components;
+using Content.Goidastation.Common.Interactions;
+using Content.Goidastation.Server.Interaction.Components;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
 
-namespace Content.Goobstation.Server.Interaction.Systems;
+namespace Content.Goidastation.Server.Interaction.Systems;
 
 public sealed partial class UseOnStationOnlySystem : EntitySystem
 {

@@ -92,7 +92,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
 
-- type: loadout # goob
+- type: loadout # goida
   id: CargoTechMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCargo

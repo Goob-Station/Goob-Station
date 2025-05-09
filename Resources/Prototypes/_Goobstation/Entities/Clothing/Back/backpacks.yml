@@ -13,7 +13,7 @@
   description: A luxurious backpack, smells like money.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Back/Backpacks/centcom.rsi
+    sprite: _Goidastation/Clothing/Back/Backpacks/centcom.rsi
 
 - type: entity
   parent: [ClothingBackpack, BaseCentcommContraband]
@@ -22,4 +22,4 @@
   description: A very protective backpack, smells like energy gun.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Back/Backpacks/blueshield.rsi
+    sprite: _Goidastation/Clothing/Back/Backpacks/blueshield.rsi

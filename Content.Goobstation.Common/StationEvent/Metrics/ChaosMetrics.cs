@@ -14,7 +14,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 using Robust.Shared.Utility;
 using Robust.Shared.ViewVariables;
 
-namespace Content.Goobstation.Server.StationEvents.Metric;
+namespace Content.Goidastation.Server.StationEvents.Metric;
 
 public enum ChaosMetric
 {

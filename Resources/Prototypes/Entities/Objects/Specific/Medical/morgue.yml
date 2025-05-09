@@ -87,11 +87,11 @@
         mask:
         - ItemMask
         layer:
-        - TabletopMachineLayer #Goobstation - Damageable body bag
+        - TabletopMachineLayer #Goidastation - Damageable body bag
   - type: EntityStorage
     capacity: 1
     isCollidableWhenOpen: true
-    # Goobstation - immersive sim, everything can go in
+    # Goidastation - immersive sim, everything can go in
     #whitelist: # Use a tag whitelist rather than filtering for PerishableComponent to avoid chefs using body bags for food preservation
     #  tags:
     #    - VimPilot # Pets
@@ -142,7 +142,7 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 50
-  - type: Damageable #Goobstation - Damageable body bag
+  - type: Damageable #Goidastation - Damageable body bag
     damageContainer: StructuralInorganic
     damageModifierSet: Web
   - type: Destructible
@@ -199,7 +199,7 @@
     solution: food
   - type: Extractable
     grindableSolutionName: food
-  - type: SupermatterImmune # Goobstation
+  - type: SupermatterImmune # Goidastation
 
 - type: entity
   parent: Ash

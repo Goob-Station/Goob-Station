@@ -12,7 +12,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Wizard/Mobs/otherthing.rsi
+    sprite: _Goidastation/Wizard/Mobs/otherthing.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: otherthing
@@ -57,7 +57,7 @@
     layers:
     - state: green
     - state: otherthing
-      sprite: _Goobstation/Wizard/Mobs/otherthing.rsi
+      sprite: _Goidastation/Wizard/Mobs/otherthing.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobCreature
@@ -85,7 +85,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Wizard/Mobs/stickman.rsi
+    sprite: _Goidastation/Wizard/Mobs/stickman.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: stickman

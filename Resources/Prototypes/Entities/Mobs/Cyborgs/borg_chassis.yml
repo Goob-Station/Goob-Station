@@ -222,7 +222,7 @@
       damageContainers:
       - Inorganic
       - Silicon
-      - SiliconRadiation # Goobstation - Make IPCs take radiation
+      - SiliconRadiation # Goidastation - Make IPCs take radiation
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
       interactFailureString: petting-failure-syndicate-cyborg

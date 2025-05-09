@@ -11,7 +11,7 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.GameObjects;
@@ -21,7 +21,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed class BlobNodeSystem : EntitySystem
 {

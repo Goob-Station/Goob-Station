@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Factory.Filters;
+namespace Content.Goidastation.Shared.Factory.Filters;
 
 /// <summary>
 /// Marker component for filter items.

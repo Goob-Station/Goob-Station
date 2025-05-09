@@ -94,7 +94,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
@@ -371,7 +371,7 @@ namespace Content.Server.Database
                 profile.CharacterName,
                 profile.FlavorText,
                 profile.Species,
-                // #Goobstation - Borg Preferred Name
+                // #Goidastation - Borg Preferred Name
                 profile.BorgName,
                 profile.Age,
                 sex,
@@ -408,7 +408,7 @@ namespace Content.Server.Database
 
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
-            // #Goobstation - Borg Preferred Name
+            // #Goidastation - Borg Preferred Name
             profile.BorgName = humanoid.BorgName;
             profile.Species = humanoid.Species;
             profile.Age = humanoid.Age;
@@ -798,7 +798,7 @@ namespace Content.Server.Database
                 player.LastSeenHWId);
         }
 
-        public async Task<int> GetServerCurrency(NetUserId userId) // Goobstation
+        public async Task<int> GetServerCurrency(NetUserId userId) // Goidastation
         {
             await using var db = await GetDb();
 
@@ -808,7 +808,7 @@ namespace Content.Server.Database
                 .SingleOrDefaultAsync();
         }
 
-        public async Task SetServerCurrency(NetUserId userId, int currency) // Goobstation
+        public async Task SetServerCurrency(NetUserId userId, int currency) // Goidastation
         {
             await using var db = await GetDb();
 
@@ -820,7 +820,7 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta) // Goobstation
+        public async Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta) // Goidastation
         {
             await using var db = await GetDb();
 

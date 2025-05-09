@@ -21,9 +21,9 @@
   description: A loose worn durathread shirt with a grey pants, its resilient fibres provide some protection to the wearer.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -37,9 +37,9 @@
   description: A black suit worn by officials.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -48,9 +48,9 @@
   description: Short sleeves, short temper.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualsyndicate.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualsyndicate.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualsyndicate.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualsyndicate.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -59,9 +59,9 @@
   description: Paperwork's tough.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcentcom.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualcentcom.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcentcom.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualcentcom.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -70,9 +70,9 @@
   description: Wait, where's my PDA?.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcommand.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualcommand.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualcommand.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualcommand.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -81,9 +81,9 @@
   description: Sparks? Fiberglass? What about 'em?
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/casualengineer.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -92,9 +92,9 @@
   description: A short-sleeved grey and blue jumpsuit, made out of a sturdy material. Blueshield standard issue.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -103,9 +103,9 @@
   description: An official security uniform. Pretty safe and pretty busy.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -114,9 +114,9 @@
   description: Enemy of dogs everywhere.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/mailman.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/mailman.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -125,9 +125,9 @@
   description: Hunt down the Freeman.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/hecu.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/hecu.rsi
 
 - type: entity
   parent: [ClothingUniformBase, BaseCentcommContraband]
@@ -136,9 +136,9 @@
   description: A suit worn by high-ranking Central Command members. The rest is classified.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/navy_gold.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -154,9 +154,9 @@
   description: A suit worn by high-ranking spec ops officers. The rest is classified.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/specialoperations.rsi
 
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
@@ -165,9 +165,9 @@
   description: A suit worn by diplomacy focused Central Command workers.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/diplomat.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -187,9 +187,9 @@
   description: A jumpsuit issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/trainer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/trainer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/trainer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpsuit/trainer.rsi
 
 
 - type: entity

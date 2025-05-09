@@ -7,7 +7,7 @@
   id: BulletLaserSpread
   desc: Wide laser spread.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: heavylaser-wide
   protoId: BulletLaserSpread
   fireCost: 100
@@ -16,7 +16,7 @@
   id: BulletLaserSpreadNarrow
   desc: Narrow laser spread.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: heavylaser-narrow
   protoId: BulletLaserSpreadNarrow
   fireCost: 100
@@ -54,7 +54,7 @@
   id: BulletEnergyGunIon
   desc: Ion bolt.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: omnilaser-blue
   color: blue
   protoId: BulletEnergyGunIon
@@ -66,7 +66,7 @@
   id: BulletEnergyGunClownshot
   desc: A projectile capable of sending clowns, and only clowns, flying away.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: clownshot
   color: yellow
   protoId: BulletClownshot
@@ -76,7 +76,7 @@
   id: BulletEnergyGunPulse
   desc: Throws back enemies a fair distance, along with disorenting them.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: pulse
   color: blue
   protoId: BulletPulse
@@ -96,7 +96,7 @@
   id: BulletEnergyGunExecute
   desc: A highly damaging, and slightly radioactive bolt. Great for putting things down.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: execute
   color: green
   protoId: BulletExecute
@@ -106,7 +106,7 @@
   id: BulletEnergyGunHotshot
   desc: A firey bolt, capable of lighting foes on fire.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: hotshot
   color: red
   protoId: BulletHotshot
@@ -116,7 +116,7 @@
   id: BulletEnergyGunSleepshot
   desc: A lightly-damaging bolt, capable of removing stimulants from a targets system, and inducing drowsiness.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: sleepshot
   color: pink
   protoId: BulletSleepshot
@@ -126,7 +126,7 @@
   id: BulletEnergyGunBigshot
   desc: While dealing less damage to living creatures, this bolt is especially effective at tearing apart structures.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     state: bigshot
   color: gray
   protoId: BulletBigshot

@@ -128,7 +128,7 @@ namespace Content.Client._durkcode.ServerCurrency.UI
             UpdatePlayerBalance();
         }
 
-        private void UpdatePlayerBalance() // Goobstation - Goob Coin
+        private void UpdatePlayerBalance() // Goidastation - Goida Coin
         {
             var balance = _serverCur.GetBalance();
             Header.Text = _serverCur.Stringify(balance);

@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Mobs/polymorphs.rsi
+    sprite: _Goidastation/Mobs/polymorphs.rsi
     state: shadow_jaunt
     loop: false
   - type: TimedDespawn
@@ -20,7 +20,7 @@
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Mobs/polymorphs.rsi
+    sprite: _Goidastation/Mobs/polymorphs.rsi
     state: shadow_jaunt_end
     loop: false
   - type: TimedDespawn

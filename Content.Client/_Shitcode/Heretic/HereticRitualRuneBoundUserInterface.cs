@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client._Shitcode.Heretic.UI;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

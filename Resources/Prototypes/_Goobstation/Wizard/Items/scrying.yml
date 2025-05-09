@@ -10,7 +10,7 @@
   components:
   - type: ScryingOrb
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/scrying_orb.rsi
+    sprite: _Goidastation/Wizard/Objects/scrying_orb.rsi
     state: icon
 
 - type: entity

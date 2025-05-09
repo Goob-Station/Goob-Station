@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server._DV.CosmicCult.Components;
 using Content.Server._DV.CosmicCult.EntitySystems;
-using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
+using Content.Goidastation.Shared.Religion; // Goidastation - Shitchap
 using Content.Server.Actions;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
@@ -399,7 +399,7 @@ public sealed class MonumentSystem : SharedMonumentSystem
             EnsureComp<PressureImmunityComponent>(cultist);
             EnsureComp<TemperatureImmunityComponent>(cultist);
 
-            // Goobstation Change - Shitchap
+            // Goidastation Change - Shitchap
             if (!HasComp<WeakToHolyComponent>(cultist))
                 EnsureComp<WeakToHolyComponent>(cultist).AlwaysTakeHoly = true;
             else

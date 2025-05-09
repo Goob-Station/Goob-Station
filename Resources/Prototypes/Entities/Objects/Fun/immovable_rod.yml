@@ -28,8 +28,8 @@
     state: icon
     noRot: false
   - type: ImmovableRod
-    minSpeed: 15 # Goobstation
-    maxSpeed: 15 # Goobstation
+    minSpeed: 15 # Goidastation
+    maxSpeed: 15 # Goidastation
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
@@ -41,20 +41,20 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb # Goob edit
+          !type:PhysShapeAabb # Goida edit
           bounds: "-0.2,-0.5,0.2,0.5"
-        density: 2.5 # Goob edit
+        density: 2.5 # Goida edit
         hard: false
-        mask: # Goob edit
+        mask: # Goida edit
         - Impassable
         - Opaque
-        layer: # Goobstation
+        layer: # Goidastation
         - MidImpassable
   - type: WarpPoint
     follow: true
     location: immovable rod
 
-# goob edit
+# goida edit
 - type: entity
   id: ImmovableVoidRod
   name: immovable void rod
@@ -64,7 +64,7 @@
   - type: InteractionOutline
   - type: MovementIgnoreGravity
   - type: Sprite
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    sprite: _Goidastation/Heretic/abilities_heretic.rsi
     state: immovable_rod
     noRot: false
   - type: ImmovableVoidRod
@@ -79,7 +79,7 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeAabb # Goob edit
+          !type:PhysShapeAabb # Goida edit
           bounds: "-0.1,-0.5,0.1,0.5"
         density: 5
         hard: false
@@ -120,20 +120,20 @@
   suffix: Wizard
   components:
   - type: ImmovableRod
-    minSpeed: 6 # Goob edit
-    maxSpeed: 6 # Goob edit
-    hitSoundProbability: 1 # Goob edit
-    ignoreResistances: true # Goobstation
-    knockdownTime: 4 # Goobstation
+    minSpeed: 6 # Goida edit
+    maxSpeed: 6 # Goida edit
+    hitSoundProbability: 1 # Goida edit
+    ignoreResistances: true # Goidastation
+    knockdownTime: 4 # Goidastation
     destroyTiles: false
     randomizeVelocity: false
     shouldGib: false
     damage:
       types:
-        Blunt: 70 # Goob edit
+        Blunt: 70 # Goida edit
   - type: MovementIgnoreGravity
     gravityState: true
-  # - type: InputMover # Goob edit
+  # - type: InputMover # Goida edit
   - type: MovementSpeedModifier
     weightlessAcceleration: 5
     weightlessModifier: 2
@@ -143,7 +143,7 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
-  - type: Trail # Goobstation
+  - type: Trail # Goidastation
     frequency: 0.1
     lifetime: 1
     lerpTime: 0.1
@@ -151,9 +151,9 @@
     sprite:
       sprite: /Textures/Objects/Fun/immovable_rod.rsi
       state: icon
-  - type: StatusIcon # Goobstation
+  - type: StatusIcon # Goidastation
     bounds: -0.5,-0.5,0.5,0.5
-  - type: IsDeadIC # Goobstation
+  - type: IsDeadIC # Goidastation
     dead: false
 
 - type: entity
@@ -166,7 +166,7 @@
     maxSpeed: 0
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodMop
   name: immovable mop
   description: Hurled like a javelin, with the power of a thousand furious janitors.
@@ -178,7 +178,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodShark
   name: immovable shark
   description: SHARK TORNADO!
@@ -190,7 +190,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodClown
   name: immovable clown
   description: Ejected from the neighbouring station one solar system over. HONK!
@@ -202,7 +202,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodBanana
   name: immovable banana
   description: At least you won't slip on it.
@@ -213,7 +213,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodHammer
   name: immovable hammer
   description: Bwoink.
@@ -225,7 +225,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodThrongler
   name: immovable throngler
   description: If you catch it, you can keep it.
@@ -237,7 +237,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodGibstick
   name: immovable gibstick
   description: What did you expect?
@@ -249,7 +249,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTiles # Goob edit
+  parent: ImmovableRodKeepTiles # Goida edit
   id: ImmovableRodWeh
   name: immovable weh
   description: WEH!

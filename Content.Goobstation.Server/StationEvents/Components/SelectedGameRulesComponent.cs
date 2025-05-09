@@ -7,7 +7,7 @@
 
 using Content.Shared.EntityTable.EntitySelectors;
 
-namespace Content.Goobstation.Server.StationEvents.Components;
+namespace Content.Goidastation.Server.StationEvents.Components;
 
 
 /// <summary>

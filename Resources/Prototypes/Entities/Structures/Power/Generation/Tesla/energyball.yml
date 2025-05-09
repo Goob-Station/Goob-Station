@@ -9,7 +9,7 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -20,7 +20,7 @@
   components:
   - type: Clickable
   - type: Physics
-    bodyType: Dynamic # Goobstation
+    bodyType: Dynamic # Goidastation
     bodyStatus: InAir
     sleepingAllowed: false
   - type: CanMoveInAir
@@ -61,11 +61,11 @@
           !type:PhysShapeCircle
             radius: 0.55
         hard: true
-        restitution: 1.0 # Goobstation - fun
+        restitution: 1.0 # Goidastation - fun
         density: 99999
         mask:
         - Opaque
-        - Impassable # Goobstation - needed so they collide with each other
+        - Impassable # Goidastation - needed so they collide with each other
         layer:
         - GlassLayer
       EventHorizonConsumer:
@@ -87,7 +87,7 @@
     consumerFixtureId: EventHorizonConsumer
     consumeTiles: false
     consumeEntities: false
-  # <Goobstation>
+  # <Goidastation>
   # tesla ball pit
   - type: EventHorizonIgnore
     horizonWhitelist:
@@ -96,7 +96,7 @@
   - type: Tag
     tags:
     - Tesla
-  # </Goobstation>
+  # </Goidastation>
   - type: TeslaEnergyBall
     spawnProto: TeslaMiniEnergyBall
     soundCollapse:
@@ -135,12 +135,12 @@
     interactSuccessString: petting-success-tesla
     interactFailureString: petting-failure-tesla
     interactSuccessSpawn: EffectHearts
-  - type: SupermatterImmune # Goobstation
-  - type: MetaData # Goobstation
-  - type: RandomMetadata # Goobstation
+  - type: SupermatterImmune # Goidastation
+  - type: MetaData # Goidastation
+  - type: RandomMetadata # Goidastation
     nameSegments:
-    - GoobGeneratorsNamesFirst
-    - GoobGeneratorsNamesTeslaLast
+    - GoidaGeneratorsNamesFirst
+    - GoidaGeneratorsNamesTeslaLast
     nameFormat: name-format-standard 
   - type: GuideHelp # For the curious among the brave.
     guides:

@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Systems;
 
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem
 {

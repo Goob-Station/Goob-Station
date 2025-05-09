@@ -14,7 +14,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 <DefaultWindow xmlns="https://spacestation14.io"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            x:Class="Content.Goobstation.Client.Stack.StackCustomSplitWindow"
+            x:Class="Content.Goidastation.Client.Stack.StackCustomSplitWindow"
             Title="{Loc 'ui-custom-stack-split-title'}"
             Resizable="False">
 

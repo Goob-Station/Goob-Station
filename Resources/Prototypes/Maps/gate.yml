@@ -80,7 +80,7 @@
 - type: gameMap
   id: Gate
   mapName: 'Gate Station'
-  mapPath: /Maps/_Goobstation/gate.yml
+  mapPath: /Maps/_Goidastation/gate.yml
   minPlayers: 55
   stations:
     Gate:

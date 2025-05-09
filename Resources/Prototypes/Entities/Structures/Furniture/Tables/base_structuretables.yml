@@ -48,7 +48,7 @@
         - TableMask
         layer:
         - TableLayer
-        - BulletImpassable # Goobstation - Crawling
+        - BulletImpassable # Goidastation - Crawling
   - type: SpriteFade
   - type: Sprite
   - type: Icon
@@ -68,7 +68,7 @@
   - type: Tag
     tags:
     - ForceFixRotations
-  - type: RequireProjectileTarget # Goobstation - Crawling
+  - type: RequireProjectileTarget # Goidastation - Crawling
     ignoreThrow: true
 
 
@@ -89,4 +89,4 @@
         - TableMask
         layer:
         - TableLayer 
-        - BulletImpassable # Goobstation - Crawling
+        - BulletImpassable # Goidastation - Crawling

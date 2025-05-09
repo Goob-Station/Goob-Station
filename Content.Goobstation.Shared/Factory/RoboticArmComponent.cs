@@ -1,9 +1,9 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Factory.Slots;
+using Content.Goidastation.Shared.Factory.Slots;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;
@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Goobstation.Shared.Factory;
+namespace Content.Goidastation.Shared.Factory;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(RoboticArmSystem))]
 [AutoGenerateComponentState(true, fieldDeltas: true), AutoGenerateComponentPause]

@@ -372,7 +372,7 @@
   id: MedibotAds
   values:
     prefix: advertisement-medibot-
-    # Goobstation - Medibot AM advertisement; originally 17
+    # Goidastation - Medibot AM advertisement; originally 17
     count: 18
 
 - type: localizedDataset

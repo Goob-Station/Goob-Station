@@ -15,13 +15,13 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
-using Content.Server.Revolutionary.Components; // GoobStation
+using Content.Server.Revolutionary.Components; // GoidaStation
 using Content.Server.Roles;
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
-using Content.Shared.Revolutionary; // GoobStation
+using Content.Shared.Revolutionary; // GoidaStation
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
@@ -38,7 +38,7 @@ public sealed class MindShieldSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!; // Goobstation
+    [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!; // Goidastation
 
     [ValidatePrototypeId<TagPrototype>]
     public const string MindShieldTag = "MindShield";
@@ -55,13 +55,13 @@ public sealed class MindShieldSystem : EntitySystem
     /// </summary>
     public void ImplantCheck(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
     {
-        if (!_tag.HasTag(ev.Implant, MindShieldTag) || ev.Implanted == null) // Edited Goobstation
+        if (!_tag.HasTag(ev.Implant, MindShieldTag) || ev.Implanted == null) // Edited Goidastation
             return;
 
         EnsureComp<MindShieldComponent>(ev.Implanted.Value);
         MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
 
-        // GoobStation
+        // GoidaStation
         if (!TryComp<CommandStaffComponent>(ev.Implanted, out var commandComp))
             return;
 
@@ -73,11 +73,11 @@ public sealed class MindShieldSystem : EntitySystem
     /// </summary>
     public void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {
-        if (TryComp<HeadRevolutionaryComponent>(implanted, out var headRevComp)) // GoobStation - headRevComp
+        if (TryComp<HeadRevolutionaryComponent>(implanted, out var headRevComp)) // GoidaStation - headRevComp
         {
             _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield"), implanted);
-            _revolutionarySystem.ToggleConvertAbility((implanted, headRevComp), false); // GoobStation - turn off headrev ability to convert
-            //QueueDel(implant); - Goobstation - Headrevs should remove implant before turning on ability
+            _revolutionarySystem.ToggleConvertAbility((implanted, headRevComp), false); // GoidaStation - turn off headrev ability to convert
+            //QueueDel(implant); - Goidastation - Headrevs should remove implant before turning on ability
             return;
         }
 
@@ -86,8 +86,8 @@ public sealed class MindShieldSystem : EntitySystem
         {
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }
-        if (HasComp<Goobstation.Shared.Mindcontrol.MindcontrolledComponent>(implanted))   //Goobstation - Mindcontrol Implant
-            RemComp<Goobstation.Shared.Mindcontrol.MindcontrolledComponent>(implanted);
+        if (HasComp<Goidastation.Shared.Mindcontrol.MindcontrolledComponent>(implanted))   //Goidastation - Mindcontrol Implant
+            RemComp<Goidastation.Shared.Mindcontrol.MindcontrolledComponent>(implanted);
     }
 
     private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)

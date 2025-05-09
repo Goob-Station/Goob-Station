@@ -105,7 +105,7 @@
     - type: StepTrigger
       intersectRatio: 0.2
       requiredTriggeredSpeed: 2
-      triggerGroups: # Goobstation
+      triggerGroups: # Goidastation
         types:
         - Mousetrap
     - type: Mousetrap
@@ -150,13 +150,13 @@
           mask:
             - ItemMask
     - type: Rotatable
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 12
         Wood: 25
     - type: Tag
       tags:
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
 
 - type: entity
   name: mousetrap

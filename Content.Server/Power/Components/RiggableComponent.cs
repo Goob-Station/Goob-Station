@@ -7,7 +7,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.Reagent;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 
 namespace Content.Server.Power.Components;
 

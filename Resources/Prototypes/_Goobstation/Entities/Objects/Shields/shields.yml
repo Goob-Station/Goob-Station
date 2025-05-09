@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -20,20 +20,20 @@
     - type: ItemToggle
       predictable: false
       soundActivate:
-        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+        path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
       soundDeactivate:
-        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyoff.ogg
+        path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyoff.ogg
       soundFailToActivate:
         path: /Audio/Machines/button.ogg
         params:
           variation: 0.250
     - type: ItemToggleActiveSound
       activeSound:
-        path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyhum.ogg
+        path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyhum.ogg
     - type: ItemToggleSize
       activatedSize: Ginormous
     - type: Clothing
-      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+      sprite: _Goidastation/Objects/Shields/blueshieldshield.rsi
       quickEquip: false
       slots:
       - Belt
@@ -42,7 +42,7 @@
       - type: DisarmMalus
         malus: 1
     - type: Sprite
-      sprite: _Goobstation/Objects/Shields/blueshieldshield.rsi
+      sprite: _Goidastation/Objects/Shields/blueshieldshield.rsi
       layers:
         - state: icon
         - state: icon-on

@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Damage.Systems;

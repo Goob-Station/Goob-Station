@@ -159,8 +159,8 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
-    - NanotrasenRepresentative # goobstation
-    - BlueshieldOfficer # goobstation
+    - NanotrasenRepresentative # goidastation
+    - BlueshieldOfficer # goidastation
     - Wizard
     privilegedIdSlot:
       name: id-card-console-privileged-id

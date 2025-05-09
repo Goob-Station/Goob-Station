@@ -24,7 +24,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
-  name: goob, ded # Goobstation edit
+  name: goida, ded # Goidastation edit
   parent: BaseWeaponPistol
   id: WeaponPistolDebug
   description: ded
@@ -109,7 +109,7 @@
     proto: BulletDebug
 
 - type: entity
-  name: goob stick gibber # Goobstation edit
+  name: goida stick gibber # Goidastation edit
   parent: BaseItem
   id: MeleeDebugGib
   description: hit hard ye
@@ -130,7 +130,7 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: goob stick 100dmg # Goobstation edit
+  name: goida stick 100dmg # Goidastation edit
   parent: MeleeDebugGib
   id: MeleeDebug100
   components:
@@ -143,7 +143,7 @@
         Blunt: 100
 
 - type: entity
-  name: goob stick 200dmg # Goobstation edit
+  name: goida stick 200dmg # Goidastation edit
   parent: MeleeDebugGib
   id: MeleeDebug200
   components:

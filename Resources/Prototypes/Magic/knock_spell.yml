@@ -14,22 +14,22 @@
 - type: entity
   id: ActionKnock
   name: Knock
-  description: Opens nearby doors and lockers. # Goob edit
+  description: Opens nearby doors and lockers. # Goida edit
   components:
   - type: InstantAction
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
+    raiseOnUser: true # Goidastation
+    checkCanInteract: false # Goidastation
     useDelay: 10
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/knock.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
       state: knock
     event: !type:KnockSpellEvent
-      range: 3 # Goob edit
+      range: 3 # Goida edit
       speech: action-speech-spell-knock
-  - type: Magic # Goobstation
+  - type: Magic # Goidastation
     requiresSpeech: true
     school: Transmutation
   - type: ActionUpgrade

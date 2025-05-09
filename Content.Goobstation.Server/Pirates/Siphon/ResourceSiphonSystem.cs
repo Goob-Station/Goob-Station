@@ -9,9 +9,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Common.Pirates;
-using Content.Goobstation.Server.Pirates.GameTicking.Rules;
-using Content.Goobstation.Server.Pirates.Objectives;
+using Content.Goidastation.Common.Pirates;
+using Content.Goidastation.Server.Pirates.GameTicking.Rules;
+using Content.Goidastation.Server.Pirates.Objectives;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
@@ -27,7 +27,7 @@ using Content.Shared.Mind;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 
-namespace Content.Goobstation.Server.Pirates.Siphon;
+namespace Content.Goidastation.Server.Pirates.Siphon;
 
 public sealed partial class ResourceSiphonSystem : EntitySystem
 {

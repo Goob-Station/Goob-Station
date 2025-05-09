@@ -60,7 +60,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
@@ -127,7 +127,7 @@ namespace Content.Server.Explosion.EntitySystems
 
     /// <summary>
     /// Raised before a trigger is activated.
-    /// Goobstation: cancellableEEA instead of w/e abomination was there
+    /// Goidastation: cancellableEEA instead of w/e abomination was there
     /// </summary>
     [ByRefEvent]
     public sealed class BeforeTriggerEvent : CancellableEntityEventArgs
@@ -208,7 +208,7 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleWhitelist(Entity<TriggerWhitelistComponent> ent, ref BeforeTriggerEvent args)
         {
-            // Goobedit
+            // Goidaedit
             if (!_whitelist.CheckBoth(args.User, ent.Comp.Blacklist, ent.Comp.Whitelist))
                 args.Cancel();
         }

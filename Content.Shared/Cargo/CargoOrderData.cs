@@ -57,7 +57,7 @@ namespace Content.Shared.Cargo
         public string ProductName { get; private set; }
 
         /// <summary>
-        ///     GoobStation - The cooldown in seconds before this product can be bought again.
+        ///     GoidaStation - The cooldown in seconds before this product can be bought again.
         /// </summary>
         [DataField]
         public int Cooldown { get; private set; }
@@ -85,7 +85,7 @@ namespace Content.Shared.Cargo
         [DataField]
         public string? Approver;
 
-        // GoobStation - (cooldown parameter) cooldown on Cargo Orders (specifically gamba)
+        // GoidaStation - (cooldown parameter) cooldown on Cargo Orders (specifically gamba)
         public CargoOrderData(int orderId, string productId, string productName, int price, int amount, string requester, string reason, int cooldown)
         {
             OrderId = orderId;
@@ -95,7 +95,7 @@ namespace Content.Shared.Cargo
             OrderQuantity = amount;
             Requester = requester;
             Reason = reason;
-            // GoobStation - (cooldown assignment) cooldown on Cargo Orders (specifically gamba)
+            // GoidaStation - (cooldown assignment) cooldown on Cargo Orders (specifically gamba)
             Cooldown = cooldown;
         }
 

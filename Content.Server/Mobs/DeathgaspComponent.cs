@@ -24,7 +24,7 @@ public sealed partial class DeathgaspComponent : Component
     public string Prototype = "DefaultDeathgasp";
 
     /// <summary>
-    ///     Goobstation: Makes sure that the deathgasp is only displayed if the entity went critical before dying
+    ///     Goidastation: Makes sure that the deathgasp is only displayed if the entity went critical before dying
     /// </summary>
     [DataField]
     public bool NeedsCritical = true;

@@ -9,7 +9,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Containers.OnCollide;
+namespace Content.Goidastation.Shared.Containers.OnCollide;
 
 /// <summary>
 /// When this component is added, we insert to a given container any entity we collide with

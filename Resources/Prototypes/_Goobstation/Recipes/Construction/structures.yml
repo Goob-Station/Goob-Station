@@ -13,7 +13,7 @@
   category: construction-category-structures
   description: Cheap and cheerful metal plating.
   icon:
-    sprite: _Goobstation/Structures/Walls/directional.rsi
+    sprite: _Goidastation/Structures/Walls/directional.rsi
     state: directionalwall
   objectType: Structure
   placementMode: SnapgridCenter

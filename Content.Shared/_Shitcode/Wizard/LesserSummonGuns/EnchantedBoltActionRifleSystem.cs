@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Goidastation.Wizard.FadingTimedDespawn;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -18,7 +18,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Wizard.LesserSummonGuns;
+namespace Content.Shared._Goidastation.Wizard.LesserSummonGuns;
 
 public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 {

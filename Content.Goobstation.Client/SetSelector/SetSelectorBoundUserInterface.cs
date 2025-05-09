@@ -1,12 +1,12 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.SetSelector;
+using Content.Goidastation.Shared.SetSelector;
 using Robust.Client.UserInterface;
 
-namespace Content.Goobstation.Client.SetSelector;
+namespace Content.Goidastation.Client.SetSelector;
 
 public sealed class SetSelectorBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {

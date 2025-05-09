@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: localizedDataset
-  id: GoobGeneratorsNamesTeslaLast
+  id: GoidaGeneratorsNamesTeslaLast
   values:
-    prefix: goob-generators-names-tesla-last-dataset-
+    prefix: goida-generators-names-tesla-last-dataset-
     count: 5

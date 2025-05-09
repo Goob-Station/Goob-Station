@@ -6,7 +6,7 @@
 
 using Robust.Shared.GameObjects;
 
-namespace Content.Goobstation.Shared.MisandryBox.Smites;
+namespace Content.Goidastation.Shared.MisandryBox.Smites;
 
 public abstract class ToggleableSmiteSystem<T> : EntitySystem where T : Component
 {

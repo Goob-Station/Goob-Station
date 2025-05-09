@@ -12,7 +12,7 @@
   description: A spear used by Nanotrasen's CBURN agents. Effective at incinerating organic targets.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/cburn_spear.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/cburn_spear.rsi
     state: icon
   - type: Tag
     tags:
@@ -57,7 +57,7 @@
       types:
         Heat: 5
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Melee/cburn_spear.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/cburn_spear.rsi
     quickEquip: false
     slots:
     - suitStorage

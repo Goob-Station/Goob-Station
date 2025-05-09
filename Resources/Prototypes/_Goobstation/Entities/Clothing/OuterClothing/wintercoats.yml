@@ -11,9 +11,9 @@
   description: It'll keep away the cold but not the dogs.
   components:
     - type: Sprite
-      sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
+      sprite: _Goidastation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
     - type: Clothing
-      sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
+      sprite: _Goidastation/Clothing/OuterClothing/Wintercoats/mail_winter_coat.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -22,6 +22,6 @@
   description: A robust coat issued to Nanotrasen Career Trainers. Great for teaching newbies.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Wintercoats/trainer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Wintercoats/trainer.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Wintercoats/trainer.rsi

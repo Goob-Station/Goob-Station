@@ -6,13 +6,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Client.ChronoLegionnaire.Overlays;
-using Content.Goobstation.Shared.ChronoLegionnaire.Components;
+using Content.Goidastation.Client.ChronoLegionnaire.Overlays;
+using Content.Goidastation.Shared.ChronoLegionnaire.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Client.ChronoLegionnaire;
+namespace Content.Goidastation.Client.ChronoLegionnaire;
 
 public sealed class StasisOverlaySystem : EntitySystem
 {

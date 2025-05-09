@@ -42,7 +42,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
@@ -73,7 +73,7 @@ using Content.Shared.Examine;
 using Content.Shared.Gravity;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
-using Content.Shared.Mech.Components; // Goobstation
+using Content.Shared.Mech.Components; // Goidastation
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Tag;
@@ -98,7 +98,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Item;
-using Content.Goobstation.Common.Weapons.Multishot;
+using Content.Goidastation.Common.Weapons.Multishot;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -155,7 +155,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeClothing();
         InitializeContainer();
         InitializeSolution();
-        // Goobstation
+        // Goidastation
         InitializeBasicHitScan();
 
         // Interactions
@@ -192,12 +192,12 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     private void OnShootRequest(RequestShootEvent msg, EntitySessionEventArgs args)
     {
-        // Goobstation - Multishot - Ensures that guns shooting at same time.
+        // Goidastation - Multishot - Ensures that guns shooting at same time.
         var gunUid = GetEntity(msg.Gun);
 
         if (HasComp<MultishotComponent>(gunUid))
             return;
-        // Goobstation - End
+        // Goidastation - End
         var user = args.SenderSession.AttachedEntity;
 
         if (user == null ||
@@ -215,11 +215,11 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
-        // Goob edit start
+        // Goida edit start
         var potentialTarget = GetEntity(msg.Target);
         if (gun.Target == null || !gun.BurstActivated || !gun.LockOnTargetBurst)
             gun.Target = potentialTarget;
-        // Goob edit end
+        // Goida edit end
         AttemptShoot(user.Value, ent, gun);
     }
 
@@ -302,7 +302,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         gun.ShotCounter = 0;
         gun.ShootCoordinates = null;
-        if (!gun.LockOnTargetBurst || !gun.BurstActivated) // Goob edit
+        if (!gun.LockOnTargetBurst || !gun.BurstActivated) // Goida edit
             gun.Target = null;
         EntityManager.DirtyField(uid, gun, nameof(GunComponent.ShotCounter));
     }
@@ -318,7 +318,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityManager.DirtyField(gunUid, gun, nameof(GunComponent.ShotCounter));
     }
 
-    // Goobstation - Crawling turret fix
+    // Goidastation - Crawling turret fix
     public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, EntityUid target)
     {
         gun.Target = target;
@@ -375,7 +375,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         var fireRate = TimeSpan.FromSeconds(1f / gun.FireRateModified);
 
         if (gun.SelectedMode == SelectiveFire.Burst || gun.BurstActivated)
-            fireRate = TimeSpan.FromSeconds(1f / gun.BurstFireRateModified);  // Goobstation edit
+            fireRate = TimeSpan.FromSeconds(1f / gun.BurstFireRateModified);  // Goidastation edit
 
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
@@ -383,7 +383,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.NextFire < curTime - fireRate || gun.ShotCounter == 0 && gun.NextFire < curTime)
             gun.NextFire = curTime;
 
-        bool isRechargingGun = HasComp<RechargeBasicEntityAmmoComponent>(gunUid); // Goobstation
+        bool isRechargingGun = HasComp<RechargeBasicEntityAmmoComponent>(gunUid); // Goidastation
 
         var shots = 0;
         var lastFire = gun.NextFire;
@@ -429,7 +429,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 PopupSystem.PopupClient(attemptEv.Message, gunUid, user);
             }
 
-            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goidastation
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
@@ -460,18 +460,18 @@ public abstract partial class SharedGunSystem : EntitySystem
             var emptyGunShotEvent = new OnEmptyGunShotEvent();
             RaiseLocalEvent(gunUid, ref emptyGunShotEvent);
 
-            // Goobstation
+            // Goidastation
             if (isRechargingGun)
             {
                 gun.NextFire = lastFire; // for empty PKAs, don't play no-ammo sound and don't trigger the reload
                 return;
             }
 
-            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+            if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goidastation
                 gun.Target = null;
             gun.BurstActivated = false;
             gun.BurstShotsCount = 0;
-            gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldownModified); // Goobstation edit
+            gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldownModified); // Goidastation edit
 
             // Play empty gun sounds if relevant
             // If they're firing an existing clip then don't play anything.
@@ -499,8 +499,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             gun.BurstShotsCount += shots;
             if (gun.BurstShotsCount >= gun.ShotsPerBurstModified)
             {
-                gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldownModified); // Goobstation edit
-                if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goobstation
+                gun.NextFire += TimeSpan.FromSeconds(gun.BurstCooldownModified); // Goidastation edit
+                if (!gun.LockOnTargetBurst || gun.ShootCoordinates == null) // Goidastation
                     gun.Target = null;
                 gun.BurstActivated = false;
                 gun.BurstShotsCount = 0;
@@ -519,7 +519,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         //Dirty(gunUid, gun);
-        UpdateAmmoCount(gunUid); //GoobStation - Multishot
+        UpdateAmmoCount(gunUid); //GoidaStation - Multishot
     }
 
     public void Shoot(
@@ -546,7 +546,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid? user = null,
         bool throwItems = false);
 
-    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 40f) // Goobstation - Fast Bullets
+    public void ShootProjectile(EntityUid uid, Vector2 direction, Vector2 gunVelocity, EntityUid? gunUid, EntityUid? user = null, float speed = 40f) // Goidastation - Fast Bullets
     {
         var physics = EnsureComp<PhysicsComponent>(uid);
         Physics.SetBodyStatus(uid, physics, BodyStatus.InAir);
@@ -653,7 +653,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics);
     }
 
-    public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoobStation change - User for NoWieldNeeded
+    public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null) // GoidaStation change - User for NoWieldNeeded
     {
         if (!Resolve(gun, ref gun.Comp))
             return;
@@ -670,9 +670,9 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.ShotsPerBurst,
             comp.FireRate,
             comp.ProjectileSpeed,
-            comp.BurstFireRate, // Goobstation
-            comp.BurstCooldown, // Goobstation
-            User // GoobStation change - User for NoWieldNeeded
+            comp.BurstFireRate, // Goidastation
+            comp.BurstCooldown, // Goidastation
+            User // GoidaStation change - User for NoWieldNeeded
         );
 
         RaiseLocalEvent(gun, ref ev);
@@ -731,7 +731,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             DirtyField(gun, nameof(GunComponent.ProjectileSpeedModified));
         }
 
-        if (!MathHelper.CloseTo(comp.BurstFireRateModified, ev.BurstFireRate)) // Goobstation - start
+        if (!MathHelper.CloseTo(comp.BurstFireRateModified, ev.BurstFireRate)) // Goidastation - start
         {
             comp.BurstFireRateModified = ev.BurstFireRate;
             DirtyField(gun, nameof(GunComponent.BurstFireRateModified));
@@ -741,10 +741,10 @@ public abstract partial class SharedGunSystem : EntitySystem
         {
             comp.BurstCooldownModified = ev.BurstCooldown;
             DirtyField(gun, nameof(GunComponent.BurstCooldownModified));
-        }  // Goobstation - end
+        }  // Goidastation - end
     }
 
-     // Goobstation
+     // Goidastation
     public void SetTarget(EntityUid projectile,
         EntityUid? target,
         out TargetedProjectileComponent targeted,
@@ -756,22 +756,22 @@ public abstract partial class SharedGunSystem : EntitySystem
             Dirty(projectile, targeted);
     }
 
-    public void SetFireRate(GunComponent component, float fireRate) // Goobstation
+    public void SetFireRate(GunComponent component, float fireRate) // Goidastation
     {
         component.FireRate = fireRate;
     }
 
-    public void SetUseKey(GunComponent component, bool useKey) // Goobstation
+    public void SetUseKey(GunComponent component, bool useKey) // Goidastation
     {
         component.UseKey = useKey;
     }
 
-    public void SetSoundGunshot(GunComponent component, SoundSpecifier? sound) // Goobstation
+    public void SetSoundGunshot(GunComponent component, SoundSpecifier? sound) // Goidastation
     {
         component.SoundGunshot = sound;
     }
 
-    public void SetClumsyProof(GunComponent component, bool clumsyProof) // Goobstation
+    public void SetClumsyProof(GunComponent component, bool clumsyProof) // Goidastation
     {
         component.ClumsyProof = clumsyProof;
     }

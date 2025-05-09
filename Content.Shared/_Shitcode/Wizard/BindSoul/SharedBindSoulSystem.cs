@@ -7,7 +7,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.Projectiles;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
@@ -29,7 +29,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
-namespace Content.Shared._Goobstation.Wizard.BindSoul;
+namespace Content.Shared._Goidastation.Wizard.BindSoul;
 
 public abstract class SharedBindSoulSystem : EntitySystem
 {
@@ -48,7 +48,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
     [Dependency] private   readonly IPrototypeManager _proto = default!;
     [Dependency] private   readonly INetManager _net = default!;
 
-    public static readonly ProtoId<TagPrototype> IgnoreBindSoulTag = "IgnoreBindSoul"; // Goobstation
+    public static readonly ProtoId<TagPrototype> IgnoreBindSoulTag = "IgnoreBindSoul"; // Goidastation
 
     private static readonly ProtoId<TagPrototype> ActionTag = "BindSoulAction";
 

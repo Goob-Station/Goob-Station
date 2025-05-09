@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ActiveMammmoth <kmcsmooth@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -41,25 +41,25 @@
   description: A weapon worthy of a god, able to strike with the force of a lightning bolt. It crackles with barely contained energy.
   components:
   - type: Wieldable
-    useDelayOnWield: false # GoobStation Edit
+    useDelayOnWield: false # GoidaStation Edit
   - type: LandAtCursor
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/mjollnir.rsi # GoobStation Edit
+    sprite: _Goidastation/Objects/Weapons/Melee/mjollnir.rsi # GoidaStation Edit
     layers:
     - state: icon
   - type: UseDelay
-    delay: 5 # Goobstation
+    delay: 5 # Goidastation
   - type: UseDelayOnMeleeHit
   - type: MeleeThrowOnHit
-    distance: 10 # Goobstation
+    distance: 10 # Goidastation
     stunTime: 3
     activateOnThrown: true
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 10 # GoobStation Edit
-        Structural: 10 # GoobStation Edit
+        Blunt: 10 # GoidaStation Edit
+        Structural: 10 # GoidaStation Edit
     soundHit:
       path: /Audio/Effects/tesla_consume.ogg
       params:
@@ -67,8 +67,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10 # GoobStation Edit
-        Structural: 15 # GoobStation Edit
+        Blunt: 10 # GoidaStation Edit
+        Structural: 15 # GoidaStation Edit
   - type: DamageOtherOnHit
     damage:
       types:
@@ -76,7 +76,7 @@
         Structural: 15
   - type: Item
     size: Ginormous
-  - type: Boomerang # Goobstation
+  - type: Boomerang # Goidastation
 
 - type: entity
   id: SingularityHammer

@@ -22,7 +22,7 @@
     - state: red
     - sprite: Structures/Specific/anomaly.rsi
       state: anom1
-  - type: EntityTableSpawner # Goobstation: adding individual anomaly weights
+  - type: EntityTableSpawner # Goidastation: adding individual anomaly weights
     #chance: 1
     table: !type:NestedSelector
       tableId: RandomAnomalyTable
@@ -79,7 +79,7 @@
     - state: red
     - sprite: Structures/Specific/Anomalies/tech_anom.rsi
       state: pulse
-  - type: EntityTableSpawner # Goobstation: adding individual anomaly weights
+  - type: EntityTableSpawner # Goidastation: adding individual anomaly weights
     table: !type:NestedSelector
       tableId: RandomAnomalyInjectorTable
 

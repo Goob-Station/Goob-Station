@@ -162,7 +162,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -522,7 +522,7 @@
     state: pda-clown
   - type: Slippery # secretly made of bananium
   - type: StepTrigger
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - SlipEntity
   - type: CollisionWake
@@ -1161,7 +1161,7 @@
     tags:
     - DoorBumpOpener
 
-#- type: entity - Completely re-making this in goob files.
+#- type: entity - Completely re-making this in goida files.
 #  parent: CentcomPDA
 #  id: DeathsquadPDA
 #  suffix: Death Squad
@@ -1170,10 +1170,10 @@
 #  - type: Pda
 #    id: CentcomIDCardDeathsquad
 #  - type: Icon
-#    sprite: _Goobstation/Objects/Devices/pda.rsi
+#    sprite: _Goidastation/Objects/Devices/pda.rsi
 #    state: pda-deathsquad
 #  - type: Sprite
-#    sprite: _Goobstation/Objects/Devices/pda.rsi
+#    sprite: _Goidastation/Objects/Devices/pda.rsi
 
 - type: entity
   parent: BasePDA
@@ -1640,7 +1640,7 @@
   description: For those days when healing normal syndicates aren't enough, try healing nuclear operatives instead!
   components:
   - type: Pda
-    id: NukieAgentIDCard # Goobstation
+    id: NukieAgentIDCard # Goidastation
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:

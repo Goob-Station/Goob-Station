@@ -78,7 +78,7 @@
 
 - type: latheRecipePack
   parent:
-  - EngineeringBoardsGoob # Goobstation
+  - EngineeringBoardsGoida # Goidastation
   id: EngineeringBoards
   recipes:
   - ThermomachineFreezerMachineCircuitBoard

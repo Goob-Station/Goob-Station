@@ -9,7 +9,7 @@ using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
-namespace Content.Goobstation.Shared.Clothing.Components
+namespace Content.Goidastation.Shared.Clothing.Components
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class DamageOverTimeComponent : Component

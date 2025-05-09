@@ -8,7 +8,7 @@
 - type: alert
   id: ChangelingChemicals
   icons:
-  - sprite: /Textures/_Goobstation/Changeling/changeling_chemicals.rsi
+  - sprite: /Textures/_Goidastation/Changeling/changeling_chemicals.rsi
     state: 0
   alertViewEntity: AlertChangelingChemicalsSpriteView
   name: alerts-changeling-chemicals-name
@@ -17,7 +17,7 @@
 - type: alert
   id: ChangelingBiomass
   icons:
-  - sprite: /Textures/_Goobstation/Changeling/changeling_biomass.rsi
+  - sprite: /Textures/_Goidastation/Changeling/changeling_biomass.rsi
     state: 0
   alertViewEntity: AlertChangelingBiomassSpriteView
   name: alerts-changeling-biomass-name
@@ -28,7 +28,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Changeling/changeling_chemicals.rsi
+    sprite: /Textures/_Goidastation/Changeling/changeling_chemicals.rsi
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
 
@@ -37,6 +37,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Changeling/changeling_biomass.rsi
+    sprite: /Textures/_Goidastation/Changeling/changeling_biomass.rsi
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]

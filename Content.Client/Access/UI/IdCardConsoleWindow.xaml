@@ -44,7 +44,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <Label Text="{Loc 'id-card-console-window-job-selection-label'}" />
             <OptionButton Name="JobPresetOptionButton" />
         </GridContainer>
-        <!-- Goobstation Start -->
+        <!-- Goidastation Start -->
         <GridContainer Columns="3">
             <Label Text="{Loc 'id-card-console-window-job-search-label'}" />
             <TextureRect SetSize="16 16"
@@ -54,6 +54,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later
             <LineEdit Name="SearchLineEdit" HorizontalExpand="True" />
         </GridContainer>
         <Control Name="AccessLevelControlContainer" />
-        <!-- Goobstation End -->
+        <!-- Goidastation End -->
     </BoxContainer>
 </DefaultWindow>

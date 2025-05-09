@@ -370,7 +370,7 @@ namespace Content.IntegrationTests.Tests.Buckle
 
             await server.WaitAssertion(() =>
             {
-                //Assert.That(buckle.Buckled); // goob edit
+                //Assert.That(buckle.Buckled); // goida edit
                 // he's not supposed to be buckled with the new falling down system
                 // do i just did this :trollface:
 

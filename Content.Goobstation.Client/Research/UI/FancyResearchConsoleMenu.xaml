@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls;assembly=Content.Client"
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls;assembly=Content.Client"
-                      xmlns:goob="clr-namespace:Content.Goobstation.Client.Research.UI"
+                      xmlns:goida="clr-namespace:Content.Goidastation.Client.Research.UI"
                       Title="{Loc 'research-console-menu-title'}"
                       SetSize="1260 850">
     <BoxContainer Orientation="Vertical"
@@ -45,14 +45,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     <AnimatedTextureRect Name="StaticSprite"
                         HorizontalExpand="True"
                         VerticalExpand="True">
-                        <goob:ResearchesContainerPanel
+                        <goida:ResearchesContainerPanel
                             HorizontalExpand="True"
                             VerticalExpand="True"
                             Name="DragContainer"
                             MouseFilter="Pass"
                             RectClipContent="True">
                             <!-- There lives all of technologies -->
-                        </goob:ResearchesContainerPanel>
+                        </goida:ResearchesContainerPanel>
                     </AnimatedTextureRect>
                     <Button Name="RecenterButton" Text="{Loc 'research-console-menu-recenter-button'}" MinHeight="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 -5"/>
                 </PanelContainer>

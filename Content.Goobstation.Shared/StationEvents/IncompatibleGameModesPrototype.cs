@@ -5,7 +5,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.StationEvents;
+namespace Content.Goidastation.Shared.StationEvents;
 
 [Prototype("incompatibleModes")]
 public sealed class IncompatibleGameModesPrototype : IPrototype

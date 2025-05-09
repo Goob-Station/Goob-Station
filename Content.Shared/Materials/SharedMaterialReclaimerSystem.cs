@@ -81,7 +81,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Materials;
+using Content.Goidastation.Common.Materials;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.Body.Components;
@@ -114,7 +114,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly LockSystem _lockSystem = default!; // Goobstation - Recycle Update
+    [Dependency] private readonly LockSystem _lockSystem = default!; // Goidastation - Recycle Update
 
     public const string ActiveReclaimerContainerId = "active-material-reclaimer-container";
 
@@ -180,7 +180,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         if (!CanStart(uid, component))
             return false;
 
-        // Goobstation - Recycle update - Check to prevent recycling closed lockers
+        // Goidastation - Recycle update - Check to prevent recycling closed lockers
         if (HasComp<RecyclableOnUnlockComponent>(item) && _lockSystem.IsLocked(item))
             return false;
 
@@ -212,7 +212,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
         var duration = GetReclaimingDuration(uid, item, component);
 
-        /* Goobstation - Recycle Update - Commented to prevent recycling one item several times
+        /* Goidastation - Recycle Update - Commented to prevent recycling one item several times
         if (duration == TimeSpan.Zero)
         {
             Reclaim(uid, item, 1, component);
@@ -288,7 +288,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     /// </summary>
     public bool CanStart(EntityUid uid, MaterialReclaimerComponent component)
     {
-        /* Goobstation - Recycle Update - Commented to prevent recycling one item several times
+        /* Goidastation - Recycle Update - Commented to prevent recycling one item several times
           if (HasComp<ActiveMaterialReclaimerComponent>(uid))
             return false;*/
 

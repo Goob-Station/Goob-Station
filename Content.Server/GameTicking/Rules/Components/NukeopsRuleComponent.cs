@@ -100,7 +100,7 @@ public sealed partial class NukeopsRuleComponent : Component
     [DataField]
     public int WarTcAmountPerNukie = 200;
 
-    // Goobstation start
+    // Goidastation start
     /// <summary>
     /// The ratio of players per nuclear operative for war declaration scaling.
     /// Example: A value of 10 means one operative per 10 players.
@@ -121,7 +121,7 @@ public sealed partial class NukeopsRuleComponent : Component
     /// </summary>
     [DataField]
     public int WarTcPerNukieMissing = 100;
-    // Goobstation end
+    // Goidastation end
 
     /// <summary>
     ///     Delay between war declaration and nuke ops arrival on station map. Gives crew time to prepare
@@ -159,7 +159,7 @@ public sealed partial class NukeopsRuleComponent : Component
     [DataField]
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/nukeops_start.ogg");
 
-    // Goobstation - Honkops
+    // Goidastation - Honkops
     [DataField]
     public string LocalePrefix = "nukeops-";
 }

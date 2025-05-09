@@ -18,7 +18,7 @@
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: realignment
     event: !type:EventHereticRealignment
   - type: HereticAction
@@ -35,7 +35,7 @@
     useDelay: 60
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: furious_steel
     event: !type:EventHereticFuriousSteel
     checkCanInteract: false

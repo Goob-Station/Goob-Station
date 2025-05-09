@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Silo;
+using Content.Shared._Goidastation.Silo;
 
 namespace Content.Client._Shitcode.Silo;
 

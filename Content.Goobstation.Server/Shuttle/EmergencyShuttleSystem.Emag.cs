@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Emag;
+using Content.Goidastation.Shared.Emag;
 using Content.Server.Administration.Logs;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
@@ -16,9 +16,9 @@ using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 
-namespace Content.Goobstation.Server.Shuttle;
+namespace Content.Goidastation.Server.Shuttle;
 
-public sealed class GoobEmergencyShuttleSystem : EntitySystem
+public sealed class GoidaEmergencyShuttleSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _logger = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;

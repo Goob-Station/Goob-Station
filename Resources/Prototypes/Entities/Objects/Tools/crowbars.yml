@@ -93,7 +93,7 @@
   - type: Tag
     tags:
     - Crowbar
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -107,13 +107,13 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: ToolTileCompatible
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 50
   - type: StaticPrice
     price: 22
   - type: Prying
-  - type: UseDelay # Goobstation - For insta prying
+  - type: UseDelay # Goidastation - For insta prying
     delay: 1
   - type: Sprite
     sprite: Objects/Tools/crowbar.rsi

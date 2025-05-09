@@ -110,11 +110,11 @@
   lowerBound: !type:AlarmThresholdSetting
     threshold: 0.10
   upperBound: !type:AlarmThresholdSetting
-    threshold: 1.0 # Goobstation
+    threshold: 1.0 # Goidastation
   lowerWarnAround: !type:AlarmThresholdSetting
     threshold: 1.5
   upperWarnAround: !type:AlarmThresholdSetting
-    threshold: 0.8 # Goobstation
+    threshold: 0.8 # Goidastation
 
 - type: alarmThreshold
   id: stationNitrogen

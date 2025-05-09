@@ -27,14 +27,14 @@ public static class SkinColor
     public const float MinFeathersValue = 36f / 100;
     public const float MaxFeathersValue = 55f / 100;
 
-    // Goobstation Section Start - Tajaran
+    // Goidastation Section Start - Tajaran
     public const float MinAnimalFurHue = 20f / 360;
     public const float MaxAnimalFurHue = 45f / 360;
     public const float MinAnimalFurSaturation = 0f / 100;
     public const float MaxAnimalFurSaturation = 100f / 100;
     public const float MinAnimalFurValue = 0f / 100;
     public const float MaxAnimalFurValue = 100f / 100;
-    // Goobstation Section End - Tajaran
+    // Goidastation Section End - Tajaran
 
     public static Color ValidHumanSkinTone => Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
 
@@ -223,7 +223,7 @@ public static class SkinColor
         return true;
     }
 
-    /// Goobstation Section Start - Tajaran
+    /// Goidastation Section Start - Tajaran
     /// <summary>
     ///     Converts a Color proportionally to the allowed animal fur color range.
     ///     Will NOT preserve the specific input color even if it is within the allowed animal fur color range.
@@ -277,7 +277,7 @@ public static class SkinColor
 
         return true;
     }
-    /// Goobstation Section End - Tajaran
+    /// Goidastation Section End - Tajaran
 
     /// <summary>
     ///     This takes in a color, and returns a color guaranteed to be above MinHuesLightness
@@ -334,6 +334,6 @@ public enum HumanoidSkinColor : byte
     Hues,
     VoxFeathers, // Vox feathers are limited to a specific color range
     TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range).
-    NoColor, // Goob #1161
-    AnimalFur, // Goob - Tajaran
+    NoColor, // Goida #1161
+    AnimalFur, // Goida - Tajaran
 }

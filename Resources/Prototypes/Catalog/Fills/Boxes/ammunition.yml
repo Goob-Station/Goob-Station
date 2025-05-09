@@ -20,7 +20,7 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <comedian_vs_clown@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -39,10 +39,10 @@
       - state: magazine
 
 - type: entity
-  name: box of 9.5mm HP magazines # Goob edit
+  name: box of 9.5mm HP magazines # Goida edit
   parent: BoxMagazine
   id: BoxMagazinePistolCaselessRifle
-  description: A box full of 9.5mm caseless magnum hollow-point magazines. # Goob edit
+  description: A box full of 9.5mm caseless magnum hollow-point magazines. # Goida edit
   components:
   - type: StorageFill
     contents:
@@ -50,10 +50,10 @@
         amount: 4
 
 - type: entity
-  name: box of 9.5mm (practice) magazines # Goob edit
+  name: box of 9.5mm (practice) magazines # Goida edit
   parent: BoxMagazine
   id: BoxMagazinePistolCaselessRiflePractice
-  description: A box full of 9.5mm caseless magnum practice magazines. # Goob edit
+  description: A box full of 9.5mm caseless magnum practice magazines. # Goida edit
   components:
   - type: StorageFill
     contents:

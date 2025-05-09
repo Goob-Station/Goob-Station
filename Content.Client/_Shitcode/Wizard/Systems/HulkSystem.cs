@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.Mutate;
+using Content.Shared._Goidastation.Wizard.Mutate;
 using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 

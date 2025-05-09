@@ -82,7 +82,7 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 //
@@ -339,7 +339,7 @@ public abstract partial class SharedGunSystem
 
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
-                if (!component.AutoCycle) //  Goobstation - do not remove spent ammo from the gun it doesn't autocycle
+                if (!component.AutoCycle) //  Goidastation - do not remove spent ammo from the gun it doesn't autocycle
                     break;
 
                 component.Entities.RemoveAt(component.Entities.Count - 1);
@@ -353,14 +353,14 @@ public abstract partial class SharedGunSystem
                 entity = Spawn(component.Proto, args.Coordinates);
                 args.Ammo.Add((entity, EnsureShootable(entity)));
 
-                // Goobstation - put spent ammo back in the gun if it doesn't autocycle
+                // Goidastation - put spent ammo back in the gun if it doesn't autocycle
                 if (!component.AutoCycle)
                 {
                     component.Entities.Add(entity);
                     Containers.Insert(entity, component.Container);
                     DirtyField(uid, component, nameof(BallisticAmmoProviderComponent.Entities));
                 }
-                // Goobstation - end
+                // Goidastation - end
             }
         }
 

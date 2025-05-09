@@ -5,10 +5,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Goidastation.Weapons.AmmoSelector;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Changeling.Components;
+namespace Content.Goidastation.Shared.Changeling.Components;
 
 [RegisterComponent]
 public sealed partial class ChangelingReagentStingComponent : Component

@@ -20,7 +20,7 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Silicons.Laws;
@@ -190,7 +190,7 @@ public sealed class IonStormSystem : EntitySystem
         var verb = Pick(Verbs);
         var number = Pick(NumberBase) + " " + Pick(NumberMod);
         var area = Pick(Areas);
-        var area2 = Pick(Areas); // Goobstation
+        var area2 = Pick(Areas); // Goidastation
         var feeling = Pick(Feelings);
         var feelingPlural = Pick(FeelingsPlural);
         var must = Pick(Musts);
@@ -245,7 +245,7 @@ public sealed class IonStormSystem : EntitySystem
 
         var subjects = _robustRandom.Prob(0.5f) ? objectsThreats : Loc.GetString("ion-storm-people");
 
-        // Goobstation
+        // Goidastation
         var thing = _robustRandom.Next(0, 4) switch
         {
             0 => objects,
@@ -255,7 +255,7 @@ public sealed class IonStormSystem : EntitySystem
         };
 
         // message logic!!!
-        return _robustRandom.Next(0, 40) switch // Goobstation
+        return _robustRandom.Next(0, 40) switch // Goidastation
         {
             0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
             1  => Loc.GetString("ion-storm-law-call-shuttle", ("joined", joined), ("subjects", triple)),
@@ -291,13 +291,13 @@ public sealed class IonStormSystem : EntitySystem
             31 => Loc.GetString("ion-storm-law-crew-must-eat", ("who", who), ("adjective", adjective), ("food", food), ("part", part)),
             32 => Loc.GetString("ion-storm-law-harm", ("who", harm)),
             33 => Loc.GetString("ion-storm-law-protect", ("who", harm)),
-            // <Goobstation> - New ion laws
+            // <Goidastation> - New ion laws
             34 => Loc.GetString("ion-storm-maximise", ("thing", thing)),
             35 => Loc.GetString("ion-storm-maximise-all", ("thing", thing)),
             36 => Loc.GetString("ion-storm-minimise", ("thing", thing)),
             37 => Loc.GetString("ion-storm-minimise-all", ("thing", thing)),
             38 => Loc.GetString("ion-storm-remake", ("place1", area), ("place2", area2)),
-            // </Goobstation>
+            // </Goidastation>
             _ => Loc.GetString("ion-storm-law-concept-verb", ("concept", concept), ("verb", verb), ("subjects", triple))
         };
     }

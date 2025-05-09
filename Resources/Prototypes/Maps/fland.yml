@@ -39,9 +39,9 @@
 - type: gameMap
   id: Fland
   mapName: 'Fland Installation'
-  mapPath: /Maps/_Goobstation/fland.yml # Goobstation - SM
-  minPlayers: 40 # Goobstation return minPlayers requirement for maps
-  maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
+  mapPath: /Maps/_Goidastation/fland.yml # Goidastation - SM
+  minPlayers: 40 # Goidastation return minPlayers requirement for maps
+  maxPlayers: 85 # Goidastation - Limit mappool to highpop versions of maps only
   stations:
     Fland:
       stationProto: StandardNanotrasenStation
@@ -103,7 +103,7 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450

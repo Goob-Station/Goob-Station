@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -11,12 +11,12 @@
   description: High Energy One-Shell rifle. On its side, "leading us on and on" is written using a cheap black marker. Takes Gauss-8 cartridges.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Snipers/heavensgate.rsi
     quickEquip: false
     slots:
     - Back

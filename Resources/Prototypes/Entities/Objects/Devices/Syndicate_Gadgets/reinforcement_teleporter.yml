@@ -101,14 +101,14 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentSpy
     selectablePrototypes: ["SyndicateAgentMedic", "SyndicateAgentSpy", "SyndicateAgentThief"]
 
-# Goobstation - Nukeop reinforcement
+# Goidastation - Nukeop reinforcement
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateNukeops # Reinforcement radio exclusive to nukeops uplink
@@ -124,7 +124,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostRoleMobSpawner
@@ -144,7 +144,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostRoleMobSpawner
@@ -176,7 +176,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostRoleMobSpawner
@@ -199,7 +199,7 @@
       - MindRoleGhostRoleSilicon
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
+      requirements: # Goidastation - ghost roles requirements
       - !type:OverallPlaytimeRequirement
         time: 18000 #5 hours
     - type: GhostRoleMobSpawner

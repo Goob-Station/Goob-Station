@@ -1,4 +1,4 @@
-Name: Gooblog
+Name: Goidalog
 Order: -1
 Entries:
 - author: Piras314
@@ -10,7 +10,7 @@ Entries:
 - author: Piras314
   changes:
     - type: Add
-      message: Added automated changelogs! Goobers rejoice!
+      message: Added automated changelogs! Goidaers rejoice!
   id: 4
   time: '2024-06-17T00:09:12.0000000+00:00'
 - author: Piras314
@@ -1367,7 +1367,7 @@ Entries:
 - author: BombasterDS
   changes:
     - type: Add
-      message: Updated cluster to include all new goob features.
+      message: Updated cluster to include all new goida features.
   id: 167
   time: '2024-09-29T15:22:16.0000000+00:00'
 - author: whateverusername0
@@ -1395,7 +1395,7 @@ Entries:
 - author: BombasterDS
   changes:
     - type: Tweak
-      message: Updated Origin to include all new goob features
+      message: Updated Origin to include all new goida features
   id: 171
   time: '2024-10-01T22:59:35.0000000+00:00'
 - author: whateverusername0
@@ -1407,7 +1407,7 @@ Entries:
 - author: BombasterDS
   changes:
     - type: Tweak
-      message: Updated Fland to include all new goob features
+      message: Updated Fland to include all new goida features
   id: 173
   time: '2024-10-03T23:30:53.0000000+00:00'
 - author: Icepicked
@@ -1427,7 +1427,7 @@ Entries:
 - author: BombasterDS
   changes:
     - type: Tweak
-      message: Updated Atlas to include all new goob features
+      message: Updated Atlas to include all new goida features
   id: 176
   time: '2024-10-04T13:51:02.0000000+00:00'
 - author: whateverusername0
@@ -2133,8 +2133,8 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Goob coin! Super simple setup right now, you can't buy anything with
-        goob coin yet, but you can earn it :-)
+        Goida coin! Super simple setup right now, you can't buy anything with
+        goida coin yet, but you can earn it :-)
   id: 258
   time: '2024-11-23T18:31:49.0000000+00:00'
 - author: Piras314
@@ -3573,7 +3573,7 @@ Entries:
       message: Added sprites for /tg/ gases
   id: 394
   time: '2024-12-24T16:08:33.0000000+00:00'
-- author: goob lord dynamic fixer shi john stun
+- author: goida lord dynamic fixer shi john stun
   changes:
     - type: Fix
       message: Fixed dynamic.
@@ -3638,7 +3638,7 @@ Entries:
 - author: Aviu
   changes:
     - type: Fix
-      message: Fix goob coins not being saved on server shutdown.
+      message: Fix goida coins not being saved on server shutdown.
   id: 403
   time: '2024-12-28T16:31:27.0000000+00:00'
 - author: marc-pelletier
@@ -4001,11 +4001,11 @@ Entries:
       message: Fixed the changelog never appearing as 'New!' & turning red
     - type: Tweak
       message: >-
-        The goob changelog now appears before the wizden changelog instead of
+        The goida changelog now appears before the wizden changelog instead of
         after
     - type: Tweak
       message: >-
-        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        The 'goidalog' is now just 'Goida' and the wizden changelog is now called
         'Wizden' instead of just 'Changelog'
   id: 451
   time: '2025-01-09T20:14:36.0000000+00:00'
@@ -4017,11 +4017,11 @@ Entries:
       message: Fixed the changelog bot messing up the changelog order and ID
     - type: Tweak
       message: >-
-        The goob changelog now appears before the wizden changelog instead of
+        The goida changelog now appears before the wizden changelog instead of
         after
     - type: Tweak
       message: >-
-        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        The 'goidalog' is now just 'Goida' and the wizden changelog is now called
         'Wizden' instead of just 'Changelog'
   id: 452
   time: '2025-01-09T20:22:48.0000000+00:00'
@@ -5032,7 +5032,7 @@ Entries:
 - author: H2Owe
   changes:
     - type: Add
-      message: New lobby art. StarGoob
+      message: New lobby art. StarGoida
   id: 577
   time: '2025-02-22T06:00:27.0000000+00:00'
 - author: SX-7
@@ -5373,11 +5373,11 @@ Entries:
 - author: Mocho, AgentePanela
   changes:
     - type: Add
-      message: Disasterous consequences for the Goobconomy.
+      message: Disasterous consequences for the Goidaconomy.
     - type: Tweak
       message: >-
-        Added CVARs to modify the amount of goobcoins players get at round end,
-        multipliers based on whether or not they can be antags, Goobcoin bonus
+        Added CVARs to modify the amount of goidacoins players get at round end,
+        multipliers based on whether or not they can be antags, Goidacoin bonus
         values based on each job (can be added to each Job prototype),
         server-specific multipliers and more!
     - type: Remove
@@ -6087,7 +6087,7 @@ Entries:
 - author: pheenty
   changes:
     - type: Tweak
-      message: Reach is updated to have new Goobstation content.
+      message: Reach is updated to have new Goidastation content.
   id: 698
   time: '2025-03-11T20:55:45.0000000+00:00'
 - author: Vlax
@@ -6483,7 +6483,7 @@ Entries:
 - author: Aidenkrz
   changes:
     - type: Tweak
-      message: Goob is less stable now.
+      message: Goida is less stable now.
   id: 750
   time: '2025-03-17T09:25:21.0000000+00:00'
 - author: yglop
@@ -6501,7 +6501,7 @@ Entries:
 - author: Aidenkrz
   changes:
     - type: Remove
-      message: Goob is no longer stable.
+      message: Goida is no longer stable.
   id: 753
   time: '2025-03-19T20:17:28.0000000+00:00'
 - author: pheenty
@@ -6852,7 +6852,7 @@ Entries:
   changes:
     - type: Add
       message: >-
-        Custom goobstation module for faster compile times and shitcod
+        Custom goidastation module for faster compile times and shitcod
         generation
   id: 792
   time: '2025-03-28T21:04:41.0000000+00:00'
@@ -7502,7 +7502,7 @@ Entries:
     - type: Add
       message: >-
         Added a new trait, Movement Impaired. You can now live out your dreams
-        of being an elderly man in goob.
+        of being an elderly man in goida.
   id: 872
   time: '2025-04-16T04:50:34.0000000+00:00'
 - author: Armok
@@ -8006,7 +8006,7 @@ Entries:
         you'll be put in a queue. (Patrons get priority queue 😄 )
     - type: Tweak
       message: >-
-        Goobflation has ruined the antag token economy (as of writing there are
+        Goidaflation has ruined the antag token economy (as of writing there are
         3,676,072 coins in circulation), antag tokens have risen in price to
         combat this.
     - type: Remove
@@ -8014,7 +8014,7 @@ Entries:
         Mid tier, low tier, and ghost role tokens have been nuked in favor of
         one central antag token.
     - type: Tweak
-      message: Patrons get double goob coins now.
+      message: Patrons get double goida coins now.
   id: 927
   time: '2025-04-29T23:37:06.0000000+00:00'
 - author: pheenty
@@ -8325,7 +8325,7 @@ Entries:
       message: I'm now gibbable via carp. I shall take the punishment in his stead.
     - type: Add
       message: >-
-        Brizby is now gibbable via carp. The balance of goob stays equivalent
+        Brizby is now gibbable via carp. The balance of goida stays equivalent
         after all...
     - type: Remove
       message: 'Rosef is no longer gibbable via carp. Please shame him publicly. '
@@ -8626,7 +8626,7 @@ Entries:
   changes:
     - type: Fix
       message: >-
-        THE BASEBALL BAT HAS KNOCKBACK AGAIN. The universe has found peace. Goob
+        THE BASEBALL BAT HAS KNOCKBACK AGAIN. The universe has found peace. Goida
         is saved.
   id: 988
   time: '2025-05-09T06:05:43.0000000+00:00'

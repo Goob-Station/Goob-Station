@@ -11,7 +11,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.ScryingOrb;
+using Content.Shared._Goidastation.Wizard.ScryingOrb;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Camera;
@@ -119,7 +119,7 @@ public abstract class SharedContentEyeSystem : EntitySystem
         if (args.SenderSession.AttachedEntity is not { } player)
             return;
 
-        if (!HasComp<GhostComponent>(player) && !_admin.IsAdmin(player) && !_scrying.IsScryingOrbEquipped(player)) // Goob edit
+        if (!HasComp<GhostComponent>(player) && !_admin.IsAdmin(player) && !_scrying.IsScryingOrbEquipped(player)) // Goida edit
             return;
 
         if (TryComp<EyeComponent>(player, out var eyeComp))

@@ -6,12 +6,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Stacks;
+using Content.Goidastation.Shared.Stacks;
 using Content.Shared.Stacks;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Goobstation.Client.Stack
+namespace Content.Goidastation.Client.Stack
 {
     [UsedImplicitly]
     public sealed class StackCustomSplitBoundUserInterface : BoundUserInterface

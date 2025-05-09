@@ -8,7 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Random;
@@ -27,7 +27,7 @@ public sealed class StoreDiscountSystem : EntitySystem
         var count = _random.Next(store.Sales.MinItems, store.Sales.MaxItems + 1);
 
         listings = listings
-            .Where(l => !l.SaleBlacklist && l.Cost.Any(x => x.Value > 1) && store.Categories.Overlaps(l.Categories)) // goob edit
+            .Where(l => !l.SaleBlacklist && l.Cost.Any(x => x.Value > 1) && store.Categories.Overlaps(l.Categories)) // goida edit
             .OrderBy(_ => _random.Next()).Take(count).ToList();
 
         foreach (var listing in listings)

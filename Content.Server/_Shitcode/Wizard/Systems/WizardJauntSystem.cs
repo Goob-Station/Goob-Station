@@ -6,16 +6,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Goidastation.Wizard.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
-using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.Projectiles;
 using Content.Shared.Polymorph;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class WizardJauntSystem : EntitySystem
 {

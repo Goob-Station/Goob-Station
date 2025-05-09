@@ -19,7 +19,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Christmas/lights.rsi
+      - sprite: _Goidastation/Objects/Specific/Christmas/lights.rsi
         state: base1
   - type: RandomSpawner
     offset: 0.0
@@ -38,7 +38,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Christmas/lights.rsi
+      - sprite: _Goidastation/Objects/Specific/Christmas/lights.rsi
         state: base1
         color: "#ff7878"
   - type: RandomSpawner
@@ -58,7 +58,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Christmas/lights.rsi
+      - sprite: _Goidastation/Objects/Specific/Christmas/lights.rsi
         state: base1
         color: "#2A8FBD"
   - type: RandomSpawner
@@ -76,7 +76,7 @@
   description: Some white Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base1
       - state: lights1
@@ -91,7 +91,7 @@
   description: Some white Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base2
       - state: lights2
@@ -106,7 +106,7 @@
   description: Some white Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base3
       - state: lights3
@@ -121,7 +121,7 @@
   description: Some white Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base4
       - state: lights4
@@ -136,7 +136,7 @@
   description: Some white Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base5
       - state: lights5
@@ -151,7 +151,7 @@
   description: Some white Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base6
       - state: lights6
@@ -166,7 +166,7 @@
   description: Some red Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base1
       - state: lights1
@@ -182,7 +182,7 @@
   description: Some red Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base2
       - state: lights2
@@ -198,7 +198,7 @@
   description: Some red Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base3
       - state: lights3
@@ -214,7 +214,7 @@
   description: Some red Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base4
       - state: lights4
@@ -230,7 +230,7 @@
   description: Some red Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base5
       - state: lights5
@@ -246,7 +246,7 @@
   description: Some red Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base6
       - state: lights6
@@ -262,7 +262,7 @@
   description: Some blue Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base1
       - state: lights1
@@ -278,7 +278,7 @@
   description: Some blue Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base2
       - state: lights2
@@ -294,7 +294,7 @@
   description: Some blue Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base3
       - state: lights3
@@ -310,7 +310,7 @@
   description: Some blue Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base4
       - state: lights4
@@ -326,7 +326,7 @@
   description: Some blue Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base5
       - state: lights5
@@ -342,7 +342,7 @@
   description: Some blue Christmas lights.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/lights.rsi"
     layers:
       - state: base6
       - state: lights6

@@ -5,7 +5,7 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: MIT
 
@@ -37,7 +37,7 @@ namespace Content.Shared.Damage
         public Dictionary<string, float> FlatReduction = new();
 
         /// <summary>
-        /// Goobstation.
+        /// Goidastation.
         /// Whether this modifier set will ignore incoming damage partial armor penetration, positive or negative.
         /// Used mainly for species modifier sets.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Content.Shared.Damage
         public int IgnoreArmorPierceFlags = (int) PartialArmorPierceFlags.None;
     }
 
-    // Goobstation start
+    // Goidastation start
     public sealed class ArmorPierceFlags;
 
     [Flags, Serializable]
@@ -57,5 +57,5 @@ namespace Content.Shared.Damage
         Negative = 1 << 1,
         All = Positive | Negative,
     }
-    // Goobstation end
+    // Goidastation end
 }

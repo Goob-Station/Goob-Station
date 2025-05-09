@@ -80,7 +80,7 @@
 # SPDX-FileCopyrightText: 2024 yglop <95057024+yglop@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 botanySupremist <160211017+botanySupremist@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 botanySupremist <definitelyrealBotSupremist@gmail.com>
 #
@@ -96,7 +96,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     state: GenericPatch
   - type: SolutionContainerManager
     solutions:
@@ -107,10 +107,10 @@
   - type: Sticky
     stickDelay: 3
     unstickDelay: 2
-    stickPopupStart: goobstation-medicalpatch-sticy-trystick
-    stickPopupSuccess: goobstation-medicalpatch-sticy-trystick-success
-    unstickPopupStart: goobstation-medicalpatch-sticy-tryremove
-    unstickPopupSuccess: goobstation-medicalpatch-sticy-tryremove-success
+    stickPopupStart: goidastation-medicalpatch-sticy-trystick
+    stickPopupSuccess: goidastation-medicalpatch-sticy-trystick-success
+    unstickPopupStart: goidastation-medicalpatch-sticy-tryremove
+    unstickPopupSuccess: goidastation-medicalpatch-sticy-tryremove-success
     selfStickBreakOnMove: false
     selfUnstickBreakOnMove: false
     selfStickTimeMultiplier: 0.5
@@ -133,7 +133,7 @@
   description: A basic patch for applying medicine over time to patients.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     scale: 0.9 , 0.9
     layers:
       - state: GenericPatch
@@ -160,7 +160,7 @@
   description: ...ew.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     state: GenericPatchSmallUsed
   - type: Tag
     tags:
@@ -176,7 +176,7 @@
   name: used patch
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatchUsed
 
 - type: entity
@@ -186,7 +186,7 @@
   description: A patch used for more rapid application of medicine. It has race cars drawn on it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     layers:
       - state: GenericPatch
       - state: GenericPatchBorder
@@ -204,7 +204,7 @@
   description: A patch that applies a dose over a longer period of time than other patches.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     layers:
       - state: GenericPatch
       - state: GenericPatchBorder
@@ -222,7 +222,7 @@
   description: A larger, higher-capacity patch, used for the really big boo-boos. Not recommended with easily-overdosed chemicals.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     scale: 1 , 1
     layers:
       - state: GenericPatch
@@ -316,7 +316,7 @@
   objectType: Item
   description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
   icon:
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
 
 - type: constructionGraph
@@ -343,7 +343,7 @@
   objectType: Item
   description: A little better then nothing. Apply a chemical to it and wear it for treatment over time.
   icon:
-    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    sprite: _Goidastation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
   entityWhitelist:
     tags:

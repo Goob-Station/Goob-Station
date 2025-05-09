@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 #
@@ -30,7 +30,7 @@
     energy: 5.0
   - type: Projectile
     soundHit:
-      path: /Audio/_Goobstation/Wizard/mm_hit.ogg
+      path: /Audio/_Goidastation/Wizard/mm_hit.ogg
       params:
         volume: -3
     damage:
@@ -107,7 +107,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Projectiles/spellcard.rsi
+    sprite: _Goidastation/Wizard/Projectiles/spellcard.rsi
     layers:
     - state: red
       shader: unshaded
@@ -478,7 +478,7 @@
   - type: SwapOnProjectileHit
     deleteProjectileOnSwap: true
     sound:
-      path: /Audio/_Goobstation/Wizard/swap.ogg
+      path: /Audio/_Goidastation/Wizard/swap.ogg
     whitelist:
       requireAll: true
       components:
@@ -507,7 +507,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    sprite: _Goidastation/Objects/Weapons/Grenades/beenades.rsi
     layers:
     - state: icon
   - type: Projectile
@@ -622,7 +622,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Projectiles/magic.rsi
+    sprite: _Goidastation/Wizard/Projectiles/magic.rsi
     layers:
     - state: solarflare
       shader: unshaded
@@ -652,13 +652,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Projectiles/magic.rsi
+    sprite: _Goidastation/Wizard/Projectiles/magic.rsi
     layers:
     - state: soulslash
       shader: unshaded
   - type: Projectile
     soundHit:
-      path: /Audio/_Goobstation/Wizard/crackandbleed.ogg
+      path: /Audio/_Goidastation/Wizard/crackandbleed.ogg
     forceSound: true
     damage:
       types:
@@ -705,7 +705,7 @@
     energy: 5.0
   - type: Projectile
     soundHit:
-      path: /Audio/_Goobstation/Wizard/mm_hit.ogg
+      path: /Audio/_Goidastation/Wizard/mm_hit.ogg
       params:
         volume: -3
     damage:
@@ -744,7 +744,7 @@
   - type: Sprite
     drawdepth: Items
     noRot: true
-    sprite: _Goobstation/Wizard/Projectiles/banana.rsi
+    sprite: _Goidastation/Wizard/Projectiles/banana.rsi
     layers:
     - state: icon
   - type: SlipOnCollide

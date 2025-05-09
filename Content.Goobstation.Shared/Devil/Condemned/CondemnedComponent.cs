@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
@@ -8,7 +8,7 @@ using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Devil.Condemned;
+namespace Content.Goidastation.Shared.Devil.Condemned;
 
 /// <summary>
 /// Marks an entity as having sold their soul.
@@ -84,7 +84,7 @@ public sealed partial class CondemnedComponent : Component
     public EntProtoId HandProto = "HellHand";
 
     [DataField]
-    public SoundPathSpecifier SoundEffect = new("/Audio/_Goobstation/Effects/earth_quake.ogg");
+    public SoundPathSpecifier SoundEffect = new("/Audio/_Goidastation/Effects/earth_quake.ogg");
 
     [DataField]
     public ProtoId<PolymorphPrototype> BanishProto = "ShadowJaunt180";

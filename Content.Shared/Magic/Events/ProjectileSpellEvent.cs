@@ -13,7 +13,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Magic.Events;
 
-public sealed partial class ProjectileSpellEvent : EntityWorldTargetActionEvent, ISpeakSpell // Goob edit
+public sealed partial class ProjectileSpellEvent : EntityWorldTargetActionEvent, ISpeakSpell // Goida edit
 {
     /// <summary>
     /// What entity should be spawned.
@@ -24,7 +24,7 @@ public sealed partial class ProjectileSpellEvent : EntityWorldTargetActionEvent,
     [DataField]
     public string? Speech { get; private set; }
 
-    // Goobstation
+    // Goidastation
     [DataField]
     public float Speed = 40f;
 }

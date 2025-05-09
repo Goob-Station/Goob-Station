@@ -14,7 +14,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Heretic.Components;
+namespace Content.Shared._Goidastation.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CarvingKnifeComponent : Component
@@ -32,7 +32,7 @@ public sealed partial class CarvingKnifeComponent : Component
     public TimeSpan RuneDrawTime = TimeSpan.FromSeconds(5f);
 
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/sheath.ogg");
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goidastation/Heretic/sheath.ogg");
 
     [DataField]
     public EntProtoId RunebreakAction = "ActionRunebreak";

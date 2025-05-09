@@ -86,7 +86,7 @@
     interfaces:
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
-  - type: AutomationSlots # Goobstation
+  - type: AutomationSlots # Goidastation
     slots:
     - !type:AutomatedContainer
       input: AutomationSlotInput

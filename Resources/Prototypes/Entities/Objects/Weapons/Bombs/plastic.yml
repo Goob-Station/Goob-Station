@@ -39,7 +39,7 @@
     stickPopupSuccess: comp-sticky-success-stick-bomb
     unstickPopupStart: comp-sticky-start-unstick-bomb
     unstickPopupSuccess: comp-sticky-success-unstick-bomb
-#    blacklist: # can't stick it to other items # nuh uh # Goobstation - Remove C4 item blacklist
+#    blacklist: # can't stick it to other items # nuh uh # Goidastation - Remove C4 item blacklist
 #      components:
 #      - Item
   - type: Damageable
@@ -61,7 +61,7 @@
         base:
           Primed: { state: primed }
           Unprimed: { state: complete }
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Bomb
 
@@ -102,7 +102,7 @@
     maxIntensity: 30
     canCreateVacuum: false
   - type: ExplodeOnTrigger
-  # <Goobstation> - C4 sentience
+  # <Goidastation> - C4 sentience
   - type: TypingIndicator
     proto: robot
   - type: Speech
@@ -127,7 +127,7 @@
     sounds:
       Unsexed: EmoteC4
   - type: Emoting
-  # </Goobstation>
+  # </Goidastation>
   - type: HolidayVisuals
     holidays:
       festive:

@@ -124,8 +124,8 @@ using Content.Client.UserInterface.Systems.Actions.Controls;
 using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Actions.Windows;
 using Content.Client.UserInterface.Systems.Gameplay;
-using Content.Shared._Goobstation.Wizard.Components;
-using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Goidastation.Wizard.Components;
+using Content.Shared._Goidastation.Wizard.SpellCards;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Input;
@@ -161,25 +161,25 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IEyeManager _eye = default!; // Goobstation
+    [Dependency] private readonly IEyeManager _eye = default!; // Goidastation
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
-    [UISystemDependency] private readonly TransformSystem _transform = default!; // Goobstation
-    [UISystemDependency] private readonly SpellsSystem? _spells = default!; // Goobstation
-    [UISystemDependency] private readonly ActionTargetMarkSystem? _mark = default!; // Goobstation
-    [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goobstation
+    [UISystemDependency] private readonly TransformSystem _transform = default!; // Goidastation
+    [UISystemDependency] private readonly SpellsSystem? _spells = default!; // Goidastation
+    [UISystemDependency] private readonly ActionTargetMarkSystem? _mark = default!; // Goidastation
+    [UISystemDependency] private readonly EntityLookupSystem _lookup = default!; // Goidastation
 
     private ActionButtonContainer? _container;
-    private List<EntityUid?> _actions = new(); // Goob edit
+    private List<EntityUid?> _actions = new(); // Goida edit
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
 
-    private readonly Dictionary<EntityUid, List<EntityUid?>> _savedActions = new(); // Goobstation
-    private ISawmill _sawmill = default!; // Goobstation
+    private readonly Dictionary<EntityUid, List<EntityUid?>> _savedActions = new(); // Goidastation
+    private ISawmill _sawmill = default!; // Goidastation
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
     private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
@@ -212,7 +212,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         gameplayStateLoad.OnScreenLoad += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
 
-        _sawmill = Logger.GetSawmill("action_ui_controller"); // Goobstation
+        _sawmill = Logger.GetSawmill("action_ui_controller"); // Goidastation
     }
 
     private void OnScreenLoad()
@@ -235,10 +235,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             // Gooobstation start
             _actionsSystem.ActionsSaved += OnActionsSaved;
             _actionsSystem.ActionsLoaded += OnActionsLoaded;
-            // Goobstation end
+            // Goidastation end
         }
 
-        if (_spells != null) // Goobstation
+        if (_spells != null) // Goidastation
             _spells.StopTargeting += StopTargeting;
 
         UpdateFilterLabel();
@@ -268,7 +268,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
             .BindBefore(EngineKeyFunctions.Use, new PointerInputCmdHandler(TargetingOnUse, outsidePrediction: true),
                     typeof(ConstructionSystem), typeof(DragDropSystem))
-                .BindBefore(ContentKeyFunctions.AltActivateItemInWorld, new PointerInputCmdHandler(AltTargeting, outsidePrediction: true)) // Goobstation
+                .BindBefore(ContentKeyFunctions.AltActivateItemInWorld, new PointerInputCmdHandler(AltTargeting, outsidePrediction: true)) // Goidastation
                 .BindBefore(EngineKeyFunctions.UIRightClick, new PointerInputCmdHandler(TargetingCancel, outsidePrediction: true))
             .Register<ActionUIController>();
     }
@@ -412,11 +412,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var entity = args.EntityUid;
         var coords = args.Coordinates;
 
-        // Goobstation start
+        // Goidastation start
         if (_entMan.HasComponent<LockOnMarkActionComponent>(actionId) && _mark != null &&
             _entMan.EntityExists(_mark.Target))
             entity = _mark.Target.Value;
-        // Goobstation end
+        // Goidastation end
 
         if (!_actionsSystem.ValidateEntityWorldTarget(user, entity, coords, (actionId, action)))
         {
@@ -437,7 +437,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.PerformAction(user, actionComp, actionId, action, action.Event, _timing.CurTime);
         }
         else
-            EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetEntity(entity), EntityManager.GetNetCoordinates(coords))); // Goob edit
+            EntityManager.RaisePredictiveEvent(new RequestPerformActionEvent(EntityManager.GetNetEntity(actionId), EntityManager.GetNetEntity(entity), EntityManager.GetNetCoordinates(coords))); // Goida edit
 
         if (!action.Repeat)
             StopTargeting();
@@ -489,10 +489,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             // Gooobstation start
             _actionsSystem.ActionsSaved -= OnActionsSaved;
             _actionsSystem.ActionsLoaded -= OnActionsLoaded;
-            // Goobstation end
+            // Goidastation end
         }
 
-        if (_spells != null) // Goobstation
+        if (_spells != null) // Goidastation
             _spells.StopTargeting -= StopTargeting;
 
         CommandBinds.Unregister<ActionUIController>();
@@ -513,7 +513,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem?.TriggerAction(actionId.Value, baseAction);
     }
 
-    // Goobstation start
+    // Goidastation start
     private bool AltTargeting(in PointerInputCmdArgs args)
     {
         if (!_timing.IsFirstTimePredicted || _actionsSystem == null || SelectingTargetFor is not { } actionId)
@@ -622,12 +622,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 return true;
             if (a == null || b == null)
                 return false;
-            // Goobstation start
+            // Goidastation start
             if (a.Value == b.Value)
                 return true;
             if (entity == localEntity) // Action EntityUids are not equal but this is the same entity
                 return false;
-            // Goobstation end
+            // Goidastation end
             if (!metaQuery.TryGetComponent(a.Value, out var metaA) ||
                 !metaQuery.TryGetComponent(b.Value, out var metaB))
                 return false;
@@ -663,7 +663,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         _savedActions.Remove(entity);
         _sawmill.Debug($"Loaded actions for entity {entity}");
     }
-    // Goobstation end
+    // Goidastation end
 
     private void OnActionAdded(EntityUid actionId)
     {
@@ -1149,7 +1149,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_window is {UpdateNeeded: true})
             SearchAndDisplay();
 
-        // Goobstation start
+        // Goidastation start
         if (_entMan.HasComponent<SwapSpellComponent>(SelectingTargetFor))
             return;
 
@@ -1191,7 +1191,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         }
 
         _mark.SetMark(selectedTargets.MinBy(x => x.range).target);
-        // Goobstation end
+        // Goidastation end
     }
 
     private void OnComponentLinked(ActionsComponent component)
@@ -1287,7 +1287,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action is not EntityTargetActionComponent entityAction)
             return;
 
-        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
+        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goidastation
             _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId);
 
         Func<EntityUid, bool>? predicate = null;
@@ -1307,7 +1307,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     /// </summary>
     private void StopTargeting()
     {
-        _mark?.SetMark(null); // Goobstation
+        _mark?.SetMark(null); // Goidastation
 
         if (SelectingTargetFor == null)
             return;
@@ -1319,7 +1319,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             action.Toggled = false;
         }
 
-        // Goobstation
+        // Goidastation
         if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
             _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value);
 

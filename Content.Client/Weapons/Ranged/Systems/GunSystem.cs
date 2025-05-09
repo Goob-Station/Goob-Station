@@ -39,10 +39,10 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode;
-using Content.Shared.Mech.Components; // Goobstation
+using Content.Shared.Mech.Components; // Goidastation
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -206,7 +206,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         var entity = entityNull.Value;
 
-        if (TryComp<MechPilotComponent>(entity, out var mechPilot)) // Goobstation
+        if (TryComp<MechPilotComponent>(entity, out var mechPilot)) // Goidastation
             entity = mechPilot.Mech;
 
         if (!TryGetGun(entity, out var gunUid, out var gun))
@@ -215,7 +215,7 @@ public sealed partial class GunSystem : SharedGunSystem
         }
 
         if (TryComp<EntropicPlumeAffectedComponent>(entity, out var affected) &&
-            affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goobstation
+            affected.NextAttack + TimeSpan.FromSeconds(0.1f) > Timing.CurTime) // Goidastation
             return;
 
         var useKey = gun.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
@@ -245,7 +245,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         NetEntity? target = null;
         if (_state.CurrentState is GameplayStateBase screen)
-            target = GetNetEntity(screen.GetDamageableClickedEntity(mousePos)); // Goob edit
+            target = GetNetEntity(screen.GetDamageableClickedEntity(mousePos)); // Goida edit
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 

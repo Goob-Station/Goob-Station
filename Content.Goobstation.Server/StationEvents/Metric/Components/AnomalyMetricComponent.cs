@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.StationEvents.Metric.Components;
+namespace Content.Goidastation.Server.StationEvents.Metric.Components;
 
 [RegisterComponent, Access(typeof(AnomalyMetric))]
 public sealed partial class AnomalyMetricComponent : Component

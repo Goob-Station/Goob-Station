@@ -9,7 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 Terraspark4941 <terraspark4941@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -37,7 +37,7 @@
         type: StorageBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
-  - type: HideContrabandContent #Goobstation-Contraband detector
+  - type: HideContrabandContent #Goidastation-Contraband detector
 
 - type: entity
   parent: [Clothing, ClothingSlotBase]
@@ -95,11 +95,11 @@
     solution: tank
   - type: ExaminableSolution
     solution: tank
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 62
       Glass: 250
-  - type: StaticPrice #Goobstation - Recycle update
+  - type: StaticPrice #Goidastation - Recycle update
     price: 50
 
 # Assmos - Extinguisher Nozzle

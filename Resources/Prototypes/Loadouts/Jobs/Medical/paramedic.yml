@@ -93,7 +93,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
 
-- type: loadout # goob
+- type: loadout # goida
   id: ParamedMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryParamedic

@@ -7,12 +7,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Emoting;
+using Content.Goidastation.Shared.Emoting;
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Emoting;
+namespace Content.Goidastation.Server.Emoting;
 
 public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 {

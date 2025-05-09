@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -17,7 +17,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/standard.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/standard.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -54,7 +54,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/security.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/security.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -90,7 +90,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/paramedic.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/paramedic.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -126,7 +126,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/headofsecurity.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/headofsecurity.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -162,7 +162,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/engineer.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/engineer.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -198,7 +198,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/atmostech.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/atmostech.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -234,7 +234,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/researchdirector.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/researchdirector.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed
@@ -270,7 +270,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Hands/Modsuits/captain.rsi
+    sprite: _Goidastation/Clothing/Hands/Modsuits/captain.rsi
     layers:
     - state: gauntlets
     - state: gauntlets-sealed

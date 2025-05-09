@@ -11,7 +11,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Containers.ExtendedContainer;
+namespace Content.Goidastation.Shared.Containers.ExtendedContainer;
 
 /// <summary>
 /// Manages entities that have a <see cref="ExtendedContainer"/>.

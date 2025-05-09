@@ -96,7 +96,7 @@
 - type: gameMap
   id: Train
   mapName: 'Train'
-  mapPath: /Maps/_Goobstation/train.yml
+  mapPath: /Maps/_Goidastation/train.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 30
@@ -163,9 +163,9 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
 
-        # Goobstation blob-config-start SMALL+
+        # Goidastation blob-config-start SMALL+
         - type: StationBlobConfig
           stageBegin: 25
           stageCritical: 350
           stageTheEnd: 700
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

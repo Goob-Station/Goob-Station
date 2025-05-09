@@ -155,7 +155,7 @@ namespace Content.Shared.Hands
         }
     }
 
-    // Goobstation start
+    // Goidastation start
     // Added virtual items for grab intent, this is heavily edited please do not bulldoze.
     /// <summary>
     ///     Raised directed on both the blocking entity and user when
@@ -213,7 +213,7 @@ namespace Content.Shared.Hands
             Throw = thrown;
         }
     }
-    // Goobstation end
+    // Goidastation end
 
     /// <summary>
     ///     Raised when putting an entity into a hand slot

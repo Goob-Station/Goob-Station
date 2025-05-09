@@ -21,7 +21,7 @@ namespace Content.Shared.Chat
     ///     Maps to <see cref="ChatChannel"/>, giving better names.
     /// </remarks>
     [Flags]
-    public enum ChatSelectChannel : uint // Goobstation - Starlight collective mind port
+    public enum ChatSelectChannel : uint // Goidastation - Starlight collective mind port
     {
         None = 0,
 
@@ -55,7 +55,7 @@ namespace Content.Shared.Chat
         /// </summary>
         Emotes = ChatChannel.Emotes,
 
-        // Goobstation - Starlight collective mind port
+        // Goidastation - Starlight collective mind port
         /// <summary>
         ///     CollectiveMind
         /// </summary>

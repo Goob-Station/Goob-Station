@@ -4,15 +4,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Stunnable;
-using Content.Goobstation.Shared.Stunnable;
+using Content.Goidastation.Common.Stunnable;
+using Content.Goidastation.Shared.Stunnable;
 
-namespace Content.Goobstation.Shared.Stun;
+namespace Content.Goidastation.Shared.Stun;
 
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class SharedGoobStunSystem : EntitySystem
+public sealed class SharedGoidaStunSystem : EntitySystem
 {
     [Dependency] private readonly ClothingModifyStunTimeSystem _modifySystem = default!;
     /// <inheritdoc/>

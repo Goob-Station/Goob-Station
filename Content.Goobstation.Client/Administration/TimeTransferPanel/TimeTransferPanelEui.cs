@@ -6,10 +6,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Eui;
-using Content.Goobstation.Shared.Administration;
+using Content.Goidastation.Shared.Administration;
 using Content.Shared.Eui;
 
-namespace Content.Goobstation.Client.Administration.TimeTransferPanel;
+namespace Content.Goidastation.Client.Administration.TimeTransferPanel;
 
 public sealed class TimeTransferPanelEui : BaseEui
 {

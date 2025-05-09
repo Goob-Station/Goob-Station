@@ -9,7 +9,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Containers.OnCollide;
+namespace Content.Goidastation.Shared.Containers.OnCollide;
 
 /// <summary>
 /// When this component is added we remove everything from the container

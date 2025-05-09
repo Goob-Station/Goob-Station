@@ -16,7 +16,7 @@
   description: An expensive dark green backpack. Smells like fax machines.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Back/Satchels/nanorep.rsi
+    sprite: _Goidastation/Clothing/Back/Satchels/nanorep.rsi
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseCentcommContraband]
@@ -25,4 +25,4 @@
   description: A very protective satchel, smells like energy gun.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Back/Satchels/blueshield.rsi
+    sprite: _Goidastation/Clothing/Back/Satchels/blueshield.rsi

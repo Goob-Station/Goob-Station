@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -12,7 +12,7 @@
   startNode: start
   targetNode: HexNutStack
   icon:
-    sprite: _Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goidastation/Objects/Materials/materials.rsi
     state: hex_1
   objectType: Item
 
@@ -25,7 +25,7 @@
   startNode: start
   targetNode: ScrewStack
   icon:
-    sprite: _Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goidastation/Objects/Materials/materials.rsi
     state: screw_1
   objectType: Item
 
@@ -38,7 +38,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Storage/contra_satchel.rsi
+    sprite: _Goidastation/Objects/Storage/contra_satchel.rsi
     state: icon
   objectType: Item
 
@@ -51,7 +51,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Devices/defib.rsi
+    sprite: _Goidastation/Objects/Devices/defib.rsi
     state: icon
   objectType: Item
 
@@ -64,7 +64,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Devices/tideflipper.rsi
+    sprite: _Goidastation/Objects/Devices/tideflipper.rsi
     state: icon
   objectType: Item
 
@@ -77,7 +77,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/Ghetto/metal_bat.rsi
     state: icon
   objectType: Item
 
@@ -90,7 +90,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/hammer.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/hammer.rsi
     state: icon
   objectType: Item
 
@@ -103,7 +103,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Devices/makeshift_jammer.rsi
+    sprite: _Goidastation/Objects/Devices/makeshift_jammer.rsi
     state: jammer
   objectType: Item
 
@@ -116,7 +116,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Devices/makeshift_id.rsi
+    sprite: _Goidastation/Objects/Devices/makeshift_id.rsi
     state: icon
   objectType: Item
 
@@ -129,7 +129,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Objects/Storage/grey_toolbox.rsi
+    sprite: _Goidastation/Objects/Storage/grey_toolbox.rsi
     state: icon
   objectType: Item
 # clothing
@@ -143,7 +143,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Clothing/Shoes/Boots/heavy_boots.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/heavy_boots.rsi
     state: icon
   objectType: Item
 
@@ -156,7 +156,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Clothing/Head/Helmets/helmet.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/helmet.rsi
     state: icon
   objectType: Item
 
@@ -169,7 +169,7 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Clothing/Armor/light_armor.rsi
+    sprite: _Goidastation/Clothing/Armor/light_armor.rsi
     state: icon
   objectType: Item
 
@@ -182,6 +182,6 @@
   startNode: start
   targetNode: final
   icon:
-    sprite: _Goobstation/Clothing/Armor/heavy_armor.rsi
+    sprite: _Goidastation/Clothing/Armor/heavy_armor.rsi
     state: icon
   objectType: Item

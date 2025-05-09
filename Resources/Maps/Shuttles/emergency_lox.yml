@@ -3970,7 +3970,7 @@ entities:
     - type: Transform
       pos: -0.5,15.5
       parent: 670
-- proto: ThrusterShuttleEvac # Goob edit
+- proto: ThrusterShuttleEvac # Goida edit
   entities:
   - uid: 61
     components:

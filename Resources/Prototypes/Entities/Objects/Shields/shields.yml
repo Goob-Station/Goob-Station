@@ -550,7 +550,7 @@
     - type: ItemTogglePointLight
     - type: Reflect
       reflectProb: 1 # WD EDIT
-      damageOnReflectModifier: 1 # Goob edit
+      damageOnReflectModifier: 1 # Goida edit
       reflects:
         - Energy
     - type: Blocking

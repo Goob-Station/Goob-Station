@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Changeling.Objectives.Systems;
+using Content.Goidastation.Server.Changeling.Objectives.Systems;
 
-namespace Content.Goobstation.Server.Changeling.Objectives.Components;
+namespace Content.Goidastation.Server.Changeling.Objectives.Components;
 
 [RegisterComponent, Access(typeof(ChangelingObjectiveSystem), typeof(ChangelingSystem))]
 public sealed partial class StealDNAConditionComponent : Component

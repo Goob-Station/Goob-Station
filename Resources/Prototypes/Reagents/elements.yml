@@ -90,7 +90,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -113,7 +113,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:OrganType
@@ -155,7 +155,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -212,7 +212,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:OrganType
@@ -246,7 +246,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -254,7 +254,7 @@
             Poison: 0.05
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         emote: Scream
@@ -280,7 +280,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -346,7 +346,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:

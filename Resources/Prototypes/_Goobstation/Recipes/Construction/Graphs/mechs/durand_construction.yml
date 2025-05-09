@@ -166,7 +166,7 @@
       - tag: DurandArmor
         name: durand armor plates
         icon:
-          sprite: "_Goobstation/Objects/Specific/Mech/durand_construction.rsi"
+          sprite: "_Goidastation/Objects/Specific/Mech/durand_construction.rsi"
           state: durand_armor
         completed:
         - !type:VisualizerDataInt

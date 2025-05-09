@@ -11,7 +11,7 @@ using Content.Shared.Hands;
 using Content.Shared.Wieldable.Components;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Client.ToggleableLightWieldable;
+namespace Content.Goidastation.Client.ToggleableLightWieldable;
 
 public sealed class ToggleableLightWieldableSystem : EntitySystem
 {

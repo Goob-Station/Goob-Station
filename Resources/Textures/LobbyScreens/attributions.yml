@@ -21,7 +21,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Jvne <39907509+H2Owe@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -48,72 +48,72 @@
 - files: ["cburn.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "PubliclyExecutedPig"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["clown.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Unknown"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["clownassassin.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "ka2220"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["clownhell.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "kA2220"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["cqcm.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "blooodyspy, downscaled by Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["cqcm1.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "blooodyspy, downscaled by Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["cqcm2.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "blooodyspy, downscaled by Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["cqcm3.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "blooodyspy, downscaled by Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["foundinghonkers.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
-- files: ["goob.webp"]
+- files: ["goida.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Diebeck, downscaled by Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
-- files: ["GoobNukie.webp"]
+- files: ["GoidaNukie.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "@Cheeki - on discord"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
-- files: ["grandtheftgoob.webp"]
+- files: ["grandtheftgoida.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["greytideworldwide.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Piras314"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["heretic.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "@Cheeki - on discord"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["janishootout.webp"]
   license: "CC0-1.0"
@@ -128,7 +128,7 @@
 - files: ["mime.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "Diebeck"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["reclaimer-nuke.webp"]
   license: "CC-BY-NC-SA-3.0"
@@ -143,9 +143,9 @@
 - files: ["lostpai.webp"]
   license: "CC-BY-SA-3.0"
   copyright: Cattom
-  source: "https://discord.gg/goobstation"
+  source: "https://discord.gg/goidastation"
   
-- files: ["StarGoob.webp"]
+- files: ["StarGoida.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "H2Owe"
   source: "https://github.com/H2Owe"
@@ -153,4 +153,4 @@
 - files: ["enlist.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "thebiggestbruh on Discord"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"

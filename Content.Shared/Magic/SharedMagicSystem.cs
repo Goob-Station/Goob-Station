@@ -83,13 +83,13 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Common.Religion.Events;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Goidastation.Common.Changeling;
+using Content.Goidastation.Common.Religion;
+using Content.Goidastation.Common.Religion.Events;
+using Content.Shared._Goidastation.Wizard;
+using Content.Shared._Goidastation.Wizard.BindSoul;
+using Content.Shared._Goidastation.Wizard.Chuuni;
+using Content.Shared._Goidastation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -98,7 +98,7 @@ using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
@@ -143,7 +143,7 @@ namespace Content.Shared.Magic;
 /// </summary>
 public abstract class SharedMagicSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!; // Goobstation
+    [Dependency] private readonly IGameTiming _timing = default!; // Goidastation
     [Dependency] private readonly ISerializationManager _seriMan = default!;
     [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
@@ -167,8 +167,8 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
-    [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
+    [Dependency] private readonly DamageableSystem _damageable = default!; // Goidastation
+    [Dependency] private readonly NpcFactionSystem _faction = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -268,7 +268,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var comp = ent.Comp;
         var hasReqs = true;
 
-        // Goobstation start
+        // Goidastation start
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
         var requiredSlots = 2;
@@ -281,18 +281,18 @@ public abstract class SharedMagicSystem : EntitySystem
         }
 
         var slots = 0;
-        // Goobstation end
+        // Goidastation end
 
         if (comp.RequiresClothes)
         {
-            if (!TryComp(args.Performer, out InventoryComponent? inventory)) // Goob edit
+            if (!TryComp(args.Performer, out InventoryComponent? inventory)) // Goida edit
                 hasReqs = false;
             else
             {
-                var enumerator = _inventory.GetSlotEnumerator((args.Performer, inventory), flags); // Goob edit
+                var enumerator = _inventory.GetSlotEnumerator((args.Performer, inventory), flags); // Goida edit
                 while (enumerator.MoveNext(out var containerSlot))
                 {
-                    slots++; // Goobstation
+                    slots++; // Goidastation
 
                     if (containerSlot.ContainedEntity is { } item)
                         hasReqs = HasComp<WizardClothesComponent>(item);
@@ -304,37 +304,37 @@ public abstract class SharedMagicSystem : EntitySystem
                 }
             }
 
-            if (slots < requiredSlots) // Goobstation
+            if (slots < requiredSlots) // Goidastation
                 hasReqs = false;
         }
 
-        if (!hasReqs) // Goobstation
+        if (!hasReqs) // Goidastation
         {
             _popup.PopupClient(Loc.GetString("spell-requirements-failed-clothes"), args.Performer, args.Performer);
             args.Cancelled = true;
             return;
         }
 
-        if (requiresSpeech && HasComp<MutedComponent>(args.Performer)) // Goob edit
+        if (requiresSpeech && HasComp<MutedComponent>(args.Performer)) // Goida edit
             hasReqs = false;
 
         if (hasReqs)
             return;
 
         args.Cancelled = true;
-        _popup.PopupClient(Loc.GetString("spell-requirements-failed-speech"), args.Performer, args.Performer); // Goob edit
+        _popup.PopupClient(Loc.GetString("spell-requirements-failed-speech"), args.Performer, args.Performer); // Goida edit
 
         // TODO: Pre-cast do after, either here or in SharedActionsSystem
     }
 
-    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer) // Goob edit
+    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer) // Goida edit
     {
         var ev = new BeforeCastSpellEvent(performer);
         RaiseLocalEvent(spell, ref ev);
         return !ev.Cancelled;
     }
 
-    //goobstation start
+    //goidastation start
     private void OnTouchSpellAttempt(ref BeforeCastTouchSpellEvent args)
     {
         if (!TryComp<HandsComponent>(args.Target, out var handsComp))
@@ -366,7 +366,7 @@ public abstract class SharedMagicSystem : EntitySystem
         RaiseLocalEvent(target, ref beforeTouchSpellEvent, true);
         return beforeTouchSpellEvent.Cancelled;
     }
-    //goobstation end
+    //goidastation end
 
     #region Spells
     #region Instant Spawn Spells
@@ -511,21 +511,21 @@ public abstract class SharedMagicSystem : EntitySystem
     #region Projectile Spells
     private void OnProjectileSpell(ProjectileSpellEvent ev)
     {
-        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goob edit
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goida edit
             return;
 
-        if (ev.Coords == null) // Goob edit
+        if (ev.Coords == null) // Goida edit
             return;
 
         ev.Handled = true;
         Speak(ev);
 
-        if (_net.IsClient) // Goobstation
+        if (_net.IsClient) // Goidastation
             return;
 
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
-        var toCoords = ev.Coords.Value; // Goob edit
+        var toCoords = ev.Coords.Value; // Goida edit
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromMap = fromCoords.ToMap(EntityManager, _transform);
@@ -533,14 +533,14 @@ public abstract class SharedMagicSystem : EntitySystem
             ? fromCoords.WithEntityId(gridUid, EntityManager)
             : new(_mapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
 
-        var userVelocity = _physics.GetMapLinearVelocity(spawnCoords); // Goob edit
+        var userVelocity = _physics.GetMapLinearVelocity(spawnCoords); // Goida edit
 
         var ent = Spawn(ev.Prototype, spawnCoords);
         var direction = toCoords.ToMapPos(EntityManager, _transform) -
                         spawnCoords.ToMapPos(EntityManager, _transform);
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goob edit
+        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.Speed); // Goida edit
 
-        if (ev.Entity != null) // Goobstation
+        if (ev.Entity != null) // Goidastation
             _gunSystem.SetTarget(ent, ev.Entity.Value, out _);
     }
     // End Projectile Spells
@@ -661,8 +661,8 @@ public abstract class SharedMagicSystem : EntitySystem
         if (!TryComp<BodyComponent>(ev.Target, out var body))
             return;
 
-        if (_timing.IsFirstTimePredicted) // Goobstation
-            _body.GibBody(ev.Target, true, body, splatModifier: 10f, contents: GibContentsOption.Skip); // Goob edit
+        if (_timing.IsFirstTimePredicted) // Goidastation
+            _body.GibBody(ev.Target, true, body, splatModifier: 10f, contents: GibContentsOption.Skip); // Goida edit
     }
     // End Smite Spells
     #endregion
@@ -682,9 +682,9 @@ public abstract class SharedMagicSystem : EntitySystem
         var transform = Transform(args.Performer);
 
         // Look for doors and lockers, and don't open/unlock them if they're already opened/unlocked.
-        foreach (var target in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(args.Performer, transform), args.Range, flags: LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Approximate)) // Goob edit
+        foreach (var target in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(args.Performer, transform), args.Range, flags: LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Approximate)) // Goida edit
         {
-            // Goob edit
+            // Goida edit
             // if (!_interaction.InRangeUnobstructed(args.Performer, target, range: 0, collisionMask: CollisionGroup.Opaque))
             //    continue;
 
@@ -771,7 +771,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
         }
 
-        // Goobstation start
+        // Goidastation start
         if (_mobState.IsIncapacitated(ev.Target) || HasComp<ZombieComponent>(ev.Target))
         {
             _popup.PopupClient(Loc.GetString("spell-fail-mindswap-dead"), ev.Performer, ev.Performer);
@@ -794,7 +794,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         if (blockers.Any(x => CheckMindswapBlocker(x.Item1, x.Item2)))
             return;
-        // Goobstation end
+        // Goidastation end
 
         ev.Handled = true;
         Speak(ev);
@@ -808,8 +808,8 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var tarHasMind = _mind.TryGetMind(ev.Target, out var tarMind, out var tarMindComp);
 
-        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
+        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
 
         _mind.TransferTo(perMind, ev.Target);
 
@@ -818,7 +818,7 @@ public abstract class SharedMagicSystem : EntitySystem
             _mind.TransferTo(tarMind, ev.Performer);
         }
 
-        // Goobstation start
+        // Goidastation start
         List<Type> components = new()
         {
             typeof(RevolutionaryComponent),
@@ -839,15 +839,15 @@ public abstract class SharedMagicSystem : EntitySystem
             _audio.PlayEntity(ev.Sound, ev.Target, ev.Target);
             _audio.PlayEntity(ev.Sound, ev.Performer, ev.Performer);
         }
-        // Goobstation end
+        // Goidastation end
 
-        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
-        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
+        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
 
-        _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goob edit
-        _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
+        _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goida edit
+        _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goida edit
 
-        // Goobstation start
+        // Goidastation start
         return;
 
         void TransferFactions()
@@ -932,7 +932,7 @@ public abstract class SharedMagicSystem : EntitySystem
             _popup.PopupClient(Loc.GetString($"spell-fail-mindswap-{message}"), ev.Performer, ev.Performer);
             return true;
         }
-        // Goobstation end
+        // Goidastation end
     }
 
     private void TransferComponent(Type type, EntityUid a, EntityUid b)
@@ -962,9 +962,9 @@ public abstract class SharedMagicSystem : EntitySystem
 
     // When any spell is cast it will raise this as an event, so then it can be played in server or something. At least until chat gets moved to shared
     // TODO: Temp until chat is in shared
-    public void Speak(BaseActionEvent args) // Goob edit
+    public void Speak(BaseActionEvent args) // Goida edit
     {
-        // Goob edit start
+        // Goida edit start
         var speech = string.Empty;
 
         if (args is ISpeakSpell speak && !string.IsNullOrWhiteSpace(speak.Speech))
@@ -991,7 +991,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         var ev = new SpeakSpellEvent(args.Performer, speech);
-        // Goob edit end
+        // Goida edit end
         RaiseLocalEvent(ref ev);
     }
 }

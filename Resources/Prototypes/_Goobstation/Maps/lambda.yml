@@ -84,7 +84,7 @@
 - type: gameMap
   id: Lambda
   mapName: 'Lambda'
-  mapPath: /Maps/_Goobstation/lambda.yml
+  mapPath: /Maps/_Goidastation/lambda.yml
   minPlayers: 35
   maxPlayers: 70
   fallback: true
@@ -149,9 +149,9 @@
             Borg: [ 3, 4 ]
             StationAi: [ 1, 1 ]
 
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450
           stageTheEnd: 900
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

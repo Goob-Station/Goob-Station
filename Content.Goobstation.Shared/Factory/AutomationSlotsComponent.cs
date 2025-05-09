@@ -1,12 +1,12 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Factory.Slots;
+using Content.Goidastation.Shared.Factory.Slots;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Factory;
+namespace Content.Goidastation.Shared.Factory;
 
 /// <summary>
 /// Adds slots to an entity that can be controlled by automation machines if it also has <see cref="AutomationComponent"/>.

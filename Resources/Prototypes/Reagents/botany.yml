@@ -254,7 +254,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:OrganType
@@ -270,7 +270,7 @@
       - !type:ChemVomit
         probability: 0.12
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:OrganType

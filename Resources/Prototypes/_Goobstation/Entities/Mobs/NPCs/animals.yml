@@ -10,7 +10,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -79,7 +79,7 @@
             gondola_moustache_large_short: ""
             gondola_moustache_small_short: ""
   - type: Sprite
-    sprite: _Goobstation/Mobs/Animals/gondola.rsi
+    sprite: _Goidastation/Mobs/Animals/gondola.rsi
     layers:
       - state: gondola_body_medium
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -143,10 +143,10 @@
   description: Explosive moth.
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
+    sprite: _Goidastation/Mobs/Animals/syndiroach.rsi
   - type: Clothing
     quickEquip: false
-    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
+    sprite: _Goidastation/Mobs/Animals/syndiroach.rsi
     equippedPrefix: 0
     slots:
     - HEAD
@@ -209,7 +209,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Goobstation/Mobs/Animals/lootbug.rsi
+    sprite: _Goidastation/Mobs/Animals/lootbug.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: lootbug
@@ -263,7 +263,7 @@
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
       - Mouse
-  - type: VentCrawler # goobstation - Ventcrawl
+  - type: VentCrawler # goidastation - Ventcrawl
 
 - type: entity
   name: space carp
@@ -354,7 +354,7 @@
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
-  - type: NightVision # Goobstation - Nigthvision
+  - type: NightVision # Goidastation - Nigthvision
     color: "#808080"
     activateSound: null
     deactivateSound: null
@@ -395,7 +395,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _Goobstation/Mobs/Animals/homunculus.rsi
+    sprite: _Goidastation/Mobs/Animals/homunculus.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: homunculus
@@ -474,7 +474,7 @@
   components:
     - type: Sprite
       drawdepth: Mobs
-      sprite: _Goobstation/Mobs/Animals/clown_ian.rsi
+      sprite: _Goidastation/Mobs/Animals/clown_ian.rsi
       layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: clown_ian

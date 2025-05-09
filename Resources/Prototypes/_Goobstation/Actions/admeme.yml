@@ -22,7 +22,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/disintegrate.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # todo - change this
+      sprite: _Goidastation/Wizard/actions.rsi # todo - change this
       state: gib
     event: !type:SmiteSpellEvent
       speech: action-speech-implant-vaporize
@@ -33,7 +33,7 @@
   description: Wisely done, Mr. Freeman. I will see you up ahead.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/actions.rsi # Todo - Unique sprite?
+    sprite: _Goidastation/Wizard/actions.rsi # Todo - Unique sprite?
     state: jaunt
   - type: InstantAction
     useDelay: 3
@@ -43,7 +43,7 @@
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this
+      sprite: _Goidastation/Wizard/actions.rsi # Todo - Change this
       state: jaunt
 
 - type: entity
@@ -73,9 +73,9 @@
     useDelay: 1
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/timeparadox2.ogg
+      path: /Audio/_Goidastation/Wizard/timeparadox2.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Todo - Change this, but idc.
+      sprite: _Goidastation/Wizard/actions.rsi # Todo - Change this, but idc.
       state: time
     event: !type:StopTimeEvent
       speech: action-speech-implant-stoptime

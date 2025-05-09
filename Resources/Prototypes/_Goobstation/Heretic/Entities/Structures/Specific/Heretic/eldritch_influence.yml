@@ -17,7 +17,7 @@
   - type: InteractionOutline
   - type: EldritchInfluence
   - type: Sprite
-    sprite: _Goobstation/Heretic/reality_fracture.rsi
+    sprite: _Goidastation/Heretic/reality_fracture.rsi
     state: icon
   - type: Clickable
   - type: Visibility
@@ -41,6 +41,6 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Goobstation/Heretic/reality_fracture.rsi
+    sprite: _Goidastation/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Clickable

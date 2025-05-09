@@ -50,7 +50,7 @@
         Quantity: 3
       - ReagentId: Blood
         Quantity: 10
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Trash
     - Meat

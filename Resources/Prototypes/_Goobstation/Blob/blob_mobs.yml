@@ -34,7 +34,7 @@
       damageModifierSet: BlobMob
     - type: Clothing
       quickEquip: false
-      sprite: _Goobstation/Blob/Mobs/blob_mobs.rsi
+      sprite: _Goidastation/Blob/Mobs/blob_mobs.rsi
       equippedPrefix: blobPod
       slots:
         - HEAD
@@ -110,7 +110,7 @@
       baseSprintSpeed: 4
     - type: Sprite
       drawdepth: Mobs
-      sprite: _Goobstation/Blob/Mobs/blob_mobs.rsi
+      sprite: _Goidastation/Blob/Mobs/blob_mobs.rsi
       state: blobpod
     - type: GuideHelp
       guides:
@@ -200,7 +200,7 @@
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3
     - type: Sprite
-      sprite: _Goobstation/Blob/Mobs/blob_mobs.rsi
+      sprite: _Goidastation/Blob/Mobs/blob_mobs.rsi
       drawdepth: Mobs
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -268,7 +268,7 @@
     - type: Examiner
       skipChecks: true
     - type: Sprite
-      sprite: _Goobstation/Blob/Mobs/blob_mobs.rsi
+      sprite: _Goidastation/Blob/Mobs/blob_mobs.rsi
       color: "#fc8403"
       state: marker
       noRot: true

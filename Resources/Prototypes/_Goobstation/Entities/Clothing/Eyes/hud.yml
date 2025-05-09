@@ -16,7 +16,7 @@
     - Biological
     - Inorganic
     - Silicon
-    - SiliconRadiation # Goobstation - Make IPCs take radiation
+    - SiliconRadiation # Goidastation - Make IPCs take radiation
   - type: ShowHealthIcons
     damageContainers:
     - Biological
@@ -28,9 +28,9 @@
   description: A visior from the future, capable of displaying almost anything.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Hud/chrono.rsi
+    sprite: _Goidastation/Clothing/Eyes/Hud/chrono.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Hud/chrono.rsi
+    sprite: _Goidastation/Clothing/Eyes/Hud/chrono.rsi
 
 - type: entity
   parent: ClothingEyesHudChrono
@@ -46,9 +46,9 @@
   description: A heads-up display combining both medical and diagnostic information.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+    sprite: _Goidastation/Clothing/Eyes/Hud/meddiag.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi
+    sprite: _Goidastation/Clothing/Eyes/Hud/meddiag.rsi
   - type: Construction
     graph: HudMedDiag
     node: meddiagHud

@@ -146,7 +146,7 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 54000 # 15 hours
-  goobcoins: 50 #Goob content
+  goidacoins: 50 #Goida content
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
@@ -161,7 +161,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
+      - type: Condemned # Goidastation - Nanotrasen owns your soul pal.
         soulOwnedNotDevil: true
 
 - type: startingGear
@@ -175,5 +175,5 @@
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton # Goidastation
     # - StationCharter

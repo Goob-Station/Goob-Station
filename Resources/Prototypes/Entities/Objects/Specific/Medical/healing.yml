@@ -94,15 +94,15 @@
         Heat: -10
         Cold: -10
         Shock: -10
-        Caustic: -5 #Was 5 per type & 1.5 caustic, Buffed due to limb damage changes (Goobstation)
+        Caustic: -5 #Was 5 per type & 1.5 caustic, Buffed due to limb damage changes (Goidastation)
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: Ointment
-    count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
+    count: 15 #Was 10, Buffed due to limb damage changes (Goidastation)
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -150,15 +150,15 @@
         Heat: -15
         Cold: -15
         Shock: -15
-        Caustic: -15 #Was 10 per type, Buffed due to limb damage changes (Goobstation)
+        Caustic: -15 #Was 10 per type, Buffed due to limb damage changes (Goidastation)
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: RegenerativeMesh
-    count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
+    count: 15 #Was 10, Buffed due to limb damage changes (Goidastation)
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -194,15 +194,15 @@
       - Biological
     damage:
       groups:
-        Brute: -30 # was 5 (-15 Brute) for each, Buffed due to limb damage changes (Goobstation)
+        Brute: -30 # was 5 (-15 Brute) for each, Buffed due to limb damage changes (Goidastation)
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Brutepack
-    count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
+    count: 15 #Was 10, Buffed due to limb damage changes (Goidastation)
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -248,7 +248,7 @@
       - Biological
     damage:
       groups:
-        Brute: -45 # was 10 for each, Buffed due to Limb Damage Changes (Goobstation)
+        Brute: -45 # was 10 for each, Buffed due to Limb Damage Changes (Goidastation)
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -256,8 +256,8 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: MedicatedSuture
-    count: 15 #Was 10, Buffed due to surgery changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
+    count: 15 #Was 10, Buffed due to surgery changes (Goidastation)
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -293,16 +293,16 @@
       - Biological
     damage:
       types:
-        Bloodloss: -2.5 #lowers bloodloss damage, was .5 buffed due to Limb Damage Changes (Goobstation)
-    ModifyBloodLevel: 30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes (Goobstation)
+        Bloodloss: -2.5 #lowers bloodloss damage, was .5 buffed due to Limb Damage Changes (Goidastation)
+    ModifyBloodLevel: 30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes (Goidastation)
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Bloodpack
-    count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
+    count: 15 #Was 10, Buffed due to limb damage changes (Goidastation)
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -317,7 +317,7 @@
   components:
   - type: Stack
     lingering: true
-    count: 10 # Goobstation
+    count: 10 # Goidastation
 
 - type: entity
   parent: BaseHealingItem
@@ -327,7 +327,7 @@
   components:
     - type: Tag
       tags:
-        - Tourniquet #Goobstation - ParamedHypo
+        - Tourniquet #Goidastation - ParamedHypo
         - SecBeltEquip
     - type: Sprite
       state: tourniquet
@@ -371,7 +371,7 @@
     damage:
       types:
         Slash: -10 # Was 5
-        Piercing: -15 # Was 10, Buffed due to limb damage changes (Goobstation)
+        Piercing: -15 # Was 10, Buffed due to limb damage changes (Goidastation)
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -379,8 +379,8 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Gauze
-    count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
-  # Goobstation - Custom stack splitting dialog
+    count: 15 #Was 10, Buffed due to limb damage changes (Goidastation)
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -403,7 +403,7 @@
   components:
   - type: Stack
     lingering: true
-    count: 10 # Goobstation
+    count: 10 # Goidastation
 
 - type: entity
   name: aloe cream
@@ -416,7 +416,7 @@
     state: cream
   - type: Stack
     stackType: AloeCream
-    count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+    count: 15 #Was 10, Buffed due to limb damage changes (Goidastation)
 
 - type: entity
   parent: BaseHealingItem

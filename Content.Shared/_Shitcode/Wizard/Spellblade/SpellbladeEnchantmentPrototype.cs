@@ -8,7 +8,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Goidastation.Wizard.Spellblade;
 
 [DataDefinition]
 [Prototype("spellbladeEnchantment")]

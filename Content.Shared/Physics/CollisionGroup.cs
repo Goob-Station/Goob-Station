@@ -105,7 +105,7 @@ public enum CollisionGroup
     InteractImpassable = 1 << 7, // 128 Blocks interaction/InRangeUnobstructed
     // Y dis door passable when all the others impassable / collision.
     DoorPassable       = 1 << 8, // 256 Allows door to close over top, Like blast doors over conveyors for disposals rooms/cargo.
-    BlobImpassable     = 1 << 9, // 512 Blob Tiles Goobstation - Blob
+    BlobImpassable     = 1 << 9, // 512 Blob Tiles Goidastation - Blob
 
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
 
@@ -116,21 +116,21 @@ public enum CollisionGroup
     SingularityLayer = Opaque | Impassable | MidImpassable | HighImpassable | LowImpassable | BulletImpassable | InteractImpassable | DoorPassable,
 
     // Humanoids, etc.
-    MobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | BlobImpassable, //Goobstation - Blob
+    MobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | BlobImpassable, //Goidastation - Blob
     MobLayer = Opaque | BulletImpassable,
     // Mice, drones
-    SmallMobMask = Impassable | LowImpassable | BlobImpassable, //Goobstation - Blob
+    SmallMobMask = Impassable | LowImpassable | BlobImpassable, //Goidastation - Blob
     SmallMobLayer = Opaque | BulletImpassable,
     // Birds/other small flyers
-    FlyingMobMask = Impassable | HighImpassable | BlobImpassable, //Goobstation - Blob
+    FlyingMobMask = Impassable | HighImpassable | BlobImpassable, //Goidastation - Blob
     FlyingMobLayer = Opaque | BulletImpassable,
 
     // Mechs
-    LargeMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | BlobImpassable, //Goobstation - Blob
+    LargeMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable | BlobImpassable, //Goidastation - Blob
     LargeMobLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable,
 
     // Machines, computers
-    MachineMask = Impassable | MidImpassable | LowImpassable | BlobImpassable, //Goobstation - Blob
+    MachineMask = Impassable | MidImpassable | LowImpassable | BlobImpassable, //Goidastation - Blob
     MachineLayer = Opaque | MidImpassable | LowImpassable | BulletImpassable,
     ConveyorMask = Impassable | MidImpassable | LowImpassable | DoorPassable,
 
@@ -138,11 +138,11 @@ public enum CollisionGroup
     CrateMask = Impassable | HighImpassable | LowImpassable,
 
     // Tables that SmallMobs can go under
-    TableMask = Impassable | MidImpassable | BlobImpassable, //Goobstation - Blob
+    TableMask = Impassable | MidImpassable | BlobImpassable, //Goidastation - Blob
     TableLayer = MidImpassable,
 
     // Tabletop machines, windoors, firelocks
-    TabletopMachineMask = Impassable | HighImpassable | BlobImpassable, //Goobstation - Blob
+    TabletopMachineMask = Impassable | HighImpassable | BlobImpassable, //Goidastation - Blob
     // Tabletop machines
     TabletopMachineLayer = Opaque | BulletImpassable,
 
@@ -156,7 +156,7 @@ public enum CollisionGroup
     // Soap, spills
     SlipLayer = MidImpassable | LowImpassable,
     ItemMask = Impassable | HighImpassable,
-    ThrownItem = Impassable | HighImpassable | BulletImpassable | BlobImpassable, //Goobstation - Blob
+    ThrownItem = Impassable | HighImpassable | BulletImpassable | BlobImpassable, //Goidastation - Blob
     WallLayer = Opaque | Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     GlassLayer = Impassable | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | InteractImpassable,
     HalfWallLayer = MidImpassable | LowImpassable,
@@ -169,7 +169,7 @@ public enum CollisionGroup
     SubfloorMask = Impassable | LowImpassable,
 
 
-    // start-goobstation: blob
+    // start-goidastation: blob
     BlobMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
     BlobMobLayer = Opaque | BulletImpassable,
 
@@ -177,5 +177,5 @@ public enum CollisionGroup
     FlyingBlobMobLayer = Opaque | BulletImpassable,
 
     BlobTileLayer = Opaque | BlobImpassable | BulletImpassable
-    // end-goobstation: blob
+    // end-goidastation: blob
 }

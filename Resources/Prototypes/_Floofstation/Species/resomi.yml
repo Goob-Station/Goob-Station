@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <sarahoneill132@hotmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -20,7 +20,7 @@
   maleFirstNames: NamesResomiMale
   femaleFirstNames: NamesResomiFemale
   naming: First
-  sexes: # Goobstation - why bother having male/female names and soundCollections if they were only available unsexed?
+  sexes: # Goidastation - why bother having male/female names and soundCollections if they were only available unsexed?
   - Unsexed
   - Male
   - Female

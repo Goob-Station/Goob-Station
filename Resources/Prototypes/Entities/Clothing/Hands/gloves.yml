@@ -111,7 +111,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -383,7 +383,7 @@
       - type: CriminalRecordsHacker
 
 - type: entity
-  parent: ClothingHandsGlovesColorBlack # goobstation - no longer sec/engi contra its just reskinned insuls i can order this shit on amazon for 50 bucks
+  parent: ClothingHandsGlovesColorBlack # goidastation - no longer sec/engi contra its just reskinned insuls i can order this shit on amazon for 50 bucks
   id: ClothingHandsGlovesCombat
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
@@ -464,7 +464,7 @@
     damageProtection:
       flatReductions:
         Heat: 0 # no protection
-  # Goobstation
+  # Goidastation
   - type: Tag
     tags:
     - ClothMade
@@ -492,9 +492,9 @@
 - type: entity
   # Intentionally named after regular gloves, they're meant to be sneaky.
   # This means they can also be butchered if you need to look un-sus before a very thorough search...
-  parent: ClothingHandsChameleon # Goobstation
+  parent: ClothingHandsChameleon # Goidastation
   id: ThievingGloves
-  suffix: Chameleon, Thieving # Goobstation
+  suffix: Chameleon, Thieving # Goidastation
   components:
   - type: Thieving
     stripTimeReduction: 1.5
@@ -529,7 +529,7 @@
       collection: Punch
     animation: WeaponArcFist
     mustBeEquippedToUse: true
-    heavyStaminaCost: 3 # goob edit
+    heavyStaminaCost: 3 # goida edit
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-blue

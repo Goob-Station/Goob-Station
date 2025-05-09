@@ -9,7 +9,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Blob.Chemistry;
+namespace Content.Goidastation.Shared.Blob.Chemistry;
 
 /// <summary>
 /// This is used for...

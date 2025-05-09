@@ -13,7 +13,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Vehicles.Clowncar;
+namespace Content.Goidastation.Shared.Vehicles.Clowncar;
 
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedClowncarSystem))]
@@ -38,15 +38,15 @@ public sealed partial class ClowncarComponent : Component
     #region Sound
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public SoundSpecifier CannonActivateSound = new SoundPathSpecifier("/Audio/_Goobstation/Vehicle/Clowncar/clowncar_activate_cannon.ogg");
+    public SoundSpecifier CannonActivateSound = new SoundPathSpecifier("/Audio/_Goidastation/Vehicle/Clowncar/clowncar_activate_cannon.ogg");
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public SoundSpecifier CannonDeactivateSound = new SoundPathSpecifier("/Audio/_Goobstation/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg");
+    public SoundSpecifier CannonDeactivateSound = new SoundPathSpecifier("/Audio/_Goidastation/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg");
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public SoundSpecifier FartSound = new SoundPathSpecifier("/Audio/_Goobstation/Vehicle/Clowncar/clowncar_fart.ogg");
+    public SoundSpecifier FartSound = new SoundPathSpecifier("/Audio/_Goidastation/Vehicle/Clowncar/clowncar_fart.ogg");
 
     #endregion
 

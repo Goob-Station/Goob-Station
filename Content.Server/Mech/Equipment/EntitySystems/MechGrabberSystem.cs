@@ -243,7 +243,7 @@ public sealed class MechGrabberSystem : EntitySystem
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.GrabDelay, new GrabberDoAfterEvent(), uid, target: target, used: uid)
         {
             BreakOnMove = true,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs, out component.DoAfter);

@@ -2,25 +2,25 @@
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Weapons.DelayedKnockdown;
-using Content.Goobstation.Shared.Clothing;
+using Content.Goidastation.Common.Weapons.DelayedKnockdown;
+using Content.Goidastation.Shared.Clothing;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Stunnable;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.Armor;
 using Content.Shared.Damage.Events;
 using Content.Shared.Inventory;
 using Content.Shared.StatusEffect;
 using Content.Shared.Timing;
 
-namespace Content.Goobstation.Server.Weapons.DelayedKnockdown;
+namespace Content.Goidastation.Server.Weapons.DelayedKnockdown;
 
 public sealed class DelayedKnockdownOnHitSystem : EntitySystem
 {

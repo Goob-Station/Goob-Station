@@ -11,8 +11,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Research;
 using Content.Client.UserInterface.Controls;
-using Content.Goobstation.Common.Research;
-using Content.Goobstation.Shared.Research;
+using Content.Goidastation.Common.Research;
+using Content.Goidastation.Shared.Research;
 using Content.Shared.Access.Systems;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
@@ -26,7 +26,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Client.Research.UI;
+namespace Content.Goidastation.Client.Research.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class FancyResearchConsoleMenu : FancyWindow
@@ -81,7 +81,7 @@ public sealed partial class FancyResearchConsoleMenu : FancyWindow
         _research = _entity.System<ResearchSystem>();
         _sprite = _entity.System<SpriteSystem>();
         _accessReader = _entity.System<AccessReaderSystem>();
-        StaticSprite.SetFromSpriteSpecifier(new SpriteSpecifier.Rsi(new("_Goobstation/Interface/rnd-static.rsi"), "static"));
+        StaticSprite.SetFromSpriteSpecifier(new SpriteSpecifier.Rsi(new("_Goidastation/Interface/rnd-static.rsi"), "static"));
 
         ServerButton.OnPressed += _ => OnServerButtonPressed?.Invoke();
         DragContainer.OnKeyBindDown += OnKeybindDown;

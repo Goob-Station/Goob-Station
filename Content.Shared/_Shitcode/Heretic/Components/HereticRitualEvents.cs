@@ -9,7 +9,7 @@ using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Heretic.Components;
+namespace Content.Shared._Goidastation.Heretic.Components;
 
 [Serializable, NetSerializable]
 public sealed class HereticRitualMessage : BoundUserInterfaceMessage

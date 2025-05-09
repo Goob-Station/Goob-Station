@@ -25,7 +25,7 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -41,7 +41,7 @@
     sprite: Objects/Specific/Medical/hypospray.rsi
     state: hypo
 
-#- type: stealTargetGroup # Goobstation - made this public
+#- type: stealTargetGroup # Goidastation - made this public
 #  id: HandheldCrewMonitor
 #  name: steal-target-groups-handheld-crew-monitor
 #  sprite:
@@ -80,7 +80,7 @@
   id: ClothingHandsKnuckleDustersQM
   name: steal-target-groups-clothing-hands-knuckledusters-qm
   sprite:
-    sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi # Goobstation
+    sprite: _Goidastation/Clothing/Hands/Gloves/knuckleduster.rsi # Goidastation
     state: goldenknuckleduster
 
 - type: stealTargetGroup
@@ -183,7 +183,7 @@
     sprite: Objects/Tools/lantern.rsi
     state: lantern
 
-- type: stealTargetGroup #Goobstation
+- type: stealTargetGroup #Goidastation
   id: Battery
   name: steal-target-groups-battery
   sprite:

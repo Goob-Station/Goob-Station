@@ -11,7 +11,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 
-namespace Content.Goobstation.Common.Changeling;
+namespace Content.Goidastation.Common.Changeling;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingChemicalsAmmoProviderComponent : Component

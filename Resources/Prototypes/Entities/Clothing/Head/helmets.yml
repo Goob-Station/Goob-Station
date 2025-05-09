@@ -102,7 +102,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -181,11 +181,11 @@
         Caustic: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.75
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashSoundSuppression # Goidastation
 
 #Syndicate SWAT Helmet
 - type: entity
-  parent: [BaseSyndicateContraband, ClothingHeadHelmetSwat] # Goob edit
+  parent: [BaseSyndicateContraband, ClothingHeadHelmetSwat] # Goida edit
   id: ClothingHeadHelmetSwatSyndicate
   name: SWAT helmet
   suffix: Syndicate
@@ -329,10 +329,10 @@
 
 #Wizard Helmet
 - type: entity
-  parent: [ClothingHeadBase, ClothingHeadHatWizardBaseArmor, BaseMagicContraband] # Goob edit
+  parent: [ClothingHeadBase, ClothingHeadHatWizardBaseArmor, BaseMagicContraband] # Goida edit
   id: ClothingHeadHelmetWizardHelm
   name: wizard helm
-  description: Strange-looking helmet that most certainly belongs to a real magic user. Doesn't count as wizard hat. # Goob edit
+  description: Strange-looking helmet that most certainly belongs to a real magic user. Doesn't count as wizard hat. # Goida edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/wizardhelm.rsi
@@ -340,7 +340,7 @@
     sprite: Clothing/Head/Helmets/wizardhelm.rsi
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: Armor # Goobstation
+  - type: Armor # Goidastation
     modifiers:
       coefficients:
         Blunt: 0.85

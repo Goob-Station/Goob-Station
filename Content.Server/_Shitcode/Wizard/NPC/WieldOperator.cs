@@ -13,7 +13,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 
-namespace Content.Server._Goobstation.Wizard.NPC;
+namespace Content.Server._Goidastation.Wizard.NPC;
 
 public sealed partial class WieldOperator : HTNOperator
 {

@@ -76,7 +76,7 @@
     size: Normal
     sprite: Objects/Weapons/Melee/armblade.rsi
   - type: Prying
-  - type: UseDelay # Goobstation - For insta prying
+  - type: UseDelay # Goidastation - For insta prying
     delay: 1
   - type: Scalpel # Shitmed
     speed: 0.3

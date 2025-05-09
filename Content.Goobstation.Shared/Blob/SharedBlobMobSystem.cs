@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
@@ -17,7 +17,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Blob;
+namespace Content.Goidastation.Shared.Blob;
 
 public abstract class SharedBlobMobSystem : EntitySystem
 {

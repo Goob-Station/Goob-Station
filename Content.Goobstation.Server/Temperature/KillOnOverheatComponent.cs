@@ -7,7 +7,7 @@
 
 using Content.Shared.Atmos;
 
-namespace Content.Goobstation.Server.Temperature;
+namespace Content.Goidastation.Server.Temperature;
 
 /// <summary>
 /// Kills an entity when its temperature goes over a threshold.

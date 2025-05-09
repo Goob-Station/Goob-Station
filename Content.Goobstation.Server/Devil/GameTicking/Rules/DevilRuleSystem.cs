@@ -1,12 +1,12 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text;
-using Content.Goobstation.Server.Devil.Roles;
-using Content.Goobstation.Shared.Devil;
+using Content.Goidastation.Server.Devil.Roles;
+using Content.Goidastation.Shared.Devil;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
@@ -18,7 +18,7 @@ using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Devil.GameTicking.Rules;
+namespace Content.Goidastation.Server.Devil.GameTicking.Rules;
 
 public sealed class DevilRuleSystem : GameRuleSystem<DevilRuleComponent>
 {

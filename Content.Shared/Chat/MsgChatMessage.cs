@@ -59,12 +59,12 @@ namespace Content.Shared.Chat
         public Color? MessageColorOverride;
         public string? AudioPath;
         public float AudioVolume;
-        public bool CanCoalesce; // Goobstation Edit
+        public bool CanCoalesce; // Goidastation Edit
 
         [NonSerialized]
         public bool Read;
 
-        // Goobstation Edit - Coalescing Chat
+        // Goidastation Edit - Coalescing Chat
         public ChatMessage(ChatChannel channel, string message, string wrappedMessage, NetEntity source, int? senderKey, bool hideChat = false, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0, bool canCoalesce = true)
         {
             Channel = channel;
@@ -76,7 +76,7 @@ namespace Content.Shared.Chat
             MessageColorOverride = colorOverride;
             AudioPath = audioPath;
             AudioVolume = audioVolume;
-            CanCoalesce = canCoalesce; // Goobstation Edit
+            CanCoalesce = canCoalesce; // Goidastation Edit
         }
     }
 

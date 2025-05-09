@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -11,7 +11,7 @@
   description: Your electronic pal who's fun to be with, now with 200% more shine!
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/goldpai.rsi
+    sprite: _Goidastation/Objects/Fun/goldpai.rsi
     layers:
     - state: goldpai-base
     - state: goldpai-off-overlay

@@ -70,13 +70,13 @@
     count: 5
 
 - type: entity
-  name: staff of the locker # Goob edit
-  description: An artefact that expells encapsulating bolts, for incapacitating thy enemy. # Goob edit
-  parent: WeaponStaffBase # Goob edit
+  name: staff of the locker # Goida edit
+  description: An artefact that expells encapsulating bolts, for incapacitating thy enemy. # Goida edit
+  parent: WeaponStaffBase # Goida edit
   id: WeaponWandLocker
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/locker.rsi # Goobstation
+    sprite: _Goidastation/Wizard/Objects/Weapons/Staves/locker.rsi # Goidastation
     layers:
     - state: locker
       map: ["base"]
@@ -87,8 +87,8 @@
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_animation.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileLocker
-    capacity: 6 # Goob edit
-    count: 6 # Goob edit
+    capacity: 6 # Goida edit
+    count: 6 # Goida edit
   - type: Item
     inhandVisuals:
       left:
@@ -105,7 +105,7 @@
         base:
           True: { visible: True }
           False: { visible: False }
-  - type: RechargeBasicEntityAmmo # Goobstation
+  - type: RechargeBasicEntityAmmo # Goidastation
     rechargeCooldown: 4
 
 - type: entity
@@ -121,9 +121,9 @@
       map: ["effect"]
   - type: Gun
     soundGunshot:
-      path: /Audio/_Goobstation/Wizard/wandodeath.ogg # Goob edit
+      path: /Audio/_Goidastation/Wizard/wandodeath.ogg # Goida edit
   - type: BasicEntityAmmoProvider
-    proto: ProjectileDeathBolt # Goob edit
+    proto: ProjectileDeathBolt # Goida edit
     capacity: 3
     count: 3
 

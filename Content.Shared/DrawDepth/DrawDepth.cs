@@ -76,9 +76,9 @@ namespace Content.Shared.DrawDepth
         /// </summary>
         HighFloorObjects = DrawDepthTag.Default - 5,
 
-        FloorEffects = DrawDepthTag.Default - 5, // Goobstation
+        FloorEffects = DrawDepthTag.Default - 5, // Goidastation
 
-        BlobTiles = DrawDepthTag.Default - 4, // Goobstation - Blob
+        BlobTiles = DrawDepthTag.Default - 4, // Goidastation - Blob
 
         DeadMobs = DrawDepthTag.Default - 4,
 

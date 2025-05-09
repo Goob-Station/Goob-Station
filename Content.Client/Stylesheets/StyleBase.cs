@@ -61,7 +61,7 @@ namespace Content.Client.Stylesheets
         protected StyleBoxTexture BaseAngleRect { get; }
         protected StyleBoxTexture AngleBorderRect { get; }
 
-        // Goobstation - ZH text support
+        // Goidastation - ZH text support
         protected StyleBase(IResourceCache resCache)
         {
             var notoSans12 = resCache.GetFont

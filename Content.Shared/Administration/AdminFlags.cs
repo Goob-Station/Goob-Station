@@ -146,7 +146,7 @@ namespace Content.Shared.Administration
         NameColor = 1 << 21,
 
         /// <summary>
-        ///     Goobstation Full Admin extra perms.
+        ///     Goidastation Full Admin extra perms.
         ///     Specifically used for Full Admin only.
         /// </summary>
         FullAdmin = 1 << 22,

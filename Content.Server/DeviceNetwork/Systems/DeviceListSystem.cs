@@ -39,7 +39,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         SubscribeLocalEvent<BeforeSerializationEvent>(OnMapSave);
     }
 
-    // Goobstation - Fix desync of configurator lists
+    // Goidastation - Fix desync of configurator lists
     [Conditional("DEBUG")]
     public void VerifyDeviceList(EntityUid? uid, DeviceListComponent? listComp = null)
     {
@@ -100,7 +100,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         }
         component.Devices.Clear();
 
-        VerifyDeviceList(uid, component); // Goobstation - Fix desync of configurator lists
+        VerifyDeviceList(uid, component); // Goidastation - Fix desync of configurator lists
     }
 
     /// <summary>
@@ -187,7 +187,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         list.Comp.Devices.Remove(device);
         Dirty(list);
 
-        VerifyDeviceList(list.Owner, list.Comp); // Goobstation - Fix desync of configurator lists
+        VerifyDeviceList(list.Owner, list.Comp); // Goidastation - Fix desync of configurator lists
     }
 
     private void OnMapSave(BeforeSerializationEvent ev)
@@ -285,7 +285,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
 
         Dirty(uid, deviceList);
 
-        VerifyDeviceList(uid, deviceList); // Goobstation - Fix desync of configurator lists
+        VerifyDeviceList(uid, deviceList); // Goidastation - Fix desync of configurator lists
 
         return DeviceListUpdateResult.UpdateOk;
     }

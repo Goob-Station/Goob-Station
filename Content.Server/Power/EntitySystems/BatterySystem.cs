@@ -140,7 +140,7 @@ namespace Content.Server.Power.EntitySystems
         private void OnEmpPulse(EntityUid uid, BatteryComponent component, ref EmpPulseEvent args)
         {
             args.Affected = true;
-            if (!HasComp<RechargeableBlockingComponent>(uid)) // Goobstation - rechargeable blocking system handles it
+            if (!HasComp<RechargeableBlockingComponent>(uid)) // Goidastation - rechargeable blocking system handles it
                 args.Disabled = true;
             UseCharge(uid, args.EnergyConsumption, component);
             // Apply a cooldown to the entity's self recharge if needed to avoid it immediately self recharging after an EMP.
@@ -253,7 +253,7 @@ namespace Content.Server.Power.EntitySystems
             return battery.CurrentCharge >= battery.MaxCharge;
         }
 
-        // Goobstation
+        // Goidastation
         public int GetChargeDifference(EntityUid uid, BatteryComponent? battery = null) // Debug
         {
             if (!Resolve(uid, ref battery))

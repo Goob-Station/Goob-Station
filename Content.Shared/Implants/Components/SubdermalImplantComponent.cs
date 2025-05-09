@@ -9,7 +9,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
@@ -57,19 +57,19 @@ public sealed partial class SubdermalImplantComponent : Component
     /// Should you be able to implant this into yourself?
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool CanImplantSelf = true; // Goobstation - allow traitors to buy suicide implants (fields for self-/other-implantability)
+    public bool CanImplantSelf = true; // Goidastation - allow traitors to buy suicide implants (fields for self-/other-implantability)
 
     /// <summary>
     /// Should you be able to implant this into others?
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool CanImplantOther = true; // Goobstation - allow traitors to buy suicide implants (fields for self-/other-implantability)
+    public bool CanImplantOther = true; // Goidastation - allow traitors to buy suicide implants (fields for self-/other-implantability)
 
     /// <summary>
     /// Multiplier to time taken to implant this implant
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ImplantationTimeMultiplier = 1; // Goobstation - allow traitors to buy suicide implants (add time multiplier)
+    public float ImplantationTimeMultiplier = 1; // Goidastation - allow traitors to buy suicide implants (add time multiplier)
 
     /// <summary>
     /// Target whitelist for this implant specifically.
@@ -104,7 +104,7 @@ public sealed partial class OpenStorageImplantEvent : InstantActionEvent
 public sealed partial class UseFreedomImplantEvent : InstantActionEvent
 {
     [DataField]
-    public float StunTime = 5; // Goobstation - useful freedom
+    public float StunTime = 5; // Goidastation - useful freedom
 }
 
 /// <summary>

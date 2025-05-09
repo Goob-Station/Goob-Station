@@ -13,7 +13,7 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Chemistry;
+namespace Content.Goidastation.Server.Chemistry;
 
 [UsedImplicitly]
 public sealed partial class TakeStaminaDamage : EntityEffect

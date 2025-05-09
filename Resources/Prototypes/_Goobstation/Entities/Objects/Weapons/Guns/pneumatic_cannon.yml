@@ -128,7 +128,7 @@
   components:
   - type: PacifismAllowedGun
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-dispenser
   - type: Gun
     fireRate: 2

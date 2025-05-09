@@ -8,8 +8,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Pirates;
-using Content.Goobstation.Server.Pirates.Roles;
+using Content.Goidastation.Common.Pirates;
+using Content.Goidastation.Server.Pirates.Roles;
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -20,7 +20,7 @@ using Content.Shared.NPC.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
+namespace Content.Goidastation.Server.Pirates.GameTicking.Rules;
 
 public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirateRuleComponent>
 {

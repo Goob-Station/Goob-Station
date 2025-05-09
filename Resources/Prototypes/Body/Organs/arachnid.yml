@@ -45,11 +45,11 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Biomass: 5
 
@@ -80,7 +80,7 @@
           Quantity: 5
   - type: Metabolizer
     updateInterval: 1.5
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -122,7 +122,7 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -150,7 +150,7 @@
   - type: Organ # Shitmed
     slotId: heart
   - type: Heart # Shitmed: Lets you transplant spider hearts into other species
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -178,7 +178,7 @@
   - type: Organ # Shitmed
     slotId: liver
   - type: Liver # Shitmed
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -206,7 +206,7 @@
     maxReagents: 5
     metabolizerTypes: [Animal]
     removeEmpty: true
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -225,7 +225,7 @@
   - type: Organ # Shitmed
     slotId: eyes
   - type: Eyes # Shitmed
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -242,7 +242,7 @@
   components:
   - type: Sprite
     state: tongue
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ

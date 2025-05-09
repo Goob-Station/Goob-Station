@@ -91,7 +91,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
@@ -190,7 +190,7 @@
   - type: PointLight
     radius: 6
     enabled: false
-  - type: Speech #Goobstation - Dead chat verbs
+  - type: Speech #Goidastation - Dead chat verbs
     speechVerb: Dead
   - type: GhostColor
   - type: CollectiveMind
@@ -198,7 +198,7 @@
     seeAllNames: true
   - type: UserInterface
     interfaces:
-      enum.RevivalContractUiKey.Key: # Goobstation - Devil
+      enum.RevivalContractUiKey.Key: # Goidastation - Devil
         type: RevivalContractBoundUserInterface
         requireInputValidation: false
 
@@ -233,7 +233,7 @@
     icon: Interface/VerbIcons/light.svg.192dpi.png
     clientExclusive: true
     checkCanInteract: false
-    raiseOnUser: true # Goobstation
+    raiseOnUser: true # Goidastation
     event: !type:ToggleLightingActionEvent
 
 - type: entity
@@ -245,7 +245,7 @@
     icon: Interface/VerbIcons/vv.svg.192dpi.png
     clientExclusive: true
     checkCanInteract: false
-    raiseOnUser: true # Goobstation
+    raiseOnUser: true # Goidastation
     event: !type:ToggleFoVActionEvent
 
 - type: entity
@@ -257,7 +257,7 @@
     icon: { sprite: Mobs/Ghosts/ghost_human.rsi, state: icon }
     clientExclusive: true
     checkCanInteract: false
-    raiseOnUser: true # Goobstation
+    raiseOnUser: true # Goidastation
     event: !type:ToggleGhostsActionEvent
 
 - type: entity

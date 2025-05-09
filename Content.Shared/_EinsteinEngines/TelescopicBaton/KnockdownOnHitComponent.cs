@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
+using Content.Goidastation.Common.Standing;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._EinsteinEngines.TelescopicBaton;
@@ -25,5 +25,5 @@ public sealed partial class KnockdownOnHitComponent : Component
     public bool RefreshDuration = true;
 
     [DataField]
-    public bool KnockdownOnHeavyAttack = true; // Goobstation
+    public bool KnockdownOnHeavyAttack = true; // Goidastation
 }

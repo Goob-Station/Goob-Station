@@ -113,7 +113,7 @@
     - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostRoleMobSpawner
@@ -204,7 +204,7 @@
     rules: ghost-role-information-loneop-rules
     mindRoles:
     - MindRoleGhostRoleSoloAntagonist
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hours
@@ -262,7 +262,7 @@
     rules: ghost-role-information-space-dragon-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: Sprite
@@ -284,7 +284,7 @@
     - MindRoleGhostRoleSoloAntagonist
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: Sprite
@@ -327,7 +327,7 @@
     - MindRoleGhostRoleSilicon
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:RoleTimeRequirement
       role: JobBorg
       time: 3600 #1 hour

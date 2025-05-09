@@ -23,7 +23,7 @@
       tags:
       - ModularReceiver
       - Metal
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 187
         Plastic: 25

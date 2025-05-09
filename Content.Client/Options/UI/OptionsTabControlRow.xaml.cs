@@ -302,7 +302,7 @@ public sealed partial class OptionsTabControlRow : Control
         return value.ToString();
     }
 
-// Goobstation highlights - start
+// Goidastation highlights - start
 
     /// <summary>
     /// Add a color slider option, backed by a simple string CVar.
@@ -369,7 +369,7 @@ public sealed class OptionColorSliderCVar : BaseOptionCVar<string>
         _slider.ExampleLabel.FontColorOverride = Color.FromHex(Value);
     }
 
-// Goobstation highlights - end
+// Goidastation highlights - end
 
 }
 

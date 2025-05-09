@@ -83,9 +83,9 @@
 - type: cargoBounty
   id: BountyMedicalPatch
   reward: 4000
-  description: goobstation-medicalpatch-bounty-desc
+  description: goidastation-medicalpatch-bounty-desc
   entries:
-  - name: goobstation-medicalpatch-bounty-name
+  - name: goidastation-medicalpatch-bounty-name
     amount: 5
     whitelist:
       tags:
@@ -94,9 +94,9 @@
 - type: cargoBounty
   id: BountyClarke
   reward: 20000
-  description: goobstation-clarke-bounty-desc
+  description: goidastation-clarke-bounty-desc
   entries:
-  - name: goobstation-clarke-bounty-name
+  - name: goidastation-clarke-bounty-name
     amount: 1
     whitelist:
       tags:
@@ -105,9 +105,9 @@
 - type: cargoBounty
   id: BountyRipleyMkII
   reward: 15000
-  description: goobstation-ripley-bounty-desc
+  description: goidastation-ripley-bounty-desc
   entries:
-  - name: goobstation-ripley-bounty-name
+  - name: goidastation-ripley-bounty-name
     amount: 1
     whitelist:
       tags:
@@ -116,9 +116,9 @@
 - type: cargoBounty
   id: BountyGygax
   reward: 30000
-  description: goobstation-gygax-bounty-desc
+  description: goidastation-gygax-bounty-desc
   entries:
-  - name: goobstation-gygax-bounty-name
+  - name: goidastation-gygax-bounty-name
     amount: 1
     whitelist:
       tags:
@@ -127,9 +127,9 @@
 - type: cargoBounty
   id: BountyDurand
   reward: 60000
-  description: goobstation-durand-bounty-desc
+  description: goidastation-durand-bounty-desc
   entries:
-  - name: goobstation-durand-bounty-name
+  - name: goidastation-durand-bounty-name
     amount: 1
     whitelist:
       tags:

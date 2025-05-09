@@ -9,11 +9,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Changeling;
+using Content.Goidastation.Common.Changeling;
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 
-namespace Content.Goobstation.Shared.Changeling.Systems;
+namespace Content.Goidastation.Shared.Changeling.Systems;
 
 public sealed partial class AbsorbedSystem : EntitySystem
 {

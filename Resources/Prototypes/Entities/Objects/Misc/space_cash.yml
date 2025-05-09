@@ -15,7 +15,7 @@
 # SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 #
@@ -49,7 +49,7 @@
     - cash_500
     - cash_1000
     - cash_1000000
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -72,7 +72,7 @@
         mask:
         - ItemMask
   - type: Appearance
-  # <Goobstation>
+  # <Goidastation>
   - type: Flammable # it's about sending a message
     fireSpread: true
     alwaysCombustible: true
@@ -109,7 +109,7 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 1
-  # </Goobstation>
+  # </Goidastation>
 
 - type: material
   id: Credit

@@ -5,10 +5,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Wires;
-using Content.Goobstation.Shared.Contraband;
+using Content.Goidastation.Shared.Contraband;
 using Content.Shared.Wires;
 
-namespace Content.Goobstation.Server.Contraband;
+namespace Content.Goidastation.Server.Contraband;
 
 [DataDefinition]
 public sealed partial class ContrabandDetectorBadChanceWireAction : BaseToggleWireAction

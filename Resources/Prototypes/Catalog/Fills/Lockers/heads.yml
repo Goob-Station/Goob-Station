@@ -125,7 +125,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Martynas6ha4 <martynashagriefer@gmail.com>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
@@ -158,9 +158,9 @@
     - id: RubberStampQm
     - id: SalvageShuttleConsoleCircuitboard
     - id: AstroNavCartridge
-    - id: CargoTechFabCircuitboard # Goobstation - Cargo Techfab
-    - id: MailTeleporterMachineCircuitboard # GoobStation port of DeltaV mail
-    - id: ClothingHandsKnucklesQuartermaster # Goobstation - ROCK THAT MF!!
+    - id: CargoTechFabCircuitboard # Goidastation - Cargo Techfab
+    - id: MailTeleporterMachineCircuitboard # GoidaStation port of DeltaV mail
+    - id: ClothingHandsKnucklesQuartermaster # Goidastation - ROCK THAT MF!!
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -268,7 +268,7 @@
       # Yes they do fuck you.
     - id: ClothingBackpackIan
       prob: 0.5
-    - id: ClothingHeadsetAltCommand # Goobstation
+    - id: ClothingHeadsetAltCommand # Goidastation
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
@@ -278,7 +278,7 @@
     - id: RubberStampHop
     - id: WeaponDisabler
     - id: ClothingEyesHudCommand
-    - id: ServiceTechFabCircuitboard # Goobstation - Service Techfab
+    - id: ServiceTechFabCircuitboard # Goidastation - Service Techfab
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -308,11 +308,11 @@
     - id: RCDAmmo
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
-    - id: EngineeringTechFabCircuitboard # Goobstation - Engineering Techfab
+    - id: EngineeringTechFabCircuitboard # Goidastation - Engineering Techfab
     - id: CartridgeRocketSingularityBuster
     - id: CartridgeRocketSingularityBuster
     - id: WeaponLauncherSingularityBuster
-    - id: MachinePowerTransmissionLaserFlatpack # Goobstation - Engi printing money pr
+    - id: MachinePowerTransmissionLaserFlatpack # Goidastation - Engi printing money pr
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
@@ -357,7 +357,7 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyMedical
-    # - id: ClothingBackpackDuffelSurgeryFilled # Goobstation - tools in webbing
+    # - id: ClothingBackpackDuffelSurgeryFilled # Goidastation - tools in webbing
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
@@ -365,12 +365,12 @@
     - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile
     - id: DoorRemoteMedical
-    # - id: HandheldCrewMonitor # Goobstation - in webbing
+    # - id: HandheldCrewMonitor # Goidastation - in webbing
     - id: Hypospray
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: RubberStampCMO
-    # Goobstation Start
+    # Goidastation Start
     - id: CloningpodFlatpack
     - id: MedicalScannerFlatpack
     - id: ComputerCloningConsoleFlatpack
@@ -382,7 +382,7 @@
     - id: ClothingBeltMilitaryWebbingCMOFilled
     # Shitmed
     - id: MedicalBiofabricatorFlatpack
-    # Goobstation End
+    # Goidastation End
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -427,20 +427,20 @@
     children:
     - id: Intellicard
     - id: BoxEncryptionKeyScience
-    #- id: CircuitImprinterMachineCircuitboard # Goobstation - Science Techfab
+    #- id: CircuitImprinterMachineCircuitboard # Goidastation - Science Techfab
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
-    #- id: ProtolatheMachineCircuitboard # Goobstation - Science Techfab
+    #- id: ProtolatheMachineCircuitboard # Goidastation - Science Techfab
     - id: ResearchComputerCircuitboard
     - id: RubberStampRd
-    - id: EncryptionKeyBinary # goobstation - readd the cool binary channel access. fuck you.
-    - id: AnomalyLocator # GoobStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
+    - id: EncryptionKeyBinary # goidastation - readd the cool binary channel access. fuck you.
+    - id: AnomalyLocator # GoidaStation - adding anomaly locator to the RD locker to reduce the amount of anoms that crit
     - id: CigarCase
-      prob: 0.15 # GoobStation - RD needs cigs for uhh... science...
-    - id: ScienceTechFabCircuitboard # Goobstation - Science Techfab
-    - id: MMI # Goobstation
+      prob: 0.15 # GoidaStation - RD needs cigs for uhh... science...
+    - id: ScienceTechFabCircuitboard # Goidastation - Science Techfab
+    - id: MMI # Goidastation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -484,13 +484,13 @@
   table: !type:AllSelector
     children:
 #    - id: WeaponEnergyShotgun
-    # - id: WeaponEnergyGunMultiphase # Goobstation - Security Revamp
+    # - id: WeaponEnergyGunMultiphase # Goidastation - Security Revamp
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
       prob: 0.50
     - id: ClothingBeltSecurityFilled
-  #  - id: ClothingEyesGlassesSecurity # Goobstation - Security Revamp - Start
+  #  - id: ClothingEyesGlassesSecurity # Goidastation - Security Revamp - Start
     - id: ClothingEyesGlassesSecurityAdvanced
     - id: ClothingHeadsetAltSecurity
     - id: ClothingMaskNeckGaiter
@@ -504,8 +504,8 @@
     - id: RubberStampHos
     - id: SecurityTechFabCircuitboard
     - id: ClothingBeltSheathHeadOfSecurityFilled
-    - id: HeadOfSecurityWeaponUndetermined # Goobstation - Security Revamp - End
-    #- id: WeaponDisabler # Goobstation (Disablers in belts)
+    - id: HeadOfSecurityWeaponUndetermined # Goidastation - Security Revamp - End
+    #- id: WeaponDisabler # Goidastation (Disablers in belts)
     - id: WantedListCartridge
     - id: DrinkHosFlask
 
@@ -515,8 +515,8 @@
   table: !type:AllSelector
     children:
     - id: ClothingMaskGasSwat
-    #- id: ClothingOuterHardsuitSecurityRed # Goobstation
-    - id: ClothingOuterHardsuitHeadOfSecurityExperimental  # Goobstation
+    #- id: ClothingOuterHardsuitSecurityRed # Goidastation
+    - id: ClothingOuterHardsuitHeadOfSecurityExperimental  # Goidastation
     - id: JetpackSecurityFilled
     - id: OxygenTankFilled
     - id: NitrogenTankFilled

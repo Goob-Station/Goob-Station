@@ -9,10 +9,10 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Trigger;
+namespace Content.Goidastation.Server.Trigger;
 
 public sealed class TriggerOnSolutionInsertSystem : EntitySystem
 {

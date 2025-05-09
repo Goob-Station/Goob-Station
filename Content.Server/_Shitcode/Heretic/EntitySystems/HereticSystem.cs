@@ -5,7 +5,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -15,7 +15,7 @@
 
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
@@ -26,9 +26,9 @@ using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
 using System.Linq;
-using Content.Goobstation.Shared.Enchanting.Components;
-using Content.Goobstation.Shared.Religion;
-using Content.Server._Goobstation.Objectives.Components;
+using Content.Goidastation.Shared.Enchanting.Components;
+using Content.Goidastation.Shared.Religion;
+using Content.Server._Goidastation.Objectives.Components;
 using Content.Server.Actions;
 using Content.Shared.Humanoid;
 using Robust.Server.Player;
@@ -285,7 +285,7 @@ public sealed class HereticSystem : EntitySystem
         }
 
         var pathLoc = ent.Comp.CurrentPath.ToLower();
-        var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
+        var ascendSound = new SoundPathSpecifier($"/Audio/_Goidastation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
     }
 

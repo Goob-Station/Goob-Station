@@ -1,15 +1,15 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Factory.Filters;
+using Content.Goidastation.Shared.Factory.Filters;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Goobstation.Shared.Factory.Slots;
+namespace Content.Goidastation.Shared.Factory.Slots;
 
 /// <summary>
 /// An abstraction over some way to insert/take an item from a machine.

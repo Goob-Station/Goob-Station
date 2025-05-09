@@ -31,7 +31,7 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Glass: 62
       chemicalComposition:
@@ -54,7 +54,7 @@
     - type: Tag
       tags:
         - WallmountSubstationElectronics
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
 
 # Wallmount Generator
 - type: entity
@@ -74,7 +74,7 @@
   - type: Tag
     tags:
       - WallmountGeneratorElectronics
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
 
 # APU
 - type: entity
@@ -91,7 +91,7 @@
     - type: Tag
       tags:
         - WallmountGeneratorAPUElectronics
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
 
 # Solar Tracker Electronics
 - type: entity
@@ -108,4 +108,4 @@
     - type: Tag
       tags:
         - SolarTrackerElectronics
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation

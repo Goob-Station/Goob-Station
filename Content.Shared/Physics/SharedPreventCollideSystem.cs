@@ -30,7 +30,7 @@ public sealed class SharedPreventCollideSystem : EntitySystem
         if (component.Uid == args.OtherEntity)
             args.Cancelled = true;
 
-        if (component.Whitelist != null && _whitelist.IsValid(component.Whitelist, args.OtherEntity)) // Goobstation
+        if (component.Whitelist != null && _whitelist.IsValid(component.Whitelist, args.OtherEntity)) // Goidastation
             args.Cancelled = true;
     }
 }

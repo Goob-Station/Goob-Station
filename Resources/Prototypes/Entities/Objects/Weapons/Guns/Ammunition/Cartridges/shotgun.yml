@@ -95,7 +95,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -106,7 +106,7 @@
 
 - type: entity
   id: BaseShellShotgun
-  name: shell (12 Gauge) # Goobstation
+  name: shell (12 Gauge) # Goidastation
   parent: BaseCartridge
   abstract: true
   components:
@@ -127,7 +127,7 @@
 
 - type: entity
   id: ShellShotgunBeanbag
-  name: shell (12 Gauge beanbag) # Goobstation
+  name: shell (12 Gauge beanbag) # Goidastation
   parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
   components:
   - type: Tag
@@ -146,7 +146,7 @@
 
 - type: entity
   id: ShellShotgunSlug
-  name: shell (12 Gauge slug) # Goobstation
+  name: shell (12 Gauge slug) # Goidastation
   parent: [ BaseShellShotgun, BaseSecurityContraband]
   components:
   - type: Sprite
@@ -160,7 +160,7 @@
 
 - type: entity
   id: ShellShotgunFlare
-  name: shell (12 Gauge flare) # Goobstation
+  name: shell (12 Gauge flare) # Goidastation
   parent: BaseShellShotgun
   components:
   - type: Tag
@@ -179,7 +179,7 @@
 
 - type: entity
   id: ShellShotgun
-  name: shell (12 Gauge) # Goobstation
+  name: shell (12 Gauge) # Goidastation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -191,7 +191,7 @@
 
 - type: entity
   id: ShellShotgunIncendiary
-  name: shell (12 Gauge incendiary) # Goobstation
+  name: shell (12 Gauge incendiary) # Goidastation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -205,7 +205,7 @@
 
 - type: entity
   id: ShellShotgunPractice
-  name: shell (12 Gauge practice) # Goobstation
+  name: shell (12 Gauge practice) # Goidastation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Sprite
@@ -219,7 +219,7 @@
 
 - type: entity
   id: ShellTranquilizer
-  name: shell (12 Gauge tranquilizer) # Goobstation
+  name: shell (12 Gauge tranquilizer) # Goidastation
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Tag

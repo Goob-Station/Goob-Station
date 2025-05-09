@@ -35,7 +35,7 @@
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -63,7 +63,7 @@
   showInVote: false # secret
   description: survival-description
   rules:
-    # - MeteorSwarmScheduler Goobstation - nuh uh
+    # - MeteorSwarmScheduler Goidastation - nuh uh
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -102,9 +102,9 @@
     - Heretic
     - BlobGameMode
     - LoneAbductorSpawn
-    # - KesslerSyndromeScheduler Goobstation - nuh uh
+    # - KesslerSyndromeScheduler Goidastation - nuh uh
     - RampingStationEventScheduler
-    - Changeling # Goobstation - changeling playtest
+    - Changeling # Goidastation - changeling playtest
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
@@ -130,13 +130,13 @@
     - LoneAbductorSpawn
     - BasicStationEventScheduler
 #    - KesslerSyndromeScheduler
-#    - MeteorSwarmMildScheduler # Goob Edit
-#    - MeteorSwarmScheduler # Goob edit
+#    - MeteorSwarmMildScheduler # Goida Edit
+#    - MeteorSwarmScheduler # Goida edit
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
-    - Changeling # Goobstation - changeling playtest
+    - Changeling # Goidastation - changeling playtest
     - LavalandStormScheduler # Lavaland Change
 
 - type: gamePreset
@@ -149,7 +149,7 @@
   description: extended-description
   rules:
   - BasicStationEventScheduler
-  # - MeteorSwarmScheduler Goobstation - nuh uh
+  # - MeteorSwarmScheduler Goidastation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -173,7 +173,7 @@
     - secret
     - sekrit
   name: secret-title
-  showInVote: false # Goob - Game Director
+  showInVote: false # Goida - Game Director
   description: secret-description
   rules:
     - Secret
@@ -189,7 +189,7 @@
   description: secret-description
   rules:
     - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+  #  - MeteorSwarmScheduler Goidastation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - LavalandStormScheduler # Lavaland Change
@@ -230,7 +230,7 @@
   - Traitor
   - SubGamemodesRule
   - BasicStationEventScheduler
-  #- MeteorSwarmScheduler Goobstation - nuh uh
+  #- MeteorSwarmScheduler Goidastation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -260,7 +260,7 @@
   - DummyNonAntagChance
   - SubGamemodesRule
   - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+  #  - MeteorSwarmScheduler Goidastation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -279,7 +279,7 @@
   - Revolutionary
   - SubGamemodesRule
   - BasicStationEventScheduler
-  #  - MeteorSwarmScheduler Goobstation - nuh uh
+  #  - MeteorSwarmScheduler Goidastation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
@@ -298,7 +298,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-#  - MeteorSwarmScheduler Goobstation - nuh uh
+#  - MeteorSwarmScheduler Goidastation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change

@@ -18,7 +18,7 @@
   description: The card that originally accessed everything in this universe
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    sprite: _Goidastation/Objects/Misc/id_cards.rsi
     layers:
     - state: future
     - state: idchrono
@@ -45,7 +45,7 @@
   name: salvage diver ID card
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    sprite: _Goidastation/Objects/Misc/id_cards.rsi
     layers:
     - state: idhelldiver
   - type: IdCard
@@ -132,23 +132,23 @@
   description: Nanotrasen employees are legally obligated to listen to someone with one of these. It's also capable of overriding access locks on most devices.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/executive.rsi
+    sprite: _Goidastation/Objects/Misc/executive.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Objects/Misc/executive.rsi
+    sprite: _Goidastation/Objects/Misc/executive.rsi
     quickEquip: true
     slots:
     - neck
     - idcard
   - type: Item
     heldPrefix:
-    sprite: _Goobstation/Objects/Misc/executive.rsi
+    sprite: _Goidastation/Objects/Misc/executive.rsi
   - type: IdCard
     jobTitle: job-name-exec
     jobIcon: JobIconNanotrasen
   - type: Emag
     emagType: Access
-    emagSound: /Audio/_Goobstation/Items/card_swipe.ogg
+    emagSound: /Audio/_Goidastation/Items/card_swipe.ogg
     successText: executive-card-success
   - type: Access
     groups:
@@ -301,7 +301,7 @@
   description: The card that originally accessed everything in this universe
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/id_cards.rsi
+    sprite: _Goidastation/Objects/Misc/id_cards.rsi
     layers:
     - state: future # Todo - Unique sprites?
     - state: idchrono

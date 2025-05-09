@@ -92,7 +92,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Changeling;
+using Content.Goidastation.Common.Changeling;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
@@ -119,7 +119,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using static Content.Shared.Kitchen.Components.KitchenSpikeComponent;
 
-// Goobstation
+// Goidastation
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -325,7 +325,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 return false;
             }
 
-            // Goobstation - start
+            // Goidastation - start
             if (HasComp<ChangelingComponent>(victimUid))
             {
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
@@ -336,7 +336,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-absorbed", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
                 return false;
             }
-            // Goobstation - end
+            // Goidastation - end
 
             switch (butcherable.Type)
             {

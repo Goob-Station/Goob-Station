@@ -15,7 +15,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Weapons.Ranged;
+using Content.Shared._Goidastation.Weapons.Ranged;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -69,12 +69,12 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
                 continue;
             }
 
-            // Goobstation
+            // Goidastation
             float multiplier = 1f;
             var ev = new RechargeBasicEntityAmmoGetCooldownModifiersEvent(multiplier);
             RaiseLocalEvent(uid, ref ev);
 
-            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.RechargeCooldown * ev.Multiplier); // Goobstation
+            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.RechargeCooldown * ev.Multiplier); // Goidastation
             Dirty(uid, recharge);
         }
     }
@@ -109,12 +109,12 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
 
         if (recharge.NextCharge == null || recharge.NextCharge < _timing.CurTime)
         {
-            // Goobstation
+            // Goidastation
             float multiplier = 1f;
             var ev = new RechargeBasicEntityAmmoGetCooldownModifiersEvent(multiplier);
             RaiseLocalEvent(uid, ref ev);
 
-            recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(recharge.RechargeCooldown * ev.Multiplier); // Goobstation
+            recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(recharge.RechargeCooldown * ev.Multiplier); // Goidastation
             Dirty(uid, recharge);
         }
     }

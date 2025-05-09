@@ -7,8 +7,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Atmos.Components;
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Goidastation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Systems;
 using Content.Shared.Inventory;
 
 namespace Content.Server.Heretic.EntitySystems;

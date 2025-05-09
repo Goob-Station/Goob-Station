@@ -55,7 +55,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.TimeStop;
+using Content.Shared._Goidastation.Wizard.TimeStop;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
@@ -147,7 +147,7 @@ namespace Content.Shared.Throwing
 
         public void StopThrow(EntityUid uid, ThrownItemComponent thrownItemComponent)
         {
-            if (HasComp<FrozenComponent>(uid)) // Goobstation
+            if (HasComp<FrozenComponent>(uid)) // Goidastation
                 return;
 
             if (TryComp<PhysicsComponent>(uid, out var physics))
@@ -174,7 +174,7 @@ namespace Content.Shared.Throwing
 
         public void LandComponent(EntityUid uid, ThrownItemComponent thrownItem, PhysicsComponent physics, bool playSound)
         {
-            if (HasComp<FrozenComponent>(uid)) // Goobstation
+            if (HasComp<FrozenComponent>(uid)) // Goidastation
                 return;
 
             if (thrownItem.Landed || thrownItem.Deleted || _gravity.IsWeightless(uid) || Deleted(uid))
@@ -200,12 +200,12 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
-            // Goob edit start
+            // Goida edit start
             var ev = new ThrowHitByEvent(thrown, target, component);
             RaiseLocalEvent(target, ev, true);
             if (ev.Handled)
                 return;
-            // Goob edit ent
+            // Goida edit ent
             RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component), true);
         }
 
@@ -220,10 +220,10 @@ namespace Content.Shared.Throwing
                 return;
 
             var query = EntityQueryEnumerator<ThrownItemComponent, PhysicsComponent>();
-            var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goobstation
+            var frozenQuery = GetEntityQuery<FrozenComponent>(); // Goidastation
             while (query.MoveNext(out var uid, out var thrown, out var physics))
             {
-                if (frozenQuery.HasComp(uid)) // Goobstation
+                if (frozenQuery.HasComp(uid)) // Goidastation
                     continue;
 
                 if (thrown.LandTime <= _gameTiming.CurTime)

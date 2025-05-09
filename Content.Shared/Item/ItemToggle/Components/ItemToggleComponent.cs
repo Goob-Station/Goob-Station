@@ -78,7 +78,7 @@ public sealed partial class ItemToggleComponent : Component
     public bool OnUse = true;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Don't toggle on wielding/unwielding if false
     /// </summary>
     [DataField]

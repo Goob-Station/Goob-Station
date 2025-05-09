@@ -102,7 +102,7 @@
   equipment:
     jumpsuit: ClothingUniformOveralls
 
-- type: loadout # goob
+- type: loadout # goida
   id: HydroMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryHydroponics

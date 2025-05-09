@@ -5,14 +5,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Goidastation.Weapons.AmmoSelector;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.AmmoSelector;
+namespace Content.Goidastation.Client.AmmoSelector;
 
 [UsedImplicitly]
 public sealed class AmmoSelectorMenuBoundUserInterface : BoundUserInterface

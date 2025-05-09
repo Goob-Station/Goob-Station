@@ -65,7 +65,7 @@ public sealed class DeployableBarrierSystem : EntitySystem
         }
 
         if (TryComp(uid, out PullableComponent? pullable))
-            _pulling.TryStopPull(uid, pullable, ignoreGrab: true); // Goobstation edit
+            _pulling.TryStopPull(uid, pullable, ignoreGrab: true); // Goidastation edit
 
         SharedPointLightComponent? pointLight = null;
         if (_pointLight.ResolveLight(uid, ref pointLight))

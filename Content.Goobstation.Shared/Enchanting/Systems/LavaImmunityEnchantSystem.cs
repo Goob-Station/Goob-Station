@@ -1,8 +1,8 @@
-using Content.Goobstation.Shared.Enchanting.Components;
+using Content.Goidastation.Shared.Enchanting.Components;
 using Content.Shared.StepTrigger.Components;
 using Content.Shared.StepTrigger.Systems;
 
-namespace Content.Goobstation.Shared.Enchanting.Systems;
+namespace Content.Goidastation.Shared.Enchanting.Systems;
 
 /// <summary>
 /// Cancels step triggering for <see cref="LavaImmunityEnchantComponent"/>.

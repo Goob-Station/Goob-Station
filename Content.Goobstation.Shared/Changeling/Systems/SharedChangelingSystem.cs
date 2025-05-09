@@ -6,11 +6,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.Overlays;
+using Content.Goidastation.Shared.Changeling.Components;
+using Content.Goidastation.Shared.Overlays;
 using Content.Shared.Eye.Blinding.Components;
 
-namespace Content.Goobstation.Shared.Changeling.Systems;
+namespace Content.Goidastation.Shared.Changeling.Systems;
 
 public abstract class SharedChangelingSystem : EntitySystem
 {

@@ -36,12 +36,12 @@ public abstract partial class SharedGunSystem
 
     private void OnBasicEntityTakeAmmo(EntityUid uid, BasicEntityAmmoProviderComponent component, TakeAmmoEvent args)
     {
-        // Goobstation start
+        // Goidastation start
         WeightedRandomEntityPrototype? prototypes = null;
         if (component.Proto == null && (!ProtoManager.TryIndex(component.Prototypes, out prototypes) ||
                                         prototypes.Weights.Count == 0))
             return;
-        // Goobstation end
+        // Goidastation end
 
         for (var i = 0; i < args.Shots; i++)
         {
@@ -53,10 +53,10 @@ public abstract partial class SharedGunSystem
                 component.Count--;
             }
 
-            // Goob edit start
+            // Goida edit start
             var proto = component.Proto ?? prototypes!.Pick(Random);
             var ent = Spawn(proto, args.Coordinates);
-            // Goob edit end
+            // Goida edit end
             args.Ammo.Add((ent, EnsureShootable(ent)));
         }
 
@@ -69,7 +69,7 @@ public abstract partial class SharedGunSystem
     {
         args.Capacity = component.Capacity ?? int.MaxValue;
         args.Count = component.Count ?? int.MaxValue;
-        if (component is { Proto: null, Prototypes: null }) // Goobstation
+        if (component is { Proto: null, Prototypes: null }) // Goidastation
             args.Count = 0;
     }
 

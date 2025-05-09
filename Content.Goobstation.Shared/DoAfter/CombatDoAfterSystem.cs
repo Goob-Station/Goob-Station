@@ -1,10 +1,10 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.DoAfter;
+using Content.Goidastation.Common.DoAfter;
 using Content.Shared._White.Standing;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
@@ -19,7 +19,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.DoAfter;
+namespace Content.Goidastation.Shared.DoAfter;
 
 public sealed partial class CombatDoAfterSystem : EntitySystem
 {

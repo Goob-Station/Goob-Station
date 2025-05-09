@@ -25,7 +25,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Cooper Wallace <6856074+CooperWallace@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Cooper Wallace <CooperWallace@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
@@ -34,7 +34,7 @@
 using System.Linq;
 using Content.Shared.Containers;
 using Content.Client.UserInterface.Systems.Chat;
-using Content.Goobstation.Common.CCVar; // Goobstation Change
+using Content.Goidastation.Common.CCVar; // Goidastation Change
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
@@ -108,8 +108,8 @@ namespace Content.Client.Popups
                     this));
 
             // WD EDIT START
-            _shouldLogInChat = _configManager.GetCVar(GoobCVars.LogInChat);
-            _configManager.OnValueChanged(GoobCVars.LogInChat, log => { _shouldLogInChat = log; });
+            _shouldLogInChat = _configManager.GetCVar(GoidaCVars.LogInChat);
+            _configManager.OnValueChanged(GoidaCVars.LogInChat, log => { _shouldLogInChat = log; });
             // WD EDIT END
         }
 

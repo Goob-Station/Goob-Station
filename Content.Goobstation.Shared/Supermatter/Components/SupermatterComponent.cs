@@ -5,7 +5,7 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -16,7 +16,7 @@
 
 using System;
 using System.Collections.Generic;
-using Content.Goobstation.Shared.Supermatter.Systems;
+using Content.Goidastation.Shared.Supermatter.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
 using Content.Shared.Whitelist;
@@ -27,7 +27,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 
-namespace Content.Goobstation.Shared.Supermatter.Components;
+namespace Content.Goidastation.Shared.Supermatter.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SupermatterComponent : Component
@@ -113,10 +113,10 @@ public sealed partial class SupermatterComponent : Component
     public SharedSupermatterSystem.SuperMatterSound? SmSound;
 
     [DataField("dustSound")]
-    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/supermatter.ogg");
+    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/supermatter.ogg");
 
     [DataField("delamSound")]
-    public SoundSpecifier DelamSound = new SoundPathSpecifier("/Audio/_Goobstation/Supermatter/delamming.ogg");
+    public SoundSpecifier DelamSound = new SoundPathSpecifier("/Audio/_Goidastation/Supermatter/delamming.ogg");
 
     [DataField("delamAlarm")]
     public SoundSpecifier DelamAlarm = new SoundPathSpecifier("/Audio/Machines/alarm.ogg");

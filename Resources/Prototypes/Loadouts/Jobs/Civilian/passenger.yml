@@ -192,7 +192,7 @@
   equipment:
     shoes: ClothingShoesBootsWinter
 
-# goob - colored military jumpsuits
+# goida - colored military jumpsuits
 
 - type: loadout
   id: GreyMJ
@@ -270,7 +270,7 @@
     jumpsuit: ClothingUniformJumpsuitMilitaryColorMaroon
 
 
-# service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goob change btw
+# service jumpsuit - putting it here because frontier's only service jumpsuits are hydroponics and general lmao # goida change btw
 
 - type: loadout
   id: ServiceMJ

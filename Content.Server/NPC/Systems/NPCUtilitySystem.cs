@@ -56,7 +56,7 @@ using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Server._Goobstation.Wizard.NPC;
+using Content.Server._Goidastation.Wizard.NPC;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 
@@ -84,7 +84,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
     [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
-    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goobstation
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!; // Goidastation
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -313,7 +313,7 @@ public sealed class NPCUtilitySystem : EntitySystem
 
                 return Math.Clamp(distance / radius, 0f, 1f);
             }
-            case TargetRequiresWieldAndCanWieldCon: // Goobstation
+            case TargetRequiresWieldAndCanWieldCon: // Goidastation
             {
                 if (!HasComp<GunRequiresWieldComponent>(targetUid) ||
                     !TryComp(targetUid, out WieldableComponent? wieldable))

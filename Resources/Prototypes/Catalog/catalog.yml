@@ -15,7 +15,7 @@
     - Debug
   cost:
     DebugDollar: 10
-    Telecrystal: 50  # Goobstation - Telecrystal rework
+    Telecrystal: 50  # Goidastation - Telecrystal rework
 
 - type: listing
   id: DebugListing3

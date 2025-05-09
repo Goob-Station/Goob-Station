@@ -13,14 +13,14 @@
   - type: Sprite
     noRot: true
     drawdepth: Objects
-    sprite: _Goobstation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
+    sprite: _Goidastation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
     layers:
     - state: stasis_cage-base
       map: ["enum.StorageVisualLayers.Base"]
     - state: stasis_cage-closed
       map: ["enum.StorageVisualLayers.Door"]
   - type: Icon
-    sprite: _Goobstation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
+    sprite: _Goidastation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
     state: icon
   - type: InteractionOutline
   - type: Physics
@@ -54,7 +54,7 @@
   - type: StasisContainer
   - type: Item
     size: Normal
-    sprite: _Goobstation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
+    sprite: _Goidastation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
   - type: Tag
     tags:
       - StasisCage

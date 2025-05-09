@@ -34,7 +34,7 @@
   - type: ActivePirateRule
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Shuttles/pirates_irs.yml
+    mapPath: /Maps/_Goidastation/Shuttles/pirates_irs.yml
   - type: AntagLoadProfileRule
     speciesOverride: Human
     alwaysUseSpeciesOverride: true

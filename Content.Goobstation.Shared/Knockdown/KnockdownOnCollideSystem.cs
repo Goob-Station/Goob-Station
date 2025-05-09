@@ -6,13 +6,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.Mutate;
+using Content.Shared._Goidastation.Heretic.Components;
+using Content.Shared._Goidastation.Wizard.Mutate;
 using Content.Shared._White.Standing;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 
-namespace Content.Goobstation.Shared.Knockdown;
+namespace Content.Goidastation.Shared.Knockdown;
 
 public sealed class KnockdownOnCollideSystem : EntitySystem
 {

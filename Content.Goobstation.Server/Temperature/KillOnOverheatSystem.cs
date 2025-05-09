@@ -13,7 +13,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 
-namespace Content.Goobstation.Server.Temperature;
+namespace Content.Goidastation.Server.Temperature;
 
 public sealed class KillOnOverheatSystem : EntitySystem
 {

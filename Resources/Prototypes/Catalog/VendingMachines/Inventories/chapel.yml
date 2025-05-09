@@ -58,11 +58,11 @@
     BoxCandleSmall: 2
     Urn: 5
     SpectralLocator: 1
-    TemplarArmor: 1 #goob
-    ClothingHeadHelmetTemplar: 2 #goob
-    ClothingOuterClownPriest: 1 #goob
-    MonkRobes: 1 #goob
-    ClothingHeadHatImam: 1 #goob
+    TemplarArmor: 1 #goida
+    ClothingHeadHelmetTemplar: 2 #goida
+    ClothingOuterClownPriest: 1 #goida
+    MonkRobes: 1 #goida
+    ClothingHeadHatImam: 1 #goida
   contrabandInventory:
     FoodBakedBunHotX: 2
     DrinkWineBottleFull: 1

@@ -17,7 +17,7 @@
   parent: BaseStorageItem
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/blueshieldundetermined.rsi
+    sprite: _Goidastation/Objects/Specific/Security/blueshieldundetermined.rsi
     layers:
     - map: [ base ]
       state: icon

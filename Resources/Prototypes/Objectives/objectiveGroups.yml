@@ -91,7 +91,7 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 #
@@ -110,7 +110,7 @@
   weights:
     CaptainIDStealObjective: 1
     CMOHyposprayStealObjective: 1
-    # CMOCrewMonitorStealObjective: 1 # Goobstation
+    # CMOCrewMonitorStealObjective: 1 # Goidastation
     CMORapidSyringeGunStealObjective: 1
     RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 1
@@ -122,15 +122,15 @@
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     EnergyShotgunStealObjective: 0.5
-    StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
-    LawbringerStealObjective: 0.5 # Goobstation
+    StealSupermatterSliverObjective: 0.5 # Goidastation - supermatter
+    LawbringerStealObjective: 0.5 # Goidastation
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 1
-    PermaKillRandomPersonObjective: 0.5 # Goobstation - straight up kill someone with no maroons
-    PermaKillRandomTraitorObjective: 0.3 # Goobstation - target traitor
+    PermaKillRandomPersonObjective: 0.5 # Goidastation - straight up kill someone with no maroons
+    PermaKillRandomTraitorObjective: 0.3 # Goidastation - target traitor
     KillRandomHeadObjective: 0.2
 
 - type: weightedRandom
@@ -138,14 +138,14 @@
   weights:
     EscapeShuttleObjective: 1
     DieObjective: 0.05
-    HijackShuttleObjective: 0.02 # Goobstation - reenable hijack
+    HijackShuttleObjective: 0.02 # Goidastation - reenable hijack
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
-    RandomTraitorTargetAliveObjective: 0.5 # Goobstation - protect a player that is targeted by another traitor
+    RandomTraitorTargetAliveObjective: 0.5 # Goidastation - protect a player that is targeted by another traitor
 
 #Thief groups
 - type: weightedRandom
@@ -170,7 +170,7 @@
     TechnologyDiskStealCollectionObjective: 1        #rnd
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2 #only for moth
-    BatteryStealCollectionObjective: 2 #Goobedit - only for ipc
+    BatteryStealCollectionObjective: 2 #Goidaedit - only for ipc
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem

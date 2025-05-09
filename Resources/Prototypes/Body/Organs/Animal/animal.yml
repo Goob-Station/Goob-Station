@@ -44,7 +44,7 @@
   - type: FlavorProfile
     flavors:
       - chicken # everything kinda tastes like chicken
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -55,7 +55,7 @@
   abstract: true
   components:
   - type: Gibbable
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Biomass: 3
 
@@ -90,7 +90,7 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -125,7 +125,7 @@
     groups:
     - id: Food
     - id: Drink
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -165,7 +165,7 @@
     - id: Alcohol
       rateModifier: 0.1
   - type: Liver # Shitmed
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -192,7 +192,7 @@
     - id: Poison
     - id: Narcotic
   - type: Heart # Shitmed
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -217,7 +217,7 @@
     maxReagents: 5
     metabolizerTypes: [ Animal ]
     removeEmpty: true
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ

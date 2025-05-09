@@ -59,7 +59,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 Floxington <florian.decker@mailbox.org>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
@@ -82,13 +82,13 @@
     contents:
       - id: FlashlightSeclite
       - id: WeaponEnergyShotgun
-      #- id: WeaponDisabler #Goobstation (Disablers in belts)
+      #- id: WeaponDisabler #Goidastation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
-      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
-      - id: BoxLethalInjection # Goobstation
+      - id: ClothingHandsGlovesKravMaga # Goidastation - Martial Arts
+      - id: BoxLethalInjection # Goidastation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
-      - id: ClothingHeadsetAltWarden # Goobstation
+      - id: ClothingHeadsetAltWarden # Goidastation
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
@@ -104,9 +104,9 @@
         amount: 2
       - id: RemoteSignaller
         amount: 2
-      - id: Multitool # Goobstation
-      - id: Wrench # Goobstation
-      - id: ContrabandDetectorFlatpack # Goobstation
+      - id: Multitool # Goidastation
+      - id: Wrench # Goidastation
+      - id: ContrabandDetectorFlatpack # Goidastation
         amount: 2
 
 - type: entity
@@ -117,14 +117,14 @@
   - type: StorageFill
     contents:
       - id: FlashlightSeclite
-      - id: WeaponEnergyShotgun # Goobstation
-      #- id: WeaponDisabler #Goobstation (Disablers in belts)
+      - id: WeaponEnergyShotgun # Goidastation
+      #- id: WeaponDisabler #Goidastation (Disablers in belts)
       - id: ClothingBeltSecurityFilled
-      - id: ClothingHandsGlovesKravMaga # Goobstation - Martial Arts
-      - id: BoxLethalInjection # Goobstation
+      - id: ClothingHandsGlovesKravMaga # Goidastation - Martial Arts
+      - id: BoxLethalInjection # Goidastation
       - id: Flash
       - id: ClothingEyesGlassesSecurity
-      - id: ClothingHeadsetAltWarden # Goobstation
+      - id: ClothingHeadsetAltWarden # Goidastation
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
@@ -138,9 +138,9 @@
       - id: RemoteSignaller
         amount: 2
       - id: Binoculars
-      - id: Multitool # Goobstation
-      - id: Wrench # Goobstation
-      - id: ContrabandDetectorFlatpack # Goobstation
+      - id: Multitool # Goidastation
+      - id: Wrench # Goidastation
+      - id: ContrabandDetectorFlatpack # Goidastation
         amount: 2
 
 - type: entity
@@ -152,21 +152,21 @@
     contents:
       - id: FlashlightSeclite
         prob: 0.8
-      #- id: WeaponDisabler #Goobstation (Disablers in belts)
+      #- id: WeaponDisabler #Goidastation (Disablers in belts)
       - id: ClothingUniformJumpsuitSecGrey
         prob: 0.3
       - id: ClothingHeadHelmetBasic
       - id: ClothingOuterArmorBasic
       - id: ClothingBeltSecurityFilled
-        orGroup: Belt # Goobstation - Martial Arts - start
+        orGroup: Belt # Goidastation - Martial Arts - start
       - id: ClothingBeltCorporateJudoFilled
-        orGroup: Belt # Goobstation - Martial Arts - end
+        orGroup: Belt # Goidastation - Martial Arts - end
       - id: Flash
         prob: 0.5
       - id: ClothingEyesGlassesSecurity
-      - id: ClothingHeadsetAltSecurityRegular # Goobstation
-      - id: PanicButton # Goobstation
-      - id: PepperSpray # Goobstation
+      - id: ClothingHeadsetAltSecurityRegular # Goidastation
+      - id: PanicButton # Goidastation
+      - id: PepperSpray # Goidastation
       - id: ClothingHandsGlovesColorBlack
       - id: ClothingShoesBootsJack
       - id: WeaponMeleeNeedle
@@ -233,7 +233,7 @@
       - id: DrinkDetFlask
       - id: ClothingHandsGlovesForensic
       - id: RubberStampDetective
-      - id: BloodTrak # Goobstation
+      - id: BloodTrak # Goidastation
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
       - id: HandLabeler
@@ -344,7 +344,7 @@
     contents:
     - id: WeaponLaserCarbine
       amount: 3
-    - id: WeaponTemperatureGun # Goobstation
+    - id: WeaponTemperatureGun # Goidastation
       amount: 2
-    - id: WeaponEnergyIonRifle # Goobstation
+    - id: WeaponEnergyIonRifle # Goidastation
       amount: 2

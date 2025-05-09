@@ -8,7 +8,7 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
@@ -100,7 +100,7 @@ public sealed partial class AntagSelectionSystem
         return count;
     }
 
-    // goob edit
+    // goida edit
     public List<ICommonSession> GetAliveConnectedPlayers(IList<ICommonSession> pool)
     {
         var l = new List<ICommonSession>();
@@ -112,7 +112,7 @@ public sealed partial class AntagSelectionSystem
         }
         return l;
     }
-    // goob edit end
+    // goida edit end
 
     /// <summary>
     /// Gets the number of antagonists that should be present for a given antag definition based on the provided pool.

@@ -14,7 +14,7 @@ using Content.Shared.Research.Systems;
 using Robust.Shared.Prototypes;
 using System.Linq;
 
-namespace Content.Goobstation.Shared.Research;
+namespace Content.Goidastation.Shared.Research;
 
 public static class SharedResearchSystemExtensions
 {

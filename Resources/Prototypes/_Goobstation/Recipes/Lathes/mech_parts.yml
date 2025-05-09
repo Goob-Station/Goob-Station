@@ -220,7 +220,7 @@
   id: VimHarness
   result: VimHarness
   categories:
-  - Vim # Goobstation
+  - Vim # Goidastation
   completetime: 5
   materials:
     Steel: 500

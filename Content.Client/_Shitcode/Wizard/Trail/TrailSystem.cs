@@ -7,8 +7,8 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.TimeStop;
+using Content.Shared._Goidastation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.TimeStop;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Animations;

@@ -16,7 +16,7 @@ using System.Linq;
 
 namespace Content.Server.GameTicking;
 
-// Goobstation - this file is heavily modified to add credits for lobby backgrounds
+// Goidastation - this file is heavily modified to add credits for lobby backgrounds
 public sealed partial class GameTicker
 {
     [ViewVariables]

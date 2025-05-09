@@ -7,7 +7,7 @@
 using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Common.Changeling;
+namespace Content.Goidastation.Common.Changeling;
 
 
 /// <summary>

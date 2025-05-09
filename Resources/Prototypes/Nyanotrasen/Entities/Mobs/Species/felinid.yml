@@ -19,7 +19,7 @@
   components:
   - type: Sprite
     scale: 0.8, 0.8
-  - type: ScaleData # Goobstation
+  - type: ScaleData # Goidastation
     scale: 0.8, 0.8
   - type: HumanoidAppearance
     species: Felinid
@@ -39,7 +39,7 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
-  # Goobstation - Siouxcide, felinids have standard slow on damage numbers
+  # Goidastation - Siouxcide, felinids have standard slow on damage numbers
 # - type: SlowOnDamage
 #   speedModifierThresholds:
 #     60: 0.85  # 0.7 is base speed.
@@ -62,7 +62,7 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+    critThreshold: 75 # Goidastation - Siouxcide, felinids take 3 disabler shots to down
   - type: TypingIndicator
     proto: felinid
   - type: PseudoItem

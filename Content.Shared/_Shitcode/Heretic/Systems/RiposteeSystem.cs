@@ -8,7 +8,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._EinsteinEngines.TelescopicBaton;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared._Shitcode.Heretic.Systems.Abilities;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
@@ -23,7 +23,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Heretic.Systems;
+namespace Content.Shared._Goidastation.Heretic.Systems;
 
 public sealed class RiposteeSystem : EntitySystem
 {
@@ -38,7 +38,7 @@ public sealed class RiposteeSystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private static readonly SoundSpecifier RiposteSound =
-        new SoundPathSpecifier("/Audio/_Goobstation/Heretic/parry.ogg");
+        new SoundPathSpecifier("/Audio/_Goidastation/Heretic/parry.ogg");
 
     public override void Initialize()
     {

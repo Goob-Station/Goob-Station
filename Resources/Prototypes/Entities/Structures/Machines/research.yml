@@ -104,7 +104,7 @@
   - type: GuideHelp
     guides:
     - Science
-  - type: ResearchPointSource # Goobstation
+  - type: ResearchPointSource # Goidastation
     pointspersecond: 15
     active: true
 

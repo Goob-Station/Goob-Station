@@ -133,5 +133,5 @@ public sealed class FoodSequenceElementEntry
     /// <summary>
     /// the original prototype of the layer
     /// </summary>
-    public string? Proto { get; set; } = null; // Goobstation - anythingburgers
+    public string? Proto { get; set; } = null; // Goidastation - anythingburgers
 }

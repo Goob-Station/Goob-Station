@@ -6,8 +6,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Components;
-using Content.Server._Goobstation.Wizard.Store;
+using Content.Server._Goidastation.Wizard.Components;
+using Content.Server._Goidastation.Wizard.Store;
 using Content.Server.Antag;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
@@ -15,7 +15,7 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
-using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goidastation.Wizard;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -23,7 +23,7 @@ using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class SpellsGrantSystem : EntitySystem
 {

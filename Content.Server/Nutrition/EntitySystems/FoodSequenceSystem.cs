@@ -87,9 +87,9 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Random;
-using Content.Shared.Item; // Goobstation - anythingburgers
-using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
-using Content.Server.Singularity.Components; // Goobstation - anythingburgers
+using Content.Shared.Item; // Goidastation - anythingburgers
+using Content.Shared.Chemistry.Components.SolutionManager; // Goidastation - anythingburgers
+using Content.Server.Singularity.Components; // Goidastation - anythingburgers
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -101,8 +101,8 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation - anythingburgers
+    [Dependency] private readonly SharedItemSystem _item = default!; // Goidastation - anythingburgers
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goidastation - anythingburgers
 
     public override void Initialize()
     {
@@ -113,10 +113,10 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
-        if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
+        if (ent.Comp.AcceptAll) // Goidastation - anythingburgers
             EnsureComp<FoodSequenceElementComponent>(args.Used);
 
-        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
+        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goidastation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
             args.Handled = TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
     }
 
@@ -125,7 +125,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         FoodSequenceElementEntry? elementData = null;
         foreach (var entry in element.Comp.Entries)
         {
-            if (entry.Key == start.Comp.Key || start.Comp.AcceptAll) // Goobstation - anythingburgers
+            if (entry.Key == start.Comp.Key || start.Comp.AcceptAll) // Goidastation - anythingburgers
             {
                 elementData = entry.Value;
                 break;
@@ -135,7 +135,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (elementData is null)
             return false;
 
-        if (TryComp<FoodComponent>(element, out var elementFood) && elementFood.RequireDead && !start.Comp.AcceptAll) // Goobstation - anythingburgers
+        if (TryComp<FoodComponent>(element, out var elementFood) && elementFood.RequireDead && !start.Comp.AcceptAll) // Goidastation - anythingburgers
         {
             if (_mobState.IsAlive(element))
                 return false;
@@ -164,13 +164,13 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             start.Comp.Finished = true;
 
         UpdateFoodName(start);
-        UpdateFoodSize(start); // Goobstation - anythingburgers
+        UpdateFoodSize(start); // Goidastation - anythingburgers
         MergeFoodSolutions(start, element);
         MergeFlavorProfiles(start, element);
         MergeTrash(start, element);
         MergeTags(start, element);
 
-        if (!IsClientSide(element)) // Goobstation - anythingburgers PSEUDOITEMS FUCK THIS SHIT UP!!
+        if (!IsClientSide(element)) // Goidastation - anythingburgers PSEUDOITEMS FUCK THIS SHIT UP!!
             QueueDel(element);
 
         return true;
@@ -217,7 +217,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return;
 
         if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer))
-        { // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
+        { // Goidastation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
             foreach (var name in elementSolutionContainer.Containers)
             {
                 if (!_solutionContainer.TryGetSolution(element.Owner, name, out _, out var elementSolution))
@@ -268,7 +268,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         _tag.TryAddTags(start.Owner, elementTags.Tags);
     }
 
-    private void UpdateFoodSize(Entity<FoodSequenceStartPointComponent> start) // Goobstation - anythingburgers dynamic item size
+    private void UpdateFoodSize(Entity<FoodSequenceStartPointComponent> start) // Goidastation - anythingburgers dynamic item size
     {
         var increment = (start.Comp.FoodLayers.Count / 2);
 

@@ -33,7 +33,7 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
 
     private void OnAutoHandleState(EntityUid uid, ThrownItemComponent component, ref AfterAutoHandleStateEvent args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite)) // Goob edit start
+        if (!TryComp<SpriteComponent>(uid, out var sprite)) // Goida edit start
             return;
 
         if (!component.Animate)
@@ -48,7 +48,7 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
 
             return;
         }
-        // Goob edit end
+        // Goida edit end
 
         var animationPlayer = EnsureComp<AnimationPlayerComponent>(uid);
 

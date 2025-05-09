@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -11,7 +11,7 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/energyriflemag.rsi
+    sprite: /Textures/_Goidastation/Objects/Weapons/Guns/Ammunition/Magazine/energyriflemag.rsi
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000

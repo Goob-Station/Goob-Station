@@ -33,7 +33,7 @@ public sealed partial class MagazineVisualsComponent : Component
     [DataField("zeroVisible")] public bool ZeroVisible;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// Whether should only set zero step when there is no ammo left.
     /// </summary>
     [DataField]

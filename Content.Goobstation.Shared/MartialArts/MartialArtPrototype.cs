@@ -6,12 +6,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Common.MartialArts;
+using Content.Goidastation.Shared.MartialArts.Components;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.MartialArts;
+namespace Content.Goidastation.Shared.MartialArts;
 
 [Prototype("martialArt")]
 public sealed class MartialArtPrototype : IPrototype

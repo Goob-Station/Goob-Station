@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -7,7 +7,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Goobstation.Shared.Chemistry.GunApplySolution;
+namespace Content.Goidastation.Shared.Chemistry.GunApplySolution;
 
 public sealed class GunApplySolutionSystem : EntitySystem
 {

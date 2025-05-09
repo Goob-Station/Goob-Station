@@ -17,7 +17,7 @@ namespace Content.Shared.Nuke;
 public sealed partial class NukeDiskComponent : Component
 {
     /// <summary>
-    /// Determines whether the item can override the nukes safety. - Goobstation
+    /// Determines whether the item can override the nukes safety. - Goidastation
     /// </summary>
     [DataField]
     public bool Override = false;

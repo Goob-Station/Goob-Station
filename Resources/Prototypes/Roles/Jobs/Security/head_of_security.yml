@@ -151,7 +151,7 @@
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 45 #Goob content
+  goidacoins: 45 #Goida content
   access:
   - HeadOfSecurity
   - Command
@@ -169,7 +169,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: SecurityStaff # goobstation
+      - type: SecurityStaff # goidastation
 
 - type: startingGear
   id: HoSGear
@@ -183,4 +183,4 @@
     back:
     - Flash
     - MagazinePistol
-    - ClothingMaskGasSecurity # Goobstation
+    - ClothingMaskGasSecurity # Goidastation

@@ -1,7 +1,7 @@
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Contract;
-using Content.Goobstation.Shared.Exorcism;
-using Content.Goobstation.Shared.Religion;
+using Content.Goidastation.Shared.Devil;
+using Content.Goidastation.Shared.Devil.Contract;
+using Content.Goidastation.Shared.Exorcism;
+using Content.Goidastation.Shared.Religion;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -11,9 +11,9 @@ using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Goobstation.Shared.Bible;
+namespace Content.Goidastation.Shared.Bible;
 
-public sealed partial class GoobBibleSystem : EntitySystem
+public sealed partial class GoidaBibleSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;

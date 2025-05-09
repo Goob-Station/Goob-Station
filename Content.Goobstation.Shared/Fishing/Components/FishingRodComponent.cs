@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -9,7 +9,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 using System.Numerics;
 
-namespace Content.Goobstation.Shared.Fishing.Components;
+namespace Content.Goidastation.Shared.Fishing.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class FishingRodComponent : Component
@@ -44,7 +44,7 @@ public sealed partial class FishingRodComponent : Component
 
     [DataField]
     public SpriteSpecifier RopeSprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Objects/Specific/Fishing/fishing_lure.rsi"), "rope");
+        new SpriteSpecifier.Rsi(new ResPath("_Goidastation/Objects/Specific/Fishing/fishing_lure.rsi"), "rope");
 
     [DataField, ViewVariables]
     public Vector2 RopeUserOffset = new (0f, 0f);

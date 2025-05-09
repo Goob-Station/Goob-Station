@@ -14,7 +14,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.StepTrigger.Prototypes;
 
 /// <summary>
-///     Goobstation: A group of <see cref="StepTriggerTypePrototype">
+///     Goidastation: A group of <see cref="StepTriggerTypePrototype">
 ///     Used to determine StepTriggerTypes like Tags.
 ///     Used for better work with Immunity.
 ///     StepTriggerTypes in StepTriggerTypes.yml

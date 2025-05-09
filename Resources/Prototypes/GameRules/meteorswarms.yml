@@ -64,43 +64,43 @@
 # SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-## Event Tables Goob Edit
-# Goob Edit
-#- type: entityTable Goob Edit
-#  id: MeteorSwarmDustEventsTable Goob Edit
-#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goob Edit
-#    children: Goob Edit
-#    - id: GameRuleSpaceDustMinor Goob Edit
-#    - id: GameRuleSpaceDustMajor Goob Edit
-# Goob Edit
-#- type: entityTable Goob Edit
-#  id: MeteorSwarmSmallChanceEventsTable Goob Edit
-#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goob Edit
-#    children: Goob Edit
-#    - id: GameRuleMeteorSwarmSmall Goob Edit
-#      prob: 0.15 Goob Edit
-# Goob Edit
-#- type: entityTable Goob Edit
-#  id: MeteorSwarmMildTable Goob Edit
-#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goob Edit
-#    children: Goob Edit
-#    - !type:NestedSelector Goob Edit
-#        tableId: MeteorSwarmDustEventsTable Goob Edit
-#    - !type:NestedSelector Goob Edit
-#        tableId: MeteorSwarmSmallChanceEventsTable Goob Edit
-# Goob Edit
-#- type: entityTable Goob Edit
-#  id: BasicMeteorSwarmEventsTable Goob Edit
-#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goob Edit
-#    children: Goob Edit
-#    - !type:NestedSelector Goob Edit
-#        tableId: MeteorSwarmDustEventsTable Goob Edit
-#    - id: GameRuleMeteorSwarmSmall Goob Edit
-#    - id: GameRuleMeteorSwarmMedium Goob Edit
-#    - id: GameRuleMeteorSwarmLarge Goob Edit
-#    - id: GameRuleUristSwarm Goob Edit
-#    - id: ImmovableRodSpawn Goob Edit
-# Goob Edit
+## Event Tables Goida Edit
+# Goida Edit
+#- type: entityTable Goida Edit
+#  id: MeteorSwarmDustEventsTable Goida Edit
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goida Edit
+#    children: Goida Edit
+#    - id: GameRuleSpaceDustMinor Goida Edit
+#    - id: GameRuleSpaceDustMajor Goida Edit
+# Goida Edit
+#- type: entityTable Goida Edit
+#  id: MeteorSwarmSmallChanceEventsTable Goida Edit
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goida Edit
+#    children: Goida Edit
+#    - id: GameRuleMeteorSwarmSmall Goida Edit
+#      prob: 0.15 Goida Edit
+# Goida Edit
+#- type: entityTable Goida Edit
+#  id: MeteorSwarmMildTable Goida Edit
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goida Edit
+#    children: Goida Edit
+#    - !type:NestedSelector Goida Edit
+#        tableId: MeteorSwarmDustEventsTable Goida Edit
+#    - !type:NestedSelector Goida Edit
+#        tableId: MeteorSwarmSmallChanceEventsTable Goida Edit
+# Goida Edit
+#- type: entityTable Goida Edit
+#  id: BasicMeteorSwarmEventsTable Goida Edit
+#  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp Goida Edit
+#    children: Goida Edit
+#    - !type:NestedSelector Goida Edit
+#        tableId: MeteorSwarmDustEventsTable Goida Edit
+#    - id: GameRuleMeteorSwarmSmall Goida Edit
+#    - id: GameRuleMeteorSwarmMedium Goida Edit
+#    - id: GameRuleMeteorSwarmLarge Goida Edit
+#    - id: GameRuleUristSwarm Goida Edit
+#    - id: ImmovableRodSpawn Goida Edit
+# Goida Edit
 - type: weightedRandomEntity
   id: MeteorSpawnAsteroidWallTable
   weights:
@@ -114,211 +114,211 @@
     MeteorRockDiamond: 2
     MeteorRockUranium: 0.5
     MeteorRockBananium: 0.5
-    MeteorRockBSCrystal: 0.5 # Goobstation
-# Goob Edit
-## Event Schedulers Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: BaseGameRule Goob Edit
-#  id: MeteorSwarmScheduler Goob Edit
-#  components: Goob Edit
-#  - type: GameRule Goob Edit
-#  - type: BasicStationEventScheduler Goob Edit
-#    minimumTimeUntilFirstEvent: 600 # 10 min Goob Edit
-#    minMaxEventTiming: Goob Edit
-#      min: 750 # 12.5 min Goob Edit
-#      max: 930 # 17.5 min Goob Edit
-#    scheduledGameRules: !type:NestedSelector Goob Edit
-#      tableId: BasicMeteorSwarmEventsTable Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: BaseGameRule Goob Edit
-#  id: MeteorSwarmMildScheduler Goob Edit
-#  components: Goob Edit
-#  - type: GameRule Goob Edit
-#  - type: BasicStationEventScheduler Goob Edit
-#    minimumTimeUntilFirstEvent: 600 # 10 min Goob Edit
-#    minMaxEventTiming: Goob Edit
-#      min: 750 # 12.5 min Goob Edit
-#      max: 930 # 17.5 min Goob Edit
-#    scheduledGameRules: !type:NestedSelector Goob Edit
-#      tableId: MeteorSwarmMildTable Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: BaseGameRule Goob Edit
-#  id: KesslerSyndromeScheduler Goob Edit
-#  components: Goob Edit
-#  - type: GameRule Goob Edit
-#  - type: RampingStationEventScheduler Goob Edit
-#    scheduledGameRules: !type:NestedSelector Goob Edit
-#      tableId: BasicMeteorSwarmEventsTable Goob Edit
-# Goob Edit
-## Game Rules Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: BaseGameRule Goob Edit
-#  id: GameRuleMeteorSwarm Goob Edit
-#  abstract: true Goob Edit
-#  components: Goob Edit
-#  - type: GameRule Goob Edit
-#  - type: StationEvent Goob Edit
-#    reoccurrenceDelay: 1 Goob Edit
-#    earliestStart: 12 Goob Edit
-#    minimumPlayers: 25 Goob Edit
-#  - type: MeteorSwarm Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: GameRuleMeteorSwarm Goob Edit
-#  id: GameRuleSpaceDustMinor Goob Edit
-#  components: Goob Edit
-#  - type: StationEvent Goob Edit
-#    weight: 44 Goob Edit
-#    earliestStart: 2 Goob Edit
-#    minimumPlayers: 0 Goob Edit
-#    chaos: # Goobstation Goob Edit
-#      Power: 10 Goob Edit
-#      Atmos: 10 Goob Edit
-#  - type: MeteorSwarm Goob Edit
-#    announcement: null Goob Edit
-#    announcementSound: null Goob Edit
-#    nonDirectional: true Goob Edit
-#    meteors: Goob Edit
-#      MeteorSpaceDust: 1 Goob Edit
-#    waves: Goob Edit
-#      min: 2 Goob Edit
-#      max: 3 Goob Edit
-#    meteorsPerWave: Goob Edit
-#      min: 3 Goob Edit
-#      max: 5 Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: GameRuleMeteorSwarm Goob Edit
-#  id: GameRuleSpaceDustMajor Goob Edit
-#  components: Goob Edit
-#  - type: StationEvent Goob Edit
-#    weight: 22 Goob Edit
-#    minimumPlayers: 0 Goob Edit
-#    chaos: # Goobstation Goob Edit
-#      Power: 25 Goob Edit
-#      Atmos: 25 Goob Edit
-#  - type: MeteorSwarm Goob Edit
-#    announcement: station-event-space-dust-start-announcement Goob Edit
-#    announcementSound: /Audio/Announcements/attention.ogg Goob Edit
-#    nonDirectional: true Goob Edit
-#    meteors: Goob Edit
-#      MeteorSpaceDust: 1 Goob Edit
-#    waves: Goob Edit
-#      min: 2 Goob Edit
-#      max: 3 Goob Edit
-#    meteorsPerWave: Goob Edit
-#      min: 8 Goob Edit
-#      max: 12 Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: GameRuleMeteorSwarm Goob Edit
-#  id: GameRuleMeteorSwarmSmall Goob Edit
-#  components: Goob Edit
-#  - type: StationEvent Goob Edit
-#    weight: 18 Goob Edit
-#    minimumPlayers: 15 Goob Edit
-#    chaos: # Goobstation Goob Edit
-#      Power: 40 Goob Edit
-#      Atmos: 40 Goob Edit
-#  - type: MeteorSwarm Goob Edit
-#    meteors: Goob Edit
-#      MeteorSmall: 7 Goob Edit
-#      MeteorMedium: 3 Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: GameRuleMeteorSwarm Goob Edit
-#  id: GameRuleMeteorSwarmMedium Goob Edit
-#  components: Goob Edit
-#  - type: StationEvent Goob Edit
-#    weight: 10 Goob Edit
-#    chaos: # Goobstation Goob Edit
-#      Power: 50 Goob Edit
-#      Atmos: 50 Goob Edit
-#  - type: MeteorSwarm Goob Edit
-#    meteors: Goob Edit
-#      MeteorSmall: 3 Goob Edit
-#      MeteorMedium: 6 Goob Edit
-#      MeteorLarge: 1 Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: GameRuleMeteorSwarm Goob Edit
-#  id: GameRuleMeteorSwarmLarge Goob Edit
-#  components: Goob Edit
-#  - type: StationEvent Goob Edit
-#    weight: 5 Goob Edit
-#    chaos: # Goobstation Goob Edit
-#      Power: 60 Goob Edit
-#      Atmos: 60 Goob Edit
-#  - type: MeteorSwarm Goob Edit
-#    meteors: Goob Edit
-#      MeteorSmall: 2 Goob Edit
-#      MeteorMedium: 4 Goob Edit
-#      MeteorLarge: 4 Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  parent: GameRuleMeteorSwarm Goob Edit
-#  id: GameRuleUristSwarm Goob Edit
-#  components: Goob Edit
-#  - type: StationEvent Goob Edit
-#    weight: 0.05 Goob Edit
-#  - type: MeteorSwarm Goob Edit
-#    announcement: station-event-meteor-urist-start-announcement Goob Edit
-#    announcementSound: /Audio/Announcements/attention.ogg Goob Edit
-#    meteors: Goob Edit
-#      MeteorUrist: 1 Goob Edit
-#    waves: Goob Edit
-#      min: 3 Goob Edit
-#      max: 3 Goob Edit
-#    meteorsPerWave: Goob Edit
-#      min: 10 Goob Edit
-#      max: 10 Goob Edit
-# Goob Edit
-#- type: entity Goob Edit
-#  id: ImmovableRodSpawn Goob Edit
-#  parent: BaseGameRule Goob Edit
-#  components: Goob Edit
-#  - type: StationEvent Goob Edit
-#    startAnnouncement: station-event-immovable-rod-start-announcement Goob Edit
-#    startAudio: Goob Edit
-#      path: /Audio/Announcements/attention.ogg Goob Edit
-#    weight: 3.5 Goob Edit
-#    reoccurrenceDelay: 1 Goob Edit
-#    duration: 1 Goob Edit
-#    earliestStart: 30 Goob Edit
-#    minimumPlayers: 25 Goob Edit
-#    chaos: # Goobstation Goob Edit
-#      Power: 100 Goob Edit
-#      Atmos: 100 Goob Edit
-#  - type: ImmovableRodRule Goob Edit
-#    rodPrototypes: Goob Edit
-#    - id: ImmovableRodKeepTiles # Goob edit Goob Edit
-#      prob: 0.94 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodMop Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodShark Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodClown Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodBanana Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodHammer Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodThrongler Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodGibstick Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
-#    - id: ImmovableRodWeh Goob Edit
-#      prob: 0.0075 Goob Edit
-#      orGroup: rodProto Goob Edit
+    MeteorRockBSCrystal: 0.5 # Goidastation
+# Goida Edit
+## Event Schedulers Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: BaseGameRule Goida Edit
+#  id: MeteorSwarmScheduler Goida Edit
+#  components: Goida Edit
+#  - type: GameRule Goida Edit
+#  - type: BasicStationEventScheduler Goida Edit
+#    minimumTimeUntilFirstEvent: 600 # 10 min Goida Edit
+#    minMaxEventTiming: Goida Edit
+#      min: 750 # 12.5 min Goida Edit
+#      max: 930 # 17.5 min Goida Edit
+#    scheduledGameRules: !type:NestedSelector Goida Edit
+#      tableId: BasicMeteorSwarmEventsTable Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: BaseGameRule Goida Edit
+#  id: MeteorSwarmMildScheduler Goida Edit
+#  components: Goida Edit
+#  - type: GameRule Goida Edit
+#  - type: BasicStationEventScheduler Goida Edit
+#    minimumTimeUntilFirstEvent: 600 # 10 min Goida Edit
+#    minMaxEventTiming: Goida Edit
+#      min: 750 # 12.5 min Goida Edit
+#      max: 930 # 17.5 min Goida Edit
+#    scheduledGameRules: !type:NestedSelector Goida Edit
+#      tableId: MeteorSwarmMildTable Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: BaseGameRule Goida Edit
+#  id: KesslerSyndromeScheduler Goida Edit
+#  components: Goida Edit
+#  - type: GameRule Goida Edit
+#  - type: RampingStationEventScheduler Goida Edit
+#    scheduledGameRules: !type:NestedSelector Goida Edit
+#      tableId: BasicMeteorSwarmEventsTable Goida Edit
+# Goida Edit
+## Game Rules Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: BaseGameRule Goida Edit
+#  id: GameRuleMeteorSwarm Goida Edit
+#  abstract: true Goida Edit
+#  components: Goida Edit
+#  - type: GameRule Goida Edit
+#  - type: StationEvent Goida Edit
+#    reoccurrenceDelay: 1 Goida Edit
+#    earliestStart: 12 Goida Edit
+#    minimumPlayers: 25 Goida Edit
+#  - type: MeteorSwarm Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: GameRuleMeteorSwarm Goida Edit
+#  id: GameRuleSpaceDustMinor Goida Edit
+#  components: Goida Edit
+#  - type: StationEvent Goida Edit
+#    weight: 44 Goida Edit
+#    earliestStart: 2 Goida Edit
+#    minimumPlayers: 0 Goida Edit
+#    chaos: # Goidastation Goida Edit
+#      Power: 10 Goida Edit
+#      Atmos: 10 Goida Edit
+#  - type: MeteorSwarm Goida Edit
+#    announcement: null Goida Edit
+#    announcementSound: null Goida Edit
+#    nonDirectional: true Goida Edit
+#    meteors: Goida Edit
+#      MeteorSpaceDust: 1 Goida Edit
+#    waves: Goida Edit
+#      min: 2 Goida Edit
+#      max: 3 Goida Edit
+#    meteorsPerWave: Goida Edit
+#      min: 3 Goida Edit
+#      max: 5 Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: GameRuleMeteorSwarm Goida Edit
+#  id: GameRuleSpaceDustMajor Goida Edit
+#  components: Goida Edit
+#  - type: StationEvent Goida Edit
+#    weight: 22 Goida Edit
+#    minimumPlayers: 0 Goida Edit
+#    chaos: # Goidastation Goida Edit
+#      Power: 25 Goida Edit
+#      Atmos: 25 Goida Edit
+#  - type: MeteorSwarm Goida Edit
+#    announcement: station-event-space-dust-start-announcement Goida Edit
+#    announcementSound: /Audio/Announcements/attention.ogg Goida Edit
+#    nonDirectional: true Goida Edit
+#    meteors: Goida Edit
+#      MeteorSpaceDust: 1 Goida Edit
+#    waves: Goida Edit
+#      min: 2 Goida Edit
+#      max: 3 Goida Edit
+#    meteorsPerWave: Goida Edit
+#      min: 8 Goida Edit
+#      max: 12 Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: GameRuleMeteorSwarm Goida Edit
+#  id: GameRuleMeteorSwarmSmall Goida Edit
+#  components: Goida Edit
+#  - type: StationEvent Goida Edit
+#    weight: 18 Goida Edit
+#    minimumPlayers: 15 Goida Edit
+#    chaos: # Goidastation Goida Edit
+#      Power: 40 Goida Edit
+#      Atmos: 40 Goida Edit
+#  - type: MeteorSwarm Goida Edit
+#    meteors: Goida Edit
+#      MeteorSmall: 7 Goida Edit
+#      MeteorMedium: 3 Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: GameRuleMeteorSwarm Goida Edit
+#  id: GameRuleMeteorSwarmMedium Goida Edit
+#  components: Goida Edit
+#  - type: StationEvent Goida Edit
+#    weight: 10 Goida Edit
+#    chaos: # Goidastation Goida Edit
+#      Power: 50 Goida Edit
+#      Atmos: 50 Goida Edit
+#  - type: MeteorSwarm Goida Edit
+#    meteors: Goida Edit
+#      MeteorSmall: 3 Goida Edit
+#      MeteorMedium: 6 Goida Edit
+#      MeteorLarge: 1 Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: GameRuleMeteorSwarm Goida Edit
+#  id: GameRuleMeteorSwarmLarge Goida Edit
+#  components: Goida Edit
+#  - type: StationEvent Goida Edit
+#    weight: 5 Goida Edit
+#    chaos: # Goidastation Goida Edit
+#      Power: 60 Goida Edit
+#      Atmos: 60 Goida Edit
+#  - type: MeteorSwarm Goida Edit
+#    meteors: Goida Edit
+#      MeteorSmall: 2 Goida Edit
+#      MeteorMedium: 4 Goida Edit
+#      MeteorLarge: 4 Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  parent: GameRuleMeteorSwarm Goida Edit
+#  id: GameRuleUristSwarm Goida Edit
+#  components: Goida Edit
+#  - type: StationEvent Goida Edit
+#    weight: 0.05 Goida Edit
+#  - type: MeteorSwarm Goida Edit
+#    announcement: station-event-meteor-urist-start-announcement Goida Edit
+#    announcementSound: /Audio/Announcements/attention.ogg Goida Edit
+#    meteors: Goida Edit
+#      MeteorUrist: 1 Goida Edit
+#    waves: Goida Edit
+#      min: 3 Goida Edit
+#      max: 3 Goida Edit
+#    meteorsPerWave: Goida Edit
+#      min: 10 Goida Edit
+#      max: 10 Goida Edit
+# Goida Edit
+#- type: entity Goida Edit
+#  id: ImmovableRodSpawn Goida Edit
+#  parent: BaseGameRule Goida Edit
+#  components: Goida Edit
+#  - type: StationEvent Goida Edit
+#    startAnnouncement: station-event-immovable-rod-start-announcement Goida Edit
+#    startAudio: Goida Edit
+#      path: /Audio/Announcements/attention.ogg Goida Edit
+#    weight: 3.5 Goida Edit
+#    reoccurrenceDelay: 1 Goida Edit
+#    duration: 1 Goida Edit
+#    earliestStart: 30 Goida Edit
+#    minimumPlayers: 25 Goida Edit
+#    chaos: # Goidastation Goida Edit
+#      Power: 100 Goida Edit
+#      Atmos: 100 Goida Edit
+#  - type: ImmovableRodRule Goida Edit
+#    rodPrototypes: Goida Edit
+#    - id: ImmovableRodKeepTiles # Goida edit Goida Edit
+#      prob: 0.94 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodMop Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodShark Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodClown Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodBanana Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodHammer Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodThrongler Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodGibstick Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit
+#    - id: ImmovableRodWeh Goida Edit
+#      prob: 0.0075 Goida Edit
+#      orGroup: rodProto Goida Edit

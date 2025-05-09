@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -12,7 +12,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     state: icon
   - type: Storage
     maxItemSize: Tiny
@@ -51,7 +51,7 @@
   description: A gun that allows you to fire syringes to slowly inject their contents on a target.
   components:
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     slots:
     - back
     - suitStorage
@@ -64,9 +64,9 @@
   description: A finely-tuned syringe gun featuring a faster fire rate and more room for ammo, made for the most experienced medical officers.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
     slots:
     - back
     - suitStorage

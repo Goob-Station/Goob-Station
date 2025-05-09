@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Standard Combat Hardsuits
@@ -33,12 +33,12 @@
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: ToggleableClothing
-    clothingPrototypes: #goobstation change
+    clothingPrototypes: #goidastation change
       head: ClothingHeadHelmetHardsuitCombatStandard
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.6
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 3
     knockdownTimeDelta: -3
 
@@ -54,7 +54,7 @@
     sprite: _DV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
   - type: ToggleableClothing
     clothingPrototypes:
-      head: ClothingHeadHelmetHardsuitCombatOfficer #goobstation change
+      head: ClothingHeadHelmetHardsuitCombatOfficer #goidastation change
 
 # Medical Combat Hardsuits
 - type: entity
@@ -85,12 +85,12 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: ToggleableClothing
-    clothingPrototypes: #goobstation change
+    clothingPrototypes: #goidastation change
       head: ClothingHeadHelmetHardsuitCombatMedical
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.6
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 3
     knockdownTimeDelta: -3
 
@@ -123,10 +123,10 @@
     walkModifier: 0.60
     sprintModifier: 0.60
   - type: ToggleableClothing
-    clothingPrototypes: #goobstation change
+    clothingPrototypes: #goidastation change
       head: ClothingHeadHelmetHardsuitCombatRiot
   - type: AllowSuitStorage
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.5
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     cancel: true

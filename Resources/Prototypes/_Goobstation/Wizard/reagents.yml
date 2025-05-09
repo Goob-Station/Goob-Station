@@ -15,7 +15,7 @@
       effects:
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:HasComponentCondition
@@ -29,7 +29,7 @@
         probability: 0.2
       - !type:DropItemsEntityEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:HasComponentCondition

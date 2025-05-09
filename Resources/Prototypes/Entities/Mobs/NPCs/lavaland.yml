@@ -73,7 +73,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -136,7 +136,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      140: Dead # Goob - 4 PKA shots, 2 crusher destabilised hits
+      140: Dead # Goida - 4 PKA shots, 2 crusher destabilised hits
   - type: Butcherable
     spawned:
     - id: DiamondOre1 # not unprocessed
@@ -154,8 +154,8 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: Gun
-    projectileSpeed: 10 # Goob - allows you to actually dodge the projectiles
-    fireRate: 0.2 # Goob - accounts for damage and also to be less annoying
+    projectileSpeed: 10 # Goida - allows you to actually dodge the projectiles
+    fireRate: 0.2 # Goida - accounts for damage and also to be less annoying
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -210,7 +210,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
+      240: Dead # Goida - 6 PKA shots, 3 crusher destabilised hits
 
 - type: entity
   id: MobWatcherMagmawing
@@ -235,7 +235,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Dead # Goob - 6 PKA shots, 3 crusher destabilised hits
+      240: Dead # Goida - 6 PKA shots, 3 crusher destabilised hits
 
 - type: entity
   id: MobWatcherPride

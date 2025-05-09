@@ -10,8 +10,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Damage;
@@ -22,7 +22,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed class BlobbernautSystem : SharedBlobbernautSystem
 {

@@ -85,8 +85,8 @@
       fix1:
         shape: !type:PolygonShape
           vertices:
-            - -0.08,-0.06 # Goob edit
-            - -0.06,-0.08 # Goob edit
+            - -0.08,-0.06 # Goida edit
+            - -0.06,-0.08 # Goida edit
             - 0.40,0.30
             - 0.30,0.40
         density: 20
@@ -117,7 +117,7 @@
       types:
         Piercing: 15
   - type: Item
-    size: Large # goobstation
+    size: Large # goidastation
   - type: Clothing
     quickEquip: false
     slots:
@@ -129,9 +129,9 @@
   - type: SolutionContainerManager
     solutions:
       melee:
-        maxVol: 5 # Goobstation
+        maxVol: 5 # Goidastation
   - type: MeleeChemicalInjector
-    transferAmount: 1 # Goobstation
+    transferAmount: 1 # Goidastation
     solution: melee
   - type: RefillableSolution
     solution: melee
@@ -147,14 +147,14 @@
     damage:
       types:
         Piercing: 4
-  # Goobstation - nuh uh
+  # Goidastation - nuh uh
   #- type: Damageable
   #  damageContainer: Inorganic
   #- type: Destructible
   #  thresholds:
   #  - trigger:
   #      !type:DamageTrigger
-  #      damage: 40 # Goob edit, excess damage avoids cost of spawning entities.
+  #      damage: 40 # Goida edit, excess damage avoids cost of spawning entities.
   #    behaviors:
   #    - !type:DoActsBehavior
   #      acts: [ "Destruction" ]
@@ -187,8 +187,8 @@
     inHandsMaxFillLevels: 1
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
-  - type: ThrowableBlocked # Goobstation
-  - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: ThrowableBlocked # Goidastation
+  - type: UndetectableContraband #Goidastation-Contraband detector
 
 
 - type: entity
@@ -270,7 +270,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40 # Goob edit, excess damage avoids cost of spawning entities.
+        damage: 40 # Goida edit, excess damage avoids cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

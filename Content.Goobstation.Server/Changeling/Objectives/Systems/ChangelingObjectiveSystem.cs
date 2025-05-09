@@ -6,11 +6,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goidastation.Server.Changeling.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Goobstation.Server.Changeling.Objectives.Systems;
+namespace Content.Goidastation.Server.Changeling.Objectives.Systems;
 
 public sealed partial class ChangelingObjectiveSystem : EntitySystem
 {

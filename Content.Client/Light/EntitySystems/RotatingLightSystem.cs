@@ -22,7 +22,7 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
     [Dependency] private readonly AnimationPlayerSystem _animations = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    private Animation GetAnimation(float speed, int dir) // Goob edit
+    private Animation GetAnimation(float speed, int dir) // Goida edit
     {
         var third = 120f / speed;
         return new Animation()
@@ -38,11 +38,11 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(Angle.Zero, 0),
-                        // Goob edit start
+                        // Goida edit start
                         new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(120 * dir), third),
                         new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(240 * dir), third),
                         new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(360 * dir), third)
-                        // Goob edit end
+                        // Goida edit end
                     }
                 }
             }
@@ -62,7 +62,7 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
 
     private void OnStartup(EntityUid uid, RotatingLightComponent comp, ComponentStartup args)
     {
-        if (comp.MaxSpeed != null && comp.MaxSpeed > comp.Speed) // Goobstation
+        if (comp.MaxSpeed != null && comp.MaxSpeed > comp.Speed) // Goidastation
             comp.Speed = _random.NextFloat(comp.Speed, comp.MaxSpeed.Value);
 
         if (comp.RandomizeDirection)
@@ -105,7 +105,7 @@ public sealed class RotatingLightSystem : SharedRotatingLightSystem
 
         if (!_animations.HasRunningAnimation(uid, player, AnimKey))
         {
-            _animations.Play((uid, player), GetAnimation(comp.Speed, comp.Direction), AnimKey); // Goob edit
+            _animations.Play((uid, player), GetAnimation(comp.Speed, comp.Direction), AnimKey); // Goida edit
         }
     }
 }

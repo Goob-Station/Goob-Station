@@ -12,11 +12,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.Weapons.Melee;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Events;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Events;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Blob;
+namespace Content.Goidastation.Client.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {

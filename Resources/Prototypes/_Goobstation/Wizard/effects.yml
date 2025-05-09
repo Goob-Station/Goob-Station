@@ -15,7 +15,7 @@
     noRot: true
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        sprite: _Goidastation/Wizard/Effects/effects.rsi
         state: shieldsparkles
   - type: Tag
     tags:
@@ -33,7 +33,7 @@
     noRot: true
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        sprite: _Goidastation/Wizard/Effects/effects.rsi
         state: electricity
   - type: Tag
     tags:
@@ -54,7 +54,7 @@
     noRot: true
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Wizard/Effects/effects160x160.rsi
+        sprite: _Goidastation/Wizard/Effects/effects160x160.rsi
         state: time
   - type: AnimationPlayer
   - type: FreezeContacts
@@ -86,7 +86,7 @@
     noRot: true
     drawdepth: OverMobs
     layers:
-      - sprite: _Goobstation/Wizard/Effects/effects.rsi
+      - sprite: _Goidastation/Wizard/Effects/effects.rsi
         state: marker
   - type: Tag
     tags:
@@ -196,7 +196,7 @@
     noRot: true
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        sprite: _Goidastation/Wizard/Effects/effects.rsi
         state: sparks
   - type: AnimationPlayer
   - type: PointLight
@@ -312,7 +312,7 @@
     castShadows: false
     radius: 5
     energy: 8
-    mask: /Textures/_Goobstation/Wizard/Effects/LightMasks/ray.png
+    mask: /Textures/_Goidastation/Wizard/Effects/LightMasks/ray.png
   - type: RotatingLight
     speed: 60
     maxSpeed: 180
@@ -373,7 +373,7 @@
       value: 0
     shader: unshaded
     sprite:
-      sprite: /Textures/_Goobstation/Wizard/Effects/blood.rsi
+      sprite: /Textures/_Goidastation/Wizard/Effects/blood.rsi
       state: blood
   - type: Transform
     noRot: true
@@ -394,7 +394,7 @@
   - type: Sprite
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        sprite: _Goidastation/Wizard/Effects/effects.rsi
         state: highfreq_slash
 
 - type: entity
@@ -409,7 +409,7 @@
     drawdepth: Effects
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        sprite: _Goidastation/Wizard/Effects/effects.rsi
         state: temporal_slash
   - type: Tag
     tags:
@@ -423,7 +423,7 @@
   - type: Sprite
     drawdepth: Effects
     noRot: false
-    sprite: _Goobstation/Wizard/Projectiles/lichparticle.rsi
+    sprite: _Goidastation/Wizard/Projectiles/lichparticle.rsi
     layers:
     - state: icon
   - type: TimedDespawn
@@ -434,7 +434,7 @@
     alphaLerpAmount: 0.6
     shader: unshaded
     sprite:
-      sprite: /Textures/_Goobstation/Wizard/Projectiles/lichparticle.rsi
+      sprite: /Textures/_Goidastation/Wizard/Projectiles/lichparticle.rsi
       state: icon
   - type: Physics
     bodyStatus: InAir

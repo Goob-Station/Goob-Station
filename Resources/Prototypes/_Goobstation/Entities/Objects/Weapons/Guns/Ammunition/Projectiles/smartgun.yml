@@ -14,7 +14,7 @@
       types:
         Piercing: 10
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/smartgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/smartgun.rsi
     layers:
     - state: smartgun
       shader: unshaded

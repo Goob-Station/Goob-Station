@@ -1,19 +1,19 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Bible;
-using Content.Goobstation.Shared.Religion.Nullrod;
-using Content.Goobstation.Shared.Religion.Nullrod.Systems;
+using Content.Goidastation.Shared.Bible;
+using Content.Goidastation.Shared.Religion.Nullrod;
+using Content.Goidastation.Shared.Religion.Nullrod.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.Religion.AlternatePrayable;
+namespace Content.Goidastation.Shared.Religion.AlternatePrayable;
 
 public sealed partial class NullRodSystem : SharedNullRodSystem
 {

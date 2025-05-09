@@ -7,8 +7,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Vehicles;
-using Content.Goobstation.Shared.Vehicles.Clowncar;
+using Content.Goidastation.Shared.Vehicles;
+using Content.Goidastation.Shared.Vehicles.Clowncar;
 using Content.Server.Chat.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle;
@@ -17,7 +17,7 @@ using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Vehicles.Clowncar;
+namespace Content.Goidastation.Server.Vehicles.Clowncar;
 
 public sealed class ClowncarSystem : SharedClowncarSystem
 {

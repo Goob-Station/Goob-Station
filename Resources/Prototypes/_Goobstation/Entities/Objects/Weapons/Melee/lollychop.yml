@@ -16,7 +16,7 @@
   - type: Execution
     doAfterDuration: 4.0
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/lollychop.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/lollychop.rsi
     state: icon
   - type: MeleeWeapon
     heavyStaminaCost: 15
@@ -39,7 +39,7 @@
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Melee/lollychop.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/lollychop.rsi
     quickEquip: false
     slots:
     - back

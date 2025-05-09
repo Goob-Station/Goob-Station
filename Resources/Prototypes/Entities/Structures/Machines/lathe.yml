@@ -233,7 +233,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 JoeHammad1844 <finiansalas2@gmail.com>
@@ -321,9 +321,9 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
-  - type: Speech # Goobstation - Lathe message on recipes update
+  - type: Speech # Goidastation - Lathe message on recipes update
     speechSounds: Lathe
-  - type: AutomationSlots # Goobstation
+  - type: AutomationSlots # Goidastation
     slots:
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
@@ -366,7 +366,7 @@
 
 - type: entity
   id: Autolathe
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goida edit
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -409,7 +409,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
-    # Goobstation
+    # Goidastation
     - LatheMiscStatic
     - MedicalVehiclesStatic
     - GrenadeTriggersStatic
@@ -417,8 +417,8 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
-    # Goobstation
-    - SecurityAmmoStaticGoob
+    # Goidastation
+    - SecurityAmmoStaticGoida
     - SyndicateAmmoLightStatic
     - ScienceExplosives
   - type: BlueprintReceiver
@@ -447,7 +447,7 @@
 
 - type: entity
   id: Protolathe
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goida edit
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -477,25 +477,25 @@
     runningState: building
     unlitIdleState: unlit
     unlitRunningState: unlit-building
-    #staticPacks: - Goobstation - Move static recipes to autolathe
+    #staticPacks: - Goidastation - Move static recipes to autolathe
     #- ChemistryStatic
     #- SurgeryStatic
     dynamicPacks:
     - AdvancedTools
-    #- ScienceEquipment - Goobstation - Moved to Scifab
-    #- ScienceExplosives - Goobstation - Moved to Scifab
+    #- ScienceEquipment - Goidastation - Moved to Scifab
+    #- ScienceExplosives - Goidastation - Moved to Scifab
     - ScienceClothing
     - PowerCells
-    #- ScienceWeapons - Goobstation - Moved to Scifab
-    #- Mining - Goobstation - Moved to Cargofab
-    #- AtmosTools - Goobstation - Moved to Engifab
-    #- EngineeringWeapons - Goobstation - Moved to Scifab and Engifab
-    #- Chemistry - Goobstation
+    #- ScienceWeapons - Goidastation - Moved to Scifab
+    #- Mining - Goidastation - Moved to Cargofab
+    #- AtmosTools - Goidastation - Moved to Engifab
+    #- EngineeringWeapons - Goidastation - Moved to Scifab and Engifab
+    #- Chemistry - Goidastation
     - Janitor
     - Instruments
-    - Equipment # Goobstation note: handheld mass scanner is removed
+    - Equipment # Goidastation note: handheld mass scanner is removed
     - FauxTiles
-    # Goobstation Packs
+    # Goidastation Packs
     - ServiceWeapons
     - SpecOpsGoogles
     - MedicalMisc
@@ -504,11 +504,11 @@
     emagDynamicPacks:
     - SecurityAmmo
     - SecurityExplosives
-    #- SecurityEquipment # Goobstation
+    #- SecurityEquipment # Goidastation
     - SecurityWeapons
-    # Goobstation Packs
-    - SecurityAmmoGoob
-    - SecurityWeaponsGoob
+    # Goidastation Packs
+    - SecurityAmmoGoida
+    - SecurityWeaponsGoida
     - MiningWeapons
 
 - type: entity
@@ -524,7 +524,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goida edit
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -546,26 +546,26 @@
     idleState: icon
     runningState: building
     staticPacks:
-    #- ScienceBoardsStatic - Goobstation - Moved to Scifab
+    #- ScienceBoardsStatic - Goidastation - Moved to Scifab
     - ServiceBoardsStatic
     - CargoBoardsStatic
-    #- MedicalBoardsStatic - Goobstation - Moved to Scifab and Medfab
-    #- EngineeringBoardsStatic - Goobstation - Moved to Scifab and Engifab
+    #- MedicalBoardsStatic - Goidastation - Moved to Scifab and Medfab
+    #- EngineeringBoardsStatic - Goidastation - Moved to Scifab and Engifab
     - CircuitFloorsStatic
-    # Goobstation Packs
+    # Goidastation Packs
     - SharedBoardsStatic
-    - MedicalBoardsStaticGoob
-    - SecurityBoardsStaticGoob
+    - MedicalBoardsStaticGoida
+    - SecurityBoardsStaticGoida
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
     - MedicalBoards
     - ServiceBoards
-    #- ScienceBoards - Goobstation - Moved to Scifab
+    #- ScienceBoards - Goidastation - Moved to Scifab
     - CameraBoards
-    #- MechBoards - Goobstation - split between departmental lathes
+    #- MechBoards - Goidastation - split between departmental lathes
     - ShuttleBoards
-    # Goobstation Packs
+    # Goidastation Packs
     - SharedBoards
     - UpgradeKits
   - type: MaterialStorage
@@ -589,7 +589,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goida edit
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -611,9 +611,9 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
-    # Goobstation Packs
+    # Goidastation Packs
     - MechPartsStatic
-    - BorgModulesStaticGoob
+    - BorgModulesStaticGoida
     - IPCPartsStatic
     - PowerCagesStatic
     - PartsStatic
@@ -624,14 +624,14 @@
     - BorgModules
     - MechParts
     - MechEquipment
-    # Goobstation Packs
-    - MechPartsGoob
+    # Goidastation Packs
+    - MechPartsGoida
     - Modsuits
     - PowerCages
-    - BorgModulesGoob
+    - BorgModulesGoida
     - Cybernetics
     - PowerCells
-  - type: EmagLatheRecipes # Goobstation
+  - type: EmagLatheRecipes # Goidastation
     emagStaticPacks:
     - MechWeaponsSecurityStatic
     emagDynamicPacks:
@@ -682,19 +682,19 @@
     runningState: building
     staticPacks:
     - FriendlyCubesStatic
-    # Goobstation Packs
+    # Goidastation Packs
     - HumanoidCubesStatic
   - type: EmagLatheRecipes
     emagStaticPacks:
     - HostileCubesStatic
-    # Goobstation Packs
+    # Goidastation Packs
     - EmagCubesStatic
 
 - type: entity
   id: SecurityTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goida edit
   name: security techfab
-  description: Prints equipment and circuitboards for use by security crew. #Goobstation - Circuitboards description
+  description: Prints equipment and circuitboards for use by security crew. #Goidastation - Circuitboards description
   components:
   - type: Sprite
     sprite: Structures/Machines/techfab.rsi
@@ -719,13 +719,13 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    # Goobstation
-    - SecurityAmmoStaticGoob
-    - SecurityEquipmentStaticGoob
+    # Goidastation
+    - SecurityAmmoStaticGoida
+    - SecurityEquipmentStaticGoida
     - SecurityHypoStatic
     - MechWeaponsSecurityStatic
-    - SecurityBoardsStaticGoob
-    - SecurityBoardsStaticGoob
+    - SecurityBoardsStaticGoida
+    - SecurityBoardsStaticGoida
     - PowerCellsStatic
     - ScienceExplosives
     - GrenadeTriggersStatic
@@ -738,17 +738,17 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
-    # Goobstation
-    - SecurityWeaponsGoob
+    # Goidastation
+    - SecurityWeaponsGoida
     - MechBoardsSecurity
     - MechWeaponsSecurityLight
     - MechWeaponsSecurityHeavy
-    - SecurityAmmoGoob
+    - SecurityAmmoGoida
     - SecurityCybernetics
     - ServiceWeapons
     - SpecOpsGoogles
     - PowerCells
-  - type: EmagLatheRecipes # Goobstation
+  - type: EmagLatheRecipes # Goidastation
     emagStaticPacks:
     - SyndicateAmmoLightStatic
     - SyndicateAmmoHeavyStatic
@@ -761,7 +761,7 @@
 
 - type: entity
   id: AmmoTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goida edit
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -785,9 +785,9 @@
       runningState: icon
       staticPacks:
       - SecurityAmmoStatic
-      # Goobstation Packs
-      - SecurityAmmoStaticGoob
-    - type: EmagLatheRecipes # Goobstation Packs
+      # Goidastation Packs
+      - SecurityAmmoStaticGoida
+    - type: EmagLatheRecipes # Goidastation Packs
       emagStaticPacks:
       - SyndicateAmmoLightStatic
       - SyndicateAmmoHeavyStatic
@@ -800,7 +800,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: [BaseLatheLube, BaseSiloUtilizer] #Goobstation - Circuitboards description
+  parent: [BaseLatheLube, BaseSiloUtilizer] #Goidastation - Circuitboards description
   name: medical techfab
   description: Prints equipment and circuitboards for use by the medbay.
   components:
@@ -828,18 +828,18 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    # Goobstation Packs
+    # Goidastation Packs
     - ParamedHypoStatic
     - MedicalPatchesStatic
-    - SurgeryStaticGoob
+    - SurgeryStaticGoida
     - MedicalVehiclesStatic
     - MedicalBoardsStatic
-    - MedicalBoardsStaticGoob
+    - MedicalBoardsStaticGoida
     - PowerCellsStatic
     - GrenadeTriggersStatic
     dynamicPacks:
     - Chemistry
-    # Goobstation Packs
+    # Goidastation Packs
     - MedicalSurgery
     - MedicalCybernetics
     - MedicalMisc
@@ -849,7 +849,7 @@
     - Janitor
   - type: Machine
     board: MedicalTechFabCircuitboard
-  - type: EmagLatheRecipes # Goobstation Packs
+  - type: EmagLatheRecipes # Goidastation Packs
     emagStaticPacks:
     - SyndicateCatridgesStatic
   - type: StealTarget
@@ -889,13 +889,13 @@
     - Scarves
     - Carpets
     - Bedsheets
-    # Goobstation Packs
+    # Goidastation Packs
     - ClothingCasualJumpsuits
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm
     - ClothingSyndie
-    # Goobstation Packs
+    # Goidastation Packs
     - ClothingDurathreadArmoured
     - ClothingCasualContrabandJumpsuits
   - type: MaterialStorage
@@ -949,7 +949,7 @@
     - BioGenMaterialsStatic
 
 - type: entity
-  parent: [BaseLathe, BaseSiloUtilizer] # Goob edit
+  parent: [BaseLathe, BaseSiloUtilizer] # Goida edit
   id: OreProcessor
   name: ore processor
   description: It produces sheets and ingots using ores.
@@ -969,10 +969,10 @@
     - type: Machine
       board: OreProcessorMachineCircuitboard
     - type: MaterialStorage
-      ignoreMaterialWhiteList: true # Goob edit
-      connectToSilo: true # Goob edit
-      disconnectSiloOffMap: true # Goob edit
-      disallowOreEjection: false # Goob edit
+      ignoreMaterialWhiteList: true # Goida edit
+      connectToSilo: true # Goida edit
+      disconnectSiloOffMap: true # Goida edit
+      disallowOreEjection: false # Goida edit
       ignoreColor: true
       whitelist:
         tags:

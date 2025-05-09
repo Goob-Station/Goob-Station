@@ -8,7 +8,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 
-namespace Content.Goobstation.Shared.Stunnable;
+namespace Content.Goidastation.Shared.Stunnable;
 
 public sealed class ClothingModifyStunTimeSystem : EntitySystem
 {

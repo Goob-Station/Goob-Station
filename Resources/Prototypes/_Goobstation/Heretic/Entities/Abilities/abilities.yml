@@ -11,7 +11,7 @@
   components:
   - type: MovementIgnoreGravity
   - type: Sprite
-    sprite: _Goobstation/Heretic/Effects/effects160x160.rsi
+    sprite: _Goidastation/Heretic/Effects/effects160x160.rsi
     layers:
     - state: entropic_plume
       shader: unshaded
@@ -67,7 +67,7 @@
     drawdepth: Effects
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Heretic/Effects/effects.rsi
+        sprite: _Goidastation/Heretic/Effects/effects.rsi
         state: cleave
   - type: Tag
     tags:
@@ -85,7 +85,7 @@
     noRot: true
     drawdepth: Mobs
     layers:
-      - sprite: _Goobstation/Heretic/Effects/effects.rsi
+      - sprite: _Goidastation/Heretic/Effects/effects.rsi
         state: curse
   - type: Clickable
   - type: InteractionOutline
@@ -96,7 +96,7 @@
     alphaLerpAmount: 0.05
     renderedEntityRotationStrategy: Particle
     sprite:
-      sprite: /Textures/_Goobstation/Heretic/Effects/effects.rsi
+      sprite: /Textures/_Goidastation/Heretic/Effects/effects.rsi
       state: curse
   - type: EntityTrail
   - type: RotationVisuals

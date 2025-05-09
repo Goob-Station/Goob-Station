@@ -13,7 +13,7 @@
   components:
   - type: WorldTargetAction
     icon:
-      sprite: _Goobstation/Actions/chronoblink.rsi
+      sprite: _Goidastation/Actions/chronoblink.rsi
       state: effect
     event: !type:TeleportSpellEvent
     range: 15

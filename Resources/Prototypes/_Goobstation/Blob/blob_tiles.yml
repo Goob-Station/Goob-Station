@@ -5,7 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 shibe <swiftshibe@gmail.com>
@@ -35,7 +35,7 @@
       sprite: Markers/jobs.rsi
       layers:
         - state: green
-        - sprite: _Goobstation/Blob/Mobs/blob.rsi
+        - sprite: _Goidastation/Blob/Mobs/blob.rsi
           state: blob_nuke_overlay
 
 - type: entity
@@ -96,7 +96,7 @@
   - type: BlobResource
     pointsPerPulsed: 5
   - type: Sprite
-    sprite: _Goobstation/Blob/Mobs/blob.rsi
+    sprite: _Goidastation/Blob/Mobs/blob.rsi
     drawdepth: BlobTiles
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -151,7 +151,7 @@
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
   - type: Sprite
-    sprite: _Goobstation/Blob/Mobs/blob.rsi
+    sprite: _Goidastation/Blob/Mobs/blob.rsi
     drawdepth: BlobTiles
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -216,7 +216,7 @@
               acts: [ "Destruction" ]
     - type: BlobFactory
     - type: Sprite
-      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      sprite: _Goidastation/Blob/Mobs/blob.rsi
       drawdepth: BlobTiles
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -254,7 +254,7 @@
               acts: [ "Destruction" ]
     - type: BlobResource
     - type: Sprite
-      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      sprite: _Goidastation/Blob/Mobs/blob.rsi
       drawdepth: BlobTiles
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -294,7 +294,7 @@
               acts: [ "Destruction" ]
     - type: BlobNode
     - type: Sprite
-      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      sprite: _Goidastation/Blob/Mobs/blob.rsi
       drawdepth: BlobTiles
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -323,7 +323,7 @@
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
     - type: Sprite
-      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      sprite: _Goidastation/Blob/Mobs/blob.rsi
       drawdepth: BlobTiles
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -356,7 +356,7 @@
       reflects:
         - Energy
     - type: Sprite
-      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      sprite: _Goidastation/Blob/Mobs/blob.rsi
       drawdepth: BlobTiles
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]

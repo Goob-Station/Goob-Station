@@ -8,10 +8,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.Components;
 using JetBrains.Annotations;
 
-namespace Content.Goobstation.Client.Blob;
+namespace Content.Goidastation.Client.Blob;
 
 [UsedImplicitly]
 public sealed class BlobChemSwapBoundUserInterface : BoundUserInterface

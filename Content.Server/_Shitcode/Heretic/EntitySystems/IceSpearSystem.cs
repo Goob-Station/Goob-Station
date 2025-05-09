@@ -1,6 +1,6 @@
 using Content.Server.Damage.Systems;
 using Content.Server.Temperature.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Goidastation.Wizard.Traps;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;

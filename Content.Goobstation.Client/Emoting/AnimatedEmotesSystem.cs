@@ -13,8 +13,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Animations;
 using Content.Client.DamageState;
-using Content.Goobstation.Shared.Emoting;
-using Content.Shared._Goobstation.Wizard.SupermatterHalberd;
+using Content.Goidastation.Shared.Emoting;
+using Content.Shared._Goidastation.Wizard.SupermatterHalberd;
 using Content.Shared.Chat.Prototypes;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -24,7 +24,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Client.Emoting;
+namespace Content.Goidastation.Client.Emoting;
 
 public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 {

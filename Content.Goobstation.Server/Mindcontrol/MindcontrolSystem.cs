@@ -10,7 +10,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Mindcontrol;
+using Content.Goidastation.Shared.Mindcontrol;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Mind;
@@ -24,7 +24,7 @@ using Content.Shared.Mindshield.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Mindcontrol;
+namespace Content.Goidastation.Server.Mindcontrol;
 
 public sealed class MindcontrolSystem : EntitySystem
 {

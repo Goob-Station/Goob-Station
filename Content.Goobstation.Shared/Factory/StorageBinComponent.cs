@@ -7,7 +7,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Factory;
+namespace Content.Goidastation.Shared.Factory;
 
 /// <summary>
 /// Makes a storage check filter slot and invoke signals.

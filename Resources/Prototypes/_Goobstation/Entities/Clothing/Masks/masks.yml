@@ -20,9 +20,9 @@
   description: A futuristic gas mask of unknown design with an unimaginable number of filtration systems
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Mask/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Mask/chronolegioneer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Mask/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Mask/chronolegioneer.rsi
   - type: VoiceMask
   - type: Tag
     tags:

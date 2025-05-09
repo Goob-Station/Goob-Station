@@ -89,7 +89,7 @@
   copyright: "Created by Donchan"
   source: "https://www.youtube.com/watch?v=4nUpeYLKUns"
 
-# Goobstation
+# Goidastation
 - files: ["last_call.ogg"]
   license: "CC-BY-3.0"
   copyright: "Created by mryikes"
@@ -98,7 +98,7 @@
 - files: ["tansume.ogg"]
   license: "CC-BY-3.0"
   copyright: "Moranbong Band"
-  source: "https://goobstation.com"
+  source: "https://goidastation.com"
   
 - files: ["rescue_imminent.ogg"]
   license: "CC-BY-3.0"

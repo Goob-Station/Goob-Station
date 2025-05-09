@@ -18,7 +18,7 @@
   products:
     SigmaJuice: 3
   sound:
-    path: /Audio/_Goobstation/Animals/skibidi.wav
+    path: /Audio/_Goidastation/Animals/skibidi.wav
 
 - type: reaction
   id: TripleCitrus

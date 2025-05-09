@@ -20,7 +20,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
 {
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly LayingDownSystem _laying = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
+    [Dependency] private readonly MobStateSystem _mobState = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -29,24 +29,24 @@ public sealed class KnockdownOnHitSystem : EntitySystem
 
     private void OnMeleeHit(Entity<KnockdownOnHitComponent> entity, ref MeleeHitEvent args)
     {
-        if (!args.IsHit || !args.HitEntities.Any()) // Goob edit
+        if (!args.IsHit || !args.HitEntities.Any()) // Goida edit
             return;
 
         if (!entity.Comp.KnockdownOnHeavyAttack && args.Direction != null)
             return;
 
-        var ev = new KnockdownOnHitAttemptEvent(false, entity.Comp.DropHeldItemsBehavior); // Goob edit
+        var ev = new KnockdownOnHitAttemptEvent(false, entity.Comp.DropHeldItemsBehavior); // Goida edit
         RaiseLocalEvent(entity, ref ev);
         if (ev.Cancelled)
             return;
 
-        List<EntityUid> knockedDown = new(); // Goobstation
+        List<EntityUid> knockedDown = new(); // Goidastation
         foreach (var target in
-                 args.HitEntities.Where(e => !HasComp<BorgChassisComponent>(e) && _mobState.IsAlive(e))) // Goob edit
+                 args.HitEntities.Where(e => !HasComp<BorgChassisComponent>(e) && _mobState.IsAlive(e))) // Goida edit
         {
-            if (entity.Comp.Duration <= TimeSpan.Zero) // Goobstation
+            if (entity.Comp.Duration <= TimeSpan.Zero) // Goidastation
             {
-                if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goobstation
+                if (_laying.TryLieDown(target, null, null, ev.Behavior)) // Goidastation
                     knockedDown.Add(target);
                 continue;
             }
@@ -57,12 +57,12 @@ public sealed class KnockdownOnHitSystem : EntitySystem
             if (_stun.TryKnockdown(target,
                 entity.Comp.Duration,
                 entity.Comp.RefreshDuration,
-                ev.Behavior, // Goob edit
-                statusEffects)) // Goob edit
+                ev.Behavior, // Goida edit
+                statusEffects)) // Goida edit
                 knockedDown.Add(target);
         }
 
-        if (knockedDown.Count > 0) // Goobstation
+        if (knockedDown.Count > 0) // Goidastation
             RaiseLocalEvent(entity, new KnockdownOnHitSuccessEvent(knockedDown));
     }
 }

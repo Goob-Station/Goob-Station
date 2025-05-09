@@ -8,7 +8,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.UserInterface;
+namespace Content.Shared._Goidastation.Wizard.UserInterface;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ActivatableUiUserWhitelistComponent : Component

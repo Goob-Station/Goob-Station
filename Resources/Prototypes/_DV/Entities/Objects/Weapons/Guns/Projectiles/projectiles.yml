@@ -9,7 +9,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity #DeltaV, modified by Goobstation to work in this folder.
+- type: entity #DeltaV, modified by Goidastation to work in this folder.
   name: energy bolt
   id: BulletEnergyGunLaser
   parent: BaseBullet
@@ -43,11 +43,11 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 15 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun - Goobstation: Nerfed to 15 damage, to keep it less powerful than caps Lasgun
+        Heat: 15 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun - Goidastation: Nerfed to 15 damage, to keep it less powerful than caps Lasgun
     soundHit:
       collection: MeatLaserImpact
 
-- type: entity #Goobstation, put here so the X-01 stuff isnt spread everywhere.
+- type: entity #Goidastation, put here so the X-01 stuff isnt spread everywhere.
   name: ion bolt
   id: BulletEnergyGunIon
   parent: BaseBullet
@@ -86,7 +86,7 @@
     soundHit:
       collection: MeatLaserImpact
 
-- type: entity # Goobstation, put here so the X-01 stuff isnt spread everywhere.
+- type: entity # Goidastation, put here so the X-01 stuff isnt spread everywhere.
   name: magnum bolt
   id: BulletEnergyGunMagnum
   parent: BaseBullet
@@ -101,7 +101,7 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/energy_bolt.rsi
     layers:
     - state: bolt_red_heavy
       shader: unshaded

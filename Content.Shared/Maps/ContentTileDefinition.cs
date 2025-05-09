@@ -39,7 +39,7 @@
 // SPDX-FileCopyrightText: 2024 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
@@ -96,13 +96,13 @@ namespace Content.Shared.Maps
         public PrototypeFlags<ToolQualityPrototype> DeconstructTools { get; set; } = new();
 
         /// <summary>
-        /// Goobstation
+        /// Goidastation
         /// Tile deconstruct do-after time multiplier
         /// </summary>
         [DataField]
         public float DeconstructTimeMultiplier { get; private set; }
 
-        // Goobstation
+        // Goidastation
         /// <summary>
         /// Effective mass of this tile for grid impacts.
         /// </summary>

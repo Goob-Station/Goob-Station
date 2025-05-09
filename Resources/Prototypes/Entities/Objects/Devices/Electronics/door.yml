@@ -94,7 +94,7 @@
       state: door_electronics
     - type: Tag
       tags:
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
         - DoorElectronics
     - type: DoorElectronics
     - type: StaticPrice

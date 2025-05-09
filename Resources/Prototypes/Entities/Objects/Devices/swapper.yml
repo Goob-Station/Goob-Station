@@ -33,7 +33,7 @@
   - type: Tag
     tags:
     - QuantumSpinInverter
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 175
       Glass: 25

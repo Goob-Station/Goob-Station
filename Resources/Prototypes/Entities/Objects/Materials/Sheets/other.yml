@@ -53,7 +53,7 @@
   - type: Tag
     tags:
     - Sheet
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -82,7 +82,7 @@
     - paper
     - paper_2
     - paper_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -137,7 +137,7 @@
     - plasma
     - plasma_2
     - plasma_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -194,7 +194,7 @@
     tags:
     - Plastic
     - Sheet
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -206,7 +206,7 @@
     - plastic
     - plastic_2
     - plastic_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -273,7 +273,7 @@
     - uranium
     - uranium_2
     - uranium_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -321,7 +321,7 @@
     - type: Tag
       tags:
       - Sheet
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
     - type: Material
     - type: PhysicalComposition
       materialComposition:
@@ -333,7 +333,7 @@
         - meat
         - meat_2
         - meat_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
         enum.StackCustomSplitUiKey.Key:

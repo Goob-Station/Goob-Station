@@ -193,7 +193,7 @@
   equipment:
     jumpsuit: UniformScrubsColorPurple
 
-- type: loadout # goob
+- type: loadout # goida
   id: MedicMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryMedicalDoctor

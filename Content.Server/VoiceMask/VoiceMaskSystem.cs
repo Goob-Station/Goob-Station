@@ -89,7 +89,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     #region UI
     private void OnEquip(EntityUid uid, VoiceMaskComponent component, ClothingGotEquippedEvent args)
     {
-        if (component.EnableAction) //Goobstation
+        if (component.EnableAction) //Goidastation
             _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
     }
 

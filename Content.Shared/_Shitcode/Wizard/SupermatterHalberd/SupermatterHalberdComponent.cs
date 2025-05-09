@@ -10,7 +10,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.SupermatterHalberd;
+namespace Content.Shared._Goidastation.Wizard.SupermatterHalberd;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SupermatterHalberdComponent : Component
@@ -19,7 +19,7 @@ public sealed partial class SupermatterHalberdComponent : Component
     public TimeSpan ExecuteDelay = TimeSpan.FromSeconds(1);
 
     [DataField]
-    public SoundSpecifier ExecuteSound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/supermatter.ogg");
+    public SoundSpecifier ExecuteSound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/supermatter.ogg");
 
     [DataField]
     public EntProtoId AshProto = "Ash";

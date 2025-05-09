@@ -11,7 +11,7 @@ using Content.Server.StationEvents.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Goobstation.Server.Blob.StationEvents;
+namespace Content.Goidastation.Server.Blob.StationEvents;
 
 [RegisterComponent, Access(typeof(BlobSpawnRule))]
 public sealed partial class BlobSpawnRuleComponent : Component

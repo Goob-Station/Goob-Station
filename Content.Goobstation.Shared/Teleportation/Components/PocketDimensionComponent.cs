@@ -11,7 +11,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.Teleportation.Components;
+namespace Content.Goidastation.Shared.Teleportation.Components;
 
 /// <summary>
 /// Creates a map for a pocket dimension on spawn.
@@ -43,7 +43,7 @@ public sealed partial class PocketDimensionComponent : Component
     /// Path to the pocket dimension's map file
     /// </summary>
     [DataField]
-    public ResPath PocketDimensionPath = new ResPath("/Maps/_Goobstation/Nonstations/pocket-dimension.yml");
+    public ResPath PocketDimensionPath = new ResPath("/Maps/_Goidastation/Nonstations/pocket-dimension.yml");
 
     /// <summary>
     /// The prototype to spawn for the portal spawned in the pocket dimension.

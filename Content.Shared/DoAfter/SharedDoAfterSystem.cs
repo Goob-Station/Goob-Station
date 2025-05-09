@@ -94,7 +94,7 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
@@ -223,7 +223,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             doAfterArgs.Used = EnsureEntity<DoAfterComponent>(doAfterArgs.NetUsed, uid);
             doAfterArgs.User = EnsureEntity<DoAfterComponent>(doAfterArgs.NetUser, uid);
             doAfterArgs.EventTarget = EnsureEntity<DoAfterComponent>(doAfterArgs.NetEventTarget, uid);
-            doAfterArgs.ShowTo = EnsureEntity<DoAfterComponent>(doAfterArgs.NetShowTo, uid); // Goobstation - Show doAfter popup to another entity
+            doAfterArgs.ShowTo = EnsureEntity<DoAfterComponent>(doAfterArgs.NetShowTo, uid); // Goidastation - Show doAfter popup to another entity
         }
 
         comp.NextId = state.NextId;
@@ -300,14 +300,14 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             return false;
         }
 
-        // Goobstation start
+        // Goidastation start
         if (args.MultiplyDelay)
         {
             var delayMultiplierEv = new GetDoAfterDelayMultiplierEvent();
             RaiseLocalEvent(args.User, delayMultiplierEv);
             args.Delay *= delayMultiplierEv.Multiplier;
         }
-        // Goobstation end
+        // Goidastation end
 
         id = new DoAfterId(args.User, comp.NextId++);
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);
@@ -511,7 +511,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         return GetStatus(entity, id, comp) == DoAfterStatus.Running;
     }
 
-    // Goobstation start
+    // Goidastation start
     public bool TryGetDoAfter(DoAfterComponent comp, ushort id, [NotNullWhen(true)] out DoAfter? doAfter)
     {
         return comp.DoAfters.TryGetValue(id, out doAfter);
@@ -521,6 +521,6 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     {
         return doAfter.Args;
     }
-    // Goobstation end
+    // Goidastation end
     #endregion
 }

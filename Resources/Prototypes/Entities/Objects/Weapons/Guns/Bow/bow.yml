@@ -47,7 +47,7 @@
     soundGunshot:
       collection: BulletMiss
     soundEmpty: null
-    clumsyProof: true # Goobstation
+    clumsyProof: true # Goidastation
   - type: ItemSlots
     slots:
       projectiles:
@@ -63,9 +63,9 @@
       projectiles: !type:ContainerSlot
   - type: ContainerAmmoProvider
     container: projectiles
-  - type: UnwieldOnShoot # Goobstation
-  - type: UseDelayBlockShoot # Goobstation
-  - type: UndetectableContraband #Goobstation-Contraband detector
+  - type: UnwieldOnShoot # Goidastation
+  - type: UseDelayBlockShoot # Goidastation
+  - type: UndetectableContraband #Goidastation-Contraband detector
 
 - type: entity
   id: BowImprovised

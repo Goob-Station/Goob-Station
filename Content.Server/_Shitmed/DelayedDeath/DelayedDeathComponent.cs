@@ -20,7 +20,7 @@ public sealed partial class DelayedDeathComponent : Component
     public float DeathTimer;
 
     /// <summary>
-    /// What message is displayed when the time runs out - Goobstation
+    /// What message is displayed when the time runs out - Goidastation
     /// </summary>
     [DataField]
     public LocId DeathMessageId;

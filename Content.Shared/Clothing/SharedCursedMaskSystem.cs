@@ -71,7 +71,7 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -134,7 +134,7 @@ public abstract class SharedCursedMaskSystem : EntitySystem
         if (ent.Comp.CurrentState == CursedMaskExpression.Despair)
             args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage,
                 DamageSpecifier.PenetrateArmor(ent.Comp.DespairDamageModifier,
-                    args.Args.ArmorPenetration)); // Goob edit
+                    args.Args.ArmorPenetration)); // Goida edit
     }
 
     protected void RandomizeCursedMask(Entity<CursedMaskComponent> ent, EntityUid wearer)

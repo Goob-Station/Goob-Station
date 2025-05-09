@@ -16,7 +16,7 @@
       - id: DrinkSigmaJuiceBase
         amount: 3
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/boxes.rsi
+    sprite: _Goidastation/Objects/Storage/boxes.rsi
     layers:
       - state: box_of_doom
       - state: brainrot

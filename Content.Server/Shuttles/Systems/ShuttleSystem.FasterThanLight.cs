@@ -61,7 +61,7 @@
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -586,7 +586,7 @@ public sealed partial class ShuttleSystem
             var config = _dockSystem.GetDockingConfigAt(uid, target.EntityId, target, entity.Comp1.TargetAngle);
             var mapCoordinates = _transform.ToMapCoordinates(target);
 
-            // Goob/LL edit start
+            // Goida/LL edit start
             // Added a retry to getting a valid docking config, in case concurrent FTL arrivals took the reserved spot
             if (config != null)
                 FTLDock((uid, xform), config);
@@ -594,7 +594,7 @@ public sealed partial class ShuttleSystem
                 FTLDock((uid, xform), config);
             else
                 TryFTLProximity(uid, target.EntityId);
-            // Goob/LL edit end
+            // Goida/LL edit end
 
             mapId = mapCoordinates.MapId;
         }
@@ -712,7 +712,7 @@ public sealed partial class ShuttleSystem
                 if (!_statusQuery.TryGetComponent(child, out var status))
                     continue;
 
-                // goob edit - stunmeta
+                // goida edit - stunmeta
                 _stuns.KnockdownOrStun(child, _hyperspaceKnockdownTime, true, status);
 
                 // If the guy we knocked down is on a spaced tile, throw them too

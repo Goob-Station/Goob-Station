@@ -23,11 +23,11 @@ public sealed partial class JitteringComponent : Component
 {
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float Amplitude { get; set; } = 10f; // Goob edit
+    public float Amplitude { get; set; } = 10f; // Goida edit
 
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float Frequency { get; set; } = 4f; // Goob edit
+    public float Frequency { get; set; } = 4f; // Goida edit
 
     [ViewVariables(VVAccess.ReadWrite)]
     public Vector2 LastJitter { get; set; }

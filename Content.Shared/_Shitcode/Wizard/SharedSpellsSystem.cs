@@ -11,20 +11,20 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Bingle;
+using Content.Goidastation.Common.Bingle;
 using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.Components;
-using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
-using Content.Shared._Goobstation.Wizard.Mutate;
-using Content.Shared._Goobstation.Wizard.Projectiles;
-using Content.Shared._Goobstation.Wizard.SanguineStrike;
-using Content.Shared._Goobstation.Wizard.SpellCards;
-using Content.Shared._Goobstation.Wizard.Teleport;
-using Content.Shared._Goobstation.Wizard.TeslaBlast;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Goidastation.Wizard.BindSoul;
+using Content.Shared._Goidastation.Wizard.Chuuni;
+using Content.Shared._Goidastation.Wizard.Components;
+using Content.Shared._Goidastation.Wizard.LesserSummonGuns;
+using Content.Shared._Goidastation.Wizard.Mutate;
+using Content.Shared._Goidastation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.SanguineStrike;
+using Content.Shared._Goidastation.Wizard.SpellCards;
+using Content.Shared._Goidastation.Wizard.Teleport;
+using Content.Shared._Goidastation.Wizard.TeslaBlast;
+using Content.Shared._Goidastation.Wizard.Traps;
 using Content.Shared._Lavaland.Mobs.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
@@ -38,7 +38,7 @@ using Content.Shared.Cluwne;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
@@ -91,7 +91,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Wizard;
+namespace Content.Shared._Goidastation.Wizard;
 
 public abstract class SharedSpellsSystem : EntitySystem
 {

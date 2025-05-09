@@ -151,14 +151,14 @@ public sealed partial class ElectrifiedComponent : Component
     public bool IsWireCut = false;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Whether this will ignore target insulation
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IgnoreInsulation;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Don't shock this entity
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]

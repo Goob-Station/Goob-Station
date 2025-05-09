@@ -25,7 +25,7 @@
 
 - type: statusEffect
   id: KnockedDown
-  alert: KnockedDown # Goobstation
+  alert: KnockedDown # Goidastation
 
 - type: statusEffect
   id: SlowedDown

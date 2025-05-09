@@ -35,7 +35,7 @@ namespace Content.Client.Changelog
         [Dependency] private readonly IConfigurationManager _configManager = default!;
 
         private const string SawmillName = "changelog";
-        public const string MainChangelogName = "Gooblog";
+        public const string MainChangelogName = "Goidalog";
 
         private ISawmill _sawmill = default!;
 

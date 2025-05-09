@@ -38,7 +38,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
-// Goob modularity - rip explicit access
+// Goida modularity - rip explicit access
 public sealed partial class GunComponent : Component
 {
     #region Sound
@@ -241,7 +241,7 @@ public sealed partial class GunComponent : Component
     /// The base value for how fast the projectile moves.
     /// </summary>
     [DataField]
-    public float ProjectileSpeed = 40f; // Goobstation - Fast Bullets
+    public float ProjectileSpeed = 40f; // Goidastation - Fast Bullets
 
     /// <summary>
     /// How fast the projectile moves.
@@ -294,21 +294,21 @@ public sealed partial class GunComponent : Component
     public Vector2 DefaultDirection = new Vector2(0, -1);
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Whether the system won't change gun target when we stop aiming at it while firing in burst mode.
     /// </summary>
     [DataField]
     public bool LockOnTargetBurst;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Muzzle flash will be rotated by this angle if the weapon is dropped
     /// </summary>
     [DataField]
     public Angle MuzzleFlashRotationOffset;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Modified fire rate of the weapon in burst mode
     /// </summary>
 
@@ -316,7 +316,7 @@ public sealed partial class GunComponent : Component
     public float BurstFireRateModified;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Modified burst cooldown of the weapon
     /// </summary>
     [DataField, AutoNetworkedField]

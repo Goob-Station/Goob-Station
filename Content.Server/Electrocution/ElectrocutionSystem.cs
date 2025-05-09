@@ -48,7 +48,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Goidastation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Beam.Components;
 using Content.Server.Light.Components;
@@ -119,7 +119,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     // Multiply and shift the log scale for shock damage.
     // Yes, this is absurdly small for a reason.
-    public const float ElectrifiedDamagePerWatt = 0.0015f; // Goobstation - This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
+    public const float ElectrifiedDamagePerWatt = 0.0015f; // Goidastation - This information is allowed to be public, and was needed in BatteryElectrocuteChargeSystem.cs
     private const float RecursiveDamageMultiplier = 0.75f;
     private const float RecursiveTimeMultiplier = 0.8f;
 
@@ -214,7 +214,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     private void OnElectrifiedStartCollide(EntityUid uid, ElectrifiedComponent electrified, ref StartCollideEvent args)
     {
-        // Goob edit start
+        // Goida edit start
         if (!electrified.OnBump)
             return;
         if (TryComp(uid, out BeamComponent? beam))
@@ -226,7 +226,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                 struck.Lifetime = MathF.Max(struck.Lifetime, despawn.Lifetime + 1f);
         }
         TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
-        // Goob edit end
+        // Goida edit end
     }
 
     private void OnElectrifiedAttacked(EntityUid uid, ElectrifiedComponent electrified, AttackedEvent args)
@@ -288,7 +288,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         _appearance.SetData(uid, ElectrifiedVisuals.ShowSparks, true);
 
         siemens *= electrified.SiemensCoefficient;
-        if (!DoCommonElectrocutionAttempt(targetUid, uid, ref siemens, electrified.IgnoreInsulation) || siemens <= 0) // Goob edit
+        if (!DoCommonElectrocutionAttempt(targetUid, uid, ref siemens, electrified.IgnoreInsulation) || siemens <= 0) // Goida edit
             return false; // If electrocution would fail, do nothing.
 
         var targets = new List<(EntityUid entity, int depth)>();
@@ -300,7 +300,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             {
                 var (entity, depth) = targets[i];
 
-                if (entity == electrified.IgnoredEntity) // Goobstation
+                if (entity == electrified.IgnoredEntity) // Goidastation
                     continue;
 
                 lastRet = TryDoElectrocution(
@@ -310,7 +310,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth)),
                     true,
                     electrified.SiemensCoefficient,
-                    ignoreInsulation: electrified.IgnoreInsulation // Goobstation
+                    ignoreInsulation: electrified.IgnoreInsulation // Goidastation
                 );
             }
             return lastRet;
@@ -333,7 +333,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             {
                 var (entity, depth) = targets[i];
 
-                if (entity == electrified.IgnoredEntity) // Goobstation
+                if (entity == electrified.IgnoredEntity) // Goidastation
                     continue;
 
                 lastRet = TryDoElectrocutionPowered(
@@ -344,7 +344,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                     TimeSpan.FromSeconds(electrified.ShockTime * MathF.Pow(RecursiveTimeMultiplier, depth) * timeScalar),
                     true,
                     electrified.SiemensCoefficient,
-                    electrified.IgnoreInsulation); // Goob edit
+                    electrified.IgnoreInsulation); // Goida edit
             }
             return lastRet;
         }
@@ -378,7 +378,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             || !DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
             return false;
 
-        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goobstation
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goidastation
         return true;
     }
 
@@ -390,11 +390,11 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         TimeSpan time,
         bool refresh,
         float siemensCoefficient = 1f,
-        bool ignoreInsulation = false, // Goobstation
+        bool ignoreInsulation = false, // Goidastation
         StatusEffectsComponent? statusEffects = null,
         TransformComponent? sourceTransform = null)
     {
-        if (!DoCommonElectrocutionAttempt(uid, sourceUid, ref siemensCoefficient, ignoreInsulation)) // Goob edit
+        if (!DoCommonElectrocutionAttempt(uid, sourceUid, ref siemensCoefficient, ignoreInsulation)) // Goida edit
             return false;
 
         if (!DoCommonElectrocution(uid, sourceUid, shockDamage, time, refresh, siemensCoefficient, statusEffects))
@@ -429,7 +429,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         electrocutionComponent.Electrocuting = uid;
         electrocutionComponent.Source = sourceUid;
 
-        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goobstation
+        RaiseLocalEvent(uid, new ElectrocutedEvent(uid, sourceUid, siemensCoefficient, shockDamage), true); // Goidastation
 
         return true;
     }
@@ -438,7 +438,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     {
 
         var attemptEvent = new ElectrocutionAttemptEvent(uid, sourceUid, siemensCoefficient,
-            ignoreInsulation ? SlotFlags.NONE : ~SlotFlags.POCKET & ~SlotFlags.HEAD); // Goobstation - insulated mouse can't be worn
+            ignoreInsulation ? SlotFlags.NONE : ~SlotFlags.POCKET & ~SlotFlags.HEAD); // Goidastation - insulated mouse can't be worn
         RaiseLocalEvent(uid, attemptEvent, true);
 
         // Cancel the electrocution early, so we don't recursively electrocute anything.
@@ -520,7 +520,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     {
         var visited = new HashSet<EntityUid>();
 
-        GetChainedElectrocutionTargetsRecurse(source, 0, visited, all); // Goob edit
+        GetChainedElectrocutionTargetsRecurse(source, 0, visited, all); // Goida edit
     }
 
     private void GetChainedElectrocutionTargetsRecurse(

@@ -36,7 +36,7 @@ public sealed class BeamSystem : SharedBeamSystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
-    public uint NextIndex { get; private set; } // Goobstation
+    public uint NextIndex { get; private set; } // Goidastation
 
     public override void Initialize()
     {
@@ -47,13 +47,13 @@ public sealed class BeamSystem : SharedBeamSystem
         SubscribeLocalEvent<BeamComponent, BeamFiredEvent>(OnBeamFired);
         SubscribeLocalEvent<BeamComponent, ComponentRemove>(OnRemove);
 
-        // Goobstation start
+        // Goidastation start
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         NextIndex = 0;
-        // Goobstation end
+        // Goidastation end
     }
 
-    // Goobstation start
+    // Goidastation start
     public override void AccumulateIndex()
     {
         base.AccumulateIndex();
@@ -65,7 +65,7 @@ public sealed class BeamSystem : SharedBeamSystem
     {
         NextIndex = 0;
     }
-    // Goobstation end
+    // Goidastation end
 
     private void OnBeamCreationSuccess(EntityUid uid, BeamComponent component, CreateBeamSuccessEvent args)
     {
@@ -102,7 +102,7 @@ public sealed class BeamSystem : SharedBeamSystem
     /// <param name="controller"> The virtual beam controller that this beam will use. If one doesn't exist it will be created here.</param>
     /// <param name="bodyState">Optional sprite state for the <see cref="prototype"/> if it needs a dynamic one</param>
     /// <param name="shader">Optional shader for the <see cref="prototype"/> and <see cref="bodyState"/> if it needs something other than default</param>
-    /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
+    /// <param name="beamAction">Goidastation. Action that is called on each beam entity.</param>
     private void CreateBeam(string prototype,
         Angle userAngle,
         Vector2 calculatedDistance,
@@ -111,7 +111,7 @@ public sealed class BeamSystem : SharedBeamSystem
         EntityUid? controller,
         string? bodyState = null,
         string shader = "unshaded",
-        Action<EntityUid>? beamAction = null) // Goob edit
+        Action<EntityUid>? beamAction = null) // Goida edit
     {
         var beamSpawnPos = beamStartPos;
         var ent = Spawn(prototype, beamSpawnPos);
@@ -120,8 +120,8 @@ public sealed class BeamSystem : SharedBeamSystem
         if (!TryComp<PhysicsComponent>(ent, out var physics) || !TryComp<BeamComponent>(ent, out var beam))
             return;
 
-        beamAction?.Invoke(ent); // Goobstation
-        beam.BeamIndex = NextIndex; // Goobstation
+        beamAction?.Invoke(ent); // Goidastation
+        beam.BeamIndex = NextIndex; // Goidastation
 
         FixturesComponent? manager = null;
         _fixture.TryCreateFixture(
@@ -163,8 +163,8 @@ public sealed class BeamSystem : SharedBeamSystem
             beamSpawnPos = beamSpawnPos.Offset(calculatedDistance.Normalized());
             var newEnt = Spawn(prototype, beamSpawnPos);
 
-            beamAction?.Invoke(newEnt); // Goobstation
-            Comp<BeamComponent>(newEnt).BeamIndex = NextIndex; // Goobstation
+            beamAction?.Invoke(newEnt); // Goidastation
+            Comp<BeamComponent>(newEnt).BeamIndex = NextIndex; // Goidastation
 
             var ev = new BeamVisualizerEvent(GetNetEntity(newEnt), distanceLength, userAngle, bodyState, shader);
             RaiseNetworkEvent(ev);
@@ -184,12 +184,12 @@ public sealed class BeamSystem : SharedBeamSystem
     /// <param name="bodyState">Optional sprite state for the <see cref="bodyPrototype"/> if a default one is not given</param>
     /// <param name="shader">Optional shader for the <see cref="bodyPrototype"/> if a default one is not given</param>
     /// <param name="controller"></param>
-    /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
-    /// <param name="accumulateIndex">Goobstation. Whether to accumulate NextIndex.</param>
-    public bool TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null, Action<EntityUid>? beamAction = null, bool accumulateIndex = true) // Goob edit
+    /// <param name="beamAction">Goidastation. Action that is called on each beam entity.</param>
+    /// <param name="accumulateIndex">Goidastation. Whether to accumulate NextIndex.</param>
+    public bool TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null, Action<EntityUid>? beamAction = null, bool accumulateIndex = true) // Goida edit
     {
         if (Deleted(user) || Deleted(target))
-            return false; // Goob edit
+            return false; // Goida edit
 
         var userMapPos = _transform.GetMapCoordinates(user);
         var targetMapPos = _transform.GetMapCoordinates(target);
@@ -199,14 +199,14 @@ public sealed class BeamSystem : SharedBeamSystem
         var userAngle = calculatedDistance.ToWorldAngle();
 
         if (userMapPos.MapId != targetMapPos.MapId)
-            return false; // Goob edit
+            return false; // Goida edit
 
         //Where the start of the beam will spawn
         var beamStartPos = userMapPos.Offset(calculatedDistance.Normalized());
 
         //Don't divide by zero
         if (calculatedDistance.Length() == 0)
-            return false; // Goob edit
+            return false; // Goida edit
 
         if (controller != null && TryComp<BeamComponent>(controller, out var controllerBeamComp))
         {
@@ -218,12 +218,12 @@ public sealed class BeamSystem : SharedBeamSystem
 
         CreateBeam(bodyPrototype, userAngle, calculatedDistance, beamStartPos, distanceCorrection, controller, bodyState, shader, beamAction);
 
-        if (accumulateIndex) // Goobstation
+        if (accumulateIndex) // Goidastation
             AccumulateIndex();
 
         var ev = new CreateBeamSuccessEvent(user, target);
         RaiseLocalEvent(user, ev);
 
-        return true; // Goobstation
+        return true; // Goidastation
     }
 }

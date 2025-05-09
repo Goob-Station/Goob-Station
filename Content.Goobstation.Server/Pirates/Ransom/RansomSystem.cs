@@ -8,12 +8,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Pirates;
-using Content.Goobstation.Server.Pirates.GameTicking.Rules;
+using Content.Goidastation.Common.Pirates;
+using Content.Goidastation.Server.Pirates.GameTicking.Rules;
 using Content.Server.GameTicking;
 using Content.Shared.GameTicking.Components;
 
-namespace Content.Goobstation.Server.Pirates.Ransom;
+namespace Content.Goidastation.Server.Pirates.Ransom;
 
 public sealed partial class RansomSystem : EntitySystem
 {

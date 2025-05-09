@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Goobstation.UIKit.UserInterface.Controls;
+using Content.Goidastation.UIKit.UserInterface.Controls;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -13,7 +13,7 @@ using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.UIKit.UserInterface.RichText;
+namespace Content.Goidastation.UIKit.UserInterface.RichText;
 
 public abstract class BaseTextureTag : IMarkupTag
 {

@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -48,12 +48,12 @@
   id: ToolboxThief
   name: undetermined thieving toolbox
   description: This is where your favorite thief's supplies lie. Try to remember which ones.
-  parent: [ BaseItem, BaseSetSelector, BaseMinorContraband ] # Goobstation edit
+  parent: [ BaseItem, BaseSetSelector, BaseMinorContraband ] # Goidastation edit
   components:
     - type: Sprite
       sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
       state: icon
-    # Goobstation - SetSelector rework - start
+    # Goidastation - SetSelector rework - start
     #  - type: ThiefUndeterminedBackpack
     #    possibleSets:
     #    # TODO Thief pinpointer needed
@@ -80,7 +80,7 @@
         - ThiefCommunicatorSet
         - ThiefSmugglerSet
       maxSelectedSets: 2
-# Goobstation - SetSelector rework - end
+# Goidastation - SetSelector rework - end
 
 - type: entity
   id: SatchelThief
@@ -93,9 +93,9 @@
     state: folded
   - type: Item
     storedRotation: 90
-  - type: SetSelector # Goobstation
+  - type: SetSelector # Goidastation
     spawnedStoragePrototype: ClothingBackpackSatchelSmugglerUnanchored
-    # Goobstation
+    # Goidastation
     spawnedStorageContainer: storagebase
     approveSound:
       collection: storageRustle

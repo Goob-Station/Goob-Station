@@ -11,10 +11,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.Standing;
-using Content.Shared._Goobstation.Wizard.TimeStop;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Goidastation.Common.CCVar;
+using Content.Goidastation.Common.Standing;
+using Content.Shared._Goidastation.Wizard.TimeStop;
+using Content.Shared._Goidastation.Wizard.Traps;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;
@@ -77,7 +77,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         var uid = args.SenderSession.AttachedEntity.Value;
 
         if (HasComp<IceCubeComponent>(uid) || HasComp<FrozenComponent>(uid) ||
-            HasComp<AdminFrozenComponent>(uid)) // Goob edit
+            HasComp<AdminFrozenComponent>(uid)) // Goida edit
             return;
 
         if (!TryComp(uid, out StandingStateComponent? standing) ||
@@ -131,7 +131,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             HasComp<DebrainedComponent>(uid))
             return false;
 
-        // Goob edit start
+        // Goida edit start
         var ev = new GetStandingUpTimeMultiplierEvent();
         RaiseLocalEvent(uid, ev);
 
@@ -139,11 +139,11 @@ public abstract class SharedLayingDownSystem : EntitySystem
             uid,
             layingDown.StandingUpTime * ev.Multiplier,
             new StandingUpDoAfterEvent(),
-            uid) // Goob edit end
+            uid) // Goida edit end
         {
             BreakOnHandChange = false,
             RequireCanInteract = false,
-            MultiplyDelay = false, // Goobstatiom
+            MultiplyDelay = false, // Goidastatiom
         };
 
         if (!_doAfter.TryStartDoAfter(args))
@@ -184,7 +184,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         if (!TryComp(ent, out ActorComponent? actor))
             return;
 
-        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, GoobCVars.AutoGetUp);
+        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, GoidaCVars.AutoGetUp);
         Dirty(ent);
     }
 

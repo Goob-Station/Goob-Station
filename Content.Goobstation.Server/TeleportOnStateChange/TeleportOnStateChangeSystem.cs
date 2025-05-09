@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
@@ -7,7 +7,7 @@
 using Content.Shared.Mobs;
 using Robust.Shared.Map;
 
-namespace Content.Goobstation.Server.TeleportOnStateChange;
+namespace Content.Goidastation.Server.TeleportOnStateChange;
 
 public sealed partial class TeleportOnStateChangeSystem : EntitySystem
 {

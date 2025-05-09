@@ -16,7 +16,7 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Goobstation/_Pirates/siphon.rsi
+    sprite: _Goidastation/_Pirates/siphon.rsi
     state: icon
   - type: ResourceSiphon
   - type: StationAnchor

@@ -8,10 +8,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text.RegularExpressions;
-using Content.Goobstation.Common.Speech;
+using Content.Goidastation.Common.Speech;
 using Content.Server.Speech;
 
-namespace Content.Goobstation.Server.Speech;
+namespace Content.Goidastation.Server.Speech;
 
 public sealed class MaoistAccentSystem : EntitySystem
 {

@@ -12,15 +12,15 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 pubbi <63283968+impubbi@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.DoAfter;
-using Content.Shared._Goobstation.Wizard.Mutate;
+using Content.Goidastation.Common.DoAfter;
+using Content.Shared._Goidastation.Wizard.Mutate;
 using Content.Shared.Alert;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
@@ -51,8 +51,8 @@ public sealed partial class EnsnareableDoAfterEvent : SimpleDoAfterEvent
 
 public abstract class SharedEnsnareableSystem : EntitySystem
 {
-    [Dependency] private   readonly INetManager _net = default!; // Goobstation
-    [Dependency] private   readonly SharedHulkSystem _hulk = default!; // Goobstation
+    [Dependency] private   readonly INetManager _net = default!; // Goidastation
+    [Dependency] private   readonly SharedHulkSystem _hulk = default!; // Goidastation
     [Dependency] private   readonly AlertsSystem _alerts = default!;
     [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
@@ -82,7 +82,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         SubscribeLocalEvent<EnsnaringComponent, StepTriggerAttemptEvent>(AttemptStepTrigger);
         SubscribeLocalEvent<EnsnaringComponent, StepTriggeredOffEvent>(OnStepTrigger);
         SubscribeLocalEvent<EnsnaringComponent, ThrowDoHitEvent>(OnThrowHit);
-        SubscribeLocalEvent<EnsnaringComponent, ProjectileHitEvent>(OnProjectileHit); // Goobstation
+        SubscribeLocalEvent<EnsnaringComponent, ProjectileHitEvent>(OnProjectileHit); // Goidastation
         SubscribeLocalEvent<EnsnaringComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
     }
 
@@ -118,7 +118,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         Dirty(uid, component);
         ensnaring.Ensnared = null;
 
-        // Goobstation start
+        // Goidastation start
         if (ensnaring.DestroyOnRemove)
         {
             if (_net.IsServer)
@@ -129,7 +129,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
 
         if (args.User == args.Target && TryComp(args.User, out HulkComponent? hulk))
             _hulk.Roar((args.User, hulk));
-        // Goobstation end
+        // Goidastation end
 
         if (args.User == args.Target)
             Popup.PopupPredicted(Loc.GetString("ensnare-component-try-free-complete", ("ensnare", args.Args.Used)), uid, args.User, PopupType.Medium);
@@ -200,7 +200,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         var freeTime = user == target ? component.BreakoutTime : component.FreeTime;
         var breakOnMove = !component.CanMoveBreakout;
 
-        if (user == target && HasComp<HulkComponent>(user)) // Goobstation
+        if (user == target && HasComp<HulkComponent>(user)) // Goidastation
             freeTime = 0f;
 
         var doAfterEventArgs = new DoAfterArgs(EntityManager, user, freeTime, new EnsnareableDoAfterEvent(), target, target: target, used: ensnare)
@@ -214,7 +214,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
             return;
 
-        if (freeTime == 0f) // Goobstation
+        if (freeTime == 0f) // Goidastation
             return;
 
         if (user == target)
@@ -288,7 +288,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         }
     }
 
-    // Goobstation
+    // Goidastation
     private void OnProjectileHit(EntityUid uid, EnsnaringComponent component, ProjectileHitEvent args)
     {
         if (!component.CanThrowTrigger)
@@ -331,10 +331,10 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         Dirty(target, ensnareable);
 
         UpdateAlert(target, ensnareable);
-        // Goobstation start
+        // Goidastation start
         var ensnaredEv = new EnsnaredEvent(target);
         RaiseLocalEvent(ensnare, ref ensnaredEv);
-        // Goobstation end
+        // Goidastation end
         var ev = new EnsnareEvent(component.WalkSpeed, component.SprintSpeed);
         RaiseLocalEvent(target, ev);
         return true;
@@ -353,7 +353,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
 
         var target = component.Ensnared.Value;
 
-        Container.TryRemoveFromContainer(ensnare, force: true); // Goobstation - fix on ensnare entity remove
+        Container.TryRemoveFromContainer(ensnare, force: true); // Goidastation - fix on ensnare entity remove
         ensnareable.IsEnsnared = ensnareable.Container.ContainedEntities.Count > 0;
         Dirty(component.Ensnared.Value, ensnareable);
         component.Ensnared = null;

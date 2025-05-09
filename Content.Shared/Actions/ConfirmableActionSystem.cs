@@ -21,7 +21,7 @@ namespace Content.Shared.Actions;
 public sealed class ConfirmableActionSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!; // Goobstation
+    [Dependency] private readonly SharedActionsSystem _actions = default!; // Goidastation
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
@@ -50,7 +50,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
 
     private void OnAttempt(Entity<ConfirmableActionComponent> ent, ref ActionAttemptEvent args)
     {
-        if (!ent.Comp.ShouldCancel) // Goobstation
+        if (!ent.Comp.ShouldCancel) // Goidastation
             return;
 
         if (args.Cancelled)
@@ -75,28 +75,28 @@ public sealed class ConfirmableActionSystem : EntitySystem
         Unprime(ent);
     }
 
-    public void Prime(Entity<ConfirmableActionComponent> ent, EntityUid user) // Goob edit
+    public void Prime(Entity<ConfirmableActionComponent> ent, EntityUid user) // Goida edit
     {
         var (uid, comp) = ent;
         comp.NextConfirm = _timing.CurTime + comp.ConfirmDelay;
         comp.NextUnprime = comp.NextConfirm + comp.PrimeTime;
         Dirty(uid, comp);
 
-        // Goobstation - Confirmable action with changed icon - Start
+        // Goidastation - Confirmable action with changed icon - Start
         if (!string.IsNullOrEmpty(comp.Popup))
             _popup.PopupClient(Loc.GetString(comp.Popup), user, user, comp.PopupFontType);
 
         _actions.SetToggled(ent, true);
-        // Goobstation - Confirmable action with changed icon - End
+        // Goidastation - Confirmable action with changed icon - End
     }
 
-    public void Unprime(Entity<ConfirmableActionComponent> ent) // Goob edit
+    public void Unprime(Entity<ConfirmableActionComponent> ent) // Goida edit
     {
         var (uid, comp) = ent;
         comp.NextConfirm = null;
         comp.NextUnprime = null;
 
-        _actions.SetToggled(ent, false); // Goobstation - Confirmable action with changed icon
+        _actions.SetToggled(ent, false); // Goidastation - Confirmable action with changed icon
 
         Dirty(uid, comp);
     }

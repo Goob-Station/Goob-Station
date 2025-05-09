@@ -119,7 +119,7 @@
 # SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
 # SPDX-FileCopyrightText: 2025 Poips <Hanakohashbrown@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -226,7 +226,7 @@
       - id: ClothingShoesTourist
       - id: ClothingUniformJumpsuitLoungewear
       - id: ClothingHeadHatCowboyRed
-      - id: ClothingShoesSkates #GoobStation
+      - id: ClothingShoesSkates #GoidaStation
     # Uncommon Group
     - !type:GroupSelector
       weight: 23
@@ -251,14 +251,14 @@
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
       - id: ToySkeleton
-      - id: PlushieSamantha # Goobstation
+      - id: PlushieSamantha # Goidastation
       - id: Basketball
       - id: Football
       - id: BalloonNT
       - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
-      - id: FoodSnackLollypopWrappedMysteryNeutral # Goobstation - Lollypops!
+      - id: FoodSnackLollypopWrappedMysteryNeutral # Goidastation - Lollypops!
       # Cult
       - !type:AllSelector
         children:
@@ -309,8 +309,8 @@
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
       - id: RubberStampGreytide
-      - id: ClothingShoesWizardSkates #GoobStation - Wizard Skates
-      - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation - Lollypops!
+      - id: ClothingShoesWizardSkates #GoidaStation - Wizard Skates
+      - id: FoodSnackLollypopWrappedMysteryEvil # Goidastation - Lollypops!
 
 - type: entity
   name: Maint Loot Spawner

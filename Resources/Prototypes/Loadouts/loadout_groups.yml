@@ -128,7 +128,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
 # SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
@@ -156,8 +156,8 @@
   - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
-  - PersonalAI # Goobstation
-  - GoldPersonalAI # Goobstation
+  - PersonalAI # Goidastation
+  - GoldPersonalAI # Goidastation
   - ThreeCandles
   - Lighter
   - CigPackGreen
@@ -181,11 +181,11 @@
   - ClothingNeckGenderqueerPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
-  - CardBoxBlack # GoobStation
-  - CardBoxNanotrasen # GoobStation
-  - FoodSnackLollypopWrapped # Goobstation
-  - FoodSnackLollypopWrappedRainbow # Goobstation
-  - FoodSnackLollypopWrappedCarp # Goobstation
+  - CardBoxBlack # GoidaStation
+  - CardBoxNanotrasen # GoidaStation
+  - FoodSnackLollypopWrapped # Goidastation
+  - FoodSnackLollypopWrappedRainbow # Goidastation
+  - FoodSnackLollypopWrappedCarp # Goidastation
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
@@ -218,7 +218,7 @@
   - Glasses
   - GlassesJamjar
   - GlassesJensen
-  - CheapSunglasses # Goobstation
+  - CheapSunglasses # Goidastation
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -280,7 +280,7 @@
   - CaptainJumpskirt
   - CaptainFormalSuit
   - CaptainFormalSkirt
-  - CaptainJumpsuitMilitary # goob
+  - CaptainJumpsuitMilitary # goida
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -320,7 +320,7 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
-  - HoPJumpsuitMilitary # goob
+  - HoPJumpsuitMilitary # goida
 
 - type: loadoutGroup
   id: HoPNeck
@@ -356,7 +356,7 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
- # goob changes start
+ # goida changes start
   - GreyMJ
   - BlackMJ
   - BlueMJ
@@ -372,7 +372,7 @@
   - LightBrownMJ
   - BrownMJ
   - MaroonMJ
- # goob changes end
+ # goida changes end
 
 - type: loadoutGroup
   id: PassengerFace
@@ -433,7 +433,7 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
-  - ServiceMJ # goob
+  - ServiceMJ # goida
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -464,7 +464,7 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
-  - ServiceMJ # goob
+  - ServiceMJ # goida
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -483,7 +483,7 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
-  - ServiceMJ # goob
+  - ServiceMJ # goida
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -499,7 +499,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
-  - ServiceMJ # goob
+  - ServiceMJ # goida
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -534,7 +534,7 @@
   - ChaplainJumpskirt
   - ChaplainRobesLight
   - ChaplainRobesDark
-  - ServiceMJ # goob
+  - ServiceMJ # goida
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -566,7 +566,7 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
-  - ServiceMJ # goob
+  - ServiceMJ # goida
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -606,8 +606,8 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
-  - ServiceMJ # goob
-  - HydroMJ # goob
+  - ServiceMJ # goida
+  - HydroMJ # goida
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -740,7 +740,7 @@
   loadouts:
   - MusicianJumpsuit
   - MusicianJumpskirt
-  - ServiceMJ # goob
+  - ServiceMJ # goida
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -802,7 +802,7 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
-  - QuartermasterMJ # goob
+  - QuartermasterMJ # goida
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -832,7 +832,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
-  - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - CargoTechnicianHeadMail # Goida/DeltaV - Mail
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -840,9 +840,9 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
-  - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
-  - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
-  - CargoTechMJ # goob
+  - CargoTechnicianJumpsuitMail # Goida/DeltaV - Mail
+  - CargoTechnicianJumpskirtMail # Goida/DeltaV - Mail
+  - CargoTechMJ # goida
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -859,7 +859,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
-  - CargoTechnicianWintercoatMail # Goob/DeltaV - Mail
+  - CargoTechnicianWintercoatMail # Goida/DeltaV - Mail
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -908,7 +908,7 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
-  - ChiefEngineerMJ # goob
+  - ChiefEngineerMJ # goida
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -938,7 +938,7 @@
   loadouts:
   - YellowJumpsuit
   - YellowJumpskirt
-  - EngiMJ # goob
+  - EngiMJ # goida
 
 - type: loadoutGroup
   id: StationEngineerHead
@@ -959,7 +959,7 @@
   - StationEngineerHazardsuit
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
-  - EngiMJ # goob
+  - EngiMJ # goida
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -997,7 +997,7 @@
   name: loadout-group-atmospheric-technician-head
   minLimit: 0
   loadouts:
-  - SeniorEngineerBeret   # Goobstation
+  - SeniorEngineerBeret   # Goidastation
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -1006,9 +1006,9 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
-  - SeniorEngineerJumpskirt  # Goobstation
-  - SeniorEngineerJumpsuit   # Goobstation
-  - AtmosMJ # goob
+  - SeniorEngineerJumpskirt  # Goidastation
+  - SeniorEngineerJumpsuit   # Goidastation
+  - AtmosMJ # goida
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1065,7 +1065,7 @@
   loadouts:
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
-  - ResearchDirectorMJ # goob
+  - ResearchDirectorMJ # goida
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -1108,7 +1108,7 @@
   - RoboticistJumpskirt
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
-  - ResearchMJ # goob
+  - ResearchMJ # goida
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1161,7 +1161,7 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
-  - ResearchMJ # goob
+  - ResearchMJ # goida
 
 # Security
 - type: loadoutGroup
@@ -1171,7 +1171,7 @@
   loadouts:
   - HeadofSecurityHead
   - HeadofSecurityBeret
-  - HeadofSecuritySpecialBeret # Goobstation
+  - HeadofSecuritySpecialBeret # Goidastation
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1191,17 +1191,17 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
-  - Bodycam # Goobstation - Body cameras
+  - Bodycam # Goidastation - Body cameras
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
-  - HeadofSecurityGreatCoat # Goobstation
+  - HeadofSecurityGreatCoat # Goidastation
   - HeadofSecurityWinterCoat
-  - ArmorVest #Goobstation change
-  - ArmorVestSlim #Goobstation change
+  - ArmorVest #Goidastation change
+  - ArmorVestSlim #Goidastation change
 
 - type: loadoutGroup
   id: WardenHead
@@ -1231,7 +1231,7 @@
   minLimit: 0
   loadouts:
   - SecurityHelmet
-  - SecurityHelmetAlt # Goobstation
+  - SecurityHelmetAlt # Goidastation
   - SecurityBeret
   - SecurityHat
   - TrooperHat
@@ -1263,7 +1263,7 @@
   loadouts:
   - SecurityBelt
   - SecurityWebbing
-  - SecurityJudoBelt # Goobstation - Martial Arts
+  - SecurityJudoBelt # Goidastation - Martial Arts
 
 - type: loadoutGroup
   id: SecurityOuterClothing
@@ -1301,7 +1301,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
-  - Bodycam # Goobstation - Body cameras
+  - Bodycam # Goidastation - Body cameras
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1361,7 +1361,7 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
-  - CMOMJ # goob
+  - CMOMJ # goida
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1410,7 +1410,7 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
-  - MedicMJ # goob
+  - MedicMJ # goida
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1465,7 +1465,7 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
-  - MedicMJ # goob
+  - MedicMJ # goida
 
 - type: loadoutGroup
   id: ChemistJumpsuit
@@ -1473,7 +1473,7 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
-  - ChemistMJ # goob
+  - ChemistMJ # goida
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1506,7 +1506,7 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
-  - ParamedMJ # goob
+  - ParamedMJ # goida
 
 - type: loadoutGroup
   id: ParamedicOuterClothing

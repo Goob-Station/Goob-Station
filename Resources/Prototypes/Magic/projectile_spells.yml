@@ -20,14 +20,14 @@
   description: Fires an explosive fireball towards the clicked location.
   components:
   - type: Magic
-    requiresSpeech: true # Goobstation
-    school: Evocation # Goobstation
-  - type: Sprite # Goobstation - for apprentices
-    sprite: _Goobstation/Wizard/actions.rsi
+    requiresSpeech: true # Goidastation
+    school: Evocation # Goidastation
+  - type: Sprite # Goidastation - for apprentices
+    sprite: _Goidastation/Wizard/actions.rsi
     state: fireball
-  - type: EntityWorldTargetAction # Goob edit
-    useDelay: 6 # Goob edit
-    checkCanInteract: false # Goobstation
+  - type: EntityWorldTargetAction # Goida edit
+    useDelay: 6 # Goida edit
+    checkCanInteract: false # Goidastation
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -35,8 +35,8 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: fireball # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
+      state: fireball # Goida edit
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
       speech: action-speech-spell-fireball
@@ -51,9 +51,9 @@
   name: Fireball II
   description: Fires a fireball, but faster!
   components:
-  - type: EntityWorldTargetAction # Goob edit
-    useDelay: 4 # Goob edit
-    checkCanInteract: false # Goobstation
+  - type: EntityWorldTargetAction # Goida edit
+    useDelay: 4 # Goida edit
+    checkCanInteract: false # Goidastation
     renewCharges: true
     itemIconStyle: BigAction
     checkCanAccess: false
@@ -62,8 +62,8 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: fireball # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
+      state: fireball # Goida edit
     event: !type:ProjectileSpellEvent
       prototype: ProjectileFireball
       speech: action-speech-spell-fireball
@@ -74,9 +74,9 @@
   name: Fireball III
   description: The fastest fireball in the west!
   components:
-    - type: EntityWorldTargetAction # Goob edit
-      useDelay: 2 # Goob edit
-      checkCanInteract: false # Goobstation
+    - type: EntityWorldTargetAction # Goida edit
+      useDelay: 2 # Goida edit
+      checkCanInteract: false # Goidastation
       renewCharges: true
       itemIconStyle: BigAction
       checkCanAccess: false
@@ -85,8 +85,8 @@
       sound: !type:SoundPathSpecifier
         path: /Audio/Magic/fireball.ogg
       icon:
-        sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-        state: fireball # Goob edit
+        sprite: _Goidastation/Wizard/actions.rsi # Goida edit
+        state: fireball # Goida edit
       event: !type:ProjectileSpellEvent
         prototype: ProjectileFireball
         speech: action-speech-spell-fireball

@@ -5,7 +5,7 @@
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Factory.Filters;
+namespace Content.Goidastation.Shared.Factory.Filters;
 
 /// <summary>
 /// Component for machines that have a filter slot.

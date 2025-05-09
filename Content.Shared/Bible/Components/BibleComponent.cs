@@ -10,12 +10,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Bible // Death to serverside components. Glory to Goobistan
+namespace Content.Goidastation.Shared.Bible // Death to serverside components. Glory to Goidaistan
 {
     [RegisterComponent, NetworkedComponent]
     public sealed partial class BibleComponent : Component
@@ -65,13 +65,13 @@ namespace Content.Goobstation.Shared.Bible // Death to serverside components. Gl
         public string LocPrefix = "bible";
 
         /// <summary>
-        /// How much damage to deal to the entity being smitten - Goob
+        /// How much damage to deal to the entity being smitten - Goida
         /// </summary>
         [DataField]
         public DamageSpecifier SmiteDamage = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 25 }}}; // Ungodly
 
         /// <summary>
-        /// How long to stun the entity being smitten - Goob
+        /// How long to stun the entity being smitten - Goida
         /// </summary>
         [DataField]
         public TimeSpan SmiteStunDuration = TimeSpan.FromSeconds(8);

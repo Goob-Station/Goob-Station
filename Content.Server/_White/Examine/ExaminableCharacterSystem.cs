@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
@@ -6,9 +6,9 @@
 
 using Content.Server.Chat.Managers;
 using Content.Server.IdentityManagement;
-using Content.Goobstation.Common.Examine; // Goobstation Change
-using Content.Goobstation.Common.CCVar; // Goobstation Change
-using Content.Shared._Goobstation.Heretic.Components; // Goobstation Change
+using Content.Goidastation.Common.Examine; // Goidastation Change
+using Content.Goidastation.Common.CCVar; // Goidastation Change
+using Content.Shared._Goidastation.Heretic.Components; // Goidastation Change
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
@@ -38,7 +38,7 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             || !args.IsInDetailsRange)
             return;
 
-        var showExamine = _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine);
+        var showExamine = _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoidaCVars.DetailedExamine);
 
         var selfaware = args.Examiner == args.Examined;
         var logLines = new List<string>();
@@ -128,9 +128,9 @@ public sealed class ExaminableCharacterSystem : EntitySystem
         }
         AddLine(message);
         message.Pop();
-        if (showExamine && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.LogInChat))
+        if (showExamine && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoidaCVars.LogInChat))
         {
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), message.ToMarkup(), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goobstation Edit
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), message.ToMarkup(), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goidastation Edit
         }
     }
 
@@ -141,8 +141,8 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             return;
 
         if (TryComp<ActorComponent>(args.Examiner, out var actorComponent)
-            && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.DetailedExamine)
-            && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoobCVars.LogInChat))
+            && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoidaCVars.DetailedExamine)
+            && _netConfigManager.GetClientCVar(actorComponent.PlayerSession.Channel, GoidaCVars.LogInChat))
         {
             var logLines = new List<string>();
 
@@ -164,7 +164,7 @@ public sealed class ExaminableCharacterSystem : EntitySystem
             AddLine(message);
             message.Pop();
 
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), message.ToMarkup(), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goobstation Edit
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message.ToString(), message.ToMarkup(), EntityUid.Invalid, false, actorComponent.PlayerSession.Channel, recordReplay: false, canCoalesce: false); // Goidastation Edit
         }
     }
 

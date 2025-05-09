@@ -54,7 +54,7 @@
     tags:
     - Sheet
     - Metal
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -91,7 +91,7 @@
     - steel
     - steel_2
     - steel_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -119,7 +119,7 @@
           Quantity: 2
         - ReagentId: Lead
           Quantity: 1
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Sheet
     - Metal
@@ -176,7 +176,7 @@
     - brass
     - brass_2
     - brass_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -244,7 +244,7 @@
     - plasteel
     - plasteel_2
     - plasteel_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

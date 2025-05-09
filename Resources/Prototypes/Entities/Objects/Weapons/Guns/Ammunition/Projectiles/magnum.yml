@@ -32,7 +32,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -74,14 +74,14 @@
 - type: entity
   id: BulletMagnumAP
   name: bullet (.45 magnum armor-piercing)
-  parent: BaseBullet # Goobstation edit
+  parent: BaseBullet # Goidastation edit
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 28 # Goobstation edit
-    armorPenetration: 0.75 # Goobstation
+        Piercing: 28 # Goidastation edit
+    armorPenetration: 0.75 # Goidastation
 
 - type: entity
   id: BulletMagnumUranium

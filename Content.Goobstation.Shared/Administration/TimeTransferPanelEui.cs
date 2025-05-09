@@ -8,7 +8,7 @@
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Administration;
+namespace Content.Goidastation.Shared.Administration;
 
 [Serializable, NetSerializable]
 public sealed class TimeTransferPanelEuiState : EuiStateBase

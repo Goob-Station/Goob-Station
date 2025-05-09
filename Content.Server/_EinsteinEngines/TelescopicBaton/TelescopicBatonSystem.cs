@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
+using Content.Goidastation.Common.Standing;
 using Content.Server.Item;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared._White.Standing;
@@ -22,9 +22,9 @@ namespace Content.Server._EinsteinEngines.TelescopicBaton;
 public sealed class TelescopicBatonSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goobstation
-    [Dependency] private readonly ItemSystem _item = default!; // Goobstation
-    [Dependency] private readonly UseDelaySystem _delay = default!; // Goobstation
+    [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goidastation
+    [Dependency] private readonly ItemSystem _item = default!; // Goidastation
+    [Dependency] private readonly UseDelaySystem _delay = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -33,13 +33,13 @@ public sealed class TelescopicBatonSystem : EntitySystem
         SubscribeLocalEvent<TelescopicBatonComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TelescopicBatonComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<TelescopicBatonComponent, KnockdownOnHitAttemptEvent>(OnKnockdownAttempt);
-        SubscribeLocalEvent<TelescopicBatonComponent, MeleeHitEvent>(OnMeleeHit, after: new[] { typeof(KnockdownOnHitSystem) }); // Goobstation
+        SubscribeLocalEvent<TelescopicBatonComponent, MeleeHitEvent>(OnMeleeHit, after: new[] { typeof(KnockdownOnHitSystem) }); // Goidastation
     }
 
-    private void OnMeleeHit(Entity<TelescopicBatonComponent> ent, ref MeleeHitEvent args) // Goobstation
+    private void OnMeleeHit(Entity<TelescopicBatonComponent> ent, ref MeleeHitEvent args) // Goidastation
     {
         if (!ent.Comp.AlwaysDropItems)
-            ent.Comp.CanDropItems = false; // Goob edit
+            ent.Comp.CanDropItems = false; // Goida edit
 
         if (args is { IsHit: true, HitEntities.Count: > 0 } && TryComp(ent, out UseDelayComponent? delay))
             _delay.ResetAllDelays((ent, delay));
@@ -52,17 +52,17 @@ public sealed class TelescopicBatonSystem : EntitySystem
         var query = EntityQueryEnumerator<TelescopicBatonComponent>();
         while (query.MoveNext(out var baton))
         {
-            if (baton.AlwaysDropItems) // Goobstation
+            if (baton.AlwaysDropItems) // Goidastation
                 continue;
 
-            if (!baton.CanDropItems) // Goob edit
+            if (!baton.CanDropItems) // Goida edit
                 continue;
 
             baton.TimeframeAccumulator += TimeSpan.FromSeconds(frameTime);
             if (baton.TimeframeAccumulator <= baton.AttackTimeframe)
                 continue;
 
-            baton.CanDropItems = false; // Goob edit
+            baton.CanDropItems = false; // Goida edit
             baton.TimeframeAccumulator = TimeSpan.Zero;
         }
     }
@@ -74,13 +74,13 @@ public sealed class TelescopicBatonSystem : EntitySystem
 
     private void OnToggled(Entity<TelescopicBatonComponent> baton, ref ItemToggledEvent args)
     {
-        _item.SetHeldPrefix(baton, args.Activated ? "on" : "off"); // Goobstation
+        _item.SetHeldPrefix(baton, args.Activated ? "on" : "off"); // Goidastation
         ToggleBaton(baton, args.Activated);
     }
 
     private void OnKnockdownAttempt(Entity<TelescopicBatonComponent> baton, ref KnockdownOnHitAttemptEvent args)
     {
-        // Goob edit start
+        // Goida edit start
         if (!_toggle.IsActivated(baton.Owner))
         {
             args.Cancelled = true;
@@ -89,13 +89,13 @@ public sealed class TelescopicBatonSystem : EntitySystem
 
         if (!baton.Comp.CanDropItems)
             args.Behavior = DropHeldItemsBehavior.NoDrop;
-        // Goob edit end
+        // Goida edit end
     }
 
     public void ToggleBaton(Entity<TelescopicBatonComponent> baton, bool state)
     {
         baton.Comp.TimeframeAccumulator = TimeSpan.Zero;
-        baton.Comp.CanDropItems = state; // Goob edit
+        baton.Comp.CanDropItems = state; // Goida edit
         _appearance.SetData(baton, TelescopicBatonVisuals.State, state);
     }
 }

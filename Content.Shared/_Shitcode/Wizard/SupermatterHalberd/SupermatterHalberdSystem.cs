@@ -21,7 +21,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.SupermatterHalberd;
+namespace Content.Shared._Goidastation.Wizard.SupermatterHalberd;
 
 public sealed class SupermatterHalberdSystem : EntitySystem
 {

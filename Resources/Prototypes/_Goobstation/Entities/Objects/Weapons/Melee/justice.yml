@@ -5,17 +5,17 @@
   description: An expensive & self-recharging energy sword, designed specifically for the Head of Security. If it were not for injustice, man would not know justice.
   components:
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
     size: Huge
     storedRotation: -90
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
     quickEquip: false
     slots:
     - Belt
     - suitStorage
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
     state: icon
   - type: Battery
     maxCharge: 1000
@@ -46,11 +46,11 @@
         verb: off
         energyPerUse: 0
         sprite:
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           state: icon
         components:
         - type: Item
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           storedRotation: -90
           size: Huge
         - type: MeleeWeapon
@@ -66,11 +66,11 @@
         verb: stun
         energyPerUse: 70
         sprite:
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           state: stun-icon
         components:
         - type: Item
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           heldPrefix: stun
           storedRotation: -90
           size: Huge
@@ -83,7 +83,7 @@
           angle: 60
           animation: WeaponArcThrust
           soundHit:
-            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+            path: /Audio/_Goidastation/Weapons/Effects/energy-short-sword-swing.ogg
         - type: StaminaDamageOnHit
           damage: 30
           overtime: 30
@@ -96,11 +96,11 @@
         verb: ion
         energyPerUse: 80
         sprite:
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           state: ion-icon
         components:
         - type: Item
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           heldPrefix: ion
           storedRotation: -90
           size: Huge
@@ -114,7 +114,7 @@
           angle: 60
           animation: WeaponArcThrust
           soundHit:
-            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+            path: /Audio/_Goidastation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
           collection: sparks
           params:
@@ -124,11 +124,11 @@
         verb: lethal
         energyPerUse: 120
         sprite:
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           state: lethal-icon
         components:
         - type: Item
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           heldPrefix: lethal
           storedRotation: -90
           size: Huge
@@ -142,7 +142,7 @@
           angle: 60
           animation: WeaponArcThrust
           soundHit:
-            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+            path: /Audio/_Goidastation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
           collection: sparks
           params:
@@ -152,11 +152,11 @@
         verb: empowered
         energyPerUse: 400
         sprite:
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           state: empowered-icon
         components:
         - type: Item
-          sprite: _Goobstation/Objects/Weapons/Melee/justice.rsi
+          sprite: _Goidastation/Objects/Weapons/Melee/justice.rsi
           heldPrefix: empowered
           storedRotation: -90
           size: Huge
@@ -183,7 +183,7 @@
               Heat: 30
               Shock: 5
           soundHit:
-            path: /Audio/_Goobstation/Weapons/Effects/energy-short-sword-swing.ogg
+            path: /Audio/_Goidastation/Weapons/Effects/energy-short-sword-swing.ogg
         soundStateActivate:
           collection: sparks
           params:

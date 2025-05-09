@@ -246,7 +246,7 @@ public sealed partial class ExplosionSystem : SharedExplosionSystem
         _pathfindingSystem.PauseUpdating = false;
     }
 
-    public void SetExplosionResistance(EntityUid entityUid, float newCoefficient, ExplosionResistanceComponent? component = null) // Goobstation - Blob
+    public void SetExplosionResistance(EntityUid entityUid, float newCoefficient, ExplosionResistanceComponent? component = null) // Goidastation - Blob
     {
         if (!Resolve(entityUid, ref component))
             return;

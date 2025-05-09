@@ -5,7 +5,7 @@
   description: Dispenses amnestic cartridges to be loaded into cartridge dispensers. Almost like a forbidden pez-dispenser!
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/amnestic_dispenser.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/amnestic_dispenser.rsi
     state: icon
   - type: Item
     size: Small

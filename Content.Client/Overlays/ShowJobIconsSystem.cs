@@ -76,7 +76,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Components;
+using Content.Shared._Goidastation.Wizard.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Overlays;
@@ -99,10 +99,10 @@ public sealed class ShowJobIconsSystem : EquipmentHudSystem<ShowJobIconsComponen
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HasJobIconsComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent); // Goob edit
+        SubscribeLocalEvent<HasJobIconsComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent); // Goida edit
     }
 
-    private void OnGetStatusIconsEvent(EntityUid uid, HasJobIconsComponent _, ref GetStatusIconsEvent ev) // Goob edit
+    private void OnGetStatusIconsEvent(EntityUid uid, HasJobIconsComponent _, ref GetStatusIconsEvent ev) // Goida edit
     {
         if (!IsActive)
             return;

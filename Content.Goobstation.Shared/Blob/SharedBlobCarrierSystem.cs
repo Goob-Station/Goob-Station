@@ -7,11 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Blob;
+using Content.Goidastation.Common.Blob;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Blob;
+namespace Content.Goidastation.Shared.Blob;
 
 public abstract class SharedBlobCarrierSystem : EntitySystem
 {

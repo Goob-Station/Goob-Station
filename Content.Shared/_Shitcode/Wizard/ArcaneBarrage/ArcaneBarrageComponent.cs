@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.ArcaneBarrage;
+namespace Content.Shared._Goidastation.Wizard.ArcaneBarrage;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ArcaneBarrageComponent : Component

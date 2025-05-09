@@ -12,9 +12,9 @@
   description: A ceremonial weapon belonging to a high ranking Central Command official.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/ccsabre.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/ccsabre.rsi
   - type: MeleeWeapon
-    heavyStaminaCost: 2.5 # goob edit
+    heavyStaminaCost: 2.5 # goida edit
     attackRate: 1.6
     damage:
       types:
@@ -25,7 +25,7 @@
     reflectProb: .6
     spread: 90
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/ccsabre.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/ccsabre.rsi
   - type: Tag
     tags:
     - CaptainSabre

@@ -3,9 +3,9 @@ All of the resources in this directory and subdirectories under this are created
 - Tikibomb
 - CerberusWolfie
 
-with suggestions from other Staff Members of Goobstation.
+with suggestions from other Staff Members of Goidastation.
 
-The alert levels (all except Epsilon) are created by Funky Station (a downstream from Goobstation at this time).
+The alert levels (all except Epsilon) are created by Funky Station (a downstream from Goidastation at this time).
 
 Epsilon was created and modified from one of the others.
 

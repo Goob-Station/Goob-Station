@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goidastation.Wizard.BindSoul;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Shitcode.Wizard.Systems;

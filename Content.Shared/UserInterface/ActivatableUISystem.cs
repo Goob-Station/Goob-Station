@@ -80,7 +80,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         SubscribeLocalEvent<ActivatableUIComponent, GetVerbsEvent<ActivationVerb>>(GetActivationVerb);
         SubscribeLocalEvent<ActivatableUIComponent, GetVerbsEvent<Verb>>(GetVerb);
 
-        SubscribeLocalEvent<ActivatableUIComponent, GetVerbsEvent<AlternativeVerb>>(GetAltVerb); // Goobstation
+        SubscribeLocalEvent<ActivatableUIComponent, GetVerbsEvent<AlternativeVerb>>(GetAltVerb); // Goidastation
 
         SubscribeLocalEvent<UserInterfaceComponent, OpenUiActionEvent>(OnActionPerform);
 
@@ -113,7 +113,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
     private void GetActivationVerb(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (component.VerbOnly || component.AltVerb || !ShouldAddVerb(uid, component, args)) // Goobstation
+        if (component.VerbOnly || component.AltVerb || !ShouldAddVerb(uid, component, args)) // Goidastation
             return;
 
         args.Verbs.Add(new ActivationVerb
@@ -127,7 +127,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
     private void GetVerb(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<Verb> args)
     {
-        if (!component.VerbOnly || component.AltVerb || !ShouldAddVerb(uid, component, args)) // Goobstation
+        if (!component.VerbOnly || component.AltVerb || !ShouldAddVerb(uid, component, args)) // Goidastation
             return;
 
         args.Verbs.Add(new Verb
@@ -139,7 +139,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         });
     }
 
-    private void GetAltVerb(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<AlternativeVerb> args) // Goobstation
+    private void GetAltVerb(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<AlternativeVerb> args) // Goidastation
     {
         if (!component.AltVerb || !ShouldAddVerb(uid, component, args))
             return;

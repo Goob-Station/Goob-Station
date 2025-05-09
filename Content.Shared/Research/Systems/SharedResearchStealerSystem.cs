@@ -58,7 +58,7 @@ public abstract class SharedResearchStealerSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true,
             MovementThreshold = 0.5f,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);

@@ -97,7 +97,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 RatherUncreative <RatherUncreativeName@proton.me>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -506,7 +506,7 @@
     moduleId: Mining
     items:
     - MiningDrill
-    # - Shovel # Goobstation
+    # - Shovel # Goidastation
     - MineralScannerUnpowered
     - OreBag
     - Crowbar
@@ -528,7 +528,7 @@
     items:
     - WeaponGrapplingGun
     - HandheldGPSBasic
-    - LavalandJaunterRecharging # Goobstation
+    - LavalandJaunterRecharging # Goidastation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: grappling-module }
 
@@ -601,7 +601,7 @@
     moduleId: RCD
     items:
     - RCDRecharging
-    - RPDRecharging # Goobstation
+    - RPDRecharging # Goidastation
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
@@ -937,7 +937,7 @@
   id: BorgModuleOperative
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: operative cyborg module
-  description: A module that comes with a pair of syndicate jaws of life, an Emag, an Access Breaker and a syndicate pinpointer. # Goobstation
+  description: A module that comes with a pair of syndicate jaws of life, an Emag, an Access Breaker and a syndicate pinpointer. # Goidastation
   components:
     - type: Sprite
       layers:
@@ -946,7 +946,7 @@
     - type: ItemBorgModule
       moduleId: Operative
       items:
-      - SyndicateJawsOfLife # - Crowbar # Goobstation
+      - SyndicateJawsOfLife # - Crowbar # Goidastation
       - Emag
       - AccessBreaker
       - PinpointerSyndicateNuclear

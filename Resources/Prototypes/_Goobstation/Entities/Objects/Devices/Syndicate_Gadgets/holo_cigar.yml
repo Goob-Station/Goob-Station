@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -10,7 +10,7 @@
   description: A sleek electronic cigar imported straight from Sol. You feel badass merely glimpsing it...
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/holocigar.rsi
+    sprite: _Goidastation/Objects/Devices/holocigar.rsi
     state: icon
     scale: 0.8, 0.8
   - type: Clothing

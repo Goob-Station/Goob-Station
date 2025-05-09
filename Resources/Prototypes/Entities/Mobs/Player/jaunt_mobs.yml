@@ -27,7 +27,7 @@
   - type: Visibility
     layer: 2
   - type: Spectral
-  - type: IsDeadIC # Goobstation
+  - type: IsDeadIC # Goidastation
     dead: false
 
 # Should be slow, for balance
@@ -37,7 +37,7 @@
   id: EtherealJaunt
   suffix: Wizard
   components:
-  # Goob edit
+  # Goida edit
   #- type: Sprite
   #  sprite: Mobs/Ghosts/ghost_human.rsi
   #  color: "#60f7eb"
@@ -48,6 +48,6 @@
   #  overrideContainerOcclusion: true
   #  drawdepth: Ghosts
   - type: MovementSpeedModifier
-    baseSprintSpeed: 3 # Goob edit
-    baseWalkSpeed: 3 # Goob edit
-  - type: WizardJaunt # Goobstation
+    baseSprintSpeed: 3 # Goida edit
+    baseWalkSpeed: 3 # Goida edit
+  - type: WizardJaunt # Goidastation

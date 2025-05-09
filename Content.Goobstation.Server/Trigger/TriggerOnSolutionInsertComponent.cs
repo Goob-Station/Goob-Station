@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Trigger;
+namespace Content.Goidastation.Server.Trigger;
 
 /// <summary>
 ///     sends a trigger if item injected into a container contains an ammount of a solution.

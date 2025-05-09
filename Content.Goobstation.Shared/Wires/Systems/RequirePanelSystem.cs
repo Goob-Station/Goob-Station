@@ -8,11 +8,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Wires.Components;
+using Content.Goidastation.Shared.Wires.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Wires;
 
-namespace Content.Goobstation.Shared.Wires.Systems;
+namespace Content.Goidastation.Shared.Wires.Systems;
 
 public sealed partial class RequirePanelSystem : EntitySystem
 {

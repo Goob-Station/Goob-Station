@@ -78,7 +78,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Cuffs;
@@ -182,7 +182,7 @@ public abstract class SharedStrippableSystem : EntitySystem
 
         var hasEnt = _inventorySystem.TryGetSlotEntity(strippable, args.Slot, out var held, inventory);
 
-        if (HasComp<StripMenuInvisibleComponent>(held)) // Goobstation
+        if (HasComp<StripMenuInvisibleComponent>(held)) // Goidastation
             return;
 
         if (userHands.ActiveHandEntity != null && !hasEnt)

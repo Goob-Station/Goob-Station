@@ -10,7 +10,7 @@ using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Shared.Database;
 
-namespace Content.Goobstation.Server.Destructible.Thresholds.Behaviors
+namespace Content.Goidastation.Server.Destructible.Thresholds.Behaviors
 {
     [Serializable]
     [DataDefinition]

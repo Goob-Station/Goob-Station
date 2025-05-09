@@ -85,7 +85,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
@@ -95,12 +95,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Server._Goidastation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
-using Content.Shared._Goobstation.Wizard.Spellblade;
+using Content.Shared._Goidastation.Wizard.Spellblade;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
@@ -111,8 +111,8 @@ using Content.Shared.Temperature;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Projectiles;
-using Content.Goobstation.Shared.Temperature.Components;
-using Content.Goobstation.Shared.Temperature;
+using Content.Goidastation.Shared.Temperature.Components;
+using Content.Goidastation.Shared.Temperature;
 
 namespace Content.Server.Temperature.Systems;
 
@@ -123,7 +123,7 @@ public sealed class TemperatureSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
-    [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
+    [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goidastation
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.
@@ -152,7 +152,7 @@ public sealed class TemperatureSystem : EntitySystem
 
         SubscribeLocalEvent<ChangeTemperatureOnCollideComponent, ProjectileHitEvent>(ChangeTemperatureOnCollide);
 
-        SubscribeLocalEvent<SpecialLowTempImmunityComponent, TemperatureImmunityEvent>(OnCheckLowTemperatureImmunity); // Goob edit
+        SubscribeLocalEvent<SpecialLowTempImmunityComponent, TemperatureImmunityEvent>(OnCheckLowTemperatureImmunity); // Goida edit
 
         // Allows overriding thresholds based on the parent's thresholds.
         SubscribeLocalEvent<TemperatureComponent, EntParentChangedMessage>(OnParentChange);
@@ -217,7 +217,7 @@ public sealed class TemperatureSystem : EntitySystem
         ShouldUpdateDamage.Clear();
     }
 
-    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args) // Goob edit
+    private void OnCheckLowTemperatureImmunity(Entity<SpecialLowTempImmunityComponent> ent, ref TemperatureImmunityEvent args) // Goida edit
     {
         args.CurrentTemperature = MathF.Max(args.CurrentTemperature, args.IdealTemperature);
     }
@@ -230,7 +230,7 @@ public sealed class TemperatureSystem : EntitySystem
         float lastTemp = temperature.CurrentTemperature;
         temperature.CurrentTemperature = temp;
 
-        // Goob start
+        // Goida start
         var tempEv = new TemperatureImmunityEvent(temperature.CurrentTemperature);
         RaiseLocalEvent(uid, tempEv);
         temperature.CurrentTemperature = tempEv.CurrentTemperature;
@@ -241,7 +241,7 @@ public sealed class TemperatureSystem : EntitySystem
         RaiseLocalEvent(uid, attemptEv);
         if (attemptEv.Cancelled)
             return;
-        // Goob end
+        // Goida end
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta),
             true);
@@ -255,13 +255,13 @@ public sealed class TemperatureSystem : EntitySystem
 
         if (!ignoreHeatResistance)
         {
-            var ev = new ModifyChangedTemperatureEvent(heatAmount, uid); // Goobstation
+            var ev = new ModifyChangedTemperatureEvent(heatAmount, uid); // Goidastation
             RaiseLocalEvent(uid, ev);
             heatAmount = ev.TemperatureDelta;
         }
 
 
-        // Goobstation start
+        // Goidastation start
         float lastTemp = temperature.CurrentTemperature;
         float newTemp = temperature.CurrentTemperature + heatAmount / GetHeatCapacity(uid, temperature);
 
@@ -277,7 +277,7 @@ public sealed class TemperatureSystem : EntitySystem
             return;
 
         temperature.CurrentTemperature = newTemp;
-        // Goobstation end
+        // Goidastation end
 
         RaiseLocalEvent(uid, new OnTemperatureChangeEvent(temperature.CurrentTemperature, lastTemp, delta), true);
     }
@@ -401,7 +401,7 @@ public sealed class TemperatureSystem : EntitySystem
         var heatDamageThreshold = temperature.ParentHeatDamageThreshold ?? temperature.HeatDamageThreshold;
         var coldDamageThreshold = temperature.ParentColdDamageThreshold ?? temperature.ColdDamageThreshold;
 
-        if (temperature.CurrentTemperature >= heatDamageThreshold && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
+        if (temperature.CurrentTemperature >= heatDamageThreshold && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goida edit
         {
             if (!temperature.TakingDamage)
             {

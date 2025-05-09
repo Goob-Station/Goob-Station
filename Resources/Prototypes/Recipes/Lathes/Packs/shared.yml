@@ -52,7 +52,7 @@
 - type: latheRecipePack
   id: Equipment
   recipes:
-  #- HandHeldMassScanner - Goobstation - Removed by Lavaland
+  #- HandHeldMassScanner - Goidastation - Removed by Lavaland
   - ClothingMaskWeldingGas
   - SignallerAdvanced
 

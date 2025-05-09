@@ -5,7 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
@@ -30,7 +30,7 @@
   locName: heretic-ritual-basic-focus
   locDesc: heretic-ritual-basic-focus-desc
   icon:
-    sprite: _Goobstation/Heretic/amber_focus.rsi
+    sprite: _Goidastation/Heretic/amber_focus.rsi
     state: icon
   requiredTags:
     GlassShard: 1
@@ -43,7 +43,7 @@
   locName: heretic-ritual-basic-heart
   locDesc: heretic-ritual-basic-heart-desc
   icon:
-    sprite: _Goobstation/Heretic/items.rsi
+    sprite: _Goidastation/Heretic/items.rsi
     state: living_heart
   requiredTags:
     Paper: 1
@@ -56,7 +56,7 @@
   locName: heretic-ritual-basic-codex
   locDesc: heretic-ritual-basic-codex-desc
   icon:
-    sprite: _Goobstation/Heretic/book.rsi
+    sprite: _Goidastation/Heretic/book.rsi
     state: icon-on
   requiredTags:
     Meat: 1
@@ -70,7 +70,7 @@
   locName: heretic-ritual-basic-remeniscence
   locDesc: heretic-ritual-basic-remeniscence-desc
   icon:
-    sprite: _Goobstation/Heretic/Blades/eldritch_blade.rsi
+    sprite: _Goidastation/Heretic/Blades/eldritch_blade.rsi
     state: icon
   customBehaviors:
   - !type:RitualRecallBladeBehavior
@@ -83,7 +83,7 @@
   locDesc: heretic-ritual-basic-owls-desc
   runeSuccessAnimation: false
   icon:
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    sprite: _Goidastation/Heretic/abilities_heretic.rsi
     state: god_transmit
   customBehaviors:
   - !type:RitualCanAscend
@@ -95,7 +95,7 @@
   locName: knowledge-path-ash-s1-name
   locDesc: knowledge-path-ash-s1-desc
   icon:
-    sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
+    sprite: _Goidastation/Heretic/Blades/blade_ash.rsi
     state: icon
   customBehaviors:
   - !type:RitualCreateBladeBehavior
@@ -109,7 +109,7 @@
   locName: knowledge-path-ash-s6-name
   locDesc: knowledge-path-ash-s6-desc
   icon:
-    sprite: _Goobstation/Heretic/mad_mask.rsi
+    sprite: _Goidastation/Heretic/mad_mask.rsi
     state: icon
   requiredTags:
     Mask: 1
@@ -123,7 +123,7 @@
   locName: knowledge-path-ash-s9-name
   locDesc: knowledge-path-ash-s9-desc
   icon:
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    sprite: _Goidastation/Heretic/abilities_heretic.rsi
     state: ashlord_rite2
   customBehaviors:
   - !type:RitualCanAscend
@@ -139,7 +139,7 @@
   locName: knowledge-path-blade-s1-name
   locDesc: knowledge-path-blade-s1-desc
   icon:
-    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
+    sprite: _Goidastation/Heretic/Blades/blade_blade.rsi
     state: icon
   customBehaviors:
   - !type:RitualCreateBladeBehavior
@@ -152,7 +152,7 @@
   locName: knowledge-path-blade-s9-name
   locDesc: knowledge-path-blade-s9-desc
   icon:
-    sprite: _Goobstation/Heretic/items.rsi
+    sprite: _Goidastation/Heretic/items.rsi
     state: protective_blade
   customBehaviors:
   - !type:RitualCanAscend
@@ -168,7 +168,7 @@
   locName: knowledge-path-flesh-s1-name
   locDesc: knowledge-path-flesh-s1-desc
   icon:
-    sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi
+    sprite: _Goidastation/Heretic/Blades/blade_flesh.rsi
     state: icon
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
@@ -195,7 +195,7 @@
   locName: knowledge-path-flesh-s6-name
   locDesc: knowledge-path-flesh-s6-desc
   icon:
-    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goidastation/Heretic/eldritch_mobs.rsi
     state: raw_prophet
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
@@ -211,7 +211,7 @@
   locName: knowledge-path-flesh-s8-name
   locDesc: knowledge-path-flesh-s8-desc
   icon:
-    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goidastation/Heretic/eldritch_mobs.rsi
     state: stalker
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
@@ -229,7 +229,7 @@
   locName: knowledge-path-flesh-s9-name
   locDesc: knowledge-path-flesh-s9-desc
   icon:
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    sprite: _Goidastation/Heretic/abilities_heretic.rsi
     state: final_hymn
   customBehaviors:
   - !type:RitualCanAscend
@@ -247,7 +247,7 @@
   locName: knowledge-path-void-s1-name
   locDesc: knowledge-path-void-s1-desc
   icon:
-    sprite: _Goobstation/Heretic/Blades/blade_void.rsi
+    sprite: _Goidastation/Heretic/Blades/blade_void.rsi
     state: icon
   customBehaviors:
   - !type:RitualTemperatureBehavior
@@ -280,7 +280,7 @@
   locName: knowledge-path-rust-s1-name
   locDesc: knowledge-path-rust-s1-desc
   icon:
-    sprite: _Goobstation/Heretic/Blades/blade_rust.rsi
+    sprite: _Goidastation/Heretic/Blades/blade_rust.rsi
     state: icon
   customBehaviors:
   - !type:RitualCreateBladeBehavior
@@ -294,7 +294,7 @@
   locName: knowledge-path-rust-s9-name
   locDesc: knowledge-path-rust-s9-desc
   icon:
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    sprite: _Goidastation/Heretic/abilities_heretic.rsi
     state: ascension_rust
   customBehaviors:
   - !type:RitualCanAscend
@@ -310,7 +310,7 @@
   locName: knowledge-path-side-knowledge-name
   locDesc: knowledge-path-side-knowledge-desc
   icon:
-    sprite: _Goobstation/Heretic/book.rsi
+    sprite: _Goidastation/Heretic/book.rsi
     state: icon
   customBehaviors:
   - !type:RitualKnowledgeBehavior
@@ -321,7 +321,7 @@
   locName: knowledge-path-side-s3-armor-name
   locDesc: knowledge-path-side-s3-armor-desc
   icon:
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goidastation/Heretic/eldritch_armor.rsi
     state: icon
   requiredTags:
     Table: 1
@@ -334,7 +334,7 @@
   locName: knowledge-path-side-s3-flask-name
   locDesc: knowledge-path-side-s3-flask-desc
   icon:
-    sprite: _Goobstation/Heretic/items.rsi
+    sprite: _Goidastation/Heretic/items.rsi
     state: eldritch_flask
   requiredTags:
     WaterTank: 1
@@ -347,7 +347,7 @@
   locName: knowledge-path-side-s3-ashen-eyes-name
   locDesc: knowledge-path-side-s3-ashen-eyes-desc
   icon:
-    sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+    sprite: _Goidastation/Heretic/eldritch_medalion.rsi
     state: icon
   requiredTags:
     GlassShard: 1
@@ -361,7 +361,7 @@
   locName: knowledge-path-side-s3-void-cloak-name
   locDesc: knowledge-path-side-s3-void-cloak-desc
   icon:
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goidastation/Heretic/void_cloak.rsi
     state: icon
   requiredTags:
     GlassShard: 1
@@ -377,7 +377,7 @@
   locName: knowledge-path-side-s6-rustwalker-name
   locDesc: knowledge-path-side-s6-rustwalker-desc
   icon:
-    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    sprite: _Goidastation/Heretic/eldritch_mobs.rsi
     state: rust_walker
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
@@ -393,7 +393,7 @@
   locName: knowledge-path-side-s6-knife-name
   locDesc: knowledge-path-side-s6-knife-desc
   icon:
-    sprite: _Goobstation/Heretic/items.rsi
+    sprite: _Goidastation/Heretic/items.rsi
     state: rune_carver
   requiredTags:
     GlassShard: 1

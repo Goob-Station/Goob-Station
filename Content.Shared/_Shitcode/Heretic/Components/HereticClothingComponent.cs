@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Heretic.Components;
+namespace Content.Shared._Goidastation.Heretic.Components;
 
 /// <summary>
 /// Prevents non heretic to wear clothing with this component

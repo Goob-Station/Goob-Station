@@ -137,7 +137,7 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 50
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Chair
 
@@ -175,7 +175,7 @@
   - type: Rotatable
     rotateWhileAnchored: true
 
-# Goobstation - rolly chairs that actually roll!
+# Goidastation - rolly chairs that actually roll!
 - type: entity
   name: chair
   id: RollingOfficeChairBase
@@ -308,7 +308,7 @@
 - type: entity
   name: white office chair
   id: ChairOfficeLight
-  parent: RollingOfficeChairBase # Goobstation - make the rolly chairs roll!
+  parent: RollingOfficeChairBase # Goidastation - make the rolly chairs roll!
   components:
   - type: Sprite
     state: office-white
@@ -386,7 +386,7 @@
   - type: Tag
     tags:
     - Wooden
-    - Chair # Goob
+    - Chair # Goida
   - type: StaticPrice
     price: 75
 

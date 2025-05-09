@@ -109,7 +109,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-  - type: StatusIcon # Goobstation
+  - type: StatusIcon # Goidastation
     bounds: -0.5,-0.5,0.5,0.5
 
 - type: entity
@@ -189,5 +189,5 @@
   - type: MobPrice
     price: 150
   - type: FloatingVisuals
-  - type: CombatPower # Goobstation
+  - type: CombatPower # Goidastation
     factor: 0.5 # As dangerous as half a crew-member

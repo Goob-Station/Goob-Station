@@ -125,7 +125,7 @@
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -156,7 +156,7 @@
   parent: [ SimpleMobBase, MobCombat ]
   description: He's da rat. He make da roolz.
   components:
-  - type: VentCrawler # goobstation - Ventcrawl
+  - type: VentCrawler # goidastation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.00
@@ -248,7 +248,7 @@
     - MindRoleGhostRoleFreeAgent
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostTakeoverAvailable
@@ -282,13 +282,13 @@
     attributes:
       gender: male
   - type: Sharp
-  - type: NightVision # Goobstation - Nigthvision
+  - type: NightVision # Goidastation - Nigthvision
     color: "#d14343"
     activateSound: null
     deactivateSound: null
-  - type: Insulated # Goobstation
+  - type: Insulated # Goidastation
     coefficient: 0.5
-  - type: CombatPower # Goobstation
+  - type: CombatPower # Goidastation
     factor: 2
 
 - type: entity
@@ -336,7 +336,7 @@
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
-  - type: VentCrawler # goobstation - Ventcrawl
+  - type: VentCrawler # goidastation - Ventcrawl
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
@@ -369,7 +369,7 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
-  - type: Insulated # Goobstation
+  - type: Insulated # Goidastation
 
   - type: SpriteMovement
     movementLayers:
@@ -467,7 +467,7 @@
   - type: Food
   - type: Item
     size: Tiny # Delta V - Make them edible and pickable.
-  - type: NightVision # Goobstation - Nigthvision
+  - type: NightVision # Goidastation - Nigthvision
     color: "#808080"
     activateSound: null
     deactivateSound: null

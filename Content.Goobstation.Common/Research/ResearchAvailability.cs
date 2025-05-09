@@ -9,7 +9,7 @@
 
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Common.Research;
+namespace Content.Goidastation.Common.Research;
 
 [Serializable, NetSerializable]
 public enum ResearchAvailability : byte

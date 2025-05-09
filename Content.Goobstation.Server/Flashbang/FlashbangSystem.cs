@@ -6,14 +6,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Flashbang;
+using Content.Goidastation.Shared.Flashbang;
 using Content.Server.Flash;
 using Content.Server.Stunnable;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Tag;
 
-namespace Content.Goobstation.Server.Flashbang;
+namespace Content.Goidastation.Server.Flashbang;
 
 public sealed class FlashbangSystem : EntitySystem
 {

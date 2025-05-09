@@ -594,7 +594,7 @@ public sealed class StationSystem : EntitySystem
 
         return stats;
     }
-    // Goobstation start
+    // Goidastation start
     public HashSet<EntityUid> GetAllStationGrids()
     {
         // Collect all grids owned by stations
@@ -609,7 +609,7 @@ public sealed class StationSystem : EntitySystem
 
         return grids;
     }
-    // Goobstation end
+    // Goidastation end
 
     /// <summary>
     /// Returns the first station that has a grid in a certain map.

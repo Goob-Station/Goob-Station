@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -18,7 +18,7 @@ namespace Content.Shared.Revenant.EntitySystems;
 /// </summary>
 public abstract class SharedRevenantOverloadedLightsSystem : EntitySystem
 {
-    [Dependency] private readonly SharedBeamSystem _beam = default!; // Goobstation
+    [Dependency] private readonly SharedBeamSystem _beam = default!; // Goidastation
 
     public override void Update(float frameTime)
     {
@@ -37,7 +37,7 @@ public abstract class SharedRevenantOverloadedLightsSystem : EntitySystem
             RemCompDeferred(uid, comp);
         }
 
-        _beam.AccumulateIndex(); // Goobstation
+        _beam.AccumulateIndex(); // Goidastation
     }
 
     protected abstract void OnZap(Entity<RevenantOverloadedLightsComponent> component);

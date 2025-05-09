@@ -1,14 +1,14 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Enchanting.Systems;
+using Content.Goidastation.Shared.Enchanting.Systems;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Enchanting.Components;
+namespace Content.Goidastation.Shared.Enchanting.Components;
 
 /// <summary>
 /// Linearly adds bonus damage to melee attacks with <c>damage * level</c>.

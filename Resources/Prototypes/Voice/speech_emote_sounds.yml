@@ -209,7 +209,7 @@
     Hew:
       collection: Hew
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -235,7 +235,7 @@
     Hew:
       collection: Hew
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -343,11 +343,11 @@
     Hew:
       collection: Hew
     CatMeow:
-      collection: CatMeows #Goob content start
+      collection: CatMeows #Goida content start
     Sneeze:
-      path: /Audio/_Goobstation/Voice/Vox/vox_sneeze.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_sneeze.ogg
     Cough:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cough.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_cough.ogg
     CatHisses:
       collection: CatHisses
     MonkeyScreeches:
@@ -355,19 +355,19 @@
     RobotBeep:
       collection: RobotBeeps
     Yawn:
-      path: /Audio/_Goobstation/Voice/Vox/vox_yawn.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_yawn.ogg
     Snore:
-      path: /Audio/_Goobstation/Voice/Vox/vox_snore.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_snore.ogg
     Sigh:
-      path: /Audio/_Goobstation/Voice/Vox/vox_sigh.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_sigh.ogg
     Crying:
-      path: /Audio/_Goobstation/Voice/Vox/vox_cry.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Gasp:
-      path: /Audio/_Goobstation/Voice/Vox/vox_gasp.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_gasp.ogg
     DefaultDeathgasp:
-      path: /Audio/_Goobstation/Voice/Vox/vox_deathgasp.ogg
+      path: /Audio/_Goidastation/Voice/Vox/vox_deathgasp.ogg
   params:
     variation: 0.125
 
@@ -387,7 +387,7 @@
     Hew:
       collection: Hew
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -415,7 +415,7 @@
     Honk:
       collection: BikeHorn
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -529,13 +529,13 @@
     Honk:
       collection: BikeHorn
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
-    Flap: # Goobstation - Add flap to moths.
-      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
+    Flap: # Goidastation - Add flap to moths.
+      path: /Audio/_Goidastation/Voice/Moth/moth_flap.ogg
 
 - type: emoteSounds
   id: UnisexSilicon
@@ -554,9 +554,9 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
-    Boop: # Goobstation - IPC sounds
+    Boop: # Goidastation - IPC sounds
       path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
-    Whirr: # Goobstation - IPC sounds
+    Whirr: # Goidastation - IPC sounds
       collection: IPCWhirrs
       params:
         variation: 0

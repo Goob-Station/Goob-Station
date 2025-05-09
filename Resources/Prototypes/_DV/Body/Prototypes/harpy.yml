@@ -25,7 +25,7 @@
         eyes: OrganHumanEyes
     torso:
       part: TorsoHarpy
-      connections: # Goobstation - fix some species having their hands the wrong way around
+      connections: # Goidastation - fix some species having their hands the wrong way around
       - right arm
       - left arm
       - right leg

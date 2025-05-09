@@ -172,14 +172,14 @@
         maxVol: 100
   - type: UseDelay
     delay: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
   - type: Tag
     tags:
       - Mop
       - MopBasic
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: GuideHelp
     guides:
     - Janitorial
@@ -243,9 +243,9 @@
       tags:
         - Mop
         - MopAdv
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
     - type: DnaSubstanceTrace
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Plastic: 100
         Glass: 25
@@ -267,7 +267,7 @@
       coefficients:
         Blunt: 0.95
         Slash: 0.95
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
   - type: Tag
@@ -414,7 +414,7 @@
     radius: 1.5
     energy: 0.75
     color: "#ffc20e"
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
       Gold: 25
@@ -470,7 +470,7 @@
     - type: Tag
       tags:
         - Mop
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
     - type: CleansForensics
     - type: Fiber
       fiberColor: fibers-white

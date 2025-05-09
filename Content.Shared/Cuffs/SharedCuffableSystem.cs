@@ -117,7 +117,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared._EinsteinEngines.Flight;
-using Content.Shared._Goobstation.Wizard.Mutate; // Goobstation
+using Content.Shared._Goidastation.Wizard.Mutate; // Goidastation
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -265,7 +265,7 @@ namespace Content.Shared.Cuffs
 
         private void OnRejuvenate(EntityUid uid, CuffableComponent component, RejuvenateEvent args)
         {
-            if (!args.Uncuff) // Goobstation
+            if (!args.Uncuff) // Goidastation
                 return;
             _container.EmptyContainer(component.Container, true);
         }
@@ -627,14 +627,14 @@ namespace Content.Shared.Cuffs
                 return false;
             }
 
-            // Goobstation Change Start
+            // Goidastation Change Start
             if (TryComp<FlightComponent>(target, out var flight) && flight.On)
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-target-flying-error",
                     ("targetName", Identity.Name(target, EntityManager, user))), user, user);
                 return true;
             }
-            // Goobstation Change End
+            // Goidastation Change End
 
             var cuffTime = handcuffComponent.CuffTime;
 
@@ -765,7 +765,7 @@ namespace Content.Shared.Cuffs
                     return;
                 }
 
-                if (TryComp(user, out HulkComponent? hulk)) // Goobstation
+                if (TryComp(user, out HulkComponent? hulk)) // Goidastation
                 {
                     _hulk.Roar((user, hulk));
                     Uncuff(user, user, cuffsToRemove.Value, cuffable);
@@ -954,6 +954,6 @@ namespace Content.Shared.Cuffs
 }
 
 [Serializable, NetSerializable]
-public sealed partial class AddCuffDoAfterEvent : SimpleDoAfterEvent // Goob Edit moved out of class made public
+public sealed partial class AddCuffDoAfterEvent : SimpleDoAfterEvent // Goida Edit moved out of class made public
 {
 }

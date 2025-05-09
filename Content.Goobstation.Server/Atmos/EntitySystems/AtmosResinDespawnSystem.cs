@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -6,9 +6,9 @@
 using Robust.Shared.Spawners;
 using Content.Shared.Atmos;
 using Content.Server.Atmos.EntitySystems;
-using Content.Goobstation.Server.Atmos.Components;
+using Content.Goidastation.Server.Atmos.Components;
 
-namespace Content.Goobstation.Server.Atmos.EntitySystems;
+namespace Content.Goidastation.Server.Atmos.EntitySystems;
 
 
 /// <summary>

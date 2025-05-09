@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -90,7 +90,7 @@
   - type: Alerts
   - type: ProtectedFromStepTriggers
   - type: Targeting # Shitmed Change
-  - type: CollectiveMind # Goobstation
+  - type: CollectiveMind # Goidastation
 
 - type: entity
   name: drone
@@ -245,14 +245,14 @@
     - EmagImmune
     - CanPilot
     - VimPilot
-    - DroneMind # Goobstation
-  - type: CollectiveMind # Goobstation
+    - DroneMind # Goidastation
+  - type: CollectiveMind # Goidastation
     defaultChannel: Dronemind
   - type: Access
     tags:
     - Engineering
     - Maintenance
-    - Atmospherics # Goobstation
+    - Atmospherics # Goidastation
   - type: RandomMetadata
     nameSegments:
     - NamesDrone # maintainer drones get named after maintainers get it? its funny

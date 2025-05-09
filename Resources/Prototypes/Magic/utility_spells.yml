@@ -9,23 +9,23 @@
 - type: entity
   id: ActionChargeSpell
   name: Charge
-  description: This spell can be used to recharge a variety of things in your hands, from magical artifacts to electrical components. A creative wizard can even use it to grant magical power to a fellow magic user. # Goob edit
+  description: This spell can be used to recharge a variety of things in your hands, from magical artifacts to electrical components. A creative wizard can even use it to grant magical power to a fellow magic user. # Goida edit
   components:
   - type: InstantAction
-    raiseOnUser: true # Goobstation
-    useDelay: 60 # Goob edit
+    raiseOnUser: true # Goidastation
+    useDelay: 60 # Goida edit
     itemIconStyle: BigAction
-    sound: !type:SoundPathSpecifier # Goobstation
-      path: /Audio/_Goobstation/Wizard/charge.ogg
+    sound: !type:SoundPathSpecifier # Goidastation
+      path: /Audio/_Goidastation/Wizard/charge.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: charge # Goob edit
-    event: !type:ChargeMagicEvent # Goob edit
-      speech: action-speech-spell-charge # Goob edit
-  - type: Sprite # Goobstation - for apprentices
-    sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
+      state: charge # Goida edit
+    event: !type:ChargeMagicEvent # Goida edit
+      speech: action-speech-spell-charge # Goida edit
+  - type: Sprite # Goidastation - for apprentices
+    sprite: _Goidastation/Wizard/actions.rsi
     state: charge
-  - type: Magic # Goobstation
+  - type: Magic # Goidastation
     requiresSpeech: true
     school: Transmutation
   - type: ActionUpgrade

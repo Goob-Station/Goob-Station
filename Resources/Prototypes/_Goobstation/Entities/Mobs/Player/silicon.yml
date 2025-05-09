@@ -85,7 +85,7 @@
     - MindRoleGhostRoleSilicon
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:RoleTimeRequirement
       role: JobBorg
       time: 3600 #1 hour

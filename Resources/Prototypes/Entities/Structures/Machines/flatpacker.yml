@@ -5,14 +5,14 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: entity
   id: MachineFlatpacker
-  parent: [ BaseMachinePowered, ConstructibleMachine, BaseSiloUtilizer ] # Goob edit
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseSiloUtilizer ] # Goida edit
   name: Flatpacker 1001
   description: An industrial machine used for expediting machine construction across the station.
   components:
@@ -80,7 +80,7 @@
           components:
           - MachineBoard
           - ComputerBoard
-  - type: AutomationSlots # Goobstation
+  - type: AutomationSlots # Goidastation
     slots:
     - !type:AutomatedItemSlot
       input: AutomationSlotBoard

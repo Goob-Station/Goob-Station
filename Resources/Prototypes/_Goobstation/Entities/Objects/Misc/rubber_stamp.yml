@@ -14,5 +14,5 @@
     stampedColor: "#2ec69b"
     stampState: "paper_stamp-nanorep"
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    sprite: _Goidastation/Objects/Misc/stamps.rsi
     state: stamp-nanorep

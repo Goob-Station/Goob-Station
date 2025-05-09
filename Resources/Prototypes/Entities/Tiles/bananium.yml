@@ -82,7 +82,7 @@
   - type: Slippery
   - type: StepTrigger
     intersectRatio: 0.2
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - SlipTile
   - type: Physics

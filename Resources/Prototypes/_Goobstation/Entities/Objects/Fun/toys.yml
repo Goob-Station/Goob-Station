@@ -11,7 +11,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Plyush <121322002+Plyushsune@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Shy Bandit <92641277+rotundfan@users.noreply.github.com>
@@ -31,7 +31,7 @@
   description: A cute stuffed toy that resembles a rat. You feel a strange compulsion to say hi to the rat.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_louie
   - type: EmitSoundOnUse
     sound:
@@ -61,7 +61,7 @@
   description: Not the Throngler you wanted, But the Throngler you deserve.
   components:
     - type: Sprite
-      sprite: _Goobstation/Objects/Fun/Throngler-Foam.rsi
+      sprite: _Goidastation/Objects/Fun/Throngler-Foam.rsi
     - type: StaminaDamageOnHit
       damage: 8
     - type: MeleeWeapon
@@ -75,7 +75,7 @@
         path: /Audio/Effects/explosion_small1.ogg
     - type: Item
       size: Large
-      sprite: _Goobstation/Objects/Fun/Throngler-Foam-in-hand.rsi
+      sprite: _Goidastation/Objects/Fun/Throngler-Foam-in-hand.rsi
     - type: DisarmMalus
       malus: 0
 
@@ -86,7 +86,7 @@
   description: A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_durk
   - type: EmitSoundOnUse
     sound:
@@ -115,7 +115,7 @@
   description: A "kitsune-like" human hybrid plushie made by Nanotrasen as charity for Blackburnians displaced by the Yukon Insurgency's tyrannical ways.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_blackburn
   - type: EmitSoundOnUse
     sound:
@@ -144,7 +144,7 @@
   description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Kobliskins" as they are the Insurgency's first self-designed subspecies.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_kobliska
 
 - type: entity
@@ -154,7 +154,7 @@
   description: An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_matryoskya
 
 - type: entity
@@ -168,7 +168,7 @@
     maxSpeed: 4
     minSpeed: 2
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_desislava
   - type: EmitSoundOnUse
     sound:
@@ -197,7 +197,7 @@
   description: Using this will make sec kill you.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/foamwonderprod.rsi
+    sprite: _Goidastation/Objects/Fun/foamwonderprod.rsi
     state: icon
   - type: StaminaDamageOnHit
     damage: 8
@@ -216,7 +216,7 @@
       types:
         Blunt: 0
   - type: Item
-    sprite: _Goobstation/Objects/Fun/foamwonderprod.rsi
+    sprite: _Goidastation/Objects/Fun/foamwonderprod.rsi
     size: Small
   - type: DisarmMalus
     malus: 0
@@ -255,7 +255,7 @@
   components:
   - type: Sprite
     norot: true
-    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    sprite: _Goidastation/Mobs/Bingle/bingle.rsi
     state: alive
 
 
@@ -268,7 +268,7 @@
   components:
   - type: Sprite
     norot: true
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: bingleing
 
 
@@ -280,7 +280,7 @@
   components:
   - type: Sprite
     norot: true
-    sprite: _Goobstation/Objects/Fun/yakub_bingle.rsi
+    sprite: _Goidastation/Objects/Fun/yakub_bingle.rsi
     state: yakubbingle
 
 
@@ -292,7 +292,7 @@
   components:
   - type: Sprite
     norot: true
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: bongle
 
 - type: entity
@@ -303,7 +303,7 @@
   components:
   - type: Sprite
     norot: true
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: bingle_pony
 
 - type: entity
@@ -313,7 +313,7 @@
   description: Glorp Zap Zeeble Glarp "Plush" Bleeble
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_abductor
   - type: UseDelay
     delay: 15
@@ -393,12 +393,12 @@
   description: PLOOP.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
+    sprite: _Goidastation/Objects/Fun/taiwan_pond.rsi
     layers:
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Fun/taiwan_pond.rsi
+    sprite: _Goidastation/Objects/Fun/taiwan_pond.rsi
     slots:
     - Back
     - suitStorage
@@ -428,39 +428,39 @@
   description: A cute stuffed toy that resembles a veteran blueshield officer. You feel a sudden urge for lollypops while holding it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     state: plushie_samantha
   - type: Item
     heldPrefix: plushiesamantha
   - type: Clothing
     quickEquip: false
-    sprite: _Goobstation/Objects/Fun/toys.rsi
+    sprite: _Goidastation/Objects/Fun/toys.rsi
     equippedPrefix: plushiesamantha
     slots:
     - HEAD
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 0
     soundHit:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
     soundNoDamage:
-      path: /Audio/_Goobstation/Weapons/Effects/nanotrasenenergyon.ogg
+      path: /Audio/_Goidastation/Weapons/Effects/nanotrasenenergyon.ogg
   - type: GibThisGuy # Death to myself. It'd be funny.
     requireBoth: false
     icNames:
@@ -496,7 +496,7 @@
   description: A cute stuffed toy that resembles a yowie. Smells like meth and unethical surgery.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_benny
 
 - type: entity
@@ -506,7 +506,7 @@
   description: A cute stuffed toy that resembles a white lizard.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_cairo
 
 - type: entity
@@ -516,7 +516,7 @@
   description: A cute stuffed toy that resembles an overworked vox. Smells strongly of alcohol.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_pash
 
 - type: entity
@@ -526,7 +526,7 @@
   description: A cute stuffed toy that resembles a purple resomi. You may not know it, but the Resomis are free, and you can take them home.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_delta
 
 - type: entity
@@ -536,7 +536,7 @@
   description: A cute stuffed toy that resembles a specific rat. Reeks with the smell of dirty water.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_raki
 
 - type: entity
@@ -546,7 +546,7 @@
   description: A cute stuffed toy that resembles a white lizard. Who the fuck put this on station?!?! Violet, red, hit all the alerts!
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_tina
 
 - type: entity
@@ -556,7 +556,7 @@
   description: A cute stuffed toy that resembles a blue moth.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_knott
 
 - type: entity
@@ -566,7 +566,7 @@
   description: A cute stuffed toy that resembles a specific vulpkanin.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_kury
 
 - type: entity
@@ -576,7 +576,7 @@
   description: A cute stuffed toy that resembles a slime wearing fancy clothes.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_zlorb
 
 - type: entity
@@ -586,7 +586,7 @@
   description: A cute stuffed toy that resembles a moth wearing grey clothes. Bagel maints survivor.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_tider_moth
 
 - type: entity
@@ -596,7 +596,7 @@
   description: A cute stuffed toy that resembles a human wearing blue cowboy clothes.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_command_human
   - type: GibThisGuy
     requireBoth: false
@@ -612,7 +612,7 @@
   description: A cute stuffed toy that resembles a maroon lizard. Smells like the fresh ores of off lavaland and a hint of ash.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_ranork
   - type: EmitSoundOnUse
     sound:
@@ -643,7 +643,7 @@
   description: A cute stuffed toy that resembles a sparkly purple moth. Has a sweet floral scent, like it’s been frolicking in a meadow.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_sparkle
 
 - type: entity
@@ -653,7 +653,7 @@
   description: A cute stuffed toy that resembles a visibly dirty vox. Something smells pungent..
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_ahti
 
 - type: entity
@@ -663,7 +663,7 @@
   description: A cute stuffed toy that resembles a blue lizard. Somehow keeps getting promoted.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_stoop
 
 - type: entity
@@ -673,11 +673,11 @@
   description: A cute stuffed toy that resembles a funky lizard. She looks better with glasses.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_weh_winter
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
+      path: /Audio/_Goidastation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
 
 - type: entity
   parent: [BasePlushie, BaseMajorContraband]
@@ -686,7 +686,7 @@
   description: Depending on who you ask, this resomi is either the most hated crew member on every station, the funniest or the best most loved resomi. Either way, you feel the urge to stab it with a knife and try to tear its limbs off, but should you?
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_byrrne
   - type: Damageable
     damageContainer: Inorganic
@@ -712,10 +712,10 @@
   id: PlushieByrrneGibbed # special gib mechanic
   name: gibbed despised resomi plushie
   suffix: gibbed
-  description: No... it can't be... IT SHOULD'VE BEEN ME THAT DID IT.. But was it worth it..? Deep inside, you feel like it cared about your coins... your goob coins.. even.
+  description: No... it can't be... IT SHOULD'VE BEEN ME THAT DID IT.. But was it worth it..? Deep inside, you feel like it cared about your coins... your goida coins.. even.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_byrrne_gibbed
 
 - type: entity
@@ -725,7 +725,7 @@
   description: A unique slime plushie. You feel an unwanted rage to hit Haleigh Pryocraft with an baguette by looking at it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_violet_slime
   - type: EmitSoundOnUse
     sound:
@@ -756,7 +756,7 @@
   description: An ugly stuffed toy that resembles a green goblin.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_grub
   - type: Food
     requiresSpecialDigestion: true

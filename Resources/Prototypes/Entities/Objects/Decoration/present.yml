@@ -380,7 +380,7 @@
         orGroup: GiftPool
       - id: ToySword
         orGroup: GiftPool
-      - id: FoamWonderprod #Goob
+      - id: FoamWonderprod #Goida
         orGroup: GiftPool
       - id: RevolverCapGun
         orGroup: GiftPool

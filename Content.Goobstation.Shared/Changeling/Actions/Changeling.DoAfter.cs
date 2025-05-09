@@ -10,7 +10,7 @@
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Changeling.Actions;
+namespace Content.Goidastation.Shared.Changeling.Actions;
 
 [Serializable, NetSerializable]
 public sealed partial class AbsorbDNADoAfterEvent : SimpleDoAfterEvent { }

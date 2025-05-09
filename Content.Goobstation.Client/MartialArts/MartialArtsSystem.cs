@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.MartialArts;
+using Content.Goidastation.Shared.MartialArts;
 
-namespace Content.Goobstation.Client.MartialArts;
+namespace Content.Goidastation.Client.MartialArts;
 
 /// <summary>
 /// This handles...

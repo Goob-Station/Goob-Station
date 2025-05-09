@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Thom <119594676+ItsMeThom@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 yavuz <58685802+yahay505@users.noreply.github.com>
 #
@@ -35,10 +35,10 @@
         collection: MetalThud
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Structures/Walls/directional.rsi
+    sprite: _Goidastation/Structures/Walls/directional.rsi
     state: directionalwall
   - type: Icon
-    sprite: _Goobstation/Structures/Walls/directional.rsi
+    sprite: _Goidastation/Structures/Walls/directional.rsi
     state: directionalwall
   - type: Physics
   - type: Fixtures

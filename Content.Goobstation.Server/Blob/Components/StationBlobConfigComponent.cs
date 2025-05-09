@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 //using Content.Server.SpecForces;
-namespace Content.Goobstation.Server.Blob.Components;
+namespace Content.Goidastation.Server.Blob.Components;
 
 [RegisterComponent]
 public sealed partial class StationBlobConfigComponent : Component
@@ -27,6 +27,6 @@ public sealed partial class StationBlobConfigComponent : Component
     [DataField]
     public int StageTheEnd { get; set; } = DefaultStageEnd;
 
-    /*[DataField("specForceTeam")]  //Goobstation - Disabled automatic ERT
+    /*[DataField("specForceTeam")]  //Goidastation - Disabled automatic ERT
     public ProtoId<SpecForceTeamPrototype> SpecForceTeam { get; set; } = "RXBZZBlobDefault";*/
 }

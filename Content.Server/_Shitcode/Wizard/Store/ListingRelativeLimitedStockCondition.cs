@@ -9,7 +9,7 @@ using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Store;
+namespace Content.Server._Goidastation.Wizard.Store;
 
 /// <summary>
 /// Only allows a listing to be purchased a certain amount of times, relative to some other listing's purchase amount.

@@ -16,5 +16,5 @@ namespace Content.Server.Objectives.Components;
 public sealed partial class PickRandomPersonComponent : Component
 {
     [DataField]
-    public bool NeedsOrganic; // Goobstation: Only pick non-silicon players.
+    public bool NeedsOrganic; // Goidastation: Only pick non-silicon players.
 }

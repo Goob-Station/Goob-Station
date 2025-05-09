@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Client.Clothing.Components;
+namespace Content.Goidastation.Client.Clothing.Components;
 
 [RegisterComponent]
 public sealed partial class SealableClothingVisualsComponent : Component

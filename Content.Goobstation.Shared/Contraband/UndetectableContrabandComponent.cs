@@ -9,7 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Contraband;
+namespace Content.Goidastation.Shared.Contraband;
 
 /// <summary>
 /// added to items that will not be detected like shiv

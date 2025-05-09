@@ -69,10 +69,10 @@
       storedRotation: -90
     - type: Tag
       tags:
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
     - type: StaticPrice
       price: 100
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 25
         Glass: 125
@@ -159,7 +159,7 @@
       price: 750
     - type: Tag
       tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -245,7 +245,7 @@
   - type: Tag
     tags:
     - SurveillanceCameraMonitorCircuitboard
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -269,7 +269,7 @@
     - type: Tag
       tags:
         - ComputerTelevisionCircuitboard
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -330,7 +330,7 @@
     - type: Tag
       tags:
       - HighRiskItem
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
 
 - type: entity
   parent: BaseComputerCircuitboard

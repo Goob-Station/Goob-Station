@@ -6,7 +6,7 @@
 
 using Content.Shared.Inventory;
 
-namespace Content.Goobstation.Shared.Clothing.Components;
+namespace Content.Goidastation.Shared.Clothing.Components;
 
 [RegisterComponent]
 public sealed partial class ModifyStandingUpTimeComponent : Component

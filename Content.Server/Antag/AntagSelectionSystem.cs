@@ -143,7 +143,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goidastation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     // arbitrary random number to give late joining some mild interest.
@@ -274,7 +274,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         foreach (var (uid, antag) in rules)
         {
-            // Goob edit
+            // Goida edit
             // if (!RobustRandom.Prob(LateJoinRandomChance))
             //    continue;
 
@@ -289,7 +289,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (!TryGetNextAvailableDefinition((uid, antag), out var def, players))
                 continue;
 
-            // Goobstation
+            // Goidastation
             if (!RobustRandom.Prob(def.Value.PlayerRatio == 0
                     ? LateJoinRandomChance
                     : Math.Clamp(1f / def.Value.PlayerRatio, 0f, 1f)))
@@ -501,7 +501,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
         {
-            // Goob edit start
+            // Goida edit start
             if (session != null && ent.Comp.RemoveUponFailedSpawn)
             {
                 ent.Comp.AssignedSessions.Remove(session);
@@ -509,7 +509,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
                 _adminLogger.Add(LogType.AntagSelection, $"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
             }
-            // goob edit end
+            // goida edit end
 
             return;
         }
@@ -590,7 +590,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             _adminLogger.Add(LogType.AntagSelection, $"Assigned {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
         }
 
-        // goob edit - actual pacifism implant
+        // goida edit - actual pacifism implant
         foreach (var special in def.Special)
             special.AfterEquip(ent);
 

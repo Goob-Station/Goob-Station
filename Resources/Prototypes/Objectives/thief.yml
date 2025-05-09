@@ -231,7 +231,7 @@
   - type: Objective
     difficulty: 0.5 # just for fun, collectings LAMP on Moth
 
-- type: entity  # Goobstation
+- type: entity  # Goidastation
   parent: BaseThiefStealCollectionObjective
   id: BatteryStealCollectionObjective
   components:

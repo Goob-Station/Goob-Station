@@ -13,7 +13,7 @@ using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.PendingAntag;
+namespace Content.Server._Goidastation.PendingAntag;
 
 public sealed class PendingAntagSystem : EntitySystem
 {

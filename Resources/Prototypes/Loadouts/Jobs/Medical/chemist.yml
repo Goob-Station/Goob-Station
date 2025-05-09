@@ -87,7 +87,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
 
-- type: loadout # goob
+- type: loadout # goida
   id: ChemistMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryChemistry

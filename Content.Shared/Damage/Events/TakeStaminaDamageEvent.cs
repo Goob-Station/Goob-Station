@@ -19,7 +19,7 @@ namespace Content.Shared.Damage.Events;
 /// The entity is going to be hit,
 /// give opportunities to change the damage or other stuff.
 /// </summary>
-// goobstation - stun resistance. try not to modify this event allat much
+// goidastation - stun resistance. try not to modify this event allat much
 public sealed class TakeStaminaDamageEvent : HandledEntityEventArgs, IInventoryRelayEvent
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;

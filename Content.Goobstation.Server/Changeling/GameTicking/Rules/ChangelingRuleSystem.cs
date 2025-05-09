@@ -10,9 +10,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text;
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Server.Changeling.Roles;
-using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goidastation.Common.Changeling;
+using Content.Goidastation.Server.Changeling.Roles;
+using Content.Goidastation.Shared.Changeling.Components;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
@@ -27,7 +27,7 @@ using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Changeling.GameTicking.Rules;
+namespace Content.Goidastation.Server.Changeling.GameTicking.Rules;
 
 public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponent>
 {
@@ -37,7 +37,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
 
-    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/changeling_start.ogg");
+    public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/_Goidastation/Ambience/Antag/changeling_start.ogg");
 
     public readonly ProtoId<AntagPrototype> ChangelingPrototypeId = "Changeling";
 

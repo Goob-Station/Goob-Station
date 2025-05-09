@@ -20,7 +20,7 @@ public sealed partial class StaminaDamageOnCollideComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("damage")]
     public float Damage = 55f;
 
-    // goob edit
+    // goida edit
     [DataField]
     public float Overtime = 0f;
 

@@ -54,7 +54,7 @@
   parent: BaseGoldCircuitboardRecipe
   id: RoboticArmCircuitboard
   icon:
-    sprite: _Goobstation/Structures/Machines/robotic_arm.rsi
+    sprite: _Goidastation/Structures/Machines/robotic_arm.rsi
     state: icon
   result: RoboticArmCircuitboard
 
@@ -62,6 +62,6 @@
   parent: BaseCircuitboardRecipe
   id: StorageBinCircuitboard
   icon:
-    sprite: _Goobstation/Structures/Machines/storage_bin.rsi
+    sprite: _Goidastation/Structures/Machines/storage_bin.rsi
     state: icon
   result: StorageBinCircuitboard

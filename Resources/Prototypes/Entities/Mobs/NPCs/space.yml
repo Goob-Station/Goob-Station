@@ -89,7 +89,7 @@
 # SPDX-FileCopyrightText: 2025 ExponentialWizard <38435756+ExponentialWizard@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -301,7 +301,7 @@
     - id: FoodMeat
       amount: 1
   - type: Fauna # Lavaland Change
-  - type: CombatPower # Goobstation
+  - type: CombatPower # Goidastation
     factor: 1 # times more dangerous than a crew-member
 
 - type: entity
@@ -317,7 +317,7 @@
   parent: MobSpaceBasic
   description: It's so glowing, it looks dangerous.
   components:
-  - type: VentCrawler # goobstation - Ventcrawl
+  - type: VentCrawler # goidastation - Ventcrawl
   - type: Body # Shitmed Change
     prototype: SpaceSpider
   - type: SurgeryTarget # Shitmed
@@ -410,7 +410,7 @@
   - type: TypingIndicator
     proto: spider
   - type: Fauna # Lavaland Change
-  - type: CombatPower # Goobstation
+  - type: CombatPower # Goidastation
     factor: 1.5 # times more dangerous than a crew-member
 
 - type: entity

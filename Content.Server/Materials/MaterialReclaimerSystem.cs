@@ -268,7 +268,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         foreach (var (material, amount) in composition.MaterialComposition)
         {
-            var outputAmount = (int) (amount * efficiency) * _stack.GetCount(item); // Goobstation - Recycle Update - Check stack count
+            var outputAmount = (int) (amount * efficiency) * _stack.GetCount(item); // Goidastation - Recycle Update - Check stack count
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 

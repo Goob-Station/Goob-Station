@@ -27,7 +27,7 @@
     blacklist:
       tags:
       - Catwalk
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - Chasm
   - type: Transform

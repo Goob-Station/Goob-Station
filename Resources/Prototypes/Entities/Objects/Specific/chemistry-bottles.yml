@@ -119,7 +119,7 @@
     tags:
     - Bottle
     - Trash
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 25
   - type: SpaceGarbage
@@ -204,7 +204,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DnaSubstanceTrace
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:

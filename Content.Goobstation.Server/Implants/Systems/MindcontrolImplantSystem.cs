@@ -11,13 +11,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Implants.Components;
-using Content.Goobstation.Server.Mindcontrol;
-using Content.Goobstation.Shared.Mindcontrol;
+using Content.Goidastation.Server.Implants.Components;
+using Content.Goidastation.Server.Mindcontrol;
+using Content.Goidastation.Shared.Mindcontrol;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Implants.Systems;
+namespace Content.Goidastation.Server.Implants.Systems;
 public sealed class MindcontrolImplantSystem : EntitySystem
 {
     [Dependency] private readonly MindcontrolSystem _mindcontrol = default!;

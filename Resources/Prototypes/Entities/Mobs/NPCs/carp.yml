@@ -92,7 +92,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -202,7 +202,7 @@
         path: /Audio/Effects/bite.ogg
     - type: Body # Shitmed: Special carp organs
       prototype: Carp
-    - type: NightVision # Goobstation - Nigthvision
+    - type: NightVision # Goidastation - Nigthvision
       color: "#808080"
       activateSound: null
       deactivateSound: null
@@ -302,10 +302,10 @@
         task: DragonCarpCompound
     - type: Tag
       tags:
-        - DragonMind # Goobstation - Collective mind
+        - DragonMind # Goidastation - Collective mind
         - Carp
         - DoorBumpOpener
-    # Goobstation - Collective mind
+    # Goidastation - Collective mind
     - type: CollectiveMind
       defaultChannel: Dragonmind
 

@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
@@ -18,7 +18,7 @@
      - Cartridge
      - ShellShotgunHeavy
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
     layers:
     - state: base
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -94,7 +94,7 @@
         - Cartridge
         - ShellShotgunHeavy
     - type: Sprite
-      sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
+      sprite: _Goidastation/Objects/Weapons/Guns/Ammunition/Cartridges/highcaliber-shell.rsi
       layers:
         - state: slug
           map: [ "enum.AmmoVisualLayers.Base" ]

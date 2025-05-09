@@ -4,13 +4,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Client.JoinQueue;
-using Content.Goobstation.Client.Redial;
+using Content.Goidastation.Client.JoinQueue;
+using Content.Goidastation.Client.Redial;
 using Robust.Shared.IoC;
 
-namespace Content.Goobstation.Client.IoC;
+namespace Content.Goidastation.Client.IoC;
 
-internal static class ContentGoobClientIoC
+internal static class ContentGoidaClientIoC
 {
     internal static void Register()
     {

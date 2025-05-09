@@ -7,7 +7,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: latheRecipe # Goobstation - adding durathread armoured clothing
+- type: latheRecipe # Goidastation - adding durathread armoured clothing
   id: ClothingOuterVestWebDurathread
   result: ClothingOuterVestWebDurathread
   completetime: 30
@@ -16,7 +16,7 @@
     Durathread: 3000
     Plasteel: 1000
 
-- type: latheRecipe # Goobstation - adding durathread armoured clothing
+- type: latheRecipe # Goidastation - adding durathread armoured clothing
   id: ClothingOuterArmourDurathread
   result: ClothingOuterArmourDurathread
   completetime: 30

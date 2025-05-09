@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -55,7 +55,7 @@
     - Yowie # Penalized by wearing robes, still should be possible to select them in magic mirror.
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Nonstations/wizden.yml
+    mapPath: /Maps/_Goidastation/Nonstations/wizden.yml
   - type: Tag
     tags:
       - RoundstartAntag
@@ -73,7 +73,7 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 200
       Friend: 40
       Medical: 200

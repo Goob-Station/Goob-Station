@@ -797,8 +797,8 @@
 
 - type: entity
   parent: ClothingUniformJumpsuitHoP
-  id: ClothingUniformJumpsuitMilitaryHoP # goob - no SR
-  name: HoP's jumpsuit # goob - no SR
+  id: ClothingUniformJumpsuitMilitaryHoP # goida - no SR
+  name: HoP's jumpsuit # goida - no SR
   suffix: Military
   components:
   - type: Sprite
@@ -1632,7 +1632,7 @@
 ## WILDCARDS
 
 - type: entity
-  parent: ClothingUniformJumpsuitMercenary # goob - fix
+  parent: ClothingUniformJumpsuitMercenary # goida - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
   suffix: Military
   components:
@@ -1677,7 +1677,7 @@
       - state: equipped-belt-buckle
 
 - type: entity
-  parent: ClothingUniformJumpsuitMercenary # goob - fix
+  parent: ClothingUniformJumpsuitMercenary # goida - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryMedic
   name: mercenary medic jumpsuit
   suffix: Military
@@ -1731,7 +1731,7 @@
         color: "#5a96bb"
 
 - type: entity
-  parent: ClothingUniformJumpsuitMercenary # goob - fix
+  parent: ClothingUniformJumpsuitMercenary # goida - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryCaptain
   name: mercenary captain jumpsuit
   suffix: Military
@@ -1797,7 +1797,7 @@
         color: "#ffce5b"
 
 - type: entity
-  parent: ClothingUniformJumpsuitMercenary # goob - fix
+  parent: ClothingUniformJumpsuitMercenary # goida - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenary
   suffix: Military, Blue
   components:
@@ -1842,7 +1842,7 @@
       - state: equipped-belt-buckle
 
 - type: entity
-  parent: ClothingUniformJumpsuitMercenary # goob - fix
+  parent: ClothingUniformJumpsuitMercenary # goida - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryMedic
   name: mercenary medic jumpsuit
   suffix: Military, Blue
@@ -1896,7 +1896,7 @@
         color: "#aeb7bd"
 
 - type: entity
-  parent: ClothingUniformJumpsuitMercenary # goob - fix
+  parent: ClothingUniformJumpsuitMercenary # goida - fix
   id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryCaptain
   name: mercenary captain jumpsuit
   suffix: Military, Blue
@@ -1961,7 +1961,7 @@
       - state: equipped-decor-epaulets
         color: "#ffce5b"
 
-# goob - some jumpsuits are deleted
-# goob - this is because frontier does stupid shit i am too lazy to fix
-# goob - deleted jumpsuits are the mailcarrier one and pilot one because we dont have the base jumpsuit for either
-# goob - SR jumpsuit is also edited to HoP's jumpsuit because we do not have SR
+# goida - some jumpsuits are deleted
+# goida - this is because frontier does stupid shit i am too lazy to fix
+# goida - deleted jumpsuits are the mailcarrier one and pilot one because we dont have the base jumpsuit for either
+# goida - SR jumpsuit is also edited to HoP's jumpsuit because we do not have SR

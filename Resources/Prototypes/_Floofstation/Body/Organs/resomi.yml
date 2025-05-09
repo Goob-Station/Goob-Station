@@ -18,7 +18,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity # Goobstation - resomi stomach
+- type: entity # Goidastation - resomi stomach
   id: OrganResomiStomach
   parent: OrganAnimalStomach
   categories: [ HideSpawnMenu ]

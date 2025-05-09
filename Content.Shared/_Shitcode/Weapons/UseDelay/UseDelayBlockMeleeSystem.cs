@@ -11,7 +11,7 @@ using System.Linq;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Shared._Goobstation.Weapons.UseDelay;
+namespace Content.Shared._Goidastation.Weapons.UseDelay;
 
 public sealed class UseDelayBlockMeleeSystem : EntitySystem
 {

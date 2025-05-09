@@ -69,7 +69,7 @@
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
-  goobcoins: 20 #Goob content
+  goidacoins: 20 #Goida content
   access:
   - Medical
   - Maintenance

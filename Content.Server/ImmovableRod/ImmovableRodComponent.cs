@@ -61,28 +61,28 @@ public sealed partial class ImmovableRodComponent : Component
     public DamageSpecifier? Damage;
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     Part damage multiplier done, if not gibbing
     /// </summary>
     [DataField]
     public float PartDamageMultiplier = 2f;
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     Whether the rod should ignore resistances, if not gibbing
     /// </summary>
     [DataField]
     public bool IgnoreResistances;
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     List of all mobs that the rod has damaged
     /// </summary>
     [DataField]
     public List<EntityUid> DamagedEntities = new();
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     If it is above 0, knock down targets when rod hits them
     /// </summary>
     [DataField]

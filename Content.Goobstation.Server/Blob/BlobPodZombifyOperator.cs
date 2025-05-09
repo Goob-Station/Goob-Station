@@ -8,13 +8,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Blob.NPC.BlobPod;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Server.Blob.NPC.BlobPod;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed partial class BlobPodZombifyOperator : HTNOperator
 {

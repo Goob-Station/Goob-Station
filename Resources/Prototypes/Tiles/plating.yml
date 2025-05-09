@@ -24,7 +24,7 @@
 # SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 #
@@ -36,9 +36,9 @@
   sprite: /Textures/Tiles/plating.png
   baseTurf: Lattice
   isSubfloor: true
-  # Goobstation - Fireaxe plating prying
+  # Goidastation - Fireaxe plating prying
   deconstructTools: [ Axing ]
-  deconstructTimeMultiplier: 5 # Goobstation
+  deconstructTimeMultiplier: 5 # Goidastation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -55,9 +55,9 @@
   - 1.0
   baseTurf: Lattice
   isSubfloor: true
-  # Goobstation - Fireaxe plating prying
+  # Goidastation - Fireaxe plating prying
   deconstructTools: [ Axing ]
-  deconstructTimeMultiplier: 5 # Goobstation
+  deconstructTimeMultiplier: 5 # Goidastation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -69,9 +69,9 @@
   sprite: /Textures/Tiles/plating_burnt.png
   baseTurf: Lattice
   isSubfloor: true
-  # Goobstation - Fireaxe plating prying
+  # Goidastation - Fireaxe plating prying
   deconstructTools: [ Axing ]
-  deconstructTimeMultiplier: 5 # Goobstation
+  deconstructTimeMultiplier: 5 # Goidastation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -83,9 +83,9 @@
   sprite: /Textures/Tiles/Asteroid/asteroid_plating.png
   baseTurf: Lattice
   isSubfloor: true
-  # Goobstation - Fireaxe plating prying
+  # Goidastation - Fireaxe plating prying
   deconstructTools: [ Axing ]
-  deconstructTimeMultiplier: 5 # Goobstation
+  deconstructTimeMultiplier: 5 # Goidastation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -97,9 +97,9 @@
   sprite: /Textures/Tiles/Misc/clockwork/clockwork_floor.png
   baseTurf: Lattice
   isSubfloor: true
-  # Goobstation - Fireaxe plating prying
+  # Goidastation - Fireaxe plating prying
   deconstructTools: [ Axing ]
-  deconstructTimeMultiplier: 5 # Goobstation
+  deconstructTimeMultiplier: 5 # Goidastation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -111,9 +111,9 @@
   sprite: /Textures/Tiles/snow_plating.png #Not in the snow planet RSI because it doesn't have any metadata. Should probably be moved to its own folder later.
   baseTurf: Lattice
   isSubfloor: true
-  # Goobstation - Fireaxe plating prying
+  # Goidastation - Fireaxe plating prying
   deconstructTools: [ Axing ]
-  deconstructTimeMultiplier: 5 # Goobstation
+  deconstructTimeMultiplier: 5 # Goidastation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.15 #a little less then actual snow
@@ -126,7 +126,7 @@
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
-  deconstructTimeMultiplier: 1 # Goobstation
+  deconstructTimeMultiplier: 1 # Goidastation
   weather: true
   footstepSounds:
     collection: FootstepCatwalk
@@ -134,7 +134,7 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
-  mass: 200 # Goobstation
+  mass: 200 # Goidastation
 
 - type: tile
   id: TrainLattice
@@ -143,7 +143,7 @@
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
-  deconstructTimeMultiplier: 1 # Goobstation
+  deconstructTimeMultiplier: 1 # Goidastation
   weather: true
   footstepSounds:
     collection: FootstepPlating
@@ -151,4 +151,4 @@
   isSpace: true
   itemDrop: PartRodMetal1
   heatCapacity: 10000
-  mass: 200 # Goobstation
+  mass: 200 # Goidastation

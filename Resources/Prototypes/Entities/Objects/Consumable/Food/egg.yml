@@ -111,15 +111,15 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 11 #Goob edit - homunculus
+        maxVol: 11 #Goida edit - homunculus
         reagents:
         - ReagentId: Egg
           Quantity: 6
-  - type: Rehydratable #Goob start
+  - type: Rehydratable #Goida start
     catalyst: UnstableMutagen
     catalystMinimum: 5
     possibleSpawns:
-    - MobHomunculus #Goob end
+    - MobHomunculus #Goida end
   - type: DrawableSolution
     solution: food
   - type: SolutionSpiker

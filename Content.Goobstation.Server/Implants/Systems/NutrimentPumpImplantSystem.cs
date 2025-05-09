@@ -1,14 +1,14 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Implants.Components;
+using Content.Goidastation.Server.Implants.Components;
 using Content.Shared.Implants;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Implants.Systems;
+namespace Content.Goidastation.Server.Implants.Systems;
 
 public sealed class NutrimentPumpImplantSystem : EntitySystem
 {

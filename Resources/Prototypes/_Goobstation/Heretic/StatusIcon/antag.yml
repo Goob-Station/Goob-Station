@@ -14,7 +14,7 @@
       - Ghoul
       - Heretic
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Goidastation/Interface/Misc/job_icons.rsi
     state: Ghoul
 
 - type: factionIcon
@@ -25,5 +25,5 @@
       - ShowAntagIcons
       - Ghoul
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Goidastation/Interface/Misc/job_icons.rsi
     state: HereticMaster

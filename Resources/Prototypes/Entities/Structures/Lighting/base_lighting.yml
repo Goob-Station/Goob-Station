@@ -120,7 +120,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceRox1244 <138547931+SpaceRox1244@users.noreply.github.com>
 #
@@ -210,7 +210,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 10
   placement:
     mode: SnapgridCenter

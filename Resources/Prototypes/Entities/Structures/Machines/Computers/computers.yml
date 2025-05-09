@@ -292,7 +292,7 @@
   - type: AccessReader
     access:
     - [ Command ]
-    breakOnAccessBreaker: false # Goobstation
+    breakOnAccessBreaker: false # Goidastation
   - type: EmergencyShuttleConsole
   - type: ActivatableUI
     key: enum.EmergencyConsoleUiKey.Key
@@ -306,7 +306,7 @@
     radius: 1.5
     energy: 1.6
     color: "#43ccb5"
-  # Goobstation - Add components for self destruct.
+  # Goidastation - Add components for self destruct.
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
     totalIntensity: 60
@@ -1020,7 +1020,7 @@
     - Power
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: BaseComputerAiAccess

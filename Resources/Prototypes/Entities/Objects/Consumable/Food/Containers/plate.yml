@@ -80,7 +80,7 @@
     materialComposition:
       Glass: 60
   - type: SpaceGarbage
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:

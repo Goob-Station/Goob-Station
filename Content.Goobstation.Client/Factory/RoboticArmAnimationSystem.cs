@@ -1,13 +1,13 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Factory;
+using Content.Goidastation.Shared.Factory;
 using Robust.Client.GameObjects;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Client.Factory;
+namespace Content.Goidastation.Client.Factory;
 
 /// <summary>
 /// Animations robotic arm's arm layer swinging.

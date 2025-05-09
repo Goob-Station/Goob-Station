@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -71,7 +71,7 @@
   startNode: start
   targetNode: BladeForged
   icon:
-    sprite: _Goobstation/Objects/Weapons/Melee/Ghetto/heated_knife.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/Ghetto/heated_knife.rsi
     state: icon
   objectType: Item
 

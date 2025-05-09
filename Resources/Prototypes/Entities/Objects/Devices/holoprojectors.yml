@@ -46,7 +46,7 @@
   - type: Tag
     tags:
       - HolosignProjector
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 62
       Glass: 37
@@ -93,7 +93,7 @@
       - HolofanProjector
   - type: StaticPrice
     price: 80
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 75
       Plastic: 12
@@ -170,7 +170,7 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 75
       Plastic: 12

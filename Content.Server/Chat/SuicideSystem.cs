@@ -239,7 +239,7 @@ public sealed class SuicideSystem : EntitySystem
             return;
         }
 
-        if (HasComp<SiliconComponent>(victim)) // Goobstation
+        if (HasComp<SiliconComponent>(victim)) // Goidastation
             args.DamageType ??= "Shock";
         else
             args.DamageType ??= "Bloodloss";

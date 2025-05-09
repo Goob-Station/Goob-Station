@@ -341,7 +341,7 @@
     - pancakes7
     - pancakes8
     - pancakes9
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

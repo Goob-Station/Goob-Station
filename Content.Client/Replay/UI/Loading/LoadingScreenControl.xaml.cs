@@ -29,10 +29,10 @@ public sealed partial class LoadingScreenControl : Control
         RobustXamlLoader.Load(this);
 
         LayoutContainer.SetAnchorPreset(this, LayoutContainer.LayoutPreset.Wide);
-        // Goobstation - ZH text support start
+        // Goidastation - ZH text support start
         Header.FontOverride = resCache.NotoStack2ElectricBoogaloo("/Fonts/NotoSansDisplay/NotoSansDisplay-Bold.ttf", 24);
         Subtext.FontOverride = resCache.NotoStack2ElectricBoogaloo("/Fonts/NotoSansDisplay/NotoSansDisplay-Bold.ttf", 12);
-        // Goobstation - ZH text support end
+        // Goidastation - ZH text support end
 
         SpriteLeft.SetFromSpriteSpecifier(Sprite);
         SpriteRight.SetFromSpriteSpecifier(Sprite);

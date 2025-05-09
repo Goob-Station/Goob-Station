@@ -118,7 +118,7 @@
         - TableMask
         layer:
         - TableLayer
-        - BulletImpassable #Goobstation
+        - BulletImpassable #Goidastation
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
@@ -150,7 +150,7 @@
   - type: Construction
     graph: Table
     node: CounterWoodFrame
-  - type: RequireProjectileTarget # Goobstation - Crawling
+  - type: RequireProjectileTarget # Goidastation - Crawling
     ignoreThrow: true
 
 - type: entity
@@ -241,7 +241,7 @@
   - type: Construction
     graph: Table
     node: Table
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Table
 
@@ -558,7 +558,7 @@
   - type: Tag
     tags:
     - Wooden
-    - Table # goob
+    - Table # goida
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
@@ -604,7 +604,7 @@
   - type: Tag
     tags:
     - Wooden
-    - Table # goob
+    - Table # goida
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
@@ -711,7 +711,7 @@
   - type: Tag
     tags:
     - Wooden
-    - Table # goob
+    - Table # goida
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
@@ -865,7 +865,7 @@
   - type: Tag
     tags:
       - Debug
-      - Table # goob
+      - Table # goida
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi
   - type: Icon

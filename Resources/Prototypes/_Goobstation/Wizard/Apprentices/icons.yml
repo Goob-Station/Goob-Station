@@ -9,7 +9,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      sprite: _Goobstation/Wizard/Icons/apprentices.rsi
+      sprite: _Goidastation/Wizard/Icons/apprentices.rsi
       state: chaos
     - type: Transform
     - type: Tag

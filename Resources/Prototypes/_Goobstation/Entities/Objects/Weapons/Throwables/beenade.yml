@@ -14,7 +14,7 @@
   description: Not the bees!!!
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    sprite: _Goidastation/Objects/Weapons/Grenades/beenades.rsi
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
@@ -23,7 +23,7 @@
     capacity: 5
   - type: OnUseTimerTrigger
     beepSound:
-      path: "/Audio/_Goobstation/Effects/Grenades/beenade_buzz.ogg"
+      path: "/Audio/_Goidastation/Effects/Grenades/beenade_buzz.ogg"
       params:
         volume: 5
     initialBeepDelay: 0

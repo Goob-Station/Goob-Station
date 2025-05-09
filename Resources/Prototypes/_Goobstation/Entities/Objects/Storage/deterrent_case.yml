@@ -5,7 +5,7 @@
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseCentcommContraband ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/deterrentcase.rsi
+    sprite: _Goidastation/Objects/Storage/deterrentcase.rsi
     layers:
     - state: closed
       map: ["closeLayer"]
@@ -13,7 +13,7 @@
       map: ["openLayer"]
   - type: Appearance
   - type: Item
-    sprite: _Goobstation/Objects/Storage/deterrentcase.rsi
+    sprite: _Goidastation/Objects/Storage/deterrentcase.rsi
     size: Normal
   - type: Storage
     grid:

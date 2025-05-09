@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Speebro <100388782+Speebr0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
@@ -14,7 +14,7 @@
 - type: latheRecipePack
   id: ScienceBoardsStatic
   recipes:
-  #- ProtolatheMachineCircuitboard - Goobstation - Moved to SharedBoardsStatic
+  #- ProtolatheMachineCircuitboard - Goidastation - Moved to SharedBoardsStatic
   #- AutolatheMachineCircuitboard
   #- CircuitImprinterMachineCircuitboard
   - ExosuitFabricatorMachineCircuitboard
@@ -45,7 +45,7 @@
   - AnomalyLocator
   - AnomalyLocatorWide
   - HoloprojectorField
-  #- SignallerAdvanced - Goobstation - Removed from there. Still in Equipment.
+  #- SignallerAdvanced - Goidastation - Removed from there. Still in Equipment.
   - DeviceQuantumSpinInverter
 
 - type: latheRecipePack
@@ -70,8 +70,8 @@
   recipes:
   - WeaponPistolCHIMP
   - WeaponForceGun
-  #- WeaponLaserSvalinn - Goobstation - Moved to ServiceWeapons
-  #- WeaponProtoKineticAccelerator - Goobstation - Moved to MiningWeapons
+  #- WeaponLaserSvalinn - Goidastation - Moved to ServiceWeapons
+  #- WeaponProtoKineticAccelerator - Goidastation - Moved to MiningWeapons
   - WeaponTetherGun
   - WeaponGauntletGorilla
 
@@ -88,7 +88,7 @@
 - type: latheRecipePack
   id: ScienceBoards
   recipes:
-  #- TurboItemRechargerCircuitboard - Goobstation - Moved to SharedBoards
+  #- TurboItemRechargerCircuitboard - Goidastation - Moved to SharedBoards
   # Begin DeltaV Removals - replaced by techfabs/upgrade kits
   #- AutolatheHyperConvectionMachineCircuitboard
   #- ProtolatheHyperConvectionMachineCircuitboard

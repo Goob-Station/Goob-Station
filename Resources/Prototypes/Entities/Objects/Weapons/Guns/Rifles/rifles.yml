@@ -71,7 +71,7 @@
 # SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -90,7 +90,7 @@
   - type: Sprite
   - type: Item
     size: Huge
-    shape: # Goobstation
+    shape: # Goidastation
     - 0,0,4,2
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/ak.rsi
@@ -134,7 +134,7 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation V
+  - type: Multishot # Goidastation V
     missChance: 0.3
   - type: AltFireMelee
     attackType: Heavy
@@ -145,7 +145,7 @@
     angle: 0
     wideAnimationRotation: 90 # when/if bayonets get added (to rifles) set this to -90
     soundHit:
-      collection: MetalThud # Goobstation ^
+      collection: MetalThud # Goidastation ^
 
 - type: entity
   name: AKM
@@ -165,7 +165,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
-    boltClosed: null # Goobstation
+    boltClosed: null # Goidastation
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots

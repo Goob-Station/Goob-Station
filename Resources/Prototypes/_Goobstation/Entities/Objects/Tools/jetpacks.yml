@@ -11,11 +11,11 @@
   description: Magnetically attached jetpack that holds extreme amount of gas. It is used as an oxygen cylinder.
   components:
   - type: Item
-    sprite: _Goobstation/Objects/Tanks/chronojet.rsi
+    sprite: _Goidastation/Objects/Tanks/chronojet.rsi
   - type: Sprite
-    sprite: _Goobstation/Objects/Tanks/chronojet.rsi
+    sprite: _Goidastation/Objects/Tanks/chronojet.rsi
   - type: Clothing
-    sprite: _Goobstation/Objects/Tanks/chronojet.rsi
+    sprite: _Goidastation/Objects/Tanks/chronojet.rsi
     slots:
       - suitStorage
   - type: GasTank

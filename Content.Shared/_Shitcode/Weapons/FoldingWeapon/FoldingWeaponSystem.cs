@@ -12,7 +12,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 
-namespace Content.Shared._Goobstation.Weapons.FoldingWeapon;
+namespace Content.Shared._Goidastation.Weapons.FoldingWeapon;
 
 public sealed class FoldingWeaponSystem : EntitySystem
 {

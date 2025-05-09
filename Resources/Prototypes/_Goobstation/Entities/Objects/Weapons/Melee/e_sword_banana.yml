@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Goobstation
+# Goidastation
 - type: entity
   parent: [BaseItem, BaseMinorContraband]
   id: BananiumSword
@@ -16,14 +16,14 @@
         - Yellow
     - type: ItemToggle
       soundActivate:
-        path: /Audio/_Goobstation/Weapons/Banana/bananaebladeon.ogg
+        path: /Audio/_Goidastation/Weapons/Banana/bananaebladeon.ogg
       soundDeactivate:
-        path: /Audio/_Goobstation/Weapons/Banana/bananaebladeoff.ogg
+        path: /Audio/_Goidastation/Weapons/Banana/bananaebladeoff.ogg
     - type: ItemToggleActiveSound
       activeSound:
         path: /Audio/Weapons/ebladehum.ogg
     - type: Sprite
-      sprite: _Goobstation/Objects/Weapons/Melee/e_sword_bananium.rsi
+      sprite: _Goidastation/Objects/Weapons/Melee/e_sword_bananium.rsi
       layers:
       - state: e_sword
       - state: e_sword_blade
@@ -57,7 +57,7 @@
       malus: 0
     - type: KnockdownOnHit
       duration: 0.2
-      dropHeldItemsBehavior: DropIfStanding # Goob edit
+      dropHeldItemsBehavior: DropIfStanding # Goida edit
     - type: TelescopicBaton
     - type: MeleeWeapon
       wideAnimationRotation: -135
@@ -66,11 +66,11 @@
           Blunt: 0
     - type: ItemToggleMeleeWeapon
       activatedSoundOnHit:
-        path: /Audio/_Goobstation/Weapons/Banana/bananaeblade1.ogg
+        path: /Audio/_Goidastation/Weapons/Banana/bananaeblade1.ogg
         params:
           variation: 0.250
       activatedSoundOnHitNoDamage:
-        path: /Audio/_Goobstation/Weapons/Banana/bananaeblade1.ogg
+        path: /Audio/_Goidastation/Weapons/Banana/bananaeblade1.ogg
         params:
           variation: 0.250
       activatedSoundOnSwing:

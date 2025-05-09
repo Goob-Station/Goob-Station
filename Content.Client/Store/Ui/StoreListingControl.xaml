@@ -13,7 +13,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
     <BoxContainer Margin="8,8,8,8" Orientation="Vertical">
         <BoxContainer Orientation="Horizontal">
             <Label Name="StoreItemName" HorizontalExpand="True" />
-            <!-- goob edit - fuck newstore -->
+            <!-- goida edit - fuck newstore -->
             <Button
                 Name="StoreItemBuyButton"
                 MinWidth="64"

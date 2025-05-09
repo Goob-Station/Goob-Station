@@ -480,5 +480,5 @@
   - type: ForceHereticObjective
   - type: Objective
     icon:
-      sprite: _Goobstation/Heretic/mansus_grasp.rsi
+      sprite: _Goidastation/Heretic/mansus_grasp.rsi
       state: icon

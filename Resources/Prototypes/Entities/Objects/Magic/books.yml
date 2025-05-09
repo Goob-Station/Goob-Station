@@ -21,7 +21,7 @@
 # SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
@@ -31,7 +31,7 @@
 - type: entity
   id: BaseSpellbook
   name: spellbook
-  parent: [BaseItem, BaseMagicContraband] # Goob edit
+  parent: [BaseItem, BaseMagicContraband] # Goida edit
   abstract: true
   components:
     - type: Sprite
@@ -45,7 +45,7 @@
       - state: icon_pentagramm
         color: "#f7e19f"
     - type: Spellbook
-    - type: EnchantingTool # Goobstation
+    - type: EnchantingTool # Goidastation
     - type: Tag
       tags:
       - Spellbook
@@ -56,7 +56,7 @@
   id: WizardsGrimoire
   name: wizards grimoire
   suffix: Wizard
-  parent: [ BaseItem, BaseMagicContraband, StorePresetSpellbook ] # Goob edit
+  parent: [ BaseItem, BaseMagicContraband, StorePresetSpellbook ] # Goida edit
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -76,13 +76,13 @@
           type: StoreRefundBoundUserInterface
     - type: ActivatableUI
       key: enum.StoreUiKey.Key
-    - type: EnchantingTool # Goobstation
+    - type: EnchantingTool # Goidastation
     - type: Store
       refundAllowed: true
       ownerOnly: true # get your own tome!
       balance:
         WizCoin: 10 # prices are balanced around this 10 point maximum and how strong the spells are
-    - type: GuideHelp # Goobstation
+    - type: GuideHelp # Goidastation
       guides:
       - Wizard
 
@@ -92,7 +92,7 @@
   name: ghostly grimoire
   description: A modified wizard grimoire that can by used by more than one person and has more wizcoins, but can't buy certain spells.
   suffix: Wizard
-  parent: [ BaseItem, BaseMagicContraband, GhostAntagSpellPreset ] # Goob edit
+  parent: [ BaseItem, BaseMagicContraband, GhostAntagSpellPreset ] # Goida edit
   components:
     - type: Sprite
       sprite: Objects/Misc/books.rsi
@@ -117,8 +117,8 @@
       ownerOnly: false
       balance:
         WizCoin: 50 #Increased currency for more use per book
-    - type: EnchantingTool # Goobstation
-    - type: GuideHelp # Goobstation
+    - type: EnchantingTool # Goidastation
+    - type: GuideHelp # Goidastation
       guides:
       - Wizard
     - type: Tag
@@ -189,7 +189,7 @@
         color: gold
     - type: Spellbook
       spellActions:
-        ActionBlinkSpell: -1 # Goob edit
+        ActionBlinkSpell: -1 # Goida edit
 
 - type: entity
   id: SmiteBook
@@ -262,7 +262,7 @@
 
 - type: entity
   id: ScrollRunes
-  name: scroll of traps # Goob edit
+  name: scroll of traps # Goida edit
   parent: BaseSpellbook
   components:
   - type: Item
@@ -273,4 +273,4 @@
     - state: spell_default
   - type: Spellbook
     spellActions:
-      ActionTrapsSpell: -1 # Goob edit
+      ActionTrapsSpell: -1 # Goida edit

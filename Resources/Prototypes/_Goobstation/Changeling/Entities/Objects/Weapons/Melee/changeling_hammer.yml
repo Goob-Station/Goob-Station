@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -23,7 +23,7 @@
   suffix: Unremoveable
   components:
   - type: Sprite
-    sprite: _Goobstation/Changeling/hammer.rsi
+    sprite: _Goidastation/Changeling/hammer.rsi
     state: icon
   - type: MeleeWeapon
     angle: 0
@@ -38,12 +38,12 @@
       collection: MetalThud
   - type: Item
     size: Ginormous
-    sprite: _Goobstation/Changeling/hammer.rsi
+    sprite: _Goidastation/Changeling/hammer.rsi
   - type: Unremoveable
   - type: DisarmMalus
     malus: 0
   - type: MeleeThrowOnHit
-    distance: 3 # Goobstation
+    distance: 3 # Goidastation
     speed: 5
   - type: KnockdownOnHit
     duration: 0

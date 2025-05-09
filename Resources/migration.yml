@@ -101,7 +101,7 @@
 # SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 JustinWinningham <justinmwinningham@gmail.com>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
@@ -133,7 +133,7 @@
 # WallSolid: Window
 # Table: null
 
-# Goobstation - Submarine from DeltaV
+# Goidastation - Submarine from DeltaV
 AirlockBoxerGlassLocked: AirlockServiceGlassLocked
 AirlockClownGlassLocked: AirlockServiceGlassLocked
 AirlockClownLocked: AirlockServiceGlassLocked
@@ -502,33 +502,33 @@ SpyCrewMonitorEmpty: null
 SyndiCrewMonitor: null
 SyndiCrewMonitorEmpty: null
 
-#SpawnVehicleWheelchair: null Goobstation - Re-add vehicles
-#SpawnVehicleWheelchairFolded: null Goobstation - Re-add vehicles
-#VehicleWheelchair: null Goobstation - Re-add vehicles
-#VehicleWheelchairFolded: null Goobstation - Re-add vehicles
+#SpawnVehicleWheelchair: null Goidastation - Re-add vehicles
+#SpawnVehicleWheelchairFolded: null Goidastation - Re-add vehicles
+#VehicleWheelchair: null Goidastation - Re-add vehicles
+#VehicleWheelchairFolded: null Goidastation - Re-add vehicles
 VehicleSecwayStealObjective: null
-#VehicleKeyJanicart: null Goobstation - Re-add vehicles
-#VehicleKeySecway: null Goobstation - Re-add vehicles
-#VehicleKeyATV: null Goobstation - Re-add vehicles
+#VehicleKeyJanicart: null Goidastation - Re-add vehicles
+#VehicleKeySecway: null Goidastation - Re-add vehicles
+#VehicleKeyATV: null Goidastation - Re-add vehicles
 VehicleKeySkeleton: null
-#VehicleKeySyndicateSegway: null Goobstation - Re-add vehicles
+#VehicleKeySyndicateSegway: null Goidastation - Re-add vehicles
 VehicleKeySkeletonMotorcycle: null
-#VehicleSecway: null Goobstation - Re-add vehicles
-#VehicleATV: null Goobstation - Re-add vehicles
-#VehicleSyndicateSegway: null Goobstation - Re-add vehicles
+#VehicleSecway: null Goidastation - Re-add vehicles
+#VehicleATV: null Goidastation - Re-add vehicles
+#VehicleSyndicateSegway: null Goidastation - Re-add vehicles
 VehicleSkeletonMotorcycle: null
 VehicleUnicycle: null
 VehicleUnicycleFolded: null
 ActionVehicleHorn: null
-#CrateFunATV: null Goobstation - Re-add vehicles
-#CrateFunSyndicateSegway: null Goobstation - Re-add vehicles
+#CrateFunATV: null Goidastation - Re-add vehicles
+#CrateFunSyndicateSegway: null Goidastation - Re-add vehicles
 MobTaxiBot: null
 # MobSupplyBot: null
 SpawnVehicleMotobike: null
 SpawnVehicleATV: null
-#SpawnVehicleSecway: null Goobstation - Re-add vehicles
-#SpawnVehicleJanicart: null Goobstation - Re-add vehicles
-#VehicleJanicart: null Goobstation - Re-add vehicles
+#SpawnVehicleSecway: null Goidastation - Re-add vehicles
+#SpawnVehicleJanicart: null Goidastation - Re-add vehicles
+#VehicleJanicart: null Goidastation - Re-add vehicles
 VehicleJanicartDestroyed: null
 
 # 2024-02-01
@@ -668,7 +668,7 @@ chem_master: ChemMaster
 # 2024-05-21
 CrateJanitorExplosive: ClosetJanitorBombFilled
 
-# Goobstation - re adding fire door remote
+# Goidastation - re adding fire door remote
 
 # 2024-06-03
 AirlockServiceCaptainLocked: AirlockCaptainLocked
@@ -892,7 +892,7 @@ MuteToxinChemistryBottle: ChemistryBottleMuteToxin
 LeadChemistryBottle: ChemistryBottleLead
 ToxinChemistryBottle: ChemistryBottleToxin
 
-# Goob - making wizden maps compatible to support mapping efforts. 2025-04-13.
+# Goida - making wizden maps compatible to support mapping efforts. 2025-04-13.
 CargoMailTeleporter: MailTeleporter
 ClothingMaskBlushingMime: ClothingMaskSexyMime
 ClothingMaskBlushingClown: ClothingMaskSexyMime

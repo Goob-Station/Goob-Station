@@ -48,7 +48,7 @@ namespace Content.Client.Options.UI.Tabs
             Reset();
         }
 
-        // Goobstation Change: Reload values when the tab is opened, mostly for CurseOfByond
+        // Goidastation Change: Reload values when the tab is opened, mostly for CurseOfByond
         protected override void EnteredTree()
         {
             base.EnteredTree();

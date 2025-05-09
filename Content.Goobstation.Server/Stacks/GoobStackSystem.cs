@@ -4,16 +4,16 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Stacks;
+using Content.Goidastation.Shared.Stacks;
 using Content.Server.Stack;
 using Content.Shared.Stacks;
 
-namespace Content.Goobstation.Server.Stacks;
+namespace Content.Goidastation.Server.Stacks;
 
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class GoobStackSystem : GoobSharedStackSystem
+public sealed class GoidaStackSystem : GoidaSharedStackSystem
 {
 
     [Dependency] private readonly StackSystem _stackSystem = default!;
@@ -23,7 +23,7 @@ public sealed class GoobStackSystem : GoobSharedStackSystem
         base.Initialize();
     }
 
-    // Goobstation - Custom stack splitting dialog
+    // Goidastation - Custom stack splitting dialog
     protected override void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message)
     {
         var (uid, comp) = ent;

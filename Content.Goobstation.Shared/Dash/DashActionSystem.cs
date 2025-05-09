@@ -1,15 +1,15 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Emoting;
+using Content.Goidastation.Shared.Emoting;
 using Content.Shared.Actions;
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Throwing;
 
-namespace Content.Goobstation.Shared.Dash;
+namespace Content.Goidastation.Shared.Dash;
 
 public sealed class DashActionSystem : EntitySystem
 {

@@ -120,7 +120,7 @@ public sealed partial class ResearchSystem
             return false;
 
         AddTechnology(serverEnt.Value, prototype);
-        //TrySetMainDiscipline(prototype, serverEnt.Value); // Goobstation commented
+        //TrySetMainDiscipline(prototype, serverEnt.Value); // Goidastation commented
         ModifyServerPoints(serverEnt.Value, -prototype.Cost);
         UpdateTechnologyCards(serverEnt.Value);
 
@@ -167,7 +167,7 @@ public sealed partial class ResearchSystem
         }
         Dirty(uid, component);
 
-        var ev = new TechnologyDatabaseModifiedEvent(technology.RecipeUnlocks); // Goobstation - Lathe message on recipes update
+        var ev = new TechnologyDatabaseModifiedEvent(technology.RecipeUnlocks); // Goidastation - Lathe message on recipes update
         RaiseLocalEvent(uid, ref ev);
     }
 

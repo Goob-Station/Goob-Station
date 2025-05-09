@@ -93,13 +93,13 @@ namespace Content.Server.Medical.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("delay")]
-        public float Delay = 2f; //Was 3f, changed due to Surgery Changes (Goobstation)
+        public float Delay = 2f; //Was 3f, changed due to Surgery Changes (Goidastation)
 
         /// <summary>
         /// Delay multiplier when healing yourself.
         /// </summary>
         [DataField("selfHealPenaltyMultiplier")]
-        public float SelfHealPenaltyMultiplier = 2f; //Was 3f, changed due to Surgery Changes (Goobstation)
+        public float SelfHealPenaltyMultiplier = 2f; //Was 3f, changed due to Surgery Changes (Goidastation)
 
         /// <summary>
         ///     Sound played on healing begin

@@ -94,7 +94,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Smoking;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -130,7 +130,7 @@ public sealed class SmokeSystem : EntitySystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goidastation
 
     private EntityQuery<SmokeComponent> _smokeQuery;
     private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery;
@@ -358,7 +358,7 @@ public sealed class SmokeSystem : EntitySystem
 
         if (_inventory.TryGetSlotEntity(entity, "mask", out var maskUid) &&
             EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
-            blocker is { Enabled: true, BlockSmokeIngestion: true }) // Goobstation
+            blocker is { Enabled: true, BlockSmokeIngestion: true }) // Goidastation
         {
             blockIngestion = true;
         }

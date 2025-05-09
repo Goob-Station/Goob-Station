@@ -14,7 +14,7 @@
   graph: ContrabandDetector
   category: construction-category-machines
   icon:
-    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    sprite: _Goidastation/Structures/Machines/contraband_detector.rsi
     state: frame
   objectType: Structure
   placementMode: SnapgridCenter

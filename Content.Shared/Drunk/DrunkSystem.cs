@@ -7,7 +7,7 @@
 // SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -15,9 +15,9 @@
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Traits.Assorted;
-using Content.Goobstation.Common.CCVar; // Goob
-using Robust.Shared.Timing; // Goob
-using Robust.Shared.Configuration; // Goob
+using Content.Goidastation.Common.CCVar; // Goida
+using Robust.Shared.Timing; // Goida
+using Robust.Shared.Configuration; // Goida
 
 namespace Content.Shared.Drunk;
 
@@ -28,8 +28,8 @@ public abstract class SharedDrunkSystem : EntitySystem
 
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!; // Goob - needed to calculate remaining status time. 
-    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goob - used to get the CVar setting. 
+    [Dependency] private readonly IGameTiming _timing = default!; // Goida - needed to calculate remaining status time. 
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // Goida - used to get the CVar setting. 
 
     public void TryApplyDrunkenness(EntityUid uid, float boozePower, bool applySlur = true,
         StatusEffectsComponent? status = null)
@@ -49,10 +49,10 @@ public abstract class SharedDrunkSystem : EntitySystem
         {
             _statusEffectsSystem.TryAddStatusEffect<DrunkComponent>(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), true, status);
         }
-        // Goob modification starts here
+        // Goida modification starts here
         else if (_statusEffectsSystem.TryGetTime(uid, DrunkKey, out var time))
         {
-            float maxDrunkTime = _cfg.GetCVar(GoobCVars.MaxDrunkTime);
+            float maxDrunkTime = _cfg.GetCVar(GoidaCVars.MaxDrunkTime);
             var timeLeft = (float) (time.Value.Item2 - _timing.CurTime).TotalSeconds;
 
             if (timeLeft + boozePower > maxDrunkTime)
@@ -60,7 +60,7 @@ public abstract class SharedDrunkSystem : EntitySystem
             else
                 _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
         }
-        // Goob modification ends
+        // Goida modification ends
         // else
         // {
         //     _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);

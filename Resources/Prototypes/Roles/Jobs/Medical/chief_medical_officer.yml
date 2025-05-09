@@ -150,7 +150,7 @@
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 40 #Goob content
+  goidacoins: 40 #Goida content
   access:
   - Medical
   - Command
@@ -159,7 +159,7 @@
   - ChiefMedicalOfficer
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # goidastation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -176,10 +176,10 @@
   id: CMOGear
   equipment:
     id: CMOPDA
-    ears: ClothingHeadsetAltMedical # Goobstation
-    eyes: ClothingEyesGlassesMed # Goobstation
+    ears: ClothingHeadsetAltMedical # Goidastation
+    eyes: ClothingEyesGlassesMed # Goidastation
     belt: ClothingBeltMedicalFilled
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton # Goidastation

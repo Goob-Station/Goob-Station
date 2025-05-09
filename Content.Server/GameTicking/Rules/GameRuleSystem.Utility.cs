@@ -10,7 +10,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -32,7 +32,7 @@ namespace Content.Server.GameTicking.Rules;
 
 public abstract partial class GameRuleSystem<T> where T: IComponent
 {
-    [Dependency] private readonly StationSystem _station = default!; // Goobstation
+    [Dependency] private readonly StationSystem _station = default!; // Goidastation
 
     protected EntityQueryEnumerator<ActiveGameRuleComponent, T, GameRuleComponent> QueryActiveRules()
     {
@@ -101,8 +101,8 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
         return false;
     }
 
-    // Goobstation start
-    // Goobstation - refactored this method. Split into 3 smaller methods and made it so that it picks main station grid.
+    // Goidastation start
+    // Goidastation - refactored this method. Split into 3 smaller methods and made it so that it picks main station grid.
     protected bool TryFindRandomTileOnStation(Entity<StationDataComponent> station,
         out Vector2i tile,
         out EntityUid targetGrid,
@@ -159,7 +159,7 @@ public abstract partial class GameRuleSystem<T> where T: IComponent
 
         return false;
     }
-    // Goobstation end
+    // Goidastation end
 
     protected void ForceEndSelf(EntityUid uid, GameRuleComponent? component = null)
     {

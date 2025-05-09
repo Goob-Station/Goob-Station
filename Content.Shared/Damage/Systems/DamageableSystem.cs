@@ -36,7 +36,7 @@
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -64,7 +64,7 @@ using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage.Prototypes;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
@@ -245,7 +245,7 @@ namespace Content.Shared.Damage
             // Shitmed Change
             bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null,
             float armorPenetration = 0f,
-            // Goobstation
+            // Goidastation
             bool heavyAttack = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
@@ -259,7 +259,7 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false, heavyAttack); // Shitmed Change // Goobstation
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canEvade ?? false, heavyAttack); // Shitmed Change // Goidastation
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -284,10 +284,10 @@ namespace Content.Shared.Damage
                     // use a local private field instead of creating a new dictionary here..
                     // TODO: We need to add a check to see if the given armor covers the targeted part (if any) to modify or not.
                     damage = DamageSpecifier.ApplyModifierSet(damage,
-                        DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goob edit
+                        DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goida edit
                 }
 
-                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration); // Shitmed + Goobstation Change
+                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration); // Shitmed + Goidastation Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -395,7 +395,7 @@ namespace Content.Shared.Damage
         }
 
         /// <summary>
-        ///     Change the DamageContainer of a DamageableComponent. - Goobstation, Rubin Code
+        ///     Change the DamageContainer of a DamageableComponent. - Goidastation, Rubin Code
         /// </summary>
         public void ChangeDamageContainer(EntityUid uid, string newDamageContainerId, DamageableComponent? component = null)
         {
@@ -525,7 +525,7 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         TargetBodyPart? TargetPart = null, // Shitmed Change
         bool CanEvade = false, // Lavaland Change
-        bool HeavyAttack = false, // Goobstation
+        bool HeavyAttack = false, // Goidastation
         bool Cancelled = false);
 
     /// <summary>
@@ -556,21 +556,21 @@ namespace Content.Shared.Damage
         // Whenever locational damage is a thing, this should just check only that bit of armour.
         public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
 
-        public readonly EntityUid Target; // Goobstation
+        public readonly EntityUid Target; // Goidastation
         public readonly DamageSpecifier OriginalDamage;
         public DamageSpecifier Damage;
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
-        public float ArmorPenetration; // Goobstation
+        public float ArmorPenetration; // Goidastation
 
-        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0) // Shitmed + Goobstation Change
+        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0) // Shitmed + Goidastation Change
         {
-            Target = target; // Goobstation
+            Target = target; // Goidastation
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
             TargetPart = targetPart; // Shitmed Change
-            ArmorPenetration = armorPenetration; // Goobstation
+            ArmorPenetration = armorPenetration; // Goidastation
         }
     }
 

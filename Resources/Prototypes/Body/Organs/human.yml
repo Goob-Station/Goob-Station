@@ -149,7 +149,7 @@
   - type: FlavorProfile
     flavors:
       - people
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -160,7 +160,7 @@
   abstract: true
   components:
   - type: Gibbable
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Biomass: 5
 
@@ -189,7 +189,7 @@
   - type: Examiner
   - type: BlockMovement
   - type: BadFood
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -234,7 +234,7 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -260,7 +260,7 @@
         name: food-sequence-content-tongue
       taco:
         name: food-sequence-content-tongue
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -334,7 +334,7 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -361,7 +361,7 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -412,7 +412,7 @@
         name: food-sequence-content-stomach
       taco:
         name: food-sequence-content-stomach
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -447,7 +447,7 @@
         name: food-sequence-content-liver
       taco:
         name: food-sequence-content-liver
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ
@@ -473,7 +473,7 @@
     maxReagents: 5
     metabolizerTypes: [Human]
     removeEmpty: true
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Meat
     - Organ

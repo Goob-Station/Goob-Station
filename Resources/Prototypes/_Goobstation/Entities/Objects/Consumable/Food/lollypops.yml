@@ -19,10 +19,10 @@
     tags:
     - FoodSnack
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
   - type: SpawnItemsOnUse
     items:
@@ -49,10 +49,10 @@
     - ClothMade
   - type: Clothing
     quickEquip: false # You want to eat it, not stick it in your mouth.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     slots: [ mask ]
   - type: Sprite # I kinda hope this... doesn't work?
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -60,7 +60,7 @@
       map: [ "enum.AmmoVisualLayers.Tip" ]
       color: "#FFC0CB" # Change this to change the lollypop color. Default is pink.
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
     inhandVisuals:
       left:
@@ -96,7 +96,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped-syndicate
   - type: SpawnItemsOnUse
     items:
@@ -119,7 +119,7 @@
     tags:
     - FoodSnack
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -134,7 +134,7 @@
         - ReagentId: Sugar
           Quantity: 5
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Command
@@ -150,7 +150,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped-nanotrasen
   - type: SpawnItemsOnUse
     items:
@@ -173,7 +173,7 @@
     tags:
     - FoodSnack
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -187,7 +187,7 @@
         - ReagentId: Sugar
           Quantity: 5
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Centcomm
@@ -203,7 +203,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped-centcomm
   - type: SpawnItemsOnUse
     items:
@@ -226,7 +226,7 @@
     tags:
     - FoodSnack
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -240,7 +240,7 @@
         - ReagentId: Sugar
           Quantity: 5
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Lollypops
@@ -304,7 +304,7 @@
     flavors:
     - unicorntears
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -343,7 +343,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # I kinda hope this... doesn't work?
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -379,7 +379,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -416,7 +416,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -452,7 +452,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -471,7 +471,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -491,7 +491,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -508,7 +508,7 @@
         - ReagentId: Bicaridine
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Probital
@@ -523,7 +523,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -543,7 +543,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -560,7 +560,7 @@
         - ReagentId: Probital
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Kelotane
@@ -575,7 +575,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -595,7 +595,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -612,7 +612,7 @@
         - ReagentId: Kelotane
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Dermaline
@@ -627,7 +627,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -647,7 +647,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -664,7 +664,7 @@
         - ReagentId: Dermaline
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Tricordazine
@@ -679,7 +679,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -699,7 +699,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -716,7 +716,7 @@
         - ReagentId: Tricordrazine
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Dylovene
@@ -731,7 +731,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -751,7 +751,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -768,7 +768,7 @@
         - ReagentId: Dylovene
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Omnizine
@@ -783,7 +783,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -803,7 +803,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -820,7 +820,7 @@
         - ReagentId: Omnizine
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Dexalin Plus
@@ -835,7 +835,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -855,7 +855,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -872,7 +872,7 @@
         - ReagentId: DexalinPlus
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Hyronalin
@@ -887,7 +887,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -907,7 +907,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -924,7 +924,7 @@
         - ReagentId: Hyronalin
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Ibuprofen
@@ -939,7 +939,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -959,7 +959,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -976,7 +976,7 @@
         - ReagentId: Ibuprofen
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Antihol
@@ -991,7 +991,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -1011,7 +1011,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -1028,7 +1028,7 @@
         - ReagentId: Antihol
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Mitotrophin
@@ -1043,7 +1043,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -1063,7 +1063,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -1080,7 +1080,7 @@
         - ReagentId: Mitotrophin
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Random Lollypops
@@ -1206,7 +1206,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped-syndicate
   - type: SpawnItemsOnUse
     items:
@@ -1283,7 +1283,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped-syndicate
   - type: SpawnItemsOnUse
     items:
@@ -1303,7 +1303,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -1318,7 +1318,7 @@
         - ReagentId: Sugar
           Quantity: 5
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Lexorin Lollypop
@@ -1412,7 +1412,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -1441,7 +1441,7 @@
         - ReagentId: Nocturine
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Hyperzine
@@ -1541,7 +1541,7 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
   - type: Sprite # I kinda hope this... doesn't work?
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -1582,7 +1582,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -1825,7 +1825,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -1845,7 +1845,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -1862,7 +1862,7 @@
         - ReagentId: Cognizine
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Weh Juice
@@ -1877,7 +1877,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -1897,7 +1897,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop-weh
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -1913,7 +1913,7 @@
         - ReagentId: JuiceThatMakesYouWeh
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Carpolin
@@ -1946,7 +1946,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # I kinda hope this... doesn't work?
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop-trash
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -2002,7 +2002,7 @@
         - ReagentId: MouseBites
           Quantity: 10
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -2023,7 +2023,7 @@
     tags:
     - FoodSnack
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapped
   - type: SpawnItemsOnUse
     items:
@@ -2043,7 +2043,7 @@
     - FoodSnack
     - ClothMade
   - type: Sprite # Don't think about it. Don't think about it. Don't think about it.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     layers:
     - state: lollypop
       map: [ "enum.AmmoVisualLayers.Base" ]
@@ -2060,7 +2060,7 @@
         - ReagentId: MindbreakerToxin
           Quantity: 10
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     size: Tiny
 
 # Trash
@@ -2077,13 +2077,13 @@
     - Trash
     - ClothMade
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-trash
   - type: Clothing
     quickEquip: false # You want to eat it, not stick it in your mouth.
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     slots: [ mask ]
   - type: Food
     solution: food
@@ -2109,10 +2109,10 @@
   name: lollypop wrapper
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag
     tags:
     - Trash
@@ -2125,10 +2125,10 @@
   description: Someone's been naughty...
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper-syndicate
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag
     tags:
     - Trash
@@ -2141,10 +2141,10 @@
   description: You could probably sell this for a pretty penny.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper-nanotrasen
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag
     tags:
     - Trash
@@ -2157,10 +2157,10 @@
   description: So heavy the gold on it might just be real.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
     state: lollypop-wrapper-centcomm
   - type: Item
-    sprite: _Goobstation/Objects/Consumable/Food/lollypop.rsi
+    sprite: _Goidastation/Objects/Consumable/Food/lollypop.rsi
   - type: Tag
     tags:
     - Trash

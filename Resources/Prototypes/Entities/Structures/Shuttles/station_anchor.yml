@@ -57,7 +57,7 @@
         - LargeMobMask
         layer:
         - WallLayer
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - IgnoreImmovableRod
 
@@ -124,7 +124,7 @@
       interfaces:
         enum.PowerChargeUiKey.Key:
           type: PowerChargeBoundUserInterface
-    - type: Tag # Goobstation
+    - type: Tag # Goidastation
       tags:
       - Structure
       - IgnoreImmovableRod

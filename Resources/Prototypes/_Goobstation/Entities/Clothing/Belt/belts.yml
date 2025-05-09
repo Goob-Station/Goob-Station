@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -21,9 +21,9 @@
   description: A medical chest rig with deep pockets, for use by health professionals.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
+    sprite: _Goidastation/Clothing/Belt/cmowebbing.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
+    sprite: _Goidastation/Clothing/Belt/cmowebbing.rsi
   - type: Storage
     grid:
       - 0,0,6,2
@@ -42,18 +42,18 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
-        - Tourniquet #Goobstation
-        - MedicalPatch # Goobstation
-        - AutoinjectorCartridge # Goobstation
-        - HandheldCrewMonitor # Goobstation
+        - Tourniquet #Goidastation
+        - MedicalPatch # Goidastation
+        - AutoinjectorCartridge # Goidastation
+        - HandheldCrewMonitor # Goidastation
       components:
         - Hypospray
         - Injector
         - Pill
         - HandLabeler
         - SurgeryTool # Shitmed Change
-        - Defibrillator # Goobstation
-        - GunApplySolution # Goobstation - Syndicate dart gun
+        - Defibrillator # Goidastation
+        - GunApplySolution # Goidastation - Syndicate dart gun
   - type: ExplosionResistance
     damageCoefficient: 0.25
 
@@ -65,9 +65,9 @@
   description: A robust and durable chestrig, containing everything you need to keep you in the fight. You probably won't need to use it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+    sprite: _Goidastation/Clothing/Belt/deathsquadwebbing.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/deathsquadwebbing.rsi
+    sprite: _Goidastation/Clothing/Belt/deathsquadwebbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.01
 
@@ -96,9 +96,9 @@
   description: Teaches the wearer NT Corporate Judo.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+    sprite: _Goidastation/Clothing/Belt/judobelt.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/judobelt.rsi
+    sprite: _Goidastation/Clothing/Belt/judobelt.rsi
   - type: GrantCorporateJudo
   - type: Storage
     whitelist:
@@ -131,9 +131,9 @@
   description: A robust pouch for medical supplies worn by Gorlex Marauder operatives. It smells of desoxyephedrine.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
+    sprite: _Goidastation/Clothing/Belt/evil_chem_bag.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/evil_chem_bag.rsi
+    sprite: _Goidastation/Clothing/Belt/evil_chem_bag.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.01
   - type: Storage
@@ -164,10 +164,10 @@
   description: A rugged sheath, designed to hold the Head of Security's custom energy sword.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
+    sprite: _Goidastation/Clothing/Belt/hossheath.rsi
     state: sheath
   - type: Clothing
-    sprite: _Goobstation/Clothing/Belt/hossheath.rsi
+    sprite: _Goidastation/Clothing/Belt/hossheath.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots

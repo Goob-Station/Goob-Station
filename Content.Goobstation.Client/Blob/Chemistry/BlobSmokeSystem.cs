@@ -11,7 +11,7 @@
 using System.Linq;
 using Robust.Client.GameObjects;
 
-namespace Content.Goobstation.Client.Blob.Chemistry;
+namespace Content.Goidastation.Client.Blob.Chemistry;
 
 public sealed class BlobSmokeSystem : EntitySystem
 {

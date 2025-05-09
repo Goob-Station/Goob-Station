@@ -8,10 +8,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Blob;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Shared.Blob.Events;
+using Content.Goidastation.Common.Blob;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.Events;
 using Content.Server.Actions;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles;
@@ -25,7 +25,7 @@ using Robust.Shared.Prototypes;
 //using Content.Server.Language;
 // using Content.Shared.Language;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 {

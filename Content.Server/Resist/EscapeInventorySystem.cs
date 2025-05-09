@@ -164,7 +164,7 @@ public sealed class EscapeInventorySystem : EntitySystem
         {
             BreakOnDamage = true,
             NeedHand = false,
-            CancelDuplicate = false, // Goobstation
+            CancelDuplicate = false, // Goidastation
         };
 
         if (!_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out component.DoAfter))

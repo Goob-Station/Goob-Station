@@ -22,7 +22,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
@@ -117,7 +117,7 @@
   id: UplinkContractorBaton
   name: uplink-contractor-baton-name
   description: uplink-contractor-baton-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
+  icon: { sprite: /Textures/_Goidastation/Objects/Weapons/Melee/contractor_baton.rsi, state: uplink }
   productEntity: ContractorBaton
   cost:
     Telecrystal: 35
@@ -135,7 +135,7 @@
   id: UplinkGlovesKnuckleDusters
   name: uplink-gloves-knuckleduster-name
   description: uplink-gloves-knuckleduster-desc
-  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster }
+  icon: { sprite: _Goidastation/Clothing/Hands/Gloves/knuckleduster.rsi, state: syndicateknuckleduster }
   productEntity: ClothingHandsKnuckleDustersSyndicate
   cost:
     Telecrystal: 20
@@ -146,7 +146,7 @@
   id: UplinkM90
   name: uplink-m90-name
   description: uplink-m90-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  icon: { sprite: /Textures/_Goidastation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
   productEntity: WeaponRifleM90
   cost:
     Telecrystal: 50
@@ -167,7 +167,7 @@
   id: UplinkMiniatureEnergyCrossbow
   name: uplink-miniature-energy-crossbow-name
   description: uplink-miniature-energy-crossbow-desc
-  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+  icon: { sprite:  /Textures/_Goidastation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
   productEntity: MiniatureEnergyCrossbow
   cost:
     Telecrystal: 50
@@ -193,7 +193,7 @@
   id: UplinkWeaponRifleBurner
   name: uplink-weapon-burner-name
   description: uplink-weapon-burner-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
+  icon: { sprite: /Textures/_Goidastation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: WeaponRifleBurner
   cost:
     Telecrystal: 100 # don't kill me piras
@@ -204,7 +204,7 @@
   id: UplinkBowHardlight
   name: uplink-hardlight-bow-name
   description: uplink-hardlight-bow-desc
-  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
+  icon: { sprite:  /Textures/_Goidastation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
     Telecrystal: 75
@@ -220,7 +220,7 @@
   id: UplinkDualettaBundle
   name: uplink-dualetta-bundle-name
   description: uplink-dualetta-bundle-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  icon: { sprite: /Textures/_Goidastation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
   productEntity: BriefcaseSyndieDualettaBundleFilled
   cost:
     Telecrystal: 50
@@ -261,7 +261,7 @@
   id: UplinkWeaponHE1SG8
   name: uplink-he1sg8-bundle-name
   description: uplink-he1sg8-bundle-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
+  icon: { sprite: _Goidastation/Objects/Weapons/Guns/Snipers/heavensgate.rsi, state: base }
   productEntity: ClothingBackpackDuffelSyndicateFilledHE1SG8
   cost:
     Telecrystal: 130
@@ -284,7 +284,7 @@
   id: UplinkClothingDreadnought
   name: uplink-hardsuit-cybersun-dreadnought-name
   description: uplink-hardsuit-cybersun-dreadnought-desc
-  icon: { sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
+  icon: { sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi, state: icon }
   productEntity: CrateSyndicateDreadnought
   cost:
     Telecrystal: 150
@@ -344,7 +344,7 @@
   id: UplinkHardsuitCybersunStealth
   name: uplink-hardsuit-cybersun-stealth-name
   description: uplink-hardsuit-cybersun-stealth-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
+  icon: { sprite: /Textures/_Goidastation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
   cost:
     Telecrystal: 75
@@ -355,7 +355,7 @@
   id: UplinkReverseBearTrap
   name: uplink-reverse-bear-trap-name
   description: uplink-reverse-bear-trap-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
+  icon: { sprite: /Textures/_Goidastation/Clothing/Head/Helmets/reverse_bear_trap.rsi, state: icon }
   productEntity: BoxReverseBearTrap
   cost:
     Telecrystal: 23 # novelty item for rp
@@ -428,7 +428,7 @@
   id: UplinkClowncar
   name: uplink-clowncar-name
   description: uplink-clowncar-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Vehicles/clowncar.rsi, state: clowncar }
+  icon: { sprite: /Textures/_Goidastation/Objects/Vehicles/clowncar.rsi, state: clowncar }
   productEntity: CrateFunClownCarUplink
   cost:
     Telecrystal: 25
@@ -443,7 +443,7 @@
   id: UplinkMobRoachMicrobomb
   name: uplink-mobroach-microbomb-name
   description: uplink-mobroach-microbomb-desc
-  icon: { sprite: _Goobstation/Objects/Devices/communication.rsi, state: radio-syndiroach }
+  icon: { sprite: _Goidastation/Objects/Devices/communication.rsi, state: radio-syndiroach }
   productEntity: ReinforcementRadioSyndicateSyndiRoach
   cost:
     Telecrystal: 30
@@ -482,7 +482,7 @@
   saleLimit: 1
 
 - type: listing
-  id: uplinkBeeNades    #goob - bee update
+  id: uplinkBeeNades    #goida - bee update
   name: uplink-beenades-name
   description: uplink-beenades-desc
   productEntity: BeeGrenade
@@ -611,7 +611,7 @@
   id: UplinkKravMagaImplanter
   name: uplink-krav-maga-implant-name
   description: uplink-krav-maga-implant-desc
-  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
+  icon: { sprite: /Textures/_Goidastation/Clothing/Hands/Gloves/kravgloves.rsi, state: icon }
   productEntity: KravMagaImplanter
   cost:
     Telecrystal: 40
@@ -626,7 +626,7 @@
   description: uplink-clothing-explosive-gloves-desc
   productEntity: ClothingHandsGlovesExplosiveShock
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 10 # goida
   categories:
   - UplinkDeception
 
@@ -691,7 +691,7 @@
   id: UplinkMagazineHighCaliber
   name: uplink-high-caliber-magazine-name
   description: uplink-high-caliber-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+  icon: { sprite: _Goidastation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
     Telecrystal: 8
@@ -702,7 +702,7 @@
   id: UplinkMagazineHighCaliberExplosive
   name: uplink-high-caliber-explosive-magazine-name
   description: uplink-high-caliber-explosive-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
+  icon: { sprite: _Goidastation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
   productEntity: MagazineHighCaliberExplosive
   cost:
     Telecrystal: 12
@@ -776,7 +776,7 @@
   description: uplink-syndicate-weapon-module-advanced-desc
   productEntity: BorgModuleSyndicateWeaponAdvanced
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 40 # goida
   categories:
   - UplinkDisruption
 
@@ -795,7 +795,7 @@
   id: UplinkMagazineM7S
   name: uplink-m7s-mag-name
   description: uplink-m7s-mag-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
+  icon: { sprite: _Goidastation/Objects/Weapons/Guns/Ammunition/Magazine/M7S_magazine.rsi, state: icon }
   productEntity: MagazineLowCaliberM7S
   cost:
     Telecrystal: 5 # 105 dmg per TC which seems huge, but you're missing half of your shots
@@ -936,7 +936,7 @@
   description: uplink-pizza-bomb-desc
   productEntity: FoodBoxPizzaBomb
   cost:
-    Telecrystal: 10  # Goob
+    Telecrystal: 10  # Goida
   categories:
   - UplinkExplosives
 
@@ -946,7 +946,7 @@
   description: uplink-pizza-party-crate-desc
   productEntity: CratePizzaParty
   cost:
-    Telecrystal: 50  # Goob Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
+    Telecrystal: 50  # Goida Bundle, get 8 pizza bombs and 7 regular pizzas. Bundle + Pizza boxes not telling the dangerous ones justifies the discount.
   categories:
   - UplinkExplosives
 

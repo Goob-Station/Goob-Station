@@ -79,7 +79,7 @@
       count: 50
       minGroupSize: 10
       maxGroupSize: 20
-    - !type:OreDunGen #Goob wiznerf partial revert
+    - !type:OreDunGen #Goida wiznerf partial revert
       replacement: IronRock
       entity: IronRockBananium
       count: 50
@@ -97,7 +97,7 @@
       count: 15
       minGroupSize: 1
       maxGroupSize: 2
-    - !type:OreDunGen # Goobstation
+    - !type:OreDunGen # Goidastation
       replacement: IronRock
       entity: IronRockBSCrystal
       count: 40

@@ -77,7 +77,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -283,7 +283,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
             // do-after will stop if item is dropped when trying to feed someone else
             // or if the item started out in the user's own hands
             NeedHand = forceDrink || _hands.IsHolding(user, item),
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);

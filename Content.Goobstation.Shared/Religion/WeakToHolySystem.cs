@@ -1,12 +1,12 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Bible;
-using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Goidastation.Shared.Bible;
+using Content.Goidastation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -15,14 +15,14 @@ using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Religion;
+namespace Content.Goidastation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly GoobBibleSystem _goobBible = default!;
+    [Dependency] private readonly GoidaBibleSystem _goidaBible = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
 
@@ -49,7 +49,7 @@ public sealed class WeakToHolySystem : EntitySystem
             || args.Target is not { } target)
             return;
 
-        _goobBible.TryDoSmite(target, bibleComp, args, useDelay);
+        _goidaBible.TryDoSmite(target, bibleComp, args, useDelay);
     }
 
     #region Holy Damage Dealing

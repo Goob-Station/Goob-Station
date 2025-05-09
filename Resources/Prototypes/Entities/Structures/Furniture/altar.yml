@@ -39,7 +39,7 @@
     snapCardinals: true
   - type: Climbable
   - type: Clickable
-  - type: EnchantingTable # Goobstation
+  - type: EnchantingTable # Goidastation
 
 - type: entity
   id: AltarNanotrasen

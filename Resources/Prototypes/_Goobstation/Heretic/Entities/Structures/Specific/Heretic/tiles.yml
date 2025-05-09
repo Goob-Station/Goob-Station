@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 username <113782077+whateverusername0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 #
@@ -76,7 +76,7 @@
       types:
         - Lava
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_overlay.rsi
+    sprite: _Goidastation/Heretic/void_overlay.rsi
     layers:
       - state: voidtile
         shader: unshaded
@@ -110,7 +110,7 @@
   components:
   - type: Sprite
     drawdepth: FloorEffects
-    sprite: _Goobstation/Heretic/Effects/effects.rsi
+    sprite: _Goidastation/Heretic/Effects/effects.rsi
     layers:
       - state: small_rune_1
         shader: unshaded
@@ -162,7 +162,7 @@
 - type: tile
   id: PlatingRust
   name: tiles-plating-rust
-  sprite: /Textures/_Goobstation/Heretic/tiles.rsi/plating_rust.png
+  sprite: /Textures/_Goidastation/Heretic/tiles.rsi/plating_rust.png
   baseTurf: Plating
   isSubfloor: true
   deconstructTools: [ Welding ]

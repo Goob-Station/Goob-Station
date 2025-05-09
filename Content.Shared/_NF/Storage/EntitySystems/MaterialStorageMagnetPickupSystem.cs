@@ -71,7 +71,7 @@ public sealed class MaterialStorageMagnetPickupSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    // Frontier, used to show the magnet state on examination. Goobstation edit.
+    // Frontier, used to show the magnet state on examination. Goidastation edit.
     private void OnExamined(EntityUid uid, MaterialStorageMagnetPickupComponent component, ExaminedEvent args)
     {
         if (component.MagnetEnabled)

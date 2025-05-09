@@ -9,7 +9,7 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 
-namespace Content.Goobstation.Shared.MisandryBox.Smites;
+namespace Content.Goidastation.Shared.MisandryBox.Smites;
 
 public sealed class InputSwapSystem : ToggleableSmiteSystem<InputSwapComponent>
 {

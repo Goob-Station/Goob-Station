@@ -21,14 +21,14 @@
   - AllAccess
   access:
   - CentralCommand
-  # Goobstation
+  # Goidastation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
-- type: startingGear # Goobstation - Start - Sol
+- type: startingGear # Goidastation - Start - Sol
   id: CBURNGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBrown
@@ -39,7 +39,7 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitCBURN
-    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goobstation
+    shoes: ClothingShoesBootsMagEmergencyResponseTeam # Goidastation
     id: CBURNPDA # Todo - Replace it.
     pocket1: RadioHandheld # Todo - Replace this probably. Have never seen it used.
     pocket2: WeaponPulsePistol
@@ -53,4 +53,4 @@
     - AmbuzolMedipen # Injectors are cooler.
     - MedkitCombatFilled # Ah yes, let's send them in with ZERO meds. Good luck!
     - CburnSpear # SPEAAR
-# Goobstation - End - Sol
+# Goidastation - End - Sol

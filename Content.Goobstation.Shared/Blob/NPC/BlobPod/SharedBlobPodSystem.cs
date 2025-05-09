@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;
@@ -19,7 +19,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Blob.NPC.BlobPod;
+namespace Content.Goidastation.Shared.Blob.NPC.BlobPod;
 
 public abstract class SharedBlobPodSystem : EntitySystem
 {

@@ -117,7 +117,7 @@
   - tp
   - tpto
 
-- Flags: FULLADMIN # Goobstation (and every setting in this flag)
+- Flags: FULLADMIN # Goidastation (and every setting in this flag)
   Commands:
   - self
   - entities
@@ -127,7 +127,7 @@
 - Flags: FUN
   Commands:
   - tippy
-  - loadprototype # Goobstation
+  - loadprototype # Goidastation
   - tip
 
 - Flags: SERVER

@@ -81,10 +81,10 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         //Verbs
         SubscribeLocalEvent<NetworkConfiguratorComponent, GetVerbsEvent<UtilityVerb>>(OnAddInteractVerb);
         SubscribeLocalEvent<DeviceNetworkComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerb);
-        // <Goobstation> - Fix device alt-verbs
+        // <Goidastation> - Fix device alt-verbs
         SubscribeLocalEvent<DeviceLinkSinkComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerbSink);
         SubscribeLocalEvent<DeviceLinkSourceComponent, GetVerbsEvent<AlternativeVerb>>(OnAddAlternativeSaveDeviceVerbSource);
-        // </Goobstation>
+        // </Goidastation>
         SubscribeLocalEvent<NetworkConfiguratorComponent, GetVerbsEvent<AlternativeVerb>>(OnAddSwitchModeVerb);
 
         //UI
@@ -154,7 +154,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     private void OnShutdown(EntityUid uid, NetworkConfiguratorComponent component, ComponentShutdown args)
     {
         ClearDevices(uid, component);
-        ClearActiveDeviceList(uid, component); // Goobstation - Fix desync of configurator lists
+        ClearActiveDeviceList(uid, component); // Goidastation - Fix desync of configurator lists
     }
 
     private void OnMapInit(EntityUid uid, NetworkConfiguratorComponent component, MapInitEvent args)
@@ -445,10 +445,10 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     /// </summary>
     private void OnAddAlternativeSaveDeviceVerb(EntityUid uid, DeviceNetworkComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        AddAlternativeVerbs(uid, args); // Goobstation - Fix device alt-verbs; code moved to AddAlternativeVerbs()
+        AddAlternativeVerbs(uid, args); // Goidastation - Fix device alt-verbs; code moved to AddAlternativeVerbs()
     }
 
-    // <Goobstation> - Fix device alt-verbs
+    // <Goidastation> - Fix device alt-verbs
     private void OnAddAlternativeSaveDeviceVerbSink(EntityUid uid, DeviceLinkSinkComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         AddAlternativeVerbs(uid, args);
@@ -491,7 +491,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             args.Verbs.Add(verb);
         }
     }
-    // </Goobstation>
+    // </Goidastation>
 
     private void OnAddSwitchModeVerb(EntityUid uid, NetworkConfiguratorComponent configurator, GetVerbsEvent<AlternativeVerb> args)
     {
@@ -556,7 +556,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     }
 
     /// <summary>
-    /// Goobstation - Fix desync of configurator lists
+    /// Goidastation - Fix desync of configurator lists
     /// Clears the active device list pointed at while maintaining reference tracking on the device itself
     /// </summary>
     public void ClearActiveDeviceList(EntityUid configUid, NetworkConfiguratorComponent configComp, EntityUid? prevListUid = null, DeviceListComponent? prevListComp = null)
@@ -578,7 +578,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     }
 
     /// <summary>
-    /// Goobstation - Fix desync of configurator lists
+    /// Goidastation - Fix desync of configurator lists
     /// Sets the active device list pointed at while maintaining reference tracking on the device itself
     /// </summary>
     public void SetActiveDeviceList(EntityUid configUid, NetworkConfiguratorComponent configComp, EntityUid? nextListUid = null, DeviceListComponent? nextListComp = null)
@@ -602,7 +602,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     /// </summary>
     private void OpenDeviceListUi(EntityUid configuratorUid, EntityUid? targetUid, EntityUid userUid, NetworkConfiguratorComponent configurator)
     {
-        if (configurator.ActiveDeviceList == targetUid) // Goobstation - Fix desync of configurator lists
+        if (configurator.ActiveDeviceList == targetUid) // Goidastation - Fix desync of configurator lists
             return;
 
         if (Delay(configurator))
@@ -659,7 +659,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     }
 
     /// <summary>
-    /// Goobstation - Fix desync of configurator lists
+    /// Goidastation - Fix desync of configurator lists
     /// Clears the active device list when the ui is closed
     /// </summary>
     private void OnUiClosed(EntityUid uid, NetworkConfiguratorComponent component, BoundUIClosedEvent args)
@@ -675,7 +675,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         }
     }
 
-    // Goobstation - Fix desync of configurator lists
+    // Goidastation - Fix desync of configurator lists
     public void OnDeviceListShutdown(EntityUid confUid, Entity<DeviceListComponent> list)
     {
         if (TryComp(confUid, out NetworkConfiguratorComponent? confComp))

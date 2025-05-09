@@ -86,7 +86,7 @@
 - type: gameMap
   id: Loop
   mapName: 'Loop Station'
-  mapPath: /Maps/_Goobstation/loop.yml
+  mapPath: /Maps/_Goidastation/loop.yml
   minPlayers: 35
   maxPlayers: 70
   stations:

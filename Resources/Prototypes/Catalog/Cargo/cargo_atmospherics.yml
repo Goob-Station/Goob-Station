@@ -19,7 +19,7 @@
     sprite: Structures/Storage/canister.rsi
     state: grey
   product: AirCanister
-  cost: 250 # Goobstation - IF YOU SEE THIS IN A MERGE CONFLICT, USE THE GOOB VERSION
+  cost: 250 # Goidastation - IF YOU SEE THIS IN A MERGE CONFLICT, USE THE GOOB VERSION
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -29,7 +29,7 @@
     sprite: Structures/Storage/canister.rsi
     state: blue
   product: OxygenCanister
-  cost: 250 # Goobstation
+  cost: 250 # Goidastation
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -39,7 +39,7 @@
     sprite: Structures/Storage/canister.rsi
     state: blue
   product: LiquidOxygenCanister
-  cost: 600 # Goobstation # you literally get infinite gas at atmos
+  cost: 600 # Goidastation # you literally get infinite gas at atmos
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -49,7 +49,7 @@
     sprite: Structures/Storage/canister.rsi
     state: red
   product: NitrogenCanister
-  cost: 250 # Goobstation
+  cost: 250 # Goidastation
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -59,7 +59,7 @@
     sprite: Structures/Storage/canister.rsi
     state: red
   product: LiquidNitrogenCanister
-  cost: 600 # Goobstation
+  cost: 600 # Goidastation
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -69,7 +69,7 @@
     sprite: Structures/Storage/canister.rsi
     state: black
   product: CarbonDioxideCanister
-  cost: 400 # Goobstation # even though it's poisonous, it comes locked and only damages you slowly even with high amounts (tested)
+  cost: 400 # Goidastation # even though it's poisonous, it comes locked and only damages you slowly even with high amounts (tested)
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -79,7 +79,7 @@
     sprite: Structures/Storage/canister.rsi
     state: black
   product: LiquidCarbonDioxideCanister
-  cost: 1600 # Goobstation # much less deadly than the plasma can (this has been tested) even though this is cold+poison
+  cost: 1600 # Goidastation # much less deadly than the plasma can (this has been tested) even though this is cold+poison
   category: cargoproduct-category-name-atmospherics
   group: market
 
@@ -89,11 +89,11 @@
     sprite: Structures/Storage/canister.rsi
     state: yellow
   product: StorageCanister
-  cost: 210 # Goobstation # no gases in it so it's cheaper
+  cost: 210 # Goidastation # no gases in it so it's cheaper
   category: cargoproduct-category-name-atmospherics
   group: market
 
-# Goobstation
+# Goidastation
 - type: cargoProduct
   name: "water vapor canister"
   id: AtmosphericsWaterVapor
@@ -112,7 +112,7 @@
     sprite: Structures/Storage/canister.rsi
     state: orange
   product: PlasmaCanister
-  cost: 2000 # Goobstation # for reference, bagel's 3x1 roundstart plasma chamber contains ~16kmol for free, this is $2k for 1870mol, so $16k to nearly refill a 3x1 (some are 3x3) chamber
+  cost: 2000 # Goidastation # for reference, bagel's 3x1 roundstart plasma chamber contains ~16kmol for free, this is $2k for 1870mol, so $16k to nearly refill a 3x1 (some are 3x3) chamber
   category: cargoproduct-category-name-atmospherics
   group: market
 

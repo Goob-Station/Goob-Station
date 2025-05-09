@@ -139,7 +139,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -224,10 +224,10 @@
       # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
       enum.BorgSwitchableTypeUiKey.SelectBorgType:
         type: BorgSelectTypeUserInterface
-      # Goobstation - Add the station map interface to the borg
+      # Goidastation - Add the station map interface to the borg
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
-  # Goobstation - Add the station map interface to the borg
+  # Goidastation - Add the station map interface to the borg
   - type: IntrinsicUI
     uis:
       enum.StationMapUiKey.Key:
@@ -333,7 +333,7 @@
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
-    damageModifierSet: Silicon #Goobstation - Iondamage
+    damageModifierSet: Silicon #Goidastation - Iondamage
   - type: Destructible
     thresholds:
     - trigger:
@@ -407,7 +407,7 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 75 # It's harder to kill iron golem
     damagePenalty: 0.25
 
@@ -452,7 +452,7 @@
     factions:
     - NanoTrasen
   - type: SiliconLawProvider
-    laws: CrewsimovBorg # Goobstation - AI/borg law changes - borgs obeying AI
+    laws: CrewsimovBorg # Goidastation - AI/borg law changes - borgs obeying AI
   - type: Access
     enabled: false
     groups:
@@ -463,7 +463,7 @@
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
+  - type: StationAiVision # Goidastation - AI can see through NT silicon
     range: 3
   - type: InteractionPopup
     interactSuccessSound:
@@ -504,10 +504,10 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
-  - type: Damageable #Goobstation - Ion Damage
+  - type: Damageable #Goidastation - Ion Damage
     damageContainer: Silicon
     damageModifierSet: SiliconProtected
-  - type: ExplosionResistance #Goobstation - Ion Damage
+  - type: ExplosionResistance #Goidastation - Ion Damage
     damageCoefficient: 0.5
   - type: FlashImmunity
 

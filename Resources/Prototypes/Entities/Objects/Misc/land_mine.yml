@@ -59,7 +59,7 @@
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     stepOn: true
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - Landmine
 

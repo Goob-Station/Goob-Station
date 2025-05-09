@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -16,10 +16,10 @@
   description: An advanced futuristic shoe that guarantees wearer comfort and full traction on any surface
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/chronolegioneer.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/chronolegioneer.rsi
   - type: Magboots
   - type: ClothingSpeedModifier
     walkModifier: 1
@@ -47,12 +47,12 @@
   description: Look! An emergency responder, we're saved!
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
   - type: Item
-    sprite: _Goobstation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/emergencyresponseteam.rsi
   - type: Magboots
   - type: NoSlip
   - type: Tag
@@ -81,12 +81,12 @@
   description: The sound of these boots are iconic; the sound of terror.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/deathsquad.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/deathsquad.rsi
   - type: Item
-    sprite: _Goobstation/Clothing/Shoes/Boots/deathsquad.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/deathsquad.rsi
   - type: ClothingSpeedModifier
     walkModifier: 1.10
     sprintModifier: 1.10
@@ -112,10 +112,10 @@
   description: State-of-the-art, official, uncreased Jordans that protect you from slipping when turned on.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/jordans.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/jordans.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -151,9 +151,9 @@
   description: Upon closer inspection, something feels off about these. Are they.. creased? No, it can't be that. Wait, the logo looks a little off...
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/jordans.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/jordans.rsi
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -162,10 +162,10 @@
   description: No wait... this can't be.... THEY'RE CREASED!
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/jordans.rsi
     state: icon-creased
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/jordans.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/jordans.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -179,9 +179,9 @@
   description: Bluespace enhanced Nanotrasen-issue Security combat boots for combat scenarios or combat situations. This pair was designed for the Head of Security.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/advanced_jackboots.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Shoes/Boots/advanced_jackboots.rsi
+    sprite: _Goidastation/Clothing/Shoes/Boots/advanced_jackboots.rsi
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
   - type: ClothingModifyStunTime

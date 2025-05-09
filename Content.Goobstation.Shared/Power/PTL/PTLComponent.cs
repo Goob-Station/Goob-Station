@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 whateverusername0 <whateveremail>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -8,7 +8,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Power.PTL;
+namespace Content.Goidastation.Shared.Power.PTL;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PTLComponent : Component

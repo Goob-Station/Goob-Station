@@ -27,7 +27,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Store.Ui;
 
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 [UsedImplicitly]
 public sealed class StoreBoundUserInterface : BoundUserInterface

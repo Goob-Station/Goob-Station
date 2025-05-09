@@ -44,12 +44,12 @@ public sealed class MeleeLungeEvent : EntityEventArgs
     public string? Animation;
 
     /// <summary>
-    /// Goob - Shove Rework / The rotation of the sprite for the animation
+    /// Goida - Shove Rework / The rotation of the sprite for the animation
     /// </summary>
     public Angle SpriteRotation;
 
     /// <summary>
-    /// Goob - Shove Rework / The rotation of the sprite for the animation
+    /// Goida - Shove Rework / The rotation of the sprite for the animation
     /// </summary>
     public bool FlipAnimation;
 

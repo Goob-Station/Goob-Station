@@ -7,9 +7,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 
-namespace Content.Shared._Goobstation.Heretic.Components;
+namespace Content.Shared._Goidastation.Heretic.Components;
 
 [RegisterComponent]
 public sealed partial class LeechingWalkComponent : Component

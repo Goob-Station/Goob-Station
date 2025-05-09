@@ -34,7 +34,7 @@
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
-        stomach: OrganResomiStomach # Goobstation - classic furries can eat everything except chocolate :)
+        stomach: OrganResomiStomach # Goidastation - classic furries can eat everything except chocolate :)
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
     right arm:

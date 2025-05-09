@@ -34,7 +34,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Systems;
 using Robust.Server.GameObjects;
@@ -59,7 +59,7 @@ public sealed class DeviceNetworkJammerSystem : SharedDeviceNetworkJammerSystem
         if (ev.Cancelled)
             return;
 
-        if (HasComp<MansusGraspAffectedComponent>(ev.SenderTransform.ParentUid)) // Goobstation
+        if (HasComp<MansusGraspAffectedComponent>(ev.SenderTransform.ParentUid)) // Goidastation
         {
             ev.Cancel();
             return;

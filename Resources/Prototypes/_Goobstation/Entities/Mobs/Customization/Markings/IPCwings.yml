@@ -9,7 +9,7 @@
   markingCategory: Wings
   speciesRestriction: [IPC]
   sprites:
-    - sprite: _Goobstation/Mobs/Customization/IPCwings.rsi
+    - sprite: _Goidastation/Mobs/Customization/IPCwings.rsi
       state: merciful_base
-    - sprite: _Goobstation/Mobs/Customization/IPCwings.rsi
+    - sprite: _Goidastation/Mobs/Customization/IPCwings.rsi
       state: merciful_light

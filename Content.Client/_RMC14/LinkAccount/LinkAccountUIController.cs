@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
@@ -30,7 +30,7 @@
 
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Shared._RMC14.LinkAccount;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
@@ -111,7 +111,7 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
                 _disableUntil = _timing.RealTime.Add(TimeSpan.FromSeconds(3));
             };
 
-            var messageLink = _config.GetCVar(GoobCVars.RMCDiscordAccountLinkingMessageLink);
+            var messageLink = _config.GetCVar(GoidaCVars.RMCDiscordAccountLinkingMessageLink);
             if (string.IsNullOrEmpty(messageLink))
             {
                 _window.LinkButton.Visible = false;

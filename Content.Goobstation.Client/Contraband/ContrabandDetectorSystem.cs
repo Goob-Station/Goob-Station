@@ -4,9 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Contraband;
+using Content.Goidastation.Shared.Contraband;
 
-namespace Content.Goobstation.Client.Contraband;
+namespace Content.Goidastation.Client.Contraband;
 
 public sealed class ContrabandDetectorSystem : SharedContrabandDetectorSystem
 {

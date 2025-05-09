@@ -61,10 +61,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
+    sprite: _Goidastation/Objects/Weapons/flesh_spike_hand.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
+    sprite: _Goidastation/Objects/Weapons/flesh_spike_hand.rsi
     size: Ginormous
   - type: Unremoveable
     deleteOnDrop: true

@@ -15,19 +15,19 @@
   id: SupermatterSliver
   name: steal-target-groups-cargo-supermatter-sliver
   sprite:
-    sprite: _Goobstation/Supermatter/supermatter_sliver.rsi
+    sprite: _Goidastation/Supermatter/supermatter_sliver.rsi
     state: icon
 
 - type: stealTargetGroup
   id: WeaponEnergyGunLawbringer
   name: steal-target-groups-weapon-lawbringer
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/lawbringer.rsi
     state: icon
 
 - type: stealTargetGroup
   id: RapidSyringeGun
   name: steal-target-groups-rapid-syringe-gun
   sprite:
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Cannons/rapid_syringe_gun.rsi
     state: icon

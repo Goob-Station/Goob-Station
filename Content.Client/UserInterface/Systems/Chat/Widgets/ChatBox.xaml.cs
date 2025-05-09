@@ -19,7 +19,7 @@
 // SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
@@ -27,7 +27,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client.UserInterface.Systems.Chat.Controls;
-using Content.Goobstation.Common.CCVar; // Goobstation Change
+using Content.Goidastation.Common.CCVar; // Goidastation Change
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -41,7 +41,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.LineEdit;
-using System.Text.RegularExpressions; // Goob
+using System.Text.RegularExpressions; // Goida
 
 namespace Content.Client.UserInterface.Systems.Chat.Widgets;
 
@@ -74,17 +74,17 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnTextChanged += OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect += OnChannelSelect;
         ChatInput.FilterButton.Popup.OnChannelFilter += OnChannelFilter;
-        ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights; // Goob
+        ChatInput.FilterButton.Popup.OnNewHighlights += OnNewHighlights; // Goida
 
         _controller = UserInterfaceManager.GetUIController<ChatUIController>();
         _controller.MessageAdded += OnMessageAdded;
-        _controller.HighlightsUpdated += OnHighlightsUpdated; // Goob
+        _controller.HighlightsUpdated += OnHighlightsUpdated; // Goida
         _controller.RegisterChat(this);
 
         // WD EDIT START
         _cfg = IoCManager.Resolve<IConfigurationManager>();
-        _coalescence = _cfg.GetCVar(GoobCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
-        _cfg.OnValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
+        _coalescence = _cfg.GetCVar(GoidaCVars.CoalesceIdenticalMessages); // i am uncomfortable calling repopulate on chatbox in its ctor, even though it worked in testing i'll still err on the side of caution
+        _cfg.OnValueChanged(GoidaCVars.CoalesceIdenticalMessages, UpdateCoalescence, false); // eplicitly false to underline the above comment
         // WD EDIT END
     }
 
@@ -120,7 +120,7 @@ public partial class ChatBox : UIWidget
         // Thanks robustengine, very cool.
         if (_coalescence && _lastLine == tup)
         {
-            if (!msg.CanCoalesce) // Goobstation Edit - Coalescing Chat
+            if (!msg.CanCoalesce) // Goidastation Edit - Coalescing Chat
                 return;
 
             _lastLineRepeatCount++;
@@ -263,9 +263,9 @@ public partial class ChatBox : UIWidget
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;
         ChatInput.Input.OnTextChanged -= OnTextChanged;
         ChatInput.ChannelSelector.OnChannelSelect -= OnChannelSelect;
-        _cfg.UnsubValueChanged(GoobCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
+        _cfg.UnsubValueChanged(GoidaCVars.CoalesceIdenticalMessages, UpdateCoalescence); // WD EDIT
     }
-    // Goobstation - start
+    // Goidastation - start
     private void OnHighlightsUpdated(string highlights)
     {
         ChatInput.FilterButton.Popup.UpdateHighlights(highlights);
@@ -274,5 +274,5 @@ public partial class ChatBox : UIWidget
     {
         _controller.UpdateHighlights(highlighs);
     }
-    // Goobstation - end
+    // Goidastation - end
 }

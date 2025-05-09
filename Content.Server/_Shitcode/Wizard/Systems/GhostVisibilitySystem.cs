@@ -9,8 +9,8 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.EventSpells;
+using Content.Shared._Goidastation.Wizard;
+using Content.Shared._Goidastation.Wizard.EventSpells;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Eye;
@@ -21,7 +21,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Shared.Player;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class GhostVisibilitySystem : SharedGhostVisibilitySystem
 {

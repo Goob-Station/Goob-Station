@@ -5,12 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Wieldable.Components;
 
-namespace Content.Shared._Goobstation.Weapons.SmartGun;
+namespace Content.Shared._Goidastation.Weapons.SmartGun;
 
 public sealed class SmartGunSystem : EntitySystem
 {

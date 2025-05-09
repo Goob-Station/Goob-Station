@@ -80,7 +80,7 @@
   parent: JobIcon
   id: JobIconFuture
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Goidastation/Interface/Misc/job_icons.rsi
     state: Future
   jobName: job-name-futureagent
 
@@ -88,7 +88,7 @@
   parent: JobIcon
   id: JobIconNanotrasenRepresentative
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Goidastation/Interface/Misc/job_icons.rsi
     state: nanotrasenrepresentative
   jobName: job-name-ntr
 
@@ -96,6 +96,6 @@
   parent: JobIcon
   id: JobIconBlueshield
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Goidastation/Interface/Misc/job_icons.rsi
     state: blueshield
   jobName: job-name-bs

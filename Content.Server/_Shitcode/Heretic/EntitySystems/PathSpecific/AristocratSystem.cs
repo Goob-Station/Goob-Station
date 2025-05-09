@@ -9,7 +9,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server._Goidastation.Heretic.EntitySystems.PathSpecific;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Audio;
 using Content.Server.Heretic.Components.PathSpecific;
@@ -49,7 +49,7 @@ public sealed partial class AristocratSystem : EntitySystem
     private void OnStartup(Entity<AristocratComponent> ent, ref ComponentStartup args)
     {
         // mmm original soundtractk
-        _globalSound.PlayGlobalOnStation(ent, "/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg", AudioParams.Default);
+        _globalSound.PlayGlobalOnStation(ent, "/Audio/_Goidastation/Heretic/Ambience/Antag/Heretic/VoidsEmbrace.ogg", AudioParams.Default);
     }
 
     public override void Update(float frameTime)

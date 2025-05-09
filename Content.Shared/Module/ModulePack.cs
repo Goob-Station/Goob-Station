@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -17,7 +17,7 @@ public record struct RequiredAssembly(string AssemblyName, bool IsServer = true,
 public abstract class ModulePack
 {
     /// <summary>
-    /// A readable name to identify the module eg. Goobmod.
+    /// A readable name to identify the module eg. Goidamod.
     /// </summary>
     public abstract string PackName { get; }
 

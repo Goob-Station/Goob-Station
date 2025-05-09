@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -9,9 +9,9 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Actions;
-using Content.Goobstation.Common.Bloodstream;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Goidastation.Common.Actions;
+using Content.Goidastation.Common.Bloodstream;
+using Content.Server._Goidastation.Wizard.Components;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
 using Content.Server.Body.Components;
@@ -32,17 +32,17 @@ using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
-using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Goidastation.Wizard;
+using Content.Shared._Goidastation.Wizard.BindSoul;
+using Content.Shared._Goidastation.Wizard.Chuuni;
+using Content.Shared._Goidastation.Wizard.FadingTimedDespawn;
+using Content.Shared._Goidastation.Wizard.SpellCards;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
@@ -69,7 +69,7 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {

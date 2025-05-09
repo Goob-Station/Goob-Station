@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Components;
+using Content.Goidastation.Shared.Clothing.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
@@ -25,7 +25,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.Clothing.Systems;
+namespace Content.Goidastation.Shared.Clothing.Systems;
 
 /// <summary>
 ///     System used for sealable clothing (like modsuits)

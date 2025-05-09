@@ -480,7 +480,7 @@ namespace Content.Server.Administration.Managers
 
             _admins.Add(session, reg);
 
-            var contentData = session.ContentData(); // Goobstation - Queue
+            var contentData = session.ContentData(); // Goidastation - Queue
             if (contentData != null && contentData.Stealthed)
                 reg.Data.Stealth = true;
 

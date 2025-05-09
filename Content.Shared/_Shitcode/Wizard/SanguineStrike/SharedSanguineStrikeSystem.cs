@@ -9,14 +9,14 @@ using System.Linq;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
+namespace Content.Shared._Goidastation.Wizard.SanguineStrike;
 
 public abstract class SharedSanguineStrikeSystem : EntitySystem
 {

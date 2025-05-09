@@ -12,7 +12,7 @@
   components:
   - type: Hunger
   - type: Icon
-    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    sprite: _Goidastation/Mobs/Species/BananaMen/parts.rsi
     state: full
   - type: Thirst
   - type: SlipperyOnLayingDown

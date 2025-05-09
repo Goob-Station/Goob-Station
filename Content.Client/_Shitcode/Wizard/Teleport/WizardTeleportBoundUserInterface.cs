@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.Teleport;
+using Content.Shared._Goidastation.Wizard.Teleport;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 

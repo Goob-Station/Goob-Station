@@ -1,26 +1,26 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing;
-using Content.Goobstation.Shared.Clothing.Components;
+using Content.Goidastation.Shared.Clothing;
+using Content.Goidastation.Shared.Clothing.Components;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Clothing;
+using Content.Shared._Goidastation.Clothing;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
 using Robust.Server.Audio;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Clothing.Systems;
+namespace Content.Goidastation.Server.Clothing.Systems;
 
 /// <summary>
 /// This can be used for modsuit modules in the future.

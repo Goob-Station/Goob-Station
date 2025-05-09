@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Goobstation.Common.MartialArts;
+namespace Content.Goidastation.Common.MartialArts;
 
 [Prototype("combo")]
 [Serializable, NetSerializable, DataDefinition]

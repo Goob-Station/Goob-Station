@@ -12,7 +12,7 @@
   id: HereticRustPath1
   name: knowledge-path-rust-s1-name
   description: knowledge-path-rust-s1-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_rust.rsi, state: icon }
   productHereticKnowledge: BlacksmithTale
   cost:
     KnowledgePoint: 1
@@ -36,7 +36,7 @@
   id: HereticRustPath2
   name: knowledge-path-rust-s2-name
   description: knowledge-path-rust-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfRust
   cost:
     KnowledgePoint: 1
@@ -54,7 +54,7 @@
   id: HereticRustPath3
   name: knowledge-path-rust-s3-name
   description: knowledge-path-rust-s3-desc
-  icon: { sprite: _Goobstation/Heretic/tiles.rsi, state: plating_rust }
+  icon: { sprite: _Goidastation/Heretic/tiles.rsi, state: plating_rust }
   productHereticKnowledge: LeechingWalk
   cost:
     KnowledgePoint: 1
@@ -70,7 +70,7 @@
   id: HereticRustPath4
   name: knowledge-path-rust-s4-name
   description: knowledge-path-rust-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfRust
   cost:
     KnowledgePoint: 2
@@ -88,7 +88,7 @@
   id: HereticRustPath5
   name: knowledge-path-rust-s5-name
   description: knowledge-path-rust-s5-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: construction }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: construction }
   productHereticKnowledge: RustConstruction
   cost:
     KnowledgePoint: 2
@@ -106,7 +106,7 @@
   id: HereticRustPath6
   name: knowledge-path-rust-s6-name
   description: knowledge-path-rust-s6-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: aggressive_spread }
   productHereticKnowledge: AggressiveSpread
   cost:
     KnowledgePoint: 1
@@ -122,7 +122,7 @@
   id: HereticRustPath7
   name: knowledge-path-rust-s7-name
   description: knowledge-path-rust-s7-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_rust.rsi, state: icon }
   productHereticKnowledge: ToxicBlade
   cost:
     KnowledgePoint: 2
@@ -140,7 +140,7 @@
   id: HereticRustPath8
   name: knowledge-path-rust-s8-name
   description: knowledge-path-rust-s8-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: entropic_plume }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: entropic_plume }
   productHereticKnowledge: EntropicPlume
   cost:
     KnowledgePoint: 1
@@ -156,7 +156,7 @@
   id: HereticRustPath9
   name: knowledge-path-rust-s9-name
   description: knowledge-path-rust-s9-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ascension_rust }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: ascension_rust }
   productHereticKnowledge: AscensionRust
   cost:
     KnowledgePoint: 3

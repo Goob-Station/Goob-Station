@@ -25,7 +25,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: headcrab
-      sprite: _Goobstation/Changeling/headcrab.rsi
+      sprite: _Goidastation/Changeling/headcrab.rsi
   - type: Physics
   - type: Bloodstream
     bloodReagent: BloodChangeling

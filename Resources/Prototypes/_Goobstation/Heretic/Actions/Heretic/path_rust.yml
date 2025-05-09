@@ -15,7 +15,7 @@
     useDelay: 8
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: construction
     event: !type:EventHereticRustConstruction
     checkCanAccess: false
@@ -36,7 +36,7 @@
     sound:
       path: /Audio/Items/welder.ogg
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: aggressive_spread
     event: !type:EventHereticAggressiveSpread
     checkCanInteract: false
@@ -58,9 +58,9 @@
     useDelay: 30
     itemIconStyle: NoItem
     sound:
-      path: /Audio/_Goobstation/Wizard/smoke.ogg
+      path: /Audio/_Goidastation/Wizard/smoke.ogg
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: entropic_plume
     event: !type:EventHereticEntropicPlume
     checkCanInteract: false
@@ -82,7 +82,7 @@
     sound:
       path: /Audio/Items/welder.ogg
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: rust_wave
     checkCanAccess: false
     checkCanInteract: true

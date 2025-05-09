@@ -9,18 +9,18 @@
 - type: entity
   id: WeaponStaffBase
   abstract: true
-  parent: [BaseItem, BaseMagicContraband] # Goob edit
+  parent: [BaseItem, BaseMagicContraband] # Goida edit
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi
   - type: Item
     heldPrefix: staff
-    size: Huge # Goob edit
+    size: Huge # Goida edit
   - type: Gun
-    soundEmpty: null # Goobstation
-    soundMode: null # Goobstation
-    clumsyProof: true # Goobstation
-    fireRate: 1.5 # Goob edit
+    soundEmpty: null # Goidastation
+    soundMode: null # Goidastation
+    clumsyProof: true # Goidastation
+    fireRate: 1.5 # Goida edit
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -31,7 +31,7 @@
   - type: Tag
     tags:
     - WizardStaff
-  - type: Clothing # Goobstation
+  - type: Clothing # Goidastation
     quickEquip: false
     slots:
       - Back
@@ -41,5 +41,5 @@
       - state: equipped-BACKPACK
       suitstorage:
       - state: equipped-BACKPACK
-  - type: StaticPrice # Goobstation
+  - type: StaticPrice # Goidastation
     price: 30000

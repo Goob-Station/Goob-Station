@@ -60,7 +60,7 @@
   playTimeTracker: JobReporter
   startingGear: ReporterGear
   icon: "JobIconReporter"
-  goobcoins: 15 #Goob content
+  goidacoins: 15 #Goida content
   supervisors: job-supervisors-hop
   access:
   - Service
@@ -77,5 +77,5 @@
     - TapeRecorder
     - CassetteTape
     - CassetteTape
-    - MicrophoneInstrument # Goobstation
+    - MicrophoneInstrument # Goidastation
 

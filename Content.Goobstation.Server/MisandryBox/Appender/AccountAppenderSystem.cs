@@ -8,14 +8,14 @@ using System;
 using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Shared.MisandryBox;
+using Content.Goidastation.Shared.MisandryBox;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.MisandryBox.Appender;
+namespace Content.Goidastation.Server.MisandryBox.Appender;
 
 public sealed class AccountAppenderSystem : EntitySystem
 {

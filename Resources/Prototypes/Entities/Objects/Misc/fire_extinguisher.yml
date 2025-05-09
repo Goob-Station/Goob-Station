@@ -142,7 +142,7 @@
         enum.ToggleVisuals.Layer:
           True: { state: fire_extinguisher_open }
           False: { state: fire_extinguisher_closed }
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 50
 
@@ -192,7 +192,7 @@
         Blunt: 3 #completely ineffective; your fists are better
     soundHit:
       path: /Audio/Effects/weak_hit1.ogg
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 25
       Glass: 12

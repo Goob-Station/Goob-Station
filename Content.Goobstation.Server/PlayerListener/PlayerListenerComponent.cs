@@ -6,7 +6,7 @@
 
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Server.PlayerListener;
+namespace Content.Goidastation.Server.PlayerListener;
 
 /// <summary>
 ///     Stores data about players, listens even.

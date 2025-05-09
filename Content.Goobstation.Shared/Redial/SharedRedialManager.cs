@@ -7,7 +7,7 @@
 using Robust.Shared.IoC;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Shared.Redial;
+namespace Content.Goidastation.Shared.Redial;
 
 public abstract class SharedRedialManager : IPostInjectInit
 {

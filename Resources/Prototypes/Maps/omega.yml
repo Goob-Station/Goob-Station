@@ -29,7 +29,7 @@
 - type: gameMap
   id: Omega
   mapName: 'Omega'
-  mapPath: /Maps/_Goobstation/omega.yml # Goobstation
+  mapPath: /Maps/_Goidastation/omega.yml # Goidastation
   minPlayers: 7
   maxPlayers: 35
   stations:
@@ -47,8 +47,8 @@
           availableJobs:
             #service
             Captain: [ 1, 1 ]
-            NanotrasenRepresentative: [ 1, 1 ] # Goobstation
-            BlueshieldOfficer: [ 1, 1 ] # Goobstation
+            NanotrasenRepresentative: [ 1, 1 ] # Goidastation
+            BlueshieldOfficer: [ 1, 1 ] # Goidastation
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
@@ -92,9 +92,9 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
 
-        # Goobstation blob-config-start SMALL+
+        # Goidastation blob-config-start SMALL+
         - type: StationBlobConfig
           stageBegin: 25
           stageCritical: 350
           stageTheEnd: 700
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

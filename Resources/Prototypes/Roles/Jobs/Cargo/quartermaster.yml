@@ -142,7 +142,7 @@
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 40 #Goob content
+  goidacoins: 40 #Goida content
   access:
   - Cargo
   - Salvage
@@ -152,7 +152,7 @@
   - Command
   - Brig
   - Cryogenics
-  - External # goobstation
+  - External # goidastation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -164,10 +164,10 @@
   id: QuartermasterGear
   equipment:
     id: QuartermasterPDA
-    ears: ClothingHeadsetAltCargo # Goobstation
+    ears: ClothingHeadsetAltCargo # Goidastation
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton # Goidastation

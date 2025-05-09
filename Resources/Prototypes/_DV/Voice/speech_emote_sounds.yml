@@ -78,7 +78,7 @@
     Weh:
       collection: Weh
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -148,7 +148,7 @@
     Weh:
       collection: Weh
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -194,7 +194,7 @@
     Awoo:
       collection: VulpkaninHowls
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -240,7 +240,7 @@
     Awoo:
       collection: VulpkaninHowls
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -294,7 +294,7 @@
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -330,7 +330,7 @@
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
     CatMeow:
-      collection: CatMeows # Goobstation - effect standardization
+      collection: CatMeows # Goidastation - effect standardization
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

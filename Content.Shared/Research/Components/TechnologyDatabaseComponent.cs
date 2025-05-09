@@ -63,7 +63,7 @@ public sealed partial class TechnologyDatabaseComponent : Component
 /// server to all of it's clients.
 /// </remarks>
 [ByRefEvent]
-public readonly record struct TechnologyDatabaseModifiedEvent // Goobstation - Lathe message on recipes update
+public readonly record struct TechnologyDatabaseModifiedEvent // Goidastation - Lathe message on recipes update
 {
     public readonly List<ProtoId<LatheRecipePrototype>> UnlockedRecipes;
 

@@ -78,7 +78,7 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Singul0 <127663818+Singul0@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -179,16 +179,16 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             // and take the requirements from the first role in each group.
             // TLDR: DON'T USE THE SAME NAME AND DESC FOR DIFFERENT ROLE REQUIREMENTS OR I WILL BEAT YOU WITH HAMMERS (PLURAL)
             var groupedRoles = ghostState.GhostRoles.GroupBy(
-                role => (role.Name, role.Description)); //goobstation edit, less polluted ghost spawners menu
+                role => (role.Name, role.Description)); //goidastation edit, less polluted ghost spawners menu
 
             // Add a new entry for each role group
             foreach (var group in groupedRoles)
             {
                 var name = group.Key.Name;
                 var description = group.Key.Description;
-                var groupReq = group.First(); //goobstation edit - since reqs can't be grouped fuckery
+                var groupReq = group.First(); //goidastation edit - since reqs can't be grouped fuckery
                 var hasAccess = requirementsManager.CheckRoleRequirements(
-                    groupReq.Requirements, //goobstation edit, less polluted ghost spawners menu
+                    groupReq.Requirements, //goidastation edit, less polluted ghost spawners menu
                     null,
                     out var reason);
 

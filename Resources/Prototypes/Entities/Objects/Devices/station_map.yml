@@ -40,7 +40,7 @@
       interfaces:
         enum.StationMapUiKey.Key:
           type: StationMapBoundUserInterface
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 75
         Plastic: 25

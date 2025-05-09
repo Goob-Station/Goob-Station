@@ -13,7 +13,7 @@
 # SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -52,7 +52,7 @@
     timeToDecay: 600
     startPrice: 10000
     endPrice: 200
-  - type: MovedByPressure #Goob - space wind moment
+  - type: MovedByPressure #Goida - space wind moment
     enabled: false 
 
 - type: entity
@@ -70,7 +70,7 @@
   - type: IgnitionSource
     temperature: 400
     ignited: true
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 2 # Non-inert cores can roll max level
     enchants:
     - EnchantFireAspect
@@ -88,7 +88,7 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 2 # Non-inert cores can roll max level
     enchants:
     - EnchantKnockback
@@ -105,7 +105,7 @@
     energy: 1.5
     color: "#befaff"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 4 # Non-inert cores can roll max level
     enchants:
     - EnchantProtFire
@@ -123,7 +123,7 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 5 # Non-inert cores can roll max level
     enchants:
     - EnchantSharpness
@@ -140,7 +140,7 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 3 # Non-inert cores can roll max level
     enchants:
     - EnchantProtection
@@ -158,7 +158,7 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 4 # Non-inert cores can roll max level
     enchants:
     - EnchantSlippery
@@ -190,7 +190,7 @@
     color: "#ffffaa"
     castShadows: false
   - type: Electrified
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     enchants:
     - EnchantInsulated
 
@@ -208,7 +208,7 @@
     energy: 2.0
     color: "#6270bb"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 3 # Non-inert cores can roll max level
     enchants:
     - EnchantThorns
@@ -251,7 +251,7 @@
     energy: 2.0
     color: "#fc0303"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 3 # Non-inert cores can roll max level
     enchants:
     - EnchantFortune
@@ -286,7 +286,7 @@
     energy: 1.5
     color: "#fca3c0"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 1
     enchants:
     - EnchantFireAspect
@@ -304,7 +304,7 @@
     energy: 10
     color: "#1e070e"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 1
     enchants:
     - EnchantKnockback
@@ -321,7 +321,7 @@
     energy: 1.5
     color: "#befaff"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 2
     enchants:
     - EnchantProtFire
@@ -339,7 +339,7 @@
     energy: 3.5
     color: "#cb5b7e"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 3
     enchants:
     - EnchantSharpness
@@ -356,7 +356,7 @@
     energy: 3.5
     color: "#5ca8cb"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 1
     enchants:
     - EnchantProtection
@@ -374,7 +374,7 @@
     energy: 3.5
     color: "#ffffff"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 2 # Non-inert cores can roll max level
     enchants:
     - EnchantSlippery
@@ -405,7 +405,7 @@
     energy: 2.0
     color: "#ffffaa"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 4 # Insuls rolling
     enchants:
     - EnchantBudgetInsulated
@@ -424,7 +424,7 @@
     energy: 2.0
     color: "#6270bb"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 2
     enchants:
     - EnchantThorns
@@ -467,7 +467,7 @@
     energy: 2.0
     color: "#fc0303"
     castShadows: false
-  - type: Enchanter # Goobstation
+  - type: Enchanter # Goidastation
     maxLevel: 2
     enchants:
     - EnchantFortune

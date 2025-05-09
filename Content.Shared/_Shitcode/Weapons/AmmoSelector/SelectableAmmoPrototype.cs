@@ -11,7 +11,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
+namespace Content.Shared._Goidastation.Weapons.AmmoSelector;
 
 [Serializable, NetSerializable, DataDefinition]
 [Prototype("selectableAmmo")]

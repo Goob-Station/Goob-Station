@@ -11,7 +11,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Goobstation.Weapons.SmartGun;
+namespace Content.Shared._Goidastation.Weapons.SmartGun;
 
 /// <summary>
 /// Activates a laser pointer when wielding an item
@@ -20,7 +20,7 @@ namespace Content.Shared._Goobstation.Weapons.SmartGun;
 public sealed partial class LaserPointerComponent : Component
 {
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/laserpointer.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goidastation/Weapons/Effects/laserpointer.ogg");
 
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
     public int CollisionMask = (int) CollisionGroup.BulletImpassable;

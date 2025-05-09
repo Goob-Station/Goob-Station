@@ -93,7 +93,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmosCasual
 
-- type: loadout # goob
+- type: loadout # goida
   id: AtmosMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryAtmospherics

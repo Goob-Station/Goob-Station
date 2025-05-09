@@ -16,7 +16,7 @@
   suffix: Standard
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/emergencybox.rsi
+    sprite: _Goidastation/Objects/Misc/emergencybox.rsi
     state: box
   - type: Appearance
   - type: Item

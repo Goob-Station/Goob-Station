@@ -74,7 +74,7 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -159,15 +159,15 @@ public sealed class StickySystem : EntitySystem
         if (attemptEv.Cancelled)
             return false;
 
-        // Goobstation start
+        // Goidastation start
         var stickDelay = comp.StickDelay;
         var IsUser = target == user;
         if (IsUser)
             stickDelay *= comp.SelfStickTimeMultiplier;
-        // Goobstation end
+        // Goidastation end
 
         // skip doafter and popup if it's instant
-        if (stickDelay <= TimeSpan.Zero) // Goob edit
+        if (stickDelay <= TimeSpan.Zero) // Goida edit
         {
             StickToEntity(ent, target, user);
             return true;
@@ -181,9 +181,9 @@ public sealed class StickySystem : EntitySystem
         }
 
         // start sticking object to target
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, stickDelay, new StickyDoAfterEvent(), uid, target: target, used: uid) // Goob edit
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, stickDelay, new StickyDoAfterEvent(), uid, target: target, used: uid) // Goida edit
         {
-            BreakOnMove = !IsUser || comp.SelfStickBreakOnMove, // Goob edit
+            BreakOnMove = !IsUser || comp.SelfStickBreakOnMove, // Goida edit
             NeedHand = true,
         });
 
@@ -216,15 +216,15 @@ public sealed class StickySystem : EntitySystem
         if (attemptEv.Cancelled)
             return;
 
-        // Goobstation start
+        // Goidastation start
         var unstickDelay = comp.StickDelay;
         var IsUser = stuckTo == user;
         if (IsUser)
             unstickDelay *= comp.SelfUnstickTimeMultiplier;
-        // Goobstation end
+        // Goidastation end
 
         // skip doafter and popup if it's instant
-        if (unstickDelay <= TimeSpan.Zero) // Goob edit
+        if (unstickDelay <= TimeSpan.Zero) // Goida edit
         {
             UnstickFromEntity(ent, user);
             return;
@@ -238,9 +238,9 @@ public sealed class StickySystem : EntitySystem
         }
 
         // start unsticking object
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, unstickDelay, new StickyDoAfterEvent(), uid, target: uid) // Goob edit
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, unstickDelay, new StickyDoAfterEvent(), uid, target: uid) // Goida edit
         {
-            BreakOnMove = !IsUser || comp.SelfUnstickBreakOnMove, // Goob edit
+            BreakOnMove = !IsUser || comp.SelfUnstickBreakOnMove, // Goida edit
             NeedHand = true,
         });
     }
@@ -269,7 +269,7 @@ public sealed class StickySystem : EntitySystem
         // send information to appearance that entity is stuck
         _appearance.SetData(uid, StickyVisuals.IsStuck, true);
         if (_net.IsServer) // Check for server, otherwise console spams errors
-            EnsureComp<UnremoveableComponent>(uid); //Goobstation - MedicalPatch
+            EnsureComp<UnremoveableComponent>(uid); //Goidastation - MedicalPatch
         comp.StuckTo = target;
         Dirty(uid, comp);
 
@@ -288,7 +288,7 @@ public sealed class StickySystem : EntitySystem
         if (attemptEv.Cancelled)
             return;
 
-        RemComp<UnremoveableComponent>(uid); //Goobstation - MedicalPatch
+        RemComp<UnremoveableComponent>(uid); //Goidastation - MedicalPatch
         // try to remove sticky item from target container
         if (!_container.TryGetContainer(stuckTo, StickerSlotId, out var container) || !_container.Remove(uid, container))
             return;

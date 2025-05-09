@@ -5,12 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goidastation.Common.Changeling;
+using Content.Goidastation.Shared.Changeling.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Goobstation.Shared.Changeling.Systems;
+namespace Content.Goidastation.Shared.Changeling.Systems;
 
 public sealed class ChangelingGunSystem : EntitySystem
 {

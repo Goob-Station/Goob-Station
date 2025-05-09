@@ -35,6 +35,6 @@
           - Item
         tags:
           - Structure
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Plastic: 25

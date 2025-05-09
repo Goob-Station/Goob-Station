@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.EventSpells;
+using Content.Shared._Goidastation.Wizard.EventSpells;
 
 namespace Content.Client._Shitcode.Wizard.Systems;
 

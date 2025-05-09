@@ -8,7 +8,7 @@
 - type: tile
   id: FloorBingle
   name: tiles-bingle-floor
-  sprite: /Textures/_Goobstation/Tiles/binglefloortile.png
+  sprite: /Textures/_Goidastation/Tiles/binglefloortile.png
   variants: 4
   placementVariants:
   - 1.0
@@ -31,7 +31,7 @@
   name: bingle floor
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Tiles/bingle.rsi
+    sprite: _Goidastation/Objects/Tiles/bingle.rsi
     state: bingletile
   - type: FloorTile
     outputs:

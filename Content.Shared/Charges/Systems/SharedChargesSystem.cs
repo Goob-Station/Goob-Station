@@ -13,7 +13,7 @@
 
 using Content.Shared.Charges.Components;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 
 namespace Content.Shared.Charges.Systems;
 

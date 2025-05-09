@@ -145,7 +145,7 @@
       - MindRoleGhostRoleFamiliar
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
+      requirements: # Goidastation - ghost roles requirements
       - !type:OverallPlaytimeRequirement
         time: 18000 #5 hours
     - type: GhostTakeoverAvailable
@@ -241,7 +241,7 @@
     - type: Tag
       tags:
         - CannotSuicide
-    - type: MovementIgnoreGravity # Goobstation
+    - type: MovementIgnoreGravity # Goidastation
 
 # From the uplink injector
 - type: entity
@@ -305,13 +305,13 @@
           map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           color: "#40a7d7"
           shader: unshaded
-    - type: NpcFactionMember # Goobstation
+    - type: NpcFactionMember # Goidastation
       factions:
         - Wizard
-    - type: HTN # Goobstation
+    - type: HTN # Goidastation
       rootTask:
         task: SimpleHumanoidHostileCompound
-    - type: Tag # Goobstation
+    - type: Tag # Goidastation
       tags:
         - CannotSuicide
         - ShowWizardIcons

@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Server._Goidastation.Wizard.Components;
 
 /// <summary>
 /// This component is required to make sure an entity is struck by the same lightning no more than once

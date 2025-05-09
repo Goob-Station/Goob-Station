@@ -22,7 +22,7 @@ public sealed partial class PreventCollideComponent : Component
     [AutoNetworkedField]
     public EntityUid Uid;
 
-    // Goobstation
+    // Goidastation
     [DataField, AutoNetworkedField]
     public EntityWhitelist? Whitelist;
 }

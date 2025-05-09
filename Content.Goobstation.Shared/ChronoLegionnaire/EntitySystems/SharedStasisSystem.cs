@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.ChronoLegionnaire.Components;
+using Content.Goidastation.Shared.ChronoLegionnaire.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage;
@@ -27,7 +27,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Shared.ChronoLegionnaire.EntitySystems;
+namespace Content.Goidastation.Shared.ChronoLegionnaire.EntitySystems;
 
 public abstract class SharedStasisSystem : EntitySystem
 {

@@ -6,8 +6,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Changeling;
-using Content.Shared._Goobstation.Wizard.UserInterface;
+using Content.Goidastation.Common.Changeling;
+using Content.Shared._Goidastation.Wizard.UserInterface;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
@@ -17,7 +17,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
+namespace Content.Shared._Goidastation.Weapons.AmmoSelector;
 
 public sealed class SelectableAmmoSystem : EntitySystem
 {

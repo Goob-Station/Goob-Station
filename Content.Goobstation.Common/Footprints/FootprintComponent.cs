@@ -6,7 +6,7 @@ using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Common.Footprints;
+namespace Content.Goidastation.Common.Footprints;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class FootprintComponent : Component

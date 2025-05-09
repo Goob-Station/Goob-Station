@@ -43,11 +43,11 @@
       drainBuffer:
         maxVol: 100
       tank:
-        maxVol: 9999999 # Goobstation - No regenerating water, so lets just give it a fuck ton.
+        maxVol: 9999999 # Goidastation - No regenerating water, so lets just give it a fuck ton.
         reagents:
         - ReagentId: Water
           Quantity: 9999999
-  #- type: SolutionRegeneration Goobstation - laggy
+  #- type: SolutionRegeneration Goidastation - laggy
   #  solution: tank
   #  generated:
   #    reagents:

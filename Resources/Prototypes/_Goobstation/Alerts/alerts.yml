@@ -12,7 +12,7 @@
 - type: alert
   id: Stasis
   icons:
-  - sprite: /Textures/_Goobstation/Interface/Alerts/stasis.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/stasis.rsi
     state: stasis
   name: alerts-stasis-name
   description: alerts-stasis-desc
@@ -20,7 +20,7 @@
 - type: alert
   id: KnockedDown
   icons:
-  - sprite: /Textures/_Goobstation/Interface/Alerts/knockdown.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/knockdown.rsi
     state: icon
   name: alerts-knocked-down-name
   description: alerts-knocked-down-desc
@@ -28,17 +28,17 @@
 - type: alert
   id: ModsuitPower
   icons:
-  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/modpower.rsi
     state: modpower0
-  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/modpower.rsi
     state: modpower1
-  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/modpower.rsi
     state: modpower2
-  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/modpower.rsi
     state: modpower3
-  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/modpower.rsi
     state: modpower4
-  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/modpower.rsi
     state: modpower5
   name: alerts-modsuit-power-name
   description: alerts-modsuit-power-desc
@@ -48,7 +48,7 @@
 - type: alert
   id: ShadowCloak
   icons:
-  - sprite: /Textures/_Goobstation/Heretic/Interface/Alerts/shdaow_cloak.rsi
+  - sprite: /Textures/_Goidastation/Heretic/Interface/Alerts/shdaow_cloak.rsi
     state: curse
   name: alerts-shadow-cloak-name
   description: alerts-shadow-cloak-desc
@@ -57,7 +57,7 @@
   id: Centered
   category: TileMovement
   icons:
-  - sprite: /Textures/_Goobstation/Interface/Alerts/centered.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/centered.rsi
     state: plating
   name: alerts-centered-name
   description: alerts-centered-desc
@@ -65,7 +65,7 @@
 - type: alert
   id: CurseOfByond
   icons:
-  - sprite: /Textures/_Goobstation/Interface/Alerts/byond.rsi
+  - sprite: /Textures/_Goidastation/Interface/Alerts/byond.rsi
     state: byond
   name: alerts-curse-of-byond-name
   description: alerts-curse-of-byond-desc

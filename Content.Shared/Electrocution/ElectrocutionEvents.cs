@@ -36,14 +36,14 @@ namespace Content.Shared.Electrocution
         public readonly EntityUid TargetUid;
         public readonly EntityUid? SourceUid;
         public readonly float SiemensCoefficient;
-        public readonly float? ShockDamage = null; // Goobstation
+        public readonly float? ShockDamage = null; // Goidastation
 
-        public ElectrocutedEvent(EntityUid targetUid, EntityUid? sourceUid, float siemensCoefficient, float shockDamage) // Goobstation
+        public ElectrocutedEvent(EntityUid targetUid, EntityUid? sourceUid, float siemensCoefficient, float shockDamage) // Goidastation
         {
             TargetUid = targetUid;
             SourceUid = sourceUid;
             SiemensCoefficient = siemensCoefficient;
-            ShockDamage = shockDamage; // Goobstation
+            ShockDamage = shockDamage; // Goidastation
         }
     }
 }

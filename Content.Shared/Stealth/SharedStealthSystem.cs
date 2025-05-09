@@ -15,7 +15,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -23,7 +23,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Stealth.Components;
-using Robust.Shared.Physics.Components; // Goobstation
+using Robust.Shared.Physics.Components; // Goidastation
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Stealth;
@@ -81,7 +81,7 @@ public abstract class SharedStealthSystem : EntitySystem
     }
 
 
-    private void OnMobStateChanged(EntityUid uid, StealthComponent component, MobStateChangedEvent args)// Goobstation - Stealth change
+    private void OnMobStateChanged(EntityUid uid, StealthComponent component, MobStateChangedEvent args)// Goidastation - Stealth change
     {
         if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical)
         {
@@ -127,23 +127,23 @@ public abstract class SharedStealthSystem : EntitySystem
         if (args.NewPosition.EntityId != args.OldPosition.EntityId)
             return;
 
-        // Goobstation - Fixing stealth suit resolve error
+        // Goidastation - Fixing stealth suit resolve error
         if (!TryComp<StealthComponent>(uid, out var stealthComp))
             return;
 
         var delta = component.MovementVisibilityRate * (args.NewPosition.Position - args.OldPosition.Position).Length();
 
-        ModifyVisibility(uid, delta, stealthComp); // Goobstation - Fixing stealth suit resolve error
+        ModifyVisibility(uid, delta, stealthComp); // Goidastation - Fixing stealth suit resolve error
     }
 
-    // Goobstation - Proper invisibility
+    // Goidastation - Proper invisibility
     private void OnGetVisibilityModifiers(EntityUid uid, StealthOnMoveComponent component, GetVisibilityModifiersEvent args)
     {
         var limit = args.Stealth.MinVisibility;
         if (TryComp<PhysicsComponent>(uid, out var phys))
             limit += Math.Min(component.MaxInvisibilityPenalty, phys.LinearVelocity.Length() * component.InvisibilityPenalty);
 
-        // Goobstation - Wait before accumulating stealth
+        // Goidastation - Wait before accumulating stealth
         var noMoveTime = (float) component.NoMoveTime.TotalSeconds;
 
         if (args.Stealth.LastVisibility > limit && args.SecondsSinceUpdate > noMoveTime)

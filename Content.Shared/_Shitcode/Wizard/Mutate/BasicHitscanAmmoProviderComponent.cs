@@ -10,7 +10,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Mutate;
+namespace Content.Shared._Goidastation.Wizard.Mutate;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BasicHitscanAmmoProviderComponent : AmmoProviderComponent

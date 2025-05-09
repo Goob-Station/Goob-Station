@@ -18,7 +18,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Research;
+using Content.Goidastation.Common.Research;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Research.Components
@@ -52,13 +52,13 @@ namespace Content.Shared.Research.Components
         public int Points;
 
         /// <summary>
-        /// Goobstation field - all researches and their availablities
+        /// Goidastation field - all researches and their availablities
         /// </summary>
         public Dictionary<string, ResearchAvailability> Researches;
-        public ResearchConsoleBoundInterfaceState(int points, Dictionary<string, ResearchAvailability> researches)   // Goobstation R&D console rework = researches field
+        public ResearchConsoleBoundInterfaceState(int points, Dictionary<string, ResearchAvailability> researches)   // Goidastation R&D console rework = researches field
         {
             Points = points;
-            Researches = researches;    // Goobstation R&D console rework
+            Researches = researches;    // Goidastation R&D console rework
         }
     }
 }

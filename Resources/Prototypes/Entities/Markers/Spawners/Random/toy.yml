@@ -24,7 +24,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Bandit <queenjess521@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
@@ -85,9 +85,9 @@
         - ToyMouse
         - PlushieDiona
         - PlushieArachind
-        - PlushieBingle # Goobstation
-        - PlushieSamantha # Goobstation
-        - PlushieAbductor # Goobstation
+        - PlushieBingle # Goidastation
+        - PlushieSamantha # Goidastation
+        - PlushieAbductor # Goidastation
       chance: 0.5
       offset: 0.2
 

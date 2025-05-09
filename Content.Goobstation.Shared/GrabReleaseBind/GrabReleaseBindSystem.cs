@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -9,7 +9,7 @@ using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Shared.GrabReleaseBind;
+namespace Content.Goidastation.Shared.GrabReleaseBind;
 
 /// <summary>
 /// This handle binding the resist grab key

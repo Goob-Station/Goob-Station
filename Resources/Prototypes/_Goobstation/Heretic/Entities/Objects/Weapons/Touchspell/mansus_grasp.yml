@@ -5,7 +5,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -24,7 +24,7 @@
       - Puddle # Ruins rust path tile rusting and is annoying in general.
       - HereticRitualRune # This is handled by HereticRitualSystem, blacklisting rune makes it so grasp doesn't disappear when interacting with it.
   - type: Sprite
-    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+    sprite: _Goidastation/Heretic/mansus_grasp.rsi
     state: icon
   - type: Appearance
   - type: UseDelay
@@ -38,7 +38,7 @@
     color: "#329a00"
   - type: SurgeryTool # For organ removal
     startSound:
-      path: /Audio/_Goobstation/Heretic/crack2.ogg
+      path: /Audio/_Goidastation/Heretic/crack2.ogg
     endSound:
       path: /Audio/Items/welder.ogg
   # Used for extracting organs

@@ -11,7 +11,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Shared._Goidastation.Wizard.Projectiles;
 
 // Make more fields auto networked if you need to.
 // Changing Lifetime and Frequency may lead to unexpected results, especially if frequency is greater than lifetime

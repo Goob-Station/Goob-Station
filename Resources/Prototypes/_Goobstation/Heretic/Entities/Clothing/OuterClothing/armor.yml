@@ -9,7 +9,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -22,10 +22,10 @@
   components:
   - type: UnholyItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goidastation/Heretic/eldritch_armor.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    sprite: _Goidastation/Heretic/eldritch_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -37,7 +37,7 @@
         Holy: 1.25
   - type: ExplosionResistance
     damageCoefficient: 0.25
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodHeretic
   - type: ModifyDelayedKnockdown
@@ -53,14 +53,14 @@
   description: Black like tar, reflecting no light. Runic symbols line the outside. With each flash you lose comprehension of what you are seeing.
   components:
   # - type: UnholyItem # This should only be active when cloak is visible. Can't simply ensure/remove this component on
-  # cloak toggle due to goobmod. Should be done when heretic is mored to goobmod probably.
+  # cloak toggle due to goidamod. Should be done when heretic is mored to goidamod probably.
   - type: Sprite
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goidastation/Heretic/void_cloak.rsi
     layers:
     - state: icon
       map: [ "base" ]
   - type: Clothing
-    sprite: _Goobstation/Heretic/void_cloak.rsi
+    sprite: _Goidastation/Heretic/void_cloak.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -72,7 +72,7 @@
         # Holy: 1.25
   - type: ExplosionResistance
     damageCoefficient: 0.7
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     stripDelay: null
     clothingPrototypes:
       head: ClothingHeadHatHoodVoidCloakHeretic
@@ -81,8 +81,8 @@
     knockdownTimeDelta: -2
   - type: StaminaDamageResistance
     coefficient: 0.7
-  - type: HideContrabandContent #Goobstation Contraband detector
-  - type: UndetectableContraband #Goobstation Contraband detector
+  - type: HideContrabandContent #Goidastation Contraband detector
+  - type: UndetectableContraband #Goidastation Contraband detector
   - type: Storage
     storageOpenSound: null
     maxItemSize: Normal

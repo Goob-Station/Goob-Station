@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
@@ -6,7 +6,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Religion.AlternatePrayable;
+namespace Content.Goidastation.Shared.Religion.AlternatePrayable;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class AlternatePrayableComponent : Component

@@ -14,7 +14,7 @@ using Robust.Shared.Serialization.Markdown.Validation;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Serialization.TypeSerializers.Interfaces;
 
-namespace Content.Goobstation.Shared.Serialization;
+namespace Content.Goidastation.Shared.Serialization;
 
 public sealed class GuidSerializer : ITypeSerializer<Guid, ValueDataNode>,  ITypeCopyCreator<Guid>
 {

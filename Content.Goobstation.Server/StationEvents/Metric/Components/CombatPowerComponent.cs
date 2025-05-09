@@ -5,9 +5,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 
-namespace Content.Goobstation.Server.StationEvents.Metric.Components;
+namespace Content.Goidastation.Server.StationEvents.Metric.Components;
 
 /// <summary>
 ///   Some entities (such as dragons) are just more dangerous

@@ -21,17 +21,17 @@ namespace Content.Shared.Damage.Components;
 public sealed partial class StaminaDamageOnHitComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField("damage")]
-    public float Damage = 20f; // goob edit
+    public float Damage = 20f; // goida edit
 
-    // goob edit
+    // goida edit
     [DataField]
     public float Overtime = 0f;
 
-    // goob edit
+    // goida edit
     [DataField]
     public float LightAttackDamageMultiplier = 1f;
 
-    // goob edit
+    // goida edit
     [DataField]
     public float LightAttackOvertimeDamageMultiplier = 1f;
 

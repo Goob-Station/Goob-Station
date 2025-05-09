@@ -21,11 +21,11 @@
 // SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.DoAfter;
+using Content.Goidastation.Common.DoAfter;
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
@@ -111,10 +111,10 @@ public abstract class SharedCombatModeSystem : EntitySystem
         if (component.CombatToggleActionEntity != null)
             _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);
 
-        // Goobstation start
+        // Goidastation start
         var ev = new CombatModeToggledEvent(entity, value);
         RaiseLocalEvent(entity, ref ev, true);
-        // Goobstation end
+        // Goidastation end
 
         // Change mouse rotator comps if flag is set
         if (!component.ToggleMouseRotator || IsNpc(entity) && !_mind.TryGetMind(entity, out _, out _))

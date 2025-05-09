@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Goidastation.Heretic.Systems;
 
-namespace Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+namespace Content.Server._Goidastation.Heretic.EntitySystems.PathSpecific;
 
 public sealed class EntropicPlumeSystem : SharedEntropicPlumeSystem
 {

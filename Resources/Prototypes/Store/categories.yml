@@ -55,19 +55,19 @@
   name: store-caregory-spellbook-events
   priority: 4
 
-# Goobstation
+# Goidastation
 - type: storeCategory
   id: SpellbookSummons
   name: store-caregory-spellbook-summons
   priority: 5
 
-# Goobstation
+# Goidastation
 - type: storeCategory
   id: SpellbookSpecial
   name: store-caregory-spellbook-special
   priority: 6
 
-# Goobstation
+# Goidastation
 - type: storeCategory
   id: SpellbookBundles
   name: store-caregory-spellbook-bundles

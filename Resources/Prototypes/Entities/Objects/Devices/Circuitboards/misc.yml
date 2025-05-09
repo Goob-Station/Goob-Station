@@ -23,7 +23,7 @@
     state: airalarm_electronics
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
       - StationMapElectronics
   - type: StaticPrice
     price: 30

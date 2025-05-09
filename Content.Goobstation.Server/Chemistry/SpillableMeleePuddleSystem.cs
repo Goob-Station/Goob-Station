@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Solutions;
+using Content.Goidastation.Common.Solutions;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Fluids.Components;
@@ -11,7 +11,7 @@ using Content.Shared.Weapons.Melee;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
-namespace Content.Goobstation.Server.Chemistry;
+namespace Content.Goidastation.Server.Chemistry;
 
 public sealed class SpillableMeleePuddleSystem : EntitySystem
 {

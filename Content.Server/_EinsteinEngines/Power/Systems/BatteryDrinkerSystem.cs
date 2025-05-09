@@ -89,7 +89,7 @@ public sealed class BatteryDrinkerSystem : EntitySystem
             DistanceThreshold = 1.35f,
             RequireCanInteract = true,
             CancelDuplicate = false,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(args);

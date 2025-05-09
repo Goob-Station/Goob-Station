@@ -119,7 +119,7 @@
   name: The Quaran
   description: Then which of your Lord’s favours will you ˹humans and jinn˺ both deny?
   sprite:
-    sprite: _Goobstation/Objects/Specific/Chapel/allah.rsi
+    sprite: _Goidastation/Objects/Specific/Chapel/allah.rsi
     state: icon
   content:
   - BibleQuaran
@@ -129,7 +129,7 @@
   name: The Tanakh Scrolls
   description: As you teach, you learn.
   sprite:
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
     state: scroll2
   content:
   - BibleTanakh
@@ -160,13 +160,13 @@
       collection: Punch
     damage:
       types:
-        Holy: 5 # Goobstation - bro wtf
+        Holy: 5 # Goidastation - bro wtf
         Blunt: 1
   #- type: Prayable - no, use the altar
   #  bibleUserOnly: true
-  - type: AlternatePrayable # Goobstation
+  - type: AlternatePrayable # Goidastation
     requireBibleUser: false
-  - type: HealUserOnPray # Goobstation - Heal that holy damage
+  - type: HealUserOnPray # Goidastation - Heal that holy damage
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
   - type: ReactionMixer
@@ -195,7 +195,7 @@
     - Bible
   - type: StealTarget
     stealGroup: Bible
-  - type: EnchantingTool # Goobstation
+  - type: EnchantingTool # Goidastation
 
 - type: entity
   parent: [Bible, BaseSyndicateContraband]

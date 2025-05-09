@@ -29,7 +29,7 @@
     damage:
       types:
         Slash: 12
-    soundHit: # Goobstation
+    soundHit: # Goidastation
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Normal
@@ -38,7 +38,7 @@
     slots:
     - back
   - type: DisarmMalus
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Knife
 
@@ -58,7 +58,7 @@
     damage:
       types:
         Slash: 16
-    soundHit: # Goobstation
+    soundHit: # Goidastation
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Normal

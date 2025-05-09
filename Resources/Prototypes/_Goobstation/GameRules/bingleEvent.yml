@@ -18,7 +18,7 @@
     weight: 8
     duration: 50
     minimumPlayers: 15
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 100
       Friend: 20
       Combat: 100

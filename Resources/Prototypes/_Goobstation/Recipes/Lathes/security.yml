@@ -12,7 +12,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -517,7 +517,7 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
-  icon: { sprite: _Goobstation/Structures/Machines/contraband_detector.rsi, state: icon }
+  icon: { sprite: _Goidastation/Structures/Machines/contraband_detector.rsi, state: icon }
   id: ContrabandDetectorCircuitboard
   result: ContrabandDetectorCircuitboard
   completetime: 4

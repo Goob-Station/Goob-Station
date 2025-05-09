@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: MIT
@@ -51,13 +51,13 @@ namespace Content.Server.Explosion.Components
         public int MaxLength = 50;
 
         /// <summary>
-        ///     Whether the voicetrigger should only trigger if the ID matches. - Goobstation
+        ///     Whether the voicetrigger should only trigger if the ID matches. - Goidastation
         /// </summary>
         [DataField]
         public bool RestrictById = false;
 
         /// <summary>
-        ///     Which accesses to restrict the trigger to. - Goobstation
+        ///     Which accesses to restrict the trigger to. - Goidastation
         /// </summary>
         [DataField("access")]
         public List<ProtoId<AccessLevelPrototype>> AccessLists = [];

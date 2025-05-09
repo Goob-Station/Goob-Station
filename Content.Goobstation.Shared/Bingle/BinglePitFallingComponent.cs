@@ -13,14 +13,14 @@
 
 using System;
 using System.Numerics;
-using Content.Goobstation.Common.Bingle;
+using Content.Goidastation.Common.Bingle;
 using Robust.Shared.Analyzers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Goobstation.Shared.Bingle;
+namespace Content.Goidastation.Shared.Bingle;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class BinglePitFallingComponent : Component

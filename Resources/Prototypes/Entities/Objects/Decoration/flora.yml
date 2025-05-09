@@ -419,7 +419,7 @@
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason
-  - type: Destructible # Goobstation
+  - type: Destructible # Goidastation
     thresholds:
     - trigger:
         !type:DamageTrigger

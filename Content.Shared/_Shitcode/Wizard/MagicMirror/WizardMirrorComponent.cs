@@ -9,7 +9,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.MagicMirror;
+namespace Content.Shared._Goidastation.Wizard.MagicMirror;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WizardMirrorComponent : Component

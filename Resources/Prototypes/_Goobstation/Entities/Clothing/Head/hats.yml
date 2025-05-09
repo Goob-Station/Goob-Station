@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -22,9 +22,9 @@
   description: A navy blue beret with the silver shield of the Nanotrasen security forces.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/navy_officer_beret.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/navy_officer_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/navy_officer_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -37,9 +37,9 @@
   description: A black beret with the silver shield of the Nanotrasen security forces.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/officer_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/officer_beret.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/officer_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/officer_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -52,9 +52,9 @@
   description: A starch white beret.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/navy_captain_beret.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/navy_captain_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/navy_captain_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -67,9 +67,9 @@
   description: A durable beret woven out of durathread. Doesn't actually provide any protection.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/blueshield_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/blueshield_beret.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/blueshield_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/blueshield_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -82,9 +82,9 @@
   description: Smells like a good pension.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/mailman.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/mailman.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -93,9 +93,9 @@
   description: Sheriff's back in town, kids
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/cowboyhatbso.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/cowboyhatbso.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/cowboyhatbso.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/cowboyhatbso.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -108,9 +108,9 @@
   description: Aw gee willickers!
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/propeller.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/propeller.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/propeller.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/propeller.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -133,9 +133,9 @@
   description: Praise Allah.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/imam.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/imam.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/imam.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/imam.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -151,9 +151,9 @@
   description: A hat issued to Nanotrasen Career Trainers. Makes you feel stylish.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/trainer.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/trainer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/trainer.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/trainer.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -162,9 +162,9 @@
   description: A beret issued to Nanotrasen Career Trainers. Makes you feel stylish.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/trainer_beret.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/trainer_beret.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/trainer_beret.rsi
 
 
 
@@ -175,9 +175,9 @@
   description: A particularly gilded beret, designed for the Head of Security.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/hos-expi.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/hos-expi.rsi
+    sprite: _Goidastation/Clothing/Head/Hats/hos-expi.rsi
   - type: Armor
     modifiers:
       coefficients:

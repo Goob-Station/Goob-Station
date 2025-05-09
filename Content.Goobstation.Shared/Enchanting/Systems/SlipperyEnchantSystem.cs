@@ -1,7 +1,7 @@
-using Content.Goobstation.Shared.Enchanting.Components;
+using Content.Goidastation.Shared.Enchanting.Components;
 using Content.Shared.Slippery;
 
-namespace Content.Goobstation.Shared.Enchanting.Systems;
+namespace Content.Goidastation.Shared.Enchanting.Systems;
 
 /// <summary>
 /// Controls <see cref="SlipperyComponent"/> values with the enchant level.

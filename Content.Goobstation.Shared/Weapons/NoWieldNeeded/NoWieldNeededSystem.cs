@@ -1,15 +1,15 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Weapons.NoWieldNeeded;
+using Content.Goidastation.Common.Weapons.NoWieldNeeded;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Shared.Weapons.NoWieldNeeded;
+namespace Content.Goidastation.Shared.Weapons.NoWieldNeeded;
 
 public sealed class NoWieldNeededSystem : EntitySystem
 {

@@ -109,7 +109,7 @@
   equipment:
     head: ClothingHeadHelmetBasic
 
-- type: loadout # Goobstation
+- type: loadout # Goidastation
   id: SecurityHelmetAlt
   equipment:
     head: ClothingHeadHelmetBasicAlt

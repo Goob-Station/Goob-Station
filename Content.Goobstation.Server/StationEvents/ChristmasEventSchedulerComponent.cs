@@ -14,7 +14,7 @@
 
 using Content.Shared.Destructible.Thresholds;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goidastation.Server.StationEvents;
 
 [RegisterComponent]
 public sealed partial class ChristmasEventSchedulerComponent : Component

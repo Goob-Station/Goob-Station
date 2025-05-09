@@ -27,7 +27,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Chemistry;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -38,7 +38,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Body.Components;
 using System.Linq;
 using Robust.Server.Audio;
-using Content.Goobstation.Shared.Chemistry.Hypospray; // Goobstation
+using Content.Goidastation.Shared.Chemistry.Hypospray; // Goidastation
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -85,7 +85,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
 
     public void OnAttack(Entity<HyposprayComponent> entity, ref MeleeHitEvent args)
     {
-        if (args.Handled) // Goobstation
+        if (args.Handled) // Goidastation
             return;
 
         if (!args.HitEntities.Any())
@@ -150,7 +150,7 @@ public sealed class HypospraySystem : SharedHypospraySystem
         if (!_solutionContainers.TryGetSolution(uid, component.SolutionName, out var hypoSpraySoln, out var hypoSpraySolution) || hypoSpraySolution.Volume == 0)
         {
             _popup.PopupEntity(Loc.GetString("hypospray-component-empty-message"), target, user);
-            return false; // Goobstation edit - why was it true?
+            return false; // Goidastation edit - why was it true?
         }
 
         if (!_solutionContainers.TryGetInjectableSolution(target, out var targetSoln, out var targetSolution))
@@ -195,8 +195,8 @@ public sealed class HypospraySystem : SharedHypospraySystem
         var ev = new TransferDnaEvent { Donor = target, Recipient = uid };
         RaiseLocalEvent(target, ref ev);
 
-        var afterinjectev = new AfterHyposprayInjectsEvent { User = user, Target = target }; // Goobstation
-        RaiseLocalEvent(uid, ref afterinjectev); // Goobstation
+        var afterinjectev = new AfterHyposprayInjectsEvent { User = user, Target = target }; // Goidastation
+        RaiseLocalEvent(uid, ref afterinjectev); // Goidastation
 
         // same LogType as syringes...
         _adminLogger.Add(LogType.ForceFeed, $"{EntityManager.ToPrettyString(user):user} injected {EntityManager.ToPrettyString(target):target} with a solution {SharedSolutionContainerSystem.ToPrettyString(removedSolution):removedSolution} using a {EntityManager.ToPrettyString(uid):using}");

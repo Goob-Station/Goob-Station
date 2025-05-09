@@ -80,7 +80,7 @@
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
-  goobcoins: 20 #Goob content
+  goidacoins: 20 #Goida content
   access:
   - Research
   - Maintenance

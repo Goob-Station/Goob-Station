@@ -8,7 +8,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server.Afk;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Events;
@@ -22,7 +22,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Timer = Robust.Shared.Timing.Timer;
 
-namespace Content.Goobstation.Server.PlayerListener;
+namespace Content.Goidastation.Server.PlayerListener;
 
 /// <summary>
 ///     Notifies if 2 or more players are near a marker for an extended amount of time
@@ -56,10 +56,10 @@ public sealed class DormNotifier : EntitySystem
     {
         base.Initialize();
 
-        Subs.CVar(_cfg, GoobCVars.DormNotifier, value => _enabled = value, true);
-        Subs.CVar(_cfg, GoobCVars.DormNotifierFrequency, value => _frequency = value, true);
-        Subs.CVar(_cfg, GoobCVars.DormNotifierPresenceTimeout, value => _timeout = value, true);
-        Subs.CVar(_cfg, GoobCVars.DormNotifierPresenceTimeoutNude, value => _timeoutExpedited = value, true);
+        Subs.CVar(_cfg, GoidaCVars.DormNotifier, value => _enabled = value, true);
+        Subs.CVar(_cfg, GoidaCVars.DormNotifierFrequency, value => _frequency = value, true);
+        Subs.CVar(_cfg, GoidaCVars.DormNotifierPresenceTimeout, value => _timeout = value, true);
+        Subs.CVar(_cfg, GoidaCVars.DormNotifierPresenceTimeoutNude, value => _timeoutExpedited = value, true);
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestartCleanup);

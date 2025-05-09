@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <101037138+OnsenCapy@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -25,7 +25,7 @@
     canTargetSelf: false
     interactOnMiss: false
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: mime
     event: !type:MimeMalaiseEvent
   - type: Magic
@@ -57,7 +57,7 @@
     sound: !type:SoundCollectionSpecifier
       collection: CluwneHorn
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: cluwne
     event: !type:CluwneCurseEvent
       speech: action-speech-spell-cluwne
@@ -88,7 +88,7 @@
     sound: !type:SoundCollectionSpecifier
       collection: BikeHorn
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: clown
     event: !type:BananaTouchEvent
       speech: action-speech-spell-clown
@@ -114,9 +114,9 @@
     useDelay: 20
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+      path: /Audio/_Goidastation/Wizard/magic_missile.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: missile
     event: !type:MagicMissileEvent
       speech: action-speech-spell-magic-missile
@@ -140,9 +140,9 @@
     useDelay: 20
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/disable_tech.ogg
+      path: /Audio/_Goidastation/Wizard/disable_tech.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: emp
     event: !type:DisableTechEvent
       speech: action-speech-spell-emp
@@ -168,9 +168,9 @@
     useDelay: 12
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/smoke.ogg
+      path: /Audio/_Goidastation/Wizard/smoke.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: smoke
     event: !type:SmokeSpellEvent
   - type: Magic
@@ -191,9 +191,9 @@
     useDelay: 40
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/repulse.ogg
+      path: /Audio/_Goidastation/Wizard/repulse.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: repulse
     event: !type:RepulseEvent
       speech: action-speech-spell-repulse
@@ -219,9 +219,9 @@
     useDelay: 50
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/timeparadox2.ogg
+      path: /Audio/_Goidastation/Wizard/timeparadox2.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: time
     event: !type:StopTimeEvent
       speech: action-speech-spell-stop-time
@@ -256,7 +256,7 @@
     interactOnMiss: false
     range: 15
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: corpse_explosion
     event: !type:CorpseExplosionEvent
       speech: action-speech-spell-corpse-explosion
@@ -285,9 +285,9 @@
     interactOnMiss: false
     range: 15
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/blind.ogg
+      path: /Audio/_Goidastation/Wizard/blind.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: blind
     event: !type:BlindSpellEvent
       speech: action-speech-spell-blind
@@ -314,12 +314,12 @@
     useDelay: 1
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: skeleton
     event: !type:BindSoulEvent
       speech: action-speech-spell-bind-soul
       sound: !type:SoundPathSpecifier
-        path: /Audio/_Goobstation/Wizard/pope_entry.ogg
+        path: /Audio/_Goidastation/Wizard/pope_entry.ogg
       blacklist:
         components:
         - MobState
@@ -352,9 +352,9 @@
     useDelay: 40
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/mutate.ogg
+      path: /Audio/_Goidastation/Wizard/mutate.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: mutate
     event: !type:MutateSpellEvent
       speech: action-speech-spell-mutate
@@ -377,12 +377,12 @@
     useDelay: 30
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: tesla
     event: !type:TeslaBlastEvent
       speech: action-speech-spell-tesla-blast
       sound: !type:SoundPathSpecifier
-        path: /Audio/_Goobstation/Wizard/lightning_chargeup.ogg
+        path: /Audio/_Goidastation/Wizard/lightning_chargeup.ogg
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
@@ -411,7 +411,7 @@
     interactOnMiss: false
     range: 15
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: lightning
     event: !type:LightningBoltEvent
       speech: action-speech-spell-lightning-bolt
@@ -444,7 +444,7 @@
     sound:
       path: /Audio/Weapons/smash.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: toolbox
     event: !type:HomingToolboxEvent
       speech: action-speech-spell-homing-toolbox
@@ -479,7 +479,7 @@
     sound:
       path: /Audio/Magic/staff_healing.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: spellcard
     event: !type:SpellCardsEvent
       speech: action-speech-spell-spell-cards
@@ -503,7 +503,7 @@
     useDelay: 60
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: arcane_barrage
     event: !type:ArcaneBarrageEvent
   - type: Magic
@@ -520,14 +520,14 @@
   description: Summon an unending stream of bolt action rifles.
   components:
   - type: Sprite # For apprentices
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: bolt_action
   - type: InstantAction
     raiseOnUser: true
     useDelay: 60
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: bolt_action
     event: !type:LesserSummonGunsEvent
   - type: Magic
@@ -558,33 +558,33 @@
     interactOnMiss: false
     range: 15
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: barn
     event: !type:BarnyardCurseEvent
       speech: action-speech-spell-barnyard
       masks:
         ClothingMaskPig:
-          path: /Audio/_Goobstation/Wizard/PigCurse.ogg
+          path: /Audio/_Goidastation/Wizard/PigCurse.ogg
         ClothingMaskFrog:
-          path: /Audio/_Goobstation/Wizard/FrogCurse.ogg
+          path: /Audio/_Goidastation/Wizard/FrogCurse.ogg
         ClothingMaskCow:
-          path: /Audio/_Goobstation/Wizard/CowCurse.ogg
+          path: /Audio/_Goidastation/Wizard/CowCurse.ogg
         ClothingMaskHorse:
-          path: /Audio/_Goobstation/Wizard/HorseCurse.ogg
+          path: /Audio/_Goidastation/Wizard/HorseCurse.ogg
         ClothingMaskRat:
-          path: /Audio/_Goobstation/Wizard/RatCurse.ogg
+          path: /Audio/_Goidastation/Wizard/RatCurse.ogg
         ClothingMaskFox:
-          path: /Audio/_Goobstation/Wizard/FoxCurse.ogg
+          path: /Audio/_Goidastation/Wizard/FoxCurse.ogg
         ClothingMaskBee:
-          path: /Audio/_Goobstation/Wizard/BeeCurse.ogg
+          path: /Audio/_Goidastation/Wizard/BeeCurse.ogg
         ClothingMaskBear:
-          path: /Audio/_Goobstation/Wizard/BearCurse.ogg
+          path: /Audio/_Goidastation/Wizard/BearCurse.ogg
         ClothingMaskRaven:
-          path: /Audio/_Goobstation/Wizard/RavenCurse.ogg
+          path: /Audio/_Goidastation/Wizard/RavenCurse.ogg
         ClothingMaskJackal:
-          path: /Audio/_Goobstation/Wizard/JackalCurse.ogg
+          path: /Audio/_Goidastation/Wizard/JackalCurse.ogg
         ClothingMaskBat:
-          path: /Audio/_Goobstation/Wizard/BatCurse.ogg
+          path: /Audio/_Goidastation/Wizard/BatCurse.ogg
   - type: Magic
     requiresSpeech: true
     school: Transmutation
@@ -599,7 +599,7 @@
   description: This wicked spell inflicts many severe wounds on your target, causing them to likely bleed to death unless they receive immediate medical attention.
   components:
   - type: Sprite # For apprentices
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: scream_for_me
   - type: EntityTargetAction
     raiseOnUser: true
@@ -611,9 +611,9 @@
     canTargetSelf: false
     interactOnMiss: false
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/exit_blood.ogg
+      path: /Audio/_Goidastation/Wizard/exit_blood.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: scream_for_me
     event: !type:ScreamForMeEvent
       speech: action-speech-spell-scream-for-me
@@ -638,12 +638,12 @@
     useDelay: 10
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: summons
     event: !type:InstantSummonsEvent
       speech: action-speech-spell-instant-summons
       summonSound:
-        path: /Audio/_Goobstation/Wizard/summonitems_generic.ogg
+        path: /Audio/_Goidastation/Wizard/summonitems_generic.ogg
   - type: Magic
     requiresSpeech: true
     school: Transmutation
@@ -663,7 +663,7 @@
     useDelay: 60
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: teleport
     event: !type:WizardTeleportEvent
   - type: Magic
@@ -688,7 +688,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/welder.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: the_traps
     event: !type:TrapsSpellEvent
       speech: action-speech-spell-the-traps
@@ -709,7 +709,7 @@
   description: This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location.
   components:
   - type: Sprite # For apprentices
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: bee
   - type: InstantAction
     raiseOnUser: true
@@ -717,9 +717,9 @@
     useDelay: 60
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/bee.ogg
+      path: /Audio/_Goidastation/Wizard/bee.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: bee
     event: !type:SummonMobsEvent
       speech: action-speech-spell-bees
@@ -761,9 +761,9 @@
     useDelay: 90
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/monkey.ogg
+      path: /Audio/_Goidastation/Wizard/monkey.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: monkey
     event: !type:SummonSimiansEvent
       speech: action-speech-spell-simians
@@ -791,14 +791,14 @@
     useDelay: 1
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: return_to_monkey
     event: !type:PolymorphSpellEvent
       speech: action-speech-spell-gorilla-form
       protoId: WizardGorilla
       loadActions: true
       sound: !type:SoundPathSpecifier
-        path: /Audio/_Goobstation/Wizard/gorilla.ogg
+        path: /Audio/_Goidastation/Wizard/gorilla.ogg
   - type: Magic
     requiresSpeech: true
     school: Transmutation
@@ -816,7 +816,7 @@
     useDelay: 15
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: exsanguinating_strike
     event: !type:ExsanguinatingStrikeEvent
       speech: action-speech-spell-sanguine-strike
@@ -840,9 +840,9 @@
     useDelay: 1
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/bamf.ogg
+      path: /Audio/_Goidastation/Wizard/bamf.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: chuuni
     event: !type:ChuuniInvocationsEvent
       speech: chuuni-invocation-chuuni
@@ -872,11 +872,11 @@
     interactOnMiss: false
     range: 15
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: swap
     event: !type:SwapSpellEvent
       sound:
-        path: /Audio/_Goobstation/Wizard/swap.ogg
+        path: /Audio/_Goidastation/Wizard/swap.ogg
   - type: Magic
     school: Translocation
   - type: SwapSpell
@@ -896,7 +896,7 @@
     useDelay: 1
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: soultap
     event: !type:SoulTapEvent
       speech: action-speech-spell-soul-tap
@@ -915,11 +915,11 @@
     useDelay: 1
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: thrown_lightning
     event: !type:ThrownLightningEvent
       sound:
-        path: /Audio/_Goobstation/Wizard/phasein.ogg
+        path: /Audio/_Goidastation/Wizard/phasein.ogg
   - type: Magic
     school: Conjuration
 
@@ -936,7 +936,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: blink
     event: !type:BlinkSpellEvent
   - type: Magic
@@ -958,9 +958,9 @@
     useDelay: 3
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Goobstation/Wizard/summon_magic.ogg
+      path: /Audio/_Goidastation/Wizard/summon_magic.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: art_summon
     event: !type:SummonMobsEvent
       speech: action-speech-spell-summon-stick-minions
@@ -992,12 +992,12 @@
       - MindContainer
     range: 40
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi
+      sprite: _Goidastation/Wizard/actions.rsi
       state: tile
     event: !type:TileToggleSpellEvent
       speech: action-speech-spell-tile-toggle
       sound:
-        path: /Audio/_Goobstation/Wizard/phasein.ogg
+        path: /Audio/_Goidastation/Wizard/phasein.ogg
   - type: Magic
     requiresSpeech: true
     school: Conjuration
@@ -1021,12 +1021,12 @@
 #      - MindContainer
 #    itemIconStyle: BigAction
 #    icon:
-#      sprite: _Goobstation/Wizard/actions.rsi
+#      sprite: _Goidastation/Wizard/actions.rsi
 #      state: curseofbyond
 #    event: !type:PredictionToggleSpellEvent
 #      speech: action-speech-spell-curse-of-byond
 #      sound:
-#        path: /Audio/_Goobstation/Wizard/phasein.ogg
+#        path: /Audio/_Goidastation/Wizard/phasein.ogg
 #  - type: Magic
 #    requiresSpeech: true
 #    school: Conjuration

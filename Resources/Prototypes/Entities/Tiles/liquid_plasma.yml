@@ -9,7 +9,7 @@
 # SPDX-FileCopyrightText: 2024 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 #
@@ -32,7 +32,7 @@
     blacklist:
       tags:
       - Catwalk
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - Lava
   - type: TileEntityEffect
@@ -41,13 +41,13 @@
       multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite
-  # Goobstation - fishing
+  # Goidastation - fishing
   - type: FishingSpot
     fishList: !type:NestedSelector
       tableId: PlasmaFishingLootTable
     fishDefaultTimer: 25.0
     fishTimerVariety: 15.0
-  # Goobstation - fishing
+  # Goidastation - fishing
   - type: Transform
     anchored: true
   - type: SyncSprite
@@ -78,7 +78,7 @@
         - ItemMask
         density: 1000
         hard: false
-      # Goobstation - fishing
+      # Goidastation - fishing
       fishing:
         shape:
           !type:PhysShapeCircle
@@ -89,7 +89,7 @@
         - HighImpassable
         density: 1000
         hard: false
-    # Goobstation - fishing
+    # Goidastation - fishing
   - type: Tag
     tags:
     - HideContextMenu

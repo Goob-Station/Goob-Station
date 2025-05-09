@@ -11,13 +11,13 @@
 // SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.CrewMonitoring;
+using Content.Goidastation.Shared.CrewMonitoring;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.PowerCell;
@@ -60,7 +60,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
         if (!payload.TryGetValue(SuitSensorConstants.NET_STATUS_COLLECTION, out Dictionary<string, SuitSensorStatus>? sensorStatus))
             return;
 
-        // Goobstation - start
+        // Goidastation - start
         if (TryComp<CrewMonitorScanningComponent>(uid, out var scanned))
         {
             var newSensorStatus = new Dictionary<string, SuitSensorStatus>();
@@ -75,7 +75,7 @@ public sealed class CrewMonitoringConsoleSystem : EntitySystem
             }
             sensorStatus = newSensorStatus;
         }
-        // Goobstation - end
+        // Goidastation - end
 
         component.ConnectedSensors = sensorStatus;
 

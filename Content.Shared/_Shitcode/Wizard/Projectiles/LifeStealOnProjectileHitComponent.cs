@@ -5,12 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Shared._Goidastation.Wizard.Projectiles;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class LifeStealOnProjectileHitComponent : Component

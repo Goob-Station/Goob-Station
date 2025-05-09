@@ -9,7 +9,7 @@
 using Content.Shared.Emoting;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Emoting;
+namespace Content.Goidastation.Shared.Emoting;
 
 public abstract class SharedAnimatedEmotesSystem : EntitySystem
 {

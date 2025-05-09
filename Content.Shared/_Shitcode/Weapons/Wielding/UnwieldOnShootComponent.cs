@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Weapons.Wielding;
+namespace Content.Shared._Goidastation.Weapons.Wielding;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class UnwieldOnShootComponent : Component

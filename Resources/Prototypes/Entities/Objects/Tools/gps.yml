@@ -25,7 +25,7 @@
   - type: Item
     sprite: Objects/Devices/gps.rsi
   - type: HandheldGPS
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 200
       Glass: 75

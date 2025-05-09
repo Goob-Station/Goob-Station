@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 JohnOakman <sremy2012@hotmail.fr>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -12,8 +12,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Shared.Bible;
-using Content.Goobstation.Shared.Emoting;
+using Content.Goidastation.Shared.Bible;
+using Content.Goidastation.Shared.Emoting;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
@@ -28,7 +28,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Timer = Robust.Shared.Timing.Timer;
 
-namespace Content.Goobstation.Server.Emoting;
+namespace Content.Goidastation.Server.Emoting;
 
 public sealed partial class FartSystem : SharedFartSystem
 {
@@ -46,21 +46,21 @@ public sealed partial class FartSystem : SharedFartSystem
 
     private readonly string[] _fartSounds = [
         "/Audio/Effects/Emotes/parp1.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart2.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart2.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart3.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart4.ogg",
     ];
     private readonly string[] _fartInhaleSounds = [
-        "/Audio/_Goobstation/Voice/Human/fart2-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4-reverse.ogg",
-        "/Audio/_Goobstation/Voice/Human/parp1-reverse.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart2-reverse.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart3-reverse.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart4-reverse.ogg",
+        "/Audio/_Goidastation/Voice/Human/parp1-reverse.ogg",
     ];
     private readonly string[] _superFartSounds = [
-        "/Audio/_Goobstation/Voice/Human/fart2-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart3-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/fart4-long.ogg",
-        "/Audio/_Goobstation/Voice/Human/parp1-long.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart2-long.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart3-long.ogg",
+        "/Audio/_Goidastation/Voice/Human/fart4-long.ogg",
+        "/Audio/_Goidastation/Voice/Human/parp1-long.ogg",
     ];
 
     public override void Initialize()

@@ -146,7 +146,7 @@
       prob: 0.001
       orGroup: Canister
     #weapons
-    - id: VehicleClowncarAntag #Goobstation - Clowncar
+    - id: VehicleClowncarAntag #Goidastation - Clowncar
       prob: 0.01
       orGroup: Weapons
     - id: WeaponPulseCarbine
@@ -276,7 +276,7 @@
     - id: ClothingUniformJumpskirtOfLife
       prob: 0.01
       orGroup: Clothes
-    - id: ClothingShoesWizardSkates #GoobStation - Wizzard Skates
+    - id: ClothingShoesWizardSkates #GoidaStation - Wizzard Skates
       prob: 0.001
       orGroup: Clothes
     #swag
@@ -356,7 +356,7 @@
     - id: PlushieArachind
       prob: 0.01
       orGroup: Plushies
-    - id: PlushieSamantha # Goobstation
+    - id: PlushieSamantha # Goidastation
       prob: 0.01
       orGroup: Plushies
     - id: PlushieThrongler #hehe

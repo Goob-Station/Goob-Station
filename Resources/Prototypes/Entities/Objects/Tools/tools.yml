@@ -137,7 +137,7 @@
 # SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Lenny <187471588+Bynnel@users.noreply.github.com>
@@ -165,7 +165,7 @@
     tags:
     - PlantSampleTaker
     - Wirecutter
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Sprite
     sprite: Objects/Tools/wirecutters.rsi
     layers:
@@ -225,7 +225,7 @@
   - type: Tag
     tags:
     - Screwdriver
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Sprite
     sprite: Objects/Tools/screwdriver.rsi
     layers:
@@ -280,7 +280,7 @@
   - type: Tag
     tags:
     - Wrench
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Sprite
     sprite: Objects/Tools/wrench.rsi
     state: icon
@@ -353,7 +353,7 @@
     tags:
       - Multitool
       - DoorElectronicsConfigurator
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -417,7 +417,7 @@
     - type: GuideHelp
       guides:
       - Networking
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 25
         Plastic: 25
@@ -541,7 +541,7 @@
     key: enum.RcdUiKey.Key
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
 
 - type: entity
   id: RPD
@@ -571,7 +571,7 @@
     - SignalValve
     - CanisterPort
     - FilterGas
-    - FilterInline # Goobstation
+    - FilterInline # Goidastation
     - Deconstruct
   - type: LimitedCharges
     maxCharges: 45
@@ -648,8 +648,8 @@
     - Multitool
   - type: Prying
     enabled: false
-  - type: UseDelay # Goobstation - For insta prying
-    delay: 0 # Goobstation - no switch CD
+  - type: UseDelay # Goidastation - For insta prying
+    delay: 0 # Goidastation - no switch CD
   - type: Tool
     qualities:
       - Screwing

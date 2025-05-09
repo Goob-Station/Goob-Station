@@ -32,7 +32,7 @@ public sealed partial class IngestionBlockerComponent : Component
     public bool Enabled { get; set; } = true;
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     Is this component always prevents smoke ingestion when enabled.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

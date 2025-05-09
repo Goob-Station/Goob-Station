@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -15,7 +15,7 @@
   description: Roughly converted from a welding tool, this energy sword hums an unstable flame. It looks like it's about to fall apart.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/e_sword_welder.rsi
     layers:
     - state: welder_sword
     - state: welder_sword_blade_simple
@@ -23,21 +23,21 @@
       shader: unshaded
       map: [ "blade" ]
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
   - type: MeleeWeapon
-    clickPartDamageMultiplier: 2 #goob content
+    clickPartDamageMultiplier: 2 #goida content
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
     activatedSoundOnHitNoDamage:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
         volume: -10
     activatedSoundOnSwing:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/swing.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/swing.ogg
       params:
         variation: 0.125
     activatedDamage:
@@ -47,19 +47,19 @@
   - type: ItemToggle
     predictable: false
     soundActivate:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/on.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/on.ogg
     soundDeactivate:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/off.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/off.ogg
   - type: ItemToggleActiveSound
     activeSound:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/hum.ogg
   - type: SurgeryTool # Shitmed
     startSound:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/hum.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/hum.ogg
       params:
         volume: -3
     endSound:
-      path: /Audio/_Goobstation/Weapons/EswordWelder/eblade1.ogg
+      path: /Audio/_Goidastation/Weapons/EswordWelder/eblade1.ogg
       params:
         variation: 0.250
   - type: Reflect
@@ -91,7 +91,7 @@
   id: EnergySwordWelderIndustrial
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/e_sword_welder.rsi
     state: icon_industrial
     layers:
     - state: welder_sword_industrial
@@ -118,7 +118,7 @@
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/e_sword_welder.rsi
     state: icon_experimental
     layers:
     - state: welder_sword_experimental
@@ -152,7 +152,7 @@
   description: A crude assembly of parts that vaguely resembles a weapon. It's completely non-functional.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/e_sword_welder.rsi
     layers:
     - state: welder_sword
     - state: welder_sword_blade_simple
@@ -160,7 +160,7 @@
       shader: unshaded
       map: ["blade"]
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/e_sword_welder-inhands.rsi
   - type: Construction
     graph: WelderSword
     node: frameAssembly

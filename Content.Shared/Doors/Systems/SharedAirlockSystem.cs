@@ -118,7 +118,7 @@ public abstract class SharedAirlockSystem : EntitySystem
 
         if (DoorSystem.IsBolted(uid))
             args.PryTimeModifier *= component.BoltedPryModifier;
-        else if (!component.Powered && args.InstaPry) // Goobstation
+        else if (!component.Powered && args.InstaPry) // Goidastation
             args.PryTimeModifier = 0f;
     }
 

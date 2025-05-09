@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 absurd-shaman <165011607+absurd-shaman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -18,9 +18,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/helldiver.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/helldiver.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/helldiver.rsi
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1
@@ -44,9 +44,9 @@
   description: Not included in a set with crowbar, long jump module and gravity manipulation device.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/hev.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/hev.rsi
 
 - type: entity
   parent: ClothingHeadHelmetBasic
@@ -54,9 +54,9 @@
   suffix: Alt
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/security.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/security.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/security.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/security.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -76,9 +76,9 @@
       - 90 # 23.57%
       - 120 # 38.88%
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/reverse_bear_trap.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/reverse_bear_trap.rsi
   - type: MeleeWeapon
     damage:
       types:

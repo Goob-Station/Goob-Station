@@ -24,7 +24,7 @@ public sealed partial class RotatingLightComponent : Component
     public float Speed = 90f;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// if not null, speed is randomized between <see cref="Speed"/> and this.
     /// </summary>
     [DataField]

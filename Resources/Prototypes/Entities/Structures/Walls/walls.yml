@@ -161,7 +161,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 DoutorWhite <thedoctorwhite@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -226,7 +226,7 @@
   - type: StaticPrice
     price: 75
   - type: BlockWeather
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 50
     damagePenalty: 0.1
   - type: SunShadowCast
@@ -261,7 +261,7 @@
   - type: IconSmooth
     key: walls
     base: brick
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 4 # Mark of rust
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -297,7 +297,7 @@
   - type: IconSmooth
     key: walls
     base: clock
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 4 # Mark of rust
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -321,7 +321,7 @@
     cost: 6
     delay: 8
     fx: EffectRCDDeconstruct8
-  - type: RadiationBlocker # Goobstation
+  - type: RadiationBlocker # Goidastation
     resistance: 40
   - type: Destructible
     thresholds:
@@ -339,7 +339,7 @@
   - type: IconSmooth
     key: walls
     base: clown
-  # Goobstation
+  # Goidastation
   - type: Fixtures
     fixtures:
       fix1:
@@ -351,7 +351,7 @@
         layer:
         - WallLayer
         density: 8000 # really good ramming wall, bananium is rare so it's probably fine
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 4 # Mark of rust
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -418,7 +418,7 @@
   - type: IconSmooth
     key: walls
     base: cult
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 4 # Mark of rust
 
 - type: entity
@@ -451,7 +451,7 @@
   - type: IconSmooth
     key: walls
     base: debug
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 4 # Mark of rust
 
 - type: entity
@@ -486,7 +486,7 @@
   - type: IconSmooth
     key: walls
     base: diamond
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 4 # Mark of rust
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -506,7 +506,7 @@
   - type: Construction
     graph: Girder
     node: goldWall
-  - type: RadiationBlocker # Goobstation
+  - type: RadiationBlocker # Goidastation
     resistance: 10
   - type: RCDDeconstructable
     cost: 6
@@ -534,7 +534,7 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  # Goobstation
+  # Goidastation
   - type: Fixtures
     fixtures:
       fix1:
@@ -580,7 +580,7 @@
   - type: IconSmooth
     key: walls
     base: ice
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 4 # Mark of rust
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -697,7 +697,7 @@
     - type: IconSmooth
       key: walls
       base: plastitanium
-    # <Goobstation>
+    # <Goidastation>
     - type: RustRequiresPathStage
       pathStage: 11 # Can't rust
     - type: Penetratable
@@ -714,7 +714,7 @@
           layer:
           - WallLayer
           density: 4000 # ramming nukies is a bad idea
-    # </Goobstation>
+    # </Goidastation>
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -738,9 +738,9 @@
                   max: 1
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
-    - type: RustRequiresPathStage # Goobstation
+    - type: RustRequiresPathStage # Goidastation
       pathStage: 10 # Ascension
-    - type: Penetratable # Goobstation - Better snipers
+    - type: Penetratable # Goidastation - Better snipers
       penetrateDamage: 200
       damagePenalty: 0.5
 
@@ -787,9 +787,9 @@
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 10 # Ascension
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 200
     damagePenalty: 0.5
 
@@ -841,9 +841,9 @@
         - FullTileMask
         layer:
         - WallLayer
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 11 # Can't rust
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 1000
     damagePenalty: 0.8
 
@@ -905,7 +905,7 @@
     price: 250
   - type: RadiationBlocker
     resistance: 5
-  # <Goobstation>
+  # <Goidastation>
   - type: Fixtures
     fixtures:
       fix1:
@@ -917,14 +917,14 @@
         layer:
         - WallLayer
         density: 2000 # double normal density
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 7 # Toxic blade
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 100
     damagePenalty: 0.25
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
-  # </Goobstation>
+  # </Goidastation>
 
 - type: entity
   parent: WallReinforced
@@ -942,7 +942,7 @@
   - type: IconSmooth
     key: walls
     base: reinf_over
-  - type: RustedWall # Goobstation
+  - type: RustedWall # Goidastation
   - type: Destructible
     thresholds:
     - trigger:
@@ -980,7 +980,7 @@
   components:
   - type: Tag
     tags:
-    - Wall # Goobstation
+    - Wall # Goidastation
     - Diagonal
   - type: Sprite
     drawdepth: Walls
@@ -993,7 +993,7 @@
   - type: Icon
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 7 # Toxic blade
 
 # Riveting
@@ -1030,9 +1030,9 @@
     base: riveted
   - type: StaticPrice
     price: 150
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 10 # Ascension
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 200
     damagePenalty: 0.5
 
@@ -1169,7 +1169,7 @@
         - FullTileMask
         layer:
         - WallLayer
-        density: 2000 # Goobstation
+        density: 2000 # Goidastation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1195,9 +1195,9 @@
   - type: Construction
     graph: Girder
     node: diagonalshuttleWall
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 7 # Toxic blade
-  - type: Penetratable # Goobstation - Better snipers
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 90
     damagePenalty: 0.3
 
@@ -1259,7 +1259,7 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  # <Goobstation>
+  # <Goidastation>
   - type: RustRequiresPathStage
     pathStage: 7 # Toxic blade
   - type: Penetratable
@@ -1278,7 +1278,7 @@
         density: 2000 # double normal density
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
-  # </Goobstation>
+  # </Goidastation>
 
 - type: entity
   parent: BaseWall
@@ -1411,7 +1411,7 @@
   - type: IconSmooth
     key: walls
     base: solid
-  - type: RustedWall # Goobstation
+  - type: RustedWall # Goidastation
   - type: Destructible
     thresholds:
     - trigger:
@@ -1471,7 +1471,7 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  # Goobstation
+  # Goidastation
   - type: Fixtures
     fixtures:
       fix1:
@@ -1602,7 +1602,7 @@
   - type: IconSmooth
     key: walls
     base: necropolis
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 10 # Ascension
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -1635,7 +1635,7 @@
     - mining
     - miningB
   - type: Appearance
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 7 # Toxic blade
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -1685,7 +1685,7 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 7 # Toxic blade
   - type: CosmicCorruptible # DeltaV - Cosmic Cult
     convertTo: WallCosmicCult
@@ -1738,7 +1738,7 @@
         layer:
         - GlassLayer
   - type: Airtight
-  - type: RustRequiresPathStage # Goobstation
+  - type: RustRequiresPathStage # Goidastation
     pathStage: 11 # Can't rust
 
 - type: entity
@@ -1746,11 +1746,11 @@
   name: force wall
   components:
     - type: TimedDespawn
-      lifetime: 30 # Goob edit
+      lifetime: 30 # Goida edit
     - type: Tag
       tags:
         - Wall
-        - BlockLightning # Goobstation
+        - BlockLightning # Goidastation
     - type: Physics
       bodyType: Static
     - type: Fixtures
@@ -1761,7 +1761,7 @@
             bounds: "-0.5,-0.5,0.5,0.5"
           mask:
             - FullTileMask
-          layer: # Goob edit
+          layer: # Goida edit
             - Opaque
             - HighImpassable
             - MidImpassable
@@ -1776,7 +1776,7 @@
     - type: Icon
       sprite: Structures/Magic/forcewall.rsi
       state: forcewallspawn
-    # Goobstation start
+    # Goidastation start
     - type: SpawnAnimation
       animationLength: 1
     - type: Appearance
@@ -1807,7 +1807,7 @@
             collection: WindowShatter
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
-    # Goobstation end
+    # Goidastation end
 
 - type: entity
   parent: BaseWall
@@ -1830,7 +1830,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 20 # Goobstation
+        damage: 20 # Goidastation
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

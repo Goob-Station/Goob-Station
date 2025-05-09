@@ -88,7 +88,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems; // goobstation
+using Robust.Shared.Audio.Systems; // goidastation
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
@@ -108,7 +108,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; // Einstein Engines - Zombie Improvements Take 2
     [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!; // Goobstation
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -191,7 +191,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         if (healthy.Count == 1) // Only one human left. spooky
             _popup.PopupEntity(Loc.GetString("zombie-alone"), healthy[0], healthy[0]);
 
-        // goob edit
+        // goida edit
         if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage / 5f && !zombieRuleComponent.StartAnnounced)
         {
             zombieRuleComponent.StartAnnounced = true;
@@ -213,7 +213,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
                 _chat.DispatchStationAnnouncement(station, Loc.GetString("zombie-shuttle-call"), colorOverride: Color.Crimson);
             }
 
-            //_audio.PlayGlobal("/Audio/_Goobstation/Announcements/violet.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f)); // Goobstation
+            //_audio.PlayGlobal("/Audio/_Goidastation/Announcements/violet.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f)); // Goidastation
 
             _roundEnd.RequestRoundEnd(null, false);
         }

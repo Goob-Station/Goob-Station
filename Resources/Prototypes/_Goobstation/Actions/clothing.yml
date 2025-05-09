@@ -20,9 +20,9 @@
     checkConsciousness: true
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Actions/modsuit.rsi
+      sprite: _Goidastation/Actions/modsuit.rsi
       state: activate
     iconOn:
-      sprite: _Goobstation/Actions/modsuit.rsi
+      sprite: _Goidastation/Actions/modsuit.rsi
       state: activate-ready
     event: !type:SealClothingEvent {}

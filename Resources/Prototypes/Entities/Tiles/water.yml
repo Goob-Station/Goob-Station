@@ -7,7 +7,7 @@
 # SPDX-FileCopyrightText: 2024 Froffy025 <78222136+Froffy025@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 justdie12 <125140938+justdie12@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -38,7 +38,7 @@
         reagents:
         - ReagentId: Water
           Quantity: 9999999
-  #- type: SolutionRegeneration Goobstation - laggy as shit
+  #- type: SolutionRegeneration Goidastation - laggy as shit
   #  solution: tank
   #  generated:
   #    reagents:
@@ -63,7 +63,7 @@
           - ItemMask
         density: 1000
         hard: false
-      # Goobstation - fishing
+      # Goidastation - fishing
       fishing:
         shape:
           !type:PhysShapeCircle
@@ -74,7 +74,7 @@
         - HighImpassable
         density: 1000
         hard: false
-      # Goobstation - fishing
+      # Goidastation - fishing
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWater
@@ -89,10 +89,10 @@
   - type: TileEntityEffect
     effects:
     - !type:ExtinguishReaction
-  # Goobstation - fishing
+  # Goidastation - fishing
   - type: FishingSpot
     fishList: !type:NestedSelector
       tableId: WaterFishingLootTable
     fishDefaultTimer: 25.0
     fishTimerVariety: 15.0
-  # Goobstation - fishing
+  # Goidastation - fishing

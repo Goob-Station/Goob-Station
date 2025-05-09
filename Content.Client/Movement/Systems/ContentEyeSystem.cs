@@ -75,7 +75,7 @@ public sealed class ContentEyeSystem : SharedContentEyeSystem
         }
     }
 
-    // <Goob - grabbed wizden PR #35087> {please remove this when you merge stable}
+    // <Goida - grabbed wizden PR #35087> {please remove this when you merge stable}
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -85,5 +85,5 @@ public sealed class ContentEyeSystem : SharedContentEyeSystem
             UpdateEyeOffset((entity, eyeComponent));
         }
     }
-    // </Goob - grabbed wizden PR #35087>
+    // </Goida - grabbed wizden PR #35087>
 }

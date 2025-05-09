@@ -28,7 +28,7 @@
 // SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи <tripwiregamer@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -62,8 +62,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.MartialArts;
+using Content.Goidastation.Common.CCVar;
+using Content.Goidastation.Common.MartialArts;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.Coordinates;
 using Content.Shared.Item;
@@ -82,27 +82,27 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!; // Goob - Shove Rework
-    [Dependency] private readonly INetConfigurationManager _config = default!; // Goob - Shove Rework
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goob - Shove Rework
+    [Dependency] private readonly ThrowingSystem _throwing = default!; // Goida - Shove Rework
+    [Dependency] private readonly INetConfigurationManager _config = default!; // Goida - Shove Rework
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goida - Shove Rework
 
-    //Goob - Shove
+    //Goida - Shove
     private float _shoveRange;
     private float _shoveSpeed;
     private float _shoveMass;
-    //Goob - Shove
+    //Goida - Shove
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MeleeSpeechComponent, MeleeHitEvent>(OnSpeechHit);
         SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
-        Subs.CVar(_config, GoobCVars.ShoveRange, SetShoveRange, true);
-        Subs.CVar(_config, GoobCVars.ShoveSpeed, SetShoveSpeed, true);
-        Subs.CVar(_config, GoobCVars.ShoveMassFactor, SetShoveMass, true);
+        Subs.CVar(_config, GoidaCVars.ShoveRange, SetShoveRange, true);
+        Subs.CVar(_config, GoidaCVars.ShoveSpeed, SetShoveSpeed, true);
+        Subs.CVar(_config, GoidaCVars.ShoveMassFactor, SetShoveMass, true);
     }
 
-    // Goobstation - Shove
+    // Goidastation - Shove
     private void SetShoveRange(float value)
     {
         _shoveRange = value;
@@ -117,7 +117,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         _shoveMass = value;
     }
-    //Goob - Shove
+    //Goida - Shove
 
     private void OnMeleeExamineDamage(EntityUid uid, MeleeWeaponComponent component, ref DamageExamineEvent args)
     {
@@ -131,7 +131,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         _damageExamine.AddDamageExamine(args.Message, Damageable.ApplyUniversalAllModifiers(damageSpec), Loc.GetString("damage-melee"));
 
-        // Goobstation - partial armor penetration
+        // Goidastation - partial armor penetration
         var ap = component.ResistanceBypass ? 100 : (int)Math.Round(component.ArmorPenetration * 100);
         if (ap == 0)
             return;
@@ -173,7 +173,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         DisarmAttackEvent ev,
         EntityUid meleeUid,
         MeleeWeaponComponent component,
-        ICommonSession? session) // Goobstation - Shove Rework
+        ICommonSession? session) // Goidastation - Shove Rework
     {
         if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
@@ -255,7 +255,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         return true;
 
-        // Goob - Shove Rework edit (moved to function)
+        // Goida - Shove Rework edit (moved to function)
         void ShoveOrDisarmPopup(bool disarm)
         {
             var filterOther = Filter.PvsExcept(user, entityManager: EntityManager);
@@ -326,7 +326,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var chance = 1 - disarmerComp.BaseDisarmFailChance;
 
-        // Goob - Shove Rework disarm based on health & stamina
+        // Goida - Shove Rework disarm based on health & stamina
         chance *= Math.Clamp(
             _contests.StaminaContest(disarmer, disarmed)
             * _contests.HealthContest(disarmer, disarmed),
@@ -334,16 +334,16 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             1f);
 
         if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
-            chance *= 1 - malus.Malus; // Goob - Shove Rework edit
+            chance *= 1 - malus.Malus; // Goida - Shove Rework edit
 
         if (TryComp<ShovingComponent>(disarmer, out var shoving))
-            chance *= 1 + shoving.DisarmBonus; // Goob - Shove Rework edit
+            chance *= 1 + shoving.DisarmBonus; // Goida - Shove Rework edit
 
         return chance;
 
     }
 
-    // Goob - Shove Rework shove stamina damage based on mass
+    // Goida - Shove Rework shove stamina damage based on mass
     private float CalculateShoveStaminaDamage(EntityUid disarmer, EntityUid disarmed)
     {
         var baseStaminaDamage = TryComp<ShovingComponent>(disarmer, out var shoving) ? shoving.StaminaDamage : ShovingComponent.DefaultStaminaDamage;

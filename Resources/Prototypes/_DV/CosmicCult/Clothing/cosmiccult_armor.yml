@@ -33,7 +33,7 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetCosmicCult
   - type: Tag
@@ -83,7 +83,7 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 5
-  - type: UnholyItem # Goobstation Shitchap
+  - type: UnholyItem # Goidastation Shitchap
 
 
 # COSMIC CULT HARDSUIT HELMET
@@ -110,4 +110,4 @@
         Slash: 0.90
         Piercing: 0.90
         Heat: 0.90
-  - type: UnholyItem # Goobstation Shitchap
+  - type: UnholyItem # Goidastation Shitchap

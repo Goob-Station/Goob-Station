@@ -22,9 +22,9 @@
   abstract: true
   components:
   - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/autoinjector.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/autoinjector.rsi
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/autoinjector.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/autoinjector.rsi
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: cartridge
@@ -88,10 +88,10 @@
   description: A specialized cartridge injector intended for Central Command personnel. Primarily used to inject amnestics.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/amnestic_hypo.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/amnestic_hypo.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/amnestic_hypo.rsi
   - type: UseDelay
     delay: 3
   - type: Appearance
@@ -130,7 +130,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/cartridge.rsi
     layers:
     - state: base
     - state: filling
@@ -370,7 +370,7 @@
   description: A dose of medicinal substances from the future that can raise even the dead to their feet.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/stasipen.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/stasipen.rsi
     layers:
     - state: stasipen
       map: ["enum.SolutionContainerLayers.Fill"]
@@ -399,7 +399,7 @@
   description: According to a Nanotrasen funded study, it has zero addictive properties.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/medipen.rsi
     layers:
     - state: ntstimpen
       map: ["enum.SolutionContainerLayers.Fill"]
@@ -432,7 +432,7 @@
   description: A safe and effective way to treat infections. Does not prevent re-infection.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/medipen.rsi
     layers:
     - state: ambuzolpen
       map: ["enum.SolutionContainerLayers.Fill"]
@@ -461,7 +461,7 @@
   description: A safer and extremely effective way to treat any infections. Prevents re-infection.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/medipen.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/medipen.rsi
     layers:
     - state: ambuzolpluspen
       map: ["enum.SolutionContainerLayers.Fill"]
@@ -491,10 +491,10 @@
   id: CentCommHypo
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/centcomm_hypo.rsi
     state: hypo
   - type: Item
-    sprite: _Goobstation/Objects/Specific/Medical/centcomm_hypo.rsi
+    sprite: _Goidastation/Objects/Specific/Medical/centcomm_hypo.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:

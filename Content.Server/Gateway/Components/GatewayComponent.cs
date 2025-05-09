@@ -10,9 +10,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Gateway.Systems;
-using Content.Shared.Tag; // Goobstation
+using Content.Shared.Tag; // Goidastation
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes; // Goobstation
+using Robust.Shared.Prototypes; // Goidastation
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
@@ -77,7 +77,7 @@ public sealed partial class GatewayComponent : Component
     [AutoPausedField]
     public TimeSpan NextReady;
 
-    // Goobstation
+    // Goidastation
     /// <summary>
     /// Restrict this gate's destinations and sources to gates tagged with this.
     /// </summary>

@@ -15,7 +15,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 
-namespace Content.Goobstation.Server.Penalties.Systems;
+namespace Content.Goidastation.Server.Penalties.Systems;
 
 public sealed partial class OuterSlotPenaltySystem : EntitySystem
 {

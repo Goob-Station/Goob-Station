@@ -113,7 +113,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
@@ -133,12 +133,12 @@
   components:
   - type: EnergySword
   - type: ItemToggle
-    # Goobstation start
+    # Goidastation start
     soundFailToActivate:
       path: /Audio/Machines/button.ogg
       params:
         variation: 0.250
-    # Goobstation end
+    # Goidastation end
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
     soundDeactivate:
@@ -189,13 +189,13 @@
         Structural: 20
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
-    heavyStaminaCost: 2.5 # goob edit
+    heavyStaminaCost: 2.5 # goida edit
     wideAnimationRotation: -135
     attackRate: 1
     damage:
       types:
         Blunt: 4.5
-    clickPartDamageMultiplier: 4 #goob content
+    clickPartDamageMultiplier: 4 #goida content
   - type: Item
     size: Small
   - type: UseDelay
@@ -216,7 +216,7 @@
       right:
       - state: inhand-right-blade
         shader: unshaded
-  - type: Reflect # Goob edit
+  - type: Reflect # Goida edit
     reflectProb: .5
     reflects:
       - Energy
@@ -247,7 +247,7 @@
   - type: Tag # WD EDIT
     tags:
     - EnergySword
-  - type: ThrowableBlocker # Goobstation
+  - type: ThrowableBlocker # Goidastation
     blockSound:
       path: /Audio/Weapons/eblade1.ogg
       params:
@@ -303,14 +303,14 @@
         map: [ "blade" ]
   - type: MeleeWeapon
     animationRotation: 135 # WWDP
-    heavyStaminaCost: 1 # goob edit
+    heavyStaminaCost: 1 # goida edit
     wideAnimationRotation: 145
     attackRate: 1
     hidden: true
     damage:
       types:
         Blunt: 1
-    clickPartDamageMultiplier: 1 #goob content
+    clickPartDamageMultiplier: 1 #goida content
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
@@ -320,7 +320,7 @@
     energy: 1.5
     color: white
     netsync: false
-  - type: Reflect # Goob edit
+  - type: Reflect # Goida edit
     reflectProb: .25
 
 - type: entity
@@ -382,20 +382,20 @@
     color: white
     netsync: false
   - type: MeleeWeapon
-    heavyStaminaCost: 1 # goob edit
+    heavyStaminaCost: 1 # goida edit
     wideAnimationRotation: 145
     attackRate: 1
     hidden: true
     damage:
       types:
         Blunt: 1
-    clickPartDamageMultiplier: 1 #goob content
+    clickPartDamageMultiplier: 1 #goida content
   - type: Tag
     tags:
     - Write
   - type: Reflect
-    reflectProb: 0.25 #Goob rebalace
-    reflects: #Goob rebalance
+    reflectProb: 0.25 #Goida rebalace
+    reflects: #Goida rebalance
       - Energy
     spread: 30
 
@@ -440,7 +440,7 @@
         map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
-  - type: ThrowableBlocker # Goobstation
+  - type: ThrowableBlocker # Goidastation
     blockSound:
       path: /Audio/Weapons/eblade1.ogg
       params:
@@ -450,12 +450,12 @@
 - type: entity
   name: double-bladed energy sword
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
-  id: EnergySwordDoubleBase # Goob edit
-  abstract: true # Goob edit
+  id: EnergySwordDoubleBase # Goida edit
+  abstract: true # Goida edit
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
   components:
   - type: ItemToggle
-    predictable: false # Goobstation - wielded weapons sound prediction is broken
+    predictable: false # Goidastation - wielded weapons sound prediction is broken
     onUse: false # wielding events control it instead
     onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
     soundActivate:
@@ -474,9 +474,9 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 17   #Goob Station rebalance, was originally 12
-            Heat: 17    #Goob Station rebalance, was originally 12
-            Structural: 40 # Goob edit
+            Slash: 17   #Goida Station rebalance, was originally 12
+            Heat: 17    #Goida Station rebalance, was originally 12
+            Structural: 40 # Goida edit
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -492,9 +492,9 @@
   - type: Wieldable
     wieldSound: null # esword light sound instead
   - type: MeleeWeapon
-    heavyStaminaCost: 0 # goob edit
+    heavyStaminaCost: 0 # goida edit
     wideAnimationRotation: -135
-    attackRate: 1 #Goob Station rebalance, was originally 1.5
+    attackRate: 1 #Goida Station rebalance, was originally 1.5
     angle: 100
     damage:
       types:
@@ -512,18 +512,18 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
-  - type: Reflect # Goob edit
+  - type: Reflect # Goida edit
     reflectProb: 1
     spread: 75
   - type: FlipOnHit # WD EDIT
-  - type: ThrowableBlocker # Goobstation
+  - type: ThrowableBlocker # Goidastation
     blockSound:
       path: /Audio/Weapons/eblade1.ogg
       params:
         variation: 0.250
         volume: -2
 
-- type: entity # Goobstation
+- type: entity # Goidastation
   parent: EnergySwordDoubleBase
   id: EnergySwordDouble
   components:
@@ -588,7 +588,7 @@
 # Borgs
 - type: entity
   suffix: One-Handed, For Borgs
-  parent: EnergySwordDoubleBase # Goob edit
+  parent: EnergySwordDoubleBase # Goida edit
   id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
   components: # could add energy-draining like the L6C

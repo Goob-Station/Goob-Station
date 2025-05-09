@@ -4,7 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Standing;
+using Content.Goidastation.Common.Standing;
 
 namespace Content.Server._White.Traits.Assorted;
 

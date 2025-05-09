@@ -22,7 +22,7 @@
   - OrganIPCPump
 
 - type: latheRecipePack
-  id: BorgModulesStaticGoob
+  id: BorgModulesStaticGoida
   recipes:
   - BorgModuleSurgery
 
@@ -44,7 +44,7 @@
   - ModsuitPlatingExternal
 
 - type: latheRecipePack
-  id: BorgModulesGoob
+  id: BorgModulesGoida
   recipes:
   - BorgModuleAdvancedSurgery
   - BorgModuleLollipop

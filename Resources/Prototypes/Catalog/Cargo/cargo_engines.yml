@@ -50,7 +50,7 @@
     sprite: Structures/Power/Generation/Singularity/containment.rsi
     state: icon
   product: CrateEngineeringSingularityContainment
-  cost: 350 # Goobstation - Make emitters and containment generators cheaper
+  cost: 350 # Goidastation - Make emitters and containment generators cheaper
   category: cargoproduct-category-name-engineering
   group: market
 
@@ -62,7 +62,7 @@
     sprite: Structures/Power/Generation/Singularity/emitter.rsi
     state: emitter2
   product: CrateEngineeringSingularityEmitter
-  cost: 500 # Goobstation - Make emitters and containment generators cheaper
+  cost: 500 # Goidastation - Make emitters and containment generators cheaper
   category: cargoproduct-category-name-engineering
   group: market
 

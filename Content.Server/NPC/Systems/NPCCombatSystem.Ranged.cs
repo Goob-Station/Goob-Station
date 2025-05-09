@@ -10,7 +10,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.NPC.Components;
-using Content.Shared._Goobstation.Weapons.SmartGun;
+using Content.Shared._Goidastation.Weapons.SmartGun;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
@@ -26,7 +26,7 @@ public sealed partial class NPCCombatSystem
 {
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
-    [Dependency] private readonly SharedLaserPointerSystem _pointer = default!; // Goobstation
+    [Dependency] private readonly SharedLaserPointerSystem _pointer = default!; // Goidastation
 
     private EntityQuery<CombatModeComponent> _combatQuery;
     private EntityQuery<NPCSteeringComponent> _steeringQuery;
@@ -73,7 +73,7 @@ public sealed partial class NPCCombatSystem
             _combat.SetInCombatMode(uid, false, combat);
         }
 
-        // Goobstation
+        // Goidastation
         if (_gun.TryGetGun(uid, out var gunUid, out _) && TryComp(gunUid, out LaserPointerComponent? laser) &&
             TryComp(gunUid, out WieldableComponent? wieldable) && TryComp(gunUid, out TransformComponent? xform))
             _pointer.AddOrRemoveLine(GetNetEntity(gunUid), laser, wieldable, xform, null, null);
@@ -94,7 +94,7 @@ public sealed partial class NPCCombatSystem
 
             if (comp.Status == CombatStatus.Unspecified)
             {
-                UpdatePointerLineNoTarget(); // Goobstation
+                UpdatePointerLineNoTarget(); // Goidastation
                 continue;
             }
 
@@ -102,7 +102,7 @@ public sealed partial class NPCCombatSystem
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;
-                UpdatePointerLineNoTarget(); // Goobstation
+                UpdatePointerLineNoTarget(); // Goidastation
                 continue;
             }
 
@@ -111,7 +111,7 @@ public sealed partial class NPCCombatSystem
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;
-                UpdatePointerLineNoTarget(); // Goobstation
+                UpdatePointerLineNoTarget(); // Goidastation
                 continue;
             }
 
@@ -119,7 +119,7 @@ public sealed partial class NPCCombatSystem
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;
-                UpdatePointerLineNoTarget(); // Goobstation
+                UpdatePointerLineNoTarget(); // Goidastation
                 continue;
             }
 
@@ -139,13 +139,13 @@ public sealed partial class NPCCombatSystem
                 // Recharging then?
                 if (_rechargeQuery.HasComponent(gunUid))
                 {
-                    UpdatePointerLine(); // Goobstation
+                    UpdatePointerLine(); // Goidastation
                     continue;
                 }
 
                 comp.Status = CombatStatus.Unspecified;
                 comp.ShootAccumulator = 0f;
-                UpdatePointerLine(); // Goobstation
+                UpdatePointerLine(); // Goidastation
                 continue;
             }
 
@@ -176,7 +176,7 @@ public sealed partial class NPCCombatSystem
                     steering.ForceMove = true;
                 }
 
-                UpdatePointerLine(); // Goobstation
+                UpdatePointerLine(); // Goidastation
                 continue;
             }
 
@@ -189,7 +189,7 @@ public sealed partial class NPCCombatSystem
 
             if (comp.ShootAccumulator < comp.ShootDelay)
             {
-                UpdatePointerLine(); // Goobstation
+                UpdatePointerLine(); // Goidastation
                 continue;
             }
 
@@ -203,7 +203,7 @@ public sealed partial class NPCCombatSystem
             if (Double.IsNaN(goalRotation.Theta) ||
                 !_rotate.TryRotateTo(uid, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
             {
-                UpdatePointerLine(); // Goobstation
+                UpdatePointerLine(); // Goidastation
                 continue;
             }
 
@@ -217,7 +217,7 @@ public sealed partial class NPCCombatSystem
 
             if (!Enabled || !_gun.CanShoot(gun))
             {
-                UpdatePointerLine(); // Goobstation
+                UpdatePointerLine(); // Goidastation
                 continue;
             }
 
@@ -234,7 +234,7 @@ public sealed partial class NPCCombatSystem
 
             comp.Status = CombatStatus.Normal;
 
-            UpdatePointerLine(); // Goobstation
+            UpdatePointerLine(); // Goidastation
 
             if (gun.NextFire > _timing.CurTime)
             {
@@ -245,7 +245,7 @@ public sealed partial class NPCCombatSystem
 
             break;
 
-            // Goobstation
+            // Goidastation
             void UpdatePointerLineNoTarget()
             {
                 if (TryComp(gunUid, out LaserPointerComponent? pointer) && TryComp(gunUid, out WieldableComponent? wieldable))

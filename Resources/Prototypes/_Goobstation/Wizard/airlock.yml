@@ -18,7 +18,7 @@
   suffix: Uranium
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Structures/Airlocks/Standard/uranium.rsi
+    sprite: _Goidastation/Wizard/Structures/Airlocks/Standard/uranium.rsi
   - type: Construction
     graph: AirlockUranium
     node: airlock
@@ -33,7 +33,7 @@
   suffix: Uranium, Glass
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Structures/Airlocks/Glass/uranium.rsi
+    sprite: _Goidastation/Wizard/Structures/Airlocks/Glass/uranium.rsi
   - type: Construction
     graph: AirlockUranium
     node: glassAirlock
@@ -69,7 +69,7 @@
   parent: AirlockAssembly
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Structures/Airlocks/Standard/uranium.rsi
+    sprite: _Goidastation/Wizard/Structures/Airlocks/Standard/uranium.rsi
     state: "assembly"
   - type: Construction
     graph: AirlockUranium
@@ -83,7 +83,7 @@
   suffix: Uranium, Glass
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Structures/Airlocks/Glass/uranium.rsi
+    sprite: _Goidastation/Wizard/Structures/Airlocks/Glass/uranium.rsi
     state: "assembly"
 
 # Recipes
@@ -96,7 +96,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you.
   icon:
-    sprite: _Goobstation/Wizard/Structures/Airlocks/Standard/uranium.rsi
+    sprite: _Goidastation/Wizard/Structures/Airlocks/Standard/uranium.rsi
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter
@@ -113,7 +113,7 @@
   category: construction-category-structures
   description: It opens, it closes, and maybe crushes you.
   icon:
-    sprite: _Goobstation/Wizard/Structures/Airlocks/Glass/uranium.rsi
+    sprite: _Goidastation/Wizard/Structures/Airlocks/Glass/uranium.rsi
     state: assembly
   objectType: Structure
   placementMode: SnapgridCenter

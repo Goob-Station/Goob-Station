@@ -11,7 +11,7 @@
 //using Content.Shared.Language;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Blob.Components;
+namespace Content.Goidastation.Shared.Blob.Components;
 
 //[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [RegisterComponent, NetworkedComponent]

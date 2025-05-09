@@ -7,7 +7,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.Reagent;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;

@@ -7,20 +7,20 @@
 
 - type: entity
   id: TelescopicBaton
-  parent: [BaseItem, BaseCommandContraband] # Goob edit
+  parent: [BaseItem, BaseCommandContraband] # Goida edit
   name: telescopic baton
-  description: A compact and harmless personal defense weapon. Sturdy enough to knock the feet out from under attackers. If you hit a person immediately after extending the baton, it will force them drop held items as well. # Goob edit
+  description: A compact and harmless personal defense weapon. Sturdy enough to knock the feet out from under attackers. If you hit a person immediately after extending the baton, it will force them drop held items as well. # Goida edit
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit
+    sprite: _Goidastation/Objects/Weapons/Melee/telebaton.rsi # Goida edit
     layers:
     - state: icon
       map: [ "enum.TelescopicBatonVisuals.Layer" ]
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi # Goob edit
-    heldPrefix: off # Goobstation
+    sprite: _Goidastation/Objects/Weapons/Melee/telebaton.rsi # Goida edit
+    heldPrefix: off # Goidastation
     size: Small
-    storedRotation: -45 # Goobstation
+    storedRotation: -45 # Goidastation
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/telescopicon.ogg
@@ -30,13 +30,13 @@
       path: /Audio/Weapons/telescopicoff.ogg
       params:
         volume: -2
-  - type: ComponentToggler # Goobstation
+  - type: ComponentToggler # Goidastation
     components:
     - type: DisarmMalus
       malus: 0.6
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
-      path: /Audio/_Goobstation/Weapons/Baton/woodhit.ogg
+      path: /Audio/_Goidastation/Weapons/Baton/woodhit.ogg
       params:
         variation: 0.250
     activatedDamage:
@@ -44,24 +44,24 @@
         Blunt: 12
   - type: ItemToggleSize
     activatedSize: Normal
-    activatedShape: # Goobstation
+    activatedShape: # Goidastation
     - 0,0,0,3
   - type: UseDelay
-    # Goob edit start
+    # Goida edit start
     delays:
       default:
         length: 1
       telebaton:
         length: 4
-    # Goob edit end
+    # Goida edit end
   - type: TelescopicBaton
   - type: KnockdownOnHit
     duration: 1.5
-    dropHeldItemsBehavior: DropIfStanding # Goob edit
+    dropHeldItemsBehavior: DropIfStanding # Goida edit
   - type: MeleeWeapon
     wideAnimationRotation: -135
     bluntStaminaDamageFactor: 1.5
-    angle: 0 # Goob edit
+    angle: 0 # Goida edit
     damage:
       types:
         Blunt: 1
@@ -72,11 +72,11 @@
         enum.TelescopicBatonVisuals.Layer:
           True: { state: icon }
           False: { state: icon-off }
-  - type: Clothing # Goobstation
-    sprite: _Goobstation/Objects/Weapons/Melee/telebaton.rsi
+  - type: Clothing # Goidastation
+    sprite: _Goidastation/Objects/Weapons/Melee/telebaton.rsi
     slots:
     - Belt
-  - type: UseDelayBlockMelee # Goobstation
+  - type: UseDelayBlockMelee # Goidastation
     delays:
     - default
     - telebaton

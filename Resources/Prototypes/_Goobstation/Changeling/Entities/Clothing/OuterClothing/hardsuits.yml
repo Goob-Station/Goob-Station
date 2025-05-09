@@ -4,7 +4,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -16,9 +16,9 @@
   suffix: Unremoveable
   components:
   - type: Sprite
-    sprite: _Goobstation/Changeling/ling_spacesuit.rsi
+    sprite: _Goidastation/Changeling/ling_spacesuit.rsi
   - type: Clothing
-    sprite: _Goobstation/Changeling/ling_spacesuit.rsi
+    sprite: _Goidastation/Changeling/ling_spacesuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.225
     lowPressureMultiplier: 1000
@@ -39,7 +39,7 @@
     sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: Unremoveable
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     cancel: true
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.4

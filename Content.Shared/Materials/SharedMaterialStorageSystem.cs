@@ -33,7 +33,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -52,7 +52,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Goobstation.Silo;
+using Content.Shared._Goidastation.Silo;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Stacks;
@@ -75,7 +75,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedSiloSystem _silo = default!; // Goobstation
+    [Dependency] private readonly SharedSiloSystem _silo = default!; // Goidastation
 
     /// <summary>
     /// Default volume for a sheet if the material's entity prototype has no material composition.
@@ -135,7 +135,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return 0; //you have nothing
-        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, material, out var amount)) // Goobstation
+        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, material, out var amount)) // Goidastation
             return amount;
         return component.Storage.GetValueOrDefault(material, 0);
     }
@@ -150,7 +150,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return 0;
-        if (component.ConnectToSilo && _silo.TryGetTotalMaterialAmount(uid, out var amount)) // Goobstation
+        if (component.ConnectToSilo && _silo.TryGetTotalMaterialAmount(uid, out var amount)) // Goidastation
             return amount;
         return component.Storage.Values.Sum();
     }
@@ -185,11 +185,11 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (!CanTakeVolume(uid, volume, component))
             return false;
 
-        if (!component.IgnoreMaterialWhiteList) // Goobstation Change - Shitcode.
+        if (!component.IgnoreMaterialWhiteList) // Goidastation Change - Shitcode.
             if (component.MaterialWhiteList == null ? false : !component.MaterialWhiteList.Contains(materialId))
                 return false;
 
-        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, materialId, out var siloAmount)) // Goobstation
+        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, materialId, out var siloAmount)) // Goidastation
             return siloAmount + volume >= 0;
 
         var amount = component.Storage.GetValueOrDefault(materialId);
@@ -233,7 +233,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (!CanChangeMaterialAmount(uid, materialId, volume, component))
             return false;
 
-        // Goob start
+        // Goida start
         EntityUid storageUid;
         Dictionary<ProtoId<MaterialPrototype>, int> storage;
         if (component.ConnectToSilo)
@@ -251,17 +251,17 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         }
 
         var existing = storage.GetOrNew(materialId);
-        // Goob end
+        // Goida end
 
         existing += volume;
 
         if (existing == 0)
-            storage.Remove(materialId); // Goob edit
+            storage.Remove(materialId); // Goida edit
         else
-            storage[materialId] = existing; // Goob edit
+            storage[materialId] = existing; // Goida edit
 
         var ev = new MaterialAmountChangedEvent();
-        RaiseLocalEvent(storageUid, ref ev); // Goob edit
+        RaiseLocalEvent(storageUid, ref ev); // Goida edit
 
         if (dirty)
             Dirty(uid, component);
@@ -289,7 +289,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
                 return false;
         }
 
-        if (entity.Comp.ConnectToSilo) // Goobstation
+        if (entity.Comp.ConnectToSilo) // Goidastation
             _silo.DirtySilo(entity);
         Dirty(entity, entity.Comp);
         return true;

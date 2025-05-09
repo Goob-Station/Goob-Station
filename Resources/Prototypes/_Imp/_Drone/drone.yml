@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
@@ -17,8 +17,8 @@
       connections:
       - right arm
       - right arm 2
-      - right arm 3 # Goobstation
-      - right arm 4 # Goobstation
+      - right arm 3 # Goidastation
+      - right arm 4 # Goidastation
       - left arm
       - left arm 2
     right arm:
@@ -29,11 +29,11 @@
       part: RightArmBorg
       connections:
       - right hand 2
-    right arm 3: # Goobstation
+    right arm 3: # Goidastation
       part: RightArmBorg
       connections:
       - right hand 3
-    right arm 4: # Goobstation
+    right arm 4: # Goidastation
       part: RightArmBorg
       connections:
       - right hand 4
@@ -49,9 +49,9 @@
       part: RightHandHuman # shitmed moment
     right hand 2:
       part: RightHandHuman
-    right hand 3: # Goobstation
+    right hand 3: # Goidastation
       part: RightHandHuman
-    right hand 4: # Goobstation
+    right hand 4: # Goidastation
       part: RightHandHuman
     left hand:
       part: LeftHandHuman

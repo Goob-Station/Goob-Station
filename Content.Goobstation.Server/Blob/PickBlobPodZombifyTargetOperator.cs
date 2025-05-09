@@ -17,7 +17,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed partial class PickBlobPodZombifyTargetOperator : HTNOperator
 {

@@ -100,7 +100,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
@@ -347,8 +347,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Brigmedic Hardsuit
 - type: entity
@@ -375,8 +375,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Warden's Hardsuit
 - type: entity
@@ -401,8 +401,8 @@
         Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Captain's Hardsuit
 - type: entity
@@ -418,8 +418,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -497,8 +497,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -543,8 +543,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Blood-red Medic Hardsuit
 - type: entity
@@ -569,8 +569,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -600,8 +600,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -626,8 +626,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -650,12 +650,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Wizard Hardsuit
 - type: entity
-  parent: [ClothingHeadHardsuitWithLightBase, ClothingHeadHatWizardBaseArmor] # Goob edit
+  parent: [ClothingHeadHardsuitWithLightBase, ClothingHeadHatWizardBaseArmor] # Goida edit
   id: ClothingHeadHelmetHardsuitWizard
   name: wizard hardsuit helmet
   description: A bizarre gem-encrusted helmet that radiates magical energies.
@@ -664,14 +664,14 @@
     sprite: Clothing/Head/Hardsuits/wizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/wizard.rsi
-  - type: PointLight # Goob edit
+  - type: PointLight # Goida edit
     color: "#4d7ae3"
     energy: 10
     radius: 5
   - type: PressureProtection
     highPressureMultiplier: 0.27
     lowPressureMultiplier: 1000
-  - type: Armor # Goob edit
+  - type: Armor # Goida edit
     modifiers:
       coefficients:
         Blunt: 0.85
@@ -680,9 +680,9 @@
         Heat: 0.85
         Caustic: 0.9
         Radiation: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
-  - type: WizardClothes # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
+  - type: WizardClothes # Goidastation
 
 #Organic Space Suit
 - type: entity
@@ -730,8 +730,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -877,8 +877,8 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
 
 #Deathsquad Hardsuit
 - type: entity
@@ -906,10 +906,10 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
-  - type: FlashImmunity # Goobstation
-  - type: FlashSoundSuppression # Goobstation
+  - type: FlashImmunity # Goidastation
+  - type: FlashSoundSuppression # Goidastation
     protectionRange: 0
-  - type: PointLight # Goobstation - Light to deathsquad hardsuit
+  - type: PointLight # Goidastation - Light to deathsquad hardsuit
     color: "#567fc4"
     rotation: 30
     energy: 10

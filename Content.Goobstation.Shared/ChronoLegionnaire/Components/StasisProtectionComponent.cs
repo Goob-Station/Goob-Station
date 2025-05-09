@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
+namespace Content.Goidastation.Shared.ChronoLegionnaire.Components
 {
     /// <summary>
     /// Marks entity (clothing) that will give stasis immunity to wearer

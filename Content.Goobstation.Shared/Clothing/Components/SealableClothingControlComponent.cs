@@ -8,13 +8,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Systems;
+using Content.Goidastation.Shared.Clothing.Systems;
 using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Clothing.Components;
+namespace Content.Goidastation.Shared.Clothing.Components;
 
 /// <summary>
 ///     Component used to designate contol of sealable clothing. It'll contain action to seal clothing.
@@ -93,9 +93,9 @@ public sealed partial class SealableClothingControlComponent : Component
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/Machines/scanbuzz.ogg");
 
     [DataField]
-    public SoundSpecifier SealCompleteSound = new SoundPathSpecifier("/Audio/_Goobstation/Mecha/nominal.ogg");
+    public SoundSpecifier SealCompleteSound = new SoundPathSpecifier("/Audio/_Goidastation/Mecha/nominal.ogg");
 
     [DataField]
-    public SoundSpecifier UnsealCompleteSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/computer_end.ogg");
+    public SoundSpecifier UnsealCompleteSound = new SoundPathSpecifier("/Audio/_Goidastation/Machines/computer_end.ogg");
     #endregion
 }

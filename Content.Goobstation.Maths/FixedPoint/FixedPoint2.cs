@@ -33,7 +33,7 @@ using System.Globalization;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Maths.FixedPoint
+namespace Content.Goidastation.Maths.FixedPoint
 {
     /// <summary>
     ///     Represents a quantity of something, to a precision of 0.01.

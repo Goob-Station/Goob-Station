@@ -72,12 +72,12 @@
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
   supervisors: job-supervisors-engineering
-  goobcoins: 20 #Goob content
+  goidacoins: 20 #Goida content
   access:
   - Maintenance
   - Engineering
   - External
-  special: # Goobstation
+  special: # Goidastation
   - !type:AddComponentSpecial
     components:
     - type: EngineeringStaff

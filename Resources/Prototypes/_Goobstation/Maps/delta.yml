@@ -7,7 +7,7 @@
 - type: gameMap
   id: Delta
   mapName: 'Delta Station'
-  mapPath: /Maps/_Goobstation/delta.yml
+  mapPath: /Maps/_Goidastation/delta.yml
   minPlayers: 55
   stations:
     Delta:
@@ -72,7 +72,7 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
 
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450

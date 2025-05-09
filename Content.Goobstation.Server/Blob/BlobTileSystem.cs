@@ -11,9 +11,9 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Shared.Blob.Events;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.Events;
 using Content.Server.Construction.Components;
 using Content.Server.Destructible;
 using Content.Server.Emp;
@@ -30,7 +30,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed class BlobTileSystem : SharedBlobTileSystem
 {

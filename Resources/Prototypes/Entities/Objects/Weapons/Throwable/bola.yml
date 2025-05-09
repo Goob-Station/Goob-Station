@@ -13,14 +13,14 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pubbi <63283968+impubbi@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Goob edit - energy bola
+# Goida edit - energy bola
 
 - type: entity
   name: bola
@@ -100,7 +100,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Throwable/energy_bola.rsi
+    sprite: _Goidastation/Objects/Weapons/Throwable/energy_bola.rsi
   - type: Ensnaring
     freeTime: 2.0
     breakoutTime: 3.5 #all bola should generally be fast to remove

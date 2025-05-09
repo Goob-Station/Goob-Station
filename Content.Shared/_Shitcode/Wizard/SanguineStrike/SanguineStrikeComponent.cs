@@ -5,12 +5,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
+namespace Content.Shared._Goidastation.Wizard.SanguineStrike;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SanguineStrikeComponent : Component
@@ -43,10 +43,10 @@ public sealed partial class SanguineStrikeComponent : Component
     public EntProtoId BloodEffect = "SanguineBloodEffect";
 
     [DataField]
-    public SoundSpecifier HitSound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/crackandbleed.ogg");
+    public SoundSpecifier HitSound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/crackandbleed.ogg");
 
     [DataField]
-    public SoundSpecifier LifestealSound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/charge.ogg");
+    public SoundSpecifier LifestealSound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/charge.ogg");
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool HadPointLight;

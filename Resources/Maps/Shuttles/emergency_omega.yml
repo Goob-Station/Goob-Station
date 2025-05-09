@@ -3661,7 +3661,7 @@ entities:
     - type: Transform
       pos: -5.5,2.5
       parent: 603
-- proto: ThrusterShuttleEvac # Goob edit
+- proto: ThrusterShuttleEvac # Goida edit
   entities:
   - uid: 46
     components:

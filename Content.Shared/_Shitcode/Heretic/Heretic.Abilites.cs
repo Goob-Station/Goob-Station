@@ -14,7 +14,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
@@ -147,7 +147,7 @@ public sealed partial class EventHereticRustConstruction : WorldTargetActionEven
     public EntProtoId RustedWall = "WallSolidRust";
 
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/constructform.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goidastation/Heretic/constructform.ogg");
 
     [DataField]
     public float ObstacleCheckRange = 0.05f;
@@ -235,7 +235,7 @@ public sealed partial class EventHereticCleave : WorldTargetActionEvent
     public EntProtoId Effect = "EffectCleave";
 
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/blood3.ogg");
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/_Goidastation/Heretic/blood3.ogg");
 }
 
 public sealed partial class EventHereticRustCharge : WorldTargetActionEvent

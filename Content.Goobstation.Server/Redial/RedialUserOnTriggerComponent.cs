@@ -8,7 +8,7 @@
 using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Goobstation.Server.Redial;
+namespace Content.Goidastation.Server.Redial;
 
 [RegisterComponent]
 public sealed partial class RedialUserOnTriggerComponent : Component

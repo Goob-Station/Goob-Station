@@ -173,7 +173,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: BalloonPopper
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:

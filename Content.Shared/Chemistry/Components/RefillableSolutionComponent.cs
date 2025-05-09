@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: MIT
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Chemistry.Components;

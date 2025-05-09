@@ -9,13 +9,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Bingle;
+using Content.Goidastation.Shared.Bingle;
 using Content.Shared.CombatMode;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 
-namespace Content.Goobstation.Client.Bingle;
+namespace Content.Goidastation.Client.Bingle;
 
 /// <summary>
 ///   Handles the appearance of bingles.

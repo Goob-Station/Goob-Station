@@ -14,7 +14,7 @@ namespace Content.Shared.Eye.Blinding.Components;
 /// <summary>
 /// For welding masks, sunglasses, etc.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goob edit
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goida edit
 public sealed partial class EyeProtectionComponent : Component
 {
     /// <summary>

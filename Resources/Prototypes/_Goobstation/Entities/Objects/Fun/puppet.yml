@@ -10,6 +10,6 @@
   name: lil cal
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Fun/lilcal.rsi
+    sprite: _Goidastation/Objects/Fun/lilcal.rsi
     layers:
     - state: icon

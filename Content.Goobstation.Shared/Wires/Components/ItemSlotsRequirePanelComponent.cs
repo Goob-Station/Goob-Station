@@ -10,7 +10,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Wires.Components;
+namespace Content.Goidastation.Shared.Wires.Components;
 
 /// <summary>
 /// This is used for items slots that require entity to have wire panel for interactions

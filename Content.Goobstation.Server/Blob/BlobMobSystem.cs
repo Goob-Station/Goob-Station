@@ -11,15 +11,15 @@
 //using Content.Server.Language;
 //using Content.Server.Language.Events;
 
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Damage;
 using Robust.Shared.Network;
 //using Content.Shared.Language;
 //using Content.Shared.Targeting;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed class BlobMobSystem : SharedBlobMobSystem
 {

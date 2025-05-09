@@ -115,7 +115,7 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -136,7 +136,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Content.Shared.DeviceLinking; // Goobstation
+using Content.Shared.DeviceLinking; // Goidastation
 using Content.Shared.Disposal;
 using Content.Shared.Disposal.Components;
 using Content.Shared.DoAfter;
@@ -160,7 +160,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes; // Goobstation
+using Robust.Shared.Prototypes; // Goidastation
 using Robust.Shared.Utility;
 
 namespace Content.Server.Disposal.Unit.EntitySystems;
@@ -182,8 +182,8 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goobstation
-    public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
+    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goidastation
+    public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goidastation
 
     public override void Initialize()
     {
@@ -456,10 +456,10 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
             return;
         }
 
-        if (component.Engaged && !TryFlush(uid, component)) // Goobstation - bring back speedflush
+        if (component.Engaged && !TryFlush(uid, component)) // Goidastation - bring back speedflush
         {
             // Run ManualEngage to recalculate a new flush time
-            QueueAutomaticEngage(uid, component); // Goobstation - queue it instead
+            QueueAutomaticEngage(uid, component); // Goidastation - queue it instead
         }
     }
 
@@ -515,7 +515,7 @@ public sealed class DisposalUnitSystem : SharedDisposalUnitSystem
         if (state == DisposalsPressureState.Ready)
         {
             component.NextPressurized = TimeSpan.Zero;
-            _device.InvokePort(uid, ReadyPort); // Goobstation
+            _device.InvokePort(uid, ReadyPort); // Goidastation
 
             // Manually engaged
             if (component.Engaged)

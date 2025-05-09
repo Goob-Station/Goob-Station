@@ -16,7 +16,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Tag;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goidastation.Server.StationEvents;
 
 public sealed class JobAddTagsRule : StationEventSystem<JobAddTagsRuleComponent>
 {

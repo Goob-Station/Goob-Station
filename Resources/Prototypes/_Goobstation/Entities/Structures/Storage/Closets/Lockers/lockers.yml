@@ -12,7 +12,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Structures/Storage/closet.rsi
+    sprite: _Goidastation/Structures/Storage/closet.rsi
   - type: AccessReader
     access: [["BlueshieldOfficer"]]
   - type: EntityStorageVisuals
@@ -27,7 +27,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Structures/Storage/closet.rsi
+    sprite: _Goidastation/Structures/Storage/closet.rsi
   - type: AccessReader
     access: [["NanotrasenRepresentative"]]
   - type: EntityStorageVisuals

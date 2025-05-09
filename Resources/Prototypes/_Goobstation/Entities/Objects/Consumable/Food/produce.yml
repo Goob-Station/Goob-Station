@@ -23,7 +23,7 @@
         - ReagentId: Vitamin
           Quantity: 4
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Hydroponics/strange_berries.rsi
+    sprite: _Goidastation/Objects/Specific/Hydroponics/strange_berries.rsi
   - type: Produce
     seedId: strangeBerries
   - type: Extractable
@@ -39,7 +39,7 @@
   parent: ProduceBase
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Hydroponics/nevcotta.rsi
+    sprite: _Goidastation/Objects/Specific/Hydroponics/nevcotta.rsi
     state: icon
   - type: SolutionContainerManager
   - type: Produce
@@ -55,7 +55,7 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Hydroponics/nevcotta.rsi
+    sprite: _Goidastation/Objects/Specific/Hydroponics/nevcotta.rsi
     state: bark
   - type: Extractable
     grindableSolutionName: food

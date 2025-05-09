@@ -43,8 +43,8 @@ public sealed class MiningSystem : EntitySystem
             return;
 
         var coords = Transform(uid).Coordinates;
-        var modifier = component.Modifier; // Goobstation
-        var toSpawn = (int) _random.NextFloat((float) proto.MinOreYield * modifier, (float) (proto.MaxOreYield+1) * modifier); // Goobstation - Apply fortune
+        var modifier = component.Modifier; // Goidastation
+        var toSpawn = (int) _random.NextFloat((float) proto.MinOreYield * modifier, (float) (proto.MaxOreYield+1) * modifier); // Goidastation - Apply fortune
         for (var i = 0; i < toSpawn; i++)
         {
             Spawn(proto.OreEntity, coords.Offset(_random.NextVector2(0.2f)));

@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Weapons;
+namespace Content.Goidastation.Server.Weapons;
 
 [RegisterComponent]
 public sealed partial class GibThisGuyComponent : Component

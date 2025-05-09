@@ -5,7 +5,7 @@
 # SPDX-FileCopyrightText: 2024 Sphiral <145869023+SphiraI@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
@@ -31,7 +31,7 @@
       uiWindowPos: 2,2
       strippingWindowPos: 2,3
       displayName: ID
-    - name: pocket1 # Goobstation - Pocket 1
+    - name: pocket1 # Goidastation - Pocket 1
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET
@@ -41,7 +41,7 @@
       strippingWindowPos: 0,4
       displayName: Pocket 1
       stripHidden: true
-    - name: pocket2 # Goobstation - Pocket 2
+    - name: pocket2 # Goidastation - Pocket 2
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET
@@ -51,7 +51,7 @@
       strippingWindowPos: 1,4
       displayName: Pocket 2
       stripHidden: true
-    - name: pocket3 # Goobstation - Pocket 3
+    - name: pocket3 # Goidastation - Pocket 3
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET
@@ -61,7 +61,7 @@
       strippingWindowPos: 2,4
       displayName: Pocket 3
       stripHidden: true
-    - name: pocket4 # Goobstation - Pocket 4
+    - name: pocket4 # Goidastation - Pocket 4
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET
@@ -76,10 +76,10 @@
     - name: head
       slotTexture: head
       slotFlags: HEAD
-      uiWindowPos: 0,3 # Goobstation - Moved up slightly
+      uiWindowPos: 0,3 # Goidastation - Moved up slightly
       strippingWindowPos: 0,0
       displayName: Head
-    - name: neck # Goobstation - For drip reasons.
+    - name: neck # Goidastation - For drip reasons.
       slotTexture: neck
       slotFlags: NECK
       uiWindowPos: 0,2

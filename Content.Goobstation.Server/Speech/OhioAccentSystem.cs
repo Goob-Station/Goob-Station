@@ -10,7 +10,7 @@ using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Speech;
+namespace Content.Goidastation.Server.Speech;
 
 public sealed class OhioAccentSystem : EntitySystem
 {

@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Weide <64257676+Lyacs@users.noreply.github.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Goob porter comment, could be nice to make it so it can work with a wire system like in paradise
+# Goida porter comment, could be nice to make it so it can work with a wire system like in paradise
 # Ported from Harmony
 
 - type: entity
@@ -13,7 +13,7 @@
   description: A cardboard box for storing things.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Bombs/Pizzabomb.rsi
+    sprite: _Goidastation/Objects/Weapons/Bombs/Pizzabomb.rsi
     layers:
     - state: icon
     - state: primed

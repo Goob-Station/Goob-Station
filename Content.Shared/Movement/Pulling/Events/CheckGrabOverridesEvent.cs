@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
+using Content.Goidastation.Common.MartialArts;
 
 namespace Content.Shared.Movement.Pulling.Events;
 

@@ -41,7 +41,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
@@ -69,7 +69,7 @@ using System.Text;
 using Content.Client.Materials;
 using Content.Shared._DV.Salvage.Components; // DeltaV
 using Content.Shared._DV.Salvage.Systems; // DeltaV
-using Content.Client._Shitcode.Silo; // Goobstation
+using Content.Client._Shitcode.Silo; // Goidastation
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;
@@ -97,7 +97,7 @@ public sealed partial class LatheMenu : DefaultWindow
     private readonly LatheSystem _lathe;
     private readonly MaterialStorageSystem _materialStorage;
     private readonly MiningPointsSystem _miningPoints; // DeltaV
-    private readonly SiloSystem _silo; // Goobstation
+    private readonly SiloSystem _silo; // Goidastation
     public event Action<BaseButton.ButtonEventArgs>? OnServerListButtonPressed;
     public event Action<string, int>? RecipeQueueAction;
     public event Action? OnClaimMiningPoints; // DeltaV
@@ -121,7 +121,7 @@ public sealed partial class LatheMenu : DefaultWindow
         _lathe = _entityManager.System<LatheSystem>();
         _materialStorage = _entityManager.System<MaterialStorageSystem>();
         _miningPoints = _entityManager.System<MiningPointsSystem>(); // DeltaV
-        _silo = _entityManager.System<SiloSystem>(); // Goobstation
+        _silo = _entityManager.System<SiloSystem>(); // Goidastation
 
         SearchBar.OnTextChanged += _ =>
         {
@@ -187,7 +187,7 @@ public sealed partial class LatheMenu : DefaultWindow
     }
 
     /// <summary>
-    /// Goobstation: Check if the lathe is connected to a silo.
+    /// Goidastation: Check if the lathe is connected to a silo.
     /// </summary>
     private bool IsSiloConnected(EntityUid uid, out string? warning, bool checkGrid = false)
     {

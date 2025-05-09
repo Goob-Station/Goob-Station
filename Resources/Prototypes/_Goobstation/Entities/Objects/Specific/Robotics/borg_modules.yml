@@ -35,7 +35,7 @@
     layers:
     - state: generic
     - state: icon-lollypop
-      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
+      sprite: _Goidastation/Objects/Specific/Robotics/borgmodule.rsi
   - type: ItemBorgModule
     moduleId: Lollipop
     items:
@@ -43,7 +43,7 @@
     - LauncherLollypopRegeneratingTricordazine
     - LauncherLollypopRegeneratingMystery # I <3 GAMBLING
   - type: BorgModuleIcon
-    icon: { sprite: _Goobstation/Actions/actions_borg.rsi, state: lollypop-module }
+    icon: { sprite: _Goidastation/Actions/actions_borg.rsi, state: lollypop-module }
 
 - type: entity
   id: BorgModulePKA
@@ -54,7 +54,7 @@
     layers:
     - state: cargo
     - state: icon-pka
-      sprite: _Goobstation/Objects/Specific/Robotics/borgmodule.rsi
+      sprite: _Goidastation/Objects/Specific/Robotics/borgmodule.rsi
   - type: DroppableBorgModule
     moduleId: PKA
     items:

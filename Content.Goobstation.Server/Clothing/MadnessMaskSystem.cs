@@ -16,7 +16,7 @@ using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Clothing;
+namespace Content.Goidastation.Server.Clothing;
 
 public sealed partial class MadnessMaskSystem : EntitySystem
 {

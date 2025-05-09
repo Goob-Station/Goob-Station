@@ -10,8 +10,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Shared.Bingle;
+using Content.Goidastation.Common.Bingle;
+using Content.Goidastation.Shared.Bingle;
 using Content.Server.Flash.Components;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
@@ -21,7 +21,7 @@ using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
-namespace Content.Goobstation.Server.Bingle;
+namespace Content.Goidastation.Server.Bingle;
 
 public sealed class BingleSystem : EntitySystem
 {

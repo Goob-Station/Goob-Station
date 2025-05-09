@@ -14,12 +14,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server.Administration.Logs; // Goobstation
+using Content.Server.Administration.Logs; // Goidastation
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Chat.Managers; // Goobstation
+using Content.Server.Chat.Managers; // Goidastation
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Database; // Goobstation
+using Content.Shared.Database; // Goidastation
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -50,7 +50,7 @@ namespace Content.Server.StationEvents.Events
                 // Was 50-50 on using normal distribution.
                 var totalGas = RobustRandom.Next(component.MinimumGas, component.MaximumGas);
                 component.MolesPerSecond = RobustRandom.Next(component.MinimumMolesPerSecond, component.MaximumMolesPerSecond);
-                // Goobstation start
+                // Goidastation start
                 if (gameRule.Delay is { } startAfter)
                 {
                     stationEvent.EndTime = _timing.CurTime +
@@ -59,7 +59,7 @@ namespace Content.Server.StationEvents.Events
                     _adminLogger.Add(LogType.EventRan, LogImpact.High, $"Gasleak placing {totalGas} moles of {component.LeakGas} at {component.TargetTile} in grid {component.TargetGrid}.");
                     _chat.SendAdminAnnouncement($"Gasleak placing {totalGas} moles of {component.LeakGas} at {component.TargetTile} in grid {component.TargetGrid}.");
                 }
-                // Goobstation end
+                // Goidastation end
             }
 
             // Look technically if you wanted to guarantee a leak you'd do this in announcement but having the announcement

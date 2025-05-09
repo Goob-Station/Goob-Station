@@ -77,7 +77,7 @@ public abstract partial class SharedSericultureSystem : EntitySystem
             BlockDuplicate = true,
             BreakOnDamage = true,
             CancelDuplicate = true,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfterSystem.TryStartDoAfter(doAfter);

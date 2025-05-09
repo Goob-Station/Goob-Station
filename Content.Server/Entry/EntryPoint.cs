@@ -180,7 +180,7 @@ namespace Content.Server.Entry
         private IWatchlistWebhookManager _watchlistWebhookManager = default!;
         private IConnectionManager? _connectionManager;
 
-        private ServerCurrencyManager? _currencyManager; // Goobstation
+        private ServerCurrencyManager? _currencyManager; // Goidastation
 
         /// <inheritdoc />
         public override void Init()
@@ -249,8 +249,8 @@ namespace Content.Server.Entry
                 _watchlistWebhookManager.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
-                _currencyManager = IoCManager.Resolve<ServerCurrencyManager>(); // Goobstation
-                _currencyManager.Initialize(); // Goobstation
+                _currencyManager = IoCManager.Resolve<ServerCurrencyManager>(); // Goidastation
+                _currencyManager.Initialize(); // Goidastation
             }
         }
 
@@ -315,7 +315,7 @@ namespace Content.Server.Entry
 
         protected override void Dispose(bool disposing)
         {
-            _currencyManager?.Shutdown(); // Goobstation
+            _currencyManager?.Shutdown(); // Goidastation
             _playTimeTracking?.Shutdown();
             _dbManager?.Shutdown();
             IoCManager.Resolve<ServerApi>().Shutdown();

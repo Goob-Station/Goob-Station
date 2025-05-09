@@ -7,7 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -29,7 +29,7 @@
     - bluespace_crystal_2
     - bluespace_crystal_3
   - type: Sprite
-    sprite: _Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goidastation/Objects/Materials/materials.rsi
     state: bluespace_crystal
     layers:
     - state: bluespace_crystal
@@ -100,7 +100,7 @@
       enum.StackCustomSplitUiKey.Key:
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
-    sprite: _Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goidastation/Objects/Materials/materials.rsi
     state: hex_1
     layers:
     - state: hex_1
@@ -147,7 +147,7 @@
       enum.StackCustomSplitUiKey.Key:
         type: StackCustomSplitBoundUserInterface
   - type: Sprite
-    sprite: _Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goidastation/Objects/Materials/materials.rsi
     state: screw_1
     layers:
     - state: screw_1

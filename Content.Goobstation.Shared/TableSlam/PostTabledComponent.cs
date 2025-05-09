@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.TableSlam;
+namespace Content.Goidastation.Shared.TableSlam;
 
 /// <summary>
 /// This is used for...

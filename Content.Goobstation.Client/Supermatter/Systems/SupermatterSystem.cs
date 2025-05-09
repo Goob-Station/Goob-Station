@@ -7,11 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Supermatter.Components;
-using Content.Goobstation.Shared.Supermatter.Systems;
+using Content.Goidastation.Shared.Supermatter.Components;
+using Content.Goidastation.Shared.Supermatter.Systems;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Client.Supermatter.Systems;
+namespace Content.Goidastation.Client.Supermatter.Systems;
 
 public sealed class SupermatterSystem : SharedSupermatterSystem
 {

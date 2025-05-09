@@ -6,10 +6,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Changeling.Objectives.Systems;
+using Content.Goidastation.Server.Changeling.Objectives.Systems;
 using Content.Server.Objectives.Components;
 
-namespace Content.Goobstation.Server.Changeling.Objectives.Components;
+namespace Content.Goidastation.Server.Changeling.Objectives.Components;
 
 /// <summary>
 /// Requires that you have the same identity a target for a certain length of time before the round ends.

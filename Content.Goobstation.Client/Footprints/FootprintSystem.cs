@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Footprints;
+using Content.Goidastation.Common.Footprints;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Client.Footprints;
+namespace Content.Goidastation.Client.Footprints;
 
 public sealed class FootprintSystem : EntitySystem
 {

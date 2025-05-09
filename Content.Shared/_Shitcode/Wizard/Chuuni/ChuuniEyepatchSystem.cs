@@ -8,7 +8,7 @@
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Magic.Components;
 using Content.Shared.Verbs;
@@ -16,7 +16,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Wizard.Chuuni;
+namespace Content.Shared._Goidastation.Wizard.Chuuni;
 
 public sealed class ChuuniEyepatchSystem : EntitySystem
 {

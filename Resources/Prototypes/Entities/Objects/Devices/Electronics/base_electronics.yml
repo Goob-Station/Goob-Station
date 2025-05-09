@@ -34,12 +34,12 @@
     state: generic
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: StaticPrice
     price: 100
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 12
     chemicalComposition:
       Silicon: 2
-  - type: Electronics # Goobstation
+  - type: Electronics # Goidastation

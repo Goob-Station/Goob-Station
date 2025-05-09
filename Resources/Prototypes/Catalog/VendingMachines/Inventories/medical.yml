@@ -109,7 +109,7 @@
     BoxBottle: 3
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
-    Tourniquet: 6 # Goobstation - start
+    Tourniquet: 6 # Goidastation - start
     MedicalPatchPrefilledBicaridine: 3
     MedicalPatchPrefilledDermaline: 3
     ParamedHypo: 2
@@ -122,6 +122,6 @@
     FoodSnackLollypopWrappedTricordrazine: 8
   emaggedInventory:
     FoodSnackLollypopWrappedLexorin: 3
-    FoodSnackLollypopWrappedMysteryEvil: 5 # Goobstation - end
+    FoodSnackLollypopWrappedMysteryEvil: 5 # Goidastation - end
   contrabandInventory:
     FoodApple: 1

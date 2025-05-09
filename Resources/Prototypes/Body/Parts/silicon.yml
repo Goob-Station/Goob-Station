@@ -105,13 +105,13 @@
   - type: Icon
     sprite: Objects/Specific/Robotics/cyborg_parts.rsi
   - type: StaticPrice
-    price: 15 #Goobstation - Increased price
+    price: 15 #Goidastation - Increased price
   - type: BodyPart # Shitmed Change
     species: Cyborg
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 62
       Glass: 25

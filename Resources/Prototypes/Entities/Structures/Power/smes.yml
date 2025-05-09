@@ -68,7 +68,7 @@
     - type: Appearance
     - type: Battery
       startingCharge: 0
-      maxCharge: 16000000 # Goobstation - SMES buff
+      maxCharge: 16000000 # Goidastation - SMES buff
       pricePerJoule: .00095
     - type: ExaminableBattery
     - type: NodeContainer
@@ -94,7 +94,7 @@
       voltage: High
       node: input
     - type: PowerNetworkBattery
-       # Goobstation - SMES buff
+       # Goidastation - SMES buff
       maxSupply: 300000
       maxChargeRate: 10000
       supplyRampTolerance: 10000
@@ -142,7 +142,7 @@
   suffix: Basic, 16MJ
   components:
   - type: Battery
-     # Goobstation - SMES buff
+     # Goidastation - SMES buff
     maxCharge: 16000000
     startingCharge: 16000000
 
@@ -181,7 +181,7 @@
   - type: Machine
     board: SMESAdvancedMachineCircuitboard
   - type: Battery
-     # Goobstation - SMES buff
+     # Goidastation - SMES buff
     maxCharge: 32000000
     startingCharge: 32000000
   - type: PowerMonitoringDevice

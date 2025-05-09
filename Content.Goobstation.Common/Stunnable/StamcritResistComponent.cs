@@ -10,7 +10,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Goobstation.Common.Stunnable;
+namespace Content.Goidastation.Common.Stunnable;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StamcritResistComponent : Component

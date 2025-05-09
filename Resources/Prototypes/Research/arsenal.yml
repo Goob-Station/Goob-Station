@@ -58,7 +58,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -84,9 +84,9 @@
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
-  - MechEquipmentKineticAccelerator # Goobstation
+  - MechEquipmentKineticAccelerator # Goidastation
   # These are roundstart but not replenishable for salvage
-  position: 1,0 # Goobstation R&D Console rework
+  position: 1,0 # Goidastation R&D Console rework
 
 - type: technology
   id: DraconicMunitions
@@ -102,7 +102,7 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
-  - MagazineBoxShotgunIncendiaryHighCaliber # Goobstation
+  - MagazineBoxShotgunIncendiaryHighCaliber # Goidastation
   - MagazineLightRifleIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
@@ -110,11 +110,11 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 2,2
   technologyPrerequisites:
   - SalvageWeapons
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -127,14 +127,14 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
-  - WeaponTemperatureGun # Goobstation
-  - WeaponMechCombatFiredartLaser # Goobstation
-  - WeaponEnergyIonRifle # Goobstation - CR second energy bolt update(and ion)
-  # Goobstation R&D Console rework start
+  - WeaponTemperatureGun # Goidastation
+  - WeaponMechCombatFiredartLaser # Goidastation
+  - WeaponEnergyIonRifle # Goidastation - CR second energy bolt update(and ion)
+  # Goidastation R&D Console rework start
   position: 4,0
   technologyPrerequisites:
   - WeaponPlasmaRifleTech
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: NonlethalAmmunition
@@ -149,14 +149,14 @@
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
   - BoxBeanbag
-  - MagazineBoxShotgunBeanbagHighCaliber # Goobstation
+  - MagazineBoxShotgunBeanbagHighCaliber # Goidastation
   - WeaponDisabler
-  - WeaponMechCombatDisabler # Goobstation
-  # Goobstation R&D Console rework start
+  - WeaponMechCombatDisabler # Goidastation
+  # Goidastation R&D Console rework start
   position: 2,3
   technologyPrerequisites:
   - SalvageWeapons
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: UraniumMunitions
@@ -178,12 +178,12 @@
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
   - BoxShotgunUranium
-  - MagazineBoxShotgunUraniumHighCaliber # Goobstation
-  # Goobstation R&D Console rework start
+  - MagazineBoxShotgunUraniumHighCaliber # Goidastation
+  # Goidastation R&D Console rework start
   position: 3,2
   technologyPrerequisites:
   - DraconicMunitions
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: AdvancedRiotControl
@@ -199,12 +199,12 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   - Terminus
   position: 3,3
   technologyPrerequisites:
   - NonlethalAmmunition
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: SpecialMeans
@@ -217,11 +217,11 @@
   cost: 5000
   recipeUnlocks:
   - ClothingBackpackElectropack
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: 4,3
   technologyPrerequisites:
   - AdvancedRiotControl
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 # Tier 2
 
@@ -236,12 +236,12 @@
   cost: 10000
   recipeUnlocks:
   - WeaponLaserCannon
-  - WeaponMechCombatSolarisLaser # Goobstation
-  # Goobstation R&D Console rework start
+  - WeaponMechCombatSolarisLaser # Goidastation
+  # Goidastation R&D Console rework start
   position: 5,0
   technologyPrerequisites:
   - WeaponizedLaserManipulation
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: WaveParticleHarnessing
@@ -254,12 +254,12 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
-  - HoloprojectorSecurityAdvanced # Goobstation
-  # Goobstation R&D Console rework start
+  - HoloprojectorSecurityAdvanced # Goidastation
+  # Goidastation R&D Console rework start
   technologyPrerequisites:
   - WeaponizedLaserManipulation
   position: 5,1
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: BasicShuttleArmament
@@ -281,8 +281,8 @@
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
-  - Shuttlecraft  # Goobstation R&D Console rework
-  position: 3,-4  # Goobstation R&D Console rework
+  - Shuttlecraft  # Goidastation R&D Console rework
+  position: 3,-4  # Goidastation R&D Console rework
 
 # Tier 3
 
@@ -294,19 +294,19 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 20000 # Goobstation 15000 -> 20000
+  cost: 20000 # Goidastation 15000 -> 20000
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
-  - WeaponMechCombatImmolationGun # Goobstation
-  - EnergyMagRifleOverchargeLethal # Goobstation - CR second energy bolt update(and ion)
-  # Goobstation R&D Console rework start
+  - WeaponMechCombatImmolationGun # Goidastation
+  - EnergyMagRifleOverchargeLethal # Goidastation - CR second energy bolt update(and ion)
+  # Goidastation R&D Console rework start
   position: 6,0
   technologyPrerequisites:
   - ConcentratedLaserWeaponry
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
-# Goobstation commented
+# Goidastation commented
 # - type: technology
 #   id: ExperimentalBatteryAmmo
 #   name: research-technology-experimental-battery-ammo
@@ -327,12 +327,12 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 20000 # Goobstation 15000 -> 20000
+  cost: 20000 # Goidastation 15000 -> 20000
   recipeUnlocks:
   - GrenadeEMP
   - PowerCageHigh
   - ShuttleGunDusterCircuitboard
   technologyPrerequisites:
   - BasicShuttleArmament
-  - Shuttlecraft  # Goobstation R&D Console rework
-  position: 4,-4  # Goobstation R&D Console rework
+  - Shuttlecraft  # Goidastation R&D Console rework
+  position: 4,-4  # Goidastation R&D Console rework

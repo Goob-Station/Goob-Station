@@ -4,9 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.ChronoLegionnaire.EntitySystems;
+using Content.Goidastation.Shared.ChronoLegionnaire.EntitySystems;
 
-namespace Content.Goobstation.Server.ChronoLegionnaire.Systems;
+namespace Content.Goidastation.Server.ChronoLegionnaire.Systems;
 
 public sealed class StasisBlinkProviderSystem : SharedStasisBlinkProviderSystem
 {

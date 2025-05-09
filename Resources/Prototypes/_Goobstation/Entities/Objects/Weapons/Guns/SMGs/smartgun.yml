@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -15,7 +15,7 @@
   description: An experiment in smart-weapon technology that guides bullets towards the target the gun was aimed at when fired. While the tracking functions work fine, the gun is prone to insanely wide spread thanks to its practically non-existant barrel.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/SMGs/smartgun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -28,7 +28,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/SMGs/smartgun.rsi
     clothingVisuals:
       back:
       - state: equipped-BACKPACK
@@ -51,7 +51,7 @@
     cameraRecoilScalar: 0
     selectedMode: Burst
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/smartgun_shoot.ogg
+      path: /Audio/_Goidastation/Weapons/Guns/Gunshots/smartgun_shoot.ogg
     availableModes:
     - FullAuto
     - Burst

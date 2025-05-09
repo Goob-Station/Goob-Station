@@ -7,7 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <logkedr18@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Speebro <speebro@notreal.com>
@@ -21,7 +21,7 @@
   id: WeaponPlasmaRifleTech
   name: research-technology-weapon-plasma-rifle
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
     state: icon
   discipline: Arsenal
   tier: 1
@@ -64,7 +64,7 @@
   id: EnergyBoltBasedWeaponry # for future energy bolt weapon
   name: research-technology-energy-bolt-weaponry
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
     state: icon
   discipline: Arsenal
   tier: 2
@@ -125,7 +125,7 @@
   id: SmartWeaponry
   name: research-technology-smart-weaponry
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/SMGs/smartgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/SMGs/smartgun.rsi
     state: icon
   discipline: Arsenal
   tier: 3

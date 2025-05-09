@@ -9,7 +9,7 @@
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.EventSpells;
+namespace Content.Shared._Goidastation.Wizard.EventSpells;
 
 public abstract class SharedGhostVisibilitySystem : EntitySystem
 {

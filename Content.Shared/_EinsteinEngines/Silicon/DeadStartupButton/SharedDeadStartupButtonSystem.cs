@@ -60,7 +60,7 @@ public abstract partial class SharedDeadStartupButtonSystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
         _doAfterSystem.TryStartDoAfter(args);
     }

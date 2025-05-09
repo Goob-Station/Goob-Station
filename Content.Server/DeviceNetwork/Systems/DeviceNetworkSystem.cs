@@ -168,7 +168,7 @@ namespace Content.Server.DeviceNetwork.Systems
         {
             foreach (var list in component.DeviceLists)
             {
-                // Goobstation - Fix device network sync with deleted objects
+                // Goidastation - Fix device network sync with deleted objects
                 if (Deleted(list))
                     return;
 
@@ -177,7 +177,7 @@ namespace Content.Server.DeviceNetwork.Systems
 
             foreach (var list in component.Configurators)
             {
-                // Goobstation - Fix device network sync with deleted objects
+                // Goidastation - Fix device network sync with deleted objects
                 if (Deleted(list))
                     return;
 

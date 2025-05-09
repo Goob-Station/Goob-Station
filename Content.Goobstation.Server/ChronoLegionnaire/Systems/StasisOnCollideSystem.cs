@@ -6,13 +6,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.ChronoLegionnaire.Components;
+using Content.Goidastation.Server.ChronoLegionnaire.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using JetBrains.Annotations;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Goobstation.Server.ChronoLegionnaire.Systems;
+namespace Content.Goidastation.Server.ChronoLegionnaire.Systems;
 
 [UsedImplicitly]
 public sealed class StasisOnCollideSystem : EntitySystem

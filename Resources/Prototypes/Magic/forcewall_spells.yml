@@ -12,24 +12,24 @@
 
 - type: entity
   id: ActionForceWall
-  name: Force Wall # Goob edit
-  description: Create a magical barrier that only you can pass through. # Goob edit
+  name: Force Wall # Goida edit
+  description: Create a magical barrier that only you can pass through. # Goida edit
   components:
   - type: InstantAction
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
+    raiseOnUser: true # Goidastation
+    checkCanInteract: false # Goidastation
     useDelay: 10
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: shield_greater # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
+      state: shield_greater # Goida edit
     event: !type:InstantSpawnSpellEvent
       prototype: WallForce
       posData: !type:TargetInFront
       speech: action-speech-spell-forcewall
-  - type: Magic # Goobstation
+  - type: Magic # Goidastation
     requiresSpeech: true
     school: Conjuration
   - type: ActionUpgrade

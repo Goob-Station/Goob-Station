@@ -11,7 +11,7 @@ using Content.Shared.Roles;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goidastation.Server.StationEvents;
 
 [RegisterComponent, Access(typeof(JobAddTagsRule))]
 public sealed partial class JobAddTagsRuleComponent : Component

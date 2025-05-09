@@ -47,7 +47,7 @@ namespace Content.Server.Body.Systems;
 public sealed class LungSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstaiton
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goidastaiton
     [Dependency] private readonly InternalsSystem _internals = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
@@ -57,7 +57,7 @@ public sealed class LungSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<LungComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<BreathToolComponent, ComponentInit>(OnBreathToolInit); // Goobstation - Modsuits - Update on component toggle
+        SubscribeLocalEvent<BreathToolComponent, ComponentInit>(OnBreathToolInit); // Goidastation - Modsuits - Update on component toggle
         SubscribeLocalEvent<BreathToolComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<BreathToolComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<BreathToolComponent, ItemMaskToggledEvent>(OnMaskToggled);
@@ -93,7 +93,7 @@ public sealed class LungSystem : EntitySystem
         }
     }
 
-    // Goobstation - Update component state on component toggle
+    // Goidastation - Update component state on component toggle
     private void OnBreathToolInit(Entity<BreathToolComponent> ent, ref ComponentInit args)
     {
         var comp = ent.Comp;

@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -17,7 +17,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/standard.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/standard.rsi
     layers:
     - state: boots
     - state: boots-sealed
@@ -50,7 +50,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/security.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/security.rsi
     layers:
     - state: boots
     - state: boots-sealed
@@ -74,9 +74,9 @@
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime # Goobstation
+  - type: ClothingModifyStunTime # Goidastation
     modifier: 0.8
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ModifyStandingUpTime # Goidastation
     multiplier: 0.5
 
 - type: entity
@@ -88,7 +88,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/headofsecurity.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/headofsecurity.rsi
     layers:
     - state: boots
     - state: boots-sealed
@@ -112,9 +112,9 @@
       - state: equipped-FEET-sealed
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
-  - type: ClothingModifyStunTime # Goobstation
+  - type: ClothingModifyStunTime # Goidastation
     modifier: 0.8
-  - type: ModifyStandingUpTime # Goobstation
+  - type: ModifyStandingUpTime # Goidastation
     multiplier: 0.5
 
 - type: entity
@@ -126,7 +126,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/paramedic.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/paramedic.rsi
     layers:
     - state: boots
     - state: boots-sealed
@@ -158,7 +158,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/engineer.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/engineer.rsi
     layers:
     - state: boots
     - state: boots-sealed
@@ -190,7 +190,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/atmostech.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/atmostech.rsi
     layers:
     - state: boots
     - state: boots-sealed
@@ -222,7 +222,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/researchdirector.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/researchdirector.rsi
     layers:
     - state: boots
     - state: boots-sealed
@@ -254,7 +254,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Clothing/Shoes/Modsuits/captain.rsi
+    sprite: _Goidastation/Clothing/Shoes/Modsuits/captain.rsi
     layers:
     - state: boots
     - state: boots-sealed

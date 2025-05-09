@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.DelayedDeath;
+using Content.Goidastation.Common.DelayedDeath;
 using Content.Server.Chat.Systems;
 using Content.Shared.Medical;
 using Content.Shared.Mobs;
@@ -20,7 +20,7 @@ public partial class DelayedDeathSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!; // Goobstation
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -44,7 +44,7 @@ public partial class DelayedDeathSystem : EntitySystem
                 _mobState.ChangeMobState(ent, MobState.Critical, mob);
                 _mobState.ChangeMobState(ent, MobState.Dead, mob);
 
-                // goob code
+                // goida code
                 var ev = new DelayedDeathEvent(ent);
                 RaiseLocalEvent(ent, ref ev);
 
@@ -54,7 +54,7 @@ public partial class DelayedDeathSystem : EntitySystem
                     continue;
                 }
 
-                if (!string.IsNullOrWhiteSpace(comp.DeathMessageId)) // Goobstation
+                if (!string.IsNullOrWhiteSpace(comp.DeathMessageId)) // Goidastation
                     _popupSystem.PopupEntity(Loc.GetString(comp.DeathMessageId), ent, PopupType.LargeCaution);
             }
         }

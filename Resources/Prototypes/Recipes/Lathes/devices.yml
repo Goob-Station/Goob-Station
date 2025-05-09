@@ -182,7 +182,7 @@
     Silver: 750
     Plasma: 1500
     Uranium: 150
-    BSCrystal: 200 # Goobstation
+    BSCrystal: 200 # Goidastation
 
 - type: latheRecipe
   id: ClothingBackpackSatchelHolding
@@ -193,7 +193,7 @@
     Silver: 750
     Plasma: 1500
     Uranium: 150
-    BSCrystal: 200 # Goobstation
+    BSCrystal: 200 # Goidastation
 
 - type: latheRecipe
   id: ClothingBackpackDuffelHolding
@@ -204,7 +204,7 @@
     Silver: 750
     Plasma: 1500
     Uranium: 150
-    BSCrystal: 200 # Goobstation
+    BSCrystal: 200 # Goidastation
 
 - type: latheRecipe
   id: OreBagOfHolding
@@ -215,7 +215,7 @@
     Silver: 750
     Plasma: 1500
     Uranium: 150
-    BSCrystal: 100 # Goobstation
+    BSCrystal: 100 # Goidastation
 
 - type: latheRecipe
   id: ClothingMaskWeldingGas

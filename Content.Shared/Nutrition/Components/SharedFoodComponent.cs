@@ -12,7 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Robust.Shared.GameStates; // Goobstation - Ling absorb biomatter ability
+using Robust.Shared.GameStates; // Goidastation - Ling absorb biomatter ability
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Nutrition.Components
@@ -39,7 +39,7 @@ namespace Content.Shared.Nutrition.Components
         Layer,
     }
 
-    // Goobstation - Ling absorb biomatter ability
+    // Goidastation - Ling absorb biomatter ability
     public abstract partial class SharedFoodComponent : Component
     {
         /// <summary>

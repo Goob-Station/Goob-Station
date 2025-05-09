@@ -45,13 +45,13 @@ namespace Content.Server.Inventory
             }
         }
 
-        public void TransferEntityInventories(Entity<InventoryComponent?> source, Entity<InventoryComponent?> target, bool force = true) // Goob edit
+        public void TransferEntityInventories(Entity<InventoryComponent?> source, Entity<InventoryComponent?> target, bool force = true) // Goida edit
         {
             if (!Resolve(source.Owner, ref source.Comp) || !Resolve(target.Owner, ref target.Comp))
                 return;
 
             var enumerator = new InventorySlotEnumerator(source.Comp);
-            // Goob edit start
+            // Goida edit start
             List<(EntityUid, SlotDefinition)> items = new();
             while (enumerator.NextItem(out var item, out var slot))
             {
@@ -62,7 +62,7 @@ namespace Content.Server.Inventory
                 TryUnequip(source, slot.Name, true, force, inventory: source.Comp);
                 TryEquip(target, item, slot.Name , true, force, inventory: target.Comp);
             }
-            // Goob edit end
+            // Goida edit end
         }
     }
 }

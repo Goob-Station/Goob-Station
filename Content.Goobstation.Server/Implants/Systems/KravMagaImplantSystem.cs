@@ -5,10 +5,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goidastation.Shared.MartialArts.Components;
 using Content.Shared.Implants;
 
-namespace Content.Goobstation.Server.Implants.Systems;
+namespace Content.Goidastation.Server.Implants.Systems;
 public sealed class KravMagaImplantSystem : EntitySystem
 {
     public override void Initialize()

@@ -27,14 +27,14 @@ public sealed partial class TargetObjectiveComponent : Component
     public EntityUid? Target;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// Whether name for this objective would change when person's mind attaches to other entity.
     /// </summary>
     [DataField]
     public bool DynamicName;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// Whether job name should be shown in objective name
     /// </summary>
     [DataField]

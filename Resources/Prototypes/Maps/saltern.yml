@@ -28,7 +28,7 @@
 - type: gameMap
   id: Saltern
   mapName: 'Saltern'
-  mapPath: /Maps/_Goobstation/saltern.yml # Goobstation - use custom saltern
+  mapPath: /Maps/_Goidastation/saltern.yml # Goidastation - use custom saltern
   minPlayers: 0
   maxPlayers: 35
   fallback: true
@@ -44,11 +44,11 @@
         - type: StationJobs
           availableJobs:
             #service
-            # Goobstation - TODO: add bso and ntr
-            # Goobstation - Me did it, Icepick - Erm, if you did it, it isn't a todo!!!!
+            # Goidastation - TODO: add bso and ntr
+            # Goidastation - Me did it, Icepick - Erm, if you did it, it isn't a todo!!!!
             StationAi: [ 1, 1 ]
-            NanotrasenRepresentative: [ 1, 1 ] # Goobstation
-            BlueshieldOfficer: [ 1, 1 ] # Goobstation
+            NanotrasenRepresentative: [ 1, 1 ] # Goidastation
+            BlueshieldOfficer: [ 1, 1 ] # Goidastation
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
@@ -90,9 +90,9 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
 
-        # Goobstation blob-config-start SMALL+
+        # Goidastation blob-config-start SMALL+
         - type: StationBlobConfig
           stageBegin: 25
           stageCritical: 350
           stageTheEnd: 700
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

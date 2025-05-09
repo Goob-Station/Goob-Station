@@ -1,7 +1,7 @@
 version = 1
-SPDX-PackageName = "Goob Station"
-SPDX-PackageSupplier = "Aidenkrz <administrator@goobstation.com>"
-SPDX-PackageDownloadLocation = "https://www.goobstation.com"
+SPDX-PackageName = "Goida Station"
+SPDX-PackageSupplier = "Aidenkrz <administrator@goidastation.com>"
+SPDX-PackageDownloadLocation = "https://www.goidastation.com"
 
 [[annotations]]
 path = ["Resources/Audio/**", "Resources/Textures/**"]

@@ -22,7 +22,7 @@
   parent: BaseItem
   id: RemoteSignaller
   name: remote signaller
-  description: A handheld device used for remotely sending signals to objects within a radius of about 40 meters. # goobstation
+  description: A handheld device used for remotely sending signals to objects within a radius of about 40 meters. # goidastation
   components:
   - type: Sprite
     sprite: Objects/Devices/signaller.rsi
@@ -41,8 +41,8 @@
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
-    range: 40 # goobstation
-  - type: PhysicalComposition #Goobstation - Recycle update
+    range: 40 # goidastation
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 25
       Plastic: 50
@@ -52,7 +52,7 @@
   parent: RemoteSignaller
   id: RemoteSignallerAdvanced
   name: advanced remote signaller
-  description: A handheld device used for remotely sending signals to objects with no range limit. # goobstation
+  description: A handheld device used for remotely sending signals to objects with no range limit. # goidastation
   components:
   - type: Sprite
     state: advanced
@@ -63,6 +63,6 @@
       right:
       - state: advanced-inhand-right
   - type: WirelessNetworkConnection
-    range: 500000 # goobstation
+    range: 500000 # goidastation
   - type: StaticPrice
     price: 30

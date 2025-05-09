@@ -8,7 +8,7 @@
 using System.Numerics;
 using Content.Client.Gameplay;
 using Content.Client.Hands.Systems;
-using Content.Shared._Goobstation.Weapons.SmartGun;
+using Content.Shared._Goidastation.Weapons.SmartGun;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands.Components;
 using Content.Shared.Wieldable.Components;
@@ -20,7 +20,7 @@ using Robust.Client.State;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Weapons.LaserPointer;
+namespace Content.Goidastation.Client.Weapons.LaserPointer;
 
 public sealed class LaserPointerSystem : SharedLaserPointerSystem
 {

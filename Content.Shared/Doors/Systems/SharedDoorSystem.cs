@@ -519,7 +519,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (!Resolve(uid, ref door, ref physics))
             return false;
 
-        // Goobstation - Door close fix 
+        // Goidastation - Door close fix 
         door.Partial = true;
 
         // Make sure no entity walked into the airlock when it started closing.
@@ -530,7 +530,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
             AppearanceSystem.SetData(uid, DoorVisuals.State, DoorState.Open);
             Dirty(uid, door);
 
-            // Goobstation - Door close fix
+            // Goidastation - Door close fix
             door.Partial = false;
 
             return false;

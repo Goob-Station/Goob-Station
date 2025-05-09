@@ -1,14 +1,14 @@
 // SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.TapeRecorder;
+using Content.Goidastation.Shared.TapeRecorder;
 using Robust.Client.UserInterface;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Client.TapeRecorder.UI;
+namespace Content.Goidastation.Client.TapeRecorder.UI;
 
 public sealed class TapeRecorderBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {

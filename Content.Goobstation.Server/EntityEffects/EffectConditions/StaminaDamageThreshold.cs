@@ -14,7 +14,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.EntityEffects.EffectConditions;
+namespace Content.Goidastation.Server.EntityEffects.EffectConditions;
 
 public sealed partial class StaminaDamageThreshold : EntityEffectCondition
 {

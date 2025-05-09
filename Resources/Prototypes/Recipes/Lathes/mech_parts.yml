@@ -31,7 +31,7 @@
   id: RipleyHarness
   result: RipleyHarness
   categories:
-  - Ripley # Goobstation
+  - Ripley # Goidastation
   completetime: 10
   materials:
     Steel: 1500
@@ -41,7 +41,7 @@
   id: RipleyLArm
   result: RipleyLArm
   categories:
-  - Ripley # Goobstation
+  - Ripley # Goidastation
   completetime: 10
   materials:
     Steel: 1000
@@ -51,7 +51,7 @@
   id: RipleyLLeg
   result: RipleyLLeg
   categories:
-  - Ripley # Goobstation
+  - Ripley # Goidastation
   completetime: 10
   materials:
     Steel: 1000
@@ -61,7 +61,7 @@
   id: RipleyRLeg
   result: RipleyRLeg
   categories:
-  - Ripley # Goobstation
+  - Ripley # Goidastation
   completetime: 10
   materials:
     Steel: 1000
@@ -71,7 +71,7 @@
   id: RipleyRArm
   result: RipleyRArm
   categories:
-  - Ripley # Goobstation
+  - Ripley # Goidastation
   completetime: 10
   materials:
     Steel: 1000
@@ -82,7 +82,7 @@
   id: HonkerHarness
   result: HonkerHarness
   categories:
-  - Honker # Goobstation
+  - Honker # Goidastation
   completetime: 10
   materials:
     Steel: 3000
@@ -93,7 +93,7 @@
   id: HonkerLArm
   result: HonkerLArm
   categories:
-  - Honker # Goobstation
+  - Honker # Goidastation
   completetime: 10
   materials:
     Steel: 3000
@@ -104,7 +104,7 @@
   id: HonkerLLeg
   result: HonkerLLeg
   categories:
-  - Honker # Goobstation
+  - Honker # Goidastation
   completetime: 10
   materials:
     Steel: 3000
@@ -115,7 +115,7 @@
   id: HonkerRLeg
   result: HonkerRLeg
   categories:
-  - Honker # Goobstation
+  - Honker # Goidastation
   completetime: 10
   materials:
     Steel: 3000
@@ -126,7 +126,7 @@
   id: HonkerRArm
   result: HonkerRArm
   categories:
-  - Honker # Goobstation
+  - Honker # Goidastation
   completetime: 10
   materials:
     Steel: 3000
@@ -138,7 +138,7 @@
   id: HamtrHarness
   result: HamtrHarness
   categories:
-  - Hamptr # Goobstation
+  - Hamptr # Goidastation
   completetime: 10
   materials:
     Steel: 1200
@@ -148,7 +148,7 @@
   id: HamtrLArm
   result: HamtrLArm
   categories:
-  - Hamptr # Goobstation
+  - Hamptr # Goidastation
   completetime: 10
   materials:
     Steel: 800
@@ -158,7 +158,7 @@
   id: HamtrLLeg
   result: HamtrLLeg
   categories:
-  - Hamptr # Goobstation
+  - Hamptr # Goidastation
   completetime: 10
   materials:
     Steel: 800
@@ -168,7 +168,7 @@
   id: HamtrRLeg
   result: HamtrRLeg
   categories:
-  - Hamptr # Goobstation
+  - Hamptr # Goidastation
   completetime: 10
   materials:
     Steel: 800
@@ -178,7 +178,7 @@
   id: HamtrRArm
   result: HamtrRArm
   categories:
-  - Hamptr # Goobstation
+  - Hamptr # Goidastation
   completetime: 10
   materials:
     Steel: 800
@@ -188,7 +188,7 @@
   id: MechEquipmentGrabberSmall
   result: MechEquipmentGrabberSmall
   categories:
-  - MechEquipment # Goobstation
+  - MechEquipment # Goidastation
   completetime: 10
   materials:
     Steel: 400

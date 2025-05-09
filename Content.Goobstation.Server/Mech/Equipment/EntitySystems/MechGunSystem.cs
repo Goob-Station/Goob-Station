@@ -15,7 +15,7 @@ using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Weapons.Ranged.Components;
 
-namespace Content.Goobstation.Server.Mech.Equipment.EntitySystems;
+namespace Content.Goidastation.Server.Mech.Equipment.EntitySystems;
 public sealed class MechGunSystem : EntitySystem
 {
     [Dependency] private readonly MechSystem _mech = default!;

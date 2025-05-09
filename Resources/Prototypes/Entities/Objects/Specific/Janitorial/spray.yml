@@ -97,7 +97,7 @@
     sprayDistance: 4.5
     spraySound:
       path: /Audio/Effects/spray2.ogg
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 62
       
@@ -135,7 +135,7 @@
   - type: Tag
     tags:
       - Spray
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
 # Vapor
 
 - type: entity

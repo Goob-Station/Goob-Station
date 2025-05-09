@@ -123,7 +123,7 @@ namespace Content.Server.Lathe
         [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
         [Dependency] private readonly StackSystem _stack = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!; // Goobstation - New recipes message
+        [Dependency] private readonly ChatSystem _chatSystem = default!; // Goidastation - New recipes message
 
         /// <summary>
         /// Per-tick cache
@@ -434,7 +434,7 @@ namespace Content.Server.Lathe
         {
             UpdateUserInterfaceState(uid, component);
 
-            // Goobstation - Lathe message on recipes update - Start
+            // Goidastation - Lathe message on recipes update - Start
             if (args.UnlockedRecipes == null || args.UnlockedRecipes.Count == 0)
                 return;
 
@@ -450,7 +450,7 @@ namespace Content.Server.Lathe
 
             if (recipesCount > 0)
                 _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("lathe-technology-recipes-update-message", ("count", recipesCount)), InGameICChatType.Speak, hideChat: true);
-            // Goobstation - Lathe message on recipes update - End
+            // Goidastation - Lathe message on recipes update - End
         }
 
         private void OnResearchRegistrationChanged(EntityUid uid, LatheComponent component, ref ResearchRegistrationChangedEvent args)

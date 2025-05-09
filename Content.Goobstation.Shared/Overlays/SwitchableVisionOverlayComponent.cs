@@ -10,7 +10,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Overlays;
+namespace Content.Goidastation.Shared.Overlays;
 
 public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverlayComponent
 {

@@ -59,7 +59,7 @@ public sealed partial record PolymorphConfiguration
     /// What entity the polymorph will turn the target into
     /// must be in here because it makes no sense if it isn't
     /// </summary>
-    [DataField(serverOnly: true)] // Goob edit
+    [DataField(serverOnly: true)] // Goida edit
     public EntProtoId? Entity;
 
     /// <summary>
@@ -164,7 +164,7 @@ public sealed partial record PolymorphConfiguration
     public LocId? ExitPolymorphPopup = "polymorph-revert-popup-generic";
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// If <see cref="Entity"/> is null, entity will be picked from this weighted random.
     /// Doesn't support polymorph actions.
     /// </summary>
@@ -172,7 +172,7 @@ public sealed partial record PolymorphConfiguration
     public ProtoId<WeightedRandomEntityPrototype>? Entities;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// If <see cref="Entity"/> and <see cref="Entities"/>> is null,
     /// weighted entity random will be picked from this weighted random.
     /// Doesn't support polymorph actions.
@@ -181,7 +181,7 @@ public sealed partial record PolymorphConfiguration
     public ProtoId<WeightedRandomPrototype>? Groups;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// Transfers these components on polymorph.
     /// Does nothing on revert.
     /// </summary>
@@ -189,21 +189,21 @@ public sealed partial record PolymorphConfiguration
     public HashSet<ComponentTransferData> ComponentsToTransfer = new();
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     Whether polymorphed entity should be able to move.
     /// </summary>
     [DataField]
     public bool AllowMovement = true;
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     Whether to show popup on polymorph revert.
     /// </summary>
     [DataField]
     public bool ShowPopup = true;
 
     /// <summary>
-    ///     Goobstation
+    ///     Goidastation
     ///     Whether to insert polymorphed entity into container or attach to grid or map.
     /// </summary>
     [DataField]

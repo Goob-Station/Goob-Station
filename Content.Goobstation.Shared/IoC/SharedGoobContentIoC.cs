@@ -6,9 +6,9 @@
 
 using Robust.Shared.IoC;
 
-namespace Content.Goobstation.Shared.IoC;
+namespace Content.Goidastation.Shared.IoC;
 
-internal static class SharedGoobContentIoC
+internal static class SharedGoidaContentIoC
 {
     internal static void Register()
     {

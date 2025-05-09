@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -12,10 +12,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Server.StationEvents.Components;
-using Content.Goobstation.Server.StationEvents.Metric;
-using Content.Goobstation.Shared.StationEvents;
+using Content.Goidastation.Common.CCVar;
+using Content.Goidastation.Server.StationEvents.Components;
+using Content.Goidastation.Server.StationEvents.Metric;
+using Content.Goidastation.Shared.StationEvents;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules;
@@ -37,7 +37,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Prometheus;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goidastation.Server.StationEvents;
 
 /// <summary>
 ///   Pairs a PossibleEvent with the resultant chaos and a "score" for sorting by the GameDirector
@@ -255,7 +255,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         // This is the first event, add an automatic delay
         if (scheduler.TimeNextEvent == TimeSpan.Zero)
         {
-            var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoobCVars.MinimumTimeUntilFirstEvent);
+            var minimumTimeUntilFirstEvent = _configManager.GetCVar(GoidaCVars.MinimumTimeUntilFirstEvent);
             scheduler.TimeNextEvent = _timing.CurTime + TimeSpan.FromSeconds(minimumTimeUntilFirstEvent);
             LogMessage($"Started, first event in {minimumTimeUntilFirstEvent} seconds");
             return;
@@ -302,7 +302,7 @@ public sealed class GameDirectorSystem : GameRuleSystem<GameDirectorComponent>
         var weightList = _prototypeManager.Index(scheduler.RoundStartAntagsWeightTable);
 
 #if DEBUG
-        var count = _configManager.GetCVar(GoobCVars.GameDirectorDebugPlayerCount);
+        var count = _configManager.GetCVar(GoidaCVars.GameDirectorDebugPlayerCount);
 #else
         var count = GetTotalPlayerCount(_playerManager.Sessions);
 #endif

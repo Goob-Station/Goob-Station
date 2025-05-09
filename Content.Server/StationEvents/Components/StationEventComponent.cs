@@ -76,14 +76,14 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.StationEvents.Metric;
+using Content.Goidastation.Server.StationEvents.Metric;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -180,12 +180,12 @@ public sealed partial class StationEventComponent : Component
     [DataField]
     public bool OccursDuringRoundEnd = true;
 
-    // Goobstation start
+    // Goidastation start
     /// <summary>
     ///  Expected Chaos changes when this event occurs.
     ///  Used by the GameDirector, which picks an event expected to make the desired chaos changes.
     /// </summary>
     [DataField("chaos")]
     public ChaosMetrics Chaos = new ChaosMetrics();
-    // Goobstation end
+    // Goidastation end
 }

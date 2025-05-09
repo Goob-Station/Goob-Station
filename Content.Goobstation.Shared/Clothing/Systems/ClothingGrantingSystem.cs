@@ -7,13 +7,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Components;
+using Content.Goidastation.Shared.Clothing.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Robust.Shared.Serialization.Manager;
 
-namespace Content.Goobstation.Shared.Clothing.Systems;
+namespace Content.Goidastation.Shared.Clothing.Systems;
 
 public sealed class ClothingGrantingSystem : EntitySystem
 {

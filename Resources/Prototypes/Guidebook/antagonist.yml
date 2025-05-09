@@ -26,10 +26,10 @@
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
   children:
   - Traitors
-  - Changelings # Goobstation - changelings
-  - Heretics # Goobstation - heretics
-  - Blob # Goobstation - Blob
-  - Wizard # Goobstation - Wizard
+  - Changelings # Goidastation - changelings
+  - Heretics # Goidastation - heretics
+  - Blob # Goidastation - Blob
+  - Wizard # Goidastation - Wizard
   - CosmicCult # DeltaV - Cosmic Cult
   - NuclearOperatives
   - Zombies
@@ -38,8 +38,8 @@
   - SpaceNinja
   - Thieves
   - Abductors # Shitmed - Abductors
-  - Bingle # Goob content
-  - Devil # Goob content
+  - Bingle # Goida content
+  - Devil # Goida content
 
 - type: guideEntry
   id: Traitors
@@ -59,7 +59,7 @@
 - type: guideEntry
   id: Revolutionaries
   name: guide-entry-revolutionaries
-  text: "/ServerInfo/_Goobstation/Guidebook/Antagonist/Revolutionaries.xml" # goobstation
+  text: "/ServerInfo/_Goidastation/Guidebook/Antagonist/Revolutionaries.xml" # goidastation
 
 - type: guideEntry
   id: MinorAntagonists

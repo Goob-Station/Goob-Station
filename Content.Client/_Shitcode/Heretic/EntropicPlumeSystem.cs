@@ -6,8 +6,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Goidastation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Systems;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Shitcode.Heretic;

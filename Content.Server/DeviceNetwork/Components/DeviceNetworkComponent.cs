@@ -26,7 +26,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.DeviceNetwork.Components
 {
     [RegisterComponent]
-    //Goobstation - sync device lists / modules had to nuke explicit access
+    //Goidastation - sync device lists / modules had to nuke explicit access
     public sealed partial class DeviceNetworkComponent : Component
     {
         public enum DeviceNetIdDefaults
@@ -134,7 +134,7 @@ namespace Content.Server.DeviceNetwork.Components
         ///     A list of device-lists that this device is on.
         /// </summary>
         [DataField]
-        // had to nuke explicit access for goob modules
+        // had to nuke explicit access for goida modules
         public HashSet<EntityUid> DeviceLists = new();
 
         /// <summary>

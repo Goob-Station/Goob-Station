@@ -9,7 +9,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.RandomChanceSpawner;
+namespace Content.Goidastation.Server.RandomChanceSpawner;
 
 public sealed partial class RandomChanceSpawnerSystem : EntitySystem
 {

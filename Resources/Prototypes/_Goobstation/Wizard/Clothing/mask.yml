@@ -10,9 +10,9 @@
   description: A rubber pig mask with a built-in voice modulator.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/pig.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Mask/pig.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/pig.rsi
   - type: Tag
     tags:
     - CursedAnimalMask
@@ -32,9 +32,9 @@
   description: An ancient mask carved in the shape of a frog. Sanity is like gravity, all it needs is a push.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Mask/frog.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/frog.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Mask/frog.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/frog.rsi
   - type: Tag
     tags:
     - CursedAnimalMask
@@ -54,9 +54,9 @@
   description: A mask made of soft vinyl and latex, representing the head of a cow.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Mask/cow.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/cow.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Mask/cow.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/cow.rsi
   - type: Tag
     tags:
     - CursedAnimalMask
@@ -76,9 +76,9 @@
   description: A mask made of soft vinyl and latex, representing the head of a horse.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Mask/horse.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/horse.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Mask/horse.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/horse.rsi
   - type: Tag
     tags:
     - CursedAnimalMask

@@ -170,7 +170,7 @@
   category: cargoproduct-category-name-medical
   group: market
 
-- type: cargoProduct  # GoobStation Addition - Bounty
+- type: cargoProduct  # GoidaStation Addition - Bounty
   id: SurgicalSupplies
   icon:
     sprite: Structures/Storage/Crates/surgery.rsi

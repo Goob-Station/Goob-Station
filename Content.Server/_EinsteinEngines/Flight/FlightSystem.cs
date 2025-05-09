@@ -82,7 +82,7 @@ public sealed class FlightSystem : SharedFlightSystem
                 BlockDuplicate = true,
                 BreakOnDamage = true,
                 NeedHand = true,
-                MultiplyDelay = false, // Goobstation
+                MultiplyDelay = false, // Goidastation
             };
 
             if (!_doAfter.TryStartDoAfter(doAfterArgs))

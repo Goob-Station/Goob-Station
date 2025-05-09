@@ -42,6 +42,6 @@
     - type: PhysicalComposition
       materialComposition:
         Plastic: 100
-    - type: Tag # goob edit
+    - type: Tag # goida edit
       tags:
         - GeigerCounter

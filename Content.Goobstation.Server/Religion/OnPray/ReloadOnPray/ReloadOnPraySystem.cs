@@ -1,14 +1,14 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Goidastation.Shared.Religion.Nullrod;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.Audio;
 
-namespace Content.Goobstation.Server.OnPray.ReloadOnPray;
+namespace Content.Goidastation.Server.OnPray.ReloadOnPray;
 
 public sealed partial class ReloadOnPraySystem : EntitySystem
 {

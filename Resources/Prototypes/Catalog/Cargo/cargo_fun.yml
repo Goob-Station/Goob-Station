@@ -33,7 +33,7 @@
 # SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 HawkeyeBlade <hawkeyewarframexd@gmail.com>
 # SPDX-FileCopyrightText: 2025 John Willis <143434770+CerberusWolfie@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
@@ -264,7 +264,7 @@
   category: cargoproduct-category-name-fun
   group: market
 
-- type: cargoProduct  # GoobStation Addition - Bounty
+- type: cargoProduct  # GoidaStation Addition - Bounty
   id: FunDigitalAudioWorkstation
   icon:
     sprite: Objects/Fun/Instruments/structureinstruments.rsi
@@ -397,7 +397,7 @@
 - type: cargoProduct
   id: FunCrewPlushies # Self insert crate :-)
   icon:
-    sprite: _Goobstation/Objects/Fun/selfinsert.rsi
+    sprite: _Goidastation/Objects/Fun/selfinsert.rsi
     state: plushie_knott
   product: CrateFunSelfInsertPlushie
   cost: 1000

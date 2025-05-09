@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: localizedDataset
-  id: GoobGeneratorsNamesSingularityLast
+  id: GoidaGeneratorsNamesSingularityLast
   values:
-    prefix: goob-generators-names-singularity-last-dataset-
+    prefix: goida-generators-names-singularity-last-dataset-
     count: 5
 #  - Skibidilarity 1984

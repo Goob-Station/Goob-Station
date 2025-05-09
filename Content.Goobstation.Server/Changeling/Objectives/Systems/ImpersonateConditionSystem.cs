@@ -7,14 +7,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Changeling.Objectives.Components;
+using Content.Goidastation.Server.Changeling.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Goobstation.Server.Changeling.Objectives.Systems;
+namespace Content.Goidastation.Server.Changeling.Objectives.Systems;
 
 /// <summary>
 ///     Handles escaping on the shuttle while being another person detection.

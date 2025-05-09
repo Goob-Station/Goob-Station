@@ -10,7 +10,7 @@
 using Content.Shared.Damage.Events;
 using Content.Shared.Item.ItemToggle;
 
-namespace Content.Goobstation.Shared.ContractorBaton;
+namespace Content.Goidastation.Shared.ContractorBaton;
 
 public sealed class TogglePreventStaminaDamageSystem : EntitySystem
 {

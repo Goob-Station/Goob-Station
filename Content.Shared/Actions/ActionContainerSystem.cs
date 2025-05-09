@@ -58,7 +58,7 @@ public sealed class ActionContainerSystem : EntitySystem
         if (!TryComp<ActionsContainerComponent>(mindId, out var mindActionContainerComp))
             return;
 
-        if (mindActionContainerComp.Container.ContainedEntities.Count > 0 ) // Goob edit
+        if (mindActionContainerComp.Container.ContainedEntities.Count > 0 ) // Goida edit
             _actions.GrantContainedActions(uid, mindId);
     }
 

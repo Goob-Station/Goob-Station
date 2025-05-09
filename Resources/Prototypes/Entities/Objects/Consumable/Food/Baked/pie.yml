@@ -268,7 +268,7 @@
     - Pie
   - type: SliceableFood
     slice: FoodPieBananaCreamSlice
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Destroy
 
 - type: entity

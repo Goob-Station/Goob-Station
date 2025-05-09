@@ -4,8 +4,8 @@ using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Atmos.Components;
 using Content.Server.Audio;
-using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
-using Content.Goobstation.Shared.Bible; // Goobstation - Bible
+using Content.Goidastation.Shared.Religion; // Goidastation - Shitchap
+using Content.Goidastation.Shared.Bible; // Goidastation - Bible
 using Content.Server.Chat.Systems;
 using Content.Server.EUI;
 using Content.Server.GameTicking.Rules;
@@ -690,7 +690,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
 
         if (cosmicGamerule.CurrentTier == 3)
         {
-        // Goobstation Change - Shitchap
+        // Goidastation Change - Shitchap
             if (!HasComp<WeakToHolyComponent>(uid))
                 EnsureComp<WeakToHolyComponent>(uid).AlwaysTakeHoly = true;
             else
@@ -759,7 +759,7 @@ public sealed class CosmicCultRuleSystem : GameRuleSystem<CosmicCultRuleComponen
         RemComp<TemperatureImmunityComponent>(uid);
         RemComp<CosmicStarMarkComponent>(uid);
 
-        // Goobstation Change: Shitchap
+        // Goidastation Change: Shitchap
         if (!uid.Comp.WasWeakToHoly)
             RemComp<WeakToHolyComponent>(uid);
 

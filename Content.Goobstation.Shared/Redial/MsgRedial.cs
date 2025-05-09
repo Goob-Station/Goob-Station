@@ -14,7 +14,7 @@ using Lidgren.Network;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Redial;
+namespace Content.Goidastation.Shared.Redial;
 
 public sealed class MsgRedial : NetMessage
 {

@@ -29,7 +29,7 @@
 # SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -240,5 +240,5 @@
   targetNode: icon
   category: construction-category-weapons
   description: Brass knuckle dusters; a classic in the field of beating people to death.
-  icon: { sprite: _Goobstation/Clothing/Hands/Gloves/knuckleduster.rsi, state: brassknuckleduster } # Goobstation
+  icon: { sprite: _Goidastation/Clothing/Hands/Gloves/knuckleduster.rsi, state: brassknuckleduster } # Goidastation
   objectType: Item

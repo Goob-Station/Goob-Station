@@ -122,8 +122,8 @@
     count: 1
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
-  # Goobstation - Custom stack splitting dialog
+      - DroneUsable # Goidastation
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -134,7 +134,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40 # Goob edit
+        damage: 40 # Goida edit
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
@@ -153,7 +153,7 @@
     damage:
       types:
         Blunt: 5
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:
@@ -161,7 +161,7 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
-  - type: Extractable # Goobstation - Tilenol
+  - type: Extractable # Goidastation - Tilenol
     juiceSolution:
       reagents:
       - ReagentId: Nostalgia
@@ -1611,7 +1611,7 @@
     - FloorAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
 
@@ -1631,7 +1631,7 @@
     - FloorMowedAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
 
@@ -1651,7 +1651,7 @@
     - FloorJungleAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
 
@@ -1671,7 +1671,7 @@
     - FloorAstroSnow
   - type: Stack
     stackType: FloorTileAstroSnow
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
 
@@ -1691,7 +1691,7 @@
     - FloorAstroIce
   - type: Stack
     stackType: FloorTileAstroIce
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
 

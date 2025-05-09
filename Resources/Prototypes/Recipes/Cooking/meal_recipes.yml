@@ -2397,7 +2397,7 @@
   solids:
     FoodDoughTortillaFlat: 1 # one third of a standard bread dough recipe
 
-# Goobstation - I'm not reverting whatever shitcode changes piras did in wizden namespace. Feel free to do it on your own. Commit 9245deef
+# Goidastation - I'm not reverting whatever shitcode changes piras did in wizden namespace. Feel free to do it on your own. Commit 9245deef
 #- type: microwaveMealRecipe
 #  id: RecipeTacoBeef
 #  name: beef taco recipe

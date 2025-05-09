@@ -103,7 +103,7 @@ public abstract class SharedJetpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!; // Goobstation
+    [Dependency] private readonly StandingStateSystem _standing = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -119,10 +119,10 @@ public abstract class SharedJetpackSystem : EntitySystem
         SubscribeLocalEvent<GravityChangedEvent>(OnJetpackUserGravityChanged);
         SubscribeLocalEvent<JetpackComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<JetpackUserComponent, DownedEvent>(OnDowned); // Goobstation
+        SubscribeLocalEvent<JetpackUserComponent, DownedEvent>(OnDowned); // Goidastation
     }
 
-    private void OnDowned(Entity<JetpackUserComponent> ent, ref DownedEvent args) // Goobstation
+    private void OnDowned(Entity<JetpackUserComponent> ent, ref DownedEvent args) // Goidastation
     {
         if (!TryComp<JetpackComponent>(ent.Comp.Jetpack, out var jetpack))
             return;
@@ -216,7 +216,7 @@ public abstract class SharedJetpackSystem : EntitySystem
             return;
         }
 
-        if (_standing.IsDown(args.Performer)) // Goobstation
+        if (_standing.IsDown(args.Performer)) // Goidastation
         {
             _popup.PopupClient(Loc.GetString("jetpack-is-down"), uid, args.Performer);
 

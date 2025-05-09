@@ -10,5 +10,5 @@
   description: A blunt smoking weird-cat thing with a smug look.
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Wallmounts/Paintings/ps3moira.rsi
+    sprite: _Goidastation/Structures/Wallmounts/Paintings/ps3moira.rsi
     state: bluntpainting

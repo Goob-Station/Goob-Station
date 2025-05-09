@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -7,9 +7,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.TheManWhoSoldTheWorld;
-using Content.Goobstation.Common.Weapons.Multishot;
-using Content.Goobstation.Common.Weapons.NoWieldNeeded;
+using Content.Goidastation.Common.TheManWhoSoldTheWorld;
+using Content.Goidastation.Common.Weapons.Multishot;
+using Content.Goidastation.Common.Weapons.NoWieldNeeded;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Interaction.Events;
@@ -23,7 +23,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Shared.HoloCigar;
+namespace Content.Goidastation.Shared.HoloCigar;
 
 /// <summary>
 /// This is the system for the Holo-Cigar. - pure unadulterated shitcode below beware

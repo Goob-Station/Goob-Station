@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.UIKit.UserInterface.RichText;
+namespace Content.Goidastation.UIKit.UserInterface.RichText;
 
 public sealed class RadioIconTag : BaseTextureTag
 {

@@ -141,7 +141,7 @@
 # SPDX-FileCopyrightText: 2025 Dorragon <101672978+Dorragon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -545,7 +545,7 @@
     autoRot: true
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
 
 - type: entity
   parent: VendingMachine
@@ -581,7 +581,7 @@
     autoRot: true
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: VendingMachine
@@ -1115,13 +1115,13 @@
     rotateWhilePulling: true
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: VendingMachine
   id: VendingMachineMedical
   name: NanoMed Plus
-  description: It's a medical drug dispenser. Natural chemicals only! (And wheelchairs, why not) # Goobstation
+  description: It's a medical drug dispenser. Natural chemicals only! (And wheelchairs, why not) # Goidastation
   components:
   - type: VendingMachine
     pack: NanoMedPlusInventory
@@ -1540,7 +1540,7 @@
     rotateWhilePulling: true
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: VendingMachine
@@ -1664,7 +1664,7 @@
     rotateWhilePulling: true
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: VendingMachine

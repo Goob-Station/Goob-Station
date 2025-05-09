@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.NPC.Components;
-using Content.Server.NPC.Events; // Goobstation
+using Content.Server.NPC.Events; // Goidastation
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
@@ -52,7 +52,7 @@ public sealed class NPCRetaliationSystem : EntitySystem
     }
 
     public bool TryRetaliate(Entity<NPCRetaliationComponent> ent, EntityUid target,
-                             bool secondary = false) // Goobstation - whether this should trigger group retaliation
+                             bool secondary = false) // Goidastation - whether this should trigger group retaliation
     {
         // don't retaliate against inanimate objects.
         if (!HasComp<MobStateComponent>(target))
@@ -66,7 +66,7 @@ public sealed class NPCRetaliationSystem : EntitySystem
         if (ent.Comp.AttackMemoryLength is {} memoryLength)
             ent.Comp.AttackMemories[target] = _timing.CurTime + memoryLength;
 
-        // Goobstation
+        // Goidastation
         var ev = new NPCRetaliatedEvent(ent, target, secondary);
         RaiseLocalEvent(ent, ev);
 

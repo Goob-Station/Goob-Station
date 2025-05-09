@@ -8,7 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot02@gmail.com>
 # SPDX-FileCopyrightText: 2025 Creatorbot01 <creatorbot20@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -28,7 +28,7 @@
   description: The syndicate's energy crossbow, small, silent and deadly.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -37,7 +37,7 @@
   - type: Gun
     resetOnHandSelected: false
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      path: /Audio/_Goidastation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
         volume: -5
   - type: ProjectileBatteryAmmoProvider
@@ -62,7 +62,7 @@
   description: It may or may not explode in your face.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -70,7 +70,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
   - type: Gun
     fireRate: 1.5
     soundGunshot:
@@ -91,7 +91,7 @@
     magState: mag
     steps: 5
     zeroVisible: false
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 100
       Glass: 25
@@ -116,12 +116,12 @@
   - type: Item
     heldPrefix: lethal
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/erevolver.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
   - type: ItemMapper
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/erevolver.rsi
     mapLayers:
       mag-unshaded-4:
         whitelist:
@@ -132,7 +132,7 @@
           tags:
           - EnergySpeedloaderDisabler
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/erevolver.rsi
     slots:
     - Belt
     - suitStorage
@@ -160,7 +160,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/tempgun.rsi
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
@@ -173,7 +173,7 @@
   - type: Item
     size: Large
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/tempgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/tempgun.rsi
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -254,7 +254,7 @@
   description: An advanced energy rifle capable of firing various bolts depending on the powercell magazine.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -262,10 +262,10 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
     size: Large
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/energy_rifle.rsi
     quickEquip: false
     slots:
     - Back
@@ -296,7 +296,7 @@
   description: A versatile energy gun, with many different modes. The owner of this gun embodies the law itself.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/lawbringer.rsi
     layers:
     - state: icon
       map: ["enum.GunVisualLayers.Base"]
@@ -305,7 +305,7 @@
     slots:
     - suitStorage
     - belt
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/lawbringer.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/lawbringer.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
@@ -394,7 +394,7 @@
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -402,11 +402,11 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
     size: Large
   - type: Appearance
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/ion_rifle.rsi
     quickEquip: false
     slots:
     - Back

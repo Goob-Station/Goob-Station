@@ -81,9 +81,9 @@
 - type: gameMap
   id: Meta
   mapName: 'Meta Station'
-  mapPath: /Maps/_Goobstation/meta.yml # Goobstation
-  minPlayers: 30 # Goobstation return minPlayers requirement for maps
-  maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
+  mapPath: /Maps/_Goidastation/meta.yml # Goidastation
+  minPlayers: 30 # Goidastation return minPlayers requirement for maps
+  maxPlayers: 85 # Goidastation - Limit mappool to highpop versions of maps only
   stations:
     Meta:
       stationProto: StandardNanotrasenStation
@@ -144,9 +144,9 @@
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
 
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450
           stageTheEnd: 900
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

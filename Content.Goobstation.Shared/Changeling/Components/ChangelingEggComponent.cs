@@ -12,7 +12,7 @@
 using Content.Shared.Store.Components;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Changeling.Components;
+namespace Content.Goidastation.Shared.Changeling.Components;
 
 [RegisterComponent, NetworkedComponent]
 

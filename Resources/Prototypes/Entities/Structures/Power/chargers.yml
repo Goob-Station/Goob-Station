@@ -208,7 +208,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
-        blacklist:  # Goobstation
+        blacklist:  # Goidastation
           tags:
           - WizardWand
           components:
@@ -239,8 +239,8 @@
         blacklist:
           tags:
           - PotatoBattery
-          - WizardWand # Goobstation
-          components:  # Goobstation
+          - WizardWand # Goidastation
+          components:  # Goidastation
           - MaterialEnergy
 
 - type: entity
@@ -268,7 +268,7 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
-        blacklist:  # Goobstation
+        blacklist:  # Goidastation
           tags:
           - WizardWand
 
@@ -300,7 +300,7 @@
       components:
       - BorgChassis
       - Silicon # EE IPCs
-      - Inventory #Goobstation - Modsuits
+      - Inventory #Goidastation - Modsuits
   - type: Construction
     containers:
     - machine_parts

@@ -128,7 +128,7 @@
     ears: ClothingHeadsetGrey
   storage:
     back:
-    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlots # Goidastation - Slots Based Survival Boxes
 
 # Syndicate Operative Outfit - Civilian
 - type: startingGear
@@ -155,7 +155,7 @@
     id: SyndiPDA
   storage:
     back:
-    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlots # Goidastation - Slots Based Survival Boxes
 
 # Syndicate Footsoldier Gear
 - type: startingGear
@@ -195,11 +195,11 @@
     head: ClothingHeadHelmetSwat
     mask: ClothingMaskGasSwat
     outerClothing: ClothingOuterArmorBasicSlim
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
     gloves: ClothingHandsGlovesCombat
   storage:
     back:
-    - BoxSurvivalSlotsSecurity # Goobstation - Slots Based Survival Boxes
+    - BoxSurvivalSlotsSecurity # Goidastation - Slots Based Survival Boxes
     - Flash
     - MagazinePistol
 

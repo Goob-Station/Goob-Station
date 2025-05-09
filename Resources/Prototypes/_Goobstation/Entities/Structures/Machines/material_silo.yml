@@ -16,7 +16,7 @@
     anchored: true
     noRot: true
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/silo.rsi
+    sprite: _Goidastation/Structures/Machines/silo.rsi
     layers:
     - state: ore_silo
     - state: inserting

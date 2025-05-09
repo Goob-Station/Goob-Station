@@ -11,7 +11,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.Manager.Attributes;
 
-namespace Content.Goobstation.Common.MartialArts;
+namespace Content.Goidastation.Common.MartialArts;
 
 [RegisterComponent]
 public sealed partial class MartialArtBlockedComponent : Component

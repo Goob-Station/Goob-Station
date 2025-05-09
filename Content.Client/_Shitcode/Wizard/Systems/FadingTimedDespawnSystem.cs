@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Goidastation.Wizard.FadingTimedDespawn;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 

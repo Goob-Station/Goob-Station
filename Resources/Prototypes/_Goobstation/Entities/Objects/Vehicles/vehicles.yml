@@ -269,7 +269,7 @@
   description: A luxury hoverchair, kick back and relax.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi
+    sprite: _Goidastation/Objects/Vehicles/hoverchair.rsi
     layers:
     - state: vehicle
     noRot: true

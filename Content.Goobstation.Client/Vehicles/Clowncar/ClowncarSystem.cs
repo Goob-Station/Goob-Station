@@ -6,11 +6,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Vehicles.Clowncar;
+using Content.Goidastation.Shared.Vehicles.Clowncar;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
-namespace Content.Goobstation.Client.Vehicles.Clowncar;
+namespace Content.Goidastation.Client.Vehicles.Clowncar;
 
 public sealed class ClowncarSystem : SharedClowncarSystem
 {

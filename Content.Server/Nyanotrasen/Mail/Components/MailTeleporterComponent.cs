@@ -33,7 +33,7 @@ namespace Content.Server.Mail.Components
         /// teleporter can deliver.
         /// </summary>
         [DataField]
-        public string MailPool = "BaseMailDeliveryPool"; // Goobstation / Frontier / DeltaV: Mail rework
+        public string MailPool = "BaseMailDeliveryPool"; // Goidastation / Frontier / DeltaV: Mail rework
 
         /// <summary>
         /// How many mail candidates do we need per actual delivery sent when
@@ -115,7 +115,7 @@ namespace Content.Server.Mail.Components
         /// What's the bonus for delivering a large package intact?
         /// </summary>
         [DataField]
-        public int LargeBonus = 500; //Goob; 5000 to 500
+        public int LargeBonus = 500; //Goida; 5000 to 500
 
         /// <summary>
         /// What's the malus for failing to deliver a large package?

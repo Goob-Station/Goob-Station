@@ -8,7 +8,7 @@
 using Content.Shared.Mind;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Server._Goidastation.Wizard.Components;
 
 [RegisterComponent]
 public sealed partial class GrantTargetObjectiveOnGhostTakeoverComponent : Component

@@ -54,7 +54,7 @@
   - type: Tag
     tags:
     - Sheet
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Material
   - type: Damageable
     damageContainer: Inorganic
@@ -92,7 +92,7 @@
   - type: BlindHealing
     damageContainers:
       - Silicon
-      - SiliconRadiation # Goobstation - Make IPCs take radiation
+      - SiliconRadiation # Goidastation - Make IPCs take radiation
   - type: StackPrice
     price: 2
 
@@ -111,7 +111,7 @@
     - glass
     - glass_2
     - glass_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -186,7 +186,7 @@
     - rglass
     - rglass_2
     - rglass_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -271,7 +271,7 @@
     - pglass
     - pglass_2
     - pglass_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -406,7 +406,7 @@
     - uglass
     - uglass_2
     - uglass_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -540,7 +540,7 @@
     - cglass
     - cglass_2
     - cglass_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

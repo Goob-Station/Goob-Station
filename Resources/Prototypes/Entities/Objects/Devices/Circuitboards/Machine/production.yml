@@ -809,7 +809,7 @@
       stackRequirements:
         Capacitor: 2
         Cable: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 12
         Plastic: 12
@@ -831,7 +831,7 @@
         Capacitor: 4
         Steel: 5
         Cable: 10
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 25
         Glass: 125
@@ -852,7 +852,7 @@
       stackRequirements:
         Capacitor: 2
         Cable: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 12
         Plastic: 12
@@ -873,7 +873,7 @@
       stackRequirements:
         Capacitor: 2
         CableMV: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 12
         Plastic: 12
@@ -894,7 +894,7 @@
     stackRequirements:
       Capacitor: 2
       CableMV: 5
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 25
       Glass: 125
@@ -916,7 +916,7 @@
         PowerCell:
           amount: 1
           defaultPrototype: PowerCellSmall
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Glass: 125
       chemicalComposition:
@@ -971,7 +971,7 @@
       stackRequirements:
         Capacitor: 1
         CableHV: 5
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Glass: 125
       chemicalComposition:
@@ -1018,7 +1018,7 @@
       stackRequirements:
         Capacitor: 2
         CableHV: 10
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Glass: 125
       chemicalComposition:
@@ -1038,7 +1038,7 @@
       stackRequirements:
         Capacitor: 1
         Cable: 10
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Glass: 125
       chemicalComposition:
@@ -1348,7 +1348,7 @@
       stackRequirements:
         Capacitor: 2
         Steel: 5
-        BSCrystal: 5 # Goobstation
+        BSCrystal: 5 # Goidastation
 
 - type: entity
   id: SodaDispenserMachineCircuitboard

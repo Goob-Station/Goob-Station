@@ -23,7 +23,7 @@ public sealed partial class EmergencyShuttleConsoleComponent : Component
     public int AuthorizationsRequired = 3;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// How long does it take to emag the console for early launch
     /// </summary>
     [DataField]

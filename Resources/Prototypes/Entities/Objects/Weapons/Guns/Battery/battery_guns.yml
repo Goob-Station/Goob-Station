@@ -124,7 +124,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 GaussiArson <193122004+GaussiArson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
@@ -175,7 +175,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: AlwaysHot # Goobstation
+  - type: AlwaysHot # Goidastation
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -216,7 +216,7 @@
   - type: SurgeryTool # Shitmed
     endSound:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: AlwaysHot # Goobstation
+  - type: AlwaysHot # Goidastation
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -245,7 +245,7 @@
   components:
   - type: Item
     size: Small
-    shape: # Goobstation
+    shape: # Goidastation
     - 0,0,1,0
     - 0,1,0,1
   - type: Tag
@@ -277,9 +277,9 @@
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Multishot # Goobstation
+  - type: Multishot # Goidastation
     spreadAddition: 10
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 500
       Gold: 125
@@ -306,7 +306,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: Multishot # Goobstation
+  - type: Multishot # Goidastation
     spreadAddition: 10
 
 - type: entity
@@ -336,7 +336,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: Multishot # Goobstation
+  - type: Multishot # Goidastation
     spreadAddition: 10
 
 - type: entity
@@ -399,7 +399,7 @@
   - type: StaticPrice
     price: 300
   - type: PacifismAllowedGun
-  # Goobstation
+  # Goidastation
   - type: Item
     size: Large
 
@@ -420,7 +420,7 @@
   name: pulse pistol
   parent: BaseWeaponBatterySmall
   id: WeaponPulsePistol
-  description: A state-of-the-art pulse based weapon. It's smaller frame allows it to passively regenerate charge. # Goobstation
+  description: A state-of-the-art pulse based weapon. It's smaller frame allows it to passively regenerate charge. # Goidastation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
@@ -444,14 +444,14 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: LightPulse # Goobstation
+    proto: LightPulse # Goidastation
     fireCost: 200
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
-  - type: Multishot # Goobstation
+  - type: Multishot # Goidastation
     spreadAddition: 10
-  - type: BatterySelfRecharger # Goobstation - CentComm Job Revamp
+  - type: BatterySelfRecharger # Goidastation - CentComm Job Revamp
     autoRecharge: true
     autoRechargeRate: 40
 
@@ -459,7 +459,7 @@
   name: pulse carbine
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
-  description: A state-of-the-art pulse carbine, typically used by Nanotrasen militia. # Goobstation
+  description: A state-of-the-art pulse carbine, typically used by Nanotrasen militia. # Goidastation
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
@@ -490,7 +490,7 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
-  # Goobstation
+  # Goidastation
   - type: Tag
     tags:
     - Rifle
@@ -501,9 +501,9 @@
 
 - type: entity
   name: pulse rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband] # Goobstation - Deathsquad revamp
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband] # Goidastation - Deathsquad revamp
   id: WeaponPulseRifle
-  description: A weapon almost as infamous as its users. # Goobstation - Sometimes less is more.
+  description: A weapon almost as infamous as its users. # Goidastation - Sometimes less is more.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
@@ -525,12 +525,12 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
   - type: HitscanBatteryAmmoProvider
-    proto: HeavyPulse # Goobstation - Deathsquad revamp
+    proto: HeavyPulse # Goidastation - Deathsquad revamp
     fireCost: 100
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
-  # Goobstation
+  # Goidastation
   - type: Tag
     tags:
     - Rifle
@@ -570,8 +570,8 @@
   - type: Tag
     tags:
     - TurretCompatibleWeapon
-    - Rifle # Goobstation
-  - type: Item # Goobstation
+    - Rifle # Goidastation
+  - type: Item # Goidastation
     size: Huge
     shape:
     - 0,0,4,1
@@ -606,12 +606,12 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 187
         Plasma: 37
         Uranium: 37
-    - type: Tag # Goobstation
+    - type: Tag # Goidastation
       tags:
       - Rifle
 
@@ -642,7 +642,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  # Goobstation
+  # Goidastation
   - type: Tag
     tags:
     - Rifle
@@ -679,12 +679,12 @@
     price: 100
   - type: Gun
     fireRate: 2
-    #projectileSpeed: 35 # Goobstation - nuh uh
+    #projectileSpeed: 35 # Goidastation - nuh uh
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
-    fireCost: 25 # Goobstation - billions must troll with practice disabler
+    fireCost: 25 # Goidastation - billions must troll with practice disabler
   - type: Tag
     tags:
     - Taser
@@ -843,7 +843,7 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-  - type: Multishot # Goobstation
+  - type: Multishot # Goidastation
     spreadAddition: 10
 
 - type: entity
@@ -853,7 +853,7 @@
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
   - type: Item
-    # size: Normal  # Intentionally larger than other pistols # Goobstation - no fuck you
+    # size: Normal  # Intentionally larger than other pistols # Goidastation - no fuck you
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     layers:
@@ -880,7 +880,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
-  - type: Multishot # Goobstation
+  - type: Multishot # Goidastation
     spreadAddition: 10
 
 - type: entity
@@ -928,8 +928,8 @@
     node: start
   - type: StaticPrice
     price: 100
-  - type: Multishot # Goobstation
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: Multishot # Goidastation
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 125
       Glass: 100
@@ -1007,7 +1007,7 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150
-  # Goob edit start
+  # Goida edit start
   #- type: BatteryWeaponFireModes
   #  fireModes:
   #  - proto: BulletLaserSpread
@@ -1034,7 +1034,7 @@
     size: Large
     shape:
     - 0,0,4,1
-  # Goob edit end
+  # Goida edit end
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: Tag
@@ -1044,5 +1044,5 @@
     stealGroup: WeaponEnergyShotgun
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
-    maxCharge: 1050 # Goobstation
+    maxCharge: 1050 # Goidastation
     startingCharge: 1050

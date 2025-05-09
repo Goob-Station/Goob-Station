@@ -11,9 +11,9 @@
   description: Device that allows you to request delivery of special equipment.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    sprite: _Goidastation/Objects/Devices/unique_teleporters.rsi
   - type: Item
-    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+    sprite: _Goidastation/Objects/Devices/unique_teleporters.rsi
   - type: UseOnStationOnly
   - type: SpawnItemsOnUse
     sound: /Audio/Items/Mining/fultext_launch.ogg

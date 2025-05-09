@@ -58,8 +58,8 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    scale: 1.1, 0.75 # goob value
-  - type: ScaleData # Goobstation
+    scale: 1.1, 0.75 # goida value
+  - type: ScaleData # Goidastation
     scale: 1.1, 0.75
   - type: Body
     prototype: Dwarf
@@ -74,9 +74,9 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.32 # goob edit - reasoning below
+          radius: 0.32 # goida edit - reasoning below
         # they r smaller
-        density: 240 # goob edit - but they r buff
+        density: 240 # goida edit - but they r buff
         restitution: 0.0
         mask:
         - MobMask
@@ -105,7 +105,7 @@
             state: jumpsuit-female
   - type: InnateMiningScannerViewer # Frontier
     pingSound: null
-    viewRange: 3 # Goob value
+    viewRange: 3 # Goida value
 
 - type: entity
   parent: BaseSpeciesDummy

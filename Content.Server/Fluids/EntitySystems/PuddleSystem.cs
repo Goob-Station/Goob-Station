@@ -101,7 +101,7 @@ using Content.Server.Chemistry.TileReactions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
-using Content.Goobstation.Common.Footprints;
+using Content.Goidastation.Common.Footprints;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -110,7 +110,7 @@ using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.Effects;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Friction;
@@ -164,10 +164,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [ValidatePrototypeId<ReagentPrototype>]
     private const string CopperBlood = "CopperBlood";
 
-    [ValidatePrototypeId<ReagentPrototype>] // goobstation
-    private const string BloodChangeling = "BloodChangeling"; // goobstation
+    [ValidatePrototypeId<ReagentPrototype>] // goidastation
+    private const string BloodChangeling = "BloodChangeling"; // goidastation
 
-    private static string[] _standoutReagents = [Blood, Slime, CopperBlood, BloodChangeling]; // goobstation - added BloodChangeling
+    private static string[] _standoutReagents = [Blood, Slime, CopperBlood, BloodChangeling]; // goidastation - added BloodChangeling
 
     public static readonly float PuddleVolume = 1000;
 

@@ -4,12 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Client.IoC;
-using Content.Goobstation.Client.JoinQueue;
+using Content.Goidastation.Client.IoC;
+using Content.Goidastation.Client.JoinQueue;
 using Robust.Shared.ContentPack;
 using Robust.Shared.IoC;
 
-namespace Content.Goobstation.Client.Entry;
+namespace Content.Goidastation.Client.Entry;
 
 public sealed class EntryPoint : GameClient
 {
@@ -22,7 +22,7 @@ public sealed class EntryPoint : GameClient
 
     public override void Init()
     {
-        ContentGoobClientIoC.Register();
+        ContentGoidaClientIoC.Register();
 
         IoCManager.BuildGraph();
         IoCManager.InjectDependencies(this);

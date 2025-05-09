@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: localizedDataset
-  id: GoobGeneratorsNamesFirst
+  id: GoidaGeneratorsNamesFirst
   values:
-    prefix: goob-generators-names-first-dataset-
+    prefix: goida-generators-names-first-dataset-
     count: 6

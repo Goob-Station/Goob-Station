@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -33,7 +33,7 @@
       settings: default
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    sprite: _Goidastation/Mobs/Bingle/bingle.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: alive
@@ -133,7 +133,7 @@
     upgraded: true
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Mobs/Bingle/bingle.rsi
+    sprite: _Goidastation/Mobs/Bingle/bingle.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
       state: Upgraded

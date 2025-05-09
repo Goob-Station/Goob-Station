@@ -8,7 +8,7 @@
 using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
 
-namespace Content.Shared._Goobstation.Wizard.UserInterface;
+namespace Content.Shared._Goidastation.Wizard.UserInterface;
 
 public sealed class ActivatableUiUserWhitelistSystem : EntitySystem
 {

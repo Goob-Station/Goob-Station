@@ -1,13 +1,13 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Enchanting.Components;
+using Content.Goidastation.Shared.Enchanting.Components;
 using Content.Shared.Mining.Components;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Goobstation.Shared.Enchanting.Systems;
+namespace Content.Goidastation.Shared.Enchanting.Systems;
 
 /// <summary>
 /// Handles events for <see cref="FortuneEnchantComponent"/>.

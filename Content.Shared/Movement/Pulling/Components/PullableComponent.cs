@@ -78,9 +78,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
+using Content.Goidastation.Common.MartialArts;
 using Content.Shared.Alert;
-using Content.Shared.Movement.Pulling.Systems; // Goobstation
+using Content.Shared.Movement.Pulling.Systems; // Goidastation
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -121,7 +121,7 @@ public sealed partial class PullableComponent : Component
     [AutoNetworkedField, DataField]
     public bool PrevFixedRotation;
 
-    // Goobstation start
+    // Goidastation start
     // Added Grab variables
 
 
@@ -169,7 +169,7 @@ public sealed partial class PullableComponent : Component
     /// </summary>
     [DataField]
     public float TabledDamage = 5f;
-    // Goobstation end
+    // Goidastation end
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent

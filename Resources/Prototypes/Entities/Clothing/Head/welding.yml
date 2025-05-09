@@ -32,7 +32,7 @@
   - type: FlashImmunity
   - type: IdentityBlocker
   - type: EyeProtection
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 100
       Glass: 50
@@ -42,7 +42,7 @@
     tags:
     - WhitelistChameleon
     - WeldingMask
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: HideLayerClothing
     slots:
     - Snout
@@ -62,7 +62,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - WeldingMask
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: WeldingMaskBase

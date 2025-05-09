@@ -7,7 +7,7 @@
 
 using Content.Server.GameTicking;
 
-namespace Content.Goobstation.Server.StationEvents.Metric;
+namespace Content.Goidastation.Server.StationEvents.Metric;
 
 /// <summary>
 ///   Base class for systems which measure chaos.

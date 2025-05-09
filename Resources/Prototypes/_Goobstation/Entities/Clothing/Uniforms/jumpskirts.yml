@@ -16,9 +16,9 @@
   description: A skirt worn by CentComs legal team. Smells of burnt coffee.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -27,9 +27,9 @@
   description: A black skirt worn by officials.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/nanotrasen_representative.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -38,9 +38,9 @@
   description: A short-sleeved grey and blue jumpskirt, made out of a sturdy material. Blueshield standard issue.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -49,9 +49,9 @@
   description: Enemy of dogs everywhere.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/mailman.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/mailman.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -60,9 +60,9 @@
   description: An extravagant black dress designed to catch the attention of as many people as possible.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/reporter_dress.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/reporter_dress.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/reporter_dress.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/reporter_dress.rsi
 
 - type: entity
   parent: ClothingUniformJumpsuitNavyGold
@@ -71,6 +71,6 @@
   description: A jumpskirt issued to Nanotrasen Career Trainers. Fills you with a feeling of pride.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/trainer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpskirt/trainer.rsi
+    sprite: _Goidastation/Clothing/Uniforms/Jumpskirt/trainer.rsi

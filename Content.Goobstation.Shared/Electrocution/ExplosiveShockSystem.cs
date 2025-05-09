@@ -19,7 +19,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Electrocution;
+namespace Content.Goidastation.Shared.Electrocution;
 
 public sealed class ExplosiveShockSystem : EntitySystem
 {

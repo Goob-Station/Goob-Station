@@ -157,7 +157,7 @@ namespace Content.Server.GameTicking
                         mind.Session = null;
                     }
 
-                    if (_playerGameStatuses.ContainsKey(session.UserId)) // Goobstation - Queue
+                    if (_playerGameStatuses.ContainsKey(session.UserId)) // Goidastation - Queue
                         _userDb.ClientDisconnected(session);
                     break;
                 }

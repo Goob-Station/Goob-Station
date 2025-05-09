@@ -7,12 +7,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Shared.Overlays;
+using Content.Goidastation.Shared.Overlays;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Overlays;
+namespace Content.Goidastation.Client.Overlays;
 
 public sealed class BaseSwitchableOverlay<TComp> : Overlay where TComp : SwitchableVisionOverlayComponent
 {

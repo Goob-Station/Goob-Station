@@ -28,7 +28,7 @@
     size: Small
   - type: Clothing
     slots: [mask]
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Mask
   - type: StaticPrice

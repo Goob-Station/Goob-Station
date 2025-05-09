@@ -1,13 +1,13 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Enchanting.Systems;
+using Content.Goidastation.Shared.Enchanting.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Enchanting.Components;
+namespace Content.Goidastation.Shared.Enchanting.Components;
 
 /// <summary>
 /// Added to items after being enchanted.
@@ -33,7 +33,7 @@ public sealed partial class EnchantedComponent : Component
     /// The ID of the container to add.
     /// </summary>
     [DataField]
-    public string ContainerId = "_goob_enchants";
+    public string ContainerId = "_goida_enchants";
 
     /// <summary>
     /// The container that stores enchant entities.

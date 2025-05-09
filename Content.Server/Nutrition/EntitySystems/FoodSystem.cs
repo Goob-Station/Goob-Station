@@ -122,7 +122,7 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Chemistry;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -181,7 +181,7 @@ public sealed class FoodSystem : EntitySystem
         // TODO add InteractNoHandEvent for entities like mice.
         // run after openable for wrapped/peelable foods
         SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand,
-            after: new[] { typeof(OpenableSystem), typeof(ServerInventorySystem), typeof(ClothingSystem) }); // Goob - moths eating things in their hands when quick equipping
+            after: new[] { typeof(OpenableSystem), typeof(ServerInventorySystem), typeof(ClothingSystem) }); // Goida - moths eating things in their hands when quick equipping
         SubscribeLocalEvent<FoodComponent, AfterInteractEvent>(OnFeedFood);
         SubscribeLocalEvent<FoodComponent, GetVerbsEvent<AlternativeVerb>>(AddEatVerb);
         SubscribeLocalEvent<FoodComponent, ConsumeDoAfterEvent>(OnDoAfter);
@@ -319,7 +319,7 @@ public sealed class FoodSystem : EntitySystem
             // do-after will stop if item is dropped when trying to feed someone else
             // or if the item started out in the user's own hands
             NeedHand = forceFeed || _hands.IsHolding(user, food),
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);

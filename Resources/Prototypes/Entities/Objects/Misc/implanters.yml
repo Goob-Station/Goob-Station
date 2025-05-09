@@ -84,14 +84,14 @@
       - MindShieldImplant
       - FakeMindShieldImplant
       - RadioImplant
-      # Goob implants
+      # Goida implants
       - MindcontrolImplant
       - KravMagaImplant
       - NutrimentPumpImplant
       - StypticStimulatorImplant
       deimplantFailureDamage:
         types:
-          Caustic: 5 # Goobstation - unnerf implanters (why was it 50 genetic??)
+          Caustic: 5 # Goidastation - unnerf implanters (why was it 50 genetic??)
           Heat: 5
     - type: Sprite
       sprite: Objects/Specific/Medical/implanter.rsi
@@ -122,7 +122,7 @@
       interfaces:
         enum.DeimplantUiKey.Key:
           type: DeimplantBoundUserInterface
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 125
         Glass: 125
@@ -350,7 +350,7 @@
 - type: entity
   id: RadioImplanterCentcomm
   suffix: radio Centcomm
-  parent: BaseImplantOnlyImplanterCentcomm # Goobstation
+  parent: BaseImplantOnlyImplanterCentcomm # Goidastation
   components:
   - type: Implanter
     implant: RadioImplantCentcomm

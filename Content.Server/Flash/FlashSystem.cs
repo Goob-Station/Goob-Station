@@ -53,7 +53,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Flashbang;
+using Content.Goidastation.Shared.Flashbang;
 using Content.Server.Flash.Components;
 using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
@@ -97,7 +97,7 @@ namespace Content.Server.Flash
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
 
         private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
-        public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goobstation
+        public static readonly ProtoId<TagPrototype> IgnoreResistancesTag = "FlashIgnoreResistances"; // Goidastation
 
         public override void Initialize()
         {
@@ -176,7 +176,7 @@ namespace Content.Server.Flash
             bool melee = false,
             TimeSpan? stunDuration = null)
         {
-            // Goob edit start
+            // Goida edit start
             if (used == null || !_tag.HasTag(used.Value, IgnoreResistancesTag))
             {
                 var attempt = new FlashAttemptEvent(target, user, used);
@@ -185,27 +185,27 @@ namespace Content.Server.Flash
                 if (attempt.Cancelled)
                     return;
             }
-            // Goob edit end
+            // Goida edit end
 
-            // Goobstation start
+            // Goidastation start
             var multiplierEv = new FlashDurationMultiplierEvent();
             RaiseLocalEvent(target, multiplierEv);
             var multiplier = multiplierEv.Multiplier;
-            // Goobstation end
+            // Goidastation end
 
             // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true)) // Goob edit
+            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true)) // Goida edit
                 return;
 
             if (stunDuration != null)
             {
-                // goob edit - stunmeta
-                _stun.KnockdownOrStun(target, stunDuration.Value * multiplier, true); // Goob edit
+                // goida edit - stunmeta
+                _stun.KnockdownOrStun(target, stunDuration.Value * multiplier, true); // Goida edit
             }
             else
             {
                 _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true,
-                slowTo, slowTo); // Goob edit
+                slowTo, slowTo); // Goida edit
             }
 
             if (displayPopup && user != null && target != user && Exists(user.Value))
@@ -248,8 +248,8 @@ namespace Content.Server.Flash
                 // They shouldn't have flash removed in between right?
                 Flash(entity, user, source, duration, slowTo, displayPopup);
 
-                var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length(); // Goobstation
-                RaiseLocalEvent(source, new AreaFlashEvent(range, distance, entity)); // Goobstation
+                var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length(); // Goidastation
+                RaiseLocalEvent(source, new AreaFlashEvent(range, distance, entity)); // Goidastation
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));

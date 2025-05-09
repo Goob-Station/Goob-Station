@@ -12,7 +12,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Shared.Containers.ExtendedContainer;
+namespace Content.Goidastation.Shared.Containers.ExtendedContainer;
 
 public sealed partial class ExtendedContainerSystem : EntitySystem
 {

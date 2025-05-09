@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Server._Goobstation.Wizard.Accents;
+namespace Content.Server._Goidastation.Wizard.Accents;
 
 [RegisterComponent]
 public sealed partial class HorseAccentComponent : AnimalAccentComponent

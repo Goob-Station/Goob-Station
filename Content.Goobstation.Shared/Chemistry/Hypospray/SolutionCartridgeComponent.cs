@@ -8,7 +8,7 @@
 
 using Content.Shared.Chemistry.Components;
 
-namespace Content.Goobstation.Shared.Chemistry.Hypospray;
+namespace Content.Goidastation.Shared.Chemistry.Hypospray;
 
 [RegisterComponent]
 public sealed partial class SolutionCartridgeComponent : Component

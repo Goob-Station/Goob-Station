@@ -37,7 +37,7 @@
   setPreference: false
   startingGear: CentcomGear
   icon: "JobIconNanotrasen"
-  supervisors: job-supervisors-centcom # Goobstation
+  supervisors: job-supervisors-centcom # Goidastation
   canBeAntag: false
   requirements:
   - !type:AgeRequirement
@@ -46,22 +46,22 @@
   - AllAccess
   access:
   - CentralCommand
-  # Goobstation
+  # Goidastation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
-- type: startingGear # Goobstation - Start - SolsticeOfTheWinter
+- type: startingGear # Goidastation - Start - SolsticeOfTheWinter
   id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     shoes: ClothingShoesBootsJackFilled # Change this if you want, I don't really care.
     head: ClothingHeadHatCentcomcap # Lets be real, the other hat looks like steaming ASS.
-    eyes: ClothingEyesGlassesCentComm # Goobstation
-    gloves: ClothingHandsGlovesHeavyGoldenTrim # Goobstation
-    back: ClothingBackpackSatchelLeather # Goobstation - Officials need bags too!
+    eyes: ClothingEyesGlassesCentComm # Goidastation
+    gloves: ClothingHandsGlovesHeavyGoldenTrim # Goidastation
+    back: ClothingBackpackSatchelLeather # Goidastation - Officials need bags too!
     outerClothing: ClothingOuterArmorCentcommCarapace # Officials shouldn't use shitty armor, Nanotrasen is richer than that.
     neck: ExecutiveIDCard # Executive Access!
     id: CentcomPDA
@@ -74,4 +74,4 @@
     - HandheldFaxOfficial # NTRs fax is huge, do you expect me to use some POOR person fax?
     - BoxFolderCentComClipboard # Solely for holding and looking menacing.
     - DeterrentCaseFilled
-# Goobstation - End
+# Goidastation - End

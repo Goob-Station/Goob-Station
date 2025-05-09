@@ -159,7 +159,7 @@
   - type: Tag
     tags:
     - DrinkCup
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 100
 
@@ -192,7 +192,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: icon-
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 100
 
@@ -259,7 +259,7 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_metal.rsi
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 25
 
@@ -478,7 +478,7 @@
     tags:
     - Trash
     - WhitelistChameleon
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: TrashOnSolutionEmpty
     solution: drink
   - type: Clothing

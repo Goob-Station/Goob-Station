@@ -9,7 +9,7 @@
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goidastation.Server.StationEvents;
 
 [RegisterComponent, Access(typeof(JobAddComponentsRule))]
 public sealed partial class JobAddComponentsRuleComponent : Component

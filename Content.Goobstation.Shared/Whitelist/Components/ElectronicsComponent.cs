@@ -8,7 +8,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.Whitelist.Components;
+namespace Content.Goidastation.Shared.Whitelist.Components;
 
 /// <summary>
 /// Whitelist component for electronics to avoid tag redefinition and collisions

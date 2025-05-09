@@ -21,14 +21,14 @@ public sealed partial class AlertLevelInterceptionRuleComponent : Component
     public string AlertLevel = "blue";
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// Whether or not to override the current alert level, if it isn't green.
     /// </summary>
     [DataField]
     public bool OverrideAlert = false;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// Whether the alert level should be changeable.
     /// </summary>
     [DataField]

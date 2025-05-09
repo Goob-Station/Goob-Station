@@ -31,7 +31,7 @@
     - type: Item
       storedRotation: 0
     - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Mech/durand_construction.rsi
+      sprite: _Goidastation/Objects/Specific/Mech/durand_construction.rsi
       state: durand_armor
     - type: Tag
       tags:
@@ -49,7 +49,7 @@
     - type: Item
       storedRotation: 0
     - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Mech/gygax_construction.rsi
+      sprite: _Goidastation/Objects/Specific/Mech/gygax_construction.rsi
       state: gygax_armor
     - type: Tag
       tags:

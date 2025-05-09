@@ -14,7 +14,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Helmets/reverse_bear_trap.rsi
+    sprite: _Goidastation/Clothing/Head/Helmets/reverse_bear_trap.rsi
     state: key
   - type: Tag
     tags:

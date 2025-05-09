@@ -11,7 +11,7 @@
   description: A lean, mean killing machine with access to a variety of deadly modules. This one is in a state of great disrepair.
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Silicon/chassis.rsi
+    sprite: _Goidastation/Mobs/Silicon/chassis.rsi
     layers:
     - state: synd_sec
     - state: synd_sec_e

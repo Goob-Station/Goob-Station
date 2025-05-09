@@ -200,7 +200,7 @@ namespace Content.Client.Gameplay
             return GetClickedEntity(coordinates, _eyeManager.CurrentEye);
         }
 
-        public EntityUid? GetDamageableClickedEntity(MapCoordinates coordinates) // Goobstation
+        public EntityUid? GetDamageableClickedEntity(MapCoordinates coordinates) // Goidastation
         {
             var first = GetClickableEntities(coordinates, _eyeManager.CurrentEye)
                 .FirstOrDefault(e => _entityManager.HasComponent<DamageableComponent>(e));

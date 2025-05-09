@@ -6,7 +6,7 @@
 
 using Robust.Shared.GameObjects;
 
-namespace Content.Goobstation.Common.Speech;
+namespace Content.Goidastation.Common.Speech;
 
 [RegisterComponent]
 public sealed partial class BoganAccentComponent : Component;

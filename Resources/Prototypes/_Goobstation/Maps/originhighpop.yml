@@ -31,7 +31,7 @@
 - type: gameMap
   id: OriginHighPop
   mapName: 'Origin'
-  mapPath: /Maps/_Goobstation/origin.yml
+  mapPath: /Maps/_Goidastation/origin.yml
   minPlayers: 85
   stations:
     Origin:
@@ -95,9 +95,9 @@
             Musician: [ 3, 3 ]
             Boxer: [ 2, 2 ]
 
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450
           stageTheEnd: 900
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

@@ -29,11 +29,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Common.Footprints;
+using Content.Goidastation.Common.Footprints;
 using Content.Server.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
@@ -342,7 +342,7 @@ public sealed class AbsorbentSystem : SharedAbsorbentSystem
         _solutionContainerSystem.AddSolution(puddle.Solution.Value, absorberSplit);
         _solutionContainerSystem.AddSolution(absorberSoln, puddleSplit);
 
-        _audio.PlayPvs(absorber.PickupSound, Transform(target).Coordinates); // Goobstation - Footsteps Change - Play sound on footstep to puddle replacement
+        _audio.PlayPvs(absorber.PickupSound, Transform(target).Coordinates); // Goidastation - Footsteps Change - Play sound on footstep to puddle replacement
         if (useDelay != null)
             _useDelay.TryResetDelay((used, useDelay));
 

@@ -17,7 +17,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -27,7 +27,7 @@
   id: Stunprod
   description: A stun prod for illegal incapacitation.
   components:
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Stunbaton
   - type: Sprite
@@ -54,8 +54,8 @@
         Shock: 5
   - type: Stunbaton
     energyPerUse: 120
-    lightAttackEnergyMultiplier: 1.5 # Goob edit
-  - type: MeleeWeapon # goob edited
+    lightAttackEnergyMultiplier: 1.5 # Goida edit
+  - type: MeleeWeapon # goida edited
     angle: 0
     wideAnimationRotation: -135
     damage:
@@ -63,19 +63,19 @@
         Blunt: 9
     animation: WeaponArcThrust
   # it was ~35 now it's 55 so it's a buff ig
-  - type: StaminaDamageOnHit # goob edited
+  - type: StaminaDamageOnHit # goida edited
     damage: 15
     overtime: 40
     lightAttackDamageMultiplier: 5
     lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide # goob edited
+  - type: StaminaDamageOnCollide # goida edited
     damage: 15
     overtime: 40
     sound: /Audio/Weapons/egloves.ogg
-  - type: DelayedKnockdownOnHit # Goobstation
+  - type: DelayedKnockdownOnHit # Goidastation
     useDelay: stunbaton
-  - type: UseDelayBlockMelee # Goobstation
+  - type: UseDelayBlockMelee # Goidastation
     delays:
     - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
@@ -83,7 +83,7 @@
     maxCharge: 360
     startingCharge: 360
   - type: UseDelay
-    delays: # Goobstation
+    delays: # Goidastation
       stunbaton:
         length: 2.5
   - type: Item

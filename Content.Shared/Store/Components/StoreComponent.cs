@@ -15,7 +15,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._White.StoreDiscount;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -26,7 +26,7 @@ namespace Content.Shared.Store.Components;
 /// This component manages a store which players can use to purchase different listings
 /// through the ui. The currency, listings, and categories are defined in yaml.
 /// </summary>
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StoreComponent : Component

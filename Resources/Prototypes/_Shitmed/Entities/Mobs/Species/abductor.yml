@@ -21,7 +21,7 @@
   id: MobAbductor
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
-  - type: GlorpAccent # GoobStation - Glorpshit
+  - type: GlorpAccent # GoidaStation - Glorpshit
   - type: HumanoidAppearance
     species: Abductor
   - type: Icon

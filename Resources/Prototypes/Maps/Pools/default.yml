@@ -49,13 +49,13 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  #- Amber TODO: goob amber
+  #- Amber TODO: goida amber
   - Bagel
   - Box
   - Cluster
   #- Core
   - Fland
- # - Gate Goobstation - My name is Walter Hartwell White, I live at 2308 Negra alloya line albequrque new mexico.
+ # - Gate Goidastation - My name is Walter Hartwell White, I live at 2308 Negra alloya line albequrque new mexico.
   - Loop
   - Marathon
   - Meta
@@ -65,11 +65,11 @@
   - Saltern
   - Packed
   - Reach
-#  - Train # Goobstation - all my friends hate train
+#  - Train # Goidastation - all my friends hate train
   - FlandHighPop
   - OasisHighPop
-  - Barratry # Goobstation - Re-add barratry
-  - Kettle # Goobstation - Re-add kettle (before it was gemini!)
-  - Submarine # goobstation - kill yourse
-  - Leonid # Goobstation - for goob by goob
-  - Delta # Goobstation - ported from Corvax
+  - Barratry # Goidastation - Re-add barratry
+  - Kettle # Goidastation - Re-add kettle (before it was gemini!)
+  - Submarine # goidastation - kill yourse
+  - Leonid # Goidastation - for goida by goida
+  - Delta # Goidastation - ported from Corvax

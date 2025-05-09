@@ -27,14 +27,14 @@ namespace Content.Shared.Stealth.Components;
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedStealthSystem))]
-[AutoGenerateComponentState] // Goobstation
+[AutoGenerateComponentState] // Goidastation
 public sealed partial class StealthComponent : Component
 {
     /// <summary>
     /// Whether or not the stealth effect should currently be applied.
     /// </summary>
     [DataField("enabled")]
-    [AutoNetworkedField] // Goobstation
+    [AutoNetworkedField] // Goidastation
     public bool Enabled = true;
 
     /// <summary>
@@ -47,7 +47,7 @@ public sealed partial class StealthComponent : Component
     /// The creature will continue invisible at Crit.
     /// </summary>
     [DataField("enabledOnCrit")]
-    public bool EnabledOnCrit = true; // Goobstation - Stealth change
+    public bool EnabledOnCrit = true; // Goidastation - Stealth change
 
     /// <summary>
     /// Whether or not the entity previously had an interaction outline prior to cloaking.
@@ -62,14 +62,14 @@ public sealed partial class StealthComponent : Component
     public float ExamineThreshold = 0.5f;
 
     /// <summary>
-    /// Last set level of visibility. The visual effect ranges from 1 (fully visible) and -1.5 (fully hidden). Values // Goobstation - Proper invisibility
+    /// Last set level of visibility. The visual effect ranges from 1 (fully visible) and -1.5 (fully hidden). Values // Goidastation - Proper invisibility
     /// outside of this range simply act as a buffer for the visual effect (i.e., a delay before turning invisible). To
     /// get the actual current visibility, use <see cref="SharedStealthSystem.GetVisibility(EntityUid, StealthComponent?)"/>
     /// If you don't have anything else updating the stealth, this will just stay at a constant value, which can be useful.
     /// </summary>
     [DataField("lastVisibility")]
     [Access(typeof(SharedStealthSystem), Other = AccessPermissions.None)]
-    [AutoNetworkedField] // Goobstation
+    [AutoNetworkedField] // Goidastation
     public float LastVisibility = 1;
 
 
@@ -78,22 +78,22 @@ public sealed partial class StealthComponent : Component
     /// accumulating any visibility change.
     /// </summary>
     [DataField("lastUpdate", customTypeSerializer:typeof(TimeOffsetSerializer))]
-    [AutoNetworkedField] // Goobstation
+    [AutoNetworkedField] // Goidastation
     public TimeSpan? LastUpdated;
 
-    // Goobstation - Proper invisibility
+    // Goidastation - Proper invisibility
     /// <summary>
     /// Minimum visibility. Note that the visual effect caps out at -1.5, but this value is allowed to be larger or smaller.
     /// </summary>
     [DataField("minVisibility")]
-    [AutoNetworkedField] // Goobstation
+    [AutoNetworkedField] // Goidastation
     public float MinVisibility = -1.5f;
 
     /// <summary>
     /// Maximum visibility. Note that the visual effect caps out at +1, but this value is allowed to be larger or smaller.
     /// </summary>
     [DataField("maxVisibility")]
-    [AutoNetworkedField] // Goobstation
+    [AutoNetworkedField] // Goidastation
     public float MaxVisibility = 1.5f;
 
     /// <summary>
@@ -106,18 +106,18 @@ public sealed partial class StealthComponent : Component
     /// Remove stealth if an attack is made
     /// </summary>
     [DataField]
-    public bool RevealOnAttack = true; // Goobstation - Stealth change
+    public bool RevealOnAttack = true; // Goidastation - Stealth change
 
     /// <summary>
     /// Remove stealth if an attack is made
     /// </summary>
     [DataField]
-    public bool RevealOnDamage = true; // Goobstation - Stealth change
+    public bool RevealOnDamage = true; // Goidastation - Stealth change
     /// <summary>
     ///
     ///  adds a threshold for whn taking damage so you dont get reveled from taking airloss or bleed
     /// </summary>
     [DataField]
-    public float Threshold = 5;// Goobstation - Stealth change
+    public float Threshold = 5;// Goidastation - Stealth change
 
 }

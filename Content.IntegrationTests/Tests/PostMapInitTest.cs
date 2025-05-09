@@ -81,7 +81,7 @@
 // SPDX-FileCopyrightText: 2025 Emisse <99158783+Emisse@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Gallagin <64706450+Gallagin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JoeHammad1844 <finiansalas2@gmail.com>
@@ -168,24 +168,24 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
             "/Maps/Shuttles/ShuttleEvent/instigator.yml", // Contains EXP-320g "Friendship"
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
-            // Goobstation maps/map versions; it's kinda a big TODO rn
-            "/Maps/_Goobstation/bagel.yml",
-            "/Maps/_Goobstation/barratry.yml",
-            "/Maps/_Goobstation/cluster.yml",
-            "/Maps/_Goobstation/kettle.yml",
-            "/Maps/_Goobstation/lambda.yml",
-            "/Maps/_Goobstation/leonid.yml",
-            "/Maps/_Goobstation/submarine.yml",
-            "/Maps/_Goobstation/Nonstations/wizden.yml", // Obviously
+            // Goidastation maps/map versions; it's kinda a big TODO rn
+            "/Maps/_Goidastation/bagel.yml",
+            "/Maps/_Goidastation/barratry.yml",
+            "/Maps/_Goidastation/cluster.yml",
+            "/Maps/_Goidastation/kettle.yml",
+            "/Maps/_Goidastation/lambda.yml",
+            "/Maps/_Goidastation/leonid.yml",
+            "/Maps/_Goidastation/submarine.yml",
+            "/Maps/_Goidastation/Nonstations/wizden.yml", // Obviously
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml", // I think we might want to glob these, idk
-            "/Maps/_Goobstation/loop.yml",
-            "/Maps/_Goobstation/gate.yml",
-            "/Maps/_Goobstation/Shuttles/consul.yml", // Contains HEINOUS amounts of centcomm contraband. Obviously.
-            "/Maps/_Goobstation/Shuttles/retort_assault.yml", // ERT ships
-            "/Maps/_Goobstation/Shuttles/retort_medical.yml",
-            "/Maps/_Goobstation/Shuttles/retort_engineering.yml",
-            "/Maps/_Goobstation/Shuttles/retort_janitorial.yml",
-            "/Maps/_Goobstation/Shuttles/retort_cburn.yml",
+            "/Maps/_Goidastation/loop.yml",
+            "/Maps/_Goidastation/gate.yml",
+            "/Maps/_Goidastation/Shuttles/consul.yml", // Contains HEINOUS amounts of centcomm contraband. Obviously.
+            "/Maps/_Goidastation/Shuttles/retort_assault.yml", // ERT ships
+            "/Maps/_Goidastation/Shuttles/retort_medical.yml",
+            "/Maps/_Goidastation/Shuttles/retort_engineering.yml",
+            "/Maps/_Goidastation/Shuttles/retort_janitorial.yml",
+            "/Maps/_Goidastation/Shuttles/retort_cburn.yml",
         };
 
         private static readonly string[] GameMaps =
@@ -195,35 +195,35 @@ namespace Content.IntegrationTests.Tests
             "Fland",
             "Meta",
             "Packed",
-            "Cluster", // Goobstation - Readds Cluster
+            "Cluster", // Goidastation - Readds Cluster
             "Omega",
             "Bagel",
             "CentComm",
             "Box",
-            "Europa", // Goobstation - Readds Europa
-            "Atlas", // Goobstation - Readds Atlas
+            "Europa", // Goidastation - Readds Europa
+            "Atlas", // Goidastation - Readds Atlas
             "Core",
             "Marathon",
             "MeteorArena",
             "Saltern",
             "Reach",
-            "Origin", // Goobstation - Readds Origin
+            "Origin", // Goidastation - Readds Origin
             "Train",
             "Oasis",
             //"Cog", FUCK COG
-            "FlandHighPop", // Goobstation - add highpop maps
+            "FlandHighPop", // Goidastation - add highpop maps
             "OriginHighPop",
             "OasisHighPop",
-            "Barratry", // Goobstation - add Barratry
-            "Kettle", // Goobstation - add Kettle
-            "Submarine", // Goobstation - add Submarine
-            "Lambda", // Goobstation - add Lambda
-            "Leonid", // Goobstation - add Leonid
+            "Barratry", // Goidastation - add Barratry
+            "Kettle", // Goidastation - add Kettle
+            "Submarine", // Goidastation - add Submarine
+            "Lambda", // Goidastation - add Lambda
+            "Leonid", // Goidastation - add Leonid
             //"Amber", // NO AMBER DHH
-            "Gate", // Goobstation - goob changes
+            "Gate", // Goidastation - goida changes
             "Lavatest", // Lavaland Change
             "Loop",
-            "Delta" // Goobstation - add Delta
+            "Delta" // Goidastation - add Delta
         };
 
         /// <summary>

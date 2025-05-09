@@ -56,7 +56,7 @@
     damage: 45
   - type: StaminaDamageOnEmbed
     damage: 10
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
 
 - type: entity
   parent: ThrowingStar

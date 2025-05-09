@@ -52,7 +52,7 @@
   name: materials-brass
   icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: brass }
   color: "#b18b25"
-  price: 0.20 # Goobstation - Cargo repricing
+  price: 0.20 # Goidastation - Cargo repricing
 
 - type: material
   id: Plasteel
@@ -60,4 +60,4 @@
   name: materials-plasteel
   icon: { sprite: Objects/Materials/Sheets/metal.rsi, state: plasteel }
   color: "#696969" #Okay, this is epic
-  price: 0.3 # Goobstation - Cargo repricing
+  price: 0.3 # Goidastation - Cargo repricing

@@ -168,7 +168,7 @@ public sealed partial class CargoSystem
                 var numToShip = order.OrderQuantity - order.NumDispatched;
                 if (numToShip > spaceRemaining)
                 {
-                    // GoobStation - cooldown on Cargo Orders (specifically gamba)
+                    // GoidaStation - cooldown on Cargo Orders (specifically gamba)
                     // We won't be able to fit the whole order on, so make one
                     // which represents the space we do have left:
                     var reducedOrder = new CargoOrderData(order.OrderId,

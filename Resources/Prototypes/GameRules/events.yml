@@ -120,7 +120,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
@@ -162,7 +162,7 @@
     - id: SpiderClownSpawn
     - id: SpiderSpawn
     - id: VentClog
-    - id: TidemindDevelop # Goobstation - Tidemind
+    - id: TidemindDevelop # Goidastation - Tidemind
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -178,10 +178,10 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
-    - id: BlobSpawn # Goobstation - Blob
+    - id: BlobSpawn # Goidastation - Blob
     - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
     - id: DuoAbductorSpawn # Shitmed - Starlight Abductors
-    - id: BingleSpawn #Goobstation - Bingle
+    - id: BingleSpawn #Goidastation - Bingle
 
 - type: entity
   id: BaseStationEvent
@@ -223,7 +223,7 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
-    chaos: # Goobstation
+    chaos: # Goidastation
       Anomaly: 100
   - type: AnomalySpawnRule
 
@@ -241,7 +241,7 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
-    chaos: # Goobstation
+    chaos: # Goidastation
       Anomaly: 40
   - type: BluespaceArtifactRule
 
@@ -254,7 +254,7 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
-    chaos: # Goobstation
+    chaos: # Goidastation
       Anomaly: 40
   - type: BluespaceLockerRule
 
@@ -266,7 +266,7 @@
     weight: 7
     duration: 1
     minimumPlayers: 15
-    chaos: # Goobstation
+    chaos: # Goidastation
       Power: 100
   - type: BreakerFlipRule
 
@@ -315,7 +315,7 @@
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20
       Friend: 20
       Combat: 40
@@ -350,7 +350,7 @@
     earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 30
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20
       Friend: 20
       Combat: 40
@@ -358,7 +358,7 @@
       Medical: 40
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
-    # Goobstation start
+    # Goidastation start
     speciesOverride: Human
     speciesOverrideBlacklist:
     - Yowie
@@ -366,7 +366,7 @@
     - Diona
     - Abductor
     - Harpy
-    # Goobstation end
+    # Goidastation end
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -396,7 +396,7 @@
         - Syndicate
       - type: AutoImplant
         implants:
-        - MicroBombImplant # Goobstation
+        - MicroBombImplant # Goidastation
       - type: RandomMetadata
         nameSegments:
         - NamesNinjaTitle
@@ -450,7 +450,7 @@
     duration: 1
     earliestStart: 30
     minimumPlayers: 20
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20
       Friend: 20
       Combat: 40
@@ -459,7 +459,7 @@
   - type: RandomSpawnRule
     prototype: MobRevenant
 
-# Goob - wiz of our own
+# Goida - wiz of our own
 #- type: entity
 #  parent: BaseWizardRule
 #  id: WizardSpawn
@@ -566,7 +566,7 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
-    chaos: # Goobstation
+    chaos: # Goidastation
       Friend: 20
   - type: SolarFlareRule
     onlyJamHeadsets: true
@@ -596,7 +596,7 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
-    chaos: # Goobstation
+    chaos: # Goidastation
       Mess: 200
   - type: VentClogRule
 
@@ -612,7 +612,7 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20
       Medical: 50
   - type: VentCrittersRule
@@ -636,7 +636,7 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20
       Medical: 50
   - type: VentCrittersRule
@@ -660,7 +660,7 @@
     minimumPlayers: 15
     weight: 5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20
       Medical: 50
   - type: VentCrittersRule
@@ -680,7 +680,7 @@
     minimumPlayers: 30 # DeltaV - was 20
     weight: 1 # DeltaV - was 1.5
     duration: 30 # DeltaV: was 60, used as a delay now
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20
       Medical: 50
   - type: VentCrittersRule
@@ -698,7 +698,7 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 100
       Medical: 200
       Death: 200
@@ -735,7 +735,7 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 60
       Medical: 75
       Death: 100
@@ -766,10 +766,10 @@
         - Syndicate
       - type: AutoImplant
         implants:
-        - DeathAcidifierImplant # Goobstation
+        - DeathAcidifierImplant # Goidastation
       mindRoles:
       - MindRoleNukeops
-  - type: AntagLoadProfileRule # Goobstation
+  - type: AntagLoadProfileRule # Goidastation
     speciesOverride: Human
     alwaysUseSpeciesOverride: true
 
@@ -810,7 +810,7 @@
     duration: 150
     maxDuration: 300
     reoccurrenceDelay: 30
-    chaos: # Goobstation
+    chaos: # Goidastation
       Friend: 20
   - type: MassHallucinationsRule
     minTimeBetweenIncidents: 0.1
@@ -827,7 +827,7 @@
     weight: 8
     reoccurrenceDelay: 20
     duration: 1
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 10
       Friend: 20
       Mess: 30
@@ -842,7 +842,7 @@
     minimumPlayers: 20
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
-    chaos: # Goobstation
+    chaos: # Goidastation
       Hostile: 20 # for when they're actually properly hostile
       Hunger: 10
       Thirst: 10
@@ -858,7 +858,7 @@
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20
-    chaos: # Goobstation
+    chaos: # Goidastation
       Atmos: 15
       Mess: 30
   - type: GreytideVirusRule
@@ -895,7 +895,7 @@
     reoccurrenceDelay: 20
     minimumPlayers: 4
     duration: null
-    chaos: # Goobstation
+    chaos: # Goidastation
       # can be both hostile and friendly
       Hostile: 10
       Friend: -10

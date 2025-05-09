@@ -86,7 +86,7 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
 # SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
@@ -158,7 +158,7 @@
         - MachineMask
         layer:
         - None
-      # Goobstation - fishing
+      # Goidastation - fishing
       fishing:
         shape:
           !type:PhysShapeCircle
@@ -169,7 +169,7 @@
         - HighImpassable
         density: 1000
         hard: false
-      # Goobstation - fishing
+      # Goidastation - fishing
   - type: PlungerUse
   - type: Appearance
   - type: SecretStash
@@ -193,19 +193,19 @@
         maxVol: 100
       tank:
         maxVol: 500
-  #- type: SolutionRegeneration - Goobstation - laggy, also who uses toilets?
+  #- type: SolutionRegeneration - Goidastation - laggy, also who uses toilets?
   #  solution: tank
   #  generated:
   #    reagents:
   #    - ReagentId: Water
   #      Quantity: 1
-  # Goobstation - fishing in toilet is fun
+  # Goidastation - fishing in toilet is fun
   - type: FishingSpot
     fishList: !type:NestedSelector
       tableId: ToiletFishingLootTable
     fishDefaultTimer: 45.0
     fishTimerVariety: 15.0
-  # Goobstation - fishing
+  # Goidastation - fishing
   - type: DrainableSolution
     solution: tank
   - type: ReagentTank

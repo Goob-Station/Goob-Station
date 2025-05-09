@@ -15,7 +15,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Shared.Containers.OnCollide;
+namespace Content.Goidastation.Shared.Containers.OnCollide;
 
 public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
 {

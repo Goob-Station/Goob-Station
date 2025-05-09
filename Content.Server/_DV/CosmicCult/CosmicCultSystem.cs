@@ -1,6 +1,6 @@
 using Content.Server._DV.CosmicCult.EntitySystems;
 using Content.Server._DV.CosmicCult.Components;
-using Content.Goobstation.Shared.Religion; // Goobstation - Shitchap
+using Content.Goidastation.Shared.Religion; // Goidastation - Shitchap
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;

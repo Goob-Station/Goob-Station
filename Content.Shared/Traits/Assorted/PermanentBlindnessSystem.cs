@@ -44,7 +44,7 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         {
             args.PushMarkup(Loc.GetString("permanent-blindness-trait-examined", ("target", Identity.Entity(blindness, EntityManager))));
         }
-        else if (args.IsInDetailsRange && !_net.IsClient && blindness.Comp.Blindness == 4) /// Goobstation
+        else if (args.IsInDetailsRange && !_net.IsClient && blindness.Comp.Blindness == 4) /// Goidastation
         {
             args.PushMarkup(Loc.GetString("poor-vision-trait-examined", ("target", Identity.Entity(blindness, EntityManager))));
         }  

@@ -6,12 +6,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.ChronoLegionnaire.EntitySystems;
+using Content.Goidastation.Shared.ChronoLegionnaire.EntitySystems;
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
+namespace Content.Goidastation.Shared.ChronoLegionnaire.Components
 {
     /// <summary>
     /// Marks an clothing that will give stasis blink ability to wearer

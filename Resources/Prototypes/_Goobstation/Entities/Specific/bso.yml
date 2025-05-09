@@ -14,7 +14,7 @@
   description: A small, blue manual. There are drawn instructions of tactical hand-to-hand combat.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/cqc_manual.rsi
+    sprite: _Goidastation/Objects/Misc/cqc_manual.rsi
     layers:
     - state: icon-alt
   - type: Item
@@ -30,7 +30,7 @@
   description: A handheld crew monitor modified for blueshield officer's needs. Will only track scanned command personnel and alarm you about them being in danger. Works on a built-in microreactor cell.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Specific/Security/bso_monitor.rsi
+    sprite: _Goidastation/Objects/Specific/Security/bso_monitor.rsi
     state: scanner
   - type: Item
     size: Small

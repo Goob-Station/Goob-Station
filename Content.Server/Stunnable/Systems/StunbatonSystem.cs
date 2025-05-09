@@ -81,10 +81,10 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, ItemToggledEvent>(ToggleDone);
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
 
-            SubscribeLocalEvent<StunbatonComponent, EmpPulseEvent>(OnEmp); // Goobstation
+            SubscribeLocalEvent<StunbatonComponent, EmpPulseEvent>(OnEmp); // Goidastation
         }
 
-        private void OnEmp(Entity<StunbatonComponent> ent, ref EmpPulseEvent args) // Goobstation
+        private void OnEmp(Entity<StunbatonComponent> ent, ref EmpPulseEvent args) // Goidastation
         {
             args.Affected = true;
             args.Disabled = true;
@@ -93,7 +93,7 @@ namespace Content.Server.Stunnable.Systems
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
-            // Goob edit start
+            // Goida edit start
             var energy = entity.Comp.EnergyPerUse;
             if (args.LightAttack)
                 energy *= entity.Comp.LightAttackEnergyMultiplier;
@@ -102,7 +102,7 @@ namespace Content.Server.Stunnable.Systems
 
             if (!_itemToggle.IsActivated(entity.Owner)
                 || !TryComp<BatteryComponent>(entity.Owner, out var battery)
-                || !_battery.TryUseCharge(entity.Owner, energy, battery)) // Goob edit end
+                || !_battery.TryUseCharge(entity.Owner, energy, battery)) // Goida edit end
             {
                 args.Cancelled = true;
             }

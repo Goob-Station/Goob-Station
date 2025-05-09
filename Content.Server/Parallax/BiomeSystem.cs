@@ -322,7 +322,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
     public void Preload(EntityUid uid, BiomeComponent component, Box2 area)
     {
         var markers = component.MarkerLayers;
-        var goobers = _markerChunks.GetOrNew(component);
+        var goidaers = _markerChunks.GetOrNew(component);
 
         foreach (var layer in markers)
         {
@@ -332,7 +332,7 @@ public sealed partial class BiomeSystem : SharedBiomeSystem
             while (enumerator.MoveNext(out var chunk))
             {
                 var chunkOrigin = chunk * proto.Size;
-                var layerChunks = goobers.GetOrNew(proto.ID);
+                var layerChunks = goidaers.GetOrNew(proto.ID);
                 layerChunks.Add(chunkOrigin.Value);
             }
         }

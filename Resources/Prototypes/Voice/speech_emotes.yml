@@ -71,7 +71,7 @@
   id: Scream
   name: chat-emote-name-scream
   category: Vocal
-  icon: _Goobstation/Interface/Emotes/scream.png #Goobstation icons
+  icon: _Goidastation/Interface/Emotes/scream.png #Goidastation icons
   whitelist:
     components:
     - Vocal
@@ -369,7 +369,7 @@
   whitelist:
     components:
     - MobState
-  blacklist: #Goobstation - Replace deathgasp for IPCs and cyborgs
+  blacklist: #Goidastation - Replace deathgasp for IPCs and cyborgs
     components:
     - Silicon
     - BorgChassis
@@ -389,7 +389,7 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
-  whitelist: #Goobstation - IPCs
+  whitelist: #Goidastation - IPCs
     components:
     - Silicon
     - BorgChassis
@@ -440,7 +440,7 @@
   category: Vocal
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
-  whitelist: #Goobstation - IPCs, C4 sentience
+  whitelist: #Goidastation - IPCs, C4 sentience
     components:
     - Silicon
     - BorgChassis
@@ -457,7 +457,7 @@
   category: Vocal
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
-  whitelist: #Goobstation - IPCs
+  whitelist: #Goidastation - IPCs
     components:
     - Silicon
     - BorgChassis
@@ -473,7 +473,7 @@
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
-  whitelist: #Goobstation - IPCs
+  whitelist: #Goidastation - IPCs
     components:
     - Silicon
     - BorgChassis
@@ -495,7 +495,7 @@
   category: Vocal
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]
-  whitelist: #Goobstation - IPCs
+  whitelist: #Goidastation - IPCs
     components:
     - Silicon
     - BorgChassis

@@ -118,7 +118,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
@@ -138,7 +138,7 @@
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
   components:
-  - type: Tag # goob edit
+  - type: Tag # goida edit
     tags:
     - Stunbaton
   - type: Sprite
@@ -148,7 +148,7 @@
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
     energyPerUse: 50
-    lightAttackEnergyMultiplier: 2 # Goob edit
+    lightAttackEnergyMultiplier: 2 # Goida edit
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -176,19 +176,19 @@
     angle: 0
     animation: WeaponArcThrust
   # it was ~35 now it's 55 so it's a buff ig
-  - type: StaminaDamageOnHit # goob edited
+  - type: StaminaDamageOnHit # goida edited
     damage: 15
     overtime: 40
     lightAttackDamageMultiplier: 5
     lightAttackOvertimeDamageMultiplier: 0
     sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide # goob edited
+  - type: StaminaDamageOnCollide # goida edited
     damage: 15
     overtime: 40
     sound: /Audio/Weapons/egloves.ogg
-  - type: DelayedKnockdownOnHit # Goobstation
+  - type: DelayedKnockdownOnHit # Goidastation
     useDelay: stunbaton
-  - type: UseDelayBlockMelee # Goobstation
+  - type: UseDelayBlockMelee # Goidastation
     delays:
     - stunbaton
   - type: LandAtCursor # it deals stamina damage when thrown
@@ -196,7 +196,7 @@
     maxCharge: 1000
     startingCharge: 1000
   - type: UseDelay
-    delays: # Goobstation
+    delays: # Goidastation
       stunbaton:
         length: 2.5
   - type: Item
@@ -231,7 +231,7 @@
     explosionType: Default
     intensitySlope: 1.5
     maxIntensity: 200
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 75
       Plastic: 75
@@ -239,8 +239,8 @@
     guides:
     - Security
     - Antagonists
-  - type: MartialArtBlocked # Goobstation - Martial Arts
-    form: CorporateJudo # Goobstation - Martial Arts
+  - type: MartialArtBlocked # Goidastation - Martial Arts
+    form: CorporateJudo # Goidastation - Martial Arts
 
 - type: entity
   name: truncheon

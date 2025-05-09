@@ -6,7 +6,7 @@
 // SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
 //
@@ -20,9 +20,9 @@ namespace Content.Server.Flash.Components;
 ///     Makes the entity immune to being flashed.
 ///     When given to clothes in the "head", "eyes" or "mask" slot it protects the wearer.
 /// </summary>
-[RegisterComponent] // Goob edit
+[RegisterComponent] // Goida edit
 public sealed partial class FlashImmunityComponent : Component
 {
-    [DataField] // Goob edit
+    [DataField] // Goida edit
     public bool Enabled { get; set; } = true;
 }

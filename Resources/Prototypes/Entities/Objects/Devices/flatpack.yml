@@ -65,7 +65,7 @@
     price: 250
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
 
 - type: entity
   parent: BaseFlatpack

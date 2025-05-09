@@ -413,9 +413,9 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (filter.Value.Length == 0)
             return false;
 
-        if (filter.Type == StationRecordFilterType.Prints && someRecord.Fingerprint == null) // Goobstation - IPC
+        if (filter.Type == StationRecordFilterType.Prints && someRecord.Fingerprint == null) // Goidastation - IPC
             return true;
-        if (filter.Type == StationRecordFilterType.DNA && someRecord.DNA == null) // Goobstation - IPC
+        if (filter.Type == StationRecordFilterType.DNA && someRecord.DNA == null) // Goidastation - IPC
             return true;
 
         var filterLowerCaseValue = filter.Value.ToLower();

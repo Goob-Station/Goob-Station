@@ -8,7 +8,7 @@
     signProto: HolosignSecurityAdvanced
     chargeUse: 100
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/Holoprojectors/security.rsi
+    sprite: _Goidastation/Objects/Devices/Holoprojectors/security.rsi
     state: icon
   - type: Tag
     tags:

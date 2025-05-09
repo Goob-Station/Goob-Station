@@ -9,7 +9,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Clothing.Components
+namespace Content.Goidastation.Shared.Clothing.Components
 {
     [RegisterComponent]
     public sealed partial class ClothingGrantComponentComponent : Component

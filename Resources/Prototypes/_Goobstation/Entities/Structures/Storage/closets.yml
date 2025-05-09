@@ -21,7 +21,7 @@
   - type: Weldable
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Storage/hev_storage.rsi
+    sprite: _Goidastation/Structures/Storage/hev_storage.rsi
     layers:
     - state: base
     - state: suit

@@ -9,7 +9,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -39,7 +39,7 @@ namespace Content.Shared.Wieldable.Components;
 /// <summary>
 ///     Used for objects that can be wielded in two or more hands,
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goobstation edit
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // Goidastation edit
 public sealed partial class WieldableComponent : Component
 {
     [DataField("wieldSound")]
@@ -62,7 +62,7 @@ public sealed partial class WieldableComponent : Component
     ///     Whether using the item inhand while wielding causes the item to unwield.
     ///     Unwielding can conflict with other inhand actions.
     /// </summary>
-    [DataField, AutoNetworkedField] // Goobstation edit
+    [DataField, AutoNetworkedField] // Goidastation edit
     public bool UnwieldOnUse = true;
 
     /// <summary>
@@ -71,7 +71,7 @@ public sealed partial class WieldableComponent : Component
     [DataField]
     public bool UseDelayOnWield = true;
 
-    [DataField("wieldedInhandPrefix"), AutoNetworkedField] // Goobstation edit
+    [DataField("wieldedInhandPrefix"), AutoNetworkedField] // Goidastation edit
     public string? WieldedInhandPrefix = "wielded";
 
     public string? OldInhandPrefix = null;

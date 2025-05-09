@@ -67,7 +67,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aineias1 <dmitri.s.kiselev@gmail.com>
 // SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -144,7 +144,7 @@ namespace Content.Shared.Containers.ItemSlots
             SubscribeLocalEvent<ItemSlotsComponent, ComponentHandleState>(HandleItemSlotsState);
 
             SubscribeLocalEvent<ItemSlotsComponent, ItemSlotButtonPressedEvent>(HandleButtonPressed);
-            SubscribeLocalEvent<ItemSlotsComponent, GotReclaimedEvent>(OnReclaimed); // Goobstation - Recycle update
+            SubscribeLocalEvent<ItemSlotsComponent, GotReclaimedEvent>(OnReclaimed); // Goidastation - Recycle update
         }
 
         #region ComponentManagement
@@ -1004,7 +1004,7 @@ namespace Content.Shared.Containers.ItemSlots
             args.State = new ItemSlotsComponentState(component.Slots);
         }
 
-        // Goobstation - Recycle update - Empty container in recycle
+        // Goidastation - Recycle update - Empty container in recycle
         private void OnReclaimed(EntityUid uid, ItemSlotsComponent component, GotReclaimedEvent args)
         {
             foreach (var slot in component.Slots.Values)

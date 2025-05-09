@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.NPC;
+namespace Content.Goidastation.Server.NPC;
 
 /// <summary>
 /// Entities with this component will retaliate against those who physically attack them.

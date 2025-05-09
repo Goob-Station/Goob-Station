@@ -7,15 +7,15 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Common.Silo;
+using Content.Goidastation.Common.CCVar;
+using Content.Goidastation.Common.Silo;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Materials;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Silo;
+namespace Content.Shared._Goidastation.Silo;
 
 public abstract class SharedSiloSystem : EntitySystem
 {
@@ -32,7 +32,7 @@ public abstract class SharedSiloSystem : EntitySystem
     {
         base.Initialize();
 
-        _cfg.OnValueChanged(GoobCVars.SiloEnabled, enabled => _siloEnabled = enabled, true);
+        _cfg.OnValueChanged(GoidaCVars.SiloEnabled, enabled => _siloEnabled = enabled, true);
 
         SubscribeLocalEvent<SiloComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<SiloUtilizerComponent, PortDisconnectedEvent>(OnPortDisconnected);

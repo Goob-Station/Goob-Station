@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard;
+namespace Content.Shared._Goidastation.Wizard;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ActionUseDelayModifierComponent : Component

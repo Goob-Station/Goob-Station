@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -6,16 +6,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Server.Devil.HandShake;
-using Content.Goobstation.Shared.CheatDeath;
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Contract;
+using Content.Goidastation.Server.Devil.HandShake;
+using Content.Goidastation.Shared.CheatDeath;
+using Content.Goidastation.Shared.Devil;
+using Content.Goidastation.Shared.Devil.Contract;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Devil;
+namespace Content.Goidastation.Server.Devil;
 
 public sealed partial class DevilSystem
 {
@@ -38,7 +38,7 @@ public sealed partial class DevilSystem
         {
             Act = () => OfferHandshake(args.User, args.Target),
             Text = Loc.GetString("hand-shake-prompt-verb", ("target", args.Target)),
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
+            Icon = new SpriteSpecifier.Rsi(new("_Goidastation/Actions/devil.rsi"), "summon-contract"),
             Priority = 1 // Higher priority than default verbs
         };
         args.Verbs.Add(handshakeVerb);
@@ -57,7 +57,7 @@ public sealed partial class DevilSystem
         {
             Act = () => HandleHandshake(args.Target, args.User),
             Text = Loc.GetString("hand-shake-accept-verb", ("target", args.Target)),
-            Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Actions/devil.rsi"), "summon-contract"),
+            Icon = new SpriteSpecifier.Rsi(new("_Goidastation/Actions/devil.rsi"), "summon-contract"),
             Priority = 1 // Higher priority than default verbs
         };
         args.Verbs.Add(handshakeVerb);

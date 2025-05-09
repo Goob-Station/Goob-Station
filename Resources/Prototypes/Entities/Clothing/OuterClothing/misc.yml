@@ -140,7 +140,7 @@
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodChaplainHood
 
@@ -205,19 +205,19 @@
 
 - type: entity
   abstract: true
-  parent: [ClothingOuterBase, BaseMagicContraband, AllowSuitStorageClothing] # Goob edit
+  parent: [ClothingOuterBase, BaseMagicContraband, AllowSuitStorageClothing] # Goida edit
   id: ClothingOuterWizardBase
-  suffix: Wizard Clothes # Goobstation
+  suffix: Wizard Clothes # Goidastation
   components:
   - type: WizardClothes
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
       - WhitelistChameleon
       - SyringeArmor
 
 # Is this wizard wearing a fanny pack???
 - type: entity
-  parent: ClothingOuterBase # Goob edit
+  parent: ClothingOuterBase # Goida edit
   id: ClothingOuterWizardViolet
   name: violet wizard robes
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
@@ -228,7 +228,7 @@
     sprite: Clothing/OuterClothing/Misc/violetwizard.rsi
 
 - type: entity
-  parent: ClothingOuterBase # Goob edit
+  parent: ClothingOuterBase # Goida edit
   id: ClothingOuterWizard
   name: wizard robes
   description: A bizarre gem-encrusted blue robe that radiates magical energies.
@@ -239,10 +239,10 @@
     sprite: Clothing/OuterClothing/Misc/wizard.rsi
 
 - type: entity
-  parent: ClothingOuterBase # Goob edit
+  parent: ClothingOuterBase # Goida edit
   id: ClothingOuterWizardRed
   name: red wizard robes
-  description: A bizarre gem-encrusted red robe that radiates magical energies. # Goob edit
+  description: A bizarre gem-encrusted red robe that radiates magical energies. # Goida edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Misc/redwizard.rsi

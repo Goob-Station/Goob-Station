@@ -10,7 +10,7 @@
 - type: gameMap
   id: Submarine
   mapName: 'Submarine'
-  mapPath: /Maps/_Goobstation/submarine.yml
+  mapPath: /Maps/_Goidastation/submarine.yml
   minPlayers: 60
   stations:
     Submarine:
@@ -22,7 +22,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Goobstation/Shuttles/NTES_Propeller.yml
+          emergencyShuttlePath: /Maps/_Goidastation/Shuttles/NTES_Propeller.yml
         - type: StationJobs
           availableJobs:
           #civilian

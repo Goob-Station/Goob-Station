@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -10,7 +10,7 @@ using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Utility;
 using System.Numerics;
 
-namespace Content.Goobstation.UIKit.UserInterface.Controls;
+namespace Content.Goidastation.UIKit.UserInterface.Controls;
 
 [Virtual]
 public sealed class CustomOutputPanel : Control

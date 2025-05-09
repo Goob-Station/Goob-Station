@@ -11,7 +11,7 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Goidastation.Wizard.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind.Components;
 
@@ -24,7 +24,7 @@ public sealed class TargetObjectiveSystem : EntitySystem
 {
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
-    [Dependency] private readonly MindSystem _mind = default!; // Goobstation
+    [Dependency] private readonly MindSystem _mind = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -32,11 +32,11 @@ public sealed class TargetObjectiveSystem : EntitySystem
 
         SubscribeLocalEvent<TargetObjectiveComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
 
-        SubscribeLocalEvent<DynamicObjectiveTargetMindComponent, MindGotAddedEvent>(OnMindAdded); // Goobstation
-        SubscribeLocalEvent<EntityRenamedEvent>(OnRenamed); // Goobstation
+        SubscribeLocalEvent<DynamicObjectiveTargetMindComponent, MindGotAddedEvent>(OnMindAdded); // Goidastation
+        SubscribeLocalEvent<EntityRenamedEvent>(OnRenamed); // Goidastation
     }
 
-    // Goobstation start
+    // Goidastation start
     private void OnMindAdded(Entity<DynamicObjectiveTargetMindComponent> ent, ref MindGotAddedEvent args)
     {
         UpdateAllDynamicObjectiveNamesWithTarget(ent.Owner);
@@ -71,14 +71,14 @@ public sealed class TargetObjectiveSystem : EntitySystem
 
         _metaData.SetEntityName(uid, GetTitle(target.Value, comp.Title, comp.DynamicName, comp.ShowJobTitle));
     }
-    // Goobstation end
+    // Goidastation end
 
     private void OnAfterAssign(EntityUid uid, TargetObjectiveComponent comp, ref ObjectiveAfterAssignEvent args)
     {
         if (!GetTarget(uid, out var target, comp))
             return;
 
-        _metaData.SetEntityName(uid, GetTitle(target.Value, comp.Title, comp.DynamicName, comp.ShowJobTitle), args.Meta); // Goob edit
+        _metaData.SetEntityName(uid, GetTitle(target.Value, comp.Title, comp.DynamicName, comp.ShowJobTitle), args.Meta); // Goida edit
     }
 
     /// <summary>
@@ -104,10 +104,10 @@ public sealed class TargetObjectiveSystem : EntitySystem
         return target != null;
     }
 
-    private string GetTitle(EntityUid target, string title, bool dynamicName = false, bool showJobTitle = true) // Goob edit
+    private string GetTitle(EntityUid target, string title, bool dynamicName = false, bool showJobTitle = true) // Goida edit
     {
         var targetName = "Unknown";
-        // Goob edit start
+        // Goida edit start
         if (TryComp<MindComponent>(target, out var mind))
         {
             if (dynamicName && TryComp(mind.OwnedEntity, out MetaDataComponent? meta))
@@ -118,7 +118,7 @@ public sealed class TargetObjectiveSystem : EntitySystem
 
         if (!showJobTitle)
             return Loc.GetString(title, ("targetName", targetName));
-        // Goob edit end
+        // Goida edit end
 
         var jobName = _job.MindTryGetJobName(target);
         return Loc.GetString(title, ("targetName", targetName), ("job", jobName));

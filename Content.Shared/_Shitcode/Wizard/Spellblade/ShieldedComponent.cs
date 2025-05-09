@@ -9,7 +9,7 @@ using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Goidastation.Wizard.Spellblade;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ShieldedComponent : Component
@@ -26,7 +26,7 @@ public sealed partial class ShieldedComponent : Component
 
     [DataField]
     public SpriteSpecifier Sprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wizard/Effects/effects.rsi"), "shield-old");
+        new SpriteSpecifier.Rsi(new ResPath("_Goidastation/Wizard/Effects/effects.rsi"), "shield-old");
 }
 
 public enum ShieldedKey : byte

@@ -38,7 +38,7 @@
       params:
         maxDistance: 1
   - type: MiningScanner
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 250
       Glass: 75

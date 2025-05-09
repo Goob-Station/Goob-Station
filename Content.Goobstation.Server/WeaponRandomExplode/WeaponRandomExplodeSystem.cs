@@ -11,7 +11,7 @@ using Content.Server.Power.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.WeaponRandomExplode
+namespace Content.Goidastation.Server.WeaponRandomExplode
 {
     public sealed class WeaponRandomExplodeSystem : EntitySystem
     {

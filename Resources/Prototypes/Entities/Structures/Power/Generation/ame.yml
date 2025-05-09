@@ -154,7 +154,7 @@
     - Power
   - type: Tag
     tags:
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Electrified
     onHandInteract: false
     onInteractUsing: false

@@ -58,7 +58,7 @@
       layers:
         - state: extraction_point
           map: [ "foldedLayer" ]
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 250
         Glass: 125
@@ -76,7 +76,7 @@
   - type: Stack
     stackType: Fulton
     count: 10
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -95,7 +95,7 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 50
       Cloth: 125

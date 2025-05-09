@@ -11,7 +11,7 @@
   description: Actually, not that futuristic as everything else
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/teleporter.rsi
+    sprite: _Goidastation/Objects/Devices/teleporter.rsi
     layers:
     - state: icon
   - type: HandTeleporter

@@ -15,7 +15,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 
-namespace Content.Goobstation.Common.Standing;
+namespace Content.Goidastation.Common.Standing;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LayingDownComponent : Component

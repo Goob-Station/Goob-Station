@@ -7,12 +7,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Server._Goidastation.Heretic.EntitySystems.PathSpecific;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Heretic.Effects;
+namespace Content.Server._Goidastation.Heretic.Effects;
 
 public sealed partial class VoidCurse : EntityEffect
 {

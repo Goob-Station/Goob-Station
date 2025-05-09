@@ -95,7 +95,7 @@
     tags:
     - Payload # yes, you can make re-usable prank grenades
     - BikeHorn
-    - VehicleKey #Goobstatiuon - Clowncar
+    - VehicleKey #Goidastatiuon - Clowncar
   - type: MeleeWeapon
     animationRotation: 135 # WWDP
     wideAnimationRotation: 135

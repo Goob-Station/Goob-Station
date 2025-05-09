@@ -8,12 +8,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Components;
+using Content.Goidastation.Shared.Clothing.Components;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.Wires;
 
-namespace Content.Goobstation.Shared.Clothing.Systems;
+namespace Content.Goidastation.Shared.Clothing.Systems;
 
 /// <summary>
 /// Used for sealable clothing that requires power to work

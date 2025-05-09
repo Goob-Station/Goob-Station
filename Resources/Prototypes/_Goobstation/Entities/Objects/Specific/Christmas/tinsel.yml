@@ -19,7 +19,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Christmas/tinsel.rsi
+      - sprite: _Goidastation/Objects/Specific/Christmas/tinsel.rsi
         state: base1
   - type: RandomSpawner
     offset: 0.0
@@ -38,7 +38,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Christmas/tinsel.rsi
+      - sprite: _Goidastation/Objects/Specific/Christmas/tinsel.rsi
         state: base1
         color: "#ff7878"
   - type: RandomSpawner
@@ -58,7 +58,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Christmas/tinsel.rsi
+      - sprite: _Goidastation/Objects/Specific/Christmas/tinsel.rsi
         state: base1
         color: "#2A8FBD"
   - type: RandomSpawner
@@ -76,7 +76,7 @@
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base1
       - state: sparkles
@@ -91,7 +91,7 @@
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base2
       - state: sparkles
@@ -106,7 +106,7 @@
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base3
       - state: sparkles
@@ -121,7 +121,7 @@
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base4
       - state: sparkles
@@ -136,7 +136,7 @@
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base5
       - state: sparkles
@@ -151,7 +151,7 @@
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base6
       - state: sparkles
@@ -166,7 +166,7 @@
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base1
         color: "#ff7878"
@@ -182,7 +182,7 @@
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base2
         color: "#ff7878"
@@ -198,7 +198,7 @@
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base3
         color: "#ff7878"
@@ -214,7 +214,7 @@
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base4
         color: "#ff7878"
@@ -230,7 +230,7 @@
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base5
         color: "#ff7878"
@@ -246,7 +246,7 @@
   description: Some red tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base6
         color: "#ff7878"
@@ -262,7 +262,7 @@
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base1
         color: "#2A8FBD"
@@ -278,7 +278,7 @@
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base2
         color: "#2A8FBD"
@@ -294,7 +294,7 @@
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base3
         color: "#2A8FBD"
@@ -310,7 +310,7 @@
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base4
         color: "#2A8FBD"
@@ -326,7 +326,7 @@
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base5
         color: "#2A8FBD"
@@ -342,7 +342,7 @@
   description: Some blue tinsel. It's a bit sparkly.
   components:
   - type: Sprite
-    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    sprite: "/Textures/_Goidastation/Objects/Specific/Christmas/tinsel.rsi"
     layers:
       - state: base6
         color: "#2A8FBD"

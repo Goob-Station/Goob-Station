@@ -12,7 +12,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Ghostbar.Components;
+using Content.Goidastation.Server.Ghostbar.Components;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
@@ -30,7 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Ghostbar;
+namespace Content.Goidastation.Server.Ghostbar;
 
 public sealed class GhostBarSystem : EntitySystem
 {
@@ -54,7 +54,7 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
-    const string MapPath = "Maps/_Goobstation/Nonstations/ghostbar.yml";
+    const string MapPath = "Maps/_Goidastation/Nonstations/ghostbar.yml";
     private void OnRoundStart(RoundStartingEvent ev)
     {
         var resPath = new ResPath(MapPath);

@@ -37,7 +37,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server._durkcode.ServerCurrency;
 using Content.Server.Objectives.Commands;
 using Content.Shared.CCVar;
@@ -50,7 +50,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server.Objectives;
 
-// heavily edited by goobstation contributor gang
+// heavily edited by goidastation contributor gang
 // if you wanna upstream something think twice
 public sealed class ObjectivesSystem : SharedObjectivesSystem
 {
@@ -67,8 +67,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
     private bool _showGreentext;
 
-    private int _goobcoinsPerGreentext = 5;
-    private int _goobcoinsServerMultiplier = 1;
+    private int _goidacoinsPerGreentext = 5;
+    private int _goidacoinsServerMultiplier = 1;
     public override void Initialize()
     {
         base.Initialize();
@@ -78,8 +78,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         Subs.CVar(_cfg, CCVars.GameShowGreentext, value => _showGreentext = value, true);
 
         _prototypeManager.PrototypesReloaded += CreateCompletions;
-        Subs.CVar(_cfg, GoobCVars.GoobcoinsPerGreentext, value => _goobcoinsPerGreentext = value, true);
-        Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
+        Subs.CVar(_cfg, GoidaCVars.GoidacoinsPerGreentext, value => _goidacoinsPerGreentext = value, true);
+        Subs.CVar(_cfg, GoidaCVars.GoidacoinServerMultiplier, value => _goidacoinsServerMultiplier = value, true);
     }
 
     public override void Shutdown()
@@ -228,7 +228,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
 
                          // Easiest place to give people points for completing objectives lol
                         if(userid.HasValue)
-                            _currencyMan.AddCurrency(userid.Value, _goobcoinsPerGreentext * _goobcoinsServerMultiplier);
+                            _currencyMan.AddCurrency(userid.Value, _goidacoinsPerGreentext * _goidacoinsServerMultiplier);
                     }
                     else
                     {

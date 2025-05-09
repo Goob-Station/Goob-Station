@@ -86,7 +86,7 @@
 // SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 //
@@ -112,7 +112,7 @@ using Content.Server.Revenant.Components;
 using Content.Shared.Physics;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
@@ -397,7 +397,7 @@ public sealed partial class RevenantSystem
                 continue;
 
             var revenantComp = EnsureComp<RevenantOverloadedLightsComponent>(uid);
-            revenantComp.Target = ent; //Goob edit, makes revenant spawn lightning from itself as well
+            revenantComp.Target = ent; //Goida edit, makes revenant spawn lightning from itself as well
 
             var nearbyLights = _lookup.GetEntitiesInRange(ent, component.OverloadZapRadius)
                 .Where(e => poweredLights.HasComponent(e) && !HasComp<RevenantOverloadedLightsComponent>(e) &&

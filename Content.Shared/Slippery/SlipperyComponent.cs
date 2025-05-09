@@ -83,7 +83,7 @@ namespace Content.Shared.Slippery
 
 
         /// <summary>
-        /// Goobstation.
+        /// Goidastation.
         /// Whether we should slip on step.
         /// </summary>
         [DataField, AutoNetworkedField]

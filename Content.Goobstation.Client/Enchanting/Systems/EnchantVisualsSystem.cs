@@ -1,10 +1,10 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Enchanting.Components;
-using Content.Goobstation.Shared.Enchanting.Systems;
+using Content.Goidastation.Shared.Enchanting.Components;
+using Content.Goidastation.Shared.Enchanting.Systems;
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
 using Robust.Client.GameObjects;
@@ -12,7 +12,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 using System.Linq;
 
-namespace Content.Goobstation.Client.Enchanting.Systems;
+namespace Content.Goidastation.Client.Enchanting.Systems;
 
 /// <summary>
 /// Gives enchanted items a cool shader

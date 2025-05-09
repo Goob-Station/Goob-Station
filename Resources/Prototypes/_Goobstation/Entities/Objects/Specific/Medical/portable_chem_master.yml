@@ -55,7 +55,7 @@
   description: A "Tider" grade chemical manipulator
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+    sprite: _Goidastation/Objects/Tools/chemical_mixer.rsi
     layers:
       - state: chemical_mixer
   - type: Item
@@ -128,7 +128,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+    sprite: _Goidastation/Objects/Tools/chemical_mixer.rsi
     layers:
       - state: incomplete
   - type: Item

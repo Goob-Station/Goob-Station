@@ -14,7 +14,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Atmos.Components;  //Goobstation - Ventcrawler
+using Content.Shared.Atmos.Components;  //Goidastation - Ventcrawler
 using Content.Shared.DrawDepth;
 using Content.Client.UserInterface.Systems.Sandbox;
 using Content.Shared.SubFloor;
@@ -30,7 +30,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
 
     private bool _showAll;
-    private bool _showVentPipe; //Goobstation - Ventcrawler
+    private bool _showVentPipe; //Goidastation - Ventcrawler
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ShowAll
@@ -51,7 +51,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     }
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool ShowVentPipe     //Goobstation - Ventcrawler
+    public bool ShowVentPipe     //Goidastation - Ventcrawler
     {
         get => _showVentPipe;
         set
@@ -95,8 +95,8 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
-        var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //Goobstation - Ventcrawler
-        var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //Goobstation - Ventcrawler
+        var showVentPipe = HasComp<PipeAppearanceComponent>(uid) && ShowVentPipe;    //Goidastation - Ventcrawler
+        var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //Goidastation - Ventcrawler
 
         // set visibility & color of each layer
         foreach (var layer in args.Sprite.AllLayers)

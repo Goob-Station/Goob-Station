@@ -36,7 +36,7 @@
 - type: gameMap
   id: Kettle
   mapName: 'Kettle'
-  mapPath: /Maps/_Goobstation/kettle.yml
+  mapPath: /Maps/_Goidastation/kettle.yml
   minPlayers: 35
   stations:
     Kettle:
@@ -98,9 +98,9 @@
             Musician: [ 1, 2 ]
             StationAi: [ 1, 1 ]
 
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450
           stageTheEnd: 900
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

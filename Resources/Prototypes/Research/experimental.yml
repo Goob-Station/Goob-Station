@@ -37,7 +37,7 @@
   cost: 5000
   recipeUnlocks:
   - ProximitySensor
-  - Drone # Goobstation
+  - Drone # Goidastation
   position: -1,0
 
 - type: technology
@@ -56,11 +56,11 @@
   - BorgModuleAnomaly
   - APECircuitboard
   - AnomalyVesselCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -2,0
   technologyPrerequisites:
   - BasicRobotics
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: BasicXenoArcheology
@@ -76,11 +76,11 @@
   - BorgModuleArtifact
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -2,2
   technologyPrerequisites:
   - BasicRobotics
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: AlternativeResearch
@@ -93,11 +93,11 @@
   cost: 5000
   recipeUnlocks:
   - TechDiskComputerCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   technologyPrerequisites:
   - BasicRobotics
   position: -2,-1
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: MagnetsTech
@@ -111,11 +111,11 @@
   recipeUnlocks:
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -3,-1
   technologyPrerequisites:
   - AlternativeResearch
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: AnomalyCoreHarnessing
@@ -128,11 +128,11 @@
   cost: 10000
   recipeUnlocks:
   - WeaponGauntletGorilla
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -3,1
   technologyPrerequisites:
   - BasicAnomalousResearch
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 # Tier 2
 
@@ -147,11 +147,11 @@
   cost: 5000
   recipeUnlocks:
   - ArtifactCrusherMachineCircuitboard
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -3,2
   technologyPrerequisites:
   - BasicXenoArcheology
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: AdvancedAnomalyResearch
@@ -182,11 +182,11 @@
   recipeUnlocks:
   - WeaponParticleDecelerator
   - HoloprojectorField
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -3,-2
   technologyPrerequisites:
   - AlternativeResearch
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 # Tier 3
 
@@ -198,16 +198,16 @@
     state: base
   discipline: Experimental
   tier: 3
-  cost: 15000 # Goobstation 10000 -> 15000
+  cost: 15000 # Goidastation 10000 -> 15000
   recipeUnlocks:
     - WeaponForceGun
     - WeaponTetherGun
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -4,2
   technologyPrerequisites:
   - AbnormalArtifactManipulation
   - AnomalyCoreHarnessing
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end
 
 - type: technology
   id: QuantumLeaping
@@ -217,11 +217,11 @@
     state: icon
   discipline: Experimental
   tier: 3
-  cost: 15000 # Goobstation 10000 -> 15000
+  cost: 15000 # Goidastation 10000 -> 15000
   recipeUnlocks:
   - DeviceQuantumSpinInverter
-  # Goobstation R&D Console rework start
+  # Goidastation R&D Console rework start
   position: -5,2
   technologyPrerequisites:
   - GravityManipulation
-  # Goobstation R&D Console rework end
+  # Goidastation R&D Console rework end

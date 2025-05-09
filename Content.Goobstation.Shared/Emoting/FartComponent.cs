@@ -13,7 +13,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Emoting;
+namespace Content.Goidastation.Shared.Emoting;
 
 // use as a template
 //[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationNameEmoteEvent : EntityEventArgs { }
@@ -32,7 +32,7 @@ public sealed partial class FartComponent : Component
     /// </summary>
     [DataField]
     [Access(Other = AccessPermissions.ReadWriteExecute)]
-    public SoundSpecifier BibleSmiteSnd = new SoundPathSpecifier("/Audio/_Goobstation/Effects/thunder_clap.ogg");
+    public SoundSpecifier BibleSmiteSnd = new SoundPathSpecifier("/Audio/_Goidastation/Effects/thunder_clap.ogg");
 }
 
 [Serializable, NetSerializable]

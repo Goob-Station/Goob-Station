@@ -6,12 +6,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.MartialArts;
-using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Goidastation.Shared.MartialArts;
+using Content.Goidastation.Shared.MartialArts.Components;
+using Content.Goidastation.Shared.MartialArts.Events;
 using Content.Server.Chat.Systems;
 
-namespace Content.Goobstation.Server.MartialArts;
+namespace Content.Goidastation.Server.MartialArts;
 
 /// <summary>
 /// Just handles carp sayings for now.

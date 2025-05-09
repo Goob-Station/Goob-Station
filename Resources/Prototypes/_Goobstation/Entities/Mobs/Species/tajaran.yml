@@ -94,7 +94,7 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+    critThreshold: 75 # Goidastation - Siouxcide, felinids take 3 disabler shots to down
   - type: TypingIndicator
     proto: felinid
   - type: PseudoItem

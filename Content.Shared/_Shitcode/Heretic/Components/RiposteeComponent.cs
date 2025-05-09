@@ -10,7 +10,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Heretic.Components;
+namespace Content.Shared._Goidastation.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RiposteeComponent : Component

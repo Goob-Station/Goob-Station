@@ -2,7 +2,7 @@
 using Robust.Client.UserInterface;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.UIKit.UserInterface.RichText;
+namespace Content.Goidastation.UIKit.UserInterface.RichText;
 
 public sealed class TextureTag : BaseTextureTag
 {

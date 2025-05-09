@@ -1,13 +1,13 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Shared.Religion;
+using Content.Goidastation.Common.Changeling;
+using Content.Goidastation.Shared.Religion;
 using Content.Server.Stunnable;
-using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
+using Content.Shared._Goidastation.Wizard.FadingTimedDespawn;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Coordinates;
 using Content.Shared.Examine;
@@ -25,7 +25,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Possession;
+namespace Content.Goidastation.Server.Possession;
 
 public sealed partial class PossessionSystem : EntitySystem
 {

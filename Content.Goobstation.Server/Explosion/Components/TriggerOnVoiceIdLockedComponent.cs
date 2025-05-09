@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
@@ -7,7 +7,7 @@
 using Content.Shared.Access;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Explosion.Components
+namespace Content.Server._Goidastation.Explosion.Components
 {
     /// <summary>
     /// Sends a trigger when the keyphrase is heard. This one is ID locked.

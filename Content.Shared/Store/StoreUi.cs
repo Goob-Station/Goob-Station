@@ -13,13 +13,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Store;
 
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 
 [Serializable, NetSerializable]

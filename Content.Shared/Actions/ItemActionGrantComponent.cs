@@ -55,11 +55,11 @@ public sealed partial class ItemActionGrantComponent : Component
     [DataField(required: true), AutoNetworkedField, AlwaysPushInheritance]
     public List<EntProtoId> Actions = new();
 
-    // Goobstation start
+    // Goidastation start
     [DataField]
     public bool RestrictSlots;
 
     [DataField]
     public SlotFlags? RestrictedSlots;
-    // Goobstation end
+    // Goidastation end
 }

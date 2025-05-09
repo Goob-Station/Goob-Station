@@ -20,8 +20,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
-using Content.Shared.Heretic.Prototypes; // Goob
+using Content.Goidastation.Maths.FixedPoint;
+using Content.Shared.Heretic.Prototypes; // Goida
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -122,10 +122,10 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// <summary>
     /// The event that is broadcast when the listing is purchased.
     /// </summary>
-    [DataField(serverOnly: true), NonSerialized] // Goob edit
+    [DataField(serverOnly: true), NonSerialized] // Goida edit
     public object? ProductEvent;
 
-    // goobstation - heretics
+    // goidastation - heretics
     // i am too tired of making separate systems for knowledge adding
     // and all that shit. i've had like 4 failed attempts
     // so i'm just gonna shitcode my way out of my misery
@@ -162,13 +162,13 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
 
     /// <summary>
     /// Whether or not to disable refunding for the store when the listing is purchased from it.
-    /// Goob edit: This won't disable refund, but instead you won't be able to refund this listing.
+    /// Goida edit: This won't disable refund, but instead you won't be able to refund this listing.
     /// </summary>
     [DataField]
     public bool DisableRefund = false;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// When purchased, it will block refunds of these listings.
     /// </summary>
     [DataField]
@@ -185,18 +185,18 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Description != listing.Description ||
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
-            RaiseProductEventOnUser != listing.RaiseProductEventOnUser || // Goobstation
-            DisableRefund != listing.DisableRefund || // Goobstation
+            RaiseProductEventOnUser != listing.RaiseProductEventOnUser || // Goidastation
+            DisableRefund != listing.DisableRefund || // Goidastation
             RestockTime != listing.RestockTime)
             return false;
 
-        if (ProductEvent != null && listing.ProductEvent != null && ProductEvent.GetType() != listing.ProductEvent.GetType()) // Goobstation
+        if (ProductEvent != null && listing.ProductEvent != null && ProductEvent.GetType() != listing.ProductEvent.GetType()) // Goidastation
             return false;
 
         if (Icon != null && !Icon.Equals(listing.Icon))
             return false;
 
-        // Goobstation
+        // Goidastation
         if (!BlockRefundListings.OrderBy(x => x).SequenceEqual(listing.BlockRefundListings.OrderBy(x => x)))
             return false;
 
@@ -237,10 +237,10 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
-            RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit
-            ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
-            DisableRefund = DisableRefund, // goob edit
-            BlockRefundListings = BlockRefundListings, // goob edit
+            RaiseProductEventOnUser = RaiseProductEventOnUser, // goida edit
+            ProductHereticKnowledge = ProductHereticKnowledge, // goida edit
+            DisableRefund = DisableRefund, // goida edit
+            BlockRefundListings = BlockRefundListings, // goida edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
             // WD START

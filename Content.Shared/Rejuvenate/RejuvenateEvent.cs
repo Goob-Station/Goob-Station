@@ -6,11 +6,11 @@
 
 namespace Content.Shared.Rejuvenate;
 
-public sealed class RejuvenateEvent(bool uncuff = true, bool resetActions = true) : EntityEventArgs // Goob edit
+public sealed class RejuvenateEvent(bool uncuff = true, bool resetActions = true) : EntityEventArgs // Goida edit
 {
-    // Goobstation start
+    // Goidastation start
     public bool Uncuff = uncuff;
 
     public bool ResetActions = resetActions;
-    // Goobstation end
+    // Goidastation end
 }

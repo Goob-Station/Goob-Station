@@ -37,7 +37,7 @@ public sealed class ClumsySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!; // Goobstation
+    [Dependency] private readonly IPrototypeManager _prototype = default!; // Goidastation
 
     public override void Initialize()
     {
@@ -45,10 +45,10 @@ public sealed class ClumsySystem : EntitySystem
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeDefibrillatorZapsEvent>(BeforeDefibrillatorZapsEvent);
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeGunShotEvent>(BeforeGunShotEvent);
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeClimbEvent>(OnBeforeClimbEvent);
-        SubscribeLocalEvent<ClumsyComponent, ComponentInit>(OnInit); // Goobstation
+        SubscribeLocalEvent<ClumsyComponent, ComponentInit>(OnInit); // Goidastation
     }
 
-    private void OnInit(Entity<ClumsyComponent> ent, ref ComponentInit args) // Goobstation
+    private void OnInit(Entity<ClumsyComponent> ent, ref ComponentInit args) // Goidastation
     {
         if (ent.Comp.GunShootFailDamage != null)
             return;
@@ -128,7 +128,7 @@ public sealed class ClumsySystem : EntitySystem
         var rand = new System.Random((int)_timing.CurTick.Value);
 
         // If someone is putting you on the table, always get past the guard.
-        // Goobstation - Fix bugged table bonks.
+        // Goidastation - Fix bugged table bonks.
         if (!_cfg.GetCVar(CCVars.GameTableBonk)
             || args.PuttingOnTable != ent.Owner
             || !rand.Prob(ent.Comp.ClumsyDefaultCheck))

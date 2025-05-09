@@ -102,7 +102,7 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -115,8 +115,8 @@
   components:
   - type: Microwave
     capacity: 10
-    canMicrowaveIdsSafely: false # Goobstation
-    explosionChance: .25 # Goobstation
+    canMicrowaveIdsSafely: false # Goidastation
+    explosionChance: .25 # Goidastation
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -210,7 +210,7 @@
       microwave_entity_container: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
-  - type: AutomationSlots # Goobstation
+  - type: AutomationSlots # Goidastation
     slots:
     - !type:AutomatedContainer
       input: AutomationSlotInput
@@ -236,14 +236,14 @@
     baseHeatMultiplier: 200
     capacity: 10
     canMicrowaveIdsSafely: false
-    explosionChance: 0.10 # Goobstation
+    explosionChance: 0.10 # Goidastation
   - type: Sprite
     sprite: Structures/Machines/microwave_syndie.rsi
     drawdepth: SmallObjects
     snapCardinals: true
   - type: Machine
     board: SyndicateMicrowaveMachineCircuitboard
-  - type: Explosive # Goobstation
+  - type: Explosive # Goidastation
     explosionType: Default
     maxIntensity: 10
     totalIntensity: 5

@@ -8,14 +8,14 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.CCVar; // Goob Edit
+using Content.Goidastation.Common.CCVar; // Goida Edit
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 
-namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
+namespace Content.Shared._EinsteinEngines.Contests // Goida Edit
 {
     public sealed partial class ContestsSystem : EntitySystem
     {
@@ -25,13 +25,13 @@ namespace Content.Shared._EinsteinEngines.Contests // Goob Edit
         public override void Initialize()
         {
             base.Initialize();
-            Subs.CVar(_cfg, GoobCVars.DoContestsSystem, (val) => _doContestSystem = val);
-            Subs.CVar(_cfg, GoobCVars.DoMassContests, (val) => _doMassContests = val);
-            Subs.CVar(_cfg, GoobCVars.AllowClampOverride, (val) => _allowClampOverride = val);
-            Subs.CVar(_cfg, GoobCVars.MassContestsMaxPercentage, (val) => _massContestsMaxPercentage = val);
-            Subs.CVar(_cfg, GoobCVars.DoStaminaContests, (val) => _doStaminaContests = val);
-            Subs.CVar(_cfg, GoobCVars.DoHealthContests, (val) => _doHealthContests = val);
-            Subs.CVar(_cfg, GoobCVars.DoMindContests, (val) => _doMindContests = val);
+            Subs.CVar(_cfg, GoidaCVars.DoContestsSystem, (val) => _doContestSystem = val);
+            Subs.CVar(_cfg, GoidaCVars.DoMassContests, (val) => _doMassContests = val);
+            Subs.CVar(_cfg, GoidaCVars.AllowClampOverride, (val) => _allowClampOverride = val);
+            Subs.CVar(_cfg, GoidaCVars.MassContestsMaxPercentage, (val) => _massContestsMaxPercentage = val);
+            Subs.CVar(_cfg, GoidaCVars.DoStaminaContests, (val) => _doStaminaContests = val);
+            Subs.CVar(_cfg, GoidaCVars.DoHealthContests, (val) => _doHealthContests = val);
+            Subs.CVar(_cfg, GoidaCVars.DoMindContests, (val) => _doMindContests = val);
 
         }
 

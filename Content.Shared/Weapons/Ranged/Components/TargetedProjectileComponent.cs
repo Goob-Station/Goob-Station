@@ -14,5 +14,5 @@ namespace Content.Shared.Weapons.Ranged.Components;
 public sealed partial class TargetedProjectileComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntityUid? Target; // Goob edit - if null it hits everything
+    public EntityUid? Target; // Goida edit - if null it hits everything
 }

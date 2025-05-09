@@ -12,7 +12,7 @@
 
 using System.Numerics;
 using Content.Client.Hands.Systems;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Goidastation.Weapons.AmmoSelector;
 using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -33,7 +33,7 @@ namespace Content.Client.Hands
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
 
-        private readonly SpriteSystem _sprite; // Goobstation
+        private readonly SpriteSystem _sprite; // Goidastation
 
         private HandsSystem? _hands;
         private readonly IRenderTexture _renderBackbuffer;
@@ -47,7 +47,7 @@ namespace Content.Client.Hands
         {
             IoCManager.InjectDependencies(this);
 
-            _sprite = _entMan.System<SpriteSystem>(); // Goobstation
+            _sprite = _entMan.System<SpriteSystem>(); // Goidastation
 
             _renderBackbuffer = _clyde.CreateRenderTarget(
                 (64, 64),
@@ -94,7 +94,7 @@ namespace Content.Client.Hands
             _hands ??= _entMan.System<HandsSystem>();
             var handEntity = _hands.GetActiveHandEntity();
 
-            // Goob edit start
+            // Goida edit start
             if (handEntity == null)
                 return;
 
@@ -110,7 +110,7 @@ namespace Content.Client.Hands
 
             if (!_entMan.TryGetComponent(handEntity.Value, out SpriteComponent? sprite))
                 return;
-            // Goob edit end
+            // Goida edit end
 
             var halfSize = _renderBackbuffer.Size / 2;
             var uiScale = (args.ViewportControl as Control)?.UIScale ?? 1f;

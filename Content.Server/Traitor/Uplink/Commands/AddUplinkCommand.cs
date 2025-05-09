@@ -52,7 +52,7 @@ namespace Content.Server.Traitor.Uplink.Commands
             };
         }
 
-        // goob edit - removed embedded discounts
+        // goida edit - removed embedded discounts
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length > 2)

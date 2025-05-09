@@ -8,7 +8,7 @@
   name: seeds-strange-berries-name
   noun: seeds-noun-seeds
   displayName: seeds-strange-berries-display-name
-  plantRsi: _Goobstation/Objects/Specific/Hydroponics/strange_berries.rsi
+  plantRsi: _Goidastation/Objects/Specific/Hydroponics/strange_berries.rsi
   packetPrototype: StrangeBerrySeeds
   productPrototypes:
     - FoodStrangeBerries

@@ -104,7 +104,7 @@ public sealed partial class HeadRevolutionaryComponent : Component
 
     public override bool SessionSpecific => true;
 
-    //Goobstation
+    //Goidastation
     /// <summary>
     /// If head rev's convert ability is not disabled by mindshield
     /// </summary>

@@ -117,7 +117,7 @@
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
-  - CaptainMask # Goobstation - Lollypops!
+  - CaptainMask # Goidastation - Lollypops!
   - CaptainBackpack
   - CaptainOuterClothing
   - Survival
@@ -395,7 +395,7 @@
   id: JobAtmosphericTechnician
   groups:
   - GroupTankHarness
-  - AtmosphericTechnicianHead # Goobstation
+  - AtmosphericTechnicianHead # Goidastation
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
@@ -517,7 +517,7 @@
   - SecurityBackpack
   - SurvivalSecurity
   - SecurityNeck
-  - SecurityOuterClothing # Goobstation - Why not.
+  - SecurityOuterClothing # Goidastation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -613,7 +613,7 @@
   groups:
   - GroupTankHarness
   - ReporterJumpsuit
-  - ReporterOuterClothing # Goobstation - Bodycams
+  - ReporterOuterClothing # Goidastation - Bodycams
   - CommonBackpack
   - Glasses
   - Survival

@@ -13,7 +13,7 @@
   id: HereticSidePath3Armor
   name: knowledge-path-side-s3-armor-name
   description: knowledge-path-side-s3-armor-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/eldritch_hood.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
     KnowledgePoint: 1
@@ -29,7 +29,7 @@
   id: HereticSidePath3Flask
   name: knowledge-path-side-s3-flask-name
   description: knowledge-path-side-s3-flask-desc
-  icon: { sprite: _Goobstation/Heretic/items.rsi, state: eldritch_flask }
+  icon: { sprite: _Goidastation/Heretic/items.rsi, state: eldritch_flask }
   productHereticKnowledge: PriestRitual
   cost:
     KnowledgePoint: 1
@@ -45,7 +45,7 @@
   id: HereticSidePath3AshenEyes
   name: knowledge-path-side-s3-ashen-eyes-name
   description: knowledge-path-side-s3-ashen-eyes-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_medalion.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/eldritch_medalion.rsi, state: icon }
   productHereticKnowledge: AshenEyesRitual
   cost:
     KnowledgePoint: 1
@@ -61,7 +61,7 @@
   id: HereticSidePath3VoidCloak
   name: knowledge-path-side-s3-void-cloak-name
   description: knowledge-path-side-s3-void-cloak-desc
-  icon: { sprite: _Goobstation/Heretic/void_cloak.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/void_cloak.rsi, state: icon }
   productHereticKnowledge: VoidCloak
   cost:
     KnowledgePoint: 1
@@ -77,7 +77,7 @@
   id: HereticSidePath3IceSpear
   name: knowledge-path-side-s3-ice-spear-name
   description: knowledge-path-side-s3-ice-spear-desc
-  icon: { sprite: _Goobstation/Heretic/Entities/ice_spear.rsi, state: spear }
+  icon: { sprite: _Goidastation/Heretic/Entities/ice_spear.rsi, state: spear }
   productHereticKnowledge: MysteriesOfCreation
   cost:
     KnowledgePoint: 1
@@ -93,7 +93,7 @@
   id: HereticSidePathKnowledge
   name: knowledge-path-side-knowledge-name
   description: knowledge-path-side-knowledge-desc
-  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/book.rsi, state: icon }
   productHereticKnowledge: RitualOfKnowledge
   cost:
     KnowledgePoint: 1
@@ -109,7 +109,7 @@
   id: HereticSidePath6RustWalker
   name: knowledge-path-side-s6-rustwalker-name
   description: knowledge-path-side-s6-rustwalker-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: rust_walker }
+  icon: { sprite: _Goidastation/Heretic/eldritch_mobs.rsi, state: rust_walker }
   productHereticKnowledge: RustedRitual
   cost:
     KnowledgePoint: 1
@@ -125,7 +125,7 @@
   id: HereticSidePath6CarvingKnife
   name: knowledge-path-side-s6-knife-name
   description: knowledge-path-side-s6-knife-desc
-  icon: { sprite: _Goobstation/Heretic/items.rsi, state: rune_carver }
+  icon: { sprite: _Goidastation/Heretic/items.rsi, state: rune_carver }
   productHereticKnowledge: CarvingKnife
   cost:
     KnowledgePoint: 1
@@ -141,7 +141,7 @@
   id: HereticSidePath8Cleave
   name: knowledge-path-side-s8-cleave-name
   description: knowledge-path-side-s8-cleave-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: cleave }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: cleave }
   productHereticKnowledge: Cleave
   cost:
     KnowledgePoint: 1
@@ -157,7 +157,7 @@
   id: HereticSidePath8RustCharge
   name: knowledge-path-side-s8-rust-charge-name
   description: knowledge-path-side-s8-rust-charge-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: rust_charge }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: rust_charge }
   productHereticKnowledge: RustCharge
   cost:
     KnowledgePoint: 1

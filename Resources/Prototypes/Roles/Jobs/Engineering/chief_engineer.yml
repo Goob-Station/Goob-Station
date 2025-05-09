@@ -147,7 +147,7 @@
   icon: "JobIconChiefEngineer"
   supervisors: job-supervisors-captain
   canBeAntag: false
-  goobcoins: 40 #Goob content
+  goidacoins: 40 #Goida content
   access:
   - Maintenance
   - Engineering
@@ -163,16 +163,16 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-      - type: EngineeringStaff # Goobstation
+      - type: EngineeringStaff # Goidastation
 
 - type: startingGear
   id: ChiefEngineerGear
   equipment:
     id: CEPDA
     eyes: ClothingEyesGlassesMeson
-    ears: ClothingHeadsetAltEngineering # Goobstation
+    ears: ClothingHeadsetAltEngineering # Goidastation
     belt: ClothingBeltUtilityEngineering
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton # Goidastation

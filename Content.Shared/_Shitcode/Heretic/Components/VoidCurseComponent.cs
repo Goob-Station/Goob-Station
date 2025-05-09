@@ -10,7 +10,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Heretic.Components;
+namespace Content.Shared._Goidastation.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class VoidCurseComponent : Component

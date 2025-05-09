@@ -30,7 +30,7 @@
     tags:
     - Stunbaton
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Melee/blueshield_mace.rsi
+    sprite: _Goidastation/Objects/Weapons/Melee/blueshield_mace.rsi
     layers:
     - state: icon-off
       map: [ "enum.ToggleVisuals.Layer" ]

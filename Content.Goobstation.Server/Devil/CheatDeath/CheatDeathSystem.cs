@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.DelayedDeath;
-using Content.Goobstation.Shared.CheatDeath;
+using Content.Goidastation.Common.DelayedDeath;
+using Content.Goidastation.Shared.CheatDeath;
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
@@ -17,7 +17,7 @@ using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Server.Devil.CheatDeath;
+namespace Content.Goidastation.Server.Devil.CheatDeath;
 
 public sealed partial class CheatDeathSystem : EntitySystem
 {

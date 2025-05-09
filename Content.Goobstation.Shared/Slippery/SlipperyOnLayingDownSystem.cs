@@ -10,7 +10,7 @@ using Content.Shared.Slippery;
 using Content.Shared.Standing;
 using Content.Shared.StepTrigger.Components;
 
-namespace Content.Goobstation.Shared.Slippery;
+namespace Content.Goidastation.Shared.Slippery;
 
 /// <summary>
 /// Causes the person given this to inherit

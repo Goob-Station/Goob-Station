@@ -1,13 +1,13 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Devil.UI;
+using Content.Goidastation.Shared.Devil.UI;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
-namespace Content.Goobstation.Client.Devil.UI;
+namespace Content.Goidastation.Client.Devil.UI;
 
 [UsedImplicitly]
 public sealed class RevivalContractBoundUserInterface : BoundUserInterface

@@ -8,7 +8,7 @@
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Whitelist;
 
-namespace Content.Server._Goobstation.Wizard.Components;
+namespace Content.Server._Goidastation.Wizard.Components;
 
 [RegisterComponent]
 public sealed partial class RandomTeleportOnProjectileHitComponent : Component

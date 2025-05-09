@@ -22,7 +22,7 @@ namespace Content.Shared.Armor;
 /// <summary>
 /// Used for clothing that reduces damage when worn.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // goob edit - remove access restrictions
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // goida edit - remove access restrictions
 public sealed partial class ArmorComponent : Component
 {
     /// <summary>

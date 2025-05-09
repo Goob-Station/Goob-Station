@@ -120,7 +120,7 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -144,7 +144,7 @@
     - Back
   - type: Item
     size: Huge
-    shape: # Goobstation
+    shape: # Goidastation
     - 0,0,5,2
   - type: StaticPrice
     price: 500
@@ -178,7 +178,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
   - type: BallisticAmmoProvider
-    autoCycle: false # Goobstation
+    autoCycle: false # Goidastation
     whitelist:
       tags:
         - Grenade
@@ -328,7 +328,7 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 125
         Glass: 100
@@ -381,7 +381,7 @@
               unshaded:
                 True: { visible: true }
                 False: { visible: false }
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Steel: 125
         Glass: 100

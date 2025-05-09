@@ -30,7 +30,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Body.Part;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-//[Access(typeof(SharedBodySystem))] // goob edit - all access :godo:
+//[Access(typeof(SharedBodySystem))] // goida edit - all access :godo:
 public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent // Shitmed Change
 {
     // Need to set this on container changes as it may be several transform parents up the hierarchy.

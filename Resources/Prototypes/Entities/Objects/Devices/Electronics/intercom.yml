@@ -88,7 +88,7 @@
     state: id_mod
   - type: Tag
     tags:
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
       - IntercomElectronics
   - type: StaticPrice
     price: 55

@@ -27,7 +27,7 @@ public sealed class BackStabSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public static readonly SoundSpecifier BackstabSound =
-        new SoundPathSpecifier("/Audio/_Goobstation/Weapons/Effects/guillotine.ogg");
+        new SoundPathSpecifier("/Audio/_Goidastation/Weapons/Effects/guillotine.ogg");
 
     public override void Initialize()
     {

@@ -19,7 +19,7 @@
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Goobstation/Effects/stasis.rsi
+      sprite: _Goidastation/Effects/stasis.rsi
       state: effect
   - type: EffectVisuals
   - type: Tag

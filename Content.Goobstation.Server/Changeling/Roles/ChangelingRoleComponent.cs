@@ -10,7 +10,7 @@
 
 using Content.Shared.Roles;
 
-namespace Content.Goobstation.Server.Changeling.Roles;
+namespace Content.Goidastation.Server.Changeling.Roles;
 
 [RegisterComponent]
 public sealed partial class ChangelingRoleComponent : BaseMindRoleComponent

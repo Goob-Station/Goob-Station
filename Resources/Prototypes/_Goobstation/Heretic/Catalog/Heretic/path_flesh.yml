@@ -28,7 +28,7 @@
   id: KnowledgePathStartFlesh
   name: knowledge-path-flesh-s1-name
   description: knowledge-path-flesh-s1-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_flesh.rsi, state: icon }
   productHereticKnowledge: PrincipleOfHunger
   cost:
     KnowledgePoint: 1
@@ -52,7 +52,7 @@
   id: HereticFleshPath2
   name: knowledge-path-flesh-s2-name
   description: knowledge-path-flesh-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfFlesh
   cost:
     KnowledgePoint: 1
@@ -87,7 +87,7 @@
   id: HereticFleshPath4
   name: knowledge-path-flesh-s4-name
   description: knowledge-path-flesh-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfFlesh
   cost:
     KnowledgePoint: 2
@@ -105,7 +105,7 @@
   id: HereticFleshPath5
   name: knowledge-path-flesh-s5-name
   description: knowledge-path-flesh-s5-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: flesh_surgery }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: flesh_surgery }
   productHereticKnowledge: KnittingOfFlesh
   cost:
     KnowledgePoint: 2
@@ -124,7 +124,7 @@
   id: HereticFleshPath6
   name: knowledge-path-flesh-s6-name
   description: knowledge-path-flesh-s6-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: raw_prophet }
+  icon: { sprite: _Goidastation/Heretic/eldritch_mobs.rsi, state: raw_prophet }
   productHereticKnowledge: RawRitual
   cost:
     KnowledgePoint: 1
@@ -140,7 +140,7 @@
   id: HereticFleshPath7
   name: knowledge-path-flesh-s7-name
   description: knowledge-path-flesh-s7-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_flesh.rsi, state: icon }
   productHereticKnowledge: BleedingSteel
   cost:
     KnowledgePoint: 2
@@ -159,7 +159,7 @@
   id: HereticFleshPath8
   name: knowledge-path-flesh-s8-name
   description: knowledge-path-flesh-s8-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: stalker }
+  icon: { sprite: _Goidastation/Heretic/eldritch_mobs.rsi, state: stalker }
   productHereticKnowledge: LonelyRitual
   cost:
     KnowledgePoint: 1
@@ -175,7 +175,7 @@
   id: HereticFleshPath9
   name: knowledge-path-flesh-s9-name
   description: knowledge-path-flesh-s9-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: final_hymn }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: final_hymn }
   productHereticKnowledge: AscensionFlesh
   cost:
     KnowledgePoint: 3

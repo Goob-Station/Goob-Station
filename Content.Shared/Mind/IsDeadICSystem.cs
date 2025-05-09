@@ -22,6 +22,6 @@ public sealed class IsDeadICSystem : EntitySystem
 
     private void OnGetDeadIC(EntityUid uid, IsDeadICComponent component, ref GetCharactedDeadIcEvent args)
     {
-        args.Dead = component.Dead; // Goob edit
+        args.Dead = component.Dead; // Goida edit
     }
 }

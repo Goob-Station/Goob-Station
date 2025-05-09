@@ -8,20 +8,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Research;
+using Content.Goidastation.Common.Research;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Research.UI;
+namespace Content.Goidastation.Client.Research.UI;
 
 [UsedImplicitly]
 public sealed class FancyResearchConsoleBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
-    private FancyResearchConsoleMenu? _consoleMenu;  // Goobstation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
+    private FancyResearchConsoleMenu? _consoleMenu;  // Goidastation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
 
     public FancyResearchConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -33,7 +33,7 @@ public sealed class FancyResearchConsoleBoundUserInterface : BoundUserInterface
 
         var owner = Owner;
 
-        _consoleMenu = this.CreateWindow<FancyResearchConsoleMenu>();   // Goobstation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
+        _consoleMenu = this.CreateWindow<FancyResearchConsoleMenu>();   // Goidastation R&D Console rework - ResearchConsoleMenu -> FancyResearchConsoleMenu
         _consoleMenu.SetEntity(owner);
         _consoleMenu.OnClose += () => _consoleMenu = null;
 
@@ -69,7 +69,7 @@ public sealed class FancyResearchConsoleBoundUserInterface : BoundUserInterface
         if (state is not ResearchConsoleBoundInterfaceState castState)
             return;
 
-        // Goobstation checks added
+        // Goidastation checks added
         // Thats for avoiding refresh spam when only points are updated
         if (_consoleMenu == null)
             return;

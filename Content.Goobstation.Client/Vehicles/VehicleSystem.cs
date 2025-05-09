@@ -6,11 +6,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Vehicles;
+using Content.Goidastation.Shared.Vehicles;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 
-namespace Content.Goobstation.Client.Vehicles;
+namespace Content.Goidastation.Client.Vehicles;
 
 public sealed class VehicleSystem : SharedVehicleSystem
 {

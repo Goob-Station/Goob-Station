@@ -8,7 +8,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
+namespace Content.Goidastation.Shared.ChronoLegionnaire.Components
 {
     /// <summary>
     /// Marks an EntityContainer that can apply stasis on entity inside it

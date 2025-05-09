@@ -170,7 +170,7 @@ public sealed class GhostRoleSystem : EntitySystem
     public void OpenEui(ICommonSession session)
     {
         if (session.AttachedEntity is not { Valid: true } attached ||
-            !EntityManager.TryGetComponent<GhostComponent>(attached, out var ghost) || !ghost.CanTakeGhostRoles) // Goob edit
+            !EntityManager.TryGetComponent<GhostComponent>(attached, out var ghost) || !ghost.CanTakeGhostRoles) // Goida edit
             return;
 
         if (_openUis.ContainsKey(session))
@@ -502,7 +502,7 @@ public sealed class GhostRoleSystem : EntitySystem
     public void Request(ICommonSession player, uint identifier)
     {
         if (player.AttachedEntity is not { Valid: true } attached ||
-            !EntityManager.TryGetComponent<GhostComponent>(attached, out var ghost) || !ghost.CanTakeGhostRoles) // Goobstation
+            !EntityManager.TryGetComponent<GhostComponent>(attached, out var ghost) || !ghost.CanTakeGhostRoles) // Goidastation
             return;
 
         if (!_ghostRoles.TryGetValue(identifier, out var roleEnt))
@@ -738,7 +738,7 @@ public sealed class GhostRoleSystem : EntitySystem
         _transform.AttachToGridOrMap(mob);
 
         var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);
-        RaiseLocalEvent(mob, spawnedEvent, true); // Goob Edit: Broadcast
+        RaiseLocalEvent(mob, spawnedEvent, true); // Goida Edit: Broadcast
 
         if (ghostRole.MakeSentient)
             MakeSentientCommand.MakeSentient(mob, EntityManager, ghostRole.AllowMovement, ghostRole.AllowSpeech);

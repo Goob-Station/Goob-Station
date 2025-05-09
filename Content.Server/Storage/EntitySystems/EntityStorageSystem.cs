@@ -65,7 +65,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         SubscribeLocalEvent<EntityStorageComponent, GetVerbsEvent<InteractionVerb>>(AddToggleOpenVerb);
         SubscribeLocalEvent<EntityStorageComponent, ContainerRelayMovementEntityEvent>(OnRelayMovement);
         SubscribeLocalEvent<EntityStorageComponent, FoldAttemptEvent>(OnFoldAttempt);
-        SubscribeLocalEvent<EntityStorageComponent, GotReclaimedEvent>(OnReclaimed); // Goobstation - Recycle update
+        SubscribeLocalEvent<EntityStorageComponent, GotReclaimedEvent>(OnReclaimed); // Goidastation - Recycle update
 
         SubscribeLocalEvent<EntityStorageComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<EntityStorageComponent, ComponentHandleState>(OnHandleState);

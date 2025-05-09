@@ -31,10 +31,10 @@ public sealed partial class HereticCombatMarkComponent : Component
     public TimeSpan Timer = TimeSpan.Zero;
 
     [DataField]
-    public SoundSpecifier? TriggerSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/repulse.ogg");
+    public SoundSpecifier? TriggerSound = new SoundPathSpecifier("/Audio/_Goidastation/Heretic/repulse.ogg");
 
     [DataField]
-    public ResPath ResPath = new("_Goobstation/Heretic/combat_marks.rsi");
+    public ResPath ResPath = new("_Goidastation/Heretic/combat_marks.rsi");
 }
 
 public enum HereticCombatMarkKey : byte

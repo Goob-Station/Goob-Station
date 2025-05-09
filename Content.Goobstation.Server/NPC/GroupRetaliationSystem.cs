@@ -8,7 +8,7 @@ using Content.Server.NPC.Events;
 using Content.Server.NPC.Systems;
 using Content.Shared.NPC.Systems;
 
-namespace Content.Goobstation.Server.NPC;
+namespace Content.Goidastation.Server.NPC;
 
 /// <summary>
 ///     Handles NPC which become aggressive after being attacked.

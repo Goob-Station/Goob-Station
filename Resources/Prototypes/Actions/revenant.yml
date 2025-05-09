@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 OnsenCapy <lucasgrds166@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -20,7 +20,7 @@
 - type: entity
   id: ActionRevenantDefile
   name: Defile
-  description: Breaks windows, tiles, and opens nearby containers. Costs 30 Essence. #Goob edit
+  description: Breaks windows, tiles, and opens nearby containers. Costs 30 Essence. #Goida edit
   components:
   - type: InstantAction
     icon: Interface/Actions/defile.png
@@ -30,7 +30,7 @@
 - type: entity
   id: ActionRevenantOverloadLights
   name: Overload Lights
-  description: Summons lightning from nearby lights. Costs 40 Essence. #Goob edit
+  description: Summons lightning from nearby lights. Costs 40 Essence. #Goida edit
   components:
   - type: InstantAction
     icon: Interface/Actions/overloadlight.png
@@ -50,7 +50,7 @@
 - type: entity
   id: ActionRevenantMalfunction
   name: Malfunction
-  description: Causes nearby mechanisms to malfunction. Costs 60 Essence. #Goob edit
+  description: Causes nearby mechanisms to malfunction. Costs 60 Essence. #Goida edit
   components:
   - type: InstantAction
     icon: Interface/Actions/malfunction.png

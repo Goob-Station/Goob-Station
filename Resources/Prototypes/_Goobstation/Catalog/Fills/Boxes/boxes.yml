@@ -19,7 +19,7 @@
       - id: ReverseBearTrapKey
         amount: 1
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/boxes.rsi
+    sprite: _Goidastation/Objects/Storage/boxes.rsi
 
 - type: entity
   name: combat injector box
@@ -42,4 +42,4 @@
       - id: EbifinlLazideChemistryVial
         amount: 1
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/boxes.rsi
+    sprite: _Goidastation/Objects/Storage/boxes.rsi

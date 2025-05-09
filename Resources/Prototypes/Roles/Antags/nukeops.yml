@@ -85,7 +85,7 @@
 # SPDX-FileCopyrightText: 2024 vorkathbruh <152932728+vorkathbruh@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -101,10 +101,10 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 36000 # 10 hours - Goobstation
+    time: 36000 # 10 hours - Goidastation
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000 # 10h Goobstation
+    time: 36000 # 10h Goidastation
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -115,13 +115,13 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 90000 # 25 hours - Goobstation
+    time: 90000 # 25 hours - Goidastation
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000 # 10h Goobstation
+    time: 36000 # 10h Goidastation
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 18000 # 5h Goobstation
+    time: 18000 # 5h Goidastation
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -132,13 +132,13 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 90000 # 25 hours - Goobstation
+    time: 90000 # 25 hours - Goidastation
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000 # 10h Goobstation
+    time: 36000 # 10h Goidastation
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 18000 # 5h Goobstation
+    time: 18000 # 5h Goidastation
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
 
@@ -148,12 +148,12 @@
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicate
     mask: ClothingMaskGasSyndicate
-    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
+    eyes: ClothingEyesNightVisionGogglesNukie # Goidastation
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
+    #outerClothing: ClothingOuterHardsuitSyndie # goidastation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDANukie # Goobstation
+    id: SyndiPDANukie # Goidastation
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:
@@ -167,7 +167,7 @@
   id: SyndicateOperativeGearFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    pocket2: BaseUplinkRadio225TC # Goobstation - Telecrystal rework
+    pocket2: BaseUplinkRadio225TC # Goidastation - Telecrystal rework
 
 #Nuclear Operative Commander Gear
 - type: startingGear
@@ -175,8 +175,8 @@
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
     neck: SyndicateWhistle
-    pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
-    #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
+    pocket2: BaseUplinkRadio350TC # goidastation - im rich :fire::fire:
+    #outerClothing: ClothingOuterHardsuitSyndieCommander # goidastation - duke nukies
   inhand:
   - NukeOpsDeclarationOfWar
 
@@ -185,12 +185,12 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    back: ClothingBackpackDuffelSyndicateMedical # Goobstation
-    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
-    #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
+    back: ClothingBackpackDuffelSyndicateMedical # Goidastation
+    eyes: ClothingEyesNightVisionGogglesNukie # Goidastation
+    #outerClothing: ClothingOuterHardsuitSyndieMedic # goidastation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
-    belt: ClothingBeltChemBagSyndiFilled # Goobstation
+    belt: ClothingBeltChemBagSyndiFilled # Goidastation
     pocket2: BaseUplinkRadio225TCMedic
   storage:
     back:
@@ -200,15 +200,15 @@
     - CombatKnife
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
-    #- HandheldHealthAnalyzer # Goobstation
+    #- HandheldHealthAnalyzer # Goidastation
     - CombatMedipen
     - DeathAcidifierImplanter
-    - MedkitCombatFilled # Goobstation
+    - MedkitCombatFilled # Goidastation
 
 #Lone Operative Gear
 - type: startingGear
   id: SyndicateLoneOperativeGearFull
   parent: SyndicateOperativeGearFull
   equipment:
-    # Goobstation - Telecrystal rework
+    # Goidastation - Telecrystal rework
     pocket2: BaseUplinkRadio350TC

@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -12,7 +12,7 @@
   description: A modern bow that can fabricate hardlight arrows using an internal energy. This one is designed by the Syndicate for silent takedowns of targets.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
     layers:
     - state: bow-folded
       map: [ "base" ]
@@ -25,7 +25,7 @@
     heldPrefix: folded
     size: Normal
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
     quickEquip: false
     slots:
       - Back
@@ -134,5 +134,5 @@
   - type: ToggleableLightWieldable
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 4 # Goobstation - Sniper rifles buff
-    pvsIncrease: 0.4 # Goobstation - Sniper rifles buff
+    maxOffset: 4 # Goidastation - Sniper rifles buff
+    pvsIncrease: 0.4 # Goidastation - Sniper rifles buff

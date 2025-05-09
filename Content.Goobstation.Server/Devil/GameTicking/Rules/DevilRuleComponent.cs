@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
@@ -8,13 +8,13 @@ using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Devil.GameTicking.Rules;
+namespace Content.Goidastation.Server.Devil.GameTicking.Rules;
 
 [RegisterComponent, Access(typeof(DevilRuleSystem))]
 public sealed partial class DevilRuleComponent : Component
 {
     [DataField]
-    public SoundPathSpecifier BriefingSound = new("/Audio/_Goobstation/Ambience/Antag/devil_start.ogg");
+    public SoundPathSpecifier BriefingSound = new("/Audio/_Goidastation/Ambience/Antag/devil_start.ogg");
 
     [ValidatePrototypeId<NpcFactionPrototype>, DataField]
     public string DevilFaction = "DevilFaction";

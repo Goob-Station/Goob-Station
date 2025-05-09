@@ -91,6 +91,6 @@
     - type: Tag
       tags:
         - MailingUnitElectronics
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
     - type: StaticPrice
       price: 55

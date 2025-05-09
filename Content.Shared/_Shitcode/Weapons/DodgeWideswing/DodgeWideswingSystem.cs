@@ -11,7 +11,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Random;
 
-namespace Content.Shared._Goobstation.Weapons.DodgeWideswing;
+namespace Content.Shared._Goidastation.Weapons.DodgeWideswing;
 
 public sealed class DodgeWideswingSystem : EntitySystem
 {

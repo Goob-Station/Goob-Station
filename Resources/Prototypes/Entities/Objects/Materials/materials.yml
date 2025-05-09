@@ -105,7 +105,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
@@ -126,7 +126,7 @@
   - type: Tag
     tags:
       - RawMaterial
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -155,7 +155,7 @@
     - cardboard
     - cardboard_2
     - cardboard_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -222,7 +222,7 @@
     - cloth
     - cloth_2
     - cloth_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -259,7 +259,7 @@
       - ClothMade
       - Gauze
       - RawMaterial
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: Construction
     graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
     node: cloth
@@ -299,7 +299,7 @@
     - durathread
     - durathread_2
     - durathread_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -330,7 +330,7 @@
     tags:
       - ClothMade
       - RawMaterial
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: Item
     heldPrefix: durathread
 
@@ -368,7 +368,7 @@
     - wood
     - wood_2
     - wood_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -385,7 +385,7 @@
     tags:
     - Wooden
     - RawMaterial
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Extractable
     grindableSolutionName: wood
   - type: SolutionContainerManager
@@ -424,7 +424,7 @@
   - type: Stack
     stackType: Biomass
     count: 100
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -506,7 +506,7 @@
     - diamond
     - diamond_2
     - diamond_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -553,7 +553,7 @@
     - cotton
     - cotton_2
     - cotton_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -585,7 +585,7 @@
     tags:
       - ClothMade
       - RawMaterial
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
   - type: Item
     heldPrefix: cotton
 
@@ -612,7 +612,7 @@
     - pyrotton
     - pyrotton_2
     - pyrotton_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -680,7 +680,7 @@
     layerStates:
       - bananium
       - bananium_1
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -713,7 +713,7 @@
   - type: Appearance
   - type: Item
     heldPrefix: bananium
-  - type: RadiationSource # Goobstation - ITS BACK
+  - type: RadiationSource # Goidastation - ITS BACK
     intensity: 0.1
 
 - type: entity
@@ -742,7 +742,7 @@
   - type: Stack
     count: 50
     stackType: WebSilk
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -814,7 +814,7 @@
     - tooth
     - tooth_2
     - tooth_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -857,7 +857,7 @@
     - tooth
     - tooth_2
     - tooth_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -890,7 +890,7 @@
     - bones
     - bones_2
     - bones_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -930,7 +930,7 @@
   - type: Stack
     stackType: Gunpowder
     count: 1
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -969,7 +969,7 @@
     - goliath_hide
     - goliath_hide_2
     - goliath_hide_3
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

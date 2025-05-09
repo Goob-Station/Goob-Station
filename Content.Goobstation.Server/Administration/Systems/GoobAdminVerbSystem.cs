@@ -6,9 +6,9 @@
 
 using Content.Shared.Verbs;
 
-namespace Content.Goobstation.Server.Administration.Systems;
+namespace Content.Goidastation.Server.Administration.Systems;
 
-public sealed partial class GoobAdminVerbSystem : EntitySystem
+public sealed partial class GoidaAdminVerbSystem : EntitySystem
 {
     public override void Initialize()
     {

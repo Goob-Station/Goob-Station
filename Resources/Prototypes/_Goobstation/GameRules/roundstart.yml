@@ -9,7 +9,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -95,7 +95,7 @@
   - type: GameRule
     minPlayers: 30
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
+    mapPath: /Maps/_Goidastation/Nonstations/nukieplanet.yml
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -246,7 +246,7 @@
   - type: NukeopsRule
     localePrefix: "honkops-"
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet-honkops.yml
+    mapPath: /Maps/_Goidastation/Nonstations/nukieplanet-honkops.yml
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -289,8 +289,8 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
-      playerRatio: 16 # Goobstation
+      max: 10 # Goidastation / 古布空间站 - 没有限制的核特工
+      playerRatio: 16 # Goidastation
       startingGear: SyndicateOperativeGearFullHonkops
       roleLoadout:
       - RoleSurvivalNukieHonkops

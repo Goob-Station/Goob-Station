@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Goidastation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag;
 using Content.Server.Atmos.EntitySystems;
@@ -20,8 +20,8 @@ using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goidastation.Wizard;
+using Content.Shared._Goidastation.Wizard.BindSoul;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
 using Content.Shared.Cloning;
@@ -41,7 +41,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 {

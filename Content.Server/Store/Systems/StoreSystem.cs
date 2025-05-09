@@ -24,7 +24,7 @@
 
 using Content.Server.Store.Components;
 using Content.Shared.UserInterface;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -42,7 +42,7 @@ namespace Content.Server.Store.Systems;
 /// Manages general interactions with a store and different entities,
 /// getting listings for stores, and interfacing with the store UI.
 /// </summary>
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem : EntitySystem
 {

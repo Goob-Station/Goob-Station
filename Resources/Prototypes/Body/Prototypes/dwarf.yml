@@ -46,9 +46,9 @@
       connections:
       - left hand
     right hand:
-      part: RightHandDwarf # Goob edit
+      part: RightHandDwarf # Goida edit
     left hand:
-      part: LeftHandDwarf # Goob edit
+      part: LeftHandDwarf # Goida edit
     right leg:
       part: RightLegHuman
       connections:

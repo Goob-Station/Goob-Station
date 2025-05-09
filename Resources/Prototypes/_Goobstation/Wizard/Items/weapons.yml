@@ -10,11 +10,11 @@
   description: Pew Pew Pew.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/arcane_barrage.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/arcane_barrage.rsi
     state: icon
   - type: Item
     size: Ginormous
-    sprite: _Goobstation/Wizard/Objects/Weapons/arcane_barrage.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/arcane_barrage.rsi
   - type: UseDelay
     delay: 0.5
   - type: ArcaneBarrage
@@ -50,12 +50,12 @@
   description: Careful not to lose your head.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/enchanted_rifle.rsi
   - type: Item
-    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/enchanted_rifle.rsi
     size: Huge
   - type: Clothing
-    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/enchanted_rifle.rsi
     quickEquip: false
     slots:
     - Back
@@ -90,7 +90,7 @@
   components:
   - type: Sharp
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/smhalberd.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/smhalberd.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -114,7 +114,7 @@
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: _Goobstation/Wizard/Objects/Weapons/smhalberd.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/smhalberd.rsi
     quickEquip: false
     slots:
     - back
@@ -170,7 +170,7 @@
   description: Used for sweeping, and flying into the night while cackling. Black cat not included.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/broom.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/broom.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 30
@@ -179,7 +179,7 @@
         Blunt: 18
   - type: Item
     size: Normal
-    sprite: _Goobstation/Wizard/Objects/Weapons/broom.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/broom.rsi
 
 - type: entity
   name: tape staff
@@ -188,7 +188,7 @@
   description: A roll of tape snugly attached to a stick.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/tapestaff.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -150
@@ -197,7 +197,7 @@
         Blunt: 18
   - type: Item
     size: Normal
-    sprite: _Goobstation/Wizard/Objects/Weapons/tapestaff.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/tapestaff.rsi
 
 - type: entity
   name: high frequency blade
@@ -206,7 +206,7 @@
   description: A sword reinforced by a powerful alternating current and resonating at extremely high vibration frequencies. This oscillation weakens the molecular bonds of anything it cuts, thereby increasing its cutting ability.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/hfrequency.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/hfrequency.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -223,7 +223,7 @@
       path: "/Audio/Weapons/bladeslice.ogg"
     animation: WeaponArcHighFreq
   - type: Clothing
-    sprite: _Goobstation/Wizard/Objects/Weapons/hfrequency.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/hfrequency.rsi
     quickEquip: false
     slots:
     - back
@@ -240,13 +240,13 @@
   - type: LightAttackDamageMultiplier
     multiplier: 3
     extraSound:
-      path: /Audio/_Goobstation/Wizard/zapbang.ogg
+      path: /Audio/_Goidastation/Wizard/zapbang.ogg
       params:
         variation: 0.250
         volume: -5
   - type: ThrowableBlocker
     blockSound:
-      path: /Audio/_Goobstation/Wizard/zapbang.ogg
+      path: /Audio/_Goidastation/Wizard/zapbang.ogg
       params:
         variation: 0.250
   - type: StaticPrice
@@ -259,7 +259,7 @@
   description: An enchanted blade with a series of runes along the side.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/spellblade.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/spellblade.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -271,7 +271,7 @@
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: Clothing
-    sprite: _Goobstation/Wizard/Objects/Weapons/spellblade.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/spellblade.rsi
     quickEquip: false
     slots:
     - back

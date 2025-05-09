@@ -9,7 +9,7 @@
 - type: cargoProduct
   id: ScienceModsuitCores
   icon:
-    sprite: _Goobstation/Objects/Specific/Robotics/modsuit_parts.rsi
+    sprite: _Goidastation/Objects/Specific/Robotics/modsuit_parts.rsi
     state: mod-core-standard
   product: CrateScienceModsuitCoresFilled
   cost: 3000

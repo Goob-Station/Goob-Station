@@ -11,7 +11,7 @@
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Goobstation.Server.Pirates.Objectives;
+namespace Content.Goidastation.Server.Pirates.Objectives;
 
 public sealed partial class PirateObjectiveSystem : EntitySystem
 {

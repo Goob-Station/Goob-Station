@@ -29,20 +29,20 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Store;
+using Content.Server._Goidastation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
-using Content.Shared._Goobstation.Wizard.Refund; // Goob
+using Content.Shared._Goidastation.Wizard.Refund; // Goida
 using Content.Shared.Actions;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic; // Goob
-using Content.Shared.Heretic.Prototypes; // Goob
+using Content.Shared.Heretic; // Goida
+using Content.Shared.Heretic.Prototypes; // Goida
 using Content.Shared.Mind;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -54,7 +54,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Systems;
 
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem
 {
@@ -67,7 +67,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
+    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goidastation - heretics
 
     private void InitializeUi()
     {
@@ -77,10 +77,10 @@ public sealed partial class StoreSystem
         SubscribeLocalEvent<StoreComponent, StoreRequestRefundMessage>(OnRequestRefund);
         SubscribeLocalEvent<StoreComponent, RefundEntityDeletedEvent>(OnRefundEntityDeleted);
 
-        // Goobstation start
+        // Goidastation start
         SubscribeLocalEvent<StoreComponent, StoreRefundAllListingsMessage>(OnRefundAll);
         SubscribeLocalEvent<StoreComponent, StoreRefundListingMessage>(OnRefundListing);
-        // Goobstation end
+        // Goidastation end
     }
 
     private void OnRefundEntityDeleted(Entity<StoreComponent> ent, ref RefundEntityDeletedEvent args)
@@ -196,7 +196,7 @@ public sealed partial class StoreSystem
         }
 
         //check that we have enough money
-        // var cost = listing.Cost; // Goobstation
+        // var cost = listing.Cost; // Goidastation
         foreach (var currency in listing.Cost)
         {
             if (!component.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
@@ -205,7 +205,7 @@ public sealed partial class StoreSystem
             }
         }
 
-        // if (!IsOnStartingMap(uid, component)) // Goob edit
+        // if (!IsOnStartingMap(uid, component)) // Goida edit
         //     component.RefundAllowed = false;
 
         //subtract the cash
@@ -218,7 +218,7 @@ public sealed partial class StoreSystem
             component.BalanceSpent[currency] += value;
         }
 
-        // goobstation - heretics
+        // goidastation - heretics
         // i am too tired of making separate systems for knowledge adding
         // and all that shit. i've had like 4 failed attempts
         // so i'm just gonna shitcode my way out of my misery
@@ -236,7 +236,7 @@ public sealed partial class StoreSystem
 
             RaiseLocalEvent(product, new ItemPurchasedEvent(buyer));
 
-            HandleRefundComp(uid, component, product, listing.Cost, listing); // Goob edit
+            HandleRefundComp(uid, component, product, listing.Cost, listing); // Goida edit
 
             var xForm = Transform(product);
 
@@ -265,7 +265,7 @@ public sealed partial class StoreSystem
             // And then add that action entity to the relevant product upgrade listing, if applicable
             if (actionId != null)
             {
-                HandleRefundComp(uid, component, actionId.Value, listing.Cost, listing); // Goob edit
+                HandleRefundComp(uid, component, actionId.Value, listing.Cost, listing); // Goida edit
 
                 if (listing.ProductUpgradeId != null)
                 {
@@ -283,11 +283,11 @@ public sealed partial class StoreSystem
 
         if (listing is { ProductUpgradeId: not null, ProductActionEntity: not null })
         {
-            ListingData? originalListing = null; // Goobstation
-            var cost = listing.Cost.ToDictionary(); // Goobstation
+            ListingData? originalListing = null; // Goidastation
+            var cost = listing.Cost.ToDictionary(); // Goidastation
             if (listing.ProductActionEntity != null)
             {
-                if (TryComp(listing.ProductActionEntity.Value, out StoreRefundComponent? storeRefund)) // Goobstation
+                if (TryComp(listing.ProductActionEntity.Value, out StoreRefundComponent? storeRefund)) // Goidastation
                 {
                     foreach (var (key, value) in storeRefund.BalanceSpent)
                     {
@@ -302,7 +302,7 @@ public sealed partial class StoreSystem
             if (!_actionUpgrade.TryUpgradeAction(listing.ProductActionEntity, out var upgradeActionId))
             {
                 if (listing.ProductActionEntity != null)
-                    HandleRefundComp(uid, component, listing.ProductActionEntity.Value, cost, originalListing, true); // Goob edit
+                    HandleRefundComp(uid, component, listing.ProductActionEntity.Value, cost, originalListing, true); // Goida edit
 
                 return;
             }
@@ -310,7 +310,7 @@ public sealed partial class StoreSystem
             listing.ProductActionEntity = upgradeActionId;
 
             if (upgradeActionId != null)
-                HandleRefundComp(uid, component, upgradeActionId.Value, cost, originalListing, true); // Goob edit
+                HandleRefundComp(uid, component, upgradeActionId.Value, cost, originalListing, true); // Goida edit
         }
 
         if (listing.ProductEvent != null)
@@ -321,7 +321,7 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
-        // Goob edit start
+        // Goida edit start
         /* if (listing.DisableRefund)
         {
             component.RefundAllowed = false;
@@ -333,7 +333,7 @@ public sealed partial class StoreSystem
                 listingData.DisableRefund = true;
             }
         }
-        // Goob edit end
+        // Goida edit end
 
         //log dat shit.
         _admin.Add(LogType.StorePurchase,
@@ -352,7 +352,7 @@ public sealed partial class StoreSystem
         //WD EDIT END
 
         UpdateUserInterface(buyer, uid, component);
-        UpdateRefundUserInterface(uid, component); // Goobstation
+        UpdateRefundUserInterface(uid, component); // Goidastation
     }
 
     /// <summary>
@@ -406,7 +406,7 @@ public sealed partial class StoreSystem
         if (args.Actor is not { Valid: true } buyer)
             return;
 
-        // Goob edit start
+        // Goida edit start
         if (!_ui.HasUi(uid, RefundUiKey.Key))
             component.RefundAllowed = false;
 
@@ -462,10 +462,10 @@ public sealed partial class StoreSystem
         component.BalanceSpent = new();
         UpdateUserInterface(buyer, uid, component); */
 
-        // Goob edit end
+        // Goida edit end
     }
 
-    // Goobstation start
+    // Goidastation start
     private void UpdateRefundUserInterface(EntityUid uid, StoreComponent component)
     {
         if (!IsOnStartingMap(uid, component))
@@ -574,14 +574,14 @@ public sealed partial class StoreSystem
         if (data != null)
             data.DisableRefund = true;
     }
-    // Goobstation end
+    // Goidastation end
 
-    private void HandleRefundComp(EntityUid uid, StoreComponent component, EntityUid purchase, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> cost, ListingData? data, bool overrideCost = false) // Goob edit
+    private void HandleRefundComp(EntityUid uid, StoreComponent component, EntityUid purchase, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> cost, ListingData? data, bool overrideCost = false) // Goida edit
     {
         component.BoughtEntities.Add(purchase);
         var refundComp = EnsureComp<StoreRefundComponent>(purchase);
         refundComp.StoreEntity = uid;
-        // Goobstation start
+        // Goidastation start
         if (overrideCost)
             refundComp.BalanceSpent = cost;
         else
@@ -595,7 +595,7 @@ public sealed partial class StoreSystem
 
         if (data != null)
             refundComp.Data = data;
-        // Goobstation end
+        // Goidastation end
     }
 
     private bool IsOnStartingMap(EntityUid store, StoreComponent component)

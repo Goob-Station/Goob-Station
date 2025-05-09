@@ -55,7 +55,7 @@
     sprite: Objects/Materials/Sheets/metal.rsi
     state: brass_3
   product: CrateMaterialBrass
-  cost: 2000 # Goobstation # this is mostly decorative
+  cost: 2000 # Goidastation # this is mostly decorative
   category: cargoproduct-category-name-materials
   group: market
 
@@ -65,7 +65,7 @@
     sprite: Objects/Materials/Sheets/metal.rsi
     state: plasteel_3
   product: CrateMaterialPlasteel
-  cost: 1000 # Goobstation # $3k/3 stacks
+  cost: 1000 # Goidastation # $3k/3 stacks
   category: cargoproduct-category-name-materials
   group: market
 
@@ -85,7 +85,7 @@
     sprite: Objects/Materials/Sheets/other.rsi
     state: plasma_3
   product: CrateMaterialPlasma
-  cost: 1500 # Goobstation
+  cost: 1500 # Goidastation
   category: cargoproduct-category-name-materials
   group: market
 

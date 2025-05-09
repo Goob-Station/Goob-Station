@@ -19,9 +19,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hardsuits/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/chronolegioneer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hardsuits/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/chronolegioneer.rsi
   - type: PointLight
     color: "#6BA9E6"
     rotation: 30
@@ -56,9 +56,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hardsuits/bso.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/bso.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hardsuits/bso.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/bso.rsi
   - type: PointLight
     color: "#4d7ae3"
     rotation: 30
@@ -90,9 +90,9 @@
   description: A helmet with plating for stealth operations.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hardsuits/cybersunstealth.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/cybersunstealth.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hardsuits/cybersunstealth.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/cybersunstealth.rsi
   - type: PointLight
     color: green
   - type: PressureProtection
@@ -122,9 +122,9 @@
   description: A helmet, looking at this you wonder if there anyone alive.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hardsuits/dreadnought.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/dreadnought.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hardsuits/dreadnought.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/dreadnought.rsi
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -150,9 +150,9 @@
   description: Security hardsuit helmet with the latest top secret NT-HUD software. This one seems more durable than stand issue helmets.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/hos-expi.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hardsuits/hos-expi.rsi
+    sprite: _Goidastation/Clothing/Head/Hardsuits/hos-expi.rsi
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection

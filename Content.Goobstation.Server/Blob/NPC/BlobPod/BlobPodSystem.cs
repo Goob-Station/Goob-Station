@@ -11,8 +11,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Shared.Blob.NPC.BlobPod;
+using Content.Goidastation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob.NPC.BlobPod;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NPC.HTN;
@@ -34,7 +34,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.Blob.NPC.BlobPod;
+namespace Content.Goidastation.Server.Blob.NPC.BlobPod;
 
 public sealed class BlobPodSystem : SharedBlobPodSystem
 {

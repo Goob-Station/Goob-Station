@@ -54,7 +54,7 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
 
             injectComponent.NextUpdate += injectComponent.UpdateInterval;
 
-            // <Goobstation> Goobstation - Shot syringes injecting over time
+            // <Goidastation> Goidastation - Shot syringes injecting over time
             if(projectileComponent.EmbeddedIntoUid == null) // check if we should reset state,
             {
                 if (TryComp<PhysicsComponent>(uid, out var physics) && physics.BodyStatus != BodyStatus.InAir) // don't reset in-flight things
@@ -67,7 +67,7 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
 
             if (injectComponent.Injections != null)
                 injectComponent.Injections += 1;
-            // </Goobstation>
+            // </Goidastation>
 
             var ev = new InjectOverTimeEvent(projectileComponent.EmbeddedIntoUid.Value);
             RaiseLocalEvent(uid, ref ev);

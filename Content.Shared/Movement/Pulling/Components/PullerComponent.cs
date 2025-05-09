@@ -73,14 +73,14 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
+using Content.Goidastation.Common.MartialArts;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -125,7 +125,7 @@ public sealed partial class PullerComponent : Component
     [DataField]
     public ProtoId<AlertPrototype> PullingAlert = "Pulling";
 
-    // Goobstation start
+    // Goidastation start
     // Added Grab variables
 
     [DataField]
@@ -187,7 +187,7 @@ public sealed partial class PullerComponent : Component
 
     [DataField]
     public float ChokeGrabSpeedModifier = 0.4f;
-    // Goobstation end
+    // Goidastation end
 }
 
 public sealed partial class StopPullingAlertEvent : BaseAlertEvent;

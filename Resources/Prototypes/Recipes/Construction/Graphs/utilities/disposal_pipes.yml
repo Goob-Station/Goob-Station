@@ -79,7 +79,7 @@
       - material: Cable
         amount: 1
         doAfter: 1
-    # Goobstation - DisposalBlocker
+    # Goidastation - DisposalBlocker
     - to: blocker
       steps:
       - material: Steel
@@ -251,7 +251,7 @@
       steps:
       - tool: Welding
         doAfter: 1
-  # Goobstation - DisposalBlocker
+  # Goidastation - DisposalBlocker
   - node: blocker
     entity: DisposalBlocker
     edges:

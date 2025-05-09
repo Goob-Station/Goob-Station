@@ -78,12 +78,12 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.DoAfter;
@@ -125,7 +125,7 @@ public sealed partial class DoAfterArgs
 
     public NetEntity? NetUsed;
 
-    // Goobstation - Show doAfter progress bar to another entity
+    // Goidastation - Show doAfter progress bar to another entity
     [NonSerialized]
     [DataField]
     public EntityUid? ShowTo;
@@ -139,14 +139,14 @@ public sealed partial class DoAfterArgs
     public bool Hidden;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Whether the delay multiplier event should be raised
     /// </summary>
     [DataField]
     public bool MultiplyDelay = true;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// If not null, progress bar will use this color.
     /// </summary>
     [DataField]
@@ -298,7 +298,7 @@ public sealed partial class DoAfterArgs
     /// <param name="eventTarget">The entity at which the event will be directed. If null, the event will not be directed.</param>
     /// <param name="target">The entity being targeted by the DoAFter. Not the same as <see cref="EventTarget"/></param>.
     /// <param name="used">The entity being used during the DoAfter. E.g., a tool</param>
-    /// <param name="showTo">Goobstation - The entity that should see doafter progress bar except doAfter entity</param>
+    /// <param name="showTo">Goidastation - The entity that should see doafter progress bar except doAfter entity</param>
     public DoAfterArgs(
         IEntityManager entManager,
         EntityUid user,
@@ -307,7 +307,7 @@ public sealed partial class DoAfterArgs
         EntityUid? eventTarget,
         EntityUid? target = null,
         EntityUid? used = null,
-        EntityUid? showTo = null) // Goobstation - Show doAfter popup to another entity
+        EntityUid? showTo = null) // Goidastation - Show doAfter popup to another entity
     {
         User = user;
         Delay = delay;
@@ -315,12 +315,12 @@ public sealed partial class DoAfterArgs
         Used = used;
         EventTarget = eventTarget;
         Event = @event;
-        ShowTo = showTo; // Goobstation
+        ShowTo = showTo; // Goidastation
 
         NetUser = entManager.GetNetEntity(User);
         NetTarget = entManager.GetNetEntity(Target);
         NetUsed = entManager.GetNetEntity(Used);
-        NetShowTo = entManager.GetNetEntity(ShowTo); // Goobstation - Show doAfter popup to another entity
+        NetShowTo = entManager.GetNetEntity(ShowTo); // Goidastation - Show doAfter popup to another entity
     }
 
     private DoAfterArgs()
@@ -374,17 +374,17 @@ public sealed partial class DoAfterArgs
         BlockDuplicate = other.BlockDuplicate;
         CancelDuplicate = other.CancelDuplicate;
         DuplicateCondition = other.DuplicateCondition;
-        ShowTo = other.ShowTo; // Goobstation - Show doAfter popup to another entity
+        ShowTo = other.ShowTo; // Goidastation - Show doAfter popup to another entity
 
-        MultiplyDelay = other.MultiplyDelay; // Goobstation
-        ColorOverride = other.ColorOverride; // Goobstation
+        MultiplyDelay = other.MultiplyDelay; // Goidastation
+        ColorOverride = other.ColorOverride; // Goidastation
 
         // Networked
         NetUser = other.NetUser;
         NetTarget = other.NetTarget;
         NetUsed = other.NetUsed;
         NetEventTarget = other.NetEventTarget;
-        NetShowTo = other.NetShowTo; // Goobstation - Show doAfter popup to another entity
+        NetShowTo = other.NetShowTo; // Goidastation - Show doAfter popup to another entity
 
         Event = other.Event.Clone();
     }

@@ -12,7 +12,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server.Atmos.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
@@ -38,7 +38,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
 
     private readonly List<EntityUid> _anchoredEntities = new();
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
-    // Goobstation - Allow device-on-pipe stacking
+    // Goidastation - Allow device-on-pipe stacking
     private EntityQuery<PipeRestrictOverlapComponent> _restrictOverlapQuery;
 
     public bool StrictPipeStacking = false;
@@ -48,10 +48,10 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
     {
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorAttemptEvent>(OnAnchorAttempt);
-        Subs.CVar(_cfg, GoobCVars.StrictPipeStacking, (bool val) => {StrictPipeStacking = val;}, false);
+        Subs.CVar(_cfg, GoidaCVars.StrictPipeStacking, (bool val) => {StrictPipeStacking = val;}, false);
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
-        // Goobstation - Allow device-on-pipe stacking
+        // Goidastation - Allow device-on-pipe stacking
         _restrictOverlapQuery = GetEntityQuery<PipeRestrictOverlapComponent>();
     }
 
@@ -113,7 +113,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
             if (!_nodeContainerQuery.TryComp(otherEnt, out var otherComp))
                 continue;
 
-            // Goobstation - Allow device-on-pipe stacking
+            // Goidastation - Allow device-on-pipe stacking
             if (!_restrictOverlapQuery.HasComp(otherEnt))
                 continue;
 

@@ -23,7 +23,7 @@ using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;
-using Content.Goobstation.Common.JoinQueue; // Goobstation - Queue
+using Content.Goidastation.Common.JoinQueue; // Goidastation - Queue
 
 namespace Content.Server.GameTicking
 {
@@ -48,7 +48,7 @@ namespace Content.Server.GameTicking
         ///     For access to the round ID in status responses.
         /// </summary>
         [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-        [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goobstation - Queue
+        [Dependency] private readonly IJoinQueueManager _joinQueue = default!; // Goidastation - Queue
 
         private void InitializeStatusShell()
         {
@@ -65,7 +65,7 @@ namespace Content.Server.GameTicking
                 jObject["name"] = _baseServer.ServerName;
                 jObject["map"] = _gameMapManager.GetSelectedMap()?.MapName;
                 jObject["round_id"] = _gameTicker.RoundId;
-                jObject["players"] = _joinQueue.ActualPlayersCount; // Goobstation - Queue
+                jObject["players"] = _joinQueue.ActualPlayersCount; // Goidastation - Queue
                 jObject["soft_max_players"] = _cfg.GetCVar(CCVars.SoftMaxPlayers);
                 jObject["panic_bunker"] = _cfg.GetCVar(CCVars.PanicBunkerEnabled);
                 jObject["run_level"] = (int) _runLevel;

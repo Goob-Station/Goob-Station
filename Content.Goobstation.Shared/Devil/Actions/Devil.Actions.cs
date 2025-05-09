@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Devil.Actions;
+namespace Content.Goidastation.Shared.Devil.Actions;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class DevilActionComponent : Component

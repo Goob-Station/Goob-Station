@@ -10,7 +10,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.Redial;
+namespace Content.Goidastation.Server.Redial;
 
 public sealed class RedialUserOnTriggerSystem : EntitySystem
 {

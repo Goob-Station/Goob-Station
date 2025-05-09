@@ -17,7 +17,7 @@
   id: AccessibilityTech
   name: research-technology-accessibility
   icon:
-    sprite: _Goobstation/Objects/Vehicles/hoverchair.rsi
+    sprite: _Goidastation/Objects/Vehicles/hoverchair.rsi
     state: vehicle
   discipline: CivilianServices
   tier: 1
@@ -33,7 +33,7 @@
   id: MedicalDefense
   name: research-technology-medical-defense
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
     state: icon
   discipline: CivilianServices
   tier: 1

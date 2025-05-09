@@ -90,7 +90,7 @@
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
-      state: mcontroller # Goobstation
+      state: mcontroller # Goidastation
     - type: Tag
       tags:
       - HonkerTargetingControlModule

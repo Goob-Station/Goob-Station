@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Heretic.Components;
-using Content.Shared._Goobstation.Wizard.TimeStop;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Goidastation.Heretic.Components;
+using Content.Shared._Goidastation.Wizard.TimeStop;
+using Content.Shared._Goidastation.Wizard.Traps;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -30,7 +30,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Heretic.Systems;
+namespace Content.Shared._Goidastation.Heretic.Systems;
 
 public abstract class SharedEntropicPlumeSystem : EntitySystem
 {

@@ -13,7 +13,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.UserInterface;
 
-namespace Content.Goobstation.Client.Clothing;
+namespace Content.Goidastation.Client.Clothing;
 
 public sealed class ToggleableClothingBoundUserInterface : BoundUserInterface
 {

@@ -72,7 +72,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: job # goob edit
+- type: job # goida edit
   id: Passenger
   name: job-name-passenger
   description: job-description-passenger
@@ -80,7 +80,7 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
-  goobcoins: 0 #Goob content
+  goidacoins: 0 #Goida content
   access:
   - Maintenance
 

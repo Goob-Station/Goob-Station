@@ -55,7 +55,7 @@ namespace Content.Client.Ghost
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly ContentEyeSystem _contentEye = default!;
-        [Dependency] private readonly GhostVisibilitySystem _ghostVisSystem = default!; // Goobstation
+        [Dependency] private readonly GhostVisibilitySystem _ghostVisSystem = default!; // Goidastation
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -63,10 +63,10 @@ namespace Content.Client.Ghost
 
         private bool GhostVisibility
         {
-            get => _ghostVisSystem.GhostsVisible() || _ghostVisibility; // Goob edit
+            get => _ghostVisSystem.GhostsVisible() || _ghostVisibility; // Goida edit
             set
             {
-                if (_ghostVisSystem.GhostsVisible()) // Goobstation
+                if (_ghostVisSystem.GhostsVisible()) // Goidastation
                     value = true;
 
                 if (_ghostVisibility == value)
@@ -110,7 +110,7 @@ namespace Content.Client.Ghost
 
             SubscribeLocalEvent<EyeComponent, ToggleLightingActionEvent>(OnToggleLighting);
             SubscribeLocalEvent<EyeComponent, ToggleFoVActionEvent>(OnToggleFoV);
-            SubscribeLocalEvent<EyeComponent, ToggleGhostsActionEvent>(OnToggleGhosts); // Goob edit
+            SubscribeLocalEvent<EyeComponent, ToggleGhostsActionEvent>(OnToggleGhosts); // Goida edit
         }
 
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
@@ -158,9 +158,9 @@ namespace Content.Client.Ghost
             args.Handled = true;
         }
 
-        private void OnToggleGhosts(EntityUid uid, EyeComponent component, ToggleGhostsActionEvent args) // Goob edit
+        private void OnToggleGhosts(EntityUid uid, EyeComponent component, ToggleGhostsActionEvent args) // Goida edit
         {
-            if (args.Handled || _ghostVisSystem.GhostsVisible()) // Goob edit
+            if (args.Handled || _ghostVisSystem.GhostsVisible()) // Goida edit
                 return;
 
             var locId = GhostVisibility ? "ghost-gui-toggle-ghost-visibility-popup-off" : "ghost-gui-toggle-ghost-visibility-popup-on";
@@ -240,7 +240,7 @@ namespace Content.Client.Ghost
             _console.RemoteExecuteCommand(null, "ghostroles");
         }
 
-        public void GhostBarSpawn() // Goobstation - Ghost Bar
+        public void GhostBarSpawn() // Goidastation - Ghost Bar
         {
             RaiseNetworkEvent(new GhostBarSpawnEvent());
         }

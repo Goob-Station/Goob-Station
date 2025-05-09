@@ -237,7 +237,7 @@ public sealed class CarryingSystem : EntitySystem
         {
             BreakOnMove = true,
             NeedHand = true,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(args);

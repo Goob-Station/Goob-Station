@@ -9,7 +9,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
-using Content.Goobstation.Shared.Overlays;
+using Content.Goidastation.Shared.Overlays;
 using Content.Shared.Body.Components;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
@@ -19,7 +19,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Client.Overlays;
+namespace Content.Goidastation.Client.Overlays;
 
 public sealed class ThermalVisionOverlay : Overlay
 {

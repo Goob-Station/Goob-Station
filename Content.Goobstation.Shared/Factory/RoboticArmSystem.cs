@@ -1,10 +1,10 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Factory.Filters;
-using Content.Goobstation.Shared.Factory.Slots;
+using Content.Goidastation.Shared.Factory.Filters;
+using Content.Goidastation.Shared.Factory.Slots;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
@@ -20,7 +20,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Shared.Factory;
+namespace Content.Goidastation.Shared.Factory;
 
 public sealed class RoboticArmSystem : EntitySystem
 {

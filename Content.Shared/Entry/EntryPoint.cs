@@ -22,7 +22,7 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -56,9 +56,9 @@ namespace Content.Shared.Entry
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly IResourceManager _resMan = default!;
-        [Dependency] private readonly IReflectionManager _refMan = default!; // Goobstation - Module Throws
-        [Dependency] private readonly ISandboxHelper _sandbox = default!; // Goobstation - Module Throws
-        [Dependency] private readonly INetManager _net = default!; // Goobstation - Module Throws
+        [Dependency] private readonly IReflectionManager _refMan = default!; // Goidastation - Module Throws
+        [Dependency] private readonly ISandboxHelper _sandbox = default!; // Goidastation - Module Throws
+        [Dependency] private readonly INetManager _net = default!; // Goidastation - Module Throws
 
         private readonly ResPath _ignoreFileDirectory = new("/IgnoredPrototypes/");
 
@@ -66,7 +66,7 @@ namespace Content.Shared.Entry
         {
             IoCManager.InjectDependencies(this);
             SharedContentIoC.Register();
-            VerifyModules(); // Goobstation - Module Throws
+            VerifyModules(); // Goidastation - Module Throws
         }
 
         public override void Shutdown()
@@ -186,7 +186,7 @@ namespace Content.Shared.Entry
             return true;
         }
 
-        // Goobstation - GoobMod Throws Start
+        // Goidastation - GoidaMod Throws Start
         private void VerifyModules()
         {
             var loadedAssemblies = _refMan.Assemblies
@@ -212,6 +212,6 @@ namespace Content.Shared.Entry
             }
         }
 
-        // Goobstation - GoobMod Throws Start End
+        // Goidastation - GoidaMod Throws Start End
     }
 }

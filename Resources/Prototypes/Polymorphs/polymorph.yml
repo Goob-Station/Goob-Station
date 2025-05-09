@@ -113,7 +113,7 @@
 - type: polymorph
   id: WizardWallDoor
   configuration:
-    entities: WizardWallDoor # Goob edit
+    entities: WizardWallDoor # Goida edit
     forced: true
     inventory: None
     transferName: false
@@ -124,7 +124,7 @@
       path: /Audio/Magic/forcewall.ogg
     exitPolymorphSound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
-    allowMovement: false # Goobstation
+    allowMovement: false # Goidastation
 
 - type: polymorph
   id: WizardForcedCluwne
@@ -247,12 +247,12 @@
     transferName: true
     transferDamage: false
     inventory: None
-    duration: 2 # Goob edit
-    allowMovement: false # Goobstation
+    duration: 2 # Goida edit
+    allowMovement: false # Goidastation
     forced: true
     revertOnCrit: false
     revertOnDeath: false
-    attachToGridOrMap: true # Goobstation
+    attachToGridOrMap: true # Goidastation
 
 # Temporary Jaunt
 # Don't make permanent jaunts until action system can be reworked to allow do afters and cooldown pausing
@@ -266,8 +266,8 @@
     revertOnDeath: true
     revertOnCrit: true
     allowRepeatedMorphs: false
-    # polymorphSound: /Audio/Magic/ethereal_enter.ogg # Goob edit
-    # exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg # Goob edit
-    duration: 5 # Goob edot
-    showPopup: false # Goobstation
-    attachToGridOrMap: true # Goobstation
+    # polymorphSound: /Audio/Magic/ethereal_enter.ogg # Goida edit
+    # exitPolymorphSound: /Audio/Magic/ethereal_exit.ogg # Goida edit
+    duration: 5 # Goida edot
+    showPopup: false # Goidastation
+    attachToGridOrMap: true # Goidastation

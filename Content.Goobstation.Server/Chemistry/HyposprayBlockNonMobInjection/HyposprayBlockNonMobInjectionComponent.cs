@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Chemistry.HyposprayBlockNonMobInjection;
+namespace Content.Goidastation.Server.Chemistry.HyposprayBlockNonMobInjection;
 
 /// <summary>
 /// For some reason if you set HyposprayComponent onlyAffectsMobs to true it would be able to draw from containers

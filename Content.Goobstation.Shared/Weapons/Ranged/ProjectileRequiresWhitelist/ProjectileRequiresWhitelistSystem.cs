@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
@@ -11,7 +11,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Goobstation.Shared.Weapons.Ranged.ProjectileRequiresWhitelist;
+namespace Content.Goidastation.Shared.Weapons.Ranged.ProjectileRequiresWhitelist;
 
 public sealed class ProjectileRequireWhitelistSystem : EntitySystem
 {

@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 AstroDogeDX <48888500+AstroDogeDX@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PECK <74548962+PeccNeck@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PeccNeck <74548962+PeccNeck@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
@@ -16,7 +16,7 @@
   id: BaseMobResomi
   abstract: true
   components:
-  # - type: LanguageKnowledge # Goobstation - WE ONLY SPEAK MURICAN HERE
+  # - type: LanguageKnowledge # Goidastation - WE ONLY SPEAK MURICAN HERE
   #   speaks:
   #     - TauCetiBasic
   #   understands:
@@ -125,7 +125,7 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
-    femaleDisplacements: # Goobstation - splitting up the genders broke displacements, apparently it won't just apply the same displacement to both genders :|
+    femaleDisplacements: # Goidastation - splitting up the genders broke displacements, apparently it won't just apply the same displacement to both genders :|
       jumpsuit:
         sizeMaps:
           32:
@@ -181,9 +181,9 @@
           32:
             sprite: _Floofstation/Mobs/Species/Resomi/displacement.rsi
             state: belt
-  - type: Bloodstream # Goobstation - lore stuff
+  - type: Bloodstream # Goidastation - lore stuff
     bloodReagent: AmmoniaBlood
-  - type: MeleeWeapon # Goobstation - aliem raptors probably use their claws
+  - type: MeleeWeapon # Goidastation - aliem raptors probably use their claws
     soundHit:
       collection: AlienClaw
     angle: 30
@@ -191,19 +191,19 @@
     damage:
       types:
         Slash: 5
-  - type: Damageable # Goobstation - resomi damage modifiers
+  - type: Damageable # Goidastation - resomi damage modifiers
     damageModifierSet: Resomi
   - type: Temperature
-    coldDamageThreshold: 0 # Goobstation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
-    heatDamageThreshold: 320.15 # Goobstation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
+    coldDamageThreshold: 0 # Goidastation - hyperborean velociraptors or some shit, ice planes of norway is where they came from, but in space
+    heatDamageThreshold: 320.15 # Goidastation - space chickens can't tolerate reasonable temperatures, but requiring them to stay icy would be cringe, so instead make their heat damage threshold dangerously close to standard atmos, at 47°C
     coldDamage:
       types:
         Cold : 0 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 3 #per second, scales with temperature & other constants
-  - type: TemperatureSpeed # Goobstation - You're supposed to be used to the cold why are you so slow
-    thresholds: # Goobstation - cold-immune resomi
+  - type: TemperatureSpeed # Goidastation - You're supposed to be used to the cold why are you so slow
+    thresholds: # Goidastation - cold-immune resomi
       272: 1
       242: 1
       196: 1

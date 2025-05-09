@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
@@ -26,7 +26,7 @@
     - Changeling
     - Heretic
     - Wizard
-    - Greytide # Goobstation
+    - Greytide # Goidastation
 
 - type: explosion
   id: Blob
@@ -99,7 +99,7 @@
     - ZombieBlob
     - Blobbernaut
   icon:
-    sprite: /Textures/_Goobstation/Blob/Interface/Misc/antag_icon.rsi
+    sprite: /Textures/_Goidastation/Blob/Interface/Misc/antag_icon.rsi
     state: blob
 
 - type: currency

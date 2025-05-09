@@ -1,16 +1,16 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 TheBorzoiMustConsume <197824988+TheBorzoiMustConsume@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Shared.Religion;
-using Content.Goobstation.Shared.Religion.Nullrod;
+using Content.Goidastation.Shared.Religion;
+using Content.Goidastation.Shared.Religion.Nullrod;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Goobstation.Server.OnPray.HealNearOnPray;
+namespace Content.Goidastation.Server.OnPray.HealNearOnPray;
 
 public sealed partial class HealNearOnPraySystem : EntitySystem
 {

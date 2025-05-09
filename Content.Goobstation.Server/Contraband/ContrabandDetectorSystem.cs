@@ -12,12 +12,12 @@
 using Content.Server.DeviceLinking.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Physics.Events;
-using Content.Goobstation.Shared.Contraband;
+using Content.Goidastation.Shared.Contraband;
 using Content.Server.Power.EntitySystems;
 using Robust.Server.Audio;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Contraband;
+namespace Content.Goidastation.Server.Contraband;
 
 public sealed class ContrabandDetectorSystem : SharedContrabandDetectorSystem
 {

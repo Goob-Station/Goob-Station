@@ -37,7 +37,7 @@ public sealed partial class StationCargoOrderDatabaseComponent : Component
     public int NumOrdersCreated;
 
     /// <summary>
-    ///     GoobStation - Tracks next time that a product on cooldown can be ordered.
+    ///     GoidaStation - Tracks next time that a product on cooldown can be ordered.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), DataField]
     public Dictionary<string, TimeSpan> ProductCooldownTime = new Dictionary<string, TimeSpan>();

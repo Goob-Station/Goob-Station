@@ -126,7 +126,7 @@
   equipment:
     head: ClothingHeadHatBeretHoS
 
-- type: loadout # Goobstation
+- type: loadout # Goidastation
   id: HeadofSecuritySpecialBeret
   equipment:
     head: ClothingHeadHatBeretHeadOfSecurityAdvanced
@@ -160,7 +160,7 @@
     outerClothing: ClothingOuterCoatHoSTrench
 
 - type: loadout
-  id: HeadofSecurityGreatCoat # Goobstation
+  id: HeadofSecurityGreatCoat # Goidastation
   equipment:
     outerClothing: ClothingOuterArmorHoSExperimental
   effects:

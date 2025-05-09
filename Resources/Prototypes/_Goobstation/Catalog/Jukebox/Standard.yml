@@ -19,8 +19,8 @@
 # SPDX-FileCopyrightText: 2025 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 GoobBot[bot] <923088+GoobBot[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot[bot] <923088+GoidaBot[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Intoxicating-Innocence <188202277+Intoxicating-Innocence@users.noreply.github.com>
@@ -153,7 +153,7 @@
   id: violet
   name: Mrjajkes - Violet
   path:
-    path: /Audio/_Goobstation/Announcements/violet.ogg
+    path: /Audio/_Goidastation/Announcements/violet.ogg
 
 - type: jukebox
   id: redsun
@@ -279,4 +279,4 @@
   id: running_in
   name: Q/\ntum - Running In (feat Z.W.E.I.)
   path:
-    path: /Audio/_Goobstation/Music/running_in.ogg
+    path: /Audio/_Goidastation/Music/running_in.ogg

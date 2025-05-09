@@ -9,7 +9,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Weapons.ThrowableBlocker;
+namespace Content.Goidastation.Shared.Weapons.ThrowableBlocker;
 
 /// <summary>
 /// Added to objects that can be blocked by ThrowableBlockerComponent

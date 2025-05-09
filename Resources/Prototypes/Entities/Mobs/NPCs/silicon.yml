@@ -342,7 +342,7 @@
     speechVerb: Cluwne
   - type: StepTrigger
     intersectRatio: 0.2
-  - type: StepTriggerImmune # Goobstation
+  - type: StepTriggerImmune # Goidastation
     whitelist:
       types:
       - Shard
@@ -362,7 +362,7 @@
         density: 20
         mask:
         - MobMask
-        layer: # Goobstation
+        layer: # Goidastation
         - MobLayer
   - type: Construction
     graph: HonkBot
@@ -472,9 +472,9 @@
     interactFailureString: petting-failure-cleanbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Item # Goobstation
+  - type: Item # Goidastation
     size: Large
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
+  - type: StationAiVision # Goidastation - AI can see through NT silicon
     range: 0
 
 - type: entity
@@ -513,7 +513,7 @@
           enum.DamageStateVisualLayers.BaseUnshaded:
             powered: Rainbow
   - type: Sprite
-    sprite: _Goobstation/Mobs/Silicon/Bots/medibot.rsi
+    sprite: _Goidastation/Mobs/Silicon/Bots/medibot.rsi
     layers:
       - state: medibot
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -546,7 +546,7 @@
   - type: Inventory
     templateId: medibot
   - type: DoAfter
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
+  - type: StationAiVision # Goidastation - AI can see through NT silicon
     range: 1
 
 - type: entity
@@ -650,5 +650,5 @@
     - Binary
     - Common
     - Supply
-  - type: StationAiVision # Goobstation - AI can see through NT silicon
+  - type: StationAiVision # Goidastation - AI can see through NT silicon
     range: 1

@@ -34,7 +34,7 @@
 - type: gameMap
   id: Cluster
   mapName: 'Cluster'
-  mapPath: /Maps/_Goobstation/cluster.yml
+  mapPath: /Maps/_Goidastation/cluster.yml
   minPlayers: 10
   maxPlayers: 35
   stations:
@@ -95,9 +95,9 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
 
-        # Goobstation blob-config-start SMALL+
+        # Goidastation blob-config-start SMALL+
         - type: StationBlobConfig
           stageBegin: 25
           stageCritical: 350
           stageTheEnd: 700
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

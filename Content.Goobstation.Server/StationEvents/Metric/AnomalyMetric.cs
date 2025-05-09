@@ -7,10 +7,10 @@
 
 using Content.Server.Spreader;
 using Content.Shared.Anomaly.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Prometheus;
 
-namespace Content.Goobstation.Server.StationEvents.Metric;
+namespace Content.Goidastation.Server.StationEvents.Metric;
 
 /// <summary>
 ///   Measures the number and severity of anomalies on the station.

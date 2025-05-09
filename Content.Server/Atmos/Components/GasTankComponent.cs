@@ -59,7 +59,7 @@ namespace Content.Server.Atmos.Components
         public bool IsLowPressure => (Air?.Pressure ?? 0F) <= TankLowPressure;
 
         [DataField]
-        public float? MaxExplosionRange; // Goobstation - If null, use the atmos explosion range cvar, otherwise, use this value
+        public float? MaxExplosionRange; // Goidastation - If null, use the atmos explosion range cvar, otherwise, use this value
 
         [ViewVariables(VVAccess.ReadWrite), DataField("ruptureSound")]
         public SoundSpecifier RuptureSound = new SoundPathSpecifier("/Audio/Effects/spray.ogg");

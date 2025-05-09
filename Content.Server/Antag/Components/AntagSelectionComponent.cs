@@ -73,7 +73,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
@@ -93,7 +93,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag.Components;
 
-// goob edit - no more specified access.
+// goida edit - no more specified access.
 // will it turn out to be a bad decision? probably yes
 // do i care? :trollface:
 [RegisterComponent, /*Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))*/]
@@ -156,7 +156,7 @@ public sealed partial class AntagSelectionComponent : Component
     public bool RemoveUponFailedSpawn = true;
 
     /// <summary>
-    /// Goobstation.
+    /// Goidastation.
     /// Whether the round end text should show original entity name or mind character name.
     /// </summary>
     [DataField]
@@ -301,19 +301,19 @@ public partial struct AntagSelectionDefinition()
     [DataField]
     public EntProtoId? SpawnerPrototype;
 
-    // goob edit - actual pacifism implant
+    // goida edit - actual pacifism implant
     [DataField]
     public List<JobSpecial> Special = new();
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Does this antag role roll before job
     /// </summary>
     [DataField]
     public bool RollBeforeJob = true;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Unequip all gear before making antag
     /// </summary>
     [DataField]

@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Wizard.Spellblade;
+namespace Content.Shared._Goidastation.Wizard.Spellblade;
 
 [RegisterComponent]
 public sealed partial class ForceshieldSpellbladeEnchantmentComponent : Component

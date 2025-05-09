@@ -67,7 +67,7 @@ public sealed partial class GunSystem
 
             var step = ContentHelpers.RoundToLevels((int) current, (int) capacity, component.MagSteps);
 
-            if (component.ZeroNoAmmo && step == 0 && (int) current > 0) // Goobstation
+            if (component.ZeroNoAmmo && step == 0 && (int) current > 0) // Goidastation
                 step = Math.Min(1, component.MagSteps - 1);
 
             if (step == 0 && !component.ZeroVisible)

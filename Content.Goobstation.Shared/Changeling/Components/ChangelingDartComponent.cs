@@ -7,7 +7,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Changeling.Components;
+namespace Content.Goidastation.Shared.Changeling.Components;
 
 [RegisterComponent]
 public sealed partial class ChangelingDartComponent : Component

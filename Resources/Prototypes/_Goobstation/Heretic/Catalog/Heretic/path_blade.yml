@@ -28,7 +28,7 @@
   id: KnowledgePathStartBlade
   name: knowledge-path-blade-s1-name
   description: knowledge-path-blade-s1-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_blade.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_blade.rsi, state: icon }
   productHereticKnowledge: CuttingEdge
   cost:
     KnowledgePoint: 1
@@ -52,7 +52,7 @@
   id: HereticBladePath2
   name: knowledge-path-blade-s2-name
   description: knowledge-path-blade-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfBlade
   cost:
     KnowledgePoint: 1
@@ -71,7 +71,7 @@
   id: HereticBladePath3
   name: knowledge-path-blade-s3-name
   description: knowledge-path-blade-s3-desc
-  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon-on }
+  icon: { sprite: _Goidastation/Heretic/book.rsi, state: icon-on }
   productHereticKnowledge: DanceOfTheBrand
   cost:
     KnowledgePoint: 1
@@ -87,7 +87,7 @@
   id: HereticBladePath4
   name: knowledge-path-blade-s4-name
   description: knowledge-path-blade-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfBlade
   cost:
     KnowledgePoint: 2
@@ -105,7 +105,7 @@
   id: HereticBladePath5
   name: knowledge-path-blade-s5-name
   description: knowledge-path-blade-s5-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: realignment }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: realignment }
   productHereticKnowledge: Realignment
   cost:
     KnowledgePoint: 2
@@ -124,7 +124,7 @@
   id: HereticBladePath6
   name: knowledge-path-blade-s6-name
   description: knowledge-path-blade-s6-desc
-  icon: { sprite: _Goobstation/Heretic/book.rsi, state: icon-on }
+  icon: { sprite: _Goidastation/Heretic/book.rsi, state: icon-on }
   productHereticKnowledge: TornChampionStance
   cost:
     KnowledgePoint: 1
@@ -140,7 +140,7 @@
   id: HereticBladePath7
   name: knowledge-path-blade-s7-name
   description: knowledge-path-blade-s7-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: EmpoweredBlades
   cost:
     KnowledgePoint: 2
@@ -159,7 +159,7 @@
   id: HereticBladePath8
   name: knowledge-path-blade-s8-name
   description: knowledge-path-blade-s8-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: furious_steel }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: furious_steel }
   productHereticKnowledge: FuriousSteel
   cost:
     KnowledgePoint: 1
@@ -175,7 +175,7 @@
   id: HereticBladePath9
   name: knowledge-path-blade-s9-name
   description: knowledge-path-blade-s9-desc
-  icon: { sprite: _Goobstation/Heretic/items.rsi, state: protective_blade }
+  icon: { sprite: _Goidastation/Heretic/items.rsi, state: protective_blade }
   productHereticKnowledge: AscensionBlade
   cost:
     KnowledgePoint: 3

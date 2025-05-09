@@ -9,13 +9,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Changeling.Components;
+using Content.Goidastation.Shared.Changeling.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Changeling;
+namespace Content.Goidastation.Server.Changeling;
 
 public sealed class ChangelingEggSystem : EntitySystem
 {

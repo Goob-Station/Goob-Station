@@ -27,7 +27,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Bible;
+using Content.Goidastation.Shared.Bible;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
@@ -129,7 +129,7 @@ namespace Content.Server.Bible
                 return;
 
             if (args.Target == null || args.Target == args.User || !_mobStateSystem.IsAlive(args.Target.Value))
-                return; // STOP WITH USELESS BRACES!! - Goobstation
+                return; // STOP WITH USELESS BRACES!! - Goidastation
 
             if (!HasComp<BibleUserComponent>(args.User))
             {

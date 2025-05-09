@@ -141,7 +141,7 @@ public abstract class SharedFirelockSystem : EntitySystem
 
     private void OnDoorGetPryTimeModifier(EntityUid uid, FirelockComponent component, ref GetPryTimeModifierEvent args)
     {
-        if (args.InstaPry) // Goobstation
+        if (args.InstaPry) // Goidastation
         {
             args.PryTimeModifier = 0f;
             return;

@@ -11,7 +11,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Client.MisandryBox;
+namespace Content.Goidastation.Client.MisandryBox;
 
 public sealed class InputSwapResyncSystem : EntitySystem
 {

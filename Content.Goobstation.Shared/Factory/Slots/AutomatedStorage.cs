@@ -5,7 +5,7 @@
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 
-namespace Content.Goobstation.Shared.Factory.Slots;
+namespace Content.Goidastation.Shared.Factory.Slots;
 
 /// <summary>
 /// Abstraction over a <see cref="StorageComponent"/> grid inventory.

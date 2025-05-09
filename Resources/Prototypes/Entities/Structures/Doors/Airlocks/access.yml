@@ -82,7 +82,7 @@
       board: [ DoorElectronicsChapel ]
 
 - type: entity
-  parent: AirlockJanitor # Goobstation - Sweet new jani door
+  parent: AirlockJanitor # Goidastation - Sweet new jani door
   id: AirlockJanitorLocked
   suffix: Janitor, Locked
   components:
@@ -607,7 +607,7 @@
       board: [ DoorElectronicsKitchen ]
 
 - type: entity
-  parent: AirlockJanitorGlass # Goobstation - Sweet new jani door
+  parent: AirlockJanitorGlass # Goidastation - Sweet new jani door
   id: AirlockJanitorGlassLocked
   suffix: Janitor, Locked
   components:

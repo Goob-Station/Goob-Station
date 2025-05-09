@@ -127,7 +127,7 @@
         - NukeDisk
     alertLevelOnActivate: delta
     alertLevelOnDeactivate: green
-    alertLevelOnOverride: omicron # Goobstation
+    alertLevelOnOverride: omicron # Goidastation
   - type: InteractionOutline
   - type: ActivatableUI
     key: enum.NukeUiKey.Key
@@ -149,7 +149,7 @@
     follow: true
     location: nuclear bomb
   - type: FTLSmashImmune
-  - type: SupermatterImmune # Goobstation
+  - type: SupermatterImmune # Goidastation
 
 - type: entity
   parent: NuclearBomb

@@ -814,10 +814,10 @@
     damage:
       types:
         Blunt: 1 # bonk
-  - type: Tag #Goobstation
+  - type: Tag #Goidastation
     tags:
     - BreadEmergency
-  - type: GibThisGuy  #Goobstation
+  - type: GibThisGuy  #Goidastation
     requireBoth: true
     icNames:
       - Haleigh Pryocraft

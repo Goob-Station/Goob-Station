@@ -515,8 +515,8 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
-  - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
+    laws: NTDefault # Goidastation - AI/borg law changes - set AI to NTDefault
+  - type: IonStormTarget # Goidastation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant
     actions:
@@ -726,7 +726,7 @@
       rules: ghost-role-information-silicon-rules
       raffle:
         settings: default
-      requirements: # Goobstation - ghost roles requirements
+      requirements: # Goidastation - ghost roles requirements
       - !type:RoleTimeRequirement
         role: JobBorg
         time: 3600 #1 hour

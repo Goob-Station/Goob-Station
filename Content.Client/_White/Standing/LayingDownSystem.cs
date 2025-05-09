@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Client._White.Animations;
-using Content.Goobstation.Common.Standing;
+using Content.Goidastation.Common.Standing;
 using Content.Shared._White.Standing;
 using Content.Shared.Buckle;
 using Content.Shared.Rotation;

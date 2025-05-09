@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-// goobstation - entire file; goobmod moment
+// goidastation - entire file; goidamod moment
 using Content.Server.NPC.Components;
 
 namespace Content.Server.NPC.Events;

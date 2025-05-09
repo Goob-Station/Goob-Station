@@ -33,7 +33,7 @@
 - type: gameMap
   id: OasisHighPop
   mapName: 'Oasis'
-  mapPath: /Maps/_Goobstation/oasis.yml
+  mapPath: /Maps/_Goidastation/oasis.yml
   minPlayers: 85
   stations:
     Oasis:
@@ -97,9 +97,9 @@
             Mime: [ 2, 2 ]
             Musician: [ 3, 3 ]
 
-        # Goobstation blob-config-start HUGE
+        # Goidastation blob-config-start HUGE
         - type: StationBlobConfig
           stageBegin: 40
           stageCritical: 450
           stageTheEnd: 900
-        # Goobstation blob-config-end
+        # Goidastation blob-config-end

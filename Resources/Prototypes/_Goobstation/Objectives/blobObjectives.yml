@@ -15,7 +15,7 @@
     unique: true
     difficulty: 1
     icon:
-      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      sprite: _Goidastation/Blob/Mobs/blob.rsi
       state: blob_nuke_overlay
   - type: RoleRequirement
     roles:

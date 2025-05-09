@@ -879,7 +879,7 @@ entities:
     - type: GridFill
       addComponents:
       - type: NukeOpsShuttle
-      path: /Maps/_Goobstation/Shuttles/infiltrator.yml
+      path: /Maps/_Goidastation/Shuttles/infiltrator.yml
 - proto: AirlockHatchSyndicate
   entities:
   - uid: 12
@@ -6973,7 +6973,7 @@ entities:
     - type: Transform
       pos: 37.5,-4.5
       parent: 2
-- proto: PosterLegitGoobMakeshift
+- proto: PosterLegitGoidaMakeshift
   entities:
   - uid: 2409
     components:

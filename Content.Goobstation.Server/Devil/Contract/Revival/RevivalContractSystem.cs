@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.UI;
+using Content.Goidastation.Shared.Devil;
+using Content.Goidastation.Shared.Devil.UI;
 using Content.Server.Administration.Systems;
 using Content.Server.Mind;
 using Content.Shared.Interaction;
@@ -14,7 +14,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 
-namespace Content.Goobstation.Server.Devil.Contract.Revival;
+namespace Content.Goidastation.Server.Devil.Contract.Revival;
 public sealed partial class PendingRevivalContractSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;

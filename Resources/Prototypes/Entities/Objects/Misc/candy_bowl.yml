@@ -79,7 +79,7 @@
           - Pill
           tags:
           - FoodSnack
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:

@@ -25,14 +25,14 @@ public sealed class GetFireProtectionEvent : EntityEventArgs, IInventoryRelayEve
     public float Multiplier;
 
     /// <summary>
-    /// Goobstation - The entity the event was originally raised on.
+    /// Goidastation - The entity the event was originally raised on.
     /// </summary>
     public readonly EntityUid Target;
 
-    public GetFireProtectionEvent(EntityUid target) // Goobstation
+    public GetFireProtectionEvent(EntityUid target) // Goidastation
     {
         Multiplier = 1f;
-        Target = target; // Goobstation
+        Target = target; // Goidastation
     }
 
     /// <summary>

@@ -18,8 +18,8 @@
       - AnchoredStorageFilter
   - type: Visibility
     layer: 1
-  - type: HideContrabandContent #Goobstation Contraband detector
-  - type: UndetectableContraband #Goobstation Contraband detector
+  - type: HideContrabandContent #Goidastation Contraband detector
+  - type: UndetectableContraband #Goidastation Contraband detector
 
 - type: entity
   abstract: true

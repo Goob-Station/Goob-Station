@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Blob;
+using Content.Goidastation.Common.Blob;
 using Content.Server.Abilities.Felinid;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Nutrition.Components;
@@ -22,7 +22,7 @@ using Robust.Server.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Blob.StationEvents;
+namespace Content.Goidastation.Server.Blob.StationEvents;
 
 public sealed class BlobSpawnRule : StationEventSystem<BlobSpawnRuleComponent>
 {

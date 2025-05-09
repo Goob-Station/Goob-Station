@@ -17,7 +17,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Audio.Systems;
 
 
-namespace Content.Goobstation.Shared.Vehicles.Clowncar;
+namespace Content.Goidastation.Shared.Vehicles.Clowncar;
 
 /* TODO
  - Enter do after when entering the vehicle         //Done

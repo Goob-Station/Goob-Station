@@ -93,7 +93,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 HTML/Crystal <152909599+HTMLSystem@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
@@ -128,7 +128,7 @@
     accent: zombieMoth
   - type: Speech
     speechVerb: Moth
-    allowedEmotes: ['Chitter', 'Squeak', 'Flap'] #flap is from goob
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap'] #flap is from goida
   - type: TypingIndicator
     proto: moth
   - type: Butcherable
@@ -152,7 +152,7 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 3 # Goobstation value
+    weightlessAcceleration: 3 # Goidastation value
   - type: Flammable
     damage:
       types:
@@ -225,7 +225,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: Fixtures # Goob edit - make moths lighter
+  - type: Fixtures # Goida edit - make moths lighter
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
         shape:
@@ -237,7 +237,7 @@
         - MobMask
         layer:
         - MobLayer
-  - type: DashAction # Goobstation - dark souls moths
+  - type: DashAction # Goidastation - dark souls moths
     actionProto: ActionDashMoth
 
 - type: entity

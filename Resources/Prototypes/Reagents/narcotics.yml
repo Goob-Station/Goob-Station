@@ -41,7 +41,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -63,7 +63,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -75,7 +75,7 @@
             Radiation: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -83,7 +83,7 @@
             Poison: 0.75
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -117,11 +117,11 @@
         key: Drowsiness
         time: 10
         type: Remove
-      - !type:GenericStatusEffect # goob edit
+      - !type:GenericStatusEffect # goida edit
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
-      - !type:RemoveComponentEffect # goob edit
+      - !type:RemoveComponentEffect # goida edit
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
@@ -146,7 +146,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -161,7 +161,7 @@
         sprintSpeedModifier: 1.25
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -192,11 +192,11 @@
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
-      - !type:GenericStatusEffect # goob edit
+      - !type:GenericStatusEffect # goida edit
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
-      - !type:RemoveComponentEffect # goob edit
+      - !type:RemoveComponentEffect # goida edit
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
     Medicine:
@@ -222,7 +222,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -237,7 +237,7 @@
         sprintSpeedModifier: 1.3
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -277,14 +277,14 @@
         key: Drowsiness
         time: 10
         type: Remove
-      - !type:GenericStatusEffect # goob edit
+      - !type:GenericStatusEffect # goida edit
         key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
-      - !type:RemoveComponentEffect # goob edit
+      - !type:RemoveComponentEffect # goida edit
         component: DelayedKnockdown
         locale: reagent-effect-guidebook-remove-delayed-knockdown
-      - !type:TakeStaminaDamage # goob edit
+      - !type:TakeStaminaDamage # goida edit
         amount: -10
         immediate: true
     Medicine:
@@ -323,7 +323,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -356,7 +356,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -381,7 +381,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -396,7 +396,7 @@
         sprintSpeedModifier: 0.65
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -426,7 +426,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -456,7 +456,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:
@@ -488,7 +488,7 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -513,7 +513,7 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         key: Muted
@@ -625,7 +625,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
         damage:
           groups:

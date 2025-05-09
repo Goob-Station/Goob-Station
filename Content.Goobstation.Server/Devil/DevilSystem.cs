@@ -1,21 +1,21 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Text.RegularExpressions;
-using Content.Goobstation.Server.Devil.Condemned;
-using Content.Goobstation.Server.Devil.Contract;
-using Content.Goobstation.Server.Devil.Objectives.Components;
-using Content.Goobstation.Server.Possession;
-using Content.Goobstation.Shared.Bible;
-using Content.Goobstation.Shared.CheatDeath;
-using Content.Goobstation.Shared.CrematorImmune;
-using Content.Goobstation.Shared.Devil;
-using Content.Goobstation.Shared.Devil.Condemned;
-using Content.Goobstation.Shared.Exorcism;
-using Content.Goobstation.Shared.Religion;
+using Content.Goidastation.Server.Devil.Condemned;
+using Content.Goidastation.Server.Devil.Contract;
+using Content.Goidastation.Server.Devil.Objectives.Components;
+using Content.Goidastation.Server.Possession;
+using Content.Goidastation.Shared.Bible;
+using Content.Goidastation.Shared.CheatDeath;
+using Content.Goidastation.Shared.CrematorImmune;
+using Content.Goidastation.Shared.Devil;
+using Content.Goidastation.Shared.Devil.Condemned;
+using Content.Goidastation.Shared.Exorcism;
+using Content.Goidastation.Shared.Religion;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
@@ -50,7 +50,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Devil;
+namespace Content.Goidastation.Server.Devil;
 
 public sealed partial class DevilSystem : EntitySystem
 {

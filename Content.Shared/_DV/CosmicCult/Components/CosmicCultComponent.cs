@@ -139,7 +139,7 @@ public sealed partial class CosmicCultComponent : Component
     public bool Respiration = true;
 
     /// <summary>
-    /// Goobstation Change - Shitchap: Whether or not this cultist was weak to holy before conversion.
+    /// Goidastation Change - Shitchap: Whether or not this cultist was weak to holy before conversion.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool WasWeakToHoly;

@@ -17,7 +17,7 @@
     useDelay: 15
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: void_blast
     event: !type:HereticVoidBlastEvent
     checkCanInteract: false
@@ -35,7 +35,7 @@
     useDelay: 15
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: void_phase
     event: !type:HereticVoidBlinkEvent
     checkCanAccess: false
@@ -55,7 +55,7 @@
     useDelay: 20
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: void_pull
     event: !type:HereticVoidPullEvent
     checkCanInteract: false

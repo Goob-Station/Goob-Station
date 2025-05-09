@@ -4,9 +4,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Clothing.Systems;
+using Content.Goidastation.Shared.Clothing.Systems;
 
-namespace Content.Goobstation.Client.Clothing.EntitySystems;
+namespace Content.Goidastation.Client.Clothing.EntitySystems;
 
 public sealed partial class SealableClothingSystem : SharedSealableClothingSystem
 {

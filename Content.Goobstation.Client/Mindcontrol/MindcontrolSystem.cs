@@ -10,7 +10,7 @@
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Mindcontrol;
+namespace Content.Goidastation.Client.Mindcontrol;
 
 public sealed class MindcontrolSystem : EntitySystem
 {

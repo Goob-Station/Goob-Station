@@ -4,10 +4,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
+using Content.Goidastation.Common.MartialArts;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Server.Grab;
+namespace Content.Goidastation.Server.Grab;
 
 [RegisterComponent]
 public sealed partial class GrabbingItemComponent : Component

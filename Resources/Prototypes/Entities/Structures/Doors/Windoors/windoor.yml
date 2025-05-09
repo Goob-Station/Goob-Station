@@ -548,7 +548,7 @@
     containers:
       board: [ DoorElectronicsSyndicateAgent ]
 
-- type: entity #Goob Content Start
+- type: entity #Goida Content Start
   parent: WindoorSecurePlasma
   id: PlasmaWindoorSecureSyndicateLockedIndestructable
   suffix: Syndicate, Locked, Plasma, Indestructable
@@ -579,7 +579,7 @@
             min: 1
             max: 2
       - !type:DoActsBehavior
-        acts: [ "Destruction" ] #Goob Content End
+        acts: [ "Destruction" ] #Goida Content End
 
 - type: entity
   parent: WindoorUranium

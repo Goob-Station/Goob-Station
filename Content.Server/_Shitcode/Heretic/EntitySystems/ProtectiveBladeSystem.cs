@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -23,7 +23,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Buckle.Systems;
 using Content.Server.Heretic.Abilities;
-using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Goidastation.Heretic.Systems;
 using Content.Shared._Shitcode.Heretic.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;
@@ -60,7 +60,7 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
     public static readonly EntProtoId BladeProjecilePrototype = "HereticProtectiveBladeProjectile";
     public static readonly SoundSpecifier BladeAppearSound = new SoundPathSpecifier("/Audio/Items/unsheath.ogg");
     public static readonly SoundSpecifier BladeBlockSound =
-        new SoundPathSpecifier("/Audio/_Goobstation/Heretic/parry.ogg");
+        new SoundPathSpecifier("/Audio/_Goidastation/Heretic/parry.ogg");
 
     public override void Initialize()
     {

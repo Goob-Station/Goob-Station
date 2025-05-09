@@ -16,18 +16,18 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Conditions;
 
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 public sealed partial class BuyBeforeCondition : ListingCondition
 {
     /// <summary>
     ///     Required listing(s) needed to purchase before this listing is available
     /// </summary>
-    [DataField] // Goob edit
-    public HashSet<ProtoId<ListingPrototype>>? Whitelist; // Goob edit
+    [DataField] // Goida edit
+    public HashSet<ProtoId<ListingPrototype>>? Whitelist; // Goida edit
 
     /// <summary>
-    ///     Goobstation.
+    ///     Goidastation.
     ///     If false, only one of the listings needs to be purchased to pass the whitelist.
     ///     If true, all of the listings need to be purchased.
     /// </summary>
@@ -37,7 +37,7 @@ public sealed partial class BuyBeforeCondition : ListingCondition
     /// <summary>
     ///     Listing(s) that if bought, block this purchase, if any.
     /// </summary>
-    [DataField] // Goobstation
+    [DataField] // Goidastation
     public HashSet<ProtoId<ListingPrototype>>? Blacklist;
 
     public override bool Condition(ListingConditionArgs args)
@@ -61,7 +61,7 @@ public sealed partial class BuyBeforeCondition : ListingCondition
             }
         }
 
-        if (Whitelist == null) // Goobstation
+        if (Whitelist == null) // Goidastation
             return true;
 
         foreach (var requiredListing in Whitelist)
@@ -72,7 +72,7 @@ public sealed partial class BuyBeforeCondition : ListingCondition
                 {
                     purchasesFound = listing.PurchaseAmount > 0;
 
-                    // Goobstation
+                    // Goidastation
                     switch (purchasesFound)
                     {
                         case true when !WhitelistRequireAll:

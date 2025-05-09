@@ -152,7 +152,7 @@ namespace Content.Server.Bed
                 foreach (var healedEntity in strapComponent.BuckledEntities)
                 {
                     if (_mobStateSystem.IsDead(healedEntity)
-                        || HasComp<SiliconComponent>(healedEntity)) // Goobstation
+                        || HasComp<SiliconComponent>(healedEntity)) // Goidastation
                         continue;
 
                     var damage = bedComponent.Damage;
@@ -206,7 +206,7 @@ namespace Content.Server.Bed
             UpdateMetabolisms(uid, component, false);
             component.Multiplier = 1 / component.Multiplier;
             UpdateMetabolisms(uid, component, true);
-            args.Repeatable = true; // Goobstation edit
+            args.Repeatable = true; // Goidastation edit
             args.Handled = true;
         }
 

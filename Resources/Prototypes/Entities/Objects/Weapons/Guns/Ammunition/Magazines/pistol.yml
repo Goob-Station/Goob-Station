@@ -52,7 +52,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 12 # Goobstation
+    capacity: 12 # Goidastation
   - type: Item
     size: Small
   - type: ContainerContainer

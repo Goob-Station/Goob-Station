@@ -105,7 +105,7 @@ namespace Content.Shared.Cargo.Prototypes
         public int Cost { get; private set; }
 
         /// <summary>
-        ///     GoobStation - The cooldown in seconds before this product can be bought again.
+        ///     GoidaStation - The cooldown in seconds before this product can be bought again.
         /// </summary>
         [DataField]
         public int Cooldown { get; private set; } = 0;

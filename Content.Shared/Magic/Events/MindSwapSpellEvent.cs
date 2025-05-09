@@ -22,7 +22,7 @@ public sealed partial class MindSwapSpellEvent : EntityTargetActionEvent, ISpeak
     [DataField]
     public string? Speech { get; private set; }
 
-    // Goobstation
+    // Goidastation
     [DataField]
     public SoundSpecifier? Sound;
 }

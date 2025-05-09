@@ -75,7 +75,7 @@ namespace Content.Client.Access.UI
                 JobTitleSaveButton.Disabled = JobTitleLineEdit.Text == _lastJobTitle;
             };
             JobTitleSaveButton.OnPressed += _ => SubmitData();
-            // Goobstation Start
+            // Goidastation Start
             SearchLineEdit.OnTextChanged += args =>
             {
                 var query = args.Text.Trim();
@@ -93,7 +93,7 @@ namespace Content.Client.Access.UI
                     if (id.Id.Contains(query, StringComparison.CurrentCultureIgnoreCase))
                         containerChild.AddChild(button);
             };
-            // Goobstation End
+            // Goidastation End
 
             var jobs = _prototypeManager.EnumeratePrototypes<JobPrototype>().ToList();
             jobs.Sort((x, y) => string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCulture));

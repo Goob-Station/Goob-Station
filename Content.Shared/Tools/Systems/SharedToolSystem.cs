@@ -70,7 +70,7 @@
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -110,7 +110,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     [Dependency] private   readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private   readonly TileSystem _tiles = default!;
     [Dependency] private   readonly TurfSystem _turfs = default!;
-    [Dependency] private   readonly UseDelaySystem _delay = default!; // Goobstation
+    [Dependency] private   readonly UseDelaySystem _delay = default!; // Goidastation
 
     public const string CutQuality = "Cutting";
     public const string PulseQuality = "Pulsing";
@@ -137,7 +137,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         else
             RaiseLocalEvent((object) ev);
 
-        if (TryComp(uid, out UseDelayComponent? delay)) // Goobstation
+        if (TryComp(uid, out UseDelayComponent? delay)) // Goidastation
             _delay.TryResetDelay((uid, delay));
     }
 

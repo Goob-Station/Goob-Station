@@ -171,7 +171,7 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 25
 
@@ -249,7 +249,7 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 25
       Durathread: 12
@@ -514,7 +514,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatWitch1
   name: witch hat
-  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goob edit
+  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goida edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/witchhat.rsi
@@ -564,7 +564,7 @@
     - HeadSide
 
 - type: entity
-  parent: ClothingHeadBase # Goob edit
+  parent: ClothingHeadBase # Goida edit
   id: ClothingHeadHatRedwizard
   name: red wizard hat
   description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
@@ -679,7 +679,7 @@
 
 
 - type: entity
-  parent: ClothingHeadBase # Goob edit
+  parent: ClothingHeadBase # Goida edit
   id: ClothingHeadHatVioletwizard
   name: violet wizard hat
   description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
@@ -706,7 +706,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatWitch
   name: witch hat
-  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goob edit
+  description: Strange-looking hat-wear. Makes you want to cast fireballs. # Goida edit
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/witch.rsi
@@ -735,17 +735,17 @@
   abstract: true
   parent: [ClothingHeadBase, BaseMagicContraband]
   id: ClothingHeadHatWizardBase
-  suffix: Wizard Clothes # Goobstation
+  suffix: Wizard Clothes # Goidastation
   components:
   - type: WizardClothes
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - WizardHat
     - ClothMade
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadBase # Goob edit
+  parent: ClothingHeadBase # Goida edit
   id: ClothingHeadHatWizard
   name: wizard hat
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
@@ -1119,7 +1119,7 @@
     tags:
       - WhitelistChameleon
       - HamsterWearable
-      - DroneUsable # Goobstation
+      - DroneUsable # Goidastation
 
 - type: entity
   parent: ClothingHeadHatPartyRed

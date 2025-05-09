@@ -90,7 +90,7 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 //
@@ -101,7 +101,7 @@ using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
-using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goidastation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
@@ -133,8 +133,8 @@ namespace Content.Server.Polymorph.Systems;
 
 public sealed partial class PolymorphSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!; // Goobstation
-    [Dependency] private readonly ISerializationManager _serialization = default!; // Goobstation
+    [Dependency] private readonly IRobustRandom _random = default!; // Goidastation
+    [Dependency] private readonly ISerializationManager _serialization = default!; // Goidastation
     [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -153,9 +153,9 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly TagSystem _tag = default!; // goob edit
+    [Dependency] private readonly TagSystem _tag = default!; // goida edit
 
-    private ISawmill _sawMill = default!; // Goobstation
+    private ISawmill _sawMill = default!; // Goidastation
 
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
@@ -174,7 +174,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         InitializeMap();
         InitializeTrigger();
 
-        _sawMill = Logger.GetSawmill("polymorph"); // Goobstation
+        _sawMill = Logger.GetSawmill("polymorph"); // Goidastation
     }
 
     public override void Update(float frameTime)
@@ -308,7 +308,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             return null;
 
         // mostly just for vehicles
-        if (TryComp(uid, out BuckleComponent? buckle)) // Goob edit
+        if (TryComp(uid, out BuckleComponent? buckle)) // Goida edit
             _buckle.TryUnbuckle((uid, buckle), uid, true);
 
         var targetTransformComp = Transform(uid);
@@ -316,7 +316,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (configuration.PolymorphSound != null)
             _audio.PlayPvs(configuration.PolymorphSound, targetTransformComp.Coordinates);
 
-        // Goob edit start
+        // Goida edit start
         var proto = configuration.Entity;
         if (proto == null)
         {
@@ -335,7 +335,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
 
         MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
-        // Goob edit end
+        // Goida edit end
 
         var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
@@ -345,12 +345,12 @@ public sealed partial class PolymorphSystem : EntitySystem
         var childXform = Transform(child);
         _transform.SetLocalRotation(child, targetTransformComp.LocalRotation, childXform);
 
-        // Goob edit start
+        // Goida edit start
         if (configuration.AttachToGridOrMap)
             _transform.AttachToGridOrMap(child, childXform);
         else if (_container.TryGetContainingContainer((uid, targetTransformComp, null), out var cont))
             _container.Insert(child, cont);
-        // Goob edit end
+        // Goida edit end
 
         //Transfers all damage from the original to the new one
         if (configuration.TransferDamage &&
@@ -363,7 +363,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
-            // Goob edit start
+            // Goida edit start
             if (TryComp(uid, out InventoryComponent? inventory1))
             {
                 if (TryComp(child, out InventoryComponent? inventory2))
@@ -391,7 +391,7 @@ public sealed partial class PolymorphSystem : EntitySystem
                     }
                 }
             }
-            // Goob edit end
+            // Goida edit end
         }
         else if (configuration.Inventory == PolymorphInventoryChange.Drop)
         {
@@ -411,10 +411,10 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.TransferName && TryComp(uid, out MetaDataComponent? targetMeta))
         {
-            // Goob edit start
+            // Goida edit start
             _metaData.SetEntityName(child,
                 TryComp(uid, out NameModifierComponent? modifier) ? modifier.BaseName : targetMeta.EntityName);
-            // Goob edit end
+            // Goida edit end
         }
 
         if (configuration.TransferHumanoidAppearance)
@@ -422,7 +422,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             _humanoid.CloneAppearance(uid, child);
         }
 
-        if (configuration.ComponentsToTransfer.Count > 0) // Goobstation
+        if (configuration.ComponentsToTransfer.Count > 0) // Goidastation
         {
             foreach (var data in configuration.ComponentsToTransfer)
             {
@@ -459,12 +459,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
-        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
 
-        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
 
         //Ensures a map to banish the entity to
         EnsurePausedMap();
@@ -539,12 +539,12 @@ public sealed partial class PolymorphSystem : EntitySystem
             }
         }
 
-        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, parent, mind: mind);
 
-        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goidastation
 
         if (TryComp<PolymorphableComponent>(parent, out var polymorphableComponent))
             polymorphableComponent.LastPolymorphEnd = _gameTiming.CurTime;
@@ -557,7 +557,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
         RaiseLocalEvent(parent, ref ev);
 
-        if (component.Configuration.ShowPopup) // Goob edit
+        if (component.Configuration.ShowPopup) // Goida edit
         {
             _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
                     ("parent", Identity.Entity(uid, EntityManager)),
@@ -583,12 +583,12 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!_proto.TryIndex(id, out var polyProto))
             return;
 
-        // Goob edit start
+        // Goida edit start
         if (polyProto.Configuration.Entity == null)
             return;
 
         var entProto = _proto.Index(polyProto.Configuration.Entity.Value);
-        // Goob edit end
+        // Goida edit end
 
         EntityUid? actionId = default!;
         if (!_actions.AddAction(target, ref actionId, RevertPolymorphId, target))
@@ -603,7 +603,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!_actions.TryGetActionData(actionId, out var baseAction))
             return;
 
-        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity.Value); // Goob edit
+        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity.Value); // Goida edit
         if (baseAction is InstantActionComponent action)
             action.Event = new PolymorphActionEvent(id);
     }

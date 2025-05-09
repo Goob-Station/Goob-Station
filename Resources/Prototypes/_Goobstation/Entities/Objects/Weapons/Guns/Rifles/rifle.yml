@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -21,7 +21,7 @@
   description: A high caliber syndicate gun chambered in .50 caliber, capable of firing anti-materiel and high explosive rounds.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Rifles/burner.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -73,7 +73,7 @@
   description: A revision of the M-90gl that removes the inbuilt grenade launcher. Uses .20 rifle ammo.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Rifles/m90.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -119,14 +119,14 @@
   description: A beast designed to shoulder the weight of impossible missions. Uses .30 rifle ammo.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Rifles/annie.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Rifles/annie.rsi
   - type: Gun
     availableModes:
     - FullAuto
@@ -136,7 +136,7 @@
     shotsPerBurst: 4
     fireRate: 6.5
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
+      path: /Audio/_Goidastation/Weapons/Guns/Gunshots/thock.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
@@ -176,14 +176,14 @@
   description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses 9.5mm caseless magnum ammo.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Rifles/wspr.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Rifles/wspr.rsi
   - type: Gun
     availableModes:
     - Burst
@@ -193,7 +193,7 @@
     burstCooldown: 0.25
     projectileSpeed: 35
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/suppressed_smg.ogg
+      path: /Audio/_Goidastation/Weapons/Guns/Gunshots/suppressed_smg.ogg
       params:
         volume: -12
   - type: ItemSlots

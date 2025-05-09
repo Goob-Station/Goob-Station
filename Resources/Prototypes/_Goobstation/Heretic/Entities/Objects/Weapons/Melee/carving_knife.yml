@@ -12,7 +12,7 @@
   components:
   - type: UnholyItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/items.rsi
+    sprite: _Goidastation/Heretic/items.rsi
     state: rune_carver
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
@@ -64,6 +64,6 @@
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: rune_break
     event: !type:DeleteAllCarvingsEvent

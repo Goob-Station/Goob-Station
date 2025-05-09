@@ -10,7 +10,7 @@
 using System.Numerics;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Blob.Events;
+namespace Content.Goidastation.Shared.Blob.Events;
 
 
 [Serializable, NetSerializable]

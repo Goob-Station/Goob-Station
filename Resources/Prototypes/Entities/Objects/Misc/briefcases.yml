@@ -57,4 +57,4 @@
   components:
   - type: Item
     size: Huge
-  - type: HideContrabandContent #Goobstation-Contraband detector
+  - type: HideContrabandContent #Goidastation-Contraband detector

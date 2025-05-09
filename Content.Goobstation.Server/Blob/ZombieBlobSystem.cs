@@ -10,8 +10,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
@@ -38,7 +38,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed class ZombieBlobSystem : SharedZombieBlobSystem
 {

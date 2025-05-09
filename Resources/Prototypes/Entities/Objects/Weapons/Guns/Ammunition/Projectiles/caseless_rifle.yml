@@ -20,7 +20,7 @@
 # SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -28,19 +28,19 @@
 
 - type: entity
   id: BulletCaselessRifle
-  name: bullet (9.5mm HP) # Goobstation edit
+  name: bullet (9.5mm HP) # Goidastation edit
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 25 # Goobstation edit
-    armorPenetration: -0.3 # Goobstation
+        Piercing: 25 # Goidastation edit
+    armorPenetration: -0.3 # Goidastation
 
 - type: entity
   id: BulletCaselessRiflePractice
-  name: bullet (9.5mm practice) # Goobstation edit
+  name: bullet (9.5mm practice) # Goidastation edit
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
   components:

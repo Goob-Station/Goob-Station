@@ -9,7 +9,7 @@
 
 using Content.Shared.Actions;
 
-namespace Content.Goobstation.Server.Actions;
+namespace Content.Goidastation.Server.Actions;
 
 public sealed partial class ActionsProviderSystem : EntitySystem
 {

@@ -45,17 +45,17 @@
   description: Take on the form of an immovable rod, destroying everything in your path.
   components:
   - type: InstantAction
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    useDelay: 25 # Goob edit
-    event: !type:PolymorphSpellEvent # Goob edit
-      speech: action-speech-spell-rod-form # Goobstation
+    raiseOnUser: true # Goidastation
+    checkCanInteract: false # Goidastation
+    useDelay: 25 # Goida edit
+    event: !type:PolymorphSpellEvent # Goida edit
+      speech: action-speech-spell-rod-form # Goidastation
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: immrod # Goob edit
-  - type: Magic # Goobstation
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
+      state: immrod # Goida edit
+  - type: Magic # Goidastation
     requiresClothes: true
     requiresSpeech: true
     school: Transmutation
@@ -72,21 +72,21 @@
   description: Melt into the Ethereal Plane for a quick getaway!
   components:
   - type: Magic
-    requiresClothes: true # Goobstation
-    school: Translocation # Goobstation
-  - type: Sprite # Goobstation - for apprentices
-    sprite: _Goobstation/Wizard/actions.rsi
+    requiresClothes: true # Goidastation
+    school: Translocation # Goidastation
+  - type: Sprite # Goidastation - for apprentices
+    sprite: _Goidastation/Wizard/actions.rsi
     state: jaunt
   - type: InstantAction
     useDelay: 30
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    event: !type:PolymorphSpellEvent # Goob edit
+    raiseOnUser: true # Goidastation
+    checkCanInteract: false # Goidastation
+    event: !type:PolymorphSpellEvent # Goida edit
       protoId: Jaunt
-      makeWizard: false # Goobstation
+      makeWizard: false # Goidastation
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
       state: jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
@@ -101,15 +101,15 @@
   description: Melt into the Ethereal Plane for an even quicker getaway!
   components:
   - type: InstantAction
-    useDelay: 22 # Goob edit
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    event: !type:PolymorphSpellEvent # Goob edit
+    useDelay: 22 # Goida edit
+    raiseOnUser: true # Goidastation
+    checkCanInteract: false # Goidastation
+    event: !type:PolymorphSpellEvent # Goida edit
       protoId: Jaunt
-      makeWizard: false # Goobstation
+      makeWizard: false # Goidastation
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
       state: jaunt
 
 - type: entity
@@ -119,13 +119,13 @@
   description: Are you even tangible anymore?
   components:
   - type: InstantAction
-    useDelay: 14 # Goob edit
-    raiseOnUser: true # Goobstation
-    checkCanInteract: false # Goobstation
-    event: !type:PolymorphSpellEvent # Goob edit
+    useDelay: 14 # Goida edit
+    raiseOnUser: true # Goidastation
+    checkCanInteract: false # Goidastation
+    event: !type:PolymorphSpellEvent # Goida edit
       protoId: Jaunt
-      makeWizard: false # Goobstation
+      makeWizard: false # Goidastation
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
       state: jaunt

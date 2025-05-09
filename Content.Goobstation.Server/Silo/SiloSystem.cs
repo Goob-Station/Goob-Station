@@ -7,17 +7,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Silo;
+using Content.Goidastation.Common.Silo;
 using Content.Server.Lathe;
 using Content.Server.Station.Components;
-using Content.Shared._Goobstation.Silo;
+using Content.Shared._Goidastation.Silo;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Lathe;
 using Content.Shared.Materials;
 using Robust.Server.GameStates;
 using Timer = Robust.Shared.Timing.Timer;
 
-namespace Content.Goobstation.Server.Silo;
+namespace Content.Goidastation.Server.Silo;
 
 public sealed class SiloSystem : SharedSiloSystem
 {

@@ -10,7 +10,7 @@
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Actions/devil.rsi
+      sprite: _Goidastation/Actions/devil.rsi
       state: summon-contract
     event: !type:CreateContractEvent {}
   - type: DevilAction
@@ -25,7 +25,7 @@
     useDelay: 30
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Actions/devil.rsi
+      sprite: _Goidastation/Actions/devil.rsi
       state: summon-contract-revival
     event: !type:CreateRevivalContractEvent {}
   - type: DevilAction
@@ -40,7 +40,7 @@
     useDelay: 5
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Actions/devil.rsi
+      sprite: _Goidastation/Actions/devil.rsi
       state: shadow-jaunt
     event: !type:ShadowJauntEvent {}
   - type: DevilAction
@@ -60,7 +60,7 @@
     interactOnMiss: false
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Actions/devil.rsi
+      sprite: _Goidastation/Actions/devil.rsi
       state: possess
     event: !type:DevilPossessionEvent {}
   - type: DevilAction
@@ -80,6 +80,6 @@
     checkCanInteract: false
     checkConsciousness: false
     icon:
-      sprite: _Goobstation/Actions/devil.rsi
+      sprite: _Goidastation/Actions/devil.rsi
       state: cheat-death
     event: !type:CheatDeathEvent {}

@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Client.ToggleableLightWieldable;
+namespace Content.Goidastation.Client.ToggleableLightWieldable;
 
 [RegisterComponent]
 public sealed partial class ToggleableLightWieldableComponent : Component

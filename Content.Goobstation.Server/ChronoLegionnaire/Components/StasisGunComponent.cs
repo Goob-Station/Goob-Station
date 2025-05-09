@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.ChronoLegionnaire.Components;
+namespace Content.Goidastation.Server.ChronoLegionnaire.Components;
 
 /// <summary>
 /// Marks gun entity that will return in owner hand or belt when thrown

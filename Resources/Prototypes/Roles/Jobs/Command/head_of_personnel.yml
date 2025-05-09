@@ -149,7 +149,7 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 36000 # 10 hours
-  goobcoins: 40 #Goob content
+  goidacoins: 40 #Goida content
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -200,4 +200,4 @@
   storage:
     back:
     - Flash
-    - TelescopicBaton # Goobstation
+    - TelescopicBaton # Goidastation

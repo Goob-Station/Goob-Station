@@ -56,7 +56,7 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
         SubscribeLocalEvent<LightReplacerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<LightReplacerComponent, InteractUsingEvent>(HandleInteract);
         SubscribeLocalEvent<LightReplacerComponent, AfterInteractEvent>(HandleAfterInteract);
-        SubscribeLocalEvent<LightReplacerComponent, GotReclaimedEvent>(OnReclaim); // Goobstation - Reclaimer update
+        SubscribeLocalEvent<LightReplacerComponent, GotReclaimedEvent>(OnReclaim); // Goidastation - Reclaimer update
     }
 
     private void OnExamined(EntityUid uid, LightReplacerComponent component, ExaminedEvent args)
@@ -267,7 +267,7 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
         return insertedBulbs > 0;
     }
 
-    // Goobstation - Reclaimer Update
+    // Goidastation - Reclaimer Update
     public void OnReclaim(Entity<LightReplacerComponent> replacer, ref GotReclaimedEvent args)
     {
         _container.EmptyContainer(replacer.Comp.InsertedBulbs, destination: args.ReclaimerCoordinates);

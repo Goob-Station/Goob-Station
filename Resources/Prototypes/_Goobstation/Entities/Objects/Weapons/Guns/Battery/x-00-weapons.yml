@@ -7,10 +7,10 @@
   description: An elaborately designed rifle, firing shots of pure phoron. Low fire rate, high damage.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/rifle.rsi
     quickEquip: false
     slots:
     - Back
@@ -48,10 +48,10 @@
   description: An elaborately designed SMG, firing shots of pure phoron. Amazing for laying down suppressive fire.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/smg.rsi
     quickEquip: false
     slots:
     - Back
@@ -94,17 +94,17 @@
   description: An elaborately designed shotgun, firing shots of pure phoron. Built to break down defenses, and it does that job well.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
     state: icon
   - type: Appearance
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/shotgun_inhands_64x.rsi
     shape:
     - 0,0,4,1
   - type: BatterySelfRecharger
@@ -135,11 +135,11 @@
   description: An elaborately designed sniper rifle, firing shots of pure phoron. You won't want to get hit by this.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
     state: icon
   - type: Appearance
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Battery/HeadOfSecurity/sniper.rsi
     quickEquip: false
     slots:
     - Back

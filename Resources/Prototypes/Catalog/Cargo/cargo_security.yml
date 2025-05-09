@@ -31,7 +31,7 @@
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
     state: icon
   product: CrateSecurityArmor
-  cost: 1000 # Goobstation - less of a nerf
+  cost: 1000 # Goidastation - less of a nerf
   category: cargoproduct-category-name-security
   group: market
 

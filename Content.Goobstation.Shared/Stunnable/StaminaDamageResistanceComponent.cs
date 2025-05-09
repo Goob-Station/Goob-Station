@@ -9,7 +9,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Stunnable;
+namespace Content.Goidastation.Shared.Stunnable;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StaminaDamageResistanceComponent : Component

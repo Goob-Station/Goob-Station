@@ -66,7 +66,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             BreakOnMove = true,
             CancelDuplicate = false,
             AttemptFrequency = AttemptFrequency.StartAndEnd,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);

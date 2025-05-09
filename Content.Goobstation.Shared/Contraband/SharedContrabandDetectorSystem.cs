@@ -16,7 +16,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.Access.Systems;
 
-namespace Content.Goobstation.Shared.Contraband;
+namespace Content.Goidastation.Shared.Contraband;
 
 public abstract class SharedContrabandDetectorSystem : EntitySystem
 {

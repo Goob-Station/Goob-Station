@@ -155,7 +155,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
-    requirements: # Goobstation - ghost roles requirements
+    requirements: # Goidastation - ghost roles requirements
     - !type:OverallPlaytimeRequirement
       time: 18000 #5 hours
   - type: GhostTakeoverAvailable
@@ -291,17 +291,17 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
-    - DragonMind # Goobstation - Collective mind
-  # Goobstation - Collective mind
+    - DragonMind # Goidastation - Collective mind
+  # Goidastation - Collective mind
   - type: CollectiveMind
     defaultChannel: Dragonmind
   - type: Puller
     needsHands: false
-  - type: NightVision # Goobstation - Nigthvision
+  - type: NightVision # Goidastation - Nigthvision
     color: "#808080"
     activateSound: null
     deactivateSound: null
-  - type: CombatPower # Goobstation
+  - type: CombatPower # Goidastation
     factor: 4 # times more dangerous than a crew-member
 
 - type: entity

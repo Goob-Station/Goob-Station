@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Paper;
-using Content.Goobstation.Shared.Devil;
+using Content.Goidastation.Common.Paper;
+using Content.Goidastation.Shared.Devil;
 using Content.Server.Access.Systems;
 using Content.Server.Popups;
 using Content.Shared.Paper;
@@ -67,7 +67,7 @@ public sealed class SignatureSystem : EntitySystem
         if (ev.Cancelled)
             return false;
 
-        var paperEvent = new BeingSignedAttemptEvent(paper, signer); // Goobstation
+        var paperEvent = new BeingSignedAttemptEvent(paper, signer); // Goidastation
         RaiseLocalEvent(paper.Owner, ref paperEvent);
         if (paperEvent.Cancelled)
             return false;
@@ -83,7 +83,7 @@ public sealed class SignatureSystem : EntitySystem
         if (!comp.StampedBy.Contains(stampInfo) && _paper.TryStamp(paper, stampInfo, SignatureStampState))
         {
             // Show popups and play a paper writing sound
-            if (!HasComp<DevilComponent>(signer)) // Goobstation - Don't display popups for devils, it covers the others.
+            if (!HasComp<DevilComponent>(signer)) // Goidastation - Don't display popups for devils, it covers the others.
             {
                 var signedOtherMessage = Loc.GetString("paper-signed-other", ("user", signer), ("target", paper.Owner));
                 _popup.PopupEntity(signedOtherMessage, signer, Filter.PvsExcept(signer, entityManager: EntityManager), true);
@@ -96,8 +96,8 @@ public sealed class SignatureSystem : EntitySystem
 
             _paper.UpdateUserInterface(paper);
 
-            var evSignSucessfulEvent = new SignSuccessfulEvent(paper, signer); // Goobstation - Devil Antagonist
-            RaiseLocalEvent(paper, ref evSignSucessfulEvent); // Goobstation - Devil Antagonist
+            var evSignSucessfulEvent = new SignSuccessfulEvent(paper, signer); // Goidastation - Devil Antagonist
+            RaiseLocalEvent(paper, ref evSignSucessfulEvent); // Goidastation - Devil Antagonist
 
             return true;
         }
@@ -112,7 +112,7 @@ public sealed class SignatureSystem : EntitySystem
 
     private string DetermineEntitySignature(EntityUid uid)
     {
-        // Goobstation - Allow devils to sign their true name.
+        // Goidastation - Allow devils to sign their true name.
         if (TryComp<DevilComponent>(uid, out var devilComp) && !string.IsNullOrWhiteSpace(devilComp.TrueName))
             return devilComp.TrueName;
 

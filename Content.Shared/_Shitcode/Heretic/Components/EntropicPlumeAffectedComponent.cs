@@ -9,7 +9,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Heretic.Components;
+namespace Content.Shared._Goidastation.Heretic.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class EntropicPlumeAffectedComponent : Component
@@ -22,7 +22,7 @@ public sealed partial class EntropicPlumeAffectedComponent : Component
 
     [DataField]
     public SpriteSpecifier Sprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Heretic/Effects/effects.rsi"), "cloud_swirl");
+        new SpriteSpecifier.Rsi(new ResPath("_Goidastation/Heretic/Effects/effects.rsi"), "cloud_swirl");
 }
 
 public enum EntropicPlumeKey : byte

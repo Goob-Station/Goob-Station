@@ -9,11 +9,11 @@
 // SPDX-FileCopyrightText: 2024 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Speech;
+using Content.Goidastation.Common.Speech;
 using Robust.Shared.Audio;
 using Content.Server.Chat.Systems;
 using Content.Shared.Speech;
@@ -40,7 +40,7 @@ namespace Content.Server.Speech
 
         public SoundSpecifier? GetSpeechSound(Entity<SpeechComponent> ent, string message)
         {
-            // Goobstation start
+            // Goidastation start
             var getSpeechSoundEv = new GetSpeechSoundEvent();
             RaiseLocalEvent(ent, ref getSpeechSoundEv);
             if (getSpeechSoundEv.SpeechSoundProtoId == null ||
@@ -51,7 +51,7 @@ namespace Content.Server.Speech
 
                 prototype = _protoManager.Index<SpeechSoundsPrototype>(ent.Comp.SpeechSounds);
             }
-            // Goobstation end
+            // Goidastation end
 
             // Play speech sound
             SoundSpecifier? contextSound;

@@ -100,7 +100,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Common.Pirates;
+using Content.Goidastation.Common.Pirates;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Station.Components;
@@ -233,7 +233,7 @@ namespace Content.Server.Cargo.Systems
                 return;
             }
 
-            // goob edit - resource siphon blocking access
+            // goida edit - resource siphon blocking access
             var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
             while (eqe.MoveNext(out var sip))
             {
@@ -245,7 +245,7 @@ namespace Content.Server.Cargo.Systems
                     return;
                 }
             }
-            // goob edit end
+            // goida edit end
 
             var station = _station.GetOwningStation(uid);
 
@@ -305,7 +305,7 @@ namespace Content.Server.Cargo.Systems
                 return;
             }
 
-            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            // GoidaStation - cooldown on Cargo Orders (specifically gamba)
             if (order.Cooldown > 0)
             {
                 if (orderDatabase.ProductCooldownTime.TryGetValue(order.ProductId, out var cooldownTime) && cooldownTime > _timing.CurTime)
@@ -340,7 +340,7 @@ namespace Content.Server.Cargo.Systems
                 }
             }
 
-            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            // GoidaStation - cooldown on Cargo Orders (specifically gamba)
             if (order.Cooldown > 0)
             {
                 orderDatabase.ProductCooldownTime[order.ProductId] = _timing.CurTime + TimeSpan.FromSeconds(order.Cooldown);
@@ -515,7 +515,7 @@ namespace Content.Server.Cargo.Systems
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id)
         {
-            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            // GoidaStation - cooldown on Cargo Orders (specifically gamba)
             return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason, cargoProduct.Cooldown);
         }
 
@@ -578,7 +578,7 @@ namespace Content.Server.Cargo.Systems
             DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(spawnId));
             // Make an order
             var id = GenerateOrderId(component);
-            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            // GoidaStation - cooldown on Cargo Orders (specifically gamba)
             var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, 0);
 
             // Approve it now

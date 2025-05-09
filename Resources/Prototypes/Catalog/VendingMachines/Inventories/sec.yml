@@ -46,7 +46,7 @@
     Flash: 5
     Tourniquet: 5
     FlashlightSeclite: 5
-    ClothingEyesGlassesSunglasses: 4 # Goobstation
+    ClothingEyesGlassesSunglasses: 4 # Goidastation
     ClothingEyesHudSecurity: 2
     ClothingEyesEyepatchHudSecurity: 2
     ClothingBeltSecurityWebbing: 5
@@ -56,13 +56,13 @@
     RiotLaserShield: 2
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
-    BolaEnergy: 5 # Goobstation - start
+    BolaEnergy: 5 # Goidastation - start
     PepperSpray: 3
     SecHypo: 4
     CartridgeEpinephrine: 4
     CartridgeSaline: 4
     CartridgeBicaridine: 4
-    CartridgeDermaline: 4 # Goobstation - end
+    CartridgeDermaline: 4 # Goidastation - end
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

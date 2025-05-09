@@ -36,7 +36,7 @@
 
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Wizard.Guardian;
+using Content.Shared._Goidastation.Wizard.Guardian;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -72,7 +72,7 @@ namespace Content.Server.Guardian
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
+        [Dependency] private readonly NpcFactionSystem _faction = default!; // Goidastation
 
         public override void Initialize()
         {
@@ -100,7 +100,7 @@ namespace Content.Server.Guardian
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
         {
-            if (!TerminatingOrDeleted(uid)) // Goobstation
+            if (!TerminatingOrDeleted(uid)) // Goidastation
                 RemCompDeferred<GuardianSharedComponent>(uid);
 
             var host = component.Host;
@@ -258,12 +258,12 @@ namespace Content.Server.Guardian
             // Use map position so it's not inadvertantly parented to the host + if it's in a container it spawns outside I guess.
             var guardian = Spawn(component.GuardianProto, _transform.GetMapCoordinates(args.Args.Target.Value, xform: hostXform));
 
-            // Goobstation start
+            // Goidastation start
             _faction.IgnoreEntity(guardian, args.Args.Target.Value);
             var sharedComp = EnsureComp<GuardianSharedComponent>(guardian);
             sharedComp.Host = args.Args.Target.Value;
             Dirty(guardian, sharedComp);
-            // Goobstation end
+            // Goidastation end
 
             _container.Insert(guardian, host.GuardianContainer);
             host.HostedGuardian = guardian;

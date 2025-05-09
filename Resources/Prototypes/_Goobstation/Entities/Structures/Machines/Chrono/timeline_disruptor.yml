@@ -31,7 +31,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/timeline_disruptor.rsi
+    sprite: _Goidastation/Structures/Machines/timeline_disruptor.rsi
     layers:
     - state: base
     - state: filled

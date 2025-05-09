@@ -106,7 +106,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoP
 
-- type: loadout # goob
+- type: loadout # goida
   id: HoPJumpsuitMilitary
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryHoP

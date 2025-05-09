@@ -12,30 +12,30 @@
   description: Exchange bodies with another person!
   components:
   - type: EntityTargetAction
-    useDelay: 60 # Goob edit
+    useDelay: 60 # Goida edit
     itemIconStyle: BigAction
     whitelist:
-      requireAll: true # Goobstation
+      requireAll: true # Goidastation
       components:
-      - MobState # Goobstation
+      - MobState # Goidastation
       - Body
       - MindContainer
-    raiseOnUser: true # Goobstation
+    raiseOnUser: true # Goidastation
     canTargetSelf: false
     interactOnMiss: false
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: mindswap # Goob edit
+      sprite: _Goidastation/Wizard/actions.rsi # Goida edit
+      state: mindswap # Goida edit
     event: !type:MindSwapSpellEvent
       speech: action-speech-spell-mind-swap
-      sound: # Goobstation
-        path: /Audio/_Goobstation/Wizard/mandswap.ogg
-      performerStunDuration: 5 # Goobstation
-      targetStunDuration: 5 # Goobstation
-  - type: Sprite # Goobstation - for apprentices
-    sprite: _Goobstation/Wizard/actions.rsi
+      sound: # Goidastation
+        path: /Audio/_Goidastation/Wizard/mandswap.ogg
+      performerStunDuration: 5 # Goidastation
+      targetStunDuration: 5 # Goidastation
+  - type: Sprite # Goidastation - for apprentices
+    sprite: _Goidastation/Wizard/actions.rsi
     state: mindswap
-  - type: Magic # Goobstation
+  - type: Magic # Goidastation
     requiresSpeech: true
     school: Transmutation
   - type: ActionUpgrade

@@ -13,7 +13,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Blob.Components;
+namespace Content.Goidastation.Shared.Blob.Components;
 
 [RegisterComponent]
 public sealed partial class BlobObserverControllerComponent : Component

@@ -50,7 +50,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -246,7 +246,7 @@ public class RCDSystem : EntitySystem
             AttemptFrequency = AttemptFrequency.EveryTick,
             CancelDuplicate = false,
             BlockDuplicate = false,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         args.Handled = true;
@@ -304,11 +304,11 @@ public class RCDSystem : EntitySystem
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
-        // Goobstation - start
+        // Goidastation - start
         if (component.CachedPrototype.Mode == RcdMode.Deconstruct)
             _charges.AddCharges(uid, args.Cost / 2);
         else _charges.UseCharges(uid, args.Cost);
-        // Goobstation - end
+        // Goidastation - end
     }
 
     private void OnRCDconstructionGhostRotationEvent(RCDConstructionGhostRotationEvent ev, EntitySessionEventArgs session)

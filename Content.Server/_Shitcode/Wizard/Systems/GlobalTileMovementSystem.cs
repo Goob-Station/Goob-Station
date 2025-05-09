@@ -5,9 +5,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Wizard.Systems;
-using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.EventSpells;
+using Content.Server._Goidastation.Wizard.Systems;
+using Content.Shared._Goidastation.Wizard;
+using Content.Shared._Goidastation.Wizard.EventSpells;
 using Content.Shared._Lavaland.Mobs.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
@@ -23,7 +23,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class GlobalTileMovementSystem : EntitySystem
 {

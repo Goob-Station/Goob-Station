@@ -3,13 +3,13 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: entity # Goobstation - Sweet jani door recolour
+- type: entity # Goidastation - Sweet jani door recolour
   parent: Airlock
   id: AirlockJanitor
   suffix: Janitor
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Doors/Airlocks/Standard/janitor.rsi
+    sprite: _Goidastation/Structures/Doors/Airlocks/Standard/janitor.rsi
   - type: PaintableAirlock
     department: Civilian
   - type: Wires
@@ -21,7 +21,7 @@
   suffix: Janitor
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Doors/Airlocks/Glass/janitor.rsi
+    sprite: _Goidastation/Structures/Doors/Airlocks/Glass/janitor.rsi
   - type: PaintableAirlock
     department: Civilian
   - type: Wires

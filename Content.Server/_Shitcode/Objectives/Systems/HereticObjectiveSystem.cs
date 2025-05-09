@@ -7,11 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Server._Goobstation.Objectives.Components;
+using Content.Server._Goidastation.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server._Goobstation.Objectives.Systems;
+namespace Content.Server._Goidastation.Objectives.Systems;
 
 public sealed partial class HereticObjectiveSystem : EntitySystem
 {

@@ -11,12 +11,12 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Throwing;
 
-namespace Content.Goobstation.Shared.Stealth;
+namespace Content.Goidastation.Shared.Stealth;
 
 /// <summary>
-/// This handles goobstations additions to stealth system
+/// This handles goidastations additions to stealth system
 /// </summary>
-public sealed class SharedGoobStealthSystem : EntitySystem
+public sealed class SharedGoidaStealthSystem : EntitySystem
 {
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
 

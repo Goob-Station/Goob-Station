@@ -35,7 +35,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
@@ -52,7 +52,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Content.Shared.Whitelist;
-using Content.Server.Emp; // Goobstation
+using Content.Server.Emp; // Goidastation
 
 namespace Content.Server.Mech.Systems;
 
@@ -83,7 +83,7 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, RemoveBatteryEvent>(OnRemoveBattery);
         SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<MechComponent, MechExitEvent>(OnMechExit);
-        SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse); // Goobstation
+        SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse); // Goidastation
 
 
         SubscribeLocalEvent<MechComponent, DamageChangedEvent>(OnDamageChanged);
@@ -216,7 +216,7 @@ public sealed partial class MechSystem : SharedMechSystem
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.EntryDelay, new MechEntryEvent(), uid, target: uid)
                     {
                         BreakOnMove = true,
-                        MultiplyDelay = false, // Goobstation
+                        MultiplyDelay = false, // Goidastation
                     };
 
                     _doAfter.TryStartDoAfter(doAfterEventArgs);
@@ -281,7 +281,7 @@ public sealed partial class MechSystem : SharedMechSystem
         TryEject(uid, component);
         args.Handled = true;
     }
-    //goobstation
+    //goidastation
     private void OnEmpPulse(EntityUid uid, MechComponent component, EmpPulseEvent args)
     {
         args.Affected = true;

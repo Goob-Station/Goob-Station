@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -18,7 +18,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/standard.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -70,7 +70,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/security.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/security.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -127,7 +127,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/headofsecurity.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/headofsecurity.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -184,7 +184,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/paramedic.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/paramedic.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -241,7 +241,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/engineer.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/engineer.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -281,7 +281,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.1
       heatingCoefficient: 0.4
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaDamageResistance
@@ -299,7 +299,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/atmostech.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/atmostech.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -337,7 +337,7 @@
     - type: TemperatureProtection
       coolingCoefficient: 0.1
       heatingCoefficient: 0.4
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 1
     knockdownTimeDelta: -1
   - type: StaminaDamageResistance
@@ -355,7 +355,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/researchdirector.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/researchdirector.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed
@@ -413,7 +413,7 @@
   - type: Appearance
   - type: AllowSuitStorage
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/captain.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Modsuits/captain.rsi
     layers:
     - state: chestplate
     - state: chestplate-sealed

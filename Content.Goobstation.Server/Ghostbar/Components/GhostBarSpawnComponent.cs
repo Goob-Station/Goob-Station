@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Ghostbar.Components;
+namespace Content.Goidastation.Server.Ghostbar.Components;
 
 /// <summary>
 /// Target for ghosts to spawn at

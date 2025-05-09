@@ -8,7 +8,7 @@
 # SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ExponentialWizard <38435756+ExponentialWizard@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 FaDeOkno <143940725+FaDeOkno@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 McBosserson <148172569+McBosserson@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Milon <plmilonpl@gmail.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -86,12 +86,12 @@
       Dead:
         Base: goliath_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1.5 # Goob - accounts for decreased range, more likely to catch up to you when stunned by tendrils
+    baseWalkSpeed : 1.5 # Goida - accounts for decreased range, more likely to catch up to you when stunned by tendrils
     baseSprintSpeed : 1.5
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Dead # Goob - 9 PKA shots, 4 crusher destabilised hits
+      350: Dead # Goida - 9 PKA shots, 4 crusher destabilised hits
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -102,7 +102,7 @@
       types:
         Blunt: 35
         Slash: 15
-    range: 1.12 # Goob - Allows kinetic crushers to fight them without taking guaranteed damage.
+    range: 1.12 # Goida - Allows kinetic crushers to fight them without taking guaranteed damage.
   - type: NpcFactionMember
     factions:
     - SimpleHostile

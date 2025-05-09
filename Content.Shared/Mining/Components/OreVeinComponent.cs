@@ -25,7 +25,7 @@ public sealed partial class OreVeinComponent : Component
     public float OreChance = 0.1f;
 
     /// <summary>
-    /// Goobstation: Multiplies min/max ore yield by this.
+    /// Goidastation: Multiplies min/max ore yield by this.
     /// </summary>
     [DataField]
     public float Modifier = 1f;

@@ -44,7 +44,7 @@
   id: BaseMobSkeletonPerson
   abstract: true
   components:
-  - type: Carriable # Goobstation
+  - type: Carriable # Goidastation
   - type: HumanoidAppearance
     species: Skeleton
   - type: Icon
@@ -87,8 +87,8 @@
     speechVerb: Skeleton
   - type: ZombieImmune
   - type: Vocal
-    wilhelm: "/Audio/_Goobstation/Voice/badtothebone.ogg" # Goobstation
-    wilhelmProbability: 0.1 # Goobstation
+    wilhelm: "/Audio/_Goidastation/Voice/badtothebone.ogg" # Goidastation
+    wilhelmProbability: 0.1 # Goidastation
     sounds:
       Male: Skeleton
       Female: Skeleton
@@ -150,7 +150,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - CanPilot
     - FootstepSound

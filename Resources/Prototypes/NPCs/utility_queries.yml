@@ -87,7 +87,7 @@
     # TODO: Prefer highest DPC probably?
     - !type:TargetAmmoCon
       curve: !type:BoolCurve
-    - !type:TargetRequiresWieldAndCanWieldCon # Goobstation
+    - !type:TargetRequiresWieldAndCanWieldCon # Goidastation
       curve: !type:BoolCurve
     - !type:TargetDistanceCon
       curve: !type:PresetCurve

@@ -11,7 +11,7 @@ using Content.Server.Body.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Server.Weapons;
+namespace Content.Goidastation.Server.Weapons;
 
 /// <summary>
 /// Gib this Person

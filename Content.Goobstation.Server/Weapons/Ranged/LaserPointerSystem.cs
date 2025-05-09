@@ -6,11 +6,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.NPC.Components;
-using Content.Shared._Goobstation.Weapons.SmartGun;
+using Content.Shared._Goidastation.Weapons.SmartGun;
 using Content.Shared.Wieldable.Components;
 using Robust.Server.GameStates;
 
-namespace Content.Goobstation.Server.Weapons.Ranged;
+namespace Content.Goidastation.Server.Weapons.Ranged;
 
 public sealed class LaserPointerSystem : SharedLaserPointerSystem
 {

@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
@@ -8,7 +8,7 @@
 
 using Robust.Shared.ContentPack;
 
-namespace Content.Goobstation.Maths.Entry;
+namespace Content.Goidastation.Maths.Entry;
 
 // EntryPoint is marked as GameShared for module registration purposes.
 public sealed class EntryPoint : GameShared;

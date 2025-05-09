@@ -20,37 +20,37 @@
   id: FlipFlap
   name: X-CEED - Flip Flap
   path:
-    path: /Audio/Lobby/mod.flip-flap.ogg # Goobstation
+    path: /Audio/Lobby/mod.flip-flap.ogg # Goidastation
 
 - type: jukebox
   id: Tintin
   name: Jeroen Tel - Tintin on the Moon
   path:
-    path: /Audio/Lobby/title3.ogg # Goobstation
+    path: /Audio/Lobby/title3.ogg # Goidastation
 
 - type: jukebox
   id: Thunderdome
-  name: MashedByMachines - Sector 11 / Thunderdome # Goobstation
+  name: MashedByMachines - Sector 11 / Thunderdome # Goidastation
   path:
-    path: /Audio/Lobby/thunderdome.ogg # Goobstation
+    path: /Audio/Lobby/thunderdome.ogg # Goidastation
 
 - type: jukebox
   id: Constellations
   name: Qwertyquerty - Constellations
   path:
-    path: /Audio/Ambience/constellations.ogg # Goobstation
+    path: /Audio/Ambience/constellations.ogg # Goidastation
 
 - type: jukebox
   id: Drifting
   name: Qwertyquerty - Drifting
   path:
-    path: /Audio/Ambience/drifting.ogg # Goobstation
+    path: /Audio/Ambience/drifting.ogg # Goidastation
 
 - type: jukebox
   id: starlight
   name: Qwertyquerty - Starlight
   path:
-    path: /Audio/Ambience/starlight.ogg # Goobstation
+    path: /Audio/Ambience/starlight.ogg # Goidastation
 
 - type: jukebox
   id: sunset

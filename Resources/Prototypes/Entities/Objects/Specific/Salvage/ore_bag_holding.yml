@@ -21,7 +21,7 @@
   - type: Storage
     grid:
     - 0,0,19,9
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 500
       Silver: 187

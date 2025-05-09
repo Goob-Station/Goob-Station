@@ -17,7 +17,7 @@
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/polymorphs.rsi
+    sprite: _Goidastation/Heretic/polymorphs.rsi
     state: ash_jaunt
     loop: false
   - type: TimedDespawn
@@ -31,7 +31,7 @@
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: _Goobstation/Heretic/polymorphs.rsi
+    sprite: _Goidastation/Heretic/polymorphs.rsi
     state: ash_jaunt_end
     loop: false
   - type: TimedDespawn
@@ -78,7 +78,7 @@
     weightlessModifier: 1.5
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Goobstation/Heretic/eldritch_horror.rsi
+    sprite: _Goidastation/Heretic/eldritch_horror.rsi
     noRot: true
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]

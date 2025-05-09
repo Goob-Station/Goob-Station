@@ -192,7 +192,7 @@
     - servertime
     - more
 
-- Flags: FULLADMIN # Goobstation
+- Flags: FULLADMIN # Goidastation
   Commands:
   - self
   - entities

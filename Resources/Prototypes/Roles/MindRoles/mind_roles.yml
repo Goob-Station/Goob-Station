@@ -289,7 +289,7 @@
     roleType: TeamAntagonist
   - type: ZombieRole
 
-# goob edit - antags
+# goida edit - antags
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleChangeling
@@ -323,4 +323,4 @@
     roleType: Familiar
   - type: MindcontrolledRole
 
-# goob edit end
+# goida edit end

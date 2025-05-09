@@ -10,7 +10,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.ReverseBearTrap;
+namespace Content.Goidastation.Shared.ReverseBearTrap;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ReverseBearTrapComponent : Component
@@ -37,13 +37,13 @@ public sealed partial class ReverseBearTrapComponent : Component
     public EntityUid? LoopSoundStream { get; set; }
 
     [DataField("soundPath")]
-    public SoundSpecifier LoopSound { get; set; } = new SoundPathSpecifier("/Audio/_Goobstation/Machines/clock_tick.ogg");
+    public SoundSpecifier LoopSound { get; set; } = new SoundPathSpecifier("/Audio/_Goidastation/Machines/clock_tick.ogg");
 
     [DataField("beepSoundPath")]
-    public SoundSpecifier BeepSound { get; set; } = new SoundPathSpecifier("/Audio/_Goobstation/Machines/beep.ogg");
+    public SoundSpecifier BeepSound { get; set; } = new SoundPathSpecifier("/Audio/_Goidastation/Machines/beep.ogg");
 
     [DataField("snapSoundPath")]
-    public SoundSpecifier SnapSound { get; set; } = new SoundPathSpecifier("/Audio/_Goobstation/Effects/snap.ogg");
+    public SoundSpecifier SnapSound { get; set; } = new SoundPathSpecifier("/Audio/_Goidastation/Effects/snap.ogg");
 
     [DataField]
     public SoundSpecifier StartCuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_start.ogg");

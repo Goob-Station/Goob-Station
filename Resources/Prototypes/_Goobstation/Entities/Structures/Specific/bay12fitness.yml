@@ -19,7 +19,7 @@
   - type: Anchorable
   - type: Rotatable
   - type: Sprite
-    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    sprite: _Goidastation/Structures/Specific/fitness.rsi
     state: fitnessweight
 
 - type: entity
@@ -28,7 +28,7 @@
   name: weight lifter
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    sprite: _Goidastation/Structures/Specific/fitness.rsi
     state: fitnesslifter
 
 
@@ -45,7 +45,7 @@
   description: A fitness training bag with a clown printed on it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    sprite: _Goidastation/Structures/Specific/fitness.rsi
     state: bopbag
 
 - type: entity
@@ -55,7 +55,7 @@
   description: A fitness training bag.
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    sprite: _Goidastation/Structures/Specific/fitness.rsi
     state: punchingbag
 
 - type: entity
@@ -65,7 +65,7 @@
   description: A fitness training bag with a captain printed on it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    sprite: _Goidastation/Structures/Specific/fitness.rsi
     state: punchingbagcaptain
 
 - type: entity
@@ -75,7 +75,7 @@
   description: A fitness training bag with a syndicate agent printed on it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    sprite: _Goidastation/Structures/Specific/fitness.rsi
     state: punchingbagsyndie
 
 - type: entity
@@ -85,5 +85,5 @@
   description: A fitness training bag with a wizard printed on it.
   components:
   - type: Sprite
-    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    sprite: _Goidastation/Structures/Specific/fitness.rsi
     state: punchingbagwizard

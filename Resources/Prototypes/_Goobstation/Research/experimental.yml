@@ -14,7 +14,7 @@
   id: ModsuitsTech
   name: research-technology-modsuits
   icon:
-    sprite: _Goobstation/Objects/Specific/Robotics/modsuit_parts.rsi
+    sprite: _Goidastation/Objects/Specific/Robotics/modsuit_parts.rsi
     state: mod-core-standard
   discipline: Experimental
   tier: 1
@@ -34,7 +34,7 @@
   id: BluespaceTheory
   name: research-technology-bluespace-theory
   icon:
-    sprite: _Goobstation/Objects/Materials/materials.rsi
+    sprite: _Goidastation/Objects/Materials/materials.rsi
     state: bluespace_crystal
   discipline: Experimental
   tier: 1

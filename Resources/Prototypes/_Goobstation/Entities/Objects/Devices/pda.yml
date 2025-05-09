@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 GMWQ <garethquaile@gmail.com>
 # SPDX-FileCopyrightText: 2025 Gareth Quaile <garethquaile@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -23,7 +23,7 @@
   description: A powerful quantum computer disguised as a regular pda for disguise.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -40,7 +40,7 @@
     borderColor: "#dee4e7"
     accentVColor: "#59bcee"
   - type: Icon
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
     state: pda-chrono
 
 - type: entity
@@ -50,7 +50,7 @@
   description: Your mind can't quite comprehend this.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/pda.rsi # todo - make a unique texture.
+    sprite: _Goidastation/Objects/Devices/pda.rsi # todo - make a unique texture.
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -67,7 +67,7 @@
     borderColor: "#dee4e7"
     accentVColor: "#59bcee"
   - type: Icon
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
     state: pda-chrono
 
 - type: entity
@@ -77,7 +77,7 @@
   description: Smells like corpses of insects and androids.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -89,7 +89,7 @@
     borderColor: "#272727"
     accentVColor: "#cec100"
   - type: Icon
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
     state: pda-heccd
   - type: Tag # Ignore Chameleon tags, this is too cool 4 u
     tags:
@@ -130,10 +130,10 @@
   - type: Pda
     id: BlueshieldIDCard
   - type: Icon
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
     state: pda-blueshield
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
     state: pda-blueshield
   - type: PdaBorderColor
     borderColor: "#3c94c5"
@@ -152,10 +152,10 @@
   - type: Pda
     id: CentcomIDCardDeathsquad
   - type: Icon
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
     state: pda-deathsquad
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/pda.rsi
+    sprite: _Goidastation/Objects/Devices/pda.rsi
     state: pda-deathsquad
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag

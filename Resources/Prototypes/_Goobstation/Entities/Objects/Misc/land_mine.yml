@@ -9,5 +9,5 @@
   id: LandMineRedialTest
   components:
   - type: RedialUserOnTrigger
-    address: ss14s://beta.goobstation.com
+    address: ss14s://beta.goidastation.com
   - type: DeleteOnTrigger

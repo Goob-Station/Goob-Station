@@ -10,7 +10,7 @@
   parent: SprayBottle
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/Stypticspray.rsi
+    sprite: _Goidastation/Objects/Medical/Stypticspray.rsi
     state: icon
   - type: Tag
     tags:
@@ -30,7 +30,7 @@
   parent: SprayBottle
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Medical/Silverspray.rsi
+    sprite: _Goidastation/Objects/Medical/Silverspray.rsi
     state: icon
   - type: Tag
     tags:

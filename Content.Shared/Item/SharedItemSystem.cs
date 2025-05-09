@@ -106,9 +106,9 @@ namespace Content.Shared.Item;
 
 public abstract class SharedItemSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation
-    [Dependency] private readonly SharedStorageSystem _storage = default!; // Goobstation
-    [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goidastation
+    [Dependency] private readonly SharedStorageSystem _storage = default!; // Goidastation
+    [Dependency] private readonly InventorySystem _inventory = default!; // Goidastation
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
@@ -340,7 +340,7 @@ public abstract class SharedItemSystem : EntitySystem
             }
         }
 
-        if (Container.TryGetContainingContainer((uid, null, null), out var container)) // Goobstation - reinsert item in storage because size changed
+        if (Container.TryGetContainingContainer((uid, null, null), out var container)) // Goidastation - reinsert item in storage because size changed
         {
             if (TryComp(container.Owner, out StorageComponent? storage))
             {

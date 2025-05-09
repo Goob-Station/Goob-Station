@@ -319,11 +319,11 @@
       tags:
         - CigPack
         - Taser
-        - SecBeltEquip # Goobstation
-        - HandheldCrewMonitor # Goobstation
-        - EnergySpeedloader # Goobstation
-        - Sidearm # Goobstation
-        - PepperSpray # Goobstation
+        - SecBeltEquip # Goidastation
+        - HandheldCrewMonitor # Goidastation
+        - EnergySpeedloader # Goidastation
+        - Sidearm # Goidastation
+        - PepperSpray # Goidastation
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -419,19 +419,19 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
-        - Tourniquet #Goobstation
-        - MedicalPatch # Goobstation
-        - AutoinjectorCartridge # Goobstation
-        - HandheldCrewMonitor # Goobstation
+        - Tourniquet #Goidastation
+        - MedicalPatch # Goidastation
+        - AutoinjectorCartridge # Goidastation
+        - HandheldCrewMonitor # Goidastation
       components:
         - Hypospray
         - Injector
         - Pill
         - HandLabeler
         - SurgeryTool # Shitmed Change
-        - Defibrillator # Goobstation
-        - SyringeGun # Goobstation
-        - GunApplySolution # Goobstation - Syndicate dart gun
+        - Defibrillator # Goidastation
+        - SyringeGun # Goidastation
+        - GunApplySolution # Goidastation - Syndicate dart gun
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -622,7 +622,7 @@
     sprite: Clothing/Belt/security.rsi
   - type: Clothing
     sprite: Clothing/Belt/security.rsi
-  - type: ExplosionResistance # Goobstation
+  - type: ExplosionResistance # Goidastation
     damageCoefficient: 0.5
   - type: Storage
     whitelist:
@@ -636,8 +636,8 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
-        - BolaEnergy # Goobstation
-        - EnergySpeedloader # Goobstation
+        - BolaEnergy # Goidastation
+        - EnergySpeedloader # Goidastation
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -711,13 +711,13 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  # Goobstation
+  # Goidastation
     whitelist:
       components:
         - BallisticAmmoProvider
         - CartridgeAmmo
       tags:
-        - EnergySpeedloader # Goobstation
+        - EnergySpeedloader # Goidastation
   - type: ContainerContainer
     containers:
       item: !type:ContainerSlot
@@ -732,7 +732,7 @@
           - Sidearm
 
 - type: entity
-  parent: [ClothingBeltHolster, BaseSyndicateContraband] # Goobstation
+  parent: [ClothingBeltHolster, BaseSyndicateContraband] # Goidastation
   id: ClothingBeltSyndieHolster
   name: syndicate shoulder holster
   description: A deep shoulder holster capable of holding many types of ballistics.
@@ -743,7 +743,7 @@
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Item
     size: Ginormous
-  # Goobstation
+  # Goidastation
   #- type: Storage
   #  maxItemSize: Huge
   #  grid:
@@ -840,7 +840,7 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.05 #goobstation
+    damageCoefficient: 0.05 #goidastation
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing

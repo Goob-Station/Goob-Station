@@ -9,7 +9,7 @@
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 
-namespace Content.Goobstation.Shared.Nutrition.EntitySystems
+namespace Content.Goidastation.Shared.Nutrition.EntitySystems
 {
     public class FoodSequenceSpriteSystem : SharedFoodSequenceSystem
     {

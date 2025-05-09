@@ -1,24 +1,24 @@
 // SPDX-FileCopyrightText: 2024 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.Explosion.Components;
-using Content.Goobstation.Server.Explosion.Components.OnTrigger;
-using Content.Server._Goobstation.Explosion.Components;
+using Content.Goidastation.Server.Explosion.Components;
+using Content.Goidastation.Server.Explosion.Components.OnTrigger;
+using Content.Server._Goidastation.Explosion.Components;
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 
-namespace Content.Goobstation.Server.Explosion.EntitySystems;
+namespace Content.Goidastation.Server.Explosion.EntitySystems;
 
-public sealed partial class GoobTriggerSystem : EntitySystem
+public sealed partial class GoidaTriggerSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
@@ -33,7 +33,7 @@ public sealed partial class GoobTriggerSystem : EntitySystem
 
     private void HandleDeleteParentTrigger(Entity<DeleteParentOnTriggerComponent> entity, ref TriggerEvent args)
     {
-        EntityManager.QueueDeleteEntity(Transform(entity).ParentUid); // cleanedup - goob mudles
+        EntityManager.QueueDeleteEntity(Transform(entity).ParentUid); // cleanedup - goida mudles
         args.Handled = true;
     }
 

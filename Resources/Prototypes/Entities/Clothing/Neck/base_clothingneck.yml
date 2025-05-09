@@ -60,6 +60,6 @@
     - Scarf
     - ClothMade
     - WhitelistChameleon
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 50

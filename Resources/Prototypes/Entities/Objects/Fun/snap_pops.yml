@@ -40,7 +40,7 @@
     maxIntensity: 0.01
     intensitySlope: 1
     totalIntensity: 0.01
-  # Goobstation
+  # Goidastation
   - type: Tag
     tags:
     - SnapPop

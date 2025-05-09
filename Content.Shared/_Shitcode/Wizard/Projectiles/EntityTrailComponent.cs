@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.Projectiles;
+namespace Content.Shared._Goidastation.Wizard.Projectiles;
 
 /// <summary>
 /// Add this and TrailComponent to an entity so that it spawns a trail of that entity sprite.

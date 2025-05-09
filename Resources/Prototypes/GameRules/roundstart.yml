@@ -110,7 +110,7 @@
 # SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -145,9 +145,9 @@
     rules:
     - id: Thief
       prob: 0.5
-    - id: Heretic # goob edit
+    - id: Heretic # goida edit
       prob: 0.2
-    - id: Devil # Goob
+    - id: Devil # Goida
       prob: 0.3
 
 - type: entity
@@ -224,7 +224,7 @@
     #Once the issues are fixed the species should be removed from this list to be enabled.
     #Balance concerns are not a valid reason to disable a species, except for high-impact Nukie-specific exploits.
     #- Vox
-    - Yowie # Goobstation
+    - Yowie # Goidastation
 
 - type: entity
   parent: BaseNukeopsRule
@@ -233,7 +233,7 @@
   - type: GameRule
     minPlayers: 20
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
+    mapPath: /Maps/_Goidastation/Nonstations/nukieplanet.yml # goida edit
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
@@ -276,8 +276,8 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
-      playerRatio: 16 # Goobstation
+      max: 10 # Goidastation / 古布空间站 - 没有限制的核特工
+      playerRatio: 16 # Goidastation
       startingGear: SyndicateOperativeGearFull
       unequipOldGear: true
       roleLoadout:
@@ -316,7 +316,7 @@
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn # Goobstation
+    selectionTime: IntraPlayerSpawn # Goidastation
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -324,7 +324,7 @@
       blacklist:
         components:
         - AntagImmune
-        - Changeling # Goobstation
+        - Changeling # Goidastation
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
@@ -338,7 +338,7 @@
     giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
     giveBriefing: false
   - type: AntagSelection
-    selectionTime: PostPlayerSpawn # Goobstation
+    selectionTime: PostPlayerSpawn # Goidastation
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
@@ -352,7 +352,7 @@
     minPlayers: 15
   - type: RevolutionaryRule
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn # Goobstation
+    selectionTime: IntraPlayerSpawn # Goidastation
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
@@ -380,7 +380,7 @@
   components:
   - type: SecretRule
 
-# TODO: merg goob and upstream wizards
+# TODO: merg goida and upstream wizards
 #- type: entity
 #  abstract: true
 #  parent: BaseGameRule
@@ -480,7 +480,7 @@
 
 # event schedulers
 
-# goob edit - separate event schedulers
+# goida edit - separate event schedulers
 - type: entityTable
   id: BasicGameRulesTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -563,7 +563,7 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicGameRulesTableNoAntag
-# goob edit end
+# goida edit end
 
 - type: entity
   id: SpaceTrafficControlEventScheduler # iff we make a selector for EntityTables that can respect StationEventComp restrictions, or somehow impliment them otherwise in said tables,

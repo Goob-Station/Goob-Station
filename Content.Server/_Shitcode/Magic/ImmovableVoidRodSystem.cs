@@ -17,7 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Map.Components;
-using Content.Server._Goobstation.Heretic.EntitySystems.PathSpecific;
+using Content.Server._Goidastation.Heretic.EntitySystems.PathSpecific;
 
 namespace Content.Server.Magic;
 

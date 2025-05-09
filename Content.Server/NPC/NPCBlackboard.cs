@@ -189,7 +189,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
                 value = hands.ActiveHand;
                 return true;
             }
-            case ActiveHandEntity: // Goobstation
+            case ActiveHandEntity: // Goidastation
             {
                 if (!TryGetValue(Owner, out owner, entManager) ||
                     !entManager.TryGetComponent<HandsComponent>(owner, out var hands) ||
@@ -310,7 +310,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
 
     public const string Access = "Access";
     public const string ActiveHand = "ActiveHand";
-    public const string ActiveHandEntity = "ActiveHandEntity"; // Goobstation
+    public const string ActiveHandEntity = "ActiveHandEntity"; // Goidastation
     public const string ActiveHandFree = "ActiveHandFree";
     public const string CanMove = "CanMove";
     public const string FreeHands = "FreeHands";
@@ -344,7 +344,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
     /// </summary>
     public const string NavClimb = "NavClimb";
 
-     public const string NavBlob = "NavBlob"; // Goobstation - Blob
+     public const string NavBlob = "NavBlob"; // Goidastation - Blob
 
     /// <summary>
     /// Default key storage for a movement pathfind.

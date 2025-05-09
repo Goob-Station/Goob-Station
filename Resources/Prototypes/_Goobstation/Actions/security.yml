@@ -9,7 +9,7 @@
     checkConsciousness: false
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Actions/modsuit.rsi
+      sprite: _Goidastation/Actions/modsuit.rsi
       state: stim
     useDelay: 70
     event: !type:ActionActivateAutoInjectorEvent {}

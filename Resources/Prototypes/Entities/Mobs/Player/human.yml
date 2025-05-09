@@ -192,7 +192,7 @@
     - NamesSyndicateNormal
     nameFormat: name-format-nukie-operator
   - type: Loadout
-    prototypes: [SyndicateOperativeReinforcementGear] # goobstation - duke nukies
+    prototypes: [SyndicateOperativeReinforcementGear] # goidastation - duke nukies
 
 # Nuclear Operative
 - type: entity

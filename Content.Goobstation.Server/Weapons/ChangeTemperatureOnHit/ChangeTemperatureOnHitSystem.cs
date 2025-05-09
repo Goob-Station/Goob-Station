@@ -8,7 +8,7 @@
 using Content.Server.Temperature.Systems;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Goobstation.Server.Weapons.ChangeTemperatureOnHit;
+namespace Content.Goidastation.Server.Weapons.ChangeTemperatureOnHit;
 
 public sealed class ChangeTemperatureOnHitSystem : EntitySystem
 {

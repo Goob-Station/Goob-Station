@@ -28,7 +28,7 @@
         friction: 0.2
   - type: Sharp
   - type: Sprite
-    sprite: _Goobstation/Heretic/Entities/ice_spear.rsi
+    sprite: _Goidastation/Heretic/Entities/ice_spear.rsi
     layers:
     - state: spear
   - type: MeleeWeapon

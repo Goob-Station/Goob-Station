@@ -111,7 +111,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goidastation.Wizard;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
@@ -139,7 +139,7 @@ using Content.Shared.Popups;
 public abstract class SharedActionsSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private readonly INetManager _net = default!; // Goobstation
+    [Dependency] private readonly INetManager _net = default!; // Goidastation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
@@ -360,21 +360,21 @@ public abstract class SharedActionsSystem : EntitySystem
         if (actionId == null)
             return;
 
-        // Goob edit start
+        // Goida edit start
         if (!TryGetActionData(actionId, out var action))
             return;
         var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId.Value)?.UseDelay ?? action.UseDelay;
         if (realDelay == null)
             return;
-        // Goob edit end
+        // Goida edit end
 
-        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + realDelay.Value); // Goob edit
+        action.Cooldown = (GameTiming.CurTime, GameTiming.CurTime + realDelay.Value); // Goida edit
         Dirty(actionId.Value, action);
     }
 
-    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay, bool logError = true) // Goob edit
+    public void SetUseDelay(EntityUid? actionId, TimeSpan? delay, bool logError = true) // Goida edit
     {
-        if (!TryGetActionData(actionId, out var action, logError) || action.UseDelay == delay) // Goob edit
+        if (!TryGetActionData(actionId, out var action, logError) || action.UseDelay == delay) // Goida edit
             return;
 
         action.UseDelay = delay;
@@ -399,7 +399,7 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnRejuventate(EntityUid uid, ActionsComponent component, RejuvenateEvent args)
     {
-        if (!args.ResetActions) // Goobstation
+        if (!args.ResetActions) // Goidastation
             return;
 
         foreach (var act in component.Actions)
@@ -753,7 +753,7 @@ public abstract class SharedActionsSystem : EntitySystem
 
             if (xform.MapID != coords.GetMapId(EntityManager))
             {
-                _popup.PopupCursor(Loc.GetString("world-target-out-of-range"), user); // Goobstation Change
+                _popup.PopupCursor(Loc.GetString("world-target-out-of-range"), user); // Goidastation Change
                 return false;
             }
 
@@ -796,7 +796,7 @@ public abstract class SharedActionsSystem : EntitySystem
 
     public void PerformAction(EntityUid performer, ActionsComponent? component, EntityUid actionId, BaseActionComponent action, BaseActionEvent? actionEvent, TimeSpan curTime, bool predicted = true)
     {
-        if (!action.Predicted) // Goobstation
+        if (!action.Predicted) // Goidastation
             predicted = false;
 
         var handled = false;
@@ -847,14 +847,14 @@ public abstract class SharedActionsSystem : EntitySystem
         }
 
         action.Cooldown = null;
-        // Goob edit start
+        // Goida edit start
         var realDelay = CompOrNull<ActionUseDelayModifierComponent>(actionId)?.UseDelay ?? action.UseDelay;
         if (action is { Charges: null or < 1 } && realDelay != null)
         {
             dirty = true;
             action.Cooldown = (curTime, curTime + realDelay.Value);
         }
-        // Goob edit end
+        // Goida edit end
 
         if (dirty)
         {
@@ -1012,11 +1012,11 @@ public abstract class SharedActionsSystem : EntitySystem
 
         performer.Comp ??= EnsureComp<ActionsComponent>(performer);
 
-        var ghost = HasComp<GhostComponent>(performer); // Goobstation
+        var ghost = HasComp<GhostComponent>(performer); // Goidastation
 
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (TryGetActionData(actionId, out var action) && (!ghost || action.AllowGhostAction)) // Goob edit
+            if (TryGetActionData(actionId, out var action) && (!ghost || action.AllowGhostAction)) // Goida edit
                 AddActionDirect(performer, actionId, performer.Comp, action);
         }
     }
@@ -1147,7 +1147,7 @@ public abstract class SharedActionsSystem : EntitySystem
         // See client-side system for UI code.
     }
 
-    // Goobstation start
+    // Goidastation start
     protected virtual void SaveActions(EntityUid performer)
     {
     }
@@ -1155,7 +1155,7 @@ public abstract class SharedActionsSystem : EntitySystem
     protected virtual void LoadActions(EntityUid performer)
     {
     }
-    // Goobstation end
+    // Goidastation end
 
     public bool ValidAction(BaseActionComponent action, bool canReach = true)
     {
@@ -1218,7 +1218,7 @@ public abstract class SharedActionsSystem : EntitySystem
     #region EquipHandlers
     private void OnDidEquip(EntityUid uid, ActionsComponent component, DidEquipEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goida edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment, args.SlotFlags);
@@ -1229,12 +1229,12 @@ public abstract class SharedActionsSystem : EntitySystem
 
         GrantActions(args.Equipee, ev.Actions, args.Equipment, component);
 
-        LoadActions(args.Equipee); // Goobstation
+        LoadActions(args.Equipee); // Goidastation
     }
 
     private void OnHandEquipped(EntityUid uid, ActionsComponent component, DidEquipHandEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goida edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Equipped);
@@ -1245,15 +1245,15 @@ public abstract class SharedActionsSystem : EntitySystem
 
         GrantActions(args.User, ev.Actions, args.Equipped, component);
 
-        LoadActions(args.User); // Goobstation
+        LoadActions(args.User); // Goidastation
     }
 
     private void OnDidUnequip(EntityUid uid, ActionsComponent component, DidUnequipEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goida edit
             return;
 
-        // Goobstation start
+        // Goidastation start
         if (!TerminatingOrDeleted(args.Equipment))
         {
             var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment);
@@ -1262,17 +1262,17 @@ public abstract class SharedActionsSystem : EntitySystem
             if (ev.Actions.Count > 0)
                 SaveActions(uid);
         }
-        // Goobstation end
+        // Goidastation end
 
         RemoveProvidedActions(uid, args.Equipment, component);
     }
 
     private void OnHandUnequipped(EntityUid uid, ActionsComponent component, DidUnequipHandEvent args)
     {
-        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goida edit
             return;
 
-        // Goobstation start
+        // Goidastation start
         if (!TerminatingOrDeleted(args.Unequipped))
         {
             var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Unequipped);
@@ -1281,7 +1281,7 @@ public abstract class SharedActionsSystem : EntitySystem
             if (ev.Actions.Count > 0)
                 SaveActions(uid);
         }
-        // Goobstation end
+        // Goidastation end
 
         RemoveProvidedActions(uid, args.Unequipped, component);
     }

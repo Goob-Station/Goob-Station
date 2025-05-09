@@ -22,7 +22,7 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -31,16 +31,16 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
-using Content.Goobstation.Shared.Atmos.Components;
-using Content.Server._Goobstation.Wizard.Systems;
+using Content.Goidastation.Shared.Atmos.Components;
+using Content.Server._Goidastation.Wizard.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
-using Content.Shared._Goobstation.Wizard.Spellblade;
+using Content.Shared._Goidastation.Wizard.Spellblade;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Containers;
@@ -54,7 +54,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger= default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
-        [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goobstation
+        [Dependency] private readonly SpellbladeSystem _spellblade = default!; // Goidastation
 
         private const float UpdateTimer = 1f;
         private float _timer;
@@ -63,8 +63,8 @@ namespace Content.Server.Atmos.EntitySystems
         {
             SubscribeLocalEvent<PressureProtectionComponent, GotEquippedEvent>(OnPressureProtectionEquipped);
             SubscribeLocalEvent<PressureProtectionComponent, GotUnequippedEvent>(OnPressureProtectionUnequipped);
-            SubscribeLocalEvent<PressureProtectionComponent, ComponentInit>(OnPressureProtectionChanged); // Goobstation - Update component state on toggle
-            SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnPressureProtectionChanged); // Goobstation - Update component state on toggle
+            SubscribeLocalEvent<PressureProtectionComponent, ComponentInit>(OnPressureProtectionChanged); // Goidastation - Update component state on toggle
+            SubscribeLocalEvent<PressureProtectionComponent, ComponentRemove>(OnPressureProtectionChanged); // Goidastation - Update component state on toggle
 
             SubscribeLocalEvent<PressureImmunityComponent, ComponentInit>(OnPressureImmuneInit);
             SubscribeLocalEvent<PressureImmunityComponent, ComponentRemove>(OnPressureImmuneRemove);
@@ -86,7 +86,7 @@ namespace Content.Server.Atmos.EntitySystems
             }
         }
 
-        // Goobstation - Modsuits - Update component state on toggle
+        // Goidastation - Modsuits - Update component state on toggle
         private void OnPressureProtectionChanged(EntityUid uid, PressureProtectionComponent pressureProtection, EntityEventArgs args)
         {
             var protectionTarget = uid;
@@ -225,7 +225,7 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         public bool TryGetPressureProtectionValues(
-            EntityUid ent, // Goob edit
+            EntityUid ent, // Goida edit
             [NotNullWhen(true)] out float? highMultiplier,
             [NotNullWhen(true)] out float? highModifier,
             [NotNullWhen(true)] out float? lowMultiplier,
@@ -236,7 +236,7 @@ namespace Content.Server.Atmos.EntitySystems
             lowMultiplier = null;
             lowModifier = null;
 
-            // Goob edit start
+            // Goida edit start
             var ev = new GetPressureProtectionValuesEvent
             {
                 HighPressureMultiplier = 1f,
@@ -252,7 +252,7 @@ namespace Content.Server.Atmos.EntitySystems
                 ev.LowPressureMultiplier = comp.LowPressureMultiplier;
                 ev.LowPressureModifier = comp.LowPressureModifier;
             }
-            // Goob edit end
+            // Goida edit end
 
             RaiseLocalEvent(ent, ref ev);
             highMultiplier = ev.HighPressureMultiplier;
@@ -312,7 +312,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                     _alertsSystem.ShowAlert(uid, barotrauma.LowPressureAlert, 2);
                 }
-                else if (pressure >= Atmospherics.HazardHighPressure && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
+                else if (pressure >= Atmospherics.HazardHighPressure && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goida edit
                 {
                     var damageScale = MathF.Min(((pressure / Atmospherics.HazardHighPressure) - 1) * Atmospherics.PressureDamageCoefficient, Atmospherics.MaxHighPressureDamage);
 

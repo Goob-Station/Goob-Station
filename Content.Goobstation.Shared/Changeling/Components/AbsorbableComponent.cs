@@ -8,7 +8,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Changeling.Components;
+namespace Content.Goidastation.Shared.Changeling.Components;
 
 /// <summary>
 ///     Component that indicates that a person can be absorbed by a changeling.

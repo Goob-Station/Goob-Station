@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Common.Examine;
+namespace Content.Goidastation.Common.Examine;
 
 public sealed class ExamineCompletedEvent : EntityEventArgs
 {

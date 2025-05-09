@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.ChronoLegionnaire.Systems;
+using Content.Goidastation.Server.ChronoLegionnaire.Systems;
 
-namespace Content.Goobstation.Server.ChronoLegionnaire.Components;
+namespace Content.Goidastation.Server.ChronoLegionnaire.Components;
 
 /// <summary>
 /// Marks projectiles that will apply stasis on hit

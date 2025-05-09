@@ -22,7 +22,7 @@
   name: warp point
   components:
   - type: WarpPoint
-  - type: WizardTeleportWarpPoint # Goobstation
+  - type: WizardTeleportWarpPoint # Goidastation
   - type: Sprite
     state: pink
 

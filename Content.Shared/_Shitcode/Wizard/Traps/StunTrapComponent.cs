@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Shared._Goobstation.Wizard.Traps;
+namespace Content.Shared._Goidastation.Wizard.Traps;
 
 [RegisterComponent]
 public sealed partial class StunTrapComponent : Component

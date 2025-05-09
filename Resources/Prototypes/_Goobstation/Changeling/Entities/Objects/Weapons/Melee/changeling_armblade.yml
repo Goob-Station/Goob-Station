@@ -7,7 +7,7 @@
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -23,7 +23,7 @@
   components:
   - type: Sharp
   - type: Sprite
-    sprite: _Goobstation/Changeling/arm_blade.rsi
+    sprite: _Goidastation/Changeling/arm_blade.rsi
     state: icon
   - type: MeleeWeapon
     angle: 0
@@ -39,7 +39,7 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Ginormous
-    sprite: _Goobstation/Changeling/arm_blade.rsi
+    sprite: _Goidastation/Changeling/arm_blade.rsi
   - type: Prying
     speedModifier: 2
     pryPowered: true

@@ -1,12 +1,12 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Dataset;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Devil;
+namespace Content.Goidastation.Shared.Devil;
 
 [RegisterComponent]
 public sealed partial class DevilComponent : Component
@@ -56,7 +56,7 @@ public sealed partial class DevilComponent : Component
     /// Sound effect played when summoning a contract.
     /// </summary>
     [DataField]
-    public SoundPathSpecifier FwooshPath = new ("/Audio/_Goobstation/Effects/fwoosh.ogg");
+    public SoundPathSpecifier FwooshPath = new ("/Audio/_Goidastation/Effects/fwoosh.ogg");
 
     /// <summary>
     /// When the true-name stun was last triggered

@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Shared._durkcode.ServerCurrency;
@@ -36,10 +36,10 @@ namespace Content.Server._durkcode.ServerCurrency
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly LinkAccountManager _linkAccount = default!;
 
-        private int _goobcoinsPerPlayer = 10;
-        private int _goobcoinsNonAntagMultiplier = 1;
-        private int _goobcoinsServerMultiplier = 1;
-        private int _goobcoinsMinPlayers;
+        private int _goidacoinsPerPlayer = 10;
+        private int _goidacoinsNonAntagMultiplier = 1;
+        private int _goidacoinsServerMultiplier = 1;
+        private int _goidacoinsMinPlayers;
 
         public override void Initialize()
         {
@@ -47,10 +47,10 @@ namespace Content.Server._durkcode.ServerCurrency
             _currencyMan.BalanceChange += OnBalanceChange;
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
             SubscribeNetworkEvent<PlayerBalanceRequestEvent>(OnBalanceRequest);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinsPerPlayer, value => _goobcoinsPerPlayer = value, true);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinNonAntagMultiplier, value => _goobcoinsNonAntagMultiplier = value, true);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinServerMultiplier, value => _goobcoinsServerMultiplier = value, true);
-            Subs.CVar(_cfg, GoobCVars.GoobcoinMinPlayers, value => _goobcoinsMinPlayers = value, true);
+            Subs.CVar(_cfg, GoidaCVars.GoidacoinsPerPlayer, value => _goidacoinsPerPlayer = value, true);
+            Subs.CVar(_cfg, GoidaCVars.GoidacoinNonAntagMultiplier, value => _goidacoinsNonAntagMultiplier = value, true);
+            Subs.CVar(_cfg, GoidaCVars.GoidacoinServerMultiplier, value => _goidacoinsServerMultiplier = value, true);
+            Subs.CVar(_cfg, GoidaCVars.GoidacoinMinPlayers, value => _goidacoinsMinPlayers = value, true);
         }
 
         public override void Shutdown()
@@ -61,7 +61,7 @@ namespace Content.Server._durkcode.ServerCurrency
 
         private void OnRoundEndText(RoundEndTextAppendEvent ev)
         {
-            if (_players.PlayerCount < _goobcoinsMinPlayers)
+            if (_players.PlayerCount < _goidacoinsMinPlayers)
                 return;
 
             var query = EntityQueryEnumerator<MindContainerComponent>();
@@ -81,17 +81,17 @@ namespace Content.Server._durkcode.ServerCurrency
                         && (isBorg || !_mind.IsCharacterDeadIc(mind)) // Borgs count always as dead so I'll just throw them a bone and give them an exception.
                         && mind.OriginalOwnerUserId.HasValue)
                     {
-                        int money = _goobcoinsPerPlayer;
+                        int money = _goidacoinsPerPlayer;
                         var session = mind.Session;
                         if (session is not null)
                         {
-                            money += _jobs.GetJobGoobcoins(session);
+                            money += _jobs.GetJobGoidacoins(session);
                             if (!_jobs.CanBeAntag(session))
-                                money *= _goobcoinsNonAntagMultiplier;
+                                money *= _goidacoinsNonAntagMultiplier;
                         }
 
-                        if (_goobcoinsServerMultiplier != 1)
-                            money *= _goobcoinsServerMultiplier;
+                        if (_goidacoinsServerMultiplier != 1)
+                            money *= _goidacoinsServerMultiplier;
 
                         if (session != null && _linkAccount.GetPatron(session)?.Tier != null)
                             money *= 2;

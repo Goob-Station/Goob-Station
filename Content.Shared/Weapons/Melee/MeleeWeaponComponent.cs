@@ -21,7 +21,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 VMSolidus <evilexecutive@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
@@ -29,7 +29,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -123,7 +123,7 @@ public sealed partial class MeleeWeaponComponent : Component
     [DataField, AutoNetworkedField]
     public float Range = 1.5f;
 
-    // goob edit - stunmeta
+    // goida edit - stunmeta
     /// <summary>
     ///     Applies stamina damage on each successful wideswing hit to the attacker.
     /// </summary>
@@ -137,13 +137,13 @@ public sealed partial class MeleeWeaponComponent : Component
     public Angle Angle = Angle.FromDegrees(60);
 
     [DataField, AutoNetworkedField]
-    public EntProtoId Animation = "WeaponArcThrust"; // Goob Edit
+    public EntProtoId Animation = "WeaponArcThrust"; // Goida Edit
 
     [DataField, AutoNetworkedField]
-    public EntProtoId MissAnimation = "WeaponArcPunch"; // Goob Edit
+    public EntProtoId MissAnimation = "WeaponArcPunch"; // Goida Edit
 
     [DataField, AutoNetworkedField]
-    public bool FlipAnimation = true; // Goob Edit
+    public bool FlipAnimation = true; // Goida Edit
 
     [DataField, AutoNetworkedField]
     public EntProtoId WideAnimation = "WeaponArcSlash";
@@ -226,7 +226,7 @@ public sealed partial class MeleeWeaponComponent : Component
 
     // Shitmed Change End
 
-    // Goobstation
+    // Goidastation
     [DataField, AutoNetworkedField]
     public bool CanWideSwing = true;
 

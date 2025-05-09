@@ -34,14 +34,14 @@
   id: ScrollTeleport
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
     state: scroll
   - type: Clothing
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
     slots:
       - Belt
   - type: Item
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
   - type: UserInterface
     interfaces:
       enum.WizardTeleportUiKey.Key:
@@ -71,7 +71,7 @@
   id: ThrownLightning
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/thrown_lightning.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/thrown_lightning.rsi
     state: icon
   - type: PointLight
     enabled: true
@@ -108,14 +108,14 @@
   id: ContractApprenticeship
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
     state: scroll2
   - type: Clothing
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
     slots:
       - Belt
   - type: Item
-    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    sprite: _Goidastation/Wizard/Objects/scroll.rsi
   - type: UserInterface
     interfaces:
       enum.GhostRoleRadioUiKey.Key:
@@ -183,7 +183,7 @@
   description: An enchanted mug which refills omnizine automatically.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/evermug.rsi
+    sprite: _Goidastation/Wizard/Objects/evermug.rsi
     state: icon
   - type: SolutionContainerManager
     solutions:

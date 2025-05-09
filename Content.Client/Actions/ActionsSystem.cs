@@ -117,7 +117,7 @@
 
 using System.IO;
 using System.Linq;
-using Content.Goobstation.Common.Actions;
+using Content.Goidastation.Common.Actions;
 using Content.Shared.Actions;
 using JetBrains.Annotations;
 using Robust.Client.Player;
@@ -153,10 +153,10 @@ namespace Content.Client.Actions
         public event Action? ClearAssignments;
         public event Action<List<SlotAssignment>>? AssignSlot;
 
-        // Goobstation start
+        // Goidastation start
         public event Action<EntityUid>? ActionsSaved;
         public event Action<EntityUid>? ActionsLoaded;
-        // Goobstation end
+        // Goidastation end
 
         private readonly List<EntityUid> _removed = new();
         private readonly List<(EntityUid, BaseActionComponent?)> _added = new();
@@ -173,10 +173,10 @@ namespace Content.Client.Actions
             SubscribeLocalEvent<WorldTargetActionComponent, ComponentHandleState>(OnWorldTargetHandleState);
             SubscribeLocalEvent<EntityWorldTargetActionComponent, ComponentHandleState>(OnEntityWorldTargetHandleState);
 
-            SubscribeNetworkEvent<LoadActionsEvent>(OnLoadActions); // Goobstation
+            SubscribeNetworkEvent<LoadActionsEvent>(OnLoadActions); // Goidastation
         }
 
-        private void OnLoadActions(LoadActionsEvent msg, EntitySessionEventArgs args) // Goobstation
+        private void OnLoadActions(LoadActionsEvent msg, EntitySessionEventArgs args) // Goidastation
         {
             if (args.SenderSession != _playerManager.LocalSession)
                 return;
@@ -184,7 +184,7 @@ namespace Content.Client.Actions
             ActionsLoaded?.Invoke(GetEntity(msg.Entity));
         }
 
-        // goob edit - man fuck them actions bruh
+        // goida edit - man fuck them actions bruh
         // (it was breaking our actions system so i smashed it)
         // (regards)
 
@@ -371,7 +371,7 @@ namespace Content.Client.Actions
             OnActionRemoved?.Invoke(actionId);
         }
 
-        // Goobstation start
+        // Goidastation start
         protected override void SaveActions(EntityUid performer)
         {
             if (_playerManager.LocalEntity != performer)
@@ -387,7 +387,7 @@ namespace Content.Client.Actions
 
             ActionsLoaded?.Invoke(performer);
         }
-        // Goobstation end
+        // Goidastation end
 
         public IEnumerable<(EntityUid Id, BaseActionComponent Comp)> GetClientActions()
         {
@@ -400,12 +400,12 @@ namespace Content.Client.Actions
         private void OnPlayerAttached(EntityUid uid, ActionsComponent component, LocalPlayerAttachedEvent args)
         {
             LinkAllActions(component);
-            ActionsLoaded?.Invoke(uid); // Goobstation
+            ActionsLoaded?.Invoke(uid); // Goidastation
         }
 
         private void OnPlayerDetached(EntityUid uid, ActionsComponent component, LocalPlayerDetachedEvent? args = null)
         {
-            ActionsSaved?.Invoke(uid); // Goobstation
+            ActionsSaved?.Invoke(uid); // Goidastation
             UnlinkAllActions();
         }
 

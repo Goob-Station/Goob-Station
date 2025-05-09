@@ -9,7 +9,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Hailer;
+namespace Content.Goidastation.Shared.Hailer;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HailerComponent : Component

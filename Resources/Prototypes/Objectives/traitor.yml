@@ -78,7 +78,7 @@
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
@@ -243,7 +243,7 @@
   - type: StealCondition
     stealGroup: Hypospray
 
-#- type: entity # Goobstation - made this public
+#- type: entity # Goidastation - made this public
 #  parent: BaseCMOStealObjective
 #  id: CMOCrewMonitorStealObjective
 #  components:
@@ -289,10 +289,10 @@
     # Warden will have this on them a lot of the time so..
     difficulty: 3
   - type: NotJobRequirement
-    job: Warden # Goob edit
+    job: Warden # Goida edit
   - type: StealCondition
     stealGroup: WeaponEnergyShotgun
-    owner: job-name-warden # Goob edit
+    owner: job-name-warden # Goida edit
 
 ## ce
 

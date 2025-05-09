@@ -10,12 +10,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Speech;
+using Content.Goidastation.Common.Speech;
 using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Speech;
+namespace Content.Goidastation.Server.Speech;
 
 public sealed class DementiaAccentSystem : EntitySystem
 {

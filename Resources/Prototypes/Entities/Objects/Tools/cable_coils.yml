@@ -52,7 +52,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -72,10 +72,10 @@
   - type: Tag
     tags:
     - CableCoil
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Stack
     stackType: Cable
-  # Goobstation - Custom stack splitting dialog
+  # Goidastation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -104,13 +104,13 @@
   - type: Healing
     delay: 1
     damageContainers:
-    - SiliconRadiation # Goobstation - Make IPCs take radiation
+    - SiliconRadiation # Goidastation - Make IPCs take radiation
     damage:
       types: # these are all split across multiple types
         Heat: -4
         Shock: -4
-        Ion: -4 # Goobstation
-        Radiation: -2.5 # Goobstation - Make IPCs take radiation
+        Ion: -4 # Goidastation
+        Radiation: -2.5 # Goidastation - Make IPCs take radiation
   # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
   # Uncomment this when its implemented, and make sure it handles StackComponent right

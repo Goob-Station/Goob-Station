@@ -13,7 +13,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Client.Administration.TimeTransferPanel;
+namespace Content.Goidastation.Client.Administration.TimeTransferPanel;
 
 [GenerateTypedNameReferences]
 public sealed partial class TimeTransferEntry : BoxContainer

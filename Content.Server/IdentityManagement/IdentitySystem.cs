@@ -18,14 +18,14 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Identity;
+using Content.Goidastation.Common.Identity;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.CriminalRecords.Systems;
@@ -55,7 +55,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly CriminalRecordsConsoleSystem _criminalRecordsConsole = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Update component state on component toggle
+    [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goidastation - Update component state on component toggle
 
     private HashSet<EntityUid> _queuedIdentityUpdates = new();
 
@@ -71,8 +71,8 @@ public sealed class IdentitySystem : SharedIdentitySystem
         SubscribeLocalEvent<IdentityComponent, EntityRenamedEvent>((uid, _, _) => QueueIdentityUpdate(uid));
         SubscribeLocalEvent<IdentityComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<IdentityBlockerComponent, ComponentInit>(BlockerUpdateIdentity); // Goobstation - Update component state on component toggle
-        SubscribeLocalEvent<IdentityBlockerComponent, ComponentRemove>(BlockerUpdateIdentity); // Goobstation - Update component state on component toggle
+        SubscribeLocalEvent<IdentityBlockerComponent, ComponentInit>(BlockerUpdateIdentity); // Goidastation - Update component state on component toggle
+        SubscribeLocalEvent<IdentityBlockerComponent, ComponentRemove>(BlockerUpdateIdentity); // Goidastation - Update component state on component toggle
     }
 
     public override void Update(float frameTime)
@@ -187,7 +187,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
         HumanoidAppearanceComponent? appearance=null,
         bool raiseIdentityRepresentationEntityEvent = true)
     {
-        // Goobstation start
+        // Goidastation start
         if (raiseIdentityRepresentationEntityEvent)
         {
             var ev = new GetIdentityRepresentationEntityEvent();
@@ -195,7 +195,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
             if (ev.Uid != null)
                 return GetIdentityRepresentation(ev.Uid.Value, raiseIdentityRepresentationEntityEvent: false);
         }
-        // Goobstation end
+        // Goidastation end
 
         int age = 18;
         Gender gender = Gender.Epicene;
@@ -228,7 +228,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
         return new(trueName, gender, ageString, presumedName, presumedJob);
     }
 
-    // Goobstation - Update component state on component toggle
+    // Goidastation - Update component state on component toggle
     private void BlockerUpdateIdentity(EntityUid uid, IdentityBlockerComponent component, EntityEventArgs args)
     {
         var target = uid;

@@ -9,7 +9,7 @@
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Weapons.DelayedKnockdown;
+namespace Content.Goidastation.Server.Weapons.DelayedKnockdown;
 
 public sealed partial class RemoveComponentEffect : EntityEffect
 {

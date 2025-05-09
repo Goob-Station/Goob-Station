@@ -99,7 +99,7 @@
     damage:
       types:
         Slash: 2
-  - type: EmbeddableProjectile # Goobstation - Make shards embeddable so spacewind doesnt massacre the entire station :-)
+  - type: EmbeddableProjectile # Goidastation - Make shards embeddable so spacewind doesnt massacre the entire station :-)
     sound: /Audio/Weapons/bladeslice.ogg
   - type: Tag
     tags:
@@ -118,7 +118,7 @@
         acts: [ "Destruction" ]
   - type: StepTrigger
     intersectRatio: 0.2
-    triggerGroups: # Goobstation
+    triggerGroups: # Goidastation
       types:
       - Shard
   - type: PreventableStepTrigger
@@ -136,7 +136,7 @@
     price: 0
   - type: Scalpel # Shitmed
     speed: 0.45
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:
@@ -172,7 +172,7 @@
   - type: Construction
     graph: ShivConstruct
     node: start
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 25
 
@@ -211,7 +211,7 @@
   - type: Construction
     graph: ReinforcedShivConstruct
     node: start
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 25
       Steel: 12
@@ -253,7 +253,7 @@
   - type: Construction
     graph: PlasmaShivConstruct
     node: start
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 25
       Plasma: 25
@@ -297,7 +297,7 @@
   - type: Construction
     graph: UraniumShivConstruct
     node: start
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 25
       Uranium: 25
@@ -334,7 +334,7 @@
           Quantity: 1.65
         - ReagentId: Copper
           Quantity: 3.35
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 25
       Brass: 25

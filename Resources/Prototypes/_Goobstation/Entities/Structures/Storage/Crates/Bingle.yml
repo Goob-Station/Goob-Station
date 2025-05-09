@@ -10,6 +10,6 @@
   name: bingle crate
   components:
   - type: Icon
-    sprite: _Goobstation/Objects/Storage/binglecrate.rsi
+    sprite: _Goidastation/Objects/Storage/binglecrate.rsi
   - type: Sprite
-    sprite: _Goobstation/Objects/Storage/binglecrate.rsi
+    sprite: _Goidastation/Objects/Storage/binglecrate.rsi

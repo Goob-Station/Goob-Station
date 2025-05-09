@@ -10,10 +10,10 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
     size: Large
   - type: GunWieldBonus
     minAngle: -43
@@ -29,10 +29,10 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/ChronoLegionnaire/stasisgun_shoot.ogg
+      path: /Audio/_Goidastation/Weapons/ChronoLegionnaire/stasisgun_shoot.ogg
   - type: Appearance
   - type: Clothing
-    sprite: _Goobstation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
     quickEquip: false
     slots:
     - Belt
@@ -51,6 +51,6 @@
   description: A device to stop the temporal flow of any living (or not) creature
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/ChronoLegionnaire/stasisgun.rsi
     state: icon
   - type: StasisGun

@@ -240,7 +240,7 @@
     - VentCrud
     - WeldingFuel
     - JuiceThatMakesYouWeh
-    # Goobstation - Start
+    # Goidastation - Start
     - CatDrugs
 
 - type: artifactEffect
@@ -320,7 +320,7 @@
   components:
   - type: Stealth
     hadOutline: true
-    minVisibility: -1 # Goobstation - Proper invisibility
+    minVisibility: -1 # Goidastation - Proper invisibility
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10
@@ -413,7 +413,7 @@
     - id: MobMothroach
       orGroup: fauna
       maxAmount: 2
-    - id: MobLootbug # Goobstation
+    - id: MobLootbug # Goidastation
       orGroup: fauna
       maxAmount: 2
     - id: MobMonkeySyndicateAgent #so lucky
@@ -538,7 +538,7 @@
     - Desoxyephedrine
     - Pax
     - Siderlac
-    # Goobstation - Start
+    # Goidastation - Start
     - Ibuprofen
     - Tirimol
 
@@ -643,7 +643,7 @@
     - ChloralHydrate
     - Mold
     - Amatoxin
-    # Goobstation - Start
+    # Goidastation - Start
     - Triclor
     - Cyanide
 

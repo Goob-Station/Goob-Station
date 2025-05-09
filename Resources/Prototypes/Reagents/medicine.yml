@@ -113,10 +113,10 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1.5 # Was 1, Slight Buff as it should heal for half the amount as Dip or Stelli(GoobStation)
+            Poison: -1.5 # Was 1, Slight Buff as it should heal for half the amount as Dip or Stelli(GoidaStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -138,7 +138,7 @@
         probability: 0.2
       - !type:ChemVomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -196,7 +196,7 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         key: Drunk
@@ -204,7 +204,7 @@
         type: Remove
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -243,10 +243,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -2.5 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Brute: -2.5 # Was 2, Buffed due to limb damage changes(GoidaStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -257,7 +257,7 @@
             Poison: 1.5
       - !type:ChemVomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -283,7 +283,7 @@
   - !type:PlantAdjustHealth
     amount: 5
   - !type:PlantCryoxadone {}
-  worksOnTheDead: true # Goobstation
+  worksOnTheDead: true # Goidastation
   metabolisms:
     Medicine:
       effects:
@@ -297,7 +297,7 @@
             max: 213.0
             scale: 1.6
           damage:
-            groups: # Goobstation - Cryo rebalance
+            groups: # Goidastation - Cryo rebalance
               Airloss: -3
               Brute: -3
               Burn: -3
@@ -310,7 +310,7 @@
   physicalDesc: reagent-physical-desc-bubbling
   flavor: medicine
   color: "#32cd32"
-  worksOnTheDead: true # Goobstation - Cryo rebalance
+  worksOnTheDead: true # Goidastation - Cryo rebalance
   metabolisms:
     Medicine:
       effects:
@@ -342,10 +342,10 @@
           types:
             Heat: -2
             Shock: -2
-            Cold: -2 # Was 1.5, Buffed due to limb damage changes(GoobStation)
+            Cold: -2 # Was 1.5, Buffed due to limb damage changes(GoidaStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -379,7 +379,7 @@
             Bloodloss: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -414,7 +414,7 @@
         amount: -3
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -450,10 +450,10 @@
             Poison: -0.5
           groups:
             Brute: -1
-            Burn: -1 # Was .5, Buffed due to limb damage changes(GoobStation)
+            Burn: -1 # Was .5, Buffed due to limb damage changes(GoidaStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -492,7 +492,7 @@
         key: Adrenaline # Guess what epinephrine is...
         component: IgnoreSlowOnDamage
         time: 5 # lingers less than hivemind reagent to give it a niche
-      - !type:MovespeedModifier # Goob edit
+      - !type:MovespeedModifier # Goida edit
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1
 
@@ -513,13 +513,13 @@
             Radiation: -1
       - !type:ChemVomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         probability: 0.02
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -545,7 +545,7 @@
       effects:
       - !type:ChemVomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -590,7 +590,7 @@
           types:
             Heat: -0.5
             Shock: -0.5
-            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoobStation)
+            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoidaStation)
       - !type:SatiateThirst
         factor: -10
         conditions:
@@ -654,7 +654,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         probability: 0.3
@@ -664,7 +664,7 @@
       - !type:ChemVomit
         probability: 0.15
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -678,14 +678,14 @@
       - !type:Jitter
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         emote: Scream
         probability: 0.2
       - !type:PopupMessage
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         type: Local
@@ -753,7 +753,7 @@
             Asphyxiation: -2.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -825,7 +825,7 @@
         - !type:SatiateThirst
           factor: 6
         - !type:ModifyBloodLevel
-          amount: 12 # Goobstation - buffed by two times due to shitmed changes
+          amount: 12 # Goidastation - buffed by two times due to shitmed changes
 
 - type: reagent
   id: Siderlac
@@ -860,7 +860,7 @@
             Poison: -4
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -882,7 +882,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -946,7 +946,7 @@
             Poison: -0.5 ##Should be about what it was when it healed the toxin group
             Heat: -0.5
             Shock: -0.5
-            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoobStation)
+            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoidaStation)
 
 - type: reagent
   id: Lipozine
@@ -981,7 +981,7 @@
             Burn: -3
             Toxin: -3
             Airloss: -3
-            Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Brute: -3 # Was 2, Buffed due to limb damage changes(GoidaStation)
 
 - type: reagent
   id: Ultravasculine
@@ -1126,7 +1126,7 @@
             Caustic: -3
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1148,7 +1148,7 @@
         probability: 0.2
       - !type:ChemVomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1159,7 +1159,7 @@
         - !type:ReagentThreshold
           reagent: Arithrazine
           min: 1
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         probability: 0.1
@@ -1187,10 +1187,10 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
+            Slash: -4 # Was 3, Buffed due to limb damage changes(GoidaStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1217,7 +1217,7 @@
             Blunt: 0.1
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1240,10 +1240,10 @@
       - !type:HealthChange
         damage:
           types:
-            Blunt: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
+            Blunt: -4 # Was 3, Buffed due to limb damage changes(GoidaStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1321,7 +1321,7 @@
       # od causes massive bleeding
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1332,7 +1332,7 @@
             Piercing: 0.5
       - !type:ChemVomit
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1340,7 +1340,7 @@
         probability: 0.1
       - !type:Emote
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1376,7 +1376,7 @@
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1433,7 +1433,7 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:ModifyBloodLevel # Goobstation - Cryo rebalance
+        - !type:ModifyBloodLevel # Goidastation - Cryo rebalance
           conditions:
           - !type:Temperature
             max: 213.0
@@ -1446,7 +1446,7 @@
             min: 100.0
             max: 213.0
             scale: 1.6
-          damage: # Goobstation - Cryo rebalance
+          damage: # Goidastation - Cryo rebalance
             groups:
               Airloss: -10.0
               Brute: -5.0
@@ -1473,7 +1473,7 @@
           min: 100.0
           max: 213.0
           scale: 1.6
-        damage: # Goobstation - Cryo rebalance
+        damage: # Goidastation - Cryo rebalance
           types:
             Heat: -10.0
             Shock: -10.0
@@ -1512,7 +1512,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1565,7 +1565,7 @@
         refresh: false
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType # Goidastation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold

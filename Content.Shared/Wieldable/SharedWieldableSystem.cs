@@ -28,7 +28,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Centronias <charlie.t.santos@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
@@ -42,7 +42,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Weapons.NoWieldNeeded;
+using Content.Goidastation.Common.Weapons.NoWieldNeeded;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -96,7 +96,7 @@ public abstract class SharedWieldableSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand,
-            before: [typeof(SharedGunSystem), typeof(ItemToggleSystem)]); // Goob - before item toogle for hardlight bow
+            before: [typeof(SharedGunSystem), typeof(ItemToggleSystem)]); // Goida - before item toogle for hardlight bow
         SubscribeLocalEvent<WieldableComponent, ItemUnwieldedEvent>(OnItemUnwielded);
         SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);
         SubscribeLocalEvent<WieldableComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
@@ -143,7 +143,7 @@ public abstract class SharedWieldableSystem : EntitySystem
     {
         if (TryComp<WieldableComponent>(uid, out var wieldable) &&
             !wieldable.Wielded &&
-            !HasComp<NoWieldNeededComponent>(args.User) // Goobstation - Yowies
+            !HasComp<NoWieldNeededComponent>(args.User) // Goidastation - Yowies
             )
         {
             args.Cancel();
@@ -262,7 +262,7 @@ public abstract class SharedWieldableSystem : EntitySystem
             args.ApplyDelay = false;
     }
 
-    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false, bool checkHolding = true) // Goob edit
+    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false, bool checkHolding = true) // Goida edit
     {
         // Do they have enough hands free?
         if (!TryComp<HandsComponent>(user, out var hands))
@@ -280,7 +280,7 @@ public abstract class SharedWieldableSystem : EntitySystem
             return false;
         }
 
-        if (_hands.CountFreeableHands((user, hands), true) < component.FreeHandsRequired) // Goob edit
+        if (_hands.CountFreeableHands((user, hands), true) < component.FreeHandsRequired) // Goida edit
         {
             if (!quiet)
             {
@@ -299,7 +299,7 @@ public abstract class SharedWieldableSystem : EntitySystem
     ///     Attempts to wield an item, starting a UseDelay after.
     /// </summary>
     /// <returns>True if the attempt wasn't blocked.</returns>
-    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user, bool showMessage = true) // Goob edit
+    public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user, bool showMessage = true) // Goida edit
     {
         if (!CanWield(used, component, user))
             return false;
@@ -352,10 +352,10 @@ public abstract class SharedWieldableSystem : EntitySystem
 
         var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
         var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
-        if (showMessage) // Goob edit
+        if (showMessage) // Goida edit
             _popup.PopupPredicted(selfMessage, othersMessage, user, user);
 
-        _appearance.SetData(used, WieldableVisuals.Wielded, true); // Goobstation
+        _appearance.SetData(used, WieldableVisuals.Wielded, true); // Goidastation
 
         var targEv = new ItemWieldedEvent(user);
         RaiseLocalEvent(used, ref targEv);

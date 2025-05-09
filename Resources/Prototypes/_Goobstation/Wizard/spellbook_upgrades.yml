@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
 # SPDX-FileCopyrightText: 2025 crasg <109207982+Scruq445@users.noreply.github.com>
 #
@@ -13,7 +13,7 @@
   name: spellbook-upgrade-mime-malaise-name
   description: spellbook-upgrade-mime-malaise-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: mime
   cost:
     WizCoin: 1
@@ -32,7 +32,7 @@
   name: spellbook-upgrade-cluwne-curse-name
   description: spellbook-upgrade-cluwne-curse-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: cluwne
   cost:
     WizCoin: 2
@@ -51,7 +51,7 @@
   name: spellbook-upgrade-banana-touch-name
   description: spellbook-upgrade-banana-touch-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: clown
   cost:
     WizCoin: 1
@@ -70,7 +70,7 @@
   name: spellbook-upgrade-blind-name
   description: spellbook-upgrade-blind-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: blind
   cost:
     WizCoin: 1
@@ -89,7 +89,7 @@
   name: spellbook-upgrade-mutate-name
   description: spellbook-upgrade-mutate-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: mutate
   cost:
     WizCoin: 2
@@ -108,7 +108,7 @@
   name: spellbook-upgrade-tesla-blast-name
   description: spellbook-upgrade-tesla-blast-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: tesla
   cost:
     WizCoin: 1
@@ -127,7 +127,7 @@
   name: spellbook-upgrade-lightning-bolt-name
   description: spellbook-upgrade-lightning-bolt-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: lightning
   cost:
     WizCoin: 1
@@ -146,7 +146,7 @@
   name: spellbook-upgrade-homing-toolbox-name
   description: spellbook-upgrade-homing-toolbox-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: toolbox
   cost:
     WizCoin: 1
@@ -165,7 +165,7 @@
   name: spellbook-upgrade-arcane-barrage-name
   description: spellbook-upgrade-arcane-barrage-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: arcane_barrage
   cost:
     WizCoin: 2
@@ -184,7 +184,7 @@
   name: spellbook-upgrade-lesser-summon-guns-name
   description: spellbook-upgrade-lesser-summon-guns-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: bolt_action
   cost:
     WizCoin: 2
@@ -203,7 +203,7 @@
   name: spellbook-upgrade-barnyard-name
   description: spellbook-upgrade-barnyard-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: barn
   cost:
     WizCoin: 2
@@ -222,7 +222,7 @@
   name: spellbook-upgrade-scream-for-me-name
   description: spellbook-upgrade-scream-for-me-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: scream_for_me
   cost:
     WizCoin: 1
@@ -241,7 +241,7 @@
   name: spellbook-upgrade-bees-name
   description: spellbook-upgrade-bees-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: bee
   cost:
     WizCoin: 2
@@ -260,7 +260,7 @@
   name: spellbook-upgrade-sanguine-strike-name
   description: spellbook-upgrade-sanguine-strike-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: exsanguinating_strike
   cost:
     WizCoin: 2
@@ -279,7 +279,7 @@
   name: spellbook-upgrade-smite-name
   description: spellbook-upgrade-smite-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: gib
   cost:
     WizCoin: 2
@@ -298,7 +298,7 @@
   name: spellbook-upgrade-polymorph-rod-name
   description: spellbook-upgrade-polymorph-rod-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: immrod
   cost:
     WizCoin: 2
@@ -321,7 +321,7 @@
   name: spellbook-upgrade-spell-cards-name
   description: spellbook-upgrade-spell-cards-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: spellcard
   cost:
     WizCoin: 2
@@ -345,7 +345,7 @@
   productEvent: !type:SummonSimiansMaxedOutEvent
   raiseProductEventOnUser: true
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: monkey
   cost:
     WizCoin: 2
@@ -368,7 +368,7 @@
   name: spellbook-upgrade-magic-missile-name
   description: spellbook-upgrade-magic-missile-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: missile
   cost:
     WizCoin: 2
@@ -390,7 +390,7 @@
   name: spellbook-upgrade-disable-tech-name
   description: spellbook-upgrade-disable-tech-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: emp
   cost:
     WizCoin: 1
@@ -412,7 +412,7 @@
   name: spellbook-upgrade-smoke-name
   description: spellbook-upgrade-smoke-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: smoke
   cost:
     WizCoin: 1
@@ -434,7 +434,7 @@
   name: spellbook-upgrade-repulse-name
   description: spellbook-upgrade-repulse-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: repulse
   cost:
     WizCoin: 1
@@ -456,7 +456,7 @@
   name: spellbook-upgrade-stop-time-name
   description: spellbook-upgrade-stop-time-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: time
   cost:
     WizCoin: 2
@@ -478,7 +478,7 @@
   name: spellbook-upgrade-the-traps-name
   description: spellbook-upgrade-the-traps-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: the_traps
   cost:
     WizCoin: 1
@@ -500,7 +500,7 @@
   name: spellbook-upgrade-force-wall-name
   description: spellbook-upgrade-force-wall-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: shield_greater
   cost:
     WizCoin: 1
@@ -523,7 +523,7 @@
   name: spellbook-upgrade-teleport-name
   description: spellbook-upgrade-teleport-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: teleport
   cost:
     WizCoin: 2
@@ -549,7 +549,7 @@
   name: spellbook-upgrade-swap-name
   description: spellbook-upgrade-swap-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: swap
   cost:
     WizCoin: 1
@@ -571,7 +571,7 @@
   name: spellbook-upgrade-blink-name
   description: spellbook-upgrade-blink-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: blink
   cost:
     WizCoin: 1
@@ -593,7 +593,7 @@
   name: spellbook-upgrade-charge-name
   description: spellbook-upgrade-charge-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: charge
   cost:
     WizCoin: 1
@@ -615,7 +615,7 @@
   name: spellbook-upgrade-mind-swap-name
   description: spellbook-upgrade-mind-swap-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: mindswap
   cost:
     WizCoin: 2
@@ -637,7 +637,7 @@
   name: spellbook-upgrade-knock-name
   description: spellbook-upgrade-knock-desc
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi
+    sprite: _Goidastation/Wizard/actions.rsi
     state: knock
   cost:
     WizCoin: 1

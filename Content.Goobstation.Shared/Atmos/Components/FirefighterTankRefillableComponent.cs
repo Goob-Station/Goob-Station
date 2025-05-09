@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Steve <marlumpy@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Inventory;
 using Content.Shared.Whitelist;
 
-namespace Content.Goobstation.Shared.Atmos.Components;
+namespace Content.Goidastation.Shared.Atmos.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class FirefighterTankRefillableComponent : Component

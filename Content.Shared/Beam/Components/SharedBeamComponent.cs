@@ -54,7 +54,7 @@ public abstract partial class SharedBeamComponent : Component
     public SoundSpecifier? Sound;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Beams of the same family have unique index. Used to make sure lightning hits an entity no more than once.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]

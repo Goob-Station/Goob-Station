@@ -27,12 +27,12 @@ public sealed partial class ConfirmableActionComponent : Component
     /// <summary>
     /// Warning popup shown when priming the action. 
     /// </summary>
-    // Goobstation - Modsuits - Removed required string
+    // Goidastation - Modsuits - Removed required string
     [DataField]
     public string Popup = string.Empty;
 
     /// <summary>
-    /// Type of warning popup - Goobstaiton - Modsuits
+    /// Type of warning popup - Goidastaiton - Modsuits
     /// </summary>
     [DataField("popupType")]
     public PopupType PopupFontType = PopupType.LargeCaution;
@@ -66,7 +66,7 @@ public sealed partial class ConfirmableActionComponent : Component
     public TimeSpan PrimeTime = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Whether this action should cancel itself to confirm or not
     /// </summary>
     [DataField]

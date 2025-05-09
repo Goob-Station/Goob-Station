@@ -77,7 +77,7 @@ public sealed partial class HungerComponent : Component
     public HungerThreshold CurrentThreshold;
 
     /// <summary>
-    /// Goobstation
+    /// Goidastation
     /// Starting hunger value the entity should be at, if set then it overrides the default hunger value randomization behaviour.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]

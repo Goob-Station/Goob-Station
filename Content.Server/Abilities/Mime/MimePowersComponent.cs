@@ -58,7 +58,7 @@ namespace Content.Server.Abilities.Mime
         public bool ReadyToRepent = false;
 
         /// <summary>
-        /// Goobstation
+        /// Goidastation
         /// Whether this mime is able to break vow
         /// </summary>
         [DataField]

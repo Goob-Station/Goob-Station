@@ -14,7 +14,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using System.Numerics;
-using Content.Goobstation.Common.Standing;
+using Content.Goidastation.Common.Standing;
 using Content.Shared._White.Standing;
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Components;

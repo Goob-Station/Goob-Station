@@ -17,7 +17,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.StepTrigger.Components;
 /// <summary>
-///     Goobstation: This component marks an entity as being immune to all step triggers.
+///     Goidastation: This component marks an entity as being immune to all step triggers.
 ///     For example, a Harpy being so low density, that they don't set off landmines.
 /// </summary>
 /// <remarks>

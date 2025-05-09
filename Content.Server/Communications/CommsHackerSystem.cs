@@ -58,7 +58,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
             BreakOnMove = true,
             MovementThreshold = 0.5f,
             CancelDuplicate = false,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);

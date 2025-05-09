@@ -2,26 +2,26 @@
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Shared.MartialArts.Components;
-using Content.Goobstation.Shared.MartialArts.Events;
+using Content.Goidastation.Common.MartialArts;
+using Content.Goidastation.Shared.MartialArts.Components;
+using Content.Goidastation.Shared.MartialArts.Events;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 
-namespace Content.Goobstation.Shared.MartialArts;
+namespace Content.Goidastation.Shared.MartialArts;
 
 public partial class SharedMartialArtsSystem
 {

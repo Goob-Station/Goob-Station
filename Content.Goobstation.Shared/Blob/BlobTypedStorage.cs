@@ -9,11 +9,11 @@
 
 using System.Collections;
 using System.Diagnostics.Contracts;
-using Content.Goobstation.Shared.Blob.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Shared.Blob.Components;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Blob;
+namespace Content.Goidastation.Shared.Blob;
 
 #region BlobTypedStorage
 [DataDefinition]

@@ -23,10 +23,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Damage;
 
-namespace Content.Goobstation.Shared.Vehicles;
+namespace Content.Goidastation.Shared.Vehicles;
 
 public abstract partial class SharedVehicleSystem : EntitySystem
 {

@@ -18,7 +18,7 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: open_store
     event: !type:EventHereticOpenStore {}
   - type: HereticAction
@@ -33,7 +33,7 @@
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: mansus_grasp
     event: !type:EventHereticMansusGrasp {}
   - type: HereticAction
@@ -49,7 +49,7 @@
     useDelay: 2
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: living_heart
     event: !type:EventHereticLivingHeart {}
   - type: HereticAction
@@ -65,7 +65,7 @@
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: mansus_link
     event: !type:EventHereticMansusLink {}
   - type: HereticAction
@@ -82,7 +82,7 @@
     useDelay: 6
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Goidastation/Heretic/abilities_heretic.rsi
       state: shadowcloak
     event: !type:EventHereticShadowCloak
   - type: HereticAction

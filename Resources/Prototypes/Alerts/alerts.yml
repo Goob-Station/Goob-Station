@@ -138,12 +138,12 @@
   # If item is not in list it will go at the bottom (ties broken by alert type enum value)
   id: BaseAlertOrder
   order:
-    - alertType: ChangelingBiomass # goobstation - changelings
+    - alertType: ChangelingBiomass # goidastation - changelings
     - category: Health
     - category: Stamina
-    - alertType: ChangelingChemicals # goobstation - changelings
+    - alertType: ChangelingChemicals # goidastation - changelings
     - alertType: SuitPower
-    - alertType: ModsuitPower # Goobstation - Modsuits
+    - alertType: ModsuitPower # Goidastation - Modsuits
     - category: Internals
     - alertType: Fire
     - alertType: Handcuffed
@@ -154,7 +154,7 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
-    - alertType: KnockedDown # goobstation
+    - alertType: KnockedDown # goidastation
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
@@ -163,7 +163,7 @@
     - category: Thirst
     - alertType: Magboots
     - alertType: Pacified
-    - alertType: ShadowCloak # Goobstation
+    - alertType: ShadowCloak # Goidastation
 
 - type: entity
   id: AlertSpriteView
@@ -523,7 +523,7 @@
   clickEvent: !type:RetakeVowAlertEvent
   description: alerts-vow-broken-desc
 
-# Goobstation start
+# Goidastation start
 # Changed pulling to accomodate grabbing severity
 - type: alert
   id: Pulled
@@ -559,7 +559,7 @@
   minSeverity: 0
   maxSeverity: 3
 
-# Goobstation end
+# Goidastation end
 
 - type: alert
   id: Bleed

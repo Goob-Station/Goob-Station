@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2024 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -10,7 +10,7 @@
   id: ArrowEnergy
   desc: Regular hardlight arrow. Deals more damage than other types.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Guns/Bow/arrow.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Bow/arrow.rsi
     state: arrow
   color: "#FFB200"
   protoId: ArrowEnergy
@@ -64,7 +64,7 @@
   id: ArrowBee
   desc: Bee hardlight arrow. Summons angry bees when it hits any living entity, except bees themselves.
   icon:
-    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    sprite: _Goidastation/Objects/Weapons/Grenades/beenades.rsi
     state: icon
   color: yellow
   protoId: ArrowBee

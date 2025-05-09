@@ -263,7 +263,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
 
         var pos = Transform(user).Coordinates;
         virtualItem = Spawn(VirtualItem, pos);
-        var virtualItemComp = EnsureComp<VirtualItemComponent>(virtualItem.Value); // Goobstation
+        var virtualItemComp = EnsureComp<VirtualItemComponent>(virtualItem.Value); // Goidastation
         virtualItemComp.BlockingEntity = blockingEnt;
         Dirty(virtualItem.Value, virtualItemComp);
         return true;
@@ -274,10 +274,10 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// </summary>
     public void DeleteVirtualItem(Entity<VirtualItemComponent> item, EntityUid user)
     {
-        var userEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner); // Goobstation
+        var userEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner); // Goidastation
         RaiseLocalEvent(user, userEv);
 
-        var targEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner); // Goobstation
+        var targEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user, item.Owner); // Goidastation
         RaiseLocalEvent(item.Comp.BlockingEntity, targEv);
 
         if (TerminatingOrDeleted(item))

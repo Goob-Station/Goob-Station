@@ -108,7 +108,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCapFormalDress
 
-- type: loadout # goob
+- type: loadout # goida
   id: CaptainJumpsuitMilitary
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCaptain
@@ -124,7 +124,7 @@
   equipment:
     head: ClothingHeadHatCapcap
 
-# Mask - Tbh idk if this should be here or in _goob but this is easier.
+# Mask - Tbh idk if this should be here or in _goida but this is easier.
 
 - type: loadout
   id: CaptainMask

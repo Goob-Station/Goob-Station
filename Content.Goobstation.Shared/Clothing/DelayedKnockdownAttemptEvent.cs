@@ -8,7 +8,7 @@
 
 using Content.Shared.Inventory;
 
-namespace Content.Goobstation.Shared.Clothing;
+namespace Content.Goidastation.Shared.Clothing;
 
 public sealed class DelayedKnockdownAttemptEvent : CancellableEntityEventArgs, IInventoryRelayEvent
 {

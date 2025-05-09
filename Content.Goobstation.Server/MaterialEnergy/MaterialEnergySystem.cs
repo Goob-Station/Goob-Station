@@ -12,7 +12,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Materials;
 using Content.Shared.Stacks;
 
-namespace Content.Goobstation.Server.MaterialEnergy
+namespace Content.Goidastation.Server.MaterialEnergy
 {
     public sealed class MaterialEnergySystem : EntitySystem
     {

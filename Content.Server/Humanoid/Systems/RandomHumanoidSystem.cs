@@ -121,7 +121,7 @@ public sealed class RandomHumanoidSystem : EntitySystem
 
         var profile = prototype.SpeciesWhitelist != null
             ? HumanoidCharacterProfile.RandomWithSpecies(prototype.SpeciesWhitelist)
-            : HumanoidCharacterProfile.Random(prototype.SpeciesBlacklist); // Goob edit
+            : HumanoidCharacterProfile.Random(prototype.SpeciesBlacklist); // Goida edit
         var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
         var humanoid = EntityManager.CreateEntityUninitialized(speciesProto.Prototype, coordinates);
 

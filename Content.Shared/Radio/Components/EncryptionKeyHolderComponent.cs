@@ -64,7 +64,7 @@ public sealed partial class EncryptionKeyHolderComponent : Component
     public string? DefaultChannel;
 
     /// <summary>
-    ///     Goobstation: Whether or not the headset can be examined to see the encryption keys while the keys aren't accessible.
+    ///     Goidastation: Whether or not the headset can be examined to see the encryption keys while the keys aren't accessible.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("examineWhileLocked")]

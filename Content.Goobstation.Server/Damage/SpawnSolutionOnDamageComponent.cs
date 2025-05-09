@@ -8,7 +8,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.Damage;
+namespace Content.Goidastation.Server.Damage;
 
 [RegisterComponent]
 

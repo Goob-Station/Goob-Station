@@ -85,7 +85,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         }
 
         Gui.Visible = _system?.IsGhost ?? false;
-        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody, _system?.Player?.CanEnterGhostBar, _system?.Player?.CanTakeGhostRoles); // Goob edit
+        Gui.Update(_system?.AvailableGhostRoleCount, _system?.Player?.CanReturnToBody, _system?.Player?.CanEnterGhostBar, _system?.Player?.CanTakeGhostRoles); // Goida edit
     }
 
     private void OnPlayerRemoved(GhostComponent component)
@@ -146,8 +146,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed += RequestWarps;
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
-        Gui.GhostBarPressed += GhostBarPressed; // Goobstation - Ghost Bar
-        Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // Goobstation - Ghost Bar
+        Gui.GhostBarPressed += GhostBarPressed; // Goidastation - Ghost Bar
+        Gui.GhostBarWindow.SpawnButtonPressed += GhostBarSpawnPressed; // Goidastation - Ghost Bar
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
 
@@ -162,8 +162,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.RequestWarpsPressed -= RequestWarps;
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
-        Gui.GhostBarPressed -= GhostBarPressed; // Goobstation - Ghost Bar
-        Gui.GhostBarWindow.SpawnButtonPressed -= GhostBarSpawnPressed; // Goobstation - Ghost Bar
+        Gui.GhostBarPressed -= GhostBarPressed; // Goidastation - Ghost Bar
+        Gui.GhostBarWindow.SpawnButtonPressed -= GhostBarSpawnPressed; // Goidastation - Ghost Bar
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
 
         Gui.Hide();
@@ -186,12 +186,12 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         _system?.OpenGhostRoles();
     }
 
-    private void GhostBarPressed() // Goobstation - Ghost Bar
+    private void GhostBarPressed() // Goidastation - Ghost Bar
     {
         Gui?.GhostBarWindow.OpenCentered();
     }
 
-    private void GhostBarSpawnPressed() // Goobstation - Ghost Bar
+    private void GhostBarSpawnPressed() // Goidastation - Ghost Bar
     {
         _system?.GhostBarSpawn();
     }

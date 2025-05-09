@@ -6,7 +6,7 @@
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-FileCopyrightText: 2025 Ducks <97200673+TwoDucksOnnaPlane@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
@@ -41,10 +41,10 @@
 
 using Robust.Shared.Configuration;
 
-namespace Content.Goobstation.Common.CCVar;
+namespace Content.Goidastation.Common.CCVar;
 
 [CVarDefs]
-public sealed partial class GoobCVars
+public sealed partial class GoidaCVars
 {
     /// <summary>
     ///     Whether pipes will unanchor on ANY conflicting connection. May break maps.
@@ -117,13 +117,13 @@ public sealed partial class GoobCVars
     ///     Is ore silo enabled.
     /// </summary>
     public static readonly CVarDef<bool> SiloEnabled =
-        CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("goida.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Set a max drunk time in seconds to prevent permanent drunkeness.
     /// </summary>
     public static readonly CVarDef<float> MaxDrunkTime =
-        CVarDef.Create("goob.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("goida.max_drunk_time", 1500f, CVar.SERVER | CVar.REPLICATED);
 
     #region Player Listener
 
@@ -226,7 +226,7 @@ public sealed partial class GoobCVars
     #endregion
 
     /// <summary>
-    ///     Goobstation: The amount of time between NPC Silicons draining their battery in seconds.
+    ///     Goidastation: The amount of time between NPC Silicons draining their battery in seconds.
     /// </summary>
     public static readonly CVarDef<float> SiliconNpcUpdateTime =
         CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
@@ -272,22 +272,22 @@ public sealed partial class GoobCVars
 
     #endregion
 
-    #region Goobcoins
+    #region Goidacoins
 
-    public static readonly CVarDef<int> GoobcoinsPerPlayer =
-        CVarDef.Create("goob.coins_per_player", 10, CVar.SERVERONLY);
+    public static readonly CVarDef<int> GoidacoinsPerPlayer =
+        CVarDef.Create("goida.coins_per_player", 10, CVar.SERVERONLY);
 
-    public static readonly CVarDef<int> GoobcoinsPerGreentext =
-        CVarDef.Create("goob.coins_per_greentext", 5, CVar.SERVERONLY);
+    public static readonly CVarDef<int> GoidacoinsPerGreentext =
+        CVarDef.Create("goida.coins_per_greentext", 5, CVar.SERVERONLY);
 
-    public static readonly CVarDef<int> GoobcoinNonAntagMultiplier =
-        CVarDef.Create("goob.coins_non_antag_multiplier", 1, CVar.SERVERONLY);
+    public static readonly CVarDef<int> GoidacoinNonAntagMultiplier =
+        CVarDef.Create("goida.coins_non_antag_multiplier", 1, CVar.SERVERONLY);
 
-    public static readonly CVarDef<int> GoobcoinServerMultiplier =
-        CVarDef.Create("goob.coins_server_multiplier", 1, CVar.SERVERONLY);
+    public static readonly CVarDef<int> GoidacoinServerMultiplier =
+        CVarDef.Create("goida.coins_server_multiplier", 1, CVar.SERVERONLY);
 
-    public static readonly CVarDef<int> GoobcoinMinPlayers =
-        CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
+    public static readonly CVarDef<int> GoidacoinMinPlayers =
+        CVarDef.Create("goida.coins_min_players", 5, CVar.SERVERONLY);
 
     #endregion
 

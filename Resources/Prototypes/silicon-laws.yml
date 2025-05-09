@@ -15,7 +15,7 @@
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
-# Goobstation - AI/borg law changes - borgs obeying AI
+# Goidastation - AI/borg law changes - borgs obeying AI
 # Obey AI
 - type: siliconLaw
   id: ObeyAI
@@ -46,7 +46,7 @@
   - Crewsimov3
   obeysTo: laws-owner-crew
 
-# Goobstation - AI/borg law changes - borgs obeying AI
+# Goidastation - AI/borg law changes - borgs obeying AI
 - type: siliconLawset
   id: CrewsimovBorg
   laws:

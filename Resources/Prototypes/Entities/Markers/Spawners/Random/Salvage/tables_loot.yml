@@ -254,7 +254,7 @@
       weight: 0.5
     - id: OxygenTankFilled
     - id: WelderIndustrial
-    - id: FoodSnackLollypopWrappedMystery # Goobstation
+    - id: FoodSnackLollypopWrappedMystery # Goidastation
     - id: WeaponGrapplingGun
     - !type:GroupSelector
       children:
@@ -282,8 +282,8 @@
     - id: ClothingBeltSalvageWebbing
     - id: SeismicCharge
     - id: MineralScanner
-    - id: FoodSnackLollypopWrappedMysteryEvil # Goobstation
-    - id: FoodSnackLollypopWrappedOmnizine # Goobstation
+    - id: FoodSnackLollypopWrappedMysteryEvil # Goidastation
+    - id: FoodSnackLollypopWrappedOmnizine # Goidastation
       weight: 0.5
     - id: WeaponCrusher
       weight: 0.5
@@ -297,12 +297,12 @@
   table: !type:GroupSelector
     children:
     - id: AdvancedMineralScanner
-    # - id: BlueprintFulton # Goobstation - roundstart
-    # - id: BlueprintSeismicCharge # Goobstation - emag locked
+    # - id: BlueprintFulton # Goidastation - roundstart
+    # - id: BlueprintSeismicCharge # Goidastation - emag locked
     - id: WeaponCrusherGlaive
     - id: ClothingOuterHardsuitSalvage
     - id: ChemistryBottleOmnizine
-    - id: FoodSnackLollypopWrappedCarpEvil # Goobstation
+    - id: FoodSnackLollypopWrappedCarpEvil # Goidastation
     - !type:GroupSelector
       children:
       - id: JetpackBlueFilled

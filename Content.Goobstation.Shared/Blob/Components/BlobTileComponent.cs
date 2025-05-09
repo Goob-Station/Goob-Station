@@ -8,10 +8,10 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Blob.Components;
+namespace Content.Goidastation.Shared.Blob.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), Serializable]
 public sealed partial class BlobTileComponent : Component

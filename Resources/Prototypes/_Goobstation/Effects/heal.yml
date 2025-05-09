@@ -14,7 +14,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Effects
-    sprite: _Goobstation/Blob/heals.rsi
+    sprite: _Goidastation/Blob/heals.rsi
     state: single
   - type: EffectVisuals
   - type: Tag

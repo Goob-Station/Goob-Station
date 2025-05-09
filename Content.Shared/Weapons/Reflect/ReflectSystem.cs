@@ -77,13 +77,13 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
-using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goidastation.Wizard.Projectiles;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
@@ -146,7 +146,7 @@ public sealed class ReflectSystem : EntitySystem
 
         foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
         {
-            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goob edit
+            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goida edit
                 continue;
 
             args.Direction = dir.Value;
@@ -176,7 +176,7 @@ public sealed class ReflectSystem : EntitySystem
             args.Cancelled = true;
     }
 
-    public bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null) // Goob edit
+    public bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null) // Goida edit
     {
         if (!Resolve(reflector, ref reflect, false) ||
             !_toggle.IsActivated(reflector) ||
@@ -205,7 +205,7 @@ public sealed class ReflectSystem : EntitySystem
 
         if (_netManager.IsServer)
         {
-            if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goobstation
+            if (TryComp(projectile, out HomingProjectileComponent? homing)) // Goidastation
                 RemCompDeferred(projectile, homing);
             _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
             _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
@@ -237,34 +237,34 @@ public sealed class ReflectSystem : EntitySystem
 
     private void OnReflectHitscan(EntityUid uid, ReflectComponent component, ref HitScanReflectAttemptEvent args)
     {
-        if (args.Reflected) // Goob edit
+        if (args.Reflected) // Goida edit
         {
             return;
         }
 
-        if (TryReflectHitscan(uid, uid, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goob edit
+        if (TryReflectHitscan(uid, uid, args.Shooter, args.SourceItem, args.Direction, args.Reflective, args.Damage, out var dir)) // Goida edit
         {
             args.Direction = dir.Value;
             args.Reflected = true;
         }
     }
 
-    public bool TryReflectHitscan( // Goobstation
+    public bool TryReflectHitscan( // Goidastation
         EntityUid user,
         EntityUid reflector,
         EntityUid? shooter,
         EntityUid shotSource,
         Vector2 direction,
-        ReflectType reflective, // Goobstation
+        ReflectType reflective, // Goidastation
         DamageSpecifier? damage, // WD EDIT
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
             !_toggle.IsActivated(reflector) ||
             !reflect.InRightPlace ||
-            // Goob edit start
+            // Goida edit start
             !((reflect.Reflects & reflective) != 0x0 && _random.Prob(reflect.ReflectProb)))
-            // Goob edit end
+            // Goida edit end
         {
             newDirection = null;
             return false;
@@ -335,7 +335,7 @@ public sealed class ReflectSystem : EntitySystem
     {
         foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(user, SlotFlags.All & ~SlotFlags.POCKET))
         {
-            if (!HasComp<ReflectComponent>(ent)) // Goob edit - fix desword not reflecting
+            if (!HasComp<ReflectComponent>(ent)) // Goida edit - fix desword not reflecting
                 continue;
 
             EnsureComp<ReflectUserComponent>(user);

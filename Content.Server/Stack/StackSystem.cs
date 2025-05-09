@@ -24,7 +24,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Stack;
+using Content.Goidastation.Common.Stack;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Verbs;
@@ -42,7 +42,7 @@ namespace Content.Server.Stack
     public sealed class StackSystem : SharedStackSystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // Goobstation - Custom stack splitting dialog
+        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // Goidastation - Custom stack splitting dialog
 
         public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
 
@@ -68,7 +68,7 @@ namespace Content.Server.Stack
         /// <summary>
         ///     Try to split this stack into two. Returns a non-null <see cref="Robust.Shared.GameObjects.EntityUid"/> if successful.
         /// </summary>
-        public override EntityUid? Split(EntityUid uid, int amount, EntityCoordinates spawnPosition, StackComponent? stack = null) // Goobstation - override virtual method
+        public override EntityUid? Split(EntityUid uid, int amount, EntityCoordinates spawnPosition, StackComponent? stack = null) // Goidastation - override virtual method
         {
             if (!Resolve(uid, ref stack))
                 return null;
@@ -227,7 +227,7 @@ namespace Content.Server.Stack
                 args.Verbs.Add(verb);
             }
 
-            // Goobstation - Custom stack splitting dialog
+            // Goidastation - Custom stack splitting dialog
             AlternativeVerb custom = new()
             {
                 Text = Loc.GetString("comp-stack-split-custom"),
@@ -241,7 +241,7 @@ namespace Content.Server.Stack
             args.Verbs.Add(custom);
         }
 
-        // Goob Modularity - Edit made Public
+        // Goida Modularity - Edit made Public
         public void UserSplit(EntityUid uid, EntityUid userUid, int amount,
             StackComponent? stack = null,
             TransformComponent? userTransform = null)

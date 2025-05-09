@@ -6,7 +6,7 @@
   components:
   # Visuals
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/storage_bin.rsi
+    sprite: _Goidastation/Structures/Machines/storage_bin.rsi
     layers:
     - state: icon
     - state: powered

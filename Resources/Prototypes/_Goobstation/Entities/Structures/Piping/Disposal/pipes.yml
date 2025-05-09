@@ -12,7 +12,7 @@
   components:
   - type: Sprite
     drawdepth: ThickPipe
-    sprite: _Goobstation/Structures/Piping/disposal.rsi
+    sprite: _Goidastation/Structures/Piping/disposal.rsi
     layers:
     - map: [ "pipe" ]
       state: conpipe-blocker

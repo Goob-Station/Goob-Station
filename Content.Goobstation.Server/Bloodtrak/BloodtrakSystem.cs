@@ -1,10 +1,10 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Numerics;
-using Content.Goobstation.Shared.Bloodtrak;
+using Content.Goidastation.Shared.Bloodtrak;
 using Content.Server.Forensics;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Forensics.Components;
@@ -15,7 +15,7 @@ using Content.Shared.Tag;
 using Content.Shared.Timing;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Bloodtrak;
+namespace Content.Goidastation.Server.Bloodtrak;
 
 public sealed class BloodtrakSystem : SharedBloodtrakSystem
 {

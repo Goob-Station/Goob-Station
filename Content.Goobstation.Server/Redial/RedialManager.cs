@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Redial;
+using Content.Goidastation.Shared.Redial;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Server.Player;
@@ -13,7 +13,7 @@ using Robust.Shared.Console;
 using Robust.Shared.IoC;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Server.Redial;
+namespace Content.Goidastation.Server.Redial;
 
 public sealed class RedialManager : SharedRedialManager
 {

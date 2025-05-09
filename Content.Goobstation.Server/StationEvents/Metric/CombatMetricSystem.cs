@@ -5,10 +5,10 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Server.StationEvents.Metric.Components;
+using Content.Goidastation.Server.StationEvents.Metric.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -18,7 +18,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Prometheus;
 
-namespace Content.Goobstation.Server.StationEvents.Metric;
+namespace Content.Goidastation.Server.StationEvents.Metric;
 
 /// <summary>
 ///   Measures the strength of friendies and hostiles. Also calculates related health / death stats.

@@ -11,7 +11,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
@@ -31,15 +31,15 @@
 
 using System.Linq;
 using System.Numerics;
-using Content.Goobstation.Common.Actions;
-using Content.Goobstation.Common.Changeling;
-using Content.Goobstation.Common.MartialArts;
-using Content.Goobstation.Server.Changeling.Objectives.Components;
-using Content.Goobstation.Shared.Flashbang;
-using Content.Goobstation.Shared.Changeling.Actions;
-using Content.Goobstation.Shared.Changeling.Components;
-using Content.Goobstation.Shared.Changeling.Systems;
-using Content.Goobstation.Shared.MartialArts.Components;
+using Content.Goidastation.Common.Actions;
+using Content.Goidastation.Common.Changeling;
+using Content.Goidastation.Common.MartialArts;
+using Content.Goidastation.Server.Changeling.Objectives.Components;
+using Content.Goidastation.Shared.Flashbang;
+using Content.Goidastation.Shared.Changeling.Actions;
+using Content.Goidastation.Shared.Changeling.Components;
+using Content.Goidastation.Shared.Changeling.Systems;
+using Content.Goidastation.Shared.MartialArts.Components;
 using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
@@ -58,7 +58,7 @@ using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Zombies;
-using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._Goidastation.Weapons.AmmoSelector;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
@@ -70,7 +70,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -101,7 +101,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Changeling;
+namespace Content.Goidastation.Server.Changeling;
 
 public sealed partial class ChangelingSystem : SharedChangelingSystem
 {

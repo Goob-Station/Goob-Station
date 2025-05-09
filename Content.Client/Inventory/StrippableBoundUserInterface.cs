@@ -46,7 +46,7 @@ using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
 using Content.Shared._EstacaoPirata.Cards.Card;
 using Content.Shared._EstacaoPirata.Cards.Hand;
-using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared._Goidastation.Heretic.Components;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Ensnaring.Components;
@@ -210,7 +210,7 @@ namespace Content.Client.Inventory
                 if (EntMan.TryGetComponent<CuffableComponent>(Owner, out var cuff) && _cuffable.GetAllCuffs(cuff).Contains(virt.BlockingEntity))
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
-            //Goobstation: Cards are always hidden. NO CHEATING FOR U.
+            //Goidastation: Cards are always hidden. NO CHEATING FOR U.
             var isCard = EntMan.HasComponent<CardComponent>(hand.HeldEntity) ||
                          EntMan.HasComponent<CardHandComponent>(hand.HeldEntity);
             UpdateEntityIcon(button, isCard ? _virtualHiddenEntity : hand.HeldEntity);
@@ -255,7 +255,7 @@ namespace Content.Client.Inventory
             if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity))
                 entity = _virtualHiddenEntity;
 
-            // Goobstation: Playing Cards are always obscured in strip menu.
+            // Goidastation: Playing Cards are always obscured in strip menu.
             // I wanted to make the cards themselves appear hidden but this is simpler
             var isCard = EntMan.HasComponent<CardComponent>(entity) ||
                          EntMan.HasComponent<CardHandComponent>(entity);
@@ -264,7 +264,7 @@ namespace Content.Client.Inventory
                 entity = _virtualHiddenEntity;
             }
 
-            if (EntMan.HasComponent<StripMenuInvisibleComponent>(entity)) // Goobstation
+            if (EntMan.HasComponent<StripMenuInvisibleComponent>(entity)) // Goidastation
                 entity = null;
 
             var button = new SlotButton(new SlotData(slotDef, container));

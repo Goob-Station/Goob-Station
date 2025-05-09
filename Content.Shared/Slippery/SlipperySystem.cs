@@ -55,7 +55,7 @@ namespace Content.Shared.Slippery;
 [UsedImplicitly]
 public sealed class SlipperySystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!; // Goobstation
+    [Dependency] private readonly INetManager _net = default!; // Goidastation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -90,7 +90,7 @@ public sealed class SlipperySystem : EntitySystem
         SlipperyComponent component,
         ref StepTriggerAttemptEvent args)
     {
-        args.Continue |= component.SlipOnStep && CanSlip(uid, args.Tripper); // Goob edit
+        args.Continue |= component.SlipOnStep && CanSlip(uid, args.Tripper); // Goida edit
     }
 
     private static void OnNoSlipAttempt(EntityUid uid, NoSlipComponent component, SlipAttemptEvent args)
@@ -119,15 +119,15 @@ public sealed class SlipperySystem : EntitySystem
             _speedModifier.AddModifiedEntity(args.OtherEntity);
     }
 
-    public bool CanSlip(EntityUid uid, EntityUid toSlip) // Goob edit
+    public bool CanSlip(EntityUid uid, EntityUid toSlip) // Goida edit
     {
         return !_container.IsEntityInContainer(uid)
-                && _statusEffects.CanApplyEffect(toSlip, "KnockedDown", raiseEvent: false); // Goob edit
+                && _statusEffects.CanApplyEffect(toSlip, "KnockedDown", raiseEvent: false); // Goida edit
     }
 
-    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool force = false, bool predicted = true) // Goob edit
+    public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true, bool force = false, bool predicted = true) // Goida edit
     {
-        // Goob edit start
+        // Goida edit start
         if (!predicted && _net.IsClient)
             return;
 
@@ -150,8 +150,8 @@ public sealed class SlipperySystem : EntitySystem
                 return;
         }
 
-        var hardStun = component.SuperSlippery; // Goobstation
-        // Goob edit end
+        var hardStun = component.SuperSlippery; // Goidastation
+        // Goida edit end
 
         var ev = new SlipEvent(other);
         RaiseLocalEvent(uid, ref ev);
@@ -170,7 +170,7 @@ public sealed class SlipperySystem : EntitySystem
 
         var playSound = !_statusEffects.HasStatusEffect(other, "KnockedDown");
 
-        // goob edit - stunmeta
+        // goida edit - stunmeta
         var time = TimeSpan.FromSeconds(component.ParalyzeTime);
         if (hardStun)
             _stun.TryParalyze(other, time, true);

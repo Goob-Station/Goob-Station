@@ -11,9 +11,9 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Goobstation.Common.CCVar;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Common.CCVar;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Destructible;
@@ -37,7 +37,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Goobstation.Server.Blob;
+namespace Content.Goidastation.Server.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
@@ -72,7 +72,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         SubscribeLocalEvent<BlobObserverControllerComponent, AfterInteractEvent>(OnInteractController);
         SubscribeLocalEvent<BlobObserverComponent, UserActivateInWorldEvent>(OnInteractTarget);
 
-        Subs.CVar(_cfg, GoobCVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
+        Subs.CVar(_cfg, GoidaCVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
         _tileQuery = GetEntityQuery<BlobTileComponent>();
         _blobCoreQuery = GetEntityQuery<BlobCoreComponent>();
     }

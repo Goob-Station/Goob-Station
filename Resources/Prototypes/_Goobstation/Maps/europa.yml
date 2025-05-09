@@ -96,7 +96,7 @@
 - type: gameMap
   id: Europa
   mapName: 'Europa'
-  mapPath: /Maps/_Goobstation/europa.yml
+  mapPath: /Maps/_Goidastation/europa.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0

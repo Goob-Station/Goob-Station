@@ -100,7 +100,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Threading;
-using Content.Goobstation.Common.Speech;
+using Content.Goidastation.Common.Speech;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
 using Content.Server.Atmos.Components;
@@ -121,7 +121,7 @@ using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
 using Content.Server.Tabletop.Components;
 using Content.Server.Temperature.Components;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Goidastation.Wizard.Traps;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
 using Content.Shared.Body.Components;
@@ -633,7 +633,7 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(ghostKick);
         }
 
-        // Goobstation
+        // Goidastation
         if (HasComp<TemperatureComponent>(args.Target))
         {
             var iceCubeName = Loc.GetString("admin-smite-ice-cube-name").ToLowerInvariant();
@@ -641,7 +641,7 @@ public sealed partial class AdminVerbSystem
             {
                 Text = iceCubeName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wizard/Effects/effects.rsi"), "ice_cube"),
+                Icon = new SpriteSpecifier.Rsi(new ResPath("_Goidastation/Wizard/Effects/effects.rsi"), "ice_cube"),
                 Act = () =>
                 {
                     EnsureComp<IceCubeComponent>(args.Target);
@@ -1038,11 +1038,11 @@ public sealed partial class AdminVerbSystem
                 EnsureComp<SouthernAccentComponent>(args.Target);
                 EnsureComp<SpanishAccentComponent>(args.Target);
                 EnsureComp<StutteringAccentComponent>(args.Target);
-                EnsureComp<MedievalAccentComponent>(args.Target); // Goobtation
-                EnsureComp<MaoistAccentComponent>(args.Target); // Goobtation
-                EnsureComp<OhioAccentComponent>(args.Target); // Goobtation
-                EnsureComp<PirateAccentComponent>(args.Target); // Goobtation
-                EnsureComp<VulgarAccentComponent>(args.Target); // Goobtation
+                EnsureComp<MedievalAccentComponent>(args.Target); // Goidatation
+                EnsureComp<MaoistAccentComponent>(args.Target); // Goidatation
+                EnsureComp<OhioAccentComponent>(args.Target); // Goidatation
+                EnsureComp<PirateAccentComponent>(args.Target); // Goidatation
+                EnsureComp<VulgarAccentComponent>(args.Target); // Goidatation
 
                 if (_random.Next(0, 8) == 0)
                 {

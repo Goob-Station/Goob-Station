@@ -23,8 +23,8 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Explosion.Components;
 using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
-using Content.Server._Imp.Drone; //Goobstation drone
-using Robust.Shared.Player; //Goobstation drone
+using Content.Server._Imp.Drone; //Goidastation drone
+using Robust.Shared.Player; //Goidastation drone
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
@@ -75,7 +75,7 @@ public sealed partial class BorgSystem
 
             comp.NextBroadcast = now + comp.BroadcastDelay;
         }
-        //Goobstation Drone transponder start
+        //Goidastation Drone transponder start
         var query2 = EntityQueryEnumerator<BorgTransponderComponent, DroneComponent, DeviceNetworkComponent, MetaDataComponent>();
         while (query2.MoveNext(out var uid, out  var comp, out var drone, out var device, out var  meta))
         {
@@ -100,7 +100,7 @@ public sealed partial class BorgSystem
 
             comp.NextBroadcast = now + comp.BroadcastDelay;
         }
-        //Goobstation drone transponder end
+        //Goidastation drone transponder end
     }
 
     private void DoDisable(Entity<BorgTransponderComponent, BorgChassisComponent, MetaDataComponent> ent)

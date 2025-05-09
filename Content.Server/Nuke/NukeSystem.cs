@@ -102,7 +102,7 @@
 // SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -162,9 +162,9 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    // Goobstation start
+    // Goidastation start
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    // Goobstation end
+    // Goidastation end
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -377,7 +377,7 @@ public sealed class NukeSystem : EntitySystem
 
         else
         {
-            if (isOverride) // Goobstation
+            if (isOverride) // Goidastation
             {
                 var msg = Loc.GetString("nuke-component-disarm-fail");
                 _popups.PopupEntity(msg, uid, args.Actor, PopupType.MediumCaution);
@@ -462,14 +462,14 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goidastation
 
         switch (component.Status)
         {
             case NukeStatus.AWAIT_DISK:
-                if (component.DiskSlot.HasItem && !isOverride) // Goobstation
+                if (component.DiskSlot.HasItem && !isOverride) // Goidastation
                     component.Status = NukeStatus.AWAIT_CODE;
-                else if (component.DiskSlot.HasItem && isOverride) // Goobstation
+                else if (component.DiskSlot.HasItem && isOverride) // Goidastation
                     component.Status = NukeStatus.AWAIT_ARM;
                 break;
             case NukeStatus.AWAIT_CODE:
@@ -575,7 +575,7 @@ public sealed class NukeSystem : EntitySystem
 
         return ret;
     }
-    private bool GetDiskOverrideStatus(EntityUid? diskItem) // Goobstation
+    private bool GetDiskOverrideStatus(EntityUid? diskItem) // Goidastation
     {
         if (diskItem == null)
             return false;
@@ -595,7 +595,7 @@ public sealed class NukeSystem : EntitySystem
         if (component.Status == NukeStatus.ARMED)
             return;
 
-        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goidastation
 
         var nukeXform = Transform(uid);
         var stationUid = _station.GetStationInMap(nukeXform.MapID);
@@ -615,7 +615,7 @@ public sealed class NukeSystem : EntitySystem
         // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
         _selectedNukeSong = _audio.ResolveSound(component.ArmMusic);
 
-        // Goobstation start
+        // Goidastation start
         // If it's honkops, we use a different soundcollection!
         var activeRules = _gameTicker.GetActiveGameRules();
 
@@ -630,7 +630,7 @@ public sealed class NukeSystem : EntitySystem
                 }
             }
         }
-        // Goobstation end
+        // Goidastation end
 
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-armed",
@@ -667,9 +667,9 @@ public sealed class NukeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goobstation
+        var isOverride = GetDiskOverrideStatus(component.DiskSlot.Item); // Goidastation
 
-        if (component.Status != NukeStatus.ARMED || isOverride ) // Goobstation - Extra Safeguard
+        if (component.Status != NukeStatus.ARMED || isOverride ) // Goidastation - Extra Safeguard
             return;
 
         var stationUid = _station.GetOwningStation(uid);
@@ -770,7 +770,7 @@ public sealed class NukeSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true,
-            MultiplyDelay = false, // Goobstation
+            MultiplyDelay = false, // Goidastation
         };
 
         if (!_doAfter.TryStartDoAfter(doAfter))

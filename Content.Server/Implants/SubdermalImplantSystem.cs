@@ -80,7 +80,7 @@
 // SPDX-FileCopyrightText: 2025 12rabbits <53499656+12rabbits@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
@@ -176,7 +176,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         _popup.PopupEntity(msg, args.User, args.User);
     }
 
-    // Heavily edited by goobstation to make freedom useful
+    // Heavily edited by goidastation to make freedom useful
     private void OnFreedomImplant(EntityUid uid, SubdermalImplantComponent component, UseFreedomImplantEvent args)
     {
         if (component.ImplantedEntity == null)
@@ -211,7 +211,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         args.Handled = true;
     }
 
-    // Goobstation - Actually fix scram implant (#759)
+    // Goidastation - Actually fix scram implant (#759)
     private void OnScramImplant(EntityUid uid, SubdermalImplantComponent component, UseScramImplantEvent args)
     {
         if (component.ImplantedEntity is not { } ent)

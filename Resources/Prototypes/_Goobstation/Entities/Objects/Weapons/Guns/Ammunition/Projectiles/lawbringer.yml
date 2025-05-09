@@ -13,7 +13,7 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     layers:
     - state: omnilaser-yellow
       shader: unshaded
@@ -45,7 +45,7 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     layers:
     - state: omnilaser-blue
       shader: unshaded
@@ -104,7 +104,7 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     layers:
     - state: omnilaser-green
       shader: unshaded
@@ -155,7 +155,7 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    sprite: _Goidastation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
     layers:
     - state: omnilaser-pink
       shader: unshaded

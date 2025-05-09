@@ -338,7 +338,7 @@ public abstract partial class SharedGunSystem
         return true;
     }
 
-    public EntityUid? GetChamberEntity(EntityUid uid) // Goob edit
+    public EntityUid? GetChamberEntity(EntityUid uid) // Goida edit
     {
         if (!Containers.TryGetContainer(uid, ChamberSlot, out var container) ||
             container is not ContainerSlot slot)

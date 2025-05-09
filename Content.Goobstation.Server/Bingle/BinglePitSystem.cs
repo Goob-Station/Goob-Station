@@ -14,12 +14,12 @@
 
 using System;
 using System.Numerics;
-using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Shared.Bingle;
+using Content.Goidastation.Common.Bingle;
+using Content.Goidastation.Shared.Bingle;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
-using Content.Goobstation.Common.Bingle;
-using Content.Goobstation.Shared.Bingle;
+using Content.Goidastation.Common.Bingle;
+using Content.Goidastation.Shared.Bingle;
 using Content.Server.GameTicking;
 using Content.Server.Pinpointer;
 using Content.Server.Stunnable;
@@ -54,7 +54,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.Bingle;
+namespace Content.Goidastation.Server.Bingle;
 
 public sealed class BinglePitSystem : EntitySystem
 {

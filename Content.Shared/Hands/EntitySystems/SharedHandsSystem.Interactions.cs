@@ -12,7 +12,7 @@
 // SPDX-FileCopyrightText: 2024 wrexbe <wrexbe@protonmail.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 vanx <61917534+Vaaankas@users.noreply.github.com>
@@ -20,7 +20,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Shared._Goobstation.Wizard.ArcaneBarrage;
+using Content.Shared._Goidastation.Wizard.ArcaneBarrage;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -121,7 +121,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
     {
         if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
         {
-            // Goobstation start
+            // Goidastation start
             if (_net.IsServer && HasComp<DeleteOnDropAttemptComponent>(hands.ActiveHandEntity))
             {
                 QueueDel(hands.ActiveHandEntity.Value);
@@ -145,7 +145,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
                 }
                 TryDrop(ent, hands.ActiveHand, coords, handsComp: hands);
             }
-            // Goobstation end
+            // Goidastation end
         }
 
         // always send to server.

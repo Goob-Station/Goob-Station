@@ -11,10 +11,10 @@
   description: Some theories claim that the apocalypse of 3024 happened because of the pens
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
+    sprite: _Goidastation/Objects/Misc/bureaucracy.rsi
     state: pen_future
   - type: Item
-    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
+    sprite: _Goidastation/Objects/Misc/bureaucracy.rsi
     heldPrefix: pen_future
 
 - type: entity
@@ -24,10 +24,10 @@
   description: A devilishly sharp pen with a strangely warm body. Not quite as sharp as a devils tongue, nor as silver coated.
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
+    sprite: _Goidastation/Objects/Misc/bureaucracy.rsi
     state: pen_devil
   - type: Item
-    sprite: _Goobstation/Objects/Misc/bureaucracy.rsi
+    sprite: _Goidastation/Objects/Misc/bureaucracy.rsi
     heldPrefix: pen_devil
   - type: MeleeWeapon
     wideAnimationRotation: -45

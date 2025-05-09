@@ -106,7 +106,7 @@
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo
-  goobcoins: 15 #Goob content
+  goidacoins: 15 #Goida content
   access:
   - Medical
   - Maintenance

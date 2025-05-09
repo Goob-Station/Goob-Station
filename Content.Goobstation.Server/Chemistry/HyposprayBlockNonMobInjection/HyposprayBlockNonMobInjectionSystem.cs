@@ -11,7 +11,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Goobstation.Server.Chemistry.HyposprayBlockNonMobInjection;
+namespace Content.Goidastation.Server.Chemistry.HyposprayBlockNonMobInjection;
 
 public sealed class HyposprayBlockNonMobInjectionSystem : EntitySystem
 {

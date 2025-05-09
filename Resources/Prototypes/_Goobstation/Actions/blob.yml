@@ -12,7 +12,7 @@
   components:
     - type: WorldTargetAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobFactory
       event: !type:BlobTransformTileActionEvent
         transformFrom: Normal
@@ -28,7 +28,7 @@
   components:
     - type: WorldTargetAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobResource
       event: !type:BlobTransformTileActionEvent
         transformFrom: Normal
@@ -44,7 +44,7 @@
   components:
     - type: WorldTargetAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobNode
       event: !type:BlobTransformTileActionEvent
         transformFrom: Normal
@@ -60,7 +60,7 @@
   components:
     - type: WorldTargetAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobBlobbernaut
       event: !type:BlobCreateBlobbernautActionEvent
       itemIconStyle: BigAction
@@ -74,7 +74,7 @@
   components:
     - type: WorldTargetAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobSplit
       event: !type:BlobSplitCoreActionEvent
       itemIconStyle: BigAction
@@ -88,7 +88,7 @@
   components:
     - type: WorldTargetAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobSwap
       event: !type:BlobSwapCoreActionEvent
       itemIconStyle: BigAction
@@ -102,7 +102,7 @@
   components:
     - type: InstantAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobToCore
       event: !type:BlobToCoreActionEvent
       itemIconStyle: BigAction
@@ -115,7 +115,7 @@
   components:
     - type: InstantAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobChemSwap
       event: !type:BlobSwapChemActionEvent
 
@@ -126,7 +126,7 @@
   components:
     - type: InstantAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobToCore
       event: !type:TransformToBlobActionEvent
 
@@ -137,7 +137,7 @@
   components:
     - type: WorldTargetAction
       icon:
-        sprite: _Goobstation/Blob/Actions/blob.rsi
+        sprite: _Goidastation/Blob/Actions/blob.rsi
         state: blobDowngrade
       event: !type:BlobTransformTileActionEvent
         transformFrom: Invalid

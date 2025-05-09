@@ -30,7 +30,7 @@
   - type: Item
     sprite: Objects/Tools/emag.rsi
     storedRotation: -90
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - Hacking
 

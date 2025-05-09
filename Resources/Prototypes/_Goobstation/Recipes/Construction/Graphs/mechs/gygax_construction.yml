@@ -164,7 +164,7 @@
       - tag: GygaxArmor
         name: gygax armor plates
         icon:
-          sprite: "_Goobstation/Objects/Specific/Mech/gygax_construction.rsi"
+          sprite: "_Goidastation/Objects/Specific/Mech/gygax_construction.rsi"
           state: gygax_armor
         completed:
         - !type:VisualizerDataInt

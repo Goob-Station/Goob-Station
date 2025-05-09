@@ -18,7 +18,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.StepTrigger.Prototypes; // Goobstation
+using Content.Shared.StepTrigger.Prototypes; // Goidastation
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
@@ -82,7 +82,7 @@ public sealed partial class StepTriggerComponent : Component
 
 
     /// <summary>
-    ///     Goobstation: If TriggerGroups is specified, it will check StepTriggerImmunityComponent to have the same TriggerType to activate immunity
+    ///     Goidastation: If TriggerGroups is specified, it will check StepTriggerImmunityComponent to have the same TriggerType to activate immunity
     /// </summary>
     [DataField]
     public StepTriggerGroup? TriggerGroups;

@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameObjects;
 
-namespace Content.Goobstation.Common.Interactions;
+namespace Content.Goidastation.Common.Interactions;
 
 /// <summary>
 ///     UseAttempt, but for item.

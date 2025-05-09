@@ -57,7 +57,7 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
@@ -138,7 +138,7 @@
   - type: AmmoCounter
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 3 # Goobstation edit
+    fireRate: 3 # Goidastation edit
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -216,12 +216,12 @@
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
-    shape: # Goobstation
+    shape: # Goidastation
     - 0,0,4,1
   - type: BallisticAmmoProvider
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 1.7 # Goobstation
+    fireRate: 1.7 # Goidastation
 
 - type: entity
   parent: WeaponShotgunEnforcer
@@ -248,11 +248,11 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    #fireRate: 1 # Goobstation
+    #fireRate: 1 # Goidastation
   - type: Tag
     tags:
     - WeaponShotgunKammerer
-  - type: BallisticAmmoProvider # Goobstation
+  - type: BallisticAmmoProvider # Goidastation
     autoCycle: false
 
 - type: entity
@@ -267,7 +267,7 @@
     sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Item
     size: Small
-    shape: # Goobstation
+    shape: # Goidastation
     - 0,0,2,0
     sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun

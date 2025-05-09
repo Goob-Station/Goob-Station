@@ -52,7 +52,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 Eagle <lincoln.mcqueen@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 PunishedJoe <PunishedJoeseph@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -95,7 +95,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
-    autoCycle: false # Goobstation
+    autoCycle: false # Goidastation
     capacity: 10
     proto: CartridgeLightRifle
     whitelist:
@@ -108,7 +108,7 @@
   - type: StaticPrice
     price: 500
 
-# Goobstation - Start - I decided to put it here, because it changes Hristov.
+# Goidastation - Start - I decided to put it here, because it changes Hristov.
 - type: entity
   name: BaseMagazineSniper
   parent: [BaseItem, BaseGunWieldable]
@@ -169,7 +169,7 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-# Goobstation - End
+# Goidastation - End
 
 - type: entity
   name: Kardashev-Mosin
@@ -179,7 +179,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
-  - type: Item  # Goob edit start
+  - type: Item  # Goida edit start
     size: Large
     storedRotation: 45
   - type: Gun
@@ -197,7 +197,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type: MeleeRequiresWield # Goob edit end
+  - type: MeleeRequiresWield # Goida edit end
 
 - type: entity
   name: Hristov
@@ -211,26 +211,26 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
   - type: GunRequiresWield
   - type: Gun
-    # fireRate: 0.4 # Goobstation
+    # fireRate: 0.4 # Goidastation
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
-    resetOnHandSelected: false # Goobstation - quickscope pro
-  #- type: BallisticAmmoProvider - Goobstation - Magazine Sniper
+    resetOnHandSelected: false # Goidastation - quickscope pro
+  #- type: BallisticAmmoProvider - Goidastation - Magazine Sniper
   #  whitelist:
   #    tags:
   #    - CartridgeAntiMateriel
   #  capacity: 5
   #  proto: CartridgeAntiMateriel
   - type: SpeedModifiedOnWield
-    walkModifier: 0.8 # goob edit V
-    sprintModifier: 0.8 # goob edit ^
+    walkModifier: 0.8 # goida edit V
+    sprintModifier: 0.8 # goida edit ^
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
-    maxOffset: 8 # Goobstation - Sniper rifles buff
-    pvsIncrease: 0.8 # Goobstation - Sniper rifles buff
+    maxOffset: 8 # Goidastation - Sniper rifles buff
+    pvsIncrease: 0.8 # Goidastation - Sniper rifles buff
 
 - type: entity
   name: musket
@@ -259,7 +259,7 @@
       - CartridgeAntiMateriel
     capacity: 1
     proto: CartridgeAntiMateriel
-  #- type: MeleeWeapon # Goobstation - commented this out cause it breaks NPCs and it doesn't work anyway lol
+  #- type: MeleeWeapon # Goidastation - commented this out cause it breaks NPCs and it doesn't work anyway lol
   #  wideAnimationRotation: -135
   #  damage:
   #    types:

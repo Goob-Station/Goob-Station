@@ -14,7 +14,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Shared.Interaction;
+namespace Content.Goidastation.Shared.Interaction;
 
 public sealed class BackEquipSystem : EntitySystem
 {
@@ -29,7 +29,7 @@ public sealed class BackEquipSystem : EntitySystem
             .Bind(ContentKeyFunctions.SmartEquipBack,
                 InputCmdHandler.FromDelegate(HandleEquipToBack,
                     handle: false,
-                    outsidePrediction: false)) // Goobstation - Smart equip to back
+                    outsidePrediction: false)) // Goidastation - Smart equip to back
             .Register<BackEquipSystem>();
     }
 

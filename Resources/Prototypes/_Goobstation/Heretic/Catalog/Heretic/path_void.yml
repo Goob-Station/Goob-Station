@@ -28,7 +28,7 @@
   id: HereticVoidPath1
   name: knowledge-path-void-s1-name
   description: knowledge-path-void-s1-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_void.rsi, state: icon }
   productHereticKnowledge: GlimmerOfWinter
   cost:
     KnowledgePoint: 1
@@ -52,7 +52,7 @@
   id: HereticVoidPath2
   name: knowledge-path-void-s2-name
   description: knowledge-path-void-s2-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: GraspOfVoid
   cost:
     KnowledgePoint: 1
@@ -86,7 +86,7 @@
   id: HereticVoidPath4
   name: knowledge-path-void-s4-name
   description: knowledge-path-void-s4-desc
-  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfVoid
   cost:
     KnowledgePoint: 2
@@ -104,7 +104,7 @@
   id: HereticVoidPath5
   name: knowledge-path-void-s5-name
   description: knowledge-path-void-s5-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_blast }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: void_blast }
   productHereticKnowledge: VoidBlast
   cost:
     KnowledgePoint: 2
@@ -122,7 +122,7 @@
   id: HereticVoidPath6
   name: knowledge-path-void-s6-name
   description: knowledge-path-void-s6-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_phase }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: void_phase }
   productHereticKnowledge: VoidPhase
   cost:
     KnowledgePoint: 1
@@ -138,7 +138,7 @@
   id: HereticVoidPath7
   name: knowledge-path-void-s7-name
   description: knowledge-path-void-s7-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_void.rsi, state: icon }
   productHereticKnowledge: SeekingBlade
   cost:
     KnowledgePoint: 2
@@ -156,7 +156,7 @@
   id: HereticVoidPath8
   name: knowledge-path-void-s8-name
   description: knowledge-path-void-s8-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: void_pull }
+  icon: { sprite: _Goidastation/Heretic/abilities_heretic.rsi, state: void_pull }
   productHereticKnowledge: VoidPull
   cost:
     KnowledgePoint: 1

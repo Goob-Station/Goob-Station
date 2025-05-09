@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.SanguineStrike;
+using Content.Shared._Goidastation.Wizard.SanguineStrike;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Shitcode.Wizard.Systems;

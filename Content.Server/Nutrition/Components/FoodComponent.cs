@@ -119,14 +119,14 @@
 using Content.Server.Body.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Nutrition.Components;
 
 [RegisterComponent, Access(typeof(FoodSystem), typeof(FoodSequenceSystem))]
-public sealed partial class FoodComponent : SharedFoodComponent // Goobstation - Changeling absorb biomass ability, now inherits from shared
+public sealed partial class FoodComponent : SharedFoodComponent // Goidastation - Changeling absorb biomass ability, now inherits from shared
 {
     [DataField]
     public string Solution = "food";
@@ -152,7 +152,7 @@ public sealed partial class FoodComponent : SharedFoodComponent // Goobstation -
     [DataField]
     public bool UtensilRequired;
 
-    /* Goobstation - Changeling absorb biomass ability, has been moved to shared
+    /* Goidastation - Changeling absorb biomass ability, has been moved to shared
     /// <summary>
     ///     If this is set to true, food can only be eaten if you have a stomach with a
     ///     <see cref="StomachComponent.SpecialDigestible"/> that includes this entity in its whitelist,

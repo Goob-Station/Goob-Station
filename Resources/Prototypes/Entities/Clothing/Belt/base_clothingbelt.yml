@@ -32,7 +32,7 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Cloth: 25
       Steel: 12

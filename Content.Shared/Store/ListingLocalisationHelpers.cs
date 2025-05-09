@@ -16,7 +16,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Store;
 
-// goob edit - fuck newstore
+// goida edit - fuck newstore
 // do not touch unless you want to shoot yourself in the leg
 public static class ListingLocalisationHelpers
 {
@@ -51,7 +51,7 @@ public static class ListingLocalisationHelpers
         else if (listingData.ProductEntity != null)
             desc = prototypeManager.Index(listingData.ProductEntity.Value).Description;
 
-        // goob edit
+        // goida edit
         var _protoMan = IoCManager.Resolve<IPrototypeManager>();
         var _rand = IoCManager.Resolve<IRobustRandom>();
 
@@ -62,7 +62,7 @@ public static class ListingLocalisationHelpers
             desc += "\n" + discountString;
         else if (listingData.OldCost.Count > 0)
             desc += "\n" + Loc.GetString("store-sales-over");
-        // goob edit end
+        // goida edit end
 
         return desc;
     }

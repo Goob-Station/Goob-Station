@@ -8,7 +8,7 @@
     bodyType: Static
     canCollide: true
   - type: Sprite
-    sprite: _Goobstation/Structures/Holo/field.rsi
+    sprite: _Goidastation/Structures/Holo/field.rsi
     state: icon
   - type: Fixtures
     fixtures:

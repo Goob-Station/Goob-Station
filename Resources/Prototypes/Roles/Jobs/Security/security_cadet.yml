@@ -107,7 +107,7 @@
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
-  goobcoins: 30 #Goob content
+  goidacoins: 30 #Goida content
   access:
   - Security
   - Brig
@@ -118,23 +118,23 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial # goobstation
+  - !type:AddComponentSpecial # goidastation
     components:
       - type: SecurityStaff
 
 - type: startingGear
   id: SecurityCadetGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity #Goobstation
+    eyes: ClothingEyesGlassesSecurity #Goidastation
     shoes: ClothingShoesBootsJackFilled
     outerClothing: ClothingOuterArmorBasic
     id: SecurityCadetPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltSecurityRegular # Goidastation
     belt: ClothingBeltSecurityFilled
-    #pocket1: WeaponDisabler #Goobstation (Disablers in belts)
+    #pocket1: WeaponDisabler #Goidastation (Disablers in belts)
     pocket2: BookSecurity
   storage:
     back:
     - Flash
     - Handcuffs
-    - ClothingMaskGasSecurity # Goobstation
+    - ClothingMaskGasSecurity # Goidastation

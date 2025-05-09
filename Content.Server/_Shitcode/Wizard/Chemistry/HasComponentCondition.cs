@@ -9,7 +9,7 @@ using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Chemistry;
+namespace Content.Server._Goidastation.Wizard.Chemistry;
 
 [UsedImplicitly]
 public sealed partial class HasComponentCondition : EntityEffectCondition

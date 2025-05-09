@@ -30,10 +30,10 @@
       storedRotation: -90
     - type: Tag
       tags:
-        - DroneUsable # Goobstation
+        - DroneUsable # Goidastation
     - type: StaticPrice
       price: 100
-    - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goidastation - Recycle update
       materialComposition:
         Glass: 125
         Steel: 25

@@ -190,7 +190,7 @@
     - type: StationLimitedNetwork
     - type: WirelessNetworkConnection
       range: 500
-    - type: MansusGraspBlockTrigger # Goobstation
+    - type: MansusGraspBlockTrigger # Goidastation
     - type: TriggerOnMobstateChange
       mobState:
       - Critical
@@ -283,7 +283,7 @@
     - type: TriggerImplantAction
     - type: EmpOnTrigger
       range: 2.75
-      energyConsumption: 360 # Goob edit
+      energyConsumption: 360 # Goida edit
       disableDuration: 10
 
 - type: entity
@@ -324,7 +324,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
-      implantationTimeMultiplier: 4 # Goobstation - Traitor suicide implants
+      implantationTimeMultiplier: 4 # Goidastation - Traitor suicide implants
       permanent: true
       implantAction: ActionActivateMicroBomb
     - type: TriggerOnMobstateChange
@@ -355,7 +355,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
-      implantationTimeMultiplier: 4 # Goobstation - Traitor suicide implants
+      implantationTimeMultiplier: 4 # Goidastation - Traitor suicide implants
       permanent: true
     - type: TriggerOnMobstateChange #Chains with OnUseTimerTrigger
       mobState:
@@ -391,7 +391,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    implantationTimeMultiplier: 4 # Goobstation - Traitor suicide implants
+    implantationTimeMultiplier: 4 # Goidastation - Traitor suicide implants
     permanent: true
     implantAction: ActionActivateDeathAcidifier
   - type: TriggerOnMobstateChange
@@ -420,7 +420,7 @@
       whitelist:
         components:
         - MobState # admeme implanting a chair with rattle implant needs to give the chair mobstate so it can die first
-    - type: MansusGraspBlockTrigger # Goobstation
+    - type: MansusGraspBlockTrigger # Goidastation
     - type: TriggerOnMobstateChange
       mobState:
       - Critical

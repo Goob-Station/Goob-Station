@@ -13,7 +13,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Serialization.Manager.Attributes;
 using Robust.Shared.ViewVariables;
 
-namespace Content.Goobstation.Common.Pirates;
+namespace Content.Goidastation.Common.Pirates;
 
 [RegisterComponent]
 public sealed partial class ResourceSiphonComponent : Component

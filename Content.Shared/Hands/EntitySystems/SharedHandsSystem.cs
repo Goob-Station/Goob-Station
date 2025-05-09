@@ -56,7 +56,7 @@ namespace Content.Shared.Hands.EntitySystems;
 
 public abstract partial class SharedHandsSystem
 {
-    [Dependency] private readonly INetManager _net = default!; // Goobstation
+    [Dependency] private readonly INetManager _net = default!; // Goidastation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
@@ -357,7 +357,7 @@ public abstract partial class SharedHandsSystem
         return hands.Hands.TryGetValue(handId, out hand);
     }
 
-    public int CountFreeableHands(Entity<HandsComponent> hands, bool excludeActiveHand = false) // Goob edit
+    public int CountFreeableHands(Entity<HandsComponent> hands, bool excludeActiveHand = false) // Goida edit
     {
         var freeable = 0;
         foreach (var hand in hands.Comp.Hands.Values)

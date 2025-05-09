@@ -6,17 +6,17 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Server._Goobstation.Wizard.Components;
+using Content.Server._Goidastation.Wizard.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared._Goobstation.Wizard.Traps;
+using Content.Shared._Goidastation.Wizard.Traps;
 using Content.Shared.Damage;
 using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
 using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class IceCubeSystem : SharedIceCubeSystem
 {

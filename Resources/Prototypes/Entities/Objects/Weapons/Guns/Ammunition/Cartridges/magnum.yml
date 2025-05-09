@@ -35,7 +35,7 @@
 - type: entity
   id: BaseCartridgeMagnum
   name: cartridge (.45 magnum)
-  parent: [ BaseCartridge, BaseSecurityCommandContraband ] # Goob edit - captain's N1984
+  parent: [ BaseCartridge, BaseSecurityCommandContraband ] # Goida edit - captain's N1984
   abstract: true
   components:
   - type: Tag

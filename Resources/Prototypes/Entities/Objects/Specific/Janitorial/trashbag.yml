@@ -53,7 +53,7 @@
   - type: Tag
     tags:
     - TrashBag
-    - DroneUsable # Goobstation
+    - DroneUsable # Goidastation
   - type: Appearance
   - type: StorageFillVisualizer
     maxFillLevels: 4
@@ -64,7 +64,7 @@
     sprite: Objects/Specific/Janitorial/trashbag.rsi
   - type: Item
     size: Normal
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Plastic: 25
 

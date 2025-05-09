@@ -108,7 +108,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtCMOTurtle
 
-- type: loadout # goob
+- type: loadout # goida
   id: CMOMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryCMO

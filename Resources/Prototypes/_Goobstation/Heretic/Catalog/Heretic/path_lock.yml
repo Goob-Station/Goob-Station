@@ -27,7 +27,7 @@
   id: KnowledgePathStartLock
   name: knowledge-path-lock-s1-name
   description: knowledge-path-lock-s1-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_lock.rsi, state: icon }
+  icon: { sprite: _Goidastation/Heretic/Blades/blade_lock.rsi, state: icon }
   #productHereticKnowledge:
   cost:
     KnowledgePoint: 1

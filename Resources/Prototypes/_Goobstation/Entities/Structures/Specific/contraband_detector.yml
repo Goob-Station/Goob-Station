@@ -45,7 +45,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Overdoors
-    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    sprite: _Goidastation/Structures/Machines/contraband_detector.rsi
     layers:
     - state: frame
     - map: ["scanner"]
@@ -109,7 +109,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Overdoors
-    sprite: _Goobstation/Structures/Machines/contraband_detector.rsi
+    sprite: _Goidastation/Structures/Machines/contraband_detector.rsi
     state: frame
   - type: Physics
     bodyType: Static

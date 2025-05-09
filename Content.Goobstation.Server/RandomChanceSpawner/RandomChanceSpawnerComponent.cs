@@ -9,7 +9,7 @@
 
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Server.RandomChanceSpawner;
+namespace Content.Goidastation.Server.RandomChanceSpawner;
 
 /// <summary>
 /// Shitcode my beloved 

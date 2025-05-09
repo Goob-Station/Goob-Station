@@ -18,7 +18,7 @@
   components:
     - type: Tag
       tags:
-      - Skirt # Goobstation
+      - Skirt # Goidastation
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/color.rsi
       layers:

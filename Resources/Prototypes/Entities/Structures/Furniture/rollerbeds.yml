@@ -151,7 +151,7 @@
     folded: true
   - type: Strap
     enabled: False
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 150
       Plastic: 75

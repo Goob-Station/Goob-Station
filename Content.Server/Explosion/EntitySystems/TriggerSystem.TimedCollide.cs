@@ -61,14 +61,14 @@ public sealed partial class TriggerSystem
                 triggerOnTimedCollide.Colliding[collidingEntity] += frameTime;
                 if (collidingTimer > triggerOnTimedCollide.Threshold)
                 {
-                    // Goobstation start
+                    // Goidastation start
                     triggerOnTimedCollide.Colliding[collidingEntity] -= triggerOnTimedCollide.Threshold;
                     var attemptEv = new BeforeTriggerEvent(uid, collidingEntity);
                     RaiseLocalEvent(uid, ref attemptEv, true);
                     if (attemptEv.Cancelled)
                         continue;
                     RaiseLocalEvent(uid, new TriggerEvent(uid, collidingEntity), true);
-                    // Goobstation end
+                    // Goidastation end
                 }
             }
         }

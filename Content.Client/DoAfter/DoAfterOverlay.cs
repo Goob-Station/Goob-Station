@@ -17,7 +17,7 @@
 // SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 // SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -132,7 +132,7 @@ public sealed class DoAfterOverlay : Overlay
                 var alpha = 1f;
                 if (doAfter.Args.Hidden || isInContainer)
                 {
-                    // Goobstation - Show doAfter progress bar to another entity
+                    // Goidastation - Show doAfter progress bar to another entity
                     if (uid != localEnt && localEnt != doAfter.Args.ShowTo)
                         continue;
 
@@ -174,7 +174,7 @@ public sealed class DoAfterOverlay : Overlay
                 var xProgress = (EndX - StartX) * elapsedRatio + StartX;
                 var box = new Box2(new Vector2(StartX, 3f) / EyeManager.PixelsPerMeter, new Vector2(xProgress, 4f) / EyeManager.PixelsPerMeter);
                 box = box.Translated(position);
-                handle.DrawRect(box, doAfter.Args.ColorOverride ?? color); // Goob edit
+                handle.DrawRect(box, doAfter.Args.ColorOverride ?? color); // Goida edit
                 offset += _barTexture.Height / scale;
             }
         }

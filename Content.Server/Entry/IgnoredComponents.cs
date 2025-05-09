@@ -78,7 +78,7 @@ namespace Content.Server.Entry
             "LightFade",
             "HolidayRsiSwap",
             "OptionsVisualizer",
-            "ToggleableLightWieldable", // Goobstation
+            "ToggleableLightWieldable", // Goidastation
         };
     }
 }

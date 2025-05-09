@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Server.Spawn.Components;
+namespace Content.Goidastation.Server.Spawn.Components;
 
 /// <summary>
 ///     Ensures that related entity will be on station (like NTR or BSO lockers) and will be not duplicate.

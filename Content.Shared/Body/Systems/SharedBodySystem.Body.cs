@@ -87,10 +87,10 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
         SubscribeLocalEvent<BodyComponent, IsEquippingAttemptEvent>(OnBeingEquippedAttempt); // Shitmed Change
-        SubscribeLocalEvent<BodyComponent, AttemptStopPullingEvent>(OnAttemptStopPulling); // Goobstation
+        SubscribeLocalEvent<BodyComponent, AttemptStopPullingEvent>(OnAttemptStopPulling); // Goidastation
     }
 
-    private void OnAttemptStopPulling(Entity<BodyComponent> ent, ref AttemptStopPullingEvent args) // Goobstation
+    private void OnAttemptStopPulling(Entity<BodyComponent> ent, ref AttemptStopPullingEvent args) // Goidastation
     {
         if (args.User == null || !Exists(args.User.Value))
             return;
@@ -482,7 +482,7 @@ public partial class SharedBodySystem
                 foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
                     SharedTransform.AttachToGridOrMap(item);
 
-            if (_net.IsServer) // Goob edit
+            if (_net.IsServer) // Goida edit
                 QueueDel(partId);
             return true;
         }

@@ -42,7 +42,7 @@
   targetNode: glassesMed
   category: construction-category-clothing
   description: Sunglasses with a medical hud.
-  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
+  icon: { sprite: _Goidastation/Clothing/Eyes/Glasses/medglasses.rsi, state: icon }
   objectType: Item
 
 - type: construction
@@ -53,7 +53,7 @@
   targetNode: glassesMedSec
   category: construction-category-clothing
   description: Sunglasses with a medical and security hud.
-  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/medsecglasses.rsi, state: icon }
+  icon: { sprite: _Goidastation/Clothing/Eyes/Glasses/medsecglasses.rsi, state: icon }
   objectType: Item
 
 - type: construction
@@ -64,7 +64,7 @@
   targetNode: glassesMedDiag
   category: construction-category-clothing
   description: Sunglasses with a medical and diagnostic hud.
-  icon: { sprite: _Goobstation/Clothing/Eyes/Glasses/meddiagglasses.rsi, state: icon }
+  icon: { sprite: _Goidastation/Clothing/Eyes/Glasses/meddiagglasses.rsi, state: icon }
   objectType: Item
 
 - type: construction
@@ -75,5 +75,5 @@
   targetNode: meddiagHud
   category: construction-category-clothing
   description: A heads-up display combining both medical and diagnostic information.
-  icon: { sprite: _Goobstation/Clothing/Eyes/Hud/meddiag.rsi, state: icon }
+  icon: { sprite: _Goidastation/Clothing/Eyes/Hud/meddiag.rsi, state: icon }
   objectType: Item

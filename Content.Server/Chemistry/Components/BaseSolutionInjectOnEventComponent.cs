@@ -7,8 +7,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared.Damage; // Goobstation - Armor resisting syringe gun
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Shared.Damage; // Goidastation - Armor resisting syringe gun
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.Components;
@@ -47,12 +47,12 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     public string Solution = "default";
 
     /// <summary>
-    /// Whether this will inject through armor or not. // Goobstation - Armor resisting syringe gun
+    /// Whether this will inject through armor or not. // Goidastation - Armor resisting syringe gun
     /// </summary>
     [DataField]
     public bool PierceArmor = true;
 
-    // Goobstation - Armor resisting syringe gun
+    // Goidastation - Armor resisting syringe gun
     /// <summary>
     /// By how much to downscale the transfer amount by in respect to damage types
     /// </summary>
@@ -67,7 +67,7 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// Passed values: $weapon and $target
     /// </remarks>
     [DataField]
-    public LocId BlockedByArmorPopupMessage = "melee-inject-failed-armor"; // Goobstation - Armor resisting syringe gun
+    public LocId BlockedByArmorPopupMessage = "melee-inject-failed-armor"; // Goidastation - Armor resisting syringe gun
 
     /// <summary>
     /// If anything covers any of these slots then the injection fails.
@@ -75,7 +75,7 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     [DataField]
     public SlotFlags BlockSlots = SlotFlags.NONE;
 
-    // <Goobstation>
+    // <Goidastation>
     /// <summary>
     /// State: for the next embed, override whether this pierces armor.
     /// For setting from other code.
@@ -89,5 +89,5 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// </summary>
     [ViewVariables]
     public float SpeedMultiplier = 1f;
-    // </Goobstation>
+    // </Goidastation>
 }

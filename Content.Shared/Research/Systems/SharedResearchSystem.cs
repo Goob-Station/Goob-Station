@@ -115,7 +115,7 @@ public abstract class SharedResearchSystem : EntitySystem
         if (!component.SupportedDisciplines.Contains(tech.Discipline))
             return false;
 
-        // if (tech.Tier > disciplineTiers[tech.Discipline])    // Goobstation R&D Console rework - removed main discipline checks
+        // if (tech.Tier > disciplineTiers[tech.Discipline])    // Goidastation R&D Console rework - removed main discipline checks
         //     return false;
 
         if (component.UnlockedTechnologies.Contains(tech.ID))

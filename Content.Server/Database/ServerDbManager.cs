@@ -50,7 +50,7 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 DrSmugleaf <drsmugleaf@gmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ichaie <167008606+Ichaie@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 JORJ949 <159719201+JORJ949@users.noreply.github.com>
@@ -269,9 +269,9 @@ namespace Content.Server.Database
             ImmutableTypedHwid? hwId);
         Task<PlayerRecord?> GetPlayerRecordByUserName(string userName, CancellationToken cancel = default);
         Task<PlayerRecord?> GetPlayerRecordByUserId(NetUserId userId, CancellationToken cancel = default);
-        Task<int> GetServerCurrency(NetUserId userId); // Goobstation
-        Task SetServerCurrency(NetUserId userId, int currency); // Goobstation
-        Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta); // Goobstation
+        Task<int> GetServerCurrency(NetUserId userId); // Goidastation
+        Task SetServerCurrency(NetUserId userId, int currency); // Goidastation
+        Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta); // Goidastation
         #endregion
 
         #region Connection Logs
@@ -744,18 +744,18 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetPlayerRecordByUserId(userId, cancel));
         }
 
-        public Task<int> GetServerCurrency(NetUserId userId) // Goobstation
+        public Task<int> GetServerCurrency(NetUserId userId) // Goidastation
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetServerCurrency(userId));
         }
-        public Task SetServerCurrency(NetUserId userId, int currency) // Goobstation
+        public Task SetServerCurrency(NetUserId userId, int currency) // Goidastation
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.SetServerCurrency(userId, currency));
         }
 
-        public Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta) // Goobstation
+        public Task<int> ModifyServerCurrency(NetUserId userId, int currencyDelta) // Goidastation
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.ModifyServerCurrency(userId, currencyDelta));

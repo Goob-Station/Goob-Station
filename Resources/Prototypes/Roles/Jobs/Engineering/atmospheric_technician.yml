@@ -71,7 +71,7 @@
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
-  goobcoins: 20 #Goob content
+  goidacoins: 20 #Goida content
   access:
   - Maintenance
   - Engineering
@@ -81,7 +81,7 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
-  - !type:AddComponentSpecial # Goobstation
+  - !type:AddComponentSpecial # Goidastation
     components:
     - type: EngineeringStaff
 

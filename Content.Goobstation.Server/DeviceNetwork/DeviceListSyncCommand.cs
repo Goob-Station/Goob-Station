@@ -13,7 +13,7 @@ using Content.Shared.Administration;
 using Content.Shared.DeviceNetwork.Components;
 using Robust.Shared.Console;
 
-namespace Content.Goobstation.Server.DeviceNetwork;
+namespace Content.Goidastation.Server.DeviceNetwork;
 
 /// <summary>
 ///     Command for synchronizing DeviceList and DeviceNetwork

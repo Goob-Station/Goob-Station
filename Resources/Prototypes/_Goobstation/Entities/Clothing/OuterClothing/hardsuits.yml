@@ -8,7 +8,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <115770678+BombasterDS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
@@ -24,9 +24,9 @@
   description: A hardsuit covered in an unknown material that protects against most material and temporal damage
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -51,7 +51,7 @@
   - type: HeldSpeedModifier
   - type: StasisProtection
   - type: StasisBlinkProvider
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitChronolegioneer
   - type: ModifyDelayedKnockdown
@@ -75,9 +75,9 @@
   description: A hardsuit designed for an elite bodyguard. This particular one is made of a lighter metal, allowing for more maneuverability.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/bsolight.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -96,10 +96,10 @@
     sprintModifier: 0.9
     walkModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitBlueshield
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2
     knockdownTimeDelta: -2
   - type: StaminaDamageResistance
@@ -112,9 +112,9 @@
   description: A hardsuit designed for an elite bodyguard. This particular one has addition plating outside, at the cost of maneuverability.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/bso.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/bso.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/bso.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -152,11 +152,11 @@
   description: A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -175,7 +175,7 @@
     walkModifier: 0.8
     sprintModifier: 0.85
   - type: HeldSpeedModifier
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitCybersunStealth
   - type: Tag
@@ -187,7 +187,7 @@
     - type: StealthOnMove
       passiveVisibilityRate: -0.5
       movementVisibilityRate: 0.6
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 3
     knockdownTimeDelta: -3
   - type: StaminaDamageResistance
@@ -202,11 +202,11 @@
   description: The syndicate places it's glory on your shoulders, do not dissapoint.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
   - type: Item
     size: Ginormous #damn its hard to spell
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/dreadnought.rsi
     equipDelay: 15
     unequipDelay: 600 # if i add the unremovable comp then you couldnt even put this on
   - type: PressureProtection
@@ -260,9 +260,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+    sprite: _Goidastation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
   - type: ToggleableClothing
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental

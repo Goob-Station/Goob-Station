@@ -1,16 +1,16 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Devil.Condemned;
-using Content.Goobstation.Shared.Enchanting.Components;
+using Content.Goidastation.Shared.Devil.Condemned;
+using Content.Goidastation.Shared.Enchanting.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 
-namespace Content.Goobstation.Shared.Enchanting.Systems;
+namespace Content.Goidastation.Shared.Enchanting.Systems;
 
 /// <summary>
 /// Handles upgrading enchanted item tier when a player-controlled mob is sacrificed on top of an altar with it.

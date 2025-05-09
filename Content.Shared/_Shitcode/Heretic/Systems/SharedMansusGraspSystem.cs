@@ -1,6 +1,6 @@
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Shared._EinsteinEngines.Silicon.Components;
-using Content.Shared._Goobstation.Heretic.Systems;
+using Content.Shared._Goidastation.Heretic.Systems;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.BackStab;
 using Content.Shared.Damage;
@@ -119,7 +119,7 @@ public abstract class SharedMansusGraspSystem : EntitySystem
                     _door.SetBoltsDown((target, doorBolt), false);
 
                 _door.StartOpening(target, door);
-                _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/hereticknock.ogg"),
+                _audio.PlayPredicted(new SoundPathSpecifier("/Audio/_Goidastation/Heretic/hereticknock.ogg"),
                     target,
                     user);
                 break;

@@ -7,7 +7,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Goobstation.Wizard.SlipOnCollide;
+namespace Content.Shared._Goidastation.Wizard.SlipOnCollide;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SlipOnCollideComponent : Component

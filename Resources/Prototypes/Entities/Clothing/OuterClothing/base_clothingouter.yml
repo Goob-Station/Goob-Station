@@ -227,7 +227,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterStorageToggleableBase
   components:
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterDefault
   - type: UserInterface
@@ -321,7 +321,7 @@
   name: hoodie with hood
   abstract: True
   components:
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterDefault
   - type: ContainerContainer

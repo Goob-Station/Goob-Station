@@ -37,7 +37,7 @@
         reagents:
         - ReagentId: Entropy
           Quantity: 1.5
-  - type: UnholyItem # Goobstation Shitchap
+  - type: UnholyItem # Goidastation Shitchap
 
 - type: entity
   parent: MaterialCosmicCultEntropy

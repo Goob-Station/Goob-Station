@@ -8,9 +8,9 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Blob;
-using Content.Goobstation.Shared.Blob;
-using Content.Goobstation.Shared.Blob.Components;
+using Content.Goidastation.Common.Blob;
+using Content.Goidastation.Shared.Blob;
+using Content.Goidastation.Shared.Blob.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
@@ -19,7 +19,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 //using Content.Shared.Flesh;
 
-namespace Content.Goobstation.Client.Blob;
+namespace Content.Goidastation.Client.Blob;
 
 public sealed class BlobObserverSystem : SharedBlobObserverSystem
 {

@@ -29,7 +29,7 @@
 # SPDX-FileCopyrightText: 2025 Emisse <99158783+Emisse@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot[bot] <923088+GoobBot[bot]@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoidaBot[bot] <923088+GoidaBot[bot]@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Intoxicating-Innocence <188202277+Intoxicating-Innocence@users.noreply.github.com>
@@ -218,7 +218,7 @@
 - files: ["skubstub.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "DJ B1G YAPPA"
-  source: "https://forums.goobstation.com"
+  source: "https://forums.goidastation.com"
 
 - files: ["space_radiation.ogg"]
   license: "CC-BY-NC-SA-3.0"
@@ -233,7 +233,7 @@
 - files: ["chollima.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Pochonbo Electronic Ensemble"
-  source: "https://goobstation.com"
+  source: "https://goidastation.com"
 
 - files: ["marhaba.ogg"]
   license: "CC-BY-NC-SA-3.0"

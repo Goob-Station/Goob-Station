@@ -82,12 +82,12 @@ public sealed class ModifyChangedTemperatureEvent : EntityEventArgs, IInventoryR
     public SlotFlags TargetSlots { get; } = ~SlotFlags.POCKET;
 
     public float TemperatureDelta;
-    public readonly EntityUid Target; // Goobstation
+    public readonly EntityUid Target; // Goidastation
 
-    public ModifyChangedTemperatureEvent(float temperature, EntityUid target) // Goobstation
+    public ModifyChangedTemperatureEvent(float temperature, EntityUid target) // Goidastation
     {
         TemperatureDelta = temperature;
-        Target = target; // Goobstation
+        Target = target; // Goidastation
     }
 }
 
@@ -105,7 +105,7 @@ public sealed class OnTemperatureChangeEvent : EntityEventArgs
     }
 }
 
-// Goobstation
+// Goidastation
 public sealed class TemperatureChangeAttemptEvent : CancellableEntityEventArgs
 {
     public readonly float CurrentTemperature;

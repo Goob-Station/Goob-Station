@@ -25,14 +25,14 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.CCVar; // Goob Edit
+using Content.Goidastation.Common.CCVar; // Goida Edit
 using Content.Shared.Access.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
@@ -73,12 +73,12 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly EmagSystem _emag = default!; // Goobstation change
-    [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
-    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
-    [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
+    [Dependency] private readonly EmagSystem _emag = default!; // Goidastation change
+    [Dependency] private readonly SharedHandsSystem _hands = default!; // Goidastation Change
+    [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goidastation Change
+    [Dependency] private readonly IConfigurationManager _config = default!; // Goidastation Change
 
-    // Goobstation: Local variable for checking if mech guns can be used out of them.
+    // Goidastation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
 
     /// <inheritdoc/>
@@ -98,11 +98,11 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnCanAttackFromContainer);
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
-        SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
-        Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
+        SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goidastation
+        Subs.CVar(_config, GoidaCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goidastation
     }
 
-    // GoobStation: Fixes scram implants or teleports locking the pilot out of being able to move.
+    // GoidaStation: Fixes scram implants or teleports locking the pilot out of being able to move.
     private void OnEntGotRemovedFromContainer(EntityUid uid, MechPilotComponent component, EntGotRemovedFromContainerMessage args)
     {
         TryEject(component.Mech, pilot: uid);
@@ -183,7 +183,7 @@ public abstract class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
-        _actions.AddAction(pilot, ref component.ToggleActionEntity, component.ToggleAction, mech); //Goobstation Mech Lights toggle action
+        _actions.AddAction(pilot, ref component.ToggleActionEntity, component.ToggleAction, mech); //Goidastation Mech Lights toggle action
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -420,7 +420,7 @@ public abstract class SharedMechSystem : EntitySystem
         SetupUser(uid, toInsert.Value);
         _container.Insert(toInsert.Value, component.PilotSlot);
         UpdateAppearance(uid, component);
-        UpdateHands(toInsert.Value, uid, true); // Goobstation
+        UpdateHands(toInsert.Value, uid, true); // Goidastation
         return true;
     }
 
@@ -445,11 +445,11 @@ public abstract class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot.Value);
         _container.RemoveEntity(uid, pilot.Value);
         UpdateAppearance(uid, component);
-        UpdateHands(pilot.Value, uid, false); // Goobstation
+        UpdateHands(pilot.Value, uid, false); // Goidastation
         return true;
     }
 
-    // Goobstation Change Start
+    // Goidastation Change Start
     private void UpdateHands(EntityUid uid, EntityUid mech, bool active)
     {
         if (!TryComp<HandsComponent>(uid, out var handsComponent))
@@ -493,7 +493,7 @@ public abstract class SharedMechSystem : EntitySystem
         _virtualItem.DeleteInHandsMatching(uid, mech);
     }
 
-    // Goobstation Change End
+    // Goidastation Change End
     private void OnGetMeleeWeapon(EntityUid uid, MechPilotComponent component, GetMeleeWeaponEvent args)
     {
         if (args.Handled)
@@ -518,7 +518,7 @@ public abstract class SharedMechSystem : EntitySystem
             args.Cancel();
     }
 
-    // Goobstation: Prevent guns being used out of mechs if CCVAR is set.
+    // Goidastation: Prevent guns being used out of mechs if CCVAR is set.
     private void OnShotAttempted(EntityUid uid, MechEquipmentComponent component, ref ShotAttemptedEvent args)
     {
         if (!component.EquipmentOwner.HasValue
@@ -553,7 +553,7 @@ public abstract class SharedMechSystem : EntitySystem
         var doAfterEventArgs = new DoAfterArgs(EntityManager, args.Dragged, component.EntryDelay, new MechEntryEvent(), uid, target: uid)
         {
             BreakOnMove = true,
-            MultiplyDelay = false // Goobstation
+            MultiplyDelay = false // Goidastation
         };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);
@@ -566,7 +566,7 @@ public abstract class SharedMechSystem : EntitySystem
         args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
     }
 
-    private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goobstation
+    private void OnEmagged(EntityUid uid, MechComponent component, ref GotEmaggedEvent args) // Goidastation
     {
         if (!component.BreakOnEmag || !_emag.CompareFlag(args.Type, EmagType.Interaction))
             return;

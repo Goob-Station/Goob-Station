@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Weapons.MeleeDash;
+using Content.Goidastation.Common.Weapons.MeleeDash;
 using Content.Shared.Emoting;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
@@ -22,7 +22,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 
-namespace Content.Goobstation.Shared.Weapons.MeleeDash;
+namespace Content.Goidastation.Shared.Weapons.MeleeDash;
 
 public sealed class MeleeDashSystem : EntitySystem
 {

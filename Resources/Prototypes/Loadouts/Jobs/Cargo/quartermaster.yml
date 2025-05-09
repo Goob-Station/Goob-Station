@@ -111,7 +111,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
 
-- type: loadout # goob
+- type: loadout # goida
   id: QuartermasterMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryQM

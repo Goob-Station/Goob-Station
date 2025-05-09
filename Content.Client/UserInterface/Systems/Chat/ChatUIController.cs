@@ -60,7 +60,7 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
-using Content.Shared._Starlight.CollectiveMind; // Goobstation - Starlight collective mind port
+using Content.Shared._Starlight.CollectiveMind; // Goidastation - Starlight collective mind port
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -87,12 +87,12 @@ using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Client.CharacterInfo;
-using Content.Goobstation.Common.CCVar; // Goob - start
+using Content.Goidastation.Common.CCVar; // Goida - start
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 
 namespace Content.Client.UserInterface.Systems.Chat;
 
-public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterInfoSystem> // goob highlights - added IOnSystemChanged<CharacterInfoSystem>
+public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterInfoSystem> // goida highlights - added IOnSystemChanged<CharacterInfoSystem>
 {
     [Dependency] private readonly IClientAdminManager _admin = default!;
     [Dependency] private readonly IChatManager _manager = default!;
@@ -109,7 +109,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
     [UISystemDependency] private readonly ExamineSystem? _examine = default;
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
-    [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!; // Goobstation - Starlight collective mind port
+    [UISystemDependency] private readonly CollectiveMindSystem? _collectiveMind = default!; // Goidastation - Starlight collective mind port
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
     [UISystemDependency] private readonly ChatSystem? _chatSys = default;
     [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!; //Nyano - Summary: makes the psionic chat available.
@@ -137,7 +137,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         {SharedChatSystem.RadioCommonPrefix, ChatSelectChannel.Radio},
         {SharedChatSystem.DeadPrefix, ChatSelectChannel.Dead},
         {SharedChatSystem.TelepathicPrefix, ChatSelectChannel.Telepathic}, //Nyano - Summary: adds the telepathic prefix =.
-        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind} // Goobstation - Starlight collective mind port
+        {SharedChatSystem.CollectiveMindPrefix, ChatSelectChannel.CollectiveMind} // Goidastation - Starlight collective mind port
     };
 
     public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes = new()
@@ -152,7 +152,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         {ChatSelectChannel.Radio, SharedChatSystem.RadioCommonPrefix},
         {ChatSelectChannel.Dead, SharedChatSystem.DeadPrefix},
         {ChatSelectChannel.Telepathic, SharedChatSystem.TelepathicPrefix }, //Nyano - Summary: associates telepathic with =.
-        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix} // Goobstation - Starlight collective mind port
+        {ChatSelectChannel.CollectiveMind, SharedChatSystem.CollectiveMindPrefix} // Goidastation - Starlight collective mind port
     };
 
     /// <summary>
@@ -232,7 +232,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     {
         _sawmill = Logger.GetSawmill("chat");
         _sawmill.Level = LogLevel.Info;
-        _admin.AdminStatusUpdated += UpdateChannelPermissions; // Goobstation - Starlight collective mind port
+        _admin.AdminStatusUpdated += UpdateChannelPermissions; // Goidastation - Starlight collective mind port
         _manager.PermissionsUpdated += UpdateChannelPermissions;
         _player.LocalPlayerAttached += OnAttachedChanged;
         _player.LocalPlayerDetached += OnAttachedChanged;
@@ -283,7 +283,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         _input.SetInputCommand(ContentKeyFunctions.CycleChatChannelBackward,
             InputCmdHandler.FromDelegate(_ => CycleChatChannel(false)));
 
-        // Goobstation - Starlight collective mind port
+        // Goidastation - Starlight collective mind port
         _input.SetInputCommand(ContentKeyFunctions.FocusCollectiveMindChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.CollectiveMind)));
 
@@ -300,16 +300,16 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
         _config.OnValueChanged(CCVars.ChatWindowOpacity, OnChatWindowOpacityChanged);
 
-    // Goobstation highlights - start
+    // Goidastation highlights - start
 
-        _config.OnValueChanged(GoobCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; });
-        _autoFillHighlightsEnabled = _config.GetCVar(GoobCVars.ChatAutoFillHighlights);
+        _config.OnValueChanged(GoidaCVars.ChatAutoFillHighlights, (value) => { _autoFillHighlightsEnabled = value; });
+        _autoFillHighlightsEnabled = _config.GetCVar(GoidaCVars.ChatAutoFillHighlights);
 
-        _config.OnValueChanged(GoobCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
-        _highlightsColor = _config.GetCVar(GoobCVars.ChatHighlightsColor);
+        _config.OnValueChanged(GoidaCVars.ChatHighlightsColor, (value) => { _highlightsColor = value; });
+        _highlightsColor = _config.GetCVar(GoidaCVars.ChatHighlightsColor);
 
         // Load highlights if any were saved.
-        string highlights = _config.GetCVar(GoobCVars.ChatHighlights);
+        string highlights = _config.GetCVar(GoidaCVars.ChatHighlights);
 
         if (!string.IsNullOrEmpty(highlights))
         {
@@ -377,10 +377,10 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     public void UpdateHighlights(string highlights)
     {
         // Do nothing if the provided highlighs are the same as the old ones.
-        if (_config.GetCVar(GoobCVars.ChatHighlights).Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
+        if (_config.GetCVar(GoidaCVars.ChatHighlights).Equals(highlights, StringComparison.CurrentCultureIgnoreCase))
             return;
 
-        _config.SetCVar(GoobCVars.ChatHighlights, highlights);
+        _config.SetCVar(GoidaCVars.ChatHighlights, highlights);
         _config.SaveToFile();
 
         // Replace any " character with a whole-word regex tag,
@@ -400,7 +400,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         // the full word (eg. "Security") gets picked before the abbreviation (eg. "Sec").
         _highlights.Sort((x, y) => y.Length.CompareTo(x.Length));
 
-    // Goobstation highlights - end
+    // Goidastation highlights - end
 
     }
 
@@ -589,7 +589,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
     {
         UpdateChannelPermissions();
 
-        // Goobstation - if auto highlights are enabled generate a request for new character info that will be used to determine the highlights.
+        // Goidastation - if auto highlights are enabled generate a request for new character info that will be used to determine the highlights.
         if (_autoFillHighlightsEnabled)
         {
             _charInfoIsAttach = true;
@@ -726,7 +726,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
             FilterableChannels |= ChatChannel.Admin;
             FilterableChannels |= ChatChannel.AdminAlert;
             FilterableChannels |= ChatChannel.AdminChat;
-            FilterableChannels |= ChatChannel.CollectiveMind; // Goobstation - Starlight collective mind port
+            FilterableChannels |= ChatChannel.CollectiveMind; // Goidastation - Starlight collective mind port
             CanSendChannels |= ChatSelectChannel.Admin;
             FilterableChannels |= ChatChannel.Telepathic; //Nyano - Summary: makes admins able to see psionic chat.
         }
@@ -738,7 +738,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
             CanSendChannels |= ChatSelectChannel.Telepathic;
         }
         // /Nyano - End modified code block
-        // Goobstation - Starlight collective mind port
+        // Goidastation - Starlight collective mind port
         if (_collectiveMind != null && _collectiveMind.IsCollectiveMind)
         {
             FilterableChannels |= ChatChannel.CollectiveMind;
@@ -874,7 +874,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
            && _chatSys.TryProccessRadioMessage(uid, text, out _, out radioChannel, quiet: true);
     }
 
-    // Goobstation - Starlight collective mind port
+    // Goidastation - Starlight collective mind port
     private bool TryGetCollectiveMind(string text, out CollectiveMindPrototype? collectiveMind)
     {
         collectiveMind = null;
@@ -885,7 +885,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
 
     public void UpdateSelectedChannel(ChatBox box)
     {
-        // <Goobstation> - Starlight collective mind port
+        // <Goidastation> - Starlight collective mind port
         var (prefixChannel, _, radioChannel, collectiveMind) = SplitInputContents(box.ChatInput.Input.Text.ToLower());
 
         switch (prefixChannel)
@@ -900,15 +900,15 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
                 box.ChatInput.ChannelSelector.UpdateChannelSelectButton(prefixChannel, radioChannel, null);
                 break;
         }
-        // </Goobstation>
+        // </Goidastation>
     }
 
-    // Goobstation - Starlight collective mind port
+    // Goidastation - Starlight collective mind port
     public (ChatSelectChannel chatChannel, string text, RadioChannelPrototype? radioChannel, CollectiveMindPrototype? collectiveMind) SplitInputContents(string text)
     {
         text = text.Trim();
         if (text.Length == 0)
-            return (ChatSelectChannel.None, text, null, null); // Goobstation - Starlight collective mind port
+            return (ChatSelectChannel.None, text, null, null); // Goidastation - Starlight collective mind port
 
         // We only cut off prefix only if it is not a radio or local channel, which both map to the same /say command
         // because ????????
@@ -920,24 +920,24 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
             chatChannel = PrefixToChannel.GetValueOrDefault(text[0]);
 
         if ((CanSendChannels & chatChannel) == 0)
-            return (ChatSelectChannel.None, text, null, null); // Goobstation - Starlight collective mind port
+            return (ChatSelectChannel.None, text, null, null); // Goidastation - Starlight collective mind port
 
         if (chatChannel == ChatSelectChannel.Radio)
-            return (chatChannel, text, radioChannel, null); // Goobstation - Starlight collective mind port
+            return (chatChannel, text, radioChannel, null); // Goidastation - Starlight collective mind port
 
-        // Goobstation - Starlight collective mind port
+        // Goidastation - Starlight collective mind port
         if (TryGetCollectiveMind(text, out var collectiveMind) && chatChannel == ChatSelectChannel.CollectiveMind)
             return (chatChannel, text, radioChannel, collectiveMind);
 
         if (chatChannel == ChatSelectChannel.Local)
         {
             if (_ghost?.IsGhost != true)
-                return (chatChannel, text, null, null); // Goobstation - Starlight collective mind port
+                return (chatChannel, text, null, null); // Goidastation - Starlight collective mind port
             else
                 chatChannel = ChatSelectChannel.Dead;
         }
 
-        return (chatChannel, text[1..].TrimStart(), null, null); // Goobstation - Starlight collective mind port
+        return (chatChannel, text[1..].TrimStart(), null, null); // Goidastation - Starlight collective mind port
     }
 
     public void SendMessage(ChatBox box, ChatSelectChannel channel)
@@ -952,7 +952,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
         if (string.IsNullOrWhiteSpace(text))
             return;
 
-        (var prefixChannel, text, var _, var _) = SplitInputContents(text); // Goobstation - Starlight collective mind port
+        (var prefixChannel, text, var _, var _) = SplitInputContents(text); // Goidastation - Starlight collective mind port
 
         // Check if message is longer than the character limit
         if (text.Length > MaxMessageLength)
@@ -1034,7 +1034,7 @@ public sealed class ChatUIController : UIController, IOnSystemChanged<CharacterI
                 msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
         }
 
-        // Goobstation - color any words choosen by the client.
+        // Goidastation - color any words choosen by the client.
         foreach (var highlight in _highlights)
         {
             msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, highlight, "color", _highlightsColor);

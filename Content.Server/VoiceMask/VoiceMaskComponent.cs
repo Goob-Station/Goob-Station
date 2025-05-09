@@ -52,5 +52,5 @@ public sealed partial class VoiceMaskComponent : Component
     ///     if UI Action shud be added on equipt
     /// </summary>
     [DataField]
-    public bool EnableAction = true; //Goobstation
+    public bool EnableAction = true; //Goidastation
 }

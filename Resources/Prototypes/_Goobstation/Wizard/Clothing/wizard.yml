@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
 # SPDX-FileCopyrightText: 2025 shityaml <unalterableness@gmail.com>
 #
@@ -18,12 +18,12 @@
   save: false
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi
+    sprite: _Goidastation/Wizard/Clothing/Eyes/eyepatch.rsi
     layers:
     - state: icon
       map: [ "flipped" ]
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi
+    sprite: _Goidastation/Wizard/Clothing/Eyes/eyepatch.rsi
   - type: WizardClothes
   - type: Appearance
   - type: GenericVisualizer
@@ -92,9 +92,9 @@
   description: Strange-looking black hat-wear that most certainly belongs to a real lich. Spooky.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/blackwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/blackwizard.rsi
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
@@ -103,9 +103,9 @@
   description: An unnerving black gem-lined robe that reeks of death and decay.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/blackwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/blackwizard.rsi
 
 # Yellow
 - type: entity
@@ -115,9 +115,9 @@
   description: Strange-looking yellow hat-wear that most certainly belongs to a powerful magic user.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/yellowwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/yellowwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/yellowwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/yellowwizard.rsi
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
@@ -126,9 +126,9 @@
   description: A magnificent yellow gem-lined robe that seems to radiate power.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/yellowwizard.rsi
 
 # Tape
 - type: entity
@@ -138,9 +138,9 @@
   description: A magically attuned hat made exclusively from duct tape. You can barely see.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/tapewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/tapewizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/tapewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/tapewizard.rsi
     clothingVisuals:
       head:
       - state: equipped-HELMET
@@ -153,9 +153,9 @@
   description: A fine robe made from magically attuned duct tape.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/tapewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/tapewizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/tapewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/tapewizard.rsi
 
 # Chanterelle
 - type: entity
@@ -165,9 +165,9 @@
   description: An oversized chanterelle with hollow out space to fit a head in. Kinda looks like wizard's hat.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/chanterelle.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/chanterelle.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/chanterelle.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/chanterelle.rsi
 
 # Paper
 - type: entity
@@ -177,9 +177,9 @@
   description: A robe held together by various bits of clear-tape and paste.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/paperwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/paperwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/paperwizard.rsi
   - type: ActionGrant
     actions:
     - ActionSummonStickmen
@@ -203,9 +203,9 @@
   description: A magical red beret.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/mimewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/mimewizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/mimewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/mimewizard.rsi
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
@@ -214,9 +214,9 @@
   description: Red, black, and white robes. There is not much else to say about them.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/mimewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/mimewizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/mimewizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/mimewizard.rsi
 
 # Clown
 - type: entity
@@ -226,9 +226,9 @@
   description: Strange-looking purple hat-wear that most certainly belongs to a real magic user.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/clownwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/clownwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/clownwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/clownwizard.rsi
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
@@ -237,9 +237,9 @@
   description: A set of armoured robes that seem to radiate a dark power. That, and bad fashion decisions.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/clownwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/clownwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/clownwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/clownwizard.rsi
 
 # Psy
 - type: entity
@@ -249,9 +249,9 @@
   description: A crown-of-thorns psychic amplifier.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/psywizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/psywizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/psywizard.rsi
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
@@ -260,9 +260,9 @@
   description: Heavy, royal purple robes threaded with psychic amplifiers and weird, bulbous lenses. Do not machine wash.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/psywizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/psywizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/psywizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/psywizard.rsi
 
 # Oblibion
 - type: entity
@@ -273,9 +273,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/oblivionenforcer.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/oblivionenforcer.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/oblivionenforcer.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/oblivionenforcer.rsi
   - type: HideLayerClothing
     slots:
     - Hair
@@ -290,9 +290,9 @@
   description: A set of armored, radiation-proof robes worn by Oblivion Enforcers.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/oblivionenforcer.rsi
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
@@ -318,9 +318,9 @@
   description: The mask of an Oblivion Enforcer. Don't forget to turn it on before giving your one-liners!
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Mask/oblivionenforcer.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/oblivionenforcer.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Mask/oblivionenforcer.rsi
+    sprite: _Goidastation/Wizard/Clothing/Mask/oblivionenforcer.rsi
   - type: VoiceMask
   - type: HideLayerClothing
     slots:
@@ -398,9 +398,9 @@
   description: A pristine green and gold wizard hat, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Head/comwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/comwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Head/comwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/Head/comwizard.rsi
 
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
@@ -410,9 +410,9 @@
   description: A pristine green and gold gem-lined robe, regulation issue for Central Command's arcane operatives. Worn only by those authorized to wield classified thaumaturgic instruments.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/comwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/comwizard.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/OuterClothing/comwizard.rsi
+    sprite: _Goidastation/Wizard/Clothing/OuterClothing/comwizard.rsi
 
 # Gloves
 - type: entity
@@ -422,9 +422,9 @@
   description: A magnificent pair of blue gem-lined gloves that seem to be insulated.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
+    sprite: _Goidastation/Wizard/Clothing/Hands/wizgloves.rsi
   - type: Clothing
-    sprite: _Goobstation/Wizard/Clothing/Hands/wizgloves.rsi
+    sprite: _Goidastation/Wizard/Clothing/Hands/wizgloves.rsi
   - type: Insulated
   - type: FingerprintMask
   - type: StaticPrice

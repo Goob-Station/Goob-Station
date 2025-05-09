@@ -159,7 +159,7 @@ public partial class InventorySystem
         _handsSystem.PickupOrDrop(entity, itemToSpawn, false);
     }
 
-    // Goobstation
+    // Goidastation
     public bool TryGetContainingEntity(Entity<TransformComponent?, MetaDataComponent?> entity, [NotNullWhen(true)] out EntityUid? containingEntity)
     {
         if (!_containerSystem.TryGetContainingContainer(entity, out var container) || !HasComp<InventoryComponent>(container.Owner))

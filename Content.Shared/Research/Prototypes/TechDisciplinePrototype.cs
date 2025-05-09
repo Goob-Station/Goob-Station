@@ -61,7 +61,7 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     public int LockoutTier = 3;
 
     /// <summary>
-    /// Goobstation R&D console rework field
+    /// Goidastation R&D console rework field
     /// Name that appears on this discipline's button in console
     /// </summary>
     [DataField(required: true)]

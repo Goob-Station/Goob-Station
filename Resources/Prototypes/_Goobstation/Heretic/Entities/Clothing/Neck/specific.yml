@@ -17,10 +17,10 @@
   - type: UnholyItem
   - type: HereticMagicItem
   - type: Sprite
-    sprite: _Goobstation/Heretic/amber_focus.rsi
+    sprite: _Goidastation/Heretic/amber_focus.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/amber_focus.rsi
+    sprite: _Goidastation/Heretic/amber_focus.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -33,10 +33,10 @@
   description: A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulsing of a thousand others.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+    sprite: _Goidastation/Heretic/eldritch_medalion.rsi
     state: icon
   - type: Clothing
-    sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+    sprite: _Goidastation/Heretic/eldritch_medalion.rsi
   - type: ThermalVision
     isEquipment: true
     isActive: true

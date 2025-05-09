@@ -11,7 +11,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Goobstation/Objects/Vehicles/clowncar.rsi
+    sprite: _Goidastation/Objects/Vehicles/clowncar.rsi
     layers:
     - state: clowncar
       map: ["enum.ClowncarLayers.Base"]
@@ -96,11 +96,11 @@
   - type: Clowncar
     container: clowncar_container
     cannonActivateSound:
-      path: "/Audio/_Goobstation/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
+      path: "/Audio/_Goidastation/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
       params:
         volume: 5
     cannonDeactivateSound:
-      path: "/Audio/_Goobstation/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
+      path: "/Audio/_Goidastation/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
       params:
         volume: 5
   - type: TriggerOnSolutionInsert

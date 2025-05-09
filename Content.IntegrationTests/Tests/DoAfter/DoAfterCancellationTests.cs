@@ -75,12 +75,12 @@ public sealed class DoAfterCancellationTests : InteractionTest
     {
         await SetTile(Floor);
         await InteractUsing(Pry, awaitDoAfters: false);
-        // Goob edit start - instant prying
+        // Goida edit start - instant prying
         await CancelDoAfters(0, 0);
         // await AssertTile(Floor);
 
         // await InteractUsing(Pry);
-        // Goob edit end
+        // Goida edit end
         await AssertTile(Plating);
     }
 
@@ -90,11 +90,11 @@ public sealed class DoAfterCancellationTests : InteractionTest
         await SetTile(Floor);
         await InteractUsing(Pry, awaitDoAfters: false);
         await RunTicks(1);
-        // Goob edit start - instant prying
+        // Goida edit start - instant prying
         Assert.That(ActiveDoAfters.Count(), Is.EqualTo(0));
         await AssertTile(Plating);
         return;
-        // Goob edit end
+        // Goida edit end
 
         // Second DoAfter cancels the first.
         await Server.WaitPost(() => InteractSys.UserInteraction(SEntMan.GetEntity(Player), SEntMan.GetCoordinates(TargetCoords), SEntMan.GetEntity(Target)));

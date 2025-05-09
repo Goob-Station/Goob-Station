@@ -36,7 +36,7 @@
 // SPDX-FileCopyrightText: 2024 plykiya <plykiya@protonmail.com>
 // SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -231,7 +231,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Goobstation - Removes a port from a source.
+    /// Goidastation - Removes a port from a source.
     /// </summary>
     public void RemoveSourcePort(EntityUid uid, ProtoId<SourcePortPrototype> port)
     {
@@ -244,7 +244,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Goobstation - Removes a port from a sink.
+    /// Goidastation - Removes a port from a sink.
     /// </summary>
     public void RemoveSinkPort(EntityUid uid, ProtoId<SinkPortPrototype> port)
     {

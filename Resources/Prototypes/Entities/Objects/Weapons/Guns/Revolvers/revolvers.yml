@@ -49,7 +49,7 @@
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
 # SPDX-FileCopyrightText: 2025 SX-7 <92227810+SX-7@users.noreply.github.com>
@@ -86,7 +86,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2 # Goobstation
+    fireRate: 2 # Goidastation
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -111,7 +111,7 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
-  - type: Multishot # Goobstation
+  - type: Multishot # Goidastation
 
 - type: entity
   name: Deckard
@@ -128,7 +128,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Gun
-    fireRate: 2.5 # Goobstation
+    fireRate: 2.5 # Goidastation
   - type: RevolverAmmoProvider
     capacity: 5
     chambers: [ True, True, True, True, True ]
@@ -167,7 +167,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Gun
-    fireRate: 4 # Goob edit
+    fireRate: 4 # Goida edit
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: RevolverAmmoProvider
@@ -175,10 +175,10 @@
       tags:
         - CartridgeMagnum
         - SpeedLoaderMagnum
-    proto: CartridgeMagnumAP # Goobstation - Deathsquad revamp
-    capacity: 7 # Goobstation - Deathsquad revamp
-    chambers: [ True, True, True, True, True, True, True ] # Goobstation - Deathsquad revamp
-    ammoSlots: [ null, null, null, null, null, null, null ] # Goobstation - Deathsquad revamp
+    proto: CartridgeMagnumAP # Goidastation - Deathsquad revamp
+    capacity: 7 # Goidastation - Deathsquad revamp
+    chambers: [ True, True, True, True, True, True, True ] # Goidastation - Deathsquad revamp
+    ammoSlots: [ null, null, null, null, null, null, null ] # Goidastation - Deathsquad revamp
     soundEject:
       path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
     soundInsert:
@@ -204,7 +204,7 @@
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2.5 # Goobstation
+    fireRate: 2.5 # Goidastation
     availableModes:
     - SemiAuto
     soundGunshot:

@@ -55,7 +55,7 @@
       path: /Audio/Effects/woodenclosetclose.ogg
     openSound:
       path: /Audio/Effects/woodenclosetopen.ogg
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Wood: 100
       Steel: 25
@@ -495,7 +495,7 @@
     stateBaseClosed: clown
     stateDoorOpen: clown_open
     stateDoorClosed: clown_door
-  - type: StorageFill #Goobstation - clowncar
+  - type: StorageFill #Goidastation - clowncar
     contents:
     - id: VehicleClowncarTrainee
 

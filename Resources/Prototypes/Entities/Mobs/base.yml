@@ -69,7 +69,7 @@
 # SPDX-FileCopyrightText: 2024 whateverusername0 <whateveremail>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Rinary <72972221+Rinary1@users.noreply.github.com>
 #
@@ -122,8 +122,8 @@
     active: False
   - type: AnimatedEmotes
   - type: Fart
-  - type: CollectiveMind # Goobstation - Starlight collective mind port
-  - type: Penetratable # Goobstation - Better snipers
+  - type: CollectiveMind # Goidastation - Starlight collective mind port
+  - type: Penetratable # Goidastation - Better snipers
     penetrateDamage: 15 # Kill million mices
     damagePenalty: 0.05
 
@@ -150,7 +150,7 @@
         damage: 400
       behaviors:
       - !type:GibBehavior { }
-    # GoobStation: Disabled ashing until husking is added
+    # GoidaStation: Disabled ashing until husking is added
     #- trigger:
     #    !type:DamageTypeTrigger
     #    damageType: Heat
@@ -285,7 +285,7 @@
     canResistFire: true
     damage: #per second, scales with number of fire 'stacks'
       types:
-        Heat: 0.5 # goob edit - ash heretic must weep
+        Heat: 0.5 # goida edit - ash heretic must weep
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning

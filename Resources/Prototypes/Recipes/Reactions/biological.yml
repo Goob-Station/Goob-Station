@@ -31,7 +31,7 @@
       amount: 30
   products:
     Water: 11
-    Saline: 6 # Goob - changed to saline due to SodiumExplosion reacion
+    Saline: 6 # Goida - changed to saline due to SodiumExplosion reacion
     Chlorine: 1.5
     CarbonDioxide: 5.5
     Protein: 6

@@ -7,11 +7,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Stunnable;
+using Content.Goidastation.Common.Stunnable;
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Shared.Stunnable;
+namespace Content.Goidastation.Shared.Stunnable;
 
 public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
 {

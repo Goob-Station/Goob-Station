@@ -27,7 +27,7 @@ public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionI
         [DataField]
         public TimeSpan UpdateInterval = TimeSpan.FromSeconds(3);
 
-        // <Goobstation> Goobstation - Shot syringes injecting over time
+        // <Goidastation> Goidastation - Shot syringes injecting over time
         /// <summary>
         /// Maximum amount of injections this can do on one embed.
         /// Unlimited if null.
@@ -42,5 +42,5 @@ public sealed partial class SolutionInjectWhileEmbeddedComponent : BaseSolutionI
         /// </summary>
         [ViewVariables]
         public int? Injections = 0;
-        // </Goobstation>
+        // </Goidastation>
 }

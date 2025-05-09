@@ -56,7 +56,7 @@
 // SPDX-FileCopyrightText: 2025 AftrLite <61218133+AftrLite@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Lincoln McQueen <lincoln.mcqueen@gmail.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Marcus F <marcus2008stoke@gmail.com>
@@ -68,7 +68,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.MartialArts;
+using Content.Goidastation.Common.MartialArts;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -91,9 +91,9 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Movement.Pulling.Components; // Goobstation
-using Content.Shared.Movement.Pulling.Systems; // Goobstation
-using Content.Goobstation.Shared.Body.Components;
+using Content.Shared.Movement.Pulling.Components; // Goidastation
+using Content.Shared.Movement.Pulling.Systems; // Goidastation
+using Content.Goidastation.Shared.Body.Components;
 using Content.Shared._DV.CosmicCult.Components; // DeltaV
 
 
@@ -127,7 +127,7 @@ public sealed class RespiratorSystem : EntitySystem
         SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
     }
 
-    // Goobstation start
+    // Goidastation start
     // Can breathe check for grab
     public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
     {
@@ -139,7 +139,7 @@ public sealed class RespiratorSystem : EntitySystem
 
         return !HasComp<KravMagaBlockedBreathingComponent>(uid);
     }
-    // Goobstation end
+    // Goidastation end
     private void OnMapInit(Entity<RespiratorComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.UpdateInterval;
@@ -182,7 +182,7 @@ public sealed class RespiratorSystem : EntitySystem
                 }
             }
 
-            if (!CanBreathe(uid, respirator)) // Goobstation edit
+            if (!CanBreathe(uid, respirator)) // Goidastation edit
             {
                 // DeltaV: Cosmic Cult - One line change but a refactor would be better. this is kinda cringe.
                 // Makes cultists gasp and respirate but not asphyxiate in space.

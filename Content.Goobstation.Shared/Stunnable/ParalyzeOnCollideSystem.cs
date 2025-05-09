@@ -11,7 +11,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Goobstation.Shared.Stunnable;
+namespace Content.Goidastation.Shared.Stunnable;
 
 public sealed class ParalyzeOnCollideSystem : EntitySystem
 {

@@ -6,7 +6,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace Content.Goobstation.Shared.ChronoLegionnaire.Components
+namespace Content.Goidastation.Shared.ChronoLegionnaire.Components
 {
     /// <summary>
     /// Marks an entity that cannot be affect by stasis

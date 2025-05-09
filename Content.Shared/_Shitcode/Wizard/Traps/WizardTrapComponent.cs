@@ -12,7 +12,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Goobstation.Wizard.Traps;
+namespace Content.Shared._Goidastation.Wizard.Traps;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WizardTrapComponent : Component

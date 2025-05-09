@@ -1,16 +1,16 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Enchanting.Systems;
+using Content.Goidastation.Shared.Enchanting.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Goobstation.Shared.Enchanting.Components;
+namespace Content.Goidastation.Shared.Enchanting.Components;
 
 /// <summary>
 /// An item that can be sacrificed to add random enchant(s) to a target item.
@@ -56,5 +56,5 @@ public sealed partial class EnchanterComponent : Component
     /// Sound played when enchanting an item.
     /// </summary>
     [DataField]
-    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/repulse.ogg");
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_Goidastation/Wizard/repulse.ogg");
 }

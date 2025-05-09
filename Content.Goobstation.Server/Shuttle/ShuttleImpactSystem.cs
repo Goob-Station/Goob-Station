@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // ported from: monolith (Content.Server/Shuttles/Systems/ShuttleSystem.Impact.cs)
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server.Shuttles.Components;
 using Content.Server.Stunnable;
 using Content.Server.Destructible;
@@ -36,7 +36,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Threading;
 using System.Numerics;
 
-namespace Content.Goobstation.Server.Shuttle.Impact;
+namespace Content.Goidastation.Server.Shuttle.Impact;
 
 public sealed partial class ShuttleImpactSystem : EntitySystem
 {
@@ -77,17 +77,17 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     {
         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
 
-        Subs.CVar(_cfg, GoobCVars.MinimumImpactInertia, value => MinimumImpactInertia = value, true);
-        Subs.CVar(_cfg, GoobCVars.MinimumImpactVelocity, value => MinimumImpactVelocity = value, true);
-        Subs.CVar(_cfg, GoobCVars.TileBreakEnergyMultiplier, value => TileBreakEnergyMultiplier = value, true);
-        Subs.CVar(_cfg, GoobCVars.ImpactDamageMultiplier, value => DamageMultiplier = value, true);
-        Subs.CVar(_cfg, GoobCVars.ImpactStructuralDamage, value => StructuralDamage = value, true);
-        Subs.CVar(_cfg, GoobCVars.SparkEnergy, value => SparkEnergy = value, true);
-        Subs.CVar(_cfg, GoobCVars.ImpactRadius, value => ImpactRadius = value, true);
-        Subs.CVar(_cfg, GoobCVars.ImpactSlowdown, value => ImpactSlowdown = value, true);
-        Subs.CVar(_cfg, GoobCVars.ImpactMinThrowVelocity, value => MinThrowVelocity = value, true);
-        Subs.CVar(_cfg, GoobCVars.ImpactMassBias, value => MassBias = value, true);
-        Subs.CVar(_cfg, GoobCVars.ImpactInertiaScaling, value => InertiaScaling = value, true);
+        Subs.CVar(_cfg, GoidaCVars.MinimumImpactInertia, value => MinimumImpactInertia = value, true);
+        Subs.CVar(_cfg, GoidaCVars.MinimumImpactVelocity, value => MinimumImpactVelocity = value, true);
+        Subs.CVar(_cfg, GoidaCVars.TileBreakEnergyMultiplier, value => TileBreakEnergyMultiplier = value, true);
+        Subs.CVar(_cfg, GoidaCVars.ImpactDamageMultiplier, value => DamageMultiplier = value, true);
+        Subs.CVar(_cfg, GoidaCVars.ImpactStructuralDamage, value => StructuralDamage = value, true);
+        Subs.CVar(_cfg, GoidaCVars.SparkEnergy, value => SparkEnergy = value, true);
+        Subs.CVar(_cfg, GoidaCVars.ImpactRadius, value => ImpactRadius = value, true);
+        Subs.CVar(_cfg, GoidaCVars.ImpactSlowdown, value => ImpactSlowdown = value, true);
+        Subs.CVar(_cfg, GoidaCVars.ImpactMinThrowVelocity, value => MinThrowVelocity = value, true);
+        Subs.CVar(_cfg, GoidaCVars.ImpactMassBias, value => MassBias = value, true);
+        Subs.CVar(_cfg, GoidaCVars.ImpactInertiaScaling, value => InertiaScaling = value, true);
     }
 
     /// <summary>
@@ -346,7 +346,7 @@ public sealed partial class ShuttleImpactSystem : EntitySystem
     {
         // Skip processing if the grid has an anchor component
         if (
-            // Goob - not real
+            // Goida - not real
             //HasComp<PreventGridAnchorChangesComponent>(uid) ||
             //HasComp<ForceAnchorComponent>(uid) ||
             !HasComp<Robust.Shared.Physics.BroadphaseComponent>(uid))

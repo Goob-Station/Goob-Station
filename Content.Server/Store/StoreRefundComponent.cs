@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Server.Store.Systems;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 
@@ -21,11 +21,11 @@ public sealed partial class StoreRefundComponent : Component
     [ViewVariables, DataField]
     public EntityUid? StoreEntity;
 
-    // Goobstation start
+    // Goidastation start
     [ViewVariables, DataField]
     public ListingData? Data;
 
     [ViewVariables, DataField]
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> BalanceSpent = new();
-    // Goobstation end
+    // Goidastation end
 }

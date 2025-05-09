@@ -99,7 +99,7 @@ public abstract class SharedAdminFrozenSystem : EntitySystem
     {
         if (TryComp<PullableComponent>(uid, out var pullable))
         {
-            _pulling.TryStopPull(uid, pullable, ignoreGrab: true); // Goobstation edit
+            _pulling.TryStopPull(uid, pullable, ignoreGrab: true); // Goidastation edit
         }
 
         UpdateCanMove(uid, component, args);

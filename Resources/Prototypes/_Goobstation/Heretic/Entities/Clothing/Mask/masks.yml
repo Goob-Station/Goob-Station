@@ -17,9 +17,9 @@
   - type: SelfUnremovableClothing
   - type: MadnessMask
   - type: Sprite
-    sprite: _Goobstation/Heretic/mad_mask.rsi
+    sprite: _Goidastation/Heretic/mad_mask.rsi
   - type: Clothing
-    sprite: _Goobstation/Heretic/mad_mask.rsi
+    sprite: _Goidastation/Heretic/mad_mask.rsi
   - type: BreathMask
   - type: IdentityBlocker
   - type: Armor

@@ -12,7 +12,7 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
 // SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
@@ -34,7 +34,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Content.Shared.Tag; // Goobstation Change
+using Content.Shared.Tag; // Goidastation Change
 using Content.Shared._NF.Storage.Components; // Frontier
 
 namespace Content.Server.Materials;
@@ -50,9 +50,9 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StackSystem _stackSystem = default!;
-    [Dependency] private readonly TagSystem _tag = default!; // Goobstation Change
+    [Dependency] private readonly TagSystem _tag = default!; // Goidastation Change
 
-    private static readonly ProtoId<TagPrototype> OreTag = "Ore"; // Goobstation Change
+    private static readonly ProtoId<TagPrototype> OreTag = "Ore"; // Goidastation Change
     public override void Initialize()
     {
         base.Initialize();
@@ -95,7 +95,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 
         if (material.StackEntity != null)
         {
-            // Goobstation Change Start
+            // Goidastation Change Start
             var proto = _prototypeManager.Index<EntityPrototype>(material.StackEntity);
             if (!proto.TryGetComponent<PhysicalCompositionComponent>(out var composition, EntityManager.ComponentFactory))
                 return;
@@ -104,7 +104,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
                 && component.DisallowOreEjection
                 && _tag.HasTag(tag, OreTag))
                 return;
-            // Goobstation Change End
+            // Goidastation Change End
 
             var volumePerSheet = composition.MaterialComposition.FirstOrDefault(kvp => kvp.Key == msg.Material).Value;
             var sheetsToExtract = Math.Min(msg.SheetsToExtract, _stackSystem.GetMaxCount(material.StackEntity));
@@ -144,7 +144,7 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
         if (!base.TryInsertMaterialEntity(user, toInsert, receiver, storage, material, composition))
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
-        if (user != receiver) // Goobstation - for automation to not spam popups
+        if (user != receiver) // Goidastation - for automation to not spam popups
             _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
                 ("item", toInsert)), receiver);
         QueueDel(toInsert);

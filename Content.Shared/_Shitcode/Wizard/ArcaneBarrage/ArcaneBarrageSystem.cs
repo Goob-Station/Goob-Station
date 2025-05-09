@@ -16,7 +16,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._Goobstation.Wizard.ArcaneBarrage;
+namespace Content.Shared._Goidastation.Wizard.ArcaneBarrage;
 
 public sealed class ArcaneBarrageSystem : EntitySystem
 {

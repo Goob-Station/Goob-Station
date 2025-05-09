@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Atmos;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Physics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -14,7 +14,7 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Goobstation.Wizard.Traps;
+namespace Content.Shared._Goidastation.Wizard.Traps;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class IceCubeComponent : Component
@@ -66,7 +66,7 @@ public sealed partial class IceCubeComponent : Component
 
     [DataField]
     public SpriteSpecifier Sprite =
-        new SpriteSpecifier.Rsi(new ResPath("_Goobstation/Wizard/Effects/effects.rsi"), "ice_cube");
+        new SpriteSpecifier.Rsi(new ResPath("_Goidastation/Wizard/Effects/effects.rsi"), "ice_cube");
 }
 
 public enum IceCubeKey : byte

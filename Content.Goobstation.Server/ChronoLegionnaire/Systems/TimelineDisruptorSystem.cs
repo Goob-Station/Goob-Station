@@ -6,8 +6,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.ChronoLegionnaire.Components;
-using Content.Goobstation.Shared.ChronoLegionnaire.EntitySystems;
+using Content.Goidastation.Shared.ChronoLegionnaire.Components;
+using Content.Goidastation.Shared.ChronoLegionnaire.EntitySystems;
 using Content.Server.Storage.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
@@ -17,7 +17,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
-namespace Content.Goobstation.Server.ChronoLegionnaire.Systems;
+namespace Content.Goidastation.Server.ChronoLegionnaire.Systems;
 
 public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
 {

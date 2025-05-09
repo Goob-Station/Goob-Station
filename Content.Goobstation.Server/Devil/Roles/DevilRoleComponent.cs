@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -7,7 +7,7 @@
 
 using Content.Shared.Roles;
 
-namespace Content.Goobstation.Server.Devil.Roles;
+namespace Content.Goidastation.Server.Devil.Roles;
 
 [RegisterComponent]
 public sealed partial class DevilRoleComponent : BaseMindRoleComponent;

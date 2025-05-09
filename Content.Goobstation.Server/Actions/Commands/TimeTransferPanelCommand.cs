@@ -10,7 +10,7 @@ using Content.Server.EUI;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Goobstation.Server.Actions.Commands;
+namespace Content.Goidastation.Server.Actions.Commands;
 
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class TimeTransferPanelCommand : LocalizedCommands

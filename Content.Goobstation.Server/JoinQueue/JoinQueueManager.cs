@@ -1,12 +1,12 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
 using Content.Server.Connection;
 using Content.Shared.CCVar;
-using Content.Goobstation.Shared.JoinQueue;
+using Content.Goidastation.Shared.JoinQueue;
 using Prometheus;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -14,11 +14,11 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server._RMC14.LinkAccount;
-using Content.Goobstation.Common.JoinQueue;
+using Content.Goidastation.Common.JoinQueue;
 
-namespace Content.Goobstation.Server.JoinQueue;
+namespace Content.Goidastation.Server.JoinQueue;
 
 /// <summary>
 ///     Manages new player connections when the server is full and queues them up, granting access when a slot becomes free
@@ -70,8 +70,8 @@ public sealed class JoinQueueManager : IJoinQueueManager
     {
         _net.RegisterNetMessage<QueueUpdateMessage>();
 
-        _configuration.OnValueChanged(GoobCVars.QueueEnabled, OnQueueCVarChanged, true);
-        _configuration.OnValueChanged(GoobCVars.PatreonSkip, OnPatronCvarChanged, true);
+        _configuration.OnValueChanged(GoidaCVars.QueueEnabled, OnQueueCVarChanged, true);
+        _configuration.OnValueChanged(GoidaCVars.PatreonSkip, OnPatronCvarChanged, true);
         _player.PlayerStatusChanged += OnPlayerStatusChanged;
     }
 

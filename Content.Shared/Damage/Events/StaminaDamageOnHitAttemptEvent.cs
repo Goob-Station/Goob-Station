@@ -13,4 +13,4 @@ namespace Content.Shared.Damage.Events;
 /// Attempting to apply stamina damage on entity.
 /// </summary>
 [ByRefEvent]
-public record struct StaminaDamageOnHitAttemptEvent(bool LightAttack, bool Cancelled); // Goob edit
+public record struct StaminaDamageOnHitAttemptEvent(bool LightAttack, bool Cancelled); // Goida edit

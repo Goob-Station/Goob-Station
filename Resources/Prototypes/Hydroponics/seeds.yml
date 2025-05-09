@@ -1287,7 +1287,7 @@
       Min: 1
       Max: 5
       PotencyDivisor: 10
-    SilverSulfadiazine: # Goobstation
+    SilverSulfadiazine: # Goidastation
       Min: 1
       Max: 20
       PotencyDivisor: 5
@@ -1315,7 +1315,7 @@
       Min: 1
       Max: 2
       PotencyDivisor: 50
-    StypticPowder: # Goobstation
+    StypticPowder: # Goidastation
       Min: 1
       Max: 20
       PotencyDivisor: 5
@@ -1803,7 +1803,7 @@
   productPrototypes:
     - FoodBerries
   mutationPrototypes:
-    - strangeBerries #goobstation
+    - strangeBerries #goidastation
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
@@ -2029,7 +2029,7 @@
   name: seeds-cherry-name
   noun: seeds-noun-seeds
   displayName: seeds-cherry-display-name
-  plantRsi: _Goobstation/Objects/Specific/Hydroponics/cherry.rsi
+  plantRsi: _Goidastation/Objects/Specific/Hydroponics/cherry.rsi
   packetPrototype: CherrySeeds
   productPrototypes:
     - FoodCherry

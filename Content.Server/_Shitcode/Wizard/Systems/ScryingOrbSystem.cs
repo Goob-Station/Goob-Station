@@ -5,7 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Shared._Goobstation.Wizard.ScryingOrb;
+using Content.Shared._Goidastation.Wizard.ScryingOrb;
 using Content.Shared.Eye;
 using Content.Shared.Ghost;
 using Content.Shared.Hands;
@@ -15,7 +15,7 @@ using Content.Shared.Mind;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class ScryingOrbSystem : SharedScryingOrbSystem
 {

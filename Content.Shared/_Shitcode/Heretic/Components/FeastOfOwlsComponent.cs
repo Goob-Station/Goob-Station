@@ -24,5 +24,5 @@ public sealed partial class FeastOfOwlsComponent : Component
     public TimeSpan JitterStutterTime = TimeSpan.FromSeconds(1);
 
     [DataField]
-    public SoundSpecifier KnowledgeGainSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/eatfood.ogg");
+    public SoundSpecifier KnowledgeGainSound = new SoundPathSpecifier("/Audio/_Goidastation/Heretic/eatfood.ogg");
 }

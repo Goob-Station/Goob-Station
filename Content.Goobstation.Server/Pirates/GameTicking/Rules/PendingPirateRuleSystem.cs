@@ -22,7 +22,7 @@ using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Goobstation.Server.Pirates.GameTicking.Rules;
+namespace Content.Goidastation.Server.Pirates.GameTicking.Rules;
 
 public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPirateRuleComponent>
 {

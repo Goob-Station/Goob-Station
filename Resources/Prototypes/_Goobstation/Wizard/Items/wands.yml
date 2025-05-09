@@ -13,7 +13,7 @@
   categories: [ DoNotMap ]
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/Wands/wand.rsi
     layers:
     - state: basic
     - state: mode
@@ -21,7 +21,7 @@
       shader: unshaded
       map: [ "Firemode" ]
   - type: Item
-    sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
+    sprite: _Goidastation/Wizard/Objects/Weapons/Wands/wand.rsi
     heldPrefix: basic
     size: Normal
   - type: AmmoCounter

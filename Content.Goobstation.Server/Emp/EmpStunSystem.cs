@@ -10,7 +10,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Stunnable;
 
-namespace Content.Goobstation.Server.Emp;
+namespace Content.Goidastation.Server.Emp;
 
 public sealed class EmpStunSystem : EntitySystem
 {

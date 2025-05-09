@@ -131,7 +131,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Michael <107807667+doc-michael@users.noreply.github.com>
@@ -166,10 +166,10 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2
     knockdownTimeDelta: -2
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.7
 
 #Standard armor vest, allowed for security and bartenders
@@ -211,10 +211,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.6
 
 - type: entity
@@ -334,10 +334,10 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 3
     knockdownTimeDelta: -3
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.4
 
 - type: entity
@@ -358,10 +358,10 @@
         Piercing: 0.6
         Heat: 0.5
   - type: GroupExamine
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.6
 
 - type: entity
@@ -386,9 +386,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     cancel: true
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.2
 
 - type: entity
@@ -414,10 +414,10 @@
     sprite: Clothing/OuterClothing/Armor/heavyred.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorHeavy, ClothingOuterWizardBaseArmor, BaseMagicContraband] # Goob edit
+  parent: [ClothingOuterArmorHeavy, ClothingOuterWizardBaseArmor, BaseMagicContraband] # Goida edit
   id: ClothingOuterArmorMagusblue
   name: blue magus armor
-  description: An blue armored suit that provides good protection. Doesn't count as wizard robes. # Goob edit
+  description: An blue armored suit that provides good protection. Doesn't count as wizard robes. # Goida edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/magusblue.rsi
@@ -432,19 +432,19 @@
         Heat: 0.5
         Radiation: 0.1
         Caustic: 0.1
-  - type: ClothingSpeedModifier # Goobstation
+  - type: ClothingSpeedModifier # Goidastation
     walkModifier: 1.0
     sprintModifier: 1.0
-  - type: Tag # Goobstation
+  - type: Tag # Goidastation
     tags:
     - WhitelistChameleon
     - SyringeArmor
 
 - type: entity
-  parent: ClothingOuterArmorMagusblue # Goob edit
+  parent: ClothingOuterArmorMagusblue # Goida edit
   id: ClothingOuterArmorMagusred
   name: red magus armor
-  description: A red armored suit that provides good protection. Doesn't count as wizard robes. # Goob edit
+  description: A red armored suit that provides good protection. Doesn't count as wizard robes. # Goida edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/magusred.rsi
@@ -476,10 +476,10 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: GroupExamine
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.6
 
 - type: entity # This is from upstream, so it goes in wizden code.
@@ -552,10 +552,10 @@
     node: armor
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.6
 
 - type: entity
@@ -578,8 +578,8 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: ModifyDelayedKnockdown # Goobstation
+  - type: ModifyDelayedKnockdown # Goidastation
     delayDelta: 2.5
     knockdownTimeDelta: -2.5
-  - type: StaminaDamageResistance # Goobstation
+  - type: StaminaDamageResistance # Goidastation
     coefficient: 0.6

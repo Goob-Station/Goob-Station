@@ -144,7 +144,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 # SPDX-FileCopyrightText: 2025 SX_7 <sn1.test.preria.2002@gmail.com>
@@ -255,7 +255,7 @@
   - type: StaticPrice
     price: 30
   - type: DnaSubstanceTrace
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:
@@ -333,7 +333,7 @@
     solution: beaker
   - type: StaticPrice
     price: 10
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 25
   - type: SolutionContainerVisuals
@@ -385,7 +385,7 @@
     fillBaseName: beakerlarge
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 50
   - type: StaticPrice
@@ -410,7 +410,7 @@
       beaker:
         maxVol: 60
         canReact: false
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 62
       Plastic: 12
@@ -433,13 +433,13 @@
     solutions:
       beaker:
         maxVol: 1000
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 125
       Plastic: 125
       Plasma: 37
       Silver: 12
-  - type: StaticPrice #Goobstation - Recycle update
+  - type: StaticPrice #Goidastation - Recycle update
     price: 65
 
 - type: entity
@@ -490,7 +490,7 @@
   - type: Tag
     tags:
     - Dropper
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Glass: 50
       Plastic: 25
@@ -542,7 +542,7 @@
         maxVol: 15
   - type: Injector
     injectOnly: false
-    # Goobstation Start - Added embeddable properties for syringe gun
+    # Goidastation Start - Added embeddable properties for syringe gun
   - type: MeleeWeapon
     wideAnimationRotation: -135
     canHeavyAttack: false
@@ -601,7 +601,7 @@
   - type: ThrowableBlocked
   - type: Ammo
     muzzleFlash: null
-    # Goobstation End
+    # Goidastation End
   - type: ExaminableSolution
     solution: injector
   - type: Spillable
@@ -617,7 +617,7 @@
   - type: Tag
     tags:
     - Syringe
-    - SyringeGunAmmo # GoobStation
+    - SyringeGunAmmo # GoidaStation
 
 - type: entity
   parent: BaseSyringe
@@ -630,9 +630,9 @@
     tags:
     - Syringe
     - Trash
-    - SyringeGunAmmo # GoobStation
+    - SyringeGunAmmo # GoidaStation
 
-#- type: entity # Goobstation - proper syringe guns
+#- type: entity # Goidastation - proper syringe guns
 #  name: mini syringe
 #  parent: Syringe
 #  description: A regular syringe, reshaped to fit inside of a gun.
@@ -659,11 +659,11 @@
 #    transferAmount: 1
 #    solution: injector
 #    updateInterval: 2
-#    pierceArmor: false # Goobstation
+#    pierceArmor: false # Goidastation
 #  - type: SolutionInjectOnEmbed
 #    transferAmount: 2
 #    solution: injector
-#    pierceArmor: false # Goobstation
+#    pierceArmor: false # Goidastation
 #  - type: Fixtures
 #    fixtures:
 #      fix1:
@@ -722,7 +722,7 @@
       injector:
         maxVol: 100
   - type: Injector
-    delay: 1 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    delay: 1 # Goidastation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
     injectOnly: false
   - type: SolutionContainerVisuals
     maxFillLevels: 2
@@ -731,22 +731,22 @@
     tags:
     - Syringe
     - Trash
-    - SyringeGunAmmo # Goobstation - This should be fine, given that PR #1626 caused syringes to inject over time
-  - type: PhysicalComposition #Goobstation - Recycle update
+    - SyringeGunAmmo # Goidastation - This should be fine, given that PR #1626 caused syringes to inject over time
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 25
       Plastic: 37
       Glass: 62
       Plasma: 25
       Silver: 12
-  - type: CombatDoAfter # Goobstation
+  - type: CombatDoAfter # Goidastation
     delay: 3 # Longer than a regular syringe
 
 - type: entity
   id: SyringeCryostasis
   parent: BaseSyringe
   name: cryostasis syringe
-  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+  description: An improved syringe used to contain chemicals or solutions without reactions. # Goidastation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -761,20 +761,20 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+        maxVol: 20 # Goidastation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
         canReact: false
   - type: Injector
     delay: 2
     injectOnly: false
     minTransferAmount: 5
     maxTransferAmount: 20
-    transferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
+    transferAmount: 20 # Goidastation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   - type: Tag
     tags:
     - Syringe
     - Trash
-    - SyringeGunAmmo # Goobstation - bluespace syringe can be fired, so should the cryostasis syringe
-  - type: PhysicalComposition #Goobstation - Recycle update
+    - SyringeGunAmmo # Goidastation - bluespace syringe can be fired, so should the cryostasis syringe
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 62
       Plastic: 12

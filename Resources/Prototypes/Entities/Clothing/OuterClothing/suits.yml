@@ -209,7 +209,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodRad
   - type: ProtectedFromStepTriggers
@@ -246,7 +246,7 @@
   - type: ComponentToggler
     parent: true
     components:
-    # Goobstation - Proper invisibility
+    # Goidastation - Proper invisibility
     - type: Stealth
       maxVisibility: 0.1
       hadOutline: true
@@ -348,7 +348,7 @@
     size: Normal
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/iansuit.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodIan
   - type: Construction
@@ -370,7 +370,7 @@
     size: Normal
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodCarp
 
@@ -386,6 +386,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
-  - type: ToggleableClothing # Goobstation - Modsuits change
+  - type: ToggleableClothing # Goidastation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitCarp

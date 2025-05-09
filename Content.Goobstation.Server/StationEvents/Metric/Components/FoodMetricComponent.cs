@@ -5,11 +5,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
-namespace Content.Goobstation.Server.StationEvents.Metric.Components;
+namespace Content.Goidastation.Server.StationEvents.Metric.Components;
 
 [RegisterComponent, Access(typeof(FoodMetricSystem))]
 public sealed partial class FoodMetricComponent : Component

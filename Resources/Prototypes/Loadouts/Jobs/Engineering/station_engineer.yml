@@ -157,7 +157,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
 
-- type: loadout # goob
+- type: loadout # goida
   id: EngiMJ
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitaryEngineering

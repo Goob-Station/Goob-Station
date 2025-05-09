@@ -23,14 +23,14 @@
   - AllAccess
   access:
   - CentralCommand
-  # Goobstation
+  # Goidastation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
-  # Goobstation Start - I basically re-did all of deathsquads stuff so. - Sol
+  # Goidastation Start - I basically re-did all of deathsquads stuff so. - Sol
 
 - type: startingGear
   id: DeathSquadGear
@@ -38,26 +38,26 @@
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquad
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesGlassesDeathsquad # Goobstation
+    eyes: ClothingEyesGlassesDeathsquad # Goidastation
     neck: ExecutiveIDCard # Executive Access!
-    ears: ClothingHeadsetDeathsquad # Goobstation
+    ears: ClothingHeadsetDeathsquad # Goidastation
     gloves: ClothingHandsGlovesDeathsquadUnremovable # Rip and TEAR
     outerClothing: ClothingOuterHardsuitDeathsquad
     shoes: ClothingShoesBootsMagDeathsquad # These boots are cooler.
     id: DeathsquadPDA # New PDA!
-    pocket1: PhoronSabre # Goobstation
-    pocket2: WeaponRevolverMateba # Goobstation
+    pocket1: PhoronSabre # Goidastation
+    pocket2: WeaponRevolverMateba # Goidastation
     belt: ClothingBeltDeathsquadWebbingFilled # Centcomm Doesn't use syndicate tech.
   storage:
     back:
-    - SpeedLoaderMatebaAP # Goobstation - 7 rounds
-    - SpeedLoaderMatebaAP # Goobstation - 7 rounds
+    - SpeedLoaderMatebaAP # Goidastation - 7 rounds
+    - SpeedLoaderMatebaAP # Goidastation - 7 rounds
     # - BoxFlashbang - WAY too big
     - ToolDebug # Spanish Army Knife - TODO Replace
     - WelderExperimental
-    - BlueShieldShieldEvilFilled # Goobstation
+    - BlueShieldShieldEvilFilled # Goidastation
     - DeterrentCaseFilled
   inhand:
   - WeaponPulseRifle
 
-    # Goobstation End
+    # Goidastation End

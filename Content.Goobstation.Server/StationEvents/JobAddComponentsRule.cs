@@ -14,7 +14,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Jobs;
 
-namespace Content.Goobstation.Server.StationEvents;
+namespace Content.Goidastation.Server.StationEvents;
 
 public sealed class JobAddComponentsRule : StationEventSystem<JobAddComponentsRuleComponent>
 {

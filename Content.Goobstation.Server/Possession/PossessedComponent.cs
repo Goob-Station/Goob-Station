@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
@@ -8,7 +8,7 @@ using Content.Shared.Mind;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
-namespace Content.Goobstation.Server.Possession;
+namespace Content.Goidastation.Server.Possession;
 
 
 [RegisterComponent]
@@ -42,5 +42,5 @@ public sealed partial class PossessedComponent : Component
     public Container PossessedContainer;
 
     [ViewVariables]
-    public readonly SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goobstation/Effects/bone_crack.ogg");
+    public readonly SoundPathSpecifier PossessionSoundPath = new ("/Audio/_Goidastation/Effects/bone_crack.ogg");
 }

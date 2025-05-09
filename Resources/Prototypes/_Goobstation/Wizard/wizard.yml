@@ -102,7 +102,7 @@
     tags:
       - ShowWizardIcons
   icon:
-    sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
+    sprite: /Textures/_Goidastation/Wizard/StatusIcons/10x10.rsi
     state: wizard
 
 - type: factionIcon
@@ -117,7 +117,7 @@
     tags:
       - ShowWizardIcons
   icon:
-    sprite: /Textures/_Goobstation/Wizard/StatusIcons/10x10.rsi
+    sprite: /Textures/_Goidastation/Wizard/StatusIcons/10x10.rsi
     state: apprentice
 
 - type: entity

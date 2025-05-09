@@ -45,7 +45,7 @@ public sealed partial class ToggleableClothingComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
 
-    // Goobstation - ClothingPrototype and Slot Fields saved for compatibility with old prototype
+    // Goidastation - ClothingPrototype and Slot Fields saved for compatibility with old prototype
     /// <summary>
     ///     Default clothing entity prototype to spawn into the clothing container.
     /// </summary>

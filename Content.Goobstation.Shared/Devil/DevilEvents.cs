@@ -1,13 +1,13 @@
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 // SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Shared.Devil.Contract;
+using Content.Goidastation.Shared.Devil.Contract;
 using Robust.Shared.Serialization;
 
-namespace Content.Goobstation.Shared.Devil;
+namespace Content.Goidastation.Shared.Devil;
 
 /// <summary>
 /// Raised on a devil when their power level changes.

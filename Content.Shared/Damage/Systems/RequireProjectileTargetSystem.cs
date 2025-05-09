@@ -7,7 +7,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.Projectiles;
+using Content.Goidastation.Common.Projectiles;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
@@ -37,7 +37,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             return;
 
         var other = args.OtherEntity;
-        // Goob edit start
+        // Goida edit start
         if (TryComp(other, out TargetedProjectileComponent? targeted))
         {
             if (targeted.Target == null || targeted.Target == ent)
@@ -51,18 +51,18 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
         if (TryComp(other, out ProjectileComponent? projectile))
         {
-            // Goob edit end
+            // Goida edit end
 
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)
                 return;
 
-            // Goobstation - Crawling
+            // Goidastation - Crawling
             if (TryComp<StandingStateComponent>(shooter, out var standingState) && standingState.CurrentState != StandingState.Standing)
                 return;
 
-            if (TryComp(ent, out PhysicsComponent? physics) && physics.LinearVelocity.Length() > 2.5f) // Goobstation
+            if (TryComp(ent, out PhysicsComponent? physics) && physics.LinearVelocity.Length() > 2.5f) // Goidastation
                 return;
 
             // ProjectileGrenades delete the entity that's shooting the projectile,

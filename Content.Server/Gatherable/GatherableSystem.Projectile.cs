@@ -10,13 +10,13 @@
 using Content.Server.Gatherable.Components;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Random; // Goobstation
+using Robust.Shared.Random; // Goidastation
 
 namespace Content.Server.Gatherable;
 
 public sealed partial class GatherableSystem
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!; // Goobstation
+    [Dependency] private readonly IRobustRandom _robustRandom = default!; // Goidastation
     private void InitializeProjectile()
     {
         SubscribeLocalEvent<GatheringProjectileComponent, StartCollideEvent>(OnProjectileCollide);
@@ -27,15 +27,15 @@ public sealed partial class GatherableSystem
         if (!args.OtherFixture.Hard ||
             args.OurFixtureId != SharedProjectileSystem.ProjectileFixture ||
             gathering.Comp.Amount <= 0 ||
-            !TryComp<GatherableComponent>(args.OtherEntity, out var gatherable) || // Goobstation edit
-            gatherable.IsGathered || // Goobstation
-            !_robustRandom.Prob(gathering.Comp.Probability)) // Goobstation
+            !TryComp<GatherableComponent>(args.OtherEntity, out var gatherable) || // Goidastation edit
+            gatherable.IsGathered || // Goidastation
+            !_robustRandom.Prob(gathering.Comp.Probability)) // Goidastation
         {
             return;
         }
 
         Gather(args.OtherEntity, gathering, gatherable);
-        gatherable.IsGathered = true; // Goobstation
+        gatherable.IsGathered = true; // Goidastation
         gathering.Comp.Amount--;
 
         if (gathering.Comp.Amount <= 0)

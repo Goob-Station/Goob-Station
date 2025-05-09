@@ -65,7 +65,7 @@
 - type: entity
   name: jaws of life
   parent: BaseItem
-  id: JawsOfLifeBase # Goobstation - Recycler Update
+  id: JawsOfLifeBase # Goidastation - Recycler Update
   abstract: true
   description: A set of jaws of life, compressed through the magic of science.
   components:
@@ -92,7 +92,7 @@
     speedModifier: 1.5
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
-  - type: UseDelay # Goobstation - For insta prying
+  - type: UseDelay # Goidastation - For insta prying
     delay: 1
   - type: MultipleTool
     statusShowBehavior: true
@@ -126,11 +126,11 @@
     startSound: /Audio/Items/change_jaws.ogg
     endSound: /Audio/Items/change_jaws.ogg
 
-- type: entity # Goobstation - Recycler Update
+- type: entity # Goidastation - Recycler Update
   parent: JawsOfLifeBase
   id: JawsOfLife
   components:
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition #Goidastation - Recycle update
     materialComposition:
       Steel: 250
       Glass: 125

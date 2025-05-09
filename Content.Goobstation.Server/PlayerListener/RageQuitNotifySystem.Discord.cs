@@ -4,12 +4,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-using Content.Goobstation.Common.CCVar;
+using Content.Goidastation.Common.CCVar;
 using Content.Server.Discord;
 using Content.Server.GameTicking;
 using Robust.Shared.Network;
 
-namespace Content.Goobstation.Server.PlayerListener;
+namespace Content.Goidastation.Server.PlayerListener;
 
 public sealed partial class RageQuitNotifySystem
 {
@@ -19,7 +19,7 @@ public sealed partial class RageQuitNotifySystem
 
     private void InitializeDiscord()
     {
-        Subs.CVar(_cfg, GoobCVars.PlayerRageQuitDiscordWebhook,
+        Subs.CVar(_cfg, GoidaCVars.PlayerRageQuitDiscordWebhook,
             value =>
             {
                 if (!string.IsNullOrEmpty(value))

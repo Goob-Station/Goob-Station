@@ -12,8 +12,8 @@ using Content.Server.Mind;
 using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Shared._Goobstation.Wizard.BindSoul;
-using Content.Shared._Goobstation.Wizard.MagicMirror;
+using Content.Shared._Goidastation.Wizard.BindSoul;
+using Content.Shared._Goidastation.Wizard.MagicMirror;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -23,7 +23,7 @@ using Content.Shared.Preferences;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Goobstation.Wizard.Systems;
+namespace Content.Server._Goidastation.Wizard.Systems;
 
 public sealed class WizardMirrorSystem : SharedWizardMirrorSystem
 {

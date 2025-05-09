@@ -8,7 +8,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Goobstation.Shared.Vehicles.Clowncar;
+namespace Content.Goidastation.Shared.Vehicles.Clowncar;
 
 /// <summary>
 /// Dummy component to mark the clowncar gun and handle events raised on it

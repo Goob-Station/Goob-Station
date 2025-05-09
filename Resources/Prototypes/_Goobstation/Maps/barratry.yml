@@ -85,7 +85,7 @@
 - type: gameMap
   id: Barratry
   mapName: 'Barratry'
-  mapPath: /Maps/_Goobstation/barratry.yml
+  mapPath: /Maps/_Goidastation/barratry.yml
   minPlayers: 30
   maxPlayers: 60
   stations:

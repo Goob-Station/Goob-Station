@@ -18,7 +18,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/VendingMachines/fitness.rsi
+    sprite: _Goidastation/Structures/Machines/VendingMachines/fitness.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -62,7 +62,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/VendingMachines/hotfood.rsi
+    sprite: _Goidastation/Structures/Machines/VendingMachines/hotfood.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -101,7 +101,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/VendingMachines/solsnack.rsi
+    sprite: _Goidastation/Structures/Machines/VendingMachines/solsnack.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -141,7 +141,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/VendingMachines/weeb.rsi
+    sprite: _Goidastation/Structures/Machines/VendingMachines/weeb.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -188,7 +188,7 @@
   - type: Advertise
     pack: MailDrobeAds
   - type: Sprite
-    sprite: _Goobstation/Structures/Machines/VendingMachines/maildrobe.rsi
+    sprite: _Goidastation/Structures/Machines/VendingMachines/maildrobe.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -212,7 +212,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: _Goobstation/Structures/Machines/VendingMachines/sweettoof.rsi # Todo - Change this
+    sprite: _Goidastation/Structures/Machines/VendingMachines/sweettoof.rsi # Todo - Change this
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]

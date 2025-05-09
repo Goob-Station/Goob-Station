@@ -18,10 +18,10 @@ public sealed class IngestionBlockerSystem : EntitySystem
 
         SubscribeLocalEvent<IngestionBlockerComponent, ItemMaskToggledEvent>(OnBlockerMaskToggled);
 
-        SubscribeLocalEvent<IngestionBlockerComponent, ExaminedEvent>(OnExamined); // Goobstation
+        SubscribeLocalEvent<IngestionBlockerComponent, ExaminedEvent>(OnExamined); // Goidastation
     }
 
-    private void OnExamined(Entity<IngestionBlockerComponent> ent, ref ExaminedEvent args) // Goobstation
+    private void OnExamined(Entity<IngestionBlockerComponent> ent, ref ExaminedEvent args) // Goidastation
     {
         if (ent.Comp.BlockSmokeIngestion)
             args.PushMarkup(Loc.GetString("ingestion-blocker-block-smoke-examine"));

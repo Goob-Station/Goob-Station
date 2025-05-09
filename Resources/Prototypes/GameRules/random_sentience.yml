@@ -14,7 +14,7 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    chaos: # Goobstation
+    chaos: # Goidastation
       Mess: 5
       Friend: -5
   - type: RandomSentienceRule

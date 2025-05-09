@@ -31,7 +31,7 @@
 # SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 GoidaBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 marc-pelletier <113944176+marc-pelletier@users.noreply.github.com>
 #
@@ -136,10 +136,10 @@
       - id: MedkitOxygenFilled
       - id: HolofanProjector
       - id: RPD #funkystation
-      - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: DoorRemoteFirefight # Goidastation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
-      - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
+      - id: ClothingHandsGlovesAtmosInsulated # Goidastation - insulated atmos gloves
       - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
 
 - type: entity
@@ -156,10 +156,10 @@
       - id: MedkitOxygenFilled
       - id: HolofanProjector
       - id: RPD #funkystation
-      - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
+      - id: DoorRemoteFirefight # Goidastation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
-      - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
+      - id: ClothingHandsGlovesAtmosInsulated # Goidastation - insulated atmos gloves
       - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
 
 - type: entity

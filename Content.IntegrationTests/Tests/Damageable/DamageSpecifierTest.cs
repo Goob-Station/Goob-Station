@@ -10,7 +10,7 @@
 
 using System.Collections.Generic;
 using Content.Shared.Damage;
-using Content.Goobstation.Maths.FixedPoint;
+using Content.Goidastation.Maths.FixedPoint;
 
 namespace Content.IntegrationTests.Tests.Damageable;
 

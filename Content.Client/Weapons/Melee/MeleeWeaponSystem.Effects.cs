@@ -158,13 +158,13 @@ public sealed partial class MeleeWeaponSystem
             case WeaponArcAnimation.Thrust:
                 track = EnsureComp<TrackUserComponent>(animationUid);
                 track.User = user;
-                // Goobstation - Shove Rework Start
+                // Goidastation - Shove Rework Start
                 var dir = Transform(user).LocalRotation.GetCardinalDir();
 
                 if (flippedAnimation && dir is Direction.South or Direction.West)
                     spriteRotation = Angle.FromDegrees(360) - spriteRotation;
 
-                // Goobstation - Shove Rework End
+                // Goidastation - Shove Rework End
                 _animation.Play(animationUid, GetThrustAnimation(sprite, distance, spriteRotation), ThrustAnimationKey);
                 if (arcComponent.Fadeout)
                     _animation.Play(animationUid, GetFadeAnimation(sprite, 0.05f, 0.15f), FadeAnimationKey);
@@ -322,7 +322,7 @@ public sealed partial class MeleeWeaponSystem
         }
     }
 
-    private Angle? GetParentRotation(TransformComponent xform) // Goobstation
+    private Angle? GetParentRotation(TransformComponent xform) // Goidastation
     {
         if (xform.ParentUid == xform.GridUid || xform.ParentUid == xform.MapUid || !Exists(xform.ParentUid))
             return TransformSystem.GetWorldRotation(xform);

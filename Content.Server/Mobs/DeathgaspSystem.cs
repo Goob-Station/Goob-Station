@@ -29,7 +29,7 @@ public sealed class DeathgaspSystem: EntitySystem
     private void OnMobStateChanged(EntityUid uid, DeathgaspComponent component, MobStateChangedEvent args)
     {
         // don't deathgasp if they arent going straight from crit to dead
-        if (component.NeedsCritical // Goobstation
+        if (component.NeedsCritical // Goidastation
             && args.OldMobState != MobState.Critical
             || args.NewMobState != MobState.Dead)
             return;

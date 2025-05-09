@@ -168,7 +168,7 @@
   - type: Appearance
   - type: PipeColorVisuals
   - type: NodeContainer
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   # - type: PipeRestrictOverlap
   - type: AtmosUnsafeUnanchor
   - type: AtmosPipeColor
@@ -181,11 +181,11 @@
     bodyType: static
   - type: StaticPrice
     price: 30
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
 
-- type: entity  # Goobstation - ventcrawl
+- type: entity  # Goidastation - ventcrawl
   id: VentCrawlerHolder
   categories: [ HideSpawnMenu ]
   name: vent craw holder
@@ -197,7 +197,7 @@
         VentCrawlerHolderComponent: !type:Container
 
 
-# Goobstation - Allow device-on-pipe stacking
+# Goidastation - Allow device-on-pipe stacking
 - type: entity
   abstract: true
   parent: GasPipeBase
@@ -208,7 +208,7 @@
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
 - type: entity
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeHalf
   suffix: Half
@@ -232,7 +232,7 @@
     - PipeNetworks
 
 - type: entity
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeStraight
   suffix: Straight
@@ -243,10 +243,10 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: Longitudinal
-  - type: VentCrawlerTube # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goidastation - ventcrawl
     containerId: VentCrawlerTube
-  - type: VentCrawlerTransit # Goobstation - ventcrawl
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: VentCrawlerTransit # Goidastation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
   - type: Sprite
@@ -276,7 +276,7 @@
     - PipeNetworks
 
 - type: entity
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeBend
   suffix: Bend
@@ -287,10 +287,10 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: SWBend
-  - type: VentCrawlerTube # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goidastation - ventcrawl
     containerId: VentCrawlerTube
-  - type: VentCrawlerBend # Goobstation - ventcrawl
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: VentCrawlerBend # Goidastation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
   - type: Sprite
@@ -321,7 +321,7 @@
     damage:
       types:
         Blunt: 8 # Woe, pipe be upon ye!
-  - type: ThrowableBlocked # Goobstation
+  - type: ThrowableBlocked # Goidastation
     behavior: Damage
     damage:
       types:
@@ -332,7 +332,7 @@
     - PipeNetworks
 
 - type: entity
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeTJunction
   suffix: TJunction
@@ -371,19 +371,19 @@
     guides:
     - Pipes
     - PipeNetworks
-  - type: VentCrawlerTube # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goidastation - ventcrawl
     containerId: VentCrawlerTube
-  - type: VentCrawlerJunction # Goobstation - ventcrawl
+  - type: VentCrawlerJunction # Goidastation - ventcrawl
     degrees:
       - 0
       - 90
       - -90
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
 
 - type: entity
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeFourway
   suffix: Fourway
@@ -403,15 +403,15 @@
   - type: Construction
     graph: GasPipe
     node: fourway
-  - type: VentCrawlerTube # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goidastation - ventcrawl
     containerId: VentCrawlerTube
-  - type: VentCrawlerJunction # Goobstation - ventcrawl
+  - type: VentCrawlerJunction # Goidastation - ventcrawl
     degrees:
       - 0
       - 90
       - -90
       - 180
-  - type: ContainerContainer # Goobstation - ventcrawl
+  - type: ContainerContainer # Goidastation - ventcrawl
     containers:
       VentCrawlerTube: !type:Container
   - type: Item
@@ -435,7 +435,7 @@
 
 - type: entity
   id: GasPipeBroken
-  # Goobstation - Allow device-on-pipe stacking
+  # Goidastation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   name: broken pipe
   description: It used to hold gas.
