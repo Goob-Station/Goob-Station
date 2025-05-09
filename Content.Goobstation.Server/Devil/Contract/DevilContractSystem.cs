@@ -352,7 +352,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         EntityManager.RemoveComponents(target, clause.RemovedComponents);
 
         foreach (var component in clause.RemovedComponents)
-            _sawmill.Debug($"Removed {component.GetType()} from {ToPrettyString(target)}");
+            _sawmill.Debug($"Removed {component.Value.Component} from {ToPrettyString(target)}");
     }
 
     private void AddImplants(EntityUid target, DevilClausePrototype clause)
@@ -374,7 +374,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         EntityManager.AddComponents(target, clause.AddedComponents);
 
         foreach (var component in clause.AddedComponents)
-            _sawmill.Debug($"Added {component.GetType()} to {ToPrettyString(target)}");
+            _sawmill.Debug($"Added {component.Value.Component} to {ToPrettyString(target)}");
     }
 
     private void SpawnItems(EntityUid target, DevilClausePrototype clause)
