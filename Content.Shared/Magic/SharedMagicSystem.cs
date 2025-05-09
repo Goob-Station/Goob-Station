@@ -280,7 +280,10 @@ public abstract class SharedMagicSystem : EntitySystem
 
         // Check if the magic is being suppressed
         if (_suppression.TryMagicSuppressed(ent))
+        {
+            args.Cancelled = true;
             return;
+        }
 
         if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
             HasComp<ChuuniEyepatchComponent>(eyepatch.Value))

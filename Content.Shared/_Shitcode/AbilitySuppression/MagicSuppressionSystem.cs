@@ -30,7 +30,7 @@ public sealed partial class MagicSuppressionSystem : EntitySystem
 
         if (sup.Cancelled)
         {
-            _popup.PopupEntity(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), ent, ent, PopupType.Medium);
+            _popup.PopupClient(Loc.GetString("suppression-ability-block", ("name", Name(sup.Blocker))), ent, ent, PopupType.Medium);
             return true;
         }
 
