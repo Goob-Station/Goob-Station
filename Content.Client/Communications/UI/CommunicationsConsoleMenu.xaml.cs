@@ -184,7 +184,7 @@ namespace Content.Client.Communications.UI
             if (alerts == null)
             {
                 var name = currentAlert;
-                if (Loc.TryGetString($"alert-level-{currentAlert}", out var locName))
+                if (_loc.TryGetString($"alert-level-{currentAlert}", out var locName))
                 {
                     name = locName;
                 }
@@ -196,7 +196,7 @@ namespace Content.Client.Communications.UI
                 foreach (var alert in alerts)
                 {
                     var name = alert;
-                    if (Loc.TryGetString($"alert-level-{alert}", out var locName))
+                    if (_loc.TryGetString($"alert-level-{alert}", out var locName))
                     {
                         name = locName;
                     }
