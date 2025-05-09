@@ -79,6 +79,10 @@
   - Lawyer
   - Brig
   - Maintenance
+  special: # Goobstation - lawyers have no souls to sacrifice
+  - !type:AddComponentSpecial
+    components:
+    - type: Condemned
 
 - type: startingGear
   id: LawyerGear

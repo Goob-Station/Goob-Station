@@ -8,6 +8,7 @@
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 
 namespace Content.Shared.Movement.Components;
 
@@ -18,5 +19,10 @@ namespace Content.Shared.Movement.Components;
 public sealed partial class ActiveJetpackComponent : Component
 {
     public float EffectCooldown = 0.3f;
+
+    public float MaxDistance = 0.7f;
+
+    public EntityCoordinates LastCoordinates;
+
     public TimeSpan TargetTime = TimeSpan.Zero;
 }

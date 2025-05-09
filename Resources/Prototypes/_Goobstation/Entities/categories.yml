@@ -1,0 +1,4 @@
+- type: entityCategory
+  id: Enchants
+  name: entity-category-name-enchants
+  hideSpawnMenu: true

@@ -3,6 +3,8 @@
 # SPDX-FileCopyrightText: 2024 starch <starchpersonal@gmail.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 LuciferEOS <stepanteliatnik2022@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 #
@@ -33,4 +35,16 @@
   id: JobDiplomat
 
 - type: playTimeTracker
+  id: JobInspector
+
+- type: playTimeTracker
+  id: JobNanotrasenCareerTrainer
+
+- type: playTimeTracker
   id: JobGovernmentMan
+
+- type: playTimeTracker
+  id: JobConquest
+
+- type: playTimeTracker
+  id: JobTider

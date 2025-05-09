@@ -46,7 +46,7 @@ public sealed partial class NitriumProductionReaction : IGasReactionEffect
         var energyReleased = efficiency * Atmospherics.NitriumProductionEnergy;
         var heatCap = atmosphereSystem.GetHeatCapacity(mixture, true);
         if (heatCap > Atmospherics.MinimumHeatCapacity)
-            mixture.Temperature = Math.Max((mixture.Temperature * heatCap - energyReleased) / heatCap, Atmospherics.TCMB);
+            mixture.Temperature = Math.Max((mixture.Temperature * heatCap + energyReleased) / heatCap, Atmospherics.TCMB);
 
         return ReactionResult.Reacting;
     }

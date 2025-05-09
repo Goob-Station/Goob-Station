@@ -9,6 +9,7 @@
 # SPDX-FileCopyrightText: 2025 BombasterDS <deniskaporoshok@gmail.com>
 # SPDX-FileCopyrightText: 2025 BombasterDS2 <shvalovdenis.workmail@gmail.com>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 LuciferMkshelter <154002422+LuciferEOS@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -247,3 +248,26 @@
     coefficient: 0
   - type: ModifyDelayedKnockdown
     cancel: true
+
+    delayDelta: 6
+    knockdownTimeDelta: -4
+
+#Head of Security's Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSecurityRed
+  id: ClothingOuterHardsuitHeadOfSecurityExperimental
+  name: FI-52 "Honor Guard" parade hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an experimental inbuilt stimulant autoinjector system.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/hos-expi.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitHeadOfSecurityExperimental
+  - type: ClothingAutoInject
+    reagents:
+      Epinephrine: 10
+      Bicaridine: 10
+      TranexamicAcid: 5

@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Scruq445 <storchdamien@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseGateway
+  id: GatewayAntagPlanet
+  name: Antag Planet Gateway
+  description: Takes you to the Antag Planet, where you can test out different antags and their items.
+  components:
+  - type: ActivatableUI
+    key: enum.GatewayUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GatewayUiKey.Key:
+        type: GatewayBoundUserInterface
+  - type: Gateway
+    enabled: true
+    tagRestriction: AntagGateway
+  - type: Tag
+    tags:
+    - Structure
+    - AntagGateway
+
