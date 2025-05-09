@@ -4,9 +4,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# Goobstation
+# Goidastation
 collective-mind-chat-wrap-message = [bold]{$channel} {$number}[/bold]: {$message}
 collective-mind-chat-wrap-message-admin = {$source} ({$channel} {$number}): {$message}
 
-# Goobstation
+# Goidastation
 collective-mind-chat-wrap-message-named = [bold]\[{$channel}\] {$source}[/bold]: {$message}

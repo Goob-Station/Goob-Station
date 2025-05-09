@@ -18,7 +18,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-## goob edited
+## goida edited
 roles-antag-syndicate-agent-name = Traitor
 
 roles-antag-generic-solo-antagonist-name = Solo Antagonist

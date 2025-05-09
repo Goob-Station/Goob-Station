@@ -65,7 +65,7 @@ job-name-janitor = Janitor
 job-name-chaplain = Chaplain
 job-name-botanist = Botanist
 job-name-bartender = Bartender
-## goob edit - epic passengers
+## goida edit - epic passengers
 job-name-passenger = Assistant
 job-name-salvagespec = Salvage Specialist
 job-name-station-ai = Station AI

@@ -77,7 +77,7 @@ ghost-role-information-silicon-rules = You are a [color={role-type-silicon-color
                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
 
 ghost-role-information-mouse-name = Mouse
-# Goobstation
+# Goidastation
 ghost-role-information-mouse-description = A hungry and mischievous mouse. Use +p to talk to other mice.
 
 ghost-role-information-mothroach-name = Mothroach
@@ -243,7 +243,7 @@ ghost-role-information-behonker-description = You are an antagonist, bring death
 ghost-role-information-hellspawn-name = Hellspawn
 ghost-role-information-hellspawn-description = Bring death to those who do not follow the great god Nar'Sie.
 
-# Goob Station - Deathsquad Revamp
+# Goida Station - Deathsquad Revamp
 
 ghost-role-information-Death-Squad-name = Death Squad Operative
 ghost-role-information-Death-Squad-description = We need the Nanotrasen Representative alive to tell us what happened. The rest? Well... they're witnesses.

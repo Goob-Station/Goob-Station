@@ -23,7 +23,7 @@ zombie-healing = You feel a stirring in your flesh
 zombie-infection-warning = You feel the zombie virus take hold
 zombie-infection-underway = Your blood begins to thicken
 
-## goob edit
+## goida edit
 zombie-start-announcement = Confirmed outbreak of level 7 biological hazard aboard the station. All personnel must contain the outbreak.
 
 zombie-alone = You feel entirely alone.

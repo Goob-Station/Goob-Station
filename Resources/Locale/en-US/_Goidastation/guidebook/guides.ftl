@@ -12,7 +12,7 @@ guide-entry-space-law = Space Law
 guide-entry-medpatches = Medical Patches
 guide-entry-rules-nrp = NRP Ruleset
 
-# Goob SOP
+# Goida SOP
 # - Main Directories
 guide-entry-sop = SOP
 guide-entry-sop-alert-levels = Alert Levels

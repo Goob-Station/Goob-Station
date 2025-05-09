@@ -26,4 +26,4 @@ admin-player-actions-window-time-transfer = Time Transfer
 time-transfer-panel-no-player-database-message = Player not found in database
 
 # Please change it if you really-really need to do it
-time-transfer-panel-author = Made by BombasterDS for Goobstation
+time-transfer-panel-author = Made by BombasterDS for Goidastation
