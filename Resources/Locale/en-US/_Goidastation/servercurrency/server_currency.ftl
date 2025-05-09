@@ -66,6 +66,7 @@ gs-balanceui-shop-tittle-label = Titles
 
 gs-balanceui-shop-buy-token-antag = Buy an antag token - {$price} Goida Coins
 gs-balanceui-shop-buy-token-admin-abuse = Buy an admin abuse token - {$price} Goida Coins
+gs-balanceui-shop-buy-token-admin-abuse = Buy a Hat Token - {$price} Goida Coins
 
 gs-balanceui-shop-token-antag = High Tier Antag Token
 gs-balanceui-shop-token-admin-abuse = Admin Abuse Token
