@@ -39,7 +39,7 @@ using Content.Server.Store.Components;
 using Content.Shared._Goobstation.Wizard.Refund; // Goob
 using Content.Shared.Actions;
 using Content.Shared.Database;
-using Content.Shared.FixedPoint;
+using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic; // Goob
 using Content.Shared.Heretic.Prototypes; // Goob

@@ -5,12 +5,14 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-- type: dataset
-  id: names_gman
+- type: localizedDataset
+  id: NamesGman
   values:
-  - The G-Man
+    prefix: names-gman-dataset-
+    count: 1
 
-- type: dataset
-  id: names_conquest
+- type: localizedDataset
+  id: NamesConquest
   values:
-  - Conquest
+    prefix: names-conquest-dataset-
+    count: 1
