@@ -468,7 +468,7 @@
     delayDelta: 3
     knockdownTimeDelta: -3
 
-#Security Hardsuit - MOVED TO _Goobstation/Entities/Clothing/OuterClothing/Voidsuits.yml
+#Security Hardsuit
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
   id: ClothingOuterHardsuitSecurity
