@@ -76,9 +76,7 @@ public partial class WoundSystem
         // Get the root part of the body
         var rootPart = component.RootContainer.ContainedEntity;
         if (!rootPart.HasValue)
-        {
             return false;
-        }
 
         // Collect all woundables and their total bleeding amounts
         var bleedingWoundables = new List<(EntityUid Woundable, FixedPoint2 BleedAmount)>();
@@ -138,7 +136,8 @@ public partial class WoundSystem
 
         foreach (var wound in GetWoundableWounds(woundable, component))
         {
-            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds) || !bleeds.IsBleeding)
+            if (!TryComp<BleedInflicterComponent>(wound, out var bleeds)
+            || !bleeds.IsBleeding)
                 continue;
 
             if (modifiedBleed > bleeds.BleedingAmount)
@@ -154,7 +153,6 @@ public partial class WoundSystem
                 modifiedBleed = 0;
             }
         }
-
         return modifiedBleed != -bleedStopAbility;
     }
 
@@ -187,7 +185,8 @@ public partial class WoundSystem
         out FixedPoint2 healed,
         WoundableComponent? component = null,
         DamageGroupPrototype? damageGroup = null,
-        bool ignoreMultipliers = false)
+        bool ignoreMultipliers = false,
+        bool ignoreBlockers = false)
     {
         healed = 0;
         if (!Resolve(woundable, ref component)
@@ -197,7 +196,7 @@ public partial class WoundSystem
         var woundsToHeal =
             (from wound in component.Wounds.ContainedEntities
                 let woundComp = Comp<WoundComponent>(wound)
-                where CanHealWound(wound)
+                where CanHealWound(wound, woundComp, ignoreBlockers)
                 where damageGroup == null || damageGroup == woundComp.DamageGroup
                 select (wound, woundComp)).Select(dummy => (Entity<WoundComponent>) dummy)
             .ToList(); // that's what I call LINQ.
@@ -229,7 +228,8 @@ public partial class WoundSystem
         string damageType,
         out FixedPoint2 healed,
         WoundableComponent? component = null,
-        bool ignoreMultipliers = false)
+        bool ignoreMultipliers = false,
+        bool ignoreBlockers = false)
     {
         healed = 0;
         if (!Resolve(woundable, ref component, false)
@@ -239,7 +239,7 @@ public partial class WoundSystem
         var woundsToHeal =
             (from wound in component.Wounds.ContainedEntities
                 let woundComp = Comp<WoundComponent>(wound)
-                where CanHealWound(wound)
+                where CanHealWound(wound, woundComp, ignoreBlockers)
                 where damageType == woundComp.DamageType
                 select (wound, woundComp)).Select(dummy => (Entity<WoundComponent>) dummy)
             .ToList();
@@ -379,7 +379,7 @@ public partial class WoundSystem
         return component.HealingMultipliers.Remove(owner);
     }
 
-    public bool CanHealWound(EntityUid wound, WoundComponent? comp = null)
+    public bool CanHealWound(EntityUid wound, WoundComponent? comp = null, bool ignoreBlockers = false)
     {
         if (!Resolve(wound, ref comp))
             return false;
@@ -395,7 +395,7 @@ public partial class WoundSystem
         if (ev.Cancelled)
             return false;
 
-        var ev1 = new WoundHealAttemptEvent((holdingWoundable, Comp<WoundableComponent>(holdingWoundable)));
+        var ev1 = new WoundHealAttemptEvent((holdingWoundable, Comp<WoundableComponent>(holdingWoundable)), ignoreBlockers);
         RaiseLocalEvent(wound, ref ev1);
 
         return !ev1.Cancelled;

@@ -148,6 +148,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness.Systems;
@@ -290,7 +291,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 }
 
                 // Update the bloodstream component's bleed amount to match wounds
-                bloodstream.BleedAmount = totalBleedAmount.Float();
+                TrySetBleedAmount(uid, totalBleedAmount.Float(), bloodstream);
             }
 
             // Removes blood from the bloodstream based on bleed amount (bleed rate)
@@ -300,7 +301,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 // Blood is removed from the bloodstream at a 1-1 rate with the bleed amount
                 TryModifyBloodLevel(uid, (-bloodstream.BleedAmount), bloodstream);
                 // Bleed rate is reduced by the bleed reduction amount in the bloodstream component.
-                TryModifyBleedAmount(uid, -bloodstream.BleedReductionAmount, bloodstream);
+                //TryModifyBleedAmount(uid, -bloodstream.BleedReductionAmount, bloodstream);
             }
 
             // deal bloodloss damage if their blood level is below a threshold.
@@ -338,8 +339,8 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
                 // If they're healthy, we'll try and heal some bloodloss instead.
                 _damageableSystem.TryChangeDamage(
                     uid,
-                    bloodstream.BloodlossHealDamage * bloodPercentage,
-                    ignoreResistances: true, interruptsDoAfters: false);
+                    bloodstream.BloodlossHealDamage * bloodPercentage * 11f,
+                    ignoreResistances: true, interruptsDoAfters: false, targetPart: TargetBodyPart.All); // Shitmed Change
 
                 // Remove the drunk effect when healthy. Should only remove the amount of drunk and stutter added by low blood level
                 _drunkSystem.TryRemoveDrunkenessTime(uid, bloodstream.StatusTime.TotalSeconds);
@@ -410,9 +411,7 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
     private void OnDamageChanged(Entity<BloodstreamComponent> ent, ref DamageChangedEvent args)
     {
         if (args.DamageDelta is null || !args.DamageIncreased)
-        {
             return;
-        }
 
         // TODO probably cache this or something. humans get hurt a lot
         if (!_prototypeManager.TryIndex(ent.Comp.DamageBleedModifiers, out var modifiers)) // Shitmed Change
@@ -568,8 +567,12 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             return false;
         }
 
+        //  SHITMED CHANGE: We dont really care if the reagent was added in its entirety, just whether or not it could take more blood.
         if (amount >= 0)
-            return _solutionContainerSystem.TryAddReagent(component.BloodSolution.Value, component.BloodReagent, amount, null, GetEntityBloodData(uid));
+        {
+            _solutionContainerSystem.TryAddReagent(component.BloodSolution.Value, component.BloodReagent, amount, out var acceptedAmount, null, GetEntityBloodData(uid));
+            return acceptedAmount > 0;
+        }
 
         // Removal is more involved,
         // since we also wanna handle moving it to the temporary solution
@@ -607,10 +610,8 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
     {
         if (!Resolve(uid, ref component, logMissing: false))
             return false;
-
         component.BleedAmount += amount;
         component.BleedAmount = Math.Clamp(component.BleedAmount, 0, component.MaxBleedAmount);
-
         if (component.BleedAmount == 0)
             _alertsSystem.ClearAlert(uid, component.BleedingAlert);
         else
@@ -628,6 +629,23 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem // Shitmed Chang
             return false;
 
         return TryModifyBleedAmount(uid, amount, component);
+    }
+
+    public bool TrySetBleedAmount(EntityUid uid, float amount, BloodstreamComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, logMissing: false))
+            return false;
+
+        component.BleedAmount = Math.Clamp(amount, 0, component.MaxBleedAmount);
+        if (component.BleedAmount == 0)
+            _alertsSystem.ClearAlert(uid, component.BleedingAlert);
+        else
+        {
+            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            _alertsSystem.ShowAlert(uid, component.BleedingAlert, severity);
+        }
+
+        return true;
     }
 
     /// <summary>

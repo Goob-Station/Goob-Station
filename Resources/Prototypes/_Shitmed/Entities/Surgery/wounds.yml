@@ -177,9 +177,8 @@
       BoneDamage: 1
   - type: PainInflicter
     multiplier: 1.1
-  - type: BleedInflicter
-    severityThreshold: 14
-    scalingSpeed: 0.07
+  - type: BleedRemover
+    severityThreshold: 3
 
 - type: entity
   id: Cold

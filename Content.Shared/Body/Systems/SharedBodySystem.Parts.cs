@@ -1107,8 +1107,9 @@ public partial class SharedBodySystem
         TargetingComponent? targetComp = null,
         TargetingComponent? attackerComp = null)
     {
-        if (!Resolve(target, ref targetComp) || !Resolve(attacker, ref attackerComp))
-            return null;
+        if (!Resolve(target, ref targetComp, false)
+            || !Resolve(attacker, ref attackerComp, false))
+            return TargetBodyPart.Chest;
 
         if (_mobState.IsIncapacitated(target)
             || Standing.IsDown(target))
@@ -1132,7 +1133,7 @@ public partial class SharedBodySystem
         TargetingComponent? targetComp = null)
     {
         if (!Resolve(target, ref targetComp, false))
-            return null;
+            return TargetBodyPart.Chest;
 
         if (_mobState.IsIncapacitated(target)
             || Standing.IsDown(target))

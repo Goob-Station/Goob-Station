@@ -103,7 +103,7 @@ public record struct WoundableIntegrityChangedOnBodyEvent(Entity<WoundableCompon
 public record struct WoundableSeverityChangedEvent(WoundableSeverity OldSeverity, WoundableSeverity NewSeverity);
 
 [ByRefEvent]
-public record struct WoundHealAttemptEvent(Entity<WoundableComponent> Woundable, bool Cancelled = false);
+public record struct WoundHealAttemptEvent(Entity<WoundableComponent> Woundable, bool IgnoreBlockers = false, bool Cancelled = false);
 
 [ByRefEvent]
 public record struct WoundHealAttemptOnWoundableEvent(Entity<WoundComponent> Wound, bool Cancelled = false);

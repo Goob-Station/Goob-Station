@@ -89,6 +89,9 @@ public partial class TraumaSystem
 
     private void OnWoundHealAttempt(Entity<TraumaInflicterComponent> inflicter, ref WoundHealAttemptEvent args)
     {
+        if (args.IgnoreBlockers)
+            return;
+
         foreach (var trauma in GetAllWoundTraumas(inflicter, inflicter))
             if (TraumasBlockingHealing.Contains(trauma.Comp.TraumaType))
                 args.Cancelled = true;
@@ -504,6 +507,11 @@ public partial class TraumaSystem
                 continue;
             // Check for TraumaTarget isn't really necessary..
             // Right now wounds on a specified woundable can't wound other woundables, but in case IF something happens or IF someone decides to do that
+
+            //  Allows us to create multiple dismemberment traumas on the same body part.
+            if (targetType.HasValue
+                && targetType.Value != containedTraumaComp.TargetType)
+                continue;
 
             containedTraumaComp.TraumaSeverity = severity;
             return trauma;

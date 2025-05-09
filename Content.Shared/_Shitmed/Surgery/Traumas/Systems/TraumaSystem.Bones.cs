@@ -32,7 +32,8 @@ public partial class TraumaSystem
 
     private void OnBoneSeverityChanged(Entity<BoneComponent> bone, ref BoneSeverityChangedEvent args)
     {
-        if (bone.Comp.BoneWoundable == null)
+        if (bone.Comp.BoneWoundable == null
+            || args.NewSeverity < args.OldSeverity)
             return;
 
         var bodyComp = Comp<BodyPartComponent>(bone.Comp.BoneWoundable.Value);
@@ -44,23 +45,19 @@ public partial class TraumaSystem
             ? bodyComp.PartType.ToString().ToLower()
             : bodyComp.ParentSlot.Value.Id;
 
-        switch (args.NewSeverity)
+        _popup.PopupClient(Loc.GetString($"popup-trauma-BoneDamage-{args.NewSeverity.ToString()}", ("part", part)),
+            bodyComp.Body.Value,
+            PopupType.SmallCaution);
+
+        var volumeFloat = args.NewSeverity switch
         {
-            case BoneSeverity.Damaged:
-                _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(-8f));
-                _popup.PopupEntity(Loc.GetString("popup-trauma-BoneDamage-Damaged", ("part", part)), bodyComp.Body.Value, PopupType.SmallCaution);
-                break;
+            BoneSeverity.Damaged => -8f,
+            BoneSeverity.Cracked => 1f,
+            BoneSeverity.Broken => 6f,
+            _ => 0f,
+        };
 
-            case BoneSeverity.Cracked:
-                _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(1f));
-                _popup.PopupEntity(Loc.GetString("popup-trauma-BoneDamage-Cracked", ("part", part)), bodyComp.Body.Value, PopupType.MediumCaution);
-                break;
-
-            case BoneSeverity.Broken:
-                _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(6f));
-                _popup.PopupEntity(Loc.GetString("popup-trauma-BoneDamage-Broken", ("part", part)), bodyComp.Body.Value, PopupType.LargeCaution);
-                break;
-        }
+        _audio.PlayPvs(bone.Comp.BoneBreakSound, bodyComp.Body.Value, AudioParams.Default.WithVolume(volumeFloat));
     }
 
     private void OnBoneIntegrityChanged(Entity<BoneComponent> bone, ref BoneIntegrityChangedEvent args)
@@ -105,7 +102,6 @@ public partial class TraumaSystem
 
     private void OnAttemptHandsMelee(Entity<BoneComponent> bone, ref AttemptHandsMeleeEvent args)
     {
-        Logger.Debug("OnAttemptHandsMelee Bones");
         var odds = bone.Comp.BoneSeverity switch
         {
             BoneSeverity.Cracked => 0.10f,
@@ -122,7 +118,6 @@ public partial class TraumaSystem
 
         if (TryFumble("arm-fumble", new SoundPathSpecifier("/Audio/Effects/slip.ogg"), body, odds))
         {
-            Logger.Debug("Fumbled Bones");
             args.Handled = true;
             args.Cancel();
         }
@@ -209,7 +204,7 @@ public partial class TraumaSystem
         return true;
     }
 
-/// <summary>
+    /// <summary>
     /// Updates the broken bones alert for a body based on its current bone state
     /// </summary>
     public void UpdateBodyBoneAlert(EntityUid boneWoundable, BodyPartComponent? bodyPartComp = null)
@@ -248,15 +243,9 @@ public partial class TraumaSystem
 
         // Update the alert based on whether any bones are broken
         if (hasBrokenBones)
-        {
-            Logger.Debug("Showing broken bones alert");
             _alert.ShowAlert(body, _brokenBonesAlertId);
-        }
         else
-        {
-            Logger.Debug("Clearing broken bones alert");
             _alert.ClearAlert(body, _brokenBonesAlertId);
-        }
     }
 
     #endregion

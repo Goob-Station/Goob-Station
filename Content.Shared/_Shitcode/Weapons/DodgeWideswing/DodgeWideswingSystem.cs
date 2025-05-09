@@ -23,10 +23,10 @@ public sealed class DodgeWideswingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DodgeWideswingComponent, BeforeDamageChangedEvent>(OnDamageChanged);
+        //SubscribeLocalEvent<DodgeWideswingComponent, BeforeDamageChangedEvent>(OnDamageChanged);
     }
 
-    private void OnDamageChanged(EntityUid uid, DodgeWideswingComponent component, ref BeforeDamageChangedEvent args)
+    /*private void OnDamageChanged(EntityUid uid, DodgeWideswingComponent component, ref BeforeDamageChangedEvent args)
     {
         if (args.HeavyAttack && (!HasComp<KnockedDownComponent>(uid) || component.WhenKnockedDown) && _random.Prob(component.Chance))
         {
@@ -37,5 +37,5 @@ public sealed class DodgeWideswingSystem : EntitySystem
 
             args.Cancelled = true;
         }
-    }
+    }*/
 }

@@ -70,7 +70,9 @@ public sealed class WoundableVisualsSystem : VisualizerSystem<WoundableVisualsCo
     private void WoundableConnected(EntityUid uid, WoundableVisualsComponent component, ref BodyPartAddedEvent args)
     {
         var bodyPart = args.Part.Comp;
-        if (!bodyPart.Body.HasValue || !TryComp(bodyPart.Body.Value, out SpriteComponent? bodySprite))
+        if (!bodyPart.Body.HasValue
+            || !TryComp(bodyPart.Body.Value, out SpriteComponent? bodySprite)
+            || !HasComp<HumanoidAppearanceComponent>(bodyPart.Body.Value))
             return;
 
         foreach (var (group, sprite) in component.DamageOverlayGroups!)

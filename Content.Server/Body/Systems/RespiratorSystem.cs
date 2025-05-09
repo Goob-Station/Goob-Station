@@ -98,6 +98,7 @@ using Content.Shared.Movement.Pulling.Systems; // Goobstation
 using Content.Goobstation.Shared.Body.Components;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Medical.Surgery.Consciousness;
@@ -413,12 +414,10 @@ public sealed class RespiratorSystem : EntitySystem
                     identifier: "Suffocation",
                     type: ConsciousnessModType.Pain);
             }
-
-            return;
         }
-        // Shitmed Change End
 
-        _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, interruptsDoAfters: false);
+        _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, targetPart: TargetBodyPart.All, interruptsDoAfters: false);
+        // Shitmed Change End
     }
 
     private void StopSuffocation(Entity<RespiratorComponent> ent)
@@ -434,11 +433,9 @@ public sealed class RespiratorSystem : EntitySystem
         }
 
         // Shitmed Change Start
-        if (_consciousness.TryGetNerveSystem(ent, out var nerveSys))
+        if (_consciousness.TryGetNerveSystem(ent, out var nerveSys)
+            && _consciousness.TryGetConsciousnessModifier(ent, nerveSys.Value, out var modifier, "Suffocation"))
         {
-            if (!_consciousness.TryGetConsciousnessModifier(ent, nerveSys.Value, out var modifier, "Suffocation"))
-                return;
-
             if (modifier.Value.Change < ent.Comp.DamageRecovery.GetTotal())
             {
                 _consciousness.RemoveConsciousnessModifier(ent, nerveSys.Value, "Suffocation");
@@ -452,12 +449,11 @@ public sealed class RespiratorSystem : EntitySystem
                     identifier: "Suffocation",
                     type: ConsciousnessModType.Pain);
             }
-
-            return;
         }
-        // Shitmed Change End
 
-        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery);
+        _damageableSys.TryChangeDamage(ent, ent.Comp.DamageRecovery, partMultiplier: 8f, targetPart: TargetBodyPart.All, ignoreBlockers: true);
+        // The 8f multiplier is an arbitrary number chosen to make the damage not absolute shit when considering that its split across usually 11 body parts.
+        // Shitmed Change End
     }
 
     public void UpdateSaturation(EntityUid uid, float amount,

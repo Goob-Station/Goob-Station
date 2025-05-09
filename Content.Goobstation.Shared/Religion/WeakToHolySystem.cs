@@ -14,7 +14,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
-
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 namespace Content.Goobstation.Shared.Religion;
 
 public sealed class WeakToHolySystem : EntitySystem
@@ -124,7 +124,7 @@ public sealed class WeakToHolySystem : EntitySystem
             if (comp.NextHealTick > _timing.CurTime || !comp.IsColliding)
                 continue;
 
-            _damageableSystem.TryChangeDamage(uid, comp.HealAmount);
+            _damageableSystem.TryChangeDamage(uid, comp.HealAmount * 11f, targetPart: TargetBodyPart.All); // Shitmed Change
 
             comp.NextHealTick = _timing.CurTime + comp.HealTickDelay;
         }

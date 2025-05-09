@@ -6,6 +6,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared.Body.Organ;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
+using Content.Shared.Popups;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
@@ -69,8 +70,14 @@ public partial class TraumaSystem
     private void OnOrganSeverityChanged(Entity<WoundableComponent> bodyPart, ref OrganDamageSeverityChangedOnWoundable args)
     {
         var body = args.Organ.Comp.Body;
-        if (body == null)
+        if (body == null
+            || args.NewSeverity < args.OldSeverity)
             return;
+
+        _popup.PopupClient(Loc.GetString($"popup-trauma-OrganDamage-{args.NewSeverity.ToString()}", ("part", bodyPart)),
+            body.Value,
+            body.Value,
+            PopupType.SmallCaution);
 
         if (args.NewSeverity != OrganSeverity.Destroyed)
             return;

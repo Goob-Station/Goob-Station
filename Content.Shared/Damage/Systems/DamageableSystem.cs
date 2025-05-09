@@ -236,7 +236,8 @@ namespace Content.Shared.Damage
             DamageableComponent component,
             DamageSpecifier? damageDelta = null,
             bool interruptsDoAfters = true,
-            EntityUid? origin = null)
+            EntityUid? origin = null,
+            bool ignoreBlockers = false)
         {
             component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
             component.TotalDamage = component.Damage.GetTotal();
@@ -247,7 +248,7 @@ namespace Content.Shared.Damage
                 var data = new DamageVisualizerGroupData(component.DamagePerGroup.Keys.ToList());
                 _appearance.SetData(uid, DamageVisualizerKeys.DamageUpdateGroups, data, appearance);
             }
-            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin));
+            RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, ignoreBlockers));
         }
 
         /// <summary>
@@ -271,7 +272,7 @@ namespace Content.Shared.Damage
             bool canBeCancelled = false,
             float partMultiplier = 1.00f,
             TargetBodyPart? targetPart = null,
-            bool heavyAttack = false)
+            bool ignoreBlockers = false)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
                 return null;
@@ -279,7 +280,7 @@ namespace Content.Shared.Damage
             if (damage.Empty)
                 return damage;
 
-            var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart, heavyAttack); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, canBeCancelled, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
@@ -289,13 +290,13 @@ namespace Content.Shared.Damage
             if (_bodyQuery.HasComp(uid.Value))
             {
                 var appliedDamage = ApplyDamageToBodyParts(uid.Value, damage, origin, ignoreResistances,
-                    interruptsDoAfters, targetPart, partMultiplier);
+                    interruptsDoAfters, targetPart, partMultiplier, ignoreBlockers);
 
                 return appliedDamage;
             }
 
             // For entities without a body, apply damage directly
-            return ApplyDamageToEntity(uid.Value, damage, ignoreResistances, interruptsDoAfters, origin, damageable);
+            return ApplyDamageToEntity(uid.Value, damage, ignoreResistances, interruptsDoAfters, origin, damageable, ignoreBlockers);
         }
 
         /// <summary>
@@ -308,7 +309,8 @@ namespace Content.Shared.Damage
             bool ignoreResistances,
             bool interruptsDoAfters,
             TargetBodyPart? targetPart,
-            float partMultiplier)
+            float partMultiplier,
+            bool ignoreBlockers = false)
         {
             DamageSpecifier? totalAppliedDamage = null;
 
@@ -356,7 +358,7 @@ namespace Content.Shared.Damage
 
                     // Apply damage to this part
                     var partDamageResult = TryChangeDamage(partId, damagePerPart, ignoreResistances,
-                        interruptsDoAfters, partDamageable, origin);
+                        interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
 
                     if (partDamageResult != null && !partDamageResult.Empty)
                     {
@@ -380,8 +382,8 @@ namespace Content.Shared.Damage
 
                 if (targetPart != null)
                     target = _body.GetRandomBodyPart(uid, targetPart: targetPart.Value);
-                else if (origin.HasValue && TryComp<TargetingComponent>(origin.Value, out var targeting))
-                    target = _body.GetRandomBodyPart(uid, origin.Value, attackerComp: targeting);
+                else if (origin.HasValue)
+                    target = _body.GetRandomBodyPart(uid, origin.Value);
                 else
                     target = _body.GetRandomBodyPart(uid);
 
@@ -404,7 +406,7 @@ namespace Content.Shared.Damage
                 var adjustedDamage = partMultiplier != 1.0f ? damage * partMultiplier : damage;
 
                 totalAppliedDamage = TryChangeDamage(chosenTarget.Id, adjustedDamage, ignoreResistances,
-                    interruptsDoAfters, partDamageable, origin);
+                    interruptsDoAfters, partDamageable, origin, ignoreBlockers: ignoreBlockers);
             }
 
             // Only process if there was actual damage applied
@@ -431,7 +433,7 @@ namespace Content.Shared.Damage
                     }
 
                     // Now call DamageChanged with the actual total delta
-                    DamageChanged(uid, parentDamageable, totalAppliedDamage, interruptsDoAfters, origin);
+                    DamageChanged(uid, parentDamageable, totalAppliedDamage, interruptsDoAfters, origin, ignoreBlockers: ignoreBlockers);
                 }
             }
 
@@ -447,7 +449,8 @@ namespace Content.Shared.Damage
             bool ignoreResistances,
             bool interruptsDoAfters,
             EntityUid? origin,
-            DamageableComponent? damageable = null)
+            DamageableComponent? damageable = null,
+            bool ignoreBlockers = false)
         {
             if (!Resolve(uid, ref damageable) || damage == null)
                 return null;
@@ -540,7 +543,7 @@ namespace Content.Shared.Damage
             }
 
             if (delta.DamageDict.Count > 0)
-                DamageChanged(uid, damageable, delta, interruptsDoAfters, origin);
+                DamageChanged(uid, damageable, delta, interruptsDoAfters, origin, ignoreBlockers);
 
             return delta;
         }
@@ -791,7 +794,6 @@ namespace Content.Shared.Damage
         EntityUid? Origin = null,
         bool CanBeCancelled = false, // Shitmed Change
         TargetBodyPart? TargetPart = null, // Shitmed Change
-        bool HeavyAttack = false,
         bool Cancelled = false);
 
     /// <summary>
@@ -874,11 +876,18 @@ namespace Content.Shared.Damage
         ///     Contains the entity which caused the change in damage, if any was responsible.
         /// </summary>
         public readonly EntityUid? Origin;
-        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin) // Shitmed Change
+
+        /// <summary>
+        ///     Whether or not the damage change should be blocked due to traumas or wounds
+        /// </summary>
+        public readonly bool IgnoreBlockers;
+
+        public DamageChangedEvent(DamageableComponent damageable, DamageSpecifier? damageDelta, bool interruptsDoAfters, EntityUid? origin, bool ignoreBlockers = false) // Shitmed Change
         {
             Damageable = damageable;
             DamageDelta = damageDelta;
             Origin = origin;
+            IgnoreBlockers = ignoreBlockers;
             if (DamageDelta == null)
                 return;
 

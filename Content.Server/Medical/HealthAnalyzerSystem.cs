@@ -388,7 +388,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         // Shitmed Change Start
         Dictionary<TargetBodyPart, WoundableSeverity>? body = null;
         if (HasComp<BodyComponent>(target))
-            body = _woundSystem.GetWoundableStatesOnBody(target);
+            body = _woundSystem.GetDamageableStatesOnBody(target);
         // Shitmed Change End
 
         switch (mode)

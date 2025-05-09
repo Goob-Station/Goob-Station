@@ -305,30 +305,32 @@ public sealed class HealingSystem : EntitySystem
         var healedTotal = FixedPoint2.Zero;
         FixedPoint2 modifiedBleedStopAbility = 0;
         // Heal some bleeds
+        bool healedBleedWound = false;
+        bool healedBleedLevel = false;
         if (healing.BloodlossModifier != 0)
         {
-            healedBleed = _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
-            Logger.Debug($"Healed bleed: {healedBleed}");
-            Logger.Debug($"Modified bleed stop ability: {modifiedBleedStopAbility}");
-            if (healedBleed)
+            healedBleedWound = _wounds.TryHealBleedingWounds(targetedWoundable, healing.BloodlossModifier, out modifiedBleedStopAbility, woundableComp);
+            if (healedBleedWound)
                 _popupSystem.PopupEntity(modifiedBleedStopAbility > 0
                         ? Loc.GetString("rebell-medical-item-stop-bleeding-fully")
                         : Loc.GetString("rebell-medical-item-stop-bleeding-partially"),
                     ent,
                     args.User);
 
-            _bloodstreamSystem.TryModifyBleedAmount(ent, healing.ModifyBloodLevel);
         }
+
+        if (healing.ModifyBloodLevel != 0)
+            healedBleedLevel = _bloodstreamSystem.TryModifyBloodLevel(ent, -healing.ModifyBloodLevel);
+
+        healedBleed = healedBleedWound || healedBleedLevel;
 
         if (TraumaSystem.TraumasBlockingHealing.Any(traumaType => _trauma.HasWoundableTrauma(targetedWoundable, traumaType, woundableComp)))
         {
-            Logger.Debug("Trauma blocking healing");
             canHeal = false;
 
             if (!healedBleed)
             {
                 _popupSystem.PopupEntity(Loc.GetString("medical-item-requires-surgery-rebell", ("target", ent)), ent, args.User, PopupType.MediumCaution);
-                Logger.Debug("No healing done and trauma is blocking, cancelling.");
                 return;
             }
         }
@@ -339,10 +341,6 @@ public sealed class HealingSystem : EntitySystem
 
             if (damageChanged is not null)
                 healedTotal += -damageChanged.GetTotal();
-
-            // We handle wounds separately since tracking their changes through damageablesystem is kinda hard. And the only case where we want to know if we healed them is usually for loops like these.
-            if (_wounds.TryHealWoundsOnWoundable(targetedWoundable, healing.Damage * _damageable.UniversalTopicalsHealModifier, out var healed, woundableComp))
-                healedTotal += healed;
 
             if (healedTotal <= 0 && !healedBleed)
             {

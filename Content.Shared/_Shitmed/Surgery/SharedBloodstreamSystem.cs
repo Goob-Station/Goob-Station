@@ -5,10 +5,14 @@ using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
 using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
 using Content.Shared.Body.Part;
 using Content.Shared.FixedPoint;
+using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using System.Linq;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;
 
@@ -18,13 +22,15 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly WoundSystem _wound = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BleedInflicterComponent, WoundSeverityPointChangedEvent>(OnWoundSeverityUpdate);
-
+        SubscribeLocalEvent<BleedInflicterComponent, WoundSeverityPointChangedEvent>(OnBleedInflicterSeverityUpdate);
+        SubscribeLocalEvent<BleedRemoverComponent, WoundSeverityPointChangedEvent>(OnBleedRemoverSeverityUpdate);
         SubscribeLocalEvent<BleedInflicterComponent, WoundHealAttemptEvent>(OnWoundHealAttempt);
         SubscribeLocalEvent<BleedInflicterComponent, WoundAddedEvent>(OnWoundAdded);
     }
@@ -277,11 +283,14 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
     private void OnWoundHealAttempt(EntityUid uid, BleedInflicterComponent component, ref WoundHealAttemptEvent args)
     {
+        if (args.IgnoreBlockers)
+            return;
+
         if (component.IsBleeding)
             args.Cancelled = true;
     }
 
-    private void OnWoundSeverityUpdate(EntityUid uid,
+    private void OnBleedInflicterSeverityUpdate(EntityUid uid,
         BleedInflicterComponent component,
         ref WoundSeverityPointChangedEvent args)
     {
@@ -308,5 +317,28 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         Dirty(uid, component);
     }
 
+    public void OnBleedRemoverSeverityUpdate(EntityUid uid, BleedRemoverComponent component, ref WoundSeverityPointChangedEvent args)
+    {
+        var delta = args.NewSeverity - args.OldSeverity;
+        if (delta < component.SeverityThreshold
+            || !TryComp(uid, out WoundComponent? wound)
+            || TerminatingOrDeleted(wound.HoldingWoundable)
+            || !TryComp(wound.HoldingWoundable, out WoundableComponent? woundable)
+            || !TryComp(wound.HoldingWoundable, out BodyPartComponent? bodyPart)
+            || !bodyPart.Body.HasValue)
+            return;
+
+        var result = _wound.TryHealBleedingWounds(wound.HoldingWoundable,
+            (-delta * component.BleedingRemovalMultiplier).Float(),
+            out var _,
+            woundable);
+
+        if (!result)
+            return;
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/lightburn.ogg"), bodyPart.Body.Value);
+        _popupSystem.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"), bodyPart.Body.Value,
+            bodyPart.Body.Value, PopupType.Medium);
+    }
     public abstract bool TryModifyBleedAmount(EntityUid uid, float bleedAmount);
 }

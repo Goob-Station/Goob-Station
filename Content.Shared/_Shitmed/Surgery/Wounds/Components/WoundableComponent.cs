@@ -79,7 +79,7 @@ public sealed partial class WoundableComponent : Component
     /// How much bleeds will the woundable treat per tick
     /// </summary>
     [ViewVariables, DataField]
-    public FixedPoint2 BleedingTreatmentAbility = 0.04f;
+    public FixedPoint2 BleedingTreatmentAbility = 0.02f;
 
     /// <summary>
     /// At which amount of bleeds the woundable will stop healing.

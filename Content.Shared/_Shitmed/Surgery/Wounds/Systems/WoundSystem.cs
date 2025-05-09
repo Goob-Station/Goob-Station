@@ -52,7 +52,7 @@ public sealed partial class WoundSystem : EntitySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly TraumaSystem _trauma = default!;
 
-    private float _medicalHealingTickrate = 0.5f;
+    private float _medicalHealingTickrate = 2f;
 
     public override void Initialize()
     {
@@ -314,17 +314,21 @@ public sealed partial class WoundSystem : EntitySystem
 
             woundable.HealingRateAccumulated -= timeToHeal;
 
-            var bleedWounds = GetWoundableWoundsWithComp<BleedInflicterComponent>(ent, woundable).ToArray();
+            var bleedWounds = GetWoundableWoundsWithComp<BleedInflicterComponent>(ent, woundable)
+                .Where(wound => wound.Comp2.BleedingAmount > 0)
+                .ToArray();
+
             var bleedingAmount = bleedWounds.Aggregate(FixedPoint2.Zero,
                     (current, wound) => current + wound.Comp2.BleedingAmount);
 
             if (bleedingAmount > woundable.BleedsThreshold)
                 continue;
 
-            var bleedTreatment = woundable.BleedingTreatmentAbility / bleedWounds.Length;
-
-            foreach (var wound in bleedWounds)
-                wound.Comp2.BleedingAmountRaw -= bleedTreatment;
+            if (bleedWounds.Length > 0)
+            {
+                var bleedTreatment = woundable.BleedingTreatmentAbility / bleedWounds.Length;
+                var result = TryHealBleedingWounds(ent, (float) -bleedTreatment, out var modifiedBleed, woundable);
+            }
 
             var woundsToHeal =
                 GetWoundableWounds(ent, woundable).Where(wound => CanHealWound(wound, wound)).ToList();
