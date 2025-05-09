@@ -8650,3 +8650,9 @@ Entries:
       message: Fixed research menu sidebar/bg
   id: 991
   time: '2025-05-09T16:26:47.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Token Store now displays the cost of a hat token
+  id: 992
+  time: '2025-05-09T16:35:46.0000000+00:00'
