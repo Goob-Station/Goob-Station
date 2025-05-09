@@ -8592,3 +8592,41 @@ Entries:
         destroying them first.
   id: 983
   time: '2025-05-07T18:00:36.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: IPCs now have corrupted speech when low power/durability
+    - type: Add
+      message: Updated base game to 13-04-2025 release
+  id: 984
+  time: '2025-05-08T16:54:21.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Stealthsuit no longer needs to stand still for 3 seconds to start
+        cloaking. Damage resistance changes undone.
+  id: 985
+  time: '2025-05-09T06:02:24.0000000+00:00'
+- author: CreatorBot01
+  changes:
+    - type: Add
+      message: >-
+        PTL Flatpack now can also be found in ce locker. engi may now print
+        infinite money.
+  id: 986
+  time: '2025-05-09T06:03:07.0000000+00:00'
+- author: wachte1
+  changes:
+    - type: Tweak
+      message: Dripped out the Alien Tourist
+  id: 987
+  time: '2025-05-09T06:04:18.0000000+00:00'
+- author: the_biggestbruh
+  changes:
+    - type: Fix
+      message: >-
+        THE BASEBALL BAT HAS KNOCKBACK AGAIN. The universe has found peace. Goob
+        is saved.
+  id: 988
+  time: '2025-05-09T06:05:43.0000000+00:00'
