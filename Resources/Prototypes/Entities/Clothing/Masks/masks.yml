@@ -165,8 +165,8 @@
     - GasMask # goob edit
     - Mask # goob edit
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: Mask
     hideOnToggle: true
 
 - type: entity

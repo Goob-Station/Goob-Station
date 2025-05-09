@@ -52,6 +52,12 @@ public sealed partial class ArmorComponent : Component
     public float PriceMultiplier = 1;
 
     /// <summary>
+    /// If true, you can examine the armor to see the protection. If false, the verb won't appear.
+    /// </summary>
+    [DataField]
+    public bool ShowArmorOnExamine = true;
+
+    /// <summary>
     /// Shitmed Change: If true, the coverage won't show.
     /// </summary>
     [DataField("coverageHidden")]

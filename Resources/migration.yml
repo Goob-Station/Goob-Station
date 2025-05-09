@@ -202,7 +202,6 @@ DefaultStationBeaconMantis: null
 DefaultStationBeaconMetempsychosis: null
 DefaultStationBeaconPark: null
 DefaultStationBeaconPsychologist: null
-DefaultStationBeaconReporter: null
 DefaultStationBeaconVirology: null
 DrinkBubbleTeaGlass: null
 FishLabeler: null
@@ -294,7 +293,6 @@ VendingMachineBoozeUnlocked: null
 VendingMachineBoxingDrobe: null
 VendingMachineCourierDrobe: null
 VendingMachineMNKDrobe: null
-VendingMachinePride: null
 VendingMachineRepDrobe: null
 WallPaper: null
 WarpPointAI: null
@@ -877,3 +875,28 @@ MagazinePistolHighCapacityRubber: null
 # 2025-03-09 - Shitmed Woundmed, separating torsos into chest and groin
 TorsoHuman: ChestHuman
 TorsoSkeleton: ChestSkeleton
+# 2025-03-18
+EpinephrineChemistryBottle: ChemistryBottleEpinephrine
+RobustHarvestChemistryBottle: ChemistryBottleRobustHarvest
+EZNutrientChemistryBottle: ChemistryBottleEZNutrient
+Left4ZedChemistryBottle: ChemistryBottleLeft4Zed
+UnstableMutagenChemistryBottle: ChemistryBottleUnstableMutagen
+PotassiumChemistryBottle: ChemistryBottlePotassium
+NocturineChemistryBottle: ChemistryBottleNocturine
+NitrogenChemistryBottle: ChemistryBottleNitrogen
+EphedrineChemistryBottle: ChemistryBottleEphedrine
+PhosphorusChemistryBottle: ChemistryBottlePhosphorus
+OmnizineChemistryBottle: ChemistryBottleOmnizine
+HydrogenChemistryBottle: ChemistryBottleHydrogen
+CognizineChemistryBottle: ChemistryBottleCognizine
+EthanolChemistryBottle: ChemistryBottleEthanol
+PaxChemistryBottle: ChemistryBottlePax
+MuteToxinChemistryBottle: ChemistryBottleMuteToxin
+LeadChemistryBottle: ChemistryBottleLead
+ToxinChemistryBottle: ChemistryBottleToxin
+
+# Goob - making wizden maps compatible to support mapping efforts. 2025-04-13.
+CargoMailTeleporter: MailTeleporter
+ClothingMaskBlushingMime: ClothingMaskSexyMime
+ClothingMaskBlushingClown: ClothingMaskSexyMime
+ClothingNeckGoldAutismPin: null

@@ -19,6 +19,7 @@
 
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
@@ -35,6 +36,7 @@ public partial class MobStateSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly ConsciousnessSystem _consciousness = default!; // Shitmed Change
     private ISawmill _sawmill = default!;
 
