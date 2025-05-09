@@ -8638,3 +8638,9 @@ Entries:
       message: Inspects in chat now have a fancy box around them.
   id: 989
   time: '2025-05-09T06:39:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Wideswing stamina damage is now per target hit -1.
+  id: 990
+  time: '2025-05-09T09:02:49.0000000+00:00'
