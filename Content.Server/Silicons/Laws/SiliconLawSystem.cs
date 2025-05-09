@@ -97,7 +97,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
-using Content.Goobstation.Common.Silicons.Components; // Goob edit
+using Content.Goobstation.Common.Silicons.Components;
+using Content.Goobstation.Maths.FixedPoint; // Goob edit
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Radio.Components;
@@ -108,7 +109,6 @@ using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Content.Shared.Emag.Systems;
-using Content.Shared.FixedPoint; // Goob edit
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
