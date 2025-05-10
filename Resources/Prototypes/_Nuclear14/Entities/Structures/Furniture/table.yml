@@ -1,0 +1,496 @@
+# N14TODO: Change bases to have wood, metal, 64x and storage and use inheritance. So that desks have 10 storage.
+
+- type: entity
+  id: N14FreeTableBase # Base off this for metal tables
+  parent: BaseStructure
+  name: table
+  description: A square piece of metal standing on four metal legs.
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+  - type: Sprite
+    netsync: false
+  - type: Climbable
+  - type: Bonkable
+    bonkDamage:
+      types:
+        Blunt: 4
+  - type: Clickable
+
+# 32x32 tables
+- type: entity
+  parent: N14FreeTableBase
+  id: N14TableMetalRound
+  suffix: clean
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_metal_round-2
+
+- type: entity
+  parent: N14TableMetalRound
+  id: N14TableMetalRoundDirty
+  name: round table
+  suffix: dirty
+  description: A round metal table. Prison like.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_metal_round # N14TODO: There's a second sprite of this, need it to spawn a random one.
+
+- type: entity
+  parent: N14FreeTableBase
+  id: N14TableDeskSchool
+  name: end table
+  description: A wooden end table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_end
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.15,-0.25,0.25,0.25"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: N14TableDeskSchool
+  id: N14TableWoodEnd
+  name: end table
+  description: A wooden end table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_end
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.15,-0.25,0.25,0.25"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: N14TableWoodSquare
+  id: N14TableWoodRound
+  name: wooden table
+  description: A wooden round table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_round
+
+- type: entity
+  parent: N14TableDeskSchool
+  id: N14TableWoodSquare
+  name: wooden table
+  description: A wooden square table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_square
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.35,-0.15,0.35,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: N14TableWoodSquare
+  id: N14TableWoodLow
+  name: wooden table
+  description: A low wooden square table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_low
+
+- type: entity
+  parent: N14TableWoodSquare
+  id: N14TableWoodStand
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: table_wood_stand
+
+- type: entity
+  parent: N14TableWoodSquare
+  id: N14TableWoodCabledrum
+  name: cable drum
+  description: A convenient table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: cable_reel
+
+- type: entity
+  parent: N14TableWoodSquare
+  id: N14TableCasinoDice
+  name: dice table
+  description: A table for playing dice games.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: dice_clean
+
+- type: entity
+  parent: N14TableCasinoDice
+  id: N14TableCasinoDiceDirty
+  suffix: dirty
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/tables.rsi
+    state: dice_dirty
+
+#64x64 tables
+- type: entity
+  parent: N14FreeTableBase
+  id: N14TableDeskMetal
+  name: metal desk
+  description: A metal desk for working at. Sturdy.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/desks.rsi
+    state: desk_metal
+    offset: 0.5, 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.35,0,1.35,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: N14TableDeskMetal
+  id: N14TableDeskMetalDirty
+  suffix: dirty
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: desk_metal
+
+- type: entity
+  parent: N14FreeTableBase
+  id: N14TableDeskMetalSmall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: desk_metal_small
+
+- type: entity
+  parent: N14TableDeskSchool
+  id: N14TableDeskWood
+  name: wooden desk
+  description: A wooden desk for working at.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/desks.rsi
+    state: desk_wood
+    offset: 0.5, 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0,0,1,0.45"
+        density: 55
+        mask: # tables should collide with other tables
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: N14TableDeskWood
+  id: N14TableDeskWood2
+  suffix: alt
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: desk_wood
+
+- type: entity
+  parent: N14TableDeskSchool
+  id: N14TableDeskWoodSmall
+  suffix: small
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: desk_wood_small
+
+- type: entity
+  parent: N14TableDeskWood
+  id: N14TableCasinoCards
+  name: cards table
+  description: A fancy table for playing cards at.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_cards
+
+- type: entity
+  parent: N14TableCasinoCards
+  id: N14TableCasinoPool
+  name: pool table
+  description: A fancy table for playing pool at.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_pool
+
+- type: entity
+  parent: N14TableCasinoCards
+  id: N14TableWoodenOvalWide
+  name: wooden table
+  description: An oval table made from wood.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_wood_wide_oval
+
+- type: entity
+  parent: N14TableCasinoCards
+  id: N14TableWoodenSquareWide
+  name: wooden table
+  description: A wide square table made from wood.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_wood_wide_square
+
+- type: entity
+  parent: N14TableCasinoCards
+  id: N14TableMetalWide
+  name: metal table
+  description: A wide metal table.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/64x64_furniture.rsi
+    state: table_metal_wide
+
+# Counters / Benches / Smoothed Tables
+- type: entity
+  parent: N14TableDeskSchool
+  id: N14TableCounter
+  name: wooden counter
+  suffix: full
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: wood_counter
+
+- type: entity
+  parent: N14TableCounter
+  id: N14TableCounterBend
+  suffix: corner
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: wood_counter_bend
+
+- type: entity
+  parent: N14TableCounter
+  id: N14TableCounterIntersect
+  suffix: intersect
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: wood_counter_intersect
+
+- type: entity
+  parent: N14TableCounter
+  id: N14TableCounterCross
+  suffix: cross
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: wood_counter_cross
+
+- type: entity
+  parent: N14TableCounter
+  id: N14TableCounterCraft
+  description: This counter looks like scrap.
+  suffix: craft full
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter
+
+- type: entity
+  parent: N14TableCounter
+  id: N14TableCounterCraftBend
+  suffix: craft corner
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter_bend
+
+- type: entity
+  parent: N14TableCounter
+  id: N14TableCounterCraftIntersect
+  suffix: craft intersect
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter_intersect
+
+- type: entity
+  parent: N14TableCounter
+  id: N14TableCounterCraftCross
+  suffix: craft cross
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: craft_counter_cross
+
+- type: entity
+  parent: N14FreeTableBase
+  id: N14TableCounterMetal
+  name: metal counter
+  description: A cold, hard metal counter.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: metal_counter
+
+- type: entity
+  parent: N14TableCounterMetal
+  id: N14TableCounterMetalBend
+  suffix: corner
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: metal_counter_bend
+
+- type: entity
+  parent: N14TableCounterMetal
+  id: N14TableCounterMetalIntersect
+  suffix: intersect
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: metal_counter_intersect
+
+- type: entity
+  parent: N14TableCounterMetal
+  id: N14TableCounterMetalCross
+  suffix: cross
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/counters.rsi
+    state: metal_counter_cross
+
+
+# - type: entity
+  # id: N14TableMetalBuilt
+  # parent: Table
+  # name: metal table
+  # description: A cold handmade metal table.
+#  components: # TODO: Needs sprites
+#  - type: Sprite
+#    sprite: _Nuclear14/Structures/Furniture/Tables/metaltablebuilt.rsi
+#  - type: Icon
+#    sprite: _Nuclear14/Structures/Furniture/Tables/metaltablebuilt.rsi
+
+- type: entity
+  id: N14TableMetalGrate
+  parent: Table
+  name: metal table
+  description: A cold handmade metal table made from grating.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Furniture/Tables/metalgrate.rsi
+  - type: Construction
+    graph: N14TableMetalGrateRecipes
+    node: start
+
+- type: entity
+  id: N14TableWoodSettler
+  parent: Table
+  name: wooden table
+  description: A wooden table used by settlers.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Furniture/Tables/table_settler.rsi
+  - type: Construction
+    graph: N14TableRecipes
+    node: start
+
+# - type: entity
+  # id: N14TableWoodenBuilt
+  # parent: TableWood
+  # name: wooden table
+  # description: A wooden table made of scraps.
+#  components: # TODO: Needs sprites
+#  - type: Sprite
+#    sprite: _Nuclear14/Structures/Furniture/Tables/woodentablecraft.rsi
+#  - type: Icon
+#    sprite: _Nuclear14/Structures/Furniture/Tables/woodentablecraft.rsi
+
+- type: entity
+  parent: TableWood
+  id: N14TableCounterBar
+  name: bar counter
+  description: An alcohol stained bartop.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Furniture/Tables/barcounter.rsi
+  - type: Construction
+    graph: N14TableCounterBarRecipes
+    node: start

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Nukapop-13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tent0",
+      "directions": 4
+    },
+    {
+      "name": "leather_edge",
+      "directions": 4
+    },
+    {
+      "name": "leather_corner",
+      "directions": 4
+    },
+    {
+      "name": "cloth_corner",
+      "directions": 4
+    },
+    {
+      "name": "cloth_edge",
+      "directions": 4
+    }
+  ]
+}

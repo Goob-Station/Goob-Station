@@ -1,0 +1,407 @@
+- type: entity
+  parent: BaseWall
+  id: N14BaseWallTall
+  suffix: tall
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+  - type: SpriteFade
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Rock
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14BaseWallTallMetalWeak
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: PerforatedMetallic
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14BaseWallTallMetal
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallic
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14BaseWallTallMetalStrong
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: RadiationBlocker
+    resistance: 10
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14BaseWallTallWood
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+
+- type: entity
+  parent: N14BaseWallTall
+  id: N14WallBrickTall
+  name: brick wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/brick.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/brick.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallbrick
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14WallBrickAltTall
+  name: brick wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/brickalt.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/brickalt.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallbrickalt
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14WallBrickGrayTall
+  name: brick wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/brickgray.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/brickgray.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallbrickgray
+
+- type: entity
+  parent: N14BaseWallTall
+  id: N14WallConcreteTall
+  name: concrete wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/concrete.rsi
+    drawdepth: Mobs
+  - type: SpriteFade
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/concrete.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Rock
+  - type: IconSmooth
+    key: walls
+    base: tallconcrete
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14WallConcreteAltTall
+  name: concrete wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/concretealt.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/concretealt.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallconcretealt
+
+- type: entity
+  parent: N14BaseWallTallMetal
+  id: N14WallMetalTall
+  name: metal wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/metal.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/metal.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallmetal
+
+- type: entity
+  parent: N14BaseWallTallMetal
+  id: N14WallReinfMetalTall
+  name: reinforced metal wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/reinfmetal.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/reinfmetal.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallreinfmetal
+    
+- type: entity
+  parent: N14BaseWallTall
+  id: N14WallRockTall
+  name: rock wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rock.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rock.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallrock
+  - type: SoundOnGather
+  - type: Gatherable
+    toolWhitelist:
+      tags:
+        - Pickaxe
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 150
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+    
+- type: entity
+  parent: N14WallRockTall
+  id: N14WallRockDroughtTall
+  name: drought rock wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rockdrought.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rockdrought.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallrockdrought
+    
+- type: entity
+  parent: N14WallRockTall
+  id: N14WallRockMammothTall
+  name: mammoth rock wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rockmammoth.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rockmammoth.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallrockmammoth
+    
+- type: entity
+  parent: N14BaseWallTallMetalWeak
+  id: N14WallRoughScrapTall
+  name: rough scrap wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/roughscrap.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/roughscrap.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallroughscrap
+    
+- type: entity
+  parent: N14BaseWallTallMetal
+  id: N14WallIndustrialRustTall
+  name: industrial rust wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rustindustrial.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rustindustrial.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallrustindustrial
+    
+- type: entity
+  parent: N14BaseWallTallMetal
+  id: N14WallMetalRustTall
+  name: metal rust wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rustmetal.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/rustmetal.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallrustmetal
+
+- type: entity
+  parent: N14BaseWallTallMetalWeak
+  id: N14WallScrapTall
+  name: scrap wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrap.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrap.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallscrap
+    
+- type: entity
+  parent: N14BaseWallTallMetalWeak
+  id: N14WallScrapBlueTall
+  name: blue scrap wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrapblue.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrapblue.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallscrapblue
+    
+- type: entity
+  parent: N14BaseWallTallMetalWeak
+  id: N14WallScrapRedTall
+  name: red scrap wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrapred.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrapred.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallscrapred
+    
+- type: entity
+  parent: N14BaseWallTallMetalWeak
+  id: N14WallScrapWhiteTall
+  name: white scrap wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrapwhite.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/scrapwhite.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallscrapwhite
+    
+- type: entity
+  parent: N14BaseWallTallMetal
+  id: N14WallSewerTall
+  name: sewer wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sewer.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sewer.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallsewer
+    
+- type: entity
+  parent: N14BaseWallTallWood
+  id: N14WallSidingTall
+  name: siding wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/siding.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/siding.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallsiding
+    
+- type: entity
+  parent: N14BaseWallTallWood
+  id: N14WallSidingBlueTall
+  name: blue siding wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sidingblue.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sidingblue.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallsidingblue
+    
+- type: entity
+  parent: N14BaseWallTallWood
+  id: N14WallSidingRedTall
+  name: red siding wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sidingred.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sidingred.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallsidingred
+    
+- type: entity
+  parent: N14BaseWallTallWood
+  id: N14WallSidingGreenTall
+  name: green siding wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sidinggreen.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/sidinggreen.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallsidinggreen
+
+- type: entity
+  parent: N14BaseWallTallWood
+  id: N14WallWoodTall
+  name: wood wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/wood.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/wood.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallwood
+    
+- type: entity
+  parent: N14BaseWallTallWood
+  id: N14WallWoodAltTall
+  name: wood wall
+  suffix: tall
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/woodalt.rsi
+  - type: Icon
+    sprite: _Nuclear14/Structures/Walls/ms13/tall/woodalt.rsi
+  - type: IconSmooth
+    key: walls
+    base: tallwoodalt

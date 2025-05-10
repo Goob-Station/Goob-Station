@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Nukapop13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tree_stump"
+    },
+    {
+      "name": "tree_log",
+      "directions": 4
+    },
+    {
+      "name": "tree_timber",
+      "directions": 4
+    },
+    {
+      "name": "timber"
+    },
+    {
+      "name": "branch"
+    },
+    {
+      "name": "branch_broken"
+    },
+    {
+      "name": "brushwood"
+    },
+    {
+      "name": "brushwood_alt"
+    },
+    {
+      "name": "tall_grass_1"
+    },
+    {
+      "name": "tall_grass_2"
+    },
+    {
+      "name": "tall_grass_3"
+    },
+    {
+      "name": "tall_grass_4"
+    },
+    {
+      "name": "tall_grass_5",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "tall_grass_6",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "tall_grass_7",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "tall_grass_8",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "broc-dead"
+    },
+    {
+      "name": "xander-dead"
+    },
+    {
+      "name": "mutfruit-dead"
+    },
+    {
+      "name": "ferocactus-dead"
+    },
+    {
+      "name": "agave-dead"
+    }
+  ]
+}

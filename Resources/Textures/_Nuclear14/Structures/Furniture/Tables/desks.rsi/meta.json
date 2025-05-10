@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "original sprites by Mithrandalf for N14",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "desk_metal",
+      "directions": 4
+    },
+    {
+      "name": "desk_wood",
+      "directions": 4
+    }
+  ]
+}

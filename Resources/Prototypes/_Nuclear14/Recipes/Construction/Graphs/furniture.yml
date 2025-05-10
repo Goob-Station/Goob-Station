@@ -1,0 +1,98 @@
+- type: constructionGraph
+  id: N14Bed
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: bed
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 6
+              doAfter: 2
+        - to: bedwood
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 6
+              doAfter: 2
+        - to: bedroll
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Cloth
+              amount: 3
+              doAfter: 2
+        - to: medicalbed
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Plasteel
+              amount: 2
+              doAfter: 1
+            - material: Durathread
+              amount: 2
+              doAfter: 1
+    - node: bed
+      entity: N14Bed
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 6
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: bedwood
+      entity: N14BedWood
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 6
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: medicalbed
+      entity: MedicalBed
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialDurathread1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: bedroll
+      entity: N14Bedroll
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+          steps:
+            - tool: Slicing
+              doAfter: 1

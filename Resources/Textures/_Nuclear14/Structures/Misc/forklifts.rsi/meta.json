@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "made by maxxorion for nuclear14",
+    "size": {
+      "x": 101,
+      "y": 56
+    },
+    "states": [
+        {
+          "name": "yellowforklift",
+          "directions": 4
+        }
+    ]
+}

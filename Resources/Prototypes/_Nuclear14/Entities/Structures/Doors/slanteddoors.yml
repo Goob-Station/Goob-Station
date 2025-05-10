@@ -1,0 +1,323 @@
+#MARK: Metal (Oh... Hi Mark)
+
+- type: entity
+  parent: BaseMaterialDoorNavMap
+  id: N14DoorMetalBlueSlanted
+  name: blue metal door
+  suffix: slanted
+  description: An old blue metal door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/metalblue.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0
+    closeTimeTwo: 0
+    openTimeOne: 0
+    openTimeTwo: 0
+    openSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Bay_Door_Open_01.ogg
+    closeSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Bay_Door_Close_01.ogg
+  - type: Appearance
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Occluder
+  - type: BlockWeather
+  - type: Construction
+    graph: N14DoorGraph
+    node: MetalBlue
+
+- type: entity
+  parent: N14DoorMetalBlueSlanted
+  id: N14DoorMetalRedSlanted
+  name: red metal door
+  suffix: Slanted
+  description: An old red metal door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/metalred.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Construction
+    graph: N14DoorGraph
+    node: MetalRed
+
+- type: entity
+  parent: N14DoorMetalBlueSlanted
+  id: N14DoorMetalBlueAltSlanted
+  name: alt blue metal door
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/metalbluealt.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Construction
+    graph: N14DoorGraph
+    node: MetalBlueAlt
+
+- type: entity
+  parent: N14DoorMetalBlueSlanted
+  id: N14DoorMetalBlueWindowSlanted
+  name: metal windowed door
+  suffix: Slanted, windowed
+  description: An old blue metal door with a window.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/metalbluewindow.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    occludes: false
+  - type: Occluder
+    enabled: false
+  - type: Construction
+    graph: N14DoorGraph
+    node: MetalBlueWindow
+
+- type: entity
+  parent: N14DoorMetalBlueWindowSlanted
+  id: N14DoorMetalGrateSlanted
+  name: metal grated door
+  suffix: Slanted, grate
+  description: A metal mesh door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/metal_grate.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorMetalBlueWindowSlanted
+  id: N14DoorMetalBarSlanted
+  name: cell door
+  suffix: Slanted, bar
+  description: A metal bar door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/metal_bar.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    openSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Open_01.ogg
+    closeSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Close_01.ogg
+  - type: Construction
+    graph: N14DoorGraph
+    node: MetalBar
+
+- type: entity
+  parent: N14DoorMetalBlueWindowSlanted
+  id: N14DoorMetalFenceSlanted
+  name: fence gate
+  suffix: Slanted, fence
+  description: A metal fence gate.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/fence.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Construction
+    graph: N14DoorGraph
+    node: MetalFence
+
+- type: entity
+  parent: N14DoorMetalBlueWindowSlanted
+  id: N14DoorMetalFenceBarbedSlanted
+  name: barbed fence gate
+  suffix: Slanted, fence barbed
+  description: A metal barbed fence gate.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/fence_barbed.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+#MARK: Wooden
+
+- type: entity
+  parent: N14DoorMetalBlueSlanted
+  id: N14DoorWoodSlanted
+  name: wooden door
+  suffix: Slanted
+  description: A wooden door.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/wood.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: Door
+    openSound:
+      path: /Audio/Effects/door_open.ogg
+    closeSound:
+      path: /Audio/Effects/door_close.ogg
+  - type: Construction
+    graph: N14DoorGraph
+    node: WoodDoor
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: N14DoorWoodSlanted
+  id: N14DoorWoodBlueSlanted
+  name: blue wooden door
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/woodblue.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorWoodSlanted
+  id: N14DoorWoodGreenSlanted
+  name: green wooden door
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/woodgreen.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorWoodSlanted
+  id: N14DoorWoodRedSlanted
+  name: red wooden door
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/woodred.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+- type: entity
+  parent: N14DoorWoodSlanted
+  id: N14DoorWoodWhiteSlanted
+  name: white wooden door
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/woodwhite.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+
+#MARK: Airlocks
+
+- type: entity
+  parent: N14DoorMetalBlueSlanted
+  id: N14DoorAirlockSlanted
+  name: airlock
+  suffix: slanted
+  description: An old bunker airlock.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Doors/SlantedDoors/airlock.rsi
+    drawdepth: WallTops
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+      shader: unshaded
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Door
+    bumpOpen: false
+    clickOpen: true
+    closeTimeOne: 0.6
+    closeTimeTwo: 0.8
+    openTimeOne: 1
+    openTimeTwo: 0.4
+    openingAnimationTime: 1.4
+    closingAnimationTime: 1.4
+    closedDrawDepth: WallTops
+    openDrawDepth: WallTops
+    openSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Open_01.ogg
+    closeSound:
+      path: /Audio/_Nuclear14/Effects/Doors/DRS_Metal_Jail_Swing_Close_01.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: AnimationPlayer
+  - type: Appearance
+  - type: BlockWeather
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: RadiationBlocker
+    resistance: 10
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StructuralMetallic
+  - type: ApcPowerReceiver
+    powerLoad: 10
+  - type: ExtensionCableReceiver
+  - type: Airlock
+  - type: LayerChangeOnWeld
+    unWeldedLayer: AirlockLayer
+    weldedLayer: WallLayer
+  - type: Weldable
+    time: 6
+  - type: DoorBolt

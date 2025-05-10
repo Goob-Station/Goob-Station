@@ -1,0 +1,46 @@
+#Small lights
+- type: entity
+  parent: SmallLight
+  id: N14LightSmallAlwayson
+  name: small light
+  suffix: Always on
+  description: "An always powered light."
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/lightbulbcaged.rsi
+    state: base
+    drawdepth: Overdoors
+    offset: 0, 1 # 0.75 is better but breaks for east west placement
+  - type: PointLight
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    enabled: true
+  - type: WallMount
+
+- type: entity
+  parent: PoweredSmallLightEmpty
+  id: N14LightSmallEmpty
+  name: small light
+  description: "A light fixture. Draws power and produces light when equipped with a light bulb."
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/lightbulbcaged.rsi
+    state: empty
+    offset: 0, 1
+  - type: Construction
+    graph: N14Lightbulb
+    node: bulbLight
+  - type: WallMount
+
+- type: entity
+  parent: PoweredSmallLight
+  id: N14LightSmall
+  suffix: ""
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Wallmounts/lightbulbcaged.rsi
+    state: base
+    offset: 0, 1
+  - type: WallMount

@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Created by INFRARED_BARON for MS13",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "stove_cooking"
+    },
+    {
+      "name": "stove_open"
+    },
+    {
+      "name": "stove_reclaimedwood"
+    },
+    {
+      "name": "stove_firewood"
+    },
+    {
+      "name": "stove_fire1"
+    },
+    {
+      "name": "stove_fire2"
+    },
+    {
+      "name": "stove_embers"
+    },
+    {
+      "name": "stove_cinder"
+    },
+    {
+      "name": "potbelly"
+    },
+    {
+      "name": "potbelly_open"
+    },
+    {
+      "name": "potbelly_wood1"
+    },
+    {
+      "name": "potbelly_wood2"
+    },
+    {
+      "name": "potbelly_fire1"
+    },
+    {
+      "name": "potbelly_fire2"
+    },
+    {
+      "name": "potbelly_embers"
+    },
+    {
+      "name": "potbelly_cinder"
+    },
+    {
+      "name": "potbelly2"
+    },
+    {
+      "name": "potbelly2_open"
+    },
+    {
+      "name": "potbelly2_wood1"
+    },
+    {
+      "name": "potbelly2_wood2"
+    },
+    {
+      "name": "potbelly2_fire1"
+    },
+    {
+      "name": "potbelly2_fire2"
+    },
+    {
+      "name": "potbelly2_embers"
+    },
+    {
+      "name": "potbelly2_cinder"
+    },
+    {
+      "name": "barrel"
+    },
+    {
+      "name": "barrel_open"
+    },
+    {
+      "name": "barrel_wood"
+    },
+    {
+      "name": "barrel_grill"
+    },
+    {
+      "name": "barrel_grill_open"
+    },
+    {
+      "name": "barrelgrill"
+    },
+    {
+      "name": "barrelgrill_open"
+    },
+    {
+      "name": "barrel_reclaimedwood"
+    },
+    {
+      "name": "barrel_fire1"
+    },
+    {
+      "name": "barrel_fire2"
+    },
+    {
+      "name": "barrel_embers"
+    },
+    {
+      "name": "barrel_cinder"
+    },
+    {
+      "name": "campfire"
+    },
+    {
+      "name": "campfire_fire1"
+    },
+    {
+      "name": "campfire_fire2"
+    },
+    {
+      "name": "campfire_embers"
+    },
+    {
+      "name": "campfire_cinder"
+    },
+    {
+      "name": "campfire_fire",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

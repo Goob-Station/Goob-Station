@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/0d4af1ef8f461cd23a872ca04425d8ea55104388/mojave/icons/structure/32x32_rugs.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mat_welcome",
+      "directions": 4
+    },
+    {
+      "name": "mat_blank",
+      "directions": 4
+    },
+    {
+      "name": "mat_vulgar",
+      "directions": 4
+    },
+    {
+      "name": "mat_vulgar_2",
+      "directions": 4
+    },
+    {
+      "name": "mat_town",
+      "directions": 4
+    },
+    {
+      "name": "mat_ncr",
+      "directions": 4
+    },
+    {
+      "name": "mat_bos",
+      "directions": 4
+    },
+    {
+      "name": "rubber_single"
+    },
+    {
+      "name": "rubber_1",
+	  "directions": 4
+    },
+    {
+      "name": "rubber_2",
+	  "directions": 4
+    },
+    {
+      "name": "rubber_3",
+	  "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+- type: decal
+  id: RoadEdgeDouble1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: double1
+
+- type: decal
+  id: RoadEdgeDouble2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: double2
+    
+- type: decal
+  id: RoadEdgeDoubleBroken1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: doublebroken1
+    
+- type: decal
+  id: RoadEdgeDoubleBroken2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: doublebroken2
+    
+- type: decal
+  id: RoadMiddleBrokenSplit1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlebrokensplit1
+    
+- type: decal
+  id: RoadMiddleBrokenSplit2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlebrokensplit2
+    
+- type: decal
+  id: RoadMiddleSolid1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolid1
+    
+- type: decal
+  id: RoadMiddleSolid2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolid2
+    
+- type: decal
+  id: RoadMiddleSolidBrokenSplit1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidbrokensplit1
+    
+- type: decal
+  id: RoadMiddleSolidBrokenSplit2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidbrokensplit2
+    
+- type: decal
+  id: RoadMiddleSolidBrokenSplit3
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidbrokensplit3
+    
+- type: decal
+  id: RoadMiddleSolidBrokenSplit4
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidbrokensplit4
+    
+- type: decal
+  id: RoadMiddleSolidSplit1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidsplit1
+    
+- type: decal
+  id: RoadMiddleSolidSplit2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidsplit2
+    
+- type: decal
+  id: RoadEdgeSingle1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: single1
+    
+- type: decal
+  id: RoadEdgeSingle2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: single2
+    
+- type: decal
+  id: RoadEdgeSingleBroken1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: singlebroken1
+    
+- type: decal
+  id: RoadEdgeSingleBroken2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: singlebroken2
+    
+- type: decal
+  id: RoadEdgeSingleCorner
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: singlecorner
+    
+- type: decal
+  id: RoadEdgeSingleCorner2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: singlecorner2
+    
+- type: decal
+  id: RoadEdgeSingleCorner3
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: singlecorner3
+    
+- type: decal
+  id: RoadEdgeDoubleCorner
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: doublecorner
+    
+- type: decal
+  id: RoadEdgeDoubleCorner2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: doublecorner2
+    
+- type: decal
+  id: RoadEdgeDoubleCorner3
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: doublecorner3
+    
+- type: decal
+  id: RoadMiddleSolidCorner1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidcorner1
+    
+- type: decal
+  id: RoadMiddleSolidCorner2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/roadlines.rsi
+    state: middlesolidcorner2
+    
+- type: decal
+  id: RoadDrain
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: drain
+    
+- type: decal
+  id: RoadHorizontalCrossing
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: horizontal_crossing
+    
+- type: decal
+  id: RoadHorizontalCrossing1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: horizontal_crossing-1
+    
+- type: decal
+  id: RoadHorizontalCrossing2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: horizontal_crossing-2
+    
+- type: decal
+  id: RoadVerticalCrossing
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: vertical_crossing
+    
+- type: decal
+  id: RoadVerticalCrossing1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: vertical_crossing-1
+    
+- type: decal
+  id: RoadVerticalCrossing2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: vertical_crossing-2
+    
+- type: decal
+  id: RoadHorizontalLine
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: horizontal_line
+    
+- type: decal
+  id: RoadHorizontalLine1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: horizontal_line-1
+    
+- type: decal
+  id: RoadHorizontalLine2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: horizontal_line-2
+    
+- type: decal
+  id: RoadVerticalLine
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: vertical_line
+    
+- type: decal
+  id: RoadVerticalLine1
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: vertical_line-1
+    
+- type: decal
+  id: RoadVerticalLine2
+  tags: ["road"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/road_decals_ms.rsi
+    state: vertical_line-2

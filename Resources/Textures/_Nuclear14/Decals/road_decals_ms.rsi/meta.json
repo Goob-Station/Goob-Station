@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/176be184d511dd4f85585e3a62f0cf524b4e1d9b/mojave/icons/decals/road_decals.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "horizontal_line"
+    },
+    {
+      "name": "horizontal_line-1"
+    },
+    {
+      "name": "horizontal_line-2"
+    },
+    {
+      "name": "vertical_line"
+    },
+    {
+      "name": "vertical_line-1"
+    },
+    {
+      "name": "vertical_line-2"
+    },
+    {
+      "name": "vertical_crossing"
+    },
+    {
+      "name": "vertical_crossing-1"
+    },
+    {
+      "name": "vertical_crossing-2"
+    },
+    {
+      "name": "horizontal_crossing"
+    },
+    {
+      "name": "horizontal_crossing-1"
+    },
+    {
+      "name": "horizontal_crossing-2"
+    },
+    {
+      "name": "drain"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/4282af62a3f650512024a989a6d830a1070be945/mojave/icons/structure/windows/panes.dmi and modified by Peptide90 to fit N14 slanted windows",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "DamageOverlay_4"
+    },
+    {
+      "name": "DamageOverlay_8"
+    },
+    {
+      "name": "DamageOverlay_12"
+    }
+  ]
+}

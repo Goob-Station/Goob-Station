@@ -1,0 +1,226 @@
+﻿# N14:TODO: Add the destroyed versions of these as a destruction spawn.
+
+- type: entity
+  parent: BaseStructure
+  id: N14StorageTankBase
+  name: storage tank
+  description: A liquids storage tank.
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Piercing
+        damage: 5
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpillBehavior
+        solution: tank
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1500
+  - type: DrainableSolution
+    solution: tank
+  - type: ReagentTank
+  - type: Transform
+    noRot: true
+
+# In use
+- type: entity
+  id: N14StorageTankWide
+  parent: N14StorageTankBase
+  name: fuel tank
+  description: A fuel tank. It's used to store high amounts of fuel.
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/tanks.rsi
+    layers:
+      - state: chemical_container
+      # - state: chemical_container
+        # map: ["enum.SolutionContainerLayers.Fill"]
+        # visible: false
+  - type: Appearance
+  # - type: SolutionContainerVisuals
+    # maxFillLevels: 3
+    # fillBaseName: fueltank-2-
+  - type: ExaminableSolution
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+  - type: DamageOnToolInteract
+    tools: Welding
+    weldingDamage:
+      types:
+        Heat: 10
+  - type: PacifismDangerousAttack
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 120 # ~ 5 tile radius
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9,-0.5,0.9,0.2"
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+- type: entity
+  parent: N14StorageTankWide
+  id: N14StorageTankWideFullFuel
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 2000
+
+
+- type: entity
+  parent: N14StorageTankWide
+  id: N14StorageTank
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/tanks.rsi
+    layers:
+      - state: largetank_chemical
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.9,-0.7,-0.1,0.4"
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: N14StorageTankFullFuel
+  parent: N14StorageTank
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1500
+
+- type: entity
+  id: N14StorageTankHuge
+  parent: N14StorageTankWide
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/tanks.rsi
+    layers:
+      - state: largetank_chemical_huge
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.7,-0.7,0.2,0.6"
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: N14StorageTankHugeFullFuel
+  parent: N14StorageTankHuge
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 2000
+
+- type: entity
+  parent: N14StorageTankBase
+  id: N14StorageTankVat
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/np13_misc.rsi
+    layers:
+      - state: vat
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,0.5,0.5,-0.5"
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+- type: entity
+  parent: N14StorageTankVat
+  id: N14StorageTankVatFullFuel
+  suffix: Full, fuel
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1500
+
+- type: entity
+  parent: N14StorageTankVat
+  id: N14StorageTankVatFullWater
+  suffix: Full, water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Water
+          Quantity: 1500

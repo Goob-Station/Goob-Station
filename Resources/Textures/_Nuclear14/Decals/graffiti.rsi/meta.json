@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/ffcecc82f28c796f8eff92ac46ff0f5e0d9b1ab6/mojave/icons/decals/graffiti.dmi",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "riddler1"
+    },
+    {
+      "name": "riddler2"
+    },
+    {
+      "name": "riddler3"
+    },
+    {
+      "name": "fuckncr"
+    },
+    {
+      "name": "gohome"
+    },
+    {
+      "name": "danger"
+    },
+    {
+      "name": "arrow"
+    },
+    {
+      "name": "fuckyou"
+    },
+    {
+      "name": "legion"
+    },
+    {
+      "name": "phoenix"
+    },
+    {
+      "name": "rangers"
+    },
+    {
+      "name": "fort"
+    },
+    {
+      "name": "stop"
+    },
+    {
+      "name": "clueless"
+    },
+    {
+      "name": "dontopen"
+    },
+    {
+      "name": "deadinside"
+    },
+    {
+      "name": "gangshit"
+    },
+    {
+      "name": "arrows_yellow"
+    },
+    {
+      "name": "free"
+    },
+    {
+      "name": "moyai"
+    },
+    {
+      "name": "ourtown"
+    },
+    {
+      "name": "eyes"
+    },
+    {
+      "name": "many_eyes"
+    },
+    {
+      "name": "mirelurk"
+    },
+    {
+      "name": "clueless_green"
+    },
+    {
+      "name": "deadcount"
+    },
+    {
+      "name": "ghouls"
+    },
+    {
+      "name": "crabs"
+    },
+    {
+      "name": "aid"
+    },
+    {
+      "name": "guns"
+    },
+    {
+      "name": "below"
+    },
+    {
+      "name": "follow"
+    },
+    {
+      "name": "noway"
+    },
+    {
+      "name": "dead"
+    },
+    {
+      "name": "verydead"
+    },
+    {
+      "name": "camp_east"
+    },
+    {
+      "name": "camp_west"
+    },
+    {
+      "name": "camp_north"
+    },
+    {
+      "name": "camp_south"
+    },
+    {
+      "name": "ladder_east"
+    },
+    {
+      "name": "ladder_west"
+    },
+    {
+      "name": "ladder_south"
+    },
+    {
+      "name": "ladder_north"
+    },
+    {
+      "name": "scorpion_east"
+    },
+    {
+      "name": "scorpion_west"
+    },
+    {
+      "name": "scorpion_south"
+    },
+    {
+      "name": "scorpion_north"
+    },
+    {
+      "name": "ncr"
+    },
+    {
+      "name": "ncr_bear"
+    },
+    {
+      "name": "ncr_stop"
+    },
+    {
+      "name": "ncr_caution"
+    },
+    {
+      "name": "donot"
+    },
+    {
+      "name": "death"
+    },
+    {
+      "name": "dieyoung"
+    },
+    {
+      "name": "reaper"
+    },
+    {
+      "name": "mark"
+    },
+    {
+      "name": "slumbers"
+    },
+    {
+      "name": "skullbones"
+    },
+    {
+      "name": "boombooms"
+    },
+    {
+      "name": "death2"
+    },
+    {
+      "name": "deadman"
+    },
+    {
+      "name": "mines"
+    }
+  ]
+}

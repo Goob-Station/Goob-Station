@@ -1,0 +1,168 @@
+- type: constructionGraph
+  id: N14DoorGraph
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: MetalBlue
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 15
+        - to: MetalBlueAlt
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 15
+        - to: MetalRed
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 5
+              doAfter: 15
+        - to: MetalBlueWindow
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 15
+            - material: Glass
+              amount: 1
+        - to: MetalBar
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 15
+        - to: MetalFence
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: Steel
+              amount: 4
+              doAfter: 15
+        - to: WoodDoor
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 4
+            - material: WoodPlank
+              amount: 2
+              doAfter: 15
+        - to: woodDoorMakeshift
+          completed:
+            - !type:SnapToGrid { }
+          steps:
+            - material: WoodPlank
+              amount: 3
+            - material: WoodPlank
+              amount: 2
+              doAfter: 15
+
+    - node: MetalBlue
+      entity: N14DoorMetalBlueSlanted
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+    - node: MetalBlueAlt
+      entity: N14DoorMetalBlueAltSlanted
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+    - node: MetalRed
+      entity: N14DoorMetalRedSlanted
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 5
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+    - node: MetalBlueWindow
+      entity: N14DoorMetalBlueWindowSlanted
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: SheetGlass1
+              amount: 1
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+    - node: MetalBar
+      entity: N14DoorMetalBarSlanted
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+    - node: MetalFence
+      entity: N14DoorMetalFenceSlanted
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 4
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+    - node: WoodDoor
+      entity: N14DoorWoodSlanted
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 4
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 15
+    - node: woodDoorMakeshift
+      entity: N14DoorMakeshift
+      edges:
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 3
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Anchoring
+              doAfter: 15

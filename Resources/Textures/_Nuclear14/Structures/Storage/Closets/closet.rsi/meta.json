@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "original sprites by Mithrandalf for N14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "closet"
+    },
+    {
+      "name": "closet_door"
+    },
+    {
+      "name": "closet_open"
+    },
+    {
+      "name": "welded"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/b35ff6e7f1b94108e0b934a1caf84d60066840be",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "metal_counter",
+      "directions": 4
+    },
+    {
+      "name": "metal_counter_bend",
+      "directions": 4
+    },
+    {
+      "name": "metal_counter_intersect",
+      "directions": 4
+    },
+    {
+      "name": "metal_counter_cross"
+    },
+    {
+      "name": "wood_counter",
+      "directions": 4
+    },
+    {
+      "name": "wood_counter_bend",
+      "directions": 4
+    },
+    {
+      "name": "wood_counter_intersect",
+      "directions": 4
+    },
+    {
+      "name": "wood_counter_cross"
+    },
+    {
+      "name": "craft_counter",
+      "directions": 4
+    },
+    {
+      "name": "craft_counter_bend",
+      "directions": 4
+    },
+    {
+      "name": "craft_counter_intersect",
+      "directions": 4
+    },
+    {
+      "name": "craft_counter_cross"
+    }
+  ]
+}

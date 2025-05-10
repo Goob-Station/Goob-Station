@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/6b345702cb171ca71d39eddeaf721355f98993de",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "drought_1"
+    },
+    {
+      "name": "drought_2"
+    },
+    {
+      "name": "drought_3"
+    },
+    {
+      "name": "drought_4"
+    },
+    {
+      "name": "drought_5"
+    },
+    {
+      "name": "drought_6"
+    },
+    {
+      "name": "drought_7"
+    },
+    {
+      "name": "drought_8"
+    },
+    {
+      "name": "drought_9"
+    },
+    {
+      "name": "drought_10"
+    },
+    {
+      "name": "drought_11"
+    },
+    {
+      "name": "drought_12"
+    },
+    {
+      "name": "drought_13"
+    },
+    {
+      "name": "drought_14"
+    },
+    {
+      "name": "drought_15"
+    },
+    {
+      "name": "drought_16"
+    },
+    {
+      "name": "drought_17"
+    },
+    {
+      "name": "drought_18"
+    },
+    {
+      "name": "drought_19"
+    },
+    {
+      "name": "drought_20"
+    },
+    {
+      "name": "drought_21"
+    },
+    {
+      "name": "drought_22"
+    },
+    {
+      "name": "drought_23"
+    },
+    {
+      "name": "drought_24"
+    },
+    {
+      "name": "drought_25"
+    },
+    {
+      "name": "drought_26"
+    },
+    {
+      "name": "drought_27"
+    },
+    {
+      "name": "drought_28"
+    },
+    {
+      "name": "drought_29"
+    },
+    {
+      "name": "drought_30"
+    },
+    {
+      "name": "drought_31"
+    },
+    {
+      "name": "drought_32"
+    }
+  ]
+}

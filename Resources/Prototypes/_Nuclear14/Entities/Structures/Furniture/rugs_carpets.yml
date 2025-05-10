@@ -1,0 +1,169 @@
+- type: entity
+  id: N14CarpetSingleBase
+  parent: BaseStructure
+  description: Better than the floor.
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: FloorTiles
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 10
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+            
+            
+- type: entity
+  parent: N14CarpetSingleBase
+  id: N14RugMat
+  name: mat
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs.rsi
+    state: mat_blank
+    
+- type: entity
+  parent: N14RugMat
+  id: N14RugMatWelcome
+  suffix: welcome
+  components:
+  - type: Sprite
+    state: mat_welcome
+    
+- type: entity
+  parent: N14RugMat
+  id: N14RugMatVulgar1
+  suffix: get f
+  description: A charming floor mat.
+  components:
+  - type: Sprite
+    state: mat_vulgar
+    
+- type: entity
+  parent: N14RugMatVulgar1
+  id: N14RugMatVulgar2
+  suffix: f off
+  components:
+  - type: Sprite
+    state: mat_vulgar_2
+    
+- type: entity
+  parent: N14RugMatVulgar1
+  id: N14RugMatTown
+  suffix: s town
+  components:
+  - type: Sprite
+    state: mat_town
+    
+- type: entity
+  parent: N14RugMatVulgar1
+  id: N14RugMatNCR
+  suffix: ncr sucks
+  components:
+  - type: Sprite
+    state: mat_ncr
+    
+- type: entity
+  parent: N14RugMatVulgar1
+  id: N14RugMatBOS
+  suffix: bos sucks
+  components:
+  - type: Sprite
+    state: mat_bos
+
+# Rubber mats
+
+- type: entity
+  parent: N14RugMat
+  id: N14RugMatRubberSingle
+  name: rubber mat
+  description: A rubber protective floor mat.
+  components:
+  - type: Sprite
+    state: rubber_single
+    
+- type: entity
+  parent: N14RugMatRubberSingle
+  id: N14RugMatRubber1
+  components:
+  - type: Sprite
+    state: rubber_1
+    
+- type: entity
+  parent: N14RugMatRubberSingle
+  id: N14RugMatRubber2
+  components:
+  - type: Sprite
+    state: rubber_2
+    
+- type: entity
+  parent: N14RugMatRubberSingle
+  id: N14RugMatRubber3
+  components:
+  - type: Sprite
+    state: rubber_3
+    
+# 64x64 rugs
+- type: entity
+  parent: N14CarpetSingleBase
+  id: N14RugBlue
+  name: rug
+  description: A modern looking blue rug.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
+    state: rug_blue
+    
+- type: entity
+  parent: N14RugBlue
+  id: N14RugBlueShag
+  suffix: shag
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
+    state: rug_blue_shag
+    
+- type: entity
+  parent: N14RugBlue
+  id: N14RugBrownFancy
+  description: A fancy looking rug.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
+    state: rug_fancy
+    
+- type: entity
+  parent: N14RugBlue
+  id: N14RugRed
+  description: A patterned red rug.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
+    state: rug_red
+    
+- type: entity
+  parent: N14RugBlue
+  id: N14RugYellow
+  description: A patterned yellow rug.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
+    state: rug_yellow
+    
+- type: entity
+  parent: N14RugBlue
+  id: N14RugMatRubberLarge
+  name: rubber mat
+  description: A large rubber mat.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Furniture/rugs64x64.rsi
+    state: rug_rubber
