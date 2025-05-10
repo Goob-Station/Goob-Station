@@ -8758,3 +8758,9 @@ Entries:
       message: Lawbringer is now a kit, not roundstart.
   id: 998
   time: '2025-05-10T18:49:24.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Added waddling.
+  id: 999
+  time: '2025-05-10T19:03:18.0000000+00:00'
