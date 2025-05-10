@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
-# SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
   id: BulletClownshot
   name: clownshot
@@ -27,14 +20,15 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 14
+        Blunt: 25
   - type: ProjectileRequireWhitelist
     whitelist:
      components:
       - Clumsy
   - type: ProjectileThrowOnHit
     distance: 10
-    speed: 30
+    speed: 10
+  - type: BlurOnCollide
 
 - type: entity
   id: BulletPulse
@@ -90,8 +84,10 @@
     damage:
       types:
         Heat: 2
+  - type: BlurOnCollide
   - type: StaminaDamageOnCollide
-    damage: 25
+    damage: 30
+    overtime: 15
 
 - type: entity
   id: BulletExecute
@@ -115,7 +111,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 17 #fuck parity
+        Heat: 20
+        Radiation: 5 # 13 parity
 
 - type: entity
   id: BulletHotshot
@@ -139,9 +136,9 @@
   - type: Projectile
     damage:
       types:
-        Heat: 2
+        Heat: 15
   - type: IgniteOnCollide
-    fireStacks: 1.5
+    fireStacks: 2
 
 - type: entity
   id: BulletSleepshot
@@ -185,7 +182,6 @@
     walkSpeedMultiplier: 0.8
     runSpeedMultiplier: 0.8
     slowdownAmount: 2
-  - type: BlurOnCollide
 
 - type: entity
   id: BulletBigshot
@@ -209,4 +205,6 @@
   - type: Projectile
     damage:
       types:
-        Structural: 250
+        Heat: 15
+        Structural: 45
+  - type: BlurOnCollide
