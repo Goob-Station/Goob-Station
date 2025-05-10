@@ -12,7 +12,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Power.EntitySystems;
 using Content.Shared.Throwing;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
@@ -25,9 +24,8 @@ public abstract class SharedInteractorSystem : EntitySystem
     [Dependency] private readonly AutomationFilterSystem _filter = default!;
     [Dependency] private readonly CollisionWakeSystem _wake = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly SharedDeviceLinkSystem Device = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] protected readonly SharedPowerReceiverSystem Power = default!;
+    [Dependency] protected readonly StartableMachineSystem Machine = default!;
 
     private EntityQuery<ActiveDoAfterComponent> _doAfterQuery;
     private EntityQuery<HandsComponent> _handsQuery;
@@ -54,8 +52,6 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     private void OnInit(Entity<InteractorComponent> ent, ref ComponentInit args)
     {
-        Device.EnsureSinkPorts(ent, ent.Comp.StartPort);
-        Device.EnsureSourcePorts(ent, ent.Comp.StartedPort, ent.Comp.CompletedPort, ent.Comp.FailedPort);
         UpdateAppearance(ent);
     }
 
@@ -80,7 +76,7 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     private void AddTarget(Entity<InteractorComponent> ent, EntityUid target)
     {
-        if (_thrownQuery.HasComp(target)) // thrown items move too fast to be "clicked" on...
+        if (_thrownQuery.HasComp(target) // thrown items move too fast to be "clicked" on...
             || _filter.IsBlocked(_filter.GetSlot(ent), target)) // ignore non-filtered entities
             return;
 
@@ -120,12 +116,15 @@ public abstract class SharedInteractorSystem : EntitySystem
     private void OnDoAfterEnded(Entity<InteractorComponent> ent, ref DoAfterEndedEvent args)
     {
         UpdateToolAppearance(ent);
-        if (!Power.IsPowered(ent.Owner))
-            || args.Target is not { } target)
+        if (args.Target is not { } target)
             return;
 
-        Device.InvokePort(ent, args.Cancelled ? ent.Comp.FailedPort : ent.Comp.CompletedPort);
         TryRemoveTarget(ent, target);
+
+        if (args.Cancelled)
+            Machine.Failed(ent.Owner);
+        else
+            Machine.Completed(ent.Owner);
     }
 
     protected bool HasDoAfter(EntityUid uid) => _doAfterQuery.HasComp(uid);

@@ -17,24 +17,6 @@ public sealed partial class InteractorComponent : Component
     [DataField]
     public string ToolContainerId = "interactor_tool";
 
-    #region Linking
-    /// <summary>
-    /// Sink port that starts interacting with some target when invoked.
-    /// </summary>
-    [DataField]
-    public ProtoId<SinkPortPrototype> StartPort = "InteractorStart";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> StartedPort = "InteractorStarted";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> CompletedPort = "InteractorCompleted";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> FailedPort = "InteractorFailed";
-    #endregion
-
-    #region Target Items
     /// <summary>
     /// Fixture to look for target items with.
     /// </summary>
@@ -49,7 +31,6 @@ public sealed partial class InteractorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<(NetEntity, bool)> TargetEntities = new();
-    #endregion
 }
 
 [Serializable, NetSerializable]

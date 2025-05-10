@@ -7,7 +7,6 @@
 
 using Content.Goobstation.Shared.Factory;
 using Content.Server.Construction.Components;
-using Content.Server.DeviceLinking.Events;
 
 namespace Content.Goobstation.Server.Factory;
 
@@ -21,25 +20,16 @@ public sealed class InteractorSystem : SharedInteractorSystem
 
         _constructionQuery = GetEntityQuery<ConstructionComponent>();
 
-        SubscribeLocalEvent<InteractorComponent, SignalReceivedEvent>(OnSignalReceived);
+        SubscribeLocalEvent<InteractorComponent, MachineStartedEvent>(OnStarted);
     }
 
-    private void OnSignalReceived(Entity<InteractorComponent> ent, ref SignalReceivedEvent args)
+    private void OnStarted(Entity<InteractorComponent> ent, ref MachineStartedEvent)
     {
-        if (args.Port == ent.Comp.StartPort)
-            StartInteracting(ent);
-    }
-
-    private void StartInteracting(Entity<InteractorComponent> ent)
-    {
-        if (!Power.IsPowered(ent.Owner))
-            return;
-
         // nothing there or another doafter is already running
         var count = ent.Comp.TargetEntities.Count;
         if (count == 0 || HasDoAfter(ent))
         {
-            Device.InvokePort(ent, ent.Comp.FailedPort);
+            Machine.Failed(ent.Owner);
             return;
         }
 
@@ -52,7 +42,7 @@ public sealed class InteractorSystem : SharedInteractorSystem
         {
             // have to remove it since user's filter was bad due to unhandled interaction
             RemoveTarget(ent, target);
-            Device.InvokePort(ent, ent.Comp.FailedPort);
+            Machine.Failed(ent.Owner);
             return;
         }
 
@@ -61,14 +51,14 @@ public sealed class InteractorSystem : SharedInteractorSystem
         if (newCount > originalCount
             || HasDoAfter(ent))
         {
-            Device.InvokePort(ent, ent.Comp.StartedPort);
+            Machine.Started(ent.Owner);
             UpdateAppearance(ent, InteractorState.Active);
         }
         else
         {
             // no doafter, complete it immediately
             TryRemoveTarget(ent, target);
-            Device.InvokePort(ent, ent.Comp.CompletedPort);
+            Machine.Completed(ent.Owner);
             UpdateAppearance(ent);
         }
     }

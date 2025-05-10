@@ -76,11 +76,6 @@
   name: signal-port-name-automation-slot-tool
   description: signal-port-description-automation-slot-tool
 
-- type: sinkPort
-  id: InteractorStart
-  name: signal-port-name-interactor-start
-  description: signal-port-description-interactor-start
-
 # Autodoc
 
 - type: sinkPort

@@ -88,21 +88,6 @@
   name: signal-port-name-automation-slot-tool
   description: signal-port-description-automation-slot-tool
 
-- type: sourcePort
-  id: InteractorStarted
-  name: signal-port-name-interactor-started
-  description: signal-port-description-interactor-started
-
-- type: sourcePort
-  id: InteractorCompleted
-  name: signal-port-name-interactor-completed
-  description: signal-port-description-interactor-completed
-
-- type: sourcePort
-  id: InteractorFailed
-  name: signal-port-name-interactor-failed
-  description: signal-port-description-interactor-failed
-
 # Autodoc
 
 - type: sourcePort

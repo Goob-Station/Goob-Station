@@ -86,6 +86,7 @@
           components:
           - AutomationFilter
   - type: Interactor
+  - type: StartableMachine
   - type: FilterSlot
   - type: AutomationSlots
     slots:
@@ -115,12 +116,13 @@
   # Linking
   - type: DeviceLinkSink
     ports:
-    - InteractorStart
+    - Start
+    - AutoStart
   - type: DeviceLinkSource
     ports:
-    - InteractorStarted
-    - InteractorCompleted
-    - InteractorFailed
+    - Started
+    - Completed
+    - Failed
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice

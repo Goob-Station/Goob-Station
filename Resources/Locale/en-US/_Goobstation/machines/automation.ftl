@@ -55,18 +55,6 @@ signal-port-description-storage-removed = Signal port that gets pulsed after an 
 signal-port-name-automation-slot-tool = Item: Tool
 signal-port-description-automation-slot-tool = An automation slot for an interactor's held tool.
 
-signal-port-name-interactor-start = Start
-signal-port-description-interactor-start = Signal port to start interacting with an interactor's target.
-
-signal-port-name-interactor-started = Started
-signal-port-description-interactor-started = Signal port that gets pulsed after an interactor's doafter begins.
-
-signal-port-name-interactor-completed = Completed
-signal-port-description-interactor-completed = Signal port that gets pulsed after an interactor's doafter completes, or when the interaction is instant.
-
-signal-port-name-interactor-failed = Failed
-signal-port-description-interactor-failed = Signal port that gets pulsed if an interactor fails to start or its doafter is cancelled.
-
 # Autodoc
 
 signal-port-name-automation-slot-autodoc-hand = Item: Autodoc Hand
