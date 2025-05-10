@@ -11,26 +11,31 @@
 - type: body
   id: Vox
   name: "vox"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadVox
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoVox
+    chest:
+      part: ChestVox
       connections:
       - right arm
       - left arm
-      - right leg
-      - left leg
+      - groin
       - head # Shitmed
       organs:
         heart: OrganHumanHeart
         lungs: OrganVoxLungs
+    groin:
+      part: GroinVox
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganHumanStomach
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys

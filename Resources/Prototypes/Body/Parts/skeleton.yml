@@ -58,11 +58,37 @@
   - type: Tag
     tags:
     - Trash
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#555555AA"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: [ PartSkeletonBase, BaseTorsoInorganic ]
-  id: TorsoSkeleton
-  name: skeleton torso
+  parent: [ PartSkeletonBase, BaseChestInorganic ]
+  id: ChestSkeleton
+  name: skeleton chest
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Skeleton/parts.rsi
+      state: "chest_m"
+    - type: Icon
+      sprite: Mobs/Species/Skeleton/parts.rsi
+      state: "chest_m"
+
+- type: entity
+  parent: [ PartSkeletonBase, BaseGroinInorganic ]
+  id: GroinSkeleton
+  name: skeleton groin
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Skeleton/parts.rsi
+      state: "groin_m"
+    - type: Icon
+      sprite: Mobs/Species/Skeleton/parts.rsi
+      state: "groin_m"
 
 - type: entity
   parent: [ PartSkeletonBase, BaseHead ]

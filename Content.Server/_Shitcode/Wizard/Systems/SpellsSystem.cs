@@ -587,19 +587,17 @@ public sealed class SpellsSystem : SharedSpellsSystem
         {
             // Heal both caster and speaker
             Damageable.TryChangeDamage(casterUid,
-                -invocationEv.ToHeal,
+                -invocationEv.ToHeal * 11f,
                 true,
                 false,
-                canSever: false,
                 targetPart: TargetBodyPart.All);
 
             if (speakerUid != casterUid)
             {
                 Damageable.TryChangeDamage(speakerUid,
-                    -invocationEv.ToHeal,
+                    -invocationEv.ToHeal * 11f,
                     true,
                     false,
-                    canSever: false,
                     targetPart: TargetBodyPart.All);
             }
         }

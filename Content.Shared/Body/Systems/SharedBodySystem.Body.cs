@@ -21,6 +21,12 @@
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
+// SPDX-FileCopyrightText: 2025 Spatison <137375981+Spatison@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 kurokoTurbo <92106367+kurokoTurbo@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Trest <144359854+trest100@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+// SPDX-FileCopyrightText: 2025 Kayzel <43700376+KayzelW@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -46,14 +52,22 @@ using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
 using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Components;
+using Content.Shared._Shitmed.Medical.Surgery.Wounds.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Systems;
+using Content.Shared._Shitmed.Medical.Surgery.Traumas.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
 using Robust.Shared.Network;
+using Content.Shared.Rejuvenate;
+using Content.Shared.Popups;
 using Robust.Shared.Timing;
+using Content.Goobstation.Maths.FixedPoint;
 
 namespace Content.Shared.Body.Systems;
 
@@ -66,11 +80,16 @@ public partial class SharedBodySystem
      * - Each "connection" is a body part (e.g. arm, hand, etc.) and each part can also contain organs.
      */
 
-    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Shitmed Change
+
+    // Shitmed Change Start
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private readonly WoundSystem _woundSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly TraumaSystem _trauma = default!;
+    // Shitmed Change End
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;
@@ -88,6 +107,9 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
         SubscribeLocalEvent<BodyComponent, IsEquippingAttemptEvent>(OnBeingEquippedAttempt); // Shitmed Change
         SubscribeLocalEvent<BodyComponent, AttemptStopPullingEvent>(OnAttemptStopPulling); // Goobstation
+
+        // Shitmed Change: to prevent people from falling immediately as rejuvenated
+        SubscribeLocalEvent<BodyComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
     private void OnAttemptStopPulling(Entity<BodyComponent> ent, ref AttemptStopPullingEvent args) // Goobstation
@@ -228,7 +250,7 @@ public partial class SharedBodySystem
                 cameFromEntities[connection] = childPart;
 
                 var childPartComponent = Comp<BodyPartComponent>(childPart);
-                TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, out var partSlot, parentPartComponent);
+                TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, childPartComponent.Symmetry, out var partSlot, parentPartComponent);
                 // Shitmed Change Start
                 childPartComponent.ParentSlot = partSlot;
                 Dirty(childPart, childPartComponent);
@@ -298,9 +320,9 @@ public partial class SharedBodySystem
     {
         if (id is null
             || !Resolve(id.Value, ref body, logMissing: false)
-            || body.RootContainer.ContainedEntity is null
             || body is null // Shitmed Change
-            || body.RootContainer == default // Shitmed Change
+            || body.RootContainer == null // Shitmed Change
+            || body.RootContainer.ContainedEntity is null
             || !Resolve(body.RootContainer.ContainedEntity.Value, ref rootPart))
         {
             yield break;
@@ -361,26 +383,28 @@ public partial class SharedBodySystem
         SoundSpecifier? gibSoundOverride = null,
         // Shitmed Change
         GibType gib = GibType.Gib,
-        GibContentsOption contents = GibContentsOption.Drop)
+        GibContentsOption contents = GibContentsOption.Drop,
+        List<string>? allowedContainers = null,
+        List<string>? excludedContainers = null)
     {
         var gibs = new HashSet<EntityUid>();
 
         if (!Resolve(bodyId, ref body, logMissing: false))
             return gibs;
 
-        var root = GetRootPartOrNull(bodyId, body);
-        if (root != null && TryComp(root.Value.Entity, out GibbableComponent? gibbable))
-        {
+        if (TryGetRootPart(bodyId, out var root) && TryComp(root.Value.Owner, out GibbableComponent? gibbable)) // ShitMed - TryGet
             gibSoundOverride ??= gibbable.GibSound;
-        }
+
+
         var parts = GetBodyChildren(bodyId, body).ToArray();
         gibs.EnsureCapacity(parts.Length);
         foreach (var part in parts)
         {
 
-            _gibbingSystem.TryGibEntityWithRef(bodyId, part.Id, gib, contents, ref gibs, // Shitmed Change
-                playAudio: false, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
-                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
+            _gibbingSystem.TryGibEntityWithRef(bodyId, part.Id, gib, contents, ref gibs, playAudio: false,
+                launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
+                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone,
+                allowedContainers: allowedContainers, excludedContainers: excludedContainers);
 
             if (!gibOrgans)
                 continue;
@@ -389,7 +413,8 @@ public partial class SharedBodySystem
             {
                 _gibbingSystem.TryGibEntityWithRef(bodyId, organ.Id, GibType.Drop, GibContentsOption.Skip,
                     ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
-                    launchImpulseVariance:GibletLaunchImpulseVariance, launchCone: splatCone);
+                    launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone,
+                    allowedContainers: allowedContainers, excludedContainers: excludedContainers);
             }
         }
 
@@ -424,19 +449,16 @@ public partial class SharedBodySystem
 
         if (part.Body is { } bodyEnt)
         {
-            if (IsPartRoot(bodyEnt, partId, part: part) || !part.CanSever)
+            if (IsPartRoot(bodyEnt, partId, part: part))
                 return gibs;
 
             DropSlotContents((partId, part));
-            RemovePartChildren((partId, part), bodyEnt);
             foreach (var organ in GetPartOrgans(partId, part))
             {
                 _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
                     ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
                     launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
             }
-            var ev = new BodyPartDroppedEvent((partId, part));
-            RaiseLocalEvent(bodyEnt, ref ev);
         }
 
         _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Drop, ref gibs,
@@ -467,23 +489,8 @@ public partial class SharedBodySystem
             if (IsPartRoot(bodyEnt, partId, part: part))
                 return false;
 
-            var gibs = new HashSet<EntityUid>();
-            // Todo: Kill this in favor of husking.
             DropSlotContents((partId, part));
-            RemovePartChildren((partId, part), bodyEnt);
-            foreach (var organ in GetPartOrgans(partId, part))
-                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
-                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
-
-            _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Gib, ref gibs,
-                playAudio: false, launchGibs: true, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
-
-            if (HasComp<InventoryComponent>(partId))
-                foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
-                    SharedTransform.AttachToGridOrMap(item);
-
-            if (_net.IsServer) // Goob edit
-                QueueDel(partId);
+            QueueDel(partId);
             return true;
         }
 
@@ -532,5 +539,163 @@ public partial class SharedBodySystem
         }
     }
 
+    private void OnRejuvenate(EntityUid ent, BodyComponent body, ref RejuvenateEvent args)
+    {
+        if (body.Prototype == null)
+            return;
+
+        var prototype = Prototypes.Index(body.Prototype.Value);
+
+        if (!TryGetRootPart(ent, out var rootPart))
+            return;
+
+        var rootSlot = prototype.Root;
+        foreach (var organ in prototype.Slots[rootSlot].Organs)
+        {
+            if (!Containers.TryGetContainer(rootPart.Value.Owner, GetOrganContainerId(organ.Key), out var organContainer))
+                continue;
+
+            var organEnt = organContainer.ContainedEntities.FirstOrNull();
+            if (organEnt != null)
+            {
+                foreach (var modifier in Comp<OrganComponent>(organEnt.Value).IntegrityModifiers)
+                {
+                    _trauma.TryRemoveOrganDamageModifier(organEnt.Value, modifier.Key.Item2, modifier.Key.Item1);
+                }
+            }
+            else
+            {
+                SpawnInContainerOrDrop(organ.Value, rootPart.Value.Owner, GetOrganContainerId(organ.Key));
+            }
+        }
+
+        Dirty(rootPart.Value.Owner, rootPart.Value.Comp);
+
+        var frontier = new Queue<string>();
+        frontier.Enqueue(rootSlot);
+
+        var cameFrom = new Dictionary<string, string>();
+        cameFrom[rootSlot] = rootSlot;
+
+        var cameFromEntities = new Dictionary<string, EntityUid>();
+        cameFromEntities[rootSlot] = rootPart.Value.Owner;
+
+        while (frontier.TryDequeue(out var currentSlotId))
+        {
+            var currentSlot = prototype.Slots[currentSlotId];
+
+            foreach (var connection in currentSlot.Connections)
+            {
+                if (!cameFrom.TryAdd(connection, currentSlotId))
+                    continue;
+
+                var connectionSlot = prototype.Slots[connection];
+                var parentEntity = cameFromEntities[currentSlotId];
+                var parentPartComponent = Comp<BodyPartComponent>(parentEntity);
+
+                if (Containers.TryGetContainer(parentEntity, GetPartSlotContainerId(connection), out var container))
+                {
+                    if (container.ContainedEntities.Count > 0)
+                    {
+                        var containedEnt = container.ContainedEntities[0];
+                        var containedPartComp = Comp<BodyPartComponent>(containedEnt);
+                        cameFromEntities[connection] = containedEnt;
+
+                        foreach (var organ in connectionSlot.Organs)
+                        {
+                            if (Containers.TryGetContainer(containedEnt, GetOrganContainerId(organ.Key), out var organContainer))
+                            {
+                                var organEnt = organContainer.ContainedEntities.FirstOrNull();
+                                if (organEnt != null)
+                                {
+                                    foreach (var modifier in Comp<OrganComponent>(organEnt.Value).IntegrityModifiers)
+                                    {
+                                        _trauma.TryRemoveOrganDamageModifier(organEnt.Value, modifier.Key.Item2, modifier.Key.Item1);
+                                    }
+                                }
+                                else
+                                {
+                                    SpawnInContainerOrDrop(organ.Value, containedEnt, GetOrganContainerId(organ.Key));
+                                }
+                            }
+                            else
+                            {
+                                var slot = CreateOrganSlot((containedEnt, containedPartComp), organ.Key);
+                                SpawnInContainerOrDrop(organ.Value, containedEnt, GetOrganContainerId(organ.Key));
+
+                                if (slot is null)
+                                {
+                                    Log.Error($"Could not create organ for slot {organ.Key} in {ToPrettyString(ent)}");
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var childPart = Spawn(connectionSlot.Part, new EntityCoordinates(parentEntity, Vector2.Zero));
+                        cameFromEntities[connection] = childPart;
+
+                        var childPartComponent = Comp<BodyPartComponent>(childPart);
+
+                        var partSlot = new BodyPartSlot(connection, childPartComponent.PartType, childPartComponent.Symmetry);
+                        childPartComponent.ParentSlot = partSlot;
+                        parentPartComponent.Children.TryAdd(connection, partSlot);
+
+                        Dirty(parentEntity, parentPartComponent);
+                        Dirty(childPart, childPartComponent);
+
+                        Containers.Insert(childPart, container);
+
+                        SetupOrgans((childPart, childPartComponent), connectionSlot.Organs);
+                    }
+                }
+                else
+                {
+                    var childPart = Spawn(connectionSlot.Part, new EntityCoordinates(parentEntity, Vector2.Zero));
+                    cameFromEntities[connection] = childPart;
+
+                    var childPartComponent = Comp<BodyPartComponent>(childPart);
+
+                    var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, childPartComponent.Symmetry, parentPartComponent);
+                    childPartComponent.ParentSlot = partSlot;
+
+                    Dirty(parentEntity, parentPartComponent);
+                    Dirty(childPart, childPartComponent);
+
+                    if (partSlot is null)
+                    {
+                        Log.Error($"Could not create slot for connection {connection} in body {prototype.ID}");
+                        QueueDel(childPart);
+                        continue;
+                    }
+
+                    container = Containers.GetContainer(parentEntity, GetPartSlotContainerId(connection));
+                    Containers.Insert(childPart, container);
+
+                    SetupOrgans((childPart, childPartComponent), connectionSlot.Organs);
+                }
+
+                frontier.Enqueue(connection);
+            }
+        }
+
+
+        if (_trauma.TryGetBodyTraumas(ent, out var traumas, bodyComp: body))
+            foreach (var trauma in traumas)
+                _trauma.RemoveTrauma(trauma);
+
+        foreach (var bodyPart in GetBodyChildren(ent, body))
+        {
+            if (!TryComp<WoundableComponent>(bodyPart.Id, out var woundable))
+                continue;
+
+            var bone = woundable.Bone.ContainedEntities.FirstOrNull();
+            if (TryComp<BoneComponent>(bone, out var boneComp))
+                _trauma.SetBoneIntegrity(bone.Value, boneComp.IntegrityCap, boneComp);
+
+            _woundSystem.TryHaltAllBleeding(bodyPart.Id, woundable);
+            _woundSystem.ForceHealWoundsOnWoundable(bodyPart.Id, out _);
+        }
+    }
     // Shitmed Change End
 }

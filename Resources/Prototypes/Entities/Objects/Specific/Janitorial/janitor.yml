@@ -263,10 +263,13 @@
     sprite: Objects/Specific/Janitorial/wet_floor_sign.rsi
     size: Normal
   - type: Armor
+    coverage:
+    - Chest
+    - Groin
     modifiers:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
+        Blunt: 0.85
+        Slash: 0.85
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 25

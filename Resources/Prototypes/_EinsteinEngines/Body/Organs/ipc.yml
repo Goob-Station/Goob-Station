@@ -87,7 +87,7 @@
 
   # This is fine?
   # - type: Metabolizer
-  #   maxReagents: 2
+  #   maxPoisonsProcessable: 2
   #   metabolizerTypes: [Human]
   #   groups:
   #   - id: Medicine

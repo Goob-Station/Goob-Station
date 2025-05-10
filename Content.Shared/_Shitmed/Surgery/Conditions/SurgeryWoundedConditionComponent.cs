@@ -3,10 +3,15 @@
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
-
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Shitmed.Medical.Surgery.Conditions;
 
-[RegisterComponent, NetworkedComponent]
-public sealed partial class SurgeryWoundedConditionComponent : Component;
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class SurgeryWoundedConditionComponent : Component
+{
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<DamageGroupPrototype>)), AutoNetworkedField]
+    public string DamageGroup = "Brute";
+}

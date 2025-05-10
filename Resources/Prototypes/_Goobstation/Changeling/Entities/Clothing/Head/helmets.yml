@@ -16,10 +16,12 @@
   - type: Clothing
     sprite: _Goobstation/Changeling/ling_armor_helmet.rsi
   - type: Armor
+    coverage:
+    - Head
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
   - type: Unremoveable

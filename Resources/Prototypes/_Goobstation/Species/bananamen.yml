@@ -21,7 +21,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Chest: MobBananaMenTorso
+    Chest: MobBananaMenChest
+    Groin: MobBananaMenGroin
     Eyes: MobHumanoidEyes
     LArm: MobBananaMenLArm
     RArm: MobBananaMenRArm
@@ -33,7 +34,7 @@
     RFoot: MobBananaMenRFoot
     Tail: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
-    
+
 - type: markingPoints
   id: MobBananMenMarkingLimits
   points:
@@ -88,22 +89,40 @@
     state: head_f
 
 - type: humanoidBaseSprite
-  id: MobBananaMenTorso
+  id: MobBananaMenChest
   baseSprite:
     sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobBananaMenTorsoMale
+  id: MobBananaMenChestMale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: humanoidBaseSprite
-  id: MobBananaMenTorsoFemale
+  id: MobBananaMenChestFemale
   baseSprite:
     sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
-    state: torso_f
+    state: chest_f
+
+- type: humanoidBaseSprite
+  id: MobBananaMenGroin
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobBananaMenGroinMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: groin_m
+
+- type: humanoidBaseSprite
+  id: MobBananaMenGroinFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: groin_f
 
 - type: humanoidBaseSprite
   id: MobBananaMenLLeg

@@ -38,7 +38,8 @@
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Hair: MobHumanoidMarkingMatchSkin
-    Chest: MobIPCTorso
+    Chest: MobIPCChest
+    Groin: MobIPCGroin
     LArm: MobIPCLArm
     RArm: MobIPCRArm
     LHand: MobIPCLHand
@@ -59,7 +60,7 @@
     Chest:
       points: 1
       required: true
-      defaultMarkings: [ MobIPCTorsoDefault ]
+      defaultMarkings: [ MobIPCChestDefault ]
     Legs:
       points: 4
       required: true
@@ -68,7 +69,7 @@
       points: 4
       required: true
       defaultMarkings: [ MobIPCLArmDefault, MobIPCLHandDefault, MobIPCRArmDefault, MobIPCRHandDefault ]
-    HeadSide: 
+    HeadSide:
       points: 1
       required: false
     Wings:
@@ -98,7 +99,7 @@
   id: MobIPCHeadDefault
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: head_m
@@ -106,31 +107,42 @@
 # Torso
 
 - type: humanoidBaseSprite
-  id: MobIPCTorso
+  id: MobIPCChest
 
 - type: humanoidBaseSprite
-  id: MobIPCTorsoMale
+  id: MobIPCChestMale
 
 - type: humanoidBaseSprite
-  id: MobIPCTorsoFemale
+  id: MobIPCChestFemale
 
 - type: marking
-  id: MobIPCTorsoDefault
+  id: MobIPCChestDefault
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
-    state: torso_m
+    state: chest_m
 
 - type: marking
-  id: MobIPCTorsoFemaleDefault
+  id: MobIPCChestFemaleDefault
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
-    state: torso_f
+    state: chest_f
+
+# Groin
+
+- type: humanoidBaseSprite
+  id: MobIPCGroin
+
+- type: humanoidBaseSprite
+  id: MobIPCGroinMale
+
+- type: humanoidBaseSprite
+  id: MobIPCGroinFemale
 
 # Left Leg
 
@@ -141,7 +153,7 @@
   id: MobIPCLLegDefault
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_leg
@@ -155,7 +167,7 @@
   id: MobIPCLArmDefault
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_arm
@@ -169,7 +181,7 @@
   id: MobIPCLHandDefault
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_hand
@@ -183,7 +195,7 @@
   id: MobIPCLFootDefault
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: l_foot
@@ -197,7 +209,7 @@
   id: MobIPCRLegDefault
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_leg
@@ -211,7 +223,7 @@
   id: MobIPCRArmDefault
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_arm
@@ -225,7 +237,7 @@
   id: MobIPCRHandDefault
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_hand
@@ -239,7 +251,7 @@
   id: MobIPCRFootDefault
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [IPC] 
+  speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_foot

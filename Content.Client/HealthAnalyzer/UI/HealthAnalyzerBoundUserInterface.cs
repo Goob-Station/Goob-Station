@@ -51,11 +51,14 @@
 // SPDX-FileCopyrightText: 2024 stellar-novas <stellar_novas@riseup.net>
 // SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.MedicalScanner;
 using Content.Shared._Shitmed.Targeting; // Shitmed Change
+using Content.Shared._Shitmed.Medical.HealthAnalyzer; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -77,6 +80,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             _window = this.CreateWindow<HealthAnalyzerWindow>();
             _window.OnBodyPartSelected += SendBodyPartMessage; // Shitmed Change
+            _window.OnModeChanged += SendModeMessage;
             _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         }
 
@@ -86,14 +90,24 @@ namespace Content.Client.HealthAnalyzer.UI
             if (_window == null)
                 return;
 
-            if (message is not HealthAnalyzerScannedUserMessage cast)
-                return;
-
-            _window.Populate(cast);
+            switch (message)
+            {
+                case HealthAnalyzerBodyMessage bodyMessage:
+                    _window.Populate(bodyMessage);
+                    break;
+                case HealthAnalyzerOrgansMessage organsMessage:
+                    _window.Populate(organsMessage);
+                    break;
+                case HealthAnalyzerChemicalsMessage chemicalsMessage:
+                    _window.Populate(chemicalsMessage);
+                    break;
+            }
         }
 
         // Shitmed Change Start
         private void SendBodyPartMessage(TargetBodyPart? part, EntityUid target) => SendMessage(new HealthAnalyzerPartMessage(EntMan.GetNetEntity(target), part ?? null));
+
+        private void SendModeMessage(HealthAnalyzerMode mode, EntityUid target) => SendMessage(new HealthAnalyzerModeSelectedMessage(EntMan.GetNetEntity(target), mode));
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);

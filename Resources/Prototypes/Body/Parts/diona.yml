@@ -32,6 +32,13 @@
   name: "diona body part"
   abstract: true
   components:
+  - type: WoundableVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#cd7314"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Sprite
     sprite: Mobs/Species/Diona/parts.rsi
   - type: Icon # Shitmed Change
@@ -40,12 +47,20 @@
     species: Diona
 
 - type: entity
-  id: TorsoDiona
-  name: "diona torso"
-  parent: [PartDiona, BaseTorso]
+  id: ChestDiona
+  name: "diona chest"
+  parent: [PartDiona, BaseChest]
   components:
   - type: Sprite
-    state: "torso_m"
+    state: "chest_m"
+
+- type: entity
+  id: GroinDiona
+  name: "diona groin"
+  parent: [PartDiona, BaseGroin]
+  components:
+  - type: Sprite
+    state: "groin_m"
 
 - type: entity
   id: HeadDiona

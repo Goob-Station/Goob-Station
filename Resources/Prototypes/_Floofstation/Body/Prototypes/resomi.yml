@@ -14,26 +14,31 @@
 - type: body
   id: Resomi
   name: "resomi"
-  root: torso
+  root: chest
   slots:
     head:
       part: HeadResomi
       connections:
-      - torso
+      - chest
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
-    torso:
-      part: TorsoResomi
+    chest:
+      part: ChestResomi
       connections:
+      - groin
       - right arm
       - left arm
-      - right leg
-      - left leg
       - head # Shitmed Change
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
+    groin:
+      part: GroinResomi
+      connections:
+      - right leg
+      - left leg
+      organs:
         stomach: OrganResomiStomach # Goobstation - classic furries can eat everything except chocolate :)
         liver: OrganHumanLiver
         kidneys: OrganHumanKidneys
