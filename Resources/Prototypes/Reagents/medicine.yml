@@ -1593,6 +1593,12 @@
         showInChat: true
         probability: 0.1
       - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 4
+        type: Add
+        refresh: false
+      - !type:GenericStatusEffect
         key: Jitter
         time: 4.0
         type: Remove
