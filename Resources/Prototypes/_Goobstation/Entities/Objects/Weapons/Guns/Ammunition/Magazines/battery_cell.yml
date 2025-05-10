@@ -33,14 +33,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: SmallRedLaser
     fireCost: 50
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition
     materialComposition:
-      Plastic: 37
-      Steel: 50
-      Glass: 100
-      Gold: 5
+      Steel: 80
+      Gold: 40
+      Glass: 40
+      Plasma: 40
     chemicalComposition:
-      Zinc: 16.5
+      Zinc: 7.5
 
 - type: entity
   id: BaseMilitaryPowerCellSMG
@@ -147,6 +147,14 @@
     tags:
     - MilitaryPowerCellSniper
     - MilitaryPowerCell
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 120
+      Gold: 60
+      Glass: 60
+      Plasma: 60
+    chemicalComposition:
+      Zinc: 10
 
 - type: entity
   name: sniper power cell
@@ -230,6 +238,14 @@
     tags:
     - MilitaryPowerCellRevolver
     - MilitaryPowerCell
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 40
+      Gold: 20
+      Glass: 20
+      Plasma: 20
+    chemicalComposition:
+      Zinc: 5
 
 - type: entity
   name: revolver power cell
@@ -392,3 +408,11 @@
     - MilitaryPowerCell
   - type: Clothing
     slots: BELT
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 300
+      Gold: 40
+      Glass: 160
+      Plasma: 200
+    chemicalComposition:
+      Zinc: 20

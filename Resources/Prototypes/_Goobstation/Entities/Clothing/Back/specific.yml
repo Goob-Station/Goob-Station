@@ -150,6 +150,7 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+      item: !type:ContainerSlot
   - type: Item
     size: Ginormous
   - type: Tag

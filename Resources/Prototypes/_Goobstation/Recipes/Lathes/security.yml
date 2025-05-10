@@ -370,7 +370,8 @@
     Steel: 200
     Gold: 100
     Glass: 100
-    Plasma: 200
+    Plasma: 100
+    Uranium: 100
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -410,7 +411,8 @@
     Steel: 400
     Gold: 200
     Glass: 200
-    Plasma: 400
+    Plasma: 200
+    Uranium: 200
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
@@ -450,7 +452,8 @@
     Steel: 600
     Gold: 300
     Glass: 300
-    Plasma: 600
+    Plasma: 300
+    Uranium: 300
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
