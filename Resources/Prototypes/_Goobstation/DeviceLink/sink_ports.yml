@@ -80,3 +80,15 @@
   id: FaxCopy
   name: signal-port-name-fax-copy
   description: signal-port-description-fax-copy
+
+# Constructor / Interactor
+
+- type: sinkPort
+  id: Start
+  name: signal-port-name-machine-start
+  description: signal-port-description-machine-start
+
+- type: sinkPort
+  id: AutoStart
+  name: signal-port-name-machine-autostart
+  description: signal-port-description-machine-autostart

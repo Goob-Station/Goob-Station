@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
@@ -413,7 +414,6 @@ public sealed class RoboticArmSystem : EntitySystem
     public EntityCoordinates OutputPosition(EntityUid uid)
     {
         var xform = Transform(uid);
-        var coords = xform.Coordinates;
         var offset = xform.LocalRotation.ToVec();
         // positive would be where the input fixture is...
         return xform.Coordinates.Offset(-offset);
