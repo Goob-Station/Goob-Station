@@ -501,6 +501,7 @@
     - SpecOpsGoogles
     - MedicalMisc
     - MedicalVehiclesAdvanced
+    - UpgradeKits
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -568,7 +569,6 @@
     - ShuttleBoards
     # Goobstation Packs
     - SharedBoards
-    - UpgradeKits
   - type: MaterialStorage
     whitelist:
       tags:
