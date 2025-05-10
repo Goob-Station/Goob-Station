@@ -6,7 +6,6 @@
 
 using System.Linq;
 using Content.Goobstation.Common.Religion;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -39,7 +38,7 @@ public sealed class DivineInterventionSystem : EntitySystem
     /// </summary>
     public bool ShouldDeny(EntityUid target, out EntityUid? denyingItem)
     {
-        denyingItem = _inventory.GetHandOrInventoryEntities(target)
+        denyingItem = _inventory.GetHandOrInventoryEntities(target, SlotFlags.WITHOUT_POCKET)
             .FirstOrDefault(HasComp<DivineInterventionComponent>);
         return denyingItem != null;
     }

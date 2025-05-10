@@ -41,14 +41,14 @@
     ignited: true
   - type: AlwaysHot
   - type: Construction
-    graph: FieryCrossGraph
+    graph: FieryStakeGraph
     node: BonfireNode
 
 - type: construction
-  id: FieryCross
-  name: fiery cross
+  id: FieryStake
+  name: fiery stake
   description: But God demonstrates his own love for us in this... While we were still sinners, Christ died for us!
-  graph: FieryCrossGraph
+  graph: FieryStakeGraph
   startNode: start
   targetNode: BonfireNode
   category: construction-category-furniture

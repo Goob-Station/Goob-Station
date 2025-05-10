@@ -13,7 +13,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Goobstation.Common.Movement;
 using Content.Goobstation.Common.Religion;
-using Content.Goobstation.Shared.Bible;
 using Content.Server.Flash;
 using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Shuttles.Components;
@@ -114,7 +113,7 @@ public sealed partial class HereticAbilitySystem
 
         //Ideally this should be a method in DivineInterventionSystem -
         //Until then, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner);
+        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET);
         foreach (var item in contains)
         {
             if (!HasComp<DivineInterventionComponent>(item))
@@ -137,7 +136,7 @@ public sealed partial class HereticAbilitySystem
 
         //Ideally this should be a method in DivineInterventionSystem -
         //Until then, I don't see it necessary to use event relays to achieve this effect between Core & Goob.
-        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner);
+        var contains = _inventory.GetHandOrInventoryEntities(ent.Owner, SlotFlags.WITHOUT_POCKET);
         foreach (var item in contains)
         {
             if (!HasComp<DivineInterventionComponent>(item))
