@@ -39,7 +39,7 @@
     defaultDirection: 1, 0
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumSplitLaser
-    fireCost: 35
+    fireCost: 100
   - type: StaticPrice
     price: 2500
 
