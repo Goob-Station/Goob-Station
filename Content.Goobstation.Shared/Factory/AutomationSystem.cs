@@ -1,16 +1,27 @@
 // SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Goobstation.Shared.Factory.Slots;
+using Content.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Goobstation.Shared.Factory;
 
 public sealed class AutomationSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
     private EntityQuery<AutomationSlotsComponent> _slotsQuery;
     private EntityQuery<AutomatedComponent> _automatedQuery;
+
+    private List<EntProtoId> _automatable = new();
+    /// <summary>
+    /// All entities with <see cref="AutomationSlotsComponent"/>, maintained on prototype reload.
+    /// </summary>
+    public IReadOnlyList<EntProtoId> Automatable => _automatable;
 
     public override void Initialize()
     {
@@ -23,6 +34,9 @@ public sealed class AutomationSystem : EntitySystem
 
         SubscribeLocalEvent<AutomatedComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AutomatedComponent, ComponentShutdown>(OnShutdown);
+
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        CacheEntities();
     }
 
     private void OnInit(Entity<AutomationSlotsComponent> ent, ref ComponentInit args)
@@ -54,6 +68,27 @@ public sealed class AutomationSystem : EntitySystem
         {
             slot.RemovePorts();
         }
+    }
+
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+    {
+        if (!args.WasModified<EntityPrototype>())
+            return;
+
+        CacheEntities();
+    }
+
+    private void CacheEntities()
+    {
+        _automatable.Clear();
+        var factory = EntityManager.ComponentFactory;
+        foreach (var proto in _proto.EnumeratePrototypes<EntityPrototype>())
+        {
+            if (proto.HasComponent<AutomationSlotsComponent>(factory))
+                _automatable.Add(proto.ID);
+        }
+
+        _automatable.Sort();
     }
 
     #region Public API
