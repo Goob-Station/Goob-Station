@@ -54,6 +54,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Content.Shared.Tag;
@@ -836,7 +837,7 @@ public sealed partial class ChangelingSystem
         }
         PlayMeatySound((EntityUid) newUid, comp);
     }
-    public ProtoId<TagPrototype> HivemindTag = "LingMind";
+    public ProtoId<CollectiveMindPrototype> HivemindProto = "Lingmind";
     public void OnHivemindAccess(EntityUid uid, ChangelingIdentityComponent comp, ref ActionHivemindAccessEvent args)
     {
         if (!TryUseAbility(uid, comp, args, null, false)) // ignores fire
@@ -849,7 +850,8 @@ public sealed partial class ChangelingSystem
         }
 
         EnsureComp<HivemindComponent>(uid);
-        _tag.AddTag(uid, HivemindTag);
+        var mind = EnsureComp<CollectiveMindComponent>(uid);
+        mind.Channels.Add(HivemindProto);
 
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }

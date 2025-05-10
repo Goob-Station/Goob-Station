@@ -81,6 +81,8 @@
 # SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2024 voidnull000 <18663194+voidnull000@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Ilya246 <ilyukarno@gmail.com>
 # SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 #
@@ -308,10 +310,12 @@
   name: binary translator key
   description: An encryption key that translates binary signals used by silicons.
   components:
-  - type: EncryptionKey
-    channels:
-    - Binary
-    defaultChannel: Binary
+  # Goobstation - replaced with collective mind
+  # wyci
+  #- type: EncryptionKey
+  #  channels:
+  #  - Binary
+  #  defaultChannel: Binary
   - type: Sprite
     layers:
     - state: crypt_silver
@@ -323,10 +327,12 @@
   name: binary translator key
   description: A syndicate encryption key that translates binary signals used by silicons.
   components:
-  - type: EncryptionKey
-    channels:
-    - Binary
-    defaultChannel: Binary
+  # Goobstation - replaced with collective mind
+  # wyci
+  #- type: EncryptionKey
+  #  channels:
+  #  - Binary
+  #  defaultChannel: Binary
   - type: Sprite
     layers:
     - state: crypt_red

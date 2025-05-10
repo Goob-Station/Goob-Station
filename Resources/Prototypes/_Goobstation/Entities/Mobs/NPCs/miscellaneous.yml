@@ -316,7 +316,7 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - Binary
+    # - Binary # replaced with collective mind
     - Common
     - Command
     - CentCom
@@ -332,7 +332,7 @@
     - Future
   - type: ActiveRadio
     channels:
-    - Binary
+    # - Binary # replaced with collective mind
     - Common
     - Command
     - CentCom
@@ -347,6 +347,10 @@
     - Handheld
     - Future
     globalReceive: true
+  - type: CollectiveMind
+    defaultChannel: Binary
+    channels:
+    - Binary
   - type: Insulated
   - type: ContainmentField
     throwForce: 0
