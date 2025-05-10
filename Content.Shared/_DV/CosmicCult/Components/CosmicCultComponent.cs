@@ -74,7 +74,7 @@ public sealed partial class CosmicCultComponent : Component
     /// The duration of Null Glare's flash/disorientation.
     /// </summary>
     [DataField]
-    public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(8);
+    public TimeSpan CosmicGlareDuration = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// The range of Null Glare.

@@ -133,7 +133,7 @@
     sprite: /Textures/_DV/CosmicCult/Tileset/cosmicdecay.rsi
     state: full
   - type: IconSmooth
-    key: floor
+    key: decay
     base: decay
   - type: Tag
     tags:

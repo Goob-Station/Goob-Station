@@ -67,7 +67,6 @@
     layers:
       - state: razor
         shader: unshaded
-  - type: GatheringProjectile
   - type: DamageMarkerOnCollide
     whitelist:
       components:
@@ -83,14 +82,14 @@
         Cold: 10
         Asphyxiation: 5
     soundHit:
-      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+      path: /Audio/_DV/CosmicCult/projectile_razor_hit.ogg
   - type: Ammo
     muzzleFlash: null
   # Short lifespan
   - type: TimedDespawn
     lifetime: 0.6
   - type: SingularityDistortion
-    intensity: +10
+    intensity: +5
     falloffPower: 1.5
   - type: PointLight
     color: "#42a4ae"

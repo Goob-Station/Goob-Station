@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._DV.CosmicCult.Components;
+using Content.Shared._DV.CosmicCult.Components;
 using Content.Shared.Maps;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -113,6 +114,11 @@ public sealed class CosmicCorruptingSystem : EntitySystem
                     if (ent.Comp.EntityConversionDict.TryGetValue(proto?.ID!, out var conversion))
                     {
                         Spawn(conversion, Transform(convertedEnt).Coordinates);
+                        QueueDel(convertedEnt);
+                    }
+                    else if (TryComp<CosmicCorruptibleComponent>(convertedEnt, out var corruptible))
+                    {
+                        Spawn(corruptible.ConvertTo, Transform(convertedEnt).Coordinates);
                         QueueDel(convertedEnt);
                     }
                 }

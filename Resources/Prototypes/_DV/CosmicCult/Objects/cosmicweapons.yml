@@ -190,12 +190,13 @@
   - type: Gun
     projectileSpeed: 14
     soundGunshot: /Audio/_DV/CosmicCult/projectile_razor.ogg
+    soundEmpty: null
     fireRate: 1
     useKey: false
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2
+    rechargeCooldown: 1.8
     rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+      path: /Audio/_DV/CosmicCult/projectile_razor_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectileCosmicRazor
     capacity: 1

@@ -14,6 +14,8 @@
   source: "https://linktr.ee/nahupyrope"
 
 - files:
+  - projectile_razor_hit.ogg
+  - projectile_razor_reload.ogg
   - projectile_razor.ogg
   - insert_entropy.ogg
   - tier2.ogg

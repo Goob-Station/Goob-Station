@@ -50,7 +50,7 @@ public sealed partial class CosmicFinaleComponent : Component
     public SoundSpecifier? SelectedSong;
 
     [DataField]
-    public TimeSpan InteractionTime = TimeSpan.FromSeconds(8);
+    public TimeSpan InteractionTime = TimeSpan.FromSeconds(14);
 
     [DataField]
     public SoundSpecifier BufferMusic = new SoundPathSpecifier("/Audio/_DV/CosmicCult/premonition.ogg");

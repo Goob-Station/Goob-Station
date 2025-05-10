@@ -279,20 +279,20 @@ public sealed class MonumentSystem : SharedMonumentSystem
             return;
 
         var numberOfCrewForTier3 = Math.Round((double) cult.Comp.TotalCrew / 100 * _config.GetCVar(DCCVars.CosmicCultTargetConversionPercent)); // 40% of current pop
-
+        var difficultyMultiplier = _config.GetCVar(DCCVars.CosmicCultistDifficultyMultiplier);
         switch (tier)
         {
             case 1:
                 monument.Comp.ProgressOffset = 0;
-                monument.Comp.TargetProgress = (int) (numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int) (difficultyMultiplier * numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 2:
-                monument.Comp.ProgressOffset = (int) (numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
-                monument.Comp.TargetProgress = (int) (numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.ProgressOffset = (int) (difficultyMultiplier * numberOfCrewForTier3 / 2 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //reset the progress offset
+                monument.Comp.TargetProgress = (int) (difficultyMultiplier * numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
                 break;
             case 3:
-                monument.Comp.ProgressOffset = (int) (numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
-                monument.Comp.TargetProgress = (int) (numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
+                monument.Comp.ProgressOffset = (int) (difficultyMultiplier * numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue));
+                monument.Comp.TargetProgress = (int) (difficultyMultiplier * numberOfCrewForTier3 * _config.GetCVar(DCCVars.CosmicCultistEntropyValue)); //removed offset; replaced with timer
                 break;
         }
     }
