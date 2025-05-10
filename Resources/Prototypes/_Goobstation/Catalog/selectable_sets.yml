@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Orion-416 <cliveocelot@gmail.com>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
 # SPDX-FileCopyrightText: 2025 Ted Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
@@ -363,6 +364,16 @@
     state: icon
   content:
     - ClothingOuterHardsuitBlueshieldHeavy
+
+- type: selectableSet
+  id: BSOModsuitSet
+  name: selectable-set-blueshield-modsuit-name
+  description: selectable-set-blueshield-modsuit-description
+  sprite:
+    sprite: _EinsteinEngines/Clothing/NanoTrasen/Modsuits/praetorian.rsi
+    state: control
+  content:
+    - ClothingModsuitPraetorian
 
 # ERT
 
