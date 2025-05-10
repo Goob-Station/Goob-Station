@@ -1,0 +1,114 @@
+# Base categories
+
+- type: latheRecipe
+  abstract: true
+  id: BaseEngineeringComputerRecipeCategory
+  categories:
+  - Computers
+  - Engineering
+
+- type: latheRecipe
+  abstract: true
+  id: BaseMedicalComputerRecipeCategory
+  categories:
+  - Computers
+  - Medical
+
+- type: latheRecipe
+  abstract: true
+  id: BaseResearchComputerRecipeCategory
+  categories:
+  - Computers
+  - Research
+
+- type: latheRecipe
+  abstract: true
+  id: BaseSecurityComputerRecipeCategory
+  categories:
+  - Computers
+  - Security
+
+- type: latheRecipe
+  abstract: true
+  id: BaseServiceComputerRecipeCategory
+  categories:
+  - Computers
+  - Service
+
+- type: latheRecipe
+  abstract: true
+  id: BaseSupplyComputerRecipeCategory
+  categories:
+  - Computers
+  - Supply
+
+- type: latheRecipe
+  abstract: true
+  id: BaseGeneralComputerRecipeCategory
+  categories:
+  - Computers
+  - General
+
+## Recipes
+
+# Engineering
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringComputerRecipeCategory ]
+  id: SolarControlComputerCircuitboard
+  icon: _Goobstation/Structures/Machines/Icons/Computers/solar.png # Goobstation
+  result: SolarControlComputerCircuitboard
+
+# Medical
+
+# Science
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchComputerRecipeCategory ]
+  id: AnalysisComputerCircuitboard
+  icon: _Goobstation/Structures/Machines/Icons/Computers/analysis.png # Goobstation
+  result: AnalysisComputerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchComputerRecipeCategory ]
+  id: TechDiskComputerCircuitboard
+  icon: { sprite: Structures/Machines/tech_disk_printer.rsi, state: icon } # Goobstation
+  result: TechDiskComputerCircuitboard
+
+# Cameras
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseSecurityComputerRecipeCategory ]
+  id: SurveillanceCameraMonitorCircuitboard
+  icon: _Goobstation/Structures/Machines/Icons/Computers/camera.png # Goobstation
+  result: SurveillanceCameraMonitorCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceComputerRecipeCategory ]
+  id: SurveillanceWirelessCameraMonitorCircuitboard
+  icon: { sprite:  Structures/monitors.rsi, state: mobilevision } # Goobstation
+  result: SurveillanceWirelessCameraMonitorCircuitboard
+
+# Service
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseServiceComputerRecipeCategory ]
+  id: MassMediaCircuitboard
+  icon: _Goobstation/Structures/Machines/Icons/Computers/news.png # Goobstation
+  result: ComputerMassMediaCircuitboard
+
+# Shuttle
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseSupplyComputerRecipeCategory ]
+  id: ShuttleConsoleCircuitboard
+  icon: _Goobstation/Structures/Machines/Icons/Computers/shuttle.png # Goobstation
+  result: ShuttleConsoleCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseSupplyComputerRecipeCategory ]
+  id: RadarConsoleCircuitboard
+  icon: _Goobstation/Structures/Machines/Icons/Computers/solar.png # Goobstation
+  result: RadarConsoleCircuitboard
+
+# Civilian
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseGeneralComputerRecipeCategory ]
+  id: ComputerTelevisionCircuitboard
+  icon: { sprite:  Structures/Machines/computers.rsi, state: television } # Goobstation
+  result: ComputerTelevisionCircuitboard

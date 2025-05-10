@@ -21,8 +21,9 @@
   - type: SolutionContainerVisuals
     fillBaseName: bananasoap-
   - type: Slippery
-    paralyzeTime: 3.5
-    launchForwardsMultiplier: 2
+    slipData:
+      paralyzeTime: 3.5
+      launchForwardsMultiplier: 2
   - type: StepTrigger
   - type: Item
     heldPrefix: banana

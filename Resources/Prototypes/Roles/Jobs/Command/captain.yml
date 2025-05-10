@@ -136,16 +136,19 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 27000 # 7.5 hours
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 27000 # 7.5 hours
+      time: 14400 # 4 hours
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 27000 # 7.5 hours
+      time: 14400 # 4 hours
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 54000 # 15 hours
+      time: 14400 # 4 hours
   goobcoins: 50 #Goob content
   weight: 20
   startingGear: CaptainGear

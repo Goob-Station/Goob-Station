@@ -28,6 +28,7 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Objectives.Components;
+using Robust.Server.Player;
 using Robust.Shared.Player;
 
 namespace Content.Goobstation.Server.Blob.GameTicking;
@@ -42,6 +43,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly ObjectivesSystem _objectivesSystem = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -221,7 +223,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
         foreach (var (mindId, mind) in blob.Blobs)
         {
             var name = mind.CharacterName;
-            _mindSystem.TryGetSession(mindId, out var session);
+            _player.TryGetSessionByEntity(mindId, out var session);
             var username = session?.Name;
 
             var objectives = mind.Objectives.ToArray();

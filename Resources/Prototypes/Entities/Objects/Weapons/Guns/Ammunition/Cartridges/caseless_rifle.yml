@@ -46,6 +46,7 @@
   id: CartridgeCaselessRifle
   name: cartridge (9.5mm HP) # Goob edit
   parent: BaseCartridgeCaselessRifle
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifle
@@ -54,6 +55,7 @@
   id: CartridgeCaselessRiflePractice
   name: cartridge (9.5mm practice) # Goob edit
   parent: BaseCartridgeCaselessRifle
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Chalk ammunition is generally non-harmful, used for practice.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRiflePractice

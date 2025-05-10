@@ -54,7 +54,6 @@
   - type: EntityWorldTargetAction # Goob edit
     useDelay: 4 # Goob edit
     checkCanInteract: false # Goobstation
-    renewCharges: true
     itemIconStyle: BigAction
     checkCanAccess: false
     raiseOnUser: true
@@ -77,7 +76,6 @@
     - type: EntityWorldTargetAction # Goob edit
       useDelay: 2 # Goob edit
       checkCanInteract: false # Goobstation
-      renewCharges: true
       itemIconStyle: BigAction
       checkCanAccess: false
       raiseOnUser: true

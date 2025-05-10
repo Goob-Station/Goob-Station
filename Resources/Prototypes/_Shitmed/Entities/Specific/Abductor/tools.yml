@@ -272,7 +272,7 @@
           state: override-abductor
         components:
         - type: LimitedCharges
-          charges: 0
+          maxCharges: 0
         - type: AutoRecharge
           rechargeDuration: 15
         - type: Emag
