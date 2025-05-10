@@ -18,6 +18,8 @@
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 // SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
 // SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -53,6 +55,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory.VirtualItem;
+using Content.Shared.Tag;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.Mech.EntitySystems;
@@ -77,6 +80,7 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
@@ -144,6 +148,7 @@ public abstract class SharedMechSystem : EntitySystem
     {
         component.PilotSlot = _container.EnsureContainer<ContainerSlot>(uid, component.PilotSlotId);
         component.EquipmentContainer = _container.EnsureContainer<Container>(uid, component.EquipmentContainerId);
+        component.ArmorContainer = _container.EnsureContainer<Container>(uid, component.ArmorContainerId);
         component.BatterySlot = _container.EnsureContainer<ContainerSlot>(uid, component.BatterySlotId);
         UpdateAppearance(uid, component);
     }
@@ -258,7 +263,9 @@ public abstract class SharedMechSystem : EntitySystem
     /// <param name="toInsert"></param>
     /// <param name="component"></param>
     /// <param name="equipmentComponent"></param>
-    public void InsertEquipment(EntityUid uid, EntityUid toInsert, MechComponent? component = null,
+    public void InsertEquipment(EntityUid uid,
+        EntityUid toInsert,
+        MechComponent? component = null,
         MechEquipmentComponent? equipmentComponent = null)
     {
         if (!Resolve(uid, ref component))
@@ -267,14 +274,22 @@ public abstract class SharedMechSystem : EntitySystem
         if (!Resolve(toInsert, ref equipmentComponent))
             return;
 
-        if (component.EquipmentContainer.ContainedEntities.Count >= component.MaxEquipmentAmount)
-            return;
-
         if (_whitelistSystem.IsWhitelistFail(component.EquipmentWhitelist, toInsert))
             return;
 
         equipmentComponent.EquipmentOwner = uid;
-        _container.Insert(toInsert, component.EquipmentContainer);
+        if (TryComp<ArmorPlateComponent>(toInsert, out var _))
+        {
+            if (component.ArmorContainer.ContainedEntities.Count >= component.MaxArmorAmount)
+                return;
+            _container.Insert(toInsert, component.ArmorContainer);
+        }
+        else
+        {
+            if (component.EquipmentContainer.ContainedEntities.Count >= component.MaxEquipmentAmount)
+                return;
+            _container.Insert(toInsert, component.EquipmentContainer);
+        }
         var ev = new MechEquipmentInsertedEvent(uid);
         RaiseLocalEvent(toInsert, ref ev);
         UpdateUserInterface(uid, component);
@@ -312,7 +327,10 @@ public abstract class SharedMechSystem : EntitySystem
             CycleEquipment(uid, component);
 
         equipmentComponent.EquipmentOwner = null;
-        _container.Remove(toRemove, component.EquipmentContainer);
+        if (component.ArmorContainer.Contains(toRemove))
+            _container.Remove(toRemove, component.ArmorContainer);
+        else
+            _container.Remove(toRemove, component.EquipmentContainer);
         UpdateUserInterface(uid, component);
     }
 

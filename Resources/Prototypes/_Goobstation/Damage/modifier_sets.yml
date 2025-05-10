@@ -8,6 +8,7 @@
 # SPDX-FileCopyrightText: 2025 Aidenkrz <aiden@djkraz.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aviu00 <aviu00@protonmail.com>
+# SPDX-FileCopyrightText: 2025 BeBright <98597725+be1bright@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Fishbait <Fishbait@git.ml>
 # SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Piras314 <p1r4s@proton.me>
@@ -211,6 +212,38 @@
     Piercing: 0.8
     Shock: 0.8
     Heat: 0.8
+    Ion: 2.0 # double damage from ion
+
+- type: damageModifierSet
+  id: KevlarArmorPlate # Lightweight plates that defend decently against piercing and slashes, but worse against blunt.
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.8
+    Slash: 0.85
+    Shock: 0.7
+
+- type: damageModifierSet
+  id: TitaniumArmorPlate # Plates consisting of padding high-strength plastic to shield against melee.
+  coefficients:
+    Blunt: 0.7
+    Piercing: 0.9
+    Slash: 0.75
+
+- type: damageModifierSet
+  id: EnergyArmorPlate # Against energy damage, but is less effective against physical damage.
+  coefficients:
+    Blunt: 0.9
+    Piercing: 0.9
+    Slash: 0.9
+    Heat: 0.7
+    Ion: 0.6
+
+- type: damageModifierSet
+  id: SteelArmorPlate # Decently effective against most common types of damage.
+  coefficients:
+    Blunt: 0.85
+    Piercing: 0.85
+    Slash: 0.8
     Ion: 2.0 # double damage from ion
   ignoreArmorPierceFlags: All # Goobstation
 
