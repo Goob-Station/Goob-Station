@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- files:
+  - slime_squish.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from https://github.com/ParadiseSS13/Paradise/commit/60d27e07de73f0fe72f4cff78b9c4100fd1d3b19"
+  source: "https://github.com/ParadiseSS13/Paradise"

@@ -15,3 +15,13 @@
   id: Jump
   files:
     - /Audio/_Goobstation/Voice/sound_items_weapons_thudswoosh.ogg
+
+- type: soundCollection
+  id: Mars
+  files:
+    - /Audio/_Goobstation/Voice/Shadowkin/mar.ogg
+
+- type: soundCollection
+  id: Wurble
+  files:
+    - /Audio/_Goobstation/Voice/Shadowkin/wurble.ogg

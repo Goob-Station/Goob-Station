@@ -1,0 +1,14 @@
+- type: entity
+  name: Shadowkin Haze
+  id: ShadowkinShadow
+  parent: ShadowKudzuWeak
+  components:
+    - type: RandomSpawner
+      deleteSpawnerAfterSpawn: false
+      rareChance: 0
+      offset: 0.2
+      chance: 0.45
+      prototypes:
+        - ShadowBasaltRandom
+    - type: TimedDespawn
+      lifetime: 30

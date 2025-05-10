@@ -5,3 +5,4 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 metabolizer-type-yowie = Yowie
+metabolizer-type-shadowkin = Shadowkin
