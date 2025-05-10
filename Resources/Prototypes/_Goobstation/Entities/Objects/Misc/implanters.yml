@@ -212,7 +212,7 @@
 
 - type: entity
   id: BlinkImplanter
-  nmame: blink implant implanter
+  name: blink implant implanter
   suffix: DO NOT MAP
   parent: BaseImplantOnlyImplanterCentcomm
   components:
