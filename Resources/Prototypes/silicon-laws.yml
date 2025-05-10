@@ -12,7 +12,9 @@
 # SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
 # SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+# SPDX-FileCopyrightText: 2025 SolsticeOfTheWinter <solsticeofthewinter@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 # Goobstation - AI/borg law changes - borgs obeying AI
@@ -575,6 +577,7 @@
     AntimovLawset: 0.25
     NutimovLawset: 0.5
     ZooimovLawset: 0.5 #silly lawsets down here
+    ChudimovLawset: 0.6
     HelpimovLawset: 0.6
     Drone: 0.5
     Ninja: 0.25
