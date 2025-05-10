@@ -141,7 +141,6 @@
       types:
         Blunt: 3
         Holy: 10
-  - type: Wieldable
   - type: SpeedModifiedOnWield # HOLY.. AURA!
     walkModifier: 1.15
     sprintModifier: 1.15
@@ -159,14 +158,15 @@
   - type: AlternatePrayable
     repeatPrayer: true
   - type: HealNearOnPray
-    damage:
-      types:
-        Holy: 30
+    healing:
       groups:
         Brute: -15.0
         Burn: -15.0
         Toxin: -3.0
         Airloss: -6.0
+    damage:
+      types:
+        Holy: 30
   - type: Tag
     tags:
     - Rosary

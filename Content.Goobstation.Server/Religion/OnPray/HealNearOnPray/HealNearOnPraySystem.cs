@@ -30,6 +30,11 @@ public sealed partial class HealNearOnPraySystem : EntitySystem
         foreach (var entity in lookup.Where(entity => !HasComp<WeakToHolyComponent>(entity))) // im linqing it
         {
             if (HasComp<MobStateComponent>(entity)) //god forgive me I don't know linq
+                _damageable.TryChangeDamage(entity, comp.Healing);
+        }
+        foreach (var entity in lookup.Where(HasComp<WeakToHolyComponent>)) // godo
+        {
+            if (HasComp<MobStateComponent>(entity))
                 _damageable.TryChangeDamage(entity, comp.Damage);
         }
     }

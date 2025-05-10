@@ -11,6 +11,9 @@ namespace Content.Goobstation.Server.OnPray.HealNearOnPray;
 public sealed partial class HealNearOnPrayComponent : Component
 {
     [DataField]
+    public DamageSpecifier Healing = new();
+
+    [DataField]
     public DamageSpecifier Damage = new();
 
     [DataField]
