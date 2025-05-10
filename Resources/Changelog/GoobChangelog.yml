@@ -8674,3 +8674,9 @@ Entries:
       message: Fix shadow cloaked heretic dying instantly to rust mansus grasp.
   id: 995
   time: '2025-05-10T12:05:20.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed upgrade kits not being in the protolathe.
+  id: 996
+  time: '2025-05-10T14:21:59.0000000+00:00'
