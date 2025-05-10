@@ -105,6 +105,8 @@
 # SPDX-FileCopyrightText: 2025 Whatstone <whatston3@gmail.com>
 # SPDX-FileCopyrightText: 2025 acatrw <96485972+acatrw@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 acatrw <wispycat07@gmail.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <152602630+cheetah1984@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cheetah1984 <davidc71114@gmail.com>
 # SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
 #
@@ -571,6 +573,8 @@
     - SheetGlassLingering0
     - PartRodMetalLingering0
     - FloorTileItemSteelLingering0
+    # goobstation
+    - SheetPlasteelLingering0
     # Frontier: droppable borg items
   - type: DroppableBorgModule
     moduleId: Construction
