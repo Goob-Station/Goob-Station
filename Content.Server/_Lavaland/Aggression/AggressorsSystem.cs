@@ -19,8 +19,56 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using System.Linq;
 using Content.Shared._Lavaland.Aggression;
 
 namespace Content.Server._Lavaland.Aggression;
 
-public sealed class AggressorsSystem : SharedAggressorsSystem;
+public sealed class AggressorsSystem : SharedAggressorsSystem
+{
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+
+    private EntityQuery<TransformComponent> _xformQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        _xformQuery = GetEntityQuery<TransformComponent>();
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        // All who are aggressive check their aggressors, and remove them if they are too far away.
+        var query = EntityQueryEnumerator<AggressiveComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var aggressive, out var xform))
+        {
+            if (aggressive.ForgiveRange == null)
+                return;
+
+            aggressive.Accumulator += frameTime;
+
+            if (aggressive.Accumulator < aggressive.UpdateFrequency)
+                return;
+
+            aggressive.Accumulator = 0f;
+
+            var aggressors = aggressive.Aggressors.Where(Exists).ToList();
+            foreach (var aggressor in aggressors)
+            {
+                if (!_xformQuery.TryComp(aggressor, out var aggroXform))
+                    continue;
+
+                var aggroPos = _xform.GetWorldPosition(aggroXform);
+                var aggressivePos = _xform.GetWorldPosition(xform);
+                var distance = (aggressivePos - aggroPos).Length();
+
+                if (distance > aggressive.ForgiveRange || xform.MapID != aggroXform.MapID)
+                {
+                    RemoveAggressor((uid, aggressive), aggressor);
+                }
+            }
+        }
+    }
+}

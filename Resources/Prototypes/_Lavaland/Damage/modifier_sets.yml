@@ -1,0 +1,5 @@
+- type: damageModifierSet
+  id: Hierophant
+  coefficients:
+    Piercing: 0.1 # No bullets
+    Heat: 0.5 # No lasers

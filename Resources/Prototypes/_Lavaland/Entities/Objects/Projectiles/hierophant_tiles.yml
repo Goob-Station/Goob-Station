@@ -1,0 +1,41 @@
+# hierophant damaging thing
+- type: entity
+  id: LavalandHierophantSquare
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  name: hierophant square
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/mob_effects.rsi
+    state: hierophant_blast
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 1
+  - type: DamageSquare
+    damage:
+      types:
+        Blunt: 10
+        Heat: 10
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
+    damageDelay: 0.7
+
+- type: entity
+  id: LavalandHierophantChaser
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  name: hierophant chaser
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: HierophantChaser
+    spawnPrototype: LavalandHierophantSquare

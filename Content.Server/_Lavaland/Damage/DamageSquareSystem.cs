@@ -20,7 +20,25 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Damage;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Lavaland.Damage;
 
-public sealed class DamageSquareSystem : SharedDamageSquareSystem;
+public sealed class DamageSquareSystem : SharedDamageSquareSystem
+{
+    [Dependency] private readonly DamageableSystem _dmg = default!;
+    [Dependency] private readonly SharedAudioSystem _aud = default!;
+
+    protected override void DoDamage(Entity<DamageSquareComponent> field, Entity<DamageableComponent> entity)
+    {
+        // Damage
+        _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: entity.Comp, targetPart: TargetBodyPart.All, partMultiplier: 0.1f);
+
+        // Sound
+        if (field.Comp.Sound != null)
+            _aud.PlayEntity(field.Comp.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));
+    }
+}

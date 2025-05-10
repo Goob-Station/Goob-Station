@@ -29,6 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Content.Shared._Lavaland.Aggression;
@@ -37,7 +38,6 @@ using Content.Goobstation.Maths.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Timing;
 
 // ReSharper disable AccessToModifiedClosure
 // ReSharper disable BadListLineBreaks
@@ -70,7 +70,6 @@ public sealed class HierophantSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HierophantBossComponent, AttackedEvent>(OnAttacked);
-        SubscribeLocalEvent<HierophantBossComponent, MobStateChangedEvent>(_megafauna.OnDeath);
 
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaStartupEvent>(OnHierophantInit);
         SubscribeLocalEvent<HierophantBossComponent, MegafaunaDeinitEvent>(OnHierophantDeinit);
@@ -101,7 +100,7 @@ public sealed class HierophantSystem : EntitySystem
         var position = _xform.GetMapCoordinates(field);
         _damage.SetAllDamage(ent, damageable, 0);
         _threshold.SetMobStateThreshold(ent, _baseHierophantHp, MobState.Dead, thresholds);
-        Timer.Spawn(TimeSpan.FromSeconds(10), () => _xform.SetMapCoordinates(ent, position));
+        Robust.Shared.Timing.Timer.Spawn(TimeSpan.FromSeconds(10), () => _xform.SetMapCoordinates(ent, position));
     }
 
     private void OnHierophantKilled(Entity<HierophantBossComponent> ent, ref MegafaunaKilledEvent args)
@@ -113,7 +112,6 @@ public sealed class HierophantSystem : EntitySystem
 
     private void OnAttacked(Entity<HierophantBossComponent> ent, ref AttackedEvent args)
     {
-        _megafauna.OnAttacked(ent, ent.Comp, ref args); // invoke base
         AdjustAnger(ent, ent.Comp.AdjustAngerOnAttack);
     }
 
@@ -142,7 +140,7 @@ public sealed class HierophantSystem : EntitySystem
             if (TryComp<AggressiveComponent>(uid, out var aggressors))
             {
                 if (aggressors.Aggressors.Count > 0 && !comp.Aggressive)
-                    InitBoss(ent, aggressors);
+                    InitBoss(ent);
                 else if (aggressors.Aggressors.Count == 0 && comp.Aggressive)
                     DeinitBoss(ent);
 
@@ -178,9 +176,10 @@ public sealed class HierophantSystem : EntitySystem
 
     #region Boss Initializing
 
-    private void InitBoss(Entity<HierophantBossComponent> ent, AggressiveComponent aggressors)
+    private void InitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = true;
+        ent.Comp.CancelToken = new CancellationTokenSource();
         RaiseLocalEvent(ent, new MegafaunaStartupEvent());
     }
 
@@ -271,14 +270,14 @@ public sealed class HierophantSystem : EntitySystem
 
             delay = (int) GetDelay(ent, ent.Comp.InterActionDelay / 3f) * i;
             var rangeCopy = i; // funny timer things require us to copy the variable
-            Timer.Spawn(delay,
+            Robust.Shared.Timing.Timer.Spawn(delay,
                 () =>
                 {
                     SpawnDamageBox(beacon, rangeCopy);
                 }, token);
         }
 
-        Timer.Spawn(delay + 1000,
+        Robust.Shared.Timing.Timer.Spawn(delay + 1000,
             () =>
             {
                 QueueDel(beacon); // cleanup after attack is done
@@ -295,7 +294,7 @@ public sealed class HierophantSystem : EntitySystem
             var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay) * i;
             var token = ent.Comp.CancelToken.Token;
 
-            Timer.Spawn(delay,
+            Robust.Shared.Timing.Timer.Spawn(delay,
                 () =>
                 {
                     var chaser = Spawn(_chaserPrototype, Transform(ent).Coordinates);
@@ -319,7 +318,7 @@ public sealed class HierophantSystem : EntitySystem
                 return;
 
             var delay = (int) GetDelay(ent, ent.Comp.InterActionDelay * 1.5f) * i;
-            Timer.Spawn(delay,
+            Robust.Shared.Timing.Timer.Spawn(delay,
                 () =>
                 {
                     target ??= ent;
@@ -405,7 +404,7 @@ public sealed class HierophantSystem : EntitySystem
         SpawnDamageBox(ent, 1, false);
         SpawnDamageBox(dummy, 1, false);
 
-        Timer.Spawn((int)(HierophantBossComponent.TileDamageDelay * 1000),
+        Robust.Shared.Timing.Timer.Spawn((int)(HierophantBossComponent.TileDamageDelay * 1000),
             () =>
             {
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), Transform(ent).Coordinates, AudioParams.Default.WithMaxDistance(10f));

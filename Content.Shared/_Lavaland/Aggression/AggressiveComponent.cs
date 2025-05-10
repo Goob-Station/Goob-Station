@@ -27,12 +27,25 @@ namespace Content.Shared._Lavaland.Aggression;
 [RegisterComponent, AutoGenerateComponentState]
 public sealed partial class AggressiveComponent : Component
 {
-    [AutoNetworkedField]
-    [ViewVariables(VVAccess.ReadOnly)] public HashSet<EntityUid> Aggressors = new();
+    /// <summary>
+    /// Active aggressors, that this aggressor will try to attack.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public HashSet<EntityUid> Aggressors = new();
 
-    [AutoNetworkedField]
-    [DataField] public float ForgiveTime = 10f;
+    /// <summary>
+    /// If specified, will forgive the target after it enters another map or
+    /// goes farther than this range from it.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float? ForgiveRange;
 
-    [AutoNetworkedField]
-    [DataField] public float ForgiveRange = 10f;
+    /// <summary>
+    /// How often we check that aggressor should be removed.
+    /// </summary>
+    [ViewVariables]
+    public float UpdateFrequency = 10f;
+
+    [ViewVariables]
+    public float Accumulator = 0f;
 }

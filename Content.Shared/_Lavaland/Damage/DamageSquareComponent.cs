@@ -21,29 +21,41 @@
 
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Lavaland.Damage;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DamageSquareComponent : Component
 {
     /// <summary>
     /// Entity that caused this damaging square to spawn.
     /// It will be ignored by this square.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid OwnerEntity;
 
-    [DataField(required: true)]
+    [DataField(required: true), AutoNetworkedField]
     public DamageSpecifier Damage = new();
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundPathSpecifier? Sound;
 
     /// <summary>
     /// After how many seconds we should deal the damage to all entities above.
-    /// 0.1 by default because ping will make it unfair
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float DamageDelay = 0.2f;
+
+    /// <summary>
+    /// Time when this square is going to deal damage. Used for prediction to work.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public TimeSpan DamageTime;
+
+    /// <summary>
+    /// For how many seconds we add immunity to the entity we hit.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ImmunityTime = 0.3f;
 }

@@ -20,7 +20,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared._Lavaland.Damage;
+using Content.Shared.Damage;
 
 namespace Content.Client._Lavaland.Mobs;
 
-public sealed class DamageSquareSystem : SharedDamageSquareSystem;
+public sealed class DamageSquareSystem : SharedDamageSquareSystem
+{
+    protected override void DoDamage(Entity<DamageSquareComponent> field, Entity<DamageableComponent> entity) { }
+}
