@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+# SPDX-FileCopyrightText: 2025 Marcus F <199992874+thebiggestbruh@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Solstice <solsticeofthewinter@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterArmorHoSExperimental
@@ -8,3 +14,17 @@
     sprite: _Goobstation/Clothing/OuterClothing/Armor/hos_experimental_jacket.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/OuterClothing/Armor/hos_experimental_jacket.rsi
+
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterCoatZeusJacket
+  name: zeus jacket
+  description: Gives you an urge to hurl the nearest pedestrian at a flying helicopter.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/mercer_jacket.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Misc/mercer_jacket.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: ClothingHeadHatHoodZeusHood
