@@ -596,7 +596,8 @@ public sealed class FaxSystem : EntitySystem
 
         UpdateUserInterface(uid, component);
 
-        if (!args.Actor.IsValid()) return; // Goobstation - no log for automation
+        if (!args.Actor.IsValid()) // Goobstation - no log for automation
+            return;
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
