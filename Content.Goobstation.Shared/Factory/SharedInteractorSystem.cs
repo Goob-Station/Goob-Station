@@ -1,4 +1,7 @@
+// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
+// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
@@ -77,12 +80,8 @@ public abstract class SharedInteractorSystem : EntitySystem
 
     private void AddTarget(Entity<InteractorComponent> ent, EntityUid target)
     {
-        // thrown items move too fast to be "clicked" on...
-        if (_thrownQuery.HasComp(target))
-            return;
-
-        // ignore non-filtered entities
-        if (_filter.IsBlocked(_filter.GetSlot(ent), target))
+        if (_thrownQuery.HasComp(target)) // thrown items move too fast to be "clicked" on...
+            || _filter.IsBlocked(_filter.GetSlot(ent), target)) // ignore non-filtered entities
             return;
 
         var wake = CompOrNull<CollisionWakeComponent>(target);
@@ -122,9 +121,7 @@ public abstract class SharedInteractorSystem : EntitySystem
     {
         UpdateToolAppearance(ent);
         if (!Power.IsPowered(ent.Owner))
-            return;
-
-        if (args.Target is not {} target)
+            || args.Target is not { } target)
             return;
 
         Device.InvokePort(ent, args.Cancelled ? ent.Comp.FailedPort : ent.Comp.CompletedPort);
@@ -145,7 +142,8 @@ public abstract class SharedInteractorSystem : EntitySystem
     protected void TryRemoveTarget(Entity<InteractorComponent> ent, EntityUid target)
     {
         // if it still exists and is still allowed by the filter keep it
-        if (!TerminatingOrDeleted(target) && _filter.IsAllowed(_filter.GetSlot(ent), target))
+        if (!TerminatingOrDeleted(target)
+            && _filter.IsAllowed(_filter.GetSlot(ent), target))
             return;
 
         RemoveTarget(ent, target);
@@ -178,8 +176,6 @@ public abstract class SharedInteractorSystem : EntitySystem
         UpdateAppearance(uid, state);
     }
 
-    protected void UpdateAppearance(EntityUid uid, InteractorState state)
-    {
+    protected void UpdateAppearance(EntityUid uid, InteractorState state) =>
         _appearance.SetData(uid, InteractorVisuals.State, state);
-    }
 }
