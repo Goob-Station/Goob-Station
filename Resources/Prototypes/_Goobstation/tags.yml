@@ -338,6 +338,9 @@
   id: MedicalPatch
 
 - type: Tag
+  id: MilitaryPowerCell
+
+- type: Tag
   id: MilitaryPowerCellLMG
 
 - type: Tag

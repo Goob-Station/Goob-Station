@@ -638,6 +638,7 @@
         - Truncheon
         - BolaEnergy # Goobstation
         - EnergySpeedloader # Goobstation
+        - MilitaryPowerCell # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger

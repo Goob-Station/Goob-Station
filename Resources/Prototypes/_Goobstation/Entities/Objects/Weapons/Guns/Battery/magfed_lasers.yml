@@ -65,10 +65,13 @@
   components:
   - type: Item
     size: Huge
+    shape:
+    - 0,0,6,1
   - type: Gun
-    burstFireRate: 12
+    burstFireRate: 10
     shotsPerBurst: 3
-    fireRate: 0.5
+    burstCooldown: 0.8
+    fireRate: 0.8
     lockOnTargetBurst: true
     selectedMode: Burst
     availableModes:

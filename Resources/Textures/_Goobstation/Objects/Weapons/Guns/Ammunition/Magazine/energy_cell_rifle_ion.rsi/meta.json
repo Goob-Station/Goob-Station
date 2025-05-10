@@ -8,7 +8,10 @@
     },
     "states": [
         {
-            "name": "lethal",
+            "name": "icon"
+        },
+        {
+            "name": "o1",
             "delays": [
                 [
                     0.1,
@@ -19,7 +22,7 @@
             ]
         },
         {
-            "name": "xray",
+            "name": "o2",
             "delays": [
                 [
                     0.1,
@@ -30,7 +33,7 @@
             ]
         },
         {
-            "name": "pulse",
+            "name": "o3",
             "delays": [
                 [
                     0.1,
@@ -41,7 +44,7 @@
             ]
         },
         {
-            "name": "ion",
+            "name": "o4",
             "delays": [
                 [
                     0.1,
@@ -50,18 +53,6 @@
                     0.1
                 ]
             ]
-        },
-        {
-            "name": "o1"
-        },
-        {
-            "name": "o2"
-        },
-        {
-            "name": "o3"
-        },
-        {
-            "name": "o4"
         }
     ]
 }
